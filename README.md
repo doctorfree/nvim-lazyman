@@ -35,3 +35,39 @@ After installing and initializing the Neovim configuration, perform a health
 check while in Neovim with `:checkhealth`. Examine any warnings or errors and
 perform any necessary remedial actions such as installing missing packages
 or resolving keymap conflicts.
+
+### NVIM_APPNAME
+
+In the current nightly build of Neovim there is a new feature enabling
+control of the Neovim configuration location through the `NVIM_APPNAME`
+environment variable. For example, `export NVIM_APPNAME="nvim-lazy"` in
+your shell would make `nvim` look for its configuration in `~/.config/nvim-lazy`
+rather than `~/.config/nvim`. This new feature can be used to easily switch
+between Neovim configurations.
+
+If you wish to use this repository in conjunction with a setup utilizing the
+`NVIM_APPNAME` feature then the installation process described above might
+better be performed with something like the following:
+
+Backup any pre-existing `nvim-lazy` config folder
+
+```bash
+[ -d $HOME/.config/nvim-lazy ] && {
+  echo "Backing up existing nvim-lazy config as $HOME/.config/nvim-lazy-bak$$"
+  mv $HOME/.config/nvim-lazy $HOME/.config/nvim-lazy-bak$$
+}
+```
+
+Clone the `nvim-lazy` Neovim configuration repository and initialize Neovim:
+
+```bash
+echo "Cloning nvim-lazy configuration into $HOME/.config/nvim-lazy"
+git clone https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim-lazy
+export NVIM_APPNAME="nvim-lazy"
+$HOME/.config/nvim/lazy.sh install
+nvim
+```
+
+This procedure allows you to keep any existing `~/.config/nvim` and install
+multiple Neovim configurations, each in its own separate `~/.config/$NVIM_APPNAME`
+folder. However, this feature is only available in recent Neovim builds.
