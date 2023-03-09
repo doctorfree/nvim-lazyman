@@ -5,9 +5,9 @@ My Neovim configuration using Lua, Lazy, and Mason.
 ### Installation
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
-to control where Neovim looks for its configuration. See the section
-[NVIM_APPNAME](#nvimappname) below for installation and initialization
-of `nvim-lazy` using `NVIM_APPNAME`.
+to control where Neovim looks for its configuration. See the
+[NVIM_APPNAME](#nvim_appname) section below for installation and
+initialization of `nvim-lazy` using `NVIM_APPNAME`.
 
 Users of Neovim 0.8 and earlier can install and initialize `nvim-lazy`
 following these instructions:
@@ -79,3 +79,12 @@ nvim
 This procedure allows you to keep any existing `~/.config/nvim` and install
 multiple Neovim configurations, each in its own separate
 `~/.config/$NVIM_APPNAME` folder.
+
+**[Important Not:]** If `nvim-lazy` is installed and initialized using the
+`NVIM_APPNAME` environment variable as described in this section then it is
+important to add the setting and export of this variable to your shell's
+initialization file (e.g. `.bashrc` for Bash users, `.zshrc` for Zsh users).
+Add the line `export NVIM_APPNAME="nvim-lazy"` to your shell initialization
+and re-login or source the initialization file. If this is not done then
+subsequent invocations of `nvim` will attempt to use `~/.config/nvim` rather
+than `~/.config/nvim-lazy`.
