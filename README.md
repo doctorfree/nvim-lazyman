@@ -64,7 +64,7 @@ Clone the `nvim-lazy` Neovim configuration repository and initialize Neovim:
 echo "Cloning nvim-lazy configuration into $HOME/.config/nvim-lazy"
 git clone https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim-lazy
 export NVIM_APPNAME="nvim-lazy"
-$HOME/.config/nvim/lazy.sh install
+$HOME/.config/nvim-lazy/lazy.sh install
 nvim
 ```
 
