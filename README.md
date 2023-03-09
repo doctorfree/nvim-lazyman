@@ -5,9 +5,15 @@ My Neovim configuration using Lua, Lazy, and Mason.
 ## Table of Contents
 
 - [Installation](#installation)
+    - [Quickstart](#quickstart)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Notes](#notes)
+    - [Mason](#mason)
+    - [Health check](#health-check)
+    - [Symbolic links](#symbolic-links)
+    - [Shell initialization setup](#shell-initialization-setup)
+    - [Using aliases](#using-aliases)
 - [Neovim install](#neovim-install)
 
 ### Installation
@@ -19,6 +25,66 @@ This one-liner will install and initialize `nvim-lazy` on all versions of Neovim
 ```bash
 curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install.sh | bash
 ```
+
+The convenience script to install and initialize `nvim-lazy` is provided at
+[install.sh](install.sh). The automated install and initialization performed
+by the above `curl` command executes the following on your system:
+
+```bash
+have_git=$(type -p git)
+have_nvim=$(type -p nvim)
+[ "${have_git}" ] || {
+  echo "Install script requires git but git not found"
+  echo "Please install git and retry this install script"
+  exit 1
+}
+[ "${have_nvim}" ] || {
+  echo "Install script requires neovim but nvim not found"
+  echo "Please install neovim and retry this install script"
+  exit 1
+}
+
+nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+
+if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
+  nvimdir="nvim"
+else
+  nvimdir="nvim-lazy"
+  export NVIM_APPNAME="nvim-lazy"
+fi
+
+[ -d $HOME/.config/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} config as $HOME/.config/${nvimdir}-bak$$"
+  mv $HOME/.config/${nvimdir} $HOME/.config/${nvimdir}-bak$$
+}
+
+[ -d $HOME/.local/share/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} plugins as $HOME/.local/share/${nvimdir}-bak$$"
+  mv $HOME/.local/share/${nvimdir} $HOME/.local/share/${nvimdir}-bak$$
+}
+
+[ -d $HOME/.local/state/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} state as $HOME/.local/state/${nvimdir}-bak$$"
+  mv $HOME/.local/state/${nvimdir} $HOME/.local/state/${nvimdir}-bak$$
+}
+
+printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
+git clone \
+  https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
+printf "done"
+printf "\nInitializing newly installed neovim configuration ... "
+$HOME/.config/${nvimdir}/lazy.sh install > /dev/null 2>&1
+printf "done\n"
+[ "${nvimdir}" == "nvim-lazy" ] && {
+  printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
+  printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+}
+
+nvim
+```
+
+If you do not wish to use the above quick start method then manual installation
+and initialization is described below.
 
 Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-08-and-earlier)
 section below for installation and initialization of `nvim-lazy`.
@@ -57,58 +123,6 @@ $HOME/.config/nvim-lazy/lazy.sh install
 nvim
 ```
 
-A convenience script to install and initialize `nvim-lazy` is provided at
-[install.sh](install.sh). An automated install and initialization can be
-performed by downloading this script and executing it.
-
-```bash
-have_git=$(type -p git)
-have_nvim=$(type -p nvim)
-[ "${have_git}" ] || {
-  echo "Install script requires git but git not found"
-  echo "Please install git and retry this install script"
-  exit 1
-}
-[ "${have_nvim}" ] || {
-  echo "Install script requires neovim but nvim not found"
-  echo "Please install neovim and retry this install script"
-  exit 1
-}
-
-[ -d $HOME/.config/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy config as $HOME/.config/nvim-lazy-bak$$"
-  mv $HOME/.config/nvim-lazy $HOME/.config/nvim-lazy-bak$$
-}
-
-[ -d $HOME/.local/share/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy plugins as $HOME/.local/share/nvim-lazy-bak$$"
-  mv $HOME/.local/share/nvim-lazy $HOME/.local/share/nvim-lazy-bak$$
-}
-
-[ -d $HOME/.local/state/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy state as $HOME/.local/state/nvim-lazy-bak$$"
-  mv $HOME/.local/state/nvim-lazy $HOME/.local/state/nvim-lazy-bak$$
-}
-
-printf "\nCloning nvim-lazy configuration into $HOME/.config/nvim-lazy ... "
-git clone \
-  https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim-lazy > /dev/null 2>&1
-printf "done"
-export NVIM_APPNAME="nvim-lazy"
-printf "\nInitializing newly installed neovim configuration ... "
-$HOME/.config/nvim-lazy/lazy.sh install > /dev/null 2>&1
-printf "done\n"
-printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
-printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
-nvim
-```
-
-Installation and initialization can also be accomplished with the single command:
-
-```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install.sh | bash
-```
-
 #### Neovim 0.8 and earlier
 
 Users of Neovim 0.8 and earlier can install and initialize `nvim-lazy`
@@ -141,19 +155,32 @@ nvim
 
 ### Notes
 
-Mason will install several packages required by the new Neovim configuration.
+#### Mason
+
+The first time `nvim` is executed Mason will install several packages
+required by the new Neovim configuration. Please be patient.
+
+#### Health check
 
 After installing and initializing the Neovim configuration, perform a health
 check while in Neovim with `:checkhealth`. Examine any warnings or errors and
 perform any necessary remedial actions such as installing missing packages
 or resolving keymap conflicts.
 
-This procedure allows you to keep any existing `~/.config/nvim` and install
-multiple Neovim configurations, each in its own separate
-`~/.config/$NVIM_APPNAME` folder.
+#### Symbolic links
 
-**[Important Not:]** If `nvim-lazy` is installed and initialized using the
-`NVIM_APPNAME` environment variable as described in this section then it is
+The `NVIM_APPNAME` procedure described above allows you to keep any existing
+`~/.config/nvim` and install multiple Neovim configurations, each in its own
+separate `~/.config/$NVIM_APPNAME` folder. Note, however, that if you create
+a symbolic link from `~/.config/$NVIM_APPNAME` to `~/.config/nvim` with the
+intention of using the `nvim-lazy` configuration without need of `NVIM_APPNAME`
+then you will also need to symlink `~/.local/share/$NVIM_APPNAME` and
+`~/.local/state/$NVIM_APPNAME`.
+
+#### Shell initialization setup
+
+**[Important Note:]** If `nvim-lazy` is installed and initialized using the
+`NVIM_APPNAME` environment variable as described above then it is
 important to add the setting and export of this variable to your shell's
 initialization file (e.g. `.bashrc` for Bash users, `.zshrc` for Zsh users).
 Add the line `export NVIM_APPNAME="nvim-lazy"` to your shell initialization
@@ -161,9 +188,26 @@ and re-login or source the initialization file. If this is not done then
 subsequent invocations of `nvim` will attempt to use `~/.config/nvim` rather
 than `~/.config/nvim-lazy`.
 
+#### Using aliases
+
+In addition to exporting NVIM_APPNAME in your shell initialization file, you
+may wish to create aliases to execute with the various Neovim configurations
+you have installed. For example, aliases could be created to use Neovim
+configurations installed in `~/.config/nvim-python` and `~/.config/nvim-work`
+as follows:
+
+```bash
+alias vip='function _vip(){ export NVIM_APPNAME="nvim-python"; nvim $* };_vip'
+alias viw='function _viw(){ export NVIM_APPNAME="nvim-work"; nvim $* };_viw'
+```
+
+After sourcing these aliases in your shell, to invoke Neovim with the Python
+configuration run `vip filename.py` and to invoke Neovim with your Work config
+run `viw proposal.md`.
+
 ### Neovim install
 
-Note also that a convenience script to install Neovim is provided at
+A convenience script to build and install Neovim is provided at
 [install_neovim.sh](install_neovim.sh):
 
 ```bash
@@ -175,4 +219,16 @@ sudo rm -r /usr/local/share/nvim/
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 sudo rm -rf $HOME/src/neovim
+```
+
+This can be executed (as a user with `sudo` privilege) with:
+
+```bash
+curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install_neovim.sh | bash
+```
+
+Homebrew users on Linux or macOS can install Neovim with:
+
+```bash
+brew install --HEAD neovim
 ```
