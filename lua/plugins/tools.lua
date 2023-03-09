@@ -42,6 +42,9 @@ return {
   {
     "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
+    config = function()
+      require("config.peek")
+    end,
     keys = {
       {
         "<leader>p",
