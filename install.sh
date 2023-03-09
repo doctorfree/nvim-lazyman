@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# install.sh - install and initialize the nvim-lazy neovim configuration
+# install.sh - install and initialize Lazy Neovim configurations
 
 usage() {
   printf "\nUsage: install.sh [-l] [-n] [-r] [-u]"
   printf "\nWhere:"
-  printf "\n\t-l indicates install and initialize LazyVim rather than nvim-lazy"
+  printf "\n\t-l indicates install and initialize LazyVim in addition to nvim-lazyman"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-u displays this usage message and exits"
-  printf "\nWithout arguments install and initialize nvim-lazy\n\n"
+  printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
   exit 1
 }
 
@@ -29,7 +29,8 @@ have_nvim=$(type -p nvim)
 tellme=
 lazyvim=
 remove=
-nvimdir="nvim-lazy"
+nvimdir="nvim-lazyman"
+lazymandir="nvim-lazyman"
 while getopts "lnru" flag; do
     case $flag in
         l)
@@ -47,7 +48,6 @@ while getopts "lnru" flag; do
             ;;
     esac
 done
-shift $(( OPTIND - 1 ))
 
 [ "${remove}" ] && {
   [ "${nvimdir}" ] || {
@@ -136,22 +136,23 @@ fi
   }
 }
 
-if [ "${lazyvim}" ]
-then
+[ "${lazyvim}" ] && {
   printf "\nCloning LazyVim starter configuration into $HOME/.config/${nvimdir} ... "
   [ "${tellme}" ] || {
     git clone \
       https://github.com/LazyVim/starter $HOME/.config/${nvimdir} > /dev/null 2>&1
   }
-else
-  printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
+  printf "done"
+}
+[ -d $HOME/.config/${lazymandir} ] || {
+  printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
     git clone \
-      https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
+      https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
   }
-fi
-printf "done"
-printf "\nInitializing newly installed neovim configuration ... "
+  printf "done"
+}
+printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
 [ "${tellme}" ] || {
   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
 }
@@ -162,7 +163,7 @@ printf "done\n"
   then
     printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
   else
-    printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+    printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
 }
 

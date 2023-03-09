@@ -8,7 +8,7 @@ When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
 and managed using the `NVIM_APPNAME` environment variable.
 
-Currently only this Neovim configuration (`nvim-lazy`) and the
+Currently only this Neovim configuration (`nvim-lazyman`) and the
 [LazyVim](https://github.com/LazyVim/LazyVim) starter configuration are
 supported. Additional Lazy Neovim configurations will be added over time.
 
@@ -31,13 +31,13 @@ supported. Additional Lazy Neovim configurations will be added over time.
 
 #### Quickstart
 
-This one-liner will install and initialize `nvim-lazy` on all versions of Neovim.
+This one-liner will install and initialize `nvim-lazyman` on all versions of Neovim.
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install.sh | bash
+curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/install.sh | bash
 ```
 
-The convenience script to install and initialize `nvim-lazy` is provided at
+The convenience script to install and initialize `nvim-lazyman` is provided at
 [install.sh](install.sh). The automated install and initialization performed
 by the above `curl` command executes the following on your system:
 
@@ -51,11 +51,11 @@ by the above `curl` command executes the following on your system:
 usage() {
   printf "\nUsage: install.sh [-l] [-n] [-r] [-u]"
   printf "\nWhere:"
-  printf "\n\t-l indicates install and initialize LazyVim rather than nvim-lazy"
+  printf "\n\t-l indicates install and initialize LazyVim in addition to nvim-lazyman"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-u displays this usage message and exits"
-  printf "\nWithout arguments install and initialize nvim-lazy\n\n"
+  printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
   exit 1
 }
 
@@ -75,7 +75,8 @@ have_nvim=$(type -p nvim)
 tellme=
 lazyvim=
 remove=
-nvimdir="nvim-lazy"
+nvimdir="nvim-lazyman"
+lazymandir="nvim-lazyman"
 while getopts "lnru" flag; do
     case $flag in
         l)
@@ -93,7 +94,6 @@ while getopts "lnru" flag; do
             ;;
     esac
 done
-shift $(( OPTIND - 1 ))
 
 [ "${remove}" ] && {
   [ "${nvimdir}" ] || {
@@ -182,22 +182,23 @@ fi
   }
 }
 
-if [ "${lazyvim}" ]
-then
+[ "${lazyvim}" ] && {
   printf "\nCloning LazyVim starter configuration into $HOME/.config/${nvimdir} ... "
   [ "${tellme}" ] || {
     git clone \
       https://github.com/LazyVim/starter $HOME/.config/${nvimdir} > /dev/null 2>&1
   }
-else
-  printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
+  printf "done"
+}
+[ -d $HOME/.config/${lazymandir} ] || {
+  printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
     git clone \
-      https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
+      https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
   }
-fi
-printf "done"
-printf "\nInitializing newly installed neovim configuration ... "
+  printf "done"
+}
+printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
 [ "${tellme}" ] || {
   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
 }
@@ -208,7 +209,7 @@ printf "done\n"
   then
     printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
   else
-    printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+    printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
 }
 
@@ -221,7 +222,7 @@ If you do not wish to use the above quick start method then manual installation
 and initialization is described below.
 
 Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-08-and-earlier)
-section below for installation and initialization of `nvim-lazy`.
+section below for installation and initialization of `nvim-lazyman`.
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
 to control where Neovim looks for its configuration.
@@ -230,36 +231,36 @@ to control where Neovim looks for its configuration.
 
 In Neovim 0.9 and later there is a new feature enabling control of the
 Neovim configuration location through the `NVIM_APPNAME` environment
-variable. For example, `export NVIM_APPNAME="nvim-lazy"` in your shell
-would make `nvim` look for its configuration in `~/.config/nvim-lazy`
+variable. For example, `export NVIM_APPNAME="nvim-lazyman"` in your shell
+would make `nvim` look for its configuration in `~/.config/nvim-lazyman`
 rather than `~/.config/nvim`. This new feature can be used to easily
 switch between Neovim configurations.
 
 If you wish to use this repository in conjunction with a setup utilizing the
 `NVIM_APPNAME` feature then the installation process can be performed by:
 
-- Backup any pre-existing `nvim-lazy` config folder
+- Backup any pre-existing `nvim-lazyman` config folder
 
 ```bash
-[ -d $HOME/.config/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy config as $HOME/.config/nvim-lazy-bak$$"
-  mv $HOME/.config/nvim-lazy $HOME/.config/nvim-lazy-bak$$
+[ -d $HOME/.config/nvim-lazyman ] && {
+  echo "Backing up existing nvim-lazyman config as $HOME/.config/nvim-lazyman-bak$$"
+  mv $HOME/.config/nvim-lazyman $HOME/.config/nvim-lazyman-bak$$
 }
 ```
 
-- Clone the `nvim-lazy` Neovim configuration repository and initialize Neovim
+- Clone the `nvim-lazyman` Neovim configuration repository and initialize Neovim
 
 ```bash
-echo "Cloning nvim-lazy configuration into $HOME/.config/nvim-lazy"
-git clone https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim-lazy
-export NVIM_APPNAME="nvim-lazy"
-$HOME/.config/nvim-lazy/lazy.sh install
+echo "Cloning nvim-lazyman configuration into $HOME/.config/nvim-lazyman"
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
+export NVIM_APPNAME="nvim-lazyman"
+nvim --headless "+Lazy! install" +qa
 nvim
 ```
 
 #### Neovim 0.8 and earlier
 
-Users of Neovim 0.8 and earlier can install and initialize `nvim-lazy`
+Users of Neovim 0.8 and earlier can install and initialize `nvim-lazyman`
 following these instructions:
 
 - Backup any existing Neovim configuration, state, and installed plugins
@@ -279,11 +280,11 @@ following these instructions:
 }
 ```
 
-- Clone the `nvim-lazy` Neovim configuration repository and initialize Neovim
+- Clone the `nvim-lazyman` Neovim configuration repository and initialize Neovim
 
 ```bash
-git clone https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim
-$HOME/.config/nvim/lazy.sh install
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim
+nvim --headless "+Lazy! install" +qa
 nvim
 ```
 
@@ -307,20 +308,20 @@ The `NVIM_APPNAME` procedure described above allows you to keep any existing
 `~/.config/nvim` and install multiple Neovim configurations, each in its own
 separate `~/.config/$NVIM_APPNAME` folder. Note, however, that if you create
 a symbolic link from `~/.config/$NVIM_APPNAME` to `~/.config/nvim` with the
-intention of using the `nvim-lazy` configuration without need of `NVIM_APPNAME`
+intention of using the `nvim-lazyman` configuration without need of `NVIM_APPNAME`
 then you will also need to symlink `~/.local/share/$NVIM_APPNAME` and
 `~/.local/state/$NVIM_APPNAME`.
 
 #### Shell initialization setup
 
-**[Important Note:]** If `nvim-lazy` is installed and initialized using the
+**[Important Note:]** If `nvim-lazyman` is installed and initialized using the
 `NVIM_APPNAME` environment variable as described above then it is
 important to add the setting and export of this variable to your shell's
 initialization file (e.g. `.bashrc` for Bash users, `.zshrc` for Zsh users).
-Add the line `export NVIM_APPNAME="nvim-lazy"` to your shell initialization
+Add the line `export NVIM_APPNAME="nvim-lazyman"` to your shell initialization
 and re-login or source the initialization file. If this is not done then
 subsequent invocations of `nvim` will attempt to use `~/.config/nvim` rather
-than `~/.config/nvim-lazy`.
+than `~/.config/nvim-lazyman`.
 
 #### Using aliases
 
@@ -344,8 +345,8 @@ An example `~/.aliases` file might include:
 ```bash
 command -v nvim > /dev/null && {
   alias vi='nvim'
-  [ -d $HOME/.config/nvim-lazy ] && {
-    alias vil='function _vil(){ export NVIM_APPNAME="nvim-lazy"; nvim $* };_vil'
+  [ -d $HOME/.config/nvim-lazyman ] && {
+    alias vil='function _vil(){ export NVIM_APPNAME="nvim-lazyman"; nvim $* };_vil'
   }
   [ -d $HOME/.config/nvim-multi ] && {
     alias mvim='function _mvim(){ export NVIM_APPNAME="nvim-multi"; nvim $* };_mvim'
@@ -375,7 +376,7 @@ sudo rm -rf $HOME/src/neovim
 This can be executed (as a user with `sudo` privilege) with:
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install_neovim.sh | bash
+curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/install_neovim.sh | bash
 ```
 
 Homebrew users on Linux or macOS can install Neovim with:
@@ -392,18 +393,18 @@ a previously installed `LazyVim` configuration, its initialized plugins, state,
 and cache, execute the following command:
 
 ```bash
-$HOME/.config/nvim-lazy/install.sh -l -r
+$HOME/.config/nvim-lazyman/install.sh -l -r
 ```
 
-To remove the `nvim-lazy` configuration and associated plugins, state, and cache:
+To remove the `nvim-lazyman` configuration and associated plugins, state, and cache:
 
 ```bash
-$HOME/.config/nvim-lazy/install.sh -r
+$HOME/.config/nvim-lazyman/install.sh -r
 ```
 
 All `install.sh` operations can be performed as a dry run with `-n`. For
 example, to see which `LazyVim` folders would be removed without removing any:
 
 ```bash
-$HOME/.config/nvim-lazy/install.sh -n -l -r
+$HOME/.config/nvim-lazyman/install.sh -n -l -r
 ```
