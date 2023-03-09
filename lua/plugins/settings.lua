@@ -26,6 +26,7 @@ load("options")
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
+    load("globals")
     load("autocmds")
     load("keymaps")
   end,
