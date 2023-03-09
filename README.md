@@ -5,8 +5,8 @@ My Neovim configuration using Lua, Lazy, and Mason.
 ## Table of Contents
 
 - [Installation](#installation)
-    - [Neovim 0.9 and later](#neovim-0.9-and-later)
-    - [Neovim 0.8 and earlier](#neovim-0.8-and-earlier)
+    - [Neovim 0.9 and later](#neovim-09-and-later)
+    - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Notes](#notes)
 - [Neovim install](#neovim-install)
 
@@ -18,7 +18,7 @@ My Neovim configuration using Lua, Lazy, and Mason.
 curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install.sh | bash
 ```
 
-Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-0.8-and-earlier)
+Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-08-and-earlier)
 section below for installation and initialization of `nvim-lazy`.
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
