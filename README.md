@@ -1,6 +1,16 @@
-## Neovim lazy config
+## Neovim lazy configuration manager
 
-My Neovim configuration using Lua, Lazy, and Mason.
+This repository includes my Neovim configuration using Lua, Lazy, and Mason.
+In addition, it can be used to install, initialize, and/or remove multiple
+Lazy Neovim configurations.
+
+When used in conjunction with Neovim 0.9 or later the installation and
+initialization of Neovim configurations are placed in separate directories
+and managed using the `NVIM_APPNAME` environment variable.
+
+Currently only this Neovim configuration (`nvim-lazy`) and the
+[LazyVim](https://github.com/LazyVim/LazyVim) starter configuration are
+supported. Additional Lazy Neovim configurations will be added over time.
 
 ## Table of Contents
 
@@ -15,6 +25,7 @@ My Neovim configuration using Lua, Lazy, and Mason.
     - [Shell initialization setup](#shell-initialization-setup)
     - [Using aliases](#using-aliases)
 - [Neovim install](#neovim-install)
+- [Removal](#removal)
 
 ### Installation
 
@@ -30,18 +41,110 @@ The convenience script to install and initialize `nvim-lazy` is provided at
 [install.sh](install.sh). The automated install and initialization performed
 by the above `curl` command executes the following on your system:
 
+<details><summary>View the install.sh script</summary>
+
 ```bash
+#!/bin/bash
+#
+# install.sh - install and initialize Lazy Neovim configurations
+
+usage() {
+  printf "\nUsage: install.sh [-l] [-n] [-r] [-u]"
+  printf "\nWhere:"
+  printf "\n\t-l indicates install and initialize LazyVim rather than nvim-lazy"
+  printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
+  printf "\n\t-r indicates remove the previously installed configuration"
+  printf "\n\t-u displays this usage message and exits"
+  printf "\nWithout arguments install and initialize nvim-lazy\n\n"
+  exit 1
+}
+
 have_git=$(type -p git)
 have_nvim=$(type -p nvim)
 [ "${have_git}" ] || {
   echo "Install script requires git but git not found"
   echo "Please install git and retry this install script"
-  exit 1
+  usage
 }
 [ "${have_nvim}" ] || {
   echo "Install script requires neovim but nvim not found"
   echo "Please install neovim and retry this install script"
-  exit 1
+  usage
+}
+
+tellme=
+lazyvim=
+remove=
+nvimdir="nvim-lazy"
+while getopts "lnru" flag; do
+    case $flag in
+        l)
+            lazyvim=1
+            nvimdir="nvim-LazyVim"
+            ;;
+        n)
+            tellme=1
+            ;;
+        r)
+            remove=1
+            ;;
+        u)
+            usage
+            ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+[ "${remove}" ] && {
+  [ "${nvimdir}" ] || {
+    echo "Something went wrong. Exiting."
+    usage
+  }
+  printf "\nYou have requested removal of the Neovim configuration at:"
+  printf "\n\t$HOME/.config/${nvimdir}\n"
+  printf "\nConfirm removal of the Neovim ${nvimdir} configuration\n"
+  while true
+  do
+    read -p "Remove ${nvimdir} ? (y/n) " yn
+    case $yn in
+      [Yy]* )
+          break
+          ;;
+      [Nn]* )
+          echo "Aborting removal and exiting"
+          exit 0
+          ;;
+        * ) echo "Please answer yes or no."
+          ;;
+    esac
+  done
+  [ -d $HOME/.config/${nvimdir} ] && {
+    echo "Removing existing ${nvimdir} config at $HOME/.config/${nvimdir}"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.config/${nvimdir}
+    }
+  }
+
+  [ -d $HOME/.local/share/${nvimdir} ] && {
+    echo "Removing existing ${nvimdir} plugins at $HOME/.local/share/${nvimdir}"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.local/share/${nvimdir}
+    }
+  }
+
+  [ -d $HOME/.local/state/${nvimdir} ] && {
+    echo "Removing existing ${nvimdir} state at $HOME/.local/state/${nvimdir}"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.local/state/${nvimdir}
+    }
+  }
+  [ -d $HOME/.cache/${nvimdir} ] && {
+    echo "Removing existing ${nvimdir} cache at $HOME/.cache/${nvimdir}"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.cache/${nvimdir}
+    }
+  }
+  exit 0
 }
 
 nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
@@ -49,39 +152,70 @@ nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
   nvimdir="nvim"
 else
-  nvimdir="nvim-lazy"
-  export NVIM_APPNAME="nvim-lazy"
+  export NVIM_APPNAME="${nvimdir}"
 fi
 
 [ -d $HOME/.config/${nvimdir} ] && {
   echo "Backing up existing ${nvimdir} config as $HOME/.config/${nvimdir}-bak$$"
-  mv $HOME/.config/${nvimdir} $HOME/.config/${nvimdir}-bak$$
+  [ "${tellme}" ] || {
+    mv $HOME/.config/${nvimdir} $HOME/.config/${nvimdir}-bak$$
+  }
 }
 
 [ -d $HOME/.local/share/${nvimdir} ] && {
   echo "Backing up existing ${nvimdir} plugins as $HOME/.local/share/${nvimdir}-bak$$"
-  mv $HOME/.local/share/${nvimdir} $HOME/.local/share/${nvimdir}-bak$$
+  [ "${tellme}" ] || {
+    mv $HOME/.local/share/${nvimdir} $HOME/.local/share/${nvimdir}-bak$$
+  }
 }
 
 [ -d $HOME/.local/state/${nvimdir} ] && {
   echo "Backing up existing ${nvimdir} state as $HOME/.local/state/${nvimdir}-bak$$"
-  mv $HOME/.local/state/${nvimdir} $HOME/.local/state/${nvimdir}-bak$$
+  [ "${tellme}" ] || {
+    mv $HOME/.local/state/${nvimdir} $HOME/.local/state/${nvimdir}-bak$$
+  }
+}
+[ -d $HOME/.cache/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} cache as $HOME/.cache/${nvimdir}-bak$$"
+  [ "${tellme}" ] || {
+    mv $HOME/.cache/${nvimdir} $HOME/.cache/${nvimdir}-bak$$
+  }
 }
 
-printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
-git clone \
-  https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
+if [ "${lazyvim}" ]
+then
+  printf "\nCloning LazyVim starter configuration into $HOME/.config/${nvimdir} ... "
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/LazyVim/starter $HOME/.config/${nvimdir} > /dev/null 2>&1
+  }
+else
+  printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
+  }
+fi
 printf "done"
 printf "\nInitializing newly installed neovim configuration ... "
-$HOME/.config/${nvimdir}/lazy.sh install > /dev/null 2>&1
+[ "${tellme}" ] || {
+  nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+}
 printf "done\n"
-[ "${nvimdir}" == "nvim-lazy" ] && {
+[ "${nvimdir}" == "nvim" ] || {
   printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
-  printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+  if [ "${lazyvim}" ]
+  then
+    printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
+  else
+    printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+  fi
 }
 
-nvim
+[ "${tellme}" ] || nvim
 ```
+
+</details>
 
 If you do not wish to use the above quick start method then manual installation
 and initialization is described below.
@@ -248,4 +382,28 @@ Homebrew users on Linux or macOS can install Neovim with:
 
 ```bash
 brew install --HEAD neovim
+```
+
+### Removal
+
+The [install.sh](install.sh) script can be used to remove previously installed
+Neovim configurations with the `-r` command line option. For example, to remove
+a previously installed `LazyVim` configuration, its initialized plugins, state,
+and cache, execute the following command:
+
+```bash
+$HOME/.config/nvim-lazy/install.sh -l -r
+```
+
+To remove the `nvim-lazy` configuration and associated plugins, state, and cache:
+
+```bash
+$HOME/.config/nvim-lazy/install.sh -r
+```
+
+All `install.sh` operations can be performed as a dry run with `-n`. For
+example, to see which `LazyVim` folders would be removed without removing any:
+
+```bash
+$HOME/.config/nvim-lazy/install.sh -n -l -r
 ```
