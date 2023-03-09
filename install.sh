@@ -177,4 +177,7 @@ printf "done\n"
 }
 printf "\n"
 
-[ "${tellme}" ] || nvim
+[ "${tellme}" ] || {
+  sleep 3
+  nvim
+}
