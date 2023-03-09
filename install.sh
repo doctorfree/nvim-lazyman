@@ -158,9 +158,10 @@ printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
 }
 printf "done\n"
 [ "${nvimdir}" == "nvim-lazyman" ] && {
-  printf "\nUpdating Mason packages ... "
+  printf "\nCompiling and installing Mason packages, please be patient ... "
   [ "${tellme}" ] || {
-    nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
+    nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' \
+	                -c 'MasonUpdateAll'
   }
   printf "done\n"
 }
