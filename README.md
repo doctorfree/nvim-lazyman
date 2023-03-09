@@ -205,6 +205,23 @@ After sourcing these aliases in your shell, to invoke Neovim with the Python
 configuration run `vip filename.py` and to invoke Neovim with your Work config
 run `viw proposal.md`.
 
+An example `~/.aliases` file might include:
+
+```bash
+command -v nvim > /dev/null && {
+  alias vi='nvim'
+  [ -d $HOME/.config/nvim-lazy ] && {
+    alias vil='function _vil(){ export NVIM_APPNAME="nvim-lazy"; nvim $* };_vil'
+  }
+  [ -d $HOME/.config/nvim-multi ] && {
+    alias mvim='function _mvim(){ export NVIM_APPNAME="nvim-multi"; nvim $* };_mvim'
+  }
+  [ -d $HOME/.config/nvim-LazyVim ] && {
+    alias lvim='function _lvim(){ export NVIM_APPNAME="nvim-LazyVim"; nvim $* };_lvim'
+  }
+}
+```
+
 ### Neovim install
 
 A convenience script to build and install Neovim is provided at
