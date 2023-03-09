@@ -39,28 +39,28 @@ return {
     end,
   },
 
-  {
-    "toppair/peek.nvim",
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("config.peek")
-    end,
-    keys = {
-      {
-        "<leader>p",
-        function()
-          local peek = require("peek")
-          if peek.is_open() then
-            peek.close()
-          else
-            peek.open()
-          end
-        end,
-        desc = "Peek (Markdown Preview)",
-      },
-    },
-    opts = { theme = "dark" },
-  },
+  -- {
+  --   "toppair/peek.nvim",
+  --   build = "deno task --quiet build:fast",
+  --   config = function()
+  --     require("config.peek")
+  --   end,
+  --   keys = {
+  --     {
+  --       "<leader>p",
+  --       function()
+  --         local peek = require("peek")
+  --         if peek.is_open() then
+  --           peek.close()
+  --         else
+  --           peek.open()
+  --         end
+  --       end,
+  --       desc = "Peek (Markdown Preview)",
+  --     },
+  --   },
+  --   opts = { theme = "dark" },
+  -- },
 
   {
     "moll/vim-bbye",
