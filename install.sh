@@ -29,8 +29,8 @@ have_nvim=$(type -p nvim)
 tellme=
 lazyvim=
 remove=
-nvimdir="nvim-lazyman"
 lazymandir="nvim-lazyman"
+nvimdir="${lazymandir}"
 while getopts "lnru" flag; do
     case $flag in
         l)
@@ -166,5 +166,6 @@ printf "done\n"
     printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
 }
+printf "\n"
 
 [ "${tellme}" ] || nvim

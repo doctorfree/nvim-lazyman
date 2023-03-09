@@ -212,6 +212,7 @@ printf "done\n"
     printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
 }
+printf "\n"
 
 [ "${tellme}" ] || nvim
 ```
