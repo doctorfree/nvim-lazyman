@@ -38,6 +38,7 @@ export NVIM_APPNAME="nvim-lazy"
 printf "\nInitializing newly installed neovim configuration ... "
 $HOME/.config/nvim-lazy/lazy.sh install > /dev/null 2>&1
 printf "done\n"
-nvim
 printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
 printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+
+nvim
