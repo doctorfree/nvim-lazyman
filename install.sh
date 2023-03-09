@@ -15,30 +15,40 @@ have_nvim=$(type -p nvim)
   exit 1
 }
 
-[ -d $HOME/.config/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy config as $HOME/.config/nvim-lazy-bak$$"
-  mv $HOME/.config/nvim-lazy $HOME/.config/nvim-lazy-bak$$
+nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+
+if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
+  nvimdir="nvim"
+else
+  nvimdir="nvim-lazy"
+  export NVIM_APPNAME="nvim-lazy"
+fi
+
+[ -d $HOME/.config/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} config as $HOME/.config/${nvimdir}-bak$$"
+  mv $HOME/.config/${nvimdir} $HOME/.config/${nvimdir}-bak$$
 }
 
-[ -d $HOME/.local/share/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy plugins as $HOME/.local/share/nvim-lazy-bak$$"
-  mv $HOME/.local/share/nvim-lazy $HOME/.local/share/nvim-lazy-bak$$
+[ -d $HOME/.local/share/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} plugins as $HOME/.local/share/${nvimdir}-bak$$"
+  mv $HOME/.local/share/${nvimdir} $HOME/.local/share/${nvimdir}-bak$$
 }
 
-[ -d $HOME/.local/state/nvim-lazy ] && {
-  echo "Backing up existing nvim-lazy state as $HOME/.local/state/nvim-lazy-bak$$"
-  mv $HOME/.local/state/nvim-lazy $HOME/.local/state/nvim-lazy-bak$$
+[ -d $HOME/.local/state/${nvimdir} ] && {
+  echo "Backing up existing ${nvimdir} state as $HOME/.local/state/${nvimdir}-bak$$"
+  mv $HOME/.local/state/${nvimdir} $HOME/.local/state/${nvimdir}-bak$$
 }
 
-printf "\nCloning nvim-lazy configuration into $HOME/.config/nvim-lazy ... "
+printf "\nCloning nvim-lazy configuration into $HOME/.config/${nvimdir} ... "
 git clone \
-  https://github.com/doctorfree/nvim-lazy $HOME/.config/nvim-lazy > /dev/null 2>&1
+  https://github.com/doctorfree/nvim-lazy $HOME/.config/${nvimdir} > /dev/null 2>&1
 printf "done"
-export NVIM_APPNAME="nvim-lazy"
 printf "\nInitializing newly installed neovim configuration ... "
-$HOME/.config/nvim-lazy/lazy.sh install > /dev/null 2>&1
+$HOME/.config/${nvimdir}/lazy.sh install > /dev/null 2>&1
 printf "done\n"
-printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
-printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+[ "${nvimdir}" == "nvim-lazy" ] && {
+  printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
+  printf '\n\texport NVIM_APPNAME="nvim-lazy"\n'
+}
 
 nvim

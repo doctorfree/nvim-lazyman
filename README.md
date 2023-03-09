@@ -12,7 +12,9 @@ My Neovim configuration using Lua, Lazy, and Mason.
 
 ### Installation
 
-**[Quickstart]**
+#### Quickstart
+
+This one-liner will install and initialize `nvim-lazy` on all versions of Neovim.
 
 ```bash
 curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazy/main/install.sh | bash
