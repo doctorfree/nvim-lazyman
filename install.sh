@@ -157,6 +157,13 @@ printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
 }
 printf "done\n"
+[ "${nvimdir}" == "nvim-lazyman" ] && {
+  printf "\nUpdating Mason packages ... "
+  [ "${tellme}" ] || {
+    nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
+  }
+  printf "done\n"
+}
 [ "${nvimdir}" == "nvim" ] || {
   printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
   if [ "${lazyvim}" ]

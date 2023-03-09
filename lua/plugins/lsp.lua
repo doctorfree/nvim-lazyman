@@ -96,26 +96,6 @@ return {
     end,
   },
 
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-    -- opts = {
-    --   ui = {
-    --     -- border = "rounded",
-    --     border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
-    --     icons = {
-    --       package_installed = "◍",
-    --       package_pending = "◍",
-    --       package_uninstalled = "◍",
-    --     },
-    --   },
-    --   log_level = vim.log.levels.INFO,
-    --   max_concurrent_installers = 4,
-    -- },
-  },
-
   -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -140,19 +120,6 @@ return {
   },
 
   {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      ensure_installed = {
-        "prettier",
-        "stylua",
-        "google_java_format",
-        "black",
-        "sql_formatter",
-      },
-      automatic_setup = true,
-    },
+    "mfussenegger/nvim-jdtls",
   },
-
-  "mfussenegger/nvim-jdtls",
 }
