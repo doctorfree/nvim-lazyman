@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 if settings.enable_alpha then
-  local alpha_group = api.nvim_create_augroup("alpha_autocmd", { clear = true })
+  local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 
   vim.api.nvim_create_autocmd("User", {
     pattern = "AlphaReady",
@@ -96,7 +96,7 @@ if settings.enable_alpha then
 
   -- when there is no buffer left show Alpha dashboard
   -- requires "famiu/bufdelete.nvim" and "goolord/alpha-nvim"
-  api.nvim_create_autocmd("User", {
+  vim.api.nvim_create_autocmd("User", {
     pattern = "BDeletePost*",
     group = alpha_group,
     callback = function(event)
