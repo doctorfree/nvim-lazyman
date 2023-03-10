@@ -119,9 +119,9 @@ return {
             -- ["<leader><Tab>"] = { "<c-6>", "Navigate previous buffer" },
             ["<leader>g"] = { name = "+Git" },
             ["<leader>L"] = { name = "+LSP" },
-            ["f"] = { name = "+Fold" },
-            ["g"] = { name = "+Goto" },
-            ["s"] = { name = "+Search" },
+            -- ["f"] = { name = "+Fold" },
+            -- ["g"] = { name = "+Goto" },
+            -- ["s"] = { name = "+Search" },
       }
       wk.register(keymaps)
     end,

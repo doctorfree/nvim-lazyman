@@ -8,9 +8,19 @@ When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
 and managed using the `NVIM_APPNAME` environment variable.
 
-Currently only this Neovim configuration (`nvim-lazyman`) and the
-[LazyVim](https://github.com/LazyVim/LazyVim) starter configuration are
-supported. Additional Lazy Neovim configurations will be added over time.
+Currently only these Neovim configurations are supported:
+
+- [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
+    - This Neovim configuration
+    - Installed by default
+- [nvim-multi](https://github.com/doctorfree/nvim-multi)
+    - Multiple Neovim configurations included in a single repository
+    - Install and initialize with `~/.config/nvim-lazyman/install.sh -m`
+- [LazyVim](https://github.com/LazyVim/LazyVim)
+    - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
+    - Install and initialize with `~/.config/nvim-lazyman/install.sh -l`
+
+Additional Lazy Neovim configurations will be added over time.
 
 ## Table of Contents
 
@@ -18,6 +28,7 @@ supported. Additional Lazy Neovim configurations will be added over time.
     - [Quickstart](#quickstart)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
+- [Usage](#usage)
 - [Notes](#notes)
     - [Mason](#mason)
     - [Health check](#health-check)
@@ -49,9 +60,10 @@ by the above `curl` command executes the following on your system:
 # install.sh - install and initialize Lazy Neovim configurations
 
 usage() {
-  printf "\nUsage: install.sh [-l] [-n] [-r] [-u]"
+  printf "\nUsage: install.sh [-l] [-m] [-n] [-r] [-u]"
   printf "\nWhere:"
-  printf "\n\t-l indicates install and initialize LazyVim in addition to nvim-lazyman"
+  printf "\n\t-l indicates install and initialize LazyVim"
+  printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-u displays this usage message and exits"
@@ -74,14 +86,19 @@ have_nvim=$(type -p nvim)
 
 tellme=
 lazyvim=
+multivim=
 remove=
-nvimdir="nvim-lazyman"
 lazymandir="nvim-lazyman"
-while getopts "lnru" flag; do
+nvimdir="${lazymandir}"
+while getopts "lmnru" flag; do
     case $flag in
         l)
             lazyvim=1
             nvimdir="nvim-LazyVim"
+            ;;
+        m)
+            multivim=1
+            nvimdir="nvim-multi"
             ;;
         n)
             tellme=1
@@ -190,6 +207,14 @@ fi
   }
   printf "done"
 }
+[ "${multivim}" ] && {
+  printf "\nCloning nvim-multi configuration into $HOME/.config/${nvimdir} ... "
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/doctorfree/nvim-multi $HOME/.config/${nvimdir} > /dev/null 2>&1
+  }
+  printf "done"
+}
 [ -d $HOME/.config/${lazymandir} ] || {
   printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
@@ -203,11 +228,23 @@ printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
 }
 printf "done\n"
+# Not yet working
+# [ "${nvimdir}" == "nvim-lazyman" ] && {
+#   printf "\nCompiling and installing Mason packages, please be patient ... "
+#   [ "${tellme}" ] || {
+#     nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' \
+#                     -c 'MasonUpdateAll' > /dev/null 2>&1
+#   }
+#   printf "done\n"
+# }
 [ "${nvimdir}" == "nvim" ] || {
   printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
   if [ "${lazyvim}" ]
   then
     printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
+  elif [ "${multivim}" ]
+  then
+    printf '\n\texport NVIM_APPNAME="nvim-multi"\n'
   else
     printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
@@ -287,6 +324,30 @@ following these instructions:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim
 nvim --headless "+Lazy! install" +qa
 nvim
+```
+
+### Usage
+
+The [install.sh](install.sh) script is located in `~/.config/nvim-lazyman`.
+This script can be used to install and initialize multiple Neovim configurations.
+For example, to install and initialize the LazyVim starter configuration
+execute the command:
+
+```bash
+~/.config/nvim-lazyman/install.sh -l
+```
+
+The usage message for `install.sh`:
+
+```
+Usage: install.sh [-l] [-m] [-n] [-r] [-u]
+Where:
+	-l indicates install and initialize LazyVim
+	-m indicates install and initialize nvim-multi
+	-n indicates dry run, don't actually do anything, just printf's
+	-r indicates remove the previously installed configuration
+	-u displays this usage message and exits
+Without arguments install and initialize nvim-lazyman
 ```
 
 ### Notes

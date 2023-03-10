@@ -3,9 +3,10 @@
 # install.sh - install and initialize Lazy Neovim configurations
 
 usage() {
-  printf "\nUsage: install.sh [-l] [-n] [-r] [-u]"
+  printf "\nUsage: install.sh [-l] [-m] [-n] [-r] [-u]"
   printf "\nWhere:"
-  printf "\n\t-l indicates install and initialize LazyVim in addition to nvim-lazyman"
+  printf "\n\t-l indicates install and initialize LazyVim"
+  printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-u displays this usage message and exits"
@@ -28,14 +29,19 @@ have_nvim=$(type -p nvim)
 
 tellme=
 lazyvim=
+multivim=
 remove=
 lazymandir="nvim-lazyman"
 nvimdir="${lazymandir}"
-while getopts "lnru" flag; do
+while getopts "lmnru" flag; do
     case $flag in
         l)
             lazyvim=1
             nvimdir="nvim-LazyVim"
+            ;;
+        m)
+            multivim=1
+            nvimdir="nvim-multi"
             ;;
         n)
             tellme=1
@@ -144,6 +150,14 @@ fi
   }
   printf "done"
 }
+[ "${multivim}" ] && {
+  printf "\nCloning nvim-multi configuration into $HOME/.config/${nvimdir} ... "
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/doctorfree/nvim-multi $HOME/.config/${nvimdir} > /dev/null 2>&1
+  }
+  printf "done"
+}
 [ -d $HOME/.config/${lazymandir} ] || {
   printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
@@ -171,13 +185,13 @@ printf "done\n"
   if [ "${lazyvim}" ]
   then
     printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
+  elif [ "${multivim}" ]
+  then
+    printf '\n\texport NVIM_APPNAME="nvim-multi"\n'
   else
     printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
   fi
 }
 printf "\n"
 
-[ "${tellme}" ] || {
-  sleep 3
-  nvim
-}
+[ "${tellme}" ] || nvim

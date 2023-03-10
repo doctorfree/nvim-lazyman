@@ -40,7 +40,7 @@ require("lazy").setup({
     notify = true, -- get a notification when changes are found
   },
   debug = false,
-  checker = { enabled = true },
+  checker = { enabled = false },
   performance = {
     rtp = {
       -- disable some rtp plugins

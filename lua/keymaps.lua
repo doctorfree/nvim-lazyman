@@ -223,12 +223,6 @@ map("n", "<leader>$v", "<C-w>v<C-w>l:terminal<CR>:set number<CR><S-a>")
 -- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 -- nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 -- nnoremap <leader>f/ <cmd>Telescope current_buffer_fuzzy_find<cr>
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
--- map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-map("n", "<leader>fc", "<cmd>Telescope colorscheme<cr>")
-map("n", "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 
 local wk = require("which-key")
 local default_options = { silent = true }
