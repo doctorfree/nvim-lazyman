@@ -1,4 +1,5 @@
 local settings = require('configuration')
+local config = settings.config
 local utils = require('utils.functions')
 local o = vim.opt
 local fn = vim.fn
@@ -11,6 +12,8 @@ end
 
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg
+else
+  o.grepprg = "rg --vimgrep"
 end
 
 o.autoindent = true         -- always set autoindenting on
@@ -49,14 +52,12 @@ o.smartcase = true     -- Don't ignore case with capitals
 o.smartindent = true   -- Insert indents automatically
 o.splitbelow = true    -- force all horizontal splits to go below current window
 o.splitright = true    -- force all vertical splits to go to the right of current window
-o.swapfile = true      -- enable/disable swap file creation
+o.swapfile = false      -- enable/disable swap file creation
 o.tabstop = 2          -- how many columns a tab counts for
 o.softtabstop = 2
-o.shiftwidth = 2       -- Default shift width for indents
-o.expandtab = true     -- Replace tabs with ${tabstop} spaces
 o.smarttab = true      --
 o.termguicolors = true -- set term gui true colors (most terminals support this)
-o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
+o.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
 o.ttimeoutlen = 0  -- Time in milliseconds to wait for a key code sequence to complete
 -- o.undodir = fn.stdpath('data') .. '/undodir' -- set undo directory
 o.undofile = true  -- enable/disable undo file creation
@@ -110,9 +111,51 @@ o.showmatch = true          -- Show matching brackets.
 o.matchtime = 2             -- Bracket blinking.
 o.foldenable = true         -- Turn on folding
 o.foldmethod = 'marker'     -- Fold on the marker
-o.foldlevel=100             -- Don't autofold anything (but still fold manually)
+-- use fold
+o.foldlevelstart = 99
+o.foldlevel = 99
+o.foldenable = true
+o.foldcolumn = "1"
 -- What movements open folds
 o.foldopen = 'block,hor,tag,percent,mark,quickfix'
 o.virtualedit = 'block'
+-- o.virtualedit = "onemore"
 o.exrc = true
 o.background = 'dark'
+
+o.cmdheight = 0 -- more space in the neovim command line for displaying messages
+o.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp
+o.fileencoding = "utf-8" -- the encoding written to a file
+o.grepformat = "%f:%l:%c:%m"
+o.numberwidth = 2 -- set number column width to 2 {default 4}
+o.wrap = false -- display lines as one long line
+o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+o.selection = "exclusive"
+o.title = true
+o.titlestring = "%<%F%=%l/%L - nvim"
+o.linespace = 8
+o.mousemoveevent = true
+o.syntax = "on"
+o.spelllang = { "en" }
+o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.mapleader = settings.mapleader
+vim.g.maplocalleader = settings.maplocalleader
+
+o.shortmess:append("c")
+
+o.list = true
+-- o.listchars:append "space:⋅"
+-- o.listchars:append "eol:↴"
+
+vim.cmd("set whichwrap+=<,>,[,]")
+vim.cmd([[set iskeyword+=-]])
+-- diable open fold with `l`
+vim.cmd([[set foldopen-=hor]])
+
+if vim.g.neovide then
+  o.guifont = "Cascadia Code:h10" -- the font used in graphical neovim applications
+  vim.g.neovide_scale_factor = 1
+end

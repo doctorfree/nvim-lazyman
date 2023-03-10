@@ -39,6 +39,9 @@ luac.out
 *.x86_64
 *.hex
 
+# Working dirs
+tmp/*
+
 # vim files
 .*.sw[a-z]
 *.un~

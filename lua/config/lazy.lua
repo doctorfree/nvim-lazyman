@@ -4,8 +4,8 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
     lazypath,
   })
 end
@@ -20,13 +20,13 @@ require("lazy").setup({
   -- defaults = { lazy = true },
   defaults = {
     lazy = false,
-    -- version = false, -- always use the latest git commit
-    version = "*", -- try installing the latest stable version for plugins that support semver
+    version = false, -- always use the latest git commit
+    -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = {
     colorscheme = { settings.theme, "habamax" },
     -- install missing plugins on startup. This doesn't increase startup time.
-    missing = true,
+    -- missing = true,
   },
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size
@@ -40,7 +40,7 @@ require("lazy").setup({
     notify = true, -- get a notification when changes are found
   },
   debug = false,
-  checker = { enabled = false },
+  checker = { enabled = true },
   performance = {
     rtp = {
       -- disable some rtp plugins

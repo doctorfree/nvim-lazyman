@@ -18,6 +18,9 @@ M.config = "doctorfree"
 M.theme = "tokyonight"
 -- M.theme = "tundra"
 
+M.mapleader = ","
+M.maplocalleader = ","
+
 -- enable transparency if the theme supports it
 M.enable_transparent = false
 -- Toggle global status line

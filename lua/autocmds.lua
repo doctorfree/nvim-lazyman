@@ -1,5 +1,115 @@
 local api = vim.api
-local settings = require("configuration")
+
+-- Highlight on yank
+api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Visual" })
+  end,
+})
+
+-- resize splits if window got resized
+api.nvim_create_autocmd({ "VimResized" }, {
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
+})
+
+-- close some filetypes with <q>
+api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "qf",
+    "help",
+    "man",
+    "notify",
+    "lspinfo",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "PlenaryTestPopup",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
+-- Set wrap and spell in markdown and gitcommit
+api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
+local remember_folds_id = api.nvim_create_augroup("remember_folds", { clear = false })
+api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = "?*",
+  group = remember_folds_id,
+  callback = function()
+    vim.cmd([[silent! mkview 1]])
+  end,
+})
+api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = "?*",
+  group = remember_folds_id,
+  callback = function()
+    vim.cmd([[silent! loadview 1]])
+  end,
+})
+
+-- fix tab in python
+-- api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+--   pattern = { "*.cpp" },
+--   callback = function()
+--     vim.cmd("setlocal noexpandtab")
+--   end,
+-- })
+
+-- fix comment
+-- api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.cmd([[set formatoptions-=cro]])
+--   end,
+-- })
+
+api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "" },
+  callback = function()
+    local get_project_dir = function()
+      local cwd = vim.fn.getcwd()
+      local project_dir = vim.split(cwd, "/")
+      local project_name = project_dir[#project_dir]
+      return project_name
+    end
+
+    vim.opt.titlestring = get_project_dir()
+  end,
+})
+
+-- clear cmd output
+api.nvim_create_autocmd({ "CursorHold" }, {
+  callback = function()
+    vim.cmd([[echon '']])
+  end,
+})
+
+api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "help" },
+  callback = function()
+    vim.cmd([[wincmd L]])
+  end,
+})
+
+api.nvim_create_autocmd({ "TermOpen" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.opt_local["number"] = false
+    vim.opt_local["signcolumn"] = "no"
+    vim.opt_local["foldcolumn"] = "0"
+  end,
+})
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
@@ -28,7 +138,7 @@ api.nvim_create_autocmd("Filetype", {
 api.nvim_create_autocmd("Filetype", {
   pattern = "terraform-vars",
   callback = function()
-    vim.api.nvim_command("set filetype=hcl")
+    api.nvim_command("set filetype=hcl")
   end,
 })
 
@@ -42,10 +152,10 @@ api.nvim_create_autocmd("TextYankPost", {
 -- go to last loc when opening a buffer
 api.nvim_create_autocmd("BufReadPost", {
   callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
+    local mark = api.nvim_buf_get_mark(0, '"')
+    local lcount = api.nvim_buf_line_count(0)
     if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      pcall(api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
@@ -86,62 +196,45 @@ api.nvim_create_autocmd(
   { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
-if settings.enable_alpha then
-  local alpha_group = api.nvim_create_augroup("alpha_autocmd", { clear = true })
+local alpha_group = api.nvim_create_augroup("alpha_autocmd", { clear = true })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "AlphaReady",
-    group = alpha_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
-        unhide = false, -- whether to re-enable lualine again/
-      })
+api.nvim_create_autocmd("User", {
+  pattern = "AlphaReady",
+  group = alpha_group,
+  callback = function()
+    require("lualine").hide({
+      place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
+      unhide = false, -- whether to re-enable lualine again/
+    })
+  end
+})
+
+api.nvim_create_autocmd("User", {
+  pattern = "AlphaReady",
+  group = alpha_group,
+  callback = function()
+    vim.cmd([[
+      setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=1
+      setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+    ]])
+  end,
+})
+
+api.nvim_create_autocmd("User", {
+  pattern = "BDeletePost*",
+  group = alpha_group,
+  callback = function(event)
+    local fallback_name = api.nvim_buf_get_name(event.buf)
+    local fallback_ft = api.nvim_buf_get_option(event.buf, "filetype")
+    local fallback_on_empty = fallback_name == "" and fallback_ft == ""
+
+    if fallback_on_empty then
+      -- require("neo-tree").close_all()
+      api.nvim_command("Alpha")
+      api.nvim_command(event.buf .. "bwipeout")
     end
-  })
-
-  -- vim.api.nvim_create_autocmd("User", {
-  --   pattern = "AlphaReady",
-  --   group = alpha_group,
-  --   callback = function()
-  --     require("lualine").hide({ unhide = true })
-  --   end
-  -- })
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "AlphaReady",
-    group = alpha_group,
-    callback = function()
-      vim.cmd([[
-        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=1
-        setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-      ]])
-    end,
-  })
-  -- vim.api.nvim_create_autocmd('BufEnter', {
-  --   pattern = '*',
-  --   group = alpha_group,
-  --   callback = function () require('alpha').redraw() end,
-  -- })
-
-  -- when there is no buffer left show Alpha dashboard
-  -- requires "famiu/bufdelete.nvim" and "goolord/alpha-nvim"
-  api.nvim_create_autocmd("User", {
-    pattern = "BDeletePost*",
-    group = alpha_group,
-    callback = function(event)
-      local fallback_name = vim.api.nvim_buf_get_name(event.buf)
-      local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
-      local fallback_on_empty = fallback_name == "" and fallback_ft == ""
-
-      if fallback_on_empty then
-        -- require("neo-tree").close_all()
-        vim.api.nvim_command("Alpha")
-        vim.api.nvim_command(event.buf .. "bwipeout")
-      end
-    end,
-  })
-end
+  end,
+})
 
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd(

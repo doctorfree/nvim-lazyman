@@ -1,3 +1,5 @@
+local settings = require("configuration")
+
 -- Watch the lua/configuration.lua for changes and
 -- re-initialize when changes to that file are detected
 if File_watchers == nil then
@@ -33,7 +35,7 @@ end, 500)
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
+vim.g.mapleader = settings.mapleader
+vim.g.maplocalleader = settings.maplocalleader
 
 require("config.lazy")
