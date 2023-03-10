@@ -42,7 +42,7 @@ M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- neo-tree or nvim-tree, false will enable nvim-tree
 M.enable_neotree = true
 -- Noice heavily changes the Neovim UI ...
-M.enable_noice = false
+M.enable_noice = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 M.enable_rainbow2 = true
 -- Enable the wilder plugin

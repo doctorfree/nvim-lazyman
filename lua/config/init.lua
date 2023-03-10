@@ -94,14 +94,12 @@ function M.setup(opts)
       pattern = "VeryLazy",
       callback = function()
         M.load("autocmds")
-        M.load("globals")
         M.load("keymaps")
       end,
     })
   else
     -- load them now so they affect the opened buffers
     M.load("autocmds")
-    M.load("globals")
     M.load("keymaps")
   end
 
@@ -163,6 +161,7 @@ function M.init()
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
     M.load("options")
+    M.load("globals")
   end
 end
 
