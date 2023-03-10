@@ -9,6 +9,9 @@ if not path_ok then
 end
 
 local settings = require('configuration')
+local keymaps_lua = vim.fn.stdpath('config')..'/lua/keymaps.lua'
+local options_lua = vim.fn.stdpath('config')..'/lua/options.lua'
+local configuration_lua = vim.fn.stdpath('config')..'/lua/configuration.lua'
 
 local filetree = ':NvimTreeOpen<CR>'
 if settings.enable_neotree then
@@ -193,11 +196,11 @@ quit_btn.opts.hl = 'AlphaShortcut'
 -- Neovim Configuration
 local health_btn = dashboard.button('h', '  Neovim Health', ':checkhealth<CR>')
 health_btn.opts.hl = 'AlphaHeader'
-local settings_btn = dashboard.button('s', '  Neovim Settings', ':e ~/.config/nvim/lua/settings.lua<CR>')
+local settings_btn = dashboard.button('s', '  Nvim-Multi Config', ':e ' .. configuration_lua .. '<CR>')
 settings_btn.opts.hl = 'AlphaHeader'
-local options_btn = dashboard.button('o', '  Neovim Options', ':e ~/.config/nvim/lua/options.lua<CR>')
+local options_btn = dashboard.button('o', '  Neovim Options', ':e ' .. options_lua .. '<CR>')
 options_btn.opts.hl = 'AlphaHeader'
-local mappings_btn = dashboard.button('m', '  Keyboard Mappings', ':e ~/.config/nvim/lua/keymaps.lua<CR>')
+local mappings_btn = dashboard.button('m', '  Neovim Keymaps', ':e ' .. keymaps_lua .. '<CR>')
 mappings_btn.opts.hl = 'AlphaHeader'
 
 -- Plugin Management
