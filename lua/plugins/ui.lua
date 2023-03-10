@@ -2,8 +2,7 @@ local settings = require('configuration')
 
 local dashboard_type = {
   "glepnir/dashboard-nvim",
-  lazy = false,
-  -- event = "VimEnter",
+  event = "VimEnter",
   dependencies = { { "nvim-tree/nvim-web-devicons" } },
   keys = { { "<leader>0", "<cmd>Dashboard<CR>", desc = "Dashboard" } },
   config = function()
@@ -15,8 +14,7 @@ if settings.enable_alpha then
   dashboard_type = {
     {
       "goolord/alpha-nvim",
-      lazy = false,
-      -- event = "VimEnter",
+      event = "VimEnter",
       keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } },
       config = function() require("config.alpha.alpha") end,
     },
