@@ -1,11 +1,15 @@
 return {
+
+  -- snippets
   {
     "L3MON4D3/LuaSnip",
+    build = (not jit.os:find("Windows"))
+        and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
+      or nil,
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
-        require("luasnip.loaders.from_snipmate").lazy_load()
       end,
     },
     opts = {
@@ -19,87 +23,117 @@ return {
         function()
           return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
         end,
-        expr = true,
-        silent = true,
-        mode = "i",
+        expr = true, silent = true, mode = "i",
       },
-      { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
+      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
   },
 
+  -- auto completion
   {
-    "mattn/emmet-vim",
-    init = function()
-      vim.g.user_emmet_leader_key = "e"
-      vim.g.user_emmet_mode = "n"
-      vim.g.user_emmet_settings = {
-        variables = { lang = "ja" },
-        javascript = {
-          extends = "jsx",
+    "hrsh7th/nvim-cmp",
+    version = false, -- last release is way too old
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+    },
+    opts = function()
+      local cmp = require("cmp")
+      return {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
         },
-        html = {
-          default_attributes = {
-            option = { value = vim.null },
-            textarea = {
-              id = vim.null,
-              name = vim.null,
-              cols = 10,
-              rows = 10,
-            },
-          },
-          snippets = {
-            ["!"] = "<!DOCTYPE html>\n"
-              .. '<html lang="en">\n'
-              .. "<head>\n"
-              .. '\t<meta charset="${charset}">\n'
-              .. '\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-              .. '\t<meta http-equiv="X-UA-Compatible" content="ie=edge">\n'
-              .. "\t<title></title>\n"
-              .. "</head>\n"
-              .. "<body>\n\t${child}|\n</body>\n"
-              .. "</html>",
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<S-CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+        }),
+        formatting = {
+          format = function(_, item)
+            local icons = require("config").icons.kinds
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+            end
+            return item
+          end,
+        },
+        experimental = {
+          ghost_text = {
+            hl_group = "LspCodeLens",
           },
         },
       }
     end,
   },
 
+  -- auto pairs
   {
-    "hrsh7th/nvim-cmp",
-    version = false,
+    "echasnovski/mini.pairs",
     event = "VeryLazy",
-    lazy = true,
-    dependencies = {
-      "mfussenegger/nvim-jdtls",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    config = function()
-      require("config.nvim-cmp")
-    end
+    config = function(_, opts)
+      require("mini.pairs").setup(opts)
+    end,
   },
 
+  -- surround
   {
-	"windwp/nvim-autopairs",
-    event = "VeryLazy",
+    "echasnovski/mini.surround",
+    keys = function(_, keys)
+      -- Populate the keys based on the user's options
+      local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
+      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+      local mappings = {
+        { opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
+        { opts.mappings.delete, desc = "Delete surrounding" },
+        { opts.mappings.find, desc = "Find right surrounding" },
+        { opts.mappings.find_left, desc = "Find left surrounding" },
+        { opts.mappings.highlight, desc = "Highlight surrounding" },
+        { opts.mappings.replace, desc = "Replace surrounding" },
+        { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+      }
+      mappings = vim.tbl_filter(function(m)
+        return m[1] and #m[1] > 0
+      end, mappings)
+      return vim.list_extend(mappings, keys)
+    end,
     opts = {
-      enable_check_bracket_line = false, -- Don't add pairs if it already has a close pair in the same line
-      ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
-      check_ts = true, -- use treesitter to check for a pair.
-      ts_config = {
-        lua = { "string" }, -- it will not add pair on that treesitter node
-        javascript = { "template_string" },
-        java = false, -- don't check treesitter on java
+      mappings = {
+        add = "gza", -- Add surrounding in Normal and Visual modes
+        delete = "gzd", -- Delete surrounding
+        find = "gzf", -- Find surrounding (to the right)
+        find_left = "gzF", -- Find surrounding (to the left)
+        highlight = "gzh", -- Highlight surrounding
+        replace = "gzr", -- Replace surrounding
+        update_n_lines = "gzn", -- Update `n_lines`
       },
     },
-    -- config = function() require("nvim-autopairs").setup {} end
     config = function(_, opts)
-      require("nvim-autopairs").setup{opts}
-    end
+      -- use gz mappings instead of s to prevent conflict with leap
+      require("mini.surround").setup(opts)
+    end,
   },
 
   -- comments
@@ -108,14 +142,6 @@ return {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     opts = {
-      options = {
-        ignore_blank_line = false,
-      },
-      mappings = {
-        comment = 'mc',
-        comment_line = 'ml',
-        textobject = 'mt',
-      },
       hooks = {
         pre = function()
           require("ts_context_commentstring.internal").update_commentstring({})
@@ -127,19 +153,74 @@ return {
     end,
   },
 
-  "lvimuser/lsp-inlayhints.nvim",
-
+  -- better text-objects
   {
-    "ray-x/lsp_signature.nvim",
-    opts = {
-      floating_window = false, -- show hint in a floating window, set to false for virtual text only mode
-      floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
-      hint_scheme = "Comment", -- highlight group for the virtual text
-    },
-  },
+    "echasnovski/mini.ai",
+    -- keys = {
+    --   { "a", mode = { "x", "o" } },
+    --   { "i", mode = { "x", "o" } },
+    -- },
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter-textobjects" },
+    opts = function()
+      local ai = require("mini.ai")
+      return {
+        n_lines = 500,
+        custom_textobjects = {
+          o = ai.gen_spec.treesitter({
+            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+          }, {}),
+          f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+          c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
+        },
+      }
+    end,
+    config = function(_, opts)
+      require("mini.ai").setup(opts)
+      -- register all text objects with which-key
+      if require("util").has("which-key.nvim") then
+        ---@type table<string, string|table>
+        local i = {
+          [" "] = "Whitespace",
+          ['"'] = 'Balanced "',
+          ["'"] = "Balanced '",
+          ["`"] = "Balanced `",
+          ["("] = "Balanced (",
+          [")"] = "Balanced ) including white-space",
+          [">"] = "Balanced > including white-space",
+          ["<lt>"] = "Balanced <",
+          ["]"] = "Balanced ] including white-space",
+          ["["] = "Balanced [",
+          ["}"] = "Balanced } including white-space",
+          ["{"] = "Balanced {",
+          ["?"] = "User Prompt",
+          _ = "Underscore",
+          a = "Argument",
+          b = "Balanced ), ], }",
+          c = "Class",
+          f = "Function",
+          o = "Block, conditional, loop",
+          q = "Quote `, \", '",
+          t = "Tag",
+        }
+        local a = vim.deepcopy(i)
+        for k, v in pairs(a) do
+          a[k] = v:gsub(" including.*", "")
+        end
 
-  {
-    "glepnir/lspsaga.nvim",
-    lazy = true,
+        local ic = vim.deepcopy(i)
+        local ac = vim.deepcopy(a)
+        for key, name in pairs({ n = "Next", l = "Last" }) do
+          i[key] = vim.tbl_extend("force", { name = "Inside " .. name .. " textobject" }, ic)
+          a[key] = vim.tbl_extend("force", { name = "Around " .. name .. " textobject" }, ac)
+        end
+        require("which-key").register({
+          mode = { "o", "x" },
+          i = i,
+          a = a,
+        })
+      end
+    end,
   },
 }

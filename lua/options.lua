@@ -16,146 +16,59 @@ else
   o.grepprg = "rg --vimgrep"
 end
 
-o.autoindent = true         -- always set autoindenting on
-o.backup = false            -- creates a backup file
-o.clipboard = 'unnamedplus' -- keep in sync with the system clipboard
-o.conceallevel = 0       -- so that `` is visible in markdown files
-o.confirm = true         -- confirm to save changes before exiting modified buffer
-o.cursorline = true      -- highlight the current line
-o.dir = fn.stdpath('data') .. '/swp' -- swap file directory
-o.expandtab = true                   -- use spaces instead of tabs
-o.formatoptions = 'jcroqlnt'         -- tcqj
-o.hidden = true                      -- Enable modified buffers in background
--- Use the 'history' option to set the number of remembered lines from command mode
-o.history = 500
-o.ignorecase = true         -- ignore case in search patterns
-o.inccommand = 'nosplit'    -- preview incremental substitute
-o.list = settings.list
-o.listchars = settings.listchars
-o.mouse = settings.mouse
-o.number = settings.number
-o.pumblend = 10  -- Popup blend
-o.pumheight = 10 -- Maximum number of entries in a popup
-o.relativenumber = settings.relative_number
-o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cursor
--- o.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize' }
-o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-o.shiftround = true -- Round indent
-o.shiftwidth = 2    -- the number of spaces inserted for each indentation
-o.shortmess = o.shortmess + 'c' -- prevent "pattern not found" messages
-o.showmode = false -- we don't need to see things like -- INSERT -- anymore
-o.showtabline = settings.showtabline
-o.sidescrolloff = 5    -- The minimal number of columns to scroll horizontally
--- Always show the signcolumn, otherwise it would shift the text each time
-o.signcolumn = 'yes'
-o.smartcase = true     -- Don't ignore case with capitals
-o.smartindent = true   -- Insert indents automatically
-o.splitbelow = true    -- force all horizontal splits to go below current window
-o.splitright = true    -- force all vertical splits to go to the right of current window
-o.swapfile = false      -- enable/disable swap file creation
-o.tabstop = 2          -- how many columns a tab counts for
-o.softtabstop = 2
-o.smarttab = true      --
-o.termguicolors = true -- set term gui true colors (most terminals support this)
-o.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
-o.ttimeoutlen = 0  -- Time in milliseconds to wait for a key code sequence to complete
--- o.undodir = fn.stdpath('data') .. '/undodir' -- set undo directory
-o.undofile = true  -- enable/disable undo file creation
-o.undolevels = 1000
-o.updatetime = 300          -- faster completion
-o.wildignorecase = true     -- ignore case when completing file and directory names
--- o.wildmode = 'longest:full,full'
-o.wildmode = 'longest,list' -- Command-line completion mode
-o.winminwidth = 5           -- minimum window width
-o.wildignore = [[
-.git,.hg,.svn
-*.aux,*.out,*.toc
-*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
-*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
-*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
-*.mp3,*.oga,*.ogg,*.wav,*.flac
-*.eot,*.otf,*.ttf,*.woff
-*.doc,*.pdf,*.cbr,*.cbz
-*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
-*.swp,.lock,.DS_Store,._*
-*/tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/target/**,**.terraform/**
-]]
-
-o.backspace = {'indent', 'eol', 'start'}
-o.ruler = true             -- Show the cursor position all the time
-o.showcmd = true           -- Display an incomplete command in statusline
-o.mousehide = true         -- Hide mouse after chars typed
-o.encoding = 'utf-8'
-o.pastetoggle = '<F10>'    -- Toggle between paste and normal
-o.tags = '.git/tags;$HOME' -- Consider the repo tags first, then
-o.modeline = true
-o.modelines = 5            -- Default number of lines to read for modeline
-o.autowrite = true         -- Writes on make/shell commands
-o.autoread = true
-o.directory = '/tmp//'     -- Prepend(^=) $HOME/.tmp/ to default path
-o.incsearch = true         -- Show matches while typing
-o.hlsearch = true          -- Highlight search
--- Insert the current comment leader after 'o' or 'O' in Normal mode.
-o.fo = o.fo + 'o'
--- Do not automatically insert a comment leader after an enter
-o.fo = o.fo - 'r'
--- Do no auto-wrap text using textwidth (does not apply to comments)
-o.fo = o.fo - 't'
-o.cindent = true
-o.indentkeys = o.indentkeys - '0#'  -- Do not break indent on #
-o.cinkeys = o.cinkeys - '0#'
-o.cinoptions = ':s,ps,ts,cs'
-o.cinwords = 'if,else,while,do,for,switch,case'
-o.synmaxcol = 250           -- limit syntax highlighting to 250 columns
-o.showmatch = true          -- Show matching brackets.
-o.matchtime = 2             -- Bracket blinking.
-o.foldenable = true         -- Turn on folding
-o.foldmethod = 'marker'     -- Fold on the marker
--- use fold
-o.foldlevelstart = 99
-o.foldlevel = 99
-o.foldenable = true
-o.foldcolumn = "1"
--- What movements open folds
-o.foldopen = 'block,hor,tag,percent,mark,quickfix'
-o.virtualedit = 'block'
--- o.virtualedit = "onemore"
-o.exrc = true
-o.background = 'dark'
-
-o.cmdheight = 0 -- more space in the neovim command line for displaying messages
-o.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp
-o.fileencoding = "utf-8" -- the encoding written to a file
-o.grepformat = "%f:%l:%c:%m"
-o.numberwidth = 2 -- set number column width to 2 {default 4}
-o.wrap = true -- display lines as one long line
-o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-o.selection = "exclusive"
-o.title = true
-o.titlestring = "%<%F%=%l/%L - nvim"
-o.linespace = 8
-o.mousemoveevent = true
-o.syntax = "on"
-o.spelllang = { "en" }
-o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
 
-o.shortmess:append("c")
+o.autowrite = true -- Enable auto write
+o.clipboard = "unnamedplus" -- Sync with system clipboard
+o.completeopt = "menu,menuone,noselect"
+o.conceallevel = 3 -- Hide * markup for bold and italic
+o.confirm = true -- Confirm to save changes before exiting modified buffer
+o.cursorline = true -- Enable highlighting of the current line
+o.expandtab = true -- Use spaces instead of tabs
+o.formatoptions = "jcroqlnt" -- tcqj
+o.grepformat = "%f:%l:%c:%m"
+o.grepprg = "rg --vimgrep"
+o.ignorecase = true -- Ignore case
+o.inccommand = "nosplit" -- preview incremental substitute
+o.laststatus = 0
+o.list = settings.list -- Show some invisible characters (tabs...
+o.listchars = settings.listchars
+o.mouse = settings.mouse -- Enable mouse mode
+o.number = settings.number -- Print line number
+o.pumblend = 10 -- Popup blend
+o.pumheight = 10 -- Maximum number of entries in a popup
+o.relativenumber = settings.relative_number -- Relative line numbers
+o.scrolloff = 4 -- Lines of context
+o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+o.shiftround = true -- Round indent
+o.shiftwidth = 2 -- Size of an indent
+o.shortmess:append { W = true, I = true, c = true }
+o.showmode = false -- Dont show mode since we have a statusline
+o.showtabline = settings.showtabline
+o.sidescrolloff = 8 -- Columns of context
+o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+o.smartcase = true -- Don't ignore case with capitals
+o.smartindent = true -- Insert indents automatically
+o.spelllang = { "en" }
+o.splitbelow = true -- Put new windows below current
+o.splitright = true -- Put new windows right of current
+o.tabstop = 2 -- Number of spaces tabs count for
+o.termguicolors = true -- True color support
+o.timeoutlen = 300
+o.undofile = true
+o.undolevels = 10000
+o.updatetime = 200 -- Save swap file and trigger CursorHold
+o.wildmode = "longest:full,full" -- Command-line completion mode
+o.winminwidth = 5 -- Minimum window width
+o.wrap = false -- Disable line wrap
 
-o.list = true
--- o.listchars:append "space:⋅"
--- o.listchars:append "eol:↴"
-
-vim.cmd("set whichwrap+=<,>,[,]")
-vim.cmd([[set iskeyword+=-]])
--- diable open fold with `l`
-vim.cmd([[set foldopen-=hor]])
-
-if vim.g.neovide then
-  o.guifont = "Cascadia Code:h10" -- the font used in graphical neovim applications
-  vim.g.neovide_scale_factor = 1
+if vim.fn.has("nvim-0.9.0") == 1 then
+  o.splitkeep = "screen"
+  o.shortmess:append { C = true }
 end
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0

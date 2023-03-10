@@ -1,281 +1,150 @@
+local Util = require("util")
 local settings = require("configuration")
-local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
-local treereg = {}
-if settings.enable_neotree then
-  map("n", "<leader>T", ":Neotree toggle<CR>")
-  treereg = {
-    name = "Files",
-    b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    e = { "<cmd>Neotree<cr>", "Open Neotree" },
-    f = { "<cmd>" .. require("utils.functions").project_files() .. "<cr>", "Find File" },
-    p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Neotree" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    s = { "<cmd>w<cr>", "Save Buffer" },
-    z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
-  }
-else
-  map("n", "<leader>T", ":NvimTreeFindFileToggle<CR>")
-  treereg = {
-    name = "Files",
-    b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    e = { "<cmd>NvimTreeOpen<cr>", "Open NvimTree" },
-    f = { "<cmd>" .. require("utils.functions").project_files() .. "<cr>", "Find File" },
-    p = { "<cmd>NvimTreeFindFileToggle<cr>", "Toggle NvimTree" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    s = { "<cmd>w<cr>", "Save Buffer" },
-    z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
-  }
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
--------------------- Better window navigation ------------------
-keymap("n", "<c-h>", "<c-w>h", opts)
-keymap("n", "<c-l>", "<c-w>l", opts)
-keymap("n", "<c-j>", "<c-w>j", opts)
-keymap("n", "<c-k>", "<c-w>k", opts)
+if settings.enable_neotree then
+  map("n", "<leader>T", ":Neotree toggle<CR>")
+else
+  map("n", "<leader>T", ":NvimTreeFindFileToggle<CR>")
+end
 
--------------------- Navigate buffers --------------------------
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<A-S-l>", ":BufferLineMoveNext<CR>", opts)
-keymap("n", "<A-S-h>", ":BufferLineMovePrev<CR>", opts)
+-- better up/down
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--------------------- Press jk fast to enter --------------------
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "Jk", "<ESC>", opts)
-keymap("i", "jK", "<ESC>", opts)
-keymap("i", "JK", "<ESC>", opts)
+-- Move to window using the <ctrl> hjkl keys
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
--------------------- Stay in indent mode ------------------------
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-keymap("v", "p", '"_dP', opts)
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
--------------------- Resize windows ----------------------------
-keymap("n", "<A-C-j>", ":resize +1<CR>", opts)
-keymap("n", "<A-C-k>", ":resize -1<CR>", opts)
-keymap("n", "<A-C-h>", ":vertical resize +1<CR>", opts)
-keymap("n", "<A-C-l>", ":vertical resize -1<CR>", opts)
+-- Move Lines
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
--------------------- Move text up/ down ------------------------
--- Visual --
-keymap("v", "<A-S-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-S-k>", ":m .-2<CR>==", opts)
--- Block --
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-S-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-S-k>", ":move '<-2<CR>gv-gv", opts)
--- Normal --
-keymap("n", "<A-S-j>", ":m .+1<CR>==", opts)
-keymap("n", "<A-S-k>", ":m .-2<CR>==", opts)
--- Insert --
-keymap("i", "<A-S-j>", "<ESC>:m .+1<CR>==gi", opts)
-keymap("i", "<A-S-k>", "<ESC>:m .-2<CR>==gi", opts)
+-- buffers
+if Util.has("bufferline.nvim") then
+  map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+  map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+  map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+  map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+else
+  map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+  map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+  map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+  map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+end
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
--------------------- No highlight ------------------------------
-keymap("n", ";", ":noh<CR>", opts)
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--------------------- Go to buffer quickly ----------------------
-keymap("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
-keymap("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
-keymap("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
-keymap("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
-keymap("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
-keymap("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
-keymap("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
-keymap("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
-keymap("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
+-- Clear search, diff update and redraw
+-- taken from runtime/lua/_editor.lua
+map(
+  "n",
+  "<leader>ur",
+  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+  { desc = "Redraw / clear hlsearch / diff update" }
+)
 
--------------------- split window ------------------------------
-keymap("n", "<leader>\\", ":vsplit<CR>", opts)
-keymap("n", "<leader>/", ":split<CR>", opts)
+map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 
--------------------- Switch two windows ------------------------
-keymap("n", "<A-o>", "<C-w>r", opts)
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+map("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
--------------------- Ranger --------------------------------
-keymap("n", "<leader>o", ":RnvimrToggle<CR>", opts)
+-- Add undo break-points
+map("i", ",", ",<c-g>u")
+map("i", ".", ".<c-g>u")
+map("i", ";", ";<c-g>u")
 
--------------------- Compile --------------------------------
-keymap("n", "<c-m-n>", "<cmd>only | Compile<CR>", opts)
-
--------------------- Inspect --------------------------------
-keymap("n", "<F2>", "<cmd>Inspect<CR>", opts)
-
--------------------- Fuzzy Search --------------------------------
-vim.keymap.set("n", "<C-f>", function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes"))
-end, { desc = "[/] Fuzzily search in current buffer]" })
-
-  -- Hide the tabline, statusline, winbar with '<leader>s'
-keymap("n", "<leader>s", "", {
-  callback = function()
-    require("lualine").hide({
-      place = { "statusline", "tabline", "winbar" },
-      unhide = false
-    })
-  end,
-})
--- Unhide the tabline, statusline, winbar with '<leader>S'
-keymap("n", "<leader>S", "", {
-  callback = function()
-    require("lualine").hide({
-      place = { "statusline", "tabline", "winbar" },
-      unhide = true
-    })
-  end,
-})
-
--- Remap for dealing with visual line wraps
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+-- save file
+map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- paste over currently selected text without yanking it
-map("v", "p", '"_dp')
-map("v", "P", '"_dP')
+-- lazy
+map("n", "<leader>l", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
--- switch buffer
-map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
--- Cancel search highlighting with ESC
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
+map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 
--- move over a closing element in insert mode
-map("i", "<C-l>", function()
-  return require("utils.functions").escapePair()
-end)
+if not Util.has("trouble.nvim") then
+  map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+  map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
+end
 
--- toggles
-map("n", "<leader>th", function()
-  vim.o.list = vim.o.list == false and true or false
-end, { desc = "Toggle hidden chars" })
-map("n", "<leader>tl", function()
-  vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
-end, { desc = "Toggle sgincolumn" })
-map("n", "<leader>tv", function()
-  vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
-end, { desc = "Toggle virtualedit" })
-map("n", "<leader>ts", function()
-  vim.o.spell = vim.o.spell == false and true or false
-end, { desc = "Toggle spell" })
-map("n", "<leader>tw", function()
-  vim.o.wrap = vim.o.wrap == false and true or false
-end, { desc = "Toggle wrap" })
-map("n", "<leader>tc", function()
-  vim.o.cursorline = vim.o.cursorline == false and true or false
-end, { desc = "Toggle cursorline" })
-map(
-  "n",
-  "<leader>to",
-  "<cmd>lua require('utils.functions').toggle_colorcolumn()<cr>",
-  { desc = "Toggle colorcolumn" }
-)
-map(
-  "n",
-  "<leader>tt",
-  "<cmd>lua require('utils.utils').toggle_virtual_text()<cr>",
-  { desc = "Toggle Virtualtext" }
-)
-map("n", "<leader>ts", "<cmd>SymbolsOutline<cr>", { desc = "Toggle SymbolsOutline" })
+-- stylua: ignore start
 
--- Neovim :Terminal
---
-map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal emulator with escape" })
-map("t", "<C-w>", "<Esc><C-w>")
---tmap <C-d> <Esc>:q<CR>
+-- toggle options
+map("n", "<leader>uf", require("plugins.lsp.format").toggle, { desc = "Toggle format on Save" })
+map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
+map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
+map("n", "<leader>ul", function() Util.toggle("relativenumber", true) Util.toggle("number") end, { desc = "Toggle Line Numbers" })
+map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+map("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceallevel}) end, { desc = "Toggle Conceal" })
 
--- Custom Mappings (lua custom mappings are within individual lua config files)
---
--- Core
--- map("n", [[\]], "<leader>t")
-map("n", "<leader>r", ":so ~/.config/nvim/init.vim<CR>")
-map("x", "<leader>a", "gaip*")
-map("n", "<leader>a", "gaip*")
--- map("n", "<leader>h", ":RainbowParentheses!!<CR>")
-map("n", "<leader>j", ":set filetype=journal<CR>")
--- nmap <leader>k :ColorToggle<CR>
--- map("n", "<leader>l", ":Limelight!!<CR>")
--- map("x", "<leader>l", ":Limelight!!<CR>")
-map("n", "<silent>", "<leader><leader> :noh<CR>")
-map("n", "<silent>", "<F12> :set invlist<CR>")
-map("n", "<Tab>", ":bnext<CR>")
-map("n", "<S-Tab>", ":bprevious<CR>")
-map("n", "<leader>$s", "<C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>")
-map("n", "<leader>$v", "<C-w>v<C-w>l:terminal<CR>:set number<CR><S-a>")
+-- lazygit
+map("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root() }) end, { desc = "Lazygit (root dir)" })
+map("n", "<leader>gG", function() Util.float_term({ "lazygit" }) end, { desc = "Lazygit (cwd)" })
 
--- Telescope mappings
--- nnoremap <leader>ff <cmd>Telescope find_files<cr>
--- nnoremap <leader>fg <cmd>Telescope live_grep<cr>
--- nnoremap <leader>fb <cmd>Telescope buffers<cr>
--- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
--- nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
--- nnoremap <leader>f/ <cmd>Telescope current_buffer_fuzzy_find<cr>
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
-local wk = require("which-key")
-local default_options = { silent = true }
+-- highlights under cursor
+if vim.fn.has("nvim-0.9.0") == 1 then
+  map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+end
 
--- register non leader based mappings
-wk.register({
-  sa = "Add surrounding",
-  sd = "Delete surrounding",
-  sh = "Highlight surrounding",
-  sn = "Surround update n lines",
-  sr = "Replace surrounding",
-  sF = "Find left surrounding",
-  sf = "Replace right surrounding",
-  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
-  st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
-})
+-- floating terminal
+map("n", "<leader>ft", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
+map("n", "<leader>fT", function() Util.float_term() end, { desc = "Terminal (cwd)" })
+map("t", "<esc><esc>", "<c-\\><c-n>", {desc = "Enter Normal Mode"})
 
--- Register leader based mappings
-wk.register({
-  ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
-  b = {
-    name = "Buffers",
-    b = {
-      "<cmd>Telescope buffers<cr>",
-      "Find buffer",
-    },
-    D = {
-      "<cmd>%bd|e#|bd#<cr>",
-      "Close all but the current buffer",
-    },
-    d = { "<cmd>Bdelete<cr>", "Close buffer" },
-  },
-  f = treereg,
-  P = {
-    name = "Lazy Plugins",
-    c = { "<cmd>Lazy check<cr>", "Lazy check" },
-    C = { "<cmd>Lazy clean<cr>", "Lazy clean" },
-    i = { "<cmd>Lazy install<cr>", "Lazy install" },
-    l = { "<cmd>Lazy<cr>", "Lazy menu" },
-    s = { "<cmd>Lazy sync<cr>", "Lazy sync" },
-    u = { "<cmd>Lazy update<cr>", "Lazy update" },
-  },
-  F = {
-    name = "Quickfix",
-    j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
-    k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
-    t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
-  },
-  t = { name = "Toggles" },
-  -- hydra heads
-  s = { "Search" },
-  w = { "Windows" },
-  z = { "Spelling" },
-}, { prefix = "<leader>", mode = "n", default_options })
+-- windows
+map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
+map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
+map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
+-- tabs
+map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
