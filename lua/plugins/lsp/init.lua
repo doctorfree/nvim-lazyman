@@ -105,8 +105,6 @@ return {
   },
 
   -- formatters
-
-  -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -130,7 +128,19 @@ return {
   },
 
   {
-    "mfussenegger/nvim-jdtls",
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      ensure_installed = {
+        "prettier",
+        "stylua",
+        "google_java_format",
+        "black",
+        "sql_formatter",
+      },
+      automatic_setup = true,
+    },
   },
 
+  "mfussenegger/nvim-jdtls",
 }
