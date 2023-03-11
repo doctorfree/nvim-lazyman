@@ -3,12 +3,13 @@
 # install.sh - install and initialize Lazy Neovim configurations
 
 usage() {
-  printf "\nUsage: install.sh [-l] [-m] [-n] [-r] [-u]"
+  printf "\nUsage: install.sh [-l] [-m] [-n] [-r] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
+  printf "\n\t-y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n\t-u displays this usage message and exits"
   printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
   exit 1
@@ -30,10 +31,11 @@ have_nvim=$(type -p nvim)
 tellme=
 lazyvim=
 multivim=
+proceed=
 remove=
 lazymandir="nvim-lazyman"
 nvimdir="${lazymandir}"
-while getopts "lmnru" flag; do
+while getopts "lmnryu" flag; do
     case $flag in
         l)
             lazyvim=1
@@ -49,6 +51,9 @@ while getopts "lmnru" flag; do
         r)
             remove=1
             ;;
+        y)
+            proceed=1
+            ;;
         u)
             usage
             ;;
@@ -60,24 +65,26 @@ done
     echo "Something went wrong. Exiting."
     usage
   }
-  printf "\nYou have requested removal of the Neovim configuration at:"
-  printf "\n\t$HOME/.config/${nvimdir}\n"
-  printf "\nConfirm removal of the Neovim ${nvimdir} configuration\n"
-  while true
-  do
-    read -p "Remove ${nvimdir} ? (y/n) " yn
-    case $yn in
-      [Yy]* )
-          break
-          ;;
-      [Nn]* )
-          echo "Aborting removal and exiting"
-          exit 0
-          ;;
-        * ) echo "Please answer yes or no."
-          ;;
-    esac
-  done
+  [ "${proceed}" ] || {
+    printf "\nYou have requested removal of the Neovim configuration at:"
+    printf "\n\t$HOME/.config/${nvimdir}\n"
+    printf "\nConfirm removal of the Neovim ${nvimdir} configuration\n"
+    while true
+    do
+      read -p "Remove ${nvimdir} ? (y/n) " yn
+      case $yn in
+        [Yy]* )
+            break
+            ;;
+        [Nn]* )
+            echo "Aborting removal and exiting"
+            exit 0
+            ;;
+          * ) echo "Please answer yes or no."
+            ;;
+      esac
+    done
+  }
   [ -d $HOME/.config/${nvimdir} ] && {
     echo "Removing existing ${nvimdir} config at $HOME/.config/${nvimdir}"
     [ "${tellme}" ] || {
