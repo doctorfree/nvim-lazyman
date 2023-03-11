@@ -246,18 +246,14 @@ done
 }
 if [ -d $HOME/.config/${lazymandir} ]
 then
-  cd $HOME/.config/${lazymandir}
-  git checkout dev
-  git pull
-  cd
+  git -C $HOME/.config/${lazymandir} checkout dev
+  git -C $HOME/.config/${lazymandir} pull
 else
   printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
-    cd $HOME/.config/${lazymandir}
-    git checkout dev
-    cd
+    git -C $HOME/.config/${lazymandir} checkout dev
     [ "${have_appname}" ] || {
       [ "${lazyvim}" ] || [ "${multivim}" ] || {
         ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
