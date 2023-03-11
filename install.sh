@@ -178,10 +178,10 @@ fi
 }
 printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
 [ "${tellme}" ] || {
-  # nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+  nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
   # nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
   # nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
-  nvim -E -c 'Lazy! sync' -c 'qall!'
+  # nvim -E -c 'Lazy! sync' -c 'qall!'
 }
 printf "done\n"
 # Not yet working
