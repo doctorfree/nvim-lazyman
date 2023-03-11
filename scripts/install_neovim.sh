@@ -153,33 +153,9 @@ install_brew () {
         fi
       fi
     fi
-    GOTEXT='# Go paths
-[ -d ~/go ] && export GOPATH=$HOME/go
-[ "$GOPATH" ] && [ -d "$GOPATH/bin" ] && PATH="$PATH:$GOPATH/bin"
-
-if [ -d __YYY__/opt/go ]
-then
-  export GOROOT=__YYY__/opt/go
-else
-  [ -d /usr/local/go ] && export GOROOT=/usr/local/go
-fi
-[ -d ${GOROOT}/bin ] && {
-  if [ `echo $PATH | grep -c ${GOROOT}/bin` -ne "1" ]; then
-    PATH="$PATH:${GOROOT}/bin"
-  fi
-}
-[ -d $HOME/go/bin ] && {
-  if [ `echo $PATH | grep -c $HOME/go/bin` -ne "1" ]; then
-    PATH="$PATH:$HOME/go/bin"
-  fi
-}
-export PATH'
 
     if [ -f "${BASHINIT}" ]
     then
-      grep "export GOROOT" "${BASHINIT}" > /dev/null || {
-        echo "${GOTEXT}" | sed -e "s%__YYY__%${HOMEBREW_HOME}%" >> "${BASHINIT}"
-      }
       grep "^eval \"\$(${BREW_EXE} shellenv)\"" "${BASHINIT}" > /dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
@@ -191,8 +167,7 @@ export PATH'
         echo 'fi' >> "${BASHINIT}"
       }
     else
-      echo "${GOTEXT}" | sed -e "s%__YYY__%${HOMEBREW_HOME}%" > "${BASHINIT}"
-      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
+      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" > "${BASHINIT}"
       echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
       echo 'fi' >> "${BASHINIT}"
       echo 'if command -v zoxide > /dev/null; then' >> "${BASHINIT}"
@@ -200,9 +175,6 @@ export PATH'
       echo 'fi' >> "${BASHINIT}"
     fi
     [ -f "${HOME}/.zshrc" ] && {
-      grep "export GOROOT" "${HOME}/.zshrc" > /dev/null || {
-        echo "${GOTEXT}" | sed -e "s%__YYY__%${HOMEBREW_HOME}%" >> "${HOME}/.zshrc"
-      }
       grep "^eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" > /dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >> "${HOME}/.zshrc"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >> "${HOME}/.zshrc"
@@ -235,40 +207,40 @@ export PATH'
   }
   log "    Homebrew installed in ${HOMEBREW_HOME}"
   log "    See ${DOC_HOMEBREW}"
-  log "Installing Homebrew gcc, cmake, and make ..."
-  if [ "${debug}" ]
-  then
-	for tool in gcc cmake make
-	do
-      START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${tool}
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-      printf "\nInstall ${tool} elapsed time = %s${ELAPSED}\n"
-	done
-    START_SECONDS=$(date +%s)
-    ${BREW_EXE} uninstall --ignore-dependencies llvm
-    ${BREW_EXE} install llvm@14
-    ${BREW_EXE} link llvm@14
-    FINISH_SECONDS=$(date +%s)
-    ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-    ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-    printf "\nInstall llvm elapsed time = %s${ELAPSED}\n"
-  else
-    ${BREW_EXE} install --quiet gcc > /dev/null 2>&1
-    ${BREW_EXE} install --quiet cmake > /dev/null 2>&1
-    ${BREW_EXE} install --quiet make > /dev/null 2>&1
-    ${BREW_EXE} uninstall --ignore-dependencies llvm > /dev/null 2>&1
-    ${BREW_EXE} install --quiet llvm@14 > /dev/null 2>&1
-    ${BREW_EXE} link llvm@14 > /dev/null 2>&1
-  fi
-  printf " done"
+  # log "Installing Homebrew gcc, cmake, and make ..."
+  # if [ "${debug}" ]
+  # then
+	# for tool in gcc cmake make
+	# do
+  #     START_SECONDS=$(date +%s)
+  #     ${BREW_EXE} install ${tool}
+  #     FINISH_SECONDS=$(date +%s)
+  #     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+  #     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+  #     printf "\nInstall ${tool} elapsed time = %s${ELAPSED}\n"
+	# done
+  # START_SECONDS=$(date +%s)
+  # ${BREW_EXE} uninstall --ignore-dependencies llvm
+  # ${BREW_EXE} install llvm@14
+  # ${BREW_EXE} link llvm@14
+  # FINISH_SECONDS=$(date +%s)
+  # ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+  # ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+  # printf "\nInstall llvm elapsed time = %s${ELAPSED}\n"
+  # else
+  # ${BREW_EXE} install --quiet gcc > /dev/null 2>&1
+  # ${BREW_EXE} install --quiet cmake > /dev/null 2>&1
+  # ${BREW_EXE} install --quiet make > /dev/null 2>&1
+  # ${BREW_EXE} uninstall --ignore-dependencies llvm > /dev/null 2>&1
+  # ${BREW_EXE} install --quiet llvm@14 > /dev/null 2>&1
+  # ${BREW_EXE} link llvm@14 > /dev/null 2>&1
+  # fi
+  # printf " done"
 }
 
 install_neovim_dependencies () {
   log "Installing dependencies ..."
-  PKGS="git lazygit fd ripgrep fzf tmux go node zoxide"
+  PKGS="git lazygit fd ripgrep fzf zoxide"
   for pkg in ${PKGS}
   do
     if [ "${debug}" ]
@@ -285,30 +257,6 @@ install_neovim_dependencies () {
 #   [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
   done
   printf " done"
-  if ! command -v cargo >/dev/null 2>&1; then
-    log "Installing cargo ..."
-    [ "${debug}" ] && START_SECONDS=$(date +%s)
-    RUST_URL="https://sh.rustup.rs"
-    curl -fsSL "${RUST_URL}" > /tmp/rust-$$.sh
-    [ $? -eq 0 ] || {
-      rm -f /tmp/rust-$$.sh
-      curl -kfsSL "${RUST_URL}" > /tmp/rust-$$.sh
-      [ -f /tmp/rust-$$.sh ] && {
-        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" > /tmp/ins$$
-        cp /tmp/ins$$ /tmp/rust-$$.sh
-        rm -f /tmp/ins$$
-      }
-    }
-    [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y > /dev/null 2>&1
-    rm -f /tmp/rust-$$.sh
-    printf " done"
-    [ "${debug}" ] && {
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-      printf "\nCargo install elapsed time = %s${ELAPSED}\n"
-    }
-  fi
 }
 
 install_neovim_head () {
@@ -333,28 +281,83 @@ install_neovim_head () {
   fi
 }
 
-fixup_init_vim () {
-  [ "${BREW_EXE}" ] || BREW_EXE=brew
-  BREW_ROOT="$(${BREW_EXE} --prefix)"
-  [ "${BREW_ROOT}" ] && {
-    if [ -d ${BREW_ROOT}/opt/go/libexec ]
+check_python () {
+  brew_path=$(command -v brew)
+  brew_dir=$(dirname ${brew_path})
+  if [ -x ${brew_dir}/python3 ]
+  then
+    PYTHON="${brew_dir}/python3"
+  else
+    PYTHON=
+  fi
+}
+
+# Brew doesn't create a python symlink so we do so here
+link_python () {
+  python3_path=$(command -v python3)
+  [ "${python3_path}" ] && {
+    python_dir=`dirname ${python3_path}`
+    if [ -w ${python_dir} ]
     then
-      export GOROOT="${BREW_ROOT}/opt/go/libexec"
+      rm -f ${python_dir}/python
+      ln -s ${python_dir}/python3 ${python_dir}/python
     else
-      if [ -d ${BREW_ROOT}/opt/go ]
-      then
-        export GOROOT="${BREW_ROOT}/opt/go"
-      else
-        [ -d ${BREW_ROOT}/go ] && export GOROOT="${BREW_ROOT}/go"
-      fi
+      sudo rm -f ${python_dir}/python
+      sudo ln -s ${python_dir}/python3 ${python_dir}/python
     fi
   }
-  [ "${GOPATH}" ] || export GOPATH="${HOME}/go"
-  for gop in ${GOPATH} ${GOPATH}/src ${GOPATH}/pkg ${GOPATH}/bin
-  do
-    [ -d "${gop}" ] || mkdir -p "${gop}"
-  done
-  have_nvim=`type -p nvim`
+}
+
+install_tools() {
+  check_python
+  [ "${PYTHON}" ] || {
+    # Could not find Python, install with Homebrew
+    log 'Installing Python with Homebrew ...'
+    ${BREW_EXE} install --quiet python > /dev/null 2>&1
+    [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet python > /dev/null 2>&1
+    link_python
+    check_python
+    printf " done"
+  }
+  [ "${PYTHON}" ] && {
+    log 'Installing Python dependencies ...'
+    ${PYTHON} -m pip install --upgrade pip > /dev/null 2>&1
+    ${PYTHON} -m pip install --upgrade setuptools > /dev/null 2>&1
+    ${PYTHON} -m pip install wheel > /dev/null 2>&1
+    ${PYTHON} -m pip install pynvim doq > /dev/null 2>&1
+    printf " done"
+  }
+  have_npm=$(type -p npm)
+  [ "${have_npm}" ] && {
+    log "Installing Neovim npm package ..."
+    npm i -g neovim > /dev/null 2>&1
+    printf " done"
+
+    log "Installing the icon font for Visual Studio Code ..."
+    npm i -g @vscode/codicons > /dev/null 2>&1
+    printf " done"
+  }
+  if ! command -v tree-sitter >/dev/null 2>&1; then
+    log "Installing tree-sitter command line interface ..."
+    if [ "${debug}" ]
+    then
+      START_SECONDS=$(date +%s)
+      ${BREW_EXE} install tree-sitter
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+      printf "\nInstall tree-sitter elapsed time = %s${ELAPSED}\n"
+    else
+      ${BREW_EXE} install -q tree-sitter > /dev/null 2>&1
+    fi
+    printf " done"
+  fi
+  if command -v tree-sitter >/dev/null 2>&1; then
+    tree-sitter init-config > /dev/null 2>&1
+  fi
+  if command -v cargo >/dev/null 2>&1; then
+    cargo install rnix-lsp > /dev/null 2>&1
+  fi
 }
 
 main () {
@@ -412,6 +415,7 @@ main () {
     install_neovim_head
   fi
   printf "\n"
+  install_tools
 }
 
 quiet=

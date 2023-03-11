@@ -223,21 +223,21 @@ have_git=$(type -p git)
 
 if [ -d $HOME/.config/${lazymandir} ]
 then
-  git -C $HOME/.config/${lazymandir} checkout dev
-  git -C $HOME/.config/${lazymandir} pull
+  git -C $HOME/.config/${lazymandir} checkout dev > /dev/null 2>&1
+  git -C $HOME/.config/${lazymandir} pull > /dev/null 2>&1
 else
   printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
-    git -C $HOME/.config/${lazymandir} checkout dev
+    git -C $HOME/.config/${lazymandir} checkout dev > /dev/null 2>&1
   }
   printf "done"
 fi
 
 have_nvim=$(type -p nvim)
 [ "${have_nvim}" ] || {
-  echo "Install script requires neovim but nvim not found"
+  printf "\nInstall script requires neovim but nvim not found\n"
   if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
   then
     ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh
