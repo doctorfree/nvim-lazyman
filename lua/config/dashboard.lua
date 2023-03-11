@@ -4,6 +4,8 @@ math.randomseed(os.time())
 local logo_names = { "night_fury", "western_dragon" }
 local random_logo_name = logo_names[math.random(1, #logo_names)]
 
+local config_path = vim.fn.stdpath('config')..'/lua/configuration.lua'
+
 local logo = {
   night_fury = [[
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -172,7 +174,7 @@ vim.api.nvim_create_autocmd("User", {
             -- desc_hi = "String",
             key = "i",
             key_hl = "DashboardConfiguration",
-            action = "edit $MYVIMRC",
+            action = "edit " .. config_path,
           },
           {
             icon = "󰤄   ",

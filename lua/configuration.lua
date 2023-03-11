@@ -45,7 +45,7 @@ M.enable_tabline = true
 -- Disable winbar with nvim-navic location
 M.enable_winbar = false
 -- Enable the Alpha dashboard
-M.enable_alpha = true
+M.enable_alpha = false
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files
 M.dashboard_recent_files = 5
