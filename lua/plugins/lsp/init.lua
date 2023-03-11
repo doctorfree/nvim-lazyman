@@ -97,6 +97,15 @@ return {
     end,
   },
 
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+
+  -- formatters
+
   -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
