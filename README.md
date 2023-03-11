@@ -237,15 +237,7 @@ printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
   nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
 }
 printf "done\n"
-# Not yet working
-# [ "${nvimdir}" == "nvim-lazyman" ] && {
-#   printf "\nCompiling and installing Mason packages, please be patient ... "
-#   [ "${tellme}" ] || {
-#     nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' \
-#                     -c 'MasonUpdateAll' > /dev/null 2>&1
-#   }
-#   printf "done\n"
-# }
+
 [ "${nvimdir}" == "nvim" ] || {
   printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
   if [ "${lazyvim}" ]
@@ -365,8 +357,9 @@ Without arguments install and initialize nvim-lazyman
 
 #### Mason
 
-The first time `nvim` is executed Mason will install several packages
-required by the new Neovim configuration. Please be patient.
+The first time `nvim` is executed Mason will install several packages required
+by the new Neovim configuration. Please be patient. If you exit Neovim prior
+to completion of the Mason installs, it will resume the next session.
 
 #### Health check
 
