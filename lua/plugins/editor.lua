@@ -47,13 +47,13 @@ return {
   treetype,
 
   -- search/replace in multiple files
-  {
-    "windwp/nvim-spectre",
-    -- stylua: ignore
-    keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-    },
-  },
+  -- {
+  --   "windwp/nvim-spectre",
+  --   -- stylua: ignore
+  --   keys = {
+  --     { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+  --   },
+  -- },
 
   -- fuzzy finder
   {
@@ -169,43 +169,17 @@ return {
     },
   },
 
-  -- easily jump to any location and enhanced f/t motions for Leap
-  {
-    "ggandor/flit.nvim",
-    keys = function()
-      ---@type LazyKeys[]
-      local ret = {}
-      for _, key in ipairs({ "f", "F", "t", "T" }) do
-        ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
-      end
-      return ret
-    end,
-    opts = { labeled_modes = "nx" },
-  },
-  {
-    "ggandor/leap.nvim",
-    keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-    },
-    config = function(_, opts)
-      local leap = require("leap")
-      for k, v in pairs(opts) do
-        leap.opts[k] = v
-      end
-      leap.add_default_mappings(true)
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
-    end,
-  },
-
   -- which-key
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      plugins = { spelling = true },
+      plugins = {
+        spelling = {
+          enabled = true,
+          suggestions = 20,
+        },
+      },
     },
     config = function(_, opts)
       local wk = require("which-key")
@@ -304,15 +278,43 @@ return {
     },
   },
 
-  -- buffer remove
   {
-    "echasnovski/mini.bufremove",
-    -- stylua: ignore
-    keys = {
-      { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-      { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
-    },
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        relculright = false,
+        ft_ignore = { "neo-tree" },
+        segments = {
+          {
+            -- line number
+            text = { builtin.lnumfunc },
+            condition = { true, builtin.not_empty },
+            click = "v:lua.ScLa",
+          },
+          { text = { "%s" },      click = "v:lua.ScSa" }, -- Sign
+          { text = { "%C", " " }, click = "v:lua.ScFa" }, -- Fold
+        },
+      })
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        callback = function()
+          if vim.bo.filetype == "neo-tree" then
+            vim.opt_local.statuscolumn = ""
+          end
+        end,
+      })
+    end,
   },
+
+  -- buffer remove
+  -- {
+  --   "echasnovski/mini.bufremove",
+  --   -- stylua: ignore
+  --   keys = {
+  --     { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+  --     { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
+  --   },
+  -- },
 
   -- better diagnostics list and others
   {

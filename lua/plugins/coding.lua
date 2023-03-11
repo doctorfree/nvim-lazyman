@@ -91,17 +91,18 @@ return {
     end,
     opts = {
       mappings = {
-        add = "gza", -- Add surrounding in Normal and Visual modes
-        delete = "gzd", -- Delete surrounding
-        find = "gzf", -- Find surrounding (to the right)
-        find_left = "gzF", -- Find surrounding (to the left)
-        highlight = "gzh", -- Highlight surrounding
-        replace = "gzr", -- Replace surrounding
-        update_n_lines = "gzn", -- Update `n_lines`
+        add = 'sa', -- Add surrounding in Normal and Visual modes
+        delete = 'sd', -- Delete surrounding
+        find = 'sf', -- Find surrounding (to the right)
+        find_left = 'sF', -- Find surrounding (to the left)
+        highlight = 'sh', -- Highlight surrounding
+        replace = 'sr', -- Replace surrounding
+        update_n_lines = 'sn', -- Update `n_lines`
+        suffix_last = 'l', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
       },
     },
     config = function(_, opts)
-      -- use gz mappings instead of s to prevent conflict with leap
       require("mini.surround").setup(opts)
     end,
   },
@@ -112,6 +113,14 @@ return {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     opts = {
+      options = {
+        ignore_blank_line = false,
+      },
+      mappings = {
+        comment = 'mc',
+        comment_line = 'ml',
+        textobject = 'mt',
+      },
       hooks = {
         pre = function()
           require("ts_context_commentstring.internal").update_commentstring({})
@@ -121,6 +130,28 @@ return {
     config = function(_, opts)
       require("mini.comment").setup(opts)
     end,
+  },
+
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    lazy = true,
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    opts = {
+      floating_window = false, -- show hint in a floating window, set to false for virtual text only mode
+      floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
+      hint_scheme = "Comment", -- highlight group for the virtual text
+    },
+  },
+
+  {
+    "glepnir/lspsaga.nvim",
+    lazy = true,
+    config = function()
+      require("config.lspsaga")
+    end
   },
 
 }

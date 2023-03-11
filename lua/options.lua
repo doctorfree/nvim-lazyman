@@ -1,5 +1,4 @@
 local settings = require('configuration')
-local config = settings.config
 local utils = require('utils.functions')
 local o = vim.opt
 local fn = vim.fn

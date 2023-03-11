@@ -196,7 +196,7 @@ quit_btn.opts.hl = 'AlphaShortcut'
 -- Neovim Configuration
 local health_btn = dashboard.button('h', '  Neovim Health', ':checkhealth<CR>')
 health_btn.opts.hl = 'AlphaHeader'
-local settings_btn = dashboard.button('s', '  Nvim-Multi Config', ':e ' .. configuration_lua .. '<CR>')
+local settings_btn = dashboard.button('s', '  Nvim-Lazyman Config', ':e ' .. configuration_lua .. '<CR>')
 settings_btn.opts.hl = 'AlphaHeader'
 local options_btn = dashboard.button('o', '  Neovim Options', ':e ' .. options_lua .. '<CR>')
 options_btn.opts.hl = 'AlphaHeader'

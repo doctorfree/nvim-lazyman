@@ -169,6 +169,8 @@ fi
 printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
 [ "${tellme}" ] || {
   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+  sleep 1
+  nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
 }
 printf "done\n"
 # Not yet working
