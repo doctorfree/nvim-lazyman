@@ -170,6 +170,9 @@ fi
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
+    cd $HOME/.config/${lazymandir}
+	git checkout dev
+	cd
   }
   printf "done"
 }
