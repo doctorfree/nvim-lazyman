@@ -268,7 +268,7 @@ export PATH'
 
 install_neovim_dependencies () {
   log "Installing dependencies ..."
-  PKGS="git lazygit fd ripgrep fzf tmux go node"
+  PKGS="git lazygit fd ripgrep fzf tmux go node zoxide"
   for pkg in ${PKGS}
   do
     if [ "${debug}" ]
