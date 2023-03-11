@@ -1,13 +1,12 @@
 #!/bin/bash
 #
-# install.sh - install and initialize Lazy Neovim configurations
+# lazyman - install and initialize Lazy Neovim configurations
 #
-# curl -fsS \
-#   https://raw.githubusercontent.com/doctorfree/nvim-lazyman/dev/install.sh \
-#   | bash
+# Written by Ronald Record <ronaldrecord@gmail.com>
+#
 
 usage() {
-  printf "\nUsage: install.sh [-a] [-l] [-m] [-n] [-q] [-rR] [-y] [-u]"
+  printf "\nUsage: lazyman [-a] [-l] [-m] [-n] [-q] [-rR] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
   printf "\n\t-l indicates install and initialize LazyVim"

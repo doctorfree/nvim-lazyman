@@ -174,21 +174,24 @@ install_brew () {
 
 install_neovim_dependencies () {
   log "Installing dependencies ..."
-  PKGS="git lazygit fd ripgrep fzf xclip zoxide"
+  PKGS="git curl tar unzip lazygit fd ripgrep fzf xclip zoxide"
   for pkg in ${PKGS}
   do
-    if [ "${debug}" ]
-    then
-      START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${pkg}
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-      printf "\nInstall ${pkg} elapsed time = %s${ELAPSED}\n"
-    else
-      ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
-    fi
-#   [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
+	have_pkg=$(type -p ${pkg})
+	[ "${have_pkg}" ] || {
+      if [ "${debug}" ]
+      then
+        START_SECONDS=$(date +%s)
+        ${BREW_EXE} install ${pkg}
+        FINISH_SECONDS=$(date +%s)
+        ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+        ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+        printf "\nInstall ${pkg} elapsed time = %s${ELAPSED}\n"
+      else
+        ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
+        [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
+      fi
+	}
   done
   printf " done"
 }
@@ -297,14 +300,6 @@ install_tools() {
 main () {
   check_prerequisites
   install_brew
-  log "Installing common packages ..."
-  local common_packages="git curl gip tar unzip"
-  for pkg in ${common_packages}
-  do
-    ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
-    [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
-  done
-  printf " done\n"
   install_neovim_dependencies
   install_neovim_head
   install_tools
