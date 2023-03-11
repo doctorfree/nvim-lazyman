@@ -250,7 +250,21 @@ return {
   {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
-    opts = { delay = 200 },
+    opts = {
+      filetypes_denylist = {
+        "dirvish",
+        "fugitive",
+        "alpha",
+        "NvimTree",
+        "neo-tree",
+        "dashboard",
+        "TelescopePrompt",
+        "TelescopeResult",
+        "DressingInput",
+        "",
+      },
+      delay = 200,
+    },
     config = function(_, opts)
       require("illuminate").configure(opts)
 
@@ -277,6 +291,7 @@ return {
       { "[[", desc = "Prev Reference" },
     },
   },
+
 
   {
     "luukvbaal/statuscol.nvim",

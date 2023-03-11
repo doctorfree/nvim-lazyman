@@ -1,14 +1,12 @@
+local settings = require("configuration")
+
 return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
-      ensure_installed = {
-        "stylua",
-        "shfmt",
-        "flake8",
-      },
+      ensure_installed = settings.mason_tool_installer_ensure_installed,
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
@@ -31,6 +29,7 @@ return {
         "prettier",
         "stylua",
         "google_java_format",
+        "jq",
         "black",
         "sql_formatter",
       },

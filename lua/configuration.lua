@@ -57,30 +57,54 @@ M.disable_dashboard_quick_links = false
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
   "bash",
-  "c",
-  "cpp",
   "cmake",
-  "comment",
   "css",
+  "dockerfile",
   "go",
   "help",
   "html",
   "java",
   "javascript",
-  "typescript",
   "json",
   "lua",
+  "luap",
   "markdown",
   "markdown_inline",
   "query",
   "python",
   "regex",
-  "rust",
   "toml",
-  "tsx",
+  "typescript",
   "vim",
   "yaml",
-  "vue",
+}
+
+-- Tools that should be installed by Mason(-tool-install)
+M.mason_tool_installer_ensure_installed = {
+  -- LSP
+  "bash-language-server",
+  "dockerfile-language-server",
+  "json-lsp",
+  "marksman",
+  "typescript-language-server",
+  "texlab",
+  "ltex-ls",
+  "lua-language-server",
+  "pyright",
+  "terraform-ls",
+  "yaml-language-server",
+  -- Formatter
+  "black",
+  "prettier",
+  "stylua",
+  "shfmt",
+  -- Linter
+  "eslint_d",
+  "shellcheck",
+  "tflint",
+  "yamllint",
+  -- DAP
+  "debugpy",
 }
 
 -- enable greping in hidden files

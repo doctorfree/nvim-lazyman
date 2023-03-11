@@ -1,7 +1,7 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  event = "BufReadPost",
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-endwise",
@@ -17,7 +17,7 @@ local M = {
       highlight = {
         enable = true, -- false will disable the whole extension
         disable = {}, -- list of language that will be disabled
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
       },
       incremental_selection = {
         enable = true,

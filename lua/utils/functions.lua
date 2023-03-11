@@ -24,7 +24,7 @@ end
 M.notify = function(message, level, title)
   local notify_options = {
     title = title,
-    timeout = 2000,
+    timeout = 3000,
   }
   vim.api.nvim_notify(message, level, notify_options)
 end
