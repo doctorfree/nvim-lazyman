@@ -8,7 +8,7 @@ When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
 and managed using the `NVIM_APPNAME` environment variable.
 
-Currently only these Neovim configurations are supported:
+Currently the following Neovim configurations are supported:
 
 - [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
     - This Neovim configuration
@@ -28,6 +28,7 @@ Additional Lazy Neovim configurations will be added over time.
     - [Quickstart](#quickstart)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
+- [Motivation](#motivation)
 - [Usage](#usage)
 - [Notes](#notes)
     - [Mason](#mason)
@@ -46,6 +47,12 @@ This one-liner will install and initialize `nvim-lazyman` on all versions of Neo
 
 ```bash
 curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/install.sh | bash
+```
+Alternatively, clone the repository and execute `install.sh`:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
+$HOME/.config/nvim-lazyman/install.sh
 ```
 
 The convenience script to install and initialize `nvim-lazyman` is provided at
@@ -327,18 +334,27 @@ nvim --headless "+Lazy! install" +qa
 nvim
 ```
 
+### Motivation
+
+The motivation for creating this project was primarily to provide an easy way
+to try out various Neovim configurations available in Github repositories.
+
+In addition to serving as an easy tool for quickly setting up and trying out
+Lazy based Neovim configurations, `lazyman` can be used to setup and manage
+Neovim configurations tailored for specific purposes.
+
 ### Usage
 
 The [install.sh](install.sh) script is located in `~/.config/nvim-lazyman`.
-This script can be used to install and initialize multiple Neovim configurations.
-For example, to install and initialize the LazyVim starter configuration
-execute the command:
+It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is
+in your execution `PATH` then `lazyman` can be executed from the command
+line as simply `lazyman`.
 
-```bash
-~/.config/nvim-lazyman/install.sh -l
-```
+The `lazyman` command can be used to install and initialize multiple Neovim
+configurations. For example, to install and initialize the LazyVim starter
+configuration execute the command `lazyman -l`:
 
-The usage message for `install.sh`:
+The usage message for `lazyman`:
 
 ```
 Usage: install.sh [-l] [-m] [-n] [-r] [-y] [-u]
