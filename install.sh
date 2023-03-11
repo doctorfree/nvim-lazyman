@@ -127,17 +127,25 @@ remove_config() {
   }
 }
 
-have_git=$(type -p git)
-have_nvim=$(type -p nvim)
-[ "${have_git}" ] || {
-  echo "Install script requires git but git not found"
-  echo "Please install git and retry this install script"
-  usage
-}
-[ "${have_nvim}" ] || {
-  echo "Install script requires neovim but nvim not found"
-  echo "Please install neovim and retry this install script"
-  usage
+set_brew() {
+  if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]
+  then
+    HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
+  else
+    if [ -x /usr/local/bin/brew ]
+    then
+      HOMEBREW_HOME="/usr/local"
+    else
+      if [ -x /opt/homebrew/bin/brew ]
+      then
+        HOMEBREW_HOME="/opt/homebrew"
+      else
+        printf "\nHomebrew brew executable could not be located\n"
+        usage
+      fi
+    fi
+  fi
+  BREW_EXE="${HOMEBREW_HOME}/bin/brew"
 }
 
 all=
@@ -204,6 +212,37 @@ done
     remove_config ${neovim}
   done
   exit 0
+}
+
+have_git=$(type -p git)
+have_nvim=$(type -p nvim)
+[ "${have_git}" ] || {
+  echo "Install script requires git but git not found"
+  echo "Please install git and retry this install script"
+  usage
+}
+[ "${have_nvim}" ] || {
+  echo "Install script requires neovim but nvim not found"
+  if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
+  then
+    ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh
+    BREW_EXE=
+    set_brew
+    [ -x ${BREW_EXE} ] || {
+      echo "Homebrew brew executable not in PATH"
+      usage
+    }
+    eval "$(${BREW_EXE} shellenv)"
+    have_nvim=$(type -p nvim)
+    [ "${have_nvim}" ] || {
+      echo "Still cannot find neovim even after Homebrew install"
+      echo "Something went wrong, install neovim and retry this install script"
+      usage
+    }
+  else
+    echo "Please install neovim and retry this install script"
+    usage
+  fi
 }
 
 nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
