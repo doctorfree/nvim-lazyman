@@ -154,7 +154,7 @@ nvimdir="${lazymandir}"
 while getopts "almnrRyu" flag; do
     case $flag in
         a)
-		    all=1
+            all=1
             lazyvim=1
             multivim=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir}"
@@ -212,7 +212,7 @@ if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
   [ "${all}" ] && {
     echo "Installation of all supported Neovim configurations is not supported"
     echo "with Neovim version less than 0.9. Exiting without installing."
-	usage
+    usage
   }
   have_appname=
   nvimdir="nvim"
@@ -222,6 +222,7 @@ fi
 
 for neovim in ${nvimdir}
 do
+  [ "${neovim}" == "${lazymandir}" ] && continue
   create_backups ${neovim}
 done
 
@@ -243,22 +244,28 @@ done
   }
   printf "done"
 }
-[ -d $HOME/.config/${lazymandir} ] || {
+if [ -d $HOME/.config/${lazymandir} ]
+then
+  cd $HOME/.config/${lazymandir}
+  git checkout dev
+  git pull
+  cd
+else
   printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
     cd $HOME/.config/${lazymandir}
-	git checkout dev
-	cd
+    git checkout dev
+    cd
     [ "${have_appname}" ] || {
       [ "${lazyvim}" ] || [ "${multivim}" ] || {
-	    ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
-	  }
-	}
+        ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
+      }
+    }
   }
   printf "done"
-}
+fi
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
