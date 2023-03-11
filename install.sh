@@ -7,13 +7,14 @@
 #   | bash
 
 usage() {
-  printf "\nUsage: install.sh [-a] [-l] [-m] [-n] [-r] [-y] [-u]"
+  printf "\nUsage: install.sh [-a] [-l] [-m] [-n] [-rR] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-r indicates remove the previously installed configuration"
+  printf "\n\t-R indicates remove previously installed configuration and backups"
   printf "\n\t-y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n\t-u displays this usage message and exits"
   printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
@@ -72,10 +73,17 @@ remove_config() {
       esac
     done
   }
+
   [ -d $HOME/.config/${ndir} ] && {
     echo "Removing existing ${ndir} config at $HOME/.config/${ndir}"
     [ "${tellme}" ] || {
       rm -rf $HOME/.config/${ndir}
+    }
+  }
+  [ "${removeall}" ] && {
+    echo "Removing any ${ndir} config backups"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.config/${ndir}-bak*
     }
   }
 
@@ -85,6 +93,12 @@ remove_config() {
       rm -rf $HOME/.local/share/${ndir}
     }
   }
+  [ "${removeall}" ] && {
+    echo "Removing any ${ndir} plugins backups"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.local/share/${ndir}-bak*
+    }
+  }
 
   [ -d $HOME/.local/state/${ndir} ] && {
     echo "Removing existing ${ndir} state at $HOME/.local/state/${ndir}"
@@ -92,10 +106,23 @@ remove_config() {
       rm -rf $HOME/.local/state/${ndir}
     }
   }
+  [ "${removeall}" ] && {
+    echo "Removing any ${ndir} state backups"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.local/state/${ndir}-bak*
+    }
+  }
+
   [ -d $HOME/.cache/${ndir} ] && {
     echo "Removing existing ${ndir} cache at $HOME/.cache/${ndir}"
     [ "${tellme}" ] || {
       rm -rf $HOME/.cache/${ndir}
+    }
+  }
+  [ "${removeall}" ] && {
+    echo "Removing any ${ndir} cache backups"
+    [ "${tellme}" ] || {
+      rm -rf $HOME/.cache/${ndir}-bak*
     }
   }
 }
@@ -119,11 +146,12 @@ lazyvim=
 multivim=
 proceed=
 remove=
+removeall=
 lazymandir="nvim-lazyman"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "almnryu" flag; do
+while getopts "almnrRyu" flag; do
     case $flag in
         a)
 		    all=1
@@ -144,6 +172,10 @@ while getopts "almnryu" flag; do
             ;;
         r)
             remove=1
+            ;;
+        R)
+            remove=1
+            removeall=1
             ;;
         y)
             proceed=1
