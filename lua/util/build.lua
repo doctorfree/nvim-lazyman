@@ -35,7 +35,7 @@ function M.keymaps()
   group = "General"
   dofile(root .. "/lua/config/keymaps.lua")
   group = "LSP"
-  local lsp = dofile(root .. "/lua/plugins/lsp/keymaps.lua")
+  local lsp = dofile(root .. "/lua/config/lsp/keymaps.lua")
   for _, keys in ipairs(lsp.get()) do
     map(keys.mode or "n", keys[1], keys[2], keys)
   end

@@ -3,8 +3,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     branch = "master",
-    lazy = true,
-    event = "VeryLazy",
+    lazy = false,
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
