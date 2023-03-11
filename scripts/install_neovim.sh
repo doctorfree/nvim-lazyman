@@ -8,8 +8,6 @@
 #
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
-OS=""
-DIST=""
 DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
 
@@ -33,73 +31,9 @@ check_prerequisites () {
     abort "Script must not be run as root user"
   fi
 
-  command -v sudo > /dev/null 2>&1 || { abort "sudo not found - please install"; }
-
   arch=$(uname -m)
   if [[ $arch =~ "arm" || $arch =~ "aarch64" ]]; then
     abort "Only amd64/x86_64 is supported"
-  fi
-}
-
-get_os () {
-  if [[ "$OSTYPE" =~ "darwin"* ]]; then
-    OS="apple"
-  elif [[ "$OSTYPE" =~ "linux" ]]; then
-    OS="linux"
-  fi
-}
-
-get_linux_distribution () {
-  local release
-  release=$(cat /etc/*-release)
-  if [[ "$release" =~ "Debian" ]]; then
-    DIST="debian"
-  elif [[ "$release" =~ "Ubuntu" ]]; then
-    DIST="ubuntu"
-  elif [[ "$release" =~ "Arch" ]]; then
-    DIST="arch"
-  elif [ -f /etc/os-release ]
-  then
-    . /etc/os-release
-    [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && {
-      DIST="debian"
-      debian=1
-    }
-    [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && {
-      DIST="arch"
-      arch=1
-    }
-    [ "${ID}" == "fedora" ] && {
-      DIST="fedora"
-      fedora=1
-    }
-    [ "${arch}" ] || [ "${debian}" ] || [ "${fedora}" ] || {
-      echo "${ID_LIKE}" | grep debian > /dev/null && debian=1
-    }
-  else
-    if [ -f /etc/arch-release ]
-    then
-      DIST="arch"
-    else
-      have_apt=$(type -p apt)
-      if [ "${have_apt}" ]
-      then
-        DIST="debian"
-      else
-        if [ -f /etc/fedora-release ]
-        then
-          DIST="fedora"
-        else
-          have_dnf=$(type -p dnf)
-          if [ "${have_dnf}" ]
-          then
-            DIST="fedora"
-          else
-            abort "Unknown operating system distribution"
-          fi
-        fi
-      fi
-    fi
   fi
 }
 
@@ -362,59 +296,17 @@ install_tools() {
 
 main () {
   check_prerequisites
+  install_brew
+  log "Installing common packages ..."
   local common_packages="git curl gip tar unzip"
-  get_os
-  if [[ $OS == "linux" ]]; then
-    get_linux_distribution
-    if [[ $DIST == "debian" || $DIST == "ubuntu" ]]; then
-      log "Updating package database ..."
-      sudo apt -q -y update > /dev/null 2>&1
-      printf " done"
-      log "Installing common packages ..."
-      sudo apt -q -y install build-essential ${common_packages} > /dev/null 2>&1
-      printf " done"
-      install_brew
-      install_neovim_dependencies
-      install_neovim_head
-    elif [[ $DIST == "arch" ]]; then
-      log "Updating package database ..."
-      sudo pacman -Sy --noconfirm > /dev/null 2>&1
-      printf " done"
-      log "Installing common packages ..."
-      sudo pacman -S --noconfirm base-devel ${common_packages} > /dev/null 2>&1
-      printf " done"
-      install_brew
-      install_neovim_dependencies
-      install_neovim_head
-    elif [[ $DIST == "fedora" ]]; then
-      log "Updating package database ..."
-      sudo dnf --assumeyes --quiet update > /dev/null 2>&1
-      printf " done"
-      log "Installing common packages ..."
-      sudo dnf --assumeyes --quiet groupinstall "Development Tools" > /dev/null 2>&1
-      sudo dnf --assumeyes --quiet install ${common_packages} > /dev/null 2>&1
-      printf " done"
-      install_brew
-      install_neovim_dependencies
-      install_neovim_head
-    fi
-  elif [[ $OS == "apple" ]];then
-    have_xcode=`type -p xcode-select`
-    [ "${have_xcode}" ] || abort "Xcode must be installed. See the App store."
-    xcode-select -p > /dev/null 2>&1
-    [ $? -eq 0 ] || xcode-select --install
-    install_brew
-    log "Installing common packages ..."
-    for pkg in ${common_packages}
-    do
-      ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
-      [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
-    done
-    printf " done"
-    install_neovim_dependencies
-    install_neovim_head
-  fi
-  printf "\n"
+  for pkg in ${common_packages}
+  do
+    ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
+    [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
+  done
+  printf " done\n"
+  install_neovim_dependencies
+  install_neovim_head
   install_tools
 }
 
