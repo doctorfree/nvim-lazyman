@@ -228,6 +228,15 @@ done
   printf "done"
 }
 
+currlimit=$(ulimit -n)
+hardlimit=$(ulimit -Hn)
+if [ ${hardlimit} -gt 4096 ]
+then
+  [ "${tellme}" ] || ulimit -n 4096
+else
+  [ "${tellme}" ] || ulimit -n ${hardlimit}
+fi
+
 for neovim in ${nvimdir}
 do
   printf "\nInitializing newly installed ${neovim} Neovim configuration ... "
@@ -239,6 +248,9 @@ do
   }
   printf "done\n"
 done
+
+[ "${tellme}" ] || ulimit -n ${currlimit}
+
 # [ "${nvimdir}" == "nvim-lazyman" ] && {
 #   printf "\nCompiling and installing Mason packages, please be patient ... "
 #   [ "${tellme}" ] || {
