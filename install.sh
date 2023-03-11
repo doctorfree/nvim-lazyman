@@ -305,6 +305,11 @@ if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
     echo "with Neovim version less than 0.9. Exiting without installing."
     usage
   }
+  [ "${quiet}" ] || {
+    echo "Detected Neovim version ${nvim_version} does not support the"
+    echo "NVIM_APPNAME environment variable. To utilize the full functionality"
+    echo "of the lazyman Lazy Neovim Manager, upgrade to Neovim 0.9 or later."
+  }
   have_appname=
   nvimdir="nvim"
 else
@@ -394,6 +399,22 @@ do
     printf "done\n"
   }
 done
+
+[ "${quiet}" ] || {
+  echo "Installing lazyman command in $HOME/.local/bin"
+}
+[ "${tellme}" ] || {
+  [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
+  [ -f $HOME/.config/nvim-lazyman/install.sh ] && {
+    cp $HOME/.config/nvim-lazyman/install.sh $HOME/.local/bin/lazyman
+    chmod 755 $HOME/.local/bin/lazyman
+    [ "${quiet}" ] || {
+      echo "Use $HOME/.local/bin/lazyman to explore Lazy Neovim configurations."
+      echo "The lazyman usage message is as follows:"
+      $HOME/.local/bin/lazyman -u
+    }
+  }
+}
 
 [ "${tellme}" ] || ulimit -n ${currlimit}
 
