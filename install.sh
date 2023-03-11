@@ -1,6 +1,10 @@
 #!/bin/bash
 #
 # install.sh - install and initialize Lazy Neovim configurations
+#
+# curl -fsS \
+#   https://raw.githubusercontent.com/doctorfree/nvim-lazyman/dev/install.sh \
+#   | bash
 
 usage() {
   printf "\nUsage: install.sh [-a] [-l] [-m] [-n] [-r] [-y] [-u]"
