@@ -176,13 +176,13 @@ fi
   }
   printf "done"
 }
-printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
-[ "${tellme}" ] || {
-  nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
-  nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-  nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-}
-printf "done\n"
+# printf "\nInitializing newly installed ${nvimdir} Neovim configuration ... "
+# [ "${tellme}" ] || {
+#   nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+#   nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
+#   nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+# }
+# printf "done\n"
 # Not yet working
 # [ "${nvimdir}" == "nvim-lazyman" ] && {
 #   printf "\nCompiling and installing Mason packages, please be patient ... "
