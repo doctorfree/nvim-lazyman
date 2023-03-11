@@ -194,15 +194,8 @@ while getopts "almnrRyu" flag; do
     esac
 done
 
-[ "${all}" ] && {
-  [ "${lazyvim}" ] || [ "${multivim}" ] && {
-    echo "The -a option (all configs) cannot be used in conjunction with -l or -m"
-    usage
-  }
-}
-
 [ "${nvimdir}" ] || {
-  echo "Something went wrong. Exiting."
+  echo "Something went wrong, nvimdir not set. Exiting."
   usage
 }
 
@@ -212,6 +205,13 @@ done
     remove_config ${neovim}
   done
   exit 0
+}
+
+[ "${all}" ] && {
+  [ "${lazyvim}" ] || [ "${multivim}" ] && {
+    echo "The -a option (all configs) cannot be used in conjunction with -l or -m"
+    usage
+  }
 }
 
 have_git=$(type -p git)
