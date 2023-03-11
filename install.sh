@@ -255,7 +255,6 @@ have_git=$(type -p git)
 
 if [ -d $HOME/.config/${lazymandir} ]
 then
-  git -C $HOME/.config/${lazymandir} checkout dev > /dev/null 2>&1
   git -C $HOME/.config/${lazymandir} pull > /dev/null 2>&1
 else
   [ "${quiet}" ] || {
@@ -264,7 +263,6 @@ else
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
-    git -C $HOME/.config/${lazymandir} checkout dev > /dev/null 2>&1
   }
   [ "${quiet}" ] || printf "done"
 fi
