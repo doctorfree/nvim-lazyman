@@ -240,7 +240,7 @@ install_brew () {
 
 install_neovim_dependencies () {
   log "Installing dependencies ..."
-  PKGS="git lazygit fd ripgrep fzf zoxide"
+  PKGS="git lazygit fd ripgrep fzf xclip zoxide"
   for pkg in ${PKGS}
   do
     if [ "${debug}" ]
@@ -288,7 +288,7 @@ check_python () {
   then
     PYTHON="${brew_dir}/python3"
   else
-    PYTHON=
+    PYTHON=$(command -v python3)
   fi
 }
 
