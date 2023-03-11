@@ -215,12 +215,27 @@ done
 }
 
 have_git=$(type -p git)
-have_nvim=$(type -p nvim)
 [ "${have_git}" ] || {
   echo "Install script requires git but git not found"
   echo "Please install git and retry this install script"
   usage
 }
+
+if [ -d $HOME/.config/${lazymandir} ]
+then
+  git -C $HOME/.config/${lazymandir} checkout dev
+  git -C $HOME/.config/${lazymandir} pull
+else
+  printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
+    git -C $HOME/.config/${lazymandir} checkout dev
+  }
+  printf "done"
+fi
+
+have_nvim=$(type -p nvim)
 [ "${have_nvim}" ] || {
   echo "Install script requires neovim but nvim not found"
   if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
@@ -258,6 +273,11 @@ if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
 else
   have_appname=1
 fi
+[ "${have_appname}" ] || {
+  [ "${lazyvim}" ] || [ "${multivim}" ] || {
+    ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
+  }
+}
 
 for neovim in ${nvimdir}
 do
@@ -283,24 +303,6 @@ done
   }
   printf "done"
 }
-if [ -d $HOME/.config/${lazymandir} ]
-then
-  git -C $HOME/.config/${lazymandir} checkout dev
-  git -C $HOME/.config/${lazymandir} pull
-else
-  printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
-    git -C $HOME/.config/${lazymandir} checkout dev
-    [ "${have_appname}" ] || {
-      [ "${lazyvim}" ] || [ "${multivim}" ] || {
-        ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
-      }
-    }
-  }
-  printf "done"
-fi
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
