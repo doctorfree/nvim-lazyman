@@ -6,7 +6,7 @@
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-q]"
+  printf "\nUsage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-P] [-q]"
   printf "\n               [-rR] [-U url] [-N nvimdir] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
@@ -14,6 +14,7 @@ usage() {
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
+  printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-R indicates remove previously installed configuration and backups"
@@ -182,6 +183,7 @@ debug=
 tellme=
 lazyvim=
 multivim=
+packer=
 proceed=
 quiet=
 remove=
@@ -192,7 +194,7 @@ lazymandir="nvim-lazyman"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "ab:dlmnqrRU:N:yu" flag; do
+while getopts "ab:dlmnPqrRU:N:yu" flag; do
     case $flag in
         a)
             all=1
@@ -216,6 +218,9 @@ while getopts "ab:dlmnqrRU:N:yu" flag; do
             ;;
         n)
             tellme=1
+            ;;
+        P)
+            packer=1
             ;;
         q)
             quiet=1
@@ -242,14 +247,12 @@ while getopts "ab:dlmnqrRU:N:yu" flag; do
     esac
 done
 
+[ "${name}" ] && nvimdir="${name}"
 [ "${url}" ] && {
-  if [ "${name}" ]
-  then
-	nvimdir="${name}"
-  else
-	echo "ERROR: '-U url' must be accompanied with '-N nvimdir'"
-	usage
-  fi
+  [ "${name}" ] || {
+    echo "ERROR: '-U url' must be accompanied with '-N nvimdir'"
+    usage
+  }
 }
 
 [ "${nvimdir}" ] || {
@@ -390,6 +393,13 @@ done
   [ "${quiet}" ] || printf "done"
 }
 
+[ "${packer}" ] && {
+  PACKER="$HOME/.local/share/${nvimdir}/site/pack/packer/start/packer.nvim"
+  [ -d "${PACKER}" ] || {
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim "${PACKER}"
+  }
+}
+
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 if [ ${hardlimit} -gt 4096 ]
@@ -408,15 +418,27 @@ do
   [ "${tellme}" ] || {
     if [ "${debug}" ]
     then
-      nvim --headless "+Lazy! sync" +qa
-      nvim --headless "+Lazy! update" +qa
-      nvim --headless "+Lazy! install" +qa
+      if [ "${packer}" ]
+      then
+        nvim --headless "+PackerSync" +qa
+        nvim --headless "+PackerInstall" +qa
+      else
+        nvim --headless "+Lazy! sync" +qa
+        nvim --headless "+Lazy! update" +qa
+        nvim --headless "+Lazy! install" +qa
+      fi
     else
-      nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-      nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-      nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+      if [ "${packer}" ]
+      then
+        nvim --headless "+PackerSync" +qa > /dev/null 2>&1
+        nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
+      else
+        nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+        nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
+        nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+      fi
     fi
-    nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
+    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
   [ "${quiet}" ] || {
     printf "done\n"
