@@ -295,6 +295,20 @@ install_tools() {
   if command -v cargo >/dev/null 2>&1; then
     cargo install rnix-lsp > /dev/null 2>&1
   fi
+  GHUC="https://raw.githubusercontent.com"
+  JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
+  [ "${quiet}" ] || printf "\nInstalling JetBrains Mono font ... "
+  curl -fsSL "${JETB_URL}" > /tmp/jetb-$$.sh
+  [ $? -eq 0 ] || {
+    rm -f /tmp/jetb-$$.sh
+    curl -kfsSL "${JETB_URL}" > /tmp/jetb-$$.sh
+  }
+  [ -f /tmp/jetb-$$.sh ] && {
+    chmod 755 /tmp/jetb-$$.sh
+    /bin/bash -c "/tmp/jetb-$$.sh" > /dev/null 2>&1
+    rm -f /tmp/jetb-$$.sh
+  }
+  [ "${quiet}" ] || printf "done"
 }
 
 main () {

@@ -6,15 +6,19 @@
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-l] [-m] [-n] [-q] [-rR] [-y] [-u]"
+  printf "\nUsage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-q]"
+  printf "\n               [-rR] [-U url] [-N nvimdir] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
+  printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-q indicates quiet install"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-R indicates remove previously installed configuration and backups"
+  printf "\n\t-U 'url' specifies a URL to a Neovim configuration git repository"
+  printf "\n\t-N 'nvimdir' specifies the folder name to use for the config given by -U"
   printf "\n\t-y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n\t-u displays this usage message and exits"
   printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
@@ -26,7 +30,7 @@ create_backups() {
   [ -d $HOME/.config/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Backing up existing ${ndir} config as $HOME/.config/${ndir}-bak$$"
-	}
+    }
     [ "${tellme}" ] || {
       mv $HOME/.config/${ndir} $HOME/.config/${ndir}-bak$$
     }
@@ -35,7 +39,7 @@ create_backups() {
   [ -d $HOME/.local/share/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Backing up existing ${ndir} plugins as $HOME/.local/share/${ndir}-bak$$"
-	}
+    }
     [ "${tellme}" ] || {
       mv $HOME/.local/share/${ndir} $HOME/.local/share/${ndir}-bak$$
     }
@@ -44,7 +48,7 @@ create_backups() {
   [ -d $HOME/.local/state/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Backing up existing ${ndir} state as $HOME/.local/state/${ndir}-bak$$"
-	}
+    }
     [ "${tellme}" ] || {
       mv $HOME/.local/state/${ndir} $HOME/.local/state/${ndir}-bak$$
     }
@@ -52,7 +56,7 @@ create_backups() {
   [ -d $HOME/.cache/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Backing up existing ${ndir} cache as $HOME/.cache/${ndir}-bak$$"
-	}
+    }
     [ "${tellme}" ] || {
       mv $HOME/.cache/${ndir} $HOME/.cache/${ndir}-bak$$
     }
@@ -85,7 +89,7 @@ remove_config() {
   [ -d $HOME/.config/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Removing existing ${ndir} config at $HOME/.config/${ndir}"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.config/${ndir}
     }
@@ -93,7 +97,7 @@ remove_config() {
   [ "${removeall}" ] && {
     [ "${quiet}" ] || {
       echo "Removing any ${ndir} config backups"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.config/${ndir}-bak*
     }
@@ -102,7 +106,7 @@ remove_config() {
   [ -d $HOME/.local/share/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Removing existing ${ndir} plugins at $HOME/.local/share/${ndir}"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.local/share/${ndir}
     }
@@ -110,7 +114,7 @@ remove_config() {
   [ "${removeall}" ] && {
     [ "${quiet}" ] || {
       echo "Removing any ${ndir} plugins backups"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.local/share/${ndir}-bak*
     }
@@ -119,7 +123,7 @@ remove_config() {
   [ -d $HOME/.local/state/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Removing existing ${ndir} state at $HOME/.local/state/${ndir}"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.local/state/${ndir}
     }
@@ -127,7 +131,7 @@ remove_config() {
   [ "${removeall}" ] && {
     [ "${quiet}" ] || {
       echo "Removing any ${ndir} state backups"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.local/state/${ndir}-bak*
     }
@@ -136,7 +140,7 @@ remove_config() {
   [ -d $HOME/.cache/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Removing existing ${ndir} cache at $HOME/.cache/${ndir}"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.cache/${ndir}
     }
@@ -144,7 +148,7 @@ remove_config() {
   [ "${removeall}" ] && {
     [ "${quiet}" ] || {
       echo "Removing any ${ndir} cache backups"
-	}
+    }
     [ "${tellme}" ] || {
       rm -rf $HOME/.cache/${ndir}-bak*
     }
@@ -173,6 +177,7 @@ set_brew() {
 }
 
 all=
+branch=
 debug=
 tellme=
 lazyvim=
@@ -181,17 +186,22 @@ proceed=
 quiet=
 remove=
 removeall=
+url=
+name=
 lazymandir="nvim-lazyman"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "adlmnqrRyu" flag; do
+while getopts "ab:dlmnqrRU:N:yu" flag; do
     case $flag in
         a)
             all=1
             lazyvim=1
             multivim=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir}"
+            ;;
+        b)
+            branch="${OPTARG}"
             ;;
         d)
             debug="-d"
@@ -217,6 +227,12 @@ while getopts "adlmnqrRyu" flag; do
             remove=1
             removeall=1
             ;;
+        U)
+            url="${OPTARG}"
+            ;;
+        N)
+            name="${OPTARG}"
+            ;;
         y)
             proceed=1
             ;;
@@ -225,6 +241,16 @@ while getopts "adlmnqrRyu" flag; do
             ;;
     esac
 done
+
+[ "${url}" ] && {
+  if [ "${name}" ]
+  then
+	nvimdir="${name}"
+  else
+	echo "ERROR: '-U url' must be accompanied with '-N nvimdir'"
+	usage
+  fi
+}
 
 [ "${nvimdir}" ] || {
   echo "Something went wrong, nvimdir not set. Exiting."
@@ -240,8 +266,8 @@ done
 }
 
 [ "${all}" ] && {
-  [ "${lazyvim}" ] || [ "${multivim}" ] && {
-    echo "The -a option (all configs) cannot be used in conjunction with -l or -m"
+    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] && {
+    echo "The -a option (all configs) cannot be used in conjunction with -U, -l, or -m"
     usage
   }
 }
@@ -256,6 +282,9 @@ have_git=$(type -p git)
 if [ -d $HOME/.config/${lazymandir} ]
 then
   git -C $HOME/.config/${lazymandir} pull > /dev/null 2>&1
+  [ "${branch}" ] && {
+    git -C $HOME/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
+  }
 else
   [ "${quiet}" ] || {
     printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
@@ -263,6 +292,9 @@ else
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
+    [ "${branch}" ] && {
+      git -C $HOME/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
+    }
   }
   [ "${quiet}" ] || printf "done"
 fi
@@ -346,6 +378,17 @@ done
   }
   [ "${quiet}" ] || printf "done"
 }
+[ "${url}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning ${url} into $HOME/.config/${nvimdir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      ${url} $HOME/.config/${nvimdir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${nvimdir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
@@ -355,23 +398,6 @@ then
 else
   [ "${tellme}" ] || ulimit -n ${hardlimit}
 fi
-
-GHUC="https://raw.githubusercontent.com"
-JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
-[ "${quiet}" ] || printf "\nInstalling JetBrains Mono font ... "
-[ "${tellme}" ] || {
-  curl -fsSL "${JETB_URL}" > /tmp/jetb-$$.sh
-  [ $? -eq 0 ] || {
-    rm -f /tmp/jetb-$$.sh
-    curl -kfsSL "${JETB_URL}" > /tmp/jetb-$$.sh
-  }
-  [ -f /tmp/jetb-$$.sh ] && {
-    chmod 755 /tmp/jetb-$$.sh
-    /bin/bash -c "/tmp/jetb-$$.sh" > /dev/null 2>&1
-    rm -f /tmp/jetb-$$.sh
-  }
-}
-[ "${quiet}" ] || printf "done"
 
 for neovim in ${nvimdir}
 do
@@ -390,7 +416,7 @@ do
       nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
       nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
     fi
-	nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
+    nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
   [ "${quiet}" ] || {
     printf "done\n"
@@ -406,23 +432,16 @@ done
     cp $HOME/.config/nvim-lazyman/install.sh $HOME/.local/bin/lazyman
     chmod 755 $HOME/.local/bin/lazyman
     [ "${quiet}" ] || {
+      echo ""
       echo "Use $HOME/.local/bin/lazyman to explore Lazy Neovim configurations."
-      echo "The lazyman usage message is as follows:"
-      $HOME/.local/bin/lazyman -u
+      echo "Review the lazyman usage message with:"
+      printf "\n\t$HOME/.local/bin/lazyman -u\n"
     }
   }
 }
 
 [ "${tellme}" ] || ulimit -n ${currlimit}
 
-# [ "${nvimdir}" == "nvim-lazyman" ] && {
-#   printf "\nCompiling and installing Mason packages, please be patient ... "
-#   [ "${tellme}" ] || {
-#     nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' \
-#                     -c 'MasonUpdateAll' > /dev/null 2>&1
-#   }
-#   printf "done\n"
-# }
 [ "${nvimdir}" == "nvim" ] || {
   [ "${quiet}" ] || {
     printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
@@ -432,11 +451,14 @@ done
     elif [ "${multivim}" ]
     then
       printf '\n\texport NVIM_APPNAME="nvim-multi"\n'
+    elif [ "${url}" ]
+    then
+      printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
     else
       printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
     fi
   }
 }
-printf "\n"
+echo ""
 
 [ "${tellme}" ] || nvim
