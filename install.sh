@@ -504,8 +504,8 @@ fi
 
 [ "${nvimdir}" == "nvim" ] || {
   [ "${quiet}" ] || {
-    printf "\nTo use a lazyman installed Neovim configuration, add a line"
-    printf "\nlike the following to your .bashrc or .zshrc shell initialization:"
+    printf "\nTo use this lazyman installed Neovim configuration as the default,"
+    printf "\nadd a line like the following to your .bashrc or .zshrc:"
     if [ "${all}" ]
     then
       printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
@@ -517,22 +517,20 @@ fi
     if [ "${all}" ]
     then
       printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim $* };_nvim'"
+    elif [ "${astronvim}" ]
+    then
+      printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
+    elif [ "${kickstart}" ]
+    then
+      printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
+    elif [ "${lazyvim}" ]
+    then
+      printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
+    elif [ "${multivim}" ]
+    then
+      printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
     else
-      if [ "${astronvim}" ]
-	  then
-        printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
-      elif [ "${kickstart}" ]
-	  then
-        printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
-      elif [ "${lazyvim}" ]
-	  then
-        printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
-      elif [ "${multivim}" ]
-	  then
-        printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
-	  else
-        printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
-	  fi
+      printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
     fi
   }
 }
