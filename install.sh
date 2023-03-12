@@ -208,8 +208,8 @@ while getopts "aAb:dklmnPqrRU:N:yu" flag; do
             ;;
         A)
             all=1
-			astronvim=1
-			kickstart=1
+            astronvim=1
+            kickstart=1
             lazyvim=1
             multivim=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
@@ -378,16 +378,12 @@ done
     git clone \
       https://github.com/AstroNvim/AstroNvim \
       ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
-    [ -d ${HOME}/.config/nvim-lazyman/astrocommunity/user ] && {
-      [ "${quiet}" ] || {
-        printf "\nAdding AstroNvim community configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
-      }
-      cp -a ${HOME}/.config/nvim-lazyman/astrocommunity/user \
-            ${HOME}/.config/${astronvimdir}/lua/user
-	}
-    [ "${have_appname}" ] || {
-      ln -s ${HOME}/.config/${astronvimdir} ${HOME}/.config/nvim
+    [ "${quiet}" ] || {
+      printf "\nAdding AstroNvim community configuration into ${HOME}/.config/${astronvimdir}/user ... "
     }
+    git clone \
+      https://github.com/doctorfree/astronvim
+      ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
   }
   [ "${quiet}" ] || printf "done"
 }
