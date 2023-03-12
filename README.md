@@ -805,13 +805,19 @@ An example `~/.aliases` file might include:
 command -v nvim > /dev/null && {
   alias vi='nvim'
   [ -d $HOME/.config/nvim-lazyman ] && {
-    alias vil='function _vil(){ export NVIM_APPNAME="nvim-lazyman"; nvim $* };_vil'
+    alias lmvim='function _lmvim(){ export NVIM_APPNAME="nvim-lazyman"; nvim $* };_lmvim'
+  }
+  [ -d $HOME/.config/nvim-astro ] && {
+    alias avim='function _avim(){ export NVIM_APPNAME="nvim-astro"; nvim $* };_avim'
   }
   [ -d $HOME/.config/nvim-multi ] && {
     alias mvim='function _mvim(){ export NVIM_APPNAME="nvim-multi"; nvim $* };_mvim'
   }
   [ -d $HOME/.config/nvim-LazyVim ] && {
     alias lvim='function _lvim(){ export NVIM_APPNAME="nvim-LazyVim"; nvim $* };_lvim'
+  }
+  [ -d $HOME/.config/nvim-kickstart ] && {
+    alias kvim='function _kvim(){ export NVIM_APPNAME="nvim-kickstart"; nvim $* };_kvim'
   }
 }
 ```
