@@ -183,6 +183,8 @@ all=
 branch=
 debug=
 tellme=
+astronvim=
+kickstart=
 lazyvim=
 multivim=
 packer=
@@ -206,6 +208,8 @@ while getopts "aAb:dklmnPqrRU:N:yu" flag; do
             ;;
         A)
             all=1
+			astronvim=1
+			kickstart=1
             lazyvim=1
             multivim=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
@@ -279,14 +283,6 @@ done
     remove_config ${neovim}
   done
   exit 0
-}
-
-[ "${all}" ] && {
-    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || \
-    [ "${kickstart}" ] || [ "${astronvim}" ] && {
-    echo "The -A option cannot be used in conjunction with -U, -a, -k, -l, or -m"
-    usage
-  }
 }
 
 have_git=$(type -p git)
@@ -527,7 +523,10 @@ fi
 }
 echo ""
 
-[ "${tellme}" ] || nvim
+[ "${tellme}" ] || {
+  [ "${all}" ] && export NVIM_APPNAME="${lazymandir}"
+  nvim
+}
 
 [ "${lazyinst}" ] && {
   [ "${tellme}" ] || {
