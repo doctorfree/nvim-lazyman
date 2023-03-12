@@ -27,10 +27,10 @@ M.mouse = "nv"
 -- set relative numbered lines
 M.relative_number = false
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
-M.showtabline = 1
+M.showtabline = 2
 -- enable or disable listchars
 M.list = true
--- which list chars to schow
+-- which list chars to show
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- neo-tree or nvim-tree, false will enable nvim-tree
 M.enable_neotree = true

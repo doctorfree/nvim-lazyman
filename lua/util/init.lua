@@ -134,17 +134,17 @@ function M.toggle(option, silent, values)
   end
 end
 
-local enabled = true
-function M.toggle_diagnostics()
-  enabled = not enabled
-  if enabled then
-    vim.diagnostic.enable()
-    Util.info("Enabled diagnostics", { title = "Diagnostics" })
-  else
-    vim.diagnostic.disable()
-    Util.warn("Disabled diagnostics", { title = "Diagnostics" })
-  end
-end
+-- local enabled = true
+-- function M.toggle_diagnostics()
+--   enabled = not enabled
+--   if enabled then
+--     vim.diagnostic.enable()
+--     Util.info("Enabled diagnostics", { title = "Diagnostics" })
+--   else
+--     vim.diagnostic.disable()
+--     Util.warn("Disabled diagnostics", { title = "Diagnostics" })
+--   end
+-- end
 
 function M.deprecate(old, new)
   Util.warn(("`%s` is deprecated. Please use `%s` instead"):format(old, new), { title = "LazyMan" })

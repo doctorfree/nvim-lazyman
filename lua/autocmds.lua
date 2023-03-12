@@ -88,7 +88,7 @@ if settings.enable_alpha then
     group = alpha_group,
     callback = function()
       vim.cmd([[
-        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=1
+        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=settings.showtabline
         setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
       ]])
     end,

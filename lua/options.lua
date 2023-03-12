@@ -48,7 +48,7 @@ o.relativenumber = settings.relative_number -- Relative line numbers
 o.scrolloff = 4 -- Lines of context
 o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 o.shiftround = true -- Round indent
-o.shiftwidth = 2 -- Size of an indent
+o.shiftwidth = 4 -- Size of an indent
 o.shortmess:append { W = true, I = true, c = true }
 o.showmode = false -- Dont show mode since we have a statusline
 o.showtabline = settings.showtabline
@@ -59,7 +59,7 @@ o.smartindent = true -- Insert indents automatically
 o.spelllang = { "en" }
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
-o.tabstop = 2 -- Number of spaces tabs count for
+o.tabstop = 4 -- Number of spaces tabs count for
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
 o.ttimeoutlen = 0  -- Time in milliseconds to wait for a key code sequence to complete
