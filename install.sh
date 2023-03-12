@@ -6,11 +6,12 @@
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-P] [-q]"
-  printf "\n               [-rR] [-U url] [-N nvimdir] [-y] [-u]"
+  printf "\nUsage: lazyman [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]"
+  printf "\n               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
+  printf "\n\t-k indicates install and initialize Kickstart"
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
@@ -191,10 +192,11 @@ removeall=
 url=
 name=
 lazymandir="nvim-lazyman"
+kickstartdir="nvim-kickstart"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "ab:dlmnPqrRU:N:yu" flag; do
+while getopts "ab:dklmnPqrRU:N:yu" flag; do
     case $flag in
         a)
             all=1
@@ -207,6 +209,10 @@ while getopts "ab:dlmnPqrRU:N:yu" flag; do
             ;;
         d)
             debug="-d"
+            ;;
+        k)
+            kickstart=1
+            nvimdir="${kickstartdir}"
             ;;
         l)
             lazyvim=1
@@ -269,8 +275,8 @@ done
 }
 
 [ "${all}" ] && {
-    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] && {
-    echo "The -a option (all configs) cannot be used in conjunction with -U, -l, or -m"
+    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] && {
+    echo "The -a option cannot be used in conjunction with -U, -k, -l, or -m"
     usage
   }
 }
@@ -348,7 +354,7 @@ else
   have_appname=1
 fi
 [ "${have_appname}" ] || {
-  [ "${lazyvim}" ] || [ "${multivim}" ] || {
+  [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] || {
     ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
   }
 }
@@ -359,6 +365,18 @@ do
   create_backups ${neovim}
 done
 
+[ "${kickstart}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning Kickstart configuration into $HOME/.config/${kickstartdir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/nvim-lua/kickstart.nvim.git \
+      $HOME/.config/${kickstartdir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${kickstartdir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${lazyvim}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning LazyVim starter configuration into $HOME/.config/${lazyvimdir} ... "
@@ -438,7 +456,7 @@ do
         nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
     fi
-    nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
+    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
   [ "${quiet}" ] || {
     printf "done\n"

@@ -2,25 +2,29 @@
 
 This repository includes my Neovim configuration using Lua, Lazy, and Mason.
 In addition, it can be used to install, initialize, and/or remove multiple
-Lazy Neovim configurations.
+Neovim configurations.
 
 When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
 and managed using the `NVIM_APPNAME` environment variable.
 
+The `lazyman` command is installed as `~/.local/bin/lazyman`.
+
 Currently the following Neovim configurations are supported:
 
 - [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
     - This Neovim configuration
-    - Installed by default
+    - See the [Installation section](#installation) section below
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+    - Install and initialize with `lazyman -k`
 - [nvim-multi](https://github.com/doctorfree/nvim-multi)
     - Multiple Neovim configurations included in a single repository
-    - Install and initialize with `~/.config/nvim-lazyman/install.sh -m`
+    - Install and initialize with `lazyman -m`
 - [LazyVim](https://github.com/LazyVim/LazyVim)
     - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
-    - Install and initialize with `~/.config/nvim-lazyman/install.sh -l`
+    - Install and initialize with `lazyman -l`
 
-Additional Lazy Neovim configurations will be added over time.
+Additional Neovim configurations will be added over time.
 
 ## Table of Contents
 
@@ -74,11 +78,12 @@ by `install.sh` executes the following on your system:
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-P] [-q]"
-  printf "\n               [-rR] [-U url] [-N nvimdir] [-y] [-u]"
+  printf "\nUsage: lazyman [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]"
+  printf "\n               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-a indicates install all supported Neovim configurations"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
+  printf "\n\t-k indicates install and initialize Kickstart"
   printf "\n\t-l indicates install and initialize LazyVim"
   printf "\n\t-m indicates install and initialize nvim-multi"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
@@ -259,10 +264,11 @@ removeall=
 url=
 name=
 lazymandir="nvim-lazyman"
+kickstartdir="nvim-kickstart"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "ab:dlmnPqrRU:N:yu" flag; do
+while getopts "ab:dklmnPqrRU:N:yu" flag; do
     case $flag in
         a)
             all=1
@@ -275,6 +281,10 @@ while getopts "ab:dlmnPqrRU:N:yu" flag; do
             ;;
         d)
             debug="-d"
+            ;;
+        k)
+            kickstart=1
+            nvimdir="${kickstartdir}"
             ;;
         l)
             lazyvim=1
@@ -337,8 +347,8 @@ done
 }
 
 [ "${all}" ] && {
-    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] && {
-    echo "The -a option (all configs) cannot be used in conjunction with -U, -l, or -m"
+    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] && {
+    echo "The -a option cannot be used in conjunction with -U, -k, -l, or -m"
     usage
   }
 }
@@ -416,7 +426,7 @@ else
   have_appname=1
 fi
 [ "${have_appname}" ] || {
-  [ "${lazyvim}" ] || [ "${multivim}" ] || {
+  [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] || {
     ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
   }
 }
@@ -427,6 +437,18 @@ do
   create_backups ${neovim}
 done
 
+[ "${kickstart}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning Kickstart configuration into $HOME/.config/${kickstartdir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/nvim-lua/kickstart.nvim.git \
+      $HOME/.config/${kickstartdir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${kickstartdir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${lazyvim}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning LazyVim starter configuration into $HOME/.config/${lazyvimdir} ... "
@@ -506,7 +528,7 @@ do
         nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
     fi
-    nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
+    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
   [ "${quiet}" ] || {
     printf "done\n"
@@ -628,12 +650,20 @@ nvim
 
 ### Motivation
 
-The motivation for creating this project was primarily to provide an easy way
-to try out various Neovim configurations available in Github repositories.
+I'm a lazy man. I wanted to try out a bunch of nifty looking Neovim
+configurations but I didn't want to spend a lot of time setting each
+of them up and managing them. Instead, I spent a lot of time writing
+an install/initialize/manage tool I could use: `lazyman`.
 
-In addition to serving as an easy tool for quickly setting up and trying out
-Lazy based Neovim configurations, `lazyman` can be used to setup and manage
-Neovim configurations tailored for specific purposes.
+Although the primary motivation for creating this project was to provide
+an easy way to try out various Neovim configurations, `lazyman` can be used
+to setup and manage Neovim configurations tailored for specific purposes.
+A Neovim configuration for work, one for school, one for Python development,
+another for git repository maintenance and markdown editing, one with language
+servers and debugging tools, one for your mom.
+
+It's also pretty interesting and educational to see how some of these Neovim
+Wizards setup their configurations.
 
 ### Usage
 
@@ -649,11 +679,12 @@ configuration execute the command `lazyman -l`:
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-a] [-b branch] [-l] [-m] [-n] [-P] [-q]
-               [-rR] [-U url] [-N nvimdir] [-y] [-u]
+Usage: lazyman [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]
+               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]
 Where:
 	-a indicates install all supported Neovim configurations
 	-b 'branch' specifies an nvim-lazyman git branch to checkout
+	-k indicates install and initialize Kickstart
 	-l indicates install and initialize LazyVim
 	-m indicates install and initialize nvim-multi
 	-n indicates dry run, don't actually do anything, just printf's
