@@ -21,6 +21,7 @@ to install, initialize, remove, and manage multiple configuratons.
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Supported configurations](#supported-configurations)
+    - [Unsupported configurations](#unsupported-configurations)
 - [Motivation](#motivation)
 - [Usage](#usage)
 - [Notes](#notes)
@@ -655,7 +656,36 @@ Currently the following Neovim configurations are supported:
     - Multiple Neovim configurations included in a single repository
     - Install and initialize with `lazyman -m`
 
-Additional Neovim configurations will be added over time.
+#### Unsupported configurations
+
+To install and initialize a Neovim configuration not supported out-of-the-box
+by Lazyman, use the `-U url` and `-N nvimdir` options to `lazyman`.
+For example, to install and initialize the Neovim configuration hosted at
+https://github.com/chadcat7/kodo execute the command:
+
+```bash
+lazyman -U https://github.com/chadcat7/kodo -N nvide
+```
+
+After this completes, set `NVIM_APPNAME`:
+
+```bash
+export NVIM_APPNAME="nvide"
+```
+
+As is the case with many Neovim configurations, an error occurs during
+initialization and subsequent startup. I was able to get this configuration
+to start without error by commenting out a couple of lines in
+`~/.config/nvide/lua/ui/dash/init.lua` but this disabled the dashboard.
+
+Similarly, `lazyman -U https://github.com/Allaman/nvim -N nvim-allaman`
+initialized and came up with the Neovim dashboard but displays some
+message on startup I have not yet figured out how to eliminate.
+
+Unsupported Neovim configurations can be installed and initialized in this
+manner but, as you see, there may be issues. Feel free to open an issue at
+https://github.com/doctorfree/nvim-lazyman/issues to help tackle any problems
+installing or initializing Neovim configurations with Lazyman.
 
 ### Motivation
 
@@ -671,8 +701,8 @@ A Neovim configuration for work, one for school, one for Python development,
 another for git repository maintenance and markdown editing, one with language
 servers and debugging tools, one for your mom.
 
-It's also pretty interesting and educational to see how some of these Neovim
-Wizards setup their configurations.
+It's also pretty interesting and educational to see how some of these
+**Neovim Wizards** setup their configurations.
 
 ### Usage
 
