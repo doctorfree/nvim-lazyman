@@ -667,7 +667,7 @@ https://github.com/chadcat7/kodo execute the command:
 lazyman -U https://github.com/chadcat7/kodo -N nvide
 ```
 
-After this completes, set `NVIM_APPNAME`:
+After this completes, set `NVIM_APPNAME` to the `-N` option value:
 
 ```bash
 export NVIM_APPNAME="nvide"
@@ -683,7 +683,14 @@ initialized and came up with the Neovim dashboard but displays some
 message on startup I have not yet figured out how to eliminate.
 
 Unsupported Neovim configurations can be installed and initialized in this
-manner but, as you see, there may be issues. Feel free to open an issue at
+manner but, as you see, there may be issues. Often the issue is not with
+the Neovim configuration but simply an installation or initialization
+process that Lazyman does not yet support. For example, the excellent
+Neovim configuration framework at https://github.com/NvChad/NvChad
+includes some user interaction during initialization. I have not yet
+figured out how to automate that type of initialization.
+
+Feel free to open an issue at
 https://github.com/doctorfree/nvim-lazyman/issues to help tackle any problems
 installing or initializing Neovim configurations with Lazyman.
 
