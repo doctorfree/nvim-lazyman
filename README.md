@@ -2,29 +2,17 @@
 
 This repository includes my Neovim configuration using Lua, Lazy, and Mason.
 In addition, it can be used to install, initialize, and/or remove multiple
-Neovim configurations.
+Neovim configurations. Several popular Neovim configurations are supported
+including [AstroNvim](https://astronvim.com),
+[Kickstart](https://github.com/nvim-lua/kickstart.nvim), and
+[LazyVim](https://github.com/LazyVim/LazyVim).
 
 When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
 and managed using the `NVIM_APPNAME` environment variable.
 
-The `lazyman` command is installed as `~/.local/bin/lazyman`.
-
-Currently the following Neovim configurations are supported:
-
-- [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
-    - This Neovim configuration
-    - See the [Installation section](#installation) section below
-- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
-    - Install and initialize with `lazyman -k`
-- [nvim-multi](https://github.com/doctorfree/nvim-multi)
-    - Multiple Neovim configurations included in a single repository
-    - Install and initialize with `lazyman -m`
-- [LazyVim](https://github.com/LazyVim/LazyVim)
-    - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
-    - Install and initialize with `lazyman -l`
-
-Additional Neovim configurations will be added over time.
+The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used
+to install, initialize, remove, and manage multiple configuratons.
 
 ## Table of Contents
 
@@ -32,6 +20,7 @@ Additional Neovim configurations will be added over time.
     - [Quickstart](#quickstart)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
+- [Supported configurations](#supported-configurations)
 - [Motivation](#motivation)
 - [Usage](#usage)
 - [Notes](#notes)
@@ -647,6 +636,26 @@ git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim
 nvim --headless "+Lazy! install" +qa
 nvim
 ```
+
+### Supported configurations
+
+Currently the following Neovim configurations are supported:
+
+- [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
+    - See the [Installation section](#installation) above
+- [AstroNvim](https://astronvim.com)
+    - Install and initialize with `lazyman -a`
+    - An example [AstroNvim community]() plugins configuration is added
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+    - Install and initialize with `lazyman -k`
+- [LazyVim](https://github.com/LazyVim/LazyVim)
+    - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
+    - Install and initialize with `lazyman -l`
+- [nvim-multi](https://github.com/doctorfree/nvim-multi)
+    - Multiple Neovim configurations included in a single repository
+    - Install and initialize with `lazyman -m`
+
+Additional Neovim configurations will be added over time.
 
 ### Motivation
 
