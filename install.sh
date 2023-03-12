@@ -375,15 +375,13 @@ done
     printf "\nCloning AstroNvim configuration into ${HOME}/.config/${astronvimdir} ... "
   }
   [ "${tellme}" ] || {
-    git clone \
-      https://github.com/AstroNvim/AstroNvim \
-      ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
+    git clone https://github.com/AstroNvim/AstroNvim \
+              ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
     [ "${quiet}" ] || {
-      printf "\nAdding AstroNvim community configuration into ${HOME}/.config/${astronvimdir}/user ... "
+      printf "\nAdding user configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
     }
-    git clone \
-      https://github.com/doctorfree/astronvim
-      ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
+    git clone https://github.com/doctorfree/astronvim \
+              ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -520,7 +518,21 @@ fi
     then
       printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim $* };_nvim'"
     else
-      printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_nvim'"
+      if [ "${astronvim}" ]
+	  then
+        printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
+      elif [ "${kickstart}" ]
+	  then
+        printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
+      elif [ "${lazyvim}" ]
+	  then
+        printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
+      elif [ "${multivim}" ]
+	  then
+        printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
+	  else
+        printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
+	  fi
     fi
   }
 }
