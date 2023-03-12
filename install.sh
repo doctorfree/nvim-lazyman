@@ -438,7 +438,7 @@ do
         nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
     fi
-    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
+    nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
   [ "${quiet}" ] || {
     printf "done\n"
