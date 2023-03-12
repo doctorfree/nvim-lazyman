@@ -6,11 +6,11 @@
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-A] [-b branch] [-k] [-l] [-m] [-n] [-P]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]"
   printf "\n               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]"
   printf "\nWhere:"
-  printf "\n\t-a indicates install and initialize AstroNvim"
   printf "\n\t-A indicates install all supported Neovim configurations"
+  printf "\n\t-a indicates install and initialize AstroNvim"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
   printf "\n\t-k indicates install and initialize Kickstart"
   printf "\n\t-l indicates install and initialize LazyVim"
@@ -378,6 +378,13 @@ done
     git clone \
       https://github.com/AstroNvim/AstroNvim \
       ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
+    [ -d ${HOME}/.config/nvim-lazyman/astrocommunity/user ] && {
+      [ "${quiet}" ] || {
+        printf "\nAdding AstroNvim community configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
+      }
+      cp -a ${HOME}/.config/nvim-lazyman/astrocommunity/user \
+            ${HOME}/.config/${astronvimdir}/lua/user
+	}
     [ "${have_appname}" ] || {
       ln -s ${HOME}/.config/${astronvimdir} ${HOME}/.config/nvim
     }
