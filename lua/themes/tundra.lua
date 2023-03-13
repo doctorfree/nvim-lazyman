@@ -55,4 +55,26 @@ require('nvim-tundra').setup({
 if settings.theme == "tundra" then
   vim.opt.background = 'dark'
   vim.cmd('colorscheme tundra')
+  if settings.enable_neotree then
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "NvimTreeNormal" })
+    vim.api.nvim_set_hl(0, "NeoTreeRootName", { link = "NvimTreeRootFolder" })
+    vim.api.nvim_set_hl(0, "NeoTreeFileName", { link = "NvimTreeExecFile" })
+    vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { link = "NvimTreeVertSplit" })
+    vim.api.nvim_set_hl(0, "NeoTreeFileNameOpened", { link = "NvimTreeOpenedFile" })
+    vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { link = "NvimTreeIndentMarker" })
+    vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { link = "NvimTreeGitNew" })
+    vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { link = "NvimTreeGitDirty" })
+    vim.api.nvim_set_hl(0, "NeoTreeGitModified", { link = "NvimTreeGitStaged" })
+    vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { link = "NvimTreeGitDeleted" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { link = "NvimTreeNormal" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { link = "NvimTreeNormalNC" })
+    vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { link = "NvimTreeSymlink" })
+  end
+  if settings.enable_alpha then
+    vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DiagnosticError" })
+    vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DiagnosticError" })
+    vim.api.nvim_set_hl(0, "AlphaButtons", { link = "DiagnosticWarn" })
+    vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DiagnosticInfo" })
+    vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DiagnosticHint" })
+  end
 end

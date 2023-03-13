@@ -9,9 +9,9 @@ local M = {}
 -- M.theme = "nightfox"
 -- M.theme = "kanagawa"
 -- M.theme = "catppuccin"
--- M.theme = "tokyonight"
+M.theme = "tokyonight"
 -- M.theme = "tundra"
-M.theme = "onedarkpro"
+-- M.theme = "onedarkpro"
 -- If the theme supports a variety of styles, set one here
 -- Available styles are:
 --   kanagawa: wave, dragon, lotus
@@ -19,10 +19,12 @@ M.theme = "onedarkpro"
 --   onedarkpro: onedark, onelight, onedark_vivid, onedark_dark
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 --   catppuccin: latte, frappe, macchiato, mocha
-M.theme_style = "onedark_vivid"
--- M.theme_style = "moon"
+--   nightfox: carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+-- M.theme_style = "onedark"
+M.theme_style = "moon"
 -- M.theme_style = "dragon"
 -- M.theme_style = "mocha"
+-- M.theme_style = "nightfox"
 
 M.mapleader = ","
 M.maplocalleader = ","

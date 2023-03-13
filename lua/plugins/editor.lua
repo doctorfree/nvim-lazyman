@@ -292,7 +292,6 @@ return {
     },
   },
 
-
   {
     "luukvbaal/statuscol.nvim",
     config = function()

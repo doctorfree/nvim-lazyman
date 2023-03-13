@@ -53,10 +53,10 @@ if settings.theme == "kanagawa" then
     vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { link = "NvimTreeSymlink" })
   end
   if settings.enable_alpha then
-    vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardIcon" })
-    vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeaderLabel" })
-    vim.api.nvim_set_hl(0, "AlphaButtons", { link = "DashboardButtons" })
-    vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
-    vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
+    vim.api.nvim_set_hl(0, "AlphaHeader", { link = "NvimTreeGitStaged" })
+    vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "NvimTreeGitStaged" })
+    vim.api.nvim_set_hl(0, "AlphaButtons", { link = "NvimTreeImageFile" })
+    vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "NvimTreeSymlink" })
+    vim.api.nvim_set_hl(0, "AlphaFooter", { link = "NvimTreeSpecialFile" })
   end
 end
