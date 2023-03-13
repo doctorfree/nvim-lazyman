@@ -17,13 +17,14 @@ to install, initialize, remove, and manage multiple configuratons.
 ## Table of Contents
 
 - [Installation](#installation)
-    - [Quickstart](#quickstart)
+    - [Bootstrap](#bootstrap)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Supported configurations](#supported-configurations)
     - [Unsupported configurations](#unsupported-configurations)
 - [Motivation](#motivation)
 - [Usage](#usage)
+    - [Manual](#manual)
 - [Notes](#notes)
     - [Mason](#mason)
     - [Health check](#health-check)
@@ -35,9 +36,15 @@ to install, initialize, remove, and manage multiple configuratons.
 
 ### Installation
 
-#### Quickstart
+#### Bootstrap
 
-Clone the repository and execute `lazyman.sh`:
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script
+must be downloaded and executed. The download can be performed with `git`,
+`curl`, `wget`, or a copy/paste.
+
+The recommended bootstrap procedure is with `git`:
+
+Clone the repository with `git` and execute `lazyman.sh`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
@@ -53,6 +60,10 @@ chmod 755 /tmp/lazyman.sh
 rm -f /tmp/lazyman.sh
 ```
 
+Once the `lazyman.sh` script has been downloaded and executed, subsequent
+Lazyman operations can be performed with the `lazyman` command found in
+`~/.local/bin/lazyman`. The manual page can be viewed with `man lazyman`.
+
 The convenience script to install and initialize `nvim-lazyman` is provided at
 [lazyman.sh](lazyman.sh). The automated install and initialization performed
 by `lazyman.sh` executes the following on your system:
@@ -62,16 +73,17 @@ by `lazyman.sh` executes the following on your system:
 ```bash
 #!/bin/bash
 #
-# lazyman - install and initialize Lazy Neovim configurations
+# lazyman - install, initialize, and manage Lazy Neovim configurations
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
 
 usage() {
-  printf "\nUsage: lazyman [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]"
-  printf "\n               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]"
+  printf "\n               [-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
-  printf "\n\t-a indicates install all supported Neovim configurations"
+  printf "\n\t-A indicates install all supported Neovim configurations"
+  printf "\n\t-a indicates install and initialize AstroNvim"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
   printf "\n\t-k indicates install and initialize Kickstart"
   printf "\n\t-l indicates install and initialize LazyVim"
@@ -81,8 +93,10 @@ usage() {
   printf "\n\t-q indicates quiet install"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-R indicates remove previously installed configuration and backups"
-  printf "\n\t-U 'url' specifies a URL to a Neovim configuration git repository"
-  printf "\n\t-N 'nvimdir' specifies the folder name to use for the config given by -U"
+  printf "\n\t-C 'url' specifies a URL to a Neovim configuration git repository"
+  printf "\n\t-N 'nvimdir' specifies the folder name to use for the config given by -C"
+  printf "\n\t-U indicates update an existing configuration"
+  printf "\n\t   acts on NVIM_APPNAME by default, override with '-N nvimdir' or '-A'"
   printf "\n\t-y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n\t-u displays this usage message and exits"
   printf "\nWithout arguments install and initialize nvim-lazyman\n\n"
@@ -91,39 +105,69 @@ usage() {
 
 create_backups() {
   ndir="$1"
-  [ -d $HOME/.config/${ndir} ] && {
+  [ -d ${HOME}/.config/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Backing up existing ${ndir} config as $HOME/.config/${ndir}-bak$$"
+    echo "Backing up existing ${ndir} config as ${HOME}/.config/${ndir}-bak$$"
     }
     [ "${tellme}" ] || {
-      mv $HOME/.config/${ndir} $HOME/.config/${ndir}-bak$$
+      mv ${HOME}/.config/${ndir} ${HOME}/.config/${ndir}-bak$$
     }
   }
 
-  [ -d $HOME/.local/share/${ndir} ] && {
+  [ -d ${HOME}/.local/share/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Backing up existing ${ndir} plugins as $HOME/.local/share/${ndir}-bak$$"
+      echo "Backing up existing ${ndir} plugins as ${HOME}/.local/share/${ndir}-bak$$"
     }
     [ "${tellme}" ] || {
-      mv $HOME/.local/share/${ndir} $HOME/.local/share/${ndir}-bak$$
+      mv ${HOME}/.local/share/${ndir} ${HOME}/.local/share/${ndir}-bak$$
     }
   }
 
-  [ -d $HOME/.local/state/${ndir} ] && {
+  [ -d ${HOME}/.local/state/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Backing up existing ${ndir} state as $HOME/.local/state/${ndir}-bak$$"
+      echo "Backing up existing ${ndir} state as ${HOME}/.local/state/${ndir}-bak$$"
     }
     [ "${tellme}" ] || {
-      mv $HOME/.local/state/${ndir} $HOME/.local/state/${ndir}-bak$$
+      mv ${HOME}/.local/state/${ndir} ${HOME}/.local/state/${ndir}-bak$$
     }
   }
-  [ -d $HOME/.cache/${ndir} ] && {
+  [ -d ${HOME}/.cache/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Backing up existing ${ndir} cache as $HOME/.cache/${ndir}-bak$$"
+      echo "Backing up existing ${ndir} cache as ${HOME}/.cache/${ndir}-bak$$"
     }
     [ "${tellme}" ] || {
-      mv $HOME/.cache/${ndir} $HOME/.cache/${ndir}-bak$$
+      mv ${HOME}/.cache/${ndir} ${HOME}/.cache/${ndir}-bak$$
     }
+  }
+}
+
+init_neovim() {
+  neodir="$1"
+  export NVIM_APPNAME="${neodir}"
+  [ "${tellme}" ] || {
+    if [ "${debug}" ]
+    then
+      if [ "${packer}" ]
+      then
+        nvim --headless "+PackerSync" +qa
+        nvim --headless "+PackerInstall" +qa
+      else
+        nvim --headless "+Lazy! sync" +qa
+        nvim --headless "+Lazy! update" +qa
+        nvim --headless "+Lazy! install" +qa
+      fi
+    else
+      if [ "${packer}" ]
+      then
+        nvim --headless "+PackerSync" +qa > /dev/null 2>&1
+        nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
+      else
+        nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+        nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
+        nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+      fi
+    fi
+    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
 }
 
@@ -131,7 +175,7 @@ remove_config() {
   ndir="$1"
   [ "${proceed}" ] || {
     printf "\nYou have requested removal of the Neovim configuration at:"
-    printf "\n\t$HOME/.config/${ndir}\n"
+    printf "\n\t${HOME}/.config/${ndir}\n"
     printf "\nConfirm removal of the Neovim ${ndir} configuration\n"
     while true
     do
@@ -150,12 +194,12 @@ remove_config() {
     done
   }
 
-  [ -d $HOME/.config/${ndir} ] && {
+  [ -d ${HOME}/.config/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Removing existing ${ndir} config at $HOME/.config/${ndir}"
+      echo "Removing existing ${ndir} config at ${HOME}/.config/${ndir}"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.config/${ndir}
+      rm -rf ${HOME}/.config/${ndir}
     }
   }
   [ "${removeall}" ] && {
@@ -163,16 +207,16 @@ remove_config() {
       echo "Removing any ${ndir} config backups"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.config/${ndir}-bak*
+      rm -rf ${HOME}/.config/${ndir}-bak*
     }
   }
 
-  [ -d $HOME/.local/share/${ndir} ] && {
+  [ -d ${HOME}/.local/share/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Removing existing ${ndir} plugins at $HOME/.local/share/${ndir}"
+      echo "Removing existing ${ndir} plugins at ${HOME}/.local/share/${ndir}"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.local/share/${ndir}
+      rm -rf ${HOME}/.local/share/${ndir}
     }
   }
   [ "${removeall}" ] && {
@@ -180,16 +224,16 @@ remove_config() {
       echo "Removing any ${ndir} plugins backups"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.local/share/${ndir}-bak*
+      rm -rf ${HOME}/.local/share/${ndir}-bak*
     }
   }
 
-  [ -d $HOME/.local/state/${ndir} ] && {
+  [ -d ${HOME}/.local/state/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Removing existing ${ndir} state at $HOME/.local/state/${ndir}"
+      echo "Removing existing ${ndir} state at ${HOME}/.local/state/${ndir}"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.local/state/${ndir}
+      rm -rf ${HOME}/.local/state/${ndir}
     }
   }
   [ "${removeall}" ] && {
@@ -197,16 +241,16 @@ remove_config() {
       echo "Removing any ${ndir} state backups"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.local/state/${ndir}-bak*
+      rm -rf ${HOME}/.local/state/${ndir}-bak*
     }
   }
 
-  [ -d $HOME/.cache/${ndir} ] && {
+  [ -d ${HOME}/.cache/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Removing existing ${ndir} cache at $HOME/.cache/${ndir}"
+      echo "Removing existing ${ndir} cache at ${HOME}/.cache/${ndir}"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.cache/${ndir}
+      rm -rf ${HOME}/.cache/${ndir}
     }
   }
   [ "${removeall}" ] && {
@@ -214,7 +258,20 @@ remove_config() {
       echo "Removing any ${ndir} cache backups"
     }
     [ "${tellme}" ] || {
-      rm -rf $HOME/.cache/${ndir}-bak*
+      rm -rf ${HOME}/.cache/${ndir}-bak*
+    }
+  }
+}
+
+update_config() {
+  ndir="$1"
+  [ -d ${HOME}/.config/${ndir} ] && {
+    [ "${quiet}" ] || {
+      echo "Updating existing ${ndir} config at ${HOME}/.config/${ndir}"
+    }
+    [ "${tellme}" ] || {
+      git -C ${HOME}/.config/${ndir} pull > /dev/null 2>&1
+      init_neovim "${ndir}"
     }
   }
 }
@@ -244,6 +301,8 @@ all=
 branch=
 debug=
 tellme=
+astronvim=
+kickstart=
 lazyvim=
 multivim=
 packer=
@@ -251,20 +310,29 @@ proceed=
 quiet=
 remove=
 removeall=
+update=
 url=
 name=
 lazymandir="nvim-lazyman"
+astronvimdir="nvim-astro"
 kickstartdir="nvim-kickstart"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "ab:dklmnPqrRU:N:yu" flag; do
+while getopts "aAb:dklmnPqrRUC:N:yu" flag; do
     case $flag in
         a)
+            astronvim=1
+            nvimdir="${astronvimdir}"
+            ;;
+        A)
             all=1
+            astronvim=1
+            kickstart=1
             lazyvim=1
             multivim=1
-            nvimdir="${lazymandir} ${lazyvimdir} ${multidir}"
+            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
+                     ${kickstartdir} ${astronvimdir}"
             ;;
         b)
             branch="${OPTARG}"
@@ -300,11 +368,14 @@ while getopts "ab:dklmnPqrRU:N:yu" flag; do
             remove=1
             removeall=1
             ;;
-        U)
+        C)
             url="${OPTARG}"
             ;;
         N)
             name="${OPTARG}"
+            ;;
+        U)
+            update=1
             ;;
         y)
             proceed=1
@@ -318,7 +389,7 @@ done
 [ "${name}" ] && nvimdir="${name}"
 [ "${url}" ] && {
   [ "${name}" ] || {
-    echo "ERROR: '-U url' must be accompanied with '-N nvimdir'"
+    echo "ERROR: '-C url' must be accompanied with '-N nvimdir'"
     usage
   }
 }
@@ -336,35 +407,39 @@ done
   exit 0
 }
 
-[ "${all}" ] && {
-    [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] && {
-    echo "The -a option cannot be used in conjunction with -U, -k, -l, or -m"
-    usage
+[ "${update}" ] && {
+  [ "${all}" ] || [ "${name}" ] || {
+    [ "${NVIM_APPNAME}" ] && nvimdir="${NVIM_APPNAME}"
   }
+  for neovim in ${nvimdir}
+  do
+    update_config ${neovim}
+  done
+  exit 0
 }
 
 have_git=$(type -p git)
 [ "${have_git}" ] || {
-  echo "Install script requires git but git not found"
-  echo "Please install git and retry this install script"
+  echo "Lazyman requires git but git not found"
+  echo "Please install git and retry this lazyman command"
   usage
 }
 
-if [ -d $HOME/.config/${lazymandir} ]
+if [ -d ${HOME}/.config/${lazymandir} ]
 then
-  git -C $HOME/.config/${lazymandir} pull > /dev/null 2>&1
+  git -C ${HOME}/.config/${lazymandir} pull > /dev/null 2>&1
   [ "${branch}" ] && {
-    git -C $HOME/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
+    git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
   }
 else
   [ "${quiet}" ] || {
-    printf "\nCloning nvim-lazyman configuration into $HOME/.config/${lazymandir} ... "
+    printf "\nCloning nvim-lazyman configuration into ${HOME}/.config/${lazymandir} ... "
   }
   [ "${tellme}" ] || {
     git clone \
-      https://github.com/doctorfree/nvim-lazyman $HOME/.config/${lazymandir} > /dev/null 2>&1
+      https://github.com/doctorfree/nvim-lazyman ${HOME}/.config/${lazymandir} > /dev/null 2>&1
     [ "${branch}" ] && {
-      git -C $HOME/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
+      git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
     }
   }
   [ "${quiet}" ] || printf "done"
@@ -373,7 +448,7 @@ fi
 have_nvim=$(type -p nvim)
 [ "${have_nvim}" ] || {
   [ "${quiet}" ] || {
-    printf "\nInstall script requires neovim but nvim not found\n"
+    printf "\nLazyman requires neovim but nvim not found\n"
   }
   if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
   then
@@ -416,7 +491,8 @@ else
   have_appname=1
 fi
 [ "${have_appname}" ] || {
-  [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || [ "${kickstart}" ] || {
+  [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || \
+  [ "${kickstart}" ] || [ "${astronvim}" ] || {
     ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
   }
 }
@@ -427,54 +503,69 @@ do
   create_backups ${neovim}
 done
 
+[ "${astronvim}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning AstroNvim configuration into ${HOME}/.config/${astronvimdir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone https://github.com/AstroNvim/AstroNvim \
+              ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
+    [ "${quiet}" ] || {
+      printf "\nAdding user configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
+    }
+    git clone https://github.com/doctorfree/astronvim \
+              ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${kickstart}" ] && {
   [ "${quiet}" ] || {
-    printf "\nCloning Kickstart configuration into $HOME/.config/${kickstartdir} ... "
+    printf "\nCloning Kickstart configuration into ${HOME}/.config/${kickstartdir} ... "
   }
   [ "${tellme}" ] || {
     git clone \
       https://github.com/nvim-lua/kickstart.nvim.git \
-      $HOME/.config/${kickstartdir} > /dev/null 2>&1
+      ${HOME}/.config/${kickstartdir} > /dev/null 2>&1
     [ "${have_appname}" ] || ln -s ${HOME}/.config/${kickstartdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
 [ "${lazyvim}" ] && {
   [ "${quiet}" ] || {
-    printf "\nCloning LazyVim starter configuration into $HOME/.config/${lazyvimdir} ... "
+    printf "\nCloning LazyVim starter configuration into ${HOME}/.config/${lazyvimdir} ... "
   }
   [ "${tellme}" ] || {
     git clone \
-      https://github.com/LazyVim/starter $HOME/.config/${lazyvimdir} > /dev/null 2>&1
+      https://github.com/LazyVim/starter ${HOME}/.config/${lazyvimdir} > /dev/null 2>&1
     [ "${have_appname}" ] || ln -s ${HOME}/.config/${lazyvimdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
 [ "${multivim}" ] && {
   [ "${quiet}" ] || {
-    printf "\nCloning nvim-multi configuration into $HOME/.config/${multidir} ... "
+    printf "\nCloning nvim-multi configuration into ${HOME}/.config/${multidir} ... "
   }
   [ "${tellme}" ] || {
     git clone \
-      https://github.com/doctorfree/nvim-multi $HOME/.config/${multidir} > /dev/null 2>&1
+      https://github.com/doctorfree/nvim-multi ${HOME}/.config/${multidir} > /dev/null 2>&1
     [ "${have_appname}" ] || ln -s ${HOME}/.config/${multidir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
 [ "${url}" ] && {
   [ "${quiet}" ] || {
-    printf "\nCloning ${url} into $HOME/.config/${nvimdir} ... "
+    printf "\nCloning ${url} into ${HOME}/.config/${nvimdir} ... "
   }
   [ "${tellme}" ] || {
     git clone \
-      ${url} $HOME/.config/${nvimdir} > /dev/null 2>&1
+      ${url} ${HOME}/.config/${nvimdir} > /dev/null 2>&1
     [ "${have_appname}" ] || ln -s ${HOME}/.config/${nvimdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
 
 [ "${packer}" ] && {
-  PACKER="$HOME/.local/share/${nvimdir}/site/pack/packer/start/packer.nvim"
+  PACKER="${HOME}/.local/share/${nvimdir}/site/pack/packer/start/packer.nvim"
   [ -d "${PACKER}" ] || {
     git clone --depth 1 https://github.com/wbthomason/packer.nvim "${PACKER}"
   }
@@ -494,76 +585,108 @@ do
   [ "${quiet}" ] || {
     printf "\nInitializing newly installed ${neovim} Neovim configuration ... "
   }
-  export NVIM_APPNAME="${neovim}"
-  [ "${tellme}" ] || {
-    if [ "${debug}" ]
-    then
-      if [ "${packer}" ]
-      then
-        nvim --headless "+PackerSync" +qa
-        nvim --headless "+PackerInstall" +qa
-      else
-        nvim --headless "+Lazy! sync" +qa
-        nvim --headless "+Lazy! update" +qa
-        nvim --headless "+Lazy! install" +qa
-      fi
-    else
-      if [ "${packer}" ]
-      then
-        nvim --headless "+PackerSync" +qa > /dev/null 2>&1
-        nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
-      else
-        nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
-      fi
-    fi
-    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || {
-    printf "done\n"
-  }
+  init_neovim "${neovim}"
+  [ "${quiet}" ] || printf "done\n"
 done
-
-[ "${quiet}" ] || {
-  echo "Installing lazyman command in $HOME/.local/bin"
-}
-[ "${tellme}" ] || {
-  [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
-  [ -f $HOME/.config/nvim-lazyman/lazyman.sh ] && {
-    cp $HOME/.config/nvim-lazyman/lazyman.sh $HOME/.local/bin/lazyman
-    chmod 755 $HOME/.local/bin/lazyman
-    [ "${quiet}" ] || {
-      echo ""
-      echo "Use $HOME/.local/bin/lazyman to explore Lazy Neovim configurations."
-      echo "Review the lazyman usage message with:"
-      printf "\n\t$HOME/.local/bin/lazyman -u\n"
-    }
-  }
-}
 
 [ "${tellme}" ] || ulimit -n ${currlimit}
 
+lazyinst=
+if [ -f ${HOME}/.local/bin/lazyman ]
+then
+  [ -f ${HOME}/.config/nvim-lazyman/lazyman.sh ] && {
+    diff ${HOME}/.config/nvim-lazyman/lazyman.sh ${HOME}/.local/bin/lazyman > /dev/null || lazyinst=1
+  }
+else
+  lazyinst=1
+fi
+[ "${lazyinst}" ] && {
+  [ "${quiet}" ] || {
+    echo "Installing lazyman command in ${HOME}/.local/bin"
+    echo ""
+    echo "Use ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
+    echo "Review the lazyman usage message with:"
+    printf "\n\t${HOME}/.local/bin/lazyman -u\n"
+  }
+}
+
+maninst=
+if [ -f ${HOME}/.local/share/man/man1/lazyman.1 ]
+then
+  [ -f ${HOME}/.config/nvim-lazyman/man/man1/lazyman.1 ] && {
+    diff ${HOME}/.config/nvim-lazyman/man/man1/lazyman.1 ${HOME}/.local/share/man/man1/lazyman.1 > /dev/null || maninst=1
+  }
+else
+  maninst=1
+fi
+[ "${maninst}" ] && {
+  [ "${quiet}" ] || {
+    echo "Installing lazyman command in ${HOME}/.local/bin"
+    echo ""
+    echo "Use ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
+    echo "Review the lazyman usage message with:"
+    printf "\n\t${HOME}/.local/bin/lazyman -u\n"
+  }
+}
+
 [ "${nvimdir}" == "nvim" ] || {
   [ "${quiet}" ] || {
-    printf "\nAdd the following line to your .bashrc or .zshrc shell initialization:"
-    if [ "${lazyvim}" ]
+    printf "\nTo use this lazyman installed Neovim configuration as the default,"
+    printf "\nadd a line like the following to your .bashrc or .zshrc:"
+    if [ "${all}" ]
     then
-      printf '\n\texport NVIM_APPNAME="nvim-LazyVim"\n'
+      printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
+    else
+      printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
+    fi
+    printf "\nTo easily switch between lazyman installed Neovim configurations,"
+    printf "\ncreate an alias for each configuration similar to the following:"
+    if [ "${all}" ]
+    then
+      printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim $* };_nvim'"
+    elif [ "${astronvim}" ]
+    then
+      printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
+    elif [ "${kickstart}" ]
+    then
+      printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
+    elif [ "${lazyvim}" ]
+    then
+      printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
     elif [ "${multivim}" ]
     then
-      printf '\n\texport NVIM_APPNAME="nvim-multi"\n'
-    elif [ "${url}" ]
-    then
-      printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
+      printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
     else
-      printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
+      printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
     fi
   }
 }
 echo ""
 
-[ "${tellme}" ] || nvim
+[ "${tellme}" ] || {
+  [ "${all}" ] && export NVIM_APPNAME="${lazymandir}"
+  nvim
+}
+
+[ "${lazyinst}" ] && {
+  [ "${tellme}" ] || {
+    [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
+    [ -f ${HOME}/.config/nvim-lazyman/lazyman.sh ] && {
+      cp ${HOME}/.config/nvim-lazyman/lazyman.sh ${HOME}/.local/bin/lazyman
+      chmod 755 ${HOME}/.local/bin/lazyman
+    }
+  }
+}
+[ "${maninst}" ] && {
+  [ "${tellme}" ] || {
+    [ -d ${HOME}/.local/share/man ] || mkdir -p ${HOME}/.local/share/man
+    [ -d ${HOME}/.local/share/man/man1 ] || mkdir -p ${HOME}/.local/share/man/man1
+    [ -f ${HOME}/.config/nvim-lazyman/man/man1/lazyman.1 ] && {
+      cp ${HOME}/.config/nvim-lazyman/man/man1/lazyman.1 ${HOME}/.local/share/man/man1/lazyman.1
+      chmod 644 ${HOME}/.local/share/man/man1/lazyman.1
+    }
+  }
+}
 ```
 
 </details>
@@ -659,7 +782,7 @@ Currently the following Neovim configurations are supported:
 #### Unsupported configurations
 
 To install and initialize a Neovim configuration not supported out-of-the-box
-by Lazyman, use the `-U url` and `-N nvimdir` options to `lazyman`. After the
+by Lazyman, use the `-C url` and `-N nvimdir` options to `lazyman`. After the
 installation and initialization completes, set the `NVIM_APPNAME`
 environment variable to use the newly created Neovim configuration:
 
@@ -707,35 +830,55 @@ It's also pretty interesting and educational to see how some of these
 The [lazyman.sh](lazyman.sh) script is located in `~/.config/nvim-lazyman`.
 It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is
 in your execution `PATH` then `lazyman` can be executed from the command
-line as simply `lazyman`.
+line as simply `lazyman`. The manual page can be viewed with `man lazyman`.
 
 The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
-configuration execute the command `lazyman -l`:
+configuration execute the command `lazyman -l`. To install and initialize
+all supported Lazyman Neovim configuratons execute `lazyman -A`. To update
+a previously installed Lazyman Neovim configuration execute
+`lazyman -U -N <nvimdir>` or `lazyman -U -A` to update all configurations.
+
+To remove a Lazyman Neovim configuration execute `lazyman -r -N <nvimdir>`.
+To remove the configuration and all its backups, `lazyman -R -N <nvimdir>`.
+To remove all installed Lazyman Neovim configurations and their backups
+without being prompted to proceed, execute `lazyman -A -R -y`.
 
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]
-               [-q] [-rR] [-U url] [-N nvimdir] [-y] [-u]
+Usage: lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P]
+               [-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
-	-a indicates install all supported Neovim configurations
-	-b 'branch' specifies an nvim-lazyman git branch to checkout
-	-k indicates install and initialize Kickstart
-	-l indicates install and initialize LazyVim
-	-m indicates install and initialize nvim-multi
-	-n indicates dry run, don't actually do anything, just printf's
-	-p indicates use Packer rather than Lazy to initialize
-	-q indicates quiet install
-	-r indicates remove the previously installed configuration
-	-R indicates remove previously installed configuration and backups
-	-U 'url' specifies a URL to a Neovim configuration git repository
-	-N 'nvimdir' specifies the folder name to use for the config given by -U
-	-y indicates do not prompt, answer 'yes' to any prompt
-	-u displays this usage message and exits
+    -A indicates install all supported Neovim configurations
+    -a indicates install and initialize AstroNvim
+    -b 'branch' specifies an nvim-lazyman git branch to checkout
+    -k indicates install and initialize Kickstart
+    -l indicates install and initialize LazyVim
+    -m indicates install and initialize nvim-multi
+    -n indicates dry run, don't actually do anything, just printf's
+    -p indicates use Packer rather than Lazy to initialize
+    -q indicates quiet install
+    -r indicates remove the previously installed configuration
+    -R indicates remove previously installed configuration and backups
+    -C 'url' specifies a URL to a Neovim configuration git repository
+    -N 'nvimdir' specifies the folder name to use for the config given by -C
+    -U indicates update an existing configuration
+       acts on NVIM_APPNAME by default, override with '-N nvimdir' or '-A'
+    -y indicates do not prompt, answer 'yes' to any prompt
+    -u displays this usage message and exits
 
 Without arguments install and initialize nvim-lazyman
 ```
+
+#### Manual
+
+The `lazyman` bootstrap process installs a `lazyman` manual page in
+`~/.local/share/man/man1/lazyman.1`. This man page includes a synopsis
+of the `lazyman` command line options, a brief description of its use,
+a description of each command line option, and several example invocations.
+
+The `lazyman` manual page can be viewed with `man lazyman`.
 
 ### Notes
 

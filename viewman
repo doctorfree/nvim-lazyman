@@ -1,0 +1,23 @@
+#!/bin/bash
+
+MANDIR=`pwd`/man
+page="$1"
+
+[ "${page}" ] || {
+    echo 'Usage: viewman <name>'
+    echo 'Where <name> is an existing man page in man/man?/name.?'
+    exit 1
+}
+
+plat=`uname -s`
+if [ "$plat" == "Darwin" ]
+then
+  man -M ${MANDIR} $1
+else
+  for manpage in ${MANDIR}/man*/${page}.?
+  do
+    [ "${manpage}" == "${MANDIR}/man*/${page}.?" ] && continue
+    man -l ${manpage}
+  done
+fi
+
