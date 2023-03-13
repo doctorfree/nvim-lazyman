@@ -34,7 +34,7 @@ shell builtin:
 export NVIM_APPNAME="<nvimdir>"
 ```
 
-where *<nvimdir>* is the subdirectory in ***~/.config/*** that holds the
+where ***\<nvimdir\>*** is the subdirectory in ***~/.config/*** that holds the
 desired Neovim configuration. For example, to use the *LazyVim* Neovim
 configuration in ***~/.config/nvim-LazyVim/*** the export command would be:
 
