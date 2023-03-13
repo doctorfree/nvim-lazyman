@@ -22,11 +22,6 @@ else
   end
 end
 
-if theme == "onedarkpro" then
-elseif theme == "tundra" then
-  theme = require('themes.lualine.' .. theme)
-end
-
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
