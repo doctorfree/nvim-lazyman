@@ -21,8 +21,8 @@
 lazyman - install, initialize, and manage multiple Neovim configurations
 .SS SYNOPSIS
 .PP
-lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P] [-q] [-rR] [-C
-url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-L cmd] [-P]
+[-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 .SS DESCRIPTION
 .PP
 The \f[I]lazyman\f[R] command can be used to install, initialize, and
@@ -90,8 +90,11 @@ indicates install all supported Neovim configurations
 \f[B]-a\f[R]
 indicates install and initialize AstroNvim
 .TP
-\f[B]-b\f[R]
-\[aq]branch\[aq] specifies an nvim-lazyman git branch to checkout
+\f[B]-b branch\f[R]
+specifies an nvim-lazyman git branch to checkout
+.TP
+\f[B]-d\f[R]
+indicates debug mode
 .TP
 \f[B]-k\f[R]
 indicates install and initialize Kickstart
@@ -101,6 +104,9 @@ indicates install and initialize LazyVim
 .TP
 \f[B]-m\f[R]
 indicates install and initialize nvim-multi
+.TP
+\f[B]-L cmd\f[R]
+specifies a Lazy command to run
 .TP
 \f[B]-n\f[R]
 indicates dry run, don\[aq]t actually do anything, just printf\[aq]s
@@ -117,8 +123,8 @@ indicates remove the previously installed configuration
 \f[B]-R\f[R]
 indicates remove previously installed configuration and backups
 .TP
-\f[B]-C\f[R]
-\[aq]url\[aq] specifies a URL to a Neovim configuration git repository
+\f[B]-C url\f[R]
+specifies a URL to a Neovim configuration git repository
 .TP
 \f[B]-N\f[R]
 \[aq]nvimdir\[aq] specifies the folder name to use for the config given
@@ -135,7 +141,10 @@ indicates do not prompt, answer \[aq]yes\[aq] to any prompt
 \f[B]-u\f[R]
 displays this usage message and exits
 .PP
-Without arguments install and initialize nvim-lazyman
+Commands act on NVIM_APPNAME, override with \[aq]-N nvimdir\[aq] or
+\[aq]-A\[aq]
+.PP
+Without arguments lazyman installs and initializes nvim-lazyman
 .SS EXAMPLES
 .TP
 \f[B]lazyman -a\f[R]

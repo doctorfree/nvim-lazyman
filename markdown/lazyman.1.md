@@ -11,7 +11,7 @@ lazyman - install, initialize, and manage multiple Neovim configurations
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P] [-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-L cmd] [-P] [-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -63,8 +63,11 @@ run ***viw proposal.md***.
 **-a**
 : indicates install and initialize AstroNvim
 
-**-b**
-: 'branch' specifies an nvim-lazyman git branch to checkout
+**-b branch**
+: specifies an nvim-lazyman git branch to checkout
+
+**-d**
+: indicates debug mode
 
 **-k**
 : indicates install and initialize Kickstart
@@ -74,6 +77,9 @@ run ***viw proposal.md***.
 
 **-m**
 : indicates install and initialize nvim-multi
+
+**-L cmd**
+: specifies a Lazy command to run
 
 **-n**
 : indicates dry run, don't actually do anything, just printf's
@@ -90,8 +96,8 @@ run ***viw proposal.md***.
 **-R**
 : indicates remove previously installed configuration and backups
 
-**-C**
-: 'url' specifies a URL to a Neovim configuration git repository
+**-C url**
+: specifies a URL to a Neovim configuration git repository
 
 **-N**
 : 'nvimdir' specifies the folder name to use for the config given by -C
@@ -106,7 +112,9 @@ run ***viw proposal.md***.
 **-u**
 : displays this usage message and exits
 
-Without arguments install and initialize nvim-lazyman
+Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
+
+Without arguments lazyman installs and initializes nvim-lazyman
 
 ### EXAMPLES
 
