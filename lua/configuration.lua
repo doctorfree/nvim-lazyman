@@ -71,18 +71,8 @@ M.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
-  "bash",
-  "css",
-  "html",
-  "javascript",
-  "json",
-  "lua",
-  "markdown",
-  "query",
-  "python",
-  "regex",
-  "vim",
-  "yaml",
+  "c", "lua", "vim", "help", "query", "bash", "html", "json",
+  "markdown", "markdown_inline", "python", "regex", "yaml"
 }
 
 -- Tools that should be installed by Mason(-tool-install)
