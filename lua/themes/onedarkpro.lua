@@ -46,7 +46,7 @@ require("onedarkpro").setup({
     op_nvim = true,
     packer = true,
     polygot = true,
-    semantic_tokens = true,
+    semantic_tokens = false,
     startify = true,
     telescope = true,
     toggleterm = true,
