@@ -486,8 +486,8 @@ done
 lazyinst=
 if [ -f ${HOME}/.local/bin/lazyman ]
 then
-  [ -f ${HOME}/.config/nvim-lazyman/install.sh ] && {
-    diff ${HOME}/.config/nvim-lazyman/install.sh ${HOME}/.local/bin/lazyman > /dev/null || lazyinst=1
+  [ -f ${HOME}/.config/nvim-lazyman/lazyman.sh ] && {
+    diff ${HOME}/.config/nvim-lazyman/lazyman.sh ${HOME}/.local/bin/lazyman > /dev/null || lazyinst=1
   }
 else
   lazyinst=1
@@ -544,8 +544,8 @@ echo ""
 [ "${lazyinst}" ] && {
   [ "${tellme}" ] || {
     [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
-    [ -f ${HOME}/.config/nvim-lazyman/install.sh ] && {
-      cp ${HOME}/.config/nvim-lazyman/install.sh ${HOME}/.local/bin/lazyman
+    [ -f ${HOME}/.config/nvim-lazyman/lazyman.sh ] && {
+      cp ${HOME}/.config/nvim-lazyman/lazyman.sh ${HOME}/.local/bin/lazyman
       chmod 755 ${HOME}/.local/bin/lazyman
     }
   }

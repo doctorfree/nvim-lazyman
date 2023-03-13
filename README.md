@@ -37,27 +37,27 @@ to install, initialize, remove, and manage multiple configuratons.
 
 #### Quickstart
 
-Clone the repository and execute `install.sh`:
+Clone the repository and execute `lazyman.sh`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
-$HOME/.config/nvim-lazyman/install.sh
+$HOME/.config/nvim-lazyman/lazyman.sh
 ```
-Alternatively, download the `install.sh` script and execute it.
+Alternatively, download the `lazyman.sh` script and execute it.
 For example, with `curl`:
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/install.sh > /tmp/install-lazyman.sh
-chmod 755 /tmp/install-lazyman.sh
-/tmp/install-lazyman.sh
-rm -f /tmp/install-lazyman.sh
+curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh > /tmp/lazyman.sh
+chmod 755 /tmp/lazyman.sh
+/tmp/lazyman.sh
+rm -f /tmp/lazyman.sh
 ```
 
 The convenience script to install and initialize `nvim-lazyman` is provided at
-[install.sh](install.sh). The automated install and initialization performed
-by `install.sh` executes the following on your system:
+[lazyman.sh](lazyman.sh). The automated install and initialization performed
+by `lazyman.sh` executes the following on your system:
 
-<details><summary>View the install.sh script</summary>
+<details><summary>View the lazyman.sh script</summary>
 
 ```bash
 #!/bin/bash
@@ -530,8 +530,8 @@ done
 }
 [ "${tellme}" ] || {
   [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
-  [ -f $HOME/.config/nvim-lazyman/install.sh ] && {
-    cp $HOME/.config/nvim-lazyman/install.sh $HOME/.local/bin/lazyman
+  [ -f $HOME/.config/nvim-lazyman/lazyman.sh ] && {
+    cp $HOME/.config/nvim-lazyman/lazyman.sh $HOME/.local/bin/lazyman
     chmod 755 $HOME/.local/bin/lazyman
     [ "${quiet}" ] || {
       echo ""
@@ -659,36 +659,27 @@ Currently the following Neovim configurations are supported:
 #### Unsupported configurations
 
 To install and initialize a Neovim configuration not supported out-of-the-box
-by Lazyman, use the `-U url` and `-N nvimdir` options to `lazyman`.
-For example, to install and initialize the Neovim configuration hosted at
-https://github.com/chadcat7/kodo execute the command:
+by Lazyman, use the `-U url` and `-N nvimdir` options to `lazyman`. After the
+installation and initialization completes, set the `NVIM_APPNAME`
+environment variable to use the newly created Neovim configuration:
 
 ```bash
-lazyman -U https://github.com/chadcat7/kodo -N nvide
+export NVIM_APPNAME="<nvimdir>"
 ```
 
-After this completes, set `NVIM_APPNAME` to the `-N` option value:
-
-```bash
-export NVIM_APPNAME="nvide"
-```
-
-As is the case with many Neovim configurations, an error occurs during
-initialization and subsequent startup. I was able to get this configuration
-to start without error by commenting out a couple of lines in
-`~/.config/nvide/lua/ui/dash/init.lua` but this disabled the dashboard.
-
-Similarly, `lazyman -U https://github.com/Allaman/nvim -N nvim-allaman`
-initialized and came up with the Neovim dashboard but displays some
-message on startup I have not yet figured out how to eliminate.
+where `<nvimdir>` is the argument provided to `-N` above.
 
 Unsupported Neovim configurations can be installed and initialized in this
-manner but, as you see, there may be issues. Often the issue is not with
-the Neovim configuration but simply an installation or initialization
+manner but there are often errors and issues such as an initialization
 process that Lazyman does not yet support. For example, the excellent
 Neovim configuration framework at https://github.com/NvChad/NvChad
 includes some user interaction during initialization. I have not yet
 figured out how to automate that type of initialization.
+
+Unsupported Neovim configurations are primarily viewed as exploratory
+and are not recommended. However, you may find it useful or interesting
+to explore, resolve errors and issues, and contribute to the ever expanding
+set of Lazyman supported Neovim configurations.
 
 Feel free to open an issue at
 https://github.com/doctorfree/nvim-lazyman/issues to help tackle any problems
@@ -713,7 +704,7 @@ It's also pretty interesting and educational to see how some of these
 
 ### Usage
 
-The [install.sh](install.sh) script is located in `~/.config/nvim-lazyman`.
+The [lazyman.sh](lazyman.sh) script is located in `~/.config/nvim-lazyman`.
 It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is
 in your execution `PATH` then `lazyman` can be executed from the command
 line as simply `lazyman`.
@@ -852,24 +843,24 @@ brew install --HEAD neovim
 
 ### Removal
 
-The [install.sh](install.sh) script can be used to remove previously installed
+The [lazyman.sh](lazyman.sh) script can be used to remove previously installed
 Neovim configurations with the `-r` command line option. For example, to remove
 a previously installed `LazyVim` configuration, its initialized plugins, state,
 and cache, execute the following command:
 
 ```bash
-$HOME/.config/nvim-lazyman/install.sh -l -r
+$HOME/.config/nvim-lazyman/lazyman.sh -l -r
 ```
 
 To remove the `nvim-lazyman` configuration and associated plugins, state, and cache:
 
 ```bash
-$HOME/.config/nvim-lazyman/install.sh -r
+$HOME/.config/nvim-lazyman/lazyman.sh -r
 ```
 
-All `install.sh` operations can be performed as a dry run with `-n`. For
+All `lazyman.sh` operations can be performed as a dry run with `-n`. For
 example, to see which `LazyVim` folders would be removed without removing any:
 
 ```bash
-$HOME/.config/nvim-lazyman/install.sh -n -l -r
+$HOME/.config/nvim-lazyman/lazyman.sh -n -l -r
 ```
