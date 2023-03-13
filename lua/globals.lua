@@ -9,6 +9,7 @@ vim.g.mycolorschemes = {
   'tokyonight',
   'monokai-pro',
   'nightfox',
+  'onedarkpro',
   'tundra',
   'catppuccin'
 }

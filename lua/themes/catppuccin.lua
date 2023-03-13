@@ -89,7 +89,18 @@ catppuccin.setup({
   },
 })
 if settings.theme == "catppuccin" then
-  vim.cmd([[colorscheme catppuccin-frappe]])
+  local style = settings.theme_style
+  if style == "latte" then
+    vim.cmd([[colorscheme catppuccin-latte]])
+  elseif style == "frappe" then
+    vim.cmd([[colorscheme catppuccin-frappe]])
+  elseif style == "macchiato" then
+    vim.cmd([[colorscheme catppuccin-macchiato]])
+  elseif style == "mocha" then
+    vim.cmd([[colorscheme catppuccin-mocha]])
+  else
+    vim.cmd([[colorscheme catppuccin]])
+  end
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeader" })

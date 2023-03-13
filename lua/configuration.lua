@@ -1,15 +1,28 @@
 local M = {}
 
--- theme: monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra
+-- Available themes:
+--   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
 -- refer to the relevant themes settings file in:
---   ~/.config/nvim-lazyman/lua/*/plugins/themes/
+--   ~/.config/nvim-lazyman/lua/themes/
 -- for different styles and settings for your selected theme.
 -- M.theme = "monokai-pro"
 -- M.theme = "nightfox"
 -- M.theme = "kanagawa"
 -- M.theme = "catppuccin"
-M.theme = "tokyonight"
+-- M.theme = "tokyonight"
 -- M.theme = "tundra"
+M.theme = "onedarkpro"
+-- If the theme supports a variety of styles, set one here
+-- Available styles are:
+--   kanagawa: wave, dragon, lotus
+--   tokyonight: night, storm, day, moon
+--   onedarkpro: onedark, onelight, onedark_vivid, onedark_dark
+--   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
+--   catppuccin: latte, frappe, macchiato, mocha
+M.theme_style = "onedark_vivid"
+-- M.theme_style = "moon"
+-- M.theme_style = "dragon"
+-- M.theme_style = "mocha"
 
 M.mapleader = ","
 M.maplocalleader = ","

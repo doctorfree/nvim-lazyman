@@ -7,6 +7,11 @@ local settings = require("configuration")
 local lualine = require('lualine')
 local navic = require('nvim-navic')
 
+local theme = settings.theme
+if theme == "onedarkpro" then
+  theme = require('themes.lualine.' .. settings.theme_style)
+end
+
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
@@ -57,8 +62,7 @@ lualine.setup {
     icons_enabled = true,
     -- theme = 'auto',
     -- theme = 'tokyonight',
-    -- theme = 'everforest',
-    theme = settings.theme,
+    theme = theme,
     --component_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     --section_separators = { left = '', right = '' },
