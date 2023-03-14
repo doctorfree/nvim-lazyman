@@ -248,6 +248,10 @@ install_language_servers() {
   log "Installing language servers ..."
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
+    if [ "${debug}" ]
+    then
+      START_SECONDS=$(date +%s)
+		fi
     # python language server
     npm i -g pyright > /dev/null 2>&1
     # typescript language server
@@ -276,12 +280,13 @@ install_language_servers() {
     }
 	}
   # brew installed language servers
-  for server in ansible bash haskell sql lua yaml
+  # for server in ansible bash haskell sql lua yaml
+  for server in bash haskell sql lua yaml
   do
     if [ "${debug}" ]
     then
       START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${server}-language-server
+      ${BREW_EXE} install ${server}-language-server > /dev/null 2>&1
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
@@ -293,8 +298,8 @@ install_language_servers() {
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
-    ${BREW_EXE} install ccls
-    ${BREW_EXE} link --overwrite ccls
+    ${BREW_EXE} install ccls > /dev/null 2>&1
+    ${BREW_EXE} link --overwrite ccls > /dev/null 2>&1
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
@@ -310,7 +315,7 @@ install_language_servers() {
 				yarn julia composer php deno
     do
       START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${pkg}
+      ${BREW_EXE} install ${pkg} > /dev/null 2>&1
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
