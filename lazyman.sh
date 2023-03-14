@@ -353,6 +353,10 @@ while getopts "aAb:dklmnL:PqrRUC:N:yu" flag; do
         u)
             usage
             ;;
+        *)
+					  echo "Unrecognized option. Exiting."
+            usage
+            ;;
     esac
 done
 

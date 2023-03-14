@@ -26,50 +26,10 @@ return {
       { "W", "<cmd>lua vim.lsp.buf.format()<CR><cmd>w!<CR>", desc = "Format and Save" },
     },
     config = function()
-      -- special attach lsp
-      require("utils.utils").on_attach(function(client, buffer)
-        require("config.lsp.keymaps").on_attach(client, buffer)
-        require("config.lsp.inlayhints").on_attach(client, buffer)
-        require("config.lsp.gitsigns").on_attach(client, buffer)
-      end)
-
-      -- diagnostics
-      for name, icon in pairs(require("utils.icons").diagnostics) do
-        name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-      end
-      vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
-
-      -- Show line diagnostics automatically in hover window
-      vim.cmd([[
-        autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
-      ]])
-
-      -- Mappings.
-      -- See `:help vim.diagnostic.*` for documentation
-      local diagnostics_active = true
-      local toggle_diagnostics = function()
-        diagnostics_active = not diagnostics_active
-        if diagnostics_active then
-          vim.diagnostic.show()
-        else
-          vim.diagnostic.hide()
-        end
-      end
-
-      local opts = { noremap=true, silent=true }
-      vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, opts)
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-      vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, opts)
-      vim.keymap.set('n', '<leader>dt', toggle_diagnostics)
-
+      require("config.lspconfig")
+      local mason_lspconfig = require("mason-lspconfig")
       local servers = require("config.lsp.servers")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
+      local available = mason_lspconfig.get_available_servers()
 
       local function setup(server)
         local server_opts = vim.tbl_deep_extend("force", {
@@ -77,9 +37,6 @@ return {
         }, servers[server] or {})
         require("lspconfig")[server].setup(server_opts)
       end
-
-      local mason_lspconfig = require("mason-lspconfig")
-      local available = mason_lspconfig.get_available_servers()
 
       local ensure_installed = {}
       for server, server_opts in pairs(servers) do
