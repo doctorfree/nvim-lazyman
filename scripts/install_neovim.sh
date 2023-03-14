@@ -40,7 +40,7 @@ check_prerequisites () {
 install_brew () {
   if ! command -v brew >/dev/null 2>&1; then
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-    log "Installing Homebrew, please be patient ..."
+    log "Installing Homebrew ..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
     have_curl=$(type -p curl)
     [ "${have_curl}" ] || abort "The curl command could not be located."
@@ -197,7 +197,7 @@ install_neovim_dependencies () {
 }
 
 install_neovim_head () {
-  log "Installing Neovim HEAD, please be patient ..."
+  log "Installing Neovim HEAD ..."
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
@@ -405,28 +405,39 @@ install_tools() {
 }
 
 main () {
-  check_prerequisites
-  install_brew
-  install_neovim_dependencies
-  if command -v nvim >/dev/null 2>&1; then
-    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
-    if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
+  if [ "${language_servers}" ]
+  then
+    install_language_servers
+  else
+    check_prerequisites
+    install_brew
+    install_neovim_dependencies
+    if command -v nvim >/dev/null 2>&1; then
+      nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+      if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
+        log "Currently installed Neovim is less than version 0.9"
+        log "Installing latest Neovim version with Homebrew"
+        install_neovim_head
+		  fi
+	  else
+      log "Neovim not found, installing Neovim with Homebrew"
       install_neovim_head
-		fi
-	else
-    install_neovim_head
-	fi
-  install_tools
-  install_language_servers
+	  fi
+    install_tools
+  fi
 }
 
 quiet=
 debug=
+language_servers=
 
-while getopts "dq" flag; do
+while getopts "dlq" flag; do
   case $flag in
     d)
         debug=1
+        ;;
+    l)
+        language_servers=1
         ;;
     q)
         quiet=1
