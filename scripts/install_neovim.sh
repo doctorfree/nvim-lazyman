@@ -139,8 +139,8 @@ install_brew () {
       HOMEBREW_HOME="Unknown"
     fi
   }
-  log "    Homebrew installed in ${HOMEBREW_HOME}"
-  log "    See ${DOC_HOMEBREW}"
+  log "Homebrew installed in ${HOMEBREW_HOME}"
+  log "See ${DOC_HOMEBREW}"
   # log "Installing Homebrew gcc, cmake, and make ..."
   # if [ "${debug}" ]
   # then
@@ -390,7 +390,7 @@ install_tools() {
   fi
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
-  [ "${quiet}" ] || printf "\nInstalling JetBrains Mono font ... "
+  [ "${quiet}" ] || printf "\n\tInstalling JetBrains Mono font ... "
   curl -fsSL "${JETB_URL}" > /tmp/jetb-$$.sh
   [ $? -eq 0 ] || {
     rm -f /tmp/jetb-$$.sh

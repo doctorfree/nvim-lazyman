@@ -615,7 +615,7 @@ fi
 [ "${nvimdir}" == "nvim" ] || {
   [ "${quiet}" ] || {
     printf "\nTo use this lazyman installed Neovim configuration as the default,"
-    printf "\nadd a line like the following to your .bashrc or .zshrc:"
+    printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
     if [ "${all}" ]
     then
       printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
