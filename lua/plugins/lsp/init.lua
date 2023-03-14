@@ -60,20 +60,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "mason.nvim" },
     config = function()
-      local null_ls = require("null-ls")
-      local formatting = null_ls.builtins.formatting
-      -- print(vim.inspect(formatting.sql_formatter))
-      -- print(vim.inspect(formatting.black))
-      null_ls.setup({
-        debug = false,
-        sources = {
-          formatting.prettier,
-          formatting.stylua,
-          formatting.google_java_format,
-          formatting.black.with({ extra_args = { "--fast" } }),
-          formatting.sql_formatter.with({ extra_args = { "--config" } }),
-        },
-      })
+      require("config.null-ls")
     end,
   },
 

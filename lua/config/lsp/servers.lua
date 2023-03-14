@@ -1,5 +1,6 @@
 local servers = {
-  clangd = {},
+  ccls = {},
+  -- clangd = {},
   cssls = {},
   html = {},
   jsonls = {},
@@ -13,9 +14,9 @@ local servers = {
           enable = true,
           arrayIndex = "Disable", -- "Enable", "Auto", "Disable"
           await = true,
-          paramName = "Disable",  -- "All", "Literal", "Disable"
+          paramName = "Disable", -- "All", "Literal", "Disable"
           paramType = false,
-          semicolon = "Disable",  -- "All", "SameLine", "Disable"
+          semicolon = "Disable", -- "All", "SameLine", "Disable"
           setType = true,
         },
         runtime = {
@@ -29,8 +30,8 @@ local servers = {
         },
         workspace = {
           library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = false,
-                [vim.fn.stdpath("config") .. "/lua"] = false,
+            [vim.fn.expand("$VIMRUNTIME/lua")] = false,
+            [vim.fn.stdpath("config") .. "/lua"] = false,
           },
         },
         telemetry = {

@@ -160,7 +160,7 @@ require("noice").setup({
     },
   },
   health = {
-    checker = true, -- Disable if you don't want health checks to run
+    checker = false, -- Disable if you don't want health checks to run
   },
   smart_move = {
     -- noice tries to move out of the way of existing floating windows.
