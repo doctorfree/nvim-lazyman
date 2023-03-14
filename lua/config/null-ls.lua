@@ -58,8 +58,8 @@ null_ls.setup({
     --   }),
 
     -- Code actions for staging hunks, blame, etc
-    null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.completion.luasnip,
+    --- null_ls.builtins.code_actions.gitsigns,
+    --- null_ls.builtins.completion.luasnip,
 
     -- Spell check that has better tooling
     -- all stored locally

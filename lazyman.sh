@@ -4,6 +4,7 @@
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
+# shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
@@ -430,32 +431,29 @@ else
   [ "${quiet}" ] || printf "done"
 fi
 
-have_nvim=$(type -p nvim)
-[ "${have_nvim}" ] || {
-  [ "${quiet}" ] || {
-    printf "\nLazyman requires neovim but nvim not found\n"
-  }
-  if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
-  then
-    ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug}
-    BREW_EXE=
-    set_brew
-    [ -x ${BREW_EXE} ] || {
-      echo "Homebrew brew executable not in PATH"
-      usage
-    }
-    eval "$(${BREW_EXE} shellenv)"
-    have_nvim=$(type -p nvim)
-    [ "${have_nvim}" ] || {
-      echo "Still cannot find neovim even after Homebrew install"
-      echo "Something went wrong, install neovim and retry this install script"
-      usage
-    }
-  else
-    echo "Please install neovim and retry this install script"
-    usage
-  fi
+[ "${quiet}" ] || {
+  printf "\nLazyman requires neovim but nvim not found\n"
 }
+if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
+then
+  ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug}
+  BREW_EXE=
+  set_brew
+  [ -x ${BREW_EXE} ] || {
+    echo "Homebrew brew executable not in PATH"
+    usage
+  }
+  eval "$(${BREW_EXE} shellenv)"
+  have_nvim=$(type -p nvim)
+  [ "${have_nvim}" ] || {
+    echo "Still cannot find neovim even after Homebrew install"
+    echo "Something went wrong, install neovim and retry this install script"
+    usage
+  }
+else
+  echo "Please install neovim and retry this install script"
+  usage
+fi
 
 nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
 

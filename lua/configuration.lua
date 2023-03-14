@@ -71,10 +71,22 @@ M.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
-  "c", "lua", "vim", "help", "query", "bash", "html", "json",
-  "markdown", "markdown_inline", "python", "regex", "yaml"
+  "c",
+  "lua",
+  "vim",
+  "help",
+  "query",
+  "bash",
+  "html",
+  "json",
+  "markdown",
+  "markdown_inline",
+  "python",
+  "regex",
+  "yaml",
 }
-
+-- Enable either clangd or ccls for C/C++ diagnostics
+M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
 M.mason_tool_installer_ensure_installed = {
   -- LSP

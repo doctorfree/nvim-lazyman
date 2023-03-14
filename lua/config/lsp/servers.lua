@@ -1,6 +1,6 @@
 local servers = {
   ccls = {},
-  -- clangd = {},
+  clangd = {},
   cssls = {},
   html = {},
   jsonls = {},
