@@ -553,7 +553,7 @@ fi
 for neovim in ${nvimdir}
 do
   [ "${quiet}" ] || {
-    printf "\nInitializing newly installed ${neovim} Neovim configuration ... "
+    printf "\n\nInitializing newly installed ${neovim} Neovim configuration ... "
   }
   init_neovim "${neovim}"
   [ "${quiet}" ] || printf "done\n"
