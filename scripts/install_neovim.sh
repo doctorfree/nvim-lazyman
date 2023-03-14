@@ -410,13 +410,14 @@ install_tools() {
 }
 
 main () {
-  if [ "${language_servers}" ]
+  if [ "${lang_tools}" ]
   then
+    install_neovim_dependencies
     install_language_servers
+    install_tools
   else
     check_prerequisites
     install_brew
-    install_neovim_dependencies
     if command -v nvim >/dev/null 2>&1; then
       nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
       if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
@@ -428,13 +429,12 @@ main () {
       log "Neovim not found, installing Neovim with Homebrew"
       install_neovim_head
 	  fi
-    install_tools
   fi
 }
 
 quiet=
 debug=
-language_servers=
+lang_tools=
 
 while getopts "dlq" flag; do
   case $flag in
@@ -442,7 +442,7 @@ while getopts "dlq" flag; do
         debug=1
         ;;
     l)
-        language_servers=1
+        lang_tools=1
         ;;
     q)
         quiet=1

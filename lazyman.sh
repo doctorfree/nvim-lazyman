@@ -20,7 +20,7 @@ usage() {
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
-  printf "\n\t-I indicates install language servers for coding diagnostics"
+  printf "\n\t-I indicates install language servers and tools for coding diagnostics"
   printf "\n\t-L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-R indicates remove previously installed configuration and backups"
