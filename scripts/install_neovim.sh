@@ -10,6 +10,7 @@
 
 DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
+export PATH=${HOME}/.local/bin:${PATH}
 
 abort () {
   printf "\nERROR: %s\n" "$@" >&2
@@ -90,12 +91,12 @@ install_homebrew () {
 
     if [ -f "${BASHINIT}" ]
     then
-      grep "^eval \"\$(${BREW_EXE} shellenv)\"" "${BASHINIT}" > /dev/null || {
+      grep "eval \"\$(${BREW_EXE} shellenv)\"" "${BASHINIT}" > /dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >> "${BASHINIT}"
         echo 'fi' >> "${BASHINIT}"
       }
-      grep "^eval \"\$(zoxide init" "${BASHINIT}" > /dev/null || {
+      grep "eval \"\$(zoxide init" "${BASHINIT}" > /dev/null || {
         echo 'if command -v zoxide > /dev/null; then' >> "${BASHINIT}"
         echo '  eval "$(zoxide init bash)"' >> "${BASHINIT}"
         echo 'fi' >> "${BASHINIT}"
@@ -109,12 +110,12 @@ install_homebrew () {
       echo 'fi' >> "${BASHINIT}"
     fi
     [ -f "${HOME}/.zshrc" ] && {
-      grep "^eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" > /dev/null || {
+      grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" > /dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >> "${HOME}/.zshrc"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >> "${HOME}/.zshrc"
         echo 'fi' >> "${HOME}/.zshrc"
       }
-      grep "^eval \"\$(zoxide init" "${HOME}/.zshrc" > /dev/null || {
+      grep "eval \"\$(zoxide init" "${HOME}/.zshrc" > /dev/null || {
         echo 'if command -v zoxide > /dev/null; then' >> "${HOME}/.zshrc"
         echo '  eval "$(zoxide init zsh)"' >> "${HOME}/.zshrc"
         echo 'fi' >> "${HOME}/.zshrc"
@@ -129,18 +130,18 @@ install_homebrew () {
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf "\nHomebrew install elapsed time = ${ELAPSED}\n"
     }
+    [ "${HOMEBREW_HOME}" ] || {
+      brewpath=$(command -v brew)
+      if [ $? -eq 0 ]
+      then
+        HOMEBREW_HOME=`dirname ${brewpath} | sed -e "s%/bin$%%"`
+      else
+        HOMEBREW_HOME="Unknown"
+      fi
+    }
+    log "Homebrew installed in ${HOMEBREW_HOME}"
+    log "See ${DOC_HOMEBREW}"
   fi
-  [ "${HOMEBREW_HOME}" ] || {
-    brewpath=$(command -v brew)
-    if [ $? -eq 0 ]
-    then
-      HOMEBREW_HOME=`dirname ${brewpath} | sed -e "s%/bin$%%"`
-    else
-      HOMEBREW_HOME="Unknown"
-    fi
-  }
-  log "Homebrew installed in ${HOMEBREW_HOME}"
-  log "See ${DOC_HOMEBREW}"
 }
 
 brew_install() {
@@ -165,17 +166,23 @@ brew_install() {
 }
 
 install_neovim_dependencies () {
-  log "Installing dependencies ..."
-  PKGS="git curl tar unzip lazygit fd ripgrep fzf xclip zoxide"
+  [ "${quiet}" ] || printf "\nInstalling dependencies"
+  PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in ${PKGS}
   do
 		brew_install "${pkg}"
   done
-  [ "${quiet}" ] || printf " done"
+  if command -v rg >/dev/null 2>&1
+	then
+    log "Using previously installed ripgrep ... done"
+	else
+	  brew_install ripgrep
+	fi
+  [ "${quiet}" ] || printf "\nDone"
 }
 
 install_neovim_head () {
-  log "Installing Neovim HEAD ..."
+  log "Compiling and installing Neovim, please be patient ..."
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
@@ -219,15 +226,21 @@ link_python () {
 }
 
 install_language_servers() {
-  log "Installing language servers ..."
+  [ "${quiet}" ] || printf "\nInstalling language servers and tools"
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
 	  for pkg in awk-language-server cssmodules-language-server eslint_d \
 							 vim-language-server dockerfile-language-server-nodejs
 		do
-      [ "${quiet}" ] || printf " ${pkg}"
-      npm i -g ${pkg} > /dev/null 2>&1
+      if command -v ${pkg} >/dev/null 2>&1
+	    then
+        [ "${quiet}" ] || log "Using previously installed ${pkg} ..."
+	    else
+        [ "${quiet}" ] || log "Installing ${pkg} ..."
+        npm i -g ${pkg} > /dev/null 2>&1
+        [ "${quiet}" ] || printf " done"
+			fi
 		done
     [ "${debug}" ] && {
       FINISH_SECONDS=$(date +%s)
@@ -237,10 +250,16 @@ install_language_servers() {
     }
   }
   # brew installed language servers
-  for server in pyright typescript vscode-langservers-extracted
+  for server in pyright vscode-langservers-extracted
   do
 		brew_install "${server}"
   done
+  if command -v tsserver >/dev/null 2>&1
+	then
+    log "Using previously installed typescript ... done"
+	else
+	  brew_install typescript
+	fi
   for server in ansible bash haskell sql lua typescript yaml
   do
 		brew_install "${server}-language-server"
@@ -263,10 +282,11 @@ install_language_servers() {
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest > /dev/null 2>&1
   fi
-  [ "${quiet}" ] || printf " done"
+  [ "${quiet}" ] || printf "\nDone"
 }
 
 install_tools() {
+  [ "${quiet}" ] || printf "\nInstalling Python dependencies"
   check_python
   [ "${PYTHON}" ] || {
     # Could not find Python, install with Homebrew
@@ -278,14 +298,16 @@ install_tools() {
     [ "${quiet}" ] || printf " done"
   }
   [ "${PYTHON}" ] && {
-    log 'Installing Python dependencies ...'
+    log 'Upgrading pip, setuptools, wheel, doq, and pynvim ...'
     ${PYTHON} -m pip install --upgrade pip > /dev/null 2>&1
     ${PYTHON} -m pip install --upgrade setuptools > /dev/null 2>&1
     ${PYTHON} -m pip install wheel > /dev/null 2>&1
     ${PYTHON} -m pip install pynvim doq > /dev/null 2>&1
     [ "${quiet}" ] || printf " done"
   }
+  [ "${quiet}" ] || printf "\nDone"
 
+  [ "${quiet}" ] || printf "\nInstalling npm, treesitter, and cargo dependencies"
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     log "Installing Neovim npm package ..."
@@ -319,7 +341,7 @@ install_tools() {
     /bin/bash -c "/tmp/jetb-$$.sh" > /dev/null 2>&1
     rm -f /tmp/jetb-$$.sh
   }
-  [ "${quiet}" ] || printf "done"
+  [ "${quiet}" ] || printf "done\nDone\n"
 }
 
 main () {

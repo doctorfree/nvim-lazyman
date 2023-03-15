@@ -257,12 +257,16 @@ set_brew() {
       then
         HOMEBREW_HOME="/opt/homebrew"
       else
-        printf "\nHomebrew brew executable could not be located\n"
-        usage
+        HOMEBREW_HOME=
       fi
     fi
   fi
-  BREW_EXE="${HOMEBREW_HOME}/bin/brew"
+  if [ "${HOMEBREW_HOME}" ]
+  then
+    BREW_EXE=
+  else
+    BREW_EXE="${HOMEBREW_HOME}/bin/brew"
+  fi
 }
 
 all=
@@ -442,7 +446,7 @@ else
       git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
     }
   }
-  [ "${quiet}" ] || printf "done"
+  [ "${quiet}" ] || printf "done\n"
 fi
 
 if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
@@ -450,19 +454,16 @@ then
   ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug}
   BREW_EXE=
   set_brew
-  [ -x ${BREW_EXE} ] || {
-    echo "Homebrew brew executable not in PATH"
-    usage
-  }
-  eval "$(${BREW_EXE} shellenv)"
+  [ "${BREW_EXE}" ] && eval "$(${BREW_EXE} shellenv)"
   have_nvim=$(type -p nvim)
   [ "${have_nvim}" ] || {
-    echo "Still cannot find neovim even after Homebrew install"
-    echo "Something went wrong, install neovim and retry this install script"
+    echo "ERROR: cannot locate neovim"
+    echo "Install neovim and retry this install script"
     usage
   }
 else
-  echo "Please install neovim and retry this install script"
+  echo "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh not executable"
+  echo "Please check the Lazyman installation and retry this install script"
   usage
 fi
 
@@ -628,7 +629,7 @@ fi
     printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lmvim'"
   fi
 }
-echo ""
+printf "\n\n"
 
 [ "${tellme}" ] || {
   [ "${all}" ] && export NVIM_APPNAME="${lazymandir}"
