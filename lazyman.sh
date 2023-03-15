@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# lazyman - install, initialize, and manage Lazy Neovim configurations
+# lazyman - install, initialize, and manage multiple Neovim configurations
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
@@ -108,8 +108,8 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa
       else
         nvim --headless "+Lazy! sync" +qa
-        nvim --headless "+Lazy! update" +qa
-        nvim --headless "+Lazy! install" +qa
+        # nvim --headless "+Lazy! update" +qa
+        # nvim --headless "+Lazy! install" +qa
       fi
     else
       if [ "${packer}" ]
@@ -118,11 +118,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+        # nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
+        # nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
     fi
-    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
 }
 
