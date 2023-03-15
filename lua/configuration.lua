@@ -57,7 +57,7 @@ M.enable_rainbow2 = true
 M.enable_wilder = false
 -- Enable/disable tabline or winbar or both
 M.enable_tabline = true
--- Disable winbar with nvim-navic location
+-- Disable winbar with location
 M.enable_winbar = false
 -- Enable the Alpha dashboard
 M.enable_alpha = true

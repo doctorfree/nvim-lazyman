@@ -3,32 +3,44 @@
 -- nvim-lualine/lualine.nvim
 -------------------------------------------------------------------------------
 
-local lualine = require('lualine')
-local navic = require('nvim-navic')
-local utils = require('utils.functions')
+local lualine = require("lualine")
+local utils = require("utils.functions")
 local settings = require("configuration")
 
 local theme = settings.theme
 local style = settings.theme_style
-local config_root = vim.fn.stdpath('config')..'/lua/themes/lualine/'
-local theme_path = config_root .. style .. '.lua'
+local config_root = vim.fn.stdpath("config") .. "/lua/themes/lualine/"
+local theme_path = config_root .. style .. ".lua"
 
 if utils.file_or_dir_exists(theme_path) then
-  theme = require('themes.lualine.' .. style)
+  theme = require("themes.lualine." .. style)
 else
-  theme_path = config_root .. theme .. '.lua'
+  theme_path = config_root .. theme .. ".lua"
   if utils.file_or_dir_exists(theme_path) then
-    theme = require('themes.lualine.' .. theme)
+    theme = require("themes.lualine." .. theme)
   end
 end
 
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
-    lualine_a = {},
+    -- lualine_a = {},
+    lualine_a = { require("tabline").tabline_buffers },
     lualine_b = {},
-    lualine_c = { require'tabline'.tabline_buffers },
-    lualine_x = { require'tabline'.tabline_tabs },
+    lualine_c = {
+      {
+        "filename",
+        path = 3,
+        filetype_names = {
+          TelescopePrompt = "Telescope",
+          dashboard = "Dashboard",
+          packer = "Packer",
+          fzf = "FZF",
+          alpha = "Alpha",
+        },
+      },
+    },
+    lualine_x = { require("tabline").tabline_tabs },
     lualine_y = {},
     lualine_z = {},
   }
@@ -41,77 +53,81 @@ if settings.enable_winbar then
     lualine_a = {},
     lualine_b = {},
     lualine_c = {
-      { 'filename', path = 3, color = { bg = 'NONE' } },
-      { navic.get_location, cond = navic.is_available },
+      { "filename", path = 1, color = { bg = "NONE" } },
     },
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   }
   inactive_winbar_cfg = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {
-      { 'filename', path = 1, color = { bg = 'NONE' } },
+      { "filename", path = 1, color = { bg = "NONE" } },
     },
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   }
 end
 
 local fmt_stat = function()
-    local stat = ''
-    stat = stat .. 'spaces=' .. vim.opt_local.tabstop._value
-    return stat
+  local stat = ""
+  stat = stat .. "spaces=" .. vim.opt_local.tabstop._value
+  return stat
 end
 
-lualine.setup {
+lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
     -- theme = 'auto',
-    -- theme = 'tokyonight',
     theme = theme,
     --component_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
+    component_separators = { left = "", right = "" },
     --section_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = {
-      'alpha', 'neo-tree', 'NvimTree', 'Outline', 'toggleterm', 'dap-repl',
-      'packer', 'Trouble', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks',
-      'dapui_watches', 'dap-terminal', 'dapui_console', 'dashboard', 'help',
-      'lazy', 'lir', 'neogitstatus', 'oil', 'spectre_panel', 'startify'
+      "alpha",
+      "neo-tree",
+      "NvimTree",
+      "Outline",
+      "toggleterm",
+      "dap-repl",
+      "packer",
+      "Trouble",
+      "dapui_scopes",
+      "dapui_breakpoints",
+      "dapui_stacks",
+      "dapui_watches",
+      "dap-terminal",
+      "dapui_console",
+      "dashboard",
+      "help",
+      "lazy",
+      "lir",
+      "neogitstatus",
+      "oil",
+      "spectre_panel",
+      "startify",
     },
-    always_divide_middle = true
+    always_divide_middle = true,
   },
   sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = {
-      { 'filename',
-        path = 3,
-        filetype_names = {
-          TelescopePrompt = 'Telescope',
-          dashboard = 'Dashboard',
-          packer = 'Packer',
-          fzf = 'FZF',
-          alpha = 'Alpha',
-        }
-      },
-      -- { navic.get_location, cond = navic.is_available },
-    },
-    lualine_x = { fmt_stat, 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_a = { "mode" },
+    lualine_b = { "branch", "diff", "diagnostics" },
+    lualine_c = {},
+    lualine_x = { fmt_stat, "encoding", "fileformat", "filetype" },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   },
 
   tabline = tabline_cfg,
@@ -133,5 +149,5 @@ lualine.setup {
   --   quickfix
   --   symbols-outline
   --   toggleterm
-  extensions = { 'neo-tree', 'fugitive', 'fzf', 'toggleterm', 'nvim-dap-ui', 'quickfix' }
-}
+  extensions = { "neo-tree", "fugitive", "fzf", "toggleterm", "nvim-dap-ui", "quickfix" },
+})
