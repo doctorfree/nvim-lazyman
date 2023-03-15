@@ -49,7 +49,26 @@ return {
         end
       end
 
-      require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+      require("mason-lspconfig").setup({
+        ensure_installed = ensure_installed,
+        automatic_installation = {
+          exclude = {
+            "bash-language-server",
+            "black",
+            "clangd",
+            "jdtls",
+            "lua-language-server",
+            "marksman",
+            "prettier",
+            "pyright",
+            "rust_analyzer",
+            "stylua",
+            "taplo",
+            "texlab",
+            "typescript-language-server",
+          },
+        },
+      })
       require("mason-lspconfig").setup_handlers({ setup })
     end,
   },
@@ -67,5 +86,4 @@ return {
   {
     "mfussenegger/nvim-jdtls",
   },
-
 }

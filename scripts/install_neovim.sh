@@ -250,10 +250,8 @@ install_language_servers() {
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-	  for pkg in pyright typescript typescript-language-server \
-			         awk-language-server cssmodules-language-server \
-							 vim-language-server dockerfile-language-server-nodejs \
-							 vscode-langservers-extracted eslint_d
+	  for pkg in awk-language-server cssmodules-language-server eslint_d \
+							 vim-language-server dockerfile-language-server-nodejs
 		do
       [ "${quiet}" ] || printf " ${pkg}"
       npm i -g ${pkg} > /dev/null 2>&1
@@ -266,7 +264,20 @@ install_language_servers() {
     }
   }
   # brew installed language servers
-  for server in ansible bash haskell sql lua yaml
+  for server in pyright typescript vscode-langservers-extracted
+  do
+    [ "${debug}" ] && START_SECONDS=$(date +%s)
+    [ "${quiet}" ] || printf " ${server}"
+    ${BREW_EXE} install -q ${server} > /dev/null 2>&1
+    if [ "${debug}" ]
+    then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+      printf "\nInstall ${server} elapsed time = %s${ELAPSED}\n"
+    fi
+  done
+  for server in ansible bash haskell sql lua typescript yaml
   do
     [ "${debug}" ] && START_SECONDS=$(date +%s)
     [ "${quiet}" ] || printf " ${server}-language-server"
