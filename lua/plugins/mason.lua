@@ -26,11 +26,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = {
-        "prettier",
-        "stylua",
         "google_java_format",
         "jq",
-        "black",
         "sql_formatter",
       },
       automatic_setup = true,
@@ -38,14 +35,14 @@ return {
   },
 
   {
-    'RubixDev/mason-update-all',
+    "RubixDev/mason-update-all",
     config = function()
-      require('mason-update-all').setup()
-      vim.api.nvim_create_autocmd('User', {
-        pattern = 'MasonUpdateAllComplete',
+      require("mason-update-all").setup()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MasonUpdateAllComplete",
         callback = function()
-          print('mason-update-all has finished')
-        end
+          print("mason-update-all has finished")
+        end,
       })
     end,
   },

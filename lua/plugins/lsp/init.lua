@@ -30,6 +30,7 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       local servers = require("config.lsp.servers")
       local available = mason_lspconfig.get_available_servers()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       local function setup(server)
         local server_opts = vim.tbl_deep_extend("force", {
@@ -48,9 +49,18 @@ return {
           end
         end
       end
+    end,
+  },
 
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "nvim-lspconfig",
+      "mason.nvim",
+    },
+    config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = ensure_installed,
+        -- automatic_installation = false,
         automatic_installation = {
           exclude = {
             "bash-language-server",
@@ -69,7 +79,7 @@ return {
           },
         },
       })
-      require("mason-lspconfig").setup_handlers({ setup })
+      -- require("mason-lspconfig").setup_handlers({ setup })
     end,
   },
 
