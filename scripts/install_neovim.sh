@@ -56,7 +56,7 @@ install_brew () {
     export HOMEBREW_NO_INSTALL_CLEANUP=1
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_NO_AUTO_UPDATE=1
-    printf " done"
+    [ "${quiet}" ] || printf " done"
     if [ -f ${HOME}/.profile ]
     then
       BASHINIT="${HOME}/.profile"
@@ -141,35 +141,6 @@ install_brew () {
   }
   log "Homebrew installed in ${HOMEBREW_HOME}"
   log "See ${DOC_HOMEBREW}"
-  # log "Installing Homebrew gcc, cmake, and make ..."
-  # if [ "${debug}" ]
-  # then
-  # for tool in gcc cmake make
-  # do
-  #     START_SECONDS=$(date +%s)
-  #     ${BREW_EXE} install ${tool}
-  #     FINISH_SECONDS=$(date +%s)
-  #     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-  #     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-  #     printf "\nInstall ${tool} elapsed time = %s${ELAPSED}\n"
-  # done
-  # START_SECONDS=$(date +%s)
-  # ${BREW_EXE} uninstall --ignore-dependencies llvm
-  # ${BREW_EXE} install llvm@14
-  # ${BREW_EXE} link llvm@14
-  # FINISH_SECONDS=$(date +%s)
-  # ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-  # ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-  # printf "\nInstall llvm elapsed time = %s${ELAPSED}\n"
-  # else
-  # ${BREW_EXE} install --quiet gcc > /dev/null 2>&1
-  # ${BREW_EXE} install --quiet cmake > /dev/null 2>&1
-  # ${BREW_EXE} install --quiet make > /dev/null 2>&1
-  # ${BREW_EXE} uninstall --ignore-dependencies llvm > /dev/null 2>&1
-  # ${BREW_EXE} install --quiet llvm@14 > /dev/null 2>&1
-  # ${BREW_EXE} link llvm@14 > /dev/null 2>&1
-  # fi
-  # printf " done"
 }
 
 install_zoxide () {
@@ -187,7 +158,7 @@ install_zoxide () {
       printf "\nInstall zoxide elapsed time = %s${ELAPSED}\n"
     fi
   }
-  printf " done"
+  [ "${quiet}" ] || printf " done"
 }
 
 
@@ -199,6 +170,7 @@ install_neovim_dependencies () {
     have_pkg=$(type -p ${pkg})
     [ "${have_pkg}" ] || {
       [ "${debug}" ] && START_SECONDS=$(date +%s)
+      [ "${quiet}" ] || printf " ${pkg}"
       ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
       [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
       [ "${debug}" ] && {
@@ -209,7 +181,7 @@ install_neovim_dependencies () {
       }
     }
   done
-  printf " done"
+  [ "${quiet}" ] || printf " done"
 }
 
 install_neovim () {
@@ -226,7 +198,7 @@ install_neovim () {
     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
     printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
-  printf " done"
+  [ "${quiet}" ] || printf " done"
 }
 
 install_neovim_head () {
@@ -243,7 +215,7 @@ install_neovim_head () {
     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
     printf "\nInstall Neovim HEAD elapsed time = %s${ELAPSED}\n"
   fi
-  printf " done"
+  [ "${quiet}" ] || printf " done"
 }
 
 check_python () {
@@ -274,35 +246,18 @@ link_python () {
 }
 
 install_language_servers() {
-  # These are installed by Mason, no need to install them here
-  #
-  # bash-language-server black clangd jdtls lua-language-server
-  # marksman prettier shellcheck shfmt sql-language-server stylua
-  # texlab yaml-language-server
   log "Installing language servers ..."
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-    # python language server
-    npm i -g pyright > /dev/null 2>&1
-    # typescript language server
-    npm i -g typescript typescript-language-server > /dev/null 2>&1
-    # awk language server
-    npm i -g awk-language-server > /dev/null 2>&1
-    # css language server
-    npm i -g cssmodules-language-server > /dev/null 2>&1
-    # vim language server
-    npm i -g vim-language-server > /dev/null 2>&1
-    # docker language server
-    npm i -g dockerfile-language-server-nodejs > /dev/null 2>&1
-    # vscode-langservers bin collection, includes:
-    # vscode-html-language-server
-    # vscode-css-language-server
-    # vscode-json-language-server
-    # vscode-eslint-language-server
-    npm i -g vscode-langservers-extracted > /dev/null 2>&1
-    # Improve eslint performance
-    npm i -g eslint_d > /dev/null 2>&1
+	  for pkg in pyright typescript typescript-language-server \
+			         awk-language-server cssmodules-language-server \
+							 vim-language-server dockerfile-language-server-nodejs \
+							 vscode-langservers-extracted eslint_d
+		do
+      [ "${quiet}" ] || printf " ${pkg}"
+      npm i -g ${pkg} > /dev/null 2>&1
+		done
     [ "${debug}" ] && {
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
@@ -314,6 +269,7 @@ install_language_servers() {
   for server in ansible bash haskell sql lua yaml
   do
     [ "${debug}" ] && START_SECONDS=$(date +%s)
+    [ "${quiet}" ] || printf " ${server}-language-server"
     ${BREW_EXE} install -q ${server}-language-server > /dev/null 2>&1
     if [ "${debug}" ]
     then
@@ -325,6 +281,7 @@ install_language_servers() {
   done
 
   [ "${debug}" ] && START_SECONDS=$(date +%s)
+  [ "${quiet}" ] || printf " ccls"
   ${BREW_EXE} install -q ccls > /dev/null 2>&1
   ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
   if [ "${debug}" ]
@@ -335,11 +292,12 @@ install_language_servers() {
     printf "\nInstall ccls elapsed time = %s${ELAPSED}\n"
   fi
 
-  for pkg in golangci-lint rust-analyzer \
-             taplo eslint terraform \
+  for pkg in golangci-lint jdtls marksman rust-analyzer shellcheck \
+             taplo texlab stylua eslint prettier terraform black shfmt \
              yarn julia composer php deno
   do
     [ "${debug}" ] && START_SECONDS=$(date +%s)
+    [ "${quiet}" ] || printf " ${pkg}"
     ${BREW_EXE} install -q ${pkg} > /dev/null 2>&1
     if [ "${debug}" ]
     then
@@ -347,7 +305,7 @@ install_language_servers() {
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf "\nInstall ${pkg} elapsed time = %s${ELAPSED}\n"
-		fi
+    fi
   done
   [ "${PYTHON}" ] && {
     ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
@@ -356,7 +314,7 @@ install_language_servers() {
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest > /dev/null 2>&1
   fi
-  printf " done"
+  [ "${quiet}" ] || printf " done"
 }
 
 install_tools() {
@@ -368,7 +326,7 @@ install_tools() {
     [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet python > /dev/null 2>&1
     link_python
     check_python
-    printf " done"
+    [ "${quiet}" ] || printf " done"
   }
   [ "${PYTHON}" ] && {
     log 'Installing Python dependencies ...'
@@ -376,17 +334,17 @@ install_tools() {
     ${PYTHON} -m pip install --upgrade setuptools > /dev/null 2>&1
     ${PYTHON} -m pip install wheel > /dev/null 2>&1
     ${PYTHON} -m pip install pynvim doq > /dev/null 2>&1
-    printf " done"
+    [ "${quiet}" ] || printf " done"
   }
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     log "Installing Neovim npm package ..."
     npm i -g neovim > /dev/null 2>&1
-    printf " done"
+    [ "${quiet}" ] || printf " done"
 
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons > /dev/null 2>&1
-    printf " done"
+    [ "${quiet}" ] || printf " done"
   }
   if ! command -v tree-sitter >/dev/null 2>&1; then
     log "Installing tree-sitter command line interface ..."
@@ -401,7 +359,7 @@ install_tools() {
     else
       ${BREW_EXE} install -q tree-sitter > /dev/null 2>&1
     fi
-    printf " done"
+    [ "${quiet}" ] || printf " done"
   fi
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config > /dev/null 2>&1
