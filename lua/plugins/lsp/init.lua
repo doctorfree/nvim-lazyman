@@ -54,6 +54,7 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
+    version = false,
     dependencies = {
       "nvim-lspconfig",
       "mason.nvim",
@@ -63,9 +64,13 @@ return {
         -- automatic_installation = false,
         automatic_installation = {
           exclude = {
+            "awk-language-server",
             "bash-language-server",
             "black",
             "clangd",
+            "cmake-language-server",
+            "cssmodules-language-server",
+            "docker-langserver",
             "jdtls",
             "lua-language-server",
             "marksman",
@@ -76,6 +81,8 @@ return {
             "taplo",
             "texlab",
             "typescript-language-server",
+            "vim-language-server",
+            "yaml-language-server",
           },
         },
       })
