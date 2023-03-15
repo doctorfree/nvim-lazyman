@@ -21,8 +21,9 @@ to install, initialize, remove, and manage multiple Neovim configuratons.
 - [Installation](#installation)
   - [Bootstrap](#bootstrap)
   - [Postinstall](#postinstall)
-  - [Neovim 0.9 and later](#neovim-09-and-later)
-  - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
+  - [Manual installation](#manual-installation)
+    - [Neovim 0.9 and later](#neovim-09-and-later)
+    - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Supported configurations](#supported-configurations)
   - [Unsupported configurations](#unsupported-configurations)
 - [Motivation](#motivation)
@@ -126,7 +127,26 @@ for coding diagnostics. To install these tools, execute:
 lazyman -I
 ```
 
-#### Neovim 0.9 and later
+#### Manual installation
+
+If you do not wish to use the automated installation and initialization
+provided by the `lazyman.sh` script, manual installation and initialization
+can be performed. Check the version of the installed Neovim with:
+
+```bash
+nvim --version
+```
+
+Follow the manual installation procedure for your version of Neovim.
+Manual installation of Lazyman will not install language servers or
+tools. Mason will take care of some of this for you but a manual
+installation should be accompanied by a manual upgrade of Neovim
+and installation of desired language servers and tools. You're on
+your own but you can always just run `lazyman` to perform an
+automated install and upgrade followed by `lazyman -I` to install
+language servers and tools.
+
+##### Neovim 0.9 and later
 
 In Neovim 0.9 and later there is a new feature enabling control of the
 Neovim configuration location through the `NVIM_APPNAME` environment
@@ -136,7 +156,7 @@ rather than `~/.config/nvim`. This new feature can be used to easily
 switch between Neovim configurations.
 
 If you wish to use this repository in conjunction with a setup utilizing the
-`NVIM_APPNAME` feature then the installation process can be performed by:
+`NVIM_APPNAME` feature then the manual installation process can be performed by:
 
 - Backup any pre-existing `nvim-lazyman` config folder
 
@@ -157,10 +177,12 @@ nvim --headless "+Lazy! sync" +qa
 nvim
 ```
 
-#### Neovim 0.8 and earlier
+##### Neovim 0.8 and earlier
 
-**[Note:]** Current Lazyman bootstrap will install the latest version of
-Neovim even if an older version is already installed.
+**[Note:]** Lazyman bootstrap will install the latest version of
+Neovim even if an older version is already installed. A manual install
+of Lazyman will not upgrade Neovim. Neovim 0.8 and earlier does not
+support some of the features Lazyman provides.
 
 Users of Neovim 0.8 and earlier can manually install and initialize
 `nvim-lazyman` following these instructions:
