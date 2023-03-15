@@ -367,7 +367,6 @@ while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
 done
 
 [ "${langservers}" ] && {
-	install_neovim.sh
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
   then
     ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug} -l
