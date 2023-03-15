@@ -144,15 +144,15 @@ install_brew () {
   # log "Installing Homebrew gcc, cmake, and make ..."
   # if [ "${debug}" ]
   # then
-	# for tool in gcc cmake make
-	# do
+  # for tool in gcc cmake make
+  # do
   #     START_SECONDS=$(date +%s)
   #     ${BREW_EXE} install ${tool}
   #     FINISH_SECONDS=$(date +%s)
   #     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
   #     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
   #     printf "\nInstall ${tool} elapsed time = %s${ELAPSED}\n"
-	# done
+  # done
   # START_SECONDS=$(date +%s)
   # ${BREW_EXE} uninstall --ignore-dependencies llvm
   # ${BREW_EXE} install llvm@14
@@ -172,27 +172,60 @@ install_brew () {
   # printf " done"
 }
 
+install_zoxide () {
+  log "Installing zoxide ..."
+  have_zoxide=$(type -p zoxide)
+  [ "${have_zoxide}" ] || {
+    [ "${debug}" ] && START_SECONDS=$(date +%s)
+    ${BREW_EXE} install --quiet zoxide > /dev/null 2>&1
+    [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
+    if [ "${debug}" ]
+    then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+      printf "\nInstall zoxide elapsed time = %s${ELAPSED}\n"
+    fi
+  }
+  printf " done"
+}
+
+
 install_neovim_dependencies () {
   log "Installing dependencies ..."
-  PKGS="git curl tar unzip lazygit fd ripgrep fzf xclip zoxide"
+  PKGS="git curl tar unzip lazygit fd ripgrep fzf xclip"
   for pkg in ${PKGS}
   do
-	have_pkg=$(type -p ${pkg})
-	[ "${have_pkg}" ] || {
-      if [ "${debug}" ]
-      then
-        START_SECONDS=$(date +%s)
-        ${BREW_EXE} install ${pkg}
+    have_pkg=$(type -p ${pkg})
+    [ "${have_pkg}" ] || {
+      [ "${debug}" ] && START_SECONDS=$(date +%s)
+      ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
+      [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
+      [ "${debug}" ] && {
         FINISH_SECONDS=$(date +%s)
         ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
         ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
         printf "\nInstall ${pkg} elapsed time = %s${ELAPSED}\n"
-      else
-        ${BREW_EXE} install --quiet ${pkg} > /dev/null 2>&1
-        [ $? -eq 0 ] || ${BREW_EXE} link --overwrite --quiet ${pkg} > /dev/null 2>&1
-      fi
-	}
+      }
+    }
   done
+  printf " done"
+}
+
+install_neovim () {
+  log "Installing Neovim ..."
+  if [ "${debug}" ]
+  then
+    START_SECONDS=$(date +%s)
+  fi
+  ${BREW_EXE} install -q neovim > /dev/null 2>&1
+  if [ "${debug}" ]
+  then
+    FINISH_SECONDS=$(date +%s)
+    ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
+    ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
+    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
+  fi
   printf " done"
 }
 
@@ -201,13 +234,14 @@ install_neovim_head () {
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
-    ${BREW_EXE} install --HEAD neovim
+  fi
+  ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
+  if [ "${debug}" ]
+  then
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
-  else
-    ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
+    printf "\nInstall Neovim HEAD elapsed time = %s${ELAPSED}\n"
   fi
   printf " done"
 }
@@ -240,18 +274,15 @@ link_python () {
 }
 
 install_language_servers() {
-	# These are installed by Mason, no need to install them here
-	#
+  # These are installed by Mason, no need to install them here
+  #
   # bash-language-server black clangd jdtls lua-language-server
-	# marksman prettier shellcheck shfmt sql-language-server stylua
-	# texlab yaml-language-server
+  # marksman prettier shellcheck shfmt sql-language-server stylua
+  # texlab yaml-language-server
   log "Installing language servers ..."
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
-    if [ "${debug}" ]
-    then
-      START_SECONDS=$(date +%s)
-		fi
+    [ "${debug}" ] && START_SECONDS=$(date +%s)
     # python language server
     npm i -g pyright > /dev/null 2>&1
     # typescript language server
@@ -278,61 +309,46 @@ install_language_servers() {
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf "\nNpm tools install elapsed time = %s${ELAPSED}\n"
     }
-	}
+  }
   # brew installed language servers
-  # for server in ansible bash haskell sql lua yaml
-  for server in bash haskell sql lua yaml
+  for server in ansible bash haskell sql lua yaml
   do
+    [ "${debug}" ] && START_SECONDS=$(date +%s)
+    ${BREW_EXE} install -q ${server}-language-server > /dev/null 2>&1
     if [ "${debug}" ]
     then
-      START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${server}-language-server > /dev/null 2>&1
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf "\nInstall ${server}-language-server elapsed time = %s${ELAPSED}\n"
-    else
-      ${BREW_EXE} install -q ${server}-language-server > /dev/null 2>&1
     fi
   done
+
+  [ "${debug}" ] && START_SECONDS=$(date +%s)
+  ${BREW_EXE} install -q ccls > /dev/null 2>&1
+  ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
   if [ "${debug}" ]
   then
-    START_SECONDS=$(date +%s)
-    ${BREW_EXE} install ccls > /dev/null 2>&1
-    ${BREW_EXE} link --overwrite ccls > /dev/null 2>&1
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
     ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
     printf "\nInstall ccls elapsed time = %s${ELAPSED}\n"
-  else
-    ${BREW_EXE} install -q ccls > /dev/null 2>&1
-    ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
   fi
-  if [ "${debug}" ]
-  then
-    for pkg in golangci-lint rust-analyzer \
-        taplo eslint terraform \
-				yarn julia composer php deno
-    do
-      START_SECONDS=$(date +%s)
-      ${BREW_EXE} install ${pkg} > /dev/null 2>&1
+
+  for pkg in golangci-lint rust-analyzer \
+             taplo eslint terraform \
+             yarn julia composer php deno
+  do
+    [ "${debug}" ] && START_SECONDS=$(date +%s)
+    ${BREW_EXE} install -q ${pkg} > /dev/null 2>&1
+    if [ "${debug}" ]
+    then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf "\nInstall ${pkg} elapsed time = %s${ELAPSED}\n"
-    done
-  else
-    ${BREW_EXE} install -q golangci-lint > /dev/null 2>&1
-    ${BREW_EXE} install -q rust-analyzer > /dev/null 2>&1
-    ${BREW_EXE} install -q taplo > /dev/null 2>&1
-    ${BREW_EXE} install -q eslint > /dev/null 2>&1
-    ${BREW_EXE} install -q terraform > /dev/null 2>&1
-    ${BREW_EXE} install -q yarn > /dev/null 2>&1
-    ${BREW_EXE} install -q julia > /dev/null 2>&1
-    ${BREW_EXE} install -q composer > /dev/null 2>&1
-    ${BREW_EXE} install -q php > /dev/null 2>&1
-    ${BREW_EXE} install -q deno > /dev/null 2>&1
-  fi
+		fi
+  done
   [ "${PYTHON}" ] && {
     ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
     ${PYTHON} -m pip install python-lsp-server > /dev/null 2>&1
@@ -418,28 +434,42 @@ main () {
   else
     check_prerequisites
     install_brew
+    if ! command -v zoxide >/dev/null 2>&1; then
+      install_zoxide
+    fi
     if command -v nvim >/dev/null 2>&1; then
       nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
       if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
         log "Currently installed Neovim is less than version 0.9"
-        log "Installing latest Neovim version with Homebrew"
-        install_neovim_head
-		  fi
-	  else
+        [ "${nvim_head}" ] && {
+          log "Installing latest Neovim version with Homebrew"
+          install_neovim_head
+        }
+      fi
+    else
       log "Neovim not found, installing Neovim with Homebrew"
-      install_neovim_head
-	  fi
+      if [ "${nvim_head}" ]
+      then
+        install_neovim_head
+      else
+        install_neovim
+      fi
+    fi
   fi
 }
 
+nvim_head=1
 quiet=
 debug=
 lang_tools=
 
-while getopts "dlq" flag; do
+while getopts "dhlq" flag; do
   case $flag in
     d)
         debug=1
+        ;;
+    h)
+        nvim_head=
         ;;
     l)
         lang_tools=1

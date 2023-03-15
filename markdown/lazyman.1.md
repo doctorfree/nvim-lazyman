@@ -5,38 +5,39 @@ header: User Manual
 footer: lazyman 1.0.1
 date: March 13, 2023
 ---
+
 ## NAME
 
 lazyman - install, initialize, and manage multiple Neovim configurations
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-L cmd] [-P] [-q] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
-The *lazyman* command can be used to install, initialize, and manage
+The _lazyman_ command can be used to install, initialize, and manage
 multiple Neovim configurations. Neovim configurations are installed
-and initialized in separate subdirectories of ***~/.config/*** with
-associated separate subdirectories in ***~/.local/share/***,
-***~/.local/state/***, and ***~/.cache/***.
+and initialized in separate subdirectories of **_~/.config/_** with
+associated separate subdirectories in **_~/.local/share/_**,
+**_~/.local/state/_**, and **_~/.cache/_**.
 
-The *lazyman* Neovim configuration is installed as ***~/.config/nvim-lazyman***
-and the *lazyman* command is installed as ***~/.local/bin/lazyman***.
+The _lazyman_ Neovim configuration is installed as **_~/.config/nvim-lazyman_**
+and the _lazyman_ command is installed as **_~/.local/bin/lazyman_**.
 
-The Neovim configuration used by the *nvim* command is determined by
+The Neovim configuration used by the _nvim_ command is determined by
 the **NVIM_APPNAME** environment variable (Neovim 0.9 and later only).
 Set the **NVIM_APPNAME** environment variable in the shell initialization
-file (typically ***~/.bashrc*** or ***~/.zshrc***) by using the *export*
+file (typically **_~/.bashrc_** or **_~/.zshrc_**) by using the _export_
 shell builtin:
 
 ```bash
 export NVIM_APPNAME="<nvimdir>"
 ```
 
-where ***\<nvimdir\>*** is the subdirectory in ***~/.config/*** that holds the
-desired Neovim configuration. For example, to use the *LazyVim* Neovim
-configuration in ***~/.config/nvim-LazyVim/*** the export command would be:
+where **_\<nvimdir\>_** is the subdirectory in **_~/.config/_** that holds the
+desired Neovim configuration. For example, to use the _LazyVim_ Neovim
+configuration in **_~/.config/nvim-LazyVim/_** the export command would be:
 
 ```bash
 export NVIM_APPNAME="nvim-LazyVim"
@@ -44,7 +45,7 @@ export NVIM_APPNAME="nvim-LazyVim"
 
 Aliases can also be used to switch quickly and easily between Neovim configurations.
 For example, aliases could be created to use Neovim configurations installed in
-***~/.config/nvim-python*** and ***~/.config/nvim-work*** as follows:
+**_~/.config/nvim-python_** and **_~/.config/nvim-work_** as follows:
 
 ```bash
 alias vip='function _vip(){ export NVIM_APPNAME="nvim-python"; nvim $* };_vip'
@@ -52,8 +53,8 @@ alias viw='function _viw(){ export NVIM_APPNAME="nvim-work"; nvim $* };_viw'
 ```
 
 After sourcing these aliases in your shell, to invoke Neovim with the Python
-configuration run ***vip filename.py*** and to invoke Neovim with your Work config
-run ***viw proposal.md***.
+configuration run **_vip filename.py_** and to invoke Neovim with your Work config
+run **_viw proposal.md_**.
 
 ## OPTIONS
 
@@ -77,6 +78,9 @@ run ***viw proposal.md***.
 
 **-m**
 : indicates install and initialize nvim-multi
+
+**-I**
+: indicates install language servers and tools for coding diagnostics
 
 **-L cmd**
 : specifies a Lazy command to run
@@ -104,7 +108,7 @@ run ***viw proposal.md***.
 
 **-U**
 : indicates update an existing configuration
-  acts on **NVIM_APPNAME** by default, override with '-N nvimdir' or '-A'
+acts on **NVIM_APPNAME** by default, override with '-N nvimdir' or '-A'
 
 **-y**
 : indicates do not prompt, answer 'yes' to any prompt
@@ -119,22 +123,28 @@ Without arguments lazyman installs and initializes nvim-lazyman
 ### EXAMPLES
 
 **lazyman -a**
-: installs and initializes the *AstroNvim* Neovim configuration in *$HOME/.config/nvim-astro/*
+: installs and initializes the _AstroNvim_ Neovim configuration in _$HOME/.config/nvim-astro/_
 
 **lazyman -l**
-: installs and initializes the *LazyVim* Neovim configuration in *$HOME/.config/nvim-LazyVim/*
+: installs and initializes the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_
 
 **lazyman -A**
 : installs and initializes all supported Neovim configurations
 
+**lazyman -I**
+: installs language servers and tools for coding diagnostics
+
+**lazyman -L update**
+: runs the **_:Lazy update_** command in the active Neovim configuration (combine with -N or -A to override)
+
 **lazyman -U -N nvim-LazyVim**
-: updates the *LazyVim* Neovim configuration in *$HOME/.config/nvim-LazyVim/*
+: updates the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_
 
 **lazyman -A -U**
 : updates all installed supported Neovim configurations
 
 **lazyman -R -N nvim-LazyVim**
-: removes the *LazyVim* Neovim configuration in *$HOME/.config/nvim-LazyVim/*, its data files, cache, state, and all backups
+: removes the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_, its data files, cache, state, and all backups
 
 ## AUTHORS
 
@@ -156,4 +166,3 @@ https://github.com/doctorfree/nvim-lazyman/issues
 Full documentation and sources at:
 
 https://github.com/doctorfree/nvim-lazyman
-

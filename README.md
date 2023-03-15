@@ -1,11 +1,12 @@
 ## Neovim lazy configuration manager
 
-This repository includes my Neovim configuration using Lua, Lazy, and Mason.
-In addition, it can be used to install, initialize, and/or remove multiple
+The Lazyman project can be used to install, initialize, and/or remove multiple
 Neovim configurations. Several popular Neovim configurations are supported
 including [AstroNvim](https://astronvim.com),
 [Kickstart](https://github.com/nvim-lua/kickstart.nvim), and
 [LazyVim](https://github.com/LazyVim/LazyVim).
+
+In addition, Lazyman includes my Neovim configuration using Lua, Lazy, and Mason.
 
 When used in conjunction with Neovim 0.9 or later the installation and
 initialization of Neovim configurations are placed in separate directories
@@ -17,24 +18,42 @@ to install, initialize, remove, and manage multiple configuratons.
 ## Table of Contents
 
 - [Installation](#installation)
-    - [Bootstrap](#bootstrap)
-    - [Neovim 0.9 and later](#neovim-09-and-later)
-    - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
+  - [Bootstrap](#bootstrap)
+  - [Postinstall](#postinstall)
+  - [Neovim 0.9 and later](#neovim-09-and-later)
+  - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
 - [Supported configurations](#supported-configurations)
-    - [Unsupported configurations](#unsupported-configurations)
+  - [Unsupported configurations](#unsupported-configurations)
 - [Motivation](#motivation)
 - [Usage](#usage)
-    - [Manual](#manual)
+  - [Manual](#manual)
 - [Notes](#notes)
-    - [Mason](#mason)
-    - [Health check](#health-check)
-    - [Symbolic links](#symbolic-links)
-    - [Shell initialization setup](#shell-initialization-setup)
-    - [Using aliases](#using-aliases)
+  - [Mason](#mason)
+  - [Health check](#health-check)
+  - [Symbolic links](#symbolic-links)
+  - [Shell initialization setup](#shell-initialization-setup)
+  - [Using aliases](#using-aliases)
 - [Neovim install](#neovim-install)
 - [Removal](#removal)
 
 ### Installation
+
+The Lazyman installation process consists of three steps:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
+$HOME/.config/nvim-lazyman/lazyman.sh
+$HOME/.config/nvim-lazyman/lazyman.sh -I
+```
+
+These steps:
+
+1. Download the Lazyman Neovim configuration
+1. Initialize the Lazyman Neovim configuration which:
+   1. Installs Homebrew if not already installed
+   1. Installs the latest version of Neovim if not already installed
+   1. Installs and initializes configured Neovim plugins
+1. Installs language servers and tools for coding diagnostics (optional)
 
 #### Bootstrap
 
@@ -50,6 +69,7 @@ Clone the repository with `git` and execute `lazyman.sh`:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
 $HOME/.config/nvim-lazyman/lazyman.sh
 ```
+
 Alternatively, download the `lazyman.sh` script and execute it.
 For example, with `curl`:
 
@@ -77,10 +97,11 @@ by `lazyman.sh` executes the following on your system:
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
+# shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
-  printf "\n               [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\n               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-A indicates install all supported Neovim configurations"
   printf "\n\t-a indicates install and initialize AstroNvim"
@@ -92,6 +113,7 @@ usage() {
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
+  printf "\n\t-I indicates install language servers and tools for coding diagnostics"
   printf "\n\t-L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n\t-r indicates remove the previously installed configuration"
   printf "\n\t-R indicates remove previously installed configuration and backups"
@@ -340,6 +362,7 @@ all=
 branch=
 command=
 debug=
+langservers=
 tellme=
 astronvim=
 kickstart=
@@ -359,7 +382,7 @@ kickstartdir="nvim-kickstart"
 lazyvimdir="nvim-LazyVim"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:dklmnL:PqrRUC:N:yu" flag; do
+while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -379,6 +402,9 @@ while getopts "aAb:dklmnL:PqrRUC:N:yu" flag; do
             ;;
         d)
             debug="-d"
+            ;;
+        I)
+            langservers=1
             ;;
         k)
             kickstart=1
@@ -426,8 +452,22 @@ while getopts "aAb:dklmnL:PqrRUC:N:yu" flag; do
         u)
             usage
             ;;
+        *)
+					  echo "Unrecognized option. Exiting."
+            usage
+            ;;
     esac
 done
+
+[ "${langservers}" ] && {
+	install_neovim.sh
+  if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
+  then
+    ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug} -l
+	  exit 0
+	fi
+	exit 1
+}
 
 [ "${name}" ] && nvimdir="${name}"
 [ "${url}" ] && {
@@ -499,57 +539,26 @@ else
   [ "${quiet}" ] || printf "done"
 fi
 
-have_nvim=$(type -p nvim)
-[ "${have_nvim}" ] || {
-  [ "${quiet}" ] || {
-    printf "\nLazyman requires neovim but nvim not found\n"
-  }
-  if [ -x ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ]
-  then
-    ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug}
-    BREW_EXE=
-    set_brew
-    [ -x ${BREW_EXE} ] || {
-      echo "Homebrew brew executable not in PATH"
-      usage
-    }
-    eval "$(${BREW_EXE} shellenv)"
-    have_nvim=$(type -p nvim)
-    [ "${have_nvim}" ] || {
-      echo "Still cannot find neovim even after Homebrew install"
-      echo "Something went wrong, install neovim and retry this install script"
-      usage
-    }
-  else
-    echo "Please install neovim and retry this install script"
-    usage
-  fi
-}
-
-nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
-
-if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
-  [ "${all}" ] && {
-    echo "Installation of all supported Neovim configurations is not supported"
-    echo "with Neovim version less than 0.9. Exiting without installing."
+if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
+then
+  ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug}
+  BREW_EXE=
+  set_brew
+  [ -x ${BREW_EXE} ] || {
+    echo "Homebrew brew executable not in PATH"
     usage
   }
-  [ "${quiet}" ] || {
-    echo "Detected Neovim version ${nvim_version} does not support the"
-    echo "NVIM_APPNAME environment variable. To utilize the full functionality"
-    echo "of the lazyman Lazy Neovim Manager, upgrade to Neovim 0.9 or later."
+  eval "$(${BREW_EXE} shellenv)"
+  have_nvim=$(type -p nvim)
+  [ "${have_nvim}" ] || {
+    echo "Still cannot find neovim even after Homebrew install"
+    echo "Something went wrong, install neovim and retry this install script"
+    usage
   }
-  have_appname=
-  nvimdir="nvim"
 else
-  have_appname=1
+  echo "Please install neovim and retry this install script"
+  usage
 fi
-[ "${have_appname}" ] || {
-  [ "${url}" ] || [ "${lazyvim}" ] || [ "${multivim}" ] || \
-  [ "${kickstart}" ] || [ "${astronvim}" ] || {
-    ln -s ${HOME}/.config/${lazymandir} ${HOME}/.config/nvim
-  }
-}
 
 for neovim in ${nvimdir}
 do
@@ -637,7 +646,7 @@ fi
 for neovim in ${nvimdir}
 do
   [ "${quiet}" ] || {
-    printf "\nInitializing newly installed ${neovim} Neovim configuration ... "
+    printf "\n\nInitializing newly installed ${neovim} Neovim configuration ... "
   }
   init_neovim "${neovim}"
   [ "${quiet}" ] || printf "done\n"
@@ -683,37 +692,35 @@ fi
   }
 }
 
-[ "${nvimdir}" == "nvim" ] || {
-  [ "${quiet}" ] || {
-    printf "\nTo use this lazyman installed Neovim configuration as the default,"
-    printf "\nadd a line like the following to your .bashrc or .zshrc:"
-    if [ "${all}" ]
-    then
-      printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
-    else
-      printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
-    fi
-    printf "\nTo easily switch between lazyman installed Neovim configurations,"
-    printf "\ncreate an alias for each configuration similar to the following:"
-    if [ "${all}" ]
-    then
-      printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim $* };_nvim'"
-    elif [ "${astronvim}" ]
-    then
-      printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
-    elif [ "${kickstart}" ]
-    then
-      printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
-    elif [ "${lazyvim}" ]
-    then
-      printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
-    elif [ "${multivim}" ]
-    then
-      printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
-    else
-      printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
-    fi
-  }
+[ "${quiet}" ] || {
+  printf "\nTo use this lazyman installed Neovim configuration as the default,"
+  printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
+  if [ "${all}" ]
+  then
+    printf '\n\texport NVIM_APPNAME="nvim-lazyman"\n'
+  else
+    printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
+  fi
+  printf "\nTo easily switch between lazyman installed Neovim configurations,"
+  printf "\ncreate an alias for each configuration similar to the following:"
+  if [ "${all}" ]
+  then
+    printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim $* };_nvim'"
+  elif [ "${astronvim}" ]
+  then
+    printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_avim'"
+  elif [ "${kickstart}" ]
+  then
+    printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_kvim'"
+  elif [ "${lazyvim}" ]
+  then
+    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lvim'"
+  elif [ "${multivim}" ]
+  then
+    printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_mvim'"
+  else
+    printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim $* };_lmvim'"
+  fi
 }
 echo ""
 
@@ -754,6 +761,16 @@ section below for installation and initialization of `nvim-lazyman`.
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
 to control where Neovim looks for its configuration.
 
+#### Postinstall
+
+The Lazyman bootstrap process ensures the latest version of Neovim is
+installed but does not install language servers and tools necessary
+for coding diagnostics. To install these tools, execute:
+
+```bash
+lazyman -I
+```
+
 #### Neovim 0.9 and later
 
 In Neovim 0.9 and later there is a new feature enabling control of the
@@ -786,6 +803,10 @@ nvim
 ```
 
 #### Neovim 0.8 and earlier
+
+**[Note:]** Current Lazyvim bootstrap will install the latest version of
+Neovim even if an older version is already installed, making the following
+notes on Neovim 0.8 and earlier no longer relevant.
 
 Users of Neovim 0.8 and earlier can install and initialize `nvim-lazyman`
 following these instructions:
@@ -820,18 +841,18 @@ nvim
 Currently the following Neovim configurations are supported:
 
 - [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
-    - See the [Installation section](#installation) above
+  - See the [Installation section](#installation) above
 - [AstroNvim](https://astronvim.com)
-    - Install and initialize with `lazyman -a`
-    - An example [AstroNvim community]() plugins configuration is added
+  - Install and initialize with `lazyman -a`
+  - An example [AstroNvim community]() plugins configuration is added
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
-    - Install and initialize with `lazyman -k`
+  - Install and initialize with `lazyman -k`
 - [LazyVim](https://github.com/LazyVim/LazyVim)
-    - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
-    - Install and initialize with `lazyman -l`
+  - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
+  - Install and initialize with `lazyman -l`
 - [nvim-multi](https://github.com/doctorfree/nvim-multi)
-    - Multiple Neovim configurations included in a single repository
-    - Install and initialize with `lazyman -m`
+  - Multiple Neovim configurations included in a single repository
+  - Install and initialize with `lazyman -m`
 
 #### Unsupported configurations
 
@@ -901,18 +922,20 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-A] [-a] [-b branch] [-k] [-l] [-m] [-n] [-P] [-q]
-               [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+Usage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]
+               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
 	-A indicates install all supported Neovim configurations
 	-a indicates install and initialize AstroNvim
 	-b 'branch' specifies an nvim-lazyman git branch to checkout
+	-d indicates debug mode
 	-k indicates install and initialize Kickstart
 	-l indicates install and initialize LazyVim
 	-m indicates install and initialize nvim-multi
 	-n indicates dry run, don't actually do anything, just printf's
 	-p indicates use Packer rather than Lazy to initialize
 	-q indicates quiet install
+	-I indicates install language servers and tools for coding diagnostics
 	-L 'cmd' specifies a Lazy command to run in the selected configuration
 	-r indicates remove the previously installed configuration
 	-R indicates remove previously installed configuration and backups
