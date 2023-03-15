@@ -11,12 +11,12 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--   group = augroup("highlight_yank"),
+--   callback = function()
+--     vim.highlight.on_yank()
+--   end,
+-- })
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
@@ -80,7 +80,7 @@ if settings.enable_alpha then
         place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
         unhide = false, -- whether to re-enable lualine again/
       })
-    end
+    end,
   })
 
   vim.api.nvim_create_autocmd("User", {
@@ -112,4 +112,3 @@ if settings.enable_alpha then
     end,
   })
 end
-

@@ -1,4 +1,4 @@
-local settings = require('configuration')
+local settings = require("configuration")
 
 local dashboard_type = {
   "glepnir/dashboard-nvim",
@@ -16,14 +16,16 @@ if settings.enable_alpha then
       "goolord/alpha-nvim",
       event = "VimEnter",
       keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } },
-      config = function() require("config.alpha.alpha") end,
+      config = function()
+        require("config.alpha.alpha")
+      end,
     },
   }
 end
 
 local noice_cfg = {}
 if settings.enable_noice then
-  noice_cfg =  {
+  noice_cfg = {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
@@ -44,21 +46,21 @@ end
 local wilder_type = {}
 if settings.enable_wilder then
   wilder_type = {
-    { 'romgrk/fzy-lua-native', lazy = true },
+    { "romgrk/fzy-lua-native", lazy = true },
     {
-      'gelguy/wilder.nvim',
+      "gelguy/wilder.nvim",
       dependencies = {
-        { 'romgrk/fzy-lua-native' },
+        { "romgrk/fzy-lua-native" },
       },
       lazy = true,
       build = function()
         vim.cmd([[silent UpdateRemotePlugins]])
       end,
-      event = { 'CmdwinEnter', 'CmdlineEnter' },
+      event = { "CmdwinEnter", "CmdlineEnter" },
       config = function()
         require("config.wilder")
-      end
-    }
+      end,
+    },
   }
 end
 
@@ -86,7 +88,7 @@ return {
     },
     init = function()
       -- when noice is not enabled, install notify on VeryLazy
-      local Util = require("util")
+      local Util = require("utils.utils")
       if not Util.has("noice.nvim") then
         Util.on_very_lazy(function()
           vim.notify = require("notify")
@@ -124,7 +126,7 @@ return {
     opts = {
       options = {
         diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
+        always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
           local icons = require("config").icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. " " or "")
@@ -257,7 +259,7 @@ return {
     lazy = true,
     init = function()
       vim.g.navic_silence = true
-      require("util").on_attach(function(client, buffer)
+      require("utils.utils").on_attach(function(client, buffer)
         if client.server_capabilities.documentSymbolProvider then
           require("nvim-navic").attach(client, buffer)
         end
@@ -274,7 +276,7 @@ return {
   },
 
   {
-    'doctorfree/SetColorSchemes.vim',
+    "doctorfree/SetColorSchemes.vim",
     lazy = false,
   },
 
@@ -285,5 +287,4 @@ return {
   { "MunifTanjim/nui.nvim", lazy = true },
 
   wilder_type,
-
 }

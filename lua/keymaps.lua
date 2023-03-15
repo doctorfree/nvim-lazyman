@@ -1,4 +1,4 @@
-local Util = require("util")
+local Util = require("utils.utils")
 local settings = require("configuration")
 
 local function map(mode, lhs, rhs, opts)

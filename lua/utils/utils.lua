@@ -1,5 +1,9 @@
 local utils = require("utils.functions")
-M = {}
+local Util = require("lazy.core.util")
+
+local M = {}
+
+M.root_patterns = { ".git", "lua" }
 
 -- must be global or the initial state is not working
 VIRTUAL_TEXT_ACTIVE = true
@@ -124,8 +128,6 @@ function M.custom_lsp_attach(client, bufnr)
   }, { prefix = "<leader>", mode = "n", default_options })
 end
 
-M.root_patterns = { ".git" }
-
 --- @param on_attach fun(client, buffer)
 M.on_attach = function(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {
@@ -146,6 +148,12 @@ M.get_highlight_value = function(group)
   return hl_config
 end
 
+-- returns the root directory based on:
+-- * lsp workspace folders
+-- * lsp root_dir
+-- * root pattern of filename of the current buffer
+-- * root pattern of cwd
+---@return string
 function M.get_root()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -155,12 +163,9 @@ function M.get_root()
   if path then
     for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
       local workspace = client.config.workspace_folders
-      local paths = workspace
-          and vim.tbl_map(function(ws)
-            return vim.uri_to_fname(ws.uri)
-          end, workspace)
-          or client.config.root_dir and { client.config.root_dir }
-          or {}
+      local paths = workspace and vim.tbl_map(function(ws)
+        return vim.uri_to_fname(ws.uri)
+      end, workspace) or client.config.root_dir and { client.config.root_dir } or {}
       for _, p in ipairs(paths) do
         local r = vim.loop.fs_realpath(p)
         if path:find(r, 1, true) then
@@ -184,6 +189,130 @@ function M.get_root()
   return root
 end
 
+---@param type "ivy" | "dropdown" | "cursor" | nil
+-- M.telescope_theme = function(type)
+--   if type == nil then
+--     return {}
+--   end
+--   return require("telescope.themes")["get_" .. type]({
+--     cwd = M.get_root(),
+--     borderchars = { "█", "█", "▀", "█", "█", "█", "▀", "▀" },
+--   })
+-- end
+
+---@param type "ivy" | "dropdown" | "cursor" | nil
+-- M.telescope = function(builtin, type, opts)
+--   local params = { builtin = builtin, type = type, opts = opts }
+--   return function()
+--     builtin = params.builtin
+--     type = params.type
+--     opts = params.opts
+--     opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
+--     local theme
+--     if vim.tbl_contains({ "ivy", "dropdown", "cursor" }, type) then
+--       theme = M.telescope_theme(type)
+--     else
+--       theme = opts
+--     end
+--     require("telescope.builtin")[builtin](theme)
+--   end
+-- end
+
+-- this will return a function that calls telescope.
+-- cwd will default to util.get_root
+-- for `files`, git_files or find_files will be chosen depending on .git
+function M.telescope(builtin, opts)
+  local params = { builtin = builtin, opts = opts }
+  return function()
+    builtin = params.builtin
+    opts = params.opts
+    opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
+    if builtin == "files" then
+      if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
+        opts.show_untracked = true
+        builtin = "git_files"
+      else
+        builtin = "find_files"
+      end
+    end
+    require("telescope.builtin")[builtin](opts)
+  end
+end
+
+---@param plugin string
+function M.has(plugin)
+  return require("lazy.core.config").plugins[plugin] ~= nil
+end
+
+---@param fn fun()
+function M.on_very_lazy(fn)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      fn()
+    end,
+  })
+end
+
+---@param name string
+function M.opts(name)
+  local plugin = require("lazy.core.config").plugins[name]
+  if not plugin then
+    return {}
+  end
+  local Plugin = require("lazy.core.plugin")
+  return Plugin.values(plugin, "opts", false)
+end
+
+-- FIXME: create a togglable terminal
+-- Opens a floating terminal (interactive by default)
+---@param cmd? string[]|string
+---@param opts? LazyCmdOptions|{interactive?:boolean}
+function M.float_term(cmd, opts)
+  opts = vim.tbl_deep_extend("force", {
+    size = { width = 0.9, height = 0.9 },
+  }, opts or {})
+  require("lazy.util").float_term(cmd, opts)
+end
+
+---@param silent boolean?
+---@param values? {[1]:any, [2]:any}
+function M.toggle(option, silent, values)
+  if values then
+    if vim.opt_local[option]:get() == values[1] then
+      vim.opt_local[option] = values[2]
+    else
+      vim.opt_local[option] = values[1]
+    end
+    return Util.info("Set " .. option .. " to " .. vim.opt_local[option]:get(), { title = "Option" })
+  end
+  vim.opt_local[option] = not vim.opt_local[option]:get()
+  if not silent then
+    if vim.opt_local[option]:get() then
+      Util.info("Enabled " .. option, { title = "Option" })
+    else
+      Util.warn("Disabled " .. option, { title = "Option" })
+    end
+  end
+end
+
+-- local enabled = true
+-- function M.toggle_diagnostics()
+--   enabled = not enabled
+--   if enabled then
+--     vim.diagnostic.enable()
+--     Util.info("Enabled diagnostics", { title = "Diagnostics" })
+--   else
+--     vim.diagnostic.disable()
+--     Util.warn("Disabled diagnostics", { title = "Diagnostics" })
+--   end
+-- end
+
+function M.deprecate(old, new)
+  Util.warn(("`%s` is deprecated. Please use `%s` instead"):format(old, new), { title = "LazyMan" })
+end
+
+-- delay notifications till vim.notify was replaced or after 500ms
 function M.lazy_notify()
   local notifs = {}
   local function temp(...)
@@ -218,35 +347,6 @@ function M.lazy_notify()
   end)
   -- or if it took more than 500ms, then something went wrong
   timer:start(500, 0, replay)
-end
-
----@param type "ivy" | "dropdown" | "cursor" | nil
-M.telescope_theme = function(type)
-  if type == nil then
-    return {}
-  end
-  return require("telescope.themes")["get_" .. type]({
-    cwd = M.get_root(),
-    borderchars = { "█", "█", "▀", "█", "█", "█", "▀", "▀" },
-  })
-end
-
----@param type "ivy" | "dropdown" | "cursor" | nil
-M.telescope = function(builtin, type, opts)
-  local params = { builtin = builtin, type = type, opts = opts }
-  return function()
-    builtin = params.builtin
-    type = params.type
-    opts = params.opts
-    opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
-    local theme
-    if vim.tbl_contains({ "ivy", "dropdown", "cursor" }, type) then
-      theme = M.telescope_theme(type)
-    else
-      theme = opts
-    end
-    require("telescope.builtin")[builtin](theme)
-  end
 end
 
 return M

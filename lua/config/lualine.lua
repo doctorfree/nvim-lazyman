@@ -27,6 +27,7 @@ if settings.enable_tabline then
     -- lualine_a = {},
     lualine_a = { require("tabline").tabline_buffers },
     lualine_b = {},
+    -- lualine_b = { require("tabline").tabline_tabs },
     lualine_c = {
       {
         "filename",
@@ -40,7 +41,7 @@ if settings.enable_tabline then
         },
       },
     },
-    lualine_x = { require("tabline").tabline_tabs },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   }

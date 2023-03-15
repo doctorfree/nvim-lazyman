@@ -1,14 +1,14 @@
-local Util = require("util")
+local Util = require("utils.utils")
 local settings = require("configuration")
 
 local treetype = {
-  'nvim-tree/nvim-tree.lua',
+  "nvim-tree/nvim-tree.lua",
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     require("config.nvim-tree")
-  end
+  end,
 }
 
 if settings.enable_neotree then
@@ -306,7 +306,7 @@ return {
             condition = { true, builtin.not_empty },
             click = "v:lua.ScLa",
           },
-          { text = { "%s" },      click = "v:lua.ScSa" }, -- Sign
+          { text = { "%s" }, click = "v:lua.ScSa" }, -- Sign
           { text = { "%C", " " }, click = "v:lua.ScFa" }, -- Fold
         },
       })
