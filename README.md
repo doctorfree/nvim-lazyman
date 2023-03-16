@@ -2,7 +2,7 @@
 
 The Lazyman project can be used to install, initialize, and manage multiple
 Neovim configurations. Several popular Neovim configurations are supported
-including [AstroNvim](https://astronvim.com),
+including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/),
 [Kickstart](https://github.com/nvim-lua/kickstart.nvim), and
 [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -214,6 +214,9 @@ nvim
 
 ### Supported configurations
 
+After installing and initializing `lazyman`, additional Neovim configurations
+can be installed and initialized using the `lazyman` command.
+
 Currently the following Neovim configurations are supported:
 
 - [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
@@ -226,6 +229,9 @@ Currently the following Neovim configurations are supported:
 - [LazyVim](https://github.com/LazyVim/LazyVim)
   - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
   - Install and initialize with `lazyman -l`
+- [NvChad](https://nvchad.com)
+  - The [NvChad example](https://github.com/NvChad/example_config) configuration
+  - Install and initialize with `lazyman -c`
 - [nvim-multi](https://github.com/doctorfree/nvim-multi)
   - Multiple Neovim configurations included in a single repository
   - Install and initialize with `lazyman -m`
@@ -245,15 +251,9 @@ where `<nvimdir>` is the argument provided to `-N` above.
 
 Unsupported Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
-process that Lazyman does not yet support. For example, the excellent
-Neovim configuration framework at https://github.com/NvChad/NvChad
-includes some user interaction during initialization. I have not yet
-figured out how to automate that type of initialization.
-
-Unsupported Neovim configurations are primarily viewed as exploratory
-and are not recommended. However, you may find it useful or interesting
-to explore, resolve errors and issues, and contribute to the ever expanding
-set of Lazyman supported Neovim configurations.
+process that Lazyman does not yet support. However, you may find it useful
+or interesting to explore, resolve errors and issues, and contribute to the
+ever expanding set of Lazyman supported Neovim configurations.
 
 Feel free to open an issue at
 https://github.com/doctorfree/nvim-lazyman/issues to help tackle any problems
@@ -298,12 +298,13 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]
+Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q]
                [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
 	-A indicates install all supported Neovim configurations
 	-a indicates install and initialize AstroNvim
 	-b 'branch' specifies an nvim-lazyman git branch to checkout
+	-c indicates install and initialize NvChad
 	-d indicates debug mode
 	-k indicates install and initialize Kickstart
 	-l indicates install and initialize LazyVim

@@ -12,7 +12,7 @@ lazyman - install, initialize, and manage multiple Neovim configurations
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -66,6 +66,9 @@ run **_viw proposal.md_**.
 
 **-b branch**
 : specifies an nvim-lazyman git branch to checkout
+
+**-c**
+: indicates install and initialize NvChad
 
 **-d**
 : indicates debug mode

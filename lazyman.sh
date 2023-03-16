@@ -7,12 +7,13 @@
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
   printf "\n               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-A indicates install all supported Neovim configurations"
   printf "\n\t-a indicates install and initialize AstroNvim"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
+  printf "\n\t-c indicates install and initialize NvChad"
   printf "\n\t-d indicates debug mode"
   printf "\n\t-k indicates install and initialize Kickstart"
   printf "\n\t-l indicates install and initialize LazyVim"
@@ -278,6 +279,7 @@ astronvim=
 kickstart=
 lazyvim=
 multivim=
+nvchad=
 packer=
 proceed=
 quiet=
@@ -287,12 +289,13 @@ update=
 url=
 name=
 lazymandir="nvim-lazyman"
-astronvimdir="nvim-astro"
+astronvimdir="nvim-Astro"
 kickstartdir="nvim-kickstart"
 lazyvimdir="nvim-LazyVim"
+nvchaddir="nvim-NvChad"
 multidir="nvim-multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
+while getopts "aAb:cdIklmnL:PqrRUC:N:yu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -304,11 +307,16 @@ while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
             kickstart=1
             lazyvim=1
             multivim=1
+						nvchad=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
-                     ${kickstartdir} ${astronvimdir}"
+                     ${kickstartdir} ${astronvimdir} ${nvchaddir}"
             ;;
         b)
             branch="${OPTARG}"
+            ;;
+        c)
+            nvchad=1
+            nvimdir="${nvchaddir}"
             ;;
         d)
             debug="-d"
@@ -521,6 +529,24 @@ done
   }
   [ "${quiet}" ] || printf "done"
 }
+[ "${nvchad}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
+  }
+  [ "${tellme}" ] || {
+		git clone https://github.com/NvChad/NvChad \
+              ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
+	}
+  [ "${quiet}" ] || {
+    printf "\nAdding example custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+  }
+  [ "${tellme}" ] || {
+    git clone https://github.com/NvChad/example_config \
+              ${HOME}/.config/${nvchaddir}/lua/custom > /dev/null 2>&1
+    rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${url}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning ${url} into ${HOME}/.config/${nvimdir} ... "
@@ -624,6 +650,9 @@ fi
   elif [ "${multivim}" ]
   then
     printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
+  elif [ "${nvchad}" ]
+  then
+    printf "\n\nalias cvim='function _cvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_cvim'"
   else
     printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lmvim'"
   fi
