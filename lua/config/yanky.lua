@@ -1,7 +1,7 @@
 require("yanky").setup({
   ring = {
     history_length = 50,
-    storage = "memory",
+    storage = "shada",
   },
   preserve_cursor_position = {
     enabled = false,
