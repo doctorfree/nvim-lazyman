@@ -538,10 +538,10 @@ done
               ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
 	}
   [ "${quiet}" ] || {
-    printf "\nAdding example custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+    printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
   }
   [ "${tellme}" ] || {
-    git clone https://github.com/NvChad/example_config \
+    git clone https://github.com/doctorfree/NvChad-custom \
               ${HOME}/.config/${nvchaddir}/lua/custom > /dev/null 2>&1
     rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
   }

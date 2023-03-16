@@ -249,6 +249,16 @@ export NVIM_APPNAME="<nvimdir>"
 
 where `<nvimdir>` is the argument provided to `-N` above.
 
+For example, to install and initialize the LazyVim based Neovim configuration
+hosted at https://github.com/appelgriebsch/Nv and place it in `~/.config/nvim-Nv`,
+execute the command:
+
+```bash
+lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv
+export NVIM_APPNAME="nvim-Nv"
+nvim
+```
+
 Unsupported Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
 process that Lazyman does not yet support. However, you may find it useful
