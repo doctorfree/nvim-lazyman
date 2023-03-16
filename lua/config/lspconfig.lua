@@ -90,7 +90,6 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, opts)
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics)
 
-local servers = require("config.lsp.servers")
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
@@ -143,7 +142,6 @@ require("lspconfig")["yamlls"].setup({
 })
 
 -- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require("lspconfig").jsonls.setup({

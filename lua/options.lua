@@ -1,7 +1,6 @@
-local settings = require('configuration')
-local utils = require('utils.functions')
+local settings = require("configuration")
+local utils = require("utils.functions")
 local o = vim.opt
-local fn = vim.fn
 
 if settings.global_statusline then
   o.laststatus = 3
@@ -49,10 +48,10 @@ o.scrolloff = 4 -- Lines of context
 o.sidescrolloff = 8 -- Columns of context
 o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 o.shiftround = true -- Round indent
-o.shiftwidth = 2    -- the number of spaces inserted for each indentation
-o.tabstop = 2       -- how many spaces a tab counts for
+o.shiftwidth = 2 -- the number of spaces inserted for each indentation
+o.tabstop = 2 -- how many spaces a tab counts for
 o.softtabstop = 2
-o.shortmess:append { W = true, I = true, c = true }
+o.shortmess:append({ W = true, I = true, c = true })
 o.showmode = false -- Dont show mode since we have a statusline
 o.showtabline = settings.showtabline
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text
@@ -63,7 +62,7 @@ o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 o.termguicolors = true -- True color support
 o.timeoutlen = 300
-o.ttimeoutlen = 0  -- Time in milliseconds to wait for a key code sequence to complete
+o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
 o.undofile = true
 o.undolevels = 10000
 o.updatetime = 200 -- Save swap file and trigger CursorHold
@@ -73,7 +72,7 @@ o.wrap = true -- Enable line wrap
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   o.splitkeep = "screen"
-  o.shortmess:append { C = true }
+  o.shortmess:append({ C = true })
 end
 
 -- Fix markdown indentation settings

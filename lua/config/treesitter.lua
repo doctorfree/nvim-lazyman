@@ -8,6 +8,29 @@ else
   ensure = { "c", "lua", "vim", "help", "query" }
 end
 
+local rainbow_cfg = {
+  enable = true,
+  extended_mode = false,
+  colors = {
+    "#ff6188",
+    "#fc9867",
+    "#ffd866",
+    "#a9dc76",
+    "#78dce8",
+    "#ab9df2",
+  },
+  disable = { "html" },
+}
+if settings.enable_rainbow2 then
+  rainbow_cfg = {
+    enable = true,
+    -- list of languages you want to disable the plugin for
+    disable = { "html" },
+    -- Which query to use for finding delimiters
+    query = 'rainbow-parens',
+  }
+end
+
 require("nvim-treesitter.configs").setup({
   ensure_installed = ensure,
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -65,6 +88,26 @@ require("nvim-treesitter.configs").setup({
         ["ir"] = "@parameter.inner",
         ["ar"] = "@parameter.outer",
       },
+    },
+  },
+  context_commentstring = { enable = true },
+  rainbow = rainbow_cfg,
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false, -- Whether the query persists across vim sessions
+    keybindings = {
+      toggle_query_editor = "o",
+      toggle_hl_groups = "i",
+      toggle_injected_languages = "t",
+      toggle_anonymous_nodes = "a",
+      toggle_language_display = "I",
+      focus_language = "f",
+      unfocus_language = "F",
+      update = "R",
+      goto_node = "<cr>",
+      show_help = "?",
     },
   },
 })

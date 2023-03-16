@@ -8,7 +8,6 @@ return {
     opts = {
       ensure_installed = settings.mason_tool_installer_ensure_installed,
     },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
       require("mason").setup(opts)
       local mr = require("mason-registry")

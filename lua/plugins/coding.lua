@@ -45,7 +45,7 @@ return {
     },
     config = function()
       require("config.nvim-cmp")
-    end
+    end,
   },
 
   {
@@ -57,12 +57,12 @@ return {
     },
     config = function()
       require("config.neodev")
-    end
+    end,
   },
 
   -- auto pairs
   {
-	"windwp/nvim-autopairs",
+    "windwp/nvim-autopairs",
     event = "VeryLazy",
     opts = {
       enable_check_bracket_line = false, -- Don't add pairs if it already has a close pair in the same line
@@ -76,8 +76,8 @@ return {
     },
     -- config = function() require("nvim-autopairs").setup {} end
     config = function(_, opts)
-      require("nvim-autopairs").setup{opts}
-    end
+      require("nvim-autopairs").setup({ opts })
+    end,
   },
 
   -- surround
@@ -103,15 +103,15 @@ return {
     end,
     opts = {
       mappings = {
-        add = 'sa', -- Add surrounding in Normal and Visual modes
-        delete = 'sd', -- Delete surrounding
-        find = 'sf', -- Find surrounding (to the right)
-        find_left = 'sF', -- Find surrounding (to the left)
-        highlight = 'sh', -- Highlight surrounding
-        replace = 'sr', -- Replace surrounding
-        update_n_lines = 'sn', -- Update `n_lines`
-        suffix_last = 'l', -- Suffix to search with "prev" method
-        suffix_next = 'n', -- Suffix to search with "next" method
+        add = "sa", -- Add surrounding in Normal and Visual modes
+        delete = "sd", -- Delete surrounding
+        find = "sf", -- Find surrounding (to the right)
+        find_left = "sF", -- Find surrounding (to the left)
+        highlight = "sh", -- Highlight surrounding
+        replace = "sr", -- Replace surrounding
+        update_n_lines = "sn", -- Update `n_lines`
+        suffix_last = "l", -- Suffix to search with "prev" method
+        suffix_next = "n", -- Suffix to search with "next" method
       },
     },
     config = function(_, opts)
@@ -129,9 +129,9 @@ return {
         ignore_blank_line = false,
       },
       mappings = {
-        comment = 'mc',
-        comment_line = 'ml',
-        textobject = 'mt',
+        comment = "mc",
+        comment_line = "ml",
+        textobject = "mt",
       },
       hooks = {
         pre = function()
@@ -163,7 +163,6 @@ return {
     lazy = true,
     config = function()
       require("config.lspsaga")
-    end
+    end,
   },
-
 }

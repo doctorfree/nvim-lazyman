@@ -26,47 +26,6 @@ M.toggle_autoformat = function()
   )
 end
 
-local function disable_diagnostics(bufnr, message)
-  utils.notify("Disabling diagnostics for HelmRelease files", 1, "utils/utils")
-  vim.diagnostic.reset(bufnr)
-  vim.diagnostic.disable(bufnr)
-end
-
-local function handle_helm_templates(bufnr)
-  local bufferData = vim.api.nvim_buf_get_text(bufnr, 0, 0, -1, -1, {})
-  local bufferString = table.concat(bufferData, "\n")
-  -- usually Helm files are in a template folder
-  -- TODO: more robust and elegant check
-  if string.find(bufferString, "kind: HelmRelease") then
-    disable_diagnostics(bufnr, "Disabling diagnostics for HelmRelease files")
-  end
-end
-
-local function handle_docker_compose(bufnr)
-  local bufName = vim.api.nvim_buf_get_name(bufnr)
-  -- TODO: more robust and elegant check
-  -- search dor docker-compose.yaml does not work!
-  if string.find(bufName, "compose.yaml") then
-    disable_diagnostics(bufnr, "Disabling diagnostics for docker-compose files")
-  end
-end
-
-local function handle_helm_releases(bufnr)
-  local bufName = vim.api.nvim_buf_get_name(bufnr)
-  -- TODO: more robust and elegant check
-  if string.find(bufName, "templates") then
-    disable_diagnostics(bufnr, "Disabling diagnostics for Helm template files")
-  end
-end
-
-local function handle_kustomization(bufnr)
-  local bufName = vim.api.nvim_buf_get_name(bufnr)
-  -- TODO: more robust and elegant check
-  if string.find(bufName, "kustomization.yaml") then
-    disable_diagnostics(bufnr, "Disabling diagnostics for kustomization.yaml")
-  end
-end
-
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
   client.server_capabilities.documentFormattingProvider = false
@@ -75,11 +34,6 @@ function M.custom_lsp_attach(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
   end
-  -- TODO: this workaround is not sufficient and bugyy
-  -- handle_helm_templates(bufnr)
-  -- handle_kustomization(bufnr)
-  -- handle_docker_compose(bufnr)
-  -- handle_helm_releases(bufnr)
   local wk = require("which-key")
   local default_options = { silent = true }
   wk.register({
@@ -189,7 +143,6 @@ function M.get_root()
   return root
 end
 
----@param type "ivy" | "dropdown" | "cursor" | nil
 -- M.telescope_theme = function(type)
 --   if type == nil then
 --     return {}
@@ -200,7 +153,6 @@ end
 --   })
 -- end
 
----@param type "ivy" | "dropdown" | "cursor" | nil
 -- M.telescope = function(builtin, type, opts)
 --   local params = { builtin = builtin, type = type, opts = opts }
 --   return function()
@@ -264,10 +216,6 @@ function M.opts(name)
   return Plugin.values(plugin, "opts", false)
 end
 
--- FIXME: create a togglable terminal
--- Opens a floating terminal (interactive by default)
----@param cmd? string[]|string
----@param opts? LazyCmdOptions|{interactive?:boolean}
 function M.float_term(cmd, opts)
   opts = vim.tbl_deep_extend("force", {
     size = { width = 0.9, height = 0.9 },
@@ -294,22 +242,6 @@ function M.toggle(option, silent, values)
       Util.warn("Disabled " .. option, { title = "Option" })
     end
   end
-end
-
--- local enabled = true
--- function M.toggle_diagnostics()
---   enabled = not enabled
---   if enabled then
---     vim.diagnostic.enable()
---     Util.info("Enabled diagnostics", { title = "Diagnostics" })
---   else
---     vim.diagnostic.disable()
---     Util.warn("Disabled diagnostics", { title = "Diagnostics" })
---   end
--- end
-
-function M.deprecate(old, new)
-  Util.warn(("`%s` is deprecated. Please use `%s` instead"):format(old, new), { title = "LazyMan" })
 end
 
 -- delay notifications till vim.notify was replaced or after 500ms

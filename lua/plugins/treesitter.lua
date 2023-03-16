@@ -1,27 +1,7 @@
 local settings = require("configuration")
 local rainbow_plugin = "mrjones2014/nvim-ts-rainbow"
-local rainbow_cfg = {
-  enable = true,
-  extended_mode = false,
-  colors = {
-    "#ff6188",
-    "#fc9867",
-    "#ffd866",
-    "#a9dc76",
-    "#78dce8",
-    "#ab9df2",
-  },
-  disable = { "html" },
-}
 if settings.enable_rainbow2 then
   rainbow_plugin = "HiPhish/nvim-ts-rainbow2"
-  rainbow_cfg = {
-    enable = true,
-    -- list of languages you want to disable the plugin for
-    disable = { "html" },
-    -- Which query to use for finding delimiters
-    query = 'rainbow-parens',
-  }
 end
 
 local M = {
