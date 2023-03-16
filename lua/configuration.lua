@@ -88,31 +88,33 @@ M.treesitter_ensure_installed = {
 -- Enable either clangd or ccls for C/C++ diagnostics
 M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
--- Most of these are installed with Homebrew, which should Mason install?
-M.mason_tool_installer_ensure_installed = { "debugpy" }
+-- Some of these are installed with Homebrew, which should Mason install?
+M.mason_tool_installer_ensure_installed = {
+-- DAP
+  "debugpy",
 -- LSP
--- "bash-language-server",
--- "dockerfile-language-server",
--- "json-lsp",
--- "marksman",
--- "typescript-language-server",
--- "texlab",
--- "ltex-ls",
--- "lua-language-server",
--- "pyright",
--- "terraform-ls",
--- "yaml-language-server",
+  "bash-language-server",
+  "dockerfile-language-server",
+  "json-lsp",
+  "marksman",
+  "typescript-language-server",
+  "texlab",
+  "ltex-ls",
+  "lua-language-server",
+  "pyright",
+  "terraform-ls",
+  "yaml-language-server",
 -- Formatter
--- "black",
--- "prettier",
--- "stylua",
--- "shfmt",
+  "black",
+  "prettier",
+  "stylua",
+  "shfmt",
 -- Linter
--- "eslint_d",
--- "shellcheck",
--- "tflint",
--- "yamllint",
--- }
+  "eslint_d",
+  "shellcheck",
+  "tflint",
+  "yamllint",
+}
 
 -- enable greping in hidden files
 M.telescope_grep_hidden = true
