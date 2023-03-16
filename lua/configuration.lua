@@ -164,6 +164,6 @@ M.telescope_file_ignore_patterns = {
 }
 
 -- Enable diagnostics on workspace
-M.workspace_diagnostic = false
+M.workspace_diagnostic = true
 
 return M

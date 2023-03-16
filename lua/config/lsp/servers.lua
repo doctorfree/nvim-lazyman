@@ -1,3 +1,20 @@
+local settings = require("configuration")
+
+local workspace_cfg = {
+  library = {
+    [vim.fn.expand("$VIMRUNTIME/lua")] = false,
+    [vim.fn.stdpath("config") .. "/lua"] = false,
+  },
+  -- checkThirdParty = false,
+}
+
+if not settings.workspace_diagnostic then
+  workspace_cfg = {
+    library = {},
+    -- checkThirdParty = false,
+  }
+end
+
 local servers = {
   ccls = {},
   clangd = {},
@@ -28,12 +45,7 @@ local servers = {
         diagnostics = {
           globals = { "vim" },
         },
-        workspace = {
-          library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = false,
-            [vim.fn.stdpath("config") .. "/lua"] = false,
-          },
-        },
+        workspace = workspace_cfg,
         telemetry = {
           enable = false,
         },

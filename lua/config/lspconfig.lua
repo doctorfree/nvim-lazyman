@@ -204,7 +204,7 @@ require("lspconfig")["lua_ls"].setup({
   -- indexing progress message until the server has finished indexing.
   --
   -- Disable workspace diagnostics by setting 'workspace_diagnostic = false'
-  -- in ~/.config/nvim/lua/settings.lua
+  -- in ~/.config/nvim-lazyman/lua/configuration.lua
 
   before_init = require("neodev.lsp").before_init,
   settings = {
