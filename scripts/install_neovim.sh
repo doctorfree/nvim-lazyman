@@ -6,6 +6,14 @@
 # Install Neovim and all dependencies for the Neovim config at:
 #     https://github.com/doctorfree/nvim-lazyman
 #
+# These are handled by Mason, no need to install here:
+#
+# ansible-language-server awk-language-server bash-language-server clangd
+# cmake-language-server cssmodules-language-server debugpy
+# dockerfile-language-server eslint-lsp google-java-format jq json-lsp
+# lua-language-server rnix-lsp sql-formatter sqlls typescript-language-server
+# vim-language-server yaml-language-server
+#
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 DOC_HOMEBREW="https://docs.brew.sh"
@@ -230,8 +238,9 @@ install_language_servers() {
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-	  for pkg in awk-language-server cssmodules-language-server eslint_d \
-							 vim-language-server dockerfile-language-server-nodejs
+	  # for pkg in awk-language-server cssmodules-language-server eslint_d \
+		# 					 vim-language-server dockerfile-language-server-nodejs
+	  for pkg in eslint_d
 		do
       if command -v ${pkg} >/dev/null 2>&1
 	    then
@@ -260,7 +269,8 @@ install_language_servers() {
 	else
 	  brew_install typescript
 	fi
-  for server in ansible bash haskell sql lua typescript yaml
+  # for server in ansible bash haskell sql lua typescript yaml
+  for server in haskell
   do
 		brew_install "${server}-language-server"
   done
@@ -276,7 +286,7 @@ install_language_servers() {
   done
 
   [ "${PYTHON}" ] && {
-    ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
+    # ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
     ${PYTHON} -m pip install python-lsp-server > /dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
@@ -324,9 +334,9 @@ install_tools() {
     tree-sitter init-config > /dev/null 2>&1
   fi
 
-  if command -v cargo >/dev/null 2>&1; then
-    cargo install rnix-lsp > /dev/null 2>&1
-  fi
+  # if command -v cargo >/dev/null 2>&1; then
+  #   cargo install rnix-lsp > /dev/null 2>&1
+  # fi
 
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"

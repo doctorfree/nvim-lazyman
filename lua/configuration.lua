@@ -89,7 +89,7 @@ M.treesitter_ensure_installed = {
 M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
 -- Most of these are installed with Homebrew, which should Mason install?
-M.mason_tool_installer_ensure_installed = { "clangd", "debugpy" }
+M.mason_tool_installer_ensure_installed = { "debugpy" }
 -- LSP
 -- "bash-language-server",
 -- "dockerfile-language-server",

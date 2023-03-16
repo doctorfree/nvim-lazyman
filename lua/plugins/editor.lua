@@ -366,14 +366,14 @@ return {
   },
 
   -- improved yank with history
-  {
-    "gbprod/yanky.nvim",
-    event = { "CursorMoved", "TextYankPost" },
-    lazy = true,
-    config = function()
-      require("config.yanky")
-    end,
-  },
+  -- {
+  --   "gbprod/yanky.nvim",
+  --   event = { "CursorMoved", "TextYankPost" },
+  --   lazy = true,
+  --   config = function()
+  --     require("config.yanky")
+  --   end,
+  -- },
 
   -- todo comments
   {
