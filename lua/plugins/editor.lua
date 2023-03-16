@@ -13,7 +13,7 @@ local treetype = {
 
 if settings.enable_neotree then
   treetype = {
-    "loctvl842/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
     keys = {
       {
