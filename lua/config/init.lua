@@ -88,18 +88,16 @@ function M.setup(opts)
   end
 
   if vim.fn.argc(-1) == 0 then
-    -- autocmds and keymaps can wait to load
+    -- keymaps can wait to load
     vim.api.nvim_create_autocmd("User", {
       group = vim.api.nvim_create_augroup("LazyMan", { clear = true }),
       pattern = "VeryLazy",
       callback = function()
-        M.load("autocmds")
         M.load("keymaps")
       end,
     })
   else
     -- load them now so they affect the opened buffers
-    M.load("autocmds")
     M.load("keymaps")
   end
 
@@ -124,7 +122,7 @@ function M.has(range)
   return Semver.range(range or M.lazy_version):matches(require("lazy.core.config").version or "0.0.0")
 end
 
----@param name "autocmds" | "options" | "keymaps"
+---@param name "autocmds" | "options" | "keymaps" | "globals"
 function M.load(name)
   local Util = require("lazy.core.util")
   local function _load(mod)
@@ -162,6 +160,7 @@ function M.init()
     -- after installing missing plugins
     M.load("options")
     M.load("globals")
+    M.load("autocmds")
   end
 end
 

@@ -29,10 +29,10 @@ require("monokai-pro").setup({
     "renamer"
   },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree"
   plugins = {
-    bufferline = {
-      underline_selected = false,
-      underline_visible = false,
-    },
+    -- bufferline = {
+    --   underline_selected = false,
+    --   underline_visible = false,
+    -- },
     -- indent_blankline = {
     --   context_highlight = "default", -- default | pro
     --   context_start_underline = false,
