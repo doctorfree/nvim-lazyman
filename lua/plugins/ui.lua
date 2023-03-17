@@ -64,6 +64,17 @@ if settings.enable_wilder then
   }
 end
 
+-- Some colorschemes do not yet support the NotifyBackground highlight group
+local notify_bg = "NotifyBackground"
+local ok, hl = pcall(vim.api.nvim_get_hl_by_name, noitify_bg, true)
+if not ok then
+  notify_bg = "NotifyERRORBody"
+  ok, hl = pcall(vim.api.nvim_get_hl_by_name, noitify_bg, true)
+  if not ok then
+    notify_bg = "#000000"
+  end
+end
+
 return {
   -- Better `vim.notify()`
   {
@@ -78,6 +89,7 @@ return {
       },
     },
     opts = {
+      background_colour = notify_bg,
       timeout = 3000,
       max_height = function()
         return math.floor(vim.o.lines * 0.75)

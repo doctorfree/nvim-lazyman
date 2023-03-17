@@ -1,5 +1,15 @@
 return {
   {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
+
+  {
+    "junegunn/gv.vim",
+    lazy = false,
+  },
+
+  {
     "TimUntersberger/neogit",
     cmd = "Neogit",
     dependencies = {
