@@ -3,12 +3,12 @@ local M = {}
 --   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
 M.theme = "tokyonight"
 -- Available styles are:
---   kanagawa: wave, dragon, lotus
---   tokyonight: night, storm, day, moon
---   onedarkpro: onedark, onelight, onedark_vivid, onedark_dark
+--   kanagawa:    wave, dragon, lotus
+--   tokyonight:  night, storm, day, moon
+--   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
---   catppuccin: latte, frappe, macchiato, mocha
---   nightfox: carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+--   catppuccin:  latte, frappe, macchiato, mocha
+--   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 M.theme_style = "moon"
 -- Some prefer space as the map leader, but why
 M.mapleader = ","
@@ -56,6 +56,10 @@ M.dashboard_recent_files = 5
 M.disable_dashboard_header = false
 -- disable quick links of the dashboard
 M.disable_dashboard_quick_links = false
+-- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+M.enable_bookmarks = false
+-- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+M.enable_ide = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
@@ -153,7 +157,7 @@ M.telescope_file_ignore_patterns = {
   "vendor/*",
 }
 
--- Enable diagnostics on workspace
+-- Enable diagnostics on workspace (not yet working)
 M.workspace_diagnostic = false
 
 return M
