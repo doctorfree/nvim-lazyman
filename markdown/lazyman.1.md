@@ -62,25 +62,25 @@ run **_viw proposal.md_**.
 : indicates install all supported Neovim configurations
 
 **-a**
-: indicates install and initialize AstroNvim
+: indicates install and initialize the the AstroNvim Neovim configuration
 
 **-b branch**
 : specifies an nvim-lazyman git branch to checkout
 
 **-c**
-: indicates install and initialize NvChad
+: indicates install and initialize the NvChad Neovim configuration
 
 **-d**
 : indicates debug mode
 
 **-k**
-: indicates install and initialize Kickstart
+: indicates install and initialize the Kickstart Neovim configuration
 
 **-l**
-: indicates install and initialize LazyVim
+: indicates install and initialize the LazyVim Neovim configuration
 
 **-m**
-: indicates install and initialize nvim-multi
+: indicates install and initialize the Allaman Neovim configuration
 
 **-I**
 : indicates install language servers and tools for coding diagnostics
@@ -126,7 +126,7 @@ Without arguments lazyman installs and initializes nvim-lazyman
 ### EXAMPLES
 
 **lazyman -a**
-: installs and initializes the _AstroNvim_ Neovim configuration in _$HOME/.config/nvim-astro/_
+: installs and initializes the _AstroNvim_ Neovim configuration in _$HOME/.config/nvim-AstroNvim/_
 
 **lazyman -l**
 : installs and initializes the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_

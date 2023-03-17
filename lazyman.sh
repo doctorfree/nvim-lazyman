@@ -7,17 +7,17 @@
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
-  printf "\n               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q]"
+  printf "\n               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-A indicates install all supported Neovim configurations"
-  printf "\n\t-a indicates install and initialize AstroNvim"
+  printf "\n\t-a indicates install and initialize AstroNvim Neovim configuration"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
-  printf "\n\t-c indicates install and initialize NvChad"
+  printf "\n\t-c indicates install and initialize NvChad Neovim configuration"
   printf "\n\t-d indicates debug mode"
-  printf "\n\t-k indicates install and initialize Kickstart"
-  printf "\n\t-l indicates install and initialize LazyVim"
-  printf "\n\t-m indicates install and initialize nvim-multi"
+  printf "\n\t-k indicates install and initialize Kickstart Neovim configuration"
+  printf "\n\t-l indicates install and initialize LazyVim Neovim configuration"
+  printf "\n\t-m indicates install and initialize Allaman Neovim configuration"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
@@ -275,6 +275,7 @@ command=
 debug=
 langservers=
 tellme=
+allaman=
 astronvim=
 kickstart=
 lazyvim=
@@ -289,13 +290,14 @@ update=
 url=
 name=
 lazymandir="nvim-lazyman"
-astronvimdir="nvim-Astro"
-kickstartdir="nvim-kickstart"
+astronvimdir="nvim-AstroNvim"
+kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
+allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
-multidir="nvim-multi"
+multidir="nvim-Multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:cdIklmnL:PqrRUC:N:yu" flag; do
+while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -304,11 +306,12 @@ while getopts "aAb:cdIklmnL:PqrRUC:N:yu" flag; do
         A)
             all=1
             astronvim=1
+						allaman=1
             kickstart=1
             lazyvim=1
             multivim=1
 						nvchad=1
-            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
+            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} ${allamandir} \
                      ${kickstartdir} ${astronvimdir} ${nvchaddir}"
             ;;
         b)
@@ -336,6 +339,10 @@ while getopts "aAb:cdIklmnL:PqrRUC:N:yu" flag; do
             command="${OPTARG}"
             ;;
         m)
+            allaman=1
+            nvimdir="${allamandir}"
+            ;;
+        M)
             multivim=1
             nvimdir="${multidir}"
             ;;
@@ -518,6 +525,17 @@ done
   }
   [ "${quiet}" ] || printf "done"
 }
+[ "${allaman}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning Allaman configuration into ${HOME}/.config/${allamandir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/Allaman/nvim ${HOME}/.config/${allamandir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${allamandir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${multivim}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning nvim-multi configuration into ${HOME}/.config/${multidir} ... "
@@ -647,7 +665,7 @@ fi
   elif [ "${lazyvim}" ]
   then
     printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
-  elif [ "${multivim}" ]
+  elif [ "${allaman}" ]
   then
     printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
   elif [ "${nvchad}" ]

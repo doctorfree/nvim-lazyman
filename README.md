@@ -3,6 +3,7 @@
 The Lazyman project can be used to install, initialize, and manage multiple
 Neovim configurations. Several popular Neovim configurations are supported
 including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/),
+[Allaman](https://github.com/Allaman/nvim),
 [Kickstart](https://github.com/nvim-lua/kickstart.nvim), and
 [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -222,6 +223,8 @@ Currently the following Neovim configurations are supported:
 
 - [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
   - See the [Installation section](#installation) above
+- [Allaman](https://github.com/Allaman/nvim)
+  - Install and initialize with `lazyman -m`
 - [AstroNvim](https://astronvim.com)
   - Install and initialize with `lazyman -a`
   - An example [AstroNvim community]() plugins configuration is added
@@ -306,17 +309,17 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q]
-               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q]
+               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
 	-A indicates install all supported Neovim configurations
-	-a indicates install and initialize AstroNvim
+	-a indicates install and initialize AstroNvim Neovim configuration
 	-b 'branch' specifies an nvim-lazyman git branch to checkout
-	-c indicates install and initialize NvChad
+	-c indicates install and initialize NvChad Neovim configuration
 	-d indicates debug mode
-	-k indicates install and initialize Kickstart
-	-l indicates install and initialize LazyVim
-	-m indicates install and initialize nvim-multi
+	-k indicates install and initialize Kickstart Neovim configuration
+	-l indicates install and initialize LazyVim Neovim configuration
+	-m indicates install and initialize Allaman Neovim configuration
 	-n indicates dry run, don't actually do anything, just printf's
 	-p indicates use Packer rather than Lazy to initialize
 	-q indicates quiet install
@@ -517,14 +520,14 @@ command -v nvim > /dev/null && {
   [ -d $HOME/.config/nvim-lazyman ] && {
     alias lmvim='function _lmvim(){ export NVIM_APPNAME="nvim-lazyman"; nvim $* };_lmvim'
   }
-  [ -d $HOME/.config/nvim-astro ] && {
-    alias avim='function _avim(){ export NVIM_APPNAME="nvim-astro"; nvim $* };_avim'
+  [ -d $HOME/.config/nvim-AstroNvim ] && {
+    alias avim='function _avim(){ export NVIM_APPNAME="nvim-AstroNvim"; nvim $* };_avim'
   }
   [ -d $HOME/.config/nvim-LazyVim ] && {
     alias lvim='function _lvim(){ export NVIM_APPNAME="nvim-LazyVim"; nvim $* };_lvim'
   }
-  [ -d $HOME/.config/nvim-kickstart ] && {
-    alias kvim='function _kvim(){ export NVIM_APPNAME="nvim-kickstart"; nvim $* };_kvim'
+  [ -d $HOME/.config/nvim-Kickstart ] && {
+    alias kvim='function _kvim(){ export NVIM_APPNAME="nvim-Kickstart"; nvim $* };_kvim'
   }
 }
 ```
@@ -592,23 +595,24 @@ by `lazyman.sh` executes the following on your system:
 ```bash
 #!/bin/bash
 #
-# lazyman - install, initialize, and manage Lazy Neovim configurations
+# lazyman - install, initialize, and manage multiple Neovim configurations
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-d] [-k] [-l] [-m] [-n] [-P] [-q]"
-  printf "\n               [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q]"
+  printf "\n               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-A indicates install all supported Neovim configurations"
-  printf "\n\t-a indicates install and initialize AstroNvim"
+  printf "\n\t-a indicates install and initialize AstroNvim Neovim configuration"
   printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
+  printf "\n\t-c indicates install and initialize NvChad Neovim configuration"
   printf "\n\t-d indicates debug mode"
-  printf "\n\t-k indicates install and initialize Kickstart"
-  printf "\n\t-l indicates install and initialize LazyVim"
-  printf "\n\t-m indicates install and initialize nvim-multi"
+  printf "\n\t-k indicates install and initialize Kickstart Neovim configuration"
+  printf "\n\t-l indicates install and initialize LazyVim Neovim configuration"
+  printf "\n\t-m indicates install and initialize Allaman Neovim configuration"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
@@ -700,8 +704,8 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa
       else
         nvim --headless "+Lazy! sync" +qa
-        nvim --headless "+Lazy! update" +qa
-        nvim --headless "+Lazy! install" +qa
+        # nvim --headless "+Lazy! update" +qa
+        # nvim --headless "+Lazy! install" +qa
       fi
     else
       if [ "${packer}" ]
@@ -710,11 +714,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-        nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
+        # nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
+        # nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
     fi
-    # nvim -c "checkhealth" -c 'qa' > /dev/null 2>&1
   }
 }
 
@@ -867,10 +870,12 @@ command=
 debug=
 langservers=
 tellme=
+allaman=
 astronvim=
 kickstart=
 lazyvim=
 multivim=
+nvchad=
 packer=
 proceed=
 quiet=
@@ -880,12 +885,14 @@ update=
 url=
 name=
 lazymandir="nvim-lazyman"
-astronvimdir="nvim-astro"
-kickstartdir="nvim-kickstart"
+astronvimdir="nvim-AstroNvim"
+kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
-multidir="nvim-multi"
+allamandir="nvim-Allaman"
+nvchaddir="nvim-NvChad"
+multidir="nvim-Multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
+while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -894,14 +901,20 @@ while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
         A)
             all=1
             astronvim=1
+						allaman=1
             kickstart=1
             lazyvim=1
             multivim=1
-            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} \
-                     ${kickstartdir} ${astronvimdir}"
+						nvchad=1
+            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} ${allamandir} \
+                     ${kickstartdir} ${astronvimdir} ${nvchaddir}"
             ;;
         b)
             branch="${OPTARG}"
+            ;;
+        c)
+            nvchad=1
+            nvimdir="${nvchaddir}"
             ;;
         d)
             debug="-d"
@@ -921,6 +934,10 @@ while getopts "aAb:dIklmnL:PqrRUC:N:yu" flag; do
             command="${OPTARG}"
             ;;
         m)
+            allaman=1
+            nvimdir="${allamandir}"
+            ;;
+        M)
             multivim=1
             nvimdir="${multidir}"
             ;;
@@ -1103,6 +1120,17 @@ done
   }
   [ "${quiet}" ] || printf "done"
 }
+[ "${allaman}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning Allaman configuration into ${HOME}/.config/${allamandir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/Allaman/nvim ${HOME}/.config/${allamandir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${allamandir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${multivim}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning nvim-multi configuration into ${HOME}/.config/${multidir} ... "
@@ -1111,6 +1139,24 @@ done
     git clone \
       https://github.com/doctorfree/nvim-multi ${HOME}/.config/${multidir} > /dev/null 2>&1
     [ "${have_appname}" ] || ln -s ${HOME}/.config/${multidir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
+[ "${nvchad}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
+  }
+  [ "${tellme}" ] || {
+		git clone https://github.com/NvChad/NvChad \
+              ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
+	}
+  [ "${quiet}" ] || {
+    printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+  }
+  [ "${tellme}" ] || {
+    git clone https://github.com/doctorfree/NvChad-custom \
+              ${HOME}/.config/${nvchaddir}/lua/custom > /dev/null 2>&1
+    rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -1214,9 +1260,12 @@ fi
   elif [ "${lazyvim}" ]
   then
     printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
-  elif [ "${multivim}" ]
+  elif [ "${allaman}" ]
   then
     printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
+  elif [ "${nvchad}" ]
+  then
+    printf "\n\nalias cvim='function _cvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_cvim'"
   else
     printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lmvim'"
   fi
@@ -1269,6 +1318,14 @@ executes the following on your system:
 #
 # Install Neovim and all dependencies for the Neovim config at:
 #     https://github.com/doctorfree/nvim-lazyman
+#
+# These are handled by Mason, no need to install here:
+#
+# ansible-language-server awk-language-server bash-language-server clangd
+# cmake-language-server cssmodules-language-server debugpy
+# dockerfile-language-server eslint-lsp google-java-format jq json-lsp
+# lua-language-server rnix-lsp sql-formatter sqlls typescript-language-server
+# vim-language-server yaml-language-server
 #
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
@@ -1494,8 +1551,9 @@ install_language_servers() {
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-	  for pkg in awk-language-server cssmodules-language-server eslint_d \
-							 vim-language-server dockerfile-language-server-nodejs
+	  # for pkg in awk-language-server cssmodules-language-server eslint_d \
+		# 					 vim-language-server dockerfile-language-server-nodejs
+	  for pkg in eslint_d
 		do
       if command -v ${pkg} >/dev/null 2>&1
 	    then
@@ -1524,7 +1582,8 @@ install_language_servers() {
 	else
 	  brew_install typescript
 	fi
-  for server in ansible bash haskell sql lua typescript yaml
+  # for server in ansible bash haskell sql lua typescript yaml
+  for server in haskell
   do
 		brew_install "${server}-language-server"
   done
@@ -1540,7 +1599,7 @@ install_language_servers() {
   done
 
   [ "${PYTHON}" ] && {
-    ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
+    # ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
     ${PYTHON} -m pip install python-lsp-server > /dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
@@ -1588,9 +1647,9 @@ install_tools() {
     tree-sitter init-config > /dev/null 2>&1
   fi
 
-  if command -v cargo >/dev/null 2>&1; then
-    cargo install rnix-lsp > /dev/null 2>&1
-  fi
+  # if command -v cargo >/dev/null 2>&1; then
+  #   cargo install rnix-lsp > /dev/null 2>&1
+  # fi
 
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
