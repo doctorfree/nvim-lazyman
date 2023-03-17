@@ -177,24 +177,29 @@ local workspace_cfg = {
   library = vim.api.nvim_get_runtime_file("", false),
   checkThirdParty = false,
 }
+local neodev_cfg = {
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+  override = function(root_dir, library)
+    local util = require("neodev.util")
+    if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
+      library.enabled = true
+      library.plugins = true
+    end
+  end,
+  lspconfig = false,
+}
 if not settings.workspace_diagnostic then
+  neodev_cfg = {
+    library = {},
+    lspconfig = true,
+  }
   workspace_cfg = {
     checkThirdParty = false,
   }
 end
 
 require("lspconfig")["lua_ls"].setup({
-  require("neodev").setup({
-    library = { plugins = { "nvim-dap-ui" }, types = true },
-    override = function(root_dir, library)
-      local util = require("neodev.util")
-      if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
-        library.enabled = true
-        library.plugins = true
-      end
-    end,
-    lspconfig = false,
-  }),
+  require("neodev").setup(neodev_cfg),
 
   -- Note: These settings will meaningfully increase the time until lua_ls
   -- can service initial requests (completion, location) upon starting as well

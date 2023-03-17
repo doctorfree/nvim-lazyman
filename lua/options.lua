@@ -7,6 +7,11 @@ if settings.global_statusline then
 else
   o.laststatus = 2
 end
+if settings.enable_tabline then
+  o.showtabline = settings.showtabline
+else
+  o.showtabline = 0
+end
 
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg
@@ -53,7 +58,6 @@ o.tabstop = 2 -- how many spaces a tab counts for
 o.softtabstop = 2
 o.shortmess:append({ W = true, I = true, c = true })
 o.showmode = false -- Dont show mode since we have a statusline
-o.showtabline = settings.showtabline
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text
 o.smartcase = true -- Don't ignore case with capitals
 o.smartindent = true -- Insert indents automatically

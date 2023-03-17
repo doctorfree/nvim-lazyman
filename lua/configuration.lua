@@ -1,18 +1,7 @@
 local M = {}
-
 -- Available themes:
 --   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
--- refer to the relevant themes settings file in:
---   ~/.config/nvim-lazyman/lua/themes/
--- for different styles and settings for your selected theme.
--- M.theme = "monokai-pro"
--- M.theme = "nightfox"
--- M.theme = "kanagawa"
--- M.theme = "catppuccin"
 M.theme = "tokyonight"
--- M.theme = "tundra"
--- M.theme = "onedarkpro"
--- If the theme supports a variety of styles, set one here
 -- Available styles are:
 --   kanagawa: wave, dragon, lotus
 --   tokyonight: night, storm, day, moon
@@ -20,17 +9,12 @@ M.theme = "tokyonight"
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 --   catppuccin: latte, frappe, macchiato, mocha
 --   nightfox: carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
--- M.theme_style = "onedark"
 M.theme_style = "moon"
--- M.theme_style = "dragon"
--- M.theme_style = "mocha"
--- M.theme_style = "nightfox"
-
+-- Some prefer space as the map leader, but why
 M.mapleader = ","
 M.maplocalleader = ","
-
 -- enable transparency if the theme supports it
-M.enable_transparent = false
+M.enable_transparent = true
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -42,6 +26,7 @@ M.mouse = "nv"
 -- set relative numbered lines
 M.relative_number = false
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
+-- see enable_tabline below to disable or enable the tabline
 M.showtabline = 2
 -- enable or disable listchars
 M.list = true
@@ -55,7 +40,10 @@ M.enable_noice = true
 M.enable_rainbow2 = true
 -- Enable the wilder plugin
 M.enable_wilder = false
--- Enable/disable tabline or winbar or both
+-- The statusline (lualine) and tabline can each be enabled or disabled
+-- Disable statusline (lualine)
+M.disable_statusline = false
+-- Enable tabline
 M.enable_tabline = true
 -- Disable winbar with location
 M.enable_winbar = false
@@ -90,9 +78,9 @@ M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
 -- Some of these are installed with Homebrew, which should Mason install?
 M.mason_tool_installer_ensure_installed = {
--- DAP
+  -- DAP
   "debugpy",
--- LSP
+  -- LSP
   "bash-language-server",
   "dockerfile-language-server",
   "json-lsp",
@@ -104,12 +92,12 @@ M.mason_tool_installer_ensure_installed = {
   "pyright",
   "terraform-ls",
   "yaml-language-server",
--- Formatter
+  -- Formatter
   "black",
   "prettier",
   "stylua",
   "shfmt",
--- Linter
+  -- Linter
   "eslint_d",
   "shellcheck",
   "tflint",
@@ -166,6 +154,6 @@ M.telescope_file_ignore_patterns = {
 }
 
 -- Enable diagnostics on workspace
-M.workspace_diagnostic = true
+M.workspace_diagnostic = false
 
 return M

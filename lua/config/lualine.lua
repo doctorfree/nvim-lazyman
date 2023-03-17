@@ -4,8 +4,8 @@
 -------------------------------------------------------------------------------
 
 local lualine = require("lualine")
-local utils = require("utils.functions")
 local settings = require("configuration")
+local utils = require("utils.functions")
 
 local theme = settings.theme
 local style = settings.theme_style
@@ -135,20 +135,12 @@ lualine.setup({
   winbar = winbar_cfg,
   inactive_winbar = inactive_winbar_cfg,
 
-  -- Available extensions:
-  --   aerial
-  --   chadtree
-  --   fern
-  --   fugitive
-  --   fzf
-  --   man
-  --   mundo
-  --   neo-tree
-  --   nerdtree
-  --   nvim-dap-ui
-  --   nvim-tree
-  --   quickfix
-  --   symbols-outline
-  --   toggleterm
-  extensions = { "neo-tree", "fugitive", "fzf", "toggleterm", "nvim-dap-ui", "quickfix" },
+  extensions = { "neo-tree", "fzf", "toggleterm", "nvim-dap-ui", "quickfix" },
 })
+
+if settings.disable_statusline then
+  require("lualine").hide({
+    place = { "statusline" },
+    unhide = vim.o.statusline == "",
+  })
+end

@@ -11,7 +11,7 @@ local workspace_cfg = {
 if not settings.workspace_diagnostic then
   workspace_cfg = {
     library = {},
-    -- checkThirdParty = false,
+    checkThirdParty = false,
   }
 end
 

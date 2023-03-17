@@ -8,14 +8,14 @@ if not path_ok then
   return
 end
 
-local settings = require('configuration')
-local keymaps_lua = vim.fn.stdpath('config')..'/lua/keymaps.lua'
-local options_lua = vim.fn.stdpath('config')..'/lua/options.lua'
-local configuration_lua = vim.fn.stdpath('config')..'/lua/configuration.lua'
+local settings = require("configuration")
+local keymaps_lua = vim.fn.stdpath("config") .. "/lua/keymaps.lua"
+local options_lua = vim.fn.stdpath("config") .. "/lua/options.lua"
+local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
-local filetree = ':NvimTreeOpen<CR>'
+local filetree = ":NvimTreeOpen<CR>"
 if settings.enable_neotree then
-  filetree = ':Neotree<CR>'
+  filetree = ":Neotree<CR>"
 end
 
 local dashboard = require("alpha.themes.dashboard")
@@ -60,7 +60,7 @@ local function file_button(fn, sc, short_fn)
   if fn_start ~= nil then
     table.insert(fb_hl, { "Comment", #ico_txt - 2, #fn_start + #ico_txt - 2 })
   end
-  file_button_el.opts.hl = 'AlphaButtons'
+  file_button_el.opts.hl = "AlphaButtons"
   return file_button_el
 end
 
@@ -168,55 +168,57 @@ vim.cmd([[
 -- This wouldn't be necessary if we could pass 'opts' in to dashboard.button()
 --
 -- Quick Links
-local new_file_btn = dashboard.button('n', '  New File', ':ene <BAR> startinsert<CR>')
-new_file_btn.opts.hl = 'AlphaShortcut'
-local find_file_btn = dashboard.button('f', '  Find File', ':' .. require('utils.functions').project_files() .. '<CR>')
-find_file_btn.opts.hl = 'AlphaShortcut'
-local file_browser_btn = dashboard.button('b', '  File Browser', ':Telescope file_browser grouped=true<CR>')
-file_browser_btn.opts.hl = 'AlphaShortcut'
-local file_tree_btn = dashboard.button('e', '  File Tree', filetree)
-file_tree_btn.opts.hl = 'AlphaShortcut'
-local find_text_btn = dashboard.button('t', '  Find Text', ':Telescope live_grep<CR>')
-find_text_btn.opts.hl = 'AlphaShortcut'
+local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
+new_file_btn.opts.hl = "AlphaShortcut"
+local find_file_btn =
+  dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
+find_file_btn.opts.hl = "AlphaShortcut"
+local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
+file_browser_btn.opts.hl = "AlphaShortcut"
+local file_tree_btn = dashboard.button("e", "  File Tree", filetree)
+file_tree_btn.opts.hl = "AlphaShortcut"
+local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
+find_text_btn.opts.hl = "AlphaShortcut"
 -- local search_project_btn = dashboard.button('p', '  Search Projects', ':Telescope projects<CR>')
 -- search_project_btn.opts.hl = 'AlphaShortcut'
-local session_btn = dashboard.button('k', '  Restore A Session', 'require("persistence").load()<CR>')
-session_btn.opts.hl = 'AlphaShortcut'
-local last_session_btn = dashboard.button('K', '  Restore Last Session', 'require("persistence").load({ last = true })<CR>')
-last_session_btn.opts.hl = 'AlphaShortcut'
-local search_zoxide_btn = dashboard.button('z', '  Search Zoxide', ':Telescope zoxide list<CR>')
-search_zoxide_btn.opts.hl = 'AlphaShortcut'
-local recent_files_btn = dashboard.button('r', '  Search Recent Files', ':Telescope oldfiles<CR>')
-recent_files_btn.opts.hl = 'AlphaShortcut'
-local git_commit_btn = dashboard.button('g', '  Git Commit History', ':GV<CR>')
-git_commit_btn.opts.hl = 'AlphaShortcut'
-local quit_btn = dashboard.button('q', '  Quit', ':qa<CR>')
-quit_btn.opts.hl = 'AlphaShortcut'
+local session_btn = dashboard.button("k", "  Restore A Session", 'require("persistence").load()<CR>')
+session_btn.opts.hl = "AlphaShortcut"
+local last_session_btn =
+  dashboard.button("K", "  Restore Last Session", 'require("persistence").load({ last = true })<CR>')
+last_session_btn.opts.hl = "AlphaShortcut"
+local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
+search_zoxide_btn.opts.hl = "AlphaShortcut"
+local recent_files_btn = dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles<CR>")
+recent_files_btn.opts.hl = "AlphaShortcut"
+local git_commit_btn = dashboard.button("g", "  Git Status", ":GV<CR>")
+git_commit_btn.opts.hl = "AlphaShortcut"
+local quit_btn = dashboard.button("q", "  Quit", ":qa<CR>")
+quit_btn.opts.hl = "AlphaShortcut"
 
 -- Neovim Configuration
-local health_btn = dashboard.button('h', '  Neovim Health', ':checkhealth<CR>')
-health_btn.opts.hl = 'AlphaHeader'
-local settings_btn = dashboard.button('s', '  Nvim-Lazyman Config', ':e ' .. configuration_lua .. '<CR>')
-settings_btn.opts.hl = 'AlphaHeader'
-local options_btn = dashboard.button('o', '  Neovim Options', ':e ' .. options_lua .. '<CR>')
-options_btn.opts.hl = 'AlphaHeader'
-local mappings_btn = dashboard.button('m', '  Neovim Keymaps', ':e ' .. keymaps_lua .. '<CR>')
-mappings_btn.opts.hl = 'AlphaHeader'
+local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>")
+health_btn.opts.hl = "AlphaHeader"
+local settings_btn = dashboard.button("s", "  Nvim-Lazyman Config", ":e " .. configuration_lua .. "<CR>")
+settings_btn.opts.hl = "AlphaHeader"
+local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
+options_btn.opts.hl = "AlphaHeader"
+local mappings_btn = dashboard.button("m", "  Neovim Keymaps", ":e " .. keymaps_lua .. "<CR>")
+mappings_btn.opts.hl = "AlphaHeader"
 
 -- Plugin Management
-local clean_btn = dashboard.button('C', '  Clean Plugins', ':Lazy clean<CR>')
-clean_btn.opts.hl = 'AlphaShortcut'
-local update_btn = dashboard.button('U', '  Update Plugins', ':Lazy update<CR>')
-update_btn.opts.hl = 'AlphaShortcut'
-local install_btn = dashboard.button('L', '  Lazy Menu', ':Lazy<CR>')
-install_btn.opts.hl = 'AlphaShortcut'
-local status_btn = dashboard.button('M', '  Mason Menu', ':Mason<CR>')
-status_btn.opts.hl = 'AlphaShortcut'
+local clean_btn = dashboard.button("C", "  Clean Plugins", ":Lazy clean<CR>")
+clean_btn.opts.hl = "AlphaShortcut"
+local update_btn = dashboard.button("U", "  Update Plugins", ":Lazy update<CR>")
+update_btn.opts.hl = "AlphaShortcut"
+local install_btn = dashboard.button("L", "  Lazy Menu", ":Lazy<CR>")
+install_btn.opts.hl = "AlphaShortcut"
+local status_btn = dashboard.button("M", "  Mason Menu", ":Mason<CR>")
+status_btn.opts.hl = "AlphaShortcut"
 
 local buttons = {
-  type = 'group',
+  type = "group",
   val = {
-    { type = 'text', val = 'Quick Links', opts = { hl = 'SpecialComment', position = 'center' } },
+    { type = "text", val = "Quick Links", opts = { hl = "SpecialComment", position = "center" } },
     new_file_btn,
     find_file_btn,
     file_browser_btn,
@@ -229,29 +231,29 @@ local buttons = {
     recent_files_btn,
     git_commit_btn,
     quit_btn,
-    { type = 'padding', val = 1 },
-    { type = 'text', val = 'Neovim Configuration', opts = { hl = 'SpecialComment', position = 'center' } },
+    { type = "padding", val = 1 },
+    { type = "text", val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
     health_btn,
     settings_btn,
     options_btn,
     mappings_btn,
-    { type = 'padding', val = 1 },
-    { type = 'text', val = 'Plugin Management', opts = { hl = 'SpecialComment', position = 'center' } },
+    { type = "padding", val = 1 },
+    { type = "text", val = "Plugin Management", opts = { hl = "SpecialComment", position = "center" } },
     clean_btn,
     update_btn,
     install_btn,
     status_btn,
   },
-  position = 'center',
+  position = "center",
 }
 
 local header = {
-  type = 'text',
+  type = "text",
   -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
-  val = require('config.alpha.headers')['random'],
+  val = require("config.alpha.headers")["random"],
   opts = {
-    position = 'center',
-    hl = 'AlphaHeader',
+    position = "center",
+    hl = "AlphaHeader",
   },
 }
 
@@ -259,7 +261,7 @@ local header = {
 -- you can add the timezone offset manually like:
 -- local timeShift = 8 * 60 * 60  -- 8 hours
 -- local datetime = os.date('  %Y-%b-%d   %H:%M:%S', os.time() - timeShift)
-local datetime = os.date('  %Y-%b-%d   %H:%M:%S', os.time())
+local datetime = os.date("  %Y-%b-%d   %H:%M:%S", os.time())
 local version = vim.version()
 local version_info = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
@@ -304,11 +306,11 @@ local opts = {
   opts = {
     margin = 4,
     setup = function()
-      require("nvim-web-devicons").setup{
+      require("nvim-web-devicons").setup({
         enabled = true,
         highlight = true,
-      }
-    end
+      })
+    end,
   },
 }
 
