@@ -190,8 +190,10 @@ local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescop
 search_zoxide_btn.opts.hl = "AlphaShortcut"
 local recent_files_btn = dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles<CR>")
 recent_files_btn.opts.hl = "AlphaShortcut"
-local git_commit_btn = dashboard.button("g", "  Git Status", ":GV<CR>")
+local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
 git_commit_btn.opts.hl = "AlphaShortcut"
+local neogit_btn = dashboard.button("G", "  NeoGit", ":Neogit<CR>")
+neogit_btn.opts.hl = "AlphaShortcut"
 local quit_btn = dashboard.button("q", "  Quit", ":qa<CR>")
 quit_btn.opts.hl = "AlphaShortcut"
 
@@ -230,6 +232,7 @@ local buttons = {
     search_zoxide_btn,
     recent_files_btn,
     git_commit_btn,
+    neogit_btn,
     quit_btn,
     { type = "padding", val = 1 },
     { type = "text", val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
