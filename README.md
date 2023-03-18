@@ -364,22 +364,24 @@ local M = {}
 --   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
 M.theme = "tokyonight"
 -- Available styles are:
---   kanagawa: wave, dragon, lotus
---   tokyonight: night, storm, day, moon
---   onedarkpro: onedark, onelight, onedark_vivid, onedark_dark
+--   kanagawa:    wave, dragon, lotus
+--   tokyonight:  night, storm, day, moon
+--   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
---   catppuccin: latte, frappe, macchiato, mocha
---   nightfox: carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+--   catppuccin:  latte, frappe, macchiato, mocha
+--   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 M.theme_style = "moon"
 -- Some prefer space as the map leader, but why
 M.mapleader = ","
 M.maplocalleader = ","
 -- enable transparency if the theme supports it
-M.enable_transparent = true
+M.enable_transparent = false
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
 M.grepprg = "rg --hidden --vimgrep --smart-case --"
+-- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
+M.media_backend = "jp2a"
 -- set numbered lines
 M.number = false
 -- enable mouse see :h mouse
@@ -417,13 +419,18 @@ M.dashboard_recent_files = 5
 M.disable_dashboard_header = false
 -- disable quick links of the dashboard
 M.disable_dashboard_quick_links = false
+-- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+M.enable_bookmarks = false
+-- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+M.enable_ide = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-M.treesitter_ensure_installed = {
-  "c", "lua", "vim", "help", "query", "bash", "html", "json",
-  "markdown", "markdown_inline", "python", "regex", "yaml",
-}
--- Enable either clangd or ccls for C/C++ diagnostics
+-- M.treesitter_ensure_installed = {
+--   "c", "lua", "vim", "help", "query", "bash", "html", "json",
+--   "markdown", "markdown_inline", "python", "regex", "yaml",
+-- }
+M.treesitter_ensure_installed = "maintained"
+-- Enable clangd or ccls will be used for C/C++ diagnostics
 M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
 -- Some of these are installed with Homebrew, which should Mason install?
@@ -431,9 +438,9 @@ M.mason_tool_installer_ensure_installed = {
   -- DAP
   "debugpy",
   -- LSP
-  "bash-language-server", "dockerfile-language-server", "json-lsp",
-  "marksman", "typescript-language-server", "texlab", "ltex-ls",
-  "lua-language-server", "pyright", "terraform-ls", "yaml-language-server",
+  "bash-language-server", "dockerfile-language-server", "json-lsp", "marksman",
+  "typescript-language-server", "texlab", "ltex-ls", "lua-language-server",
+  "pyright", "terraform-ls", "yaml-language-server",
   -- Formatter
   "black", "prettier", "stylua", "shfmt",
   -- Linter
@@ -453,7 +460,7 @@ M.telescope_file_ignore_patterns = {
   "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
 }
 
--- Enable diagnostics on workspace
+-- Enable diagnostics on workspace (not yet working)
 M.workspace_diagnostic = false
 
 return M

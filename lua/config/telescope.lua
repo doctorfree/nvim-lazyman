@@ -37,7 +37,7 @@ telescope.setup({
     },
     media = {
       -- backend = "ueberzug", -- "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
-      backend = "jp2a",
+      backend = settings.media_backend,
       -- move = true, -- experimental GIF preview
       cache_path = "/tmp/tele.media.cache",
       hidden = false,

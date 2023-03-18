@@ -19,6 +19,8 @@ M.enable_transparent = false
 M.global_statusline = true
 -- use rg instead of grep
 M.grepprg = "rg --hidden --vimgrep --smart-case --"
+-- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
+M.media_backend = "jp2a"
 -- set numbered lines
 M.number = false
 -- enable mouse see :h mouse
