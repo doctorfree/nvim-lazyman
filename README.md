@@ -20,10 +20,6 @@
 
 </div>
 
-![](./docs/screenshot.png)
-
-💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.8!
-
 The Lazyman project can be used to install, initialize, and manage multiple
 Neovim configurations. Several popular Neovim configurations are supported
 including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/),
