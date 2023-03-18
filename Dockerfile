@@ -73,8 +73,6 @@ RUN mkdir -p .config/nvim && mkdir -p .local/share/nvim/mason/packages
 COPY --chown=nvim:nvim . .config/nvim
 # Install plugins and tools with Mason and go.nvim
 # TODO: Use of sleep is not cool but commands are not blocking (! is not working either)
-RUN nvim --headless "+Lazy! sync" +"sleep 15" +qa \
-  && nvim --headless "+MasonToolsInstall" +"sleep 20" +qa \
-  && nvim --headless "+set filetype=go" +"GoInstallBinaries" +"sleep 120" +qa
+RUN nvim --headless "+Lazy! sync" +"sleep 15" +qa
 
 ENTRYPOINT ["/bin/bash", "-c", "nvim"]

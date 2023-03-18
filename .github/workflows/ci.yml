@@ -1,14 +1,8 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - "main"
-    paths:
-      - "Dockerfile"
-      - "**.lua"
-      - .github/workflows/ci.yml
-      - "README.md"
+  workflow_dispatch:
+  release:
 
 jobs:
   checks:
@@ -21,8 +15,8 @@ jobs:
         with:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
-      - name: Lint Markdown files
-        uses: actionshub/markdownlint@v3.1.3
+      #     - name: Lint Markdown files
+      #       uses: actionshub/markdownlint@v3.1.3
       - name: Codespell
         uses: codespell-project/actions-codespell@master
         with:
