@@ -53,6 +53,16 @@ return {
     end,
   },
   {
+    "neanias/everforest-nvim",
+    name = "everforest",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.everforest")
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
@@ -60,5 +70,5 @@ return {
     config = function()
       require("themes.catppuccin")
     end,
-  }
+  },
 }

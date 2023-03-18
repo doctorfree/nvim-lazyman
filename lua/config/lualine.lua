@@ -18,6 +18,8 @@ else
   theme_path = config_root .. theme .. ".lua"
   if utils.file_or_dir_exists(theme_path) then
     theme = require("themes.lualine." .. theme)
+  else
+    theme = "auto"
   end
 end
 

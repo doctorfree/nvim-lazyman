@@ -1,6 +1,6 @@
 local M = {}
 -- Available themes:
---   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
+--   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
 M.theme = "tokyonight"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
@@ -14,7 +14,7 @@ M.theme_style = "moon"
 M.mapleader = ","
 M.maplocalleader = ","
 -- enable transparency if the theme supports it
-M.enable_transparent = false
+M.enable_transparent = true
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
