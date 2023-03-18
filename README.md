@@ -41,7 +41,7 @@ separate directories and managed using the `NVIM_APPNAME` environment variable.
 The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used
 to install, initialize, remove, and manage multiple Neovim configuratons.
 
-## Table of Contents
+# Table of Contents
 
 - [Installation](#installation)
   - [Bootstrap](#bootstrap)
@@ -336,26 +336,26 @@ The usage message for `lazyman`:
 Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q]
                [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
-	-A indicates install all supported Neovim configurations
-	-a indicates install and initialize AstroNvim Neovim configuration
-	-b 'branch' specifies an nvim-lazyman git branch to checkout
-	-c indicates install and initialize NvChad Neovim configuration
-	-d indicates debug mode
-	-k indicates install and initialize Kickstart Neovim configuration
-	-l indicates install and initialize LazyVim Neovim configuration
-	-m indicates install and initialize Allaman Neovim configuration
-	-n indicates dry run, don't actually do anything, just printf's
-	-p indicates use Packer rather than Lazy to initialize
-	-q indicates quiet install
-	-I indicates install language servers and tools for coding diagnostics
-	-L 'cmd' specifies a Lazy command to run in the selected configuration
-	-r indicates remove the previously installed configuration
-	-R indicates remove previously installed configuration and backups
-	-C 'url' specifies a URL to a Neovim configuration git repository
-	-N 'nvimdir' specifies the folder name to use for the config given by -C
-	-U indicates update an existing configuration
-	-y indicates do not prompt, answer 'yes' to any prompt
-	-u displays this usage message and exits
+  -A indicates install all supported Neovim configurations
+  -a indicates install and initialize AstroNvim Neovim configuration
+  -b 'branch' specifies an nvim-lazyman git branch to checkout
+  -c indicates install and initialize NvChad Neovim configuration
+  -d indicates debug mode
+  -k indicates install and initialize Kickstart Neovim configuration
+  -l indicates install and initialize LazyVim Neovim configuration
+  -m indicates install and initialize Allaman Neovim configuration
+  -n indicates dry run, don't actually do anything, just printf's
+  -p indicates use Packer rather than Lazy to initialize
+  -q indicates quiet install
+  -I indicates install language servers and tools for coding diagnostics
+  -L 'cmd' specifies a Lazy command to run in the selected configuration
+  -r indicates remove the previously installed configuration
+  -R indicates remove previously installed configuration and backups
+  -C 'url' specifies a URL to a Neovim configuration git repository
+  -N 'nvimdir' specifies the folder name to use for the config given by -C
+  -U indicates update an existing configuration
+  -y indicates do not prompt, answer 'yes' to any prompt
+  -u displays this usage message and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-lazyman
 ```
@@ -703,7 +703,7 @@ create_backups() {
 
 run_command() {
   neodir="$1"
-	comm="$2"
+  comm="$2"
   export NVIM_APPNAME="${neodir}"
   [ "${tellme}" ] || {
     if [ "${debug}" ]
@@ -848,7 +848,7 @@ remove_config() {
 
 lazy_command() {
   ndir="$1"
-	comm="$2"
+  comm="$2"
   [ -d ${HOME}/.config/${ndir} ] && {
     [ "${quiet}" ] || {
       echo "Running 'Lazy ${comm}' in ${ndir} config at ${HOME}/.config/${ndir}"
@@ -934,11 +934,11 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
         A)
             all=1
             astronvim=1
-						allaman=1
+            allaman=1
             kickstart=1
             lazyvim=1
             multivim=1
-						nvchad=1
+            nvchad=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir} ${allamandir} \
                      ${kickstartdir} ${astronvimdir} ${nvchaddir}"
             ;;
@@ -1006,7 +1006,7 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
             usage
             ;;
         *)
-					  echo "Unrecognized option. Exiting."
+            echo "Unrecognized option. Exiting."
             usage
             ;;
     esac
@@ -1016,9 +1016,9 @@ done
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
   then
     ${HOME}/.config/${lazymandir}/scripts/install_neovim.sh ${debug} -l
-	  exit 0
-	fi
-	exit 1
+    exit 0
+  fi
+  exit 1
 }
 
 [ "${name}" ] && nvimdir="${name}"
@@ -1180,9 +1180,9 @@ done
     printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
   }
   [ "${tellme}" ] || {
-		git clone https://github.com/NvChad/NvChad \
+    git clone https://github.com/NvChad/NvChad \
               ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
-	}
+  }
   [ "${quiet}" ] || {
     printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
   }
@@ -1499,11 +1499,11 @@ install_homebrew () {
 }
 
 brew_install() {
-	brewpkg="$1"
+  brewpkg="$1"
   if command -v ${brewpkg} >/dev/null 2>&1
-	then
+  then
     log "Using previously installed ${brewpkg} ..."
-	else
+  else
     log "Installing ${brewpkg} ..."
     [ "${debug}" ] && START_SECONDS=$(date +%s)
     ${BREW_EXE} install --quiet ${brewpkg} > /dev/null 2>&1
@@ -1515,7 +1515,7 @@ brew_install() {
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf " elapsed time = %s${ELAPSED}"
     fi
-	fi
+  fi
   [ "${quiet}" ] || printf " done"
 }
 
@@ -1524,14 +1524,14 @@ install_neovim_dependencies () {
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in ${PKGS}
   do
-		brew_install "${pkg}"
+    brew_install "${pkg}"
   done
   if command -v rg >/dev/null 2>&1
-	then
+  then
     log "Using previously installed ripgrep ... done"
-	else
-	  brew_install ripgrep
-	fi
+  else
+    brew_install ripgrep
+  fi
   [ "${quiet}" ] || printf "\nDone"
 }
 
@@ -1584,19 +1584,19 @@ install_language_servers() {
   have_npm=$(type -p npm)
   [ "${have_npm}" ] && {
     [ "${debug}" ] && START_SECONDS=$(date +%s)
-	  # for pkg in awk-language-server cssmodules-language-server eslint_d \
-		# 					 vim-language-server dockerfile-language-server-nodejs
-	  for pkg in eslint_d
-		do
+    # for pkg in awk-language-server cssmodules-language-server eslint_d \
+    #            vim-language-server dockerfile-language-server-nodejs
+    for pkg in eslint_d
+    do
       if command -v ${pkg} >/dev/null 2>&1
-	    then
+      then
         [ "${quiet}" ] || log "Using previously installed ${pkg} ..."
-	    else
+      else
         [ "${quiet}" ] || log "Installing ${pkg} ..."
         npm i -g ${pkg} > /dev/null 2>&1
         [ "${quiet}" ] || printf " done"
-			fi
-		done
+      fi
+    done
     [ "${debug}" ] && {
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
@@ -1607,28 +1607,28 @@ install_language_servers() {
   # brew installed language servers
   for server in pyright vscode-langservers-extracted
   do
-		brew_install "${server}"
+    brew_install "${server}"
   done
   if command -v tsserver >/dev/null 2>&1
-	then
+  then
     log "Using previously installed typescript ... done"
-	else
-	  brew_install typescript
-	fi
+  else
+    brew_install typescript
+  fi
   # for server in ansible bash haskell sql lua typescript yaml
   for server in haskell
   do
-		brew_install "${server}-language-server"
+    brew_install "${server}-language-server"
   done
 
-	brew_install ccls
+  brew_install ccls
   ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
 
   for pkg in golangci-lint jdtls marksman rust-analyzer shellcheck \
              taplo texlab stylua eslint prettier terraform black shfmt \
              yarn julia composer php deno
   do
-		brew_install "${pkg}"
+    brew_install "${pkg}"
   done
 
   [ "${PYTHON}" ] && {
@@ -1675,7 +1675,7 @@ install_tools() {
     [ "${quiet}" ] || printf " done"
   }
 
-	brew_install tree-sitter
+  brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config > /dev/null 2>&1
   fi
