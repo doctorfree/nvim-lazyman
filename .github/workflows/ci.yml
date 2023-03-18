@@ -22,8 +22,9 @@ jobs:
         with:
           check_filenames: true
           check_hidden: true
-          ignore_words_list: noice, enew
+          ignore_words_list: noice
           exclude_file: snippets/java.snippets
+          exclude_file: lua/keymaps.lua
 
   docker:
     runs-on: ubuntu-latest
