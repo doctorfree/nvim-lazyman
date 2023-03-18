@@ -6,14 +6,6 @@
 # Install Neovim and all dependencies for the Neovim config at:
 #     https://github.com/doctorfree/nvim-lazyman
 #
-# These are handled by Mason, no need to install here:
-#
-# ansible-language-server awk-language-server bash-language-server clangd
-# cmake-language-server cssmodules-language-server debugpy
-# dockerfile-language-server eslint-lsp google-java-format jq json-lsp
-# lua-language-server rnix-lsp sql-formatter sqlls typescript-language-server
-# vim-language-server yaml-language-server
-#
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 DOC_HOMEBREW="https://docs.brew.sh"
@@ -241,15 +233,13 @@ install_language_servers() {
 	brew_install ccls
   ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
 
-  for pkg in golangci-lint jdtls marksman rust-analyzer shellcheck \
-             taplo texlab stylua eslint prettier terraform black shfmt \
+  for pkg in golangci-lint jdtls rust-analyzer taplo eslint terraform \
              yarn julia composer php deno
   do
 		brew_install "${pkg}"
   done
 
   [ "${PYTHON}" ] && {
-    # ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
     ${PYTHON} -m pip install python-lsp-server > /dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
