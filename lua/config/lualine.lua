@@ -21,6 +21,17 @@ else
   end
 end
 
+local function session_name()
+  return require("possession.session").session_name or ""
+end
+-- local session_status = {}
+-- if settings.session_manager == "possession" then
+--   local poss_status = require("nvim-possession").status()
+--   if poss_status ~= nil then
+--     session_status = { poss_status }
+--   end
+-- end
+
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
@@ -117,7 +128,15 @@ lualine.setup({
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = {},
+    -- lualine_c = { session_name },
+    lualine_c = {
+      { -- show session name
+        session_name,
+        icon = { " Session:", align = "left" },
+        padding = { left = 0, right = 1 },
+        separator = "|",
+      },
+    },
     lualine_x = { fmt_stat, "encoding", "fileformat", "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },

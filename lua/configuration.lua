@@ -21,6 +21,8 @@ M.global_statusline = true
 M.grepprg = "rg --hidden --vimgrep --smart-case --"
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 M.media_backend = "jp2a"
+-- neovim session manager to use, either persistence or possession
+M.session_manager = "possession"
 -- set numbered lines
 M.number = false
 -- enable mouse see :h mouse

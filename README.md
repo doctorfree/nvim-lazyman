@@ -35,7 +35,7 @@ The installation and initialization of Neovim configurations are placed in
 separate directories and managed using the `NVIM_APPNAME` environment variable.
 
 The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used
-to install, initialize, remove, and manage multiple Neovim configuratons.
+to install, initialize, remove, and manage multiple Neovim configurations.
 
 # Table of Contents
 
@@ -317,7 +317,7 @@ line as simply `lazyman`. The manual page can be viewed with `man lazyman`.
 The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
 configuration execute the command `lazyman -l`. To install and initialize
-all supported Lazyman Neovim configuratons execute `lazyman -A`. To update
+all supported Lazyman Neovim configurations execute `lazyman -A`. To update
 a previously installed Lazyman Neovim configuration execute
 `lazyman -U -N <nvimdir>` or `lazyman -U -A` to update all configurations.
 

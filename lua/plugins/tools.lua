@@ -1,3 +1,50 @@
+local settings = require("configuration")
+
+local session = {
+  "jedrzejboczar/possession.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  event = "VeryLazy",
+  config = function(_, opts)
+    require("config.possession")
+  end,
+}
+if settings.session_manager == "persistence" then
+  session = {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {
+      -- directory where session files are saved
+      dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"),
+      options = { "buffers", "curdir", "tabpages", "winsize", "help", "blank", "terminal", "folds", "tabpages" },
+      -- a function to call before saving the session
+      pre_save = nil,
+    },
+    keys = {
+      {
+        "<leader>ps",
+        function()
+          require("persistence").load()
+        end,
+        desc = "Restore Session",
+      },
+      {
+        "<leader>pl",
+        function()
+          require("persistence").load({ last = true })
+        end,
+        desc = "Restore Last Session",
+      },
+      {
+        "<leader>pd",
+        function()
+          require("persistence").stop()
+        end,
+        desc = "Don't Save Current Session",
+      },
+    },
+  }
+end
+
 return {
   {
     "kevinhwang91/rnvimr",
@@ -44,40 +91,8 @@ return {
     keys = { { "<leader>D", "<cmd>Bdelete!<cr>", desc = "Close Buffer" } },
   },
 
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {
-      -- directory where session files are saved
-      dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"),
-      options = { "buffers", "curdir", "tabpages", "winsize", "help", "blank", "terminal", "folds", "tabpages" },
-      -- a function to call before saving the session
-      pre_save = nil,
-    },
-    keys = {
-      {
-        "<leader>us",
-        function()
-          require("persistence").load()
-        end,
-        desc = "Restore Session",
-      },
-      {
-        "<leader>ul",
-        function()
-          require("persistence").load({ last = true })
-        end,
-        desc = "Restore Last Session",
-      },
-      {
-        "<leader>ud",
-        function()
-          require("persistence").stop()
-        end,
-        desc = "Don't Save Current Session",
-      },
-    },
-  },
+  -- session manager, see above
+  session,
 
   -- measure startuptime
   {

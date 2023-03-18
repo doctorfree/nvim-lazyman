@@ -1,10 +1,16 @@
 local dashboard = require("dashboard")
+local settings = require("configuration")
+
+local session_restore = 'lua require("persistence").load()'
+if settings.session_manager == "possession" then
+  session_restore = 'lua require("possession").list()'
+end
 
 math.randomseed(os.time())
 local logo_names = { "night_fury", "western_dragon" }
 local random_logo_name = logo_names[math.random(1, #logo_names)]
 
-local config_path = vim.fn.stdpath('config')..'/lua/configuration.lua'
+local config_path = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
 local logo = {
   night_fury = [[
@@ -152,21 +158,12 @@ vim.api.nvim_create_autocmd("User", {
           {
             icon = "   ",
             icon_hl = "DashboardSession",
-            desc = "Last Session",
+            desc = "Restore Session",
             -- desc_hi = "String",
             key = "s",
             key_hl = "DashboardSession",
-            action = "lua require('persistence').load({last = true})",
+            action = session_restore,
           },
-          -- {
-          --   icon = "   ",
-          --   icon_hl = "DashboardProject",
-          --   desc = "Find Project",
-          --   -- desc_hi = "String",
-          --   key = "p",
-          --   key_hl = "DashboardProject",
-          --   action = "Telescope projects",
-          -- },
           {
             icon = "   ",
             icon_hl = "DashboardConfiguration",

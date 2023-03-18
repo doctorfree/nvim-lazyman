@@ -179,13 +179,11 @@ local file_tree_btn = dashboard.button("e", "  File Tree", filetree)
 file_tree_btn.opts.hl = "AlphaShortcut"
 local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
 find_text_btn.opts.hl = "AlphaShortcut"
--- local search_project_btn = dashboard.button('p', '  Search Projects', ':Telescope projects<CR>')
--- search_project_btn.opts.hl = 'AlphaShortcut'
-local session_btn = dashboard.button("k", "  Restore A Session", 'require("persistence").load()<CR>')
+local session_btn = dashboard.button("b", "  Restore A Session", "<leader>ps<CR>")
+if settings.session_manager == "possession" then
+  session_btn = dashboard.button("b", "  Restore A Session", ":Telescope possession list<CR>")
+end
 session_btn.opts.hl = "AlphaShortcut"
-local last_session_btn =
-  dashboard.button("K", "  Restore Last Session", 'require("persistence").load({ last = true })<CR>')
-last_session_btn.opts.hl = "AlphaShortcut"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
 search_zoxide_btn.opts.hl = "AlphaShortcut"
 local recent_files_btn = dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles<CR>")
@@ -226,9 +224,7 @@ local buttons = {
     -- file_browser_btn,
     file_tree_btn,
     find_text_btn,
-    -- search_project_btn,
     session_btn,
-    last_session_btn,
     search_zoxide_btn,
     recent_files_btn,
     git_commit_btn,
@@ -318,13 +314,3 @@ local opts = {
 }
 
 alpha.setup(opts)
-
--- vim.api.nvim_create_autocmd("User", {
---   pattern = "LazyVimStarted",
---   callback = function()
---     local stats = require("lazy").stats()
---     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
---     dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
---     pcall(vim.cmd.AlphaRedraw)
---   end,
--- })

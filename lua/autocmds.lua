@@ -83,6 +83,18 @@ if settings.enable_alpha then
     end,
   })
 
+  vim.api.nvim_create_autocmd("BufUnload", {
+    buffer = 0,
+    desc = "enable status and tabline after alpha",
+    group = alpha_group,
+    callback = function()
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
+        unhide = true, -- whether to re-enable lualine again/
+      })
+    end,
+  })
+
   vim.api.nvim_create_autocmd("User", {
     pattern = "AlphaReady",
     group = alpha_group,
