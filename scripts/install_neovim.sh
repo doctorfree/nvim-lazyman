@@ -233,47 +233,10 @@ link_python () {
   }
 }
 
+# Language servers are mostly being handled by Mason
+# but some external utilities are required
 install_language_servers() {
   [ "${quiet}" ] || printf "\nInstalling language servers and tools"
-  have_npm=$(type -p npm)
-  [ "${have_npm}" ] && {
-    [ "${debug}" ] && START_SECONDS=$(date +%s)
-	  # for pkg in awk-language-server cssmodules-language-server eslint_d \
-		# 					 vim-language-server dockerfile-language-server-nodejs
-	  for pkg in eslint_d
-		do
-      if command -v ${pkg} >/dev/null 2>&1
-	    then
-        [ "${quiet}" ] || log "Using previously installed ${pkg} ..."
-	    else
-        [ "${quiet}" ] || log "Installing ${pkg} ..."
-        npm i -g ${pkg} > /dev/null 2>&1
-        [ "${quiet}" ] || printf " done"
-			fi
-		done
-    [ "${debug}" ] && {
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-      printf "\nNpm tools install elapsed time = %s${ELAPSED}\n"
-    }
-  }
-  # brew installed language servers
-  for server in pyright vscode-langservers-extracted
-  do
-		brew_install "${server}"
-  done
-  if command -v tsserver >/dev/null 2>&1
-	then
-    log "Using previously installed typescript ... done"
-	else
-	  brew_install typescript
-	fi
-  # for server in ansible bash haskell sql lua typescript yaml
-  for server in haskell
-  do
-		brew_install "${server}-language-server"
-  done
 
 	brew_install ccls
   ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1

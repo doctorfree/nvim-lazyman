@@ -25,7 +25,7 @@ vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
 
 o.autowrite = true -- Enable auto write
-o.clipboard = "unnamedplus" -- Sync with system clipboard
+o.clipboard = "unnamed" -- or "unnamedplus"
 o.completeopt = "menu,menuone,noselect"
 o.conceallevel = 3 -- Hide * markup for bold and italic
 -- o.conceallevel = 0, -- so that `` is visible in markdown files

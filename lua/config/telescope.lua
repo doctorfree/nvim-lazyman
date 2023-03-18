@@ -1,19 +1,20 @@
-local settings = require('configuration')
-local telescope = require('telescope')
+local settings = require("configuration")
+local telescope = require("telescope")
+local telescopeConfig = require("telescope.config")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 local fb_actions = require("telescope").extensions.file_browser.actions
 local icons = require("utils.icons")
 
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+if settings.telescope_grep_hidden then
+  table.insert(vimgrep_arguments, "--hidden")
+end
+-- trim the indentation at the beginning of presented line
+table.insert(vimgrep_arguments, "--trim")
+
 telescope.setup({
   extensions = {
-    -- do we need this? For what?
-    -- fzf = {
-    --   fuzzy = true, -- false will only do exact matching
-    --   override_generic_sorter = true, -- override the generic sorter
-    --   override_file_sorter = true, -- override the file sorter
-    --   case_mode = "smart_case", -- or "ignore_case" or "respect_case" or "smart_case"
-    -- },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown({}),
     },
@@ -39,8 +40,8 @@ telescope.setup({
       backend = "jp2a",
       -- move = true, -- experimental GIF preview
       cache_path = "/tmp/tele.media.cache",
-      hidden = false
-    }
+      hidden = false,
+    },
   },
   pickers = {
     find_files = {
@@ -53,35 +54,31 @@ telescope.setup({
     -- find_command = { "fd", "--hidden", "--type", "file", "--follow", "--strip-cwd-prefix" },
     -- find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
     find_command = {
-      'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'
-    },
-  },
-
-  defaults = {
-    file_ignore_patterns = {
-      '.git/', 'node_modules/', '.npm/', '*[Cc]ache/', '*-cache*',
-      '.dropbox/', '.dropbox_trashed/', '*.py[co]', '*.sw?', '*~',
-      '*.sql', '*.tags*', '*.gemtags*', '*.csv', '*.tsv', '*.tmp*',
-      '*.old', '*.plist', '*.pdf', '*.log', '*.jpg', '*.jpeg', '*.png',
-      '*.tar.gz', '*.tar', '*.zip', '*.class', '*.pdb', '*.dll',
-      '*.dat', '*.mca', '__pycache__', '.mozilla/', '.electron/',
-      '.vpython-root/', '.gradle/', '.nuget/', '.cargo/', '.evernote/',
-      '.azure-functions-core-tools/', 'yay/', '.local/share/Trash/',
-      '.local/share/nvim/swap/', 'code%-other/', '.terraform'
-    },
-    -- used for grep_string and live_grep
-    vimgrep_arguments = {
       "rg",
-      "--follow",
-      "--color=never",
       "--no-heading",
       "--with-filename",
       "--line-number",
       "--column",
       "--smart-case",
-      "--no-ignore",
-      "--trim",
     },
+  },
+
+  defaults = {
+    file_ignore_patterns = settings.telescope_file_ignore_patterns,
+    -- used for grep_string and live_grep
+    vimgrep_arguments = vimgrep_arguments,
+    -- vimgrep_arguments = {
+    --   "rg",
+    --   "--follow",
+    --   "--color=never",
+    --   "--no-heading",
+    --   "--with-filename",
+    --   "--line-number",
+    --   "--column",
+    --   "--smart-case",
+    --   "--no-ignore",
+    --   "--trim",
+    -- },
     mappings = {
       i = {
         -- Close on first esc instead of going to normal mode
@@ -139,20 +136,18 @@ telescope.setup({
     color_devicons = true,
     use_less = true,
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-    file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
-    buffer_previewer_maker = require 'telescope.previewers'.buffer_previewer_maker,
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
   },
 })
 
--- telescope.load_extension('fzf')
--- telescope.load_extension('projects')
-telescope.load_extension('zoxide')
-telescope.load_extension('heading')
-telescope.load_extension('ui-select')
-telescope.load_extension('make')
-telescope.load_extension('media')
+telescope.load_extension("zoxide")
+telescope.load_extension("heading")
+telescope.load_extension("ui-select")
+telescope.load_extension("make")
+telescope.load_extension("media")
 if settings.enable_noice then
-  telescope.load_extension('noice')
+  telescope.load_extension("noice")
 end

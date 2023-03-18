@@ -52,6 +52,7 @@ local servers = {
       },
     },
   },
+  marksman = {},
   tsserver = {
     settings = {
       typescript = {

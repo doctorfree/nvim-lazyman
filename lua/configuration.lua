@@ -14,7 +14,7 @@ M.theme_style = "moon"
 M.mapleader = ","
 M.maplocalleader = ","
 -- enable transparency if the theme supports it
-M.enable_transparent = true
+M.enable_transparent = false
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -62,22 +62,12 @@ M.enable_bookmarks = false
 M.enable_ide = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-M.treesitter_ensure_installed = {
-  "c",
-  "lua",
-  "vim",
-  "help",
-  "query",
-  "bash",
-  "html",
-  "json",
-  "markdown",
-  "markdown_inline",
-  "python",
-  "regex",
-  "yaml",
-}
--- Enable either clangd or ccls for C/C++ diagnostics
+-- M.treesitter_ensure_installed = {
+--   "c", "lua", "vim", "help", "query", "bash", "html", "json",
+--   "markdown", "markdown_inline", "python", "regex", "yaml",
+-- }
+M.treesitter_ensure_installed = "maintained"
+-- Enable clangd or ccls will be used for C/C++ diagnostics
 M.enable_clangd = true
 -- Tools that should be installed by Mason(-tool-install)
 -- Some of these are installed with Homebrew, which should Mason install?

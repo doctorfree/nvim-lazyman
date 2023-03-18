@@ -173,8 +173,8 @@ new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
   dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
-local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
-file_browser_btn.opts.hl = "AlphaShortcut"
+-- local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
+-- file_browser_btn.opts.hl = "AlphaShortcut"
 local file_tree_btn = dashboard.button("e", "  File Tree", filetree)
 file_tree_btn.opts.hl = "AlphaShortcut"
 local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
@@ -223,7 +223,7 @@ local buttons = {
     { type = "text", val = "Quick Links", opts = { hl = "SpecialComment", position = "center" } },
     new_file_btn,
     find_file_btn,
-    file_browser_btn,
+    -- file_browser_btn,
     file_tree_btn,
     find_text_btn,
     -- search_project_btn,

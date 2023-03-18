@@ -1,12 +1,5 @@
 local settings = require("configuration")
-local utils = require('utils.functions')
-local ensure = {}
-
-if utils.isNotEmpty(settings.treesitter_ensure_installed) then
-  ensure = settings.treesitter_ensure_installed
-else
-  ensure = { "c", "lua", "vim", "help", "query" }
-end
+local utils = require("utils.functions")
 
 local rainbow_cfg = {
   enable = true,
@@ -27,12 +20,12 @@ if settings.enable_rainbow2 then
     -- list of languages you want to disable the plugin for
     disable = { "html" },
     -- Which query to use for finding delimiters
-    query = 'rainbow-parens',
+    query = "rainbow-parens",
   }
 end
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = ensure,
+  ensure_installed = settings.ensure_installed,
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   -- Automatically install missing parsers when entering buffer
@@ -45,11 +38,11 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     -- to disable slow treesitter highlight for large files
     disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
     end,
 
     -- Instead of true it can also be a list of languages
