@@ -22,6 +22,10 @@ require("lazy").setup({
     -- install missing plugins on startup. This doesn't increase startup time.
     missing = true,
   },
+  ui = {
+    size = { width = 0.8, height = 0.6 },
+    border = "rounded",
+  },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
