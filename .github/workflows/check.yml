@@ -16,5 +16,5 @@ jobs:
         with:
           check_filenames: true
           check_hidden: true
-          ignore_words_list: noice
-          skip: "snippets/java.snippets,lua/keymaps.lua"
+          ignore_words_list: "noice,ths,enew"
+          # skip: "snippets/java.snippets,lua/keymaps.lua"
