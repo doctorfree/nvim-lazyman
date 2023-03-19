@@ -1,6 +1,8 @@
 local M = {}
 -- Available themes:
 --   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+-- A configuration file for each theme is in lua/themes/
+-- Use <F8> to step through themes
 M.theme = "tokyonight"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
@@ -66,10 +68,6 @@ M.enable_bookmarks = false
 M.enable_ide = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
--- M.treesitter_ensure_installed = {
---   "c", "lua", "vim", "help", "query", "bash", "html", "json",
---   "markdown", "markdown_inline", "python", "regex", "yaml",
--- }
 M.treesitter_ensure_installed = "maintained"
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 M.enable_clangd = true

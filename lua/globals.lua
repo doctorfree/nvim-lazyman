@@ -7,15 +7,16 @@ vim.g.loaded_perl_provider = 0
 vim.g.mycolorschemes = {
   "kanagawa",
   "tokyonight",
-  "monokai-pro",
   "nightfox",
-  "onedarkpro",
+  "onedark",
   "tundra",
   "catppuccin",
   "everforest",
 }
 -- Set this to 1 if using Airline, 0 with Lualine
 vim.g.setairlinetheme = 0
+-- Set this to 1 to echo the name of the new colorscheme
+vim.g.echosetcolor = 0
 
 vim.g.is_posix = 1 -- Vim's default is Bourne shell, bring it up to the 90s
 vim.g.netrw_banner = 0 -- Do not show Netrw help banner

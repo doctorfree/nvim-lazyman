@@ -381,7 +381,9 @@ Here is the default `configuration.lua`:
 ```lua
 local M = {}
 -- Available themes:
---   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro
+--   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+-- A configuration file for each theme is in lua/themes/
+-- Use <F8> to step through themes
 M.theme = "tokyonight"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
@@ -395,13 +397,15 @@ M.theme_style = "moon"
 M.mapleader = ","
 M.maplocalleader = ","
 -- enable transparency if the theme supports it
-M.enable_transparent = false
+M.enable_transparent = true
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
 M.grepprg = "rg --hidden --vimgrep --smart-case --"
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 M.media_backend = "jp2a"
+-- neovim session manager to use, either persistence or possession
+M.session_manager = "possession"
 -- set numbered lines
 M.number = false
 -- enable mouse see :h mouse
@@ -445,10 +449,6 @@ M.enable_bookmarks = false
 M.enable_ide = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
--- M.treesitter_ensure_installed = {
---   "c", "lua", "vim", "help", "query", "bash", "html", "json",
---   "markdown", "markdown_inline", "python", "regex", "yaml",
--- }
 M.treesitter_ensure_installed = "maintained"
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 M.enable_clangd = true
@@ -458,13 +458,27 @@ M.mason_tool_installer_ensure_installed = {
   -- DAP
   "debugpy",
   -- LSP
-  "bash-language-server", "dockerfile-language-server", "json-lsp", "marksman",
-  "typescript-language-server", "texlab", "ltex-ls", "lua-language-server",
-  "pyright", "terraform-ls", "yaml-language-server",
+  "bash-language-server",
+  "dockerfile-language-server",
+  "json-lsp",
+  "marksman",
+  "typescript-language-server",
+  "texlab",
+  "ltex-ls",
+  "lua-language-server",
+  "pyright",
+  "terraform-ls",
+  "yaml-language-server",
   -- Formatter
-  "black", "prettier", "stylua", "shfmt",
+  "black",
+  "prettier",
+  "stylua",
+  "shfmt",
   -- Linter
-  "eslint_d", "shellcheck", "tflint", "yamllint",
+  "eslint_d",
+  "shellcheck",
+  "tflint",
+  "yamllint",
 }
 
 -- enable greping in hidden files
@@ -472,12 +486,48 @@ M.telescope_grep_hidden = true
 
 -- which patterns to ignore in file switcher
 M.telescope_file_ignore_patterns = {
-  "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
-  "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
-  "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
-  "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
-  ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
-  "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
+  "%.7z",
+  "%.MOV",
+  "%.RAF",
+  "%.burp",
+  "%.bz2",
+  "%.cache",
+  "%.class",
+  "%.dll",
+  "%.docx",
+  "%.dylib",
+  "%.epub",
+  "%.exe",
+  "%.flac",
+  "%.ico",
+  "%.ipynb",
+  "%.jar",
+  "%.lock",
+  "%.mkv",
+  "%.mov",
+  "%.mp4",
+  "%.otf",
+  "%.pdb",
+  "%.rar",
+  "%.sqlite3",
+  "%.svg",
+  "%.tar",
+  "%.tar.gz",
+  "%.zip",
+  ".git/",
+  ".gradle/",
+  ".idea/",
+  ".settings/",
+  ".vale/",
+  ".vscode/",
+  "__pycache__/*",
+  "build/",
+  "env/",
+  "gradle/",
+  "node_modules/",
+  "smalljre_*/*",
+  "target/",
+  "vendor/*",
 }
 
 -- Enable diagnostics on workspace (not yet working)
