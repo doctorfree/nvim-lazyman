@@ -10,8 +10,8 @@
     <a href="https://github.com/doctorfree/nvim-lazyman/issues">
       <img src="https://img.shields.io/github/issues/doctorfree/nvim.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
     </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/ci.yml">
-      <img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/ci.yml/badge.svg" alt="CI Status"/>
+    <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml">
+      <img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml/badge.svg" alt="CI Status"/>
     </a>
     <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE">
       <img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/>
