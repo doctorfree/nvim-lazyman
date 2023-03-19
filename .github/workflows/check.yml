@@ -1,0 +1,20 @@
+name: check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Lint Markdown files
+        uses: actionshub/markdownlint@v3.1.3
+      - name: Codespell
+        uses: codespell-project/actions-codespell@master
+        with:
+          check_filenames: true
+          check_hidden: true
+          ignore_words_list: noice
+          skip: "snippets/java.snippets,lua/keymaps.lua"
