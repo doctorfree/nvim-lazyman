@@ -12,7 +12,7 @@ lazyman - install, initialize, and manage multiple Neovim configurations
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-v] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -81,6 +81,9 @@ run **_viw proposal.md_**.
 
 **-m**
 : indicates install and initialize the Allaman Neovim configuration
+
+**-v**
+: indicates install and initialize the LunarVim Neovim configuration
 
 **-I**
 : indicates install language servers and tools for coding diagnostics

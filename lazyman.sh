@@ -7,7 +7,7 @@
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q] [-v]"
   printf "\n               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n\t-A indicates install all supported Neovim configurations"
@@ -18,6 +18,7 @@ usage() {
   printf "\n\t-k indicates install and initialize Kickstart Neovim configuration"
   printf "\n\t-l indicates install and initialize LazyVim Neovim configuration"
   printf "\n\t-m indicates install and initialize Allaman Neovim configuration"
+  printf "\n\t-v indicates install and initialize LunarVim Neovim configuration"
   printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
   printf "\n\t-p indicates use Packer rather than Lazy to initialize"
   printf "\n\t-q indicates quiet install"
@@ -279,6 +280,7 @@ allaman=
 astronvim=
 kickstart=
 lazyvim=
+lunarvim=
 multivim=
 nvchad=
 packer=
@@ -293,11 +295,12 @@ lazymandir="nvim-lazyman"
 astronvimdir="nvim-AstroNvim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
+lunarvimdir="nvim-LunarVim"
 allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 multidir="nvim-Multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
+while getopts "aAb:cdIklMmnL:PqrRUC:N:vyu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -309,10 +312,11 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
 						allaman=1
             kickstart=1
             lazyvim=1
+						lunarvim=1
             multivim=1
 						nvchad=1
             nvimdir="${lazymandir} ${lazyvimdir} ${multidir} ${allamandir} \
-                     ${kickstartdir} ${astronvimdir} ${nvchaddir}"
+                     ${kickstartdir} ${astronvimdir} ${nvchaddir} ${lunarvimdir}"
             ;;
         b)
             branch="${OPTARG}"
@@ -370,6 +374,10 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:yu" flag; do
             ;;
         U)
             update=1
+            ;;
+        v)
+            lunarvim=1
+            nvimdir="${lunarvimdir}"
             ;;
         y)
             proceed=1
@@ -536,6 +544,17 @@ done
   }
   [ "${quiet}" ] || printf "done"
 }
+[ "${lunarvim}" ] && {
+  [ "${quiet}" ] || {
+    printf "\nCloning LunarVim configuration into ${HOME}/.config/${lunarvimdir} ... "
+  }
+  [ "${tellme}" ] || {
+    git clone \
+      https://github.com/LunarVim/LunarVim ${HOME}/.config/${lunarvimdir} > /dev/null 2>&1
+    [ "${have_appname}" ] || ln -s ${HOME}/.config/${lunarvimdir} ${HOME}/.config/nvim
+  }
+  [ "${quiet}" ] || printf "done"
+}
 [ "${multivim}" ] && {
   [ "${quiet}" ] || {
     printf "\nCloning nvim-multi configuration into ${HOME}/.config/${multidir} ... "
@@ -668,6 +687,9 @@ fi
   elif [ "${allaman}" ]
   then
     printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
+  elif [ "${lunarvim}" ]
+  then
+    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
   elif [ "${nvchad}" ]
   then
     printf "\n\nalias cvim='function _cvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_cvim'"
