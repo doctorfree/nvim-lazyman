@@ -12,7 +12,7 @@ lazyman - install, initialize, and manage multiple Neovim configurations
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-v] [-n] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -56,6 +56,24 @@ After sourcing these aliases in your shell, to invoke Neovim with the Python
 configuration run **_vip filename.py_** and to invoke Neovim with your Work config
 run **_viw proposal.md_**.
 
+Another alternative to setting **NVIM_APPNAME** in the environment or with an
+alias is to use the `lazyman` command to specify which Neovim configuration
+to use with this invocation. This is done using the `-e config` option to
+`lazyman`. When invoking `lazyman` with the `-e config` argument, the Neovim
+configuration can be specified by setting `config` to one of `allaman`,
+`astronvim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, or any
+Neovim configuration directory in `~/.config`. For example, to edit the file
+`foo.lua` using the LazyVim Neovim configuration:
+
+```bash
+lazyman -e lazyvim foo.lua
+```
+
+When invoked with the `-e config` option, `lazyman` sets the **NVIM_APPNAME**
+environment variable to the specified `config` and executes `nvim` with
+all following arguments. This is a pretty easy way to explore all the
+`lazyman` installed and initialized Neovim configurations.
+
 ## OPTIONS
 
 **-A**
@@ -72,6 +90,9 @@ run **_viw proposal.md_**.
 
 **-d**
 : indicates debug mode
+
+**-e 'config'**
+: execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 **-k**
 : indicates install and initialize the Kickstart Neovim configuration
@@ -122,7 +143,7 @@ acts on **NVIM_APPNAME** by default, override with '-N nvimdir' or '-A'
 **-u**
 : displays this usage message and exits
 
-Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
+Commands act on **NVIM_APPNAME**, override with '-N nvimdir' or '-A'
 
 Without arguments lazyman installs and initializes nvim-lazyman
 

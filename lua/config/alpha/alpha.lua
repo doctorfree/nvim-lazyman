@@ -200,6 +200,8 @@ local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>
 health_btn.opts.hl = "AlphaHeader"
 local settings_btn = dashboard.button("s", "  Nvim-Lazyman Config", ":e " .. configuration_lua .. "<CR>")
 settings_btn.opts.hl = "AlphaHeader"
+local lazyhelp_btn = dashboard.button("l", "  Nvim-Lazyman Help", ":h nvim-lazyman<CR>")
+lazyhelp_btn.opts.hl = "AlphaHeader"
 local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
 options_btn.opts.hl = "AlphaHeader"
 local mappings_btn = dashboard.button("m", "  Neovim Keymaps", ":e " .. keymaps_lua .. "<CR>")
@@ -234,6 +236,7 @@ local buttons = {
     { type = "text", val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
     health_btn,
     settings_btn,
+    lazyhelp_btn,
     options_btn,
     mappings_btn,
     { type = "padding", val = 1 },

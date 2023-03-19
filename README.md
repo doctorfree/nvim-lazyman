@@ -59,6 +59,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Symbolic links](#symbolic-links)
   - [Shell initialization setup](#shell-initialization-setup)
   - [Using aliases](#using-aliases)
+  - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 - [Neovim install](#neovim-install)
 - [Removal](#removal)
 - [Appendix](#appendix)
@@ -349,30 +350,34 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 The usage message for `lazyman`:
 
 ```
-Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q] [-v]
-               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]
+       [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
-	-A indicates install all supported Neovim configurations
-	-a indicates install and initialize AstroNvim Neovim configuration
-	-b 'branch' specifies an nvim-lazyman git branch to checkout
-	-c indicates install and initialize NvChad Neovim configuration
-	-d indicates debug mode
-	-k indicates install and initialize Kickstart Neovim configuration
-	-l indicates install and initialize LazyVim Neovim configuration
-	-m indicates install and initialize Allaman Neovim configuration
-	-v indicates install and initialize LunarVim Neovim configuration
-	-n indicates dry run, don't actually do anything, just printf's
-	-p indicates use Packer rather than Lazy to initialize
-	-q indicates quiet install
-	-I indicates install language servers and tools for coding diagnostics
-	-L 'cmd' specifies a Lazy command to run in the selected configuration
-	-r indicates remove the previously installed configuration
-	-R indicates remove previously installed configuration and backups
-	-C 'url' specifies a URL to a Neovim configuration git repository
-	-N 'nvimdir' specifies the folder name to use for the config given by -C
-	-U indicates update an existing configuration
-	-y indicates do not prompt, answer 'yes' to any prompt
-	-u displays this usage message and exits
+    -A indicates install all supported Neovim configurations
+    -a indicates install and initialize AstroNvim Neovim configuration
+    -b 'branch' specifies an nvim-lazyman git branch to checkout
+    -c indicates install and initialize NvChad Neovim configuration
+    -d indicates debug mode
+    -e 'config' execute 'nvim' with 'config' Neovim configuration
+       'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'nvchad',
+       'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'
+       'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+    -k indicates install and initialize Kickstart Neovim configuration
+    -l indicates install and initialize LazyVim Neovim configuration
+    -m indicates install and initialize Allaman Neovim configuration
+    -v indicates install and initialize LunarVim Neovim configuration
+    -n indicates dry run, don't actually do anything, just printf's
+    -p indicates use Packer rather than Lazy to initialize
+    -q indicates quiet install
+    -I indicates install language servers and tools for coding diagnostics
+    -L 'cmd' specifies a Lazy command to run in the selected configuration
+    -r indicates remove the previously installed configuration
+    -R indicates remove previously installed configuration and backups
+    -C 'url' specifies a URL to a Neovim configuration git repository
+    -N 'nvimdir' specifies the folder name to use for the config given by -C
+    -U indicates update an existing configuration
+    -y indicates do not prompt, answer 'yes' to any prompt
+    -u displays this usage message and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-lazyman
 ```
@@ -650,6 +655,38 @@ command -v nvim > /dev/null && {
 }
 ```
 
+### Using lazyman to explore configurations
+
+Another alternative to setting **NVIM_APPNAME** in the environment or with an
+alias is to use the `lazyman` command to specify which Neovim configuration
+to use with this invocation. This is done using the `-e config` option to
+`lazyman`. When invoking `lazyman` with the `-e config` argument, the Neovim
+configuration can be specified by setting `config` to one of `allaman`,
+`astronvim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, or any
+Neovim configuration directory in `~/.config`. For example, to edit the file
+`foo.lua` using the LazyVim Neovim configuration:
+
+```bash
+lazyman -e lazyvim foo.lua
+```
+
+Now you're using the LazyVim Neovim configuration to edit `foo.lua`, all of the
+LazyVim key bindings, plugins, options, and configuration will be used.
+
+To instead use the LunarVim Neovim configuration to edit `foo.lua`:
+
+```bash
+lazyman -e lunarvim foo.lua
+```
+
+Before using `lazyman -e <config> ...` to explore a Neovim configuration,
+first install and initialize the `<config>` configuration with `lazyman`.
+
+When invoked with the `-e config` option, `lazyman` sets the **NVIM_APPNAME**
+environment variable to the specified `config` and executes `nvim` with
+all following arguments. This is a pretty easy way to explore all the
+`lazyman` installed and initialized Neovim configurations.
+
 ## Neovim install
 
 If Neovim 0.9 or later is not detected during `lazyman` initialization, it is
@@ -722,30 +759,34 @@ by `lazyman.sh` executes the following on your system:
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-k] [-l] [-m] [-n] [-q] [-v]"
-  printf "\n               [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]"
+  printf "\n       [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
-  printf "\n\t-A indicates install all supported Neovim configurations"
-  printf "\n\t-a indicates install and initialize AstroNvim Neovim configuration"
-  printf "\n\t-b 'branch' specifies an nvim-lazyman git branch to checkout"
-  printf "\n\t-c indicates install and initialize NvChad Neovim configuration"
-  printf "\n\t-d indicates debug mode"
-  printf "\n\t-k indicates install and initialize Kickstart Neovim configuration"
-  printf "\n\t-l indicates install and initialize LazyVim Neovim configuration"
-  printf "\n\t-m indicates install and initialize Allaman Neovim configuration"
-  printf "\n\t-v indicates install and initialize LunarVim Neovim configuration"
-  printf "\n\t-n indicates dry run, don't actually do anything, just printf's"
-  printf "\n\t-p indicates use Packer rather than Lazy to initialize"
-  printf "\n\t-q indicates quiet install"
-  printf "\n\t-I indicates install language servers and tools for coding diagnostics"
-  printf "\n\t-L 'cmd' specifies a Lazy command to run in the selected configuration"
-  printf "\n\t-r indicates remove the previously installed configuration"
-  printf "\n\t-R indicates remove previously installed configuration and backups"
-  printf "\n\t-C 'url' specifies a URL to a Neovim configuration git repository"
-  printf "\n\t-N 'nvimdir' specifies the folder name to use for the config given by -C"
-  printf "\n\t-U indicates update an existing configuration"
-  printf "\n\t-y indicates do not prompt, answer 'yes' to any prompt"
-  printf "\n\t-u displays this usage message and exits"
+  printf "\n    -A indicates install all supported Neovim configurations"
+  printf "\n    -a indicates install and initialize AstroNvim Neovim configuration"
+  printf "\n    -b 'branch' specifies an nvim-lazyman git branch to checkout"
+  printf "\n    -c indicates install and initialize NvChad Neovim configuration"
+  printf "\n    -d indicates debug mode"
+  printf "\n    -e 'config' execute 'nvim' with 'config' Neovim configuration"
+  printf "\n       'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'nvchad',"
+  printf "\n       'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'"
+  printf "\n       'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config"
+  printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
+  printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
+  printf "\n    -m indicates install and initialize Allaman Neovim configuration"
+  printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
+  printf "\n    -n indicates dry run, don't actually do anything, just printf's"
+  printf "\n    -p indicates use Packer rather than Lazy to initialize"
+  printf "\n    -q indicates quiet install"
+  printf "\n    -I indicates install language servers and tools for coding diagnostics"
+  printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
+  printf "\n    -r indicates remove the previously installed configuration"
+  printf "\n    -R indicates remove previously installed configuration and backups"
+  printf "\n    -C 'url' specifies a URL to a Neovim configuration git repository"
+  printf "\n    -N 'nvimdir' specifies the folder name to use for the config given by -C"
+  printf "\n    -U indicates update an existing configuration"
+  printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
+  printf "\n    -u displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes nvim-lazyman\n"
   exit 1
@@ -825,9 +866,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa
       else
         nvim --headless "+Lazy! sync" +qa
-        # nvim --headless "+Lazy! update" +qa
-        # nvim --headless "+Lazy! install" +qa
       fi
+			[ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
+			}
     else
       if [ "${packer}" ]
       then
@@ -835,9 +877,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-        # nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-        # nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
+			[ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa > /dev/null 2>&1
+			}
     fi
   }
 }
@@ -989,6 +1032,7 @@ all=
 branch=
 command=
 debug=
+invoke=
 langservers=
 tellme=
 allaman=
@@ -1015,7 +1059,7 @@ allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 multidir="nvim-Multi"
 nvimdir="${lazymandir}"
-while getopts "aAb:cdIklMmnL:PqrRUC:N:vyu" flag; do
+while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -1042,6 +1086,9 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:vyu" flag; do
             ;;
         d)
             debug="-d"
+            ;;
+        e)
+						invoke="${OPTARG}"
             ;;
         I)
             langservers=1
@@ -1106,6 +1153,7 @@ while getopts "aAb:cdIklMmnL:PqrRUC:N:vyu" flag; do
             ;;
     esac
 done
+shift $(( OPTIND - 1 ))
 
 [ "${langservers}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
@@ -1127,6 +1175,47 @@ done
 [ "${nvimdir}" ] || {
   echo "Something went wrong, nvimdir not set. Exiting."
   usage
+}
+
+[ "${invoke}" ] && {
+	nvimlower=$(echo "${invoke}" | tr '[:upper:]' '[:lower:]')
+	case "${nvimlower}" in
+    allaman )
+			  nvimdir="${allamandir}"
+        ;;
+    astronvim )
+			  nvimdir="${astronvimdir}"
+        ;;
+    kickstart )
+			  nvimdir="${kickstartdir}"
+        ;;
+    lazyman )
+			  nvimdir="${lazymandir}"
+        ;;
+    lazyvim )
+			  nvimdir="${lazyvimdir}"
+        ;;
+    lunarvim )
+			  nvimdir="${lunarvimdir}"
+        ;;
+    nvchad )
+			  nvimdir="${nvchaddir}"
+        ;;
+    multi )
+			  nvimdir="${multidir}"
+        ;;
+      * )
+			  nvimdir="${invoke}"
+        ;;
+  esac
+	[ -d "${HOME}/.config/${nvimdir}" ] || {
+		echo "Neovim configuration for ${nvimdir} not found"
+	  echo "Exiting"
+		exit 1
+	}
+  export NVIM_APPNAME="${nvimdir}"
+	nvim $*
+	exit 0
 }
 
 [ "${remove}" ] && {
