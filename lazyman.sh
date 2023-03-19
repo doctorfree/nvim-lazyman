@@ -111,8 +111,8 @@ init_neovim() {
       else
         nvim --headless "+Lazy! sync" +qa
       fi
-			[ -d "${neodir}"/doc ] && {
-        nvim -i NONE -c "helptags ${neodir}/doc" -c 'qa'
+			[ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
 			}
     else
       if [ "${packer}" ]
@@ -122,8 +122,8 @@ init_neovim() {
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
       fi
-			[ -d "${neodir}"/doc ] && {
-        nvim -i NONE -c "helptags ${neodir}/doc" -c 'qa' > /dev/null 2>&1
+			[ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa > /dev/null 2>&1
 			}
     fi
   }
