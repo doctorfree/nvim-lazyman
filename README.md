@@ -318,7 +318,7 @@ It's also pretty interesting and educational to see how some of these
 Lazyman was inspired by several other Neovim distributions and configurations
 including:
 
-- [Allaman](https://github.com/Allaman/nvim.git)
+- [Michael Peter](https://github.com/Allaman/nvim.git)
 - [loctvl](https://github.com/loctvl842/nvim.git)
 - [Marc Jakobi](https://github.com/mrcjkb/nvim-config.git)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
@@ -334,6 +334,7 @@ The [lazyman.sh](lazyman.sh) script is located in `~/.config/nvim-lazyman`.
 It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is
 in your execution `PATH` then `lazyman` can be executed from the command
 line as simply `lazyman`. The manual page can be viewed with `man lazyman`.
+Within Neovim the `nvim-lazyman` help doc can be viewed with `:h nvim-lazyman`.
 
 The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
@@ -341,6 +342,12 @@ configuration execute the command `lazyman -l`. To install and initialize
 all supported Lazyman Neovim configurations execute `lazyman -A`. To update
 a previously installed Lazyman Neovim configuration execute
 `lazyman -U -N <nvimdir>` or `lazyman -U -A` to update all configurations.
+
+After installing and initializing Neovim configurations with `lazyman`,
+easily explore various configurations with the `lazyman -e <config> ...`
+command. See the
+[Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
+section below for details.
 
 To remove a Lazyman Neovim configuration execute `lazyman -r -N <nvimdir>`.
 To remove the configuration and all its backups, `lazyman -R -N <nvimdir>`.
@@ -403,6 +410,119 @@ Or, disable the tabline, disable the statusline, set the colorscheme, theme, and
 theme style. The `configuration.lua` file is intended to serve as a quick and
 easy way to re-configure the `nvim-lazyman` Neovim configuration but you can still
 dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and more.
+
+#### Configuration sections
+
+The `lua/configuration.lua` configuration file contains the following sections
+with settings briefly described here:
+
+##### Theme configuration
+
+The `nvim-lazyman` Neovim configuration includes pre-configured support for several
+themes including support for statusline and tabline theme coordination. The active
+theme and colorscheme is selected in `configuration.lua` by setting `M.theme`.
+For themes that support different styles, the theme style is selected by setting
+`M.theme_style`. Theme transparency can be enabled with `M.enable_transparent`.
+For example, to use the `kanagawa` theme with `dragon` style and transparency
+disabled, set:
+
+```
+M.theme = "kanagawa"
+M.theme_style = "dragon"
+M.enable_transparent = false
+```
+
+###### Supported themes
+
+- [catppuccin](https://github.com/catppuccin/nvim.git)
+- [everforest](https://github.com/neanias/everforest-nvim.git)
+- [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
+- [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim.git)
+- [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
+- [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
+- [tokyonight](https://github.com/folke/tokyonight.nvim.git)
+- [tundra](https://github.com/sam4llis/nvim-tundra.git)
+
+A configuration file for each theme is in `lua/themes/` and lualine theme
+configuration for each theme and its styles in `lua/themes/lualine`.
+
+Use `<F8>` to step through themes.
+
+Available styles are:
+
+- kanagawa
+  - wave
+  - dragon
+  - lotus
+- tokyonight
+  - night
+  - storm
+  - day
+  - moon
+- onedarkpro
+  - onedark
+  - onelight
+  - onedark_vivid
+  - onedark_dark
+- monokai-pro
+  - classic
+  - octagon
+  - pro
+  - machine
+  - ristretto
+  - spectrum
+- catppuccin
+  - latte
+  - frappe
+  - macchiato
+  - mocha
+- nightfox
+  - carbonfox
+  - dawnfox
+  - dayfox
+  - duskfox
+  - nightfox
+  - nordfox
+  - terafox
+
+##### Plugin configuration
+
+Several Neovim plugins in the `nvim-lazyman` configuration can be optionally
+installed or replaced by another plugin with similar functionality. The plugins
+that are configurable in this way in `configuration.lua` are briefly described
+below along with their default settings:
+
+- Neovim session manager to use, either persistence or possession
+  - `M.session_manager = "possession"`
+- Neo-tree or nvim-tree, false will enable nvim-tree
+  - `M.enable_neotree = true`
+- Noice heavily changes the Neovim UI ...
+  - `M.enable_noice = true`
+- Enable the newer rainbow treesitter delimiter highlighting
+  - `M.enable_rainbow2 = true`
+- Enable the wilder plugin
+  - `M.enable_wilder = false`
+- The statusline (lualine) and tabline can each be enabled or disabled
+  - `M.disable_statusline = false`
+  - `M.enable_tabline = true`
+- The winbar with location
+  - `M.enable_winbar = false`
+- Enable playing games inside Neovim!
+  - `M.enable_games = true`
+- Enable the Alpha dashboard
+  - `M.enable_alpha = true`
+- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+  - `M.enable_bookmarks = false`
+- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+  - `M.enable_ide = false`
+- Enable Navigator
+  - `M.enable_navigator = true`
+- Enable Project manager
+  - `M.enable_project = true`
+- Enable window picker
+  - `M.enable_picker = true`
+
+Additional plugin configuration and options are available in `configuration.lua`.
 
 <details><summary>View the default `configuration.lua`</summary>
 
@@ -488,7 +608,7 @@ M.media_backend = "jp2a"
 -- 0 disables showing recent files
 M.dashboard_recent_files = 5
 -- disable the header of the dashboard
-M.disable_dashboard_header = false
+M.disable_dashboard_header = true
 -- disable quick links of the dashboard
 M.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
