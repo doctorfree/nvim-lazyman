@@ -110,9 +110,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa
       else
         nvim --headless "+Lazy! sync" +qa
-        # nvim --headless "+Lazy! update" +qa
-        # nvim --headless "+Lazy! install" +qa
       fi
+			[ -d "${neodir}"/doc ] && {
+        nvim --headless "helptags ${neodir}/doc" +qa
+			}
     else
       if [ "${packer}" ]
       then
@@ -120,9 +121,10 @@ init_neovim() {
         nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
-        # nvim --headless "+Lazy! update" +qa > /dev/null 2>&1
-        # nvim --headless "+Lazy! install" +qa > /dev/null 2>&1
       fi
+			[ -d "${neodir}"/doc ] && {
+        nvim --headless "helptags ${neodir}/doc" +qa > /dev/null 2>&1
+			}
     fi
   }
 }
