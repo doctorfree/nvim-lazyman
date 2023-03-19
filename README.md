@@ -386,6 +386,8 @@ a description of each command line option, and several example invocations.
 
 The `lazyman` manual page can be viewed with `man lazyman`.
 
+Lazyman Neovim help can be viewed inside Neovim with `:h nvim-lazyman`.
+
 ### Lazyman configuration
 
 The `nvim-lazyman` Neovim configuration includes a top-level configuration file,
