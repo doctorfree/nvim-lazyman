@@ -53,6 +53,8 @@ M.disable_statusline = false
 M.enable_tabline = true
 -- Disable winbar with location
 M.enable_winbar = false
+-- Enable playing games inside Neovim!
+M.enable_games = true
 -- Enable the Alpha dashboard
 M.enable_alpha = true
 -- Number of recent files shown in dashboard
@@ -66,6 +68,12 @@ M.disable_dashboard_quick_links = false
 M.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
 M.enable_ide = false
+-- Enable Navigator
+M.enable_navigator = true
+-- Enable Project manager
+M.enable_project = true
+-- Enable window picker
+M.enable_picker = true
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = "maintained"
