@@ -3,6 +3,10 @@ local settings = require("configuration")
 if settings.enable_games then
   return {
     {
+      "ThePrimeagen/vim-be-good",
+      event = "VeryLazy",
+    },
+    {
       "jim-fx/sudoku.nvim",
       cmd = "Sudoku",
       event = "VeryLazy",
