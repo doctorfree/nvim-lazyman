@@ -337,6 +337,12 @@ including:
 - NvChad <https://nvchad.github.io/>
 - rayx <https://github.com/ray-x/nvim.git>
 
+Some of these distributions, like the work of Michael Peter, are released under
+an MIT license and I was able to copy directly configuration or initialization
+code. Others, like the work of Marc Jakobi, are released under a more
+restrictive license and I was only able to use these as reference but still a
+valuable aid. I copied my own previous work liberally.
+
 Thanks everybody!
 
 
@@ -352,6 +358,10 @@ GENERAL ⚙️ ~
 
 
 - Package management and plugin configuration via lazy.nvim <https://github.com/folke/lazy.nvim>
+- Easily configure theme, active plugins, and their configuration via configuration.lua <lua/configuration.lua>
+- Multiple preconfigured themes: catppuccin <https://github.com/catppuccin/nvim>, tokyonight <https://github.com/folke/tokyonight.nvim>, nightfox <https://github.com/EdenEast/nightfox.nvim>, tundra <https://github.com/sam4llis/nvim-tundra>, monokai-pro <https://github.com/loctvl842/monokai-pro.nvim>, kanagawa <https://github.com/rebelot/kanagawa.nvim>, onedarkpro <https://github.com/olimorris/onedarkpro.nvim>, and everforest <https://github.com/neanias/everforest-nvim>
+- Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using ChatGPT.nvim <https://github.com/jackMort/ChatGPT.nvim>
+    - Uses ChatGPT prompts from Awesome ChatGPT Prompts <https://github.com/f/awesome-chatgpt-prompts>
 - Mnemonic keyboard mappings inspired by Spacemacs <https://www.spacemacs.org/> via which-key.nvim <https://github.com/folke/which-key.nvim>; no more than three keystrokes for each keybinding
 - Replace the UI for messages, cmdline and popupmenu via noice.nvim <https://github.com/folke/noice.nvim>
 - Fully featured status line via lualine <https://github.com/nvim-lualine/lualine.nvim> and tabline <https://github.com/kdheepak/tabline.nvim>
@@ -359,7 +369,6 @@ GENERAL ⚙️ ~
 - Fancy notifications via nvim-notify <https://github.com/rcarriga/nvim-notify>
 - Code diagnostics via LSP <https://github.com/neovim/nvim-lspconfig>
 - Dashboard via alpha.nvim <https://github.com/goolord/alpha-nvim> with recent files and quick links
-- Multiple preconfigured themes: catppuccin <https://github.com/catppuccin/nvim>, tokyonight <https://github.com/folke/tokyonight.nvim>, nightfox <https://github.com/EdenEast/nightfox.nvim>, tundra <https://github.com/sam4llis/nvim-tundra>, monokai-pro <https://github.com/loctvl842/monokai-pro.nvim>, kanagawa <https://github.com/rebelot/kanagawa.nvim>, onedarkpro <https://github.com/olimorris/onedarkpro.nvim>, and everforest <https://github.com/neanias/everforest-nvim>
 - Over 90 plugins
 - Fast startup < 70 ms 🚀
 
@@ -568,6 +577,8 @@ below along with their default settings:
     - `M.enable_neotree = true`
 - Replace the UI for messages, cmdline and the popupmenu
     - `M.enable_noice = true`
+- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
+    - `M.enable_chatgpt = false`
 - Enable the newer rainbow treesitter delimiter highlighting
     - `M.enable_rainbow2 = true`
 - Enable the wilder plugin
@@ -644,8 +655,10 @@ View the default `configuration.lua` ~
     M.session_manager = "possession"
     -- neo-tree or nvim-tree, false will enable nvim-tree
     M.enable_neotree = true
-    -- Noice heavily changes the Neovim UI ...
+    -- Replace the UI for messages, cmdline and the popupmenu
     M.enable_noice = true
+    -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+    M.enable_chatgpt = false
     -- Enable the newer rainbow treesitter delimiter highlighting
     M.enable_rainbow2 = true
     -- Enable the wilder plugin
@@ -661,9 +674,9 @@ View the default `configuration.lua` ~
     M.enable_games = true
     -- Enable the Alpha dashboard
     M.enable_alpha = true
-    -- enable the Neovim bookmarks plugin
+    -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
     M.enable_bookmarks = false
-    -- enable the Neovim IDE plugin
+    -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
     M.enable_ide = false
     -- Enable Navigator
     M.enable_navigator = true
@@ -721,48 +734,12 @@ View the default `configuration.lua` ~
     
     -- which patterns to ignore in file switcher
     M.telescope_file_ignore_patterns = {
-      "%.7z",
-      "%.MOV",
-      "%.RAF",
-      "%.burp",
-      "%.bz2",
-      "%.cache",
-      "%.class",
-      "%.dll",
-      "%.docx",
-      "%.dylib",
-      "%.epub",
-      "%.exe",
-      "%.flac",
-      "%.ico",
-      "%.ipynb",
-      "%.jar",
-      "%.lock",
-      "%.mkv",
-      "%.mov",
-      "%.mp4",
-      "%.otf",
-      "%.pdb",
-      "%.rar",
-      "%.sqlite3",
-      "%.svg",
-      "%.tar",
-      "%.tar.gz",
-      "%.zip",
-      ".git/",
-      ".gradle/",
-      ".idea/",
-      ".settings/",
-      ".vale/",
-      ".vscode/",
-      "__pycache__/*",
-      "build/",
-      "env/",
-      "gradle/",
-      "node_modules/",
-      "smalljre_*/*",
-      "target/",
-      "vendor/*",
+      "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
+      "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
+      "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
+      "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
+      ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
+      "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
     }
     
     -- Enable diagnostics on workspace (not yet working)
