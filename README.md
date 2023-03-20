@@ -50,6 +50,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Unsupported configurations](#unsupported-configurations)
 - [Motivation](#motivation)
   - [Inspiration](#inspiration)
+- [Features](#features)
 - [Usage](#usage)
   - [Manual](#manual)
   - [Lazyman configuration](#lazyman-configuration)
@@ -328,6 +329,48 @@ including:
 
 Thanks everybody!
 
+## Features
+
+The primary feature of the `nvim-lazyman` Neovim configuration is the inclusion
+of the `lazyman` command to easily install, initialize, manage, and explore
+multiple Neovim configurations. See the [Usage](#usage) section below for
+details on how to use the `lazyman` command.
+
+### General ⚙️
+
+- Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
+- Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
+- Replace the UI for messages, cmdline and popupmenu via [noice.nvim](https://github.com/folke/noice.nvim)
+- Fully featured status line via [lualine](https://github.com/nvim-lualine/lualine.nvim) and [tabline](https://github.com/kdheepak/tabline.nvim)
+- Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
+- Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
+- Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
+- Multiple preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), and [everforest](https://github.com/neanias/everforest-nvim)
+- Over 90 plugins
+- Fast startup < 70 ms 🚀
+
+### Navigation 🧭
+
+- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
+- Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
+- Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
+
+### Coding 🖥️
+
+- Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
+- Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
+- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
+- Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
+- Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+- Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
+
 ## Usage
 
 The [lazyman.sh](lazyman.sh) script is located in `~/.config/nvim-lazyman`.
@@ -496,7 +539,7 @@ below along with their default settings:
   - `M.session_manager = "possession"`
 - Neo-tree or nvim-tree, false will enable nvim-tree
   - `M.enable_neotree = true`
-- Noice heavily changes the Neovim UI ...
+- Replace the UI for messages, cmdline and the popupmenu
   - `M.enable_noice = true`
 - Enable the newer rainbow treesitter delimiter highlighting
   - `M.enable_rainbow2 = true`
@@ -590,9 +633,9 @@ M.enable_winbar = false
 M.enable_games = true
 -- Enable the Alpha dashboard
 M.enable_alpha = true
--- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+-- enable the Neovim bookmarks plugin
 M.enable_bookmarks = false
--- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+-- enable the Neovim IDE plugin
 M.enable_ide = false
 -- Enable Navigator
 M.enable_navigator = true

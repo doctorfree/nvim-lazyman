@@ -44,7 +44,7 @@ M.grepprg = "rg --hidden --vimgrep --smart-case --"
 M.session_manager = "possession"
 -- neo-tree or nvim-tree, false will enable nvim-tree
 M.enable_neotree = true
--- Noice heavily changes the Neovim UI ...
+-- Replace the UI for messages, cmdline and the popupmenu
 M.enable_noice = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 M.enable_rainbow2 = true
