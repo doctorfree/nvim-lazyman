@@ -462,7 +462,7 @@ shift $(( OPTIND - 1 ))
 		exit 1
 	}
   export NVIM_APPNAME="${nvimdir}"
-	nvim $*
+	nvim "$@"
 	exit 0
 }
 
@@ -579,7 +579,6 @@ done
     git clone \
       https://github.com/nvim-lua/kickstart.nvim.git \
       ${HOME}/.config/${kickstartdir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${kickstartdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -590,7 +589,6 @@ done
   [ "${tellme}" ] || {
     git clone \
       https://github.com/LazyVim/starter ${HOME}/.config/${lazyvimdir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${lazyvimdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -601,7 +599,6 @@ done
   [ "${tellme}" ] || {
     git clone \
       https://github.com/Allaman/nvim ${HOME}/.config/${allamandir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${allamandir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -612,7 +609,6 @@ done
   [ "${tellme}" ] || {
     git clone \
       https://github.com/LunarVim/LunarVim ${HOME}/.config/${lunarvimdir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${lunarvimdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -623,7 +619,6 @@ done
   [ "${tellme}" ] || {
     git clone \
       https://github.com/doctorfree/nvim-multi ${HOME}/.config/${multidir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${multidir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -652,7 +647,6 @@ done
   [ "${tellme}" ] || {
     git clone \
       ${url} ${HOME}/.config/${nvimdir} > /dev/null 2>&1
-    [ "${have_appname}" ] || ln -s ${HOME}/.config/${nvimdir} ${HOME}/.config/nvim
   }
   [ "${quiet}" ] || printf "done"
 }
@@ -714,11 +708,11 @@ else
 fi
 [ "${maninst}" ] && {
   [ "${quiet}" ] || {
-    echo "Installing lazyman command in ${HOME}/.local/bin"
     echo ""
-    echo "Use ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
-    echo "Review the lazyman usage message with:"
-    printf "\n\t${HOME}/.local/bin/lazyman -u\n"
+    echo "Installing lazyman man page in ${HOME}/.local/share/man/man1/lazyman.1"
+    echo ""
+    echo "View the lazyman man page with:"
+    printf "\n\tman lazyman\n"
   }
 }
 

@@ -346,7 +346,7 @@ details on how to use the `lazyman` command.
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
-- Multiple preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), and [everforest](https://github.com/neanias/everforest-nvim)
+- Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim)
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
@@ -356,7 +356,7 @@ details on how to use the `lazyman` command.
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
-- Neovim games for fun and learning (Sudoku, blackjack, vim-be-good practice basic movements)
+- Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements)
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
 - Over 90 plugins
 - Fast startup < 70 ms 🚀

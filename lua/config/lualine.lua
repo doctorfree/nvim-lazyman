@@ -7,6 +7,22 @@ local lualine = require("lualine")
 local settings = require("configuration")
 local utils = require("utils.functions")
 
+local fancy = settings.enable_fancy
+local mode = "mode"
+local branch = "branch"
+local diff = "diff"
+local diagnostics = "diagnostics"
+local filetype = "filetype"
+local lsp_servers = "lsp_servers"
+if fancy then
+  mode = "fancy_mode"
+  branch = "fancy_branch"
+  diff = "fancy_diff"
+  diagnostics = "fancy_diagnostics"
+  filetype = "fancy_filetype"
+  lsp_servers = "fancy_lsp_servers"
+end
+
 local theme = settings.theme
 local style = settings.theme_style
 local config_root = vim.fn.stdpath("config") .. "/lua/themes/lualine/"
@@ -56,7 +72,7 @@ if settings.enable_tabline then
     },
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = { lsp_servers },
   }
 end
 
@@ -128,8 +144,8 @@ lualine.setup({
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch", "diff", "diagnostics" },
+    lualine_a = { mode },
+    lualine_b = { branch, diff, diagnostics },
     -- lualine_c = { session_name },
     lualine_c = {
       { -- show session name
@@ -139,7 +155,7 @@ lualine.setup({
         separator = "|",
       },
     },
-    lualine_x = { fmt_stat, "encoding", "fileformat", "filetype" },
+    lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },

@@ -50,6 +50,8 @@ M.enable_noice = true
 M.enable_chatgpt = false
 -- Enable the newer rainbow treesitter delimiter highlighting
 M.enable_rainbow2 = true
+-- Enable fancy lualine components
+M.enable_fancy = true
 -- Enable the wilder plugin
 M.enable_wilder = false
 -- The statusline (lualine) and tabline can each be enabled or disabled
@@ -88,7 +90,7 @@ M.disable_dashboard_quick_links = false
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = "maintained"
 -- Enable clangd or ccls will be used for C/C++ diagnostics
-M.enable_clangd = true
+M.enable_clangd = false
 -- Tools that should be installed by Mason(-tool-install)
 -- Some of these are installed with Homebrew, which should Mason install?
 M.mason_tool_installer_ensure_installed = {

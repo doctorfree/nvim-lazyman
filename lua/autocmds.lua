@@ -69,6 +69,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Bash language server
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sh",
+  callback = function()
+    vim.lsp.start({
+      name = "bash-language-server",
+      cmd = { "bash-language-server", "start" },
+    })
+  end,
+})
+
 if settings.enable_alpha then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 

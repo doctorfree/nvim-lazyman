@@ -23,6 +23,28 @@ if settings.enable_alpha then
   }
 end
 
+local lualine_cfg = {
+  "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
+  config = function()
+    require("config.lualine")
+  end,
+}
+
+if settings.enable_fancy then
+  lualine_cfg = {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "meuter/lualine-so-fancy.nvim",
+    },
+    event = "VeryLazy",
+    config = function()
+      require("config.lualine")
+    end,
+  }
+end
+
 local noice_cfg = {}
 if settings.enable_noice then
   noice_cfg = {
@@ -128,13 +150,7 @@ return {
   },
 
   -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("config.lualine")
-    end,
-  },
+  lualine_cfg,
 
   {
     "kdheepak/tabline.nvim",
