@@ -522,6 +522,15 @@ else
   }
   [ "${quiet}" ] || printf "done\n"
 fi
+# Enable ChatGPT plugin if OPENAI_API_KEY set
+[ "${OPENAI_API_KEY}" ] && {
+  NVIMCONF="${HOME}/.config/${lazymandir}/lua/configuration.lua"
+  grep 'M.enable_chatgpt' ${NVIMCONF} > /dev/null && {
+    cat ${NVIMCONF} | sed -e "s/M.enable_chatgpt.*/M.enable_chatgpt = true/" > /tmp/nvim$$
+    cp /tmp/nvim$$ ${NVIMCONF}
+    rm -f /tmp/nvim$$
+  }
+}
 
 if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
 then

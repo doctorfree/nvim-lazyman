@@ -46,6 +46,8 @@ M.session_manager = "possession"
 M.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
 M.enable_noice = true
+-- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+M.enable_chatgpt = false
 -- Enable the newer rainbow treesitter delimiter highlighting
 M.enable_rainbow2 = true
 -- Enable the wilder plugin
