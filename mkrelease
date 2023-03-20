@@ -1,0 +1,39 @@
+#!/bin/bash
+
+[ -f VERSION ] || {
+    echo "VERSION file missing. Exiting."
+    exit 1
+}
+. ./VERSION
+
+usage() {
+    printf "\nUsage: mkrelease [-d] [-u]"
+    printf "\nWhere:"
+    printf "\n\t-d indicates create draft release"
+    printf "\n\t-u displays this usage message and exits\n"
+    exit 1
+}
+
+DRAFT=
+while getopts "du" flag; do
+    case $flag in
+        d)
+            DRAFT="--draft"
+            ;;
+        u)
+            usage
+            ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+ANNO="Lazyman Version ${VERSION} Release ${RELEASE}"
+gittag v${VERSION}r${RELEASE} ${ANNO}
+
+echo "Creating release for version ${VERSION} release ${RELEASE}"
+
+gh release create v${VERSION}r${RELEASE} ${DRAFT} \
+                  --title "${ANNO}" \
+                  --notes-file ReleaseNotes.md
+
+git fetch --tags origin
