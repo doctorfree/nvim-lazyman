@@ -8,14 +8,14 @@ local settings = require("configuration")
 local utils = require("utils.functions")
 
 local fancy = settings.enable_fancy
-local mode = "mode"
+local mode = { "mode" }
 local branch = "branch"
 local diff = "diff"
 local diagnostics = "diagnostics"
 local filetype = "filetype"
 local lsp_servers = "lsp_servers"
 if fancy then
-  mode = "fancy_mode"
+  mode = { "fancy_mode", width = 7 }
   branch = "fancy_branch"
   diff = "fancy_diff"
   diagnostics = "fancy_diagnostics"

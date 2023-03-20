@@ -69,13 +69,22 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Bash language server
+-- Language servers by file type
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "sh",
   callback = function()
     vim.lsp.start({
       name = "bash-language-server",
       cmd = { "bash-language-server", "start" },
+    })
+  end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  callback = function()
+    vim.lsp.start({
+      name = "rust-analyzer",
+      cmd = { "rust-analyzer" },
     })
   end,
 })

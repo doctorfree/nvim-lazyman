@@ -61,30 +61,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        -- automatic_installation = false,
-        automatic_installation = {
-          exclude = {
-            "awk-language-server",
-            "bash-language-server",
-            "black",
-            "clangd",
-            "cmake-language-server",
-            "cssmodules-language-server",
-            "docker-langserver",
-            "jdtls",
-            "lua-language-server",
-            "marksman",
-            "prettier",
-            "pyright",
-            "rust_analyzer",
-            "stylua",
-            "taplo",
-            "texlab",
-            "typescript-language-server",
-            "vim-language-server",
-            "yaml-language-server",
-          },
-        },
+        automatic_installation = true,
       })
       -- require("mason-lspconfig").setup_handlers({ setup })
     end,
