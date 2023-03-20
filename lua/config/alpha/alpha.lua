@@ -186,7 +186,8 @@ end
 session_btn.opts.hl = "AlphaShortcut"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
 search_zoxide_btn.opts.hl = "AlphaShortcut"
-local recent_files_btn = dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles<CR>")
+local recent_files_btn =
+  dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
 recent_files_btn.opts.hl = "AlphaShortcut"
 local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
 git_commit_btn.opts.hl = "AlphaShortcut"
