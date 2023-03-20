@@ -356,6 +356,8 @@ details on how to use the `lazyman` command.
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
+- Neovim games for fun and learning (Sudoku, blackjack, vim-be-good practice basic movements)
+- Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
 - Over 90 plugins
 - Fast startup < 70 ms 🚀
 
