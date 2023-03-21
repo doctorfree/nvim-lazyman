@@ -24,7 +24,7 @@ usage() {
   printf "\n    -m indicates install and initialize Allaman Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -n indicates dry run, don't actually do anything, just printf's"
-  printf "\n    -p indicates use Packer rather than Lazy to initialize"
+  printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
@@ -87,14 +87,15 @@ run_command() {
     then
       if [ "${packer}" ]
       then
-        nvim --headless "+Packer${comm}" +qa
+				nvim --headless -c 'autocmd User PackerComplete quitall' -c "Packer${comm}"
       else
         nvim --headless "+Lazy! ${comm}" +qa
       fi
     else
       if [ "${packer}" ]
       then
-        nvim --headless "+Packer${comm}" +qa > /dev/null 2>&1
+				nvim --headless -c \
+					'autocmd User PackerComplete quitall' -c "Packer${comm}" > /dev/null 2>&1
       else
         nvim --headless "+Lazy! ${comm}" +qa > /dev/null 2>&1
       fi
@@ -110,8 +111,7 @@ init_neovim() {
     then
       if [ "${packer}" ]
       then
-        nvim --headless "+PackerSync" +qa
-        nvim --headless "+PackerInstall" +qa
+				nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
       else
         nvim --headless "+Lazy! sync" +qa
       fi
@@ -121,8 +121,8 @@ init_neovim() {
     else
       if [ "${packer}" ]
       then
-        nvim --headless "+PackerSync" +qa > /dev/null 2>&1
-        nvim --headless "+PackerInstall" +qa > /dev/null 2>&1
+				nvim --headless -c \
+					'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null 2>&1
       else
         nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
       fi
