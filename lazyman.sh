@@ -538,7 +538,6 @@ then
   [ "${branch}" ] && {
     git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
   }
-  update_config ${lazymandir}
 else
   [ "${quiet}" ] || {
     printf "\nCloning nvim-lazyman configuration into ${HOME}/.config/${lazymandir} ... "
