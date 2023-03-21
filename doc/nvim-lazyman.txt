@@ -744,9 +744,6 @@ View the default `configuration.lua` ~
       "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
     }
     
-    -- Enable diagnostics on workspace (not yet working)
-    M.workspace_diagnostic = false
-    
     return M
 <
 
