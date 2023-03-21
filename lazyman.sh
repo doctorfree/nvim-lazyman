@@ -141,7 +141,7 @@ remove_config() {
     printf "\nConfirm removal of the Neovim ${ndir} configuration\n"
     while true
     do
-      read -p "Remove ${ndir} ? (y/n) " yn
+      read -r -p "Remove ${ndir} ? (y/n) " yn
       case $yn in
         [Yy]* )
             break
@@ -242,11 +242,15 @@ update_config() {
   ndir="$1"
   [ -d ${HOME}/.config/${ndir} ] && {
     [ "${quiet}" ] || {
-      echo "Updating existing ${ndir} config at ${HOME}/.config/${ndir}"
+      printf "\nUpdating existing ${ndir} config at ${HOME}/.config/${ndir} ..."
     }
     [ "${tellme}" ] || {
+      git -C ${HOME}/.config/${ndir} stash > /dev/null 2>&1
       git -C ${HOME}/.config/${ndir} pull > /dev/null 2>&1
-      init_neovim "${ndir}"
+      git -C ${HOME}/.config/${ndir} stash pop > /dev/null 2>&1
+    }
+    [ "${quiet}" ] || {
+      printf " done"
     }
   }
 }
@@ -274,6 +278,23 @@ set_brew() {
   else
     BREW_EXE="${HOMEBREW_HOME}/bin/brew"
   fi
+}
+
+clone_repo() {
+	reponame="$1"
+	repourl="$2"
+	repodest="$3"
+  [ -d ${HOME}/.config/${repodest} ] || {
+    [ "${quiet}" ] || {
+      printf "\nCloning ${reponame} configuration into ${HOME}/.config/${repodest} ... "
+    }
+    [ "${tellme}" ] || {
+      git clone \
+          https://github.com/${repourl} \
+          ${HOME}/.config/${repodest} > /dev/null 2>&1
+    }
+    [ "${quiet}" ] || printf "done"
+	}
 }
 
 all=
@@ -492,6 +513,9 @@ shift $(( OPTIND - 1 ))
   for neovim in ${nvimdir}
   do
     update_config ${neovim}
+    [ "${tellme}" ] || {
+      init_neovim "${neovim}"
+		}
   done
   exit 0
 }
@@ -505,10 +529,10 @@ have_git=$(type -p git)
 
 if [ -d ${HOME}/.config/${lazymandir} ]
 then
-  git -C ${HOME}/.config/${lazymandir} pull > /dev/null 2>&1
   [ "${branch}" ] && {
     git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
   }
+	update_config ${lazymandir}
 else
   [ "${quiet}" ] || {
     printf "\nCloning nvim-lazyman configuration into ${HOME}/.config/${lazymandir} ... "
@@ -520,7 +544,7 @@ else
       git -C ${HOME}/.config/${lazymandir} checkout ${branch} > /dev/null 2>&1
     }
   }
-  [ "${quiet}" ] || printf "done\n"
+  [ "${quiet}" ] || printf "done"
 fi
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 [ "${OPENAI_API_KEY}" ] && {
@@ -553,108 +577,112 @@ fi
 for neovim in ${nvimdir}
 do
   [ "${neovim}" == "${lazymandir}" ] && continue
-  create_backups ${neovim}
+	[ "${proceed}" ] || {
+    [ -d ${HOME}/.config/${neovim} ] && {
+      printf "\nYou have requested installation of the ${neovim} Neovim configuration."
+      printf "\nIt appears there is a previously installed Neovim configuration at:"
+			printf "\n\t${HOME}/.config/${neovim}\n"
+      printf "\nThe existing Neovim configuration can be updated or backed up.\n"
+      while true
+      do
+        read -r -p "Update ${neovim} ? (y/n) " yn
+        case $yn in
+          [Yy]* )
+						  update_config ${neovim}
+              break
+              ;;
+          [Nn]* )
+              create_backups ${neovim}
+							break
+              ;;
+            * ) echo "Please answer yes or no."
+              ;;
+        esac
+      done
+	  }
+	}
 done
 
 [ "${astronvim}" ] && {
+	clone_repo AstroNvim AstroNvim/AstroNvim ${astronvimdir}
   [ "${quiet}" ] || {
-    printf "\nCloning AstroNvim configuration into ${HOME}/.config/${astronvimdir} ... "
+    printf "\nAdding user configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
   }
   [ "${tellme}" ] || {
-    git clone https://github.com/AstroNvim/AstroNvim \
-              ${HOME}/.config/${astronvimdir} > /dev/null 2>&1
-    [ "${quiet}" ] || {
-      printf "\nAdding user configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
-    }
-    git clone https://github.com/doctorfree/astronvim \
-              ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
+    if [ -d ${HOME}/.config/${astronvimdir}/lua/user ]
+		then
+      update_config ${astronvimdir}/lua/user
+		else
+      git clone https://github.com/doctorfree/astronvim \
+          ${HOME}/.config/${astronvimdir}/lua/user > /dev/null 2>&1
+		fi
   }
   [ "${quiet}" ] || printf "done"
 }
 [ "${kickstart}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning Kickstart configuration into ${HOME}/.config/${kickstartdir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/nvim-lua/kickstart.nvim.git \
-      ${HOME}/.config/${kickstartdir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+	clone_repo Kickstart nvim-lua/kickstart.nvim.git ${kickstartdir}
 }
 [ "${lazyvim}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning LazyVim starter configuration into ${HOME}/.config/${lazyvimdir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/LazyVim/starter ${HOME}/.config/${lazyvimdir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+	clone_repo LazyVim LazyVim/starter ${lazyvimdir}
 }
 [ "${allaman}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning Allaman configuration into ${HOME}/.config/${allamandir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/Allaman/nvim ${HOME}/.config/${allamandir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+	clone_repo Allaman Allaman/nvim ${allamandir}
 }
 [ "${lunarvim}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning LunarVim configuration into ${HOME}/.config/${lunarvimdir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/LunarVim/LunarVim ${HOME}/.config/${lunarvimdir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+	clone_repo LunarVim LunarVim/LunarVim ${lunarvimdir}
 }
 [ "${multivim}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning nvim-multi configuration into ${HOME}/.config/${multidir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      https://github.com/doctorfree/nvim-multi ${HOME}/.config/${multidir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+	clone_repo Multi doctorfree/nvim-multi ${multidir}
 }
 [ "${nvchad}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
-  }
-  [ "${tellme}" ] || {
-		git clone https://github.com/NvChad/NvChad \
-              ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
+  [ -d ${HOME}/.config/${nvchaddir} ] || {
+    [ "${quiet}" ] || {
+      printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
+    }
+    [ "${tellme}" ] || {
+		  git clone https://github.com/NvChad/NvChad \
+                ${HOME}/.config/${nvchaddir} --depth 1 > /dev/null 2>&1
+	  }
+    [ "${quiet}" ] || {
+      printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+    }
 	}
-  [ "${quiet}" ] || {
-    printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
-  }
   [ "${tellme}" ] || {
-    git clone https://github.com/doctorfree/NvChad-custom \
-              ${HOME}/.config/${nvchaddir}/lua/custom > /dev/null 2>&1
-    rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
+    if [ -d ${HOME}/.config/${nvchaddir}/lua/custom ]
+		then
+			update_config ${nvchaddir}/lua/custom
+		else
+      git clone https://github.com/doctorfree/NvChad-custom \
+                ${HOME}/.config/${nvchaddir}/lua/custom > /dev/null 2>&1
+      # rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
+		fi
   }
   [ "${quiet}" ] || printf "done"
 }
 [ "${url}" ] && {
-  [ "${quiet}" ] || {
-    printf "\nCloning ${url} into ${HOME}/.config/${nvimdir} ... "
-  }
-  [ "${tellme}" ] || {
-    git clone \
-      ${url} ${HOME}/.config/${nvimdir} > /dev/null 2>&1
-  }
-  [ "${quiet}" ] || printf "done"
+  [ -d ${HOME}/.config/${nvimdir} ] || {
+    [ "${quiet}" ] || {
+      printf "\nCloning ${url} into ${HOME}/.config/${nvimdir} ... "
+    }
+    [ "${tellme}" ] || {
+      git clone \
+        ${url} ${HOME}/.config/${nvimdir} > /dev/null 2>&1
+    }
+    [ "${quiet}" ] || printf "done"
+	}
 }
 
 [ "${packer}" ] && {
   PACKER="${HOME}/.local/share/${nvimdir}/site/pack/packer/start/packer.nvim"
   [ -d "${PACKER}" ] || {
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim "${PACKER}"
+    [ "${quiet}" ] || {
+      printf "\nCloning packer.nvim into ${PACKER} ... "
+    }
+    [ "${tellme}" ] || {
+      git clone --depth 1 \
+		      https://github.com/wbthomason/packer.nvim "${PACKER}" > /dev/null 2>&1
+		}
+    [ "${quiet}" ] || printf "done"
   }
 }
 
