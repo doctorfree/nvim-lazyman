@@ -261,13 +261,13 @@ update_config() {
   }
   ${astronvimdir}/lua/user
   ${nvchaddir}/lua/custom
-	[ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
-	  if [ "${ndir}" == "${astronvimdir}" ]
-		then
-			cdir="lua/user"
-		else
-			cdir="lua/custom"
-		fi
+  [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
+    if [ "${ndir}" == "${astronvimdir}" ]
+    then
+      cdir="lua/user"
+    else
+      cdir="lua/custom"
+    fi
     [ -d ${HOME}/.config/${ndir}/${cdir} ] && {
       [ "${quiet}" ] || {
         printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
@@ -355,7 +355,7 @@ lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
-multidir="nvim-Multi"
+multivimdir="nvim-Multivim"
 nvimdir="${lazymandir}"
 while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
     case $flag in
@@ -372,7 +372,7 @@ while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
             lunarvim=1
             multivim=1
             nvchad=1
-            nvimdir="${lazymandir} ${lazyvimdir} ${multidir} ${allamandir} \
+            nvimdir="${lazymandir} ${lazyvimdir} ${multivimdir} ${allamandir} \
                      ${kickstartdir} ${astronvimdir} ${nvchaddir} ${lunarvimdir}"
             ;;
         b)
@@ -408,7 +408,7 @@ while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
             ;;
         M)
             multivim=1
-            nvimdir="${multidir}"
+            nvimdir="${multivimdir}"
             ;;
         n)
             tellme=1
@@ -462,17 +462,63 @@ shift $(( OPTIND - 1 ))
   exit 1
 }
 
-[ "${name}" ] && nvimdir="${name}"
 [ "${url}" ] && {
   [ "${name}" ] || {
     printf "\nERROR: '-C url' must be accompanied with '-N nvimdir'\n"
     brief_usage
   }
 }
-
-[ "${nvimdir}" ] || {
-  printf "\nSomething went wrong, nvimdir not set. Exiting.\n"
+[ "${all}" ] && [ "${name}" ] && {
+  printf "\nERROR: '-A' cannot be used with '-N nvimdir'\n"
   brief_usage
+}
+# Support specifying '-N nvimdir' with supported configurations
+# This breaks subsequent '-e' invocations for that config
+[ "${name}" ] && {
+  numvim=0
+  [ "${astronvim}" ] && numvim=$((numvim + 1))
+  [ "${allaman}" ] && numvim=$((numvim + 1))
+  [ "${kickstart}" ] && numvim=$((numvim + 1))
+  [ "${lazyvim}" ] && numvim=$((numvim + 1))
+  [ "${lunarvim}" ] && numvim=$((numvim + 1))
+  [ "${multivim}" ] && numvim=$((numvim + 1))
+  [ "${nvchad}" ] && numvim=$((numvim + 1))
+  [ ${numvim} -gt 1 ] && {
+    printf "\nERROR: multiple Neovim configs cannot be used with '-N nvimdir'\n"
+    brief_usage
+  }
+  [ "${astronvim}" ] && astronvimdir="${name}"
+  [ "${allaman}" ] && allamandir="${name}"
+  [ "${kickstart}" ] && kickstartdir="${name}"
+  [ "${lazyvim}" ] && lazyvimdir="${name}"
+  [ "${lunarvim}" ] && lunarvimdir="${name}"
+  [ "${multivim}" ] && multivimdir="${name}"
+  [ "${nvchad}" ] && nvchaddir="${name}"
+  [ ${numvim} -eq 1 ] && {
+    [ ${quiet} ] || {
+      printf "\nWARNING: Specifying '-N nvimdir' will change the configuration location"
+      printf "\n\tof a supported config to ${name}"
+      printf "\n\tThis will make it incompatible with '-e <config>' in subsequent runs\n"
+    }
+    [ ${proceed} ] || {
+      printf "\nDo you wish to proceed with this non-standard initialization?"
+      while true
+      do
+        read -r -p "Proceed with config in ${name} ? (y/n) " yn
+        case $yn in
+          [Yy]* )
+            break
+            ;;
+          [Nn]* )
+            printf "\nAborting install and exiting\n"
+            exit 0
+            ;;
+          * ) printf "\nPlease answer yes or no.\n"
+            ;;
+        esac
+      done
+    }
+  }
 }
 
 [ "${invoke}" ] && {
@@ -500,7 +546,7 @@ shift $(( OPTIND - 1 ))
         nvimdir="${nvchaddir}"
         ;;
     multi )
-        nvimdir="${multidir}"
+        nvimdir="${multivimdir}"
         ;;
       * )
         nvimdir="${invoke}"
@@ -514,6 +560,12 @@ shift $(( OPTIND - 1 ))
   export NVIM_APPNAME="${nvimdir}"
   nvim "$@"
   exit 0
+}
+
+[ "${name}" ] && nvimdir="${name}"
+[ "${nvimdir}" ] || {
+  printf "\nSomething went wrong, nvimdir not set. Exiting.\n"
+  brief_usage
 }
 
 [ "${remove}" ] && {
@@ -660,7 +712,7 @@ done
   clone_repo LunarVim LunarVim/LunarVim ${lunarvimdir}
 }
 [ "${multivim}" ] && {
-  clone_repo Multi doctorfree/nvim-multi ${multidir}
+  clone_repo Multi doctorfree/nvim-multi ${multivimdir}
 }
 [ "${nvchad}" ] && {
   [ -d ${HOME}/.config/${nvchaddir} ] || {
