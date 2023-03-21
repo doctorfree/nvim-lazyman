@@ -169,7 +169,4 @@ M.telescope_file_ignore_patterns = {
   "vendor/*",
 }
 
--- Enable diagnostics on workspace (not yet working)
-M.workspace_diagnostic = false
-
 return M

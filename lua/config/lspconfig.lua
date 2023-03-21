@@ -97,10 +97,10 @@ capabilities.textDocument.foldingRange = {
 }
 
 require("lspconfig")["awk_ls"].setup({})
-require("lspconfig")["bashls"].setup({})
+-- require("lspconfig")["bashls"].setup({})
 require("lspconfig")["pyright"].setup({})
 require("lspconfig")["tsserver"].setup({})
-require("lspconfig")["rust_analyzer"].setup({})
+-- require("lspconfig")["rust_analyzer"].setup({})
 require("lspconfig")["ansiblels"].setup({})
 require("lspconfig")["cmake"].setup({})
 require("lspconfig")["cssmodules_ls"].setup({})
@@ -172,42 +172,25 @@ else
   })
 end
 
-local workspace_cfg = {
-  -- Make the server aware of Neovim runtime files
-  library = vim.api.nvim_get_runtime_file("", false),
-  checkThirdParty = false,
-}
-local neodev_cfg = {
-  library = { plugins = { "nvim-dap-ui" }, types = true },
-  override = function(root_dir, library)
-    local util = require("neodev.util")
-    if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
-      library.enabled = true
-      library.plugins = true
-    end
-  end,
-  lspconfig = false,
-}
-if not settings.workspace_diagnostic then
-  neodev_cfg = {
-    library = {},
-    lspconfig = true,
-  }
-  workspace_cfg = {
-    checkThirdParty = false,
-  }
-end
-
 require("lspconfig")["lua_ls"].setup({
-  require("neodev").setup(neodev_cfg),
+  require("neodev").setup({
+    library = { plugins = { "nvim-dap-ui" }, types = true },
+    setup_jsonls = true,
+    lspconfig = false,
+    pathStrict = true,
+    override = function(root_dir, library)
+      local util = require("neodev.util")
+      if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
+        library.enabled = true
+        library.plugins = true
+      end
+    end,
+  }),
 
   -- Note: These settings will meaningfully increase the time until lua_ls
   -- can service initial requests (completion, location) upon starting as well
   -- as time to first diagnostics. Completion results will include a workspace
   -- indexing progress message until the server has finished indexing.
-  --
-  -- Disable workspace diagnostics by setting 'workspace_diagnostic = false'
-  -- in ~/.config/nvim-lazyman/lua/configuration.lua
 
   before_init = require("neodev.lsp").before_init,
   settings = {
@@ -229,7 +212,11 @@ require("lspconfig")["lua_ls"].setup({
           "use",
         },
       },
-      workspace = workspace_cfg,
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", false),
+        checkThirdParty = false,
+      },
       -- adjust these two values if your performance is not optimal
       -- maxPreload = 2000,
       -- preloadFileSize = 1000,

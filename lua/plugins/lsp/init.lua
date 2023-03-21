@@ -26,7 +26,6 @@ return {
       { "W", "<cmd>lua vim.lsp.buf.format()<CR><cmd>w!<CR>", desc = "Format and Save" },
     },
     config = function()
-      require("config.lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
       local servers = require("config.lsp.servers")
       local available = mason_lspconfig.get_available_servers()
@@ -49,6 +48,7 @@ return {
           end
         end
       end
+      require("config.lspconfig")
     end,
   },
 
