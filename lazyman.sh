@@ -259,6 +259,29 @@ update_config() {
       printf " done"
     }
   }
+  ${astronvimdir}/lua/user
+  ${nvchaddir}/lua/custom
+	[ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
+	  if [ "${ndir}" == "${astronvimdir}" ]
+		then
+			cdir="lua/user"
+		else
+			cdir="lua/custom"
+		fi
+    [ -d ${HOME}/.config/${ndir}/${cdir} ] && {
+      [ "${quiet}" ] || {
+        printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
+      }
+      [ "${tellme}" ] || {
+        git -C ${HOME}/.config/${ndir}/${cdir} stash > /dev/null 2>&1
+        git -C ${HOME}/.config/${ndir}/${cdir} pull > /dev/null 2>&1
+        git -C ${HOME}/.config/${ndir}/${cdir} stash pop > /dev/null 2>&1
+      }
+      [ "${quiet}" ] || {
+        printf " done"
+      }
+    }
+  }
 }
 
 set_brew() {
