@@ -1,5 +1,7 @@
 ## Lazyman Release Notes
 
+**[NOTE]** All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/lazyman.sh) script. Download and execute to get started.
+
 The Lazyman project can be used to install, initialize, and manage multiple Neovim configurations. Several popular Neovim configurations are supported including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/), [Allaman](https://github.com/Allaman/nvim), [Kickstart](https://github.com/nvim-lua/kickstart.nvim), [LunarVim](https://github.com/LunarVim/LunarVim), and [LazyVim](https://github.com/LazyVim/LazyVim).
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
