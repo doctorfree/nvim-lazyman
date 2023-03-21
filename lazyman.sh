@@ -259,8 +259,6 @@ update_config() {
       printf " done"
     }
   }
-  ${astronvimdir}/lua/user
-  ${nvchaddir}/lua/custom
   [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
     if [ "${ndir}" == "${astronvimdir}" ]
     then
