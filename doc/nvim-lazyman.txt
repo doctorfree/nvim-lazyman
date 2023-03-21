@@ -49,7 +49,8 @@ install, initialize, remove, and manage multiple Neovim configurations.
     - |nvim-lazyman-inspiration|
 - |nvim-lazyman-features|
 - |nvim-lazyman-usage|
-    - |nvim-lazyman-manual|
+    - |nvim-lazyman-updates|
+    - |nvim-lazyman-lazyman-manual|
     - |nvim-lazyman-lazyman-configuration|
 - |nvim-lazyman-notes|
     - |nvim-lazyman-mason|
@@ -412,9 +413,7 @@ execution `PATH` then `lazyman` can be executed from the command line as simply
 The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
 configuration execute the command `lazyman -l`. To install and initialize all
-supported Lazyman Neovim configurations execute `lazyman -A`. To update a
-previously installed Lazyman Neovim configuration execute `lazyman -U -N
-<nvimdir>` or `lazyman -U -A` to update all configurations.
+supported Lazyman Neovim configurations execute `lazyman -A`.
 
 After installing and initializing Neovim configurations with `lazyman`, easily
 explore various configurations with the `lazyman -e <config> ...` command. See
@@ -467,7 +466,18 @@ The usage message for `lazyman`:
 <
 
 
-MANUAL ~
+UPDATES ~
+
+To update a previously installed Lazyman Neovim configuration execute `lazyman
+-U -N <nvimdir>` to update the Neovim configuration in `~/.config/<nvimdir>`,
+`lazyman -U -A` to update all configurations, or `lazyman -U` to update the
+`nvim-lazyman` configuration. Updates retrieve any newly modified files from
+the respective Github repository while preserving local modifications. Note, if
+a file has been modified both locally and in the repository then it will not be
+updated and retain only local modifications.
+
+
+LAZYMAN MANUAL ~
 
 The `lazyman` bootstrap process installs a `lazyman` manual page in
 `~/.local/share/man/man1/lazyman.1`. This man page includes a synopsis of the
@@ -1202,8 +1212,6 @@ View the lazyman.sh script ~
           printf " done"
         }
       }
-      ${astronvimdir}/lua/user
-      ${nvchaddir}/lua/custom
       [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
         if [ "${ndir}" == "${astronvimdir}" ]
         then
