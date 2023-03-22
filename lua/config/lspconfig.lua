@@ -1,6 +1,12 @@
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
 local settings = require("configuration")
+local showdiag = settings.show_diagnostics
+
+local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
+if showdiag == "icons" then
+  open_float = ""
+end
 
 -- Style floating windows
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -43,7 +49,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     bufmap("x", "<F4>", "<cmd>lua vim.lsp.buf.range_code_action()<cr>")
 
     -- Show diagnostics in a floating window
-    bufmap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+    bufmap("n", "gl", open_float)
 
     -- Move to the previous diagnostic
     bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
@@ -67,9 +73,11 @@ end
 vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
 
 -- Show line diagnostics automatically in hover window
-vim.cmd([[
-  autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
-]])
+if not showdiag == "icons" then
+  vim.cmd([[
+    autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+  ]])
+end
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation

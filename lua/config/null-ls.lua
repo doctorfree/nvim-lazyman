@@ -46,33 +46,6 @@ null_ls.setup({
     formatting.google_java_format,
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.sql_formatter.with({ extra_args = { "--config" } }),
-
-    -- sources = {
-    -- Prettier, but faster (daemonized)
-    --   null_ls.builtins.formatting.prettierd.with({
-    --     filetypes = {
-    --       "css", "json", "jsonc","javascript", "typescript",
-    --       "javascript.glimmer", "typescript.glimmer",
-    --       "handlebars"
-    --     }
-    --   }),
-
-    -- Code actions for staging hunks, blame, etc
-    --- null_ls.builtins.code_actions.gitsigns,
-    --- null_ls.builtins.completion.luasnip,
-
-    -- Spell check that has better tooling
-    -- all stored locally
-    -- https://github.com/streetsidesoftware/cspell
-    -- null_ls.builtins.diagnostics.cspell.with({
-    -- This file is symlinked from my dotfiles repo
-    --   extra_args = { "--config", "~/.cspell.json" }
-    -- }),
-    -- null_ls.builtins.code_actions.cspell.with({
-    -- This file is symlinked from my dotfiles repo
-    --   extra_args = { "--config", "~/.cspell.json" }
-    -- })
-    -- null_ls.builtins.completion.spell,
   },
   on_attach = on_attach,
 })
