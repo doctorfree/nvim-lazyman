@@ -3,7 +3,7 @@ if settings.enable_chatgpt then
   return {
     {
       "jackMort/ChatGPT.nvim",
-      lazy = false,
+      event = "VeryLazy",
       dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",

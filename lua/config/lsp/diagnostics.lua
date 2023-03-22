@@ -2,7 +2,7 @@ local settings = require("configuration")
 local showdiag = settings.show_diagnostics
 
 if showdiag == "none" then
-  vim.g.diagnostics_enabled = true
+  vim.g.diagnostics_enabled = false
 else
   vim.g.diagnostics_enabled = true
 end

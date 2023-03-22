@@ -4,7 +4,7 @@ local settings = require("configuration")
 local showdiag = settings.show_diagnostics
 
 local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
-if showdiag == "icons" then
+if not showdiag == "popup" then
   open_float = ""
 end
 
@@ -70,10 +70,14 @@ for name, icon in pairs(require("utils.icons").diagnostics) do
   name = "DiagnosticSign" .. name
   vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
 end
-vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
+if showdiag == "none" then
+  vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
+else
+  vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
+end
 
 -- Show line diagnostics automatically in hover window
-if not showdiag == "icons" then
+if showdiag == "popup" then
   vim.cmd([[
     autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
   ]])

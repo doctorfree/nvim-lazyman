@@ -46,15 +46,6 @@ return {
   -- file explorer
   treetype,
 
-  -- search/replace in multiple files
-  -- {
-  --   "windwp/nvim-spectre",
-  --   -- stylua: ignore
-  --   keys = {
-  --     { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-  --   },
-  -- },
-
   -- fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
@@ -242,16 +233,6 @@ return {
       })
     end,
   },
-
-  -- buffer remove
-  -- {
-  --   "echasnovski/mini.bufremove",
-  --   -- stylua: ignore
-  --   keys = {
-  --     { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-  --     { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
-  --   },
-  -- },
 
   -- better diagnostics list and others
   {
