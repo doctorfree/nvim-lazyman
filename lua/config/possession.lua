@@ -16,9 +16,7 @@ local opts = {
     end,
   },
   plugins = {
-    delete_hidden_buffers = {
-      hooks = {}, -- Do not delete buffers at saving
-    },
+    delete_hidden_buffers = false,
     close_windows = {
       hooks = { "before_save" },
       preserve_layout = false, -- do not preserse empty window

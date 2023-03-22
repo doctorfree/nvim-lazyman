@@ -145,12 +145,19 @@ lualine.setup({
   },
   sections = {
     lualine_a = { mode },
-    lualine_b = { branch, diff, diagnostics },
-    -- lualine_c = { session_name },
+    lualine_b = {
+      branch,
+      diff,
+      diagnostics,
+      {
+        require("lazy.status").updates,
+        cond = require("lazy.status").has_updates,
+      },
+    },
     lualine_c = {
       { -- show session name
         session_name,
-        icon = { " Session:", align = "left" },
+        icon = { "", align = "left" },
         padding = { left = 0, right = 1 },
         separator = "|",
       },
