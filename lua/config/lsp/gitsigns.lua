@@ -1,6 +1,6 @@
-local M = {}
+local cfg = {}
 
-M.on_attach = function(_, buffer)
+cfg.on_attach = function(_, buffer)
   local gs = package.loaded.gitsigns
   local function map(mode, l, r, opts)
     opts = opts or {}
@@ -50,4 +50,4 @@ M.on_attach = function(_, buffer)
   map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 end
 
-return M
+return cfg

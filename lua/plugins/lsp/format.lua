@@ -1,24 +1,24 @@
 local Util = require("lazy.core.util")
 
-local M = {}
+local cfg = {}
 
-M.autoformat = true
+cfg.autoformat = true
 
-function M.toggle()
+function cfg.toggle()
   if vim.b.autoformat == false then
     vim.b.autoformat = nil
-    M.autoformat = true
+    cfg.autoformat = true
   else
-    M.autoformat = not M.autoformat
+    cfg.autoformat = not cfg.autoformat
   end
-  if M.autoformat then
+  if cfg.autoformat then
     Util.info("Enabled format on save", { title = "Format" })
   else
     Util.warn("Disabled format on save", { title = "Format" })
   end
 end
 
-function M.format()
+function cfg.format()
   local buf = vim.api.nvim_get_current_buf()
   if vim.b.autoformat == false then
     return
@@ -37,7 +37,7 @@ function M.format()
   }, require("utils.utils").opts("nvim-lspconfig").format or {}))
 end
 
-function M.on_attach(client, buf)
+function cfg.on_attach(client, buf)
   -- dont format if client disabled it
   if
     client.config
@@ -52,12 +52,12 @@ function M.on_attach(client, buf)
       group = vim.api.nvim_create_augroup("LspFormat." .. buf, {}),
       buffer = buf,
       callback = function()
-        if M.autoformat then
-          M.format()
+        if cfg.autoformat then
+          cfg.format()
         end
       end,
     })
   end
 end
 
-return M
+return cfg

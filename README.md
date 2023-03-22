@@ -490,16 +490,16 @@ with settings briefly described here:
 
 The `nvim-lazyman` Neovim configuration includes pre-configured support for several
 themes including support for statusline and tabline theme coordination. The active
-theme and colorscheme is selected in `configuration.lua` by setting `M.theme`.
+theme and colorscheme is selected in `configuration.lua` by setting `conf.theme`.
 For themes that support different styles, the theme style is selected by setting
-`M.theme_style`. Theme transparency can be enabled with `M.enable_transparent`.
+`conf.theme_style`. Theme transparency can be enabled with `conf.enable_transparent`.
 For example, to use the `kanagawa` theme with `dragon` style and transparency
 disabled, set:
 
 ```
-M.theme = "kanagawa"
-M.theme_style = "dragon"
-M.enable_transparent = false
+conf.theme = "kanagawa"
+conf.theme_style = "dragon"
+conf.enable_transparent = false
 ```
 
 ###### Supported themes
@@ -563,36 +563,38 @@ that are configurable in this way in `configuration.lua` are briefly described
 below along with their default settings:
 
 - Neovim session manager to use, either persistence or possession
-  - `M.session_manager = "possession"`
+  - `conf.session_manager = "possession"`
 - Neo-tree or nvim-tree, false will enable nvim-tree
-  - `M.enable_neotree = true`
+  - `conf.enable_neotree = true`
 - Replace the UI for messages, cmdline and the popupmenu
-  - `M.enable_noice = true`
+  - `conf.enable_noice = true`
 - Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
-  - `M.enable_chatgpt = false`
+  - `conf.enable_chatgpt = false`
 - Enable the newer rainbow treesitter delimiter highlighting
-  - `M.enable_rainbow2 = true`
+  - `conf.enable_rainbow2 = true`
 - Enable the wilder plugin
-  - `M.enable_wilder = false`
+  - `conf.enable_wilder = false`
 - The statusline (lualine) and tabline can each be enabled or disabled
-  - `M.disable_statusline = false`
-  - `M.enable_tabline = true`
+  - `conf.disable_statusline = false`
+  - `conf.enable_tabline = true`
 - The winbar with location
-  - `M.enable_winbar = false`
+  - `conf.enable_winbar = false`
 - Enable playing games inside Neovim!
-  - `M.enable_games = true`
+  - `conf.enable_games = true`
 - Enable the Alpha dashboard
-  - `M.enable_alpha = true`
+  - `conf.enable_alpha = true`
 - Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
-  - `M.enable_bookmarks = false`
+  - `conf.enable_bookmarks = false`
 - Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
-  - `M.enable_ide = false`
+  - `conf.enable_ide = false`
 - Enable Navigator
-  - `M.enable_navigator = true`
+  - `conf.enable_navigator = true`
 - Enable Project manager
-  - `M.enable_project = true`
+  - `conf.enable_project = true`
 - Enable window picker
-  - `M.enable_picker = true`
+  - `conf.enable_picker = true`
+- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
+  - `conf.show_diagnostics = "icons"`
 
 Additional plugin configuration and options are available in `configuration.lua`.
 
@@ -1561,8 +1563,8 @@ fi
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 [ "${OPENAI_API_KEY}" ] && {
   NVIMCONF="${HOME}/.config/${lazymandir}/lua/configuration.lua"
-  grep 'M.enable_chatgpt' ${NVIMCONF} > /dev/null && {
-    cat ${NVIMCONF} | sed -e "s/M.enable_chatgpt.*/M.enable_chatgpt = true/" > /tmp/nvim$$
+  grep 'conf.enable_chatgpt' ${NVIMCONF} > /dev/null && {
+    cat ${NVIMCONF} | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" > /tmp/nvim$$
     cp /tmp/nvim$$ ${NVIMCONF}
     rm -f /tmp/nvim$$
   }

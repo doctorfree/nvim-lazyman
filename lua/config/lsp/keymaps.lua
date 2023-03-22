@@ -1,6 +1,6 @@
-local M = {}
+local cfg = {}
 
-M.on_attach = function(client, buffer)
+cfg.on_attach = function(client, buffer)
   local opts = { noremap = true, silent = true }
   local map = vim.api.nvim_buf_set_keymap
   map(buffer, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -12,4 +12,4 @@ M.on_attach = function(client, buffer)
   map(buffer, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
-return M
+return cfg

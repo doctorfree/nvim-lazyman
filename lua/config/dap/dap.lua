@@ -1,4 +1,4 @@
-local M = {}
+local cfg = {}
 
 local function configure()
   local dap_breakpoint = {
@@ -58,11 +58,11 @@ local function create_mapping()
   }, { prefix = "<leader>", mode = "n", { silent = true } })
 end
 
-function M.setup()
+function cfg.setup()
   configure() -- Configuration
   configure_exts() -- Extensions
   configure_debuggers() -- Debugger
   create_mapping() -- which-key mapping
 end
 
-return M
+return cfg

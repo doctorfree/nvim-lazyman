@@ -1,6 +1,6 @@
-M = {}
+local cfg = {}
 
-M.on_attach = function(client, buffer)
+cfg.on_attach = function(client, buffer)
   local status_ok, breadcrumb = pcall(require, "breadcrumb")
   if not status_ok then
     return
@@ -10,4 +10,4 @@ M.on_attach = function(client, buffer)
   end
 end
 
-return M
+return cfg

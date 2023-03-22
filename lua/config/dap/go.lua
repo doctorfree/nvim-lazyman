@@ -1,7 +1,7 @@
-local M = {}
+local cfg = {}
 
-function M.setup()
+function cfg.setup()
   require("dap-go").setup()
 end
 
-return M
+return cfg

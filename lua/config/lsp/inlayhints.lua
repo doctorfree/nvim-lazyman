@@ -1,6 +1,6 @@
-M = {}
+local cfg = {}
 
-M.on_attach = function(client, buffer)
+cfg.on_attach = function(client, buffer)
   local status_ok, inlayhints = pcall(require, "lsp-inlayhints")
   if not status_ok then
     return
@@ -8,4 +8,4 @@ M.on_attach = function(client, buffer)
   inlayhints.on_attach(client, buffer)
 end
 
-return M
+return cfg

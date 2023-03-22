@@ -1,7 +1,7 @@
 ---@type LazyManConfig
-local M = {}
+local cfg = {}
 
-M.lazy_version = ">=9.1.0"
+cfg.lazy_version = ">=9.1.0"
 
 ---@class LazyManConfig
 local defaults = {
@@ -74,12 +74,12 @@ local defaults = {
 local options
 
 ---@param opts? LazyManConfig
-function M.setup(opts)
+function cfg.setup(opts)
   options = vim.tbl_deep_extend("force", defaults, opts or {})
-  if not M.has() then
+  if not cfg.has() then
     require("lazy.core.util").error(
       "**LazyMan** needs **lazy.nvim** version "
-        .. M.lazy_version
+        .. cfg.lazy_version
         .. " to work properly.\n"
         .. "Please upgrade **lazy.nvim**",
       { title = "LazyMan" }
@@ -93,19 +93,19 @@ function M.setup(opts)
       group = vim.api.nvim_create_augroup("LazyMan", { clear = true }),
       pattern = "VeryLazy",
       callback = function()
-        M.load("keymaps")
+        cfg.load("keymaps")
       end,
     })
   else
     -- load them now so they affect the opened buffers
-    M.load("keymaps")
+    cfg.load("keymaps")
   end
 
   require("lazy.core.util").try(function()
-    if type(M.colorscheme) == "function" then
-      M.colorscheme()
+    if type(cfg.colorscheme) == "function" then
+      cfg.colorscheme()
     else
-      vim.cmd.colorscheme(M.colorscheme)
+      vim.cmd.colorscheme(cfg.colorscheme)
     end
   end, {
     msg = "Could not load your colorscheme",
@@ -117,13 +117,13 @@ function M.setup(opts)
 end
 
 ---@param range? string
-function M.has(range)
+function cfg.has(range)
   local Semver = require("lazy.manage.semver")
-  return Semver.range(range or M.lazy_version):matches(require("lazy.core.config").version or "0.0.0")
+  return Semver.range(range or cfg.lazy_version):matches(require("lazy.core.config").version or "0.0.0")
 end
 
 ---@param name "autocmds" | "options" | "keymaps" | "globals"
-function M.load(name)
+function cfg.load(name)
   local Util = require("lazy.core.util")
   local function _load(mod)
     Util.try(function()
@@ -138,7 +138,7 @@ function M.load(name)
       end,
     })
   end
-  if M.defaults[name] then
+  if cfg.defaults[name] then
     _load(name)
   end
   _load(name)
@@ -148,23 +148,23 @@ function M.load(name)
   end
 end
 
-M.did_init = false
-function M.init()
-  if not M.did_init then
-    M.did_init = true
+cfg.did_init = false
+function cfg.init()
+  if not cfg.did_init then
+    cfg.did_init = true
     -- delay notifications till vim.notify was replaced or after 500ms
     require("utils.utils").lazy_notify()
 
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
-    M.load("options")
-    M.load("globals")
-    M.load("autocmds")
+    cfg.load("options")
+    cfg.load("globals")
+    cfg.load("autocmds")
   end
 end
 
-setmetatable(M, {
+setmetatable(cfg, {
   __index = function(_, key)
     if options == nil then
       return vim.deepcopy(defaults)[key]
@@ -174,4 +174,4 @@ setmetatable(M, {
   end,
 })
 
-return M
+return cfg

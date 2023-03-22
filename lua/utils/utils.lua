@@ -1,14 +1,14 @@
 local utils = require("utils.functions")
 local Util = require("lazy.core.util")
 
-local M = {}
+local cfg = {}
 
-M.root_patterns = { ".git", "lua" }
+cfg.root_patterns = { ".git", "lua" }
 
 -- must be global or the initial state is not working
 VIRTUAL_TEXT_ACTIVE = true
 -- toggle displaying virtual text
-M.toggle_virtual_text = function()
+cfg.toggle_virtual_text = function()
   VIRTUAL_TEXT_ACTIVE = not VIRTUAL_TEXT_ACTIVE
   utils.notify(string.format("Virtualtext %s", VIRTUAL_TEXT_ACTIVE and "on" or "off"), 1, "utils/utils.lua")
   vim.diagnostic.show(nil, 0, nil, { virtual_text = VIRTUAL_TEXT_ACTIVE })
@@ -17,7 +17,7 @@ end
 -- must be global or the initial state is not working
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
-M.toggle_autoformat = function()
+cfg.toggle_autoformat = function()
   AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
   require("utils.functions").notify(
     string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"),
@@ -26,7 +26,7 @@ M.toggle_autoformat = function()
   )
 end
 
-function M.custom_lsp_attach(client, bufnr)
+function cfg.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
@@ -83,7 +83,7 @@ function M.custom_lsp_attach(client, bufnr)
 end
 
 --- @param on_attach fun(client, buffer)
-M.on_attach = function(on_attach)
+cfg.on_attach = function(on_attach)
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local buffer = args.buf
@@ -93,7 +93,7 @@ M.on_attach = function(on_attach)
   })
 end
 
-M.get_highlight_value = function(group)
+cfg.get_highlight_value = function(group)
   local hl = vim.api.nvim_get_hl_by_name(group, true)
   local hl_config = {}
   for key, value in pairs(hl) do
@@ -108,7 +108,7 @@ end
 -- * root pattern of filename of the current buffer
 -- * root pattern of cwd
 ---@return string
-function M.get_root()
+function cfg.get_root()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
   path = path ~= "" and vim.loop.fs_realpath(path) or nil
@@ -136,49 +136,22 @@ function M.get_root()
   if not root then
     path = path and vim.fs.dirname(path) or vim.loop.cwd()
     ---@type string?
-    root = vim.fs.find(M.root_patterns, { path = path, upward = true })[1]
+    root = vim.fs.find(cfg.root_patterns, { path = path, upward = true })[1]
     root = root and vim.fs.dirname(root) or vim.loop.cwd()
   end
   ---@cast root string
   return root
 end
 
--- M.telescope_theme = function(type)
---   if type == nil then
---     return {}
---   end
---   return require("telescope.themes")["get_" .. type]({
---     cwd = M.get_root(),
---     borderchars = { "█", "█", "▀", "█", "█", "█", "▀", "▀" },
---   })
--- end
-
--- M.telescope = function(builtin, type, opts)
---   local params = { builtin = builtin, type = type, opts = opts }
---   return function()
---     builtin = params.builtin
---     type = params.type
---     opts = params.opts
---     opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
---     local theme
---     if vim.tbl_contains({ "ivy", "dropdown", "cursor" }, type) then
---       theme = M.telescope_theme(type)
---     else
---       theme = opts
---     end
---     require("telescope.builtin")[builtin](theme)
---   end
--- end
-
 -- this will return a function that calls telescope.
 -- cwd will default to util.get_root
 -- for `files`, git_files or find_files will be chosen depending on .git
-function M.telescope(builtin, opts)
+function cfg.telescope(builtin, opts)
   local params = { builtin = builtin, opts = opts }
   return function()
     builtin = params.builtin
     opts = params.opts
-    opts = vim.tbl_deep_extend("force", { cwd = M.get_root() }, opts or {})
+    opts = vim.tbl_deep_extend("force", { cwd = cfg.get_root() }, opts or {})
     if builtin == "files" then
       if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
         opts.show_untracked = true
@@ -192,12 +165,12 @@ function M.telescope(builtin, opts)
 end
 
 ---@param plugin string
-function M.has(plugin)
+function cfg.has(plugin)
   return require("lazy.core.config").plugins[plugin] ~= nil
 end
 
 ---@param fn fun()
-function M.on_very_lazy(fn)
+function cfg.on_very_lazy(fn)
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
     callback = function()
@@ -207,7 +180,7 @@ function M.on_very_lazy(fn)
 end
 
 ---@param name string
-function M.opts(name)
+function cfg.opts(name)
   local plugin = require("lazy.core.config").plugins[name]
   if not plugin then
     return {}
@@ -216,7 +189,7 @@ function M.opts(name)
   return Plugin.values(plugin, "opts", false)
 end
 
-function M.float_term(cmd, opts)
+function cfg.float_term(cmd, opts)
   opts = vim.tbl_deep_extend("force", {
     size = { width = 0.9, height = 0.9 },
   }, opts or {})
@@ -225,7 +198,7 @@ end
 
 ---@param silent boolean?
 ---@param values? {[1]:any, [2]:any}
-function M.toggle(option, silent, values)
+function cfg.toggle(option, silent, values)
   if values then
     if vim.opt_local[option]:get() == values[1] then
       vim.opt_local[option] = values[2]
@@ -245,7 +218,7 @@ function M.toggle(option, silent, values)
 end
 
 -- delay notifications till vim.notify was replaced or after 500ms
-function M.lazy_notify()
+function cfg.lazy_notify()
   local notifs = {}
   local function temp(...)
     table.insert(notifs, vim.F.pack_len(...))
@@ -281,4 +254,4 @@ function M.lazy_notify()
   timer:start(500, 0, replay)
 end
 
-return M
+return cfg
