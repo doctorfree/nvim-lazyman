@@ -170,7 +170,9 @@ conf.telescope_file_ignore_patterns = {
 }
 
 -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
--- If set to "icons" only an icon will show, use ',de' to see the diagnostic
+--   "none":  diagnostics are disabled but still underlined
+--   "icons": only an icon will show, use ',de' to see the diagnostic
+--   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
 
 return conf
