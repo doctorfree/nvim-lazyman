@@ -34,6 +34,7 @@ echo "Creating release for version ${VERSION} release ${RELEASE}"
 
 gh release create v${VERSION}r${RELEASE} ${DRAFT} \
                   --title "${ANNO}" \
-                  --notes-file ReleaseNotes.md
+                  --notes-file ReleaseNotes.md \
+                  lazyman.sh
 
 git fetch --tags origin

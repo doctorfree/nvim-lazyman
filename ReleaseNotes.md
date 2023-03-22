@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-**[NOTE]** All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/lazyman.sh) script. Download and execute to get started.
+All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/lazyman.sh) script. Download and execute to get started.
 
 The Lazyman project can be used to install, initialize, and manage multiple Neovim configurations. Several popular Neovim configurations are supported including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/), [Allaman](https://github.com/Allaman/nvim), [Kickstart](https://github.com/nvim-lua/kickstart.nvim), [LunarVim](https://github.com/LunarVim/LunarVim), and [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -40,8 +40,6 @@ These steps:
 
 Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not already Neovim 0.9 or later installed and in the execution path. In addition, Lazyman uses Homebrew to install Neovim dependencies, language servers, and tools. The Homebrew install of Neovim compiles the current version of Neovim from source to ensure we have the necessary capabilities. This process can be time consuming.
 
-See the [Appendix section](#appendix) below to examine the [lazyman command](lazyman.sh) and associated [Neovim install script](scripts/neovim.sh).
-
 ### Bootstrap
 
 To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, or a copy/paste.
@@ -65,8 +63,6 @@ rm -f /tmp/lazyman.sh
 ```
 
 Once the `lazyman.sh` script has been downloaded and executed, subsequent Lazyman operations can be performed with the `lazyman` command found in `~/.local/bin/lazyman`. The manual page can be viewed with `man lazyman`.
-
-See the [Appendix section](#appendix) below to examine the [lazyman command](lazyman.sh) and associated [Neovim install script](scripts/neovim.sh).
 
 If you do not wish to use this automated installation and initialization method then manual installation and initialization is described below. Manual installation and initialization may be preferred by those who do not wish to upgrade Neovim to the latest version or by those who do not wish to use Homebrew.
 
