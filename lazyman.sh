@@ -766,6 +766,7 @@ done
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
+[ "${hardlimit}" == "unlimited" ] && hardlimit=9999
 if [ ${hardlimit} -gt 4096 ]
 then
   [ "${tellme}" ] || ulimit -n 4096
