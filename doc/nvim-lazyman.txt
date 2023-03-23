@@ -43,6 +43,7 @@ install, initialize, remove, and manage multiple Neovim configurations.
     - |nvim-lazyman-manual-installation|
         - |nvim-lazyman-neovim-0.9-and-later|
         - |nvim-lazyman-neovim-0.8-and-earlier|
+    - |nvim-lazyman-debugging|
 - |nvim-lazyman-supported-configurations|
     - |nvim-lazyman-unsupported-configurations|
 - |nvim-lazyman-motivation|
@@ -243,6 +244,26 @@ Users of Neovim 0.8 and earlier can manually install and initialize
     nvim --headless "+Lazy! sync" +qa
     nvim
 <
+
+
+DEBUGGING ~
+
+The installation process requires Neovim 0.9 or later. If not present the
+install script will attempt to compile current Neovim from source. This step
+can fail for a variety of reasons. Most typically, the Neovim build failure is
+due to missing libraries, header files, or development environment components.
+To debug a failed Lazyman installation, first run the install script in debug
+mode to try and determine the cause of the failure:
+
+>bash
+    brew update
+    lazyman -d
+<
+
+The `lazyman -d` command should run the `install_neovim` script in debug mode
+and any errors will be displayed. Alternatively, execute the Neovim install
+command directly with `brew install --HEAD neovim` and view the output for
+errors.
 
 
 SUPPORTED CONFIGURATIONS*nvim-lazyman-table-of-contents-supported-configurations*
