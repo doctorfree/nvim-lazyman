@@ -182,12 +182,15 @@ install_neovim_dependencies () {
 }
 
 install_neovim_head () {
+  ${BREW_EXE} link -q libuv > /dev/null 2>&1
   log "Compiling and installing Neovim, please be patient ..."
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
+    ${BREW_EXE} install --HEAD neovim
+  else
+    ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
   fi
-  ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
   if [ "${debug}" ]
   then
     FINISH_SECONDS=$(date +%s)
