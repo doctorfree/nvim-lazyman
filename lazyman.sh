@@ -642,8 +642,10 @@ then
   [ "${BREW_EXE}" ] && eval "$(${BREW_EXE} shellenv)"
   have_nvim=$(type -p nvim)
   [ "${have_nvim}" ] || {
-    printf "\nERROR: cannot locate neovim"
-    printf "\nInstall neovim and retry this install script\n"
+    printf "\nERROR: cannot locate neovim."
+    printf "\nHomebrew install failure, manual debug required."
+    printf "\n\t'brew update && lazyman -d'."
+    printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
     brief_usage
   }
 else
