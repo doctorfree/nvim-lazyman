@@ -212,40 +212,62 @@ Use `<F8>` to step through themes.
 Available styles are:
 
 
-- kanagawa
-    - wave
-    - dragon
-    - lotus
-- tokyonight
-    - night
-    - storm
-    - day
-    - moon
-- onedarkpro
-    - onedark
-    - onelight
-    - onedark_vivid
-    - onedark_dark
-- monokai-pro
-    - classic
-    - octagon
-    - pro
-    - machine
-    - ristretto
-    - spectrum
-- catppuccin
-    - latte
-    - frappe
-    - macchiato
-    - mocha
+KANAGAWA
+
+
+- wave
+- dragon
+- lotus
+
+
+TOKYONIGHT
+
+
+- night
+- storm
+- day
+- moon
+
+
+ONEDARKPRO
+
+
+- onedark
+- onelight
+- onedark_vivid
+- onedark_dark
+
+
+MONOKAI-PRO
+
+
+- classic
+- octagon
+- pro
+- machine
+- ristretto
+- spectrum
+
+
+CATPPUCCIN
+
+
+- latte
+- frappe
+- macchiato
+- mocha
+
+
+NIGHTFOX
+
+
+- carbonfox
+- dawnfox
+- dayfox
+- duskfox
 - nightfox
-    - carbonfox
-    - dawnfox
-    - dayfox
-    - duskfox
-    - nightfox
-    - nordfox
-    - terafox
+- nordfox
+- terafox
 
 
 PLUGIN CONFIGURATION
@@ -255,40 +277,86 @@ installed or replaced by another plugin with similar functionality. The plugins
 that are configurable in this way in `configuration.lua` are briefly described
 below along with their default settings:
 
+Neovim session manager to use, either persistence or possession
 
-- Neovim session manager to use, either persistence or possession
-    - `conf.session_manager = "possession"`
-- Neo-tree or nvim-tree, false will enable nvim-tree
-    - `conf.enable_neotree = true`
-- Replace the UI for messages, cmdline and the popupmenu
-    - `conf.enable_noice = true`
-- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
-    - `conf.enable_chatgpt = false`
-- Enable the newer rainbow treesitter delimiter highlighting
-    - `conf.enable_rainbow2 = true`
-- Enable the wilder plugin
-    - `conf.enable_wilder = false`
-- The statusline (lualine) and tabline can each be enabled or disabled
-    - `conf.disable_statusline = false`
-    - `conf.enable_tabline = true`
-- The winbar with location
-    - `conf.enable_winbar = false`
-- Enable playing games inside Neovim!
-    - `conf.enable_games = true`
-- Enable the Alpha dashboard
-    - `conf.enable_alpha = true`
-- Enable the Neovim bookmarks plugin  <https://github.com/ldelossa/nvim-id>
-    - `conf.enable_bookmarks = false`
-- Enable the Neovim IDE plugin  <https://github.com/ldelossa/nvim-id>
-    - `conf.enable_ide = false`
-- Enable Navigator
-    - `conf.enable_navigator = true`
-- Enable Project manager
-    - `conf.enable_project = true`
-- Enable window picker
-    - `conf.enable_picker = true`
-- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
-    - `conf.show_diagnostics = "icons"`
+
+- `conf.session_manager = "possession"`
+
+Neo-tree or nvim-tree, false will enable nvim-tree
+
+
+- `conf.enable_neotree = true`
+
+Replace the UI for messages, cmdline and the popupmenu
+
+
+- `conf.enable_noice = true`
+
+Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
+
+
+- `conf.enable_chatgpt = false`
+
+Enable the newer rainbow treesitter delimiter highlighting
+
+
+- `conf.enable_rainbow2 = true`
+
+Enable the wilder plugin
+
+
+- `conf.enable_wilder = false`
+
+The statusline (lualine) and tabline can each be enabled or disabled
+
+
+- `conf.disable_statusline = false`
+- `conf.enable_tabline = true`
+
+The winbar with location
+
+
+- `conf.enable_winbar = false`
+
+Enable playing games inside Neovim!
+
+
+- `conf.enable_games = true`
+
+Enable the Alpha dashboard
+
+
+- `conf.enable_alpha = true`
+
+Enable the Neovim bookmarks plugin <https://github.com/ldelossa/nvim-id>
+
+
+- `conf.enable_bookmarks = false`
+
+Enable the Neovim IDE plugin <https://github.com/ldelossa/nvim-id>
+
+
+- `conf.enable_ide = false`
+
+Enable Navigator
+
+
+- `conf.enable_navigator = true`
+
+Enable Project manager
+
+
+- `conf.enable_project = true`
+
+Enable window picker
+
+
+- `conf.enable_picker = true`
+
+Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
+
+
+- `conf.show_diagnostics = "icons"`
 
 Additional plugin configuration and options are available in
 `configuration.lua`.
