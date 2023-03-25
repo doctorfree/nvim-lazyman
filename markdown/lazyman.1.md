@@ -18,14 +18,14 @@ lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n] [-q
 
 The _lazyman_ command can be used to install, initialize, and manage
 multiple Neovim configurations. Neovim configurations are installed
-and initialized in separate subdirectories of **_~/.config/_** with
-associated separate subdirectories in **_~/.local/share/_**,
-**_~/.local/state/_**, and **_~/.cache/_**.
+and initialized in separate subdirectories of `~/.config/` with
+associated separate subdirectories in `~/.local/share/`,
+`~/.local/state/`, and `~/.cache/`.
 
-The _lazyman_ Neovim configuration is installed as **_~/.config/nvim-lazyman_**
-and the _lazyman_ command is installed as **_~/.local/bin/lazyman_**.
+The _lazyman_ Neovim configuration is installed as `~/.config/nvim-lazyman`
+and the `lazyman` command is installed as `~/.local/bin/lazyman`.
 
-The Neovim configuration used by the _nvim_ command is determined by
+The Neovim configuration used by the `nvim` command is determined by
 the **NVIM_APPNAME** environment variable (Neovim 0.9 and later only).
 Set the **NVIM_APPNAME** environment variable in the shell initialization
 file (typically **_~/.bashrc_** or **_~/.zshrc_**) by using the _export_
@@ -74,7 +74,7 @@ environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
 
-## Configuration
+## CONFIGURATION
 
 In addition to the `lazyman` command, the Lazyman distribution includes
 a richly preconfigured Neovim configuration in `~/.config/nvim-lazyman`.
@@ -204,7 +204,7 @@ below along with their default settings:
 
 Additional plugin configuration and options are available in `configuration.lua`.
 
-<details><summary>View the default `configuration.lua`</summary>
+The default `configuration.lua`:
 
 ```lua
 local conf = {}
@@ -350,8 +350,6 @@ conf.show_diagnostics = "icons"
 
 return conf
 ```
-
-</details>
 
 ## OPTIONS
 
