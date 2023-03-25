@@ -18,33 +18,31 @@
 .hy
 .SS NAME
 .PP
-lazyman - install, initialize, and manage multiple Neovim configurations
+lazyman - install, initialize, manage, and explore multiple Neovim
+configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]
 [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 .SS DESCRIPTION
 .PP
-The \f[I]lazyman\f[R] command can be used to install, initialize, and
+The \f[V]lazyman\f[R] command can be used to install, initialize, and
 manage multiple Neovim configurations.
 Neovim configurations are installed and initialized in separate
-subdirectories of \f[B]\f[BI]\[ti]/.config/\f[B]\f[R] with associated
-separate subdirectories in \f[B]\f[BI]\[ti]/.local/share/\f[B]\f[R],
-\f[B]\f[BI]\[ti]/.local/state/\f[B]\f[R], and
-\f[B]\f[BI]\[ti]/.cache/\f[B]\f[R].
+subdirectories of \f[V]\[ti]/.config/\f[R] with associated separate
+subdirectories in \f[V]\[ti]/.local/share/\f[R],
+\f[V]\[ti]/.local/state/\f[R], and \f[V]\[ti]/.cache/\f[R].
 .PP
-The \f[I]lazyman\f[R] Neovim configuration is installed as
-\f[B]\f[BI]\[ti]/.config/nvim-lazyman\f[B]\f[R] and the
-\f[I]lazyman\f[R] command is installed as
-\f[B]\f[BI]\[ti]/.local/bin/lazyman\f[B]\f[R].
+The \f[V]lazyman\f[R] Neovim configuration is installed as
+\f[V]\[ti]/.config/nvim-lazyman\f[R] and the \f[V]lazyman\f[R] command
+is installed as \f[V]\[ti]/.local/bin/lazyman\f[R].
 .PP
-The Neovim configuration used by the \f[I]nvim\f[R] command is
-determined by the \f[B]NVIM_APPNAME\f[R] environment variable (Neovim
+The Neovim configuration used by the \f[V]nvim\f[R] command is
+determined by the \f[V]NVIM_APPNAME\f[R] environment variable (Neovim
 0.9 and later only).
-Set the \f[B]NVIM_APPNAME\f[R] environment variable in the shell
-initialization file (typically \f[B]\f[BI]\[ti]/.bashrc\f[B]\f[R] or
-\f[B]\f[BI]\[ti]/.zshrc\f[B]\f[R]) by using the \f[I]export\f[R] shell
-builtin:
+Set the \f[V]NVIM_APPNAME\f[R] environment variable in the shell
+initialization file (typically \f[V]\[ti]/.bashrc\f[R] or
+\f[V]\[ti]/.zshrc\f[R]) by using the \f[V]export\f[R] shell builtin:
 .IP
 .nf
 \f[C]
@@ -52,12 +50,10 @@ export NVIM_APPNAME=\[dq]<nvimdir>\[dq]
 \f[R]
 .fi
 .PP
-where \f[B]\f[BI]<nvimdir>\f[B]\f[R] is the subdirectory in
-\f[B]\f[BI]\[ti]/.config/\f[B]\f[R] that holds the desired Neovim
-configuration.
-For example, to use the \f[I]LazyVim\f[R] Neovim configuration in
-\f[B]\f[BI]\[ti]/.config/nvim-LazyVim/\f[B]\f[R] the export command
-would be:
+where \f[V]<nvimdir>\f[R] is the subdirectory in
+\f[V]\[ti]/.config/\f[R] that holds the desired Neovim configuration.
+For example, to use the \f[V]LazyVim\f[R] Neovim configuration in
+\f[V]\[ti]/.config/nvim-LazyVim/\f[R] the export command would be:
 .IP
 .nf
 \f[C]
@@ -68,8 +64,8 @@ export NVIM_APPNAME=\[dq]nvim-LazyVim\[dq]
 Aliases can also be used to switch quickly and easily between Neovim
 configurations.
 For example, aliases could be created to use Neovim configurations
-installed in \f[B]\f[BI]\[ti]/.config/nvim-python\f[B]\f[R] and
-\f[B]\f[BI]\[ti]/.config/nvim-work\f[B]\f[R] as follows:
+installed in \f[V]\[ti]/.config/nvim-python\f[R] and
+\f[V]\[ti]/.config/nvim-work\f[R] as follows:
 .IP
 .nf
 \f[C]
@@ -79,11 +75,10 @@ alias viw=\[aq]function _viw(){ export NVIM_APPNAME=\[dq]nvim-work\[dq]; nvim $*
 .fi
 .PP
 After sourcing these aliases in your shell, to invoke Neovim with the
-Python configuration run \f[B]\f[BI]vip filename.py\f[B]\f[R] and to
-invoke Neovim with your Work config run \f[B]\f[BI]viw
-proposal.md\f[B]\f[R].
+Python configuration run \f[V]vip filename.py\f[R] and to invoke Neovim
+with your Work config run \f[V]viw proposal.md\f[R].
 .PP
-Another alternative to setting \f[B]NVIM_APPNAME\f[R] in the environment
+Another alternative to setting \f[V]NVIM_APPNAME\f[R] in the environment
 or with an alias is to use the \f[V]lazyman\f[R] command to specify
 which Neovim configuration to use with this invocation.
 This is done using the \f[V]-e config\f[R] option to \f[V]lazyman\f[R].
@@ -103,29 +98,32 @@ lazyman -e lazyvim foo.lua
 .fi
 .PP
 When invoked with the \f[V]-e config\f[R] option, \f[V]lazyman\f[R] sets
-the \f[B]NVIM_APPNAME\f[R] environment variable to the specified
+the \f[V]NVIM_APPNAME\f[R] environment variable to the specified
 \f[V]config\f[R] and executes \f[V]nvim\f[R] with all following
 arguments.
 This is a pretty easy way to explore all the \f[V]lazyman\f[R] installed
 and initialized Neovim configurations.
 .SS OPTIONS
+.PP
+The following command line options are available with the
+\f[V]lazyman\f[R] command:
 .TP
-\f[B]-A\f[R]
+\f[V]-A\f[R]
 indicates install all supported Neovim configurations
 .TP
-\f[B]-a\f[R]
+\f[V]-a\f[R]
 indicates install and initialize the the AstroNvim Neovim configuration
 .TP
-\f[B]-b branch\f[R]
+\f[V]-b branch\f[R]
 specifies an nvim-lazyman git branch to checkout
 .TP
-\f[B]-c\f[R]
+\f[V]-c\f[R]
 indicates install and initialize the NvChad Neovim configuration
 .TP
-\f[B]-d\f[R]
+\f[V]-d\f[R]
 indicates debug mode
 .TP
-\f[B]-e \[aq]config\[aq]\f[R]
+\f[V]-e \[aq]config\[aq]\f[R]
 execute \[aq]nvim\[aq] with \[aq]config\[aq] Neovim configuration where
 \[aq]config\[aq] can be one of \[aq]lazyman\[aq], \[aq]allaman\[aq],
 astronvim\[aq], \[aq]kickstart\[aq], \[aq]lazyvim\[aq], lunarvim\[aq],
@@ -133,95 +131,503 @@ or any Neovim configuration directory in \[aq]\[ti]/.config\[aq].
 For example, \[aq]lazyman -e lazyvim foo.lua\[aq] would edit
 \[aq]foo.lua\[aq] with the LazyVim config
 .TP
-\f[B]-k\f[R]
+\f[V]-k\f[R]
 indicates install and initialize the Kickstart Neovim configuration
 .TP
-\f[B]-l\f[R]
+\f[V]-l\f[R]
 indicates install and initialize the LazyVim Neovim configuration
 .TP
-\f[B]-m\f[R]
+\f[V]-m\f[R]
 indicates install and initialize the Allaman Neovim configuration
 .TP
-\f[B]-v\f[R]
+\f[V]-v\f[R]
 indicates install and initialize the LunarVim Neovim configuration
 .TP
-\f[B]-I\f[R]
+\f[V]-I\f[R]
 indicates install language servers and tools for coding diagnostics
 .TP
-\f[B]-L cmd\f[R]
+\f[V]-L cmd\f[R]
 specifies a Lazy command to run
 .TP
-\f[B]-n\f[R]
+\f[V]-n\f[R]
 indicates dry run, don\[aq]t actually do anything, just printf\[aq]s
 .TP
-\f[B]-p\f[R]
+\f[V]-p\f[R]
 indicates use Packer rather than Lazy to initialize
 .TP
-\f[B]-q\f[R]
+\f[V]-q\f[R]
 indicates quiet install
 .TP
-\f[B]-r\f[R]
+\f[V]-r\f[R]
 indicates remove the previously installed configuration
 .TP
-\f[B]-R\f[R]
+\f[V]-R\f[R]
 indicates remove previously installed configuration and backups
 .TP
-\f[B]-C url\f[R]
+\f[V]-C url\f[R]
 specifies a URL to a Neovim configuration git repository
 .TP
-\f[B]-N\f[R]
+\f[V]-N\f[R]
 \[aq]nvimdir\[aq] specifies the folder name to use for the config given
 by -C
 .TP
-\f[B]-U\f[R]
+\f[V]-U\f[R]
 indicates update an existing configuration acts on
-\f[B]NVIM_APPNAME\f[R] by default, override with \[aq]-N nvimdir\[aq] or
+\f[V]NVIM_APPNAME\f[R] by default, override with \[aq]-N nvimdir\[aq] or
 \[aq]-A\[aq]
 .TP
-\f[B]-y\f[R]
+\f[V]-y\f[R]
 indicates do not prompt, answer \[aq]yes\[aq] to any prompt
 .TP
-\f[B]-u\f[R]
+\f[V]-u\f[R]
 displays this usage message and exits
 .PP
-Commands act on \f[B]NVIM_APPNAME\f[R], override with \[aq]-N
+Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
 Without arguments lazyman installs and initializes nvim-lazyman
 .SS EXAMPLES
 .TP
-\f[B]lazyman -a\f[R]
+\f[V]lazyman -a\f[R]
 installs and initializes the \f[I]AstroNvim\f[R] Neovim configuration in
 \f[I]$HOME/.config/nvim-AstroNvim/\f[R]
 .TP
-\f[B]lazyman -l\f[R]
+\f[V]lazyman -l\f[R]
 installs and initializes the \f[I]LazyVim\f[R] Neovim configuration in
 \f[I]$HOME/.config/nvim-LazyVim/\f[R]
 .TP
-\f[B]lazyman -A\f[R]
+\f[V]lazyman -A\f[R]
 installs and initializes all supported Neovim configurations
 .TP
-\f[B]lazyman -I\f[R]
+\f[V]lazyman -I\f[R]
 installs language servers and tools for coding diagnostics
 .TP
-\f[B]lazyman -L update\f[R]
-runs the \f[B]\f[BI]:Lazy update\f[B]\f[R] command in the active Neovim
+\f[V]lazyman -L update\f[R]
+runs the \f[V]_:Lazy update_\f[R] command in the active Neovim
 configuration (combine with -N or -A to override)
 .TP
-\f[B]lazyman -U -N nvim-LazyVim\f[R]
+\f[V]lazyman -U -N nvim-LazyVim\f[R]
 updates the \f[I]LazyVim\f[R] Neovim configuration in
 \f[I]$HOME/.config/nvim-LazyVim/\f[R]
 .TP
-\f[B]lazyman -A -U\f[R]
+\f[V]lazyman -A -U\f[R]
 updates all installed supported Neovim configurations
 .TP
-\f[B]lazyman -R -N nvim-LazyVim\f[R]
+\f[V]lazyman -R -N nvim-LazyVim\f[R]
 removes the \f[I]LazyVim\f[R] Neovim configuration in
 \f[I]$HOME/.config/nvim-LazyVim/\f[R], its data files, cache, state, and
 all backups
+.SS CONFIGURATION
+.PP
+In addition to the \f[V]lazyman\f[R] command, the Lazyman distribution
+includes a richly preconfigured Neovim configuration in
+\f[V]\[ti]/.config/nvim-lazyman\f[R].
+The Lazyman Neovim configuration includes a top-level configuration
+file, \f[V]\[ti]/.config/nvim-lazyman/lua/configuration.lua\f[R].
+This file can be use to enable, disable, and configure
+\f[V]nvim-lazyman\f[R] components.
+For example, here is where you would configure whether
+\f[V]neo-tree\f[R] or \f[V]nvim-tree\f[R] is enabled as a file explorer.
+Or, disable the \f[V]tabline\f[R], disable the \f[V]statusline\f[R], set
+the \f[V]colorscheme\f[R], \f[V]theme\f[R], and theme style.
+The \f[V]configuration.lua\f[R] file is intended to serve as a quick and
+easy way to re-configure the \f[V]nvim-lazyman\f[R] Neovim configuration
+but you can still dig down into the \f[V]options.lua\f[R],
+\f[V]keymaps.lua\f[R], \f[V]autocmds.lua\f[R] and more.
+.SS Configuration sections
+.PP
+The \f[V]lua/configuration.lua\f[R] configuration file contains the
+following sections with settings briefly described here:
+.SS Theme configuration
+.PP
+The \f[V]nvim-lazyman\f[R] Neovim configuration includes pre-configured
+support for several themes including support for statusline and tabline
+theme coordination.
+The active theme and colorscheme is selected in
+\f[V]configuration.lua\f[R] by setting \f[V]conf.theme\f[R].
+For themes that support different styles, the theme style is selected by
+setting \f[V]conf.theme_style\f[R].
+Theme transparency can be enabled with
+\f[V]conf.enable_transparent\f[R].
+For example, to use the \f[V]kanagawa\f[R] theme with \f[V]dragon\f[R]
+style and transparency disabled, set:
+.IP
+.nf
+\f[C]
+conf.theme = \[dq]kanagawa\[dq]
+conf.theme_style = \[dq]dragon\[dq]
+conf.enable_transparent = false
+\f[R]
+.fi
+.SS Supported themes
+.IP \[bu] 2
+catppuccin (https://github.com/catppuccin/nvim.git)
+.IP \[bu] 2
+everforest (https://github.com/neanias/everforest-nvim.git)
+.IP \[bu] 2
+kanagawa (https://github.com/rebelot/kanagawa.nvim.git)
+.IP \[bu] 2
+monokai-pro (https://github.com/loctvl842/monokai-pro.nvim.git)
+.IP \[bu] 2
+nightfox (https://github.com/EdenEast/nightfox.nvim.git)
+.IP \[bu] 2
+onedarkpro (https://github.com/olimorris/onedarkpro.nvim.git)
+.IP \[bu] 2
+tokyonight (https://github.com/folke/tokyonight.nvim.git)
+.IP \[bu] 2
+tundra (https://github.com/sam4llis/nvim-tundra.git)
+.PP
+A configuration file for each theme is in \f[V]lua/themes/\f[R] and
+lualine theme configuration for each theme and its styles in
+\f[V]lua/themes/lualine\f[R].
+.PP
+Use \f[V]<F8>\f[R] to step through themes.
+.PP
+Available styles are:
+.IP \[bu] 2
+kanagawa
+.RS 2
+.IP \[bu] 2
+wave
+.IP \[bu] 2
+dragon
+.IP \[bu] 2
+lotus
+.RE
+.IP \[bu] 2
+tokyonight
+.RS 2
+.IP \[bu] 2
+night
+.IP \[bu] 2
+storm
+.IP \[bu] 2
+day
+.IP \[bu] 2
+moon
+.RE
+.IP \[bu] 2
+onedarkpro
+.RS 2
+.IP \[bu] 2
+onedark
+.IP \[bu] 2
+onelight
+.IP \[bu] 2
+onedark_vivid
+.IP \[bu] 2
+onedark_dark
+.RE
+.IP \[bu] 2
+monokai-pro
+.RS 2
+.IP \[bu] 2
+classic
+.IP \[bu] 2
+octagon
+.IP \[bu] 2
+pro
+.IP \[bu] 2
+machine
+.IP \[bu] 2
+ristretto
+.IP \[bu] 2
+spectrum
+.RE
+.IP \[bu] 2
+catppuccin
+.RS 2
+.IP \[bu] 2
+latte
+.IP \[bu] 2
+frappe
+.IP \[bu] 2
+macchiato
+.IP \[bu] 2
+mocha
+.RE
+.IP \[bu] 2
+nightfox
+.RS 2
+.IP \[bu] 2
+carbonfox
+.IP \[bu] 2
+dawnfox
+.IP \[bu] 2
+dayfox
+.IP \[bu] 2
+duskfox
+.IP \[bu] 2
+nightfox
+.IP \[bu] 2
+nordfox
+.IP \[bu] 2
+terafox
+.RE
+.SS Plugin configuration
+.PP
+Several Neovim plugins in the \f[V]nvim-lazyman\f[R] configuration can
+be optionally installed or replaced by another plugin with similar
+functionality.
+The plugins that are configurable in this way in
+\f[V]configuration.lua\f[R] are briefly described below along with their
+default settings:
+.IP \[bu] 2
+Neovim session manager to use, either persistence or possession
+.RS 2
+.IP \[bu] 2
+\f[V]conf.session_manager = \[dq]possession\[dq]\f[R]
+.RE
+.IP \[bu] 2
+Neo-tree or nvim-tree, false will enable nvim-tree
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_neotree = true\f[R]
+.RE
+.IP \[bu] 2
+Replace the UI for messages, cmdline and the popupmenu
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_noice = true\f[R]
+.RE
+.IP \[bu] 2
+Enable ChatGPT (set \f[V]OPENAI_API_KEY\f[R] environment variable)
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_chatgpt = false\f[R]
+.RE
+.IP \[bu] 2
+Enable the newer rainbow treesitter delimiter highlighting
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_rainbow2 = true\f[R]
+.RE
+.IP \[bu] 2
+Enable the wilder plugin
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_wilder = false\f[R]
+.RE
+.IP \[bu] 2
+The statusline (lualine) and tabline can each be enabled or disabled
+.RS 2
+.IP \[bu] 2
+\f[V]conf.disable_statusline = false\f[R]
+.IP \[bu] 2
+\f[V]conf.enable_tabline = true\f[R]
+.RE
+.IP \[bu] 2
+The winbar with location
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_winbar = false\f[R]
+.RE
+.IP \[bu] 2
+Enable playing games inside Neovim!
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_games = true\f[R]
+.RE
+.IP \[bu] 2
+Enable the Alpha dashboard
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_alpha = true\f[R]
+.RE
+.IP \[bu] 2
+Enable the Neovim bookmarks plugin
+(<https://github.com/ldelossa/nvim-ide>)
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_bookmarks = false\f[R]
+.RE
+.IP \[bu] 2
+Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_ide = false\f[R]
+.RE
+.IP \[bu] 2
+Enable Navigator
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_navigator = true\f[R]
+.RE
+.IP \[bu] 2
+Enable Project manager
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_project = true\f[R]
+.RE
+.IP \[bu] 2
+Enable window picker
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_picker = true\f[R]
+.RE
+.IP \[bu] 2
+Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq],
+\[dq]popup\[dq].
+Default is \[dq]popup\[dq]
+.RS 2
+.IP \[bu] 2
+\f[V]conf.show_diagnostics = \[dq]icons\[dq]\f[R]
+.RE
+.PP
+Additional plugin configuration and options are available in
+\f[V]configuration.lua\f[R].
+.PP
+The default \f[V]configuration.lua\f[R]:
+.IP
+.nf
+\f[C]
+local conf = {}
+
+-- THEME CONFIGURATION
+-- Available themes:
+--   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+-- A configuration file for each theme is in lua/themes/
+-- Use <F8> to step through themes
+conf.theme = \[dq]tokyonight\[dq]
+-- Available styles are:
+--   kanagawa:    wave, dragon, lotus
+--   tokyonight:  night, storm, day, moon
+--   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
+--   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
+--   catppuccin:  latte, frappe, macchiato, mocha
+--   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+conf.theme_style = \[dq]moon\[dq]
+-- enable transparency if the theme supports it
+conf.enable_transparent = true
+
+-- GLOBAL OPTIONS CONFIGURATION
+-- Some prefer space as the map leader, but why
+conf.mapleader = \[dq],\[dq]
+conf.maplocalleader = \[dq],\[dq]
+-- Toggle global status line
+conf.global_statusline = true
+-- set numbered lines
+conf.number = false
+-- enable mouse see :h mouse
+conf.mouse = \[dq]nv\[dq]
+-- set relative numbered lines
+conf.relative_number = false
+-- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
+-- see enable_tabline below to disable or enable the tabline
+conf.showtabline = 2
+-- enable or disable listchars
+conf.list = true
+-- which list chars to show
+conf.listchars = \[dq]eol:\[tno],tab:>\[pc],trail:\[ti],extends:>,precedes:<\[dq]
+-- use rg instead of grep
+conf.grepprg = \[dq]rg --hidden --vimgrep --smart-case --\[dq]
+
+-- ENABLE/DISABLE/SELECT PLUGINS
+-- neovim session manager to use, either persistence or possession
+conf.session_manager = \[dq]possession\[dq]
+-- neo-tree or nvim-tree, false will enable nvim-tree
+conf.enable_neotree = true
+-- Replace the UI for messages, cmdline and the popupmenu
+conf.enable_noice = true
+-- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+conf.enable_chatgpt = true
+-- Enable the newer rainbow treesitter delimiter highlighting
+conf.enable_rainbow2 = true
+-- Enable fancy lualine components
+conf.enable_fancy = true
+-- Enable the wilder plugin
+conf.enable_wilder = false
+-- The statusline (lualine) and tabline can each be enabled or disabled
+-- Disable statusline (lualine)
+conf.disable_statusline = false
+-- Enable tabline
+conf.enable_tabline = true
+-- Disable winbar with location
+conf.enable_winbar = false
+-- Enable playing games inside Neovim!
+conf.enable_games = true
+-- Enable the Alpha dashboard
+conf.enable_alpha = true
+-- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+conf.enable_bookmarks = false
+-- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+conf.enable_ide = false
+-- Enable Navigator
+conf.enable_navigator = true
+-- Enable Project manager
+conf.enable_project = true
+-- Enable window picker
+conf.enable_picker = true
+
+-- PLUGINS CONFIGURATION
+-- media backend, one of \[dq]ueberzug\[dq]|\[dq]viu\[dq]|\[dq]chafa\[dq]|\[dq]jp2a\[dq]|catimg
+conf.media_backend = \[dq]jp2a\[dq]
+-- Number of recent files shown in dashboard
+-- 0 disables showing recent files
+conf.dashboard_recent_files = 5
+-- disable the header of the dashboard
+conf.disable_dashboard_header = true
+-- disable quick links of the dashboard
+conf.disable_dashboard_quick_links = false
+-- treesitter parsers to be installed
+-- one of \[dq]all\[dq], \[dq]maintained\[dq] (parsers with maintainers), or a list of languages
+conf.treesitter_ensure_installed = \[dq]maintained\[dq]
+-- Enable clangd or ccls will be used for C/C++ diagnostics
+conf.enable_clangd = false
+-- Tools that should be installed by Mason(-tool-install)
+-- Some of these are installed with Homebrew, which should Mason install?
+conf.mason_tool_installer_ensure_installed = {
+  -- DAP
+  \[dq]debugpy\[dq],
+  -- LSP
+  \[dq]bash-language-server\[dq],
+  \[dq]dockerfile-language-server\[dq],
+  \[dq]json-lsp\[dq],
+  \[dq]marksman\[dq],
+  \[dq]typescript-language-server\[dq],
+  \[dq]texlab\[dq],
+  \[dq]ltex-ls\[dq],
+  \[dq]lua-language-server\[dq],
+  \[dq]pyright\[dq],
+  \[dq]terraform-ls\[dq],
+  \[dq]yaml-language-server\[dq],
+  -- Formatter
+  \[dq]black\[dq],
+  \[dq]prettier\[dq],
+  \[dq]stylua\[dq],
+  \[dq]shfmt\[dq],
+  -- Linter
+  \[dq]eslint_d\[dq],
+  \[dq]shellcheck\[dq],
+  \[dq]tflint\[dq],
+  \[dq]yamllint\[dq],
+}
+
+-- enable greping in hidden files
+conf.telescope_grep_hidden = true
+
+-- which patterns to ignore in file switcher
+conf.telescope_file_ignore_patterns = {
+  \[dq]%.7z\[dq], \[dq]%.MOV\[dq], \[dq]%.RAF\[dq], \[dq]%.burp\[dq], \[dq]%.bz2\[dq], \[dq]%.cache\[dq], \[dq]%.class\[dq], \[dq]%.dll\[dq],
+  \[dq]%.docx\[dq], \[dq]%.dylib\[dq], \[dq]%.epub\[dq], \[dq]%.exe\[dq], \[dq]%.flac\[dq], \[dq]%.ico\[dq], \[dq]%.ipynb\[dq], \[dq]%.jar\[dq],
+  \[dq]%.lock\[dq], \[dq]%.mkv\[dq], \[dq]%.mov\[dq], \[dq]%.mp4\[dq], \[dq]%.otf\[dq], \[dq]%.pdb\[dq], \[dq]%.rar\[dq], \[dq]%.sqlite3\[dq],
+  \[dq]%.svg\[dq], \[dq]%.tar\[dq], \[dq]%.tar.gz\[dq], \[dq]%.zip\[dq], \[dq].git/\[dq], \[dq].gradle/\[dq], \[dq].idea/\[dq],
+  \[dq].settings/\[dq], \[dq].vale/\[dq], \[dq].vscode/\[dq], \[dq]__pycache__/*\[dq], \[dq]build/\[dq], \[dq]env/\[dq],
+  \[dq]gradle/\[dq], \[dq]node_modules/\[dq], \[dq]smalljre_*/*\[dq], \[dq]target/\[dq], \[dq]vendor/*\[dq],
+}
+
+-- Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq], \[dq]popup\[dq]. Default is \[dq]popup\[dq]
+--   \[dq]none\[dq]:  diagnostics are disabled but still underlined
+--   \[dq]icons\[dq]: only an icon will show, use \[aq],de\[aq] to see the diagnostic
+--   \[dq]popup\[dq]: an icon will show and a popup with the diagnostic will appear
+conf.show_diagnostics = \[dq]icons\[dq]
+
+return conf
+\f[R]
+.fi
 .SS AUTHORS
 .PP
-Written by Ronald Record <github@ronrecord.com>
+Written by Ronald Record \f[V]github\[at]ronrecord.com\f[R]
 .SS LICENSING
 .PP
 LAZYMAN is distributed under an Open Source license.
