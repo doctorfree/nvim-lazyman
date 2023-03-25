@@ -80,23 +80,23 @@ The following command line options are available with the `lazyman` command:
 
 `-A` : indicates install all supported Neovim configurations
 
-`-a` : indicates install and initialize the the AstroNvim Neovim configuration
+`-a` : indicates install and initialize the the 'AstroNvim' Neovim configuration
 
 `-b branch` : specifies an nvim-lazyman git branch to checkout
 
-`-c` : indicates install and initialize the NvChad Neovim configuration
+`-c` : indicates install and initialize the 'NvChad' Neovim configuration
 
 `-d` : indicates debug mode
 
-`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
-`-k` : indicates install and initialize the Kickstart Neovim configuration
+`-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 
-`-l` : indicates install and initialize the LazyVim Neovim configuration
+`-l` : indicates install and initialize the 'LazyVim' Neovim configuration
 
-`-m` : indicates install and initialize the Allaman Neovim configuration
+`-m` : indicates install and initialize the 'Allaman' Neovim configuration
 
-`-v` : indicates install and initialize the LunarVim Neovim configuration
+`-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
 `-I` : indicates install language servers and tools for coding diagnostics
 
