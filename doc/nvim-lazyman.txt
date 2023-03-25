@@ -6,7 +6,7 @@ Table of Contents                             *nvim-lazyman-table-of-contents*
   - NAME                                                   |nvim-lazyman-name|
   - SYNOPSIS                                           |nvim-lazyman-synopsis|
   - DESCRIPTION                                     |nvim-lazyman-description|
-  - Configuration                                 |nvim-lazyman-configuration|
+  - CONFIGURATION                                 |nvim-lazyman-configuration|
   - OPTIONS                                             |nvim-lazyman-options|
   - AUTHORS                                             |nvim-lazyman-authors|
   - LICENSING                                         |nvim-lazyman-licensing|
@@ -28,13 +28,13 @@ DESCRIPTION                                         *nvim-lazyman-description*
 
 The _lazyman_ command can be used to install, initialize, and manage multiple
 Neovim configurations. Neovim configurations are installed and initialized in
-separate subdirectories of **~/.config/** with associated separate
-subdirectories in **/.local/share/, /.local/state/**, and **~/.cache/**.
+separate subdirectories of `~/.config/` with associated separate subdirectories
+in `~/.local/share/`, `~/.local/state/`, and `~/.cache/`.
 
-The _lazyman_ Neovim configuration is installed as **/.config/nvim-lazyman_ and
-the lazyman command is installed as _/.local/bin/lazyman**.
+The _lazyman_ Neovim configuration is installed as `~/.config/nvim-lazyman` and
+the `lazyman` command is installed as `~/.local/bin/lazyman`.
 
-The Neovim configuration used by the _nvim_ command is determined by the
+The Neovim configuration used by the `nvim` command is determined by the
 **NVIM_APPNAME** environment variable (Neovim 0.9 and later only). Set the
 **NVIM_APPNAME** environment variable in the shell initialization file
 (typically **~/.bashrc** or **~/.zshrc**) by using the _export_ shell builtin:
@@ -223,7 +223,7 @@ below along with their default settings:
 Additional plugin configuration and options are available in
 `configuration.lua`.
 
-View the default `configuration.lua` ~
+The default `configuration.lua`:
 
 >lua
     local conf = {}
