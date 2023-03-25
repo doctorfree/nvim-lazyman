@@ -20,7 +20,7 @@ jobs:
           # The following are all optional
           pandoc: "markdown/lazyman.1.md" # Input pandoc file
           version: "NVIM v0.9.0" # Vim version number
-          toc: true # Table of contents
+          toc: false # Table of contents
           description: "Install, initialize, manage, and explore multiple Neovim configurations"
           demojify: false # Strip emojis from the vimdoc
           dedupsubheadings: true # Add heading to subheading anchor links to ensure that subheadings are unique

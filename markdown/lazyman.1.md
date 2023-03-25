@@ -114,7 +114,7 @@ The following command line options are available with the `lazyman` command:
 
 `-C url` : specifies a URL to a Neovim configuration git repository
 
-`-N` : 'nvimdir' specifies the folder name to use for the config given by -C
+`-N nvimdir` : specifies the folder name to use for the config given by -C
 
 `-U` : indicates update an existing configuration
 
