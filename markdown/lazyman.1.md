@@ -78,72 +78,49 @@ all following arguments. This is a pretty easy way to explore all the
 
 The following command line options are available with the `lazyman` command:
 
-`-A`
-: indicates install all supported Neovim configurations
+`-A` : indicates install all supported Neovim configurations
 
-`-a`
-: indicates install and initialize the the AstroNvim Neovim configuration
+`-a` : indicates install and initialize the the AstroNvim Neovim configuration
 
-`-b branch`
-: specifies an nvim-lazyman git branch to checkout
+`-b branch` : specifies an nvim-lazyman git branch to checkout
 
-`-c`
-: indicates install and initialize the NvChad Neovim configuration
+`-c` : indicates install and initialize the NvChad Neovim configuration
 
-`-d`
-: indicates debug mode
+`-d` : indicates debug mode
 
-`-e 'config'`
-: execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
-`-k`
-: indicates install and initialize the Kickstart Neovim configuration
+`-k` : indicates install and initialize the Kickstart Neovim configuration
 
-`-l`
-: indicates install and initialize the LazyVim Neovim configuration
+`-l` : indicates install and initialize the LazyVim Neovim configuration
 
-`-m`
-: indicates install and initialize the Allaman Neovim configuration
+`-m` : indicates install and initialize the Allaman Neovim configuration
 
-`-v`
-: indicates install and initialize the LunarVim Neovim configuration
+`-v` : indicates install and initialize the LunarVim Neovim configuration
 
-`-I`
-: indicates install language servers and tools for coding diagnostics
+`-I` : indicates install language servers and tools for coding diagnostics
 
-`-L cmd`
-: specifies a Lazy command to run
+`-L cmd` : specifies a Lazy command to run
 
-`-n`
-: indicates dry run, don't actually do anything, just printf's
+`-n` : indicates dry run, don't actually do anything, just printf's
 
-`-p`
-: indicates use Packer rather than Lazy to initialize
+`-p` : indicates use Packer rather than Lazy to initialize
 
-`-q`
-: indicates quiet install
+`-q` : indicates quiet install
 
-`-r`
-: indicates remove the previously installed configuration
+`-r` : indicates remove the previously installed configuration
 
-`-R`
-: indicates remove previously installed configuration and backups
+`-R` : indicates remove previously installed configuration and backups
 
-`-C url`
-: specifies a URL to a Neovim configuration git repository
+`-C url` : specifies a URL to a Neovim configuration git repository
 
-`-N`
-: 'nvimdir' specifies the folder name to use for the config given by -C
+`-N` : 'nvimdir' specifies the folder name to use for the config given by -C
 
-`-U`
-: indicates update an existing configuration
-acts on `NVIM_APPNAME` by default, override with '-N nvimdir' or '-A'
+`-U` : indicates update an existing configuration
 
-`-y`
-: indicates do not prompt, answer 'yes' to any prompt
+`-y` : indicates do not prompt, answer 'yes' to any prompt
 
-`-u`
-: displays this usage message and exits
+`-u` : displays this usage message and exits
 
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
@@ -151,29 +128,21 @@ Without arguments lazyman installs and initializes nvim-lazyman
 
 ### EXAMPLES
 
-`lazyman -a`
-: installs and initializes the _AstroNvim_ Neovim configuration in _$HOME/.config/nvim-AstroNvim/_
+`lazyman -a` : installs and initializes the `AstroNvim` Neovim configuration in `$HOME/.config/nvim-AstroNvim/`
 
-`lazyman -l`
-: installs and initializes the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_
+`lazyman -l` : installs and initializes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`
 
-`lazyman -A`
-: installs and initializes all supported Neovim configurations
+`lazyman -A` : installs and initializes all supported Neovim configurations
 
-`lazyman -I`
-: installs language servers and tools for coding diagnostics
+`lazyman -I` : installs language servers and tools for coding diagnostics
 
-`lazyman -L update`
-: runs the `_:Lazy update_` command in the active Neovim configuration (combine with -N or -A to override)
+`lazyman -L update` : runs the `:Lazy update` command in the active Neovim configuration (combine with -N or -A to override)
 
-`lazyman -U -N nvim-LazyVim`
-: updates the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_
+`lazyman -U -N nvim-LazyVim` : updates the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`
 
-`lazyman -A -U`
-: updates all installed supported Neovim configurations
+`lazyman -A -U` : updates all installed supported Neovim configurations
 
-`lazyman -R -N nvim-LazyVim`
-: removes the _LazyVim_ Neovim configuration in _$HOME/.config/nvim-LazyVim/_, its data files, cache, state, and all backups
+`lazyman -R -N nvim-LazyVim` : removes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`, its data files, cache, state, and all backups
 
 ## CONFIGURATION
 

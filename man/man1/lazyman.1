@@ -107,116 +107,99 @@ and initialized Neovim configurations.
 .PP
 The following command line options are available with the
 \f[V]lazyman\f[R] command:
-.TP
-\f[V]-A\f[R]
-indicates install all supported Neovim configurations
-.TP
-\f[V]-a\f[R]
-indicates install and initialize the the AstroNvim Neovim configuration
-.TP
-\f[V]-b branch\f[R]
-specifies an nvim-lazyman git branch to checkout
-.TP
-\f[V]-c\f[R]
-indicates install and initialize the NvChad Neovim configuration
-.TP
-\f[V]-d\f[R]
-indicates debug mode
-.TP
-\f[V]-e \[aq]config\[aq]\f[R]
-execute \[aq]nvim\[aq] with \[aq]config\[aq] Neovim configuration where
-\[aq]config\[aq] can be one of \[aq]lazyman\[aq], \[aq]allaman\[aq],
-astronvim\[aq], \[aq]kickstart\[aq], \[aq]lazyvim\[aq], lunarvim\[aq],
-or any Neovim configuration directory in \[aq]\[ti]/.config\[aq].
+.PP
+\f[V]-A\f[R] : indicates install all supported Neovim configurations
+.PP
+\f[V]-a\f[R] : indicates install and initialize the the AstroNvim Neovim
+configuration
+.PP
+\f[V]-b branch\f[R] : specifies an nvim-lazyman git branch to checkout
+.PP
+\f[V]-c\f[R] : indicates install and initialize the NvChad Neovim
+configuration
+.PP
+\f[V]-d\f[R] : indicates debug mode
+.PP
+\f[V]-e \[aq]config\[aq]\f[R] : execute \[aq]nvim\[aq] with
+\[aq]config\[aq] Neovim configuration where \[aq]config\[aq] can be one
+of \[aq]lazyman\[aq], \[aq]allaman\[aq], astronvim\[aq],
+\[aq]kickstart\[aq], \[aq]lazyvim\[aq], lunarvim\[aq], or any Neovim
+configuration directory in \[aq]\[ti]/.config\[aq].
 For example, \[aq]lazyman -e lazyvim foo.lua\[aq] would edit
 \[aq]foo.lua\[aq] with the LazyVim config
-.TP
-\f[V]-k\f[R]
-indicates install and initialize the Kickstart Neovim configuration
-.TP
-\f[V]-l\f[R]
-indicates install and initialize the LazyVim Neovim configuration
-.TP
-\f[V]-m\f[R]
-indicates install and initialize the Allaman Neovim configuration
-.TP
-\f[V]-v\f[R]
-indicates install and initialize the LunarVim Neovim configuration
-.TP
-\f[V]-I\f[R]
-indicates install language servers and tools for coding diagnostics
-.TP
-\f[V]-L cmd\f[R]
-specifies a Lazy command to run
-.TP
-\f[V]-n\f[R]
-indicates dry run, don\[aq]t actually do anything, just printf\[aq]s
-.TP
-\f[V]-p\f[R]
-indicates use Packer rather than Lazy to initialize
-.TP
-\f[V]-q\f[R]
-indicates quiet install
-.TP
-\f[V]-r\f[R]
-indicates remove the previously installed configuration
-.TP
-\f[V]-R\f[R]
-indicates remove previously installed configuration and backups
-.TP
-\f[V]-C url\f[R]
-specifies a URL to a Neovim configuration git repository
-.TP
-\f[V]-N\f[R]
-\[aq]nvimdir\[aq] specifies the folder name to use for the config given
-by -C
-.TP
-\f[V]-U\f[R]
-indicates update an existing configuration acts on
-\f[V]NVIM_APPNAME\f[R] by default, override with \[aq]-N nvimdir\[aq] or
-\[aq]-A\[aq]
-.TP
-\f[V]-y\f[R]
-indicates do not prompt, answer \[aq]yes\[aq] to any prompt
-.TP
-\f[V]-u\f[R]
-displays this usage message and exits
+.PP
+\f[V]-k\f[R] : indicates install and initialize the Kickstart Neovim
+configuration
+.PP
+\f[V]-l\f[R] : indicates install and initialize the LazyVim Neovim
+configuration
+.PP
+\f[V]-m\f[R] : indicates install and initialize the Allaman Neovim
+configuration
+.PP
+\f[V]-v\f[R] : indicates install and initialize the LunarVim Neovim
+configuration
+.PP
+\f[V]-I\f[R] : indicates install language servers and tools for coding
+diagnostics
+.PP
+\f[V]-L cmd\f[R] : specifies a Lazy command to run
+.PP
+\f[V]-n\f[R] : indicates dry run, don\[aq]t actually do anything, just
+printf\[aq]s
+.PP
+\f[V]-p\f[R] : indicates use Packer rather than Lazy to initialize
+.PP
+\f[V]-q\f[R] : indicates quiet install
+.PP
+\f[V]-r\f[R] : indicates remove the previously installed configuration
+.PP
+\f[V]-R\f[R] : indicates remove previously installed configuration and
+backups
+.PP
+\f[V]-C url\f[R] : specifies a URL to a Neovim configuration git
+repository
+.PP
+\f[V]-N\f[R] : \[aq]nvimdir\[aq] specifies the folder name to use for
+the config given by -C
+.PP
+\f[V]-U\f[R] : indicates update an existing configuration
+.PP
+\f[V]-y\f[R] : indicates do not prompt, answer \[aq]yes\[aq] to any
+prompt
+.PP
+\f[V]-u\f[R] : displays this usage message and exits
 .PP
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
 Without arguments lazyman installs and initializes nvim-lazyman
 .SS EXAMPLES
-.TP
-\f[V]lazyman -a\f[R]
-installs and initializes the \f[I]AstroNvim\f[R] Neovim configuration in
-\f[I]$HOME/.config/nvim-AstroNvim/\f[R]
-.TP
-\f[V]lazyman -l\f[R]
-installs and initializes the \f[I]LazyVim\f[R] Neovim configuration in
-\f[I]$HOME/.config/nvim-LazyVim/\f[R]
-.TP
-\f[V]lazyman -A\f[R]
-installs and initializes all supported Neovim configurations
-.TP
-\f[V]lazyman -I\f[R]
-installs language servers and tools for coding diagnostics
-.TP
-\f[V]lazyman -L update\f[R]
-runs the \f[V]_:Lazy update_\f[R] command in the active Neovim
-configuration (combine with -N or -A to override)
-.TP
-\f[V]lazyman -U -N nvim-LazyVim\f[R]
-updates the \f[I]LazyVim\f[R] Neovim configuration in
-\f[I]$HOME/.config/nvim-LazyVim/\f[R]
-.TP
-\f[V]lazyman -A -U\f[R]
-updates all installed supported Neovim configurations
-.TP
-\f[V]lazyman -R -N nvim-LazyVim\f[R]
-removes the \f[I]LazyVim\f[R] Neovim configuration in
-\f[I]$HOME/.config/nvim-LazyVim/\f[R], its data files, cache, state, and
-all backups
+.PP
+\f[V]lazyman -a\f[R] : installs and initializes the \f[V]AstroNvim\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-AstroNvim/\f[R]
+.PP
+\f[V]lazyman -l\f[R] : installs and initializes the \f[V]LazyVim\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]
+.PP
+\f[V]lazyman -A\f[R] : installs and initializes all supported Neovim
+configurations
+.PP
+\f[V]lazyman -I\f[R] : installs language servers and tools for coding
+diagnostics
+.PP
+\f[V]lazyman -L update\f[R] : runs the \f[V]:Lazy update\f[R] command in
+the active Neovim configuration (combine with -N or -A to override)
+.PP
+\f[V]lazyman -U -N nvim-LazyVim\f[R] : updates the \f[V]LazyVim\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]
+.PP
+\f[V]lazyman -A -U\f[R] : updates all installed supported Neovim
+configurations
+.PP
+\f[V]lazyman -R -N nvim-LazyVim\f[R] : removes the \f[V]LazyVim\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R], its data
+files, cache, state, and all backups
 .SS CONFIGURATION
 .PP
 In addition to the \f[V]lazyman\f[R] command, the Lazyman distribution
