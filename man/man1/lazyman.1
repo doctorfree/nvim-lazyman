@@ -267,14 +267,19 @@ lualine theme configuration for each theme and its styles in
 Use \f[V]<F8>\f[R] to step through themes.
 .PP
 Available styles are:
-.SS kanagawa
+.IP \[bu] 2
+kanagawa
+.RS 2
 .IP \[bu] 2
 wave
 .IP \[bu] 2
 dragon
 .IP \[bu] 2
 lotus
-.SS tokyonight
+.RE
+.IP \[bu] 2
+tokyonight
+.RS 2
 .IP \[bu] 2
 night
 .IP \[bu] 2
@@ -283,7 +288,10 @@ storm
 day
 .IP \[bu] 2
 moon
-.SS onedarkpro
+.RE
+.IP \[bu] 2
+onedarkpro
+.RS 2
 .IP \[bu] 2
 onedark
 .IP \[bu] 2
@@ -292,7 +300,10 @@ onelight
 onedark_vivid
 .IP \[bu] 2
 onedark_dark
-.SS monokai-pro
+.RE
+.IP \[bu] 2
+monokai-pro
+.RS 2
 .IP \[bu] 2
 classic
 .IP \[bu] 2
@@ -305,7 +316,10 @@ machine
 ristretto
 .IP \[bu] 2
 spectrum
-.SS catppuccin
+.RE
+.IP \[bu] 2
+catppuccin
+.RS 2
 .IP \[bu] 2
 latte
 .IP \[bu] 2
@@ -314,7 +328,10 @@ frappe
 macchiato
 .IP \[bu] 2
 mocha
-.SS nightfox
+.RE
+.IP \[bu] 2
+nightfox
+.RS 2
 .IP \[bu] 2
 carbonfox
 .IP \[bu] 2
@@ -329,6 +346,7 @@ nightfox
 nordfox
 .IP \[bu] 2
 terafox
+.RE
 .SS Plugin configuration
 .PP
 Several Neovim plugins in the \f[V]nvim-lazyman\f[R] configuration can
@@ -337,75 +355,107 @@ functionality.
 The plugins that are configurable in this way in
 \f[V]configuration.lua\f[R] are briefly described below along with their
 default settings:
-.PP
+.IP \[bu] 2
 Neovim session manager to use, either persistence or possession
+.RS 2
 .IP \[bu] 2
 \f[V]conf.session_manager = \[dq]possession\[dq]\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Neo-tree or nvim-tree, false will enable nvim-tree
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_neotree = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Replace the UI for messages, cmdline and the popupmenu
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_noice = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable ChatGPT (set \f[V]OPENAI_API_KEY\f[R] environment variable)
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_chatgpt = false\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable the newer rainbow treesitter delimiter highlighting
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_rainbow2 = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable the wilder plugin
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_wilder = false\f[R]
-.PP
+.RE
+.IP \[bu] 2
 The statusline (lualine) and tabline can each be enabled or disabled
+.RS 2
 .IP \[bu] 2
 \f[V]conf.disable_statusline = false\f[R]
 .IP \[bu] 2
 \f[V]conf.enable_tabline = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 The winbar with location
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_winbar = false\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable playing games inside Neovim!
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_games = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable the Alpha dashboard
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_alpha = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable the Neovim bookmarks plugin
 (<https://github.com/ldelossa/nvim-ide>)
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_bookmarks = false\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_ide = false\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable Navigator
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_navigator = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable Project manager
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_project = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Enable window picker
+.RS 2
 .IP \[bu] 2
 \f[V]conf.enable_picker = true\f[R]
-.PP
+.RE
+.IP \[bu] 2
 Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq],
 \[dq]popup\[dq].
 Default is \[dq]popup\[dq]
+.RS 2
 .IP \[bu] 2
 \f[V]conf.show_diagnostics = \[dq]icons\[dq]\f[R]
+.RE
 .PP
 Additional plugin configuration and options are available in
 \f[V]configuration.lua\f[R].
