@@ -18,10 +18,10 @@ jobs:
         with:
           vimdoc: nvim-lazyman # Output vimdoc project name (required)
           # The following are all optional
-          pandoc: "README.md" # Input pandoc file
+          pandoc: "markdown/lazyman.1.md" # Input pandoc file
           version: "NVIM v0.9.0" # Vim version number
           toc: true # Table of contents
-          description: "Provide multiple Neovim configuration installation and initialization"
+          description: "Install, initialize, manage, and explore multiple Neovim configurations"
           demojify: false # Strip emojis from the vimdoc
           dedupsubheadings: true # Add heading to subheading anchor links to ensure that subheadings are unique
           treesitter: true # Use treesitter for highlighting codeblocks

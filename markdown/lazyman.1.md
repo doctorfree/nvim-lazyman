@@ -8,7 +8,7 @@ date: March 13, 2023
 
 ## NAME
 
-lazyman - install, initialize, and manage multiple Neovim configurations
+lazyman - install, initialize, manage, and explore multiple Neovim configurations
 
 ## SYNOPSIS
 
@@ -74,7 +74,288 @@ environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
 
+## Configuration
+
+In addition to the `lazyman` command, the Lazyman distribution includes
+a richly preconfigured Neovim configuration in `~/.config/nvim-lazyman`.
+The Lazyman Neovim configuration includes a top-level configuration file,
+`~/.config/nvim-lazyman/lua/configuration.lua`. This file can be use to enable,
+disable, and configure `nvim-lazyman` components. For example, here is where you
+would configure whether `neo-tree` or `nvim-tree` is enabled as a file explorer.
+Or, disable the `tabline`, disable the `statusline`, set the `colorscheme`,
+`theme`, and theme style. The `configuration.lua` file is intended to serve as a
+quick and easy way to re-configure the `nvim-lazyman` Neovim configuration but you
+can still dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and more.
+
+### Configuration sections
+
+The `lua/configuration.lua` configuration file contains the following sections
+with settings briefly described here:
+
+#### Theme configuration
+
+The `nvim-lazyman` Neovim configuration includes pre-configured support for several
+themes including support for statusline and tabline theme coordination. The active
+theme and colorscheme is selected in `configuration.lua` by setting `conf.theme`.
+For themes that support different styles, the theme style is selected by setting
+`conf.theme_style`. Theme transparency can be enabled with `conf.enable_transparent`.
+For example, to use the `kanagawa` theme with `dragon` style and transparency
+disabled, set:
+
+```
+conf.theme = "kanagawa"
+conf.theme_style = "dragon"
+conf.enable_transparent = false
+```
+
+##### Supported themes
+
+- [catppuccin](https://github.com/catppuccin/nvim.git)
+- [everforest](https://github.com/neanias/everforest-nvim.git)
+- [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
+- [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim.git)
+- [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
+- [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
+- [tokyonight](https://github.com/folke/tokyonight.nvim.git)
+- [tundra](https://github.com/sam4llis/nvim-tundra.git)
+
+A configuration file for each theme is in `lua/themes/` and lualine theme
+configuration for each theme and its styles in `lua/themes/lualine`.
+
+Use `<F8>` to step through themes.
+
+Available styles are:
+
+- kanagawa
+  - wave
+  - dragon
+  - lotus
+- tokyonight
+  - night
+  - storm
+  - day
+  - moon
+- onedarkpro
+  - onedark
+  - onelight
+  - onedark_vivid
+  - onedark_dark
+- monokai-pro
+  - classic
+  - octagon
+  - pro
+  - machine
+  - ristretto
+  - spectrum
+- catppuccin
+  - latte
+  - frappe
+  - macchiato
+  - mocha
+- nightfox
+  - carbonfox
+  - dawnfox
+  - dayfox
+  - duskfox
+  - nightfox
+  - nordfox
+  - terafox
+
+#### Plugin configuration
+
+Several Neovim plugins in the `nvim-lazyman` configuration can be optionally
+installed or replaced by another plugin with similar functionality. The plugins
+that are configurable in this way in `configuration.lua` are briefly described
+below along with their default settings:
+
+- Neovim session manager to use, either persistence or possession
+  - `conf.session_manager = "possession"`
+- Neo-tree or nvim-tree, false will enable nvim-tree
+  - `conf.enable_neotree = true`
+- Replace the UI for messages, cmdline and the popupmenu
+  - `conf.enable_noice = true`
+- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
+  - `conf.enable_chatgpt = false`
+- Enable the newer rainbow treesitter delimiter highlighting
+  - `conf.enable_rainbow2 = true`
+- Enable the wilder plugin
+  - `conf.enable_wilder = false`
+- The statusline (lualine) and tabline can each be enabled or disabled
+  - `conf.disable_statusline = false`
+  - `conf.enable_tabline = true`
+- The winbar with location
+  - `conf.enable_winbar = false`
+- Enable playing games inside Neovim!
+  - `conf.enable_games = true`
+- Enable the Alpha dashboard
+  - `conf.enable_alpha = true`
+- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+  - `conf.enable_bookmarks = false`
+- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+  - `conf.enable_ide = false`
+- Enable Navigator
+  - `conf.enable_navigator = true`
+- Enable Project manager
+  - `conf.enable_project = true`
+- Enable window picker
+  - `conf.enable_picker = true`
+- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
+  - `conf.show_diagnostics = "icons"`
+
+Additional plugin configuration and options are available in `configuration.lua`.
+
+<details><summary>View the default `configuration.lua`</summary>
+
+```lua
+local conf = {}
+
+-- THEME CONFIGURATION
+-- Available themes:
+--   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+-- A configuration file for each theme is in lua/themes/
+-- Use <F8> to step through themes
+conf.theme = "tokyonight"
+-- Available styles are:
+--   kanagawa:    wave, dragon, lotus
+--   tokyonight:  night, storm, day, moon
+--   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
+--   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
+--   catppuccin:  latte, frappe, macchiato, mocha
+--   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+conf.theme_style = "moon"
+-- enable transparency if the theme supports it
+conf.enable_transparent = true
+
+-- GLOBAL OPTIONS CONFIGURATION
+-- Some prefer space as the map leader, but why
+conf.mapleader = ","
+conf.maplocalleader = ","
+-- Toggle global status line
+conf.global_statusline = true
+-- set numbered lines
+conf.number = false
+-- enable mouse see :h mouse
+conf.mouse = "nv"
+-- set relative numbered lines
+conf.relative_number = false
+-- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
+-- see enable_tabline below to disable or enable the tabline
+conf.showtabline = 2
+-- enable or disable listchars
+conf.list = true
+-- which list chars to show
+conf.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
+-- use rg instead of grep
+conf.grepprg = "rg --hidden --vimgrep --smart-case --"
+
+-- ENABLE/DISABLE/SELECT PLUGINS
+-- neovim session manager to use, either persistence or possession
+conf.session_manager = "possession"
+-- neo-tree or nvim-tree, false will enable nvim-tree
+conf.enable_neotree = true
+-- Replace the UI for messages, cmdline and the popupmenu
+conf.enable_noice = true
+-- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+conf.enable_chatgpt = true
+-- Enable the newer rainbow treesitter delimiter highlighting
+conf.enable_rainbow2 = true
+-- Enable fancy lualine components
+conf.enable_fancy = true
+-- Enable the wilder plugin
+conf.enable_wilder = false
+-- The statusline (lualine) and tabline can each be enabled or disabled
+-- Disable statusline (lualine)
+conf.disable_statusline = false
+-- Enable tabline
+conf.enable_tabline = true
+-- Disable winbar with location
+conf.enable_winbar = false
+-- Enable playing games inside Neovim!
+conf.enable_games = true
+-- Enable the Alpha dashboard
+conf.enable_alpha = true
+-- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+conf.enable_bookmarks = false
+-- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+conf.enable_ide = false
+-- Enable Navigator
+conf.enable_navigator = true
+-- Enable Project manager
+conf.enable_project = true
+-- Enable window picker
+conf.enable_picker = true
+
+-- PLUGINS CONFIGURATION
+-- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
+conf.media_backend = "jp2a"
+-- Number of recent files shown in dashboard
+-- 0 disables showing recent files
+conf.dashboard_recent_files = 5
+-- disable the header of the dashboard
+conf.disable_dashboard_header = true
+-- disable quick links of the dashboard
+conf.disable_dashboard_quick_links = false
+-- treesitter parsers to be installed
+-- one of "all", "maintained" (parsers with maintainers), or a list of languages
+conf.treesitter_ensure_installed = "maintained"
+-- Enable clangd or ccls will be used for C/C++ diagnostics
+conf.enable_clangd = false
+-- Tools that should be installed by Mason(-tool-install)
+-- Some of these are installed with Homebrew, which should Mason install?
+conf.mason_tool_installer_ensure_installed = {
+  -- DAP
+  "debugpy",
+  -- LSP
+  "bash-language-server",
+  "dockerfile-language-server",
+  "json-lsp",
+  "marksman",
+  "typescript-language-server",
+  "texlab",
+  "ltex-ls",
+  "lua-language-server",
+  "pyright",
+  "terraform-ls",
+  "yaml-language-server",
+  -- Formatter
+  "black",
+  "prettier",
+  "stylua",
+  "shfmt",
+  -- Linter
+  "eslint_d",
+  "shellcheck",
+  "tflint",
+  "yamllint",
+}
+
+-- enable greping in hidden files
+conf.telescope_grep_hidden = true
+
+-- which patterns to ignore in file switcher
+conf.telescope_file_ignore_patterns = {
+  "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
+  "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
+  "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
+  "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
+  ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
+  "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
+}
+
+-- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
+--   "none":  diagnostics are disabled but still underlined
+--   "icons": only an icon will show, use ',de' to see the diagnostic
+--   "popup": an icon will show and a popup with the diagnostic will appear
+conf.show_diagnostics = "icons"
+
+return conf
+```
+
+</details>
+
 ## OPTIONS
+
+The following command line options are available with the `lazyman` command:
 
 **-A**
 : indicates install all supported Neovim configurations
