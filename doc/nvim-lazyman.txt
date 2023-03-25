@@ -1,17 +1,5 @@
 *nvim-lazyman.txt*Install, initialize, manage, and explore multiple Neovim configurations
 
-==============================================================================
-Table of Contents                             *nvim-lazyman-table-of-contents*
-
-  - NAME                                                   |nvim-lazyman-name|
-  - SYNOPSIS                                           |nvim-lazyman-synopsis|
-  - DESCRIPTION                                     |nvim-lazyman-description|
-  - OPTIONS                                             |nvim-lazyman-options|
-  - CONFIGURATION                                 |nvim-lazyman-configuration|
-  - AUTHORS                                             |nvim-lazyman-authors|
-  - LICENSING                                         |nvim-lazyman-licensing|
-  - BUGS                                                   |nvim-lazyman-bugs|
-
 NAME                                                       *nvim-lazyman-name*
 
 lazyman - install, initialize, manage, and explore multiple Neovim
@@ -129,7 +117,7 @@ config
 
 `-C url` : specifies a URL to a Neovim configuration git repository
 
-`-N` : 'nvimdir' specifies the folder name to use for the config given by -C
+`-N nvimdir` : specifies the folder name to use for the config given by -C
 
 `-U` : indicates update an existing configuration
 
