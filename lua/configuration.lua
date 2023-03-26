@@ -101,7 +101,7 @@ conf.mason_tool_installer_ensure_installed = {
   "bash-language-server",
   -- "dockerfile-language-server",
   "json-lsp",
-  "marksman",
+  -- "marksman",
   -- "typescript-language-server",
   -- "texlab",
   -- "ltex-ls",
