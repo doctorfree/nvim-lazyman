@@ -97,16 +97,17 @@ conf.mason_tool_installer_ensure_installed = {
   -- DAP
   "debugpy",
   -- LSP
+  "lua_ls",
   "bash-language-server",
-  "dockerfile-language-server",
+  -- "dockerfile-language-server",
   "json-lsp",
   "marksman",
-  "typescript-language-server",
-  "texlab",
-  "ltex-ls",
-  "lua-language-server",
+  -- "typescript-language-server",
+  -- "texlab",
+  -- "ltex-ls",
+  -- "lua-language-server",
   "pyright",
-  "terraform-ls",
+  -- "terraform-ls",
   "yaml-language-server",
   -- Formatter
   "black",
