@@ -25,7 +25,7 @@ if settings.enable_rainbow2 then
 end
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = settings.ensure_installed,
+  ensure_installed = settings.treesitter_ensure_installed,
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
   -- Automatically install missing parsers when entering buffer
@@ -37,16 +37,17 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     -- to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
-    end,
+    -- disable = function(lang, buf)
+    --   local max_filesize = 100 * 1024 -- 100 KB
+    --   local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    --   if ok and stats and stats.size > max_filesize then
+    --     return true
+    --   end
+    -- end,
+    disable = {}, -- list of language that will be disabled
 
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
   },
 
   incremental_selection = {
