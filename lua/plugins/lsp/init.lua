@@ -52,20 +52,21 @@ return {
     end,
   },
 
-  {
-    "williamboman/mason-lspconfig.nvim",
-    version = false,
-    dependencies = {
-      "nvim-lspconfig",
-      "mason.nvim",
-    },
-    config = function()
-      require("mason-lspconfig").setup({
-        automatic_installation = true,
-      })
-      -- require("mason-lspconfig").setup_handlers({ setup })
-    end,
-  },
+  -- Require mason-lspconfig in the mason config to ensure correct loading order
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   version = false,
+  --   dependencies = {
+  --     "nvim-lspconfig",
+  --     "mason.nvim",
+  --   },
+  --   config = function()
+  --     require("mason-lspconfig").setup({
+  --       automatic_installation = true,
+  --     })
+  --     -- require("mason-lspconfig").setup_handlers({ setup })
+  --   end,
+  -- },
 
   -- formatters
   {
