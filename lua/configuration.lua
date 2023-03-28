@@ -87,28 +87,22 @@ conf.disable_dashboard_header = true
 -- disable quick links of the dashboard
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
--- one of "all", "maintained" (parsers with maintainers), or a list of languages
--- conf.treesitter_ensure_installed = "maintained"
 conf.treesitter_ensure_installed = {
   "bash",
   "cmake",
   "css",
   "dockerfile",
   "go",
-  "hcl",
   "html",
   "java",
   "javascript",
   "json",
-  "kotlin",
-  "ledger",
   "lua",
   "markdown",
   "markdown_inline",
   "query",
   "python",
   "regex",
-  "terraform",
   "toml",
   "vim",
   "yaml",
