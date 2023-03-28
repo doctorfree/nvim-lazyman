@@ -91,23 +91,22 @@ conf.disable_dashboard_quick_links = false
 conf.treesitter_ensure_installed = "maintained"
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
--- Tools that should be installed by Mason(-tool-install)
--- Some of these are installed with Homebrew, which should Mason install?
-conf.mason_tool_installer_ensure_installed = {
-  -- DAP
-  "debugpy",
-  -- LSP
-  "bash-language-server",
-  "dockerfile-language-server",
-  "json-lsp",
+-- LSPs that should be installed by Mason-lspconfig
+conf.lsp_servers = {
+  "bashls",
+  "dockerls",
+  "jsonls",
+  "ltex",
   "marksman",
-  "typescript-language-server",
-  "texlab",
-  "ltex-ls",
-  "lua-language-server",
   "pyright",
-  -- "terraform-ls",
-  "yaml-language-server",
+  "lua_ls",
+  "terraformls",
+  "texlab",
+  "tsserver",
+  "yamlls",
+}
+-- Tools that should be installed by Mason
+conf.tools = {
   -- Formatter
   "black",
   "prettier",
@@ -118,11 +117,12 @@ conf.mason_tool_installer_ensure_installed = {
   "shellcheck",
   "tflint",
   "yamllint",
+  "ruff",
+  -- DAP
+  "debugpy",
 }
-
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
-
 -- which patterns to ignore in file switcher
 conf.telescope_file_ignore_patterns = {
   "%.7z",
@@ -168,7 +168,6 @@ conf.telescope_file_ignore_patterns = {
   "target/",
   "vendor/*",
 }
-
 -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
 --   "none":  diagnostics are disabled but still underlined
 --   "icons": only an icon will show, use ',de' to see the diagnostic

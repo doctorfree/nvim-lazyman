@@ -109,10 +109,10 @@ capabilities.textDocument.foldingRange = {
 }
 
 require("lspconfig")["awk_ls"].setup({})
--- require("lspconfig")["bashls"].setup({})
+require("lspconfig")["bashls"].setup({})
 require("lspconfig")["pyright"].setup({})
 require("lspconfig")["tsserver"].setup({})
--- require("lspconfig")["rust_analyzer"].setup({})
+require("lspconfig")["rust_analyzer"].setup({})
 require("lspconfig")["ansiblels"].setup({})
 require("lspconfig")["cmake"].setup({})
 require("lspconfig")["cssmodules_ls"].setup({})
@@ -122,7 +122,7 @@ require("lspconfig")["sqlls"].setup({})
 require("lspconfig")["vimls"].setup({})
 require("lspconfig")["taplo"].setup({})
 require("lspconfig")["texlab"].setup({})
-require("lspconfig")["rnix"].setup({})
+-- require("lspconfig")["rnix"].setup({})
 
 require("lspconfig")["yamlls"].setup({
   schemaStore = {

@@ -39,6 +39,9 @@ luac.out
 *.x86_64
 *.hex
 
+# vimdoc tags
+doc/tags
+
 # Working dirs
 tmp/*
 
