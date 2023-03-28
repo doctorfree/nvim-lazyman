@@ -16,7 +16,7 @@ local M = {
       "RRethy/nvim-treesitter-endwise",
       "mfussenegger/nvim-ts-hint-textobject",
       "windwp/nvim-ts-autotag",
-      "nvim-treesitter/playground",
+      -- "nvim-treesitter/playground",
     },
     config = function()
       require("config.treesitter")
@@ -28,7 +28,7 @@ local M = {
     opts = { enable = true },
   },
 
-  { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
+  -- { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 
   {
     rainbow_plugin,
