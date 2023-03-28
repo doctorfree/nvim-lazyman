@@ -6,7 +6,7 @@ return {
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
-      ensure_installed = settings.mason_tool_installer_ensure_installed,
+      ensure_installed = {},
     },
     config = function(_, opts)
       require("mason").setup(opts)
