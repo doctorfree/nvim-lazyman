@@ -39,19 +39,100 @@ Neovim configuration. For example, to use the `LazyVim` Neovim configuration in
     export NVIM_APPNAME="nvim-LazyVim"
 <
 
-Aliases can also be used to switch quickly and easily between Neovim
-configurations. For example, aliases could be created to use Neovim
-configurations installed in `~/.config/nvim-python` and `~/.config/nvim-work`
-as follows:
+In addition to exporting NVIM_APPNAME in your shell initialization file, you
+may wish to create aliases to execute with the various Neovim configurations
+you have installed. For example, aliases could be created to use Neovim
+configurations installed in `~/.config/nvim-LazyVim` and
+`~/.config/nvim-LunarVim` as follows:
 
 >bash
-    alias vip='function _vip(){ export NVIM_APPNAME="nvim-python"; nvim $* };_vip'
-    alias viw='function _viw(){ export NVIM_APPNAME="nvim-work"; nvim $* };_viw'
+    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+    alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
 <
 
-After sourcing these aliases in your shell, to invoke Neovim with the Python
-configuration run `vip filename.py` and to invoke Neovim with your Work config
-run `viw proposal.md`.
+After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
+configuration run `nvim-lazy filename.py` and to invoke Neovim with the
+LunarVim config run `nvim-lunar proposal.md`.
+
+An example `~/.aliases` file might include:
+
+>bash
+    command -v nvim > /dev/null && {
+      alias vi='nvim'
+      items=("default")
+      [ -d $HOME/.config/nvim-lazyman ] && {
+        alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+        items+=("lazyman")
+      }
+      [ -d $HOME/.config/nvim-LazyVim ] && {
+        alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+        items+=("LazyVim")
+      }
+      [ -d $HOME/.config/nvim-Kickstart ] && {
+        alias nvim-kick="NVIM_APPNAME=nvim-Kickstart nvim"
+        items+=("Kickstart")
+      }
+      [ -d $HOME/.config/nvim-NvChad ] && {
+        alias nvim-chad="NVIM_APPNAME=nvim-NvChad nvim"
+        items+=("NvChad")
+      }
+      [ -d $HOME/.config/nvim-AstroNvim ] && {
+        alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
+        items+=("AstroNvim")
+      }
+      [ -d $HOME/.config/nvim-Allaman ] && {
+        alias nvim-aman="NVIM_APPNAME=nvim-Allaman nvim"
+        items+=("Allaman")
+      }
+      [ -d $HOME/.config/nvim-LunarVim ] && {
+        alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+        items+=("LunarVim")
+      }
+      [ -d $HOME/.config/nvim-MultiVim ] && {
+        alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
+        items+=("MultiVim")
+      }
+    
+      function nvims() {
+        config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+        if [[ -z $config ]]; then
+          echo "Nothing selected"
+          return 0
+        elif [[ $config == "default" ]]; then
+          config=""
+        else
+          config="nvim-${config}"
+        fi
+        NVIM_APPNAME=$config nvim $@
+      }
+      bindkey -s ^a "nvims\n"
+    }
+<
+
+In the above example `$HOME/.aliases` file for `zsh` users I have included a
+shell function, `nvims` borrowed from the excellent Neovim switching video
+produced by Elijah Manor <https://github.com/elijahmanor>. This function
+produces a fuzzy searchable list of the installed supported Neovim configs.
+Invoking `nvims` can be an easy way to select which configuration to use for
+this execution of Neovim. Thanks Elijah!
+
+A similar `nvims` function for `bash` users (with the `items` array constructed
+as above) might be something like:
+
+>bash
+    nvims() {
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+      if [[ -z $config ]]; then
+        echo "Nothing selected"
+        return 0
+      elif [[ $config == "default" ]]; then
+        config=""
+      else
+        config="nvim-${config}"
+      fi
+      NVIM_APPNAME=$config nvim $@
+    }
+<
 
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration to
@@ -333,7 +414,13 @@ The default `configuration.lua`:
     -- enable or disable listchars
     conf.list = true
     -- which list chars to show
-    conf.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
+    conf.listchars = {
+      eol = "⤶",
+      tab = ">.",
+      trail = "~",
+      extends = "◀",
+      precedes = "▶",
+    }
     -- use rg instead of grep
     conf.grepprg = "rg --hidden --vimgrep --smart-case --"
     
@@ -385,52 +472,39 @@ The default `configuration.lua`:
     -- disable quick links of the dashboard
     conf.disable_dashboard_quick_links = false
     -- treesitter parsers to be installed
-    -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    conf.treesitter_ensure_installed = "maintained"
+    conf.treesitter_ensure_installed = {
+      "bash", "cmake", "css", "dockerfile", "go", "html", "java",
+      "javascript", "json", "lua", "markdown", "markdown_inline",
+      "query", "python", "regex", "toml", "vim", "yaml",
+    }
     -- Enable clangd or ccls will be used for C/C++ diagnostics
     conf.enable_clangd = false
-    -- Tools that should be installed by Mason(-tool-install)
-    -- Some of these are installed with Homebrew, which should Mason install?
-    conf.mason_tool_installer_ensure_installed = {
+    -- LSPs that should be installed by Mason-lspconfig
+    conf.lsp_servers = {
+      "bashls", "dockerls", "jsonls", "ltex", "marksman", "pyright",
+      "lua_ls", "terraformls", "texlab", "tsserver", "yamlls",
+    }
+    -- Tools that should be installed by Mason
+    conf.tools = {
+      -- Formatter
+      "black", "prettier", "stylua", "shfmt",
+      -- Linter
+      "eslint_d", "shellcheck", "tflint", "yamllint", "ruff",
       -- DAP
       "debugpy",
-      -- LSP
-      "bash-language-server",
-      "dockerfile-language-server",
-      "json-lsp",
-      "marksman",
-      "typescript-language-server",
-      "texlab",
-      "ltex-ls",
-      "lua-language-server",
-      "pyright",
-      "terraform-ls",
-      "yaml-language-server",
-      -- Formatter
-      "black",
-      "prettier",
-      "stylua",
-      "shfmt",
-      -- Linter
-      "eslint_d",
-      "shellcheck",
-      "tflint",
-      "yamllint",
     }
-    
     -- enable greping in hidden files
     conf.telescope_grep_hidden = true
-    
     -- which patterns to ignore in file switcher
     conf.telescope_file_ignore_patterns = {
-      "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
-      "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
-      "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
-      "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
-      ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
-      "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
+      "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class",
+      "%.dll", "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico",
+      "%.ipynb", "%.jar", "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf",
+      "%.pdb", "%.rar", "%.sqlite3", "%.svg", "%.tar", "%.tar.gz", "%.zip",
+      ".git/", ".gradle/", ".idea/", ".settings/", ".vale/", ".vscode/",
+      "__pycache__/*", "build/", "env/", "gradle/", "node_modules/",
+      "smalljre_*/*", "target/", "vendor/*",
     }
-    
     -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
     --   "none":  diagnostics are disabled but still underlined
     --   "icons": only an icon will show, use ',de' to see the diagnostic
