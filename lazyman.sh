@@ -353,7 +353,7 @@ lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
-multivimdir="nvim-Multivim"
+multivimdir="nvim-MultiVim"
 nvimdir="${lazymandir}"
 while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
     case $flag in

@@ -156,6 +156,12 @@ for coding diagnostics. To install these tools, execute:
 lazyman -I
 ```
 
+The installation of these additional tools with `lazyman -I` is optional
+but recommended. Without performing this step, the `lazyman` installation
+and initialization process can consume up to 1.5G in the Homebrew
+folder (depending on whether Neovim needs to be installed). With the
+additional `lazyman -I` installation step, up to 5.7G can be consumed.
+
 ### Manual installation
 
 If you do not wish to use the automated installation and initialization
@@ -835,35 +841,95 @@ than `~/.config/nvim-lazyman`.
 In addition to exporting NVIM_APPNAME in your shell initialization file, you
 may wish to create aliases to execute with the various Neovim configurations
 you have installed. For example, aliases could be created to use Neovim
-configurations installed in `~/.config/nvim-python` and `~/.config/nvim-work`
+configurations installed in `~/.config/nvim-LazyVim` and `~/.config/nvim-LunarVim`
 as follows:
 
 ```bash
-alias vip='function _vip(){ export NVIM_APPNAME="nvim-python"; nvim $* };_vip'
-alias viw='function _viw(){ export NVIM_APPNAME="nvim-work"; nvim $* };_viw'
+alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
 ```
 
-After sourcing these aliases in your shell, to invoke Neovim with the Python
-configuration run `vip filename.py` and to invoke Neovim with your Work config
-run `viw proposal.md`.
+After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
+configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
+config run `nvim-lunar proposal.md`.
 
 An example `~/.aliases` file might include:
 
 ```bash
 command -v nvim > /dev/null && {
   alias vi='nvim'
+  items=("default")
   [ -d $HOME/.config/nvim-lazyman ] && {
-    alias lmvim='function _lmvim(){ export NVIM_APPNAME="nvim-lazyman"; nvim $* };_lmvim'
-  }
-  [ -d $HOME/.config/nvim-AstroNvim ] && {
-    alias avim='function _avim(){ export NVIM_APPNAME="nvim-AstroNvim"; nvim $* };_avim'
+    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+    items+=("lazyman")
   }
   [ -d $HOME/.config/nvim-LazyVim ] && {
-    alias lvim='function _lvim(){ export NVIM_APPNAME="nvim-LazyVim"; nvim $* };_lvim'
+    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+    items+=("LazyVim")
   }
   [ -d $HOME/.config/nvim-Kickstart ] && {
-    alias kvim='function _kvim(){ export NVIM_APPNAME="nvim-Kickstart"; nvim $* };_kvim'
+    alias nvim-kick="NVIM_APPNAME=nvim-Kickstart nvim"
+    items+=("Kickstart")
   }
+  [ -d $HOME/.config/nvim-NvChad ] && {
+    alias nvim-chad="NVIM_APPNAME=nvim-NvChad nvim"
+    items+=("NvChad")
+  }
+  [ -d $HOME/.config/nvim-AstroNvim ] && {
+    alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
+    items+=("AstroNvim")
+  }
+  [ -d $HOME/.config/nvim-Allaman ] && {
+    alias nvim-aman="NVIM_APPNAME=nvim-Allaman nvim"
+    items+=("Allaman")
+  }
+  [ -d $HOME/.config/nvim-LunarVim ] && {
+    alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+    items+=("LunarVim")
+  }
+  [ -d $HOME/.config/nvim-MultiVim ] && {
+    alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
+    items+=("MultiVim")
+  }
+
+  function nvims() {
+    config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+    if [[ -z $config ]]; then
+      echo "Nothing selected"
+      return 0
+    elif [[ $config == "default" ]]; then
+      config=""
+    else
+      config="nvim-${config}"
+    fi
+    NVIM_APPNAME=$config nvim $@
+  }
+  bindkey -s ^a "nvims\n"
+}
+```
+
+In the above example `$HOME/.aliases` file for `zsh` users I have included a
+shell function, `nvims` borrowed from the excellent Neovim switching video
+produced by [Elijah Manor](https://github.com/elijahmanor). This function
+produces a fuzzy searchable list of the installed supported Neovim configs.
+Invoking `nvims` can be an easy way to select which configuration to use
+for this execution of Neovim. Thanks Elijah!
+
+A similar `nvims` function for `bash` users (with the `items` array constructed
+as above) might be something like:
+
+```bash
+nvims() {
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  else
+    config="nvim-${config}"
+  fi
+  NVIM_APPNAME=$config nvim $@
 }
 ```
 

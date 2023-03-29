@@ -170,7 +170,12 @@ install_neovim_dependencies () {
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in ${PKGS}
   do
-		brew_install "${pkg}"
+    if command -v ${pkg} >/dev/null 2>&1
+	  then
+      log "Using previously installed ${pkg} ... done"
+	  else
+		  brew_install "${pkg}"
+    fi
   done
   if command -v rg >/dev/null 2>&1
 	then
@@ -325,12 +330,14 @@ main () {
         log "Currently installed Neovim is less than version 0.9"
         [ "${nvim_head}" ] && {
           install_homebrew
+          install_neovim_dependencies
           log "Installing latest Neovim version with Homebrew"
           install_neovim_head
         }
       fi
     else
       install_homebrew
+      install_neovim_dependencies
       log "Neovim not found, installing Neovim with Homebrew"
       if [ "${nvim_head}" ]
       then

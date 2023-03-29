@@ -53,7 +53,7 @@ conf.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = true
+conf.enable_chatgpt = false
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable fancy lualine components
