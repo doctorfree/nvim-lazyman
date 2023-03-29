@@ -35,7 +35,13 @@ conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
 -- which list chars to show
-conf.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
+conf.listchars = {
+  eol = "⤶",
+  tab = ">.",
+  trail = "~",
+  extends = "◀",
+  precedes = "▶",
+}
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 

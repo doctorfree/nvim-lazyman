@@ -314,7 +314,13 @@ conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
 -- which list chars to show
-conf.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
+conf.listchars = {
+  eol = "⤶",
+  tab = ">.",
+  trail = "~",
+  extends = "◀",
+  precedes = "▶",
+}
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
@@ -366,52 +372,39 @@ conf.disable_dashboard_header = true
 -- disable quick links of the dashboard
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
--- one of "all", "maintained" (parsers with maintainers), or a list of languages
-conf.treesitter_ensure_installed = "maintained"
+conf.treesitter_ensure_installed = {
+  "bash", "cmake", "css", "dockerfile", "go", "html", "java",
+  "javascript", "json", "lua", "markdown", "markdown_inline",
+  "query", "python", "regex", "toml", "vim", "yaml",
+}
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
--- Tools that should be installed by Mason(-tool-install)
--- Some of these are installed with Homebrew, which should Mason install?
-conf.mason_tool_installer_ensure_installed = {
+-- LSPs that should be installed by Mason-lspconfig
+conf.lsp_servers = {
+  "bashls", "dockerls", "jsonls", "ltex", "marksman", "pyright",
+  "lua_ls", "terraformls", "texlab", "tsserver", "yamlls",
+}
+-- Tools that should be installed by Mason
+conf.tools = {
+  -- Formatter
+  "black", "prettier", "stylua", "shfmt",
+  -- Linter
+  "eslint_d", "shellcheck", "tflint", "yamllint", "ruff",
   -- DAP
   "debugpy",
-  -- LSP
-  "bash-language-server",
-  "dockerfile-language-server",
-  "json-lsp",
-  "marksman",
-  "typescript-language-server",
-  "texlab",
-  "ltex-ls",
-  "lua-language-server",
-  "pyright",
-  "terraform-ls",
-  "yaml-language-server",
-  -- Formatter
-  "black",
-  "prettier",
-  "stylua",
-  "shfmt",
-  -- Linter
-  "eslint_d",
-  "shellcheck",
-  "tflint",
-  "yamllint",
 }
-
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
-
 -- which patterns to ignore in file switcher
 conf.telescope_file_ignore_patterns = {
-  "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
-  "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
-  "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
-  "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
-  ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
-  "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
+  "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class",
+  "%.dll", "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico",
+  "%.ipynb", "%.jar", "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf",
+  "%.pdb", "%.rar", "%.sqlite3", "%.svg", "%.tar", "%.tar.gz", "%.zip",
+  ".git/", ".gradle/", ".idea/", ".settings/", ".vale/", ".vscode/",
+  "__pycache__/*", "build/", "env/", "gradle/", "node_modules/",
+  "smalljre_*/*", "target/", "vendor/*",
 }
-
 -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
 --   "none":  diagnostics are disabled but still underlined
 --   "icons": only an icon will show, use ',de' to see the diagnostic

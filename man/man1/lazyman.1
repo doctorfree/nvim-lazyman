@@ -501,7 +501,13 @@ conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
 -- which list chars to show
-conf.listchars = \[dq]eol:\[tno],tab:>\[pc],trail:\[ti],extends:>,precedes:<\[dq]
+conf.listchars = {
+  eol = \[dq]\[u2936]\[dq],
+  tab = \[dq]>.\[dq],
+  trail = \[dq]\[ti]\[dq],
+  extends = \[dq]\[u25C0]\[dq],
+  precedes = \[dq]\[u25B6]\[dq],
+}
 -- use rg instead of grep
 conf.grepprg = \[dq]rg --hidden --vimgrep --smart-case --\[dq]
 
@@ -553,52 +559,39 @@ conf.disable_dashboard_header = true
 -- disable quick links of the dashboard
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
--- one of \[dq]all\[dq], \[dq]maintained\[dq] (parsers with maintainers), or a list of languages
-conf.treesitter_ensure_installed = \[dq]maintained\[dq]
+conf.treesitter_ensure_installed = {
+  \[dq]bash\[dq], \[dq]cmake\[dq], \[dq]css\[dq], \[dq]dockerfile\[dq], \[dq]go\[dq], \[dq]html\[dq], \[dq]java\[dq],
+  \[dq]javascript\[dq], \[dq]json\[dq], \[dq]lua\[dq], \[dq]markdown\[dq], \[dq]markdown_inline\[dq],
+  \[dq]query\[dq], \[dq]python\[dq], \[dq]regex\[dq], \[dq]toml\[dq], \[dq]vim\[dq], \[dq]yaml\[dq],
+}
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
--- Tools that should be installed by Mason(-tool-install)
--- Some of these are installed with Homebrew, which should Mason install?
-conf.mason_tool_installer_ensure_installed = {
+-- LSPs that should be installed by Mason-lspconfig
+conf.lsp_servers = {
+  \[dq]bashls\[dq], \[dq]dockerls\[dq], \[dq]jsonls\[dq], \[dq]ltex\[dq], \[dq]marksman\[dq], \[dq]pyright\[dq],
+  \[dq]lua_ls\[dq], \[dq]terraformls\[dq], \[dq]texlab\[dq], \[dq]tsserver\[dq], \[dq]yamlls\[dq],
+}
+-- Tools that should be installed by Mason
+conf.tools = {
+  -- Formatter
+  \[dq]black\[dq], \[dq]prettier\[dq], \[dq]stylua\[dq], \[dq]shfmt\[dq],
+  -- Linter
+  \[dq]eslint_d\[dq], \[dq]shellcheck\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
   -- DAP
   \[dq]debugpy\[dq],
-  -- LSP
-  \[dq]bash-language-server\[dq],
-  \[dq]dockerfile-language-server\[dq],
-  \[dq]json-lsp\[dq],
-  \[dq]marksman\[dq],
-  \[dq]typescript-language-server\[dq],
-  \[dq]texlab\[dq],
-  \[dq]ltex-ls\[dq],
-  \[dq]lua-language-server\[dq],
-  \[dq]pyright\[dq],
-  \[dq]terraform-ls\[dq],
-  \[dq]yaml-language-server\[dq],
-  -- Formatter
-  \[dq]black\[dq],
-  \[dq]prettier\[dq],
-  \[dq]stylua\[dq],
-  \[dq]shfmt\[dq],
-  -- Linter
-  \[dq]eslint_d\[dq],
-  \[dq]shellcheck\[dq],
-  \[dq]tflint\[dq],
-  \[dq]yamllint\[dq],
 }
-
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
-
 -- which patterns to ignore in file switcher
 conf.telescope_file_ignore_patterns = {
-  \[dq]%.7z\[dq], \[dq]%.MOV\[dq], \[dq]%.RAF\[dq], \[dq]%.burp\[dq], \[dq]%.bz2\[dq], \[dq]%.cache\[dq], \[dq]%.class\[dq], \[dq]%.dll\[dq],
-  \[dq]%.docx\[dq], \[dq]%.dylib\[dq], \[dq]%.epub\[dq], \[dq]%.exe\[dq], \[dq]%.flac\[dq], \[dq]%.ico\[dq], \[dq]%.ipynb\[dq], \[dq]%.jar\[dq],
-  \[dq]%.lock\[dq], \[dq]%.mkv\[dq], \[dq]%.mov\[dq], \[dq]%.mp4\[dq], \[dq]%.otf\[dq], \[dq]%.pdb\[dq], \[dq]%.rar\[dq], \[dq]%.sqlite3\[dq],
-  \[dq]%.svg\[dq], \[dq]%.tar\[dq], \[dq]%.tar.gz\[dq], \[dq]%.zip\[dq], \[dq].git/\[dq], \[dq].gradle/\[dq], \[dq].idea/\[dq],
-  \[dq].settings/\[dq], \[dq].vale/\[dq], \[dq].vscode/\[dq], \[dq]__pycache__/*\[dq], \[dq]build/\[dq], \[dq]env/\[dq],
-  \[dq]gradle/\[dq], \[dq]node_modules/\[dq], \[dq]smalljre_*/*\[dq], \[dq]target/\[dq], \[dq]vendor/*\[dq],
+  \[dq]%.7z\[dq], \[dq]%.MOV\[dq], \[dq]%.RAF\[dq], \[dq]%.burp\[dq], \[dq]%.bz2\[dq], \[dq]%.cache\[dq], \[dq]%.class\[dq],
+  \[dq]%.dll\[dq], \[dq]%.docx\[dq], \[dq]%.dylib\[dq], \[dq]%.epub\[dq], \[dq]%.exe\[dq], \[dq]%.flac\[dq], \[dq]%.ico\[dq],
+  \[dq]%.ipynb\[dq], \[dq]%.jar\[dq], \[dq]%.lock\[dq], \[dq]%.mkv\[dq], \[dq]%.mov\[dq], \[dq]%.mp4\[dq], \[dq]%.otf\[dq],
+  \[dq]%.pdb\[dq], \[dq]%.rar\[dq], \[dq]%.sqlite3\[dq], \[dq]%.svg\[dq], \[dq]%.tar\[dq], \[dq]%.tar.gz\[dq], \[dq]%.zip\[dq],
+  \[dq].git/\[dq], \[dq].gradle/\[dq], \[dq].idea/\[dq], \[dq].settings/\[dq], \[dq].vale/\[dq], \[dq].vscode/\[dq],
+  \[dq]__pycache__/*\[dq], \[dq]build/\[dq], \[dq]env/\[dq], \[dq]gradle/\[dq], \[dq]node_modules/\[dq],
+  \[dq]smalljre_*/*\[dq], \[dq]target/\[dq], \[dq]vendor/*\[dq],
 }
-
 -- Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq], \[dq]popup\[dq]. Default is \[dq]popup\[dq]
 --   \[dq]none\[dq]:  diagnostics are disabled but still underlined
 --   \[dq]icons\[dq]: only an icon will show, use \[aq],de\[aq] to see the diagnostic
