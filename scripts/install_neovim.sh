@@ -172,18 +172,18 @@ install_neovim_dependencies () {
   do
     if command -v ${pkg} >/dev/null 2>&1
 	  then
-      log "Using previously installed ${pkg} ... done"
+      log "Using previously installed ${pkg}"
 	  else
 		  brew_install "${pkg}"
     fi
   done
   if command -v rg >/dev/null 2>&1
 	then
-    log "Using previously installed ripgrep ... done"
+    log "Using previously installed ripgrep"
 	else
 	  brew_install ripgrep
 	fi
-  [ "${quiet}" ] || printf "\nDone"
+  [ "${quiet}" ] || printf "\n"
 }
 
 install_neovim_head () {
@@ -327,18 +327,18 @@ main () {
     if command -v nvim >/dev/null 2>&1; then
       nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
       if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
-        log "Currently installed Neovim is less than version 0.9"
+        printf "\nCurrently installed Neovim is less than version 0.9"
         [ "${nvim_head}" ] && {
           install_homebrew
           install_neovim_dependencies
-          log "Installing latest Neovim version with Homebrew"
+          printf "\nInstalling latest Neovim version with Homebrew"
           install_neovim_head
         }
       fi
     else
       install_homebrew
       install_neovim_dependencies
-      log "Neovim not found, installing Neovim with Homebrew"
+      printf "\nNeovim not found, installing Neovim with Homebrew"
       if [ "${nvim_head}" ]
       then
         install_neovim_head

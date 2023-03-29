@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/lazyman.sh) script. Download and execute to get started.
+All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.1r1/lazyman.sh) script. Download and execute to get started.
 
 The Lazyman project can be used to install, initialize, and manage multiple Neovim configurations. Several popular Neovim configurations are supported including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/), [Allaman](https://github.com/Allaman/nvim), [Kickstart](https://github.com/nvim-lua/kickstart.nvim), [LunarVim](https://github.com/LunarVim/LunarVim), and [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -42,7 +42,7 @@ Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not alrea
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, or a copy/paste.
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.0r3/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 

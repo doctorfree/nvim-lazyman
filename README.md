@@ -682,7 +682,7 @@ conf.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = true
+conf.enable_chatgpt = false
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable fancy lualine components
@@ -723,40 +723,25 @@ conf.disable_dashboard_header = true
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash",
-  "cmake",
-  "css",
-  "dockerfile",
-  "go",
-  "html",
-  "java",
-  "javascript",
-  "json",
-  "lua",
-  "markdown",
-  "markdown_inline",
-  "query",
-  "python",
-  "regex",
-  "toml",
-  "vim",
-  "yaml",
+  "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
+  "query", "python", "regex", "toml", "vim", "yaml",
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "dockerls", "jsonls", "ltex", "marksman", "pyright",
-  "lua_ls", "terraformls", "texlab", "tsserver", "yamlls",
+  "bashls", "cssmodules_ls", "dockerls", "jsonls", "ltex", "marksman",
+  "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "yamlls",
+}
+-- Formatters installed by mason-null-ls
+conf.formatters = {
+  "black", "prettier", "stylua", "shfmt", "google_java_format",
+  "sql_formatter", "markdownlint", "beautysh",
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  -- Formatter
-  "black", "prettier", "stylua", "shfmt",
-  -- Linter
-  "eslint_d", "shellcheck", "tflint", "yamllint", "ruff",
-  -- DAP
-  "debugpy",
+  "eslint_d", "shellcheck", "tflint",
+  "yamllint", "ruff", "debugpy",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -1383,7 +1368,7 @@ lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
-multivimdir="nvim-Multivim"
+multivimdir="nvim-MultiVim"
 nvimdir="${lazymandir}"
 while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
     case $flag in
@@ -1672,8 +1657,10 @@ then
   [ "${BREW_EXE}" ] && eval "$(${BREW_EXE} shellenv)"
   have_nvim=$(type -p nvim)
   [ "${have_nvim}" ] || {
-    printf "\nERROR: cannot locate neovim"
-    printf "\nInstall neovim and retry this install script\n"
+    printf "\nERROR: cannot locate neovim."
+    printf "\nHomebrew install failure, manual debug required."
+    printf "\n\t'brew update && lazyman -d'."
+    printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
     brief_usage
   }
 else
@@ -1796,6 +1783,7 @@ done
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
+[ "${hardlimit}" == "unlimited" ] && hardlimit=9999
 if [ ${hardlimit} -gt 4096 ]
 then
   [ "${tellme}" ] || ulimit -n 4096
@@ -1862,27 +1850,27 @@ fi
   printf "\ncreate an alias for each configuration similar to the following:"
   if [ "${all}" ]
   then
-    printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim \$\* };_nvim'"
+    printf "\n\nalias lnvim='NVIM_APPNAME=nvim-lazyman nvim'"
   elif [ "${astronvim}" ]
   then
-    printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_avim'"
+    printf "\n\nalias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
   elif [ "${kickstart}" ]
   then
-    printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_kvim'"
+    printf "\n\nalias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
   elif [ "${lazyvim}" ]
   then
-    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
+    printf "\n\nalias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
   elif [ "${allaman}" ]
   then
-    printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
+    printf "\n\nalias mvim='NVIM_APPNAME=nvim-Allaman nvim'"
   elif [ "${lunarvim}" ]
   then
-    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
+    printf "\n\nalias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
   elif [ "${nvchad}" ]
   then
-    printf "\n\nalias cvim='function _cvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_cvim'"
+    printf "\n\nalias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
   else
-    printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lmvim'"
+    printf "\n\nalias lmvim=\"NVIM_APPNAME=${nvimdir} nvim\""
   fi
 }
 printf "\n\n"
@@ -1933,14 +1921,6 @@ executes the following on your system:
 #
 # Install Neovim and all dependencies for the Neovim config at:
 #     https://github.com/doctorfree/nvim-lazyman
-#
-# These are handled by Mason, no need to install here:
-#
-# ansible-language-server awk-language-server bash-language-server clangd
-# cmake-language-server cssmodules-language-server debugpy
-# dockerfile-language-server eslint-lsp google-java-format jq json-lsp
-# lua-language-server rnix-lsp sql-formatter sqlls typescript-language-server
-# vim-language-server yaml-language-server
 #
 # shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
@@ -2081,11 +2061,11 @@ install_homebrew () {
 }
 
 brew_install() {
-  brewpkg="$1"
+	brewpkg="$1"
   if command -v ${brewpkg} >/dev/null 2>&1
-  then
+	then
     log "Using previously installed ${brewpkg} ..."
-  else
+	else
     log "Installing ${brewpkg} ..."
     [ "${debug}" ] && START_SECONDS=$(date +%s)
     ${BREW_EXE} install --quiet ${brewpkg} > /dev/null 2>&1
@@ -2097,7 +2077,7 @@ brew_install() {
       ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
       printf " elapsed time = %s${ELAPSED}"
     fi
-  fi
+	fi
   [ "${quiet}" ] || printf " done"
 }
 
@@ -2106,24 +2086,32 @@ install_neovim_dependencies () {
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in ${PKGS}
   do
-    brew_install "${pkg}"
+    if command -v ${pkg} >/dev/null 2>&1
+	  then
+      log "Using previously installed ${pkg}"
+	  else
+		  brew_install "${pkg}"
+    fi
   done
   if command -v rg >/dev/null 2>&1
-  then
-    log "Using previously installed ripgrep ... done"
-  else
-    brew_install ripgrep
-  fi
-  [ "${quiet}" ] || printf "\nDone"
+	then
+    log "Using previously installed ripgrep"
+	else
+	  brew_install ripgrep
+	fi
+  [ "${quiet}" ] || printf "\n"
 }
 
 install_neovim_head () {
+  ${BREW_EXE} link -q libuv > /dev/null 2>&1
   log "Compiling and installing Neovim, please be patient ..."
   if [ "${debug}" ]
   then
     START_SECONDS=$(date +%s)
+    ${BREW_EXE} install --HEAD neovim
+  else
+    ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
   fi
-  ${BREW_EXE} install -q --HEAD neovim > /dev/null 2>&1
   if [ "${debug}" ]
   then
     FINISH_SECONDS=$(date +%s)
@@ -2161,60 +2149,21 @@ link_python () {
   }
 }
 
+# Language servers are mostly being handled by Mason
+# but some external utilities are required
 install_language_servers() {
   [ "${quiet}" ] || printf "\nInstalling language servers and tools"
-  have_npm=$(type -p npm)
-  [ "${have_npm}" ] && {
-    [ "${debug}" ] && START_SECONDS=$(date +%s)
-    # for pkg in awk-language-server cssmodules-language-server eslint_d \
-    #            vim-language-server dockerfile-language-server-nodejs
-    for pkg in eslint_d
-    do
-      if command -v ${pkg} >/dev/null 2>&1
-      then
-        [ "${quiet}" ] || log "Using previously installed ${pkg} ..."
-      else
-        [ "${quiet}" ] || log "Installing ${pkg} ..."
-        npm i -g ${pkg} > /dev/null 2>&1
-        [ "${quiet}" ] || printf " done"
-      fi
-    done
-    [ "${debug}" ] && {
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$(( FINISH_SECONDS - START_SECONDS ))
-      ELAPSED=`eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')"`
-      printf "\nNpm tools install elapsed time = %s${ELAPSED}\n"
-    }
-  }
-  # brew installed language servers
-  for server in pyright vscode-langservers-extracted
-  do
-    brew_install "${server}"
-  done
-  if command -v tsserver >/dev/null 2>&1
-  then
-    log "Using previously installed typescript ... done"
-  else
-    brew_install typescript
-  fi
-  # for server in ansible bash haskell sql lua typescript yaml
-  for server in haskell
-  do
-    brew_install "${server}-language-server"
-  done
 
-  brew_install ccls
+	brew_install ccls
   ${BREW_EXE} link --overwrite --quiet ccls > /dev/null 2>&1
 
-  for pkg in golangci-lint jdtls marksman rust-analyzer shellcheck \
-             taplo texlab stylua eslint prettier terraform black shfmt \
+  for pkg in golangci-lint jdtls rust-analyzer taplo eslint terraform \
              yarn julia composer php deno
   do
-    brew_install "${pkg}"
+		brew_install "${pkg}"
   done
 
   [ "${PYTHON}" ] && {
-    # ${PYTHON} -m pip install cmake-language-server > /dev/null 2>&1
     ${PYTHON} -m pip install python-lsp-server > /dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
@@ -2257,7 +2206,7 @@ install_tools() {
     [ "${quiet}" ] || printf " done"
   }
 
-  brew_install tree-sitter
+	brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config > /dev/null 2>&1
   fi
@@ -2294,16 +2243,18 @@ main () {
     if command -v nvim >/dev/null 2>&1; then
       nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
       if (( $(echo "$nvim_version < 0.9 " |bc -l) )); then
-        log "Currently installed Neovim is less than version 0.9"
+        printf "\nCurrently installed Neovim is less than version 0.9"
         [ "${nvim_head}" ] && {
           install_homebrew
-          log "Installing latest Neovim version with Homebrew"
+          install_neovim_dependencies
+          printf "\nInstalling latest Neovim version with Homebrew"
           install_neovim_head
         }
       fi
     else
       install_homebrew
-      log "Neovim not found, installing Neovim with Homebrew"
+      install_neovim_dependencies
+      printf "\nNeovim not found, installing Neovim with Homebrew"
       if [ "${nvim_head}" ]
       then
         install_neovim_head
@@ -2340,6 +2291,7 @@ done
 
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
+[ "${hardlimit}" == "unlimited" ] && hardlimit=9999
 if [ ${hardlimit} -gt 4096 ]
 then
   ulimit -n 4096
