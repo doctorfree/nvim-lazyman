@@ -119,6 +119,10 @@ map("n", "<leader>uc", function() Util.toggle("conceallevel", false, {0, conceal
 map("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root() }) end, { desc = "Lazygit (root dir)" })
 map("n", "<leader>gG", function() Util.float_term({ "lazygit" }) end, { desc = "Lazygit (cwd)" })
 
+-- gitignore
+local gitignore = require("gitignore")
+map("n", "<leader>gi", gitignore.generate)
+
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 

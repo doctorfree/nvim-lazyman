@@ -5,6 +5,14 @@ return {
   },
 
   {
+    "wintermute-cell/gitignore.nvim",
+    lazy = true,
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    },
+  },
+
+  {
     "junegunn/gv.vim",
     lazy = false,
   },
