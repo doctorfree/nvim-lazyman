@@ -835,27 +835,27 @@ fi
   printf "\ncreate an alias for each configuration similar to the following:"
   if [ "${all}" ]
   then
-    printf "\n\nalias lnvim='function _nvim(){ export NVIM_APPNAME=\"nvim-lazyman\"; nvim \$\* };_nvim'"
+    printf "\n\nalias lnvim='NVIM_APPNAME=nvim-lazyman nvim'"
   elif [ "${astronvim}" ]
   then
-    printf "\n\nalias avim='function _avim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_avim'"
+    printf "\n\nalias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
   elif [ "${kickstart}" ]
   then
-    printf "\n\nalias kvim='function _kvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_kvim'"
+    printf "\n\nalias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
   elif [ "${lazyvim}" ]
   then
-    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
+    printf "\n\nalias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
   elif [ "${allaman}" ]
   then
-    printf "\n\nalias mvim='function _mvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_mvim'"
+    printf "\n\nalias mvim='NVIM_APPNAME=nvim-Allaman nvim'"
   elif [ "${lunarvim}" ]
   then
-    printf "\n\nalias lvim='function _lvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lvim'"
+    printf "\n\nalias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
   elif [ "${nvchad}" ]
   then
-    printf "\n\nalias cvim='function _cvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_cvim'"
+    printf "\n\nalias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
   else
-    printf "\n\nalias lmvim='function _lmvim(){ export NVIM_APPNAME=\"${nvimdir}\"; nvim \$\* };_lmvim'"
+    printf "\n\nalias lmvim=\"NVIM_APPNAME=${nvimdir} nvim\""
   fi
 }
 printf "\n\n"

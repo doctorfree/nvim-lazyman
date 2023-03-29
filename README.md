@@ -860,7 +860,7 @@ command -v nvim > /dev/null && {
   alias vi='nvim'
   items=("default")
   [ -d $HOME/.config/nvim-lazyman ] && {
-    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+    alias nvim-lazy="NVIM_APPNAME=nvim-lazyman nvim"
     items+=("lazyman")
   }
   [ -d $HOME/.config/nvim-LazyVim ] && {
