@@ -160,14 +160,14 @@ require("lspconfig").jsonls.setup({
   capabilities = capabilities,
 })
 
-require("lspconfig").eslint.setup({
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
-})
+-- require("lspconfig").eslint.setup({
+--   on_attach = function(client, bufnr)
+--     vim.api.nvim_create_autocmd("BufWritePre", {
+--       buffer = bufnr,
+--       command = "EslintFixAll",
+--     })
+--   end,
+-- })
 
 if settings.enable_clangd then
   require("lspconfig").clangd.setup({})

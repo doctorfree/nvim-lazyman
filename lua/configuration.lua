@@ -95,13 +95,9 @@ conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
-  "cmake",
-  "css",
-  "dockerfile",
   "go",
   "html",
   "java",
-  "javascript",
   "json",
   "lua",
   "markdown",
@@ -118,6 +114,7 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
   "bashls",
+  "cssmodules_ls",
   "dockerls",
   "jsonls",
   "ltex",
@@ -129,20 +126,24 @@ conf.lsp_servers = {
   "tsserver",
   "yamlls",
 }
--- Tools that should be installed by Mason
-conf.tools = {
-  -- Formatter
+-- Formatters installed by mason-null-ls
+conf.formatters = {
   "black",
   "prettier",
   "stylua",
   "shfmt",
-  -- Linter
+  "google_java_format",
+  "sql_formatter",
+  "markdownlint",
+  "beautysh",
+}
+-- Tools that should be installed by Mason
+conf.tools = {
   "eslint_d",
   "shellcheck",
   "tflint",
   "yamllint",
   "ruff",
-  -- DAP
   "debugpy",
 }
 -- enable greping in hidden files
