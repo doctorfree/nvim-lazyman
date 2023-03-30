@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -186,7 +186,9 @@ The following command line options are available with the `lazyman` command:
 
 `-n` : indicates dry run, don't actually do anything, just printf's
 
-`-p` : indicates use Packer rather than Lazy to initialize
+`-P` : indicates use Packer rather than Lazy to initialize
+
+`-p` : indicates use Plug rather than Lazy to initialize
 
 `-q` : indicates quiet install
 

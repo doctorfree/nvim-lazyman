@@ -8,13 +8,13 @@
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]"
-  printf "\n       [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\n   [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   exit 1
 }
 
 usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]"
-  printf "\n       [-n] [-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\n   [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
   printf "\nWhere:"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvim Neovim configuration"
@@ -30,6 +30,7 @@ usage() {
   printf "\n    -m indicates install and initialize Allaman Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -n indicates dry run, don't actually do anything, just printf's"
+  printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
@@ -95,7 +96,12 @@ run_command() {
       then
         nvim --headless -c 'autocmd User PackerComplete quitall' -c "Packer${comm}"
       else
-        nvim --headless "+Lazy! ${comm}" +qa
+        if [ "${plug}" ]
+        then
+          nvim --headless -c 'set nomore' -c "Plug${comm}" -c 'qa'
+        else
+          nvim --headless "+Lazy! ${comm}" +qa
+        fi
       fi
     else
       if [ "${packer}" ]
@@ -103,7 +109,12 @@ run_command() {
         nvim --headless -c \
           'autocmd User PackerComplete quitall' -c "Packer${comm}" > /dev/null 2>&1
       else
-        nvim --headless "+Lazy! ${comm}" +qa > /dev/null 2>&1
+        if [ "${plug}" ]
+        then
+          nvim --headless -c 'set nomore' -c "Plug${comm}" -c 'qa' > /dev/null 2>&1
+        else
+          nvim --headless "+Lazy! ${comm}" +qa > /dev/null 2>&1
+        fi
       fi
     fi
   }
@@ -119,7 +130,14 @@ init_neovim() {
       then
         nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
       else
-        nvim --headless "+Lazy! sync" +qa
+        if [ "${plug}" ]
+        then
+          nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa'
+          nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa'
+          nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa'
+        else
+          nvim --headless "+Lazy! sync" +qa
+        fi
       fi
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
@@ -130,7 +148,14 @@ init_neovim() {
         nvim --headless -c \
           'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null 2>&1
       else
-        nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+        if [ "${plug}" ]
+        then
+          nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa' > /dev/null 2>&1
+          nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa' > /dev/null 2>&1
+          nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa' > /dev/null 2>&1
+        else
+          nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+        fi
       fi
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa > /dev/null 2>&1
@@ -338,6 +363,7 @@ lazyvim=
 lunarvim=
 multivim=
 nvchad=
+plug=
 packer=
 proceed=
 quiet=
@@ -355,7 +381,7 @@ allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 multivimdir="nvim-MultiVim"
 nvimdir="${lazymandir}"
-while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
+while getopts "aAb:cde:IklMmnL:pPqrRUC:N:vyu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -410,6 +436,9 @@ while getopts "aAb:cde:IklMmnL:PqrRUC:N:vyu" flag; do
             ;;
         n)
             tellme=1
+            ;;
+        p)
+            plug=1
             ;;
         P)
             packer=1
@@ -761,6 +790,21 @@ done
     [ "${tellme}" ] || {
       git clone --depth 1 \
           https://github.com/wbthomason/packer.nvim "${PACKER}" > /dev/null 2>&1
+    }
+    [ "${quiet}" ] || printf "done"
+  }
+}
+
+[ "${plug}" ] && {
+  PLUG="${HOME}/.local/share/${nvimdir}/site/autoload/plug.vim"
+  [ -d "${PLUG}" ] || {
+    [ "${quiet}" ] || {
+      printf "\nCopying plug.vim to ${PLUG} ... "
+    }
+    [ "${tellme}" ] || {
+      sh -c "curl -fLo ${PLUG} --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+        > /dev/null 2>&1
     }
     [ "${quiet}" ] || printf "done"
   }
