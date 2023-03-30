@@ -224,6 +224,8 @@ Without arguments lazyman installs and initializes nvim-lazyman
 
 `lazyman -A -U` : updates all installed supported Neovim configurations
 
+`lazyman -P -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract` : installs and initializes the Packer based 'Abstract' Neovim configuration in `~/.config/nvim-Abstract`
+
 `lazyman -R -N nvim-LazyVim` : removes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`, its data files, cache, state, and all backups
 
 ## CONFIGURATION

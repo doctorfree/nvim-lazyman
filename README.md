@@ -788,10 +788,20 @@ lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P
 ```
 
 After `export NVIM_APPNAME="nvim-Abstract"`, invoking `nvim` will bring up
-the Abstract Neovim configuration. **[Note:]** Abstract is currently
-using the deprecated `filetype_to_parsername` which causes a warning with
-Neovim 0.9. An issue suggesting a move to `vim.treesitter.language.register`
-has been opened and this should be fixed soon.
+the Abstract Neovim configuration.
+
+Another Packer based Neovim configuration, this one using Fennel, serves as
+a second example:
+
+```bash
+lazyman -C https://github.com/jhchabran/nvim-config -N nvim-fennel -P
+```
+
+To begin exploring this Neovim configuration:
+
+```bash
+NVIM_APPNAME="nvim-fennel" nvim ~/.config/nvim-fennel/fnl/conf/init.fnl
+```
 
 ### Health check
 
