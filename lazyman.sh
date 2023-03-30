@@ -372,6 +372,7 @@ removeall=
 update=
 url=
 name=
+pmgr="Lazy"
 lazymandir="nvim-lazyman"
 astronvimdir="nvim-AstroNvim"
 kickstartdir="nvim-Kickstart"
@@ -439,9 +440,11 @@ while getopts "aAb:cde:IklMmnL:pPqrRUC:N:vyu" flag; do
             ;;
         p)
             plug=1
+            pmgr="Plug"
             ;;
         P)
             packer=1
+            pmgr="Packer"
             ;;
         q)
             quiet=1
@@ -823,7 +826,7 @@ fi
 for neovim in ${nvimdir}
 do
   [ "${quiet}" ] || {
-    printf "\nInitializing newly installed ${neovim} Neovim configuration ... "
+    printf "\nInitializing newly installed ${neovim} Neovim configuration with ${pmgr} ... "
   }
   init_neovim "${neovim}"
   [ "${quiet}" ] || printf "done"
