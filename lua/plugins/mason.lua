@@ -23,29 +23,6 @@ return {
     end,
   },
 
-  -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "mason.nvim" },
-    config = function()
-      local null_ls = require("null-ls")
-      local formatting = null_ls.builtins.formatting
-      null_ls.setup({
-        debug = false,
-        sources = {
-          formatting.prettier,
-          formatting.stylua,
-          formatting.google_java_format,
-          formatting.black.with({ extra_args = { "--fast" } }),
-          formatting.sql_formatter.with({ extra_args = { "--config" } }),
-          formatting.markdownlint,
-          formatting.beautysh.with({ extra_args = { "--indent-size", "2" } }),
-        },
-      })
-    end,
-  },
-
   {
     "jay-babu/mason-null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -56,7 +33,7 @@ return {
     opts = {
       ensure_installed = settings.formatters,
       automatic_setup = true,
-      -- automatic_installation = false,
+      automatic_installation = true,
     },
     config = function()
       require 'mason-null-ls'.setup_handlers() -- If `automatic_setup` is true.

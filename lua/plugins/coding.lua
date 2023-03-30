@@ -165,4 +165,10 @@ return {
       require("config.lspsaga")
     end,
   },
+
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+    lazy = true,
+  },
 }

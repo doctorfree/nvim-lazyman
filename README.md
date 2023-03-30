@@ -425,7 +425,7 @@ configuration execute the command `lazyman -l`. To install and initialize
 all supported Lazyman Neovim configurations execute `lazyman -A`.
 
 After installing and initializing Neovim configurations with `lazyman`,
-easily explore various configurations with the `lazyman -e <config> ...`
+easily explore various configurations with the `lazyman -e <config> …`
 command. See the
 [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 section below for details.
@@ -985,7 +985,7 @@ To instead use the LunarVim Neovim configuration to edit `foo.lua`:
 lazyman -e lunarvim foo.lua
 ```
 
-Before using `lazyman -e <config> ...` to explore a Neovim configuration,
+Before using `lazyman -e <config> …` to explore a Neovim configuration,
 first install and initialize the `<config>` configuration with `lazyman`.
 
 When invoked with the `-e config` option, `lazyman` sets the **NVIM_APPNAME**

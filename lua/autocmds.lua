@@ -69,26 +69,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Language servers by file type
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "sh",
-  callback = function()
-    vim.lsp.start({
-      name = "bash-language-server",
-      cmd = { "bash-language-server", "start" },
-    })
-  end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "rust",
-  callback = function()
-    vim.lsp.start({
-      name = "rust-analyzer",
-      cmd = { "rust-analyzer" },
-    })
-  end,
-})
-
 if settings.enable_alpha then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 

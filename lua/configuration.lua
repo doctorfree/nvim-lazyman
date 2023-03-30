@@ -141,6 +141,9 @@ conf.formatters = {
 conf.tools = {
   "eslint_d",
   "shellcheck",
+  "shellharden",
+  "proselint",
+  "stylua",
   "tflint",
   "yamllint",
   "ruff",
