@@ -9,7 +9,7 @@ configurations
 SYNOPSIS                                               *nvim-lazyman-synopsis*
 
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n]
-[-q] [-P] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+[-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 
 DESCRIPTION                                         *nvim-lazyman-description*
@@ -188,7 +188,9 @@ config
 
 `-n` : indicates dry run, don’t actually do anything, just printf’s
 
-`-p` : indicates use Packer rather than Lazy to initialize
+`-P` : indicates use Packer rather than Lazy to initialize
+
+`-p` : indicates use Plug rather than Lazy to initialize
 
 `-q` : indicates quiet install
 
