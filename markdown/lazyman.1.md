@@ -64,7 +64,7 @@ Lazyman Neovim configurations. See `~/.config/nvim-lazyman/.lazymanrc`.
 
 The `nvims` shell function, when executed, presents a fuzzy searchable menu
 of the `lazyman` installed Neovim configurations. Execute `nvims` directly
-at the shell prompt or by using the convenience key binding `ctrl-a`.
+at the shell prompt or by using the convenience key binding `ctrl-n`.
 
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration

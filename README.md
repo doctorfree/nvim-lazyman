@@ -808,7 +808,6 @@ To begin exploring this Neovim configuration:
 NVIM_APPNAME="nvim-fennel" nvim ~/.config/nvim-fennel/fnl/conf/init.fnl
 ```
 
-
 ### Plug
 
 The `lazyman` command can be used to install and initialize Neovim configurations
@@ -963,7 +962,7 @@ nvims() {
 </details>
 
 Note also that a convenience key binding has been created to launch
-`nvims` with `ctrl-a`.
+`nvims` with `ctrl-n`.
 
 The `nvims` Neovim configuration switching shell function was created by
 [Elijah Manor](https://github.com/elijahmanor). He created an excellent

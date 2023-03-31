@@ -899,7 +899,12 @@ fi
     printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
   fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
-  printf "\ncreate an alias for each configuration similar to the following:"
+  printf "\nshell aliases and the 'nvims' function have been created for you."
+  if ! command -v nvims >/dev/null 2>&1; then
+    printf "\nTo activate these aliases and the 'nvims' Neovim config switcher,"
+    printf "\nlogout and login or issue the following command:"
+    printf "\n\tsource ~/.config/nvim-lazyman/.lazymanrc"
+  fi
   if [ "$all" ]
   then
     printf "\n\nalias lnvim='NVIM_APPNAME=nvim-lazyman nvim'"
