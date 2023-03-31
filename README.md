@@ -40,6 +40,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 
 # Table of Contents
 
+- [Requirements](#requirements)
 - [Installation](#installation)
   - [Bootstrap](#bootstrap)
   - [Postinstall](#postinstall)
@@ -69,6 +70,20 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Neovim install](#neovim-install)
 - [Removal](#removal)
 - [Appendix](#appendix)
+
+## Requirements
+
+The `lazyman` Neovim configuration manager requires Neovim 0.9 which is
+currently the nightly build. The `lazyman` installation and initialization
+process checks for Neovim 0.9 and, if not found, uses Homebrew to
+install the nightly build of Neovim in the isolated Homebrew directory.
+
+Lazyman requires a Unix or Linux operating system, Linux and macOS only,
+and the Bash shell.
+
+- Neovim 0.9 (automatically installed if not found)
+- Unix/Linux/macOS
+- Bash
 
 ## Installation
 
