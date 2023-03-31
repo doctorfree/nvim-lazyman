@@ -81,6 +81,8 @@ conf.enable_navigator = true
 conf.enable_project = true
 -- Enable window picker
 conf.enable_picker = true
+-- Enable smooth scrolling with neoscroll plugin
+conf.enable_smooth_scrolling = true
 
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg

@@ -661,6 +661,8 @@ below along with their default settings:
   - `conf.enable_navigator = true`
 - Enable Project manager
   - `conf.enable_project = true`
+- Enable smooth scrolling with the neoscroll plugin
+  - `conf.enable_smooth_scrolling = true`
 - Enable window picker
   - `conf.enable_picker = true`
 - Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
@@ -754,6 +756,8 @@ conf.enable_navigator = true
 conf.enable_project = true
 -- Enable window picker
 conf.enable_picker = true
+-- Enable smooth scrolling with neoscroll plugin
+conf.enable_smooth_scrolling = true
 
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
@@ -784,8 +788,8 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "eslint_d", "shellcheck", "tflint",
-  "yamllint", "ruff", "debugpy",
+  "eslint_d", "prettier", "shellcheck", "shellharden", "stylua",
+  "tflint", "yamllint", "ruff", "debugpy",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -923,7 +927,11 @@ command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
-  items=("default")
+  items=()
+  [ -d $HOME/.config/nvim ] && {
+    alias nvim-default="NVIM_APPNAME=nvim nvim"
+    items+=("default")
+  }
   [ -d $HOME/.config/nvim-lazyman ] && {
     alias nvim-lazy="NVIM_APPNAME=nvim-lazyman nvim"
     items+=("lazyman")
@@ -956,6 +964,10 @@ command -v nvim > /dev/null && {
     alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
     items+=("MultiVim")
   }
+  [ -d $HOME/.config/nvim-SpaceVim ] && {
+    alias nvim-space="NVIM_APPNAME=nvim-SpaceVim nvim"
+    items+=("SpaceVim")
+  }
 
   function nvims() {
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
@@ -963,13 +975,27 @@ command -v nvim > /dev/null && {
       echo "Nothing selected"
       return 0
     elif [[ $config == "default" ]]; then
-      config=""
+      config="nvim"
     else
-      config="nvim-${config}"
+      if [ -d ${HOME}/.config/nvim-${config} ]
+      then
+        config="nvim-${config}"
+      else
+        [ -d ${HOME}/.config/${config} ] || {
+          echo "Cannot locate ${config} Neovim configuration directory"
+          return 0
+        }
+      fi
     fi
     NVIM_APPNAME=$config nvim $@
   }
-  bindkey -s ^a "nvims\n"
+  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+   bindkey -s ^n "nvims\n"
+  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+   bind -x '"\C-n": nvims'
+  else
+   bindkey -s ^n "nvims\n"
+  fi
 }
 ```
 
