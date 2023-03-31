@@ -431,7 +431,7 @@ conf.formatters = {
 -- Tools that should be installed by Mason
 conf.tools = {
   "eslint_d", "prettier", "shellcheck", "shellharden",
-  "stylua", "tflint", "yamllint", "ruff", "debugpy",
+  "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

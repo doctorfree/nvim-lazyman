@@ -150,7 +150,6 @@ conf.tools = {
   "tflint",
   "yamllint",
   "ruff",
-  "debugpy",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
