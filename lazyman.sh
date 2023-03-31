@@ -642,7 +642,7 @@ shift $(( OPTIND - 1 ))
 }
 
 [ "$remove" ] && {
-  for neovim in "${nvimdir[@]}"
+  for neovim in ${nvimdir[@]}
   do
     remove_config "$neovim"
   done
@@ -653,7 +653,7 @@ shift $(( OPTIND - 1 ))
   [ "$all" ] || [ "$name" ] || {
     [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
   }
-  for neovim in "${nvimdir[@]}"
+  for neovim in ${nvimdir[@]}
   do
     run_command "$neovim" "$command"
   done
@@ -664,7 +664,7 @@ shift $(( OPTIND - 1 ))
   [ "$all" ] || [ "$name" ] || {
     [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
   }
-  for neovim in "${nvimdir[@]}"
+  for neovim in ${nvimdir[@]}
   do
     update_config "$neovim"
     [ "$tellme" ] || {
@@ -744,7 +744,7 @@ else
   brief_usage
 fi
 
-for neovim in "${nvimdir[@]}"
+for neovim in ${nvimdir[@]}
 do
   [ "$neovim" == "$lazymandir" ] && continue
   [ "$proceed" ] || {
@@ -884,7 +884,7 @@ else
   [ "$tellme" ] || ulimit -n "$hardlimit"
 fi
 
-for neovim in "${nvimdir[@]}"
+for neovim in ${nvimdir[@]}
 do
   [ "$quiet" ] || {
     pm="$pmgr"
