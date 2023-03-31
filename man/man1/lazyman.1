@@ -80,92 +80,16 @@ After sourcing these aliases in your shell, to invoke Neovim with the
 LazyVim configuration run \f[V]nvim-lazy filename.py\f[R] and to invoke
 Neovim with the LunarVim config run \f[V]nvim-lunar proposal.md\f[R].
 .PP
-An example \f[V]\[ti]/.aliases\f[R] file might include:
-.IP
-.nf
-\f[C]
-command -v nvim > /dev/null && {
-  alias vi=\[aq]nvim\[aq]
-  items=(\[dq]default\[dq])
-  [ -d $HOME/.config/nvim-lazyman ] && {
-    alias nvim-lazy=\[dq]NVIM_APPNAME=nvim-lazyman nvim\[dq]
-    items+=(\[dq]lazyman\[dq])
-  }
-  [ -d $HOME/.config/nvim-LazyVim ] && {
-    alias nvim-lazy=\[dq]NVIM_APPNAME=nvim-LazyVim nvim\[dq]
-    items+=(\[dq]LazyVim\[dq])
-  }
-  [ -d $HOME/.config/nvim-Kickstart ] && {
-    alias nvim-kick=\[dq]NVIM_APPNAME=nvim-Kickstart nvim\[dq]
-    items+=(\[dq]Kickstart\[dq])
-  }
-  [ -d $HOME/.config/nvim-NvChad ] && {
-    alias nvim-chad=\[dq]NVIM_APPNAME=nvim-NvChad nvim\[dq]
-    items+=(\[dq]NvChad\[dq])
-  }
-  [ -d $HOME/.config/nvim-AstroNvim ] && {
-    alias nvim-astro=\[dq]NVIM_APPNAME=nvim-AstroNvim nvim\[dq]
-    items+=(\[dq]AstroNvim\[dq])
-  }
-  [ -d $HOME/.config/nvim-Allaman ] && {
-    alias nvim-aman=\[dq]NVIM_APPNAME=nvim-Allaman nvim\[dq]
-    items+=(\[dq]Allaman\[dq])
-  }
-  [ -d $HOME/.config/nvim-LunarVim ] && {
-    alias nvim-lunar=\[dq]NVIM_APPNAME=nvim-LunarVim nvim\[dq]
-    items+=(\[dq]LunarVim\[dq])
-  }
-  [ -d $HOME/.config/nvim-MultiVim ] && {
-    alias nvim-multi=\[dq]NVIM_APPNAME=nvim-MultiVim nvim\[dq]
-    items+=(\[dq]MultiVim\[dq])
-  }
-
-  function nvims() {
-    config=$(printf \[dq]%s\[rs]n\[dq] \[dq]${items[\[at]]}\[dq] | fzf --prompt=\[dq]\[uE62B] Neovim Config \[uF63D] \[dq] --height=60% --layout=reverse --border --exit-0)
-    if [[ -z $config ]]; then
-      echo \[dq]Nothing selected\[dq]
-      return 0
-    elif [[ $config == \[dq]default\[dq] ]]; then
-      config=\[dq]\[dq]
-    else
-      config=\[dq]nvim-${config}\[dq]
-    fi
-    NVIM_APPNAME=$config nvim $\[at]
-  }
-  bindkey -s \[ha]a \[dq]nvims\[rs]n\[dq]
-}
-\f[R]
-.fi
+The \f[V]lazyman\f[R] installation and configuration automatically
+configures convenience aliases and an \f[V]nvims\f[R] shell function for
+the supported Lazyman Neovim configurations.
+See \f[V]\[ti]/.config/nvim-lazyman/.lazymanrc\f[R].
 .PP
-In the above example \f[V]$HOME/.aliases\f[R] file for \f[V]zsh\f[R]
-users I have included a shell function, \f[V]nvims\f[R] borrowed from
-the excellent Neovim switching video produced by Elijah
-Manor (https://github.com/elijahmanor).
-This function produces a fuzzy searchable list of the installed
-supported Neovim configs.
-Invoking \f[V]nvims\f[R] can be an easy way to select which
-configuration to use for this execution of Neovim.
-Thanks Elijah!
-.PP
-A similar \f[V]nvims\f[R] function for \f[V]bash\f[R] users (with the
-\f[V]items\f[R] array constructed as above) might be something like:
-.IP
-.nf
-\f[C]
-nvims() {
-  config=$(printf \[dq]%s\[rs]n\[dq] \[dq]${items[\[at]]}\[dq] | fzf --prompt=\[dq]\[uE62B] Neovim Config \[uF63D] \[dq] --height=60% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo \[dq]Nothing selected\[dq]
-    return 0
-  elif [[ $config == \[dq]default\[dq] ]]; then
-    config=\[dq]\[dq]
-  else
-    config=\[dq]nvim-${config}\[dq]
-  fi
-  NVIM_APPNAME=$config nvim $\[at]
-}
-\f[R]
-.fi
+The \f[V]nvims\f[R] shell function, when executed, presents a fuzzy
+searchable menu of the \f[V]lazyman\f[R] installed Neovim
+configurations.
+Execute \f[V]nvims\f[R] directly at the shell prompt or by using the
+convenience key binding \f[V]ctrl-a\f[R].
 .PP
 Another alternative to setting \f[V]NVIM_APPNAME\f[R] in the environment
 or with an alias is to use the \f[V]lazyman\f[R] command to specify

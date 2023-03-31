@@ -63,6 +63,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Health check](#health-check)
   - [Symbolic links](#symbolic-links)
   - [Shell initialization setup](#shell-initialization-setup)
+  - [The nvims shell function](#the-nvims-shell-function)
   - [Using aliases](#using-aliases)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 - [Neovim install](#neovim-install)
@@ -855,35 +856,33 @@ then you will also need to symlink `~/.local/share/$NVIM_APPNAME` and
 
 ### Shell initialization setup
 
-**[Important Note:]** If `nvim-lazyman` is installed and initialized using the
-`NVIM_APPNAME` environment variable as described above then it is
-important to add the setting and export of this variable to your shell's
-initialization file (e.g. `.bashrc` for Bash users, `.zshrc` for Zsh users).
-Add the line `export NVIM_APPNAME="nvim-lazyman"` to your shell initialization
-and re-login or source the initialization file. If this is not done then
-subsequent invocations of `nvim` will attempt to use `~/.config/nvim` rather
-than `~/.config/nvim-lazyman`.
+If `nvim-lazyman` is installed and initialized using the `NVIM_APPNAME`
+environment variable as described above then `NVIM_APPNAME` needs to be
+set when a `lazyman` initialized configuration is used. This can be done by
+setting and exporting this variable in your shell's initialization file
+(e.g. `.bashrc` for Bash users, `.zshrc` for Zsh users). Add the line
+`export NVIM_APPNAME="nvim-lazyman"` to your shell initialization and re-login
+or source the initialization file to use the `nvim-lazyman` configuration.
 
-### Using aliases
+However, setting `NVIM_APPNAME` in the shell initialization file fixes that
+environment variable to a single Neovim configuration and must be reset
+to use another configuration. A more flexible approach is to use shell
+aliases as described in the next section. Both approaches can be used,
+an export in the shell initialization file for the most frequently used
+Neovim configuration and aliases to override that for other configurations.
 
-In addition to exporting NVIM_APPNAME in your shell initialization file, you
-may wish to create aliases to execute with the various Neovim configurations
-you have installed. For example, aliases could be created to use Neovim
-configurations installed in `~/.config/nvim-LazyVim` and `~/.config/nvim-LunarVim`
-as follows:
+### The nvims shell function
 
-```bash
-alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
-alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
-```
+The `lazyman` installation and configuration automatically configures
+convenience aliases and an `nvims` shell function for the supported
+Lazyman Neovim configurations. See `~/.config/nvim-lazyman/.lazymanrc`.
 
-After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
-configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
-config run `nvim-lunar proposal.md`.
-
-An example `~/.aliases` file might include:
+<details><summary>View the .lazymanrc shell aliases and zsh nvims function</summary>
 
 ```bash
+# To use Vim
+command -v vim > /dev/null && alias vi='vim'
+# To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
   items=("default")
@@ -936,15 +935,15 @@ command -v nvim > /dev/null && {
 }
 ```
 
-In the above example `$HOME/.aliases` file for `zsh` users I have included a
-shell function, `nvims` borrowed from the excellent Neovim switching video
-produced by [Elijah Manor](https://github.com/elijahmanor). This function
-produces a fuzzy searchable list of the installed supported Neovim configs.
-Invoking `nvims` can be an easy way to select which configuration to use
-for this execution of Neovim. Thanks Elijah!
+</details>
+
+The `nvims` shell function, when executed, presents a fuzzy searchable menu
+of the `lazyman` installed Neovim configurations.
 
 A similar `nvims` function for `bash` users (with the `items` array constructed
-as above) might be something like:
+as above) can also be constructed.
+
+<details><summary>View the bash nvims function</summary>
 
 ```bash
 nvims() {
@@ -960,6 +959,37 @@ nvims() {
   NVIM_APPNAME=$config nvim $@
 }
 ```
+
+</details>
+
+Note also that a convenience key binding has been created to launch
+`nvims` with `ctrl-a`.
+
+The `nvims` Neovim configuration switching shell function was created by
+[Elijah Manor](https://github.com/elijahmanor). He created an excellent
+[Neovim Config Switcher](https://youtu.be/LkHjJlSgKZY) video in which
+he provides details on use and customization of the `nvims` shell function.
+
+Lazyman has incorporated and adapted the `nvims` shell function for use
+with the supported Lazyman Neovim configurations. The `nvims` shell
+function is automatically configured during `lazyman` installation.
+
+### Using aliases
+
+In addition to exporting NVIM_APPNAME in your shell initialization file, you
+may wish to create aliases to execute with the various Neovim configurations
+you have installed. For example, aliases could be created to use Neovim
+configurations installed in `~/.config/nvim-LazyVim` and `~/.config/nvim-LunarVim`
+as follows:
+
+```bash
+alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+```
+
+After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
+configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
+config run `nvim-lunar proposal.md`.
 
 ### Using lazyman to explore configurations
 

@@ -34,21 +34,6 @@ return {
           formatting.sql_formatter.with({ extra_args = { "--config" } }),
           formatting.markdownlint,
           formatting.beautysh.with({ extra_args = { "--indent-size", "2" } }),
-          actions.proselint,
-          diagnostics.misspell.with({
-            filetypes = { 'markdown', 'text', 'txt', 'org' },
-            args = { '$FILENAME' },
-          }),
-          diagnostics.proselint.with({
-            filetypes = { 'markdown', 'tex' },
-            extra_filetypes = { 'txt', 'text', 'org' },
-            command = 'proselint',
-          }),
-          actions.proselint.with({
-            filetypes = { 'markdown', 'tex' },
-            command = 'proselint',
-            args = { '--json' },
-          }),
           diagnostics.zsh.with({
             filetypes = { "zsh" },
           }),
