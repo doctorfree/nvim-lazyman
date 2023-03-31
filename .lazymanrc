@@ -49,5 +49,11 @@ command -v nvim > /dev/null && {
     fi
     NVIM_APPNAME=$config nvim $@
   }
-  bindkey -s ^a "nvims\n"
+  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+   bindkey -s ^a "nvims\n"
+  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+   bind -x '"\C-a": nvims'
+  else
+   bindkey -s ^a "nvims\n"
+  fi
 }
