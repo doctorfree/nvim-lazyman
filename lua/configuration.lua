@@ -126,6 +126,7 @@ conf.lsp_servers = {
   "terraformls",
   "texlab",
   "tsserver",
+  "vimls",
   "yamlls",
 }
 -- Formatters installed by mason-null-ls

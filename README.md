@@ -506,7 +506,9 @@ Lazyman currently supports the following Neovim plugin managers:
 - [Packer](https://github.com/wbthomason/packer.nvim) (packer.nvim)
 - [Plug](https://github.com/junegunn/vim-plug) (vim-plug)
 
-The SpaceVim bundled plugin manager is also supported.
+The SpaceVim bundled plugin manager, **dein**, is supported only for the
+SpaceVim install and initialization but Neovim configurations preconfigured
+to use the **dein** plugin manager may install and initialize successfully.
 
 Neovim configurations using other plugin managers will likely fail to cleanly
 install and initialize using `lazyman`. Support for additional plugin managers
