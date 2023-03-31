@@ -674,9 +674,6 @@ fi
     SOURCE="source ~/.config/nvim-lazyman/.lazymanrc"
     echo "${TEST_SRC} ${SOURCE}" >> "$HOME/.$shinit"
   done
-  if ! command -v nvims >/dev/null 2>&1; then
-    source "$HOME"/.config/nvim-lazyman/.lazymanrc
-  fi
 }
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
