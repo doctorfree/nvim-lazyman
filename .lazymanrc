@@ -3,7 +3,11 @@ command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
-  items=("default")
+  items=()
+  [ -d $HOME/.config/nvim ] && {
+    alias nvim-default="NVIM_APPNAME=nvim nvim"
+    items+=("default")
+  }
   [ -d $HOME/.config/nvim-lazyman ] && {
     alias nvim-lazy="NVIM_APPNAME=nvim-lazyman nvim"
     items+=("lazyman")
@@ -36,6 +40,10 @@ command -v nvim > /dev/null && {
     alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
     items+=("MultiVim")
   }
+  [ -d $HOME/.config/nvim-SpaceVim ] && {
+    alias nvim-space="NVIM_APPNAME=nvim-SpaceVim nvim"
+    items+=("SpaceVim")
+  }
 
   function nvims() {
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
@@ -43,9 +51,17 @@ command -v nvim > /dev/null && {
       echo "Nothing selected"
       return 0
     elif [[ $config == "default" ]]; then
-      config=""
+      config="nvim"
     else
-      config="nvim-${config}"
+      if [ -d ${HOME}/.config/nvim-${config} ]
+      then
+        config="nvim-${config}"
+      else
+        [ -d ${HOME}/.config/${config} ] || {
+          echo "Cannot locate ${config} Neovim configuration directory"
+          return 0
+        }
+      fi
     fi
     NVIM_APPNAME=$config nvim $@
   }

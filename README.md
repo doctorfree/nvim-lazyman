@@ -25,8 +25,9 @@ Neovim configurations. Several popular Neovim configurations are supported
 including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/),
 [Allaman](https://github.com/Allaman/nvim),
 [Kickstart](https://github.com/nvim-lua/kickstart.nvim),
-[LunarVim](https://github.com/LunarVim/LunarVim), and
 [LazyVim](https://github.com/LazyVim/LazyVim).
+[LunarVim](https://github.com/LunarVim/LunarVim), and
+[SpaceVim](https://spacevim.org).
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -54,6 +55,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Inspiration](#inspiration)
 - [Features](#features)
 - [Usage](#usage)
+  - [Supported plugin managers](#supported-plugin-managers)
   - [Updates](#updates)
   - [Lazyman manual](#lazyman-manual)
   - [Lazyman configuration](#lazyman-configuration)
@@ -308,6 +310,9 @@ Currently the following Neovim configurations are supported:
 - [NvChad](https://nvchad.com)
   - The [NvChad example](https://github.com/NvChad/example_config) configuration
   - Install and initialize with `lazyman -c`
+- [SpaceVim](https://spacevim.org)
+  - Does not use the SpaceVim installer script, installs in `~/.config/nvim-SpaceVim`
+  - Install and initialize with `lazyman -s`
 
 ### Unsupported configurations
 
@@ -446,23 +451,17 @@ command. See the
 [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 section below for details.
 
-**[Note:]** The supported `lazyman` Neovim configurations all use the Lazy
-plugin manager. However, it is possible to install and initialize Neovim
-configurations that use the Packer plugin manager with the `-P` flag to
-`lazyman`. See the [Packer](#packer) section below. It is also possible
-to install and initialize Neovim configurations that use the Plug plugin
-manager with the `-p` flag to `lazyman`. See the [Plug](#plug) section below.
-
 To remove a Lazyman Neovim configuration execute `lazyman -r -N <nvimdir>`.
 To remove the configuration and all its backups, `lazyman -R -N <nvimdir>`.
 To remove all installed Lazyman Neovim configurations and their backups
 without being prompted to proceed, execute `lazyman -A -R -y`.
 
-The usage message for `lazyman`:
+<details><summary>View the `lazyman` usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v]
-   [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]
+               [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]
+               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -470,12 +469,15 @@ Where:
     -c indicates install and initialize NvChad Neovim configuration
     -d indicates debug mode
     -e 'config' execute 'nvim' with 'config' Neovim configuration
-       'config' can be one of 'lazyman', 'allaman', astronvim', 'kickstart', 'nvchad',
-       'lazyvim', lunarvim', or any Neovim configuration directory in '~/.config'
-       'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+       'config' can be one of:
+           'lazyman', 'allaman', astronvim', 'kickstart',
+           'nvchad', lazyvim', 'lunarvim', 'spacevim'
+       or any Neovim configuration directory in '~/.config'
+           (e.g. 'lazyman -e lazyvim foo.lua')
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize Allaman Neovim configuration
+    -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -n indicates dry run, don't actually do anything, just printf's
     -p indicates use vim-plug rather than Lazy to initialize
@@ -493,6 +495,28 @@ Where:
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-lazyman
 ```
+
+</details>
+
+### Supported plugin managers
+
+Lazyman currently supports the following Neovim plugin managers:
+
+- [Lazy](https://github.com/folke/lazy.nvim) (lazy.nvim)
+- [Packer](https://github.com/wbthomason/packer.nvim) (packer.nvim)
+- [Plug](https://github.com/junegunn/vim-plug) (vim-plug)
+
+The SpaceVim bundled plugin manager is also supported.
+
+Neovim configurations using other plugin managers will likely fail to cleanly
+install and initialize using `lazyman`. Support for additional plugin managers
+is not currently planned but if you have a need for this feature open an issue.
+
+To install and initialize a Neovim configuration that uses the **Packer** plugin
+manager invoke `lazyman` with the `-P` flag. See the [Packer](#packer) section below.
+
+To install and initialize a Neovim configuration that uses the **Plug** plugin
+manager invoke `lazyman` with the `-p` flag. See the [Plug](#plug) section below.
 
 ### Updates
 

@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
 
 ## DESCRIPTION
 
@@ -71,9 +71,9 @@ alias is to use the `lazyman` command to specify which Neovim configuration
 to use with this invocation. This is done using the `-e config` option to
 `lazyman`. When invoking `lazyman` with the `-e config` argument, the Neovim
 configuration can be specified by setting `config` to one of `allaman`,
-`astronvim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, or any
-Neovim configuration directory in `~/.config`. For example, to edit the file
-`foo.lua` using the LazyVim Neovim configuration:
+`astronvim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, `spacevim`,
+or any Neovim configuration directory in `~/.config`. For example, to edit
+the file `foo.lua` using the LazyVim Neovim configuration:
 
 ```bash
 lazyman -e lazyvim foo.lua
@@ -83,6 +83,26 @@ When invoked with the `-e config` option, `lazyman` sets the `NVIM_APPNAME`
 environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
+
+### Supported plugin managers
+
+Lazyman currently supports the following Neovim plugin managers:
+
+- [Lazy](https://github.com/folke/lazy.nvim) (lazy.nvim)
+- [Packer](https://github.com/wbthomason/packer.nvim) (packer.nvim)
+- [Plug](https://github.com/junegunn/vim-plug) (vim-plug)
+
+The SpaceVim bundled plugin manager is also supported.
+
+Neovim configurations using other plugin managers will likely fail to cleanly
+install and initialize using `lazyman`. Support for additional plugin managers
+is not currently planned but if you have a need for this feature open an issue.
+
+To install and initialize a Neovim configuration that uses the **Packer** plugin
+manager invoke `lazyman` with the `-P` flag.
+
+To install and initialize a Neovim configuration that uses the **Plug** plugin
+manager invoke `lazyman` with the `-p` flag.
 
 ## OPTIONS
 
@@ -98,13 +118,15 @@ The following command line options are available with the `lazyman` command:
 
 `-d` : indicates debug mode
 
-`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 
 `-l` : indicates install and initialize the 'LazyVim' Neovim configuration
 
 `-m` : indicates install and initialize the 'Allaman' Neovim configuration
+
+`-s` : indicates install and initialize the 'SpaceVim' Neovim configuration
 
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
