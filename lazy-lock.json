@@ -1,5 +1,5 @@
 {
-  "ChatGPT.nvim": { "branch": "main", "commit": "e04d8b56905fc2874d44ec024eb7aa79aa69a3cb" },
+  "ChatGPT.nvim": { "branch": "main", "commit": "369f6778677f0cc69d9a7003097620de0ebcb373" },
   "LuaSnip": { "branch": "master", "commit": "bc8ec05022743d3f08bda7a76c6bb5e9a9024581" },
   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
   "SetColorSchemes.vim": { "branch": "main", "commit": "6180352f9b196db9b3899ccbfbdc07160121fbf3" },
@@ -38,7 +38,7 @@
   "mini.surround": { "branch": "main", "commit": "cbc884d4dc99ab0d0c843cdb7391aad3144fad3f" },
   "monokai-pro.nvim": { "branch": "master", "commit": "c49d65af794cd97c49331237eb7ae208b93f9363" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "20c2f2f5ba083bbb1e37b8bc3d590621434f31e9" },
-  "neodev.nvim": { "branch": "main", "commit": "38192d81c91a7513bab97c95677308ba7708732d" },
+  "neodev.nvim": { "branch": "main", "commit": "057256e24ff965f6202f483a93e2b1e274857bc8" },
   "neogit": { "branch": "master", "commit": "039ff3212ec43cc4d3332956dfb54e263c8d5033" },
   "neoscroll.nvim": { "branch": "master", "commit": "d7601c26c8a183fa8994ed339e70c2d841253e93" },
   "nightfox.nvim": { "branch": "main", "commit": "4b73c9d0995eb1a43e284534b97a543ca21c5c77" },

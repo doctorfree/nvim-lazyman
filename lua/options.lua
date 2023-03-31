@@ -81,3 +81,6 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- Ignore some deprecation warnings
+require("utils.deprecation-warnings")
