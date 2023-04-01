@@ -16,7 +16,6 @@ return {
       null_ls.setup({
         debug = false,
         sources = {
-          diagnostics.eslint_d,
           formatting.prettier.with({
             extra_args = { "--single-quote", "false" },
           }),
