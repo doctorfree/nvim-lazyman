@@ -35,7 +35,7 @@ subdirectories in \f[V]\[ti]/.local/share/\f[R],
 \f[V]\[ti]/.local/state/\f[R], and \f[V]\[ti]/.cache/\f[R].
 .PP
 The \f[V]lazyman\f[R] Neovim configuration is installed as
-\f[V]\[ti]/.config/nvim-lazyman\f[R] and the \f[V]lazyman\f[R] command
+\f[V]\[ti]/.config/nvim-Lazyman\f[R] and the \f[V]lazyman\f[R] command
 is installed as \f[V]\[ti]/.local/bin/lazyman\f[R].
 .PP
 The Neovim configuration used by the \f[V]nvim\f[R] command is
@@ -83,7 +83,7 @@ Neovim with the LunarVim config run \f[V]nvim-lunar proposal.md\f[R].
 The \f[V]lazyman\f[R] installation and configuration automatically
 configures convenience aliases and an \f[V]nvims\f[R] shell function for
 the supported Lazyman Neovim configurations.
-See \f[V]\[ti]/.config/nvim-lazyman/.lazymanrc\f[R].
+See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
 .PP
 The \f[V]nvims\f[R] shell function, when executed, presents a fuzzy
 searchable menu of the \f[V]lazyman\f[R] installed Neovim
@@ -216,7 +216,7 @@ prompt
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
-Without arguments lazyman installs and initializes nvim-lazyman
+Without arguments lazyman installs and initializes nvim-Lazyman
 .SS EXAMPLES
 .PP
 \f[V]lazyman -a\f[R] : installs and initializes the \f[V]AstroNvim\f[R]
@@ -251,17 +251,17 @@ files, cache, state, and all backups
 .PP
 In addition to the \f[V]lazyman\f[R] command, the Lazyman distribution
 includes a richly preconfigured Neovim configuration in
-\f[V]\[ti]/.config/nvim-lazyman\f[R].
+\f[V]\[ti]/.config/nvim-Lazyman\f[R].
 The Lazyman Neovim configuration includes a top-level configuration
-file, \f[V]\[ti]/.config/nvim-lazyman/lua/configuration.lua\f[R].
+file, \f[V]\[ti]/.config/nvim-Lazyman/lua/configuration.lua\f[R].
 This file can be use to enable, disable, and configure
-\f[V]nvim-lazyman\f[R] components.
+\f[V]nvim-Lazyman\f[R] components.
 For example, here is where you would configure whether
 \f[V]neo-tree\f[R] or \f[V]nvim-tree\f[R] is enabled as a file explorer.
 Or, disable the \f[V]tabline\f[R], disable the \f[V]statusline\f[R], set
 the \f[V]colorscheme\f[R], \f[V]theme\f[R], and theme style.
 The \f[V]configuration.lua\f[R] file is intended to serve as a quick and
-easy way to re-configure the \f[V]nvim-lazyman\f[R] Neovim configuration
+easy way to re-configure the \f[V]nvim-Lazyman\f[R] Neovim configuration
 but you can still dig down into the \f[V]options.lua\f[R],
 \f[V]keymaps.lua\f[R], \f[V]autocmds.lua\f[R] and more.
 .SS Configuration sections
@@ -270,7 +270,7 @@ The \f[V]lua/configuration.lua\f[R] configuration file contains the
 following sections with settings briefly described here:
 .SS Theme configuration
 .PP
-The \f[V]nvim-lazyman\f[R] Neovim configuration includes pre-configured
+The \f[V]nvim-Lazyman\f[R] Neovim configuration includes pre-configured
 support for several themes including support for statusline and tabline
 theme coordination.
 The active theme and colorscheme is selected in
@@ -396,7 +396,7 @@ terafox
 .RE
 .SS Plugin configuration
 .PP
-Several Neovim plugins in the \f[V]nvim-lazyman\f[R] configuration can
+Several Neovim plugins in the \f[V]nvim-Lazyman\f[R] configuration can
 be optionally installed or replaced by another plugin with similar
 functionality.
 The plugins that are configurable in this way in
