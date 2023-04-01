@@ -16,7 +16,7 @@ jobs:
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: nvim-lazyman # Output vimdoc project name (required)
+          vimdoc: nvim-Lazyman # Output vimdoc project name (required)
           # The following are all optional
           pandoc: "markdown/lazyman.1.md" # Input pandoc file
           version: "NVIM v0.9.0" # Vim version number

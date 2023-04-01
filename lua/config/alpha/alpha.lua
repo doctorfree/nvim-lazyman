@@ -171,7 +171,7 @@ vim.cmd([[
 local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
 new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
-  dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
+    dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
 -- local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
 -- file_browser_btn.opts.hl = "AlphaShortcut"
@@ -187,7 +187,7 @@ session_btn.opts.hl = "AlphaShortcut"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
 search_zoxide_btn.opts.hl = "AlphaShortcut"
 local recent_files_btn =
-  dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
+    dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
 recent_files_btn.opts.hl = "AlphaShortcut"
 local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
 git_commit_btn.opts.hl = "AlphaShortcut"
@@ -201,7 +201,7 @@ local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>
 health_btn.opts.hl = "AlphaHeader"
 local settings_btn = dashboard.button("s", "  Nvim-Lazyman Config", ":e " .. configuration_lua .. "<CR>")
 settings_btn.opts.hl = "AlphaHeader"
-local lazyhelp_btn = dashboard.button("l", "  Nvim-Lazyman Help", ":h nvim-lazyman<CR>")
+local lazyhelp_btn = dashboard.button("l", "  Nvim-Lazyman Help", ":h nvim-Lazyman<CR>")
 lazyhelp_btn.opts.hl = "AlphaHeader"
 local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
 options_btn.opts.hl = "AlphaHeader"
@@ -221,7 +221,7 @@ status_btn.opts.hl = "AlphaShortcut"
 local buttons = {
   type = "group",
   val = {
-    { type = "text", val = "Quick Links", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text",    val = "Quick Links",          opts = { hl = "SpecialComment", position = "center" } },
     new_file_btn,
     find_file_btn,
     -- file_browser_btn,
@@ -234,14 +234,14 @@ local buttons = {
     neogit_btn,
     quit_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text",    val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
     health_btn,
     settings_btn,
     lazyhelp_btn,
     options_btn,
     mappings_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Plugin Management", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text",    val = "Plugin Management", opts = { hl = "SpecialComment", position = "center" } },
     clean_btn,
     update_btn,
     install_btn,

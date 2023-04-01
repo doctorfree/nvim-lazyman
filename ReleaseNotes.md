@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-All that is needed to bootstrap `nvim-lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.1r1/lazyman.sh) script. Download and execute to get started.
+All that is needed to bootstrap `nvim-Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.1r1/lazyman.sh) script. Download and execute to get started.
 
 The Lazyman project can be used to install, initialize, and manage multiple Neovim configurations. Several popular Neovim configurations are supported including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/), [Allaman](https://github.com/Allaman/nvim), [Kickstart](https://github.com/nvim-lua/kickstart.nvim), [LunarVim](https://github.com/LunarVim/LunarVim), and [LazyVim](https://github.com/LazyVim/LazyVim).
 
@@ -24,9 +24,9 @@ The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used to 
 The Lazyman installation process consists of three steps:
 
 ```bash
-git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
-$HOME/.config/nvim-lazyman/lazyman.sh
-$HOME/.config/nvim-lazyman/lazyman.sh -I
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh
+$HOME/.config/nvim-Lazyman/lazyman.sh -I
 ```
 
 These steps:
@@ -49,8 +49,8 @@ The recommended bootstrap procedure is with `git`:
 Clone the repository with `git` and execute `lazyman.sh`:
 
 ```bash
-git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
-$HOME/.config/nvim-lazyman/lazyman.sh
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh
 ```
 
 Alternatively, download the `lazyman.sh` script and execute it. For example, with `curl`:
@@ -66,9 +66,9 @@ Once the `lazyman.sh` script has been downloaded and executed, subsequent Lazyma
 
 If you do not wish to use this automated installation and initialization method then manual installation and initialization is described below. Manual installation and initialization may be preferred by those who do not wish to upgrade Neovim to the latest version or by those who do not wish to use Homebrew.
 
-Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-08-and-earlier) section below for manual installation and initialization of `nvim-lazyman`.
+Neovim 0.8 and earlier users, see the [Neovim 0.8](#neovim-08-and-earlier) section below for manual installation and initialization of `nvim-Lazyman`.
 
-Neovim 0.9 and later users, see the [Neovim 0.9](#neovim-09-and-later) section below for manual installation and initialization of `nvim-lazyman`.
+Neovim 0.9 and later users, see the [Neovim 0.9](#neovim-09-and-later) section below for manual installation and initialization of `nvim-Lazyman`.
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable to control where Neovim looks for its configuration.
 
@@ -92,25 +92,25 @@ Follow the manual installation procedure for your version of Neovim. Manual inst
 
 #### Neovim 0.9 and later
 
-In Neovim 0.9 and later there is a new feature enabling control of the Neovim configuration location through the `NVIM_APPNAME` environment variable. For example, `export NVIM_APPNAME="nvim-lazyman"` in your shell would make `nvim` look for its configuration in `~/.config/nvim-lazyman` rather than `~/.config/nvim`. This new feature can be used to easily switch between Neovim configurations.
+In Neovim 0.9 and later there is a new feature enabling control of the Neovim configuration location through the `NVIM_APPNAME` environment variable. For example, `export NVIM_APPNAME="nvim-Lazyman"` in your shell would make `nvim` look for its configuration in `~/.config/nvim-Lazyman` rather than `~/.config/nvim`. This new feature can be used to easily switch between Neovim configurations.
 
 If you wish to use this repository in conjunction with a setup utilizing the `NVIM_APPNAME` feature then the manual installation process can be performed by:
 
-- Backup any pre-existing `nvim-lazyman` config folder
+- Backup any pre-existing `nvim-Lazyman` config folder
 
 ```bash
-[ -d $HOME/.config/nvim-lazyman ] && {
-  echo "Backing up existing nvim-lazyman config as $HOME/.config/nvim-lazyman-bak$$"
-  mv $HOME/.config/nvim-lazyman $HOME/.config/nvim-lazyman-bak$$
+[ -d $HOME/.config/nvim-Lazyman ] && {
+  echo "Backing up existing nvim-Lazyman config as $HOME/.config/nvim-Lazyman-bak$$"
+  mv $HOME/.config/nvim-Lazyman $HOME/.config/nvim-Lazyman-bak$$
 }
 ```
 
 - Clone the `nvim-lazyman` Neovim configuration repository and initialize Neovim
 
 ```bash
-echo "Cloning nvim-lazyman configuration into $HOME/.config/nvim-lazyman"
-git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-lazyman
-export NVIM_APPNAME="nvim-lazyman"
+echo "Cloning nvim-lazyman configuration into $HOME/.config/nvim-Lazyman"
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+export NVIM_APPNAME="nvim-Lazyman"
 nvim --headless "+Lazy! sync" +qa
 nvim
 ```
@@ -119,7 +119,7 @@ nvim
 
 **[Note:]** Lazyman bootstrap will install the latest version of Neovim even if an older version is already installed. A manual install of Lazyman will not upgrade Neovim. Neovim 0.8 and earlier does not support some of the features Lazyman provides.
 
-Users of Neovim 0.8 and earlier can manually install and initialize `nvim-lazyman` following these instructions:
+Users of Neovim 0.8 and earlier can manually install and initialize `nvim-Lazyman` following these instructions:
 
 - Backup any existing Neovim configuration, state, and installed plugins
 
@@ -152,7 +152,7 @@ After installing and initializing `lazyman`, additional Neovim configurations ca
 
 Currently the following Neovim configurations are supported:
 
-- [nvim-lazyman](https://github.com/doctorfree/nvim-lazyman)
+- [nvim-Lazyman](https://github.com/doctorfree/nvim-lazyman)
   - See the [Installation section](#installation) above
 - [Allaman](https://github.com/Allaman/nvim)
   - Install and initialize with `lazyman -m`
@@ -176,17 +176,17 @@ Currently the following Neovim configurations are supported:
 The [lazyman.sh](lazyman.sh) script can be used to remove previously installed Neovim configurations with the `-r` command line option. For example, to remove a previously installed `LazyVim` configuration, its initialized plugins, state, and cache, execute the following command:
 
 ```bash
-$HOME/.config/nvim-lazyman/lazyman.sh -l -r
+$HOME/.config/nvim-Lazyman/lazyman.sh -l -r
 ```
 
-To remove the `nvim-lazyman` configuration and associated plugins, state, and cache:
+To remove the `nvim-Lazyman` configuration and associated plugins, state, and cache:
 
 ```bash
-$HOME/.config/nvim-lazyman/lazyman.sh -r
+$HOME/.config/nvim-Lazyman/lazyman.sh -r
 ```
 
 All `lazyman.sh` operations can be performed as a dry run with `-n`. For example, to see which `LazyVim` folders would be removed without removing any:
 
 ```bash
-$HOME/.config/nvim-lazyman/lazyman.sh -n -l -r
+$HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
 ```

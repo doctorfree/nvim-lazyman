@@ -1,49 +1,67 @@
+# $HOME/.config/nvim-Lazyman/.lazymanrc
+# This file should be sourced from the shell initialization file
+# e.g. $HOME/.bashrc or $HOME/.zshrc
+#
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
   items=()
-  [ -d $HOME/.config/nvim ] && {
+  [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
     items+=("default")
   }
-  [ -d $HOME/.config/nvim-lazyman ] && {
-    alias nvim-lazy="NVIM_APPNAME=nvim-lazyman nvim"
-    items+=("lazyman")
-  }
-  [ -d $HOME/.config/nvim-LazyVim ] && {
-    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
-    items+=("LazyVim")
-  }
-  [ -d $HOME/.config/nvim-Kickstart ] && {
-    alias nvim-kick="NVIM_APPNAME=nvim-Kickstart nvim"
-    items+=("Kickstart")
-  }
-  [ -d $HOME/.config/nvim-NvChad ] && {
-    alias nvim-chad="NVIM_APPNAME=nvim-NvChad nvim"
-    items+=("NvChad")
-  }
-  [ -d $HOME/.config/nvim-AstroNvim ] && {
-    alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
-    items+=("AstroNvim")
-  }
-  [ -d $HOME/.config/nvim-Allaman ] && {
-    alias nvim-aman="NVIM_APPNAME=nvim-Allaman nvim"
-    items+=("Allaman")
-  }
-  [ -d $HOME/.config/nvim-LunarVim ] && {
-    alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
-    items+=("LunarVim")
-  }
-  [ -d $HOME/.config/nvim-MultiVim ] && {
-    alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
-    items+=("MultiVim")
-  }
-  [ -d $HOME/.config/nvim-SpaceVim ] && {
-    alias nvim-space="NVIM_APPNAME=nvim-SpaceVim nvim"
-    items+=("SpaceVim")
-  }
+  # Add all previously installed Neovim configurations
+  if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
+  then
+    cat ${HOME}/.config/nvim-Lazyman/.nvimdirs | while read nvimdir
+    do
+      [ -d ${HOME}/.config/${nvimdir} ] && {
+        alias ${nvimdir}="NVIM_APPNAME=${nvimdir} nvim"
+        entry=$(echo ${nvimdir} | sed -e "s/nvim-//")
+        items+=("${entry}")
+      }
+    done
+  else
+    # Add any supported config we find
+    [ -d ${HOME}/.config/nvim-Lazyman ] && {
+      alias nvim-lazy="NVIM_APPNAME=nvim-Lazyman nvim"
+      items+=("Lazyman")
+    }
+    [ -d ${HOME}/.config/nvim-LazyVim ] && {
+      alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+      items+=("LazyVim")
+    }
+    [ -d ${HOME}/.config/nvim-Kickstart ] && {
+      alias nvim-kick="NVIM_APPNAME=nvim-Kickstart nvim"
+      items+=("Kickstart")
+    }
+    [ -d ${HOME}/.config/nvim-NvChad ] && {
+      alias nvim-chad="NVIM_APPNAME=nvim-NvChad nvim"
+      items+=("NvChad")
+    }
+    [ -d ${HOME}/.config/nvim-AstroNvim ] && {
+      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
+      items+=("AstroNvim")
+    }
+    [ -d ${HOME}/.config/nvim-Allaman ] && {
+      alias nvim-aman="NVIM_APPNAME=nvim-Allaman nvim"
+      items+=("Allaman")
+    }
+    [ -d ${HOME}/.config/nvim-LunarVim ] && {
+      alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+      items+=("LunarVim")
+    }
+    [ -d ${HOME}/.config/nvim-MultiVim ] && {
+      alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
+      items+=("MultiVim")
+    }
+    [ -d ${HOME}/.config/nvim-SpaceVim ] && {
+      alias nvim-space="NVIM_APPNAME=nvim-SpaceVim nvim"
+      items+=("SpaceVim")
+    }
+  fi
 
   function nvims() {
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)

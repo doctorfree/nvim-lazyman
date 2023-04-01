@@ -22,7 +22,7 @@ and initialized in separate subdirectories of `~/.config/` with
 associated separate subdirectories in `~/.local/share/`,
 `~/.local/state/`, and `~/.cache/`.
 
-The `lazyman` Neovim configuration is installed as `~/.config/nvim-lazyman`
+The `lazyman` Neovim configuration is installed as `~/.config/nvim-Lazyman`
 and the `lazyman` command is installed as `~/.local/bin/lazyman`.
 
 The Neovim configuration used by the `nvim` command is determined by
@@ -60,7 +60,7 @@ config run `nvim-lunar proposal.md`.
 
 The `lazyman` installation and configuration automatically configures
 convenience aliases and an `nvims` shell function for the supported
-Lazyman Neovim configurations. See `~/.config/nvim-lazyman/.lazymanrc`.
+Lazyman Neovim configurations. See `~/.config/nvim-Lazyman/.lazymanrc`.
 
 The `nvims` shell function, when executed, presents a fuzzy searchable menu
 of the `lazyman` installed Neovim configurations. Execute `nvims` directly
@@ -158,7 +158,7 @@ The following command line options are available with the `lazyman` command:
 
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
-Without arguments lazyman installs and initializes nvim-lazyman
+Without arguments lazyman installs and initializes nvim-Lazyman
 
 ### EXAMPLES
 
@@ -183,14 +183,14 @@ Without arguments lazyman installs and initializes nvim-lazyman
 ## CONFIGURATION
 
 In addition to the `lazyman` command, the Lazyman distribution includes
-a richly preconfigured Neovim configuration in `~/.config/nvim-lazyman`.
+a richly preconfigured Neovim configuration in `~/.config/nvim-Lazyman`.
 The Lazyman Neovim configuration includes a top-level configuration file,
-`~/.config/nvim-lazyman/lua/configuration.lua`. This file can be use to enable,
-disable, and configure `nvim-lazyman` components. For example, here is where you
+`~/.config/nvim-Lazyman/lua/configuration.lua`. This file can be use to enable,
+disable, and configure `nvim-Lazyman` components. For example, here is where you
 would configure whether `neo-tree` or `nvim-tree` is enabled as a file explorer.
 Or, disable the `tabline`, disable the `statusline`, set the `colorscheme`,
 `theme`, and theme style. The `configuration.lua` file is intended to serve as a
-quick and easy way to re-configure the `nvim-lazyman` Neovim configuration but you
+quick and easy way to re-configure the `nvim-Lazyman` Neovim configuration but you
 can still dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and more.
 
 ### Configuration sections
@@ -200,7 +200,7 @@ with settings briefly described here:
 
 #### Theme configuration
 
-The `nvim-lazyman` Neovim configuration includes pre-configured support for several
+The `nvim-Lazyman` Neovim configuration includes pre-configured support for several
 themes including support for statusline and tabline theme coordination. The active
 theme and colorscheme is selected in `configuration.lua` by setting `conf.theme`.
 For themes that support different styles, the theme style is selected by setting
@@ -269,7 +269,7 @@ Available styles are:
 
 #### Plugin configuration
 
-Several Neovim plugins in the `nvim-lazyman` configuration can be optionally
+Several Neovim plugins in the `nvim-Lazyman` configuration can be optionally
 installed or replaced by another plugin with similar functionality. The plugins
 that are configurable in this way in `configuration.lua` are briefly described
 below along with their default settings:
@@ -295,9 +295,9 @@ below along with their default settings:
   - `conf.enable_games = true`
 - Enable the Alpha dashboard
   - `conf.enable_alpha = true`
-- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_bookmarks = false`
-- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_ide = false`
 - Enable Navigator
   - `conf.enable_navigator = true`
@@ -468,8 +468,8 @@ otherwise using LAZYMAN and for a DISCLAIMER OF ALL WARRANTIES.
 
 Submit bug reports online at:
 
-https://github.com/doctorfree/nvim-lazyman/issues
+<https://github.com/doctorfree/nvim-lazyman/issues>
 
 Full documentation and sources at:
 
-https://github.com/doctorfree/nvim-lazyman
+<https://github.com/doctorfree/nvim-lazyman>
