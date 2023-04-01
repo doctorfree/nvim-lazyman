@@ -675,7 +675,7 @@ shift $(( OPTIND - 1 ))
 }
 
 [ "$remove" ] && {
-  for neovim in "${nvimdir[@]}"
+  for neovim in ${nvimdir[@]}
   do
     remove_config "$neovim"
   done
