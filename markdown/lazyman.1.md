@@ -421,7 +421,7 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
   "bashls", "cssmodules_ls", "dockerls", "jsonls", "ltex", "marksman",
-  "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "yamlls",
+  "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters installed by mason-null-ls
 conf.formatters = {
@@ -430,7 +430,7 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "eslint_d", "prettier", "shellcheck", "shellharden",
+  "markdownlint", "prettier", "shellcheck", "shellharden",
   "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
