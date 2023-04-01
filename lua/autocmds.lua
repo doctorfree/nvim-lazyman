@@ -10,14 +10,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   command = "checktime",
 })
 
--- Highlight on yank
--- vim.api.nvim_create_autocmd("TextYankPost", {
---   group = augroup("highlight_yank"),
---   callback = function()
---     vim.highlight.on_yank()
---   end,
--- })
-
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
@@ -36,6 +28,28 @@ vim.api.nvim_create_autocmd("BufReadPost", {
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
+})
+
+-- popup completion menu if there is something before the cursor and nothing after.
+vim.api.nvim_create_autocmd({ "TextChangedI", "TextChangedP" }, {
+  callback = function()
+    local line = vim.api.nvim_get_current_line()
+    local cursor = vim.api.nvim_win_get_cursor(0)[2]
+
+    local current = string.sub(line, cursor, cursor + 1)
+    if current == "." or current == "," or current == " " then
+      require("cmp").close()
+    end
+
+    local before_line = string.sub(line, 1, cursor + 1)
+    local after_line = string.sub(line, cursor + 1, -1)
+    if not string.match(before_line, "^%s+$") then
+      if after_line == "" or string.match(before_line, " $") or string.match(before_line, "%.$") then
+        require("cmp").complete()
+      end
+    end
+  end,
+  pattern = "*",
 })
 
 -- close some filetypes with <q>
