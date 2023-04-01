@@ -853,6 +853,19 @@ To begin exploring this Neovim configuration:
 NVIM_APPNAME="nvim-fennel" nvim ~/.config/nvim-fennel/fnl/conf/init.fnl
 ```
 
+A third example of a Packer based Neovim configuration is the excellent
+`MagicVim` config. To install and initialize `MagicVim`:
+
+```bash
+lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P
+```
+
+To begin exploring the `MagicVim` configuration:
+
+```bash
+NVIM_APPNAME="nvim-MagicVim" nvim
+```
+
 ### Plug
 
 The `lazyman` command can be used to install and initialize Neovim configurations
@@ -872,13 +885,13 @@ the Optixal Neovim configuration.
 Another Plug based Neovim configuration serves as a second example:
 
 ```bash
-lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-plug -p
+lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p
 ```
 
 To begin exploring this Neovim configuration:
 
 ```bash
-NVIM_APPNAME="nvim-plug" nvim ~/.config/nvim-plug/init.vim
+NVIM_APPNAME="nvim-Plug" nvim ~/.config/nvim-Plug/init.vim
 ```
 
 ### Health check
