@@ -143,6 +143,7 @@ conf.formatters = {
 -- Tools that should be installed by Mason
 conf.tools = {
   "eslint_d",
+  "markdownlint",
   "prettier",
   "shellcheck",
   "shellharden",

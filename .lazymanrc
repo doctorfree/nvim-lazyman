@@ -64,7 +64,13 @@ command -v nvim > /dev/null && {
   fi
 
   function nvims() {
-    config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+    numitems=${#items[@]}
+    if [ ${numitems} -eq 1 ]
+    then
+      config="${items[@]:0:1}"
+    else
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+    fi
     if [[ -z $config ]]; then
       echo "Nothing selected"
       return 0
