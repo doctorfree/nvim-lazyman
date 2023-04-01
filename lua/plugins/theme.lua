@@ -1,5 +1,5 @@
 -- Currently supported themes:
---   nightfox, tundra, tokyonight, catppuccin, kanagawa, monokai-pro, onedarkpro
+--   nightfox, tundra, tokyonight, catppuccin, kanagawa, onedarkpro
 --
 
 return {
@@ -42,14 +42,6 @@ return {
     priority = 1000,
     config = function()
       require("themes.kanagawa")
-    end,
-  },
-  {
-    "loctvl842/monokai-pro.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("themes.monokai-pro")
     end,
   },
   {

@@ -2,7 +2,7 @@ local conf = {}
 
 -- THEME CONFIGURATION
 -- Available themes:
---   monokai-pro, nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+--   nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = "tokyonight"
@@ -10,7 +10,6 @@ conf.theme = "tokyonight"
 --   kanagawa:    wave, dragon, lotus
 --   tokyonight:  night, storm, day, moon
 --   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
---   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 --   catppuccin:  latte, frappe, macchiato, mocha
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 conf.theme_style = "moon"
