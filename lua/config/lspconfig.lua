@@ -16,8 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      local opts = { buffer = true }
-      vim.keymap.set(mode, lhs, rhs, opts)
+      vim.keymap.set(mode, lhs, rhs, { buffer = true })
     end
 
     -- Displays hover information about the symbol under the cursor
@@ -95,12 +94,16 @@ local toggle_diagnostics = function()
   end
 end
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, opts)
-vim.keymap.set("n", "<leader>dt", toggle_diagnostics)
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>dq",
+  vim.diagnostic.setloclist,
+  { noremap = true, silent = true, desc = "Set diagnostics location list" }
+)
+vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
@@ -198,7 +201,6 @@ require("lspconfig")["lua_ls"].setup({
       end
     end,
   }),
-
   -- Note: These settings will meaningfully increase the time until lua_ls
   -- can service initial requests (completion, location) upon starting as well
   -- as time to first diagnostics. Completion results will include a workspace
