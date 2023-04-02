@@ -59,8 +59,14 @@ convenience aliases and an `nvims` shell function for the supported Lazyman
 Neovim configurations. See `~/.config/nvim-Lazyman/.lazymanrc`.
 
 The `nvims` shell function, when executed, presents a fuzzy searchable menu of
-the `lazyman` installed Neovim configurations. Execute `nvims` directly at the
-shell prompt or by using the convenience key binding `ctrl-n`.
+the `lazyman` installed Neovim configurations. The `lazyman` installed Neovim
+configurations are maintained in the file `~/.config/nvim-Lazyman/.nvimdirs`.
+Entries in this file are what `nvims` uses for its fuzzy selection menu. When
+Neovim configurations are installed or removed with `lazyman` this file is
+updated accordingly.
+
+Execute `nvims` directly at the shell prompt or by using the convenience key
+binding `ctrl-n`.
 
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration to
@@ -443,8 +449,8 @@ The default `configuration.lua`:
     }
     -- Tools that should be installed by Mason
     conf.tools = {
-      "markdownlint", "prettier", "shellcheck", "shellharden",
-      "stylua", "tflint", "yamllint", "ruff",
+      "beautysh", "markdownlint", "prettier", "shellcheck", "shellharden",
+      "shfmt", "stylua", "tflint", "yamllint", "ruff",
     }
     -- enable greping in hidden files
     conf.telescope_grep_hidden = true
