@@ -441,7 +441,7 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint", "prettier", "shellcheck", "shellharden",
+  "markdownlint", "prettier", "shellcheck",
   "shfmt", "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files

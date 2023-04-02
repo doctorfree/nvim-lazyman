@@ -144,7 +144,6 @@ conf.tools = {
   "markdownlint",
   "prettier",
   "shellcheck",
-  "shellharden",
   "shfmt",
   "stylua",
   "tflint",

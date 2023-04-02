@@ -796,7 +796,7 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint", "prettier", "shellcheck", "shellharden",
+  "markdownlint", "prettier", "shellcheck",
   "shfmt", "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
@@ -1213,7 +1213,7 @@ by `lazyman.sh` executes the following on your system:
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2068
+# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -1404,23 +1404,23 @@ init_neovim() {
 
 add_nvimdirs_entry() {
   ndir="$1"
-  if [ -f "$NVIMDIRS" ]; then
-    grep ^"$ndir"$ "$NVIMDIRS" >/dev/null || {
-      echo "$ndir" >>"$NVIMDIRS"
+  if [ -f "${NVIMDIRS}" ]; then
+    grep ^"$ndir"$ "${NVIMDIRS}" >/dev/null || {
+      echo "$ndir" >>"${NVIMDIRS}"
     }
   else
-    [ -d "$LMANDIR" ] && {
-      echo "$ndir" >"$NVIMDIRS"
+    [ -d "${LMANDIR}" ] && {
+      echo "$ndir" >"${NVIMDIRS}"
     }
   fi
 }
 
 remove_nvimdirs_entry() {
   ndir="$1"
-  [ -f "$NVIMDIRS" ] && {
-    grep ^"$ndir"$ "$NVIMDIRS" >/dev/null && {
-      grep -v ^"$ndir"$ "$NVIMDIRS" >/tmp/nvimdirs$$
-      cp /tmp/nvimdirs$$ "$NVIMDIRS"
+  [ -f "${NVIMDIRS}" ] && {
+    grep ^"$ndir"$ "${NVIMDIRS}" >/dev/null && {
+      grep -v ^"$ndir"$ "${NVIMDIRS}" >/tmp/nvimdirs$$
+      cp /tmp/nvimdirs$$ "${NVIMDIRS}"
       rm -f /tmp/nvimdirs$$
     }
   }
@@ -1626,7 +1626,7 @@ url=
 unsupported=
 name=
 pmgr="Lazy"
-lazymandir="$LAZYMAN"
+lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
@@ -1751,9 +1751,9 @@ done
 shift $((OPTIND - 1))
 
 [ "$select" ] && {
-  [ -f "$LMANDIR"/.lazymanrc ] && source "$LMANDIR"/.lazymanrc
-  if command -v nvims >/dev/null 2>&1; then
-    nvims "$@"
+  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  if alias nvims >/dev/null 2>&1; then
+    nvimselect "$@"
   fi
   exit 0
 }
@@ -1775,7 +1775,7 @@ shift $((OPTIND - 1))
 
 [ "$langservers" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug" -l
+    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh -l "$debug"
     exit 0
   fi
   exit 1
@@ -1958,7 +1958,7 @@ fi
   for shinit in bashrc zshrc; do
     [ -f "${HOME}/.$shinit" ] || continue
     grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
-    COMM="# Source the Lazyman shell initialization for aliases and nvims function"
+    COMM="# Source the Lazyman shell initialization for aliases and nvims selector"
     echo "$COMM" >>"${HOME}/.$shinit"
     TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
     SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
@@ -1969,7 +1969,7 @@ fi
     for shinit in bashrc zshrc; do
       [ -f "${HOME}/.$shinit" ] || continue
       grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
-      COMM="# Source the Lazyman shell initialization for aliases and nvims function"
+      COMM="# Source the Lazyman shell initialization for nvims key binding"
       echo "$COMM" >>"${HOME}/.$shinit"
       TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
       SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
@@ -2125,7 +2125,8 @@ done
   PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
   [ -d "$PACKER" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning packer.nvim into ${PACKER} ... "
+      printf "\nCloning packer.nvim"
+      printf "\n\tinto ${PACKER} ... "
     }
     [ "$tellme" ] || {
       git clone --depth 1 \
@@ -2163,7 +2164,8 @@ for neovim in "${nvimdir[@]}"; do
   [ "$quiet" ] || {
     pm="$pmgr"
     [ "$neovim" == "$spacevimdir" ] && pm="SP"
-    printf "\nInitializing newly installed ${neovim} Neovim configuration with ${pm} ... "
+    [ "$neovim" == "$magicvimdir" ] && pm="Packer"
+    printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
   }
   [ "$tellme" ] || {
     init_neovim "$neovim"
@@ -2175,8 +2177,8 @@ done
 
 lazyinst=
 if [ -f "$HOME"/.local/bin/lazyman ]; then
-  [ -f "$LMANDIR"/lazyman.sh ] && {
-    diff "$LMANDIR"/lazyman.sh "$HOME"/.local/bin/lazyman >/dev/null || lazyinst=1
+  [ -f "${LMANDIR}"/lazyman.sh ] && {
+    diff "${LMANDIR}"/lazyman.sh "$HOME"/.local/bin/lazyman >/dev/null || lazyinst=1
   }
 else
   lazyinst=1
@@ -2186,14 +2188,14 @@ fi
     printf "\nInstalling lazyman command in ${HOME}/.local/bin"
     printf "\nUse ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
     printf "\nReview the lazyman usage message with:"
-    printf "\n\t${HOME}/.local/bin/lazyman -u\n"
+    printf "\n\t${HOME}/.local/bin/lazyman -u"
   }
 }
 
 maninst=
 if [ -f "$HOME"/.local/share/man/man1/lazyman.1 ]; then
-  [ -f "$LMANDIR"/man/man1/lazyman.1 ] && {
-    diff "$LMANDIR"/man/man1/lazyman.1 \
+  [ -f "${LMANDIR}"/man/man1/lazyman.1 ] && {
+    diff "${LMANDIR}"/man/man1/lazyman.1 \
       "$HOME"/.local/share/man/man1/lazyman.1 >/dev/null || maninst=1
   }
 else
@@ -2203,12 +2205,12 @@ fi
   [ "$quiet" ] || {
     printf "\nInstalling lazyman man page in ${HOME}/.local/share/man/man1/lazyman.1"
     printf "\nView the lazyman man page with:"
-    printf "\n\tman lazyman\n"
+    printf "\n\tman lazyman"
   }
 }
 
 [ "$quiet" ] || {
-  printf "\nTo use this lazyman installed Neovim configuration as the default,"
+  printf "\n\nTo use this lazyman installed Neovim configuration as the default,"
   printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
   if [ "$all" ]; then
     printf '\n\texport NVIM_APPNAME="nvim-Lazyman"\n'
@@ -2216,8 +2218,9 @@ fi
     printf "\n\texport NVIM_APPNAME=\"${nvimdir[0]}\"\n"
   fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
-  printf "\nshell aliases and the 'nvims' function have been created for you."
-  if ! command -v nvims >/dev/null 2>&1; then
+  printf "\nshell aliases and the 'nvims' command have been created for you."
+  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  if ! alias nvims >/dev/null 2>&1; then
     printf "\nTo activate these aliases and the 'nvims' Neovim config switcher,"
     printf "\nlogout and login or issue the following command:"
     printf "\n\tsource ~/.config/${LAZYMAN}/.lazymanrc"
@@ -2257,8 +2260,8 @@ printf "\n\n"
 [ "$lazyinst" ] && {
   [ "$tellme" ] || {
     [ -d "$HOME"/.local/bin ] || mkdir -p "$HOME"/.local/bin
-    [ -f "$LMANDIR"/lazyman.sh ] && {
-      cp "$LMANDIR"/lazyman.sh "$HOME"/.local/bin/lazyman
+    [ -f "${LMANDIR}"/lazyman.sh ] && {
+      cp "${LMANDIR}"/lazyman.sh "$HOME"/.local/bin/lazyman
       chmod 755 "$HOME"/.local/bin/lazyman
     }
   }
@@ -2267,8 +2270,8 @@ printf "\n\n"
   [ "$tellme" ] || {
     [ -d "$HOME"/.local/share/man ] || mkdir -p "$HOME"/.local/share/man
     [ -d "$HOME"/.local/share/man/man1 ] || mkdir -p "$HOME"/.local/share/man/man1
-    [ -f "$LMANDIR"/man/man1/lazyman.1 ] && {
-      cp "$LMANDIR"/man/man1/lazyman.1 "$HOME"/.local/share/man/man1/lazyman.1
+    [ -f "${LMANDIR}"/man/man1/lazyman.1 ] && {
+      cp "${LMANDIR}"/man/man1/lazyman.1 "$HOME"/.local/share/man/man1/lazyman.1
       chmod 644 "$HOME"/.local/share/man/man1/lazyman.1
     }
   }

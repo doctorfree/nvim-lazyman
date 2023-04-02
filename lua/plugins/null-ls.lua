@@ -34,9 +34,10 @@ return {
           }),
           actions.shellcheck,
           actions.gitsigns,
-          formatting.shfmt,
+          formatting.shfmt.with({
+            extra_args = { "-i", "2", "-ci", "-bn" },
+          }),
           diagnostics.ruff,
-          formatting.shellharden,
           formatting.google_java_format,
           formatting.black.with({
             timeout = 5000,
