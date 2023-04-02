@@ -340,7 +340,7 @@ export NVIM_APPNAME="<nvimdir>"
 where `<nvimdir>` is the argument provided to `-N` above.
 
 For example, to install and initialize the LazyVim based Neovim configuration
-hosted at https://github.com/appelgriebsch/Nv and place it in `~/.config/nvim-Nv`,
+hosted at <https://github.com/appelgriebsch/Nv> and place it in `~/.config/nvim-Nv`,
 execute the command:
 
 ```bash
@@ -356,7 +356,7 @@ or interesting to explore, resolve errors and issues, and contribute to the
 ever expanding set of Lazyman supported Neovim configurations.
 
 Feel free to open an issue at
-https://github.com/doctorfree/nvim-lazyman/issues to help tackle any problems
+<https://github.com/doctorfree/nvim-lazyman/issues> to help tackle any problems
 installing or initializing Neovim configurations with Lazyman.
 
 ## Motivation
@@ -662,9 +662,9 @@ below along with their default settings:
   - `conf.enable_games = true`
 - Enable the Alpha dashboard
   - `conf.enable_alpha = true`
-- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_bookmarks = false`
-- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_ide = false`
 - Enable Navigator
   - `conf.enable_navigator = true`
@@ -796,7 +796,7 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "beautysh", "markdownlint", "prettier", "shellcheck", "shellharden",
+  "markdownlint", "prettier", "shellcheck", "shellharden",
   "shfmt", "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
@@ -836,7 +836,7 @@ using the `Packer` plugin manager. To install and initialize a `Packer` managed
 Neovim configuration, specify the `-P` flag on the `lazyman` command line.
 
 For example, to install and initialize the `Abstract` Neovim configuration
-at https://github.com/Abstract-IDE/Abstract invoke `lazyman` as follows:
+at <https://github.com/Abstract-IDE/Abstract> invoke `lazyman` as follows:
 
 ```bash
 lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P
@@ -878,7 +878,7 @@ using the `Plug` plugin manager. To install and initialize a `Plug` managed
 Neovim configuration, specify the `-p` flag on the `lazyman` command line.
 
 For example, to install and initialize the `Optixal` Neovim configuration
-at https://github.com/Optixal/neovim-init.vim invoke `lazyman` as follows:
+at <https://github.com/Optixal/neovim-init.vim> invoke `lazyman` as follows:
 
 ```bash
 lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p
@@ -2499,6 +2499,7 @@ install_language_servers() {
 
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
+    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1

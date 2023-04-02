@@ -150,7 +150,6 @@ conf.tools = {
   "tflint",
   "yamllint",
   "ruff",
-  "beautysh",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

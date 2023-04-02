@@ -237,6 +237,7 @@ install_language_servers() {
 
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
+    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1
@@ -342,19 +343,19 @@ lang_tools=
 
 while getopts "dhlq" flag; do
   case $flag in
-    d)
-      debug=1
-      ;;
-    h)
-      nvim_head=
-      ;;
-    l)
-      lang_tools=1
-      ;;
-    q)
-      quiet=1
-      ;;
-    *) ;;
+  d)
+    debug=1
+    ;;
+  h)
+    nvim_head=
+    ;;
+  l)
+    lang_tools=1
+    ;;
+  q)
+    quiet=1
+    ;;
+  *) ;;
   esac
 done
 
