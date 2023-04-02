@@ -4,7 +4,7 @@
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
+# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2068
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -426,12 +426,12 @@ allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-nvimdir="$lazymandir"
+nvimdir=("$lazymandir")
 while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
   case $flag in
     a)
       astronvim=1
-      nvimdir="$astronvimdir"
+      nvimdir=("$astronvimdir")
       ;;
     A)
       all=1
@@ -443,16 +443,14 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       magicvim=1
       nvchad=1
       spacevim=1
-      nvimdir="${lazymandir} ${lazyvimdir} ${magicvimdir} \
-               ${allamandir} ${spacevimdir} ${kickstartdir} \
-               ${astronvimdir} ${nvchaddir} ${lunarvimdir}"
+      nvimdir=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$allamandir" "$spacevimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
       ;;
     b)
       branch="$OPTARG"
       ;;
     c)
       nvchad=1
-      nvimdir="$nvchaddir"
+      nvimdir=("$nvchaddir")
       ;;
     d)
       debug="-d"
@@ -465,22 +463,22 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       ;;
     k)
       kickstart=1
-      nvimdir="$kickstartdir"
+      nvimdir=("$kickstartdir")
       ;;
     l)
       lazyvim=1
-      nvimdir="$lazyvimdir"
+      nvimdir=("$lazyvimdir")
       ;;
     L)
       command="$OPTARG"
       ;;
     m)
       allaman=1
-      nvimdir="$allamandir"
+      nvimdir=("$allamandir")
       ;;
     M)
       magicvim=1
-      nvimdir="$magicvimdir"
+      nvimdir=("$magicvimdir")
       ;;
     n)
       tellme=1
@@ -505,7 +503,7 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       ;;
     s)
       spacevim=1
-      nvimdir="$spacevimdir"
+      nvimdir=("$spacevimdir")
       ;;
     S)
       select=1
@@ -521,7 +519,7 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       ;;
     v)
       lunarvim=1
-      nvimdir="$lunarvimdir"
+      nvimdir=("$lunarvimdir")
       ;;
     y)
       proceed=1
@@ -644,51 +642,47 @@ shift $((OPTIND - 1))
   nvimlower=$(echo "$invoke" | tr '[:upper:]' '[:lower:]')
   case "$nvimlower" in
     allaman)
-      nvimdir="$allamandir"
+      ndir="$allamandir"
       ;;
     astronvim)
-      nvimdir="$astronvimdir"
+      ndir="$astronvimdir"
       ;;
     kickstart)
-      nvimdir="$kickstartdir"
+      ndir="$kickstartdir"
       ;;
     lazyman)
-      nvimdir="$lazymandir"
+      ndir="$lazymandir"
       ;;
     lazyvim)
-      nvimdir="$lazyvimdir"
+      ndir="$lazyvimdir"
       ;;
     lunarvim)
-      nvimdir="$lunarvimdir"
+      ndir="$lunarvimdir"
       ;;
     nvchad)
-      nvimdir="$nvchaddir"
+      ndir="$nvchaddir"
       ;;
     magicvim)
-      nvimdir="$magicvimdir"
+      ndir="$magicvimdir"
       ;;
     spacevim)
-      nvimdir="$spacevimdir"
+      ndir="$spacevimdir"
       ;;
     *)
-      nvimdir="$invoke"
+      ndir="$invoke"
       ;;
   esac
-  [ -d "${HOME}/.config/${nvimdir}" ] || {
-    printf "\nNeovim configuration for ${nvimdir} not found"
+  [ -d "${HOME}/.config/${ndir}" ] || {
+    printf "\nNeovim configuration for ${ndir} not found"
     printf "\nExiting\n"
     exit 1
   }
-  export NVIM_APPNAME="$nvimdir"
+  export NVIM_APPNAME="$ndir"
   nvim "$@"
   exit 0
 }
 
-[ "$name" ] && nvimdir="$name"
-[ "$nvimdir" ] || {
-  printf "\nSomething went wrong, nvimdir not set. Exiting.\n"
-  brief_usage
-}
+[ "$name" ] && nvimdir=("$name")
 
 [ "$remove" ] && {
   for neovim in "${nvimdir[@]}"; do
@@ -699,7 +693,7 @@ shift $((OPTIND - 1))
 
 [ "$command" ] && {
   [ "$all" ] || [ "$name" ] || {
-    [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
+    [ "$NVIM_APPNAME" ] && nvimdir=("$NVIM_APPNAME")
   }
   for neovim in "${nvimdir[@]}"; do
     run_command "$neovim" "$command"
@@ -709,7 +703,7 @@ shift $((OPTIND - 1))
 
 [ "$update" ] && {
   [ "$all" ] || [ "$name" ] || {
-    [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
+    [ "$NVIM_APPNAME" ] && nvimdir=("$NVIM_APPNAME")
   }
   for neovim in "${nvimdir[@]}"; do
     update_config "$neovim"
@@ -904,22 +898,22 @@ done
   clone_repo SpaceVim SpaceVim/SpaceVim "$spacevimdir"
 }
 [ "$url" ] && {
-  [ -d "${HOME}/.config/$nvimdir" ] || {
+  [ -d "${HOME}/.config/${nvimdir[0]}" ] || {
     [ "$quiet" ] || {
       printf "\nCloning ${url}"
-      printf "\n\tinto ${HOME}/.config/${nvimdir} ... "
+      printf "\n\tinto ${HOME}/.config/${nvimdir[0]} ... "
     }
     [ "$tellme" ] || {
       git clone \
-        "$url" "${HOME}/.config/${nvimdir}" >/dev/null 2>&1
-      add_nvimdirs_entry "$nvimdir"
+        "$url" "${HOME}/.config/${nvimdir[0]}" >/dev/null 2>&1
+      add_nvimdirs_entry "${nvimdir[0]}"
     }
     [ "$quiet" ] || printf "done"
   }
 }
 
 [ "$magicvim" ] || [ "$packer" ] && {
-  PACKER="${HOME}/.local/share/${nvimdir}/site/pack/packer/start/packer.nvim"
+  PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
   [ -d "$PACKER" ] || {
     [ "$quiet" ] || {
       printf "\nCloning packer.nvim into ${PACKER} ... "
@@ -933,7 +927,7 @@ done
 }
 
 [ "$plug" ] && {
-  PLUG="${HOME}/.local/share/${nvimdir}/site/autoload/plug.vim"
+  PLUG="${HOME}/.local/share/${nvimdir[0]}/site/autoload/plug.vim"
   [ -d "$PLUG" ] || {
     [ "$quiet" ] || {
       printf "\nCopying plug.vim to ${PLUG} ... "
@@ -1010,7 +1004,7 @@ fi
   if [ "$all" ]; then
     printf '\n\texport NVIM_APPNAME="nvim-Lazyman"\n'
   else
-    printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
+    printf "\n\texport NVIM_APPNAME=\"${nvimdir[0]}\"\n"
   fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
   printf "\nshell aliases and the 'nvims' function have been created for you."
@@ -1039,7 +1033,7 @@ fi
   elif [ "$magicvim" ]; then
     printf "\n\n\talias mvim='NVIM_APPNAME=nvim-MagicVim nvim'"
   else
-    printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir} nvim\""
+    printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir[0]} nvim\""
   fi
 }
 printf "\n\n"
