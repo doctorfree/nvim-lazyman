@@ -101,18 +101,14 @@ run_command() {
   comm="$2"
   [ "$tellme" ] || {
     export NVIM_APPNAME="$neodir"
-    if [ "$debug" ]
-    then
-      if [ "$packer" ]
-      then
+    if [ "$debug" ]; then
+      if [ "$packer" ]; then
         nvim --headless -c 'autocmd User PackerComplete quitall' -c "Packer${comm}"
       else
-        if [ "$plug" ]
-        then
+        if [ "$plug" ]; then
           nvim --headless -c 'set nomore' -c "Plug${comm}" -c 'qa'
         else
-          if [ "$neodir" == "$spacevimdir" ]
-          then
+          if [ "$neodir" == "$spacevimdir" ]; then
             nvim --headless "+${comm}" +qa
           else
             nvim --headless "+Lazy! ${comm}" +qa
@@ -120,20 +116,17 @@ run_command() {
         fi
       fi
     else
-      if [ "$packer" ]
-      then
+      if [ "$packer" ]; then
         nvim --headless -c \
-          'autocmd User PackerComplete quitall' -c "Packer${comm}" > /dev/null 2>&1
+          'autocmd User PackerComplete quitall' -c "Packer${comm}" >/dev/null 2>&1
       else
-        if [ "$plug" ]
-        then
-          nvim --headless -c 'set nomore' -c "Plug${comm}" -c 'qa' > /dev/null 2>&1
+        if [ "$plug" ]; then
+          nvim --headless -c 'set nomore' -c "Plug${comm}" -c 'qa' >/dev/null 2>&1
         else
-          if [ "$neodir" == "$spacevimdir" ]
-          then
-            nvim --headless "+${comm}" +qa > /dev/null 2>&1
+          if [ "$neodir" == "$spacevimdir" ]; then
+            nvim --headless "+${comm}" +qa >/dev/null 2>&1
           else
-            nvim --headless "+Lazy! ${comm}" +qa > /dev/null 2>&1
+            nvim --headless "+Lazy! ${comm}" +qa >/dev/null 2>&1
           fi
         fi
       fi
@@ -144,20 +137,16 @@ run_command() {
 init_neovim() {
   neodir="$1"
   export NVIM_APPNAME="$neodir"
-  if [ "$debug" ]
-  then
-    if [ "$packer" ]
-    then
+  if [ "$debug" ]; then
+    if [ "$packer" ]; then
       nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     else
-      if [ "$plug" ]
-      then
+      if [ "$plug" ]; then
         nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa'
         nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa'
         nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa'
       else
-        if [ "$neodir" == "$spacevimdir" ]
-        then
+        if [ "$neodir" == "$spacevimdir" ]; then
           nvim --headless "+SPInstall" +qa
           nvim --headless "+UpdateRemotePlugins" +qa
         else
@@ -169,42 +158,38 @@ init_neovim() {
       nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
     }
   else
-    if [ "$packer" ]
-    then
+    if [ "$packer" ]; then
       nvim --headless -c \
-        'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null 2>&1
+        'autocmd User PackerComplete quitall' -c 'PackerSync' >/dev/null 2>&1
     else
-      if [ "$plug" ]
-      then
-        nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa' > /dev/null 2>&1
-        nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa' > /dev/null 2>&1
-        nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa' > /dev/null 2>&1
+      if [ "$plug" ]; then
+        nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa' >/dev/null 2>&1
+        nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >/dev/null 2>&1
+        nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa' >/dev/null 2>&1
       else
-        if [ "$neodir" == "$spacevimdir" ]
-        then
-          nvim --headless "+SPInstall" +qa > /dev/null 2>&1
-          nvim --headless "+UpdateRemotePlugins" +qa > /dev/null 2>&1
+        if [ "$neodir" == "$spacevimdir" ]; then
+          nvim --headless "+SPInstall" +qa >/dev/null 2>&1
+          nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
         else
-          nvim --headless "+Lazy! sync" +qa > /dev/null 2>&1
+          nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
         fi
       fi
     fi
     [ -d "${HOME}/.config/${neodir}/doc" ] && {
-      nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa > /dev/null 2>&1
+      nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa >/dev/null 2>&1
     }
   fi
 }
 
 add_nvimdirs_entry() {
   ndir="$1"
-  if [ -f "$NVIMDIRS" ]
-  then
-    grep ^"$ndir"$ "$NVIMDIRS" > /dev/null || {
-      echo "$ndir" >> "$NVIMDIRS"
+  if [ -f "$NVIMDIRS" ]; then
+    grep ^"$ndir"$ "$NVIMDIRS" >/dev/null || {
+      echo "$ndir" >>"$NVIMDIRS"
     }
   else
     [ -d "$LMANDIR" ] && {
-      echo "$ndir" > "$NVIMDIRS"
+      echo "$ndir" >"$NVIMDIRS"
     }
   fi
 }
@@ -212,8 +197,8 @@ add_nvimdirs_entry() {
 remove_nvimdirs_entry() {
   ndir="$1"
   [ -f "$NVIMDIRS" ] && {
-    grep ^"$ndir"$ "$NVIMDIRS" > /dev/null && {
-      grep -v ^"$ndir"$ "$NVIMDIRS" > /tmp/nvimdirs$$
+    grep ^"$ndir"$ "$NVIMDIRS" >/dev/null && {
+      grep -v ^"$ndir"$ "$NVIMDIRS" >/tmp/nvimdirs$$
       cp /tmp/nvimdirs$$ "$NVIMDIRS"
       rm -f /tmp/nvimdirs$$
     }
@@ -226,19 +211,19 @@ remove_config() {
     printf "\nYou have requested removal of the Neovim configuration at:"
     printf "\n\t${HOME}/.config/${ndir}\n"
     printf "\nConfirm removal of the Neovim ${ndir} configuration\n"
-    while true
-    do
+    while true; do
       read -r -p "Remove ${ndir} ? (y/n) " yn
       case $yn in
-        [Yy]* )
-            break
-            ;;
-        [Nn]* )
-            printf "\nAborting removal and exiting\n"
-            exit 0
-            ;;
-          * ) printf "\nPlease answer yes or no.\n"
-            ;;
+        [Yy]*)
+          break
+          ;;
+        [Nn]*)
+          printf "\nAborting removal and exiting\n"
+          exit 0
+          ;;
+        *)
+          printf "\nPlease answer yes or no.\n"
+          ;;
       esac
     done
   }
@@ -335,17 +320,16 @@ update_config() {
       printf "\nUpdating existing ${ndir} config at ${HOME}/.config/${ndir} ..."
     }
     [ "$tellme" ] || {
-      git -C "${HOME}/.config/$ndir" stash > /dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" pull > /dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" stash pop > /dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" stash >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
     }
     [ "$quiet" ] || {
       printf " done"
     }
   }
   [ "$ndir" == "$astronvimdir" ] || [ "$ndir" == "$nvchaddir" ] && {
-    if [ "$ndir" == "$astronvimdir" ]
-    then
+    if [ "$ndir" == "$astronvimdir" ]; then
       cdir="lua/user"
     else
       cdir="lua/custom"
@@ -355,9 +339,9 @@ update_config() {
         printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
       }
       [ "$tellme" ] || {
-        git -C "${HOME}/.config/$ndir/$cdir" stash > /dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" pull > /dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" stash pop > /dev/null 2>&1
+        git -C "${HOME}/.config/$ndir/$cdir" stash >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
       }
       [ "$quiet" ] || {
         printf " done"
@@ -367,24 +351,20 @@ update_config() {
 }
 
 set_brew() {
-  if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]
-  then
+  if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
   else
-    if [ -x /usr/local/bin/brew ]
-    then
+    if [ -x /usr/local/bin/brew ]; then
       HOMEBREW_HOME="/usr/local"
     else
-      if [ -x /opt/homebrew/bin/brew ]
-      then
+      if [ -x /opt/homebrew/bin/brew ]; then
         HOMEBREW_HOME="/opt/homebrew"
       else
         HOMEBREW_HOME=
       fi
     fi
   fi
-  if [ "$HOMEBREW_HOME" ]
-  then
+  if [ "$HOMEBREW_HOME" ]; then
     BREW_EXE=
   else
     BREW_EXE="${HOMEBREW_HOME}/bin/brew"
@@ -401,8 +381,8 @@ clone_repo() {
     }
     [ "$tellme" ] || {
       git clone \
-          https://github.com/"$repourl" \
-          "${HOME}/.config/${repodest}" > /dev/null 2>&1
+        https://github.com/"$repourl" \
+        "${HOME}/.config/${repodest}" >/dev/null 2>&1
       add_nvimdirs_entry "$repodest"
     }
     [ "$quiet" ] || printf "done"
@@ -447,131 +427,136 @@ spacevimdir="nvim-SpaceVim"
 multivimdir="nvim-MultiVim"
 nvimdir="$lazymandir"
 while getopts "aAb:cde:IklMmnL:pPqrRsUC:N:vyzZu" flag; do
-    case $flag in
-        a)
-            astronvim=1
-            nvimdir="$astronvimdir"
-            ;;
-        A)
-            all=1
-            astronvim=1
-            allaman=1
-            kickstart=1
-            lazyvim=1
-            lunarvim=1
-            multivim=1
-            nvchad=1
-            spacevim=1
-            nvimdir="${lazymandir} ${lazyvimdir} ${multivimdir} \
+  case $flag in
+    a)
+      astronvim=1
+      nvimdir="$astronvimdir"
+      ;;
+    A)
+      all=1
+      astronvim=1
+      allaman=1
+      kickstart=1
+      lazyvim=1
+      lunarvim=1
+      multivim=1
+      nvchad=1
+      spacevim=1
+      nvimdir="${lazymandir} ${lazyvimdir} ${multivimdir} \
                      ${allamandir} ${spacevimdir} ${kickstartdir} \
                      ${astronvimdir} ${nvchaddir} ${lunarvimdir}"
-            ;;
-        b)
-            branch="$OPTARG"
-            ;;
-        c)
-            nvchad=1
-            nvimdir="$nvchaddir"
-            ;;
-        d)
-            debug="-d"
-            ;;
-        e)
-            invoke="$OPTARG"
-            ;;
-        I)
-            langservers=1
-            ;;
-        k)
-            kickstart=1
-            nvimdir="$kickstartdir"
-            ;;
-        l)
-            lazyvim=1
-            nvimdir="$lazyvimdir"
-            ;;
-        L)
-            command="$OPTARG"
-            ;;
-        m)
-            allaman=1
-            nvimdir="$allamandir"
-            ;;
-        M)
-            multivim=1
-            nvimdir="$multivimdir"
-            ;;
-        n)
-            tellme=1
-            ;;
-        p)
-            plug=1
-            pmgr="Plug"
-            ;;
-        P)
-            packer=1
-            pmgr="Packer"
-            ;;
-        q)
-            quiet=1
-            ;;
-        r)
-            remove=1
-            ;;
-        R)
-            remove=1
-            removeall=1
-            ;;
-        s)
-            spacevim=1
-            nvimdir="$spacevimdir"
-            ;;
-        C)
-            url="$OPTARG"
-            ;;
-        N)
-            name="$OPTARG"
-            ;;
-        U)
-            update=1
-            ;;
-        v)
-            lunarvim=1
-            nvimdir="$lunarvimdir"
-            ;;
-        y)
-            proceed=1
-            ;;
-        z)
-            runvim=
-            ;;
-        Z)
-            unsupported=1
-            ;;
-        u)
-            usage
-            ;;
-        *)
-            printf "\nUnrecognized option. Exiting.\n"
-            usage
-            ;;
-    esac
+      ;;
+    b)
+      branch="$OPTARG"
+      ;;
+    c)
+      nvchad=1
+      nvimdir="$nvchaddir"
+      ;;
+    d)
+      debug="-d"
+      ;;
+    e)
+      invoke="$OPTARG"
+      ;;
+    I)
+      langservers=1
+      ;;
+    k)
+      kickstart=1
+      nvimdir="$kickstartdir"
+      ;;
+    l)
+      lazyvim=1
+      nvimdir="$lazyvimdir"
+      ;;
+    L)
+      command="$OPTARG"
+      ;;
+    m)
+      allaman=1
+      nvimdir="$allamandir"
+      ;;
+    M)
+      multivim=1
+      nvimdir="$multivimdir"
+      ;;
+    n)
+      tellme=1
+      ;;
+    p)
+      plug=1
+      pmgr="Plug"
+      ;;
+    P)
+      packer=1
+      pmgr="Packer"
+      ;;
+    q)
+      quiet=1
+      ;;
+    r)
+      remove=1
+      ;;
+    R)
+      remove=1
+      removeall=1
+      ;;
+    s)
+      spacevim=1
+      nvimdir="$spacevimdir"
+      ;;
+    C)
+      url="$OPTARG"
+      ;;
+    N)
+      name="$OPTARG"
+      ;;
+    U)
+      update=1
+      ;;
+    v)
+      lunarvim=1
+      nvimdir="$lunarvimdir"
+      ;;
+    y)
+      proceed=1
+      ;;
+    z)
+      runvim=
+      ;;
+    Z)
+      unsupported=1
+      ;;
+    u)
+      usage
+      ;;
+    *)
+      printf "\nUnrecognized option. Exiting.\n"
+      usage
+      ;;
+  esac
 done
-shift $(( OPTIND - 1 ))
+shift $((OPTIND - 1))
 
 [ "$unsupported" ] && {
-  lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
-  lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
-  lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
-  lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P -z
-  lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
-  lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
+  if [ "$remove" ]; then
+    for neovim in Nv Abstract Fennel MagicVim Optixal Plug; do
+      remove_config "nvim-${neovim}"
+    done
+  else
+    lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
+    lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
+    lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
+    lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P -z
+    lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
+    lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
+  fi
   exit 0
 }
 
 [ "$langservers" ] && {
-  if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
-  then
+  if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug" -l
     exit 0
   fi
@@ -625,18 +610,18 @@ shift $(( OPTIND - 1 ))
     }
     [ "$proceed" ] || {
       printf "\nDo you wish to proceed with this non-standard initialization?"
-      while true
-      do
+      while true; do
         read -r -p "Proceed with config in ${name} ? (y/n) " yn
         case $yn in
-          [Yy]* )
+          [Yy]*)
             break
             ;;
-          [Nn]* )
+          [Nn]*)
             printf "\nAborting install and exiting\n"
             exit 0
             ;;
-          * ) printf "\nPlease answer yes or no.\n"
+          *)
+            printf "\nPlease answer yes or no.\n"
             ;;
         esac
       done
@@ -647,36 +632,36 @@ shift $(( OPTIND - 1 ))
 [ "$invoke" ] && {
   nvimlower=$(echo "$invoke" | tr '[:upper:]' '[:lower:]')
   case "$nvimlower" in
-    allaman )
-        nvimdir="$allamandir"
-        ;;
-    astronvim )
-        nvimdir="$astronvimdir"
-        ;;
-    kickstart )
-        nvimdir="$kickstartdir"
-        ;;
-    lazyman )
-        nvimdir="$lazymandir"
-        ;;
-    lazyvim )
-        nvimdir="$lazyvimdir"
-        ;;
-    lunarvim )
-        nvimdir="$lunarvimdir"
-        ;;
-    nvchad )
-        nvimdir="$nvchaddir"
-        ;;
-    multi )
-        nvimdir="$multivimdir"
-        ;;
-    spacevim )
-        nvimdir="$spacevimdir"
-        ;;
-      * )
-        nvimdir="$invoke"
-        ;;
+    allaman)
+      nvimdir="$allamandir"
+      ;;
+    astronvim)
+      nvimdir="$astronvimdir"
+      ;;
+    kickstart)
+      nvimdir="$kickstartdir"
+      ;;
+    lazyman)
+      nvimdir="$lazymandir"
+      ;;
+    lazyvim)
+      nvimdir="$lazyvimdir"
+      ;;
+    lunarvim)
+      nvimdir="$lunarvimdir"
+      ;;
+    nvchad)
+      nvimdir="$nvchaddir"
+      ;;
+    multi)
+      nvimdir="$multivimdir"
+      ;;
+    spacevim)
+      nvimdir="$spacevimdir"
+      ;;
+    *)
+      nvimdir="$invoke"
+      ;;
   esac
   [ -d "${HOME}/.config/${nvimdir}" ] || {
     printf "\nNeovim configuration for ${nvimdir} not found"
@@ -695,8 +680,7 @@ shift $(( OPTIND - 1 ))
 }
 
 [ "$remove" ] && {
-  for neovim in "${nvimdir[@]}"
-  do
+  for neovim in "${nvimdir[@]}"; do
     remove_config "$neovim"
   done
   exit 0
@@ -706,8 +690,7 @@ shift $(( OPTIND - 1 ))
   [ "$all" ] || [ "$name" ] || {
     [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
   }
-  for neovim in "${nvimdir[@]}"
-  do
+  for neovim in "${nvimdir[@]}"; do
     run_command "$neovim" "$command"
   done
   exit 0
@@ -717,8 +700,7 @@ shift $(( OPTIND - 1 ))
   [ "$all" ] || [ "$name" ] || {
     [ "$NVIM_APPNAME" ] && nvimdir="$NVIM_APPNAME"
   }
-  for neovim in "${nvimdir[@]}"
-  do
+  for neovim in "${nvimdir[@]}"; do
     update_config "$neovim"
     [ "$tellme" ] || {
       init_neovim "$neovim"
@@ -734,10 +716,9 @@ have_git=$(type -p git)
   brief_usage
 }
 
-if [ -d "${HOME}/.config/$lazymandir" ]
-then
+if [ -d "${HOME}/.config/$lazymandir" ]; then
   [ "$branch" ] && {
-    git -C "${HOME}/.config/$lazymandir" checkout "$branch" > /dev/null 2>&1
+    git -C "${HOME}/.config/$lazymandir" checkout "$branch" >/dev/null 2>&1
   }
 else
   [ "$quiet" ] || {
@@ -745,9 +726,9 @@ else
   }
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
-              "${HOME}/.config/$lazymandir" > /dev/null 2>&1
+      "${HOME}/.config/$lazymandir" >/dev/null 2>&1
     [ "$branch" ] && {
-      git -C "${HOME}/.config/$lazymandir" checkout "$branch" > /dev/null 2>&1
+      git -C "${HOME}/.config/$lazymandir" checkout "$branch" >/dev/null 2>&1
     }
   }
   [ "$quiet" ] || printf "done"
@@ -759,30 +740,28 @@ fi
 
 # Append sourcing of .lazymanrc to shell initialization files
 [ -f "${HOME}/.config/$lazymandir"/.lazymanrc ] && {
-  for shinit in bashrc zshrc
-  do
+  for shinit in bashrc zshrc; do
     [ -f "${HOME}/.$shinit" ] || continue
-    grep lazymanrc "${HOME}/.$shinit" > /dev/null && continue
+    grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
     COMM="# Source the Lazyman shell initialization for aliases and nvims function"
-    echo "$COMM" >> "${HOME}/.$shinit"
+    echo "$COMM" >>"${HOME}/.$shinit"
     TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
     SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
-    echo "${TEST_SRC} ${SOURCE}" >> "${HOME}/.$shinit"
+    echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
   done
 }
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 [ "$OPENAI_API_KEY" ] && {
   NVIMCONF="${HOME}/.config/${lazymandir}/lua/configuration.lua"
-  grep 'conf.enable_chatgpt' "$NVIMCONF" > /dev/null && {
-    cat "$NVIMCONF" | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" > /tmp/nvim$$
+  grep 'conf.enable_chatgpt' "$NVIMCONF" >/dev/null && {
+    cat "$NVIMCONF" | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
     cp /tmp/nvim$$ "$NVIMCONF"
     rm -f /tmp/nvim$$
   }
 }
 
-if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
-then
+if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
   "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
   BREW_EXE=
   set_brew
@@ -801,8 +780,7 @@ else
   brief_usage
 fi
 
-for neovim in "${nvimdir[@]}"
-do
+for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "$lazymandir" ] && continue
   [ "$proceed" ] || {
     [ -d "${HOME}/.config/$neovim" ] && {
@@ -810,20 +788,20 @@ do
       printf "\nIt appears there is a previously installed Neovim configuration at:"
       printf "\n\t${HOME}/.config/${neovim}\n"
       printf "\nThe existing Neovim configuration can be updated or backed up.\n"
-      while true
-      do
+      while true; do
         read -r -p "Update ${neovim} ? (y/n) " yn
         case $yn in
-          [Yy]* )
-              update_config "$neovim"
-              break
-              ;;
-          [Nn]* )
-              create_backups "$neovim"
-              break
-              ;;
-            * ) echo "Please answer yes or no."
-              ;;
+          [Yy]*)
+            update_config "$neovim"
+            break
+            ;;
+          [Nn]*)
+            create_backups "$neovim"
+            break
+            ;;
+          *)
+            echo "Please answer yes or no."
+            ;;
         esac
       done
     }
@@ -836,12 +814,11 @@ done
     printf "\nAdding user configuration into ${HOME}/.config/${astronvimdir}/lua/user ... "
   }
   [ "$tellme" ] || {
-    if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]
-    then
+    if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]; then
       update_config "$astronvimdir"/lua/user
     else
       git clone https://github.com/doctorfree/astronvim \
-          "${HOME}/.config/$astronvimdir"/lua/user > /dev/null 2>&1
+        "${HOME}/.config/$astronvimdir"/lua/user >/dev/null 2>&1
     fi
   }
   [ "$quiet" ] || printf "done"
@@ -868,7 +845,7 @@ done
     }
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
-                "${HOME}/.config/${nvchaddir}" --depth 1 > /dev/null 2>&1
+        "${HOME}/.config/${nvchaddir}" --depth 1 >/dev/null 2>&1
       add_nvimdirs_entry "$nvchaddir"
     }
     [ "$quiet" ] || {
@@ -876,12 +853,11 @@ done
     }
   }
   [ "$tellme" ] || {
-    if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]
-    then
+    if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]; then
       update_config "$nvchaddir"/lua/custom
     else
       git clone https://github.com/doctorfree/NvChad-custom \
-                "${HOME}/.config/$nvchaddir"/lua/custom > /dev/null 2>&1
+        "${HOME}/.config/$nvchaddir"/lua/custom >/dev/null 2>&1
       # rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
     fi
   }
@@ -897,7 +873,7 @@ done
     }
     [ "$tellme" ] || {
       git clone \
-        "$url" "${HOME}/.config/${nvimdir}" > /dev/null 2>&1
+        "$url" "${HOME}/.config/${nvimdir}" >/dev/null 2>&1
       add_nvimdirs_entry "$nvimdir"
     }
     [ "$quiet" ] || printf "done"
@@ -912,7 +888,7 @@ done
     }
     [ "$tellme" ] || {
       git clone --depth 1 \
-          https://github.com/wbthomason/packer.nvim "$PACKER" > /dev/null 2>&1
+        https://github.com/wbthomason/packer.nvim "$PACKER" >/dev/null 2>&1
     }
     [ "$quiet" ] || printf "done"
   }
@@ -927,7 +903,7 @@ done
     [ "$tellme" ] || {
       sh -c "curl -fLo ${PLUG} --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
-        > /dev/null 2>&1
+        >/dev/null 2>&1
     }
     [ "$quiet" ] || printf "done"
   }
@@ -936,15 +912,13 @@ done
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 [ "$hardlimit" == "unlimited" ] && hardlimit=9999
-if [ "$hardlimit" -gt 4096 ]
-then
+if [ "$hardlimit" -gt 4096 ]; then
   [ "$tellme" ] || ulimit -n 4096
 else
   [ "$tellme" ] || ulimit -n "$hardlimit"
 fi
 
-for neovim in "${nvimdir[@]}"
-do
+for neovim in "${nvimdir[@]}"; do
   [ "$quiet" ] || {
     pm="$pmgr"
     [ "$neovim" == "$spacevimdir" ] && pm="SP"
@@ -959,10 +933,9 @@ done
 [ "$tellme" ] || ulimit -n "$currlimit"
 
 lazyinst=
-if [ -f "$HOME"/.local/bin/lazyman ]
-then
+if [ -f "$HOME"/.local/bin/lazyman ]; then
   [ -f "$LMANDIR"/lazyman.sh ] && {
-    diff "$LMANDIR"/lazyman.sh "$HOME"/.local/bin/lazyman > /dev/null || lazyinst=1
+    diff "$LMANDIR"/lazyman.sh "$HOME"/.local/bin/lazyman >/dev/null || lazyinst=1
   }
 else
   lazyinst=1
@@ -977,11 +950,10 @@ fi
 }
 
 maninst=
-if [ -f "$HOME"/.local/share/man/man1/lazyman.1 ]
-then
+if [ -f "$HOME"/.local/share/man/man1/lazyman.1 ]; then
   [ -f "$LMANDIR"/man/man1/lazyman.1 ] && {
     diff "$LMANDIR"/man/man1/lazyman.1 \
-         "$HOME"/.local/share/man/man1/lazyman.1 > /dev/null || maninst=1
+      "$HOME"/.local/share/man/man1/lazyman.1 >/dev/null || maninst=1
   }
 else
   maninst=1
@@ -997,8 +969,7 @@ fi
 [ "$quiet" ] || {
   printf "\nTo use this lazyman installed Neovim configuration as the default,"
   printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
-  if [ "$all" ]
-  then
+  if [ "$all" ]; then
     printf '\n\texport NVIM_APPNAME="nvim-Lazyman"\n'
   else
     printf "\n\texport NVIM_APPNAME=\"${nvimdir}\"\n"
@@ -1011,29 +982,21 @@ fi
     printf "\n\tsource ~/.config/${LAZYMAN}/.lazymanrc"
   fi
   printf "\nAn alias for this Lazyman configuration can be created with:"
-  if [ "$all" ]
-  then
+  if [ "$all" ]; then
     printf "\n\n\talias lnvim='NVIM_APPNAME=nvim-Lazyman nvim'"
-  elif [ "$astronvim" ]
-  then
+  elif [ "$astronvim" ]; then
     printf "\n\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
-  elif [ "$kickstart" ]
-  then
+  elif [ "$kickstart" ]; then
     printf "\n\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
-  elif [ "$lazyvim" ]
-  then
+  elif [ "$lazyvim" ]; then
     printf "\n\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
-  elif [ "$allaman" ]
-  then
+  elif [ "$allaman" ]; then
     printf "\n\n\talias mvim='NVIM_APPNAME=nvim-Allaman nvim'"
-  elif [ "$lunarvim" ]
-  then
+  elif [ "$lunarvim" ]; then
     printf "\n\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
-  elif [ "$spacevim" ]
-  then
+  elif [ "$spacevim" ]; then
     printf "\n\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
-  elif [ "$nvchad" ]
-  then
+  elif [ "$nvchad" ]; then
     printf "\n\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
   else
     printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir} nvim\""

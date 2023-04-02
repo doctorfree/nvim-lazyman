@@ -456,7 +456,7 @@ To remove the configuration and all its backups, `lazyman -R -N <nvimdir>`.
 To remove all installed Lazyman Neovim configurations and their backups
 without being prompted to proceed, execute `lazyman -A -R -y`.
 
-<details><summary>View the `lazyman` usage message</summary>
+<details><summary>View the lazyman usage message</summary>
 
 ```
 Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]
@@ -666,7 +666,7 @@ below along with their default settings:
 
 Additional plugin configuration and options are available in `configuration.lua`.
 
-<details><summary>View the default `configuration.lua`</summary>
+<details><summary>View the default configuration.lua</summary>
 
 ```lua
 local conf = {}
@@ -1728,12 +1728,20 @@ done
 shift $(( OPTIND - 1 ))
 
 [ "$unsupported" ] && {
-  lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
-  lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
-  lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
-  lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P -z
-  lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
-  lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
+  if [ "$remove" ]
+  then
+    for neovim in Nv Abstract Fennel MagicVim Optixal Plug
+    do
+      remove_config "nvim-${neovim}"
+    done
+  else
+    lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
+    lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
+    lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
+    lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P -z
+    lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
+    lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
+  fi
   exit 0
 }
 
