@@ -781,8 +781,8 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint", "prettier", "shellcheck", "shellharden",
-  "stylua", "tflint", "yamllint", "ruff",
+  "beautysh", "markdownlint", "prettier", "shellcheck", "shellharden",
+  "shfmt", "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -921,7 +921,7 @@ Neovim configuration and aliases to override that for other configurations.
 ### The nvims shell function
 
 The `lazyman` installation and configuration automatically configures
-convenience aliases and an `nvims` shell function for the supported
+convenience aliases and an `nvims` shell function for the installed
 Lazyman Neovim configurations. See `~/.config/nvim-Lazyman/.lazymanrc`.
 
 <details><summary>View the .lazymanrc shell aliases and zsh nvims function</summary>
@@ -993,7 +993,16 @@ command -v nvim > /dev/null && {
   fi
 
   function nvims() {
-    config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+    numitems=${#items[@]}
+    if [ ${numitems} -eq 1 ]
+    then
+      config="${items[@]:0:1}"
+    else
+      height=$((numitems * 6))
+      [ ${height} -gt 100 ] && height=100
+      [ ${height} -lt 20 ] && height=20
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+    fi
     if [[ -z $config ]]; then
       echo "Nothing selected"
       return 0
@@ -1025,29 +1034,11 @@ command -v nvim > /dev/null && {
 </details>
 
 The `nvims` shell function, when executed, presents a fuzzy searchable menu
-of the `lazyman` installed Neovim configurations.
-
-A similar `nvims` function for `bash` users (with the `items` array constructed
-as above) can also be constructed.
-
-<details><summary>View the bash nvims function</summary>
-
-```bash
-nvims() {
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  else
-    config="nvim-${config}"
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
-```
-
-</details>
+of the `lazyman` installed Neovim configurations. The `lazyman` installed
+Neovim configurations are maintained in the file
+`~/.config/nvim-Lazyman/.nvimdirs`. Entries in this file are what `nvims`
+uses for its fuzzy selection menu. When Neovim configurations are installed
+or removed with `lazyman` this file is updated accordingly.
 
 Note also that a convenience key binding has been created to launch
 `nvims` with `ctrl-n`.
@@ -1058,7 +1049,7 @@ The `nvims` Neovim configuration switching shell function was created by
 he provides details on use and customization of the `nvims` shell function.
 
 Lazyman has incorporated and adapted the `nvims` shell function for use
-with the supported Lazyman Neovim configurations. The `nvims` shell
+with the Lazyman installed Neovim configurations. The `nvims` shell
 function is automatically configured during `lazyman` installation.
 
 ### Using aliases

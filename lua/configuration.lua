@@ -130,6 +130,7 @@ conf.lsp_servers = {
 }
 -- Formatters installed by mason-null-ls
 conf.formatters = {
+  "beautysh",
   "black",
   "prettier",
   "stylua",
@@ -137,14 +138,15 @@ conf.formatters = {
   "google_java_format",
   "sql_formatter",
   "markdownlint",
-  "beautysh",
 }
 -- Tools that should be installed by Mason
 conf.tools = {
+  "beautysh",
   "markdownlint",
   "prettier",
   "shellcheck",
   "shellharden",
+  "shfmt",
   "stylua",
   "tflint",
   "yamllint",

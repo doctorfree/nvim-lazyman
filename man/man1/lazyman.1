@@ -88,6 +88,13 @@ See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
 The \f[V]nvims\f[R] shell function, when executed, presents a fuzzy
 searchable menu of the \f[V]lazyman\f[R] installed Neovim
 configurations.
+The \f[V]lazyman\f[R] installed Neovim configurations are maintained in
+the file \f[V]\[ti]/.config/nvim-Lazyman/.nvimdirs\f[R].
+Entries in this file are what \f[V]nvims\f[R] uses for its fuzzy
+selection menu.
+When Neovim configurations are installed or removed with
+\f[V]lazyman\f[R] this file is updated accordingly.
+.PP
 Execute \f[V]nvims\f[R] directly at the shell prompt or by using the
 convenience key binding \f[V]ctrl-n\f[R].
 .PP
@@ -613,8 +620,8 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  \[dq]markdownlint\[dq], \[dq]prettier\[dq], \[dq]shellcheck\[dq], \[dq]shellharden\[dq],
-  \[dq]stylua\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
+  \[dq]beautysh\[dq], \[dq]markdownlint\[dq], \[dq]prettier\[dq], \[dq]shellcheck\[dq], \[dq]shellharden\[dq],
+  \[dq]shfmt\[dq], \[dq]stylua\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

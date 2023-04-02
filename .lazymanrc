@@ -69,7 +69,10 @@ command -v nvim > /dev/null && {
     then
       config="${items[@]:0:1}"
     else
-      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=60% --layout=reverse --border --exit-0)
+      height=$((numitems * 6))
+      [ ${height} -gt 100 ] && height=100
+      [ ${height} -lt 20 ] && height=20
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
     fi
     if [[ -z $config ]]; then
       echo "Nothing selected"
