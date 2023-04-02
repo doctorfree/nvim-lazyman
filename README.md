@@ -17,6 +17,11 @@
       <img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/>
     </a>
 </p>
+The `nvims` Neovim configuration fuzzy selector:
+<p float="left">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims.png" style="width:500px;height:800px;">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims2.png" style="width:500px;height:800px;">
+</p>
 
 </div>
 
