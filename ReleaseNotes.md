@@ -2,7 +2,16 @@
 
 All that is needed to bootstrap `nvim-Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.1r1/lazyman.sh) script. Download and execute to get started.
 
-The Lazyman project can be used to install, initialize, and manage multiple Neovim configurations. Several popular Neovim configurations are supported including [AstroNvim](https://astronvim.com), [NvChad](https://nvchad.com/), [Allaman](https://github.com/Allaman/nvim), [Kickstart](https://github.com/nvim-lua/kickstart.nvim), [LunarVim](https://github.com/LunarVim/LunarVim), and [LazyVim](https://github.com/LazyVim/LazyVim).
+The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Several popular Neovim configurations are supported including:
+
+- [Allaman](https://github.com/Allaman/nvim)
+- [AstroNvim](https://astronvim.com)
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+- [LazyVim](https://github.com/LazyVim/LazyVim).
+- [LunarVim](https://github.com/LunarVim/LunarVim)
+- [MagicVim](https://gitlab.com/GitMaster210/magicvim)
+- [NvChad](https://nvchad.com/)
+- [SpaceVim](https://spacevim.org)
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 
@@ -167,9 +176,15 @@ Currently the following Neovim configurations are supported:
 - [LunarVim](https://github.com/LunarVim/LunarVim)
   - Does not use the LunarVim installer script, installs in `~/.config/nvim-LunarVim`
   - Install and initialize with `lazyman -v`
+- [MagicVim](https://gitlab.com/GitMaster210/magicvim)
+  - Uses Packer plugin manager, installs in `~/.config/nvim-MagicVim`
+  - Install and initialize with `lazyman -M`
 - [NvChad](https://nvchad.com)
   - The [NvChad example](https://github.com/NvChad/example_config) configuration
   - Install and initialize with `lazyman -c`
+- [SpaceVim](https://spacevim.org)
+  - Does not use the SpaceVim installer script, installs in `~/.config/nvim-SpaceVim`
+  - Install and initialize with `lazyman -s`
 
 ## Removal
 

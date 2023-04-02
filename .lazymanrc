@@ -15,14 +15,14 @@ command -v nvim > /dev/null && {
   # Add all previously installed Neovim configurations
   if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
   then
-    cat ${HOME}/.config/nvim-Lazyman/.nvimdirs | while read nvimdir
+    while IFS= read -r nvimdir
     do
       [ -d ${HOME}/.config/${nvimdir} ] && {
         alias ${nvimdir}="NVIM_APPNAME=${nvimdir} nvim"
         entry=$(echo ${nvimdir} | sed -e "s/nvim-//")
         items+=("${entry}")
       }
-    done
+    done < "${HOME}/.config/nvim-Lazyman/.nvimdirs"
   else
     # Add any supported config we find
     [ -d ${HOME}/.config/nvim-Lazyman ] && {
@@ -92,11 +92,4 @@ command -v nvim > /dev/null && {
     fi
     NVIM_APPNAME=$config nvim $@
   }
-  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
-   bindkey -s ^n "nvims\n"
-  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
-   bind -x '"\C-n": nvims'
-  else
-   bindkey -s ^n "nvims\n"
-  fi
 }
