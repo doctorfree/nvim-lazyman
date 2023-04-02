@@ -566,7 +566,7 @@ shift $((OPTIND - 1))
 
 [ "$langservers" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug" -l
+    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh -l $debug
     exit 0
   fi
   exit 1
@@ -780,7 +780,7 @@ fi
 }
 
 if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-  "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
+  "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh $debug
   BREW_EXE=
   set_brew
   [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
