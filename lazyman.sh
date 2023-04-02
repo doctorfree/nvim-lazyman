@@ -4,7 +4,7 @@
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2068
+# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
