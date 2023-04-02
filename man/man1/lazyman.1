@@ -81,19 +81,30 @@ LazyVim configuration run \f[V]nvim-lazy filename.py\f[R] and to invoke
 Neovim with the LunarVim config run \f[V]nvim-lunar proposal.md\f[R].
 .PP
 The \f[V]lazyman\f[R] installation and configuration automatically
-configures convenience aliases and an \f[V]nvims\f[R] shell function for
-the supported Lazyman Neovim configurations.
-See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
-.PP
-The \f[V]nvims\f[R] shell function, when executed, presents a fuzzy
-searchable menu of the \f[V]lazyman\f[R] installed Neovim
+configures convenience aliases for Lazyman installed Neovim
 configurations.
-The \f[V]lazyman\f[R] installed Neovim configurations are maintained in
-the file \f[V]\[ti]/.config/nvim-Lazyman/.nvimdirs\f[R].
-Entries in this file are what \f[V]nvims\f[R] uses for its fuzzy
-selection menu.
-When Neovim configurations are installed or removed with
-\f[V]lazyman\f[R] this file is updated accordingly.
+It also creates an \f[V]nvims\f[R] alias which dynamically creates a
+fuzzy searchable menu of installed Neovim configurations and launches
+Neovim with the selected Lazyman Neovim configuration.
+See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
+With this \f[V]nvims\f[R] alias it is no longer necessary to
+logout/login or source a shell initialization file to update the menu of
+installed Neovim configurations - the \f[V]nvims\f[R] alias dynamically
+generates the menu.
+.PP
+The fuzzy searchable/selectable menu of Neovim configurations can also
+be shown with the command \f[V]lazyman -S\f[R].
+Note also that both the \f[V]nvims\f[R] alias and the
+\f[V]lazyman -S\f[R] command can accept additional filename arguments
+with are then passed to Neovim.
+For example, to edit \f[V]/tmp/foo.lua\f[R] with a Neovim configuration
+selected from the \f[V]nvims\f[R] menu:
+.IP
+.nf
+\f[C]
+nvims /tmp/foo.lua
+\f[R]
+.fi
 .PP
 Execute \f[V]nvims\f[R] directly at the shell prompt or by using the
 convenience key binding \f[V]ctrl-n\f[R].

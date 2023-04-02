@@ -7,6 +7,7 @@ command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
+  alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
   items=()
   [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
@@ -63,7 +64,7 @@ command -v nvim > /dev/null && {
     }
   fi
 
-  function nvims() {
+  function nvimselect() {
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then

@@ -59,15 +59,23 @@ configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
 config run `nvim-lunar proposal.md`.
 
 The `lazyman` installation and configuration automatically configures
-convenience aliases and an `nvims` shell function for the supported
-Lazyman Neovim configurations. See `~/.config/nvim-Lazyman/.lazymanrc`.
+convenience aliases for Lazyman installed Neovim configurations. It also
+creates an `nvims` alias which dynamically creates a fuzzy searchable
+menu of installed Neovim configurations and launches Neovim with the
+selected Lazyman Neovim configuration. See `~/.config/nvim-Lazyman/.lazymanrc`.
+With this `nvims` alias it is no longer necessary to logout/login or
+source a shell initialization file to update the menu of installed
+Neovim configurations - the `nvims` alias dynamically generates the menu.
 
-The `nvims` shell function, when executed, presents a fuzzy searchable menu
-of the `lazyman` installed Neovim configurations. The `lazyman` installed
-Neovim configurations are maintained in the file
-`~/.config/nvim-Lazyman/.nvimdirs`. Entries in this file are what `nvims`
-uses for its fuzzy selection menu. When Neovim configurations are installed
-or removed with `lazyman` this file is updated accordingly.
+The fuzzy searchable/selectable menu of Neovim configurations can also
+be shown with the command `lazyman -S`. Note also that both the `nvims`
+alias and the `lazyman -S` command can accept additional filename arguments
+with are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
+a Neovim configuration selected from the `nvims` menu:
+
+```bash
+nvims /tmp/foo.lua
+```
 
 Execute `nvims` directly at the shell prompt or by using the convenience
 key binding `ctrl-n`.

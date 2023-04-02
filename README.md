@@ -75,7 +75,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Health check](#health-check)
   - [Symbolic links](#symbolic-links)
   - [Shell initialization setup](#shell-initialization-setup)
-  - [The nvims shell function](#the-nvims-shell-function)
+  - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
   - [Using aliases](#using-aliases)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 - [Neovim install](#neovim-install)
@@ -933,13 +933,28 @@ aliases as described in the next section. Both approaches can be used,
 an export in the shell initialization file for the most frequently used
 Neovim configuration and aliases to override that for other configurations.
 
-### The nvims shell function
+### The nvims fuzzy selector
 
 The `lazyman` installation and configuration automatically configures
-convenience aliases and an `nvims` shell function for the installed
-Lazyman Neovim configurations. See `~/.config/nvim-Lazyman/.lazymanrc`.
+convenience aliases for Lazyman installed Neovim configurations. It also
+creates an `nvims` alias which dynamically creates a fuzzy searchable
+menu of installed Neovim configurations and launches Neovim with the
+selected Lazyman Neovim configuration. See `~/.config/nvim-Lazyman/.lazymanrc`.
+With this `nvims` alias it is no longer necessary to logout/login or
+source a shell initialization file to update the menu of installed
+Neovim configurations - the `nvims` alias dynamically generates the menu.
 
-<details><summary>View the .lazymanrc shell aliases and zsh nvims function</summary>
+The fuzzy searchable/selectable menu of Neovim configurations can also
+be shown with the command `lazyman -S`. Note also that both the `nvims`
+alias and the `lazyman -S` command can accept additional filename arguments
+with are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
+a Neovim configuration selected from the `nvims` menu:
+
+```bash
+nvims /tmp/foo.lua
+```
+
+<details><summary>View the .lazymanrc shell aliases and function</summary>
 
 ```bash
 # $HOME/.config/nvim-Lazyman/.lazymanrc
@@ -951,6 +966,7 @@ command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
+  alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
   items=()
   [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
@@ -959,14 +975,14 @@ command -v nvim > /dev/null && {
   # Add all previously installed Neovim configurations
   if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
   then
-    cat ${HOME}/.config/nvim-Lazyman/.nvimdirs | while read nvimdir
+    while IFS= read -r nvimdir
     do
       [ -d ${HOME}/.config/${nvimdir} ] && {
         alias ${nvimdir}="NVIM_APPNAME=${nvimdir} nvim"
         entry=$(echo ${nvimdir} | sed -e "s/nvim-//")
         items+=("${entry}")
       }
-    done
+    done < "${HOME}/.config/nvim-Lazyman/.nvimdirs"
   else
     # Add any supported config we find
     [ -d ${HOME}/.config/nvim-Lazyman ] && {
@@ -1007,7 +1023,7 @@ command -v nvim > /dev/null && {
     }
   fi
 
-  function nvims() {
+  function nvimselect() {
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -1036,13 +1052,6 @@ command -v nvim > /dev/null && {
     fi
     NVIM_APPNAME=$config nvim $@
   }
-  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
-   bindkey -s ^n "nvims\n"
-  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
-   bind -x '"\C-n": nvims'
-  else
-   bindkey -s ^n "nvims\n"
-  fi
 }
 ```
 
@@ -1057,6 +1066,25 @@ or removed with `lazyman` this file is updated accordingly.
 
 Note also that a convenience key binding has been created to launch
 `nvims` with `ctrl-n`.
+
+<details><summary>View the .nvimsbind shell key binding file</summary>
+
+```bash
+# $HOME/.config/nvim-Lazyman/.nvimsbind
+# This file should be sourced from the shell initialization file
+# after first sourcing ~/.config/nvim-Lazyman/.lazymanrc
+command -v nvims > /dev/null && {
+  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+   bindkey -s ^n "nvims\n"
+  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+   bind -x '"\C-n": nvims'
+  else
+   bindkey -s ^n "nvims\n"
+  fi
+}
+```
+
+</details>
 
 The `nvims` Neovim configuration switching shell function was created by
 [Elijah Manor](https://github.com/elijahmanor). He created an excellent
