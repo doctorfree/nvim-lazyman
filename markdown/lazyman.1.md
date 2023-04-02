@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 
 ## DESCRIPTION
 
@@ -159,6 +159,10 @@ The following command line options are available with the `lazyman` command:
 `-U` : indicates update an existing configuration
 
 `-y` : indicates do not prompt, answer 'yes' to any prompt
+
+`-z` : indicates do not run nvim after initialization
+
+`-Z` : indicates install several unsupported but cool Neovim configurations
 
 `-u` : displays this usage message and exits
 

@@ -461,11 +461,11 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 ```
 Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]
                [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]
-               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]
+               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
-    -b 'branch' specifies an nvim-lazyman git branch to checkout
+    -b 'branch' specifies an nvim-Lazyman git branch to checkout
     -c indicates install and initialize NvChad Neovim configuration
     -d indicates debug mode
     -e 'config' execute 'nvim' with 'config' Neovim configuration
@@ -491,6 +491,8 @@ Where:
     -N 'nvimdir' specifies the folder name to use for the config given by -C
     -U indicates update an existing configuration
     -y indicates do not prompt, answer 'yes' to any prompt
+    -z indicates do not run nvim after initialization
+    -Z indicates install several unsupported but cool Neovim configurations
     -u displays this usage message and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-Lazyman
@@ -1179,14 +1181,14 @@ NVIMDIRS="${LMANDIR}/.nvimdirs"
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]"
   printf "\n               [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
-  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   exit 1
 }
 
 usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]"
   printf "\n               [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
-  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-u]"
+  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   printf "\nWhere:"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvim Neovim configuration"
@@ -1216,6 +1218,8 @@ usage() {
   printf "\n    -N 'nvimdir' specifies the folder name to use for the config given by -C"
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
+  printf "\n    -z indicates do not run nvim after initialization"
+  printf "\n    -Z indicates install several unsupported but cool Neovim configurations"
   printf "\n    -u displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}\n"
@@ -1594,8 +1598,10 @@ proceed=
 quiet=
 remove=
 removeall=
+runvim=1
 update=
 url=
+unsupported=
 name=
 pmgr="Lazy"
 lazymandir="$LAZYMAN"
@@ -1608,7 +1614,7 @@ nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 multivimdir="nvim-MultiVim"
 nvimdir="$lazymandir"
-while getopts "aAb:cde:IklMmnL:pPqrRsUC:N:vyu" flag; do
+while getopts "aAb:cde:IklMmnL:pPqrRsUC:N:vyzZu" flag; do
     case $flag in
         a)
             astronvim=1
@@ -1704,6 +1710,12 @@ while getopts "aAb:cde:IklMmnL:pPqrRsUC:N:vyu" flag; do
         y)
             proceed=1
             ;;
+        z)
+            runvim=
+            ;;
+        Z)
+            unsupported=1
+            ;;
         u)
             usage
             ;;
@@ -1714,6 +1726,16 @@ while getopts "aAb:cde:IklMmnL:pPqrRsUC:N:vyu" flag; do
     esac
 done
 shift $(( OPTIND - 1 ))
+
+[ "$unsupported" ] && {
+  lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
+  lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
+  lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
+  lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P -z
+  lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
+  lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
+  exit 0
+}
 
 [ "$langservers" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]
@@ -2188,8 +2210,10 @@ fi
 printf "\n\n"
 
 [ "$tellme" ] || {
-  [ "$all" ] && export NVIM_APPNAME="$lazymandir"
-  nvim
+  [ "$runvim" ] && {
+    [ "$all" ] && export NVIM_APPNAME="$lazymandir"
+    nvim
+  }
 }
 
 [ "$lazyinst" ] && {
