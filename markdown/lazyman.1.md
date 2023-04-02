@@ -237,6 +237,7 @@ conf.enable_transparent = false
 ##### Supported themes
 
 - [catppuccin](https://github.com/catppuccin/nvim.git)
+- [dracula](https://github.com/Mofiqul/dracula.nvim)
 - [everforest](https://github.com/neanias/everforest-nvim.git)
 - [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
 - [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
@@ -331,7 +332,7 @@ local conf = {}
 
 -- THEME CONFIGURATION
 -- Available themes:
---   nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+--   nightfox, tokyonight, dracula, kanagawa, catppuccin, tundra, onedarkpro, everforest
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = "tokyonight"

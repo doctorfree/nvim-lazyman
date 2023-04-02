@@ -2,7 +2,7 @@ local conf = {}
 
 -- THEME CONFIGURATION
 -- Available themes:
---   nightfox, tokyonight, kanagawa, catppuccin, tundra, onedarkpro, everforest
+--   nightfox, tokyonight, dracula, kanagawa, catppuccin, tundra, onedarkpro, everforest
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = "tokyonight"

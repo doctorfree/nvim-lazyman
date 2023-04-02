@@ -1,5 +1,5 @@
 -- Currently supported themes:
---   nightfox, tundra, tokyonight, catppuccin, kanagawa, onedarkpro
+--   nightfox, tundra, tokyonight, catppuccin, dracula, kanagawa, onedarkpro
 --
 
 return {
@@ -34,6 +34,14 @@ return {
     branch = "main",
     config = function()
       require("themes.tokyonight")
+    end,
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.dracula")
     end,
   },
   {
