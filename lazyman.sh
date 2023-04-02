@@ -760,7 +760,7 @@ fi
     for shinit in bashrc zshrc; do
       [ -f "${HOME}/.$shinit" ] || continue
       grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
-      COMM="# Source the Lazyman shell initialization for aliases and nvims function"
+      COMM="# Source the Lazyman shell initialization for nvims key binding"
       echo "$COMM" >>"${HOME}/.$shinit"
       TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
       SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
@@ -916,7 +916,8 @@ done
   PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
   [ -d "$PACKER" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning packer.nvim into ${PACKER} ... "
+      printf "\nCloning packer.nvim"
+      printf "\n\tinto ${PACKER} ... "
     }
     [ "$tellme" ] || {
       git clone --depth 1 \
@@ -954,7 +955,8 @@ for neovim in "${nvimdir[@]}"; do
   [ "$quiet" ] || {
     pm="$pmgr"
     [ "$neovim" == "$spacevimdir" ] && pm="SP"
-    printf "\nInitializing newly installed ${neovim} Neovim configuration with ${pm} ... "
+    [ "$neovim" == "$magicvimdir" ] && pm="Packer"
+    printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
   }
   [ "$tellme" ] || {
     init_neovim "$neovim"
@@ -977,7 +979,7 @@ fi
     printf "\nInstalling lazyman command in ${HOME}/.local/bin"
     printf "\nUse ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
     printf "\nReview the lazyman usage message with:"
-    printf "\n\t${HOME}/.local/bin/lazyman -u\n"
+    printf "\n\t${HOME}/.local/bin/lazyman -u"
   }
 }
 
@@ -994,12 +996,12 @@ fi
   [ "$quiet" ] || {
     printf "\nInstalling lazyman man page in ${HOME}/.local/share/man/man1/lazyman.1"
     printf "\nView the lazyman man page with:"
-    printf "\n\tman lazyman\n"
+    printf "\n\tman lazyman"
   }
 }
 
 [ "$quiet" ] || {
-  printf "\nTo use this lazyman installed Neovim configuration as the default,"
+  printf "\n\nTo use this lazyman installed Neovim configuration as the default,"
   printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
   if [ "$all" ]; then
     printf '\n\texport NVIM_APPNAME="nvim-Lazyman"\n'

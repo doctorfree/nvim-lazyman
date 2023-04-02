@@ -2,7 +2,7 @@
 title: LAZYMAN
 section: 1
 header: User Manual
-footer: lazyman 1.0.1
+footer: lazyman 1.0.2
 date: March 13, 2023
 ---
 
