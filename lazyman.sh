@@ -9,16 +9,23 @@
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
+LOLCAT="lolcat --animate --speed=60.0"
+BOLD=$(tput bold 2>/dev/null)
+NORM=$(tput sgr0 2>/dev/null)
+PLEASE="Please enter your"
+FIG_TEXT="Lazyman"
+# Array with font names
+fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k] [-l]"
   printf "\n               [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
   printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   exit 1
 }
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k] [-l]"
   printf "\n               [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
   printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   printf "\nWhere:"
@@ -33,6 +40,7 @@ usage() {
   printf "\n           'magicvim', nvchad', lazyvim', 'lunarvim', 'spacevim'"
   printf "\n       or any Neovim configuration directory in '~/.config'"
   printf "\n           (e.g. 'lazyman -e lazyvim foo.lua')"
+  printf "\n    -i indicates install and initialize Lazyman Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize Allaman Neovim configuration"
@@ -389,6 +397,71 @@ clone_repo() {
   }
 }
 
+show_figlet() {
+  # Seed random generator
+  RANDOM=$$$(date +%s)
+  USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
+  [ "${USE_FONT}" ] || USE_FONT="standard"
+  if [ "${use_lolcat}" ]; then
+    if [ "${USE_FONT}" == "lean" ]; then
+      figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | tr ' _/' ' ()' | ${LOLCAT}
+    else
+      figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
+    fi
+  else
+    if [ "${USE_FONT}" == "lean" ]; then
+      figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | tr ' _/' ' ()'
+    else
+      figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
+    fi
+  fi
+}
+
+show_menu() {
+  use_figlet=$(type -p figlet)
+  use_lolcat=$(type -p lolcat)
+
+  while true; do
+    clear
+    [ "${use_figlet}" ] && show_figlet
+    PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+    if alias nvims >/dev/null 2>&1; then
+      options+=("Select Neovim Configuration")
+    fi
+    options+=("Install Supported Configurations")
+    options+=("Install Unsupported Configurations")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "Select"*,* | *,"Select"* | "select"*,* | *,"select"*)
+          nvimselect
+          break
+          ;;
+        "Install Supported"*,* | *,"Install Supported"*)
+          lazyman -A
+          break
+          ;;
+        "Install Unsupported"*,* | *,"Install Unsupported"*)
+          lazyman -Z
+          break
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+        *,*)
+          printf "\nCould not match '${REPLY}' with a menu entry."
+          printf "\nPlease try again with an exact match.\n"
+          [ "${use_figlet}" ] && show_figlet
+          ;;
+      esac
+      REPLY=
+    done
+  done
+}
+
 all=
 branch=
 command=
@@ -399,6 +472,7 @@ tellme=
 allaman=
 astronvim=
 kickstart=
+lazyman=
 lazyvim=
 lunarvim=
 magicvim=
@@ -426,8 +500,8 @@ allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-nvimdir=("$lazymandir")
-while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
+nvimdir=()
+while getopts "aAb:cde:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -438,6 +512,7 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       astronvim=1
       allaman=1
       kickstart=1
+      lazyman=1
       lazyvim=1
       lunarvim=1
       magicvim=1
@@ -457,6 +532,10 @@ while getopts "aAb:cde:IklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       ;;
     e)
       invoke="$OPTARG"
+      ;;
+    i)
+      lazyman=1
+      nvimdir=("$lazymandir")
       ;;
     I)
       langservers=1
@@ -595,6 +674,7 @@ shift $((OPTIND - 1))
   [ "$allaman" ] && numvim=$((numvim + 1))
   [ "$kickstart" ] && numvim=$((numvim + 1))
   [ "$lazyvim" ] && numvim=$((numvim + 1))
+  [ "$lazyman" ] && numvim=$((numvim + 1))
   [ "$lunarvim" ] && numvim=$((numvim + 1))
   [ "$magicvim" ] && numvim=$((numvim + 1))
   [ "$nvchad" ] && numvim=$((numvim + 1))
@@ -606,6 +686,7 @@ shift $((OPTIND - 1))
   [ "$astronvim" ] && astronvimdir="$name"
   [ "$allaman" ] && allamandir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
+  [ "$lazyman" ] && lazymandir="$name"
   [ "$lazyvim" ] && lazyvimdir="$name"
   [ "$lunarvim" ] && lunarvimdir="$name"
   [ "$magicvim" ] && magicvimdir="$name"
@@ -721,6 +802,12 @@ have_git=$(type -p git)
   brief_usage
 }
 
+interactive=
+numvimdirs=${#nvimdir[@]}
+[ ${numvimdirs} -eq 0 ] && {
+  nvimdir=("${lazymandir}")
+  interactive=1
+}
 if [ -d "${HOME}/.config/$lazymandir" ]; then
   [ "$branch" ] && {
     git -C "${HOME}/.config/$lazymandir" checkout "$branch" >/dev/null 2>&1
@@ -738,6 +825,7 @@ else
     }
   }
   [ "$quiet" ] || printf "done"
+  interactive=
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
@@ -773,7 +861,8 @@ fi
 [ "$OPENAI_API_KEY" ] && {
   NVIMCONF="${HOME}/.config/${lazymandir}/lua/configuration.lua"
   grep 'conf.enable_chatgpt' "$NVIMCONF" >/dev/null && {
-    cat "$NVIMCONF" | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
+    cat "$NVIMCONF" \
+      | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
     cp /tmp/nvim$$ "$NVIMCONF"
     rm -f /tmp/nvim$$
   }
@@ -1000,7 +1089,7 @@ fi
   }
 }
 
-[ "$quiet" ] || {
+[ "$quiet" ] || [ "$interactive" ] || {
   printf "\n\nTo use this lazyman installed Neovim configuration as the default,"
   printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
   if [ "$all" ]; then
@@ -1067,3 +1156,5 @@ printf "\n\n"
     }
   }
 }
+
+[ "$interactive" ] && show_menu
