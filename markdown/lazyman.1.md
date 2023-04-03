@@ -14,6 +14,15 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k] [-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 
+## FEATURES
+
+- `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
+- support for Lazy, Packer, and vim-plug plugin managers
+- automated installation of dependencies, tools, language servers, and Neovim nightly
+- richly configured `nvim-Lazyman` Neovim configuration
+- interactive menu interface for ease of management
+- vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
+
 ## DESCRIPTION
 
 The `lazyman` command can be used to install, initialize, and manage
@@ -180,9 +189,12 @@ The following command line options are available with the `lazyman` command:
 
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
-Without arguments lazyman installs and initializes nvim-Lazyman
+Without arguments lazyman installs and initializes nvim-Lazyman or,
+if initialized presents an interactive menu system.
 
 ### EXAMPLES
+
+`lazyman` : installs and initializes the `Lazyman` Neovim configuration in `$HOME/.config/nvim-Lazyman/`. If already initialized, `lazyman` presents an interactive menu interface
 
 `lazyman -a` : installs and initializes the `AstroNvim` Neovim configuration in `$HOME/.config/nvim-AstroNvim/`
 
@@ -208,7 +220,7 @@ Neovim configuration subdirectory in such a repository, use the `-b branch`
 and `-D subdir` arguments to `lazyman` along with `-C url` and `-N nvimdir`.
 If no `-b branch` is provided then the default git branch is assumed to be
 `master`. For example, to install and initialize the Neovim configuration
-hosted at https://github.com/alanRizzo/dot-files in the subdirectory `nvim`
+hosted at <https://github.com/alanRizzo/dot-files> in the subdirectory `nvim`
 with default branch `main`, place it in `~/.config/nvim-AlanVim`, and
 initialize it with Packer:
 

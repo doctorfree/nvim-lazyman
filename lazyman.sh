@@ -64,7 +64,8 @@ usage() {
   printf "\n    -Z indicates install several unsupported but cool Neovim configurations"
   printf "\n    -u displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
-  printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}\n"
+  printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
+  printf "\nor, if initialized, an interactive menu system is displayed.\n"
   exit 1
 }
 

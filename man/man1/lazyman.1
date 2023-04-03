@@ -25,6 +25,21 @@ configurations
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k]
 [-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C
 url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
+.SS FEATURES
+.IP \[bu] 2
+\f[V]lazyman\f[R] command to easily install, initialize, manage, and
+explore multiple Neovim configurations
+.IP \[bu] 2
+support for Lazy, Packer, and vim-plug plugin managers
+.IP \[bu] 2
+automated installation of dependencies, tools, language servers, and
+Neovim nightly
+.IP \[bu] 2
+richly configured \f[V]nvim-Lazyman\f[R] Neovim configuration
+.IP \[bu] 2
+interactive menu interface for ease of management
+.IP \[bu] 2
+vimdoc help for \f[V]nvim-Lazyman\f[R] with \f[V]:h nvim-Lazyman\f[R]
 .SS DESCRIPTION
 .PP
 The \f[V]lazyman\f[R] command can be used to install, initialize, and
@@ -245,8 +260,14 @@ configurations
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
-Without arguments lazyman installs and initializes nvim-Lazyman
+Without arguments lazyman installs and initializes nvim-Lazyman or, if
+initialized presents an interactive menu system.
 .SS EXAMPLES
+.PP
+\f[V]lazyman\f[R] : installs and initializes the \f[V]Lazyman\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-Lazyman/\f[R].
+If already initialized, \f[V]lazyman\f[R] presents an interactive menu
+interface
 .PP
 \f[V]lazyman -a\f[R] : installs and initializes the \f[V]AstroNvim\f[R]
 Neovim configuration in \f[V]$HOME/.config/nvim-AstroNvim/\f[R]
