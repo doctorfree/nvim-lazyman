@@ -642,7 +642,6 @@ shift $((OPTIND - 1))
     lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
     lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
     lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
-    lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P -z
     lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
   fi
   exit 0
@@ -812,6 +811,7 @@ numvimdirs=${#nvimdir[@]}
 [ ${numvimdirs} -eq 0 ] && {
   nvimdir=("${lazymandir}")
   interactive=1
+  runvim=
 }
 if [ -d "${HOME}/.config/$lazymandir" ]; then
   [ "$branch" ] && {
@@ -1070,18 +1070,20 @@ else
   [ "$tellme" ] || ulimit -n "$hardlimit"
 fi
 
-for neovim in "${nvimdir[@]}"; do
-  [ "$quiet" ] || {
-    pm="$pmgr"
-    [ "$neovim" == "$spacevimdir" ] && pm="SP"
-    [ "$neovim" == "$magicvimdir" ] && pm="Packer"
-    printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
-  }
-  [ "$tellme" ] || {
-    init_neovim "$neovim"
-  }
-  [ "$quiet" ] || printf "done"
-done
+[ "$interactive" ] || {
+  for neovim in "${nvimdir[@]}"; do
+    [ "$quiet" ] || {
+      pm="$pmgr"
+      [ "$neovim" == "$spacevimdir" ] && pm="SP"
+      [ "$neovim" == "$magicvimdir" ] && pm="Packer"
+      printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
+    }
+    [ "$tellme" ] || {
+      init_neovim "$neovim"
+    }
+    [ "$quiet" ] || printf "done"
+  done
+}
 
 [ "$tellme" ] || ulimit -n "$currlimit"
 
@@ -1142,6 +1144,8 @@ fi
     printf "\n\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
   elif [ "$kickstart" ]; then
     printf "\n\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
+  elif [ "$lazyman" ]; then
+    printf "\n\n\talias lmvim='NVIM_APPNAME=nvim-Lazyman nvim'"
   elif [ "$lazyvim" ]; then
     printf "\n\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
   elif [ "$allaman" ]; then
