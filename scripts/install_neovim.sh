@@ -279,6 +279,7 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
 
+  brew_install figlet
   brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
@@ -343,19 +344,19 @@ lang_tools=
 
 while getopts "dhlq" flag; do
   case $flag in
-  d)
-    debug=1
-    ;;
-  h)
-    nvim_head=
-    ;;
-  l)
-    lang_tools=1
-    ;;
-  q)
-    quiet=1
-    ;;
-  *) ;;
+    d)
+      debug=1
+      ;;
+    h)
+      nvim_head=
+      ;;
+    l)
+      lang_tools=1
+      ;;
+    q)
+      quiet=1
+      ;;
+    *) ;;
   esac
 done
 
