@@ -7,6 +7,16 @@ if settings.enable_games then
       event = "VeryLazy",
     },
     {
+      "letieu/hacker.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("hacker").setup({
+          is_popup = true, -- show random float window when typing
+          popup_after = 5,
+        })
+      end,
+    },
+    {
       "jim-fx/sudoku.nvim",
       cmd = "Sudoku",
       event = "VeryLazy",

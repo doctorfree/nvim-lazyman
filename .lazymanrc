@@ -7,6 +7,9 @@ command -v vim > /dev/null && alias vi='vim'
 # To use NeoVim
 command -v nvim > /dev/null && {
   alias vi='nvim'
+  # Uncomment this line to use Neovim even when you type vim
+  # Leave commented to use vim as a backup editor if nvim not found
+  # alias vim='nvim'
   alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
   items=()
   [ -d ${HOME}/.config/nvim ] && {
@@ -16,11 +19,11 @@ command -v nvim > /dev/null && {
   # Add all previously installed Neovim configurations
   if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
   then
-    while IFS= read -r nvimdir
+    while IFS= read -r ndir
     do
-      [ -d ${HOME}/.config/${nvimdir} ] && {
-        alias ${nvimdir}="NVIM_APPNAME=${nvimdir} nvim"
-        entry=$(echo ${nvimdir} | sed -e "s/nvim-//")
+      [ -d ${HOME}/.config/${ndir} ] && {
+        alias ${ndir}="NVIM_APPNAME=${ndir} nvim"
+        entry=$(echo ${ndir} | sed -e "s/nvim-//")
         items+=("${entry}")
       }
     done < "${HOME}/.config/nvim-Lazyman/.nvimdirs"

@@ -8,7 +8,7 @@ return {
     "wintermute-cell/gitignore.nvim",
     lazy = true,
     dependencies = {
-      "nvim-telescope/telescope.nvim"
+      "nvim-telescope/telescope.nvim",
     },
   },
 
@@ -51,5 +51,17 @@ return {
         },
       },
     },
+  },
+  {
+    "pwntester/octo.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("octo").setup()
+    end,
   },
 }
