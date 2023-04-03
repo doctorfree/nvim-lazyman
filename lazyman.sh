@@ -1282,7 +1282,7 @@ fi
     printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir[0]} nvim\""
   fi
 }
-printf "\n\n"
+printf "\n\nRun 'lazyman' with no arguments for an interactive menu system\n\n"
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
