@@ -464,6 +464,7 @@ show_menu() {
 
 all=
 branch=
+subdir=
 command=
 debug=
 invoke=
@@ -501,7 +502,7 @@ nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 nvimdir=()
-while getopts "aAb:cde:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
+while getopts "aAb:cdD:e:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -590,6 +591,9 @@ while getopts "aAb:cde:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
     C)
       url="$OPTARG"
       ;;
+    D)
+      subdir="$OPTARG"
+      ;;
     N)
       name="$OPTARG"
       ;;
@@ -638,6 +642,7 @@ shift $((OPTIND - 1))
     lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
     lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
     lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
+    lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P -z
     lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
   fi
   exit 0
@@ -987,26 +992,51 @@ done
   clone_repo SpaceVim SpaceVim/SpaceVim "$spacevimdir"
 }
 [ "$url" ] && {
-  [ -d "${HOME}/.config/${nvimdir[0]}" ] || {
+  if [ -d "${HOME}/.config/${nvimdir[0]}" ]; then
+    printf "\nThe Neovim configuration directory:"
+    printf "\n\t${HOME}/.config/${nvimdir[0]}"
+    printf "\nalready exists. Retry with an alternate '-N nvimdir'."
+    printf "\nExiting without creating config for $url"
+    brief_usage
+  else
     [ "$quiet" ] || {
       printf "\nCloning ${url}"
       printf "\n\tinto ${HOME}/.config/${nvimdir[0]} ... "
     }
     [ "$tellme" ] || {
-      git clone \
-        "$url" "${HOME}/.config/${nvimdir[0]}" >/dev/null 2>&1
+      if [ "${subdir}" ]; then
+        [ "${branch}" ] || branch="master"
+        # Perform some git tricks here to retrieve a repo subdirectory
+        mkdir /tmp/lazyman$$
+        cd /tmp/lazyman$$ || {
+          printf "\nCreation of /tmp/lazyman$$ temporary directory failed. Exiting."
+          exit 1
+        }
+        git init >/dev/null 2>&1
+        git remote add -f origin $url >/dev/null 2>&1
+        git config core.sparseCheckout true >/dev/null 2>&1
+        [ -d .git/info ] || mkdir -p .git/info
+        echo "${subdir}" >>.git/info/sparse-checkout
+        git pull origin ${branch} >/dev/null 2>&1
+        cd || exit
+        mv "/tmp/lazyman$$/${subdir}" "${HOME}/.config/${nvimdir[0]}"
+        rm -rf "/tmp/lazyman$$"
+      else
+        git clone \
+          "$url" "${HOME}/.config/${nvimdir[0]}" >/dev/null 2>&1
+      fi
       add_nvimdirs_entry "${nvimdir[0]}"
     }
     [ "$quiet" ] || printf "done"
-  }
+  fi
 }
 
 [ "$magicvim" ] || [ "$packer" ] && {
   PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
   [ -d "$PACKER" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning packer.nvim"
-      printf "\n\tinto ${PACKER} ... "
+      printf "\nCloning packer.nvim into"
+      printf "\n\t${PACKER} ... "
     }
     [ "$tellme" ] || {
       git clone --depth 1 \

@@ -339,7 +339,7 @@ export NVIM_APPNAME="<nvimdir>"
 
 where `<nvimdir>` is the argument provided to `-N` above.
 
-For example, to install and initialize the LazyVim based Neovim configuration
+For example, to install and initialize the Lazy based Neovim configuration
 hosted at <https://github.com/appelgriebsch/Nv> and place it in `~/.config/nvim-Nv`,
 execute the command:
 
@@ -347,6 +347,20 @@ execute the command:
 lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv
 export NVIM_APPNAME="nvim-Nv"
 nvim
+```
+
+Sometimes people place their Neovim configuration in a repository subdirectory
+along with other configurations in a `dotfiles` repo. To retrieve only the
+Neovim configuration subdirectory in such a repository, use the `-b branch`
+and `-D subdir` arguments to `lazyman` along with `-C url` and `-N nvimdir`.
+If no `-b branch` is provided then the default git branch is assumed to be
+`master`. For example, to install and initialize the Neovim configuration
+hosted at https://github.com/alanRizzo/dot-files in the subdirectory `nvim`
+with default branch `main`, place it in `~/.config/nvim-AlanVim`, and
+initialize it with Packer:
+
+```bash
+lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
 ```
 
 Unsupported Neovim configurations can be installed and initialized in this

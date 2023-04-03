@@ -22,9 +22,9 @@ lazyman - install, initialize, manage, and explore multiple Neovim
 configurations
 .SS SYNOPSIS
 .PP
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-M]
-[-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir]
-[-U] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k]
+[-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C
+url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 .SS DESCRIPTION
 .PP
 The \f[V]lazyman\f[R] command can be used to install, initialize, and
@@ -175,6 +175,9 @@ Neovim configuration
 .PP
 \f[V]-d\f[R] : indicates debug mode
 .PP
+\f[V]-D subdir\f[R] : specifies the subdirectory of the repository given
+with \f[V]-C url\f[R] to retrieve
+.PP
 \f[V]-e \[aq]config\[aq]\f[R] : execute \[aq]nvim\[aq] with
 \[aq]config\[aq] Neovim configuration where \[aq]config\[aq] can be one
 of \[aq]lazyman\[aq], \[aq]allaman\[aq], \[aq]astronvim\[aq],
@@ -273,6 +276,26 @@ configuration in \f[V]\[ti]/.config/nvim-Abstract\f[R]
 \f[V]lazyman -R -N nvim-LazyVim\f[R] : removes the \f[V]LazyVim\f[R]
 Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R], its data
 files, cache, state, and all backups
+.PP
+Sometimes people place their Neovim configuration in a repository
+subdirectory along with other configurations in a \f[V]dotfiles\f[R]
+repo.
+To retrieve only the Neovim configuration subdirectory in such a
+repository, use the \f[V]-b branch\f[R] and \f[V]-D subdir\f[R]
+arguments to \f[V]lazyman\f[R] along with \f[V]-C url\f[R] and
+\f[V]-N nvimdir\f[R].
+If no \f[V]-b branch\f[R] is provided then the default git branch is
+assumed to be \f[V]master\f[R].
+For example, to install and initialize the Neovim configuration hosted
+at <https://github.com/alanRizzo/dot-files> in the subdirectory
+\f[V]nvim\f[R] with default branch \f[V]main\f[R], place it in
+\f[V]\[ti]/.config/nvim-AlanVim\f[R], and initialize it with Packer:
+.IP
+.nf
+\f[C]
+lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
+\f[R]
+.fi
 .SS CONFIGURATION
 .PP
 In addition to the \f[V]lazyman\f[R] command, the Lazyman distribution

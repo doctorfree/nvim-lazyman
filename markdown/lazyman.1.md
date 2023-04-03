@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-k] [-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k] [-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 
 ## DESCRIPTION
 
@@ -132,6 +132,8 @@ The following command line options are available with the `lazyman` command:
 
 `-d` : indicates debug mode
 
+`-D subdir` : specifies the subdirectory of the repository given with `-C url` to retrieve
+
 `-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
@@ -199,6 +201,20 @@ Without arguments lazyman installs and initializes nvim-Lazyman
 `lazyman -P -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract` : installs and initializes the Packer based 'Abstract' Neovim configuration in `~/.config/nvim-Abstract`
 
 `lazyman -R -N nvim-LazyVim` : removes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`, its data files, cache, state, and all backups
+
+Sometimes people place their Neovim configuration in a repository subdirectory
+along with other configurations in a `dotfiles` repo. To retrieve only the
+Neovim configuration subdirectory in such a repository, use the `-b branch`
+and `-D subdir` arguments to `lazyman` along with `-C url` and `-N nvimdir`.
+If no `-b branch` is provided then the default git branch is assumed to be
+`master`. For example, to install and initialize the Neovim configuration
+hosted at https://github.com/alanRizzo/dot-files in the subdirectory `nvim`
+with default branch `main`, place it in `~/.config/nvim-AlanVim`, and
+initialize it with Packer:
+
+```bash
+lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
+```
 
 ## CONFIGURATION
 

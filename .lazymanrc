@@ -16,11 +16,11 @@ command -v nvim > /dev/null && {
   # Add all previously installed Neovim configurations
   if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
   then
-    while IFS= read -r nvimdir
+    while IFS= read -r ndir
     do
-      [ -d ${HOME}/.config/${nvimdir} ] && {
-        alias ${nvimdir}="NVIM_APPNAME=${nvimdir} nvim"
-        entry=$(echo ${nvimdir} | sed -e "s/nvim-//")
+      [ -d ${HOME}/.config/${ndir} ] && {
+        alias ${ndir}="NVIM_APPNAME=${ndir} nvim"
+        entry=$(echo ${ndir} | sed -e "s/nvim-//")
         items+=("${entry}")
       }
     done < "${HOME}/.config/nvim-Lazyman/.nvimdirs"
