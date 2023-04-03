@@ -502,31 +502,31 @@ show_menu() {
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
           case ${nvimconf} in
             AstroNvim)
-              lazyman -a -y
+              lazyman -a -z -y
               ;;
             Kickstart)
-              lazyman -k -y
+              lazyman -k -z -y
               ;;
             Lazyman)
-              lazyman -i -y
+              lazyman -i -z -y
               ;;
             LazyVim)
-              lazyman -l -y
+              lazyman -l -z -y
               ;;
             LunarVim)
-              lazyman -v -y
+              lazyman -v -z -y
               ;;
             Allaman)
-              lazyman -m -y
+              lazyman -m -z -y
               ;;
             NvChad)
-              lazyman -c -y
+              lazyman -c -z -y
               ;;
             SpaceVim)
-              lazyman -s -y
+              lazyman -s -z -y
               ;;
             MagicVim)
-              lazyman -M -y
+              lazyman -M -z -y
               ;;
           esac
           break
@@ -951,6 +951,7 @@ else
   }
   [ "$quiet" ] || printf "done"
   interactive=
+  runvim=1
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
