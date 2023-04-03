@@ -9,7 +9,7 @@
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
-LOLCAT="lolcat --animate --speed=60.0"
+LOLCAT="lolcat --animate --speed=70.0"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your"
@@ -109,6 +109,12 @@ create_backups() {
 run_command() {
   neodir="$1"
   comm="$2"
+  [ "$neodir" == "$lazymandir" ] && {
+    oldpack=${packer}
+    oldplug=${plug}
+    plug=
+    packer=
+  }
   [ "$neodir" == "$magicvimdir" ] && {
     oldpack=${packer}
     packer=1
@@ -147,10 +153,20 @@ run_command() {
     fi
   }
   [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
+  [ "$neodir" == "$lazymandir" ] && {
+    packer=${oldpack}
+    plug=${oldplug}
+  }
 }
 
 init_neovim() {
   neodir="$1"
+  [ "$neodir" == "$lazymandir" ] && {
+    oldpack=${packer}
+    oldplug=${plug}
+    plug=
+    packer=
+  }
   [ "$neodir" == "$magicvimdir" ] && {
     oldpack=${packer}
     packer=1
@@ -199,6 +215,10 @@ init_neovim() {
     }
   fi
   [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
+  [ "$neodir" == "$lazymandir" ] && {
+    packer=${oldpack}
+    plug=${oldplug}
+  }
 }
 
 add_nvimdirs_entry() {
@@ -424,14 +444,44 @@ show_menu() {
   while true; do
     clear
     [ "${use_figlet}" ] && show_figlet
+    items=()
+    [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+    readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+    numitems=${#sorted[@]}
+    printf "\n${numitems} Lazyman Neovim configurations detected:\n"
+    linelen=0
+    printf "\t"
+    for neovim in "${sorted[@]}"; do
+      printf "${neovim}  "
+      nvsz=${#neovim}
+      linelen=$((linelen + nvsz + 2))
+      [ ${linelen} -gt 50 ] && {
+        printf "\n\t"
+        linelen=0
+      }
+    done
+    printf "\n\n"
+
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
-    [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
     if alias nvims >/dev/null 2>&1; then
-      options+=("Select Neovim Configuration")
+      [ ${numitems} -gt 1 ] && options+=("Select Config")
     fi
-    options+=("Install Supported Configurations")
-    options+=("Install Unsupported Configurations")
+    options+=("Install Configs")
+    options+=("Install More Configs")
+    options+=("Remove All Configs")
+    for neovim in "${suppnvimdirs[@]}"; do
+      nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+      if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
+        options+=("Install ${nvdir}")
+      fi
+    done
+    for neovim in "${sorted[@]}"; do
+      options+=("Open ${neovim}")
+    done
+    for neovim in "${sorted[@]}"; do
+      options+=("Remove ${neovim}")
+    done
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -439,12 +489,78 @@ show_menu() {
           nvimselect
           break
           ;;
-        "Install Supported"*,* | *,"Install Supported"*)
-          lazyman -A
+        "Install Configs"*,* | *,"Install Configs"*)
+          lazyman -A -z -y
           break
           ;;
-        "Install Unsupported"*,* | *,"Install Unsupported"*)
-          lazyman -Z
+        "Install More"*,* | *,"Install More"*)
+          lazyman -Z -z -y
+          break
+          ;;
+        "Install "*,* | *,"Install "*)
+          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
+          case ${nvimconf} in
+            AstroNvim)
+              lazyman -a -y
+              ;;
+            Kickstart)
+              lazyman -k -y
+              ;;
+            Lazyman)
+              lazyman -i -y
+              ;;
+            LazyVim)
+              lazyman -l -y
+              ;;
+            LunarVim)
+              lazyman -v -y
+              ;;
+            Allaman)
+              lazyman -m -y
+              ;;
+            NvChad)
+              lazyman -c -y
+              ;;
+            SpaceVim)
+              lazyman -s -y
+              ;;
+            MagicVim)
+              lazyman -M -y
+              ;;
+          esac
+          break
+          ;;
+        "Open "*,* | *,"Open "*)
+          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
+          if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
+            NVIM_APPNAME="nvim-${nvimconf}" nvim
+          else
+            if [ -d "${HOME}/.config/${nvimconf}" ]; then
+              NVIM_APPNAME="${nvimconf}" nvim
+            else
+              printf "\nCannot locate ${nvimconf} Neovim configuration\n"
+              printf "\nPress Enter to continue\n"
+              read -r yn
+            fi
+          fi
+          break
+          ;;
+        "Remove All"*,* | *,"Remove All"*)
+          lazyman -R -A -y
+          lazyman -R -Z -y
+          break
+          ;;
+        "Remove "*,* | *,"Remove "*)
+          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
+          if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
+            lazyman -R -N nvim-${nvimconf}
+          else
+            if [ -d "${HOME}/.config/${nvimconf}" ]; then
+              lazyman -R -N ${nvimconf}
+            else
+              remove_nvimdirs_entry nvim-${nvimconf}
+            fi
+          fi
           break
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
@@ -501,6 +617,8 @@ allamandir="nvim-Allaman"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
+suppnvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$allamandir"
+"$spacevimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
 while getopts "aAb:cdD:e:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
   case $flag in
@@ -519,7 +637,7 @@ while getopts "aAb:cdD:e:iIklMmnL:pPqrRsSUC:N:vyzZu" flag; do
       magicvim=1
       nvchad=1
       spacevim=1
-      nvimdir=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$allamandir" "$spacevimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
+      nvimdir=("${suppnvimdirs[@]}")
       ;;
     b)
       branch="$OPTARG"
@@ -771,6 +889,7 @@ shift $((OPTIND - 1))
 
 [ "$remove" ] && {
   for neovim in "${nvimdir[@]}"; do
+    [ "${all}" ] && [ "${neovim}" == "${lazymandir}" ] && continue
     remove_config "$neovim"
   done
   exit 0
