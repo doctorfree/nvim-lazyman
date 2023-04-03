@@ -11,6 +11,7 @@ conf.theme = "tokyonight"
 --   tokyonight:  night, storm, day, moon
 --   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
 --   catppuccin:  latte, frappe, macchiato, mocha
+--   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it

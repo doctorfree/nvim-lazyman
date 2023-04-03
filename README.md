@@ -644,6 +644,11 @@ Available styles are:
   - frappe
   - macchiato
   - mocha
+- dracula
+  - blood
+  - magic
+  - soft
+  - default
 - nightfox
   - carbonfox
   - dawnfox
