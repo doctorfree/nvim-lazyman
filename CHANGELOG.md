@@ -4,7 +4,15 @@
 
 ### ⚡️ Added
 
+- Add figlet to brew installed tools
+- Add interactive menu system
+- Add hacker and octo plugins
+- Add support for Neovim configs in repo subdirectories
+
 ### 🐞 Fixed
+
+- Move Allaman distribution to unsupported for now as it has initialization errors
+- Run nvim when initializing nvim-Lazyman, don't run nvim when initializing from menu system
 
 ## v1.0.2r1
 
