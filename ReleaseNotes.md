@@ -4,7 +4,6 @@ All that is needed to bootstrap `nvim-Lazyman` is the [lazyman.sh](https://githu
 
 The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Several popular Neovim configurations are supported including:
 
-- [Allaman](https://github.com/Allaman/nvim)
 - [AstroNvim](https://astronvim.com)
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
 - [LazyVim](https://github.com/LazyVim/LazyVim).
@@ -163,8 +162,7 @@ Currently the following Neovim configurations are supported:
 
 - [nvim-Lazyman](https://github.com/doctorfree/nvim-lazyman)
   - See the [Installation section](#installation) above
-- [Allaman](https://github.com/Allaman/nvim)
-  - Install and initialize with `lazyman -m`
+  - Install and initialize with `lazyman -i`
 - [AstroNvim](https://astronvim.com)
   - Install and initialize with `lazyman -a`
   - An example [AstroNvim community]() plugins configuration is added
@@ -186,22 +184,24 @@ Currently the following Neovim configurations are supported:
   - Does not use the SpaceVim installer script, installs in `~/.config/nvim-SpaceVim`
   - Install and initialize with `lazyman -s`
 
+Run `lazyman` without any arguments to view an interactive menu system.
+
 ## Removal
 
-The [lazyman.sh](lazyman.sh) script can be used to remove previously installed Neovim configurations with the `-r` command line option. For example, to remove a previously installed `LazyVim` configuration, its initialized plugins, state, and cache, execute the following command:
+The [lazyman](lazyman.sh) command can be used to remove previously installed Neovim configurations with the `-r` command line option. For example, to remove a previously installed `LazyVim` configuration, its initialized plugins, state, and cache, execute the following command:
 
 ```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -l -r
+lazyman -l -R
 ```
 
 To remove the `nvim-Lazyman` configuration and associated plugins, state, and cache:
 
 ```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -r
+lazyman -R -N nvim-Lazyman
 ```
 
-All `lazyman.sh` operations can be performed as a dry run with `-n`. For example, to see which `LazyVim` folders would be removed without removing any:
+All `lazyman` operations can be performed as a dry run with `-n`. For example, to see which `LazyVim` folders would be removed without removing any:
 
 ```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
+lazyman -n -l -R
 ```

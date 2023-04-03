@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k] [-l] [-m] [-M] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 
 ## FEATURES
 
@@ -93,8 +93,8 @@ Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration
 to use with this invocation. This is done using the `-e config` option to
 `lazyman`. When invoking `lazyman` with the `-e config` argument, the Neovim
-configuration can be specified by setting `config` to one of `allaman`,
-`astronvim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, `spacevim`,
+configuration can be specified by setting `config` to one of `astronvim`,
+`kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, `spacevim`,
 or any Neovim configuration directory in `~/.config`. For example, to edit
 the file `foo.lua` using the LazyVim Neovim configuration:
 
@@ -143,15 +143,13 @@ The following command line options are available with the `lazyman` command:
 
 `-D subdir` : specifies the subdirectory of the repository given with `-C url` to retrieve
 
-`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'allaman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 
 `-l` : indicates install and initialize the 'LazyVim' Neovim configuration
 
-`-m` : indicates install and initialize the 'Allaman' Neovim configuration
-
-`-M` : indicates install and initialize 'MagicVim' Neovim configuration
+`-m` : indicates install and initialize 'MagicVim' Neovim configuration
 
 `-s` : indicates install and initialize the 'SpaceVim' Neovim configuration
 
