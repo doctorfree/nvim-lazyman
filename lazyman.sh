@@ -192,7 +192,8 @@ init_neovim() {
     PLUG="${HOME}/.local/share/${neodir}/site/autoload/plug.vim"
     [ -d "$PLUG" ] || {
       [ "$quiet" ] || {
-        printf "\nCopying plug.vim to ${PLUG} ... "
+        printf "\nCopying plug.vim to"
+        printf "\n\t${PLUG} ... "
       }
       [ "$tellme" ] || {
         sh -c "curl -fLo ${PLUG} --create-dirs \
@@ -622,7 +623,7 @@ show_menu() {
           fi
           break
           ;;
-        "Remove All"*,* | *,"Remove All"*)
+        "Remove All Configs",* | *,"Remove All Configs")
           lazyman -R -A -y
           lazyman -R -Z -y
           break
