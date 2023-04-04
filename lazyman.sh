@@ -474,60 +474,67 @@ show_menu() {
   have_tscli=$(type -p tree-sitter)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
+  have_xclip=$(type -p xclip)
 
   while true; do
     clear
     [ "${have_figlet}" ] && show_figlet
     items=()
+    showinstalled=1
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
       if [ "${have_rich}" ]; then
-        rich "[bold magenta]WARNING[/]: missing ${LMANDIR}/.lazymanrc
+        rich "[bold red]WARNING[/]: missing [b yellow]${LMANDIR}/.lazymanrc[/]
   reinstall Lazyman with:
     [bold green]lazyman -R -N nvim-Lazyman[/]
   followed by:
-    [bold green]lazyman[/]" -p -a heavy
+    [bold green]lazyman[/]" -p -a rounded -c
       else
         printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
         printf "\nReinstall Lazyman with:"
         printf "\n\tlazyman -R -N nvim-Lazyman"
         printf "\n\tlazyman\n"
       fi
+      showinstalled=
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
+    confword="configurations"
+    [ ${numitems} -eq 1 ] && confword="configuration"
     if [ "${have_rich}" ]; then
-      rich "[b magenta]${numitems}[/] [b green]Lazyman Neovim configurations[/] [b magenta]installed[/]" -p -c
+      rich "[b magenta]${numitems}[/] [b green]Lazyman Neovim ${confword}[/] [b magenta]installed[/]" -p -c
     else
       printf "\n${numitems} Lazyman Neovim configurations installed:\n"
     fi
-    linelen=0
-    if [ "${have_rich}" ]; then
-      neovims=""
-      leader="[b green]"
-      for neovim in "${sorted[@]}"; do
-        neovims="${neovims} ${leader}${neovim}[/]"
-        if [ "${leader}" == "[b green]" ]; then
-          leader="[b magenta]"
-        else
-          leader="[b green]"
-        fi
-      done
-      rich "${neovims}" -p -a heavy -c -C
-    else
-      printf "\t"
-      for neovim in "${sorted[@]}"; do
-        printf "${neovim}  "
-        nvsz=${#neovim}
-        linelen=$((linelen + nvsz + 2))
-        [ ${linelen} -gt 50 ] && {
-          printf "\n\t"
-          linelen=0
-        }
-      done
-      printf "\n\n"
-    fi
+    [ "${showinstalled}" ] && {
+      linelen=0
+      if [ "${have_rich}" ]; then
+        neovims=""
+        leader="[b green]"
+        for neovim in "${sorted[@]}"; do
+          neovims="${neovims} ${leader}${neovim}[/]"
+          if [ "${leader}" == "[b green]" ]; then
+            leader="[b magenta]"
+          else
+            leader="[b green]"
+          fi
+        done
+        rich "${neovims}" -p -a rounded -c -C -w 70
+      else
+        printf "\t"
+        for neovim in "${sorted[@]}"; do
+          printf "${neovim}  "
+          nvsz=${#neovim}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n\t"
+            linelen=0
+          }
+        done
+        printf "\n\n"
+      fi
+    }
 
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
@@ -536,7 +543,9 @@ show_menu() {
     fi
     options+=("Install Configs")
     options+=("Install More Configs")
-    [ "${have_figlet}" ] && [ "${have_tscli}" ] || options+=("Install Tools")
+    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
+      options+=("Install Tools")
+    }
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -575,6 +584,7 @@ show_menu() {
           lazyman -I
           have_figlet=$(type -p figlet)
           have_tscli=$(type -p tree-sitter)
+          have_xclip=$(type -p xclip)
           have_lolcat=$(type -p lolcat)
           break
           ;;
@@ -685,6 +695,10 @@ url=
 unsupported=
 name=
 pmgr="Lazy"
+# Supported Neovim configurations
+# "AstroNvim" "Kickstart" "LazyVim" "LunarVim" "NvChad" "SpaceVim" "MagicVim"
+# Neovim configurations still being tested, not yet supported
+# "Nv" "Abstract" "Allaman" "Fennel" "Optixal" "Plug"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 kickstartdir="nvim-Kickstart"
@@ -1092,7 +1106,9 @@ fi
 
 for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "$lazymandir" ] && continue
-  [ "$proceed" ] || {
+  if [ "$proceed" ]; then
+    update_config "$neovim"
+  else
     [ -d "${HOME}/.config/$neovim" ] && {
       printf "\nYou have requested installation of the ${neovim} Neovim configuration."
       printf "\nIt appears there is a previously installed Neovim configuration at:"
@@ -1115,7 +1131,7 @@ for neovim in "${nvimdir[@]}"; do
         esac
       done
     }
-  }
+  fi
 done
 
 [ "$astronvim" ] && {
@@ -1190,11 +1206,7 @@ done
 }
 [ "$url" ] && {
   if [ -d "${HOME}/.config/${nvimdir[0]}" ]; then
-    printf "\nThe Neovim configuration directory:"
-    printf "\n\t${HOME}/.config/${nvimdir[0]}"
-    printf "\nalready exists. Retry with an alternate '-N nvimdir'."
-    printf "\nExiting without creating config for $url"
-    brief_usage
+    printf "\nThe directory ${HOME}/.config/${nvimdir[0]} already exists."
   else
     [ "$quiet" ] || {
       printf "\nCloning ${url} into"
