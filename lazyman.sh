@@ -472,6 +472,7 @@ show_menu() {
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
   have_lolcat=$(type -p lolcat)
+  have_rich=$(type -p rich)
 
   while true; do
     clear
@@ -480,26 +481,52 @@ show_menu() {
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
-      printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
-      printf "\nReinstall Lazyman with:"
-      printf "\n\tlazyman -R -N nvim-Lazyman"
-      printf "\n\tlazyman\n"
+      if [ "${have_rich}" ]; then
+        rich "[bold magenta]WARNING[/]: missing ${LMANDIR}/.lazymanrc
+  reinstall Lazyman with:
+    [bold green]lazyman -R -N nvim-Lazyman[/]
+  followed by:
+    [bold green]lazyman[/]" -p -a heavy
+      else
+        printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+        printf "\nReinstall Lazyman with:"
+        printf "\n\tlazyman -R -N nvim-Lazyman"
+        printf "\n\tlazyman\n"
+      fi
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    printf "\n${numitems} Lazyman Neovim configurations detected:\n"
+    if [ "${have_rich}" ]; then
+      rich "[b magenta]${numitems}[/] [b green]Lazyman Neovim configurations[/] [b magenta]installed[/]" -p -c
+    else
+      printf "\n${numitems} Lazyman Neovim configurations installed:\n"
+    fi
     linelen=0
-    printf "\t"
-    for neovim in "${sorted[@]}"; do
-      printf "${neovim}  "
-      nvsz=${#neovim}
-      linelen=$((linelen + nvsz + 2))
-      [ ${linelen} -gt 50 ] && {
-        printf "\n\t"
-        linelen=0
-      }
-    done
-    printf "\n\n"
+    if [ "${have_rich}" ]; then
+      neovims=""
+      leader="[b green]"
+      for neovim in "${sorted[@]}"; do
+        neovims="${neovims} ${leader}${neovim}[/]"
+        if [ "${leader}" == "[b green]" ]; then
+          leader="[b magenta]"
+        else
+          leader="[b green]"
+        fi
+      done
+      rich "${neovims}" -p -a heavy -c -C
+    else
+      printf "\t"
+      for neovim in "${sorted[@]}"; do
+        printf "${neovim}  "
+        nvsz=${#neovim}
+        linelen=$((linelen + nvsz + 2))
+        [ ${linelen} -gt 50 ] && {
+          printf "\n\t"
+          linelen=0
+        }
+      done
+      printf "\n\n"
+    fi
 
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
@@ -801,7 +828,7 @@ shift $((OPTIND - 1))
 
 [ "$unsupported" ] && {
   if [ "$remove" ]; then
-    for neovim in Nv Abstract Fennel Optixal Plug; do
+    for neovim in Nv Abstract Allaman Fennel Optixal Plug; do
       remove_config "nvim-${neovim}"
     done
   else

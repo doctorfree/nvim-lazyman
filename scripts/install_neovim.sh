@@ -281,6 +281,21 @@ install_tools() {
 
   brew_install figlet
   brew_install lolcat
+  if command -v "rich" >/dev/null 2>&1; then
+    log "Using previously installed rich-cli ..."
+  else
+    log "Installing rich-cli ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
   brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1

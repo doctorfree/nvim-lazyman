@@ -1247,7 +1247,7 @@ by `lazyman.sh` executes the following on your system:
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
+# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -1415,6 +1415,37 @@ init_neovim() {
     packer=1
   }
   export NVIM_APPNAME="$neodir"
+
+  [ "$packer" ] && {
+    PACKER="${HOME}/.local/share/${neodir}/site/pack/packer/start/packer.nvim"
+    [ -d "$PACKER" ] || {
+      [ "$quiet" ] || {
+        printf "\nCloning packer.nvim into"
+        printf "\n\t${PACKER} ... "
+      }
+      [ "$tellme" ] || {
+        git clone --depth 1 \
+          https://github.com/wbthomason/packer.nvim "$PACKER" >/dev/null 2>&1
+      }
+      [ "$quiet" ] || printf "done"
+    }
+  }
+
+  [ "$plug" ] && {
+    PLUG="${HOME}/.local/share/${neodir}/site/autoload/plug.vim"
+    [ -d "$PLUG" ] || {
+      [ "$quiet" ] || {
+        printf "\nCopying plug.vim to ${PLUG} ... "
+      }
+      [ "$tellme" ] || {
+        sh -c "curl -fLo ${PLUG} --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+          >/dev/null 2>&1
+      }
+      [ "$quiet" ] || printf "done"
+    }
+  }
+
   if [ "$debug" ]; then
     if [ "$packer" ]; then
       nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -1647,8 +1678,8 @@ clone_repo() {
   repodest="$3"
   [ -d "${HOME}/.config/$repodest" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning ${reponame} configuration"
-      printf "\n\tinto ${HOME}/.config/${repodest} ... "
+      printf "\nCloning ${reponame} configuration into"
+      printf "\n\t${HOME}/.config/${repodest} ... "
     }
     [ "$tellme" ] || {
       git clone \
@@ -1665,7 +1696,7 @@ show_figlet() {
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
   [ "${USE_FONT}" ] || USE_FONT="standard"
-  if [ "${use_lolcat}" ]; then
+  if [ "${have_lolcat}" ]; then
     if [ "${USE_FONT}" == "lean" ]; then
       figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | tr ' _/' ' ()' | ${LOLCAT}
     else
@@ -1681,29 +1712,64 @@ show_figlet() {
 }
 
 show_menu() {
-  use_figlet=$(type -p figlet)
-  use_lolcat=$(type -p lolcat)
+  have_figlet=$(type -p figlet)
+  have_tscli=$(type -p tree-sitter)
+  have_lolcat=$(type -p lolcat)
+  have_rich=$(type -p rich)
 
   while true; do
     clear
-    [ "${use_figlet}" ] && show_figlet
+    [ "${have_figlet}" ] && show_figlet
     items=()
-    [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+    if [ -f "${LMANDIR}"/.lazymanrc ]; then
+      source "${LMANDIR}"/.lazymanrc
+    else
+      if [ "${have_rich}" ]; then
+        rich "[bold magenta]WARNING[/]: missing ${LMANDIR}/.lazymanrc
+  reinstall Lazyman with:
+    [bold green]lazyman -R -N nvim-Lazyman[/]
+  followed by:
+    [bold green]lazyman[/]" -p -a heavy
+      else
+        printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+        printf "\nReinstall Lazyman with:"
+        printf "\n\tlazyman -R -N nvim-Lazyman"
+        printf "\n\tlazyman\n"
+      fi
+    fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    printf "\n${numitems} Lazyman Neovim configurations detected:\n"
+    if [ "${have_rich}" ]; then
+      rich "[b magenta]${numitems}[/] [b green]Lazyman Neovim configurations[/] [b magenta]installed[/]" -p -c
+    else
+      printf "\n${numitems} Lazyman Neovim configurations installed:\n"
+    fi
     linelen=0
-    printf "\t"
-    for neovim in "${sorted[@]}"; do
-      printf "${neovim}  "
-      nvsz=${#neovim}
-      linelen=$((linelen + nvsz + 2))
-      [ ${linelen} -gt 50 ] && {
-        printf "\n\t"
-        linelen=0
-      }
-    done
-    printf "\n\n"
+    if [ "${have_rich}" ]; then
+      neovims=""
+      leader="[b green]"
+      for neovim in "${sorted[@]}"; do
+        neovims="${neovims} ${leader}${neovim}[/]"
+        if [ "${leader}" == "[b green]" ]; then
+          leader="[b magenta]"
+        else
+          leader="[b green]"
+        fi
+      done
+      rich "${neovims}" -p -a heavy -c -C
+    else
+      printf "\t"
+      for neovim in "${sorted[@]}"; do
+        printf "${neovim}  "
+        nvsz=${#neovim}
+        linelen=$((linelen + nvsz + 2))
+        [ ${linelen} -gt 50 ] && {
+          printf "\n\t"
+          linelen=0
+        }
+      done
+      printf "\n\n"
+    fi
 
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
@@ -1712,6 +1778,7 @@ show_menu() {
     fi
     options+=("Install Configs")
     options+=("Install More Configs")
+    [ "${have_figlet}" ] && [ "${have_tscli}" ] || options+=("Install Tools")
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1728,6 +1795,12 @@ show_menu() {
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          clear
+          printf "\n"
+          man lazyman
+          break
+          ;;
         "Select"*,* | *,"Select"* | "select"*,* | *,"select"*)
           nvimselect
           break
@@ -1738,6 +1811,13 @@ show_menu() {
           ;;
         "Install More"*,* | *,"Install More"*)
           lazyman -Z -z -y
+          break
+          ;;
+        "Install Tools"*,* | *,"Install Tools"*)
+          lazyman -I
+          have_figlet=$(type -p figlet)
+          have_tscli=$(type -p tree-sitter)
+          have_lolcat=$(type -p lolcat)
           break
           ;;
         "Install "*,* | *,"Install "*)
@@ -1810,7 +1890,7 @@ show_menu() {
         *,*)
           printf "\nCould not match '${REPLY}' with a menu entry."
           printf "\nPlease try again with an exact match.\n"
-          [ "${use_figlet}" ] && show_figlet
+          [ "${have_figlet}" ] && show_figlet
           ;;
       esac
       REPLY=
@@ -1975,7 +2055,14 @@ done
 shift $((OPTIND - 1))
 
 [ "$select" ] && {
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LMANDIR}"/.lazymanrc ]; then
+    source "${LMANDIR}"/.lazymanrc
+  else
+    printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+    printf "\nReinstall Lazyman with:"
+    printf "\n\tlazyman -R -N nvim-Lazyman"
+    printf "\n\tlazyman\n"
+  fi
   if alias nvims >/dev/null 2>&1; then
     nvimselect "$@"
   fi
@@ -1984,7 +2071,7 @@ shift $((OPTIND - 1))
 
 [ "$unsupported" ] && {
   if [ "$remove" ]; then
-    for neovim in Nv Abstract Fennel Optixal Plug; do
+    for neovim in Nv Abstract Allaman Fennel Optixal Plug; do
       remove_config "nvim-${neovim}"
     done
   else
@@ -2166,8 +2253,8 @@ if [ -d "${HOME}/.config/$lazymandir" ]; then
   }
 else
   [ "$quiet" ] || {
-    printf "\nCloning ${LAZYMAN} configuration"
-    printf "\n\tinto ${HOME}/.config/${lazymandir} ... "
+    printf "\nCloning ${LAZYMAN} configuration into"
+    printf "\n\t${HOME}/.config/${lazymandir} ... "
   }
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
@@ -2186,7 +2273,7 @@ fi
 }
 
 # Append sourcing of .lazymanrc to shell initialization files
-[ -f "${HOME}/.config/$lazymandir"/.lazymanrc ] && {
+if [ -f "${LMANDIR}"/.lazymanrc ]; then
   for shinit in bashrc zshrc; do
     [ -f "${HOME}/.$shinit" ] || continue
     grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
@@ -2208,7 +2295,12 @@ fi
       echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
     done
   }
-}
+else
+  printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+  printf "\nReinstall Lazyman with:"
+  printf "\n\tlazyman -R -N nvim-Lazyman"
+  printf "\n\tlazyman\n"
+fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 [ "$OPENAI_API_KEY" ] && {
@@ -2296,8 +2388,8 @@ done
 [ "$magicvim" ] && {
   [ -d "${HOME}/.config/$magicvimdir" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning MagicVim configuration"
-      printf "\n\tinto ${HOME}/.config/${magicvimdir} ... "
+      printf "\nCloning MagicVim configuration into"
+      printf "\n\t${HOME}/.config/${magicvimdir} ... "
     }
     [ "$tellme" ] || {
       git clone \
@@ -2311,7 +2403,8 @@ done
 [ "$nvchad" ] && {
   [ -d "${HOME}/.config/$nvchaddir" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
+      printf "\nCloning NvChad configuration into"
+      printf "\n\t${HOME}/.config/${nvchaddir} ... "
     }
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
@@ -2319,7 +2412,8 @@ done
       add_nvimdirs_entry "$nvchaddir"
     }
     [ "$quiet" ] || {
-      printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+      printf "\nAdding custom configuration into"
+      printf "\n\t${HOME}/.config/${nvchaddir}/lua/custom ... "
     }
   }
   [ "$tellme" ] || {
@@ -2345,8 +2439,8 @@ done
     brief_usage
   else
     [ "$quiet" ] || {
-      printf "\nCloning ${url}"
-      printf "\n\tinto ${HOME}/.config/${nvimdir[0]} ... "
+      printf "\nCloning ${url} into"
+      printf "\n\t${HOME}/.config/${nvimdir[0]} ... "
     }
     [ "$tellme" ] || {
       if [ "${subdir}" ]; then
@@ -2376,36 +2470,6 @@ done
   fi
 }
 
-[ "$magicvim" ] || [ "$packer" ] && {
-  PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
-  [ -d "$PACKER" ] || {
-    [ "$quiet" ] || {
-      printf "\nCloning packer.nvim into"
-      printf "\n\t${PACKER} ... "
-    }
-    [ "$tellme" ] || {
-      git clone --depth 1 \
-        https://github.com/wbthomason/packer.nvim "$PACKER" >/dev/null 2>&1
-    }
-    [ "$quiet" ] || printf "done"
-  }
-}
-
-[ "$plug" ] && {
-  PLUG="${HOME}/.local/share/${nvimdir[0]}/site/autoload/plug.vim"
-  [ -d "$PLUG" ] || {
-    [ "$quiet" ] || {
-      printf "\nCopying plug.vim to ${PLUG} ... "
-    }
-    [ "$tellme" ] || {
-      sh -c "curl -fLo ${PLUG} --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
-        >/dev/null 2>&1
-    }
-    [ "$quiet" ] || printf "done"
-  }
-}
-
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 [ "$hardlimit" == "unlimited" ] && hardlimit=9999
@@ -2421,12 +2485,11 @@ fi
       pm="$pmgr"
       [ "$neovim" == "$spacevimdir" ] && pm="SP"
       [ "$neovim" == "$magicvimdir" ] && pm="Packer"
-      printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
+      printf "\nInitializing ${neovim} Neovim configuration with ${pm}"
     }
     [ "$tellme" ] || {
       init_neovim "$neovim"
     }
-    [ "$quiet" ] || printf "done"
   done
 }
 
@@ -2443,9 +2506,8 @@ fi
 [ "$lazyinst" ] && {
   [ "$quiet" ] || {
     printf "\nInstalling lazyman command in ${HOME}/.local/bin"
-    printf "\nUse ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
-    printf "\nReview the lazyman usage message with:"
-    printf "\n\t${HOME}/.local/bin/lazyman -u"
+    printf "\nUse 'lazyman' to explore Neovim configurations."
+    printf "\nReview the lazyman usage message with 'lazyman -u'"
   }
 }
 
@@ -2459,11 +2521,7 @@ else
   maninst=1
 fi
 [ "$maninst" ] && {
-  [ "$quiet" ] || {
-    printf "\nInstalling lazyman man page in ${HOME}/.local/share/man/man1/lazyman.1"
-    printf "\nView the lazyman man page with:"
-    printf "\n\tman lazyman"
-  }
+  [ "$quiet" ] || printf "\nView the lazyman man page with 'man lazyman'"
 }
 
 [ "$quiet" ] || [ "$interactive" ] || {
@@ -2711,7 +2769,7 @@ brew_install() {
 install_neovim_dependencies() {
   [ "$quiet" ] || printf "\nInstalling dependencies"
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
-  for pkg in "$PKGS"; do
+  for pkg in $PKGS; do
     if command -v "$pkg" >/dev/null 2>&1; then
       log "Using previously installed ${pkg}"
     else
@@ -2832,6 +2890,22 @@ install_tools() {
   }
 
   brew_install figlet
+  brew_install lolcat
+  if command -v "rich" >/dev/null 2>&1; then
+    log "Using previously installed rich-cli ..."
+  else
+    log "Installing rich-cli ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
   brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
