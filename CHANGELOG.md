@@ -4,15 +4,27 @@
 
 ### ⚡️ Added
 
-- Add figlet to brew installed tools
-- Add interactive menu system
+### 🐞 Fixed
+
+## v1.0.2r2
+
+### ⚡️ Added
+
+- Add interactive menu system to manage Neovim configurations
+- Use rich in the lazyman menu system if it is available
+- Add figlet, lolcat, and rich-cli to brew installed tools
 - Add hacker and octo plugins
 - Add support for Neovim configs in repo subdirectories
+- Add warning if lazymanrc not found
+- Add styles for dracula theme
 
 ### 🐞 Fixed
 
+- Go back to monokai-pro, issue resolved
+- Move packer and plug plugin installs to initialization function
 - Move Allaman distribution to unsupported for now as it has initialization errors
 - Run nvim when initializing nvim-Lazyman, don't run nvim when initializing from menu system
+- Recheck for tools after Install Tools in menu
 
 ## v1.0.2r1
 
