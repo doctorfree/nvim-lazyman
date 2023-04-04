@@ -4,7 +4,7 @@
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
+# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -172,6 +172,37 @@ init_neovim() {
     packer=1
   }
   export NVIM_APPNAME="$neodir"
+
+  [ "$packer" ] && {
+    PACKER="${HOME}/.local/share/${neodir}/site/pack/packer/start/packer.nvim"
+    [ -d "$PACKER" ] || {
+      [ "$quiet" ] || {
+        printf "\nCloning packer.nvim into"
+        printf "\n\t${PACKER} ... "
+      }
+      [ "$tellme" ] || {
+        git clone --depth 1 \
+          https://github.com/wbthomason/packer.nvim "$PACKER" >/dev/null 2>&1
+      }
+      [ "$quiet" ] || printf "done"
+    }
+  }
+
+  [ "$plug" ] && {
+    PLUG="${HOME}/.local/share/${neodir}/site/autoload/plug.vim"
+    [ -d "$PLUG" ] || {
+      [ "$quiet" ] || {
+        printf "\nCopying plug.vim to ${PLUG} ... "
+      }
+      [ "$tellme" ] || {
+        sh -c "curl -fLo ${PLUG} --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+          >/dev/null 2>&1
+      }
+      [ "$quiet" ] || printf "done"
+    }
+  }
+
   if [ "$debug" ]; then
     if [ "$packer" ]; then
       nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -404,8 +435,8 @@ clone_repo() {
   repodest="$3"
   [ -d "${HOME}/.config/$repodest" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning ${reponame} configuration"
-      printf "\n\tinto ${HOME}/.config/${repodest} ... "
+      printf "\nCloning ${reponame} configuration into"
+      printf "\n\t${HOME}/.config/${repodest} ... "
     }
     [ "$tellme" ] || {
       git clone \
@@ -923,8 +954,8 @@ if [ -d "${HOME}/.config/$lazymandir" ]; then
   }
 else
   [ "$quiet" ] || {
-    printf "\nCloning ${LAZYMAN} configuration"
-    printf "\n\tinto ${HOME}/.config/${lazymandir} ... "
+    printf "\nCloning ${LAZYMAN} configuration into"
+    printf "\n\t${HOME}/.config/${lazymandir} ... "
   }
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
@@ -1053,8 +1084,8 @@ done
 [ "$magicvim" ] && {
   [ -d "${HOME}/.config/$magicvimdir" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning MagicVim configuration"
-      printf "\n\tinto ${HOME}/.config/${magicvimdir} ... "
+      printf "\nCloning MagicVim configuration into"
+      printf "\n\t${HOME}/.config/${magicvimdir} ... "
     }
     [ "$tellme" ] || {
       git clone \
@@ -1068,7 +1099,8 @@ done
 [ "$nvchad" ] && {
   [ -d "${HOME}/.config/$nvchaddir" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning NvChad configuration into ${HOME}/.config/${nvchaddir} ... "
+      printf "\nCloning NvChad configuration into"
+      printf "\n\t${HOME}/.config/${nvchaddir} ... "
     }
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
@@ -1076,7 +1108,8 @@ done
       add_nvimdirs_entry "$nvchaddir"
     }
     [ "$quiet" ] || {
-      printf "\nAdding custom configuration into ${HOME}/.config/${nvchaddir}/lua/custom ... "
+      printf "\nAdding custom configuration into"
+      printf "\n\t${HOME}/.config/${nvchaddir}/lua/custom ... "
     }
   }
   [ "$tellme" ] || {
@@ -1102,8 +1135,8 @@ done
     brief_usage
   else
     [ "$quiet" ] || {
-      printf "\nCloning ${url}"
-      printf "\n\tinto ${HOME}/.config/${nvimdir[0]} ... "
+      printf "\nCloning ${url} into"
+      printf "\n\t${HOME}/.config/${nvimdir[0]} ... "
     }
     [ "$tellme" ] || {
       if [ "${subdir}" ]; then
@@ -1133,36 +1166,6 @@ done
   fi
 }
 
-[ "$magicvim" ] || [ "$packer" ] && {
-  PACKER="${HOME}/.local/share/${nvimdir[0]}/site/pack/packer/start/packer.nvim"
-  [ -d "$PACKER" ] || {
-    [ "$quiet" ] || {
-      printf "\nCloning packer.nvim into"
-      printf "\n\t${PACKER} ... "
-    }
-    [ "$tellme" ] || {
-      git clone --depth 1 \
-        https://github.com/wbthomason/packer.nvim "$PACKER" >/dev/null 2>&1
-    }
-    [ "$quiet" ] || printf "done"
-  }
-}
-
-[ "$plug" ] && {
-  PLUG="${HOME}/.local/share/${nvimdir[0]}/site/autoload/plug.vim"
-  [ -d "$PLUG" ] || {
-    [ "$quiet" ] || {
-      printf "\nCopying plug.vim to ${PLUG} ... "
-    }
-    [ "$tellme" ] || {
-      sh -c "curl -fLo ${PLUG} --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
-        >/dev/null 2>&1
-    }
-    [ "$quiet" ] || printf "done"
-  }
-}
-
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 [ "$hardlimit" == "unlimited" ] && hardlimit=9999
@@ -1178,12 +1181,11 @@ fi
       pm="$pmgr"
       [ "$neovim" == "$spacevimdir" ] && pm="SP"
       [ "$neovim" == "$magicvimdir" ] && pm="Packer"
-      printf "\nInitializing ${neovim} Neovim configuration with ${pm} ... "
+      printf "\nInitializing ${neovim} Neovim configuration with ${pm}"
     }
     [ "$tellme" ] || {
       init_neovim "$neovim"
     }
-    [ "$quiet" ] || printf "done"
   done
 }
 
