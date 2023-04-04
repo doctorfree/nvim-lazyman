@@ -171,11 +171,6 @@ install_neovim_dependencies() {
   else
     brew_install ripgrep
   fi
-  if command -v ag >/dev/null 2>&1; then
-    log "Using previously installed the_silver_searcher"
-  else
-    brew_install the_silver_searcher
-  fi
   [ "$quiet" ] || printf "\n"
 }
 
