@@ -545,6 +545,9 @@ show_menu() {
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
           lazyman -I
+          have_figlet=$(type -p figlet)
+          have_tscli=$(type -p tree-sitter)
+          have_lolcat=$(type -p lolcat)
           break
           ;;
         "Install "*,* | *,"Install "*)
