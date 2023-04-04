@@ -1,4 +1,4 @@
-<h1 align="center">Neovim Lazy Configuration Manager</h1>
+<h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
 <div align="center"><p>
     <a href="https://github.com/neovim/neovim">
@@ -17,6 +17,12 @@
       <img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/>
     </a>
 </p>
+
+The Lazyman Neovim configuration management menu:
+<p float="left">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazymenu.png" style="width:800px;height:600px;">
+</p>
+
 The nvims Neovim configuration fuzzy selector:
 <p float="left">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims.png" style="width:250px;height:400px;">
