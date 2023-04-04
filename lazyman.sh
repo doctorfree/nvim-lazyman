@@ -476,7 +476,14 @@ show_menu() {
     clear
     [ "${use_figlet}" ] && show_figlet
     items=()
-    [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+    if [ -f "${LMANDIR}"/.lazymanrc ]; then
+      source "${LMANDIR}"/.lazymanrc
+    else
+      printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+      printf "\nReinstall Lazyman with:"
+      printf "\n\tlazyman -R -N nvim-Lazyman"
+      printf "\n\tlazyman\n"
+    fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
     printf "\n${numitems} Lazyman Neovim configurations detected:\n"
@@ -763,7 +770,14 @@ done
 shift $((OPTIND - 1))
 
 [ "$select" ] && {
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LMANDIR}"/.lazymanrc ]; then
+    source "${LMANDIR}"/.lazymanrc
+  else
+    printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+    printf "\nReinstall Lazyman with:"
+    printf "\n\tlazyman -R -N nvim-Lazyman"
+    printf "\n\tlazyman\n"
+  fi
   if alias nvims >/dev/null 2>&1; then
     nvimselect "$@"
   fi
@@ -974,7 +988,7 @@ fi
 }
 
 # Append sourcing of .lazymanrc to shell initialization files
-[ -f "${HOME}/.config/$lazymandir"/.lazymanrc ] && {
+if [ -f "${LMANDIR}"/.lazymanrc ]; then
   for shinit in bashrc zshrc; do
     [ -f "${HOME}/.$shinit" ] || continue
     grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
@@ -996,7 +1010,12 @@ fi
       echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
     done
   }
-}
+else
+  printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+  printf "\nReinstall Lazyman with:"
+  printf "\n\tlazyman -R -N nvim-Lazyman"
+  printf "\n\tlazyman\n"
+fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 [ "$OPENAI_API_KEY" ] && {
@@ -1202,9 +1221,8 @@ fi
 [ "$lazyinst" ] && {
   [ "$quiet" ] || {
     printf "\nInstalling lazyman command in ${HOME}/.local/bin"
-    printf "\nUse ${HOME}/.local/bin/lazyman to explore Lazy Neovim configurations."
-    printf "\nReview the lazyman usage message with:"
-    printf "\n\t${HOME}/.local/bin/lazyman -u"
+    printf "\nUse 'lazyman' to explore Neovim configurations."
+    printf "\nReview the lazyman usage message with 'lazyman -u'"
   }
 }
 
@@ -1218,11 +1236,7 @@ else
   maninst=1
 fi
 [ "$maninst" ] && {
-  [ "$quiet" ] || {
-    printf "\nInstalling lazyman man page in ${HOME}/.local/share/man/man1/lazyman.1"
-    printf "\nView the lazyman man page with:"
-    printf "\n\tman lazyman"
-  }
+  [ "$quiet" ] || printf "\nView the lazyman man page with 'man lazyman'"
 }
 
 [ "$quiet" ] || [ "$interactive" ] || {
