@@ -12,11 +12,12 @@ return {
     end,
   },
   {
-    "justinsgithub/oh-my-monokai.nvim",
+    "loctvl842/monokai-pro.nvim",
     lazy = false,
+    branch = "master",
     priority = 1000,
     config = function()
-      require("themes.oh-my-monokai")
+      require("themes.monokai-pro")
     end,
   },
   {

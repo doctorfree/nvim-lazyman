@@ -30,19 +30,19 @@ require("nightfox").setup({
 if settings.theme == "nightfox" then
   local style = settings.theme_style
   if style == "carbonfox" then
-    vim.cmd("colorscheme carbonfox")
+    vim.cmd([[colorscheme carbonfox]])
   elseif style == "dayfox" then
-    vim.cmd("colorscheme dayfox")
+    vim.cmd([[colorscheme dayfox]])
   elseif style == "dawnfox" then
-    vim.cmd("colorscheme dawnfox")
+    vim.cmd([[colorscheme dawnfox]])
   elseif style == "duskfox" then
-    vim.cmd("colorscheme duskfox")
+    vim.cmd([[colorscheme duskfox]])
   elseif style == "nordfox" then
-    vim.cmd("colorscheme nordfox")
+    vim.cmd([[colorscheme nordfox]])
   elseif style == "terafox" then
-    vim.cmd("colorscheme terafox")
+    vim.cmd([[colorscheme terafox]])
   else
-    vim.cmd("colorscheme nightfox")
+    vim.cmd([[colorscheme nightfox]])
   end
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })

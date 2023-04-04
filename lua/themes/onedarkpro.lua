@@ -83,14 +83,14 @@ if theme == "onedarkpro" then
   vim.opt.background = 'dark'
   local style = settings.theme_style
   if style == "onedark_vivid" then
-    vim.cmd('colorscheme onedark_vivid')
+    vim.cmd([[colorscheme onedark_vivid]])
   elseif style == "onedark_dark" then
-    vim.cmd('colorscheme onedark_dark')
+    vim.cmd([[colorscheme onedark_dark]])
   elseif style == "onelight" then
     vim.opt.background = 'light'
-    vim.cmd('colorscheme onelight')
+    vim.cmd([[colorscheme onelight]])
   else
-    vim.cmd('colorscheme onedark')
+    vim.cmd([[colorscheme onedark]])
   end
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "StartifyHeader" })

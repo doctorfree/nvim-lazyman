@@ -29,13 +29,13 @@ require('kanagawa').setup({
 if settings.theme == "kanagawa" then
   local style = settings.theme_style
   if style == "wave" then
-    vim.cmd("colorscheme kanagawa-wave")
+    vim.cmd([[colorscheme kanagawa-wave]])
   elseif style == "dragon" then
-    vim.cmd("colorscheme kanagawa-dragon")
+    vim.cmd([[colorscheme kanagawa-dragon]])
   elseif style == "lotus" then
-    vim.cmd("colorscheme kanagawa-lotus")
+    vim.cmd([[colorscheme kanagawa-lotus]])
   else
-    vim.cmd("colorscheme kanagawa")
+    vim.cmd([[colorscheme kanagawa]])
   end
   if settings.enable_neotree then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "DashboardIcon" })

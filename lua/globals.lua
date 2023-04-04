@@ -6,7 +6,7 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.mycolorschemes = {
   "dracula",
-  "oh-my-monokai",
+  "monokai-pro",
   "kanagawa",
   "tokyonight",
   "nightfox",

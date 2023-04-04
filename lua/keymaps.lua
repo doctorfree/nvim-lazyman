@@ -11,6 +11,10 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+if settings.theme == "monokai-pro" then
+  map("n", "<leader>C", ":MonokaiProSelect<CR>", { desc = "Select Monokai pro filter" })
+end
+
 if settings.enable_neotree then
   map("n", "<leader>T", ":Neotree toggle<CR>")
 else
@@ -117,11 +121,11 @@ end, { desc = "Toggle Line Numbers" })
 -- map("n", "<leader>ud", Util.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
-{ desc = "Toggle Conceal" })
+  { desc = "Toggle Conceal" })
 
 -- lazygit
 map("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root() }) end,
-{ desc = "Lazygit (root dir)" })
+  { desc = "Lazygit (root dir)" })
 map("n", "<leader>gG", function() Util.float_term({ "lazygit" }) end, { desc = "Lazygit (cwd)" })
 
 -- gitignore

@@ -54,7 +54,7 @@ require('nvim-tundra').setup({
 
 if settings.theme == "tundra" then
   vim.opt.background = 'dark'
-  vim.cmd('colorscheme tundra')
+  vim.cmd([[colorscheme tundra]])
   if settings.enable_neotree then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "NvimTreeNormal" })
     vim.api.nvim_set_hl(0, "NeoTreeRootName", { link = "NvimTreeRootFolder" })

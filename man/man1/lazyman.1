@@ -368,7 +368,7 @@ kanagawa (https://github.com/rebelot/kanagawa.nvim.git)
 .IP \[bu] 2
 nightfox (https://github.com/EdenEast/nightfox.nvim.git)
 .IP \[bu] 2
-oh-my-monokai (https://github.com/justinsgithub/oh-my-monokai.nvim)
+monokai-pro (https://github.com/loctvl842/monokai-pro.nvim)
 .IP \[bu] 2
 onedarkpro (https://github.com/olimorris/onedarkpro.nvim.git)
 .IP \[bu] 2
@@ -460,12 +460,20 @@ nordfox
 terafox
 .RE
 .IP \[bu] 2
-oh-my-monokai
+monokai-pro
 .RS 2
 .IP \[bu] 2
-default
+classic
 .IP \[bu] 2
-justinsgithub
+octagon
+.IP \[bu] 2
+pro
+.IP \[bu] 2
+machine
+.IP \[bu] 2
+ristretto
+.IP \[bu] 2
+spectrum
 .RE
 .SS Plugin configuration
 .PP
@@ -595,7 +603,7 @@ local conf = {}
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
---   tundra, onedarkpro, everforest, oh-my-monokai
+--   tundra, onedarkpro, everforest, monokai-pro
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = \[dq]tokyonight\[dq]
@@ -606,7 +614,7 @@ conf.theme = \[dq]tokyonight\[dq]
 --   catppuccin:  latte, frappe, macchiato, mocha
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
---   oh-my-monokai: justinsgithub, default
+--   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 conf.theme_style = \[dq]moon\[dq]
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
@@ -690,8 +698,8 @@ conf.disable_dashboard_header = true
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  \[dq]bash\[dq], \[dq]go\[dq], \[dq]html\[dq], \[dq]java\[dq], \[dq]json\[dq], \[dq]lua\[dq], \[dq]markdown\[dq], \[dq]markdown_inline\[dq],
-  \[dq]query\[dq], \[dq]python\[dq], \[dq]regex\[dq], \[dq]toml\[dq], \[dq]vim\[dq], \[dq]yaml\[dq],
+  \[dq]bash\[dq], \[dq]go\[dq], \[dq]html\[dq], \[dq]java\[dq], \[dq]json\[dq], \[dq]lua\[dq], \[dq]markdown\[dq],
+  \[dq]markdown_inline\[dq], \[dq]query\[dq], \[dq]python\[dq], \[dq]regex\[dq], \[dq]toml\[dq], \[dq]vim\[dq], \[dq]yaml\[dq],
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false

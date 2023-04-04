@@ -45,16 +45,16 @@ if settings.theme == "tokyonight" then
   vim.opt.background = "dark"
   local style = settings.theme_style
   if style == "night" then
-    vim.cmd("colorscheme tokyonight-night")
+    vim.cmd([[colorscheme tokyonight-night]])
   elseif style == "moon" then
-    vim.cmd("colorscheme tokyonight-moon")
+    vim.cmd([[colorscheme tokyonight-moon]])
   elseif style == "storm" then
-    vim.cmd("colorscheme tokyonight-storm")
+    vim.cmd([[colorscheme tokyonight-storm]])
   elseif style == "day" then
     vim.opt.background = "light"
-    vim.cmd("colorscheme tokyonight-day")
+    vim.cmd([[colorscheme tokyonight-day]])
   else
-    vim.cmd("colorscheme tokyonight")
+    vim.cmd([[colorscheme tokyonight]])
   end
   vim.api.nvim_set_hl(0, "MiniJump", { fg = "#FFFFFF", bg = "#ff00a0" })
   if settings.enable_neotree then

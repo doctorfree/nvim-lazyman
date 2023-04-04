@@ -267,7 +267,7 @@ conf.enable_transparent = false
 - [everforest](https://github.com/neanias/everforest-nvim.git)
 - [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
 - [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
-- [oh-my-monokai](https://github.com/justinsgithub/oh-my-monokai.nvim)
+- [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
 - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
 - [tokyonight](https://github.com/folke/tokyonight.nvim.git)
 - [tundra](https://github.com/sam4llis/nvim-tundra.git)
@@ -311,9 +311,13 @@ Available styles are:
   - nightfox
   - nordfox
   - terafox
-- oh-my-monokai
-  - default
-  - justinsgithub
+- monokai-pro
+  - classic
+  - octagon
+  - pro
+  - machine
+  - ristretto
+  - spectrum
 
 #### Plugin configuration
 
@@ -368,7 +372,7 @@ local conf = {}
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
---   tundra, onedarkpro, everforest, oh-my-monokai
+--   tundra, onedarkpro, everforest, monokai-pro
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = "tokyonight"
@@ -379,7 +383,7 @@ conf.theme = "tokyonight"
 --   catppuccin:  latte, frappe, macchiato, mocha
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
---   oh-my-monokai: justinsgithub, default
+--   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
@@ -463,8 +467,8 @@ conf.disable_dashboard_header = true
 conf.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
-  "query", "python", "regex", "toml", "vim", "yaml",
+  "bash", "go", "html", "java", "json", "lua", "markdown",
+  "markdown_inline", "query", "python", "regex", "toml", "vim", "yaml",
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
