@@ -424,7 +424,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
-- Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim)
+- Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim), [oh-my-monokai](https://github.com/justinsgithub/oh-my-monokai.nvim)
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
@@ -614,6 +614,7 @@ conf.enable_transparent = false
 - [everforest](https://github.com/neanias/everforest-nvim.git)
 - [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
 - [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
+- [oh-my-monokai](https://github.com/justinsgithub/oh-my-monokai.nvim)
 - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
 - [tokyonight](https://github.com/folke/tokyonight.nvim.git)
 - [tundra](https://github.com/sam4llis/nvim-tundra.git)
@@ -657,6 +658,9 @@ Available styles are:
   - nightfox
   - nordfox
   - terafox
+- oh-my-monokai
+  - default
+  - justinsgithub
 
 ##### Plugin configuration
 
@@ -710,7 +714,8 @@ local conf = {}
 
 -- THEME CONFIGURATION
 -- Available themes:
---   nightfox, tokyonight, dracula, kanagawa, catppuccin, tundra, onedarkpro, everforest
+--   nightfox, tokyonight, dracula, kanagawa, catppuccin,
+--   tundra, onedarkpro, everforest, oh-my-monokai
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = "tokyonight"
@@ -719,7 +724,9 @@ conf.theme = "tokyonight"
 --   tokyonight:  night, storm, day, moon
 --   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
 --   catppuccin:  latte, frappe, macchiato, mocha
+--   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+--   oh-my-monokai: justinsgithub, default
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
@@ -810,8 +817,8 @@ conf.treesitter_ensure_installed = {
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "dockerls", "jsonls", "ltex", "marksman",
-  "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", "cssmodules_ls", "dockerls", "jsonls", "ltex", "marksman", "pyright",
+  "lua_ls", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters installed by mason-null-ls
 conf.formatters = {
@@ -820,8 +827,8 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint", "prettier", "shellcheck",
-  "shfmt", "stylua", "tflint", "yamllint", "ruff",
+  "markdownlint", "prettier", "shellcheck", "shfmt",
+  "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

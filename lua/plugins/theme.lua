@@ -12,6 +12,14 @@ return {
     end,
   },
   {
+    "justinsgithub/oh-my-monokai.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.oh-my-monokai")
+    end,
+  },
+  {
     "olimorris/onedarkpro.nvim",
     lazy = false,
     priority = 1000,

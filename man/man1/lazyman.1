@@ -368,6 +368,8 @@ kanagawa (https://github.com/rebelot/kanagawa.nvim.git)
 .IP \[bu] 2
 nightfox (https://github.com/EdenEast/nightfox.nvim.git)
 .IP \[bu] 2
+oh-my-monokai (https://github.com/justinsgithub/oh-my-monokai.nvim)
+.IP \[bu] 2
 onedarkpro (https://github.com/olimorris/onedarkpro.nvim.git)
 .IP \[bu] 2
 tokyonight (https://github.com/folke/tokyonight.nvim.git)
@@ -456,6 +458,14 @@ nightfox
 nordfox
 .IP \[bu] 2
 terafox
+.RE
+.IP \[bu] 2
+oh-my-monokai
+.RS 2
+.IP \[bu] 2
+default
+.IP \[bu] 2
+justinsgithub
 .RE
 .SS Plugin configuration
 .PP
@@ -584,7 +594,8 @@ local conf = {}
 
 -- THEME CONFIGURATION
 -- Available themes:
---   nightfox, tokyonight, dracula, kanagawa, catppuccin, tundra, onedarkpro, everforest
+--   nightfox, tokyonight, dracula, kanagawa, catppuccin,
+--   tundra, onedarkpro, everforest, oh-my-monokai
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
 conf.theme = \[dq]tokyonight\[dq]
@@ -593,7 +604,9 @@ conf.theme = \[dq]tokyonight\[dq]
 --   tokyonight:  night, storm, day, moon
 --   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
 --   catppuccin:  latte, frappe, macchiato, mocha
+--   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+--   oh-my-monokai: justinsgithub, default
 conf.theme_style = \[dq]moon\[dq]
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
@@ -694,8 +707,8 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  \[dq]markdownlint\[dq], \[dq]prettier\[dq], \[dq]shellcheck\[dq],
-  \[dq]shfmt\[dq], \[dq]stylua\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
+  \[dq]markdownlint\[dq], \[dq]prettier\[dq], \[dq]shellcheck\[dq], \[dq]shfmt\[dq],
+  \[dq]stylua\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
