@@ -453,7 +453,7 @@ show_figlet() {
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
   [ "${USE_FONT}" ] || USE_FONT="standard"
-  if [ "${use_lolcat}" ]; then
+  if [ "${have_lolcat}" ]; then
     if [ "${USE_FONT}" == "lean" ]; then
       figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | tr ' _/' ' ()' | ${LOLCAT}
     else
@@ -469,12 +469,13 @@ show_figlet() {
 }
 
 show_menu() {
-  use_figlet=$(type -p figlet)
-  use_lolcat=$(type -p lolcat)
+  have_figlet=$(type -p figlet)
+  have_tscli=$(type -p tree-sitter)
+  have_lolcat=$(type -p lolcat)
 
   while true; do
     clear
-    [ "${use_figlet}" ] && show_figlet
+    [ "${have_figlet}" ] && show_figlet
     items=()
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
@@ -507,6 +508,7 @@ show_menu() {
     fi
     options+=("Install Configs")
     options+=("Install More Configs")
+    [ "${have_figlet}" ] && [ "${have_tscli}" ] || options+=("Install Tools")
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -523,6 +525,12 @@ show_menu() {
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          clear
+          printf "\n"
+          man lazyman
+          break
+          ;;
         "Select"*,* | *,"Select"* | "select"*,* | *,"select"*)
           nvimselect
           break
@@ -533,6 +541,10 @@ show_menu() {
           ;;
         "Install More"*,* | *,"Install More"*)
           lazyman -Z -z -y
+          break
+          ;;
+        "Install Tools"*,* | *,"Install Tools"*)
+          lazyman -I
           break
           ;;
         "Install "*,* | *,"Install "*)
@@ -605,7 +617,7 @@ show_menu() {
         *,*)
           printf "\nCould not match '${REPLY}' with a menu entry."
           printf "\nPlease try again with an exact match.\n"
-          [ "${use_figlet}" ] && show_figlet
+          [ "${have_figlet}" ] && show_figlet
           ;;
       esac
       REPLY=

@@ -280,6 +280,7 @@ install_tools() {
   }
 
   brew_install figlet
+  brew_install lolcat
   brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
