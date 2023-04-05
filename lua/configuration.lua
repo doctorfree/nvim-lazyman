@@ -15,7 +15,7 @@ conf.theme = "catppuccin"
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
-conf.theme_style = "custom"
+conf.theme_style = "mocha"
 -- enable transparency if the theme supports it
 conf.enable_transparent = false
 
