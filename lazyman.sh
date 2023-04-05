@@ -386,6 +386,7 @@ update_config() {
     [ "$quiet" ] || {
       printf " done"
     }
+    add_nvimdirs_entry "$ndir"
   }
   [ "$ndir" == "$astronvimdir" ] || [ "$ndir" == "$nvchaddir" ] && {
     if [ "$ndir" == "$astronvimdir" ]; then
@@ -847,12 +848,32 @@ shift $((OPTIND - 1))
       remove_config "nvim-${neovim}"
     done
   else
-    lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv -z
-    lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P -z
-    lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P -z
-    lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p -z
-    lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p -z
-    lazyman -C https://github.com/Allaman/nvim -N nvim-Allaman -z
+    yesflag=
+    [ "${proceed}" ] && yesflag="-y"
+    printf "\nInstalling/updating Nv Neovim configuration ..."
+    lazyman -C https://github.com/appelgriebsch/Nv \
+      -N nvim-Nv -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating Abstract Neovim configuration ..."
+    lazyman -C https://github.com/Abstract-IDE/Abstract \
+      -N nvim-Abstract -P -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating Fennel Neovim configuration ..."
+    lazyman -C https://github.com/jhchabran/nvim-config \
+      -N nvim-Fennel -P -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating Optixal Neovim configuration ..."
+    lazyman -C https://github.com/Optixal/neovim-init.vim \
+      -N nvim-Optixal -p -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating Plug Neovim configuration ..."
+    lazyman -C https://github.com/doctorfree/nvim-plug \
+      -N nvim-Plug -p -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating Allaman Neovim configuration ..."
+    lazyman -C https://github.com/Allaman/nvim \
+      -N nvim-Allaman -q -z ${yesflag}
+    printf " done\n"
   fi
   exit 0
 }
@@ -1206,7 +1227,9 @@ done
 }
 [ "$url" ] && {
   if [ -d "${HOME}/.config/${nvimdir[0]}" ]; then
-    printf "\nThe directory ${HOME}/.config/${nvimdir[0]} already exists."
+    [ "$quiet" ] || {
+      printf "\nThe directory ${HOME}/.config/${nvimdir[0]} already exists."
+    }
   else
     [ "$quiet" ] || {
       printf "\nCloning ${url} into"
@@ -1333,7 +1356,9 @@ fi
     printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir[0]} nvim\""
   fi
 }
-printf "\n\nRun 'lazyman' with no arguments for an interactive menu system\n\n"
+[ "$quiet" ] || {
+  printf "\n\nRun 'lazyman' with no arguments for an interactive menu system\n\n"
+}
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
