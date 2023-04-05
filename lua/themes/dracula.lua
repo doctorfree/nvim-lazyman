@@ -175,4 +175,8 @@ if settings.theme == "dracula" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "String" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "Comment" })
   end
+  if settings.enable_neotree then
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { link = "NvimTreeNormal" })
+    vim.api.nvim_set_hl(0, "NeoTreeVertSplit", { link = "NvimTreeVertSplit" })
+  end
 end

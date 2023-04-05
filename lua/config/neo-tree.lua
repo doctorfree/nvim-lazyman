@@ -1,17 +1,17 @@
+vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
 require("neo-tree").setup({
-  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+  -- Close Neo-tree if it is the last window left in the tab
+  close_if_last_window = false,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
-  sort_case_insensitive = false, -- used when sorting files and directories in the tree
-  sort_function = nil, -- use a custom function for sorting files and directories in the tree
-  -- sort_function = function (a,b)
-  --       if a.type == b.type then
-  --           return a.path > b.path
-  --       else
-  --           return a.type > b.type
-  --       end
-  --   end , -- this sorts files and directories descendantly
+  -- when opening files, do not use windows containing these filetypes or buftypes
+  open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+  -- used when sorting files and directories in the tree
+  sort_case_insensitive = false,
+  -- use a custom function for sorting files and directories in the tree
+  sort_function = nil,
   default_component_configs = {
     container = {
       enable_character_fade = true,
@@ -172,10 +172,18 @@ require("neo-tree").setup({
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
       },
+      -- define keymaps for filter popup window in fuzzy_finder_mode
+      fuzzy_finder_mappings = {
+        ["<down>"] = "move_cursor_down",
+        ["<C-n>"] = "move_cursor_down",
+        ["<up>"] = "move_cursor_up",
+        ["<C-p>"] = "move_cursor_up",
+      },
     },
   },
   buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
+    -- This will find and focus the file in the active buffer every
+    follow_current_file = true,
     -- time the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty folders will be grouped together
     show_unloaded = true,
