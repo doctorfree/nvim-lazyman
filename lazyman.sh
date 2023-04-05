@@ -866,31 +866,45 @@ shift $((OPTIND - 1))
   else
     yesflag=
     [ "${proceed}" ] && yesflag="-y"
-    printf "\nInstalling/updating Nv Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
+    printf "\n${action} Nv Neovim configuration ..."
     lazyman -C https://github.com/appelgriebsch/Nv \
       -N nvim-Nv -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating Abstract Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
+    printf "\n${action} Abstract Neovim configuration ..."
     lazyman -C https://github.com/Abstract-IDE/Abstract \
       -N nvim-Abstract -P -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating Fennel Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
+    printf "\n${action} Fennel Neovim configuration ..."
     lazyman -C https://github.com/jhchabran/nvim-config \
       -N nvim-Fennel -P -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating NvPak Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
+    printf "\n${action} NvPak Neovim configuration ..."
     lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
       -N nvim-NvPak -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating Optixal Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
+    printf "\n${action} Optixal Neovim configuration ..."
     lazyman -C https://github.com/Optixal/neovim-init.vim \
       -N nvim-Optixal -p -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating Plug Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
+    printf "\n${action} Plug Neovim configuration ..."
     lazyman -C https://github.com/doctorfree/nvim-plug \
       -N nvim-Plug -p -q -z ${yesflag}
     printf " done"
-    printf "\nInstalling/updating Allaman Neovim configuration ..."
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
+    printf "\n${action} Allaman Neovim configuration ..."
     lazyman -C https://github.com/Allaman/nvim \
       -N nvim-Allaman -q -z ${yesflag}
     printf " done\n"
