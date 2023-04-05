@@ -534,6 +534,12 @@ The winbar with location
 \f[V]conf.enable_winbar = false\f[R]
 .RE
 .IP \[bu] 2
+Enable the rebelot/terminal.nvim terminal plugin
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_terminal = true\f[R]
+.RE
+.IP \[bu] 2
 Enable playing games inside Neovim!
 .RS 2
 .IP \[bu] 2
@@ -593,151 +599,6 @@ Default is \[dq]popup\[dq]
 .PP
 Additional plugin configuration and options are available in
 \f[V]configuration.lua\f[R].
-.PP
-The default \f[V]configuration.lua\f[R]:
-.IP
-.nf
-\f[C]
-local conf = {}
-
--- THEME CONFIGURATION
--- Available themes:
---   nightfox, tokyonight, dracula, kanagawa, catppuccin,
---   tundra, onedarkpro, everforest, monokai-pro
--- A configuration file for each theme is in lua/themes/
--- Use <F8> to step through themes
-conf.theme = \[dq]tokyonight\[dq]
--- Available styles are:
---   kanagawa:    wave, dragon, lotus
---   tokyonight:  night, storm, day, moon
---   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
---   catppuccin:  latte, frappe, macchiato, mocha
---   dracula:     blood, magic, soft, default
---   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
---   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
-conf.theme_style = \[dq]moon\[dq]
--- enable transparency if the theme supports it
-conf.enable_transparent = true
-
--- GLOBAL OPTIONS CONFIGURATION
--- Some prefer space as the map leader, but why
-conf.mapleader = \[dq],\[dq]
-conf.maplocalleader = \[dq],\[dq]
--- Toggle global status line
-conf.global_statusline = true
--- set numbered lines
-conf.number = false
--- enable mouse see :h mouse
-conf.mouse = \[dq]nv\[dq]
--- set relative numbered lines
-conf.relative_number = false
--- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
--- see enable_tabline below to disable or enable the tabline
-conf.showtabline = 2
--- enable or disable listchars
-conf.list = true
--- which list chars to show
-conf.listchars = {
-  eol = \[dq]\[u2936]\[dq],
-  tab = \[dq]>.\[dq],
-  trail = \[dq]\[ti]\[dq],
-  extends = \[dq]\[u25C0]\[dq],
-  precedes = \[dq]\[u25B6]\[dq],
-}
--- use rg instead of grep
-conf.grepprg = \[dq]rg --hidden --vimgrep --smart-case --\[dq]
-
--- ENABLE/DISABLE/SELECT PLUGINS
--- neovim session manager to use, either persistence or possession
-conf.session_manager = \[dq]possession\[dq]
--- neo-tree or nvim-tree, false will enable nvim-tree
-conf.enable_neotree = true
--- Replace the UI for messages, cmdline and the popupmenu
-conf.enable_noice = true
--- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = false
--- Enable the newer rainbow treesitter delimiter highlighting
-conf.enable_rainbow2 = true
--- Enable fancy lualine components
-conf.enable_fancy = true
--- Enable the wilder plugin
-conf.enable_wilder = false
--- The statusline (lualine) and tabline can each be enabled or disabled
--- Disable statusline (lualine)
-conf.disable_statusline = false
--- Enable tabline
-conf.enable_tabline = true
--- Disable winbar with location
-conf.enable_winbar = false
--- Enable playing games inside Neovim!
-conf.enable_games = true
--- Enable the Alpha dashboard
-conf.enable_alpha = true
--- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
-conf.enable_bookmarks = false
--- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
-conf.enable_ide = false
--- Enable Navigator
-conf.enable_navigator = true
--- Enable Project manager
-conf.enable_project = true
--- Enable window picker
-conf.enable_picker = true
--- Enable smooth scrolling with neoscroll plugin
-conf.enable_smooth_scrolling = true
-
--- PLUGINS CONFIGURATION
--- media backend, one of \[dq]ueberzug\[dq]|\[dq]viu\[dq]|\[dq]chafa\[dq]|\[dq]jp2a\[dq]|catimg
-conf.media_backend = \[dq]jp2a\[dq]
--- Number of recent files shown in dashboard
--- 0 disables showing recent files
-conf.dashboard_recent_files = 5
--- disable the header of the dashboard
-conf.disable_dashboard_header = true
--- disable quick links of the dashboard
-conf.disable_dashboard_quick_links = false
--- treesitter parsers to be installed
-conf.treesitter_ensure_installed = {
-  \[dq]bash\[dq], \[dq]go\[dq], \[dq]html\[dq], \[dq]java\[dq], \[dq]json\[dq], \[dq]lua\[dq], \[dq]markdown\[dq],
-  \[dq]markdown_inline\[dq], \[dq]query\[dq], \[dq]python\[dq], \[dq]regex\[dq], \[dq]toml\[dq], \[dq]vim\[dq], \[dq]yaml\[dq],
-}
--- Enable clangd or ccls will be used for C/C++ diagnostics
-conf.enable_clangd = false
--- LSPs that should be installed by Mason-lspconfig
-conf.lsp_servers = {
-  \[dq]bashls\[dq], \[dq]cssmodules_ls\[dq], \[dq]dockerls\[dq], \[dq]jsonls\[dq], \[dq]ltex\[dq], \[dq]marksman\[dq],
-  \[dq]pyright\[dq], \[dq]lua_ls\[dq], \[dq]terraformls\[dq], \[dq]texlab\[dq], \[dq]tsserver\[dq], \[dq]vimls\[dq], \[dq]yamlls\[dq],
-}
--- Formatters installed by mason-null-ls
-conf.formatters = {
-  \[dq]black\[dq], \[dq]prettier\[dq], \[dq]stylua\[dq], \[dq]shfmt\[dq], \[dq]google_java_format\[dq],
-  \[dq]sql_formatter\[dq], \[dq]markdownlint\[dq], \[dq]beautysh\[dq],
-}
--- Tools that should be installed by Mason
-conf.tools = {
-  \[dq]markdownlint\[dq], \[dq]prettier\[dq], \[dq]shellcheck\[dq], \[dq]shfmt\[dq],
-  \[dq]stylua\[dq], \[dq]tflint\[dq], \[dq]yamllint\[dq], \[dq]ruff\[dq],
-}
--- enable greping in hidden files
-conf.telescope_grep_hidden = true
--- which patterns to ignore in file switcher
-conf.telescope_file_ignore_patterns = {
-  \[dq]%.7z\[dq], \[dq]%.MOV\[dq], \[dq]%.RAF\[dq], \[dq]%.burp\[dq], \[dq]%.bz2\[dq], \[dq]%.cache\[dq], \[dq]%.class\[dq], \[dq]%.dll\[dq],
-  \[dq]%.docx\[dq], \[dq]%.dylib\[dq], \[dq]%.epub\[dq], \[dq]%.exe\[dq], \[dq]%.flac\[dq], \[dq]%.ico\[dq], \[dq]%.ipynb\[dq], \[dq]%.jar\[dq],
-  \[dq]%.lock\[dq], \[dq]%.mkv\[dq], \[dq]%.mov\[dq], \[dq]%.mp4\[dq], \[dq]%.otf\[dq], \[dq]%.pdb\[dq], \[dq]%.rar\[dq], \[dq]%.sqlite3\[dq],
-  \[dq]%.svg\[dq], \[dq]%.tar\[dq], \[dq]%.tar.gz\[dq], \[dq]%.zip\[dq], \[dq].git/\[dq], \[dq].gradle/\[dq], \[dq].idea/\[dq],
-  \[dq].settings/\[dq], \[dq].vale/\[dq], \[dq].vscode/\[dq], \[dq]__pycache__/*\[dq], \[dq]build/\[dq], \[dq]env/\[dq],
-  \[dq]gradle/\[dq], \[dq]node_modules/\[dq], \[dq]smalljre_*/*\[dq], \[dq]target/\[dq], \[dq]vendor/*\[dq],
-}
--- Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq], \[dq]popup\[dq]. Default is \[dq]popup\[dq]
---   \[dq]none\[dq]:  diagnostics are disabled but still underlined
---   \[dq]icons\[dq]: only an icon will show, use \[aq],de\[aq] to see the diagnostic
---   \[dq]popup\[dq]: an icon will show and a popup with the diagnostic will appear
-conf.show_diagnostics = \[dq]icons\[dq]
-
-return conf
-\f[R]
-.fi
 .SS AUTHORS
 .PP
 Written by Ronald Record \f[V]github\[at]ronrecord.com\f[R]

@@ -69,6 +69,8 @@ conf.disable_statusline = false
 conf.enable_tabline = true
 -- Disable winbar with location
 conf.enable_winbar = false
+-- Disable rebelot/terminal.nvim
+conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the Alpha dashboard

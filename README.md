@@ -620,7 +620,7 @@ conf.enable_transparent = false
 - [everforest](https://github.com/neanias/everforest-nvim.git)
 - [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
 - [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
-- [monokai](https://github.com/loctvl842/monokai-pro.nvim)
+- [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
 - [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
 - [tokyonight](https://github.com/folke/tokyonight.nvim.git)
 - [tundra](https://github.com/sam4llis/nvim-tundra.git)
@@ -696,6 +696,8 @@ below along with their default settings:
   - `conf.enable_tabline = true`
 - The winbar with location
   - `conf.enable_winbar = false`
+- Enable the rebelot/terminal.nvim terminal plugin
+  - `conf.enable_terminal = true`
 - Enable playing games inside Neovim!
   - `conf.enable_games = true`
 - Enable the Alpha dashboard
@@ -791,6 +793,8 @@ conf.disable_statusline = false
 conf.enable_tabline = true
 -- Disable winbar with location
 conf.enable_winbar = false
+-- Disable rebelot/terminal.nvim
+conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the Alpha dashboard

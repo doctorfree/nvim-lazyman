@@ -66,15 +66,32 @@ if settings.enable_noice then
     end,
     -- stylua: ignore
     keys = {
-      { "<S-Enter>",   function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c",
-                                                                                                                    desc =
-        "Redirect Cmdline" },
-      { "<leader>snl", function() require("noice").cmd("last") end,                   desc = "Noice Last Message" },
-      { "<leader>snh", function() require("noice").cmd("history") end,                desc = "Noice History" },
-      { "<leader>sna", function() require("noice").cmd("all") end,                    desc = "Noice All" },
+      {
+        "<S-Enter>",
+        function() require("noice").redirect(vim.fn.getcmdline()) end,
+        mode = "c",
+        desc =
+        "Redirect Cmdline"
+      },
+      { "<leader>snl", function() require("noice").cmd("last") end,    desc = "Noice Last Message" },
+      { "<leader>snh", function() require("noice").cmd("history") end, desc = "Noice History" },
+      { "<leader>sna", function() require("noice").cmd("all") end,     desc = "Noice All" },
       -- { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = {"i", "n", "s"} },
       -- { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = {"i", "n", "s"}},
     },
+  }
+end
+
+local terminal_nvim = {}
+if settings.enable_terminal then
+  terminal_nvim = {
+    "rebelot/terminal.nvim",
+    cmd = { "TermOpen", "TermToggle", "TermRun", "Lazygit", "IPython", "Btop", "Htop" },
+    keys = "<leader>t",
+    event = "TermOpen",
+    config = function()
+      require("config.terminal_nvim")
+    end,
   }
 end
 
@@ -101,10 +118,10 @@ end
 
 -- Some colorschemes do not yet support the NotifyBackground highlight group
 local notify_bg = "NotifyBackground"
-local ok, hl = pcall(vim.api.nvim_get_hl_by_name, noitify_bg, true)
+local ok, hl = pcall(vim.api.nvim_get_hl_id_by_name, notify_bg, true)
 if not ok then
   notify_bg = "NotifyERRORBody"
-  ok, hl = pcall(vim.api.nvim_get_hl_by_name, noitify_bg, true)
+  ok, hl = pcall(vim.api.nvim_get_hl_id_by_name, notify_bg, true)
   if not ok then
     notify_bg = "#000000"
   end
@@ -299,5 +316,6 @@ return {
   -- ui components
   { "MunifTanjim/nui.nvim", lazy = true },
 
+  terminal_nvim,
   wilder_type,
 }

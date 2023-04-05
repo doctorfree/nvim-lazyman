@@ -18,16 +18,16 @@ FIG_TEXT="Lazyman"
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k] [-l]"
-  printf "\n               [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
-  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k]"
+  printf "\n       [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
+  printf "\n       [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   exit 1
 }
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k] [-l]"
-  printf "\n               [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
-  printf "\n               [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k]"
+  printf "\n       [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
+  printf "\n       [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   printf "\nWhere:"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvim Neovim configuration"

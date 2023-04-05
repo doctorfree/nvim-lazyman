@@ -18,18 +18,18 @@ return {
         sources = {
           formatting.prettier.with({
             -- milliseconds
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "--single-quote", "false" },
           }),
           formatting.stylua.with({
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
           }),
           formatting.terraform_fmt,
           formatting.goimports,
           formatting.gofumpt,
           formatting.latexindent.with({
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
           }),
           actions.shellcheck,
@@ -40,16 +40,16 @@ return {
           diagnostics.ruff,
           formatting.google_java_format,
           formatting.black.with({
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "--fast" },
           }),
           formatting.sql_formatter.with({
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "--config" },
           }),
           formatting.markdownlint,
           formatting.beautysh.with({
-            timeout = 5000,
+            timeout = 10000,
             extra_args = { "--indent-size", "2" },
           }),
           diagnostics.zsh.with({
