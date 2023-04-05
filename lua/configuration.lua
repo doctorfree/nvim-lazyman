@@ -6,18 +6,18 @@ local conf = {}
 --   tundra, onedarkpro, everforest, monokai-pro
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
-conf.theme = "tokyonight"
+conf.theme = "catppuccin"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
 --   tokyonight:  night, storm, day, moon
 --   onedarkpro:  onedark, onelight, onedark_vivid, onedark_dark
---   catppuccin:  latte, frappe, macchiato, mocha
+--   catppuccin:  latte, frappe, macchiato, mocha, custom
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
-conf.theme_style = "moon"
+conf.theme_style = "custom"
 -- enable transparency if the theme supports it
-conf.enable_transparent = true
+conf.enable_transparent = false
 
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
@@ -98,6 +98,8 @@ conf.dashboard_recent_files = 5
 conf.disable_dashboard_header = true
 -- disable quick links of the dashboard
 conf.disable_dashboard_quick_links = false
+-- enable colored indentation lines if theme supports it
+conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",

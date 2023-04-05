@@ -1,7 +1,16 @@
+local settings = require("configuration")
 local lspsaga = require("lspsaga")
 local keymap = vim.keymap.set
+local ui = {}
+
+if settings.theme == "catppuccin" then
+  ui = {
+    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+  }
+end
 
 lspsaga.setup({
+  ui,
   outline = {
     win_position = "botright",
     win_with = "",

@@ -298,6 +298,7 @@ Available styles are:
   - frappe
   - macchiato
   - mocha
+  - custom
 - dracula
   - blood
   - magic

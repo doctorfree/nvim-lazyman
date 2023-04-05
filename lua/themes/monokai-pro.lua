@@ -26,7 +26,7 @@ require("monokai-pro").setup({
     "toggleterm",
     "telescope",
     "which-key",
-    "renamer"
+    "renamer",
   },
   plugins = {
     bufferline = {
@@ -45,6 +45,7 @@ require("monokai-pro").setup({
     "illuminate",
     "lazy",
     "lsp",
+    "lualine",
     "mason",
     "neo-tree",
     "noice",
@@ -57,7 +58,7 @@ require("monokai-pro").setup({
     "telescope",
     "toggleterm",
     "which-key",
-    "wilder"
+    "wilder",
   },
   override = function(c)
     return {

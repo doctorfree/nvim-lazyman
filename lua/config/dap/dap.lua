@@ -34,6 +34,16 @@ local function configure_exts()
   })
 
   local dap, dapui = require("dap"), require("dapui")
+
+  -- Catppuccin special dap integration
+  local settings = require("configuration")
+  local sign = vim.fn.sign_define
+  if settings.theme == "catppuccin" then
+    sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+    sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+    sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+  end
+
   dapui.setup({}) -- use default
   dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open({})
