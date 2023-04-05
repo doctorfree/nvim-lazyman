@@ -471,6 +471,8 @@ show_figlet() {
 }
 
 show_menu() {
+  have_cargo=$(type -p cargo)
+  have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
   have_lolcat=$(type -p lolcat)
@@ -547,6 +549,9 @@ show_menu() {
     [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
       options+=("Install Tools")
     }
+    [ "${have_cargo}" ] && {
+      [ "${have_neovide}" ] || options+=("Install Neovide GUI")
+    }
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -557,6 +562,7 @@ show_menu() {
     for neovim in "${sorted[@]}"; do
       options+=("Open ${neovim}")
     done
+    [ "${have_neovide}" ] && options+=("Open Neovide GUI")
     for neovim in "${sorted[@]}"; do
       options+=("Remove ${neovim}")
     done
@@ -589,6 +595,12 @@ show_menu() {
           have_lolcat=$(type -p lolcat)
           break
           ;;
+        "Install Neovide"*,* | *,"Install Neovide"*)
+          printf "\nInstalling Neovide GUI, please be patient ... "
+          cargo install --git https://github.com/neovide/neovide >/dev/null 2>&1
+          printf "done\n"
+          have_neovide=$(type -p neovide)
+          ;;
         "Install "*,* | *,"Install "*)
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
           case ${nvimconf} in
@@ -617,6 +629,10 @@ show_menu() {
               lazyman -m -z -y
               ;;
           esac
+          break
+          ;;
+        "Open Neovide"*,* | *,"Open Neovide"*)
+          NVIM_APPNAME="nvim-Lazyman" neovide &
           break
           ;;
         "Open "*,* | *,"Open "*)
@@ -699,7 +715,7 @@ pmgr="Lazy"
 # Supported Neovim configurations
 # "AstroNvim" "Kickstart" "LazyVim" "LunarVim" "NvChad" "SpaceVim" "MagicVim"
 # Neovim configurations still being tested, not yet supported
-# "Nv" "Abstract" "Allaman" "Fennel" "Optixal" "Plug"
+# "Nv" "Abstract" "Allaman" "Fennel" "NvPak"" "Optixal" "Plug"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 kickstartdir="nvim-Kickstart"
@@ -844,7 +860,7 @@ shift $((OPTIND - 1))
 
 [ "$unsupported" ] && {
   if [ "$remove" ]; then
-    for neovim in Nv Abstract Allaman Fennel Optixal Plug; do
+    for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug; do
       remove_config "nvim-${neovim}"
     done
   else
@@ -861,6 +877,10 @@ shift $((OPTIND - 1))
     printf "\nInstalling/updating Fennel Neovim configuration ..."
     lazyman -C https://github.com/jhchabran/nvim-config \
       -N nvim-Fennel -P -q -z ${yesflag}
+    printf " done"
+    printf "\nInstalling/updating NvPak Neovim configuration ..."
+    lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
+      -N nvim-NvPak -q -z ${yesflag}
     printf " done"
     printf "\nInstalling/updating Optixal Neovim configuration ..."
     lazyman -C https://github.com/Optixal/neovim-init.vim \

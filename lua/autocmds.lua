@@ -83,6 +83,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Get GUI config when entering UI
+vim.api.nvim_create_autocmd("UIEnter", {
+  once = true,
+  callback = function()
+    require("ginit")
+  end,
+})
+
 if settings.enable_alpha then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 

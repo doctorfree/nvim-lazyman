@@ -262,7 +262,7 @@ install_tools() {
   }
   [ "$quiet" ] || printf "\nDone"
 
-  [ "$quiet" ] || printf "\nInstalling npm, treesitter, and cargo dependencies"
+  [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
     log "Installing Neovim npm package ..."
@@ -295,10 +295,6 @@ install_tools() {
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
-
-  # if command -v cargo >/dev/null 2>&1; then
-  #   cargo install rnix-lsp > /dev/null 2>&1
-  # fi
 
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"

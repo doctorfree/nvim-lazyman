@@ -45,6 +45,9 @@ doc/tags
 # Working dirs
 tmp/*
 
+# Neovide leaves a backtrace when it crashes
+neovide_backtraces*
+
 # vim files
 .*.sw[a-z]
 *.un~

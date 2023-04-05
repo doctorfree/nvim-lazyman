@@ -53,7 +53,13 @@ conf.session_manager = "possession"
 -- neo-tree or nvim-tree, false will enable nvim-tree
 conf.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
-conf.enable_noice = true
+-- While they figure this out, Noice breaks in Neovide
+if vim.g.neovide then
+  conf.enable_noice = false
+else
+  -- Set to 'false' to disable Noice everywhere
+  conf.enable_noice = true
+end
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
 conf.enable_chatgpt = false
 -- Enable the newer rainbow treesitter delimiter highlighting
