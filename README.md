@@ -74,6 +74,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Lazyman manual](#lazyman-manual)
   - [Lazyman configuration](#lazyman-configuration)
 - [Notes](#notes)
+  - [Lazy](#lazy)
   - [Mason](#mason)
   - [Packer](#packer)
   - [Plug](#plug)
@@ -871,11 +872,32 @@ return conf
 
 ## Notes
 
+### Lazy
+
+The `nvim-Lazyman` Neovim configuration uses the
+[Lazy plugin manager](https://github.com/folke/lazy.nvim).
+The [Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki) includes
+a list of the
+[Lazy loaded plugins](https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile)
+in the `nvim-Lazyman` Neovim configuration sorted by
+[load order](https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-load-order)
+and
+[load time](https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-loading-time).
+
 ### Mason
+
+The `nvim-Lazyman` Neovim configuration uses the
+[Mason portable package manager](https://github.com/williamboman/mason.nvim)
+to easily install and manage LSP servers, DAP servers, linters, and formatters.
 
 The first time `nvim` is executed Mason will install several packages required
 by the new Neovim configuration. Please be patient. If you exit Neovim prior
 to completion of the Mason installs, it will resume the next session.
+
+The [Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki) includes
+a list of the
+[Mason installed packages](https://github.com/doctorfree/nvim-lazyman/wiki/Mason-Installed)
+in the `nvim-Lazyman` Neovim configuration.
 
 ### Packer
 
