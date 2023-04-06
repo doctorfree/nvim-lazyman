@@ -292,6 +292,21 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
 
+  if command -v "cargo" >/dev/null 2>&1; then
+    log "Using previously installed cargo ..."
+  else
+    log "Installing cargo ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet "rust" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+
   brew_install figlet
   brew_install lolcat
   if command -v "rich" >/dev/null 2>&1; then
