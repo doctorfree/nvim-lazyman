@@ -471,6 +471,7 @@ show_figlet() {
 }
 
 show_menu() {
+  have_brew=$(type -p brew)
   have_cargo=$(type -p cargo)
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
@@ -549,9 +550,12 @@ show_menu() {
     [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
       options+=("Install Tools")
     }
-    [ "${have_cargo}" ] && {
-      [ "${have_neovide}" ] || options+=("Install Neovide GUI")
-    }
+    if [ "${have_neovide}" ]
+    then
+      options+=("Open Neovide GUI")
+    else
+      options+=("Install Neovide GUI")
+    fi
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -562,7 +566,6 @@ show_menu() {
     for neovim in "${sorted[@]}"; do
       options+=("Open ${neovim}")
     done
-    [ "${have_neovide}" ] && options+=("Open Neovide GUI")
     for neovim in "${sorted[@]}"; do
       options+=("Remove ${neovim}")
     done
@@ -596,10 +599,54 @@ show_menu() {
           break
           ;;
         "Install Neovide"*,* | *,"Install Neovide"*)
-          printf "\nInstalling Neovide GUI, please be patient ... "
-          cargo install --git https://github.com/neovide/neovide >/dev/null 2>&1
-          printf "done\n"
-          have_neovide=$(type -p neovide)
+          [ "${have_cargo}" ] || {
+            printf "\nNeovide build requires cargo but cargo not found.\n"
+            while true; do
+              read -r -p "Do you wish to install cargo now ? (y/n) " yn
+              case $yn in
+                [Yy]*)
+                  printf "\nInstalling cargo ..."
+                  if [ "${have_brew}" ]; then
+                    brew install rust >/dev/null 2>&1
+                  else
+                    RUST_URL="https://sh.rustup.rs"
+                    curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+                    [ $? -eq 0 ] || {
+                      rm -f /tmp/rust-$$.sh
+                      curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
+                      [ -f /tmp/rust-$$.sh ] && {
+                        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+                        cp /tmp/ins$$ /tmp/rust-$$.sh
+                        rm -f /tmp/ins$$
+                      }
+                    }
+                    [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
+                    rm -f /tmp/rust-$$.sh
+                  fi
+                  printf " done"
+                  break
+                  ;;
+                [Nn]*)
+                  printf "\nAborting cargo and neovide install\n"
+                  break 2
+                  ;;
+                *)
+                  printf "\nPlease answer yes or no.\n"
+                  ;;
+              esac
+            done
+            have_cargo=$(type -p cargo)
+          }
+          if [ "${have_cargo}" ]; then
+            printf "\nBuilding Neovide GUI, please be patient ... "
+            cargo install --git https://github.com/neovide/neovide >/dev/null 2>&1
+            printf "done\n"
+            have_neovide=$(type -p neovide)
+          else
+            printf "\nCannot locate cargo. Perhaps it is not in your PATH."
+            printf "\nUnable to build Neovide"
+          fi
+          break
           ;;
         "Install "*,* | *,"Install "*)
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
@@ -632,7 +679,11 @@ show_menu() {
           break
           ;;
         "Open Neovide"*,* | *,"Open Neovide"*)
-          NVIM_APPNAME="nvim-Lazyman" neovide &
+          if alias neovides >/dev/null 2>&1; then
+            neovselect
+          else
+            NVIM_APPNAME="nvim-Lazyman" neovide
+          fi
           break
           ;;
         "Open "*,* | *,"Open "*)

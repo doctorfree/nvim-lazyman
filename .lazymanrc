@@ -11,6 +11,7 @@ command -v nvim > /dev/null && {
   # Leave commented to use vim as a backup editor if nvim not found
   # alias vim='nvim'
   alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
+  alias neovides='source ~/.config/nvim-Lazyman/.lazymanrc; neovselect'
   items=()
   [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
@@ -91,5 +92,35 @@ command -v nvim > /dev/null && {
       fi
     fi
     NVIM_APPNAME=$config nvim $@
+  }
+
+  function neovselect() {
+    numitems=${#items[@]}
+    if [ ${numitems} -eq 1 ]
+    then
+      config="${items[@]:0:1}"
+    else
+      height=$((numitems * 6))
+      [ ${height} -gt 100 ] && height=100
+      [ ${height} -lt 20 ] && height=20
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+    fi
+    if [[ -z $config ]]; then
+      echo "Nothing selected"
+      return 0
+    elif [[ $config == "default" ]]; then
+      config="nvim"
+    else
+      if [ -d ${HOME}/.config/nvim-${config} ]
+      then
+        config="nvim-${config}"
+      else
+        [ -d ${HOME}/.config/${config} ] || {
+          echo "Cannot locate ${config} Neovim configuration directory"
+          return 0
+        }
+      fi
+    fi
+    NVIM_APPNAME=$config neovide $@
   }
 }
