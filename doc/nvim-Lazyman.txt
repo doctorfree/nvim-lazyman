@@ -88,6 +88,10 @@ configuration selected from the `nvims` menu:
 Execute `nvims` directly at the shell prompt or by using the convenience key
 binding `ctrl-n`.
 
+Similarly, if `neovide` is found in the execution PATH then a fuzzy selectable
+menu is provided with the `neovides` alias and convenience key binding of
+`ctrl-N` to bring up that menu.
+
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration to
 use with this invocation. This is done using the `-e config` option to
