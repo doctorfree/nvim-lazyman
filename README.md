@@ -2870,8 +2870,10 @@ install_neovim_head() {
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
     "$BREW_EXE" install --HEAD neovim
+    "$BREW_EXE" install --HEAD neovim-remote
   else
     "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
+    "$BREW_EXE" install -q --HEAD neovim-remote >/dev/null 2>&1
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
@@ -2952,7 +2954,7 @@ install_tools() {
   }
   [ "$quiet" ] || printf "\nDone"
 
-  [ "$quiet" ] || printf "\nInstalling npm, treesitter, and cargo dependencies"
+  [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
     log "Installing Neovim npm package ..."
@@ -2985,10 +2987,6 @@ install_tools() {
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
-
-  # if command -v cargo >/dev/null 2>&1; then
-  #   cargo install rnix-lsp > /dev/null 2>&1
-  # fi
 
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
@@ -3033,6 +3031,7 @@ main() {
         install_neovim_head
       else
         brew_install neovim
+        brew_install nvr
       fi
     fi
   fi

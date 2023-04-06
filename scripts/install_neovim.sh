@@ -341,6 +341,7 @@ main() {
         install_neovim_head
       else
         brew_install neovim
+        brew_install nvr
       fi
     fi
   fi
