@@ -10,3 +10,12 @@ command -v nvims > /dev/null && {
    bindkey -s ^n "nvims\n"
   fi
 }
+command -v neovide > /dev/null && {
+  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+   bindkey -s ^N "neovides\n"
+  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+   bind -x '"\C-N": neovides'
+  else
+   bindkey -s ^N "neovides\n"
+  fi
+}

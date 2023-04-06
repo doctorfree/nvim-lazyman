@@ -1040,6 +1040,7 @@ command -v nvim > /dev/null && {
   # Leave commented to use vim as a backup editor if nvim not found
   # alias vim='nvim'
   alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
+  alias neovides='source ~/.config/nvim-Lazyman/.lazymanrc; neovselect'
   items=()
   [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
@@ -1121,6 +1122,36 @@ command -v nvim > /dev/null && {
     fi
     NVIM_APPNAME=$config nvim $@
   }
+
+  function neovselect() {
+    numitems=${#items[@]}
+    if [ ${numitems} -eq 1 ]
+    then
+      config="${items[@]:0:1}"
+    else
+      height=$((numitems * 6))
+      [ ${height} -gt 100 ] && height=100
+      [ ${height} -lt 20 ] && height=20
+      config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+    fi
+    if [[ -z $config ]]; then
+      echo "Nothing selected"
+      return 0
+    elif [[ $config == "default" ]]; then
+      config="nvim"
+    else
+      if [ -d ${HOME}/.config/nvim-${config} ]
+      then
+        config="nvim-${config}"
+      else
+        [ -d ${HOME}/.config/${config} ] || {
+          echo "Cannot locate ${config} Neovim configuration directory"
+          return 0
+        }
+      fi
+    fi
+    NVIM_APPNAME=$config neovide $@
+  }
 }
 ```
 
@@ -1136,6 +1167,10 @@ or removed with `lazyman` this file is updated accordingly.
 Note also that a convenience key binding has been created to launch
 `nvims` with `ctrl-n`.
 
+Similarly, if `neovide` is found in the execution PATH then a fuzzy
+selectable menu is provided with the `neovides` alias and convenience
+key binding of `ctrl-N` to bring up that menu.
+
 <details><summary>View the .nvimsbind shell key binding file</summary>
 
 ```bash
@@ -1149,6 +1184,15 @@ command -v nvims > /dev/null && {
    bind -x '"\C-n": nvims'
   else
    bindkey -s ^n "nvims\n"
+  fi
+}
+command -v neovide > /dev/null && {
+  if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+   bindkey -s ^N "neovides\n"
+  elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
+   bind -x '"\C-N": neovides'
+  else
+   bindkey -s ^N "neovides\n"
   fi
 }
 ```
