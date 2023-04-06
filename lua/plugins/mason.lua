@@ -36,7 +36,7 @@ return {
       automatic_installation = true,
     },
     config = function()
-      require 'mason-null-ls'.setup_handlers() -- If `automatic_setup` is true.
+      require("mason-null-ls").setup_handlers() -- If `automatic_setup` is true.
     end,
   },
 
@@ -50,6 +50,18 @@ return {
           print("mason-update-all has finished")
         end,
       })
+    end,
+  },
+
+  {
+    "folke/neodev.nvim",
+    version = false, -- last release is way too old
+    event = "VeryLazy",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("config.neodev")
     end,
   },
 

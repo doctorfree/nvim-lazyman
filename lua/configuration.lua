@@ -143,12 +143,10 @@ conf.formatters = {
   "shfmt",
   "google_java_format",
   "sql_formatter",
-  "markdownlint",
   "beautysh",
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint",
   "prettier",
   "shellcheck",
   "shfmt",

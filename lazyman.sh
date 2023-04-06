@@ -550,8 +550,7 @@ show_menu() {
     [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
       options+=("Install Tools")
     }
-    if [ "${have_neovide}" ]
-    then
+    if [ "${have_neovide}" ]; then
       options+=("Open Neovide GUI")
     else
       options+=("Install Neovide GUI")
@@ -965,7 +964,7 @@ shift $((OPTIND - 1))
 
 [ "$langservers" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh -l "$debug"
+    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
     exit 0
   fi
   exit 1

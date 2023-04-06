@@ -72,18 +72,6 @@ return {
     end,
   },
 
-  {
-    "folke/neodev.nvim",
-    version = false, -- last release is way too old
-    event = "VeryLazy",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("config.neodev")
-    end,
-  },
-
   -- auto pairs
   {
     "windwp/nvim-autopairs",

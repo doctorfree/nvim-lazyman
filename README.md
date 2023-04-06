@@ -58,7 +58,6 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Requirements](#requirements)
 - [Installation](#installation)
   - [Bootstrap](#bootstrap)
-  - [Postinstall](#postinstall)
   - [Manual installation](#manual-installation)
     - [Neovim 0.9 and later](#neovim-09-and-later)
     - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
@@ -104,12 +103,11 @@ and the Bash shell.
 
 ## Installation
 
-The Lazyman installation process consists of three steps:
+The Lazyman installation process consists of two steps:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
 $HOME/.config/nvim-Lazyman/lazyman.sh
-$HOME/.config/nvim-Lazyman/lazyman.sh -I
 ```
 
 These steps:
@@ -117,9 +115,9 @@ These steps:
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
    1. Installs Homebrew if not already installed
+   1. Installs language servers and tools for coding diagnostics
    1. Installs the latest version of Neovim if not already installed
    1. Installs and initializes configured Neovim plugins
-1. Installs language servers and tools for coding diagnostics (optional)
 
 Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not
 already Neovim 0.9 or later installed and in the execution path.
@@ -180,22 +178,6 @@ section below for manual installation and initialization of `nvim-Lazyman`.
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
 to control where Neovim looks for its configuration.
 
-### Postinstall
-
-The Lazyman bootstrap process ensures the latest version of Neovim is
-installed but does not install language servers and tools necessary
-for coding diagnostics. To install these tools, execute:
-
-```bash
-lazyman -I
-```
-
-The installation of these additional tools with `lazyman -I` is optional
-but recommended. Without performing this step, the `lazyman` installation
-and initialization process can consume up to 1.5G in the Homebrew
-folder (depending on whether Neovim needs to be installed). With the
-additional `lazyman -I` installation step, up to 5.7G can be consumed.
-
 ### Manual installation
 
 If you do not wish to use the automated installation and initialization
@@ -207,13 +189,10 @@ nvim --version
 ```
 
 Follow the manual installation procedure for your version of Neovim.
-Manual installation of Lazyman will not install language servers or
-tools. Mason will take care of some of this for you but a manual
-installation should be accompanied by a manual upgrade of Neovim
+Manual installation should be accompanied by a manual upgrade of Neovim
 and installation of desired language servers and tools. You're on
-your own but you can always just run `lazyman` to perform an
-automated install and upgrade followed by `lazyman -I` to install
-language servers and tools.
+your own but you can always just run `lazyman -I` to perform an
+automated install and upgrade.
 
 #### Neovim 0.9 and later
 
@@ -828,8 +807,8 @@ conf.disable_dashboard_quick_links = false
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
-  "query", "python", "regex", "toml", "vim", "yaml",
+  "bash", "go", "html", "java", "json", "lua", "markdown",
+  "markdown_inline", "query", "python", "regex", "toml", "vim", "yaml",
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
@@ -840,13 +819,13 @@ conf.lsp_servers = {
 }
 -- Formatters installed by mason-null-ls
 conf.formatters = {
-  "black", "prettier", "stylua", "shfmt", "google_java_format",
-  "sql_formatter", "markdownlint", "beautysh",
+  "black", "prettier", "stylua", "shfmt",
+  "google_java_format", "sql_formatter", "beautysh",
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "markdownlint", "prettier", "shellcheck", "shfmt",
-  "stylua", "tflint", "yamllint", "ruff",
+  "prettier", "shellcheck", "shfmt", "stylua",
+  "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -2835,7 +2814,7 @@ brew_install() {
     log "Installing ${brewpkg} ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "$brewpkg" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$brewpkg" >/dev/null 2>&1
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -2922,6 +2901,22 @@ install_language_servers() {
     brew_install "$pkg"
   done
 
+  if command -v "markdownlint" >/dev/null 2>&1; then
+    log "Using previously installed markdownlint-cli ..."
+  else
+    log "Installing markdownlint-cli ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet "markdownlint-cli" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "markdownlint-cli" >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
+
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
     "$PYTHON" -m pip install beautysh >/dev/null 2>&1
@@ -2974,7 +2969,7 @@ install_tools() {
     log "Installing rich-cli ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -3005,34 +3000,31 @@ install_tools() {
 }
 
 main() {
-  if [ "$lang_tools" ]; then
+  check_prerequisites
+  if command -v nvim >/dev/null 2>&1; then
+    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+    if (($(echo "$nvim_version < 0.9 " | bc -l))); then
+      printf "\nCurrently installed Neovim is less than version 0.9"
+      [ "$nvim_head" ] && {
+        install_homebrew
+        install_neovim_dependencies
+        install_language_servers
+        install_tools
+        printf "\nInstalling latest Neovim version with Homebrew"
+        install_neovim_head
+      }
+    fi
+  else
     install_homebrew
     install_neovim_dependencies
     install_language_servers
     install_tools
-  else
-    check_prerequisites
-    if command -v nvim >/dev/null 2>&1; then
-      nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
-      if (($(echo "$nvim_version < 0.9 " | bc -l))); then
-        printf "\nCurrently installed Neovim is less than version 0.9"
-        [ "$nvim_head" ] && {
-          install_homebrew
-          install_neovim_dependencies
-          printf "\nInstalling latest Neovim version with Homebrew"
-          install_neovim_head
-        }
-      fi
+    printf "\nNeovim not found, installing Neovim with Homebrew"
+    if [ "$nvim_head" ]; then
+      install_neovim_head
     else
-      install_homebrew
-      install_neovim_dependencies
-      printf "\nNeovim not found, installing Neovim with Homebrew"
-      if [ "$nvim_head" ]; then
-        install_neovim_head
-      else
-        brew_install neovim
-        brew_install nvr
-      fi
+      brew_install neovim
+      brew_install nvr
     fi
   fi
 }
@@ -3040,18 +3032,14 @@ main() {
 nvim_head=1
 quiet=
 debug=
-lang_tools=
 
-while getopts "dhlq" flag; do
+while getopts "dhq" flag; do
   case $flag in
     d)
       debug=1
       ;;
     h)
       nvim_head=
-      ;;
-    l)
-      lang_tools=1
       ;;
     q)
       quiet=1

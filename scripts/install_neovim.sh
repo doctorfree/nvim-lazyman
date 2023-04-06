@@ -145,7 +145,7 @@ brew_install() {
     log "Installing ${brewpkg} ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "$brewpkg" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$brewpkg" >/dev/null 2>&1
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -232,6 +232,22 @@ install_language_servers() {
     brew_install "$pkg"
   done
 
+  if command -v "markdownlint" >/dev/null 2>&1; then
+    log "Using previously installed markdownlint-cli ..."
+  else
+    log "Installing markdownlint-cli ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet "markdownlint-cli" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "markdownlint-cli" >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
+
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
     "$PYTHON" -m pip install beautysh >/dev/null 2>&1
@@ -284,7 +300,7 @@ install_tools() {
     log "Installing rich-cli ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$pkg" >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -315,34 +331,31 @@ install_tools() {
 }
 
 main() {
-  if [ "$lang_tools" ]; then
+  check_prerequisites
+  if command -v nvim >/dev/null 2>&1; then
+    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+    if (($(echo "$nvim_version < 0.9 " | bc -l))); then
+      printf "\nCurrently installed Neovim is less than version 0.9"
+      [ "$nvim_head" ] && {
+        install_homebrew
+        install_neovim_dependencies
+        install_language_servers
+        install_tools
+        printf "\nInstalling latest Neovim version with Homebrew"
+        install_neovim_head
+      }
+    fi
+  else
     install_homebrew
     install_neovim_dependencies
     install_language_servers
     install_tools
-  else
-    check_prerequisites
-    if command -v nvim >/dev/null 2>&1; then
-      nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
-      if (($(echo "$nvim_version < 0.9 " | bc -l))); then
-        printf "\nCurrently installed Neovim is less than version 0.9"
-        [ "$nvim_head" ] && {
-          install_homebrew
-          install_neovim_dependencies
-          printf "\nInstalling latest Neovim version with Homebrew"
-          install_neovim_head
-        }
-      fi
+    printf "\nNeovim not found, installing Neovim with Homebrew"
+    if [ "$nvim_head" ]; then
+      install_neovim_head
     else
-      install_homebrew
-      install_neovim_dependencies
-      printf "\nNeovim not found, installing Neovim with Homebrew"
-      if [ "$nvim_head" ]; then
-        install_neovim_head
-      else
-        brew_install neovim
-        brew_install nvr
-      fi
+      brew_install neovim
+      brew_install nvr
     fi
   fi
 }
@@ -350,18 +363,14 @@ main() {
 nvim_head=1
 quiet=
 debug=
-lang_tools=
 
-while getopts "dhlq" flag; do
+while getopts "dhq" flag; do
   case $flag in
     d)
       debug=1
       ;;
     h)
       nvim_head=
-      ;;
-    l)
-      lang_tools=1
       ;;
     q)
       quiet=1
