@@ -524,7 +524,7 @@ show_menu() {
             leader="[b green]"
           fi
         done
-        rich "${neovims}" -p -a rounded -c -C -w 70
+        rich "${neovims}" -p -a rounded -c -C -w 75
       else
         printf "\t"
         for neovim in "${sorted[@]}"; do
@@ -543,18 +543,25 @@ show_menu() {
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
     if alias nvims >/dev/null 2>&1; then
-      [ ${numitems} -gt 1 ] && options+=("Select Config")
+      [ ${numitems} -gt 1 ] && options+=("Select Neovim Config")
     fi
-    options+=("Install Configs")
-    options+=("Install More Configs")
-    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
-      options+=("Install Tools")
-    }
     if [ "${have_neovide}" ]; then
-      options+=("Open Neovide GUI")
+      if alias nvims >/dev/null 2>&1; then
+        options+=("Select Neovide Config")
+      else
+        options+=("Open Neovide GUI")
+      fi
     else
       options+=("Install Neovide GUI")
     fi
+    options+=("Install Base Configs")
+    options+=("Install Extra Configs")
+    options+=("Install All Configs")
+    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
+      options+=("Install Tools")
+    }
+    options+=("Remove Base Configs")
+    options+=("Remove Extra Configs")
     options+=("Remove All Configs")
     for neovim in "${suppnvimdirs[@]}"; do
       nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -565,9 +572,6 @@ show_menu() {
     for neovim in "${sorted[@]}"; do
       options+=("Open ${neovim}")
     done
-    for neovim in "${sorted[@]}"; do
-      options+=("Remove ${neovim}")
-    done
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -577,15 +581,33 @@ show_menu() {
           man lazyman
           break
           ;;
-        "Select"*,* | *,"Select"* | "select"*,* | *,"select"*)
+        "Select Neovim"*,* | *,"Select Neovim"*)
+          if alias nvims >/dev/null 2>&1; then
+            nvimselect
+          else
+            NVIM_APPNAME="nvim-Lazyman" nvim
+          fi
+          break
+          ;;
+        "Select Neovide"*,* | *,"Select Neovide"*)
+          if alias neovides >/dev/null 2>&1; then
+            neovselect
+          else
+            NVIM_APPNAME="nvim-Lazyman" neovide
+          fi
           nvimselect
           break
           ;;
-        "Install Configs"*,* | *,"Install Configs"*)
+        "Install Base"*,* | *,"Install Base"*)
           lazyman -A -z -y
           break
           ;;
-        "Install More"*,* | *,"Install More"*)
+        "Install Extra"*,* | *,"Install Extra"*)
+          lazyman -Z -z -y
+          break
+          ;;
+        "Install All"*,* | *,"Install All"*)
+          lazyman -A -z -y
           lazyman -Z -z -y
           break
           ;;
@@ -645,6 +667,7 @@ show_menu() {
             printf "\nCannot locate cargo. Perhaps it is not in your PATH."
             printf "\nUnable to build Neovide"
           fi
+          [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
           break
           ;;
         "Install "*,* | *,"Install "*)
@@ -678,11 +701,7 @@ show_menu() {
           break
           ;;
         "Open Neovide"*,* | *,"Open Neovide"*)
-          if alias neovides >/dev/null 2>&1; then
-            neovselect
-          else
-            NVIM_APPNAME="nvim-Lazyman" neovide
-          fi
+          NVIM_APPNAME="nvim-Lazyman" neovide
           break
           ;;
         "Open "*,* | *,"Open "*)
@@ -700,22 +719,17 @@ show_menu() {
           fi
           break
           ;;
-        "Remove All Configs",* | *,"Remove All Configs")
+        "Remove Base Configs",* | *,"Remove Base Configs")
           lazyman -R -A -y
+          break
+          ;;
+        "Remove Extra Configs",* | *,"Remove Extra Configs")
           lazyman -R -Z -y
           break
           ;;
-        "Remove "*,* | *,"Remove "*)
-          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
-          if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
-            lazyman -R -N nvim-${nvimconf}
-          else
-            if [ -d "${HOME}/.config/${nvimconf}" ]; then
-              lazyman -R -N ${nvimconf}
-            else
-              remove_nvimdirs_entry nvim-${nvimconf}
-            fi
-          fi
+        "Remove All Configs",* | *,"Remove All Configs")
+          lazyman -R -A -y
+          lazyman -R -Z -y
           break
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
