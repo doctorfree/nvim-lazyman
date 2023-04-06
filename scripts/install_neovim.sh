@@ -158,7 +158,7 @@ brew_install() {
 
 install_neovim_dependencies() {
   [ "$quiet" ] || printf "\nInstalling dependencies"
-  PKGS="git curl tar unzip lazygit nvr fd fzf xclip zoxide"
+  PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in $PKGS; do
     if command -v "$pkg" >/dev/null 2>&1; then
       log "Using previously installed ${pkg}"
@@ -180,8 +180,10 @@ install_neovim_head() {
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
     "$BREW_EXE" install --HEAD neovim
+    "$BREW_EXE" install --HEAD neovim-remote
   else
     "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
+    "$BREW_EXE" install -q --HEAD neovim-remote >/dev/null 2>&1
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
