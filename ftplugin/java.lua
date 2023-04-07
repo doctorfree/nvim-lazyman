@@ -22,10 +22,8 @@ local function get_jdk_runtimes()
 
   local runtimes = {}
 
-  local os_name = utils.get_os_type()
-  if string.lower(os_name) == "osx" then
-    -- do nothing as vars are set correctly
-  elseif os_name == "linux" then
+  local os_name = string.lower(utils.get_os_type())
+  if os_name == "linux" then
     dir_prefix = "/usr/lib/jvm/"
     dir_affix = ""
   end
@@ -39,7 +37,8 @@ local function get_jdk_runtimes()
   end
 
   for value, _ in vim.fs.dir(dir_prefix) do
-    local version = value:match(".*-(%d+).")
+    -- local version = value:match(".*-(%d+).")
+    local version = value:match(".*(%d+).")
     if os_name == "linux" then
       version = value:match("java-(%d+)-openjdk.-$")
       if version == nil then
