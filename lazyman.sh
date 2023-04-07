@@ -934,7 +934,7 @@ shift $((OPTIND - 1))
 
 [ "$unsupported" ] && {
   if [ "$remove" ]; then
-    for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug; do
+    for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug VonHeikemen; do
       remove_config "nvim-${neovim}"
     done
   else
@@ -975,6 +975,12 @@ shift $((OPTIND - 1))
     printf "\n${action} Plug Neovim configuration ..."
     lazyman -C https://github.com/doctorfree/nvim-plug \
       -N nvim-Plug -p -q -z ${yesflag}
+    printf " done"
+    action="Installing"
+    [ -d ${HOME}/.config/nvim-VonHeikemen ] && action="Updating"
+    printf "\n${action} VonHeikemen Neovim configuration ..."
+    lazyman -C https://github.com/VonHeikemen/dotfiles \
+      -D my-configs/neovim -N nvim-VonHeikemen -q -z ${yesflag}
     printf " done"
     action="Installing"
     [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
@@ -1372,7 +1378,15 @@ done
       else
         git clone \
           "$url" "${HOME}/.config/${nvimdir[0]}" >/dev/null 2>&1
+        [ "$branch" ] && {
+          git -C "${HOME}/.config/${nvimdir[0]}" checkout "$branch" >/dev/null 2>&1
+        }
       fi
+      [ -f ${nvimdir[0]}/lua/user/env.sample ] && {
+        [ -f ${nvimdir[0]}/lua/user/env.lua ] || {
+          cp ${nvimdir[0]}/lua/user/env.sample ${nvimdir[0]}/lua/user/env.lua
+        }
+      }
       add_nvimdirs_entry "${nvimdir[0]}"
     }
     [ "$quiet" ] || printf "done"

@@ -86,6 +86,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 - [Neovim install](#neovim-install)
 - [Removal](#removal)
+- [Troubleshooting](#troubleshooting)
 - [Appendix](#appendix)
 
 ## Requirements
@@ -1298,6 +1299,38 @@ example, to see which `LazyVim` folders would be removed without removing any:
 ```bash
 $HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
 ```
+
+## Troubleshooting
+
+The most frequent type of issue encountered using `lazyman` to install and
+initialize Neovim configurations is incompatibility between the existing
+configuration and Neovim 0.9 supported configuration parameters. Lazyman
+uses a nightly build of Neovim 0.9 which includes revised support for
+several Neovim features. Many existing Neovim configurations rely on
+features or configuration parameters no longer supported in Neovim 0.9.
+
+For example, one of the most frequent issues initializing a Neovim
+configuration is the initialization error:
+
+```
+Parser not available for language "help"
+```
+
+The Treesitter `help` parser was renamed to `vimdoc` and `help` is no longer
+supported as a Treesitter parser. These types of changes are called
+"breaking changes" and will occur more frequently when using a nightly
+Neovim build. To correct a `Parser not available for language "help"`
+initialization error, locate where in the configuration the Treesitter
+`help` parser is set (usually in the `ensure_installed` section of the
+Treesitter plugin configuration) and change `help` to `vimdoc`.
+
+See the [Neovim 0.9 release notes](https://github.com/neovim/neovim/releases/tag/v0.9.0)
+for an overview of changes. In particular, many of these types of issues
+are detailed in the [news.txt for Neovim 0.9](https://github.com/neovim/neovim/blob/040f1459849ab05b04f6bb1e77b3def16b4c2f2b/runtime/doc/news.txt) (`:help news` within nvim).
+
+This is life on the bleeding edge. However, all of the supported Lazyman
+Neovim configurations and most of the extra Neovim configurations supported
+by `lazyman` do not have Neovim version incompatibilities.
 
 ## Appendix
 
