@@ -11,6 +11,13 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- Plugin Management
+map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy Menu" })
+map("n", "<leader>U", "<cmd>:Lazy update<cr>", { desc = "Lazy Update" })
+map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
+-- Options
+map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
+
 if settings.theme == "monokai-pro" then
   map("n", "<leader>C", ":MonokaiProSelect<CR>", { desc = "Select Monokai pro filter" })
 end
@@ -93,9 +100,6 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 -- better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
-
--- lazy
-map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
