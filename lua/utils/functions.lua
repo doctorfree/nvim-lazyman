@@ -3,6 +3,32 @@ local fn = vim.fn
 
 local cfg = {}
 
+--- get os type
+---@return string the os type "osx|linux|other|unknown"
+function cfg.get_os_type()
+  local homedir = os.getenv("HOME")
+  local user = os.getenv("USER")
+  local start_i = 0
+  local end_i = 0
+
+  if homedir == nil or user == nil then
+    return "unknown"
+  end
+
+  start_i, end_i = string.find(homedir, "/home/" .. user)
+
+  if start_i ~= nil and end_i ~= nil then
+    return "linux"
+  else
+    start_i, end_i = string.find(homedir, "/Users/" .. user)
+    if start_i ~= nil and end_i ~= nil then
+      return "osx"
+    else
+      return "other"
+    end
+  end
+end
+
 --- Check if a file or directory exists in this path
 cfg.file_or_dir_exists = function(file)
   local ok, err, code = os.rename(file, file)

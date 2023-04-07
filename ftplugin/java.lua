@@ -1,4 +1,5 @@
 local jdtls = require("jdtls")
+local utils = require("utils.functions")
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 local home = os.getenv("HOME")
@@ -15,6 +16,64 @@ else
   print("Only support mac and linux")
 end
 
+local function get_jdk_runtimes()
+  local dir_prefix = "/Library/Java/JavaVirtualMachines/"
+  local dir_affix = "/Contents/Home"
+
+  local runtimes = {}
+
+  local os_name = utils.get_os_type()
+  if string.lower(os_name) == "osx" then
+    -- do nothing as vars are set correctly
+  elseif os_name == "linux" then
+    dir_prefix = "/usr/lib/jvm/"
+    dir_affix = ""
+  end
+
+  if vim.fn.isdirectory(dir_prefix) <= 0 then
+    dir_prefix = "/usr/lib/java/"
+    dir_affix = ""
+    if vim.fn.isdirectory(dir_prefix) <= 0 then
+      return runtimes
+    end
+  end
+
+  for value, _ in vim.fs.dir(dir_prefix) do
+    local version = value:match(".*-(%d+).")
+    if os_name == "linux" then
+      version = value:match("java-(%d+)-openjdk.-$")
+      if version == nil then
+        vim.notify("os is linux and jdk dir value is " .. value .. " and version was nil")
+        goto continue
+      end
+    end
+
+    if version == "8" then
+      version = "1.8"
+    end
+
+    runtimes[version] = dir_prefix .. value .. dir_affix
+    ::continue::
+  end
+
+  return runtimes
+end
+
+local table_runtimes = {}
+local function set_jdk_runtimes()
+  local runtimes = get_jdk_runtimes()
+  for version, path in pairs(runtimes) do
+    table.insert(table_runtimes,
+      {
+        name = "JavaSE-" .. version,
+        path = path,
+      }
+    )
+  end
+end
+
+set_jdk_runtimes()
+
 vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.cmdheight = 0
@@ -27,12 +86,7 @@ config.settings = {
     },
     configuration = {
       updateBuildConfiguration = "interactive",
-      runtimes = {
-        {
-          name = "JavaSE-17",
-          path = "/usr/lib/jvm/java-17-openjdk",
-        },
-      },
+      runtimes = table_runtimes,
     },
     maven = {
       downloadSources = true,
@@ -144,9 +198,9 @@ local bundles = {}
 for _, jar_pattern in ipairs(jar_patterns) do
   for _, bundle in ipairs(vim.split(vim.fn.glob(home .. jar_pattern), "\n")) do
     if not vim.endswith(
-      bundle,
-      "com.microsoft.java.test.runner-jar-with-dependencies.jar"
-    )
+          bundle,
+          "com.microsoft.java.test.runner-jar-with-dependencies.jar"
+        )
         and not vim.endswith(bundle, "com.microsoft.java.test.runner.jar")
     then
       table.insert(bundles, bundle)

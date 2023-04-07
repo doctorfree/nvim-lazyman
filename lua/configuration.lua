@@ -124,6 +124,7 @@ conf.lsp_servers = {
   "bashls",
   "cssmodules_ls",
   "dockerls",
+  "jdtls",
   "jsonls",
   "ltex",
   "marksman",

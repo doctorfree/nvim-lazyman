@@ -3031,7 +3031,7 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint jdtls rust-analyzer taplo eslint terraform \
+  for pkg in golangci-lint rust-analyzer taplo eslint terraform \
     yarn julia composer php deno; do
     brew_install "$pkg"
   done

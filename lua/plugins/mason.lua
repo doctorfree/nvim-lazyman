@@ -65,5 +65,5 @@ return {
     end,
   },
 
-  "mfussenegger/nvim-jdtls",
+  { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 }
