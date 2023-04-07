@@ -6,6 +6,33 @@
 
 ### 🐞 Fixed
 
+## v1.0.2r3
+
+### ⚡️ Added
+
+- Install jdtls with Mason, dynamically locate jvm runtimes for jdtls
+- Reorganize lazyman menu
+- Install cargo if not found
+- Install markdownlint with Homebrew, remove from Mason installed tools
+- Always install language servers and tools in install_neovim.sh
+- Install neovim-remote HEAD after installing neovim HEAD
+- Add convenience key binding for neovides menu, document neovides support in doc
+- Add support for neovide in .lazymanrc aliases and function
+- Add GUI initialization and autocmd for UIEnter
+- Add install Neovide option to lazyman menu
+- Add support for color indentlines
+- Add custom flavor to catppuccin theme
+- Add lsp-zero, add rounded border for LspInfo
+- Add support for nvim terminal from rebelot
+- Add xclip to tools check, rich menu formatting
+- Remove silver searcher from dependencies
+
+### 🐞 Fixed
+
+- Fix ftplugin/java.lua for both linux and macos
+- Adjust nvim-cmp config for performance
+- Fix dracula and tokyonight panel transparency
+
 ## v1.0.2r2
 
 ### ⚡️ Added
