@@ -473,6 +473,7 @@ show_figlet() {
 }
 
 show_menu() {
+  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
   have_brew=$(type -p brew)
   have_cargo=$(type -p cargo)
   have_neovide=$(type -p neovide)
