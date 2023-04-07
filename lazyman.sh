@@ -14,6 +14,7 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your"
 FIG_TEXT="Lazyman"
+USEGUI=
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
@@ -482,6 +483,11 @@ show_menu() {
   have_xclip=$(type -p xclip)
 
   while true; do
+    if [ "${USEGUI}" ]; then
+      use_gui="neovide"
+    else
+      use_gui="neovim"
+    fi
     clear
     [ "${have_figlet}" ] && show_figlet
     items=()
@@ -508,7 +514,7 @@ show_menu() {
     confword="configurations"
     [ ${numitems} -eq 1 ] && confword="configuration"
     if [ "${have_rich}" ]; then
-      rich "[b magenta]${numitems}[/] [b green]Lazyman Neovim ${confword}[/] [b magenta]installed[/]" -p -c
+      rich "[b magenta]${numitems} Lazyman[/] [b green]Neovim ${confword}[/] [b magenta]installed[/]" -p -c
     else
       printf "\n${numitems} Lazyman Neovim configurations installed:\n"
     fi
@@ -548,7 +554,7 @@ show_menu() {
     fi
     if [ "${have_neovide}" ]; then
       if alias neovides >/dev/null 2>&1; then
-        options+=("Select Neovide Config")
+        [ ${numitems} -gt 1 ] && options+=("Select Neovide Config")
       else
         options+=("Open Neovide GUI")
       fi
@@ -573,6 +579,9 @@ show_menu() {
     for neovim in "${sorted[@]}"; do
       options+=("Open ${neovim}")
     done
+    if [ "${have_neovide}" ]; then
+      options+=("Toggle GUI [${use_gui}]")
+    fi
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -710,10 +719,18 @@ show_menu() {
         "Open "*,* | *,"Open "*)
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
           if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
-            NVIM_APPNAME="nvim-${nvimconf}" nvim
+            if [ "${USEGUI}" ]; then
+              NVIM_APPNAME="nvim-${nvimconf}" neovide
+            else
+              NVIM_APPNAME="nvim-${nvimconf}" nvim
+            fi
           else
             if [ -d "${HOME}/.config/${nvimconf}" ]; then
-              NVIM_APPNAME="${nvimconf}" nvim
+              if [ "${USEGUI}" ]; then
+                NVIM_APPNAME="${nvimconf}" neovide
+              else
+                NVIM_APPNAME="${nvimconf}" nvim
+              fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"
               printf "\nPress Enter to continue\n"
@@ -733,6 +750,14 @@ show_menu() {
         "Remove All Configs",* | *,"Remove All Configs")
           lazyman -R -A -y
           lazyman -R -Z -y
+          break
+          ;;
+        "Toggle GUI"*,* | *,"Toggle GUI"*)
+          if [ "${USEGUI}" ]; then
+            USEGUI=
+          else
+            USEGUI=1
+          fi
           break
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
@@ -804,6 +829,7 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vyzZu" flag; do
     A)
       all=1
       astronvim=1
+      ecovim=1
       kickstart=1
       lazyman=1
       lazyvim=1

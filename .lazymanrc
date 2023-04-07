@@ -128,3 +128,16 @@ command -v nvim > /dev/null && {
     NVIM_APPNAME=$config neovide $@
   }
 }
+
+# Add ~/.local/bin to PATH if it exists
+[ -d $HOME/.local/bin ] && {
+  [[ ":$PATH:" == *":$HOME/.local/bin:"* ]] || {
+    export PATH="$PATH:$HOME/.local/bin"
+  }
+}
+# Add ~/.cargo/bin to PATH if it exists
+[ -d $HOME/.cargo/bin ] && {
+  [[ ":$PATH:" == *":$HOME/.cargo/bin:"* ]] || {
+    export PATH="$PATH:$HOME/.cargo/bin"
+  }
+}
