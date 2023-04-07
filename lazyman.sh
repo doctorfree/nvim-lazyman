@@ -547,7 +547,7 @@ show_menu() {
       [ ${numitems} -gt 1 ] && options+=("Select Neovim Config")
     fi
     if [ "${have_neovide}" ]; then
-      if alias nvims >/dev/null 2>&1; then
+      if alias neovides >/dev/null 2>&1; then
         options+=("Select Neovide Config")
       else
         options+=("Open Neovide GUI")
@@ -596,7 +596,6 @@ show_menu() {
           else
             NVIM_APPNAME="nvim-Lazyman" neovide
           fi
-          nvimselect
           break
           ;;
         "Install Base"*,* | *,"Install Base"*)
@@ -1382,9 +1381,10 @@ done
           git -C "${HOME}/.config/${nvimdir[0]}" checkout "$branch" >/dev/null 2>&1
         }
       fi
-      [ -f ${nvimdir[0]}/lua/user/env.sample ] && {
-        [ -f ${nvimdir[0]}/lua/user/env.lua ] || {
-          cp ${nvimdir[0]}/lua/user/env.sample ${nvimdir[0]}/lua/user/env.lua
+      [ -f ${HOME}/.config/${nvimdir[0]}/lua/user/env.sample ] && {
+        [ -f ${HOME}/.config/${nvimdir[0]}/lua/user/env.lua ] || {
+          cp ${HOME}/.config/${nvimdir[0]}/lua/user/env.sample \
+            ${HOME}/.config/${nvimdir[0]}/lua/user/env.lua
         }
       }
       add_nvimdirs_entry "${nvimdir[0]}"
