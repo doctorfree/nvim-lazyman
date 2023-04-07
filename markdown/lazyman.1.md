@@ -12,7 +12,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-D subdir] [-e] [-E config] [-k] [-l] [-m] [-s] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]
 
 ## FEATURES
 
@@ -95,18 +95,18 @@ key binding of `ctrl-N` to bring up that menu.
 
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration
-to use with this invocation. This is done using the `-e config` option to
-`lazyman`. When invoking `lazyman` with the `-e config` argument, the Neovim
+to use with this invocation. This is done using the `-E config` option to
+`lazyman`. When invoking `lazyman` with the `-E config` argument, the Neovim
 configuration can be specified by setting `config` to one of `astronvim`,
-`kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, `spacevim`,
+`ecovim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, `spacevim`,
 or any Neovim configuration directory in `~/.config`. For example, to edit
 the file `foo.lua` using the LazyVim Neovim configuration:
 
 ```bash
-lazyman -e lazyvim foo.lua
+lazyman -E lazyvim foo.lua
 ```
 
-When invoked with the `-e config` option, `lazyman` sets the `NVIM_APPNAME`
+When invoked with the `-E config` option, `lazyman` sets the `NVIM_APPNAME`
 environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
@@ -147,7 +147,9 @@ The following command line options are available with the `lazyman` command:
 
 `-D subdir` : specifies the subdirectory of the repository given with `-C url` to retrieve
 
-`-e 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'astronvim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -e lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
+`-e` : indicates install and initialize the 'Ecovim' Neovim configuration
+
+`-E 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'astronvim', 'ecovim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 

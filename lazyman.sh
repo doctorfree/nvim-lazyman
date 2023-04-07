@@ -18,15 +18,15 @@ FIG_TEXT="Lazyman"
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k]"
-  printf "\n       [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-i]"
+  printf "\n       [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
   printf "\n       [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   exit 1
 }
 
 usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e config] [-i] [-k]"
-  printf "\n       [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
+  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-i]"
+  printf "\n       [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd]"
   printf "\n       [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-y] [-z] [-Z] [-u]"
   printf "\nWhere:"
   printf "\n    -A indicates install all supported Neovim configurations"
@@ -34,12 +34,13 @@ usage() {
   printf "\n    -b 'branch' specifies an ${LAZYMAN} git branch to checkout"
   printf "\n    -c indicates install and initialize NvChad Neovim configuration"
   printf "\n    -d indicates debug mode"
-  printf "\n    -e 'config' execute 'nvim' with 'config' Neovim configuration"
+  printf "\n    -e indicates install and initialize Ecovim Neovim configuration"
+  printf "\n    -E 'config' execute 'nvim' with 'config' Neovim configuration"
   printf "\n       'config' can be one of:"
   printf "\n           'lazyman', 'astronvim', 'kickstart', 'magicvim',"
-  printf "\n           'nvchad', 'lazyvim', 'lunarvim', 'spacevim'"
+  printf "\n           'ecovim', 'nvchad', 'lazyvim', 'lunarvim', 'spacevim'"
   printf "\n       or any Neovim configuration directory in '~/.config'"
-  printf "\n           (e.g. 'lazyman -e lazyvim foo.lua')"
+  printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
   printf "\n    -i indicates install and initialize Lazyman Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
@@ -676,6 +677,9 @@ show_menu() {
             AstroNvim)
               lazyman -a -z -y
               ;;
+            Ecovim)
+              lazyman -e -z -y
+              ;;
             Kickstart)
               lazyman -k -z -y
               ;;
@@ -756,6 +760,7 @@ invoke=
 langservers=
 tellme=
 astronvim=
+ecovim=
 kickstart=
 lazyman=
 lazyvim=
@@ -777,20 +782,21 @@ unsupported=
 name=
 pmgr="Lazy"
 # Supported Neovim configurations
-# "AstroNvim" "Kickstart" "LazyVim" "LunarVim" "NvChad" "SpaceVim" "MagicVim"
+# "AstroNvim" "Ecovim" "Kickstart" "LazyVim" "LunarVim" "NvChad" "SpaceVim" "MagicVim"
 # Neovim configurations still being tested, not yet supported
 # "Nv" "Abstract" "Allaman" "Fennel" "NvPak"" "Optixal" "Plug"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
+ecovimdir="nvim-Ecovim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-suppnvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
+suppnvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:e:iIklmnL:pPqrRsSUC:N:vyzZu" flag; do
+while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -819,6 +825,10 @@ while getopts "aAb:cdD:e:iIklmnL:pPqrRsSUC:N:vyzZu" flag; do
       debug="-d"
       ;;
     e)
+      ecovim=1
+      nvimdir=("$ecovimdir")
+      ;;
+    E)
       invoke="$OPTARG"
       ;;
     i)
@@ -1000,10 +1010,11 @@ shift $((OPTIND - 1))
   brief_usage
 }
 # Support specifying '-N nvimdir' with supported configurations
-# This breaks subsequent '-e' invocations for that config
+# This breaks subsequent '-E' invocations for that config
 [ "$name" ] && {
   numvim=0
   [ "$astronvim" ] && numvim=$((numvim + 1))
+  [ "$ecovim" ] && numvim=$((numvim + 1))
   [ "$kickstart" ] && numvim=$((numvim + 1))
   [ "$lazyvim" ] && numvim=$((numvim + 1))
   [ "$lazyman" ] && numvim=$((numvim + 1))
@@ -1016,6 +1027,7 @@ shift $((OPTIND - 1))
     brief_usage
   }
   [ "$astronvim" ] && astronvimdir="$name"
+  [ "$ecovim" ] && ecovimdir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
   [ "$lazyman" ] && lazymandir="$name"
   [ "$lazyvim" ] && lazyvimdir="$name"
@@ -1027,7 +1039,7 @@ shift $((OPTIND - 1))
     [ "$quiet" ] || {
       printf "\nWARNING: Specifying '-N nvimdir' will change the configuration location"
       printf "\n\tof a supported config to ${name}"
-      printf "\n\tThis will make it incompatible with '-e <config>' in subsequent runs\n"
+      printf "\n\tThis will make it incompatible with '-E <config>' in subsequent runs\n"
     }
     [ "$proceed" ] || {
       printf "\nDo you wish to proceed with this non-standard initialization?"
@@ -1055,6 +1067,9 @@ shift $((OPTIND - 1))
   case "$nvimlower" in
     astronvim)
       ndir="$astronvimdir"
+      ;;
+    ecovim)
+      ndir="$ecovimdir"
       ;;
     kickstart)
       ndir="$kickstartdir"
@@ -1269,6 +1284,9 @@ done
   }
   [ "$quiet" ] || printf "done"
 }
+[ "$ecovim" ] && {
+  clone_repo Ecovim ecosse3/nvim "$ecovimdir"
+}
 [ "$kickstart" ] && {
   clone_repo Kickstart nvim-lua/kickstart.nvim.git "$kickstartdir"
 }
@@ -1436,6 +1454,8 @@ fi
     printf "\n\n\talias lnvim='NVIM_APPNAME=nvim-Lazyman nvim'"
   elif [ "$astronvim" ]; then
     printf "\n\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
+  elif [ "$ecovim" ]; then
+    printf "\n\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
   elif [ "$kickstart" ]; then
     printf "\n\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
   elif [ "$lazyman" ]; then

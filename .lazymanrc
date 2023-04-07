@@ -50,6 +50,10 @@ command -v nvim > /dev/null && {
       alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
       items+=("AstroNvim")
     }
+    [ -d ${HOME}/.config/nvim-Ecovim ] && {
+      alias nvim-eco="NVIM_APPNAME=nvim-Ecovim nvim"
+      items+=("Ecovim")
+    }
     [ -d ${HOME}/.config/nvim-LunarVim ] && {
       alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
       items+=("LunarVim")
