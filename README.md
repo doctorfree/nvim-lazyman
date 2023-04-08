@@ -407,7 +407,7 @@ Neovim configuration subdirectory in such a repository, use the `-b branch`
 and `-D subdir` arguments to `lazyman` along with `-C url` and `-N nvimdir`.
 If no `-b branch` is provided then the default git branch is assumed to be
 `master`. For example, to install and initialize the Neovim configuration
-hosted at https://github.com/alanRizzo/dot-files in the subdirectory `nvim`
+hosted at <https://github.com/alanRizzo/dot-files> in the subdirectory `nvim`
 with default branch `main`, place it in `~/.config/nvim-AlanVim`, and
 initialize it with Packer:
 
@@ -2031,6 +2031,7 @@ show_menu() {
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
+  have_prettier=$(type -p prettier)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
   have_xclip=$(type -p xclip)
@@ -2132,7 +2133,7 @@ show_menu() {
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
+    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" && "${have_prettier}" ]] || {
       options+=("Install Tools")
     }
     options+=("Remove Base Configs")
@@ -2225,6 +2226,7 @@ show_menu() {
           lazyman -I
           have_figlet=$(type -p figlet)
           have_tscli=$(type -p tree-sitter)
+          have_prettier=$(type -p prettier)
           have_xclip=$(type -p xclip)
           have_lolcat=$(type -p lolcat)
           break
@@ -3598,8 +3600,7 @@ link_python() {
   }
 }
 
-# Language servers are mostly being handled by Mason
-# but some external utilities are required
+# Language servers are also being installed by Mason
 install_language_servers() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
 
@@ -3607,7 +3608,7 @@ install_language_servers() {
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
   for pkg in golangci-lint rust-analyzer taplo eslint terraform \
-    yarn julia composer php deno; do
+             prettier yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
