@@ -488,7 +488,9 @@ show_figlet() {
 }
 
 show_info() {
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  [ -f "${LMANDIR}"/.lazymanrc ] && {
+    source "${LMANDIR}"/.lazymanrc
+  }
   readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
   numitems=${#sorted[@]}
   if alias nvims >/dev/null 2>&1; then
@@ -553,8 +555,7 @@ show_alias() {
   printf "\n"
 }
 
-show_menu() {
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+set_haves() {
   have_brew=$(type -p brew)
   have_cargo=$(type -p cargo)
   have_neovide=$(type -p neovide)
@@ -564,6 +565,11 @@ show_menu() {
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
   have_xclip=$(type -p xclip)
+}
+
+show_menu() {
+  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  set_haves
 
   while true; do
     if [ "${USEGUI}" ]; then
@@ -753,11 +759,7 @@ show_menu() {
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
           lazyman -I
-          have_figlet=$(type -p figlet)
-          have_tscli=$(type -p tree-sitter)
-          have_prettier=$(type -p prettier)
-          have_xclip=$(type -p xclip)
-          have_lolcat=$(type -p lolcat)
+          set_haves
           break
           ;;
         "Install Neovide"*,* | *,"Install Neovide"*)
@@ -808,7 +810,9 @@ show_menu() {
             printf "\nCannot locate cargo. Perhaps it is not in your PATH."
             printf "\nUnable to build Neovide"
           fi
-          [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+          [ -f "${LMANDIR}"/.lazymanrc ] && {
+            source "${LMANDIR}"/.lazymanrc
+          }
           break
           ;;
         "Install "*,* | *,"Install "*)

@@ -16,8 +16,6 @@ command -v nvim > /dev/null && {
   ndirs=()
   [ -d ${HOME}/.config/nvim ] && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
-    items+=("default")
-    ndirs+=("nvim")
   }
   # Add all previously installed Neovim configurations
   if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
@@ -100,8 +98,6 @@ command -v nvim > /dev/null && {
     if [[ -z $config ]]; then
       echo "Nothing selected"
       return 0
-    elif [[ $config == "default" ]]; then
-      config="nvim"
     else
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
@@ -136,8 +132,6 @@ command -v nvim > /dev/null && {
     if [[ -z $config ]]; then
       echo "Nothing selected"
       return 0
-    elif [[ $config == "default" ]]; then
-      config="nvim"
     else
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
