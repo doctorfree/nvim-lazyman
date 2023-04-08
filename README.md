@@ -521,6 +521,8 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### Coding 🖥️
 
+![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png)
+
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
 - Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
