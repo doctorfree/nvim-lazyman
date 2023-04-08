@@ -26,7 +26,7 @@ brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
   printf "\n       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
-  printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-u]"
+  printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -74,6 +74,7 @@ usage() {
   printf "\n    -X indicates install and initialize all nvim-starter configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -z indicates do not run nvim after initialization"
+  printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -u displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
@@ -1034,6 +1035,7 @@ set_starter_branch() {
 
 all=
 branch=
+instnvim=1
 subdir=
 command=
 debug=
@@ -1074,7 +1076,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:Xyzu" flag; do
+while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -1193,6 +1195,9 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:Xyzu" flag; do
       ;;
     z)
       runvim=
+      ;;
+    Z)
+      instnvim=
       ;;
     u)
       usage
@@ -1392,6 +1397,12 @@ shift $((OPTIND - 1))
 }
 
 [ "$langservers" ] && {
+  [ "${instnvim}" ] || {
+    printf "\n\n-I and -Z are incompatible options."
+    printf "\nThe '-I' option indicates install tools."
+    printf "\nThe '-Z' option indicates do not install tools."
+    brief_usage
+  }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
     exit 0
@@ -1624,24 +1635,26 @@ fi
   }
 }
 
-if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-  "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
-  BREW_EXE=
-  set_brew
-  [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
-  have_nvim=$(type -p nvim)
-  [ "$have_nvim" ] || {
-    printf "\nERROR: cannot locate neovim."
-    printf "\nHomebrew install failure, manual debug required."
-    printf "\n\t'brew update && lazyman -d'."
-    printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
+[ "${instnvim}" ] && {
+  if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
+    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
+    BREW_EXE=
+    set_brew
+    [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
+    have_nvim=$(type -p nvim)
+    [ "$have_nvim" ] || {
+      printf "\nERROR: cannot locate neovim."
+      printf "\nHomebrew install failure, manual debug required."
+      printf "\n\t'brew update && lazyman -d'."
+      printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
+      brief_usage
+    }
+  else
+    printf "\n${HOME}/.config/${lazymandir}/scripts/install_neovim.sh not executable"
+    printf "\nPlease check the Lazyman installation and retry this install script\n"
     brief_usage
-  }
-else
-  printf "\n${HOME}/.config/${lazymandir}/scripts/install_neovim.sh not executable"
-  printf "\nPlease check the Lazyman installation and retry this install script\n"
-  brief_usage
-fi
+  fi
+}
 
 for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "$lazymandir" ] && continue
