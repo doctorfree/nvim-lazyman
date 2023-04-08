@@ -479,6 +479,35 @@ show_figlet() {
   fi
 }
 
+show_alias() {
+  adir="$1"
+  printf "\nAn alias for this Lazyman configuration can be created with:"
+  if [ "$all" ]; then
+    printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
+  elif [ "$astronvim" ]; then
+    printf "\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
+  elif [ "$ecovim" ]; then
+    printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
+  elif [ "$kickstart" ]; then
+    printf "\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
+  elif [ "$lazyman" ]; then
+    printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
+  elif [ "$lazyvim" ]; then
+    printf "\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
+  elif [ "$lunarvim" ]; then
+    printf "\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
+  elif [ "$spacevim" ]; then
+    printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
+  elif [ "$nvchad" ]; then
+    printf "\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
+  elif [ "$magicvim" ]; then
+    printf "\n\talias mvim='NVIM_APPNAME=nvim-MagicVim nvim'"
+  else
+    printf "\n\talias lmvim=\"NVIM_APPNAME=${adir} nvim\""
+  fi
+  printf "\n"
+}
+
 show_menu() {
   [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
   have_brew=$(type -p brew)
@@ -539,7 +568,7 @@ show_menu() {
             leader="[b green]"
           fi
         done
-        rich "${neovims}" -p -a rounded -c -C -w 75
+        rich "${neovims}" -p -a rounded -c -C -w 85
       else
         printf "\t"
         for neovim in "${sorted[@]}"; do
@@ -1056,48 +1085,56 @@ shift $((OPTIND - 1))
       lazyman -C https://github.com/appelgriebsch/Nv \
         -N nvim-Nv -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-Nv"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
       printf "\n${action} Abstract Neovim configuration ..."
       lazyman -C https://github.com/Abstract-IDE/Abstract \
         -N nvim-Abstract -P -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-Abstract"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
       lazyman -C https://github.com/jhchabran/nvim-config \
         -N nvim-Fennel -P -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-Fennel"
       action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration ..."
       lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
         -N nvim-NvPak -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-NvPak"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
       lazyman -C https://github.com/Optixal/neovim-init.vim \
         -N nvim-Optixal -p -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-Optixal"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
       printf "\n${action} Plug Neovim configuration ..."
       lazyman -C https://github.com/doctorfree/nvim-plug \
         -N nvim-Plug -p -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-VonHeikemen ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
       lazyman -C https://github.com/VonHeikemen/dotfiles \
         -D my-configs/neovim -N nvim-VonHeikemen -q -z ${yesflag}
       printf " done"
+      show_alias "nvim-VonHeikemen"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
       printf "\n${action} Allaman Neovim configuration ..."
       lazyman -C https://github.com/Allaman/nvim \
         -N nvim-Allaman -q -z ${yesflag}
       printf " done\n"
+      show_alias "nvim-Allaman"
     else
       extra_url=
       extra_dir=
@@ -1175,8 +1212,9 @@ shift $((OPTIND - 1))
         [ -d ${HOME}/.config/nvim-starter-${neovim} ] && action="Updating"
         printf "\n${action} nvim-starter ${neovim} Neovim configuration ..."
         lazyman -C https://github.com/VonHeikemen/nvim-starter \
-          -N nvim-starter-${neovim} -b ${startbranch} ${quietflag} -z ${yesflag}
+          -N nvim-starter-${neovim} -b ${startbranch} -q -z ${yesflag}
         printf " done"
+        show_alias "nvim-starter-${neovim}"
       done
     else
       runflag=
@@ -1669,30 +1707,7 @@ fi
     printf "\nlogout and login or issue the following command:"
     printf "\n\tsource ~/.config/${LAZYMAN}/.lazymanrc"
   fi
-  printf "\nAn alias for this Lazyman configuration can be created with:"
-  if [ "$all" ]; then
-    printf "\n\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
-  elif [ "$astronvim" ]; then
-    printf "\n\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
-  elif [ "$ecovim" ]; then
-    printf "\n\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
-  elif [ "$kickstart" ]; then
-    printf "\n\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
-  elif [ "$lazyman" ]; then
-    printf "\n\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
-  elif [ "$lazyvim" ]; then
-    printf "\n\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
-  elif [ "$lunarvim" ]; then
-    printf "\n\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
-  elif [ "$spacevim" ]; then
-    printf "\n\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
-  elif [ "$nvchad" ]; then
-    printf "\n\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
-  elif [ "$magicvim" ]; then
-    printf "\n\n\talias mvim='NVIM_APPNAME=nvim-MagicVim nvim'"
-  else
-    printf "\n\n\talias lmvim=\"NVIM_APPNAME=${nvimdir[0]} nvim\""
-  fi
+  show_alias "${nvimdir[0]}"
 }
 [ "$quiet" ] || {
   printf "\n\nRun 'lazyman' with no arguments for an interactive menu system\n\n"
