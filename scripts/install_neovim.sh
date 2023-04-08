@@ -179,17 +179,17 @@ install_neovim_head() {
   log "Compiling and installing Neovim, please be patient ..."
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --HEAD neovim
-    "$BREW_EXE" install --HEAD neovim-remote
+    "$BREW_EXE" install neovim
+    "$BREW_EXE" install neovim-remote
   else
-    "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
-    "$BREW_EXE" install -q --HEAD neovim-remote >/dev/null 2>&1
+    "$BREW_EXE" install -q neovim >/dev/null 2>&1
+    "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
     ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-    printf "\nInstall Neovim HEAD elapsed time = %s${ELAPSED}\n"
+    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
   [ "$quiet" ] || printf " done"
 }

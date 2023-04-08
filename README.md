@@ -1489,6 +1489,10 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your"
 FIG_TEXT="Lazyman"
 USEGUI=
+BASECFGS="AstroNvim Ecovim Kickstart LazyVim LunarVim NvChad SpaceVim MagicVim"
+EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug VonHeikemen"
+STARTCFGS="starter-Minimal starter-Base starter-Opinion starter-Lsp \
+           starter-Mason starter-Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
@@ -2113,10 +2117,24 @@ show_menu() {
     else
       options+=("Install Neovide GUI")
     fi
-    options+=("Install Base Configs")
-    options+=("Install Extra Configs")
-    options+=("Install Starter Configs")
-    options+=("Install All Configs")
+    installed=1
+    partial=
+    get_config_str "${BASECFGS}"
+    base_installed=${installed}
+    options+=("Install Base ${configstr}")
+    installed=1
+    partial=
+    get_config_str "${EXTRACFGS}"
+    extra_installed=${installed}
+    options+=("Install Extra ${configstr}")
+    installed=1
+    partial=
+    get_config_str "${STARTCFGS}"
+    options+=("Install Starter ${configstr}")
+    installed=1
+    partial=
+    get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
+    options+=("Install All ${configstr}")
     [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
       options+=("Install Tools")
     }
@@ -2124,12 +2142,30 @@ show_menu() {
     options+=("Remove Extra Configs")
     options+=("Remove Starter Configs")
     options+=("Remove All Configs")
-    for neovim in "${suppnvimdirs[@]}"; do
-      nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-      if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-        options+=("Install ${nvdir}")
+    if [ "${base_installed}" ]; then
+      if [ "${extra_installed}" ]; then
+        for neovim in ${STARTCFGS}; do
+          if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+            nvdir=$(echo "${neovim}" | sed -e "s/starter-//")
+            options+=("Install ${nvdir} Starter")
+          fi
+        done
+      else
+        for neovim in ${EXTRACFGS}; do
+          nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+          if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
+            options+=("Install ${nvdir}")
+          fi
+        done
       fi
-    done
+    else
+      for neovim in "${basenvimdirs[@]}"; do
+        nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
+          options+=("Install ${nvdir}")
+        fi
+      done
+    fi
     for neovim in "${sorted[@]}"; do
       echo ${neovim} | grep ^starter- >/dev/null || {
         options+=("Open ${neovim}")
@@ -2277,6 +2313,48 @@ show_menu() {
             MagicVim)
               lazyman -m -z -y
               ;;
+            Nv)
+              lazyman -w Nv -z -y
+              ;;
+            Abstract)
+              lazyman -w Abstract -z -y
+              ;;
+            Allaman)
+              lazyman -w Allaman -z -y
+              ;;
+            Fennel)
+              lazyman -w Fennel -z -y
+              ;;
+            NvPak)
+              lazyman -w NvPak -z -y
+              ;;
+            Optixal)
+              lazyman -w Optixal -z -y
+              ;;
+            Plug)
+              lazyman -w Plug -z -y
+              ;;
+            VonHeikemen)
+              lazyman -w VonHeikemen -z -y
+              ;;
+            Minimal)
+              lazyman -x Minimal -z -y
+              ;;
+            Base)
+              lazyman -x Base -z -y
+              ;;
+            Opinion)
+              lazyman -x Opinion -z -y
+              ;;
+            Lsp)
+              lazyman -x Lsp -z -y
+              ;;
+            Mason)
+              lazyman -x Mason -z -y
+              ;;
+            Modular)
+              lazyman -x Modular -z -y
+              ;;
           esac
           break
           ;;
@@ -2368,6 +2446,30 @@ show_menu() {
   done
 }
 
+get_config_str() {
+  CFGS="$1"
+  for cfg in ${CFGS}; do
+    inst=
+    for bdir in "${sorted[@]}"; do
+      [[ $cfg == "$bdir" ]] && {
+        partial=1
+        inst=1
+        break
+      }
+    done
+    [ "${inst}" ] || installed=
+  done
+  if [ "${installed}" ]; then
+    configstr="Configs "
+  else
+    if [ "${partial}" ]; then
+      configstr="Configs "
+    else
+      configstr="Configs"
+    fi
+  fi
+}
+
 set_starter_branch() {
   starter="$1"
   case ${starter} in
@@ -2429,10 +2531,6 @@ update=
 url=
 name=
 pmgr="Lazy"
-# Supported Neovim configurations
-# "AstroNvim" "Ecovim" "Kickstart" "LazyVim" "LunarVim" "NvChad" "SpaceVim" "MagicVim"
-# Neovim configurations still being tested, not yet supported
-# "Nv" "Abstract" "Allaman" "Fennel" "NvPak"" "Optixal" "Plug"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 ecovimdir="nvim-Ecovim"
@@ -2442,7 +2540,7 @@ lunarvimdir="nvim-LunarVim"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-suppnvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
+basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
 while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:Xyzu" flag; do
   case $flag in
@@ -2461,7 +2559,7 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:Xyzu" flag; do
       magicvim=1
       nvchad=1
       spacevim=1
-      nvimdir=("${suppnvimdirs[@]}")
+      nvimdir=("${basenvimdirs[@]}")
       ;;
     b)
       branch="$OPTARG"
@@ -3463,17 +3561,17 @@ install_neovim_head() {
   log "Compiling and installing Neovim, please be patient ..."
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --HEAD neovim
-    "$BREW_EXE" install --HEAD neovim-remote
+    "$BREW_EXE" install neovim
+    "$BREW_EXE" install neovim-remote
   else
-    "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
-    "$BREW_EXE" install -q --HEAD neovim-remote >/dev/null 2>&1
+    "$BREW_EXE" install -q neovim >/dev/null 2>&1
+    "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
     ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-    printf "\nInstall Neovim HEAD elapsed time = %s${ELAPSED}\n"
+    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
   [ "$quiet" ] || printf " done"
 }
