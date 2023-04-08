@@ -32,8 +32,19 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Many popular Neovim configurations are supported
-including:
+Neovim configurations. Many popular Neovim configurations are supported. The
+`lazyman` command separates Neovim configurations into 4 categories: `Base`,
+`Extra`, `Starter`, and `Custom`. The `Base` category consists of well
+tested Neovim configurations, all of which provide significant value. The
+`Extra` category includes additional Neovim configurations that provide
+significant value but have not been thoroughly tested. The `Starter` category
+consists entirely of Neovim configurations provided by the
+[nvim-starter project](https://github.com/VonHeikemen/nvim-starter). The
+`Custom` category includes any additional Neovim configurations installed
+and initialized with `lazyman` by the end-user using the `-C url` and
+`-N nvimdir` options.
+
+The Lazyman Neovim configuration categories:
 
 | **Base** |               |            | **Configs** |
 | ---- | --------- | ------ | ------- |
@@ -101,10 +112,9 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 
 ## Requirements
 
-The `lazyman` Neovim configuration manager requires Neovim 0.9 which is
-currently the nightly build. The `lazyman` installation and initialization
-process checks for Neovim 0.9 and, if not found, uses Homebrew to
-install the nightly build of Neovim in the isolated Homebrew directory.
+The `lazyman` Neovim configuration manager requires Neovim 0.9. The `lazyman`
+installation and initialization process checks for Neovim 0.9 and, if not
+found, uses Homebrew to install it in the isolated Homebrew directory.
 
 Lazyman requires a Unix or Linux operating system, Linux and macOS only,
 and the Bash shell.
@@ -278,6 +288,12 @@ After installing and initializing `lazyman`, additional Neovim configurations
 can be installed and initialized using the `lazyman` command. Over 20
 excellent Neovim configurations are supported. Additional Neovim
 configurations can be installed using the `-C url` and `-N nvimdir` options.
+
+All of the supported Lazyman Neovim configuration can be managed using
+the `lazyman` command interactive menu interface. The `lazyman` menu is
+presented by invoking `lazyman` without arguments after the initial
+bootstrap process is complete. Lazyman Neovim configurations can
+also be managed with `lazyman` command line operations.
 
 ### Base configurations
 
@@ -454,7 +470,7 @@ Thanks everybody!
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
 - support for Lazy, Packer, and vim-plug plugin managers
-- automated installation of dependencies, tools, language servers, and Neovim nightly
+- automated installation of dependencies, tools, language servers, and Neovim 0.9
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
@@ -1400,10 +1416,10 @@ $HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
 
 The most frequent type of issue encountered using `lazyman` to install and
 initialize Neovim configurations is incompatibility between the existing
-configuration and Neovim 0.9 supported configuration parameters. Lazyman
-uses a nightly build of Neovim 0.9 which includes revised support for
-several Neovim features. Many existing Neovim configurations rely on
-features or configuration parameters no longer supported in Neovim 0.9.
+configuration and Neovim supported configuration parameters. Lazyman
+uses Neovim 0.9 which includes revised support for several Neovim features.
+Many existing Neovim configurations rely on features or configuration
+parameters no longer supported in Neovim 0.9.
 
 For example, one of the most frequent issues initializing a Neovim
 configuration is the initialization error:
@@ -1414,7 +1430,7 @@ Parser not available for language "help"
 
 The Treesitter `help` parser was renamed to `vimdoc` and `help` is no longer
 supported as a Treesitter parser. These types of changes are called
-"breaking changes" and will occur more frequently when using a nightly
+"breaking changes" and will occur more frequently when using a recent
 Neovim build. To correct a `Parser not available for language "help"`
 initialization error, locate where in the configuration the Treesitter
 `help` parser is set (usually in the `ensure_installed` section of the
