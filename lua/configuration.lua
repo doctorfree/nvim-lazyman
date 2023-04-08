@@ -148,7 +148,6 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "prettier",
   "shellcheck",
   "shfmt",
   "stylua",

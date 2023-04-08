@@ -560,6 +560,7 @@ show_menu() {
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
+  have_prettier=$(type -p prettier)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
   have_xclip=$(type -p xclip)
@@ -661,7 +662,7 @@ show_menu() {
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" ]] || {
+    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" && "${have_prettier}" ]] || {
       options+=("Install Tools")
     }
     options+=("Remove Base Configs")
@@ -754,6 +755,7 @@ show_menu() {
           lazyman -I
           have_figlet=$(type -p figlet)
           have_tscli=$(type -p tree-sitter)
+          have_prettier=$(type -p prettier)
           have_xclip=$(type -p xclip)
           have_lolcat=$(type -p lolcat)
           break

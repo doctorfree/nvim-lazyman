@@ -219,8 +219,7 @@ link_python() {
   }
 }
 
-# Language servers are mostly being handled by Mason
-# but some external utilities are required
+# Language servers are also being installed by Mason
 install_language_servers() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
 
@@ -228,7 +227,7 @@ install_language_servers() {
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
   for pkg in golangci-lint rust-analyzer taplo eslint terraform \
-    yarn julia composer php deno; do
+             prettier yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
