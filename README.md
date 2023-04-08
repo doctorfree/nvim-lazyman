@@ -892,7 +892,7 @@ conf.treesitter_ensure_installed = {
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "dockerls", "jsonls", "ltex", "marksman",
+  "bashls", "cssmodules_ls", "dockerls", "jdtls", "jsonls", "ltex", "marksman",
   "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters installed by mason-null-ls
@@ -902,20 +902,11 @@ conf.formatters = {
 }
 -- Tools that should be installed by Mason
 conf.tools = {
-  "prettier", "shellcheck", "shfmt", "stylua",
+  "shellcheck", "shfmt", "stylua",
   "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
--- which patterns to ignore in file switcher
-conf.telescope_file_ignore_patterns = {
-  "%.7z", "%.MOV", "%.RAF", "%.burp", "%.bz2", "%.cache", "%.class", "%.dll",
-  "%.docx", "%.dylib", "%.epub", "%.exe", "%.flac", "%.ico", "%.ipynb", "%.jar",
-  "%.lock", "%.mkv", "%.mov", "%.mp4", "%.otf", "%.pdb", "%.rar", "%.sqlite3",
-  "%.svg", "%.tar", "%.tar.gz", "%.zip", ".git/", ".gradle/", ".idea/",
-  ".settings/", ".vale/", ".vscode/", "__pycache__/*", "build/", "env/",
-  "gradle/", "node_modules/", "smalljre_*/*", "target/", "vendor/*",
-}
 -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
 --   "none":  diagnostics are disabled but still underlined
 --   "icons": only an icon will show, use ',de' to see the diagnostic
