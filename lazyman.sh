@@ -626,21 +626,21 @@ show_menu() {
           break
           ;;
         "Install Base"*,* | *,"Install Base"*)
-          lazyman -A -q -z -y
+          lazyman -A -y -z
           break
           ;;
         "Install Extra"*,* | *,"Install Extra"*)
-          lazyman -Z -q -z -y
+          lazyman -W -y -z
           break
           ;;
         "Install Starter"*,* | *,"Install Starter"*)
-          lazyman -X -q -z -y
+          lazyman -X -y -z
           break
           ;;
         "Install All"*,* | *,"Install All"*)
-          lazyman -A -z -y
-          lazyman -Z -z -y
-          lazyman -X -q -z -y
+          lazyman -A -y -z
+          lazyman -W -y -z
+          lazyman -X -y -z
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
@@ -775,7 +775,7 @@ show_menu() {
           break
           ;;
         "Remove Extra Configs",* | *,"Remove Extra Configs")
-          lazyman -R -Z -y
+          lazyman -R -W -y
           break
           ;;
         "Remove Starter Configs",* | *,"Remove Starter Configs")
