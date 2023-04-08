@@ -1847,8 +1847,10 @@ update_config() {
     }
     [ "$tellme" ] || {
       git -C "${HOME}/.config/$ndir" stash >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
+      # git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
+      # git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" fetch origin >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" reset --hard origin/local >/dev/null 2>&1
     }
     [ "$quiet" ] || {
       printf " done"
@@ -1867,8 +1869,10 @@ update_config() {
       }
       [ "$tellme" ] || {
         git -C "${HOME}/.config/$ndir/$cdir" stash >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
+        # git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
+        # git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir/$cdir" fetch origin >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir"/$cdir reset --hard origin/local >/dev/null 2>&1
       }
       [ "$quiet" ] || {
         printf " done"
@@ -1935,6 +1939,43 @@ show_figlet() {
       figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
     fi
   fi
+}
+
+show_info() {
+  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
+  numitems=${#sorted[@]}
+  if alias nvims >/dev/null 2>&1; then
+    printf "\nThe 'nvims' alias exists:"
+    nvims_alias=$(alias nvims)
+    printf "\n\t${nvims_alias}"
+  else
+    printf "\nThe 'nvims' alias does not exist"
+    printf "\nSource $HOME/.config/nvim-Lazyman/.lazymanrc in your shell initialization,"
+    printf "\nlogout and login"
+  fi
+  if [ "${have_neovide}" ]; then
+    printf "\n\nThe neovide Neovim GUI is installed"
+    if alias neovides >/dev/null 2>&1; then
+      printf "\n\nThe 'neovides' alias exists:"
+      neovides_alias=$(alias neovides)
+      printf "\n\t${neovides_alias}"
+    else
+      printf "\n\nThe 'neovides' alias does not exist"
+    fi
+  else
+    printf "\n\nThe neovide Neovim GUI is not installed"
+  fi
+  printf "\n\n${numitems} Lazyman Neovim configurations installed:\n"
+  for neovim in "${sorted[@]}"; do
+    if [ -d ${HOME}/.config/${neovim} ]; then
+      printf "\n\t${HOME}/.config/${neovim}"
+    else
+      printf "\n\tMissing ${HOME}/.config/${neovim} !"
+    fi
+  done
+  nvim_version=$(nvim --version)
+  printf "\n\nInstalled Neovim version info:\n\n${nvim_version}\n"
 }
 
 show_alias() {
@@ -2087,6 +2128,7 @@ show_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle GUI [${use_gui}]")
     fi
+    options+=("Lazyman Status")
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -2283,6 +2325,16 @@ show_menu() {
           else
             USEGUI=1
           fi
+          break
+          ;;
+        "Lazyman Status",* | *,"Lazyman Status")
+          show_info >/tmp/lminfo$$
+          if [ "${USEGUI}" ]; then
+            NVIM_APPNAME="${LAZYMAN}" neovide /tmp/lminfo$$
+          else
+            NVIM_APPNAME="${LAZYMAN}" nvim /tmp/lminfo$$
+          fi
+          rm -f /tmp/lminfo$$
           break
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")

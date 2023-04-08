@@ -389,8 +389,10 @@ update_config() {
     }
     [ "$tellme" ] || {
       git -C "${HOME}/.config/$ndir" stash >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
+      # git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
+      # git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" fetch origin >/dev/null 2>&1
+      git -C "${HOME}/.config/$ndir" reset --hard origin/local >/dev/null 2>&1
     }
     [ "$quiet" ] || {
       printf " done"
@@ -409,8 +411,10 @@ update_config() {
       }
       [ "$tellme" ] || {
         git -C "${HOME}/.config/$ndir/$cdir" stash >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
+        # git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
+        # git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir/$cdir" fetch origin >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir"/$cdir reset --hard origin/local >/dev/null 2>&1
       }
       [ "$quiet" ] || {
         printf " done"
