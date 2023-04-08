@@ -6,6 +6,28 @@
 
 ### 🐞 Fixed
 
+## v1.0.3r1
+
+### ⚡️ Added
+
+- No longer need to compile neovim HEAD, version 0.9 is released
+- Improved menu interface, better description of lazyman categories
+- Try different approach to updates
+- Add Lazyman Status to menu for lazyman and nvim info
+- Install and initialize extra and starter configs with new -w, -x, -W, -X options
+- Add support for nvim-starter Neovim configurations
+- Add toggle gui to lazyman menu, add paths in lazymanrc
+- Add Troubleshooting section to README
+- Add experimental VonHeikemen distro
+- Add support for Ecovim Neovim distribution
+- Add convenience keymaps for plugin management and options
+- Install jdtls with Mason, dynamically locate jvm runtimes for jdtls
+
+### 🐞 Fixed
+
+- Fix neovide select menu entries, fix env.sample copy
+- Fix jdtls ftplugin/java.lua for both linux and macos
+
 ## v1.0.2r3
 
 ### ⚡️ Added

@@ -56,9 +56,6 @@ The Lazyman Neovim configuration categories:
 | [Nv](https://github.com/appelgriebsch/Nv) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
 
-as well as the 6 starter Neovim configurations provided at
-https://github.com/VonHeikemen/nvim-starter
-
 | **Starter** |    |    |    |    | **Configs** |
 | ------- | -- | -- | -- | -- | ------- |
 | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
