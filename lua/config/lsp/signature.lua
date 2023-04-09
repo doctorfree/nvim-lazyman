@@ -1,4 +1,10 @@
-cfg = {
+local settings = require("configuration")
+local use_noice = false
+if settings.enable_noice then
+  use_noice = true
+end
+
+local cfg = {
   debug = false, -- set to true to enable debug logging
   log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
   -- default is  ~/.cache/nvim/lsp_signature.log
@@ -12,7 +18,7 @@ cfg = {
 
   max_height = 12, -- max height of signature floating_window
   max_width = 80, -- max_width of signature floating_window
-  noice = false, -- set to true if you using noice to render markdown
+  noice = use_noice, -- set to true if you using noice to render markdown
   wrap = true, -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
   floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
   floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
