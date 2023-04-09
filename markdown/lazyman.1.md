@@ -378,6 +378,10 @@ below along with their default settings:
   - `conf.enable_picker = true`
 - Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
   - `conf.show_diagnostics = "icons"`
+- Disable semantic highlighting
+  - `conf.disable_semantic_highlighting = false`
+- Convert semantic highlights to treesitter highlights
+  - `conf.convert_semantic_highlighting = true`
 
 Additional plugin configuration and options are available in `configuration.lua`.
 

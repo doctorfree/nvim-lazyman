@@ -763,6 +763,10 @@ below along with their default settings:
   - `conf.enable_picker = true`
 - Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
   - `conf.show_diagnostics = "icons"`
+- Disable semantic highlighting
+  - `conf.disable_semantic_highlighting = false`
+- Convert semantic highlights to treesitter highlights
+  - `conf.convert_semantic_highlighting = true`
 
 Additional plugin configuration and options are available in `configuration.lua`.
 
@@ -873,8 +877,8 @@ conf.disable_dashboard_quick_links = false
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash", "go", "html", "java", "json", "lua", "markdown",
-  "markdown_inline", "query", "python", "regex", "toml", "vim", "yaml",
+  "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
+  "query", "python", "regex", "toml", "vim", "yaml",
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
@@ -900,6 +904,10 @@ conf.telescope_grep_hidden = true
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
+-- Disable semantic highlighting
+conf.disable_semantic_highlighting = false
+-- Convert semantic highlights to treesitter highlights
+conf.convert_semantic_highlighting = true
 
 return conf
 ```

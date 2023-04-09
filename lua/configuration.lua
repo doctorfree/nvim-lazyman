@@ -162,5 +162,9 @@ conf.telescope_grep_hidden = true
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
+-- Disable semantic highlighting
+conf.disable_semantic_highlighting = false
+-- Convert semantic highlights to treesitter highlights
+conf.convert_semantic_highlighting = true
 
 return conf
