@@ -83,14 +83,15 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Extra configurations](#extra-configurations)
   - [Starter configurations](#starter-configurations)
   - [Unsupported configurations](#unsupported-configurations)
-- [Motivation](#motivation)
-  - [Inspiration](#inspiration)
 - [Features](#features)
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
   - [Updates](#updates)
   - [Lazyman manual](#lazyman-manual)
   - [Lazyman configuration](#lazyman-configuration)
+  - [Lazyman Neovim Terminal](#lazyman-neovim-terminal)
+- [Motivation](#motivation)
+  - [Inspiration](#inspiration)
 - [Notes](#notes)
   - [Lazy](#lazy)
   - [Mason](#mason)
@@ -102,7 +103,6 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
   - [Using aliases](#using-aliases)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
-- [Neovim install](#neovim-install)
 - [Removal](#removal)
 - [Troubleshooting](#troubleshooting)
 - [Appendix](#appendix)
@@ -442,44 +442,6 @@ ever expanding set of Lazyman supported Neovim configurations.
 Feel free to open an issue at
 <https://github.com/doctorfree/nvim-lazyman/issues> to help tackle any problems
 installing or initializing Neovim configurations with Lazyman.
-
-## Motivation
-
-I'm a lazy man. I wanted to try out a bunch of nifty looking Neovim
-configurations but I didn't want to spend a lot of time setting each
-of them up and managing them. Instead, I spent a lot of time writing
-an install/initialize/manage tool I could use: `lazyman`.
-
-Although the primary motivation for creating this project was to provide
-an easy way to try out various Neovim configurations, `lazyman` can be used
-to setup and manage Neovim configurations tailored for specific purposes.
-A Neovim configuration for work, one for school, one for Python development,
-another for git repository maintenance and markdown editing, one with language
-servers and debugging tools, one for your mom.
-
-It's also pretty interesting and educational to see how some of these
-**Neovim Wizards** setup their configurations.
-
-### Inspiration
-
-Lazyman was inspired by several other Neovim distributions and configurations
-including:
-
-- [Michael Peter](https://github.com/Allaman/nvim.git)
-- [loctvl](https://github.com/loctvl842/nvim.git)
-- [Marc Jakobi](https://github.com/mrcjkb/nvim-config.git)
-- [LazyVim](https://github.com/LazyVim/LazyVim)
-- [LunarVim](https://github.com/LunarVim/LunarVim)
-- [NvChad](https://nvchad.github.io/)
-- [rayx](https://github.com/ray-x/nvim.git)
-
-Some of these distributions, like the work of Michael Peter, are released
-under an MIT license and I was able to copy directly configuration or
-initialization code. Others, like the work of Marc Jakobi, are released
-under a more restrictive license and I was only able to use these as
-reference but still a valuable aid. I copied my own previous work liberally.
-
-Thanks everybody!
 
 ## Features
 
@@ -944,6 +906,65 @@ return conf
 
 </details>
 
+### Lazyman Neovim Terminal
+
+The `Lazyman` Neovim configuration includes Neovim Terminal management via
+[terminal.nvim](https://github.com/rebelot/terminal.nvim). This Neovim terminal
+is preconfigured for execution of the `lazyman` command. A shortcut key
+binding to execute `lazyman` in a Neovim terminal has also been provided:
+(`<leader>lm`). While in Neovim with the default `nvim-Lazyman` configuration,
+pressing `,lm` will execute the `lazyman` command in a Neovim floating terminal
+window. Alternately, executing the Neovim command `:Lazyman` will also
+bring up the `lazyman` command in a Neovim terminal.
+
+If [Asciiville](https://github.com/doctorfree/Asciiville) is installed,
+pressing `,A` or executing the `:Asciiville` Neovim command will execute
+the `asciiville` command in a Neovim floating terminal window.
+
+If the `htop` command is available, `:Htop` will execute the `htop` system
+monitor in a floating Neovim terminal window.
+
+This preconfigured Neovim terminal capability is only available in the
+`Lazyman` Neovim configuration and not in the other configs.
+
+## Motivation
+
+I'm a lazy man. I wanted to try out a bunch of nifty looking Neovim
+configurations but I didn't want to spend a lot of time setting each
+of them up and managing them. Instead, I spent a lot of time writing
+an install/initialize/manage tool I could use: `lazyman`.
+
+Although the primary motivation for creating this project was to provide
+an easy way to try out various Neovim configurations, `lazyman` can be used
+to setup and manage Neovim configurations tailored for specific purposes.
+A Neovim configuration for work, one for school, one for Python development,
+another for git repository maintenance and markdown editing, one with language
+servers and debugging tools, one for your mom.
+
+It's also pretty interesting and educational to see how some of these
+**Neovim Wizards** setup their configurations.
+
+### Inspiration
+
+Lazyman was inspired by several other Neovim distributions and configurations
+including:
+
+- [Michael Peter](https://github.com/Allaman/nvim.git)
+- [loctvl](https://github.com/loctvl842/nvim.git)
+- [Marc Jakobi](https://github.com/mrcjkb/nvim-config.git)
+- [LazyVim](https://github.com/LazyVim/LazyVim)
+- [LunarVim](https://github.com/LunarVim/LunarVim)
+- [NvChad](https://nvchad.github.io/)
+- [rayx](https://github.com/ray-x/nvim.git)
+
+Some of these distributions, like the work of Michael Peter, are released
+under an MIT license and I was able to copy directly configuration or
+initialization code. Others, like the work of Marc Jakobi, are released
+under a more restrictive license and I was only able to use these as
+reference but still a valuable aid. I copied my own previous work liberally.
+
+Thanks everybody!
+
 ## Notes
 
 ### Lazy
@@ -1365,36 +1386,6 @@ When invoked with the `-E config` option, `lazyman` sets the **NVIM_APPNAME**
 environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
-
-## Neovim install
-
-If Neovim 0.9 or later is not detected during `lazyman` initialization, it is
-compiled from the latest source and installed. You should not need to compile
-Neovim but if you would like to, a convenience script to build and install
-Neovim is provided at [scripts/compile_neovim.sh](scripts/compile_neovim.sh):
-
-```bash
-[ -d $HOME/src ] || mkdir -p $HOME/src
-git clone https://github.com/neovim/neovim.git $HOME/src/neovim
-cd $HOME/neovim
-sudo rm /usr/local/bin/nvim
-sudo rm -r /usr/local/share/nvim/
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-sudo rm -rf $HOME/src/neovim
-```
-
-This can be executed (as a user with `sudo` privilege) with:
-
-```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/scripts/compile_neovim.sh | bash
-```
-
-Homebrew users on Linux or macOS can install Neovim with:
-
-```bash
-brew install --HEAD neovim
-```
 
 ## Removal
 
