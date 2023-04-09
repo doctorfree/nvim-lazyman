@@ -97,6 +97,15 @@ map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
 
+-- Signature help
+map({ "n" }, "<C-k>", function()
+  require("lsp_signature").toggle_float_win()
+end, { silent = true, noremap = true, desc = "toggle signature" })
+
+map({ "n" }, "<Leader>k", function()
+  vim.lsp.buf.signature_help()
+end, { silent = true, noremap = true, desc = "toggle signature" })
+
 -- save file
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
