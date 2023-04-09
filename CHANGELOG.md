@@ -6,6 +6,29 @@
 
 ### 🐞 Fixed
 
+## v1.0.3r2
+
+### ⚡️ Added
+
+- Add lazyman command to alpha menu
+- Add info on interactive use of terminal
+- Add section on Lazyman Neovim Terminal to README and man page
+- Add terminal config for lazyman and asciiville to Features section
+- Adjust menu system to look nice in a Neovim terminal
+- Add Lazyman and Asciiville commands to Terminal
+- Add diagnostics screenshot to coding section of Features
+- Add -Z option to circumvent installation of Homebrew, Neovim, language servers, and tools
+- Ignore default ~/.config/nvim directory, do not manage default nvim config
+
+### 🐞 Fixed
+
+- Move Kickstart from Base to Starter
+- Fix mason-null-ls configuration
+- Reconfigure starter configs in menu
+- Move some tools back to Mason from install_neovim.sh script
+- Format lazyman menu for Neovim terminal
+- Move telescope ignore patterns from configuration.lua to config/telescope.lua
+
 ## v1.0.3r1
 
 ### ⚡️ Added
