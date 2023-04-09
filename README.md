@@ -363,7 +363,7 @@ installed with the `-w conf` option.
 - [Vim Plug](https://github.com/doctorfree/nvim-plug)
   - Install and initialize with `lazyman -w Plug`
 - [VonHeikemen](https://github.com/VonHeikemen/dotfiles)
-  - Install and initialize with `lazyman -w VonHeikemen`
+  - Install and initialize with `lazyman -w Heiker`
 - [Allaman](https://github.com/Allaman/nvim)
   - Install and initialize with `lazyman -w Allaman`
 
@@ -602,7 +602,7 @@ Where:
     -w 'conf' indicates install and initialize Extra 'conf' config
        'conf' can be one of:
            'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak',
-           'Optixal', 'Plug', or 'VonHeikemen'
+           'Optixal', 'Plug', or 'Heiker'
     -W indicates install and initialize all 'Extra' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:

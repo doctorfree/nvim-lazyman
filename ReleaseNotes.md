@@ -4,19 +4,19 @@ All that is needed to bootstrap `nvim-Lazyman` is the [lazyman.sh](https://githu
 
 The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Over 20 popular Neovim configurations are supported including:
 
-| **Base** |               |            | **Configs** |
-| ---- | --------- | ------ | ------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
+| **Base**                                         |                                                      |                                                       | **Configs**                                   |
+| ------------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------- |
+| [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
 
-| **Extra** |               |            | **Configs** |
-| ---- | --------- | ------ | ------- |
-| [Nv](https://github.com/appelgriebsch/Nv) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
-| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
+| **Extra**                                             |                                                      |                                                        | **Configs**                                            |
+| ----------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ |
+| [Nv](https://github.com/appelgriebsch/Nv)             | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config)     | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
+| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug)  | [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim)             |
 
-| **Starter** |    |    |    |    | **Configs** |
-| ------- | -- | -- | -- | -- | ------- |
-| [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
+| **Starter**                                             |                                                                        |                                                                  |                                                                                |                                                                |                                                                                    | **Configs**                                                            |
+| ------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 

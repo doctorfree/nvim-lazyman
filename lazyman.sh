@@ -16,8 +16,8 @@ PLEASE="Please enter your"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug VonHeikemen"
-STARTCFGS="Kickstart starter-Minimal starter-Base starter-Opinion \
+EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker"
+STARTCFGS="Kickstart starter-Minimal starter-StartBase starter-Opinion \
            starter-Lsp starter-Mason starter-Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -66,11 +66,11 @@ usage() {
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
   printf "\n           'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak',"
-  printf "\n           'Optixal', 'Plug', or 'VonHeikemen'"
+  printf "\n           'Optixal', 'Plug', or 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Minimal', 'Base', 'Opinion', 'Lsp', 'Mason', or 'Modular'"
+  printf "\n           'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'"
   printf "\n    -X indicates install and initialize all nvim-starter configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -z indicates do not run nvim after initialization"
@@ -621,7 +621,7 @@ show_menu() {
             leader="[b green]"
           fi
         done
-        rich "${neovims}" -p -a rounded -c -C -w 85
+        rich "${neovims}" -p -a rounded -c -C -w 78
       else
         printf "\t"
         for neovim in "${sorted[@]}"; do
@@ -639,17 +639,30 @@ show_menu() {
 
     PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
     options=()
-    if alias nvims >/dev/null 2>&1; then
-      [ ${numitems} -gt 1 ] && options+=("Select Neovim Config")
-    fi
-    if [ "${have_neovide}" ]; then
-      if alias neovides >/dev/null 2>&1; then
-        [ ${numitems} -gt 1 ] && options+=("Select Neovide Config")
+    if [ "${USEGUI}" ]; then
+      if [ "${have_neovide}" ]; then
+        if alias neovides >/dev/null 2>&1; then
+          [ ${numitems} -gt 1 ] && options+=("Select Config")
+        else
+          options+=("Open Neovide")
+          if alias nvims >/dev/null 2>&1; then
+            USEGUI=
+            use_gui="neovim"
+            [ ${numitems} -gt 1 ] && options+=("Select Config")
+          fi
+        fi
       else
-        options+=("Open Neovide GUI")
+        USEGUI=
+        use_gui="neovim"
+        options+=("Install Neovide")
+        if alias nvims >/dev/null 2>&1; then
+          [ ${numitems} -gt 1 ] && options+=("Select Config")
+        fi
       fi
     else
-      options+=("Install Neovide GUI")
+      if alias nvims >/dev/null 2>&1; then
+        [ ${numitems} -gt 1 ] && options+=("Select Config")
+      fi
     fi
     installed=1
     partial=
@@ -660,11 +673,11 @@ show_menu() {
     partial=
     get_config_str "${EXTRACFGS}"
     extra_installed=${installed}
-    options+=("Install Extra ${configstr}")
+    options+=("Install Extras ${configstr}")
     installed=1
     partial=
     get_config_str "${STARTCFGS}"
-    options+=("Install Starter ${configstr}")
+    options+=("Install Starters ${configstr}")
     installed=1
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
@@ -672,16 +685,16 @@ show_menu() {
     [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" && "${have_prettier}" ]] || {
       options+=("Install Tools")
     }
-    options+=("Remove Base Configs")
-    options+=("Remove Extra Configs")
-    options+=("Remove Starter Configs")
-    options+=("Remove All Configs")
+    options+=("Remove Base")
+    options+=("Remove Extras")
+    options+=("Remove Starters")
+    options+=("Remove All")
     if [ "${base_installed}" ]; then
       if [ "${extra_installed}" ]; then
         for neovim in ${STARTCFGS}; do
           if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
             nvdir=$(echo "${neovim}" | sed -e "s/starter-//")
-            options+=("Install ${nvdir} Starter")
+            options+=("Install ${nvdir}")
           fi
         done
       else
@@ -712,7 +725,7 @@ show_menu() {
       }
     done
     if [ "${have_neovide}" ]; then
-      options+=("Toggle GUI [${use_gui}]")
+      options+=("Toggle [${use_gui}]")
     fi
     options+=("Lazyman Status")
     options+=("Quit")
@@ -724,19 +737,11 @@ show_menu() {
           man lazyman
           break
           ;;
-        "Select Neovim"*,* | *,"Select Neovim"*)
-          if alias nvims >/dev/null 2>&1; then
-            nvimselect
-          else
-            NVIM_APPNAME="${LAZYMAN}" nvim
-          fi
-          break
-          ;;
-        "Select Neovide"*,* | *,"Select Neovide"*)
-          if alias neovides >/dev/null 2>&1; then
+        "Select Config"*,* | *,"Select Config"*)
+          if [ "${USEGUI}" ]; then
             neovselect
           else
-            NVIM_APPNAME="${LAZYMAN}" neovide
+            nvimselect
           fi
           break
           ;;
@@ -867,14 +872,14 @@ show_menu() {
             Plug)
               lazyman -w Plug -z -y
               ;;
-            VonHeikemen)
-              lazyman -w VonHeikemen -z -y
+            Heiker)
+              lazyman -w Heiker -z -y
               ;;
             Minimal)
               lazyman -x Minimal -z -y
               ;;
-            Base)
-              lazyman -x Base -z -y
+            StartBase)
+              lazyman -x StartBase -z -y
               ;;
             Opinion)
               lazyman -x Opinion -z -y
@@ -926,19 +931,19 @@ show_menu() {
           fi
           break
           ;;
-        "Remove Base Configs",* | *,"Remove Base Configs")
+        "Remove Base"*,* | *,"Remove Base"*)
           lazyman -R -A -y
           break
           ;;
-        "Remove Extra Configs",* | *,"Remove Extra Configs")
+        "Remove Extra"*,* | *,"Remove Extra"*)
           lazyman -R -W -y
           break
           ;;
-        "Remove Starter Configs",* | *,"Remove Starter Configs")
+        "Remove Starter"*,* | *,"Remove Starter"*)
           lazyman -R -X -y
           break
           ;;
-        "Remove All Configs",* | *,"Remove All Configs")
+        "Remove All"*,* | *,"Remove All"*)
           for ndirm in "${ndirs[@]}"; do
             [ "${ndirm}" == "${LAZYMAN}" ] && continue
             [ "${ndirm}" == "nvim" ] && continue
@@ -946,7 +951,7 @@ show_menu() {
           done
           break
           ;;
-        "Toggle GUI"*,* | *,"Toggle GUI"*)
+        "Toggle"*,* | *,"Toggle"*)
           if [ "${USEGUI}" ]; then
             USEGUI=
           else
@@ -993,12 +998,12 @@ get_config_str() {
     [ "${inst}" ] || installed=
   done
   if [ "${installed}" ]; then
-    configstr="Configs "
+    configstr=" "
   else
     if [ "${partial}" ]; then
-      configstr="Configs "
+      configstr=" "
     else
-      configstr="Configs"
+      configstr=""
     fi
   fi
 }
@@ -1009,7 +1014,7 @@ set_starter_branch() {
     Minimal)
       startbranch="00-minimal"
       ;;
-    Base)
+    StartBase)
       startbranch="01-base"
       ;;
     Opinion)
@@ -1074,7 +1079,7 @@ lunarvimdir="nvim-LunarVim"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$kickstartdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
+basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
 while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
@@ -1086,7 +1091,6 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       all=1
       astronvim=1
       ecovim=1
-      kickstart=1
       lazyman=1
       lazyvim=1
       lunarvim=1
@@ -1228,7 +1232,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug VonHeikemen; do
+      for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -1283,12 +1287,12 @@ shift $((OPTIND - 1))
       printf " done"
       show_alias "nvim-Plug"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-VonHeikemen ] && action="Updating"
+      [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
       lazyman -C https://github.com/VonHeikemen/dotfiles \
-        -D my-configs/neovim -N nvim-VonHeikemen -q -z ${yesflag}
+        -D my-configs/neovim -N nvim-Heiker -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-VonHeikemen"
+      show_alias "nvim-Heiker"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
       printf "\n${action} Allaman Neovim configuration ..."
@@ -1328,7 +1332,7 @@ shift $((OPTIND - 1))
           extra_url="https://github.com/doctorfree/nvim-plug"
           extra_opt="-p"
           ;;
-        VonHeikemen)
+        Heiker)
           extra_url="https://github.com/VonHeikemen/dotfiles"
           extra_dir="-D my-configs/neovim"
           ;;
@@ -1353,7 +1357,7 @@ shift $((OPTIND - 1))
 [ "$nvimstarter" ] && {
   if [ "$remove" ]; then
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal Base Opinion Lsp Mason Modular; do
+      for neovim in Minimal StartBase Opinion Lsp Mason Modular; do
         remove_config "nvim-starter-${neovim}"
       done
     else
@@ -1365,7 +1369,7 @@ shift $((OPTIND - 1))
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal Base Opinion Lsp Mason Modular; do
+      for neovim in Minimal StartBase Opinion Lsp Mason Modular; do
         startbranch=
         set_starter_branch "${neovim}"
         [ "${startbranch}" ] || usage
