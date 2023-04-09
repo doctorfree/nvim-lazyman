@@ -1602,6 +1602,8 @@ if [ -f "${LMANDIR}"/.lazymanrc ]; then
     grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
     COMM="# Source the Lazyman shell initialization for aliases and nvims selector"
     echo "$COMM" >>"${HOME}/.$shinit"
+    SHCK="# shellcheck source=.config/nvim-Lazyman/.lazymanrc"
+    echo "$SHCK" >>"${HOME}/.$shinit"
     TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
     SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
     echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
@@ -1611,8 +1613,10 @@ if [ -f "${LMANDIR}"/.lazymanrc ]; then
     for shinit in bashrc zshrc; do
       [ -f "${HOME}/.$shinit" ] || continue
       grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
-      COMM="# Source the Lazyman shell initialization for nvims key binding"
+      COMM="# Source the Lazyman .nvimsbind for nvims key binding"
       echo "$COMM" >>"${HOME}/.$shinit"
+      SHCK="# shellcheck source=.config/nvim-Lazyman/.nvimsbind"
+      echo "$SHCK" >>"${HOME}/.$shinit"
       TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
       SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
       echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
