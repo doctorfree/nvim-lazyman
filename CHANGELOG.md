@@ -22,6 +22,7 @@
 
 ### 🐞 Fixed
 
+- Fix signature help, add signature help keymaps
 - Move Kickstart from Base to Starter
 - Fix mason-null-ls configuration
 - Reconfigure starter configs in menu
