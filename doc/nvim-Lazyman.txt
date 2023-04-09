@@ -193,12 +193,12 @@ directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit
 
 `-w conf` : indicates install and initialize Extra 'conf' configuration. 'conf'
 can be one of: 'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak', 'Optixal',
-'Plug', or 'VonHeikemen'
+'Plug', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Extra' Neovim configurations
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
-'conf' can be one of: 'Minimal', 'Base', 'Opinion', 'Lsp', 'Mason', or
+'conf' can be one of: 'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or
 'Modular'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
