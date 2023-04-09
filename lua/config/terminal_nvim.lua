@@ -13,18 +13,28 @@ map("n", "<leader>tk", term_map.kill)
 map("n", "<leader>t]", term_map.cycle_next)
 map("n", "<leader>t[", term_map.cycle_prev)
 local ipython = require("terminal").terminal:new({
-  layout = { open_cmd = "botright vertical new" },
+  layout = { open_cmd = "botright vertical new", border = "rounded" },
   cmd = { "ipython" },
   autoclose = true,
 })
 local htop = require("terminal").terminal:new({
-  layout = { open_cmd = "float" },
+  layout = { open_cmd = "float", border = "rounded" },
   cmd = { "htop" },
   autoclose = true,
 })
 local lazygit = require("terminal").terminal:new({
-  layout = { open_cmd = "float", height = 0.9, width = 0.9 },
+  layout = { open_cmd = "float", border = "rounded", height = 0.9, width = 0.9 },
   cmd = { "lazygit" },
+  autoclose = true,
+})
+local lazyman = require("terminal").terminal:new({
+  layout = { open_cmd = "float", border = "rounded", height = 0.9, width = 0.9 },
+  cmd = { "lazyman" },
+  autoclose = true,
+})
+local asciiville = require("terminal").terminal:new({
+  layout = { open_cmd = "float", border = "rounded", height = 0.9, width = 0.9 },
+  cmd = { "asciiville" },
   autoclose = true,
 })
 vim.env["GIT_EDITOR"] = "nvr --remote-tab-wait-silent +'set bufhidden=wipe'"
@@ -50,4 +60,12 @@ end, { nargs = "?" })
 
 api.nvim_create_user_command("Htop", function()
   htop:toggle(nil, true)
+end, { nargs = "?" })
+
+api.nvim_create_user_command("Lazyman", function()
+  lazyman:toggle(nil, true)
+end, { nargs = "?" })
+
+api.nvim_create_user_command("Asciiville", function()
+  asciiville:toggle(nil, true)
 end, { nargs = "?" })

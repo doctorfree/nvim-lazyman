@@ -86,7 +86,16 @@ local terminal_nvim = {}
 if settings.enable_terminal then
   terminal_nvim = {
     "rebelot/terminal.nvim",
-    cmd = { "TermOpen", "TermToggle", "TermRun", "Lazygit", "IPython", "Btop", "Htop" },
+    cmd = {
+      "Asciiville",
+      "TermOpen",
+      "TermToggle",
+      "TermRun",
+      "Lazygit",
+      "IPython",
+      "Lazyman",
+      "Htop",
+    },
     keys = "<leader>t",
     event = "TermOpen",
     config = function()

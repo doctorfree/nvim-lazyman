@@ -15,10 +15,10 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your"
 FIG_TEXT="Lazyman"
 USEGUI=
-BASECFGS="AstroNvim Ecovim Kickstart LazyVim LunarVim NvChad SpaceVim MagicVim"
+BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
 EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug VonHeikemen"
-STARTCFGS="starter-Minimal starter-Base starter-Opinion starter-Lsp \
-           starter-Mason starter-Modular"
+STARTCFGS="Kickstart starter-Minimal starter-Base starter-Opinion \
+           starter-Lsp starter-Mason starter-Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 

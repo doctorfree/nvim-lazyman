@@ -38,9 +38,9 @@ Neovim configurations. Many popular Neovim configurations are supported. The
 tested Neovim configurations, all of which provide significant value. The
 `Extra` category includes additional Neovim configurations that provide
 significant value but have not been thoroughly tested. The `Starter` category
-consists entirely of Neovim configurations provided by the
-[nvim-starter project](https://github.com/VonHeikemen/nvim-starter). The
-`Custom` category includes any additional Neovim configurations installed
+includes the Neovim `Kickstart` configuration and the Neovim configurations
+provided by the [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
+The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
@@ -48,7 +48,7 @@ The Lazyman Neovim configuration categories:
 
 | **Base** |               |            | **Configs** |
 | ---- | --------- | ------ | ------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
 
 | **Extra** |               |            | **Configs** |
@@ -56,9 +56,9 @@ The Lazyman Neovim configuration categories:
 | [Nv](https://github.com/appelgriebsch/Nv) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
 
-| **Starter** |    |    |    |    | **Configs** |
-| ------- | -- | -- | -- | -- | ------- |
-| [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
+| **Starter** |    |    |    |    |    | **Configs** |
+| ------- | -- | -- | -- | -- | -- | ------- |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -494,6 +494,8 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### General ⚙️
 
+![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png)
+
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
 - Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
@@ -503,6 +505,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Replace the UI for messages, cmdline and popupmenu via [noice.nvim](https://github.com/folke/noice.nvim)
 - Fully featured status line via [lualine](https://github.com/nvim-lualine/lualine.nvim) and [tabline](https://github.com/kdheepak/tabline.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
+- Terminal management via [terminal.nvim](https://github.com/rebelot/terminal.nvim)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links

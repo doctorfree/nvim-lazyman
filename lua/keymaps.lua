@@ -17,6 +17,9 @@ map("n", "<leader>U", "<cmd>:Lazy update<cr>", { desc = "Lazy Update" })
 map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
 -- Options
 map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
+-- Terminal commands
+map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman command" })
+map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville command" })
 
 if settings.theme == "monokai-pro" then
   map("n", "<leader>C", ":MonokaiProSelect<CR>", { desc = "Select Monokai pro filter" })
