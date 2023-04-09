@@ -58,7 +58,7 @@ The Lazyman Neovim configuration categories:
 
 | **Starter** |    |    |    |    |    | **Configs** |
 | ------- | -- | -- | -- | -- | -- | ------- |
-| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -323,8 +323,6 @@ Currently the following "Base" Neovim configurations are supported:
 - [Ecovim](https://github.com/ecosse3/nvim)
   - Install and initialize with `lazyman -e`
   - Tailored for frontend development with React and Vue.js
-- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
-  - Install and initialize with `lazyman -k`
 - [LazyVim](https://github.com/LazyVim/LazyVim)
   - The [LazyVim starter](https://github.com/LazyVim/starter) configuration
   - Install and initialize with `lazyman -l`
@@ -369,7 +367,7 @@ installed with the `-w conf` option.
 
 ### Starter configurations
 
-The 'Starter' Neovim configurations are all provided by
+The 'Starter' Neovim configurations include `Kickstart` and those provided by
 [VonHeikemen](https://github.com/VonHeikemen), the author of
 [LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim).
 
@@ -377,23 +375,25 @@ All of the 'Starter' configurations can be installed and initialized with
 the command `lazyman -X`. Individual 'Starter' configurations can be
 installed with the `-x conf` option.
 
+- [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+  - Install and initialize with `lazyman -k`
 - [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
   - Small configuration without third party plugins
   - Install and initialize with `lazyman -x Minimal`
-- [Base](https://github.com/VonHeikemen/nvim-starter/tree/01-base)
+- [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)
   - Small configuration that includes a plugin manager
-  - Install and initialize with `lazyman -x Base`
+  - Install and initialize with `lazyman -x StartBase`
 - [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated)
   - Includes a combination of popular plugins
   - Install and initialize with `lazyman -x Opinion`
-- [Lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp)
+- [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp)
   - Configures the built-in LSP client with autocompletion, based on `Opinionated`
-  - Install and initialize with `lazyman -x Lsp`
-- [Lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
-  - Same as `Lsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
-  - Install and initialize with `lazyman -x Mason`
+  - Install and initialize with `lazyman -x StartLsp`
+- [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
+  - Same as `StartLsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
+  - Install and initialize with `lazyman -x StartMason`
 - [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
-  - Same as `Lsp-installer` but everything is split in modules
+  - Same as `StartMason` but everything is split in modules
   - Install and initialize with `lazyman -x Modular`
 
 ### Unsupported configurations
@@ -1499,8 +1499,7 @@ FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
 EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker"
-STARTCFGS="Kickstart starter-Minimal starter-StartBase starter-Opinion \
-           starter-Lsp starter-Mason starter-Modular"
+STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
 
@@ -1552,8 +1551,8 @@ usage() {
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'"
-  printf "\n    -X indicates install and initialize all nvim-starter configs"
+  printf "\n       'Minimal', 'StartBase', 'Opinion', 'StartLsp', 'StartMason', or 'Modular'"
+  printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
@@ -2175,7 +2174,6 @@ show_menu() {
       if [ "${extra_installed}" ]; then
         for neovim in ${STARTCFGS}; do
           if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
-            nvdir=$(echo "${neovim}" | sed -e "s/starter-//")
             options+=("Install ${nvdir}")
           fi
         done
@@ -2196,15 +2194,7 @@ show_menu() {
       done
     fi
     for neovim in "${sorted[@]}"; do
-      echo ${neovim} | grep ^starter- >/dev/null || {
-        options+=("Open ${neovim}")
-      }
-    done
-    for neovim in "${sorted[@]}"; do
-      echo ${neovim} | grep ^starter- >/dev/null && {
-        options+=("Open Starter Config")
-        break
-      }
+      options+=("Open ${neovim}")
     done
     if [ "${have_neovide}" ]; then
       options+=("Toggle [${use_gui}]")
@@ -2366,11 +2356,11 @@ show_menu() {
             Opinion)
               lazyman -x Opinion -z -y
               ;;
-            Lsp)
-              lazyman -x Lsp -z -y
+            StartLsp)
+              lazyman -x StartLsp -z -y
               ;;
-            Mason)
-              lazyman -x Mason -z -y
+            StartMason)
+              lazyman -x StartMason -z -y
               ;;
             Modular)
               lazyman -x Modular -z -y
@@ -2380,14 +2370,6 @@ show_menu() {
           ;;
         "Open Neovide"*,* | *,"Open Neovide"*)
           NVIM_APPNAME="${LAZYMAN}" neovide
-          break
-          ;;
-        "Open Starter"*,* | *,"Open Starter"*)
-          if [ "${USEGUI}" ]; then
-            neovselect starter
-          else
-            nvimselect starter
-          fi
           break
           ;;
         "Open "*,* | *,"Open "*)
@@ -2502,10 +2484,10 @@ set_starter_branch() {
     Opinion)
       startbranch="02-opinionated"
       ;;
-    Lsp)
+    StartLsp)
       startbranch="03-lsp"
       ;;
-    Mason)
+    StartMason)
       startbranch="04-lsp-installer"
       ;;
     Modular)
@@ -2839,11 +2821,12 @@ shift $((OPTIND - 1))
 [ "$nvimstarter" ] && {
   if [ "$remove" ]; then
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal StartBase Opinion Lsp Mason Modular; do
-        remove_config "nvim-starter-${neovim}"
+      for neovim in Minimal StartBase Opinion StartLsp StartMason Modular; do
+        remove_config "nvim-${neovim}"
       done
+      remove_config "nvim-Kickstart"
     else
-      remove_config "nvim-starter-${nvimstarter}"
+      remove_config "nvim-${nvimstarter}"
     fi
   else
     yesflag=
@@ -2851,18 +2834,24 @@ shift $((OPTIND - 1))
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal StartBase Opinion Lsp Mason Modular; do
+      for neovim in Minimal StartBase Opinion StartLsp StartMason Modular; do
         startbranch=
         set_starter_branch "${neovim}"
         [ "${startbranch}" ] || usage
         action="Installing"
-        [ -d ${HOME}/.config/nvim-starter-${neovim} ] && action="Updating"
+        [ -d ${HOME}/.config/nvim-${neovim} ] && action="Updating"
         printf "\n${action} nvim-starter ${neovim} Neovim configuration ..."
         lazyman -C https://github.com/VonHeikemen/nvim-starter \
-          -N nvim-starter-${neovim} -b ${startbranch} -q -z ${yesflag}
+          -N nvim-${neovim} -b ${startbranch} -q -z ${yesflag}
         printf " done"
-        show_alias "nvim-starter-${neovim}"
+        show_alias "nvim-${neovim}"
       done
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
+      printf "\n${action} Kickstart Neovim configuration ..."
+      lazyman -k -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Kickstart"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -2870,10 +2859,10 @@ shift $((OPTIND - 1))
       set_starter_branch "${nvimstarter}"
       [ "${startbranch}" ] || usage
       action="Installing"
-      [ -d ${HOME}/.config/nvim-starter-${nvimstarter} ] && action="Updating"
+      [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
       printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
       lazyman -C https://github.com/VonHeikemen/nvim-starter \
-        -N nvim-starter-${nvimstarter} -b ${startbranch} \
+        -N nvim-${nvimstarter} -b ${startbranch} \
         ${quietflag} ${runflag} ${yesflag}
       printf " done"
     fi
