@@ -917,6 +917,10 @@ pressing `,lm` will execute the `lazyman` command in a Neovim floating terminal
 window. Alternately, executing the Neovim command `:Lazyman` will also
 bring up the `lazyman` command in a Neovim terminal.
 
+To use the Neovim Terminal in interactive mode allowing input to the
+`lazyman` prompt, while in the Neovim Terminal enter Insert mode by
+typing 'i' or 'a'.
+
 If [Asciiville](https://github.com/doctorfree/Asciiville) is installed,
 pressing `,A` or executing the `:Asciiville` Neovim command will execute
 the `asciiville` command in a Neovim floating terminal window.

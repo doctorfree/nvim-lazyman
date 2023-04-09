@@ -626,6 +626,36 @@ Default is \[dq]popup\[dq]
 .PP
 Additional plugin configuration and options are available in
 \f[V]configuration.lua\f[R].
+.SS Lazyman Neovim Terminal
+.PP
+If \f[V]configuration.lua\f[R] has the Neovim Terminal enabled with
+\f[V]conf.enable_terminal = true\f[R] then the \f[V]Lazyman\f[R] Neovim
+configuration includes Neovim Terminal management via
+terminal.nvim (https://github.com/rebelot/terminal.nvim).
+This Neovim terminal is preconfigured for execution of the
+\f[V]lazyman\f[R] command.
+A shortcut key binding to execute \f[V]lazyman\f[R] in a Neovim terminal
+has also been provided: (\f[V]<leader>lm\f[R]).
+While in Neovim with the default \f[V]nvim-Lazyman\f[R] configuration,
+pressing \f[V],lm\f[R] will execute the \f[V]lazyman\f[R] command in a
+Neovim floating terminal window.
+Alternately, executing the Neovim command \f[V]:Lazyman\f[R] will also
+bring up the \f[V]lazyman\f[R] command in a Neovim terminal.
+.PP
+To use the Neovim Terminal in interactive mode allowing input to the
+\f[V]lazyman\f[R] prompt, while in the Neovim Terminal enter Insert mode
+by typing \[aq]i\[aq] or \[aq]a\[aq].
+.PP
+If Asciiville (https://github.com/doctorfree/Asciiville) is installed,
+pressing \f[V],A\f[R] or executing the \f[V]:Asciiville\f[R] Neovim
+command will execute the \f[V]asciiville\f[R] command in a Neovim
+floating terminal window.
+.PP
+If the \f[V]htop\f[R] command is available, \f[V]:Htop\f[R] will execute
+the \f[V]htop\f[R] system monitor in a floating Neovim terminal window.
+.PP
+This preconfigured Neovim terminal capability is only available in the
+\f[V]Lazyman\f[R] Neovim configuration and not in the other configs.
 .SS AUTHORS
 .PP
 Written by Ronald Record \f[V]github\[at]ronrecord.com\f[R]
