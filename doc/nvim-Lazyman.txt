@@ -415,6 +415,33 @@ Additional plugin configuration and options are available in
 `configuration.lua`.
 
 
+LAZYMAN NEOVIM TERMINAL
+
+If `configuration.lua` has the Neovim Terminal enabled with
+`conf.enable_terminal = true` then the `Lazyman` Neovim configuration includes
+Neovim Terminal management via terminal.nvim
+<https://github.com/rebelot/terminal.nvim>. This Neovim terminal is
+preconfigured for execution of the `lazyman` command. A shortcut key binding to
+execute `lazyman` in a Neovim terminal has also been provided: (`<leader>lm`).
+While in Neovim with the default `nvim-Lazyman` configuration, pressing `,lm`
+will execute the `lazyman` command in a Neovim floating terminal window.
+Alternately, executing the Neovim command `:Lazyman` will also bring up the
+`lazyman` command in a Neovim terminal.
+
+To use the Neovim Terminal in interactive mode allowing input to the `lazyman`
+prompt, while in the Neovim Terminal enter Insert mode by typing 'i' or 'a'.
+
+If Asciiville <https://github.com/doctorfree/Asciiville> is installed, pressing
+`,A` or executing the `:Asciiville` Neovim command will execute the
+`asciiville` command in a Neovim floating terminal window.
+
+If the `htop` command is available, `:Htop` will execute the `htop` system
+monitor in a floating Neovim terminal window.
+
+This preconfigured Neovim terminal capability is only available in the
+`Lazyman` Neovim configuration and not in the other configs.
+
+
 AUTHORS                                                 *nvim-Lazyman-authors*
 
 Written by Ronald Record `github@ronrecord.com`
