@@ -166,6 +166,16 @@ install_neovim_dependencies() {
       brew_install "$pkg"
     fi
   done
+  log "Installing gh ..."
+  [ "$debug" ] && START_SECONDS=$(date +%s)
+  "$BREW_EXE" install --quiet gh >/dev/null 2>&1
+  [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet gh >/dev/null 2>&1
+  if [ "$debug" ]; then
+    FINISH_SECONDS=$(date +%s)
+    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+    printf " elapsed time = %s${ELAPSED}"
+  fi
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
   else
