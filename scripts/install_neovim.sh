@@ -226,30 +226,13 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint rust-analyzer taplo eslint terraform \
-             prettier yarn julia composer php deno; do
+  for pkg in golangci-lint rust-analyzer taplo eslint \
+    yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
-  if command -v "markdownlint" >/dev/null 2>&1; then
-    log "Using previously installed markdownlint-cli ..."
-  else
-    log "Installing markdownlint-cli ..."
-    [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "markdownlint-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "markdownlint-cli" >/dev/null 2>&1
-    if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-      printf " elapsed time = %s${ELAPSED}"
-    fi
-  fi
-  [ "$quiet" ] || printf " done"
-
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
-    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1

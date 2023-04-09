@@ -30,16 +30,14 @@ return {
       "williamboman/mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
     },
-    opts = {
-      ensure_installed = settings.formatters,
-      automatic_setup = true,
-      automatic_installation = true,
-    },
     config = function()
-      require("mason-null-ls").setup_handlers() -- If `automatic_setup` is true.
+      require("mason-null-ls").setup({
+        ensure_installed = settings.formatters,
+        automatic_setup = true,
+        automatic_installation = true,
+      })
     end,
   },
-
   {
     "RubixDev/mason-update-all",
     config = function()

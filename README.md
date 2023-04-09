@@ -2060,28 +2060,36 @@ show_menu() {
       use_gui="neovim"
     fi
     clear
-    [ "${have_figlet}" ] && show_figlet
     items=()
     showinstalled=1
+    show_warning=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
+      show_warning=1
+      showinstalled=
+    fi
+    readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+    numitems=${#sorted[@]}
+    if [ ${numitems} -gt 16 ]; then
+      printf "\n"
+    else
+      [ "${have_figlet}" ] && show_figlet
+    fi
+    [ "${show_warning}" ] && {
       if [ "${have_rich}" ]; then
         rich "[bold red]WARNING[/]: missing [b yellow]${LMANDIR}/.lazymanrc[/]
   reinstall Lazyman with:
     [bold green]lazyman -R -N ${LAZYMAN}[/]
   followed by:
-    [bold green]lazyman[/]" -p -a rounded -c
+        [bold green]lazyman[/]" -p -a rounded -c
       else
         printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
         printf "\nReinstall Lazyman with:"
         printf "\n\tlazyman -R -N ${LAZYMAN}"
         printf "\n\tlazyman\n"
       fi
-      showinstalled=
-    fi
-    readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
-    numitems=${#sorted[@]}
+    }
     confword="configurations"
     [ ${numitems} -eq 1 ] && confword="configuration"
     if [ "${have_rich}" ]; then
@@ -3628,30 +3636,13 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint rust-analyzer taplo eslint terraform \
-             prettier yarn julia composer php deno; do
+  for pkg in golangci-lint rust-analyzer taplo eslint \
+    yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
-  if command -v "markdownlint" >/dev/null 2>&1; then
-    log "Using previously installed markdownlint-cli ..."
-  else
-    log "Installing markdownlint-cli ..."
-    [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "markdownlint-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "markdownlint-cli" >/dev/null 2>&1
-    if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-      printf " elapsed time = %s${ELAPSED}"
-    fi
-  fi
-  [ "$quiet" ] || printf " done"
-
   [ "$PYTHON" ] && {
     "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
-    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
   }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1
