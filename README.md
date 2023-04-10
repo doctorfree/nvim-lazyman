@@ -59,7 +59,7 @@ The Lazyman Neovim configuration categories:
 | **Extra** |               |            | **Configs** |
 | ---- | --------- | ------ | ------- |
 | [Nv](https://github.com/appelgriebsch/Nv) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
-| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
+| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
 
 | **Starter** |    |    |    |    |    | **Configs** |
 | ------- | -- | -- | -- | -- | -- | ------- |
@@ -374,7 +374,7 @@ installed with the `-w conf` option.
   - Install and initialize with `lazyman -w Optixal`
 - [Vim Plug](https://github.com/doctorfree/nvim-plug)
   - Install and initialize with `lazyman -w Plug`
-- [VonHeikemen](https://github.com/VonHeikemen/dotfiles)
+- [Heiker](https://github.com/VonHeikemen/dotfiles)
   - Install and initialize with `lazyman -w Heiker`
 - [Allaman](https://github.com/Allaman/nvim)
   - Install and initialize with `lazyman -w Allaman`
