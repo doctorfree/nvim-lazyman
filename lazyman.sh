@@ -2,7 +2,7 @@
 #
 # lazyman - install, initialize, manage, and explore multiple Neovim configurations
 #
-# Written by Ronald Record <ronaldrecord@gmail.com>
+# Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2023
 #
 # shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
@@ -122,7 +122,7 @@ create_backups() {
 run_command() {
   neodir="$1"
   comm="$2"
-  [ "$neodir" == "$lazymandir" ] && {
+  [ "$neodir" == "${lazymandir}" ] && {
     oldpack=${packer}
     oldplug=${plug}
     plug=
@@ -166,7 +166,7 @@ run_command() {
     fi
   }
   [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
-  [ "$neodir" == "$lazymandir" ] && {
+  [ "$neodir" == "${lazymandir}" ] && {
     packer=${oldpack}
     plug=${oldplug}
   }
@@ -174,7 +174,7 @@ run_command() {
 
 init_neovim() {
   neodir="$1"
-  [ "$neodir" == "$lazymandir" ] && {
+  [ "$neodir" == "${lazymandir}" ] && {
     oldpack=${packer}
     oldplug=${plug}
     plug=
@@ -260,7 +260,7 @@ init_neovim() {
     }
   fi
   [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
-  [ "$neodir" == "$lazymandir" ] && {
+  [ "$neodir" == "${lazymandir}" ] && {
     packer=${oldpack}
     plug=${oldplug}
   }
@@ -1108,7 +1108,7 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     i)
       lazyman=1
-      nvimdir=("$lazymandir")
+      nvimdir=("${lazymandir}")
       ;;
     I)
       langservers=1
@@ -1405,7 +1405,7 @@ shift $((OPTIND - 1))
     brief_usage
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
     exit 0
   fi
   exit 1
@@ -1570,9 +1570,13 @@ numvimdirs=${#nvimdir[@]}
   interactive=1
   runvim=
 }
-if [ -d "${HOME}/.config/$lazymandir" ]; then
+if [ -d "${HOME}/.config/${lazymandir}" ]; then
   [ "$branch" ] && {
-    git -C "${HOME}/.config/$lazymandir" checkout "$branch" >/dev/null 2>&1
+    git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
+  }
+  [ -d "${HOME}/.local/share/${lazymandir}" ] || {
+    interactive=
+    runvim=1
   }
 else
   [ "$quiet" ] || {
@@ -1581,9 +1585,9 @@ else
   }
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
-      "${HOME}/.config/$lazymandir" >/dev/null 2>&1
+      "${HOME}/.config/${lazymandir}" >/dev/null 2>&1
     [ "$branch" ] && {
-      git -C "${HOME}/.config/$lazymandir" checkout "$branch" >/dev/null 2>&1
+      git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
     }
   }
   [ "$quiet" ] || printf "done"
@@ -1592,7 +1596,7 @@ else
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
-  add_nvimdirs_entry "$lazymandir"
+  add_nvimdirs_entry "${lazymandir}"
 }
 
 # Append sourcing of .lazymanrc to shell initialization files
@@ -1609,7 +1613,7 @@ if [ -f "${LMANDIR}"/.lazymanrc ]; then
     echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
   done
   # Append sourcing of .nvimsbind to shell initialization files
-  [ -f "${HOME}/.config/$lazymandir"/.nvimsbind ] && {
+  [ -f "${HOME}/.config/${lazymandir}"/.nvimsbind ] && {
     for shinit in bashrc zshrc; do
       [ -f "${HOME}/.$shinit" ] || continue
       grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
@@ -1642,7 +1646,7 @@ fi
 
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/$lazymandir"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
     BREW_EXE=
     set_brew
     [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
@@ -1662,7 +1666,7 @@ fi
 }
 
 for neovim in "${nvimdir[@]}"; do
-  [ "$neovim" == "$lazymandir" ] && continue
+  [ "$neovim" == "${lazymandir}" ] && continue
   if [ "$proceed" ]; then
     update_config "$neovim"
   else
@@ -1889,7 +1893,7 @@ fi
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
-    [ "$all" ] && export NVIM_APPNAME="$lazymandir"
+    [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
     nvim
   }
 }
