@@ -38,7 +38,6 @@ o.cursorline = true -- Enable highlighting of the current line
 o.expandtab = true -- Use spaces instead of tabs
 o.formatoptions = "jcroqlnt" -- tcqj
 o.grepformat = "%f:%l:%c:%m"
-o.grepprg = "rg --vimgrep"
 o.ignorecase = true -- Ignore case
 o.inccommand = "nosplit" -- preview incremental substitute
 o.laststatus = 0

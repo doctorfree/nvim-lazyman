@@ -470,6 +470,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Terminal management via [terminal.nvim](https://github.com/rebelot/terminal.nvim)
   - Preconfigured Neovim terminal execution of `lazyman` command (`<leader>lm`)
   - Preconfigured Neovim terminal execution of `asciiville` command (`<leader>A`)
+  - Preconfigured Neovim terminal execution of `htop` command (`<leader>H`)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links

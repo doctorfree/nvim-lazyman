@@ -17,9 +17,22 @@ map("n", "<leader>U", "<cmd>:Lazy update<cr>", { desc = "Lazy Update" })
 map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
 -- Options
 map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
+
 -- Terminal commands
-map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman command" })
-map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville command" })
+if settings.enable_terminal then
+  if vim.fn.executable("htop") == 1 then
+    map("n", "<leader>H", "<cmd>:Htop<cr>", { desc = "Htop command" })
+  end
+  if vim.fn.executable("lazygit") == 1 then
+    map("n", "<leader>G", "<cmd>:Lazygit<cr>", { desc = "Lazygit command" })
+  end
+  if vim.fn.executable("lazyman") == 1 then
+    map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman command" })
+  end
+  if vim.fn.executable("asciiville") == 1 then
+    map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville command" })
+  end
+end
 
 if settings.theme == "monokai-pro" then
   map("n", "<leader>C", ":MonokaiProSelect<CR>", { desc = "Select Monokai pro filter" })
