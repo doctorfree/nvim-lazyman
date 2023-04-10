@@ -28,13 +28,13 @@ local lazygit = require("terminal").terminal:new({
   autoclose = true,
 })
 local lazyman = require("terminal").terminal:new({
-  layout = { open_cmd = "float", border = "rounded", height = 0.9, width = 0.9 },
+  layout = { open_cmd = "float", border = "rounded", height = 0.95, width = 0.95 },
   cmd = { "lazyman" },
   autoclose = true,
 })
 local asciiville = require("terminal").terminal:new({
-  layout = { open_cmd = "float", border = "rounded", height = 0.9, width = 0.9 },
-  cmd = { "asciiville" },
+  layout = { open_cmd = "float", border = "rounded", height = 0.99, width = 0.99 },
+  cmd = { "asciiville", "-i", "-G" },
   autoclose = true,
 })
 vim.env["GIT_EDITOR"] = "nvr --remote-tab-wait-silent +'set bufhidden=wipe'"
