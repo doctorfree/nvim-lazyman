@@ -6,6 +6,16 @@
 
 ### 🐞 Fixed
 
+## v1.0.3r4
+
+### ⚡️ Added
+
+- Add separate installation commands in README for easy copy/paste
+
+### 🐞 Fixed
+
+- Disable interactive mode and run nvim if nvim-Lazyman not yet initialized
+
 ## v1.0.3r3
 
 ### ⚡️ Added
