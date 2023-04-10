@@ -8,7 +8,7 @@
       <img src="https://img.shields.io/github/last-commit/doctorfree/nvim-lazyman" alt="Last commit"/>
     </a>
     <a href="https://github.com/doctorfree/nvim-lazyman/issues">
-      <img src="https://img.shields.io/github/issues/doctorfree/nvim.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
+      <img src="https://img.shields.io/github/issues/doctorfree/nvim-lazyman.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
     </a>
     <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml">
       <img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml/badge.svg" alt="CI Status"/>
