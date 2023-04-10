@@ -127,14 +127,21 @@ and the Bash shell.
 
 ## Installation
 
-The Lazyman installation process consists of two steps:
+The Lazyman installation process consists of two steps.
+
+Step 1, clone the Lazyman repository:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+```
+
+Step 2, initialize the Lazyman Neovim configuration:
+
+```bash
 $HOME/.config/nvim-Lazyman/lazyman.sh
 ```
 
-These steps:
+These 2 steps perform the following:
 
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
@@ -142,6 +149,9 @@ These steps:
    1. Installs language servers and tools for coding diagnostics
    1. Installs the latest version of Neovim if not already installed
    1. Installs and initializes configured Neovim plugins
+
+After the download and initialization are complete, execute the `lazyman`
+command found in `~/.local/bin/lazyman`.
 
 Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not
 already Neovim 0.9 or later installed and in the execution path.
