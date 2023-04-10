@@ -1,6 +1,8 @@
 ## Lazyman Release Notes
 
-All that is needed to bootstrap `nvim-Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.3r3/lazyman.sh) script. Download and execute to get started.
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.3r3/lazyman.sh) script. Download and execute to get started.
+
+Follow the [Installation instructions](#installation) to bootstrap Lazyman. Once Lazyman is installed, execute the `lazyman` command to manage Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
 The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Over 20 popular Neovim configurations are supported including:
 
@@ -27,10 +29,6 @@ The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used to 
 - [Installation](#installation)
   - [Bootstrap](#bootstrap)
   - [Postinstall](#postinstall)
-  - [Manual installation](#manual-installation)
-    - [Neovim 0.9 and later](#neovim-09-and-later)
-    - [Neovim 0.8 and earlier](#neovim-08-and-earlier)
-- [Supported configurations](#supported-configurations)
 - [Removal](#removal)
 
 ## Installation
@@ -52,6 +50,17 @@ These steps:
    1. Installs and initializes configured Neovim plugins
 
 Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not already Neovim 0.9 or later installed and in the execution path. In addition, Lazyman uses Homebrew to install Neovim dependencies, language servers, and tools.
+
+The installation of Homebrew, Neovim 0.9, language servers, and tools ensures a proper runtime environment. To avoid the installation of Homebrew, Neovim, language servers, and tools, execute `lazyman -Z`:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh -Z
+```
+
+Note that circumventing the Neovim installation means that Neovim 0.9 must be installed in some other manner. Also, language servers and tools required by some Neovim configurations may not be present. However, some may prefer to handle the installation of Neovim 0.9, language servers, and tools on their own. In this case, the `-Z` option is your friend.
+
+If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman install Neovim 0.9, language servers and tools, then issue the command `lazyman -I` or choose the `Install Tools` lazyman menu option.
 
 ### Bootstrap
 

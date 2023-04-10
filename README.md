@@ -32,9 +32,14 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Many popular Neovim configurations are supported. The
-`lazyman` command separates Neovim configurations into 4 categories: `Base`,
-`Extra`, `Starter`, and `Custom`. The `Base` category consists of well
+Neovim configurations. Over 20 popular Neovim configurations are supported.
+
+Follow the [Installation instructions](#installation) to bootstrap Lazyman.
+Once Lazyman is installed, execute the `lazyman` command to manage
+Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
+
+The `lazyman` command separates Neovim configurations into 4 categories:
+`Base`, `Extra`, `Starter`, and `Custom`. The `Base` category consists of well
 tested Neovim configurations, all of which provide significant value. The
 `Extra` category includes additional Neovim configurations that provide
 significant value but have not been thoroughly tested. The `Starter` category
@@ -144,8 +149,7 @@ In addition, Lazyman uses Homebrew to install Neovim dependencies,
 language servers, and tools.
 
 The installation of Homebrew, Neovim 0.9, language servers, and tools
-ensures a proper runtime environment. However it can be time consuming
-and may require significant disk space. To avoid the installation of
+ensures a proper runtime environment. To avoid the installation of
 Homebrew, Neovim, language servers, and tools, execute `lazyman -Z`:
 
 ```bash

@@ -6,6 +6,21 @@
 
 ### 🐞 Fixed
 
+## v1.0.3r3
+
+### ⚡️ Added
+
+- Add autocmd to disable or convert semantic highlights
+- Add configuration.lua settings for semantic highlighting
+- Use noice for signature help markdown if noice is enabled
+- Add shellcheck comment in Lazyman shell initialization to satisfy SC1090
+- Install gh in install_neovim.sh
+
+### 🐞 Fixed
+
+- Check if executable exists in config and keymaps for Terminal apps
+- Fix asciiville Neovim terminal command so it does not use splash screen
+
 ## v1.0.3r2
 
 ### ⚡️ Added
