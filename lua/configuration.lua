@@ -138,24 +138,21 @@ conf.lsp_servers = {
   "sqlls",
   "tailwindcss",
   "terraformls",
-  "terraformls",
   "texlab",
   "tsserver",
   "vimls",
   "yamlls",
 }
--- Formatters installed by mason-null-ls
-conf.formatters = {
+-- Formatters and linters installed by Mason
+conf.formatters_linters = {
+  "actionlint",
   "black",
   "prettier",
   "stylua",
   "shfmt",
-  "google_java_format",
-  "sql_formatter",
+  "google-java-format",
+  "sql-formatter",
   "beautysh",
-}
--- Tools that should be installed by Mason
-conf.tools = {
   "shellcheck",
   "shfmt",
   "stylua",

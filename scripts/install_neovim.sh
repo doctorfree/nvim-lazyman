@@ -279,6 +279,10 @@ install_tools() {
     npm i -g neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
+    log "Installing cspell npm package ..."
+    npm i -g cspell >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -300,6 +304,7 @@ install_tools() {
   fi
 
   brew_install figlet
+  brew_install luarocks
   brew_install lolcat
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."

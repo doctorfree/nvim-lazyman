@@ -1,5 +1,4 @@
 local settings = require("configuration")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 return {
   {
@@ -9,7 +8,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       "jose-elias-alvarez/null-ls.nvim",
-      --'jayp0521/mason-null-ls.nvim',
       "nvim-lua/plenary.nvim",
       "b0o/schemastore.nvim",
       "folke/neodev.nvim",
@@ -73,7 +71,6 @@ return {
         }
       end
       local null_ls = require("null-ls")
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       null_ls.setup({
         should_attach = function(bufnr)
           local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
@@ -92,33 +89,13 @@ return {
             extra_args = cspell_extra_args,
           }),
           --null_ls.builtins.diagnostics.proselint,
-          null_ls.builtins.formatting.prettierd,
-          null_ls.builtins.formatting.stylua, -- prettier, eslint, eslint_d, or prettierd
+          null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
+          null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.trim_newlines,
           null_ls.builtins.formatting.trim_whitespace,
           null_ls.builtins.diagnostics.actionlint,
         },
-        -- on_attach = function(client, bufnr)
-        --   -- Format on save
-        --   -- This causes bugs, sometimes I lose data because of this...
-        --   if client.supports_method("textDocument/formatting") then
-        --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        --     vim.api.nvim_create_autocmd("BufWritePre", {
-        --       group = augroup,
-        --       buffer = bufnr,
-        --       callback = function()
-        --         local success, msg = pcall(vim.lsp.buf.format, { bufnr = bufnr })
-        --         if not success then
-        --           vim.notify("Unable to auto format buffer.", vim.log.levels.WARN)
-        --         end
-        --       end,
-        --     })
-        --   end
-        -- end,
       })
-      --require("mason-null-ls").setup({
-      --  automatic_installation = true,
-      --})
 
       local lspconfig = require("lspconfig")
       local navic = require("nvim-navic")
@@ -251,7 +228,7 @@ return {
     },
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
-      ensure_installed = settings.tools,
+      ensure_installed = settings.formatters_linters,
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
@@ -270,22 +247,6 @@ return {
       else
         ensure_installed()
       end
-    end,
-  },
-
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    config = function()
-      require("mason-null-ls").setup({
-        ensure_installed = settings.formatters,
-        automatic_setup = true,
-        automatic_installation = true,
-      })
     end,
   },
 
@@ -379,6 +340,7 @@ return {
             { desc = "Toggle format on save" }
           )
           if client.supports_method("textDocument/formatting") then
+            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = augroup,

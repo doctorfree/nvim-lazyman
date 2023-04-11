@@ -894,24 +894,21 @@ conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
-  "query", "python", "regex", "toml", "vim", "yaml",
+  "query", "python", "regex", "toml", "vim", "vimdoc", "yaml",
 }
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "dockerls", "jdtls", "jsonls", "ltex", "marksman",
-  "pyright", "lua_ls", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", "cssmodules_ls", "dockerls", "gopls", "graphql", "html", "jdtls",
+  "jsonls", "ltex", "lua_ls", "marksman", "pylsp", "pyright", "sqlls",
+  "tailwindcss", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
 }
--- Formatters installed by mason-null-ls
-conf.formatters = {
-  "black", "prettier", "stylua", "shfmt",
-  "google_java_format", "sql_formatter", "beautysh",
-}
--- Tools that should be installed by Mason
-conf.tools = {
-  "shellcheck", "shfmt", "stylua",
-  "tflint", "yamllint", "ruff",
+-- Formatters and linters installed by Mason
+conf.formatters_linters = {
+  "actionlint", "black", "prettier", "stylua", "shfmt",
+  "google-java-format", "sql-formatter", "beautysh", "shellcheck",
+  "shfmt", "stylua", "tflint", "yamllint", "ruff",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -3716,6 +3713,10 @@ install_tools() {
     npm i -g neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
+    log "Installing cspell npm package ..."
+    npm i -g cspell >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -3737,6 +3738,7 @@ install_tools() {
   fi
 
   brew_install figlet
+  brew_install luarocks
   brew_install lolcat
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."
