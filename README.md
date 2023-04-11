@@ -906,9 +906,9 @@ conf.lsp_servers = {
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "black", "prettier", "stylua", "shfmt",
-  "google-java-format", "sql-formatter", "beautysh", "shellcheck",
-  "shfmt", "stylua", "tflint", "yamllint", "ruff",
+  "actionlint", "beautysh", "black", "google-java-format", "markdownlint",
+  "prettier", "ruff", "sql-formatter", "shellcheck", "shfmt",
+  "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -3739,6 +3739,7 @@ install_tools() {
 
   brew_install figlet
   brew_install luarocks
+  brew_install terraform
   brew_install lolcat
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."

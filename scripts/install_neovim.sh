@@ -306,6 +306,7 @@ install_tools() {
   brew_install figlet
   brew_install luarocks
   brew_install lolcat
+  brew_install terraform
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."
   else
