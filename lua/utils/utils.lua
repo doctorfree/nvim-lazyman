@@ -3,7 +3,7 @@ local Util = require("lazy.core.util")
 
 local cfg = {}
 
-cfg.root_patterns = { ".git", "lua" }
+cfg.root_patterns = { ".git", "lua", "package.json" }
 
 -- must be global or the initial state is not working
 VIRTUAL_TEXT_ACTIVE = true
