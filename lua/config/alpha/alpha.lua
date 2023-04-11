@@ -139,7 +139,7 @@ local section_mru = {
       type = "text",
       val = "Recent files",
       opts = {
-        hl = "SpecialComment",
+        hl = "AlphaFooter",
         shrink_margin = false,
         position = "center",
       },
@@ -224,20 +224,20 @@ status_btn.opts.hl = "AlphaHeader"
 local buttons = {
   type = "group",
   val = {
-    { type = "text", val = "Neovim Configuration", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
     health_btn,
     lazyman_btn,
     mappings_btn,
     options_btn,
     settings_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Plugin Management", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text", val = "Plugin Management", opts = { hl = "AlphaFooter", position = "center" } },
     clean_btn,
     update_btn,
     install_btn,
     status_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Quick Links", opts = { hl = "SpecialComment", position = "center" } },
+    { type = "text", val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
     new_file_btn,
     find_file_btn,
     -- file_browser_btn,
@@ -269,7 +269,10 @@ local header = {
 -- local datetime = os.date('  %Y-%b-%d   %H:%M:%S', os.time() - timeShift)
 local datetime = os.date("  %Y-%b-%d   %H:%M:%S", os.time())
 local version = vim.version()
-local version_info = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
+local version_info = ""
+if version ~= nil then
+  version_info = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
+end
 
 local stats = require("lazy").stats()
 local vinfo = "Neovim " .. version_info
