@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Status line at the bottom
+-- Status line at the bottom, tabline and winbar at the top
 -- nvim-lualine/lualine.nvim
 -------------------------------------------------------------------------------
 
@@ -42,33 +42,14 @@ end
 local function session_name()
   return require("possession.session").session_name or ""
 end
--- local session_status = {}
--- if settings.session_manager == "possession" then
---   local poss_status = require("nvim-possession").status()
---   if poss_status ~= nil then
---     session_status = { poss_status }
---   end
--- end
 
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
-    -- lualine_a = {},
     lualine_a = { require("tabline").tabline_buffers },
     lualine_b = {},
-    -- lualine_b = { require("tabline").tabline_tabs },
     lualine_c = {
-      {
-        "filename",
-        path = 3,
-        filetype_names = {
-          TelescopePrompt = "Telescope",
-          dashboard = "Dashboard",
-          packer = "Packer",
-          fzf = "FZF",
-          alpha = "Alpha",
-        },
-      },
+      { "require'nvim-navic'.get_location()" },
     },
     lualine_x = {},
     lualine_y = {},
@@ -81,10 +62,20 @@ local inactive_winbar_cfg = {}
 if settings.enable_winbar then
   winbar_cfg = {
     lualine_a = {},
-    lualine_b = {},
-    lualine_c = {
-      { "require'nvim-navic'.get_location()" },
+    lualine_b = {
+      {
+        "filename",
+        path = 3,
+        filetype_names = {
+          TelescopePrompt = "Telescope",
+          dashboard = "Dashboard",
+          packer = "Packer",
+          fzf = "FZF",
+          alpha = "Alpha",
+        },
+      },
     },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
@@ -112,11 +103,8 @@ lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    -- theme = 'auto',
     theme = theme,
-    --component_separators = { left = '', right = '' },
     component_separators = { left = "", right = "" },
-    --section_separators = { left = '', right = '' },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
       "alpha",
