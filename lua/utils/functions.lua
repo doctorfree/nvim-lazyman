@@ -60,6 +60,11 @@ cfg.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
 end
 
+-- check if a variable is empty or nil
+cfg.isEmpty = function(s)
+  return s == nil or s == ""
+end
+
 --- Check if path exists
 cfg.path_exists = function(path)
   return vim.loop.fs_stat(path)

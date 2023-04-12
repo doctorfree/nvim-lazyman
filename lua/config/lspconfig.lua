@@ -1,5 +1,3 @@
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-
 local settings = require("configuration")
 local showdiag = settings.show_diagnostics
 
@@ -9,8 +7,10 @@ if not showdiag == "popup" then
 end
 
 -- Style floating windows
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover,
+  { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
+  { border = "rounded" })
 
 -- Borders for LspInfo winodw
 require("lspconfig.ui.windows").default_options.border = "rounded"
@@ -97,6 +97,141 @@ local toggle_diagnostics = function()
   end
 end
 
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+
+vim.diagnostic.config({
+  update_in_insert = false,
+})
+
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  },
+}
+
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
+local null_ls = require("null-ls")
+null_ls.setup({
+  should_attach = function(bufnr)
+    local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+    if ft == "dbui" or ft == "dbout" or ft:match("sql") then
+      return false
+    end
+    return true
+  end,
+  sources = {
+    null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.trim_newlines,
+    null_ls.builtins.formatting.trim_whitespace,
+    null_ls.builtins.diagnostics.actionlint,
+  },
+})
+
+local lspconfig = require("lspconfig")
+local navic = require("nvim-navic")
+
+lspconfig.jsonls.setup({
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+    },
+  },
+})
+
+-- make sure to only run this once!
+local tsserver_on_attach = function(client, bufnr)
+  -- disable tsserver formatting if you plan on formatting via null-ls
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
+
+  local ts_utils = require("nvim-lsp-ts-utils")
+
+  -- defaults
+  ts_utils.setup({
+    enable_import_on_completion = true,
+    -- eslint
+    eslint_enable_code_actions = true,
+    eslint_enable_disable_comments = true,
+    eslint_bin = "eslint_d",
+    eslint_enable_diagnostics = false,
+    eslint_opts = {},
+
+    -- formatting
+    enable_formatting = true,
+    formatter = "prettier",
+    formatter_opts = {},
+
+    -- update imports on file move
+    update_imports_on_move = true,
+    require_confirmation_on_move = false,
+    watch_dir = nil,
+
+    -- filter diagnostics
+    filter_out_diagnostics_by_severity = {},
+    filter_out_diagnostics_by_code = {},
+  })
+
+  -- required to fix code action ranges and filter diagnostics
+  ts_utils.setup_client(client)
+
+  -- no default maps, so you may want to define some here
+  local opts = { silent = true }
+  vim.api.nvim_buf_set_keymap(bufnr, "n", ",go", ":TSLspOrganize<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", ",gR", ":TSLspRenameFile<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", ",gi", ":TSLspImportAll<CR>", opts)
+
+  navic.attach(client, bufnr)
+end
+
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = tsserver_on_attach,
+})
+
+local other_servers_with_navic = {
+  "gopls",
+  "html",
+  "pylsp",
+  "terraformls",
+  "vimls",
+  "bashls",
+  "awk_ls",
+  "pyright",
+  "rust_analyzer",
+  "ansiblels",
+  "cmake",
+  "cssmodules_ls",
+  "dockerls",
+  "marksman",
+  "sqlls",
+  "taplo",
+  "texlab",
+}
+for _, server in ipairs(other_servers_with_navic) do
+  if lspconfig[server] then
+    lspconfig[server].setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+      end,
+    })
+  end
+end
+
 vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
@@ -108,29 +243,23 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+-- lspconfig.awk_ls.setup({})
+-- lspconfig.pyright.setup({})
+-- lspconfig.rust_analyzer.setup({})
+-- lspconfig.ansiblels.setup({})
+-- lspconfig.cmake.setup({})
+-- lspconfig.cssmodules_ls.setup({})
+-- lspconfig.dockerls.setup({})
+-- lspconfig.marksman.setup({})
+-- lspconfig.sqlls.setup({})
+-- lspconfig.taplo.setup({})
+-- lspconfig.texlab.setup({})
 
-require("lspconfig")["awk_ls"].setup({})
-require("lspconfig")["bashls"].setup({})
-require("lspconfig")["pyright"].setup({})
-require("lspconfig")["tsserver"].setup({})
-require("lspconfig")["rust_analyzer"].setup({})
-require("lspconfig")["ansiblels"].setup({})
-require("lspconfig")["cmake"].setup({})
-require("lspconfig")["cssmodules_ls"].setup({})
-require("lspconfig")["dockerls"].setup({})
-require("lspconfig")["marksman"].setup({})
-require("lspconfig")["sqlls"].setup({})
-require("lspconfig")["vimls"].setup({})
-require("lspconfig")["taplo"].setup({})
-require("lspconfig")["texlab"].setup({})
--- require("lspconfig")["rnix"].setup({})
-
-require("lspconfig")["yamlls"].setup({
+lspconfig.yamlls.setup({
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end,
   schemaStore = {
     enable = true,
     url = "https://www.schemastore.org/api/json/catalog.json",
@@ -151,34 +280,17 @@ require("lspconfig")["yamlls"].setup({
     ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
   },
   format = { enabled = false },
-  -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
-  -- see utils.custom_lsp_attach() for the workaround
-  -- how can I detect Kubernetes ONLY yaml files? (no CRDs, Helmreleases, etc.)
   validate = false,
   completion = true,
   hover = true,
 })
 
--- Enable (broadcasting) snippet capability for completion
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-require("lspconfig").jsonls.setup({
-  capabilities = capabilities,
-})
-
--- require("lspconfig").eslint.setup({
---   on_attach = function(client, bufnr)
---     vim.api.nvim_create_autocmd("BufWritePre", {
---       buffer = bufnr,
---       command = "EslintFixAll",
---     })
---   end,
--- })
-
 if settings.enable_clangd then
-  require("lspconfig").clangd.setup({})
+  lspconfig.clangd.setup({})
 else
-  require("lspconfig")["ccls"].setup({
+  lspconfig.ccls.setup({
+    capabilities = capabilities,
+    on_attach = navic.attach,
     init_options = {
       cache = {
         directory = ".ccls-cache",
@@ -190,7 +302,9 @@ else
   })
 end
 
-require("lspconfig")["lua_ls"].setup({
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+  on_attach = navic.attach,
   require("neodev").setup({
     library = { plugins = { "nvim-dap-ui" }, types = true },
     setup_jsonls = true,
@@ -208,7 +322,6 @@ require("lspconfig")["lua_ls"].setup({
   -- can service initial requests (completion, location) upon starting as well
   -- as time to first diagnostics. Completion results will include a workspace
   -- indexing progress message until the server has finished indexing.
-
   before_init = require("neodev.lsp").before_init,
   settings = {
     Lua = {
@@ -216,31 +329,28 @@ require("lspconfig")["lua_ls"].setup({
         version = "LuaJIT",
       },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = {
           "vim",
-          -- 'describe',
-          -- 'it',
-          -- 'assert',
+          "describe",
+          "it",
+          "before_each",
+          "after_each",
+          "pending",
           "nnoremap",
           "vnoremap",
           "inoremap",
           "tnoremap",
-          "use",
         },
       },
       workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", false),
+        library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false,
       },
-      -- adjust these two values if your performance is not optimal
-      -- maxPreload = 2000,
-      -- preloadFileSize = 1000,
-      -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
       },
     },
   },
 })
+
+vim.cmd([[ do User LspAttachBuffers ]])

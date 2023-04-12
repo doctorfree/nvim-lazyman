@@ -84,11 +84,13 @@ if settings.enable_winbar then
     lualine_b = {},
     lualine_c = {
       { "filename", path = 1, color = { bg = "NONE" } },
+      { "require'nvim-navic'.get_location()" },
     },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   }
+
   inactive_winbar_cfg = {
     lualine_a = {},
     lualine_b = {},
