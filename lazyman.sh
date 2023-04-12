@@ -9,7 +9,11 @@
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
-LOLCAT="lolcat --animate --speed=70.0"
+NVIMCONF="${LMANDIR}/lua/configuration.lua"
+CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
+GET_CONF="${LMANDIR}/scripts/get_conf.lua"
+# LOLCAT="lolcat --animate --speed=70.0"
+LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your"
@@ -20,6 +24,10 @@ EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
+# Supported themes
+themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "onedarkpro" "everforest" "monokai-pro")
+# Themes with styles
+styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedarkpro" "monokai-pro")
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
@@ -567,8 +575,887 @@ set_haves() {
   have_xclip=$(type -p xclip)
 }
 
-show_menu() {
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+get_conf_value() {
+  confname="$1"
+  confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+  echo "${confval}"
+}
+
+set_conf_value() {
+  confname="$1"
+  confval="$2"
+  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
+    if [ "${confval}" == "true" ] || [ "${confval}" == "false" ]
+    then
+      cat "${NVIMCONF}" \
+        | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+    else
+      cat "${NVIMCONF}" \
+        | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+    fi
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
+  }
+}
+
+set_chat_gpt() {
+  [ "$OPENAI_API_KEY" ] && {
+    grep 'conf.enable_chatgpt' "${NVIMCONF}" >/dev/null && {
+      cat "${NVIMCONF}" \
+        | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
+      cp /tmp/nvim$$ "${NVIMCONF}"
+      rm -f /tmp/nvim$$
+    }
+  }
+}
+
+select_theme_style() {
+  selected_style="${theme_style}"
+  case "$1" in
+    kanagawa)
+      styles=("wave" "dragon" "lotus")
+      ;;
+    tokyonight)
+      styles=("night" "storm" "day" "moon")
+      ;;
+    onedarkpro)
+      styles=("onedark" "onelight" "onedark_vivid" "onedark_dark")
+      ;;
+    catppuccin)
+      styles=("latte" "frappe" "macchiato" "mocha" "custom")
+      ;;
+    dracula)
+      styles=("blood" "magic" "soft" "default")
+      ;;
+    nightfox)
+      styles=("carbonfox" "dawnfox" "dayfox" "duskfox" "nightfox" "nordfox" "terafox")
+      ;;
+    monokai-pro)
+      styles=("classic" "octagon" "pro" "machine" "ristretto" "spectrum")
+      ;;
+    *)
+      styles=()
+      ;;
+  esac
+  #   set_conf_value "theme_style" "none"
+  have_figlet=$(type -p figlet)
+  have_lolcat=$(type -p lolcat)
+  while true; do
+    clear
+    printf "\n"
+    [ "${have_figlet}" ] && show_figlet
+    printf "\n"
+    PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    for sty in "${styles[@]}"; do
+      if [ "${theme_style}" == "$sty" ]
+      then
+        options+=("$sty   ")
+      else
+        options+=("$sty")
+      fi
+    done
+    [ "${theme_style}" == "${selected_style}" ] || {
+      options+=("Set style to ${theme_style}")
+    }
+    options+=("Configuration Menu" "Main Menu" "Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          clear
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "wave",* | *,"wave")
+          theme_style="wave"
+          break
+          ;;
+        "dragon",* | *,"dragon")
+          theme_style="dragon"
+          break
+          ;;
+        "lotus",* | *,"lotus")
+          theme_style="lotus"
+          break
+          ;;
+        "night",* | *,"night")
+          theme_style="night"
+          break
+          ;;
+        "storm",* | *,"storm")
+          theme_style="storm"
+          break
+          ;;
+        "dayfox",* | *,"dayfox")
+          theme_style="dayfox"
+          break
+          ;;
+        "day",* | *,"day")
+          theme_style="day"
+          break
+          ;;
+        "moon",* | *,"moon")
+          theme_style="moon"
+          break
+          ;;
+        "onedark",* | *,"onedark")
+          theme_style="onedark"
+          break
+          ;;
+        "onelight",* | *,"onelight")
+          theme_style="onelight"
+          break
+          ;;
+        "onedark_vivid",* | *,"onedark_vivid")
+          theme_style="onedark_vivid"
+          break
+          ;;
+        "onedark_dark",* | *,"onedark_dark")
+          theme_style="onedark_dark"
+          break
+          ;;
+        "latte",* | *,"latte")
+          theme_style="latte"
+          break
+          ;;
+        "frappe",* | *,"frappe")
+          theme_style="frappe"
+          break
+          ;;
+        "macchiato",* | *,"macchiato")
+          theme_style="macchiato"
+          break
+          ;;
+        "mocha",* | *,"mocha")
+          theme_style="mocha"
+          break
+          ;;
+        "custom",* | *,"custom")
+          theme_style="custom"
+          break
+          ;;
+        "blood",* | *,"blood")
+          theme_style="blood"
+          break
+          ;;
+        "magic",* | *,"magic")
+          theme_style="magic"
+          break
+          ;;
+        "soft",* | *,"soft")
+          theme_style="soft"
+          break
+          ;;
+        "default",* | *,"default")
+          theme_style="default"
+          break
+          ;;
+        "carbonfox",* | *,"carbonfox")
+          theme_style="carbonfox"
+          break
+          ;;
+        "dawnfox",* | *,"dawnfox")
+          theme_style="dawnfox"
+          break
+          ;;
+        "duskfox",* | *,"duskfox")
+          theme_style="duskfox"
+          break
+          ;;
+        "nightfox",* | *,"nightfox")
+          theme_style="nightfox"
+          break
+          ;;
+        "nordfox",* | *,"nordfox")
+          theme_style="nordfox"
+          break
+          ;;
+        "terafox",* | *,"terafox")
+          theme_style="terafox"
+          break
+          ;;
+        "classic",* | *,"classic")
+          theme_style="classic"
+          break
+          ;;
+        "octagon",* | *,"octagon")
+          theme_style="octagon"
+          break
+          ;;
+        "pro",* | *,"pro")
+          theme_style="pro"
+          break
+          ;;
+        "machine",* | *,"machine")
+          theme_style="machine"
+          break
+          ;;
+        "ristretto",* | *,"ristretto")
+          theme_style="ristretto"
+          break
+          ;;
+        "Set style to"*,* | *,"Set style to"*)
+          set_conf_value "theme_style" "${theme_style}"
+          break 2
+          ;;
+        "Configuration Menu"*,* | *,"Configuration Menu"*)
+          show_conf_menu
+          break
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          show_main_menu
+          break
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+      esac
+      REPLY=
+    done
+  done
+}
+
+set_default_style() {
+  case "$1" in
+    kanagawa)
+      set_conf_value "theme_style" "dragon"
+      ;;
+    tokyonight)
+      set_conf_value "theme_style" "moon"
+      ;;
+    onedarkpro)
+      set_conf_value "theme_style" "onedark_dark"
+      ;;
+    catppuccin)
+      set_conf_value "theme_style" "mocha"
+      ;;
+    dracula)
+      set_conf_value "theme_style" "soft"
+      ;;
+    nightfox)
+      set_conf_value "theme_style" "carbonfox"
+      ;;
+    monokai-pro)
+      set_conf_value "theme_style" "pro"
+      ;;
+    *)
+      set_conf_value "theme_style" "none"
+      ;;
+  esac
+}
+
+select_theme() {
+  selected_theme="$1"
+  have_figlet=$(type -p figlet)
+  have_lolcat=$(type -p lolcat)
+  while true; do
+    clear
+    printf "\n"
+    [ "${have_figlet}" ] && show_figlet
+    printf "\n"
+    PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    for thm in "${themes[@]}"; do
+      if [ "${theme}" == "$thm" ]
+      then
+        options+=("$thm   ")
+      else
+        options+=("$thm")
+      fi
+    done
+    [ "${theme}" == "${selected_theme}" ] || {
+      options+=("Set theme to ${theme}")
+    }
+    options+=("Configuration Menu" "Main Menu" "Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          clear
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "nightfox"*,* | *,"nightfox"*)
+          theme="nightfox"
+          break
+          ;;
+        "tokyonight"*,* | *,"tokyonight"*)
+          theme="tokyonight"
+          break
+          ;;
+        "dracula"*,* | *,"dracula"*)
+          theme="dracula"
+          break
+          ;;
+        "kanagawa"*,* | *,"kanagawa"*)
+          theme="kanagawa"
+          break
+          ;;
+        "catppuccin"*,* | *,"catppuccin"*)
+          theme="catppuccin"
+          break
+          ;;
+        "tundra"*,* | *,"tundra"*)
+          theme="tundra"
+          break
+          ;;
+        "onedarkpro"*,* | *,"onedarkpro"*)
+          theme="onedarkpro"
+          break
+          ;;
+        "everforest"*,* | *,"everforest"*)
+          theme="everforest"
+          break
+          ;;
+        "monokai-pro"*,* | *,"monokai-pro"*)
+          theme="monokai-pro"
+          break
+          ;;
+        "Set theme to"*,* | *,"Set theme to"*)
+          set_conf_value "theme" "${theme}"
+          set_default_style "${theme}"
+          break 2
+          ;;
+        "Configuration Menu"*,* | *,"Configuration Menu"*)
+          show_conf_menu
+          break
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          show_main_menu
+          break
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+      esac
+      REPLY=
+    done
+  done
+}
+
+show_conf_menu() {
+  have_figlet=$(type -p figlet)
+  have_lolcat=$(type -p lolcat)
+  while true; do
+    clear
+    [ "${have_figlet}" ] && show_figlet
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      show_main_menu
+      break
+    }
+    theme=$(get_conf_value theme)
+    use_theme="${theme}"
+    theme_style=$(get_conf_value theme_style)
+    use_theme_style="${theme_style}"
+    enable_transparent=$(get_conf_value enable_transparent)
+    if [ "${enable_transparent}" == "true" ]; then
+      use_transparent="YES"
+    else
+      use_transparent="NO"
+    fi
+    mapleader=$(get_conf_value mapleader)
+    use_mapleader="${mapleader}"
+    maplocalleader=$(get_conf_value maplocalleader)
+    use_maplocalleader="${maplocalleader}"
+    enable_number=$(get_conf_value number)
+    if [ "${enable_number}" == "true" ]; then
+      use_number="YES"
+    else
+      use_number="NO"
+    fi
+    enable_relative_number=$(get_conf_value relative_number)
+    if [ "${enable_relative_number}" == "true" ]; then
+      use_relative_number="YES"
+    else
+      use_relative_number="NO"
+    fi
+    enable_list=$(get_conf_value list)
+    if [ "${enable_list}" == "true" ]; then
+      use_list="YES"
+    else
+      use_list="NO"
+    fi
+    session_manager=$(get_conf_value session_manager)
+    use_session_manager="${session_manager}"
+    enable_neotree=$(get_conf_value enable_neotree)
+    if [ "${enable_neotree}" == "true" ]; then
+      use_neotree="YES"
+    else
+      use_neotree="NO"
+    fi
+    enable_noice=$(get_conf_value enable_noice)
+    if [ "${enable_noice}" == "true" ]; then
+      use_noice="YES"
+    else
+      use_noice="NO"
+    fi
+    enable_chatgpt=$(get_conf_value enable_chatgpt)
+    if [ "${enable_chatgpt}" == "true" ]; then
+      use_chatgpt="YES"
+    else
+      use_chatgpt="NO"
+    fi
+    enable_rainbow2=$(get_conf_value enable_rainbow2)
+    if [ "${enable_rainbow2}" == "true" ]; then
+      use_rainbow2="YES"
+    else
+      use_rainbow2="NO"
+    fi
+    enable_fancy=$(get_conf_value enable_fancy)
+    if [ "${enable_fancy}" == "true" ]; then
+      use_fancy="YES"
+    else
+      use_fancy="NO"
+    fi
+    enable_wilder=$(get_conf_value enable_wilder)
+    if [ "${enable_wilder}" == "true" ]; then
+      use_wilder="YES"
+    else
+      use_wilder="NO"
+    fi
+    enable_statusline=$(get_conf_value enable_statusline)
+    if [ "${enable_statusline}" == "true" ]; then
+      use_statusline="YES"
+    else
+      use_statusline="NO"
+    fi
+    enable_tabline=$(get_conf_value enable_tabline)
+    if [ "${enable_tabline}" == "true" ]; then
+      use_tabline="YES"
+    else
+      use_tabline="NO"
+    fi
+    enable_winbar=$(get_conf_value enable_winbar)
+    if [ "${enable_winbar}" == "true" ]; then
+      use_winbar="YES"
+    else
+      use_winbar="NO"
+    fi
+    enable_terminal=$(get_conf_value enable_terminal)
+    if [ "${enable_terminal}" == "true" ]; then
+      use_terminal="YES"
+    else
+      use_terminal="NO"
+    fi
+    enable_games=$(get_conf_value enable_games)
+    if [ "${enable_games}" == "true" ]; then
+      use_games="YES"
+    else
+      use_games="NO"
+    fi
+    enable_alpha=$(get_conf_value enable_alpha)
+    if [ "${enable_alpha}" == "true" ]; then
+      use_alpha="YES"
+    else
+      use_alpha="NO"
+    fi
+    enable_bookmarks=$(get_conf_value enable_bookmarks)
+    if [ "${enable_bookmarks}" == "true" ]; then
+      use_bookmarks="YES"
+    else
+      use_bookmarks="NO"
+    fi
+    enable_ide=$(get_conf_value enable_ide)
+    if [ "${enable_ide}" == "true" ]; then
+      use_ide="YES"
+    else
+      use_ide="NO"
+    fi
+    enable_navigator=$(get_conf_value enable_navigator)
+    if [ "${enable_navigator}" == "true" ]; then
+      use_navigator="YES"
+    else
+      use_navigator="NO"
+    fi
+    enable_project=$(get_conf_value enable_project)
+    if [ "${enable_project}" == "true" ]; then
+      use_project="YES"
+    else
+      use_project="NO"
+    fi
+    enable_picker=$(get_conf_value enable_picker)
+    if [ "${enable_picker}" == "true" ]; then
+      use_picker="YES"
+    else
+      use_picker="NO"
+    fi
+    enable_smooth_scrolling=$(get_conf_value enable_smooth_scrolling)
+    if [ "${enable_smooth_scrolling}" == "true" ]; then
+      use_smooth_scrolling="YES"
+    else
+      use_smooth_scrolling="NO"
+    fi
+    dashboard_recent_files=$(get_conf_value dashboard_recent_files)
+    use_dashboard_recent_files="${dashboard_recent_files}"
+    enable_dashboard_header=$(get_conf_value enable_dashboard_header)
+    if [ "${enable_dashboard_header}" == "true" ]; then
+      use_dashboard_header="YES"
+    else
+      use_dashboard_header="NO"
+    fi
+    enable_dashboard_quick_links=$(get_conf_value enable_dashboard_quick_links)
+    if [ "${enable_dashboard_quick_links}" == "true" ]; then
+      use_dashboard_quick_links="YES"
+    else
+      use_dashboard_quick_links="NO"
+    fi
+    enable_color_indentline=$(get_conf_value enable_color_indentline)
+    if [ "${enable_color_indentline}" == "true" ]; then
+      use_color_indentline="YES"
+    else
+      use_color_indentline="NO"
+    fi
+    show_diagnostics=$(get_conf_value show_diagnostics)
+    use_show_diagnostics="${show_diagnostics}"
+    enable_semantic_highlighting=$(get_conf_value enable_semantic_highlighting)
+    if [ "${enable_semantic_highlighting}" == "true" ]; then
+      use_semantic_highlighting="YES"
+    else
+      use_semantic_highlighting="NO"
+    fi
+    convert_semantic_highlighting=$(get_conf_value convert_semantic_highlighting)
+    if [ "${convert_semantic_highlighting}" == "true" ]; then
+      convert_semantic_highlighting="YES"
+    else
+      convert_semantic_highlighting="NO"
+    fi
+    PS3="${BOLD}${PLEASE} choice (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    options+=("Theme               [${use_theme}]")
+    if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
+      options+=("Theme Style         [${use_theme_style}]")
+    fi
+    options+=("Transparency        [${use_transparent}]")
+    options+=("Map Leader          [${use_mapleader}]")
+    options+=("Map Local Leader    [${use_maplocalleader}]")
+    options+=("Number Lines        [${use_number}]")
+    options+=("Relative Numbers    [${use_relative_number}]")
+    options+=("List                [${use_list}]")
+    options+=("Session Manager     [${use_session_manager}]")
+    options+=("Enable Neo-Tree     [${use_neotree}]")
+    options+=("Enable Noice        [${use_noice}]")
+    options+=("Enable ChatGPT      [${use_chatgpt}]")
+    options+=("Enable Rainbow2     [${use_rainbow2}]")
+    options+=("Enable Fancy        [${use_fancy}]")
+    options+=("Enable Wilder       [${use_wilder}]")
+    options+=("Enable Terminal     [${use_terminal}]")
+    options+=("Enable Games        [${use_games}]")
+    options+=("Enable Alpha        [${use_alpha}]")
+    options+=("Enable Bookmarks    [${use_bookmarks}]")
+    options+=("Enable IDE          [${use_ide}]")
+    options+=("Enable Navigator    [${use_navigator}]")
+    options+=("Enable Project      [${use_project}]")
+    options+=("Enable Picker       [${use_picker}]")
+    options+=("Smooth Scrolling    [${use_smooth_scrolling}]")
+    options+=("Number Recent Files [${use_dashboard_recent_files}]")
+    options+=("Enable Alpha Header [${use_dashboard_header}]")
+    options+=("Enable Quick Links  [${use_dashboard_quick_links}]")
+    options+=("Enable Color Indent [${use_color_indentline}]")
+    options+=("Show Diagnostics    [${use_show_diagnostics}]")
+    options+=("Semantic Highlights [${use_semantic_highlighting}]")
+    options+=("Convert Semantic hl [${convert_semantic_highlighting}]")
+    options+=("Show Status Line    [${use_statusline}]")
+    options+=("Show Tab Line       [${use_tabline}]")
+    options+=("Show Winbar         [${use_winbar}]")
+    [ -f ${CONFBACK} ] && {
+      diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
+    }
+    options+=("Main Menu")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          clear
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Show Status"*,* | *,"Show Status"*)
+          if [ "${enable_statusline}" == "true" ]; then
+            set_conf_value "enable_statusline" "false"
+          else
+            set_conf_value "enable_statusline" "true"
+          fi
+          break
+          ;;
+        "Show Tab"*,* | *,"Show Tab"*)
+          if [ "${enable_tabline}" == "true" ]; then
+            set_conf_value "enable_tabline" "false"
+          else
+            set_conf_value "enable_tabline" "true"
+          fi
+          break
+          ;;
+        "Show Winbar"*,* | *,"Show Winbar"*)
+          if [ "${enable_winbar}" == "true" ]; then
+            set_conf_value "enable_winbar" "false"
+          else
+            set_conf_value "enable_winbar" "true"
+          fi
+          break
+          ;;
+        "Theme Style"*,* | *,"Theme Style"*)
+          select_theme_style ${theme}
+          break
+          ;;
+        "Theme"*,* | *,"Theme"*)
+          select_theme ${theme}
+          break
+          ;;
+        "Transparency"*,* | *,"Transparency"*)
+          if [ "${enable_transparent}" == "true" ]; then
+            set_conf_value "enable_transparent" "false"
+          else
+            set_conf_value "enable_transparent" "true"
+          fi
+          break
+          ;;
+        "Map Leader"*,* | *,"Map Leader"*)
+          if [ "${use_mapleader}" == "," ]
+          then
+            set_conf_value "mapleader" " "
+          else
+            set_conf_value "mapleader" ","
+          fi
+          break
+          ;;
+        "Map Local Leader"*,* | *,"Map Local Leader"*)
+          if [ "${use_maplocalleader}" == "," ]
+          then
+            set_conf_value "maplocalleader" " "
+          else
+            set_conf_value "maplocalleader" ","
+          fi
+          break
+          ;;
+        "Number Lines"*,* | *,"Number Lines"*)
+          if [ "${enable_number}" == "true" ]; then
+            set_conf_value "number" "false"
+          else
+            set_conf_value "number" "true"
+          fi
+          break
+          ;;
+        "Relative Numbers"*,* | *,"Relative Numbers"*)
+          if [ "${enable_relative_number}" == "true" ]; then
+            set_conf_value "relative_number" "false"
+          else
+            set_conf_value "relative_number" "true"
+          fi
+          break
+          ;;
+        "List"*,* | *,"List"*)
+          if [ "${enable_list}" == "true" ]; then
+            set_conf_value "list" "false"
+          else
+            set_conf_value "list" "true"
+          fi
+          break
+          ;;
+        "Session Manager"*,* | *,"Session Manager"*)
+          if [ "${session_manager}" == "possession" ]
+          then
+            set_conf_value "session_manager" "persistence"
+          else
+            set_conf_value "session_manager" "possession"
+          fi
+          break
+          ;;
+        "Enable Neo-Tree"*,* | *,"Enable Neo-Tree"*)
+          if [ "${enable_neotree}" == "true" ]; then
+            set_conf_value "enable_neotree" "false"
+          else
+            set_conf_value "enable_neotree" "true"
+          fi
+          break
+          ;;
+        "Enable Noice"*,* | *,"Enable Noice"*)
+          if [ "${enable_noice}" == "true" ]; then
+            set_conf_value "enable_noice" "false"
+          else
+            set_conf_value "enable_noice" "true"
+          fi
+          break
+          ;;
+        "Enable ChatGPT"*,* | *,"Enable ChatGPT"*)
+          if [ "${enable_chatgpt}" == "true" ]; then
+            set_conf_value "enable_chatgpt" "false"
+          else
+            set_conf_value "enable_chatgpt" "true"
+          fi
+          break
+          ;;
+        "Enable Rainbow2"*,* | *,"Enable Rainbow2"*)
+          if [ "${enable_rainbow2}" == "true" ]; then
+            set_conf_value "enable_rainbow2" "false"
+          else
+            set_conf_value "enable_rainbow2" "true"
+          fi
+          break
+          ;;
+        "Enable Fancy"*,* | *,"Enable Fancy"*)
+          if [ "${enable_fancy}" == "true" ]; then
+            set_conf_value "enable_fancy" "false"
+          else
+            set_conf_value "enable_fancy" "true"
+          fi
+          break
+          ;;
+        "Enable Wilder"*,* | *,"Enable Wilder"*)
+          if [ "${enable_wilder}" == "true" ]; then
+            set_conf_value "enable_wilder" "false"
+          else
+            set_conf_value "enable_wilder" "true"
+          fi
+          break
+          ;;
+        "Enable Terminal"*,* | *,"Enable Terminal"*)
+          if [ "${enable_terminal}" == "true" ]; then
+            set_conf_value "enable_terminal" "false"
+          else
+            set_conf_value "enable_terminal" "true"
+          fi
+          break
+          ;;
+        "Enable Games"*,* | *,"Enable Games"*)
+          if [ "${enable_games}" == "true" ]; then
+            set_conf_value "enable_games" "false"
+          else
+            set_conf_value "enable_games" "true"
+          fi
+          break
+          ;;
+        "Enable Alpha"*,* | *,"Enable Alpha"*)
+          if [ "${enable_alpha}" == "true" ]; then
+            set_conf_value "enable_alpha" "false"
+          else
+            set_conf_value "enable_alpha" "true"
+          fi
+          break
+          ;;
+        "Enable Bookmarks"*,* | *,"Enable Bookmarks"*)
+          if [ "${enable_bookmarks}" == "true" ]; then
+            set_conf_value "enable_bookmarks" "false"
+          else
+            set_conf_value "enable_bookmarks" "true"
+          fi
+          break
+          ;;
+        "Enable IDE"*,* | *,"Enable IDE"*)
+          if [ "${enable_ide}" == "true" ]; then
+            set_conf_value "enable_ide" "false"
+          else
+            set_conf_value "enable_ide" "true"
+          fi
+          break
+          ;;
+        "Enable Navigator"*,* | *,"Enable Navigator"*)
+          if [ "${enable_navigator}" == "true" ]; then
+            set_conf_value "enable_navigator" "false"
+          else
+            set_conf_value "enable_navigator" "true"
+          fi
+          break
+          ;;
+        "Enable Project"*,* | *,"Enable Project"*)
+          if [ "${enable_project}" == "true" ]; then
+            set_conf_value "enable_project" "false"
+          else
+            set_conf_value "enable_project" "true"
+          fi
+          break
+          ;;
+        "Enable Picker"*,* | *,"Enable Picker"*)
+          if [ "${enable_picker}" == "true" ]; then
+            set_conf_value "enable_picker" "false"
+          else
+            set_conf_value "enable_picker" "true"
+          fi
+          break
+          ;;
+        "Smooth Scrolling"*,* | *,"Smooth Scrolling"*)
+          if [ "${enable_smooth_scrolling}" == "true" ]; then
+            set_conf_value "enable_smooth_scrolling" "false"
+          else
+            set_conf_value "enable_smooth_scrolling" "true"
+          fi
+          break
+          ;;
+        "Number Recent Files"*,* | *,"Number Recent Files"*)
+          break
+          ;;
+        "Enable Alpha Header"*,* | *,"Enable Alpha Header"*)
+          if [ "${enable_dashboard_header}" == "true" ]; then
+            set_conf_value "enable_dashboard_header" "false"
+          else
+            set_conf_value "enable_dashboard_header" "true"
+          fi
+          break
+          ;;
+        "Enable Quick Links"*,* | *,"Enable Quick Links"*)
+          if [ "${enable_dashboard_quick_links}" == "true" ]; then
+            set_conf_value "enable_dashboard_quick_links" "false"
+          else
+            set_conf_value "enable_dashboard_quick_links" "true"
+          fi
+          break
+          ;;
+        "Enable Color Indent"*,* | *,"Enable Color Indent"*)
+          if [ "${enable_color_indentline}" == "true" ]; then
+            set_conf_value "enable_color_indentline" "false"
+          else
+            set_conf_value "enable_color_indentline" "true"
+          fi
+          break
+          ;;
+        "Show Diagnostics"*,* | *,"Show Diagnostics"*)
+          break
+          ;;
+        "Semantic Highlights"*,* | *,"Semantic Highlights"*)
+          if [ "${enable_semantic_highlighting}" == "true" ]; then
+            set_conf_value "enable_semantic_highlighting" "false"
+          else
+            set_conf_value "enable_semantic_highlighting" "true"
+          fi
+          break
+          ;;
+        "Convert Semantic hl"*,* | *,"Convert Semantic hl"*)
+          if [ "${convert_semantic_highlighting}" == "true" ]; then
+            set_conf_value "convert_semantic_highlighting" "false"
+          else
+            set_conf_value "convert_semantic_highlighting" "true"
+          fi
+          break
+          ;;
+        "Reset"*,* | *,"Reset"*)
+          [ -f ${CONFBACK} ] && {
+            cp ${CONFBACK} ${NVIMCONF}
+            set_chat_gpt
+          }
+          break
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          show_main_menu
+          break
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+      esac
+      REPLY=
+    done
+  done
+}
+
+show_main_menu() {
   set_haves
 
   while true; do
@@ -725,6 +1612,7 @@ show_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle [${use_gui}]")
     fi
+    options+=("Lazyman Configuration")
     options+=("Lazyman Status")
     options+=("Quit")
     select opt in "${options[@]}"; do
@@ -949,6 +1837,10 @@ show_menu() {
           fi
           break
           ;;
+        "Lazyman Configuration",* | *,"Lazyman Configuration")
+          show_conf_menu
+          break
+          ;;
         "Lazyman Status",* | *,"Lazyman Status")
           show_info >/tmp/lminfo$$
           if [ "${USEGUI}" ]; then
@@ -1035,6 +1927,7 @@ subdir=
 command=
 debug=
 invoke=
+confmenu=
 langservers=
 tellme=
 astronvim=
@@ -1071,7 +1964,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -1105,6 +1998,9 @@ while getopts "aAb:cdD:eE:iIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     E)
       invoke="$OPTARG"
+      ;;
+    F)
+      confmenu=1
       ;;
     i)
       lazyman=1
@@ -1634,14 +2530,9 @@ else
 fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
-[ "$OPENAI_API_KEY" ] && {
-  NVIMCONF="${HOME}/.config/${lazymandir}/lua/configuration.lua"
-  grep 'conf.enable_chatgpt' "$NVIMCONF" >/dev/null && {
-    cat "$NVIMCONF" \
-      | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "$NVIMCONF"
-    rm -f /tmp/nvim$$
-  }
+set_chat_gpt
+[ -f ${CONFBACK} ] || {
+  cp ${NVIMCONF} ${CONFBACK}
 }
 
 [ "${instnvim}" ] && {
@@ -1918,4 +2809,11 @@ fi
   }
 }
 
-[ "$interactive" ] && show_menu
+[ "$interactive" ] && {
+  if [ "$confmenu" ]
+  then
+    show_conf_menu
+  else
+    show_main_menu
+  fi
+}

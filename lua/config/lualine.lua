@@ -171,7 +171,7 @@ lualine.setup({
   extensions = { "neo-tree", "fzf", "toggleterm", "nvim-dap-ui", "quickfix" },
 })
 
-if settings.disable_statusline then
+if not settings.enable_statusline then
   require("lualine").hide({
     place = { "statusline" },
     unhide = vim.o.statusline == "",

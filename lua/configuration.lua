@@ -62,9 +62,9 @@ conf.enable_rainbow2 = true
 conf.enable_fancy = true
 -- Enable the wilder plugin
 conf.enable_wilder = false
--- The statusline (lualine) and tabline can each be enabled or disabled
--- Disable statusline (lualine)
-conf.disable_statusline = false
+-- The statusline (lualine), tabline, and winbar can each be enabled or disabled
+-- Enable statusline (lualine)
+conf.enable_statusline = true
 -- Enable tabline
 conf.enable_tabline = true
 -- Enable winbar with navic location via lspconfig
@@ -95,9 +95,9 @@ conf.media_backend = "jp2a"
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 5
 -- disable the header of the dashboard
-conf.disable_dashboard_header = true
+conf.enable_dashboard_header = false
 -- disable quick links of the dashboard
-conf.disable_dashboard_quick_links = false
+conf.enable_dashboard_quick_links = true
 -- enable colored indentation lines if theme supports it
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
@@ -167,7 +167,7 @@ conf.telescope_grep_hidden = true
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
 -- Disable semantic highlighting
-conf.disable_semantic_highlighting = false
+conf.enable_semantic_highlighting = true
 -- Convert semantic highlights to treesitter highlights
 conf.convert_semantic_highlighting = true
 

@@ -16,10 +16,10 @@ local links = {
   ["@lsp.type.decorator"] = "@function",
 }
 
-if settings.disable_semantic_highlighting or settings.convert_semantic_highlighting then
+if not settings.enable_semantic_highlighting or settings.convert_semantic_highlighting then
   vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
-      if settings.disable_semantic_highlighting then
+      if not settings.enable_semantic_highlighting then
         for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
           vim.api.nvim_set_hl(0, group, {})
         end

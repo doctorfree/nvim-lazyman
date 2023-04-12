@@ -301,11 +301,11 @@ if settings.dashboard_recent_files == 0 then
   layout[2] = nil
 end
 
-if settings.disable_dashboard_header == true then
+if settings.enable_dashboard_header == false then
   layout[0] = nil
 end
 
-if settings.disable_dashboard_quick_links == true then
+if settings.enable_dashboard_quick_links == false then
   layout[3] = nil
   layout[4] = nil
 end
