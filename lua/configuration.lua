@@ -67,8 +67,8 @@ conf.enable_wilder = false
 conf.disable_statusline = false
 -- Enable tabline
 conf.enable_tabline = true
--- Disable winbar with location
-conf.enable_winbar = false
+-- Enable winbar with navic location via lspconfig
+conf.enable_winbar = true
 -- Disable rebelot/terminal.nvim
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
