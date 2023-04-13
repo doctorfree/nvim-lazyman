@@ -2078,7 +2078,7 @@ show_info() {
 
 show_alias() {
   adir="$1"
-  printf "\nAn alias for this Lazyman configuration can be created with:"
+  printf "\nAliases like the following are defined in ~/.config/nvim-Lazyman/.lazymanrc"
   if [ "$all" ]; then
     printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
   elif [ "$astronvim" ]; then
@@ -4350,7 +4350,7 @@ fi
     printf "\n\texport NVIM_APPNAME=\"${nvimdir[0]}\"\n"
   fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
-  printf "\nshell aliases and the 'nvims' command have been created for you."
+  printf "\nshell aliases and the 'nvims' and 'neovides' commands have been created."
   [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
   if ! alias nvims >/dev/null 2>&1; then
     printf "\nTo activate these aliases and the 'nvims' Neovim config switcher,"
@@ -4360,7 +4360,8 @@ fi
   show_alias "${nvimdir[0]}"
 }
 [ "$quiet" ] || {
-  printf "\n\nRun 'lazyman' with no arguments for an interactive menu system\n\n"
+  printf "\nRun 'lazyman' with no arguments for an interactive menu system"
+  printf "\nRun 'lazyman -F' for the Lazyman Configuration menu\n"
 }
 
 [ "$tellme" ] || {

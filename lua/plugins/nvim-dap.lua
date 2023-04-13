@@ -5,7 +5,6 @@ return {
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'jayp0521/mason-nvim-dap.nvim',
-      "mxsdev/nvim-dap-vscode-js",
     },
 
     config = function ()
@@ -137,23 +136,8 @@ return {
             internalConsoleOptions = "neverOpen",
           }
         }
-
-        require("dap-vscode-js").setup({
-          adapters = {
-            'pwa-node',
-            'pwa-chrome',
-            'node-terminal',
-            'pwa-extensionHost'
-          },
-          debugger_path = vim.fn.fnamemodify("~/.local/share/nvim/lazy/vscode-js-debug", ":p")
-        })
       end
       require("config.dap.dap")
     end
-  },
-  {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
   }
 }
