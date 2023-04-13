@@ -94,6 +94,7 @@ if settings.enable_terminal then
       "Lazygit",
       "IPython",
       "Lazyman",
+      "Lazyconf",
       "Htop",
     },
     keys = "<leader>t",

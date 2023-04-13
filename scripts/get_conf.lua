@@ -1,5 +1,5 @@
 -- Invoke with 'nvim -l get_conf.lua conf_name'
--- Where 'conf_name' is one of the entryies in configuration.lua
+-- Where 'conf_name' is one of the entries in configuration.lua
 --
 -- For example, from a Bash script:
 --

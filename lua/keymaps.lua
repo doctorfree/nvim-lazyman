@@ -27,10 +27,11 @@ if settings.enable_terminal then
     map("n", "<leader>G", "<cmd>:Lazygit<cr>", { desc = "Lazygit command" })
   end
   if vim.fn.executable("lazyman") == 1 then
-    map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman command" })
+    map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman menu" })
+    map("n", "<leader>lc", "<cmd>:Lazyconf<cr>", { desc = "Lazyman configuration" })
   end
   if vim.fn.executable("asciiville") == 1 then
-    map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville command" })
+    map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville" })
   end
 end
 

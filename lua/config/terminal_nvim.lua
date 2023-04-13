@@ -66,6 +66,15 @@ if vim.fn.executable("lazyman") == 1 then
   api.nvim_create_user_command("Lazyman", function()
     lazyman:toggle(nil, true)
   end, { nargs = "?" })
+
+  local lazyconf = require("terminal").terminal:new({
+    layout = { open_cmd = "float", border = "rounded", height = 0.95, width = 0.95 },
+    cmd = { "lazyman", "-F" },
+    autoclose = true,
+  })
+  api.nvim_create_user_command("Lazyconf", function()
+    lazyconf:toggle(nil, true)
+  end, { nargs = "?" })
 end
 
 if vim.fn.executable("asciiville") == 1 then
