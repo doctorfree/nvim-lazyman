@@ -69,7 +69,7 @@ conf.enable_statusline = true
 conf.enable_tabline = true
 -- Enable winbar with navic location via lspconfig
 conf.enable_winbar = true
--- Disable rebelot/terminal.nvim
+-- Enable rebelot/terminal.nvim
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
@@ -93,12 +93,12 @@ conf.enable_smooth_scrolling = true
 conf.media_backend = "jp2a"
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files
-conf.dashboard_recent_files = 5
--- disable the header of the dashboard
+conf.dashboard_recent_files = 3
+-- Enable the header of the dashboard
 conf.enable_dashboard_header = false
--- disable quick links of the dashboard
+-- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
--- enable colored indentation lines if theme supports it
+-- Enable colored indentation lines if theme supports it
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
@@ -166,7 +166,7 @@ conf.telescope_grep_hidden = true
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
--- Disable semantic highlighting
+-- Enable semantic highlighting
 conf.enable_semantic_highlighting = true
 -- Convert semantic highlights to treesitter highlights
 conf.convert_semantic_highlighting = true
