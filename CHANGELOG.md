@@ -6,6 +6,31 @@
 
 ### 🐞 Fixed
 
+## v1.0.4r1
+
+### ⚡️ Added
+
+- Add -F option to lazyman for quick access to configuration menau
+- Add :Lazyconf command and ,lc key binding for even quicker access to configuration menu
+- Add Lazyman Configuration submenu
+- Setup extensive Dap configuration
+- Move navic lsp location to tabline and file path to winbar
+- Set navic depth_limit to 0 and depth_limit_indicator to ..
+- Enable winbar by default with navic location from lsp
+- Add navic location in winbar
+- Add back in lspconfig on_attach with diagnostic goto
+- Add markdownlint and terraform
+- Install luarocks and cspell
+- Add vimdoc to treesitter ensure installed
+
+### 🐞 Fixed
+
+- Refactor lspconfig with navic
+- Refactor mason, null-ls, lspconfig
+- Adjust Alpha dashboard highlight used for category titles
+- Rename VonHeikemen config to Heiker
+- Fix link to issues image
+
 ## v1.0.3r4
 
 ### ⚡️ Added
