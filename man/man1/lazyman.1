@@ -108,11 +108,18 @@ logout/login or source a shell initialization file to update the menu of
 installed Neovim configurations - the \f[V]nvims\f[R] alias dynamically
 generates the menu.
 .PP
+Similarly, a \f[V]neovides\f[R] alias can be used to select a Neovim
+configuration for use with the Neovim GUI \f[V]neovide\f[R].
+.PP
+Both the \f[V]nvims\f[R] alias and \f[V]neovides\f[R] alias accept a
+\f[V]-r\f[R] flag which indicates removal of the selected Neovim
+configuration.
+.PP
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command \f[V]lazyman -S\f[R].
 Note also that both the \f[V]nvims\f[R] alias and the
 \f[V]lazyman -S\f[R] command can accept additional filename arguments
-with are then passed to Neovim.
+which are then passed to Neovim.
 For example, to edit \f[V]/tmp/foo.lua\f[R] with a Neovim configuration
 selected from the \f[V]nvims\f[R] menu:
 .IP

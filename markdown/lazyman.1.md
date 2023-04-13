@@ -76,10 +76,16 @@ With this `nvims` alias it is no longer necessary to logout/login or
 source a shell initialization file to update the menu of installed
 Neovim configurations - the `nvims` alias dynamically generates the menu.
 
+Similarly, a `neovides` alias can be used to select a Neovim configuration
+for use with the Neovim GUI `neovide`.
+
+Both the `nvims` alias and `neovides` alias accept a `-r` flag which indicates
+removal of the selected Neovim configuration.
+
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command `lazyman -S`. Note also that both the `nvims`
 alias and the `lazyman -S` command can accept additional filename arguments
-with are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
+which are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
 a Neovim configuration selected from the `nvims` menu:
 
 ```bash

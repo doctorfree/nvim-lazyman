@@ -611,7 +611,7 @@ set_haves() {
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
-  have_prettier=$(type -p prettier)
+  have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
   have_xclip=$(type -p xclip)
@@ -1617,13 +1617,19 @@ show_main_menu() {
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if alias neovides >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && options+=("Select Config")
+          [ ${numitems} -gt 1 ] && {
+            options+=("Select and Open")
+            options+=("Select and Remove")
+          }
         else
           options+=("Open Neovide")
           if alias nvims >/dev/null 2>&1; then
             USEGUI=
             use_gui="neovim"
-            [ ${numitems} -gt 1 ] && options+=("Select Config")
+            [ ${numitems} -gt 1 ] && {
+              options+=("Select and Open")
+              options+=("Select and Remove")
+            }
           fi
         fi
       else
@@ -1631,12 +1637,18 @@ show_main_menu() {
         use_gui="neovim"
         options+=("Install Neovide")
         if alias nvims >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && options+=("Select Config")
+          [ ${numitems} -gt 1 ] && {
+            options+=("Select and Open")
+            options+=("Select and Remove")
+          }
         fi
       fi
     else
       if alias nvims >/dev/null 2>&1; then
-        [ ${numitems} -gt 1 ] && options+=("Select Config")
+        [ ${numitems} -gt 1 ] && {
+          options+=("Select and Open")
+          options+=("Select and Remove")
+        }
       fi
     fi
     installed=1
@@ -1657,7 +1669,7 @@ show_main_menu() {
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_tscli}" && "${have_xclip}" && "${have_prettier}" ]] || {
+    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_xclip}" ]] || {
       options+=("Install Tools")
     }
     options+=("Remove Base")
@@ -1704,11 +1716,19 @@ show_main_menu() {
           man lazyman
           break
           ;;
-        "Select Config"*,* | *,"Select Config"*)
+        "Select and Open"*,* | *,"Select and Open"*)
           if [ "${USEGUI}" ]; then
             neovselect
           else
             nvimselect
+          fi
+          break
+          ;;
+        "Select and Remove"*,* | *,"Select and Remove"*)
+          if [ "${USEGUI}" ]; then
+            neovselect -r
+          else
+            nvimselect -r
           fi
           break
           ;;
