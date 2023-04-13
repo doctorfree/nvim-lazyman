@@ -199,16 +199,17 @@ quit_btn.opts.hl = "AlphaShortcut"
 -- Neovim Configuration
 local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>")
 health_btn.opts.hl = "AlphaShortcut"
-local settings_btn = dashboard.button("s", "  Nvim-Lazyman Config", ":e " .. configuration_lua .. "<CR>")
-settings_btn.opts.hl = "AlphaShortcut"
-local lazyman_btn = dashboard.button("l", "  Nvim-Lazyman Help", ":h nvim-Lazyman<CR>")
+local settings_btn = dashboard.button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>")
+local lazyman_btn = dashboard.button("l", "  Lazyman Help", ":h nvim-Lazyman<CR>")
 if settings.enable_terminal then
-  lazyman_btn = dashboard.button("l", "  Run lazyman command", ":Lazyman<CR>")
+  settings_btn = dashboard.button("c", " Lazyman Configuration Menu", ":Lazyconf<CR>")
+  lazyman_btn = dashboard.button("l", "  Lazyman Main Menu", ":Lazyman<CR>")
 end
+settings_btn.opts.hl = "AlphaShortcut"
 lazyman_btn.opts.hl = "AlphaShortcut"
 local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
 options_btn.opts.hl = "AlphaShortcut"
-local mappings_btn = dashboard.button("m", "  Neovim Keymaps", ":e " .. keymaps_lua .. "<CR>")
+local mappings_btn = dashboard.button("k", "  Neovim Keymaps", ":e " .. keymaps_lua .. "<CR>")
 mappings_btn.opts.hl = "AlphaShortcut"
 
 -- Plugin Management

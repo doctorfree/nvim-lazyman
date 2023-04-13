@@ -1182,8 +1182,8 @@ show_conf_menu() {
     options+=("Project       [${use_project}]")
     options+=("Picker        [${use_picker}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("Recent Files  [${use_dashboard_recent_files}]")
     options+=("Alpha Header  [${use_dashboard_header}]")
+    options+=("Recent Files  [${use_dashboard_recent_files}]")
     options+=("Quick Links   [${use_dashboard_quick_links}]")
     options+=("Color Indent  [${use_color_indentline}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
@@ -1195,6 +1195,7 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
     }
     options+=("Main Menu")
+    options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
