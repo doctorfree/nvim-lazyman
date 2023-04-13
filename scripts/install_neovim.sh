@@ -236,14 +236,10 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint rust-analyzer taplo eslint \
-    yarn julia composer php deno; do
+  for pkg in golangci-lint eslint yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
-  [ "$PYTHON" ] && {
-    "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
-  }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1
   fi
