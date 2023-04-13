@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "This will uninstall Homebrew and all of the packages installed with brew."
 while true

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Install solidity compiler for Ubuntu
 # https://docs.soliditylang.org/en/v0.8.13/installing-solidity.html

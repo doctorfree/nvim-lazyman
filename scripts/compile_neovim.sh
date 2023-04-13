@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [ -d $HOME/src ] || mkdir -p $HOME/src
 git clone https://github.com/neovim/neovim.git $HOME/src/neovim

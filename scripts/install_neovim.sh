@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Copyright (C) 2023 Ronald Record <ronaldrecord@gmail.com>
 # Copyright (C) 2022 Michael Peter <michaeljohannpeter@gmail.com>

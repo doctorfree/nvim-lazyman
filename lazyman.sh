@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # lazyman - install, initialize, manage, and explore multiple Neovim configurations
 #
@@ -239,6 +239,13 @@ init_neovim() {
           nvim --headless "+SPInstall" +qa
           nvim --headless "+UpdateRemotePlugins" +qa
         else
+          if [ "$neodir" == "$lunarvimdir" ]; then
+            export NVIM_APPNAME="nvim-LunarVim"
+            export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+            export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+            export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+            export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+          fi
           nvim --headless "+Lazy! sync" +qa
         fi
       fi
@@ -260,6 +267,13 @@ init_neovim() {
           nvim --headless "+SPInstall" +qa >/dev/null 2>&1
           nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
         else
+          if [ "$neodir" == "$lunarvimdir" ]; then
+            export NVIM_APPNAME="nvim-LunarVim"
+            export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+            export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+            export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+            export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+          fi
           nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
         fi
       fi
@@ -322,6 +336,30 @@ remove_config() {
     done
   }
 
+  if [ "${ndir}" == "${lunarvimdir}" ]
+  then
+    USCP="${HOME}/.local/share/${lunarvimdir}/lvim/utils/installer/uninstall.sh"
+    [ -x ${USCP} ] || {
+      LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
+      LVIM_UNINSTALL="${LVIM_URL}/master/utils/installer/uninstall.sh"
+      curl -s ${LVIM_UNINSTALL} > /tmp/lvim-uninstall$$.sh
+      chmod 755 /tmp/lvim-uninstall$$.sh
+      USCP="/tmp/lvim-uninstall$$.sh"
+    }
+    [ "$quiet" ] || {
+      printf "\nRunning LunarVim uninstall script"
+    }
+    [ "$tellme" ] || {
+      export NVIM_APPNAME="${lunarvimdir}"
+      export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+      export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+      export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+      export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+      remove_backups=
+      [ "$removeall" ] && remove_backups="--remove-backups"
+      ${USCP} ${remove_backups} --remove-config > /dev/null 2>&1
+    }
+  fi
   [ -d "${HOME}/.config/$ndir" ] && {
     [ "$quiet" ] || {
       printf "\nRemoving existing ${ndir} config at ${HOME}/.config/${ndir}"
@@ -336,6 +374,7 @@ remove_config() {
     }
     [ "$tellme" ] || {
       rm -rf "${HOME}/.config/$ndir"-bak*
+      rm -rf "${HOME}/.config/$ndir".old
     }
   }
 
@@ -353,6 +392,7 @@ remove_config() {
     }
     [ "$tellme" ] || {
       rm -rf "${HOME}/.local/share/$ndir"-bak*
+      rm -rf "${HOME}/.local/share/$ndir".old
     }
   }
 
@@ -370,6 +410,7 @@ remove_config() {
     }
     [ "$tellme" ] || {
       rm -rf "${HOME}/.local/state/$ndir"-bak*
+      rm -rf "${HOME}/.local/state/$ndir".old
     }
   }
 
@@ -387,6 +428,7 @@ remove_config() {
     }
     [ "$tellme" ] || {
       rm -rf "${HOME}/.cache/$ndir"-bak*
+      rm -rf "${HOME}/.cache/$ndir".old
     }
   }
   [ "$tellme" ] || {
@@ -396,16 +438,16 @@ remove_config() {
 
 update_config() {
   ndir="$1"
-  [ -d "${HOME}/.config/$ndir" ] && {
+  GITDIR=".config/$ndir"
+  [ "${ndir}" == "${lunarvimdir}" ] && GITDIR=".local/share/${lunarvimdir}/lvim"
+  [ -d "${HOME}/${GITDIR}" ] && {
     [ "$quiet" ] || {
-      printf "\nUpdating existing ${ndir} config at ${HOME}/.config/${ndir} ..."
+      printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
     }
     [ "$tellme" ] || {
-      git -C "${HOME}/.config/$ndir" stash >/dev/null 2>&1
-      # git -C "${HOME}/.config/$ndir" pull >/dev/null 2>&1
-      # git -C "${HOME}/.config/$ndir" stash pop >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" fetch origin >/dev/null 2>&1
-      git -C "${HOME}/.config/$ndir" reset --hard origin/local >/dev/null 2>&1
+      git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
+      git -C "${HOME}/${GITDIR}" fetch origin >/dev/null 2>&1
+      git -C "${HOME}/${GITDIR}" reset --hard origin/local >/dev/null 2>&1
     }
     [ "$quiet" ] || {
       printf " done"
@@ -424,8 +466,6 @@ update_config() {
       }
       [ "$tellme" ] || {
         git -C "${HOME}/.config/$ndir/$cdir" stash >/dev/null 2>&1
-        # git -C "${HOME}/.config/$ndir/$cdir" pull >/dev/null 2>&1
-        # git -C "${HOME}/.config/$ndir/$cdir" stash pop >/dev/null 2>&1
         git -C "${HOME}/.config/$ndir/$cdir" fetch origin >/dev/null 2>&1
         git -C "${HOME}/.config/$ndir"/$cdir reset --hard origin/local >/dev/null 2>&1
       }
@@ -2576,6 +2616,15 @@ set_chat_gpt
   cp ${NVIMCONF} ${CONFBACK}
 }
 
+currlimit=$(ulimit -n)
+hardlimit=$(ulimit -Hn)
+[ "$hardlimit" == "unlimited" ] && hardlimit=9999
+if [ "$hardlimit" -gt 4096 ]; then
+  [ "$tellme" ] || ulimit -n 4096
+else
+  [ "$tellme" ] || ulimit -n "$hardlimit"
+fi
+
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
@@ -2653,7 +2702,38 @@ done
   clone_repo LazyVim LazyVim/starter "$lazyvimdir"
 }
 [ "$lunarvim" ] && {
-  clone_repo LunarVim LunarVim/LunarVim "$lunarvimdir"
+  export NVIM_APPNAME="${lunarvimdir}"
+  export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+  export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+  export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
+  LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
+  [ "$quiet" ] || printf "\nCloning and initializing LunarVim ... "
+  [ "$tellme" ] || {
+    curl -s ${LVIM_INSTALL} > /tmp/lvim-install$$.sh
+    chmod 755 /tmp/lvim-install$$.sh
+    [ -x $HOME/.local/bin/lvim ] || {
+      [ -f ${LMANDIR}/scripts/lvim ] && {
+        if [ "${lunarvimdir}" == "nvim-LunarVim" ]
+        then
+          cp ${LMANDIR}/scripts/lvim $HOME/.local/bin/lvim
+        else
+          cat ${LMANDIR}/scripts/lvim | \
+            sed -e "s/nvim-LunarVim/${lunarvimdir}/" > $HOME/.local/bin/lvim
+        fi
+        chmod 755 $HOME/.local/bin/lvim
+      }
+    }
+    if [ "$debug" ]; then
+      /tmp/lvim-install$$.sh --no-install-dependencies
+    else
+      /tmp/lvim-install$$.sh --no-install-dependencies > /dev/null 2>&1
+    fi
+    rm -f /tmp/lvim-install$$.sh
+    add_nvimdirs_entry "${lunarvimdir}"
+  }
+  [ "$quiet" ] || printf "done"
 }
 [ "$magicvim" ] && {
   [ -d "${HOME}/.config/$magicvimdir" ] || {
@@ -2746,15 +2826,6 @@ done
     [ "$quiet" ] || printf "done"
   fi
 }
-
-currlimit=$(ulimit -n)
-hardlimit=$(ulimit -Hn)
-[ "$hardlimit" == "unlimited" ] && hardlimit=9999
-if [ "$hardlimit" -gt 4096 ]; then
-  [ "$tellme" ] || ulimit -n 4096
-else
-  [ "$tellme" ] || ulimit -n "$hardlimit"
-fi
 
 [ "$interactive" ] || {
   for neovim in "${nvimdir[@]}"; do
