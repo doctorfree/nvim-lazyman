@@ -64,7 +64,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 require("utils.utils").on_attach(function(client, buffer)
   require("config.lsp.keymaps").on_attach(client, buffer)
   require("config.lsp.inlayhints").on_attach(client, buffer)
-  require("config.lsp.breadcrumb").on_attach(client, buffer)
   require("config.lsp.gitsigns").on_attach(client, buffer)
 end)
 
