@@ -4,7 +4,7 @@
 #
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
-# To use NeoVim
+# To use Neovim
 command -v nvim > /dev/null && {
   alias vi='nvim'
   # Uncomment this line to use Neovim even when you type vim

@@ -6,7 +6,7 @@ local conf = {}
 --   tundra, onedarkpro, everforest, monokai-pro
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
-conf.theme = "catppuccin"
+conf.theme = "tokyonight"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
 --   tokyonight:  night, storm, day, moon
@@ -15,7 +15,7 @@ conf.theme = "catppuccin"
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
-conf.theme_style = "mocha"
+conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = false
 

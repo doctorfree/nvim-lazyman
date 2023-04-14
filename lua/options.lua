@@ -61,6 +61,7 @@ o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the
 o.smartcase = true -- Don't ignore case with capitals
 o.smartindent = true -- Insert indents automatically
 o.spelllang = { "en" }
+o.spell = true
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 o.termguicolors = true -- True color support

@@ -425,7 +425,7 @@ environment variable to use the newly created Neovim configuration:
 export NVIM_APPNAME="<nvimdir>"
 ```
 
-where `<nvimdir>` is the argument provided to `-N` above.
+Where `<nvimdir>` is the argument provided to `-N` above.
 
 For example, to install and initialize the Lazy based Neovim configuration
 hosted at <https://github.com/appelgriebsch/Nv> and place it in `~/.config/nvim-Nv`,
@@ -482,7 +482,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
-- Replace the UI for messages, cmdline and popupmenu via [noice.nvim](https://github.com/folke/noice.nvim)
+- Replace the UI for messages, cmdline and popup menu via [noice.nvim](https://github.com/folke/noice.nvim)
 - Fully featured status line via [lualine](https://github.com/nvim-lualine/lualine.nvim) and [tabline](https://github.com/kdheepak/tabline.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Terminal management via [terminal.nvim](https://github.com/rebelot/terminal.nvim)
@@ -749,7 +749,7 @@ below along with their default settings:
   - `conf.session_manager = "possession"`
 - Neo-tree or nvim-tree, false will enable nvim-tree
   - `conf.enable_neotree = true`
-- Replace the UI for messages, cmdline and the popupmenu
+- Replace the UI for messages, cmdline and the popup menu
   - `conf.enable_noice = true`
 - Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
   - `conf.enable_chatgpt = false`
@@ -776,7 +776,7 @@ below along with their default settings:
   - `conf.enable_navigator = true`
 - Enable Project manager
   - `conf.enable_project = true`
-- Enable smooth scrolling with the neoscroll plugin
+- Enable smooth scrolling with the `neoscroll` plugin
   - `conf.enable_smooth_scrolling = true`
 - Enable window picker
   - `conf.enable_picker = true`
@@ -800,7 +800,7 @@ local conf = {}
 --   tundra, onedarkpro, everforest, monokai-pro
 -- A configuration file for each theme is in lua/themes/
 -- Use <F8> to step through themes
-conf.theme = "catppuccin"
+conf.theme = "tokyonight"
 -- Available styles are:
 --   kanagawa:    wave, dragon, lotus
 --   tokyonight:  night, storm, day, moon
@@ -809,9 +809,9 @@ conf.theme = "catppuccin"
 --   dracula:     blood, magic, soft, default
 --   nightfox:    carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
-conf.theme_style = "mocha"
+conf.theme_style = "moon"
 -- enable transparency if the theme supports it
-conf.enable_transparent = false
+conf.enable_transparent = true
 
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
@@ -944,9 +944,12 @@ execute `lazyman -F` in a terminal window. Alternately, executing the
 Neovim command `:Lazyman` will also bring up the `lazyman` command
 in a Neovim terminal.
 
-To use the Neovim Terminal in interactive mode allowing input to the
-`lazyman` prompt, while in the Neovim Terminal enter Insert mode by
-typing 'i' or 'a'.
+The Lazyman Neovim configuration includes an autocmd to automatically
+enter insert mode when opening the Neovim Terminal. This allows
+immediate input to the `lazyman` prompt. While in the Neovim Terminal
+the normal Neovim mode, motion, and command key bindings are in effect.
+For example, to leave insert mode press `<ESC>`, to re-enter insert
+mode press `i` or `a`.
 
 If [Asciiville](https://github.com/doctorfree/Asciiville) is installed,
 pressing `,A` or executing the `:Asciiville` Neovim command will execute
@@ -1165,7 +1168,7 @@ removal of the selected Neovim configuration.
 #
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
-# To use NeoVim
+# To use Neovim
 command -v nvim > /dev/null && {
   alias vi='nvim'
   # Uncomment this line to use Neovim even when you type vim

@@ -44,6 +44,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   command = "checktime",
 })
 
+-- Auto insert mode for Terminal
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
+  callback = function(args)
+    if vim.startswith(vim.api.nvim_buf_get_name(args.buf), "term://") then
+      vim.cmd("startinsert")
+    end
+  end,
+})
+
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
@@ -114,6 +123,15 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
+  end,
+})
+
+-- disable spell check in some file types
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("spell"),
+  pattern = { "yaml", "json", "sh" },
+  callback = function()
+    vim.opt_local.spell = false
   end,
 })
 

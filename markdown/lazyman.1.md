@@ -408,9 +408,12 @@ pressing `,lm` will execute the `lazyman` command in a Neovim floating terminal
 window. Alternately, executing the Neovim command `:Lazyman` will also
 bring up the `lazyman` command in a Neovim terminal.
 
-To use the Neovim Terminal in interactive mode allowing input to the
-`lazyman` prompt, while in the Neovim Terminal enter Insert mode by
-typing 'i' or 'a'.
+The Lazyman Neovim configuration includes an autocmd to automatically
+enter insert mode when opening the Neovim Terminal. This allows
+immediate input to the `lazyman` prompt. While in the Neovim Terminal
+the normal Neovim mode, motion, and command key bindings are in effect.
+For example, to leave insert mode press `<ESC>`, to re-enter insert
+mode press `i` or `a`.
 
 If [Asciiville](https://github.com/doctorfree/Asciiville) is installed,
 pressing `,A` or executing the `:Asciiville` Neovim command will execute
