@@ -20,7 +20,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker"
+EXTRACFGS="Nv Knmac Allaman Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -73,8 +73,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak',"
-  printf "\n           'Optixal', 'Plug', or 'Heiker'"
+  printf "\n           'Knmac', 'Allaman', 'Fennel', 'Nv', 'NvPak',"
+  printf "\n           'Optixal', 'Plug', 'Simple', or 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -1841,8 +1841,8 @@ show_main_menu() {
             Nv)
               lazyman -w Nv -z -y
               ;;
-            Abstract)
-              lazyman -w Abstract -z -y
+            Knmac)
+              lazyman -w Knmac -z -y
               ;;
             Allaman)
               lazyman -w Allaman -z -y
@@ -1864,6 +1864,9 @@ show_main_menu() {
               ;;
             Minimal)
               lazyman -x Minimal -z -y
+              ;;
+            Simple)
+              lazyman -w Simple -z -y
               ;;
             StartBase)
               lazyman -x StartBase -z -y
@@ -2219,7 +2222,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker; do
+      for neovim in Nv Knmac Allaman Fennel NvPak Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2239,12 +2242,12 @@ shift $((OPTIND - 1))
       printf " done"
       show_alias "nvim-Nv"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
-      printf "\n${action} Abstract Neovim configuration ..."
-      lazyman -C https://github.com/Abstract-IDE/Abstract \
-        -N nvim-Abstract -P -q -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-Knmac ] && action="Updating"
+      printf "\n${action} Knmac Neovim configuration ..."
+      lazyman -C https://github.com/knmac/.dotfiles \
+        -D nvim/.config/nvim -N nvim-Knmac -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-Abstract"
+      show_alias "nvim-Knmac"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
@@ -2287,6 +2290,13 @@ shift $((OPTIND - 1))
         -N nvim-Allaman -q -z ${yesflag}
       printf " done\n"
       show_alias "nvim-Allaman"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Simple ] && action="Updating"
+      printf "\n${action} Simple Neovim configuration ..."
+      lazyman -C https://github.com/anthdm/.nvim \
+        -N nvim-Simple -P -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Simple"
     else
       extra_url=
       extra_dir=
@@ -2294,9 +2304,9 @@ shift $((OPTIND - 1))
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimextra} in
-        Abstract)
-          extra_url="https://github.com/Abstract-IDE/Abstract"
-          extra_opt="-P"
+        Knmac)
+          extra_url="https://github.com/knmac/.dotfiles"
+          extra_dir="-D nvim/.config/nvim"
           ;;
         Allaman)
           extra_url="https://github.com/Allaman/nvim"
@@ -2322,6 +2332,10 @@ shift $((OPTIND - 1))
         Heiker)
           extra_url="https://github.com/VonHeikemen/dotfiles"
           extra_dir="-D my-configs/neovim"
+          ;;
+        Simple)
+          extra_url="https://github.com/anthdm/.nvim"
+          extra_opt="-P"
           ;;
         *)
           printf "\nUnrecognized extra configuration: ${nvimextra}"

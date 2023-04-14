@@ -56,10 +56,11 @@ The Lazyman Neovim configuration categories:
 | [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
 
-| **Extra** |               |            | **Configs** |
-| ---- | --------- | ------ | ------- |
-| [Nv](https://github.com/appelgriebsch/Nv) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
-| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) |
+| **Extra** |            | **Configs** |
+| ---- | ------ | ------- |
+| [Nv](https://github.com/appelgriebsch/Nv) | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) | [Simple](https://github.com/anthdm/.nvim) |
 
 | **Starter** |    |    | **Configs** |
 | ------- | -- | -- | ------- |
@@ -368,20 +369,33 @@ installed with the `-w conf` option.
 
 - [Nv](https://github.com/appelgriebsch/Nv)
   - Install and initialize with `lazyman -w Nv`
-- [Abstract](https://github.com/Abstract-IDE/Abstract)
-  - Install and initialize with `lazyman -w Abstract`
+- [Knmac](https://github.com/knmac/.dotfiles)
+  - Research Scientist at Amazon
+  - See the [Knmac Neovim Config Cheat Sheet](https://github.com/knmac/.dotfiles/blob/master/cheatsheets/nvim_cheatsheet.md)
+  - Install and initialize with `lazyman -w Knmac`
 - [Fennel](https://github.com/jhchabran/nvim-config)
+  - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
   - Install and initialize with `lazyman -w Fennel`
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
+  - PaK in Farsi means pure, something that is in its purest form
   - Install and initialize with `lazyman -w NvPak`
 - [Optixal](https://github.com/Optixal/neovim-init.vim)
+  - Hybrid Neovim config for developers with a functional yet aesthetic experience
   - Install and initialize with `lazyman -w Optixal`
 - [Vim Plug](https://github.com/doctorfree/nvim-plug)
+  - Older vim-plug based configuration of the author
+  - Included as an example of vim-plug support in lazyman
   - Install and initialize with `lazyman -w Plug`
 - [Heiker](https://github.com/VonHeikemen/dotfiles)
+  - Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
   - Install and initialize with `lazyman -w Heiker`
 - [Allaman](https://github.com/Allaman/nvim)
+  - One of the configs that inspired Lazyman, thanks Michael Peter!
   - Install and initialize with `lazyman -w Allaman`
+- [Simple](https://github.com/anthdm/.nvim)
+  - A remarkably effective Neovim configuration in only one small file
+  - The author's [video description of this config](https://youtu.be/AzhSnM0uHvM)
+  - Install and initialize with `lazyman -w Simple`
 
 ### Starter configurations
 
@@ -584,8 +598,8 @@ Where:
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Extra 'conf' config
        'conf' can be one of:
-           'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak',
-           'Optixal', 'Plug', or 'Heiker'
+           'Knmac', 'Allaman', 'Fennel', 'Nv', 'NvPak',
+           'Optixal', 'Plug', 'Simple', or 'Heiker'
     -W indicates install and initialize all 'Extra' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
@@ -1045,10 +1059,10 @@ After `export NVIM_APPNAME="nvim-Abstract"`, invoking `nvim` will bring up
 the Abstract Neovim configuration.
 
 Another Packer based Neovim configuration, this one using Fennel, serves as
-a second example:
+a second example and is included as a Lazyman supported "Extra" config:
 
 ```bash
-lazyman -C https://github.com/jhchabran/nvim-config -N nvim-Fennel -P
+lazyman -w Fennel
 ```
 
 To begin exploring this Neovim configuration:
@@ -1058,10 +1072,11 @@ NVIM_APPNAME="nvim-Fennel" nvim ~/.config/nvim-Fennel/fnl/conf/init.fnl
 ```
 
 A third example of a Packer based Neovim configuration is the excellent
-`MagicVim` config. To install and initialize `MagicVim`:
+`MagicVim` config, a fully supported Lazyman Neovim config. To install and
+initialize `MagicVim`:
 
 ```bash
-lazyman -C https://gitlab.com/GitMaster210/magicvim -N nvim-MagicVim -P
+lazyman -m
 ```
 
 To begin exploring the `MagicVim` configuration:
@@ -1596,7 +1611,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker"
+EXTRACFGS="Nv Knmac Allaman Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -1649,8 +1664,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak',"
-  printf "\n           'Optixal', 'Plug', or 'Heiker'"
+  printf "\n           'Knmac', 'Allaman', 'Fennel', 'Nv', 'NvPak',"
+  printf "\n           'Optixal', 'Plug', 'Simple', or 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -3417,8 +3432,8 @@ show_main_menu() {
             Nv)
               lazyman -w Nv -z -y
               ;;
-            Abstract)
-              lazyman -w Abstract -z -y
+            Knmac)
+              lazyman -w Knmac -z -y
               ;;
             Allaman)
               lazyman -w Allaman -z -y
@@ -3440,6 +3455,9 @@ show_main_menu() {
               ;;
             Minimal)
               lazyman -x Minimal -z -y
+              ;;
+            Simple)
+              lazyman -w Simple -z -y
               ;;
             StartBase)
               lazyman -x StartBase -z -y
@@ -3795,7 +3813,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Abstract Allaman Fennel NvPak Optixal Plug Heiker; do
+      for neovim in Nv Knmac Allaman Fennel NvPak Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -3815,12 +3833,12 @@ shift $((OPTIND - 1))
       printf " done"
       show_alias "nvim-Nv"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
-      printf "\n${action} Abstract Neovim configuration ..."
-      lazyman -C https://github.com/Abstract-IDE/Abstract \
-        -N nvim-Abstract -P -q -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-Knmac ] && action="Updating"
+      printf "\n${action} Knmac Neovim configuration ..."
+      lazyman -C https://github.com/knmac/.dotfiles \
+        -D nvim/.config/nvim -N nvim-Knmac -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-Abstract"
+      show_alias "nvim-Knmac"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
@@ -3863,6 +3881,13 @@ shift $((OPTIND - 1))
         -N nvim-Allaman -q -z ${yesflag}
       printf " done\n"
       show_alias "nvim-Allaman"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Simple ] && action="Updating"
+      printf "\n${action} Simple Neovim configuration ..."
+      lazyman -C https://github.com/anthdm/.nvim \
+        -N nvim-Simple -P -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Simple"
     else
       extra_url=
       extra_dir=
@@ -3870,9 +3895,9 @@ shift $((OPTIND - 1))
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimextra} in
-        Abstract)
-          extra_url="https://github.com/Abstract-IDE/Abstract"
-          extra_opt="-P"
+        Knmac)
+          extra_url="https://github.com/knmac/.dotfiles"
+          extra_dir="-D nvim/.config/nvim"
           ;;
         Allaman)
           extra_url="https://github.com/Allaman/nvim"
@@ -3898,6 +3923,10 @@ shift $((OPTIND - 1))
         Heiker)
           extra_url="https://github.com/VonHeikemen/dotfiles"
           extra_dir="-D my-configs/neovim"
+          ;;
+        Simple)
+          extra_url="https://github.com/anthdm/.nvim"
+          extra_opt="-P"
           ;;
         *)
           printf "\nUnrecognized extra configuration: ${nvimextra}"
