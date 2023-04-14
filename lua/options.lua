@@ -23,12 +23,14 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
+-- Register the 'text' filetype with Treesitter to be highlighted like markdown
+vim.treesitter.language.register('markdown', 'text')
 
 o.autowrite = true -- Enable auto write
 o.clipboard = "unnamed" -- or "unnamedplus"
 o.completeopt = "menu,menuone,noselect"
 o.conceallevel = 3 -- Hide * markup for bold and italic
--- o.conceallevel = 0, -- so that `` is visible in markdown files
+o.conceallevel = 0 -- so that `` is visible in markdown files
 o.cmdheight = 0 -- more space in the neovim command line for displaying messages
 o.fileencoding = "utf-8" -- the encoding written to a file
 o.incsearch = true
@@ -61,7 +63,8 @@ o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the
 o.smartcase = true -- Don't ignore case with capitals
 o.smartindent = true -- Insert indents automatically
 o.spelllang = { "en" }
-o.spell = true
+o.spell = false     -- disable by default, enable in ftplugin or autocmd
+o.spelloptions = { "noplainbuffer" }
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 o.termguicolors = true -- True color support

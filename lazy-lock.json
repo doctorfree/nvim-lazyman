@@ -1,5 +1,4 @@
 {
-  "ChatGPT.nvim": { "branch": "main", "commit": "7a65824f99597a13871d9c773c85f7a4b784f8c5" },
   "LuaSnip": { "branch": "master", "commit": "a6355b12a3b7da0aef71f02560e17ff480182b97" },
   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
   "SetColorSchemes.vim": { "branch": "main", "commit": "6180352f9b196db9b3899ccbfbdc07160121fbf3" },

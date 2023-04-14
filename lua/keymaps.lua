@@ -28,15 +28,22 @@ if settings.enable_terminal then
   end
   if vim.fn.executable("lazyman") == 1 then
     map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman menu" })
-    map("n", "<leader>lc", "<cmd>:Lazyconf<cr>", { desc = "Lazyman configuration" })
+    map("n", "<leader>lc", "<cmd>:Lazyconf<cr>",
+      { desc = "Lazyman configuration" })
   end
   if vim.fn.executable("asciiville") == 1 then
     map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville" })
   end
 end
 
+-- Theme specific keymaps
 if settings.theme == "monokai-pro" then
-  map("n", "<leader>C", ":MonokaiProSelect<CR>", { desc = "Select Monokai pro filter" })
+  map("n", "<leader>C", ":MonokaiProSelect<CR>",
+    { desc = "Select Monokai pro filter" })
+end
+if settings.theme == "tundra" then
+  map("n", "<leader>ut", ":Tundra toggle_transparency<CR>",
+    { desc = "Toggle Transparency" })
 end
 
 if settings.enable_neotree then

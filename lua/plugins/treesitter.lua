@@ -27,9 +27,6 @@ local M = {
     event = { "InsertEnter" },
     opts = { enable = true },
   },
-
-  -- { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-
   {
     rainbow_plugin,
     event = { "BufReadPost" },

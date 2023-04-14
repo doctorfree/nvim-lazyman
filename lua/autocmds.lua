@@ -48,6 +48,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
   callback = function(args)
     if vim.startswith(vim.api.nvim_buf_get_name(args.buf), "term://") then
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = false
       vim.cmd("startinsert")
     end
   end,
@@ -119,19 +121,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit", "markdown", "text" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
-  end,
-})
-
--- disable spell check in some file types
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("spell"),
-  pattern = { "yaml", "json", "sh" },
-  callback = function()
-    vim.opt_local.spell = false
   end,
 })
 
