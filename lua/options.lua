@@ -29,7 +29,7 @@ vim.treesitter.language.register('markdown', 'text')
 o.autowrite = true -- Enable auto write
 o.clipboard = "unnamed" -- or "unnamedplus"
 o.completeopt = "menu,menuone,noselect"
-o.conceallevel = 3 -- Hide * markup for bold and italic
+-- o.conceallevel = 3 -- Hide * markup for bold and italic
 o.conceallevel = 0 -- so that `` is visible in markdown files
 o.cmdheight = 0 -- more space in the neovim command line for displaying messages
 o.fileencoding = "utf-8" -- the encoding written to a file
