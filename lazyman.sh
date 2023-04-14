@@ -445,6 +445,11 @@ update_config() {
       printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
     }
     [ "$tellme" ] || {
+      [ "$ndir" == "$lazymandir" ] && {
+        [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+          cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
+        }
+      }
       git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" fetch origin >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" reset --hard origin/local >/dev/null 2>&1
@@ -453,6 +458,12 @@ update_config() {
       printf " done"
     }
     add_nvimdirs_entry "$ndir"
+  }
+  [ "$ndir" == "$lazymandir" ] && {
+    [ -f /tmp/lazyconf$$ ] && {
+      cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+      rm -f /tmp/lazyconf$$
+    }
   }
   [ "$ndir" == "$astronvimdir" ] || [ "$ndir" == "$nvchaddir" ] && {
     if [ "$ndir" == "$astronvimdir" ]; then
