@@ -115,7 +115,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Appendix](#appendix)
   - [get_conf.lua](#get-configuration-script)
   - [lazyman.sh](#lazyman-source-code)
-  - [install_neovim.sh](#install-neovim-source-code)
+  - [install_neovim.sh](#install-neovim-and-tools)
 
 ## Requirements
 
@@ -2042,8 +2042,8 @@ update_config() {
         }
       }
       git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
-      git -C "${HOME}/${GITDIR}" fetch origin >/dev/null 2>&1
-      git -C "${HOME}/${GITDIR}" reset --hard origin/local >/dev/null 2>&1
+      git -C "${HOME}/${GITDIR}" reset --hard >/dev/null 2>&1
+      git -C "${HOME}/${GITDIR}" pull >/dev/null 2>&1
     }
     [ "$quiet" ] || {
       printf " done"
@@ -2068,8 +2068,8 @@ update_config() {
       }
       [ "$tellme" ] || {
         git -C "${HOME}/.config/$ndir/$cdir" stash >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir/$cdir" fetch origin >/dev/null 2>&1
-        git -C "${HOME}/.config/$ndir"/$cdir reset --hard origin/local >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir"/$cdir reset --hard >/dev/null 2>&1
+        git -C "${HOME}/.config/$ndir"/$cdir pull >/dev/null 2>&1
       }
       [ "$quiet" ] || {
         printf " done"
@@ -4570,7 +4570,7 @@ fi
 
 </details>
 
-### Install neovim source code
+### Install neovim and tools
 
 The `lazyman` command checks for a current version of Neovim and, if not found
 or if the existing version is less than 0.9, invokes the `install_neovim.sh`
