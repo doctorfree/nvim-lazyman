@@ -4583,7 +4583,7 @@ executes the following on your system:
 <details><summary>View the install_neovim.sh script</summary>
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Copyright (C) 2023 Ronald Record <ronaldrecord@gmail.com>
 # Copyright (C) 2022 Michael Peter <michaeljohannpeter@gmail.com>
@@ -4612,6 +4612,7 @@ check_prerequisites() {
   if [ "${BASH_VERSION:-}" = "" ]; then
     abort "Bash is required to interpret this script."
   fi
+  [ "${BASH_VERSINFO:-0}" -ge 4 ] || install_bash=1
 
   if [[ $EUID -eq 0 ]]; then
     abort "Script must not be run as root user"
@@ -4743,6 +4744,18 @@ brew_install() {
 
 install_neovim_dependencies() {
   [ "$quiet" ] || printf "\nInstalling dependencies"
+  [ "$install_bash" ] && {
+    log "Installing a modern version of bash ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet bash >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  }
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in $PKGS; do
     if command -v "$pkg" >/dev/null 2>&1; then
@@ -4821,14 +4834,10 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint rust-analyzer taplo eslint \
-    yarn julia composer php deno; do
+  for pkg in golangci-lint eslint yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
-  [ "$PYTHON" ] && {
-    "$PYTHON" -m pip install python-lsp-server >/dev/null 2>&1
-  }
   if command -v go >/dev/null 2>&1; then
     go install golang.org/x/tools/gopls@latest >/dev/null 2>&1
   fi
@@ -4986,6 +4995,7 @@ else
   ulimit -n "$hardlimit"
 fi
 
+install_bash=
 [ "$debug" ] && MAIN_START_SECONDS=$(date +%s)
 
 main

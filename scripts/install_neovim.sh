@@ -27,6 +27,7 @@ check_prerequisites() {
   if [ "${BASH_VERSION:-}" = "" ]; then
     abort "Bash is required to interpret this script."
   fi
+  [ "${BASH_VERSINFO:-0}" -ge 4 ] || install_bash=1
 
   if [[ $EUID -eq 0 ]]; then
     abort "Script must not be run as root user"
@@ -158,6 +159,18 @@ brew_install() {
 
 install_neovim_dependencies() {
   [ "$quiet" ] || printf "\nInstalling dependencies"
+  [ "$install_bash" ] && {
+    log "Installing a modern version of bash ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    "$BREW_EXE" install --quiet bash >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  }
   PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
   for pkg in $PKGS; do
     if command -v "$pkg" >/dev/null 2>&1; then
@@ -397,6 +410,7 @@ else
   ulimit -n "$hardlimit"
 fi
 
+install_bash=
 [ "$debug" ] && MAIN_START_SECONDS=$(date +%s)
 
 main
