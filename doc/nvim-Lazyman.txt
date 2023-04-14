@@ -202,8 +202,8 @@ directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit
 `-U` : indicates update an existing configuration
 
 `-w conf` : indicates install and initialize Extra 'conf' configuration. 'conf'
-can be one of: 'Abstract', 'Allaman', 'Fennel', 'Nv', 'NvPak', 'Optixal',
-'Plug', or 'Heiker'
+can be one of: 'Knmac', 'Allaman', 'Fennel', 'Nv', 'NvPak', 'Optixal', 'Plug',
+'Simple', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Extra' Neovim configurations
 
