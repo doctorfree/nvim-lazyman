@@ -705,7 +705,7 @@ select_theme_style() {
     have_figlet=$(type -p figlet)
     have_lolcat=$(type -p lolcat)
     while true; do
-      clear
+      [ "$debug" ] || clear
       printf "\n"
       [ "${have_figlet}" ] && show_figlet
       printf "\n"
@@ -726,7 +726,7 @@ select_theme_style() {
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
           "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-            clear
+            [ "$debug" ] || clear
             printf "\n"
             man lazyman
             break
@@ -927,7 +927,7 @@ select_theme() {
     have_figlet=$(type -p figlet)
     have_lolcat=$(type -p lolcat)
     while true; do
-      clear
+      [ "$debug" ] || clear
       printf "\n"
       [ "${have_figlet}" ] && show_figlet
       printf "\n"
@@ -948,7 +948,7 @@ select_theme() {
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
           "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-            clear
+            [ "$debug" ] || clear
             printf "\n"
             man lazyman
             break
@@ -1017,7 +1017,7 @@ show_conf_menu() {
   have_figlet=$(type -p figlet)
   have_lolcat=$(type -p lolcat)
   while true; do
-    clear
+    [ "$debug" ] || clear
     [ "${have_figlet}" ] && show_figlet
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
@@ -1250,7 +1250,7 @@ show_conf_menu() {
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          clear
+          [ "$debug" ] || clear
           printf "\n"
           man lazyman
           break
@@ -1556,7 +1556,7 @@ show_main_menu() {
     else
       use_gui="neovim"
     fi
-    clear
+    [ "$debug" ] || clear
     items=()
     showinstalled=1
     show_warning=
@@ -1718,11 +1718,14 @@ show_main_menu() {
     fi
     options+=("Lazyman Configuration")
     options+=("Lazyman Status")
+    [ "${have_brew}" ] && {
+      options+=("Homebrew Upgrade")
+    }
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          clear
+          [ "$debug" ] || clear
           printf "\n"
           man lazyman
           break
@@ -1964,6 +1967,13 @@ show_main_menu() {
             NVIM_APPNAME="${LAZYMAN}" nvim /tmp/lminfo$$
           fi
           rm -f /tmp/lminfo$$
+          break
+          ;;
+        "Homebrew Upgrade",* | *,"Homebrew Upgrade")
+          printf "Upgrading Homebrew packages with 'brew upgrade' ..."
+          brew update --quiet > /dev/null 2>&1
+          brew upgrade --quiet > /dev/null 2>&1
+          printf " done"
           break
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
