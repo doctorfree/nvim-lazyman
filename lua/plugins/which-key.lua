@@ -6,27 +6,52 @@ return {
     event = "VeryLazy",
     opts = {
       plugins = {
+        marks = true,
+        registers = true,
         spelling = {
           enabled = true,
           suggestions = 20,
         },
+        presets = {
+          operators = true,
+          motions = true,
+          text_objects = true,
+          windows = true,
+          nav = true,
+          z = true,
+          g = true,
+        },
       },
+      operators = { gc = "Comments" },
       key_labels = {
         ["<space>"] = "󱁐",
         ["telescope"] = " ",
         ["Telescope"] = " ",
         ["operator"] = "",
       },
+      motions = {
+        count = true,
+      },
+      icons = {
+        breadcrumb = "»",
+        separator = "➜",
+        group = "+",
+      },
+      popup_mappings = {
+        scroll_down = "<c-d>",
+        scroll_up = "<c-u>",
+      },
       window = {
         border = "double",
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 1, 2, 1, 2 }, -- extra window padding etop, right, bottom, lefte
+        position = "bottom",
         winblend = 0,
       },
       layout = {
         height = { min = 5, max = 20 }, -- min and max height of the columns
-        spacing = 3, -- spacing between columns
         width = { min = 20, max = 80 }, -- min and max width of the columns
+        spacing = 3, -- spacing between columns
         align = "center", -- align columns left, center or right
       },
       hidden = {
@@ -43,13 +68,36 @@ return {
         "erator",
         '"',
       }, --
+      ignore_missing = false,
+      show_help = true,
+      show_keys = true,
+      triggers = "auto",
+      triggers_nowait = {
+        -- marks
+        "`",
+        "'",
+        "g`",
+        "g'",
+        -- registers
+        '"',
+        "<c-r>",
+        -- spelling
+        "z=",
+      },
+      triggers_blacklist = {
+        i = { "j", "k" },
+        v = { "j", "k" },
+      },
+      disable = {
+        buftypes = {},
+        filetypes = {},
+      },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
       local keymaps = {
         mode = { "n", "v" },
-        -- ["g"] = { name = "+goto" },
         ["gz"] = { name = "+surround" },
         ["]"] = { name = "+next" },
         ["["] = { name = "+prev" },
