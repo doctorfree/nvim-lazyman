@@ -18,6 +18,9 @@ map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
 -- Options
 map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
 
+-- Lazyman help
+map("n", "<leader>hl", "<cmd>:help Lazyman<cr>", { desc = "Lazyman Help" })
+
 -- Terminal commands
 if settings.enable_terminal then
   if vim.fn.executable("htop") == 1 then

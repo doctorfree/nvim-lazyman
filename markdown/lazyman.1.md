@@ -6,6 +6,8 @@ footer: lazyman 1.0.2
 date: March 13, 2023
 ---
 
+# LAZYMAN
+
 ## NAME
 
 lazyman - install, initialize, manage, and explore multiple Neovim configurations
