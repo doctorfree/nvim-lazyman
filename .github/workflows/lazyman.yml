@@ -1,0 +1,37 @@
+name: panvimdoc
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**1.md"
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    name: pandoc to vimdoc
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: lazyman
+        uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: Lazyman # Output vimdoc project name (required)
+          # The following are all optional
+          pandoc: "markdown/lazyman.1.md" # Input pandoc file
+          version: "NVIM v0.9.0" # Vim version number
+          toc: false # Table of contents
+          description: "Install, initialize, manage, and explore multiple Neovim configurations"
+          demojify: false # Strip emojis from the vimdoc
+          dedupsubheadings: true # Add heading to subheading anchor links to ensure that subheadings are unique
+          treesitter: true # Use treesitter for highlighting codeblocks
+          ignorerawblocks: true # Ignore raw html blocks in markdown when converting to vimdoc
+          docmapping: false # Use h4 headers as mapping docs
+          docmappingprojectname: true # Use project name in tag when writing mapping docs
+          shiftheadinglevelby: 0 # Shift heading levels by specified number
+          incrementheadinglevelby: 0 # Increment heading levels by specified number
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto generate docs"
+          branch: ${{ github.head_ref }}
