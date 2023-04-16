@@ -427,6 +427,18 @@ monitor in a floating Neovim terminal window.
 This preconfigured Neovim terminal capability is only available in the
 `Lazyman` Neovim configuration and not in the other configs.
 
+### Help
+
+The Lazyman Neovim configuration provides `vimdoc` help for the `lazyman`
+command, the `nvim-Lazyman` Neovim configuration, and the configured keymaps.
+
+While in Neovim using the `nvim-Lazyman` configuration, view the `vimdoc`
+help for the `lazyman` command and configuration with the command
+`:help Lazyman-lazyman` and the `vimdoc` help for the configured keymaps
+with the command `:help Lazyman-Keymaps-lazyman`. Shortcut key bindings
+for these help commands have been configured. Use `,hl` and `,hk` to
+quickly access the `vimdoc` help for `lazyman` and Lazyman keymaps.
+
 ## AUTHORS
 
 Written by Ronald Record `github@ronrecord.com`

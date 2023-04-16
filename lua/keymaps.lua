@@ -19,7 +19,8 @@ map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
 map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
 
 -- Lazyman help
-map("n", "<leader>hl", "<cmd>:help Lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hl", "<cmd>:help Lazyman-lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hk", "<cmd>:help Lazyman-Keymaps-lazymankeys<cr>", { desc = "Lazyman Keymaps" })
 
 -- Terminal commands
 if settings.enable_terminal then
