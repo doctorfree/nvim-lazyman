@@ -1,4 +1,4 @@
-name: panvimdoc
+name: lazyman
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: panvimdoc
+name: keymaps
 
 on:
   workflow_dispatch:
