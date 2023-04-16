@@ -1,6 +1,7 @@
 name: panvimdoc
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "**.md"
