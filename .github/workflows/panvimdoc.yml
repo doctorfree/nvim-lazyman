@@ -13,7 +13,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: panvimdoc
+      - name: lazyman
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: Lazyman # Output vimdoc project name (required)
@@ -30,6 +30,8 @@ jobs:
           docmappingprojectname: true # Use project name in tag when writing mapping docs
           shiftheadinglevelby: 0 # Shift heading levels by specified number
           incrementheadinglevelby: 0 # Increment heading levels by specified number
+      - uses: actions/checkout@v3
+      - name: keymaps
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: Lazyman-Keymaps # Output vimdoc project name (required)
