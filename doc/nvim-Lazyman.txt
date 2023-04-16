@@ -1,19 +1,23 @@
 *nvim-Lazyman.txt*Install, initialize, manage, and explore multiple Neovim configurations
 
-NAME                                                       *nvim-Lazyman-name*
+==============================================================================
+1. LAZYMAN                                              *nvim-Lazyman-lazyman*
+
+
+NAME                                               *nvim-Lazyman-lazyman-name*
 
 lazyman - install, initialize, manage, and explore multiple Neovim
 configurations
 
 
-SYNOPSIS                                               *nvim-Lazyman-synopsis*
+SYNOPSIS                                       *nvim-Lazyman-lazyman-synopsis*
 
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l]
 [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-D
 subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
 
 
-FEATURES                                               *nvim-Lazyman-features*
+FEATURES                                       *nvim-Lazyman-lazyman-features*
 
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
@@ -24,7 +28,7 @@ FEATURES                                               *nvim-Lazyman-features*
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 
 
-DESCRIPTION                                         *nvim-Lazyman-description*
+DESCRIPTION                                 *nvim-Lazyman-lazyman-description*
 
 The `lazyman` command can be used to install, initialize, and manage multiple
 Neovim configurations. Neovim configurations are installed and initialized in
@@ -139,7 +143,7 @@ To install and initialize a Neovim configuration that uses the **Plug** plugin
 manager invoke `lazyman` with the `-p` flag.
 
 
-OPTIONS                                                 *nvim-Lazyman-options*
+OPTIONS                                         *nvim-Lazyman-lazyman-options*
 
 The following command line options are available with the `lazyman` command:
 
@@ -274,7 +278,7 @@ with Packer:
 <
 
 
-CONFIGURATION                                     *nvim-Lazyman-configuration*
+CONFIGURATION                             *nvim-Lazyman-lazyman-configuration*
 
 In addition to the `lazyman` command, the Lazyman distribution includes a
 richly preconfigured Neovim configuration in `~/.config/nvim-Lazyman`. The
@@ -459,19 +463,19 @@ This preconfigured Neovim terminal capability is only available in the
 `Lazyman` Neovim configuration and not in the other configs.
 
 
-AUTHORS                                                 *nvim-Lazyman-authors*
+AUTHORS                                         *nvim-Lazyman-lazyman-authors*
 
 Written by Ronald Record `github@ronrecord.com`
 
 
-LICENSING                                             *nvim-Lazyman-licensing*
+LICENSING                                     *nvim-Lazyman-lazyman-licensing*
 
 LAZYMAN is distributed under an Open Source license. See the file LICENSE in
 the LAZYMAN source distribution for information on terms & conditions for
 accessing and otherwise using LAZYMAN and for a DISCLAIMER OF ALL WARRANTIES.
 
 
-BUGS                                                       *nvim-Lazyman-bugs*
+BUGS                                               *nvim-Lazyman-lazyman-bugs*
 
 Submit bug reports online at:
 
