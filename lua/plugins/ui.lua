@@ -15,7 +15,7 @@ if settings.enable_alpha then
     {
       "goolord/alpha-nvim",
       event = "VimEnter",
-      keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } },
+      keys = { { "<leader>ad", "<cmd>Alpha<cr>", "Alpha Dashboard" } },
       config = function()
         require("config.alpha.alpha")
       end,

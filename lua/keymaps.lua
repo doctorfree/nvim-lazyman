@@ -35,7 +35,7 @@ if settings.enable_terminal then
       { desc = "Lazyman configuration" })
   end
   if vim.fn.executable("asciiville") == 1 then
-    map("n", "<leader>A", "<cmd>:Asciiville<cr>", { desc = "Asciiville" })
+    map("n", "<leader>av", "<cmd>:Asciiville<cr>", { desc = "Asciiville" })
   end
 end
 
