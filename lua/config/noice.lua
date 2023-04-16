@@ -199,7 +199,12 @@ require("noice").setup({
       },
     },
   },
-  routes = {}, --- @see section on routes
+  routes = {
+    {
+      filter = { event = "notify", find = "warning: multiple different client offset_encodings" },
+      opts = { skip = true },
+    },
+  },
   status = {}, --- @see section on statusline components
   format = {}, --- @see section on formatting
 })

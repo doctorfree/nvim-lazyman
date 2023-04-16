@@ -120,6 +120,20 @@ if style == "custom" then
   end
 end
 
+local function set_colorscheme(sty)
+  if sty == "latte" then
+    vim.cmd([[colorscheme catppuccin-latte]])
+  elseif sty == "frappe" then
+    vim.cmd([[colorscheme catppuccin-frappe]])
+  elseif sty == "macchiato" then
+    vim.cmd([[colorscheme catppuccin-macchiato]])
+  elseif sty == "mocha" then
+    vim.cmd([[colorscheme catppuccin-mocha]])
+  else
+    vim.cmd([[colorscheme catppuccin]])
+  end
+end
+
 catppuccin.setup({
   background,
   dim_inactive = {
@@ -221,17 +235,7 @@ catppuccin.setup({
   },
 })
 if settings.theme == "catppuccin" then
-  if style == "latte" then
-    vim.cmd([[colorscheme catppuccin-latte]])
-  elseif style == "frappe" then
-    vim.cmd([[colorscheme catppuccin-frappe]])
-  elseif style == "macchiato" then
-    vim.cmd([[colorscheme catppuccin-macchiato]])
-  elseif style == "mocha" then
-    vim.cmd([[colorscheme catppuccin-mocha]])
-  else
-    vim.cmd([[colorscheme catppuccin]])
-  end
+  set_colorscheme(style)
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeader" })
@@ -239,4 +243,18 @@ if settings.theme == "catppuccin" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
   end
+  -- Not yet working, may need to clear and/or update cache
+  -- local mopts = require("catppuccin").options
+  -- vim.g.catppuccin_transparent = mopts.transparent_background
+  -- local utils = require("utils.functions")
+  -- utils.map("n", "<leader>ut", function()
+  --  local catp = require("catppuccin")
+  --  local opts = catp.options
+  --  local sett = require("configuration")
+  --  local styl = sett.theme_style
+  --  vim.g.catppuccin_transparent = not vim.g.catppuccin_transparent
+  --  opts.transparent_background = vim.g.catppuccin_transparent
+  --  catp.setup( opts )
+  --  set_colorscheme(styl)
+  -- end, { desc = "Toggle Transparency" })
 end

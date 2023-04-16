@@ -1,5 +1,23 @@
 local settings = require("configuration")
 
+local function set_colorscheme(sty)
+  if sty == "carbonfox" then
+    vim.cmd([[colorscheme carbonfox]])
+  elseif sty == "dayfox" then
+    vim.cmd([[colorscheme dayfox]])
+  elseif sty == "dawnfox" then
+    vim.cmd([[colorscheme dawnfox]])
+  elseif sty == "duskfox" then
+    vim.cmd([[colorscheme duskfox]])
+  elseif sty == "nordfox" then
+    vim.cmd([[colorscheme nordfox]])
+  elseif sty == "terafox" then
+    vim.cmd([[colorscheme terafox]])
+  else
+    vim.cmd([[colorscheme nightfox]])
+  end
+end
+
 -- Default options
 require("nightfox").setup({
   options = {
@@ -29,21 +47,7 @@ require("nightfox").setup({
 -- setup must be called before loading
 if settings.theme == "nightfox" then
   local style = settings.theme_style
-  if style == "carbonfox" then
-    vim.cmd([[colorscheme carbonfox]])
-  elseif style == "dayfox" then
-    vim.cmd([[colorscheme dayfox]])
-  elseif style == "dawnfox" then
-    vim.cmd([[colorscheme dawnfox]])
-  elseif style == "duskfox" then
-    vim.cmd([[colorscheme duskfox]])
-  elseif style == "nordfox" then
-    vim.cmd([[colorscheme nordfox]])
-  elseif style == "terafox" then
-    vim.cmd([[colorscheme terafox]])
-  else
-    vim.cmd([[colorscheme nightfox]])
-  end
+  set_colorscheme(style)
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeader" })
@@ -51,4 +55,17 @@ if settings.theme == "nightfox" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
   end
+  -- Not yet working, may need to clear and/or update cache
+  -- local opts = require("nightfox.config").options
+  -- vim.g.nightfox_transparent = opts.transparent
+  -- local utils = require("utils.functions")
+  -- utils.map("n", "<leader>ut", function()
+  --   vim.g.nightfox_transparent = not vim.g.nightfox_transparent
+  --   opts.transparent = vim.g.nightfox_transparent
+  --   require("nightfox").setup({ options = opts })
+  --   require('nightfox').compile()
+  --   local sett = require("configuration")
+  --   local styl = sett.theme_style
+  --   set_colorscheme(styl)
+  -- end, { desc = "Toggle Transparency" })
 end

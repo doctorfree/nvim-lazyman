@@ -36,16 +36,6 @@ if settings.enable_terminal then
   end
 end
 
--- Theme specific keymaps
-if settings.theme == "monokai-pro" then
-  map("n", "<leader>C", ":MonokaiProSelect<CR>",
-    { desc = "Select Monokai pro filter" })
-end
-if settings.theme == "tundra" then
-  map("n", "<leader>ut", ":Tundra toggle_transparency<CR>",
-    { desc = "Toggle Transparency" })
-end
-
 if settings.enable_neotree then
   map("n", "<leader>T", ":Neotree toggle<CR>")
 else

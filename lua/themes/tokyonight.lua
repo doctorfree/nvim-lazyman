@@ -4,6 +4,21 @@ if settings.enable_transparent then
   sidebars = "transparent"
 end
 
+local function set_colorscheme(sty)
+  if sty == "night" then
+    vim.cmd([[colorscheme tokyonight-night]])
+  elseif sty == "moon" then
+    vim.cmd([[colorscheme tokyonight-moon]])
+  elseif sty == "storm" then
+    vim.cmd([[colorscheme tokyonight-storm]])
+  elseif sty == "day" then
+    vim.opt.background = "light"
+    vim.cmd([[colorscheme tokyonight-day]])
+  else
+    vim.cmd([[colorscheme tokyonight]])
+    end
+end
+
 require("tokyonight").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
@@ -47,18 +62,7 @@ require("tokyonight").setup({
 if settings.theme == "tokyonight" then
   vim.opt.background = "dark"
   local style = settings.theme_style
-  if style == "night" then
-    vim.cmd([[colorscheme tokyonight-night]])
-  elseif style == "moon" then
-    vim.cmd([[colorscheme tokyonight-moon]])
-  elseif style == "storm" then
-    vim.cmd([[colorscheme tokyonight-storm]])
-  elseif style == "day" then
-    vim.opt.background = "light"
-    vim.cmd([[colorscheme tokyonight-day]])
-  else
-    vim.cmd([[colorscheme tokyonight]])
-  end
+  set_colorscheme(style)
   vim.api.nvim_set_hl(0, "MiniJump", { fg = "#FFFFFF", bg = "#ff00a0" })
   if settings.enable_neotree then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "NvimTreeFolderIcon" })
@@ -73,4 +77,25 @@ if settings.theme == "tokyonight" then
     vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { link = "NvimTreeGitDeleted" })
     vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { link = "NvimTreeSymlink" })
   end
+  vim.g.tokyonight_transparent = require("tokyonight.config").options.transparent
+  local utils = require("utils.functions")
+  utils.map("n", "<leader>ut", function()
+    vim.g.tokyonight_transparent = not vim.g.tokyonight_transparent
+    local sidebar = "dark"
+    if vim.g.tokyonight_transparent then
+      sidebar = "transparent"
+    end
+    require('tokyonight').setup({
+      transparent = vim.g.tokyonight_transparent,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = sidebar,
+        floats = "dark",
+      },
+    })
+    set_colorscheme(style)
+  end, { desc = "Toggle Transparency" })
 end

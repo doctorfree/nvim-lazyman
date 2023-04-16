@@ -1,6 +1,19 @@
 local settings = require("configuration")
 local theme = settings.theme
 
+local function set_colorscheme(sty)
+  if sty == "onedark_vivid" then
+    vim.cmd([[colorscheme onedark_vivid]])
+  elseif sty == "onedark_dark" then
+    vim.cmd([[colorscheme onedark_dark]])
+  elseif sty == "onelight" then
+    vim.opt.background = 'light'
+    vim.cmd([[colorscheme onelight]])
+  else
+    vim.cmd([[colorscheme onedark]])
+  end
+end
+
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
@@ -82,16 +95,7 @@ require("onedarkpro").setup({
 if theme == "onedarkpro" then
   vim.opt.background = 'dark'
   local style = settings.theme_style
-  if style == "onedark_vivid" then
-    vim.cmd([[colorscheme onedark_vivid]])
-  elseif style == "onedark_dark" then
-    vim.cmd([[colorscheme onedark_dark]])
-  elseif style == "onelight" then
-    vim.opt.background = 'light'
-    vim.cmd([[colorscheme onelight]])
-  else
-    vim.cmd([[colorscheme onedark]])
-  end
+  set_colorscheme(style)
   if settings.enable_alpha then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "StartifyHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "StartifyHeader" })
@@ -99,4 +103,19 @@ if theme == "onedarkpro" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "StartifyFile" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "StartifyFooter" })
   end
+  -- Not yet working, may need to clear and/or update cache
+  -- local config = require("onedarkpro.config").config
+  -- local opts = config.options
+  -- vim.g.onedarkpro_transparent = opts.transparency
+  -- local utils = require("utils.functions")
+  -- utils.map("n", "<leader>ut", function()
+  --   vim.g.onedarkpro_transparent = not vim.g.onedarkpro_transparent
+  --   opts.transparency = vim.g.onedarkpro_transparent
+  --   vim.cmd.OnedarkproClean()
+  --   require("onedarkpro").setup({ options = opts })
+  --   vim.cmd.OnedarkproCache()
+  --   local sett = require("configuration")
+  --   local styl = sett.theme_style
+  --   set_colorscheme(styl)
+  -- end, { desc = "Toggle Transparency" })
 end

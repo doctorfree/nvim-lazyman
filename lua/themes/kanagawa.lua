@@ -1,5 +1,17 @@
 local settings = require("configuration")
 
+local function set_colorscheme(sty)
+  if sty == "wave" then
+    vim.cmd([[colorscheme kanagawa-wave]])
+  elseif sty == "dragon" then
+    vim.cmd([[colorscheme kanagawa-dragon]])
+  elseif sty == "lotus" then
+    vim.cmd([[colorscheme kanagawa-lotus]])
+  else
+    vim.cmd([[colorscheme kanagawa]])
+  end
+end
+
 -- Default options:
 require('kanagawa').setup({
     compile = true,              -- enable compiling the colorscheme
@@ -28,15 +40,7 @@ require('kanagawa').setup({
 
 if settings.theme == "kanagawa" then
   local style = settings.theme_style
-  if style == "wave" then
-    vim.cmd([[colorscheme kanagawa-wave]])
-  elseif style == "dragon" then
-    vim.cmd([[colorscheme kanagawa-dragon]])
-  elseif style == "lotus" then
-    vim.cmd([[colorscheme kanagawa-lotus]])
-  else
-    vim.cmd([[colorscheme kanagawa]])
-  end
+  set_colorscheme(style)
   if settings.enable_neotree then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "DashboardIcon" })
     vim.api.nvim_set_hl(0, "NeoTreeRootName", { link = "NvimTreeRootFolder" })
@@ -59,4 +63,17 @@ if settings.theme == "kanagawa" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "NvimTreeSymlink" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "NvimTreeSpecialFile" })
   end
+  -- Not yet working, may need to clear and/or update cache
+  -- local kopts = require("kanagawa").config
+  -- vim.g.kanagawa_transparent = kopts.transparent
+  -- local utils = require("utils.functions")
+  -- utils.map("n", "<leader>ut", function()
+  --  vim.g.kanagawa_transparent = not vim.g.kanagawa_transparent
+  --  kopts.transparent = vim.g.kanagawa_transparent
+  --  require("kanagawa").setup( kopts )
+  --  vim.cmd.KanagawaCompile()
+  --  local sett = require("configuration")
+  --  local styl = sett.theme_style
+  --  set_colorscheme(styl)
+  -- end, { desc = "Toggle Transparency" })
 end
