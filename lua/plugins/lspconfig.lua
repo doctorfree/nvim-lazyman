@@ -97,6 +97,11 @@ return {
       "mason.nvim",
     },
     config = function()
+      vim.filetype.add {
+        extension = {
+          zsh = "zsh",
+        },
+      }
       local null_ls = require("null-ls")
       local formatting = null_ls.builtins.formatting
       local diagnostics = null_ls.builtins.diagnostics
@@ -124,6 +129,7 @@ return {
           actions.gitsigns,
           formatting.shfmt.with({
             extra_args = { "-i", "2", "-ci", "-bn" },
+            filetypes = { "sh", "zsh", "bash" },
           }),
           diagnostics.ruff,
           formatting.google_java_format,

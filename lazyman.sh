@@ -2789,6 +2789,29 @@ done
     add_nvimdirs_entry "${lunarvimdir}"
   }
   [ "$quiet" ] || printf "done"
+  [ "$quiet" ] || {
+    printf "\nAdding LunarVim custom configuration into"
+    printf "\n\t${HOME}/.config/${lunarvimdir}/lua/user ... "
+  }
+  [ "$tellme" ] || {
+    [ -d "${HOME}/.config/${lunarvimdir}"/lua/user ] || {
+      git clone https://github.com/IfCodingWereNatural/minimal-nvim \
+        "${HOME}/.config/${lunarvimdir}"/tmp$$ >/dev/null 2>&1
+      [ -d "${HOME}/.config/${lunarvimdir}"/tmp$$ ] && {
+        git -C "${HOME}/.config/${lunarvimdir}"/tmp$$ \
+               checkout lunarvim > /dev/null 2>&1
+        for folder in ftplugin lsp-settings plugin snippets lua/user
+        do
+          cp -a "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/${folder} \
+                "${HOME}/.config/${lunarvimdir}"/${folder}
+        done
+        cp "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/config.lua \
+              "${HOME}/.config/${lunarvimdir}"/config.lua
+      }
+      rm -rf "${HOME}/.config/${lunarvimdir}"/tmp$$
+    }
+  }
+  [ "$quiet" ] || printf "done"
 }
 [ "$magicvim" ] && {
   [ -d "${HOME}/.config/$magicvimdir" ] || {
@@ -2827,7 +2850,6 @@ done
     else
       git clone https://github.com/doctorfree/NvChad-custom \
         "${HOME}/.config/$nvchaddir"/lua/custom >/dev/null 2>&1
-      # rm -rf ${HOME}/.config/${nvchaddir}/lua/custom/.git
     fi
   }
   [ "$quiet" ] || printf "done"
