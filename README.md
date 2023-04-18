@@ -918,15 +918,15 @@ conf.treesitter_ensure_installed = {
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "dockerls", "gopls", "graphql", "html", "jdtls",
-  "jsonls", "ltex", "lua_ls", "marksman", "pylsp", "pyright", "sqlls",
-  "tailwindcss", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", "cssmodules_ls", "dockerls", "eslint", "graphql", "html", "jdtls",
+  "jsonls", "julials", "ltex", "lua_ls", "marksman", "pylsp", "pyright",
+  "sqlls", "tailwindcss", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "beautysh", "black", "google-java-format", "markdownlint",
-  "prettier", "ruff", "sql-formatter", "shellcheck", "shfmt",
-  "stylua", "tflint", "yamllint",
+  "actionlint", "beautysh", "black", "golangci-lint", "google-java-format",
+  "markdownlint", "prettier", "ruff", "sql-formatter", "shellcheck",
+  "shfmt", "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -4215,7 +4215,6 @@ else
   }
   [ "$quiet" ] || printf "done"
   interactive=
-  runvim=1
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
@@ -4863,13 +4862,10 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in golangci-lint eslint yarn julia composer php deno; do
+  for pkg in gopls yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
-  if command -v go >/dev/null 2>&1; then
-    go install golang.org/x/tools/gopls@latest >/dev/null 2>&1
-  fi
   [ "$quiet" ] || printf "\nDone"
 }
 
@@ -4986,7 +4982,6 @@ main() {
     install_neovim_dependencies
     install_language_servers
     install_tools
-    printf "\nNeovim not found, installing Neovim with Homebrew"
     if [ "$nvim_head" ]; then
       install_neovim_head
     else

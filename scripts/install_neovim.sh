@@ -249,7 +249,7 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in yarn julia composer php deno; do
+  for pkg in gopls yarn julia composer php deno; do
     brew_install "$pkg"
   done
 
@@ -369,7 +369,6 @@ main() {
     install_neovim_dependencies
     install_language_servers
     install_tools
-    printf "\nNeovim not found, installing Neovim with Homebrew"
     if [ "$nvim_head" ]; then
       install_neovim_head
     else

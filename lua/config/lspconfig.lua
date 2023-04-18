@@ -7,10 +7,8 @@ if not showdiag == "popup" then
 end
 
 -- Style floating windows
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover,
-  { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
-  { border = "rounded" })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 -- Borders for LspInfo winodw
 require("lspconfig.ui.windows").default_options.border = "rounded"
@@ -169,17 +167,14 @@ local tsserver_on_attach = function(client, bufnr)
     eslint_bin = "eslint_d",
     eslint_enable_diagnostics = false,
     eslint_opts = {},
-
     -- formatting
     enable_formatting = true,
     formatter = "prettier",
     formatter_opts = {},
-
     -- update imports on file move
     update_imports_on_move = true,
     require_confirmation_on_move = false,
     watch_dir = nil,
-
     -- filter diagnostics
     filter_out_diagnostics_by_severity = {},
     filter_out_diagnostics_by_code = {},
@@ -203,7 +198,6 @@ lspconfig.tsserver.setup({
 })
 
 local other_servers_with_navic = {
-  "gopls",
   "html",
   "pylsp",
   "terraformls",

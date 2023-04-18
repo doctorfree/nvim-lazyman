@@ -126,7 +126,6 @@ conf.lsp_servers = {
   "cssmodules_ls",
   "dockerls",
   "eslint",
-  "gopls",
   "graphql",
   "html",
   "jdtls",
