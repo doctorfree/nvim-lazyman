@@ -1928,13 +1928,12 @@ remove_config() {
     done
   }
 
-  if [ "${ndir}" == "${lunarvimdir}" ]
-  then
+  if [ "${ndir}" == "${lunarvimdir}" ]; then
     USCP="${HOME}/.local/share/${lunarvimdir}/lvim/utils/installer/uninstall.sh"
     [ -x ${USCP} ] || {
       LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
       LVIM_UNINSTALL="${LVIM_URL}/master/utils/installer/uninstall.sh"
-      curl -s ${LVIM_UNINSTALL} > /tmp/lvim-uninstall$$.sh
+      curl -s ${LVIM_UNINSTALL} >/tmp/lvim-uninstall$$.sh
       chmod 755 /tmp/lvim-uninstall$$.sh
       USCP="/tmp/lvim-uninstall$$.sh"
     }
@@ -1949,7 +1948,7 @@ remove_config() {
       export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
       remove_backups=
       [ "$removeall" ] && remove_backups="--remove-backups"
-      ${USCP} ${remove_backups} --remove-config > /dev/null 2>&1
+      ${USCP} ${remove_backups} --remove-config >/dev/null 2>&1
     }
   fi
   [ -d "${HOME}/.config/$ndir" ] && {
@@ -2231,14 +2230,14 @@ set_conf_value() {
   confval="$2"
   grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
     case ${confval} in
-      true|false|[0-9])
+      true | false | [0-9])
         cat "${NVIMCONF}" \
-        | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
-      ;;
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+        ;;
       *)
         cat "${NVIMCONF}" \
-        | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
-      ;;
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+        ;;
     esac
     cp /tmp/nvim$$ "${NVIMCONF}"
     rm -f /tmp/nvim$$
@@ -2285,8 +2284,7 @@ select_theme_style() {
       ;;
   esac
   have_fzf=$(type -p fzf)
-  if [ "${have_fzf}" ]
-  then
+  if [ "${have_fzf}" ]; then
     choice=$(printf "%s\n" "${styles[@]}" | fzf --prompt=" Neovim Theme Style  " --layout=reverse --border --exit-0)
     [ "${choice}" == "${theme_style}" ] || {
       if [[ " ${styles[*]} " =~ " ${choice} " ]]; then
@@ -2304,8 +2302,7 @@ select_theme_style() {
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
       options=()
       for sty in "${styles[@]}"; do
-        if [ "${theme_style}" == "$sty" ]
-        then
+        if [ "${theme_style}" == "$sty" ]; then
           options+=("$sty   ")
         else
           options+=("$sty")
@@ -2506,8 +2503,7 @@ set_default_style() {
 select_theme() {
   selected_theme="$1"
   have_fzf=$(type -p fzf)
-  if [ "${have_fzf}" ]
-  then
+  if [ "${have_fzf}" ]; then
     theme=$(printf "%s\n" "${themes[@]}" | fzf --prompt=" Neovim Theme  " --layout=reverse --border --exit-0)
     [ "${theme}" == "${selected_theme}" ] || {
       if [[ " ${themes[*]} " =~ " ${theme} " ]]; then
@@ -2526,8 +2522,7 @@ select_theme() {
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
       options=()
       for thm in "${themes[@]}"; do
-        if [ "${theme}" == "$thm" ]
-        then
+        if [ "${theme}" == "$thm" ]; then
           options+=("$thm   ")
         else
           options+=("$thm")
@@ -2835,7 +2830,7 @@ show_conf_menu() {
     options+=("Tab Line      [${use_tabline}]")
     options+=("Winbar        [${use_winbar}]")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
+      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     options+=("Main Menu")
     options+=("Quit")
@@ -2888,8 +2883,7 @@ show_conf_menu() {
           break
           ;;
         "Leader"*,* | *,"Leader"*)
-          if [ "${use_mapleader}" == "," ]
-          then
+          if [ "${use_mapleader}" == "," ]; then
             set_conf_value "mapleader" " "
           else
             set_conf_value "mapleader" ","
@@ -2897,8 +2891,7 @@ show_conf_menu() {
           break
           ;;
         "Local Leader"*,* | *,"Local Leader"*)
-          if [ "${use_maplocalleader}" == "," ]
-          then
+          if [ "${use_maplocalleader}" == "," ]; then
             set_conf_value "maplocalleader" " "
           else
             set_conf_value "maplocalleader" ","
@@ -2930,8 +2923,7 @@ show_conf_menu() {
           break
           ;;
         "Session Mgr"*,* | *,"Session Mgr"*)
-          if [ "${session_manager}" == "possession" ]
-          then
+          if [ "${session_manager}" == "possession" ]; then
             set_conf_value "session_manager" "persistence"
           else
             set_conf_value "session_manager" "possession"
@@ -3563,8 +3555,8 @@ show_main_menu() {
           ;;
         "Homebrew Upgrade",* | *,"Homebrew Upgrade")
           printf "Upgrading Homebrew packages with 'brew upgrade' ..."
-          brew update --quiet > /dev/null 2>&1
-          brew upgrade --quiet > /dev/null 2>&1
+          brew update --quiet >/dev/null 2>&1
+          brew upgrade --quiet >/dev/null 2>&1
           printf " done"
           break
           ;;
@@ -4182,9 +4174,16 @@ shift $((OPTIND - 1))
 
 have_git=$(type -p git)
 [ "$have_git" ] || {
-  printf "\nLazyman requires git but git not found"
-  printf "\nPlease install git and retry this lazyman command\n"
-  brief_usage
+  have_brew=$(type -p brew)
+  [ "$have_brew" ] && {
+    brew install git >/dev/null 2>&1
+  }
+  have_git=$(type -p git)
+  [ "$have_git" ] || {
+    printf "\nLazyman requires git but git not found"
+    printf "\nPlease install git and retry this lazyman command\n"
+    brief_usage
+  }
 }
 
 interactive=
@@ -4358,16 +4357,15 @@ done
   LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
   [ "$quiet" ] || printf "\nCloning and initializing LunarVim ... "
   [ "$tellme" ] || {
-    curl -s ${LVIM_INSTALL} > /tmp/lvim-install$$.sh
+    curl -s ${LVIM_INSTALL} >/tmp/lvim-install$$.sh
     chmod 755 /tmp/lvim-install$$.sh
     [ -x $HOME/.local/bin/lvim ] || {
       [ -f ${LMANDIR}/scripts/lvim ] && {
-        if [ "${lunarvimdir}" == "nvim-LunarVim" ]
-        then
+        if [ "${lunarvimdir}" == "nvim-LunarVim" ]; then
           cp ${LMANDIR}/scripts/lvim $HOME/.local/bin/lvim
         else
-          cat ${LMANDIR}/scripts/lvim | \
-            sed -e "s/nvim-LunarVim/${lunarvimdir}/" > $HOME/.local/bin/lvim
+          cat ${LMANDIR}/scripts/lvim \
+            | sed -e "s/nvim-LunarVim/${lunarvimdir}/" >$HOME/.local/bin/lvim
         fi
         chmod 755 $HOME/.local/bin/lvim
       }
@@ -4375,7 +4373,7 @@ done
     if [ "$debug" ]; then
       /tmp/lvim-install$$.sh --no-install-dependencies
     else
-      /tmp/lvim-install$$.sh --no-install-dependencies > /dev/null 2>&1
+      /tmp/lvim-install$$.sh --no-install-dependencies >/dev/null 2>&1
     fi
     rm -f /tmp/lvim-install$$.sh
     add_nvimdirs_entry "${lunarvimdir}"
@@ -4391,14 +4389,13 @@ done
         "${HOME}/.config/${lunarvimdir}"/tmp$$ >/dev/null 2>&1
       [ -d "${HOME}/.config/${lunarvimdir}"/tmp$$ ] && {
         git -C "${HOME}/.config/${lunarvimdir}"/tmp$$ \
-               checkout lunarvim > /dev/null 2>&1
-        for folder in ftplugin lsp-settings plugin snippets lua/user
-        do
+          checkout lunarvim >/dev/null 2>&1
+        for folder in ftplugin lsp-settings plugin snippets lua/user; do
           cp -a "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/${folder} \
-                "${HOME}/.config/${lunarvimdir}"/${folder}
+            "${HOME}/.config/${lunarvimdir}"/${folder}
         done
         cp "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/config.lua \
-              "${HOME}/.config/${lunarvimdir}"/config.lua
+          "${HOME}/.config/${lunarvimdir}"/config.lua
       }
       rm -rf "${HOME}/.config/${lunarvimdir}"/tmp$$
     }
@@ -4592,8 +4589,7 @@ fi
 }
 
 [ "$interactive" ] && {
-  if [ "$confmenu" ]
-  then
+  if [ "$confmenu" ]; then
     show_conf_menu
   else
     show_main_menu
