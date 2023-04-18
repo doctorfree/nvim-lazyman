@@ -2623,7 +2623,6 @@ else
   }
   [ "$quiet" ] || printf "done"
   interactive=
-  runvim=1
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
