@@ -243,18 +243,6 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
 
--- lspconfig.awk_ls.setup({})
--- lspconfig.pyright.setup({})
--- lspconfig.rust_analyzer.setup({})
--- lspconfig.ansiblels.setup({})
--- lspconfig.cmake.setup({})
--- lspconfig.cssmodules_ls.setup({})
--- lspconfig.dockerls.setup({})
--- lspconfig.marksman.setup({})
--- lspconfig.sqlls.setup({})
--- lspconfig.taplo.setup({})
--- lspconfig.texlab.setup({})
-
 lspconfig.yamlls.setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)

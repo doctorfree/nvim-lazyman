@@ -3,6 +3,7 @@ local settings = require("configuration")
 return {
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -15,63 +16,10 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        -- A list of servers to automatically install if they're not already installed.
-        -- This setting has no relation with the `automatic_installation` setting.
         ensure_installed = settings.lsp_servers,
-
-        -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
-        -- This setting has no relation with the `ensure_installed` setting.
-        -- Can either be:
-        --   - false: Servers are not automatically installed.
-        --   - true: All servers set up via lspconfig are automatically installed.
-        --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
-        --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
         automatic_installation = true,
       })
       require("config.lspconfig")
-    end,
-  },
-
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-    },
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-    opts = {
-      ensure_installed = settings.formatters_linters,
-    },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(_, opts)
-      require("mason").setup(opts)
-      local mr = require("mason-registry")
-      local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
-          end
-        end
-      end
-      if mr.refresh then
-        mr.refresh(ensure_installed)
-      else
-        ensure_installed()
-      end
-    end,
-  },
-
-  {
-    "RubixDev/mason-update-all",
-    config = function()
-      require("mason-update-all").setup()
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "MasonUpdateAllComplete",
-        callback = function()
-          print("mason-update-all has finished")
-        end,
-      })
     end,
   },
 
