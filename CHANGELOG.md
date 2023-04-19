@@ -6,6 +6,45 @@
 
 ### 🐞 Fixed
 
+## v1.0.4r2
+
+### ⚡️ Added
+
+- Add bat and lsd to tools, add aliases for bat and lsd
+- Add custom LunarVim user config from <https://youtu.be/Qf9gfx7gWEY>
+- Update which-key opts passed to config
+- Add Help section to doc
+- Add Lazyman-Keymaps vimdoc, rename nvim-Lazyman vimdoc to Lazyman
+- Adjust Alpha and Asciiville keymaps
+- Add renamer config
+- Add LAZYMAN section to doc so :Lazyman goes to right place
+- Add which-key mapping for ChatGPTEditWithInstructions command
+- Add keymap to toggle transparency in several colorschemes
+- Add Homebrew Upgrade to main menu
+- Install bash with Homebrew if bash version less than 4
+- One more attempt at getting updates right, probably not the last
+- Set conceallevel to 0 to unhide markdown
+- Restore configuration.lua on Lazyman update
+- Fix treesitter highlighting for text filetype
+- Adjust spell checking options and autocmds
+- Enable transparency by default, remove breadcrumb from lspconfig
+- Add Simple config to extras, Replace Abstract with Knmac in extras
+- Add ftplugin/help.lua to enable treesitter highlights in vimdoc
+- Add spell files, Add autocmd to auto enter insert mode in Terminal
+- rust-analyzer, taplo, and pylsp now installed by Mason
+- Add -r flag to nvims and neovides aliases for removal of selected config
+- Add selected removal menu option
+- Use LunarVim install and uninstall scripts but place LunarVim config location in ~/.config/nvim-LunarVim
+- Add configuration menu to Alpha dashboard
+
+### 🐞 Fixed
+
+- Do not install julia or composer, leave that up to the user
+- Move gopls install from Mason to Homebrew
+- Move some language server installs back to Mason, adjust mason and lspconfig setup
+- Split mason out from lspconfig in plugins
+- Split panvimdoc workflows out into 2 separate workflows
+
 ## v1.0.4r1
 
 ### ⚡️ Added

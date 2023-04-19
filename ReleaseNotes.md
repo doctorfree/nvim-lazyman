@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.4r1/lazyman.sh) script. Download and execute to get started.
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.4r2/lazyman.sh) script. Download and execute to get started.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman. Once Lazyman is installed, execute the `lazyman` command to manage Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
@@ -11,11 +11,11 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
 
-| **Extra** |    | **Configs** |
-| ----- | -- | ------- |
-| [Nv](https://github.com/appelgriebsch/Nv)             | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config)     |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug)  |
-| [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim)             | [Simple](https://github.com/anthdm/.nvim) |
+| **Extra**                                              |                                                                           | **Configs**                                         |
+| ------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------- |
+| [Nv](https://github.com/appelgriebsch/Nv)              | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim)                     | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| [VonHeikemen](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim)                                | [Simple](https://github.com/anthdm/.nvim)           |
 
 | **Starter**                                             |                                                                        |                                                                       |                                                                                |                                                                     |                                                                                 | **Configs**                                                            |
 | ------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman instal
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.4r1/lazyman.sh).
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v1.0.4r2/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 
