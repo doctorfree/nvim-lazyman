@@ -19,11 +19,13 @@
 </p>
 
 The Lazyman Neovim configuration management menu:
+
 <p float="left">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazymenu.png" style="width:800px;height:600px;">
 </p>
 
 The nvims Neovim configuration fuzzy selector:
+
 <p float="left">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims.png" style="width:250px;height:400px;">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims2.png" style="width:250px;height:400px;">
@@ -51,21 +53,21 @@ and initialized with `lazyman` by the end-user using the `-C url` and
 
 The Lazyman Neovim configuration categories:
 
-| **Base** |               |            | **Configs** |
-| ---- | --------- | ------ | ------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
+| **Base**                                         |                                                      |                                                       | **Configs**                                   |
+| ------------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------- |
+| [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
 
-| **Extra** |            | **Configs** |
-| ---- | ------ | ------- |
-| [Nv](https://github.com/appelgriebsch/Nv) | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
-| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Allaman](https://github.com/Allaman/nvim) | [Simple](https://github.com/anthdm/.nvim) |
+| **Extra**                                              |                                                                           | **Configs**                                         |
+| ------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------- |
+| [Nv](https://github.com/appelgriebsch/Nv)              | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim)                     | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| [Heiker](https://github.com/VonHeikemen/dotfiles)      | [Allaman](https://github.com/Allaman/nvim)                                | [Simple](https://github.com/anthdm/.nvim)           |
 
-| **Starter** |    |    | **Configs** |
-| ------- | -- | -- | ------- |
-| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
-| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |    |
+| **Starter**                                                         |                                                                                 |                                                                        | **Configs**                                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim)             | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)          | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)  | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
+| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |                                                                                |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -4191,16 +4193,12 @@ numvimdirs=${#nvimdir[@]}
 [ ${numvimdirs} -eq 0 ] && {
   nvimdir=("${lazymandir}")
   interactive=1
-  runvim=
 }
 if [ -d "${HOME}/.config/${lazymandir}" ]; then
   [ "$branch" ] && {
     git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
   }
-  [ -d "${HOME}/.local/share/${lazymandir}" ] || {
-    interactive=
-    runvim=1
-  }
+  [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
 else
   [ "$quiet" ] || {
     printf "\nCloning ${LAZYMAN} configuration into"
@@ -4922,10 +4920,10 @@ install_tools() {
     fi
   fi
 
-  brew_install figlet
-  brew_install luarocks
-  brew_install lolcat
-  brew_install terraform
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
+    brew_install "${pkg}"
+  done
+
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."
   else

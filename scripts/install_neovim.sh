@@ -309,10 +309,10 @@ install_tools() {
     fi
   fi
 
-  brew_install figlet
-  brew_install luarocks
-  brew_install lolcat
-  brew_install terraform
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
+    brew_install "${pkg}"
+  done
+
   if command -v "rich" >/dev/null 2>&1; then
     log "Using previously installed rich-cli ..."
   else
