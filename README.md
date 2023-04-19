@@ -4860,7 +4860,7 @@ install_language_servers() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in gopls yarn julia composer php deno; do
+  for pkg in gopls yarn php deno; do
     brew_install "$pkg"
   done
 
