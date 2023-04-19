@@ -194,6 +194,17 @@ install_neovim_dependencies() {
   else
     brew_install ripgrep
   fi
+  if command -v asdf >/dev/null 2>&1; then
+    log "Using previously installed asdf"
+  else
+    brew_install asdf
+  fi
+  if command -v asdf >/dev/null 2>&1; then
+    [ -f ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh ] && {
+      source ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh
+    }
+    asdf plugin add python > /dev/null 2>&1
+  fi
   [ "$quiet" ] || printf "\n"
 }
 
@@ -218,12 +229,21 @@ install_neovim_head() {
 }
 
 check_python() {
-  brew_path=$(command -v brew)
-  brew_dir=$(dirname "$brew_path")
-  if [ -x "$brew_dir"/python3 ]; then
-    PYTHON="${brew_dir}/python3"
+  # Use the system python3 if available, otherwise use Homebrew's
+  if command -v asdf >/dev/null 2>&1; then
+    asdf global python system > /dev/null 2>&1
+  fi
+  TPATH=$(echo ${PATH} | awk -v RS=: -v ORS=: '/home\/linuxbrew/ {next} {print}')
+  if PATH="${TPATH}" command -v python3 >/dev/null 2>&1; then
+    PATH="${TPATH}" PYTHON=$(command -v python3)
   else
-    PYTHON=$(command -v python3)
+    brew_path=$(command -v brew)
+    brew_dir=$(dirname "$brew_path")
+    if [ -x "$brew_dir"/python3 ]; then
+      PYTHON="${brew_dir}/python3"
+    else
+      PYTHON=$(command -v python3)
+    fi
   fi
 }
 
