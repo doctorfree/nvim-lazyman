@@ -2599,16 +2599,12 @@ numvimdirs=${#nvimdir[@]}
 [ ${numvimdirs} -eq 0 ] && {
   nvimdir=("${lazymandir}")
   interactive=1
-  runvim=
 }
 if [ -d "${HOME}/.config/${lazymandir}" ]; then
   [ "$branch" ] && {
     git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
   }
-  [ -d "${HOME}/.local/share/${lazymandir}" ] || {
-    interactive=
-    runvim=1
-  }
+  [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
 else
   [ "$quiet" ] || {
     printf "\nCloning ${LAZYMAN} configuration into"
