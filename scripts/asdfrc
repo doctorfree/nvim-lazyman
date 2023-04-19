@@ -1,5 +1,4 @@
-#!/bin/bash
-#
+# Shell initialization script for asdf tool version manager
 # Find where asdf should be installed
 ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 ASDF_COMPLETIONS="$ASDF_DIR/completions"
