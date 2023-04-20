@@ -4,7 +4,8 @@
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2023
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
+# shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
+# SC1090-SC1100
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -2694,6 +2695,11 @@ fi
     brief_usage
   fi
 }
+
+ASDFRC="${LMANDIR}/scripts/asdfrc"
+if [ -f "${ASDFRC}" ]; then
+  source "${ASDFRC}"
+fi
 
 for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "${lazymandir}" ] && continue
