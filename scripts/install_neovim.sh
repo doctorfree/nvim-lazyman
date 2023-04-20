@@ -96,7 +96,7 @@ install_homebrew() {
         echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
         echo 'fi' >>"$BASHINIT"
       }
-      grep "Lazyman/scriptss/asdf" "$BASHINIT" >/dev/null || {
+      grep "Lazyman/scripts/asdf" "$BASHINIT" >/dev/null || {
         echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
         echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
         echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
@@ -131,13 +131,13 @@ install_homebrew() {
         echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
-      grep "Lazyman/scriptss/asdf" "$BASHINIT" >/dev/null || {
-        echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
-        echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
-        echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
-        echo 'then' >>"$BASHINIT"
-        echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"$BASHINIT"
-        echo 'fi' >>"$BASHINIT"
+      grep "Lazyman/scripts/asdf" "${HOME}/.zshrc" >/dev/null || {
+        echo "# Source the ASDF tool version manager init script" >>"${HOME}/.zshrc"
+        echo '# This needs to come after PATH has been setup' >>"${HOME}/.zshrc"
+        echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"${HOME}/.zshrc"
+        echo 'then' >>"${HOME}/.zshrc"
+        echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"${HOME}/.zshrc"
+        echo 'fi' >>"${HOME}/.zshrc"
       }
     }
     eval "$("$BREW_EXE" shellenv)"
