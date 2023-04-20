@@ -96,12 +96,28 @@ install_homebrew() {
         echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
         echo 'fi' >>"$BASHINIT"
       }
+      grep "Lazyman/scripts/asdf" "$BASHINIT" >/dev/null || {
+        echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
+        echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
+        echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
+        echo 'then' >>"$BASHINIT"
+        echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"$BASHINIT"
+        echo 'fi' >>"$BASHINIT"
+      }
     else
       echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"$BASHINIT"
       echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
       echo 'fi' >>"$BASHINIT"
+
       echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
       echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
+      echo 'fi' >>"$BASHINIT"
+
+      echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
+      echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
+      echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
+      echo 'then' >>"$BASHINIT"
+      echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"$BASHINIT"
       echo 'fi' >>"$BASHINIT"
     fi
     [ -f "${HOME}/.zshrc" ] && {
@@ -113,6 +129,14 @@ install_homebrew() {
       grep "eval \"\$(zoxide init" "${HOME}/.zshrc" >/dev/null || {
         echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.zshrc"
         echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
+        echo 'fi' >>"${HOME}/.zshrc"
+      }
+      grep "Lazyman/scripts/asdf" "${HOME}/.zshrc" >/dev/null || {
+        echo "# Source the ASDF tool version manager init script" >>"${HOME}/.zshrc"
+        echo '# This needs to come after PATH has been setup' >>"${HOME}/.zshrc"
+        echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"${HOME}/.zshrc"
+        echo 'then' >>"${HOME}/.zshrc"
+        echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
     }
@@ -194,6 +218,28 @@ install_neovim_dependencies() {
   else
     brew_install ripgrep
   fi
+  if command -v asdf >/dev/null 2>&1; then
+    log "Using previously installed asdf"
+  else
+    brew_install asdf
+  fi
+  if command -v asdf >/dev/null 2>&1; then
+    [ -f ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh ] && {
+      source ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh
+    }
+    asdf current python > /dev/null 2>&1
+    [ $? -eq 0 ] || {
+      asdf plugin add python > /dev/null 2>&1
+      asdf install python latest > /dev/null 2>&1
+      asdf global python latest > /dev/null 2>&1
+      if [ -f "${HOME}/.asdfrc" ]
+      then
+        echo "legacy_version_file = yes" >> "${HOME}/.asdfrc"
+      else
+        echo "legacy_version_file = yes" > "${HOME}/.asdfrc"
+      fi
+    }
+  fi
   [ "$quiet" ] || printf "\n"
 }
 
@@ -224,6 +270,10 @@ check_python() {
     PYTHON="${brew_dir}/python3"
   else
     PYTHON=$(command -v python3)
+  fi
+  if command -v asdf >/dev/null 2>&1; then
+    asdf current python > /dev/null 2>&1
+    [ $? -eq 0 ] && PYTHON=$(asdf which python3)
   fi
 }
 
