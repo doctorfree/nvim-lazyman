@@ -227,17 +227,18 @@ install_neovim_dependencies() {
     [ -f ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh ] && {
       source ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh
     }
-    asdf current python > /dev/null 2>&1
+    asdf current python >/dev/null 2>&1
     [ $? -eq 0 ] || {
-      asdf plugin add python > /dev/null 2>&1
-      asdf install python latest > /dev/null 2>&1
-      asdf global python latest > /dev/null 2>&1
-      if [ -f "${HOME}/.asdfrc" ]
-      then
-        echo "legacy_version_file = yes" >> "${HOME}/.asdfrc"
+      log "Installing python with asdf ..."
+      asdf plugin add python >/dev/null 2>&1
+      asdf install python latest >/dev/null 2>&1
+      asdf global python latest >/dev/null 2>&1
+      if [ -f "${HOME}/.asdfrc" ]; then
+        echo "legacy_version_file = yes" >>"${HOME}/.asdfrc"
       else
-        echo "legacy_version_file = yes" > "${HOME}/.asdfrc"
+        echo "legacy_version_file = yes" >"${HOME}/.asdfrc"
       fi
+      [ "$quiet" ] || printf " done"
     }
   fi
   [ "$quiet" ] || printf "\n"
@@ -272,7 +273,7 @@ check_python() {
     PYTHON=$(command -v python3)
   fi
   if command -v asdf >/dev/null 2>&1; then
-    asdf current python > /dev/null 2>&1
+    asdf current python >/dev/null 2>&1
     [ $? -eq 0 ] && PYTHON=$(asdf which python3)
   fi
 }
@@ -292,21 +293,18 @@ link_python() {
   }
 }
 
-# Language servers are also being installed by Mason
-install_language_servers() {
-  [ "$quiet" ] || printf "\nInstalling language servers and tools"
+install_tools() {
+  [ "$quiet" ] || printf "\nInstalling language servers"
 
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in gopls yarn php deno; do
+  for pkg in gopls deno; do
     brew_install "$pkg"
   done
 
   [ "$quiet" ] || printf "\nDone"
-}
 
-install_tools() {
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
   [ "$PYTHON" ] || {
@@ -314,7 +312,7 @@ install_tools() {
     log 'Installing Python with Homebrew ...'
     "$BREW_EXE" install --quiet python >/dev/null 2>&1
     [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
-    link_python
+    # link_python
     check_python
     [ "$quiet" ] || printf " done"
   }
@@ -327,6 +325,13 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
   [ "$quiet" ] || printf "\nDone"
+
+  have_gem=$(type -p gem)
+  [ "$have_gem" ] && {
+    log "Installing Ruby neovim gem ..."
+    gem install neovim >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+  }
 
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
@@ -408,7 +413,6 @@ main() {
       [ "$nvim_head" ] && {
         install_homebrew
         install_neovim_dependencies
-        install_language_servers
         install_tools
         printf "\nInstalling latest Neovim version with Homebrew"
         install_neovim_head
@@ -417,7 +421,6 @@ main() {
   else
     install_homebrew
     install_neovim_dependencies
-    install_language_servers
     install_tools
     if [ "$nvim_head" ]; then
       install_neovim_head
