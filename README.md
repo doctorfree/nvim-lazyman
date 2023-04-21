@@ -4289,11 +4289,6 @@ fi
   fi
 }
 
-ASDFRC="${LMANDIR}/scripts/asdfrc"
-if [ -f "${ASDFRC}" ]; then
-  source "${ASDFRC}"
-fi
-
 for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "${lazymandir}" ] && continue
   if [ "$proceed" ]; then

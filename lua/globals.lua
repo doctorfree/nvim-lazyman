@@ -48,35 +48,55 @@ else
   vim.g.homebrew_install_dir = brew_prefix
 end
 
--- Check for python3 and doq in asdf then Homebrew then pyenv then /usr/bin
-local python_path = ""
-if vim.fn.executable("asdf") == 1 then
-  python_path = vim.fn.system({ "asdf", "which", "python3", "2>/dev/null" })
-end
+local python_path = vim.fn.exepath("python3")
 if python_path == nil or python_path == "" then
   python_path = vim.g.homebrew_install_dir .. "/bin/python3"
   if utils.file_or_dir_exists(python_path) then
-    vim.g.python3_host_prog = python_path:gsub("[%c]", "")
+    vim.g.python3_host_prog = python_path
   else
-    python_path = vim.fn.system({ "pyenv", "which", "python3", "2>/dev/null" })
-    if python_path == nil or python_path == "" then
-      if utils.file_or_dir_exists("/usr/bin/python3") then
-        vim.g.python3_host_prog = "/usr/bin/python3"
-      else
-        vim.g.loaded_python3_provider = 0
-      end
-    else
-      vim.g.python3_host_prog = python_path:gsub("[%c]", "")
+    if ! utils.file_or_dir_exists("/usr/bin/python3") then
+      vim.g.loaded_python3_provider = 0
     end
   end
 else
-  vim.g.python3_host_prog = python_path:gsub("[%c]", "")
+  vim.g.python3_host_prog = python_path
 end
 
-local doq_path = ""
-if vim.fn.executable("asdf") == 1 then
-  doq_path = vim.fn.system({ "asdf", "which", "doq", "2>/dev/null" })
+local ruby_path = ""
+if vim.fn.executable("ruby") == 1 then
+  ruby_path = vim.fn.system({"ruby", "-e", "puts Gem.dir"})
+  if ruby_path == nil or ruby_path == "" then
+    ruby_path = vim.g.homebrew_install_dir .. "/bin/ruby"
+    if utils.file_or_dir_exists(ruby_path) then
+      ruby_path = vim.fn.system({ruby_path, "-e", "puts Gem.dir"})
+      if ruby_path == nil or ruby_path == "" then
+        vim.g.loaded_ruby_provider = 0
+      else
+        ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+        if utils.file_or_dir_exists(ruby_path) then
+          vim.g.ruby_host_prog = ruby_path
+        else
+          vim.g.loaded_ruby_provider = 0
+        end
+      end
+    else
+      if ! utils.file_or_dir_exists("/usr/bin/ruby") then
+        vim.g.loaded_ruby_provider = 0
+      end
+    end
+  else
+    ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+    if utils.file_or_dir_exists(ruby_path) then
+      vim.g.ruby_host_prog = ruby_path
+    else
+      vim.g.loaded_ruby_provider = 0
+    end
+  end
+else
+  vim.g.loaded_ruby_provider = 0
 end
+
+local doq_path = vim.fn.exepath("doq")
 if doq_path == nil or doq_path == "" then
   doq_path = vim.g.homebrew_install_dir .. "/bin/doq"
   if utils.file_or_dir_exists(doq_path) then
@@ -85,7 +105,7 @@ if doq_path == nil or doq_path == "" then
     vim.g.pydocstring_doq_path = "/usr/bin/doq"
   end
 else
-  vim.g.pydocstring_doq_path = doq_path:gsub("[%c]", "")
+  vim.g.pydocstring_doq_path = doq_path
 end
 
 vim.g.asciiville_style = "deep ocean"
