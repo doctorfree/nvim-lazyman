@@ -54,7 +54,7 @@ if python_path == nil or python_path == "" then
   if utils.file_or_dir_exists(python_path) then
     vim.g.python3_host_prog = python_path
   else
-    if ! utils.file_or_dir_exists("/usr/bin/python3") then
+    if not utils.file_or_dir_exists("/usr/bin/python3") then
       vim.g.loaded_python3_provider = 0
     end
   end
@@ -64,11 +64,11 @@ end
 
 local ruby_path = ""
 if vim.fn.executable("ruby") == 1 then
-  ruby_path = vim.fn.system({"ruby", "-e", "puts Gem.dir"})
+  ruby_path = vim.fn.system({ "ruby", "-e", "puts Gem.dir" })
   if ruby_path == nil or ruby_path == "" then
     ruby_path = vim.g.homebrew_install_dir .. "/bin/ruby"
     if utils.file_or_dir_exists(ruby_path) then
-      ruby_path = vim.fn.system({ruby_path, "-e", "puts Gem.dir"})
+      ruby_path = vim.fn.system({ ruby_path, "-e", "puts Gem.dir" })
       if ruby_path == nil or ruby_path == "" then
         vim.g.loaded_ruby_provider = 0
       else
@@ -80,7 +80,7 @@ if vim.fn.executable("ruby") == 1 then
         end
       end
     else
-      if ! utils.file_or_dir_exists("/usr/bin/ruby") then
+      if not utils.file_or_dir_exists("/usr/bin/ruby") then
         vim.g.loaded_ruby_provider = 0
       end
     end
