@@ -286,6 +286,11 @@ check_ruby() {
   else
     RUBY=$(command -v ruby)
   fi
+  if [ -x "$brew_dir"/gem ]; then
+    GEM="${brew_dir}/gem"
+  else
+    GEM=$(command -v gem)
+  fi
 }
 
 # Brew doesn't create a python symlink so we do so here
@@ -344,10 +349,9 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
 
-  have_gem=$(type -p gem)
-  [ "$have_gem" ] && {
+  [ "$GEM" ] && {
     log "Installing Ruby neovim gem ..."
-    gem install neovim >/dev/null 2>&1
+    ${GEM} install neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
   }
 
@@ -382,8 +386,7 @@ install_tools() {
     fi
   fi
 
-  # for pkg in bat lsd figlet luarocks lolcat terraform; do
-  for pkg in bat lsd figlet luarocks lolcat; do
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
     brew_install "${pkg}"
   done
 
