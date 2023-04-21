@@ -306,12 +306,12 @@ link_python() {
 }
 
 install_tools() {
-  [ "$quiet" ] || printf "\nInstalling language servers"
+  [ "$quiet" ] || printf "\nInstalling language servers and tools"
 
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in gopls deno; do
+  for pkg in composer gopls deno julia php; do
     brew_install "$pkg"
   done
 
@@ -351,7 +351,7 @@ install_tools() {
 
   [ "$GEM" ] && {
     log "Installing Ruby neovim gem ..."
-    ${GEM} install neovim >/dev/null 2>&1
+    ${GEM} install neovim --user-install >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
   }
 

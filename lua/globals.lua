@@ -58,18 +58,35 @@ else
   vim.g.python3_host_prog = python_path
 end
 
+-- First check rubygems user dir then system dir
 local ruby_path = ""
 if vim.fn.executable("ruby") == 1 then
-  ruby_path = vim.fn.system({ "ruby", "-e", "puts Gem.dir" })
+  ruby_path = vim.fn.system({ "ruby", "-e", "puts Gem.user_dir" })
   if ruby_path == nil or ruby_path == "" then
-    ruby_path = vim.g.homebrew_install_dir .. "/bin/ruby"
-    if utils.file_or_dir_exists(ruby_path) then
-      ruby_path = vim.fn.system({ ruby_path, "-e", "puts Gem.dir" })
-      if not (ruby_path == nil or ruby_path == "") then
-        ruby_path = ruby_path .. "/bin/neovim-ruby-host"
-        if utils.file_or_dir_exists(ruby_path) then
-          vim.g.ruby_host_prog = ruby_path
+    ruby_path = vim.fn.system({ "ruby", "-e", "puts Gem.dir" })
+    if ruby_path == nil or ruby_path == "" then
+      ruby_path = vim.g.homebrew_install_dir .. "/bin/ruby"
+      if utils.file_or_dir_exists(ruby_path) then
+        ruby_path = vim.fn.system({ ruby_path, "-e", "puts Gem.user_dir" })
+        if ruby_path == nil or ruby_path == "" then
+          ruby_path = vim.fn.system({ ruby_path, "-e", "puts Gem.dir" })
+          if not (ruby_path == nil or ruby_path == "") then
+            ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+            if utils.file_or_dir_exists(ruby_path) then
+              vim.g.ruby_host_prog = ruby_path
+            end
+          end
+        else
+          ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+          if utils.file_or_dir_exists(ruby_path) then
+            vim.g.ruby_host_prog = ruby_path
+          end
         end
+      end
+    else
+      ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+      if utils.file_or_dir_exists(ruby_path) then
+        vim.g.ruby_host_prog = ruby_path
       end
     end
   else

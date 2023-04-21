@@ -4707,13 +4707,29 @@ install_homebrew() {
         echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
         echo 'fi' >>"$BASHINIT"
       }
+      #     grep "Lazyman/scripts/asdf" "$BASHINIT" >/dev/null || {
+      #       echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
+      #       echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
+      #       echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
+      #       echo 'then' >>"$BASHINIT"
+      #       echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"$BASHINIT"
+      #       echo 'fi' >>"$BASHINIT"
+      #     }
     else
       echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"$BASHINIT"
       echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
       echo 'fi' >>"$BASHINIT"
+
       echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
       echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
       echo 'fi' >>"$BASHINIT"
+
+      #     echo "# Source the ASDF tool version manager init script" >>"$BASHINIT"
+      #     echo '# This needs to come after PATH has been setup' >>"$BASHINIT"
+      #     echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"$BASHINIT"
+      #     echo 'then' >>"$BASHINIT"
+      #     echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"$BASHINIT"
+      #     echo 'fi' >>"$BASHINIT"
     fi
     [ -f "${HOME}/.zshrc" ] && {
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" >/dev/null || {
@@ -4726,6 +4742,14 @@ install_homebrew() {
         echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
+      #     grep "Lazyman/scripts/asdf" "${HOME}/.zshrc" >/dev/null || {
+      #       echo "# Source the ASDF tool version manager init script" >>"${HOME}/.zshrc"
+      #       echo '# This needs to come after PATH has been setup' >>"${HOME}/.zshrc"
+      #       echo 'if [ -f ~/.config/nvim-Lazyman/scripts/asdfrc ]' >>"${HOME}/.zshrc"
+      #       echo 'then' >>"${HOME}/.zshrc"
+      #       echo '  source ~/.config/nvim-Lazyman/scripts/asdfrc' >>"${HOME}/.zshrc"
+      #       echo 'fi' >>"${HOME}/.zshrc"
+      #     }
     }
     eval "$("$BREW_EXE" shellenv)"
     have_brew=$(type -p brew)
@@ -4805,6 +4829,29 @@ install_neovim_dependencies() {
   else
     brew_install ripgrep
   fi
+  # if command -v asdf >/dev/null 2>&1; then
+  #   log "Using previously installed asdf"
+  # else
+  #   brew_install asdf
+  # fi
+  # if command -v asdf >/dev/null 2>&1; then
+  #   [ -f ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh ] && {
+  #     source ${HOME}/.config/nvim-Lazyman/scripts/asdf.sh
+  #   }
+  #   asdf current python >/dev/null 2>&1
+  #   [ $? -eq 0 ] || {
+  #     log "Installing python with asdf ..."
+  #     asdf plugin add python >/dev/null 2>&1
+  #     asdf install python latest >/dev/null 2>&1
+  #     asdf global python latest >/dev/null 2>&1
+  #     if [ -f "${HOME}/.asdfrc" ]; then
+  #       echo "legacy_version_file = yes" >>"${HOME}/.asdfrc"
+  #     else
+  #       echo "legacy_version_file = yes" >"${HOME}/.asdfrc"
+  #     fi
+  #     [ "$quiet" ] || printf " done"
+  #   }
+  # fi
   [ "$quiet" ] || printf "\n"
 }
 
@@ -4836,6 +4883,25 @@ check_python() {
   else
     PYTHON=$(command -v python3)
   fi
+  # if command -v asdf >/dev/null 2>&1; then
+  #   asdf current python >/dev/null 2>&1
+  #   [ $? -eq 0 ] && PYTHON=$(asdf which python3)
+  # fi
+}
+
+check_ruby() {
+  brew_path=$(command -v brew)
+  brew_dir=$(dirname "$brew_path")
+  if [ -x "$brew_dir"/ruby ]; then
+    RUBY="${brew_dir}/ruby"
+  else
+    RUBY=$(command -v ruby)
+  fi
+  if [ -x "$brew_dir"/gem ]; then
+    GEM="${brew_dir}/gem"
+  else
+    GEM=$(command -v gem)
+  fi
 }
 
 # Brew doesn't create a python symlink so we do so here
@@ -4846,28 +4912,22 @@ link_python() {
     if [ -w "$python_dir" ]; then
       rm -f "$python_dir"/python
       ln -s "$python_dir"/python3 "$python_dir"/python
-    else
-      sudo rm -f "$python_dir"/python
-      sudo ln -s "$python_dir"/python3 "$python_dir"/python
     fi
   }
 }
 
-# Language servers are also being installed by Mason
-install_language_servers() {
+install_tools() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
 
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in gopls yarn php deno; do
+  for pkg in composer gopls deno julia php; do
     brew_install "$pkg"
   done
 
   [ "$quiet" ] || printf "\nDone"
-}
 
-install_tools() {
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
   [ "$PYTHON" ] || {
@@ -4888,6 +4948,23 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
   [ "$quiet" ] || printf "\nDone"
+
+  [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
+  check_ruby
+  [ "$RUBY" ] || {
+    # Could not find Ruby, install with Homebrew
+    log 'Installing Ruby with Homebrew ...'
+    "$BREW_EXE" install --quiet ruby >/dev/null 2>&1
+    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet ruby >/dev/null 2>&1
+    check_ruby
+    [ "$quiet" ] || printf " done"
+  }
+
+  [ "$GEM" ] && {
+    log "Installing Ruby neovim gem ..."
+    ${GEM} install neovim --user-install >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+  }
 
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
@@ -4969,7 +5046,6 @@ main() {
       [ "$nvim_head" ] && {
         install_homebrew
         install_neovim_dependencies
-        install_language_servers
         install_tools
         printf "\nInstalling latest Neovim version with Homebrew"
         install_neovim_head
@@ -4978,7 +5054,6 @@ main() {
   else
     install_homebrew
     install_neovim_dependencies
-    install_language_servers
     install_tools
     if [ "$nvim_head" ]; then
       install_neovim_head

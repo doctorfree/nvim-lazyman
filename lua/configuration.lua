@@ -149,6 +149,8 @@ conf.formatters_linters = {
   "actionlint",
   "beautysh",
   "black",
+  "goimports",
+  "gofumpt",
   "golangci-lint",
   "google-java-format",
   "markdownlint",
