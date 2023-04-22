@@ -124,8 +124,10 @@ conf.enable_clangd = false
 conf.lsp_servers = {
   "bashls",
   "cssmodules_ls",
+  "denols",
   "dockerls",
   "eslint",
+  "gopls",
   "graphql",
   "html",
   "jdtls",

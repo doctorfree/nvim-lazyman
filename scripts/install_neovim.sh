@@ -311,9 +311,7 @@ install_tools() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in composer gopls deno julia php; do
-    brew_install "$pkg"
-  done
+  brew_install php
 
   [ "$quiet" ] || printf "\nDone"
 
