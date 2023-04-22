@@ -6,6 +6,19 @@
 
 ### 🐞 Fixed
 
+## v1.0.4r3
+
+### ⚡️ Added
+
+- Install ruby neovim gem in user dir, expand search for ruby neovim
+- Rework how gem is found and ruby_host_prog set
+- Use Homebrew python3 and ruby neovim gem
+
+### 🐞 Fixed
+
+- Move gopls julials and denols from Homebrew to Mason
+- Replace Allaman config (broken for now) with Roiz config
+
 ## v1.0.4r2
 
 ### ⚡️ Added
