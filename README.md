@@ -920,15 +920,16 @@ conf.treesitter_ensure_installed = {
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "dockerls", "eslint", "graphql", "html", "jdtls",
-  "jsonls", "julials", "ltex", "lua_ls", "marksman", "pylsp", "pyright",
-  "sqlls", "tailwindcss", "terraformls", "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", "cssmodules_ls", "denols", "dockerls", "eslint", "gopls",
+  "graphql", "html", "jdtls", "jsonls", "julials", "ltex", "lua_ls",
+  "marksman", "pylsp", "pyright", "sqlls", "tailwindcss", "terraformls",
+  "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "beautysh", "black", "golangci-lint", "google-java-format",
-  "markdownlint", "prettier", "ruff", "sql-formatter", "shellcheck",
-  "shfmt", "stylua", "tflint", "yamllint",
+  "actionlint", "beautysh", "black", "goimports", "gofumpt", "golangci-lint",
+  "google-java-format", "markdownlint", "prettier", "ruff", "sql-formatter",
+  "shellcheck", "shfmt", "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -4602,6 +4603,10 @@ The `lazyman` command checks for a current version of Neovim and, if not found
 or if the existing version is less than 0.9, invokes the `install_neovim.sh`
 script to install Neovim, dependencies, language servers, and tools.
 
+Not all language servers and tools are installed. If additional language
+support is desired, it can usually be provided by Mason or Homebrew.
+For example, to provide support for Composer run `brew install composer`.
+
 The automated Neovim install performed by
 [install_neovim.sh](scripts/install_neovim.sh)
 executes the following on your system:
@@ -4922,9 +4927,7 @@ install_tools() {
   brew_install ccls
   "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
 
-  for pkg in composer gopls deno julia php; do
-    brew_install "$pkg"
-  done
+  brew_install php
 
   [ "$quiet" ] || printf "\nDone"
 
