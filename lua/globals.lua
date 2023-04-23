@@ -71,26 +71,26 @@ if vim.fn.executable("ruby") == 1 then
         if ruby_path == nil or ruby_path == "" then
           ruby_path = vim.fn.system({ ruby_path, "-e", "puts Gem.dir" })
           if not (ruby_path == nil or ruby_path == "") then
-            ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+            ruby_path = ruby_path:gsub("[%c]", "") .. "/bin/neovim-ruby-host"
             if utils.file_or_dir_exists(ruby_path) then
               vim.g.ruby_host_prog = ruby_path
             end
           end
         else
-          ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+          ruby_path = ruby_path:gsub("[%c]", "") .. "/bin/neovim-ruby-host"
           if utils.file_or_dir_exists(ruby_path) then
             vim.g.ruby_host_prog = ruby_path
           end
         end
       end
     else
-      ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+      ruby_path = ruby_path:gsub("[%c]", "") .. "/bin/neovim-ruby-host"
       if utils.file_or_dir_exists(ruby_path) then
         vim.g.ruby_host_prog = ruby_path
       end
     end
   else
-    ruby_path = ruby_path .. "/bin/neovim-ruby-host"
+    ruby_path = ruby_path:gsub("[%c]", "") .. "/bin/neovim-ruby-host"
     if utils.file_or_dir_exists(ruby_path) then
       vim.g.ruby_host_prog = ruby_path
     end
