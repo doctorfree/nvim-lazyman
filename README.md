@@ -928,8 +928,8 @@ conf.lsp_servers = {
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
   "actionlint", "beautysh", "black", "goimports", "gofumpt", "golangci-lint",
-  "google-java-format", "markdownlint", "prettier", "ruff", "sql-formatter",
-  "shellcheck", "shfmt", "stylua", "tflint", "yamllint",
+  "google-java-format", "latexindent", "markdownlint", "prettier", "ruff",
+  "sql-formatter", "shellcheck", "shfmt", "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

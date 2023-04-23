@@ -155,6 +155,7 @@ conf.formatters_linters = {
   "gofumpt",
   "golangci-lint",
   "google-java-format",
+  "latexindent",
   "markdownlint",
   "prettier",
   "ruff",
