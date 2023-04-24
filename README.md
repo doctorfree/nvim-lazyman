@@ -4811,7 +4811,7 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl tar unzip lazygit fd fzf xclip zoxide"
+  PKGS="git curl tar unzip lazygit fd fzf gh xclip zoxide"
   for pkg in $PKGS; do
     if command -v "$pkg" >/dev/null 2>&1; then
       log "Using previously installed ${pkg}"
@@ -4819,16 +4819,6 @@ install_neovim_dependencies() {
       brew_install "$pkg"
     fi
   done
-  log "Installing gh ..."
-  [ "$debug" ] && START_SECONDS=$(date +%s)
-  "$BREW_EXE" install --quiet gh >/dev/null 2>&1
-  [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet gh >/dev/null 2>&1
-  if [ "$debug" ]; then
-    FINISH_SECONDS=$(date +%s)
-    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-    printf " elapsed time = %s${ELAPSED}"
-  fi
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
   else
@@ -5042,22 +5032,19 @@ install_tools() {
 
 main() {
   check_prerequisites
+  install_homebrew
+  install_neovim_dependencies
+  install_tools
   if command -v nvim >/dev/null 2>&1; then
     nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
     if (($(echo "$nvim_version < 0.9 " | bc -l))); then
       printf "\nCurrently installed Neovim is less than version 0.9"
       [ "$nvim_head" ] && {
-        install_homebrew
-        install_neovim_dependencies
-        install_tools
         printf "\nInstalling latest Neovim version with Homebrew"
         install_neovim_head
       }
     fi
   else
-    install_homebrew
-    install_neovim_dependencies
-    install_tools
     if [ "$nvim_head" ]; then
       install_neovim_head
     else
