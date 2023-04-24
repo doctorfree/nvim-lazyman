@@ -197,11 +197,7 @@ install_neovim_dependencies() {
   }
   PKGS="git curl tar unzip lazygit fd fzf gh xclip zoxide"
   for pkg in $PKGS; do
-    if command -v "$pkg" >/dev/null 2>&1; then
-      log "Using previously installed ${pkg}"
-    else
-      brew_install "$pkg"
-    fi
+    brew_install "$pkg"
   done
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
