@@ -6,6 +6,25 @@
 
 ### 🐞 Fixed
 
+## v1.0.5r1
+
+### ⚡️ Added
+
+- Move section on manual installation to Wiki
+- Install dependencies and tools even if nvim is already installed
+- Add latexindent to Mason tools install
+- Locate python3 and ruby neovim gem in globals.lua
+
+### 🐞 Fixed
+
+- Don't run nvim if interactive mode enabled
+- Change toggle ui menu entry
+- Add zoxide to checks for tools menu entry
+- Update local/bin/lazyman when nvim-Lazyman is updated
+- Do not run install script if nvim-Lazyman config dir exists
+- Remove duplicate test for previously installed packages
+- Strip unprintable characters from ruby path returned by vim.fn.system
+
 ## v1.0.4r3
 
 ### ⚡️ Added
