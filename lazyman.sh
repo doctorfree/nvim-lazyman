@@ -464,6 +464,11 @@ update_config() {
       cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
       rm -f /tmp/lazyconf$$
     }
+    [ -d "$HOME"/.local/bin ] || mkdir -p "$HOME"/.local/bin
+    [ -f "${LMANDIR}"/lazyman.sh ] && {
+      cp "${LMANDIR}"/lazyman.sh "$HOME"/.local/bin/lazyman
+      chmod 755 "$HOME"/.local/bin/lazyman
+    }
   }
   [ "$ndir" == "$astronvimdir" ] || [ "$ndir" == "$nvchaddir" ] && {
     if [ "$ndir" == "$astronvimdir" ]; then
