@@ -1521,7 +1521,8 @@ by `lazyman.sh` executes the following on your system:
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2023
 #
-# shellcheck disable=SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
+# shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
+# SC1090-SC1100
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
@@ -1980,6 +1981,11 @@ update_config() {
       cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
       rm -f /tmp/lazyconf$$
     }
+    [ -d "$HOME"/.local/bin ] || mkdir -p "$HOME"/.local/bin
+    [ -f "${LMANDIR}"/lazyman.sh ] && {
+      cp "${LMANDIR}"/lazyman.sh "$HOME"/.local/bin/lazyman
+      chmod 755 "$HOME"/.local/bin/lazyman
+    }
   }
   [ "$ndir" == "$astronvimdir" ] || [ "$ndir" == "$nvchaddir" ] && {
     if [ "$ndir" == "$astronvimdir" ]; then
@@ -2141,7 +2147,7 @@ set_haves() {
   have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
-  have_xclip=$(type -p xclip)
+  have_zoxi=$(type -p zoxide)
 }
 
 get_conf_value() {
@@ -3189,7 +3195,7 @@ show_main_menu() {
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_xclip}" ]] || {
+    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
     options+=("Remove Base")
@@ -4484,8 +4490,10 @@ fi
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
-    [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
-    nvim
+    [ "$interactive" ] || {
+      [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
+      nvim
+    }
   }
 }
 

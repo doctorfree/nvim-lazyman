@@ -630,7 +630,7 @@ set_haves() {
   have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
-  have_xclip=$(type -p xclip)
+  have_zoxi=$(type -p zoxide)
 }
 
 get_conf_value() {
@@ -1678,7 +1678,7 @@ show_main_menu() {
     partial=
     get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_xclip}" ]] || {
+    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
     options+=("Remove Base")
