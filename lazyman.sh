@@ -285,6 +285,9 @@ init_neovim() {
   fi
   [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
   [ "$neodir" == "${lazymandir}" ] && {
+    [ -f "${HOME}/.config/${lazymandir}/.initialized" ] || {
+      touch "${HOME}/.config/${lazymandir}/.initialized"
+    }
     packer=${oldpack}
     plug=${oldplug}
   }
@@ -2611,7 +2614,7 @@ if [ -d "${HOME}/.config/${lazymandir}" ]; then
     git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
   }
   [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
-  instnvim=
+  [ -f "${HOME}/.config/${lazymandir}/.initialized" ] && instnvim=
 else
   [ "$quiet" ] || {
     printf "\nCloning ${LAZYMAN} configuration into"

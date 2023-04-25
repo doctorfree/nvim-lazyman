@@ -11,6 +11,7 @@
 DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
 export PATH=${HOME}/.local/bin:${PATH}
+PYTHON=$(command -v python3)
 
 abort() {
   printf "\nERROR: %s\n" "$@" >&2
@@ -258,6 +259,7 @@ check_python() {
   else
     PYTHON=$(command -v python3)
   fi
+  log "Setting PYTHON to ${PYTHON}"
   # if command -v asdf >/dev/null 2>&1; then
   #   asdf current python >/dev/null 2>&1
   #   [ $? -eq 0 ] && PYTHON=$(asdf which python3)
@@ -308,10 +310,10 @@ install_tools() {
     log 'Installing Python with Homebrew ...'
     "$BREW_EXE" install --quiet python >/dev/null 2>&1
     [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
-    link_python
     check_python
     [ "$quiet" ] || printf " done"
   }
+  link_python
   [ "$PYTHON" ] && {
     log 'Upgrading pip, setuptools, wheel, doq, and pynvim ...'
     "$PYTHON" -m pip install --upgrade pip >/dev/null 2>&1
