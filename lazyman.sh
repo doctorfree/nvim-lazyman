@@ -2606,6 +2606,7 @@ if [ -d "${HOME}/.config/${lazymandir}" ]; then
     git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
   }
   [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
+  instnvim=
 else
   [ "$quiet" ] || {
     printf "\nCloning ${LAZYMAN} configuration into"

@@ -1100,6 +1100,13 @@ removal of the selected Neovim configuration.
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
+# Aliases for lsd and bat if they exist
+command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
+	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
+command -v bat > /dev/null && alias less='bat'
+command -v batcat > /dev/null && \
+	alias bat='batcat' && \
+	alias less='batcat'
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
@@ -4115,6 +4122,7 @@ if [ -d "${HOME}/.config/${lazymandir}" ]; then
     git -C "${HOME}/.config/${lazymandir}" checkout "$branch" >/dev/null 2>&1
   }
   [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
+  instnvim=
 else
   [ "$quiet" ] || {
     printf "\nCloning ${LAZYMAN} configuration into"
