@@ -3229,7 +3229,7 @@ show_main_menu() {
       options+=("Open ${neovim}")
     done
     if [ "${have_neovide}" ]; then
-      options+=("Toggle [${use_gui}]")
+      options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Lazyman Configuration")
     options+=("Lazyman Status")
