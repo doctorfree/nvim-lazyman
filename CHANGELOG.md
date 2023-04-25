@@ -6,6 +6,16 @@
 
 ### 🐞 Fixed
 
+## v1.0.5r2
+
+### ⚡️ Added
+
+- Use .initialized file to indicate initialization has been performed
+
+### 🐞 Fixed
+
+- Move python check after neovim install
+
 ## v1.0.5r1
 
 ### ⚡️ Added
