@@ -67,12 +67,12 @@ WORKDIR /home/nvim
 ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin:/home/nvim/.cargo/bin
 ENV GOPATH=/home/nvim/.local/share/go
 ENV PATH=$PATH:$GOPATH/bin
+ENV NVIM_APPNAME="nvim-Lazyman"
 
 # Copy Neovim config into the image
-RUN mkdir -p .config/nvim && mkdir -p .local/share/nvim/mason/packages
-COPY --chown=nvim:nvim . .config/nvim
-# Install plugins and tools with Mason and go.nvim
-# TODO: Use of sleep is not cool but commands are not blocking (! is not working either)
-RUN nvim --headless "+Lazy! sync" +"sleep 15" +qa
+RUN mkdir -p .config/nvim-Lazyman
+COPY --chown=nvim:nvim . .config/nvim-Lazyman
+# Install plugins with Lazy
+RUN nvim --headless "+Lazy! sync" +qa
 
-ENTRYPOINT ["/bin/bash", "-c", "nvim"]
+ENTRYPOINT ["NVIM_APPNAME=nvim-Lazyman", "/bin/bash", "-c", "nvim"]
