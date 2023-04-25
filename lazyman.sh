@@ -2967,8 +2967,10 @@ fi
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
-    [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
-    nvim
+    [ "$interactive" ] || {
+      [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
+      nvim
+    }
   }
 }
 
