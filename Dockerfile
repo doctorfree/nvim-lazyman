@@ -67,6 +67,6 @@ RUN mkdir -p $HOME/.config/nvim-Lazyman
 COPY --chown=nvim:nvim . $HOME/.config/nvim-Lazyman
 # Initialize Neovim config and install plugins with Lazy
 RUN chmod +x $HOME/.config/nvim-Lazyman/lazyman.sh \
-&& $HOME/.config/nvim-Lazyman/lazyman.sh -y -z
+&& $HOME/.config/nvim-Lazyman/lazyman.sh -y -z || true
 
 ENTRYPOINT ["NVIM_APPNAME=nvim-Lazyman", "/bin/bash", "-c", "nvim"]
