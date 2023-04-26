@@ -1,5 +1,6 @@
 ARG ARCH
 FROM ${ARCH}debian:stable-slim
+SHELL ["/bin/bash", "-c"]
 
 # TODO: optimize image size
 # TODO: maybe build a dedicated base image with all dependencies included
@@ -46,15 +47,6 @@ RUN apt-get update \
 && ln -s "$(which fdfind)" /usr/bin/fd \
 && ln -s "$(which python3)" /usr/bin/python \
 && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && dpkg-reconfigure --frontend=noninteractive locales
-
-# Download and build Neovim from latest source
-RUN git clone https://github.com/neovim/neovim /tmp/neovim
-WORKDIR /tmp/neovim
-RUN make CMAKE_BUILD_TYPE=RelWithDebInfo && make install && rm -fr /tmp/neovim
-
-RUN curl -sLo go.tar.gz "https://go.dev/dl/go1.20.linux-${TARGETARCH}.tar.gz" \
-&& tar -C /usr/local/bin -xzf go.tar.gz \
-&& rm go.tar.gz
 
 # Add user 'nvim' and allow passwordless sudo
 RUN adduser --disabled-password --gecos '' nvim \
