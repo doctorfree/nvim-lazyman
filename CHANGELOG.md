@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v1.0.5r3
+
+### ⚡️ Added
+
+- Source environment files and set brew path on lazyman startup
+- Add open lazyman menu entry to configuration menu
+- Update lazyman keymaps markdown, man page, and doc
+- Add descriptions to terminal keymaps
+
+### 🐞 Fixed
+
+- Resolve conflicting keymaps in gitsigns, terminal, lspconfig
+- Fixed Docker image build and push in github action
+- Do not build docker image for arm architecture, build for x86_64 and amd64
+- Fix check for brew executable in set_brew
+
 ## v1.0.5r2
 
 ### ⚡️ Added
