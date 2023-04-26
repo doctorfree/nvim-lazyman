@@ -2,10 +2,6 @@ ARG ARCH
 FROM ${ARCH}debian:stable-slim
 SHELL ["/bin/bash", "-c"]
 
-# TODO: optimize image size
-# TODO: maybe build a dedicated base image with all dependencies included
-# TODO: allow a specific version of Neovim to be installed
-
 ARG TARGETOS
 ARG TARGETARCH
 
