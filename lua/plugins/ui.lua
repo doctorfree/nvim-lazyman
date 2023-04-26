@@ -97,7 +97,6 @@ if settings.enable_terminal then
       "Lazyconf",
       "Htop",
     },
-    keys = "<leader>t",
     event = "TermOpen",
     config = function()
       require("config.terminal_nvim")
@@ -274,7 +273,7 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- ui components
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
 
   terminal_nvim,
   wilder_type,

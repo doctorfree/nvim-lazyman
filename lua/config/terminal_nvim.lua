@@ -4,14 +4,14 @@ local api = vim.api
 
 require("terminal").setup()
 
-map({ "n", "x" }, "<leader>ts", term_map.operator_send, { expr = true })
-map("n", "<leader>to", term_map.toggle)
-map("n", "<leader>tO", term_map.toggle({ open_cmd = "enew" }))
-map("n", "<leader>tr", term_map.run)
-map("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }))
-map("n", "<leader>tk", term_map.kill)
-map("n", "<leader>t]", term_map.cycle_next)
-map("n", "<leader>t[", term_map.cycle_prev)
+map({ "n", "x" }, "<leader>ts", term_map.operator_send, { expr = true, desc = "Terminal Send" })
+map("n", "<leader>to", term_map.toggle, { desc = "Terminal Toggle" })
+map("n", "<leader>tO", term_map.toggle({ open_cmd = "enew" }), { desc = "New Terminal Toggle" })
+map("n", "<leader>tr", term_map.run, { desc = "Terminal Run" })
+map("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }), { desc = "New Terminal Run" })
+map("n", "<leader>tk", term_map.kill, { desc = "Terminal Kill" })
+map("n", "<leader>t]", term_map.cycle_next, { desc = "Terminal Next" })
+map("n", "<leader>t[", term_map.cycle_prev, { desc = "Terminal Prev" })
 
 if vim.fn.executable("ipython") == 1 then
   local ipython = require("terminal").terminal:new({
