@@ -1215,8 +1215,8 @@ show_conf_menu() {
       options+=("Style [${use_theme_style}]")
     fi
     options+=("Diagnostics [${use_show_diagnostics}]")
-    options+=("File Tree   [${use_neotree}]")
-    options+=("Session Mgr [${use_session_manager}]")
+    options+=("File Tree [${use_neotree}]")
+    options+=("Session [${use_session_manager}]")
     options+=("Leader        [${use_mapleader}]")
     options+=("Local Leader  [${use_maplocalleader}]")
     options+=("Transparency  [${use_transparent}]")
@@ -1249,6 +1249,7 @@ show_conf_menu() {
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
+    [ -d "${HOME}/.config/nvim-Lazyman" ] && options+=("Open Lazyman")
     options+=("Main Menu")
     options+=("Quit")
     select opt in "${options[@]}"; do
@@ -1339,7 +1340,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Session Mgr"*,* | *,"Session Mgr"*)
+        "Session"*,* | *,"Session"*)
           if [ "${session_manager}" == "possession" ]; then
             set_conf_value "session_manager" "persistence"
           else
@@ -1532,6 +1533,14 @@ show_conf_menu() {
             cp ${CONFBACK} ${NVIMCONF}
             set_chat_gpt
           }
+          break
+          ;;
+        "Open Lazyman",* | *,"Open Lazyman")
+          if [ "${USEGUI}" ]; then
+            NVIM_APPNAME="nvim-Lazyman" neovide
+          else
+            NVIM_APPNAME="nvim-Lazyman" nvim
+          fi
           break
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
@@ -2045,6 +2054,16 @@ set_starter_branch() {
       ;;
   esac
 }
+
+# Source the Lazyman shell initialization for aliases and nvims selector
+# shellcheck source=.config/nvim-Lazyman/.lazymanrc
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+# Source the Lazyman .nvimsbind for nvims key binding
+# shellcheck source=.config/nvim-Lazyman/.nvimsbind
+[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
+BREW_EXE=
+set_brew
+[ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
 
 all=
 branch=
@@ -2687,9 +2706,6 @@ fi
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
-    BREW_EXE=
-    set_brew
-    [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
