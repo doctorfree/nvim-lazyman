@@ -3010,3 +3010,5 @@ fi
     show_main_menu
   fi
 }
+
+exit 0
