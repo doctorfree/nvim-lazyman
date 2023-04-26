@@ -2027,9 +2027,9 @@ set_brew() {
     fi
   fi
   if [ "$HOMEBREW_HOME" ]; then
-    BREW_EXE=
-  else
     BREW_EXE="${HOMEBREW_HOME}/bin/brew"
+  else
+    BREW_EXE=
   fi
 }
 
@@ -4527,6 +4527,8 @@ fi
     show_main_menu
   fi
 }
+
+exit 0
 ```
 
 </details>
