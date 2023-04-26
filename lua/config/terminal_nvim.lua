@@ -1,9 +1,9 @@
-local term_map = require("terminal.mappings")
 local map = vim.keymap.set
 local api = vim.api
 
 require("terminal").setup()
 
+local term_map = require("terminal.mappings")
 map({ "n", "x" }, "<leader>ts", term_map.operator_send, { expr = true, desc = "Terminal Send" })
 map("n", "<leader>to", term_map.toggle, { desc = "Terminal Toggle" })
 map("n", "<leader>tO", term_map.toggle({ open_cmd = "enew" }), { desc = "New Terminal Toggle" })
@@ -12,6 +12,11 @@ map("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }), { 
 map("n", "<leader>tk", term_map.kill, { desc = "Terminal Kill" })
 map("n", "<leader>t]", term_map.cycle_next, { desc = "Terminal Next" })
 map("n", "<leader>t[", term_map.cycle_prev, { desc = "Terminal Prev" })
+map("n", "<leader>tl", term_map.move({ open_cmd = "belowright vnew" }), { desc = "Move Below Right" })
+map("n", "<leader>tL", term_map.move({ open_cmd = "botright vnew" }), { desc = "Move Bottom Right" })
+map("n", "<leader>th", term_map.move({ open_cmd = "belowright new" }), { desc = "Move Below Right New" })
+map("n", "<leader>tH", term_map.move({ open_cmd = "botright new" }), { desc = "Move Bottom Right New" })
+map("n", "<leader>tf", term_map.move({ open_cmd = "float" }), { desc = "Move Float" })
 
 if vim.fn.executable("ipython") == 1 then
   local ipython = require("terminal").terminal:new({
