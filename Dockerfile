@@ -64,15 +64,17 @@ RUN adduser --disabled-password --gecos '' nvim \
 USER nvim
 WORKDIR /home/nvim
 
+ENV HOME /home/nvim
 ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin:/home/nvim/.cargo/bin
 ENV GOPATH=/home/nvim/.local/share/go
 ENV PATH=$PATH:$GOPATH/bin
 ENV NVIM_APPNAME="nvim-Lazyman"
 
 # Copy Neovim config into the image
-RUN mkdir -p .config/nvim-Lazyman
-COPY --chown=nvim:nvim . .config/nvim-Lazyman
-# Install plugins with Lazy
-RUN nvim --headless "+Lazy! sync" +qa
+RUN mkdir -p $HOME/.config/nvim-Lazyman
+COPY --chown=nvim:nvim . $HOME/.config/nvim-Lazyman
+RUN chmod +x $HOME/.config/nvim-Lazyman/lazyman.sh
+# Initialize Neovim config and install plugins with Lazy
+RUN $HOME/.config/nvim-Lazyman/lazyman.sh -y -z
 
 ENTRYPOINT ["NVIM_APPNAME=nvim-Lazyman", "/bin/bash", "-c", "nvim"]
