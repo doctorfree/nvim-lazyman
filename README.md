@@ -3572,16 +3572,6 @@ set_starter_branch() {
   esac
 }
 
-# Source the Lazyman shell initialization for aliases and nvims selector
-# shellcheck source=.config/nvim-Lazyman/.lazymanrc
-[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
-# Source the Lazyman .nvimsbind for nvims key binding
-# shellcheck source=.config/nvim-Lazyman/.nvimsbind
-[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
-BREW_EXE=
-set_brew
-[ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
-
 all=
 branch=
 instnvim=1
@@ -4171,40 +4161,6 @@ fi
   add_nvimdirs_entry "${lazymandir}"
 }
 
-# Append sourcing of .lazymanrc to shell initialization files
-if [ -f "${LMANDIR}"/.lazymanrc ]; then
-  for shinit in bashrc zshrc; do
-    [ -f "${HOME}/.$shinit" ] || continue
-    grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
-    COMM="# Source the Lazyman shell initialization for aliases and nvims selector"
-    echo "$COMM" >>"${HOME}/.$shinit"
-    SHCK="# shellcheck source=.config/nvim-Lazyman/.lazymanrc"
-    echo "$SHCK" >>"${HOME}/.$shinit"
-    TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
-    SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
-    echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
-  done
-  # Append sourcing of .nvimsbind to shell initialization files
-  [ -f "${HOME}/.config/${lazymandir}"/.nvimsbind ] && {
-    for shinit in bashrc zshrc; do
-      [ -f "${HOME}/.$shinit" ] || continue
-      grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
-      COMM="# Source the Lazyman .nvimsbind for nvims key binding"
-      echo "$COMM" >>"${HOME}/.$shinit"
-      SHCK="# shellcheck source=.config/nvim-Lazyman/.nvimsbind"
-      echo "$SHCK" >>"${HOME}/.$shinit"
-      TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
-      SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
-      echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
-    done
-  }
-else
-  printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
-  printf "\nReinstall Lazyman with:"
-  printf "\n\tlazyman -R -N ${LAZYMAN}"
-  printf "\n\tlazyman\n"
-fi
-
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 set_chat_gpt
 [ -f ${CONFBACK} ] || {
@@ -4236,7 +4192,48 @@ fi
     printf "\nPlease check the Lazyman installation and retry this install script\n"
     brief_usage
   fi
+
+  # Append sourcing of .lazymanrc to shell initialization files
+  if [ -f "${LMANDIR}"/.lazymanrc ]; then
+    for shinit in bashrc zshrc; do
+      [ -f "${HOME}/.$shinit" ] || continue
+      grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
+      COMM="# Source the Lazyman shell initialization for aliases and nvims selector"
+      echo "$COMM" >>"${HOME}/.$shinit"
+      SHCK="# shellcheck source=.config/nvim-Lazyman/.lazymanrc"
+      echo "$SHCK" >>"${HOME}/.$shinit"
+      TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
+      SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
+      echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
+    done
+    # Append sourcing of .nvimsbind to shell initialization files
+    [ -f "${HOME}/.config/${lazymandir}"/.nvimsbind ] && {
+      for shinit in bashrc zshrc; do
+        [ -f "${HOME}/.$shinit" ] || continue
+        grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
+        COMM="# Source the Lazyman .nvimsbind for nvims key binding"
+        echo "$COMM" >>"${HOME}/.$shinit"
+        SHCK="# shellcheck source=.config/nvim-Lazyman/.nvimsbind"
+        echo "$SHCK" >>"${HOME}/.$shinit"
+        TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
+        SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
+        echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
+      done
+    }
+  else
+    printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+    printf "\nReinstall Lazyman with:"
+    printf "\n\tlazyman -R -N ${LAZYMAN}"
+    printf "\n\tlazyman\n"
+  fi
 }
+
+# Source the Lazyman shell initialization for aliases and nvims selector
+# shellcheck source=~/.config/nvim-Lazyman/.lazymanrc
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+BREW_EXE=
+set_brew
+[ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
 
 for neovim in "${nvimdir[@]}"; do
   [ "$neovim" == "${lazymandir}" ] && continue
