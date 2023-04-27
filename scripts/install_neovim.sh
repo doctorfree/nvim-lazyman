@@ -604,6 +604,27 @@ install_tools() {
 main() {
   check_prerequisites
   get_platform
+  [ "${native}" ] || [ "$proceed" ] || {
+    [ "${debian}" ] || [ "${fedora}" ] && {
+      printf "\nHomebrew will be used to install Neovim, dependencies, and tools."
+      while true; do
+        read -r -p "Do you wish to use the native package manager instead ? (y/n) " yn
+        case $yn in
+          [Yy]*)
+            native=1
+            break
+            ;;
+          [Nn]*)
+            printf "\nUsing Homebrew to install Neovim, dependencies, and tools\n"
+            break
+            ;;
+          *)
+            printf "\nPlease answer yes or no.\n"
+            ;;
+        esac
+      done
+    }
+  }
   if [ "${darwin}" ]; then
     use_homebrew=1
   else
@@ -659,8 +680,9 @@ have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
 have_yum=$(type -p yum)
 native=
+proceed=
 
-while getopts "dhnq" flag; do
+while getopts "dhnqy" flag; do
   case $flag in
     d)
       debug=1
@@ -673,6 +695,9 @@ while getopts "dhnq" flag; do
       ;;
     q)
       quiet=1
+      ;;
+    y)
+      proceed=1
       ;;
     *) ;;
   esac

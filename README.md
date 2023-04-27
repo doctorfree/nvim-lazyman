@@ -1593,7 +1593,7 @@ styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedar
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
-  printf "\n       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
+  printf "\n       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -1625,6 +1625,9 @@ usage() {
   printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
+  printf "\n    -h indicates do not use Homebrew, install with native pkg mgr"
+  printf "\n        (Pacman always used on Arch Linux, Homebrew on macOS)"
+  printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n    -r indicates remove the previously installed configuration"
@@ -3620,7 +3623,9 @@ branch=
 instnvim=1
 subdir=
 command=
+brew=
 debug=
+head=
 invoke=
 confmenu=
 langservers=
@@ -3659,7 +3664,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -3696,6 +3701,12 @@ while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     F)
       confmenu=1
+      ;;
+    h)
+      brew="-n"
+      ;;
+    H)
+      head="-h"
       ;;
     i)
       lazyman=1
@@ -4007,7 +4018,8 @@ shift $((OPTIND - 1))
     brief_usage
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew"
     exit 0
   fi
   exit 1
@@ -4221,7 +4233,8 @@ fi
 
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
@@ -4643,10 +4656,81 @@ check_prerequisites() {
     abort "Script must not be run as root user"
   fi
 
-  arch=$(uname -m)
-  if [[ $arch =~ "arm" || $arch =~ "aarch64" ]]; then
+  architecture=$(uname -m)
+  if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
     abort "Only amd64/x86_64 is supported"
   fi
+}
+
+get_platform() {
+  mach=$(uname -m)
+  platform=$(uname -s)
+  if [ "$platform" == "Darwin" ]; then
+    darwin=1
+  else
+    if [ -f /etc/os-release ]; then
+      . /etc/os-release
+      [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && debian=1
+      [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && arch=1
+      [ "${ID}" == "fedora" ] && fedora=1
+      [ "${arch}" ] || [ "${debian}" ] || [ "${fedora}" ] || {
+        echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
+      }
+    else
+      if [ -f /etc/arch-release ]; then
+        arch=1
+      else
+        case "${mach}" in
+          arm*)
+            debian=1
+            ;;
+          x86*)
+            if [ "${have_apt}" ]; then
+              debian=1
+            else
+              if [ -f /etc/fedora-release ]; then
+                fedora=1
+              else
+                if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
+                  # Use Fedora RPM for all other rpm based systems
+                  fedora=1
+                else
+                  echo "Unknown operating system distribution"
+                fi
+              fi
+            fi
+            ;;
+          *)
+            echo "Unknown machine architecture"
+            ;;
+        esac
+      fi
+    fi
+  fi
+
+  [ "${debian}" ] && {
+    if [ "${have_apt}" ]; then
+      APT="apt -q -y"
+    else
+      if [ "${have_aptget}" ]; then
+        APT="apt-get -q -y"
+      else
+        echo "Could not locate apt or apt-get."
+      fi
+    fi
+  }
+
+  [ "${fedora}" ] && {
+    if [ "${have_dnf}" ]; then
+      DNF="dnf --assumeyes --quiet"
+    else
+      if [ "${have_yum}" ]; then
+        DNF="yum --assumeyes --quiet"
+      else
+        echo "Could not locate dnf or yum."
+      fi
+    fi
+  }
 }
 
 install_homebrew() {
@@ -4768,13 +4852,64 @@ brew_install() {
   [ "$quiet" ] || printf " done"
 }
 
+platform_install() {
+  platpkg="$1"
+  if [ "$2" ]; then
+    pkgname="$2"
+  else
+    pkgname="$platpkg"
+  fi
+  if command -v "$pkgname" >/dev/null 2>&1; then
+    log "Using previously installed ${platpkg} ..."
+  else
+    log "Installing ${platpkg} ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    if [ "${debian}" ]; then
+      if [ "${APT}" ]; then
+        sudo ${APT} install ${platpkg} >/dev/null 2>&1
+      else
+        [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
+      fi
+    else
+      if [ "${fedora}" ]; then
+        if [ "${DNF}" ]; then
+          sudo ${DNF} install ${platpkg} >/dev/null 2>&1
+        else
+          [ "${quiet}" ] || printf "\n\t\tCannot locate dnf to install. Skipping ..."
+        fi
+      else
+        [ "${arch}" ] && sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
+      fi
+    fi
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
+}
+
+plat_install() {
+  if [ "${use_homebrew}" ]; then
+    brew_install "$1"
+  else
+    platform_install "$1"
+  fi
+}
+
 install_neovim_dependencies() {
   [ "$quiet" ] || printf "\nInstalling dependencies"
   [ "$install_bash" ] && {
     log "Installing a modern version of bash ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet bash >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --quiet bash >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    else
+      platform_install bash xxxfoobaryyy
+    fi
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -4784,26 +4919,90 @@ install_neovim_dependencies() {
   }
   PKGS="git curl tar unzip lazygit fd fzf gh xclip zoxide"
   for pkg in $PKGS; do
-    brew_install "$pkg"
+    plat_install "$pkg"
   done
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
   else
-    brew_install ripgrep
+    plat_install ripgrep
   fi
   [ "$quiet" ] || printf "\n"
 }
 
-install_neovim_head() {
-  "$BREW_EXE" link -q libuv >/dev/null 2>&1
+install_neovim() {
+  [ "${use_homebrew}" ] && "$BREW_EXE" link -q libuv >/dev/null 2>&1
   log "Installing Neovim ..."
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
-    "$BREW_EXE" install neovim
-    "$BREW_EXE" install neovim-remote
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install neovim
+    else
+      [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
+      APP="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+      curl -fSL "$APP" >/tmp/nvim$$
+      [ $? -eq 0 ] || {
+        rm -f /tmp/nvim$$
+        curl -kfSL "$APP" >/tmp/nvim$$
+      }
+      cp /tmp/nvim$$ $HOME/.local/bin/nvim
+      chmod u+x $HOME/.local/bin/nvim
+      rm -f /tmp/nvim$$
+    fi
   else
-    "$BREW_EXE" install -q neovim >/dev/null 2>&1
-    "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install -q neovim >/dev/null 2>&1
+    else
+      [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
+      APP="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+      curl -fsSL "$APP" >/tmp/nvim$$
+      [ $? -eq 0 ] || {
+        rm -f /tmp/nvim$$
+        curl -kfsSL "$APP" >/tmp/nvim$$
+      }
+      cp /tmp/nvim$$ $HOME/.local/bin/nvim
+      chmod u+x $HOME/.local/bin/nvim
+      rm -f /tmp/nvim$$
+    fi
+  fi
+  if [ "$debug" ]; then
+    FINISH_SECONDS=$(date +%s)
+    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
+  fi
+  [ "$quiet" ] || printf " done"
+}
+
+install_neovim_head() {
+  [ "${use_homebrew}" ] && "$BREW_EXE" link -q libuv >/dev/null 2>&1
+  log "Building and installing nightly Neovim ..."
+  if [ "$debug" ]; then
+    START_SECONDS=$(date +%s)
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --HEAD neovim
+    else
+      [ -d $HOME/src ] || mkdir -p $HOME/src
+      git clone https://github.com/neovim/neovim.git $HOME/src/neovim
+      cd $HOME/src/neovim || exit 1
+      sudo rm /usr/local/bin/nvim
+      sudo rm -r /usr/local/share/nvim/
+      make CMAKE_BUILD_TYPE=RelWithDebInfo
+      sudo make install
+      sudo rm -rf $HOME/src/neovim
+    fi
+  else
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
+    else
+      [ -d $HOME/src ] || mkdir -p $HOME/src
+      git clone https://github.com/neovim/neovim.git $HOME/src/neovim >/dev/null 2>&1
+      cd $HOME/src/neovim || exit 1
+      sudo rm -f /usr/local/bin/nvim
+      sudo rm -rf /usr/local/share/nvim/
+      make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null 2>&1
+      sudo make install >/dev/null 2>&1
+      sudo rm -rf $HOME/src/neovim
+    fi
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
@@ -4879,10 +5078,10 @@ link_python() {
 
 install_tools() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
-
-  brew_install ccls
-  "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
-
+  plat_install ccls
+  [ "${use_homebrew}" ] && {
+    "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
+  }
   [ "$quiet" ] || printf "\nDone"
 
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
@@ -4906,8 +5105,24 @@ install_tools() {
   else
     log "Installing cargo ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "rust" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --quiet "rust" >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
+    else
+      RUST_URL="https://sh.rustup.rs"
+      curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+      [ $? -eq 0 ] || {
+        rm -f /tmp/rust-$$.sh
+        curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
+        [ -f /tmp/rust-$$.sh ] && {
+          cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+          cp /tmp/ins$$ /tmp/rust-$$.sh
+          rm -f /tmp/ins$$
+        }
+      }
+      [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
+      rm -f /tmp/rust-$$.sh
+    fi
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -4917,25 +5132,9 @@ install_tools() {
   fi
 
   for pkg in bat lsd figlet luarocks lolcat terraform; do
-    brew_install "${pkg}"
+    plat_install "${pkg}"
   done
-
-  if command -v "rich" >/dev/null 2>&1; then
-    log "Using previously installed rich-cli ..."
-  else
-    log "Installing rich-cli ..."
-    [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
-    if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-      printf " elapsed time = %s${ELAPSED}"
-    fi
-  fi
-  [ "$quiet" ] || printf " done"
-  brew_install tree-sitter
+  plat_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
@@ -4943,10 +5142,15 @@ install_tools() {
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
   [ "$PYTHON" ] || {
-    # Could not find Python, install with Homebrew
-    log 'Installing Python with Homebrew ...'
-    "$BREW_EXE" install --quiet python >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
+    # Could not find Python
+    if [ "${use_homebrew}" ]; then
+      log 'Installing Python with Homebrew ...'
+      "$BREW_EXE" install --quiet python >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
+    else
+      log 'Installing Python ...'
+      platform_install python3
+    fi
     check_python
     [ "$quiet" ] || printf " done"
   }
@@ -4958,16 +5162,40 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    [ "$quiet" ] || printf "\nInstalling neovim-remote (nvr)"
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
+    else
+      ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf "\nDone"
+    if command -v "rich" >/dev/null 2>&1; then
+      log "Using previously installed rich-cli ..."
+    else
+      log "Installing rich-cli ..."
+      if [ "${use_homebrew}" ]; then
+        "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
+        [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
+      else
+        ${PYTHON} -m pip install rich-cli >/dev/null 2>&1
+      fi
+    fi
+    [ "$quiet" ] || printf " done"
   }
   [ "$quiet" ] || printf "\nDone"
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
   check_ruby
   [ "$RUBY" ] || {
-    # Could not find Ruby, install with Homebrew
-    log 'Installing Ruby with Homebrew ...'
-    "$BREW_EXE" install --quiet ruby >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet ruby >/dev/null 2>&1
+    # Could not find Ruby
+    if [ "${use_homebrew}" ]; then
+      log 'Installing Ruby with Homebrew ...'
+      "$BREW_EXE" install --quiet ruby >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet ruby >/dev/null 2>&1
+    else
+      log 'Installing Ruby ...'
+      platform_install ruby
+    fi
     check_ruby
     [ "$quiet" ] || printf " done"
   }
@@ -4996,42 +5224,101 @@ install_tools() {
 
 main() {
   check_prerequisites
-  install_homebrew
+  get_platform
+  [ "${native}" ] || [ "$proceed" ] || {
+    [ "${debian}" ] || [ "${fedora}" ] && {
+      printf "\nHomebrew will be used to install Neovim, dependencies, and tools."
+      while true; do
+        read -r -p "Do you wish to use the native package manager instead ? (y/n) " yn
+        case $yn in
+          [Yy]*)
+            native=1
+            break
+            ;;
+          [Nn]*)
+            printf "\nUsing Homebrew to install Neovim, dependencies, and tools\n"
+            break
+            ;;
+          *)
+            printf "\nPlease answer yes or no.\n"
+            ;;
+        esac
+      done
+    }
+  }
+  if [ "${darwin}" ]; then
+    use_homebrew=1
+  else
+    if [ "${debian}" ]; then
+      [ "${native}" ] || use_homebrew=1
+    else
+      if [ "${arch}" ]; then
+        use_homebrew=
+      else
+        if [ "${fedora}" ]; then
+          [ "${native}" ] || use_homebrew=1
+        else
+          use_homebrew=1
+        fi
+      fi
+    fi
+  fi
+  [ "${use_homebrew}" ] && install_homebrew
   install_neovim_dependencies
   if command -v nvim >/dev/null 2>&1; then
     nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
     if (($(echo "$nvim_version < 0.9 " | bc -l))); then
       printf "\nCurrently installed Neovim is less than version 0.9"
-      [ "$nvim_head" ] && {
-        printf "\nInstalling latest Neovim version with Homebrew"
+      if [ "$nvim_head" ]; then
+        printf "\nInstalling nightly build of Neovim"
         install_neovim_head
-      }
+      else
+        printf "\nInstalling/upgrading Neovim"
+        install_neovim
+      fi
     fi
   else
     if [ "$nvim_head" ]; then
       install_neovim_head
     else
-      brew_install neovim
-      brew_install nvr
+      install_neovim
     fi
   fi
   install_tools
 }
 
-nvim_head=1
+APT=
+DNF=
+nvim_head=
 quiet=
 debug=
+darwin=
+arch=
+debian=
+fedora=
+have_apt=$(type -p apt)
+have_aptget=$(type -p apt-get)
+have_dnf=$(type -p dnf)
+have_yum=$(type -p yum)
+native=
+proceed=
 
-while getopts "dhq" flag; do
+while getopts "dhnqy" flag; do
   case $flag in
     d)
       debug=1
       ;;
     h)
-      nvim_head=
+      nvim_head=1
+      ;;
+    n)
+      native=1
       ;;
     q)
       quiet=1
+      ;;
+    y)
+      proceed=1
       ;;
     *) ;;
   esac
