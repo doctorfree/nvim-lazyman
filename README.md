@@ -401,6 +401,10 @@ Neovim configuration perform the following:
 Custom Neovim configurations will be displayed and available in subsequent
 runs of `lazyman` in the Lazyman Menu System.
 
+An excellent list of preconfigured Neovim configurations is available at the
+[Awesome Neovim Repository](https://github.com/rockerBOO/awesome-neovim#preconfigured-configuration). Many of these can be easily installed and initialized using
+`lazyman -b <branch> -C <url> -N <nvimdir> ...`.
+
 Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
 process that Lazyman does not yet support. However, you may find it useful
