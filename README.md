@@ -89,7 +89,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Base configurations](#base-configurations)
   - [Extra configurations](#extra-configurations)
   - [Starter configurations](#starter-configurations)
-  - [Unsupported configurations](#unsupported-configurations)
+  - [Custom configurations](#custom-configurations)
 - [Features](#features)
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
@@ -345,7 +345,7 @@ installed with the `-x conf` option.
   - Same as `StartMason` but everything is split in modules
   - Install and initialize with `lazyman -x Modular`
 
-### Unsupported configurations
+### Custom configurations
 
 To install and initialize a Neovim configuration not supported out-of-the-box
 by Lazyman, use the `-C url` and `-N nvimdir` options to `lazyman`. After the
@@ -382,7 +382,26 @@ initialize it with Packer:
 lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
 ```
 
-Unsupported Neovim configurations can be installed and initialized in this
+Custom Neovim configurations may require additional setup work not
+performed by `lazyman`. For example, the `CosmicNvim` Neovim config
+requires `Node.js`, `prettierd`, and `eslint_d` but these are installed
+with Mason when using `lazyman`. To install and initialize the `CosmicNvim`
+Neovim configuration perform the following:
+
+- Verify the above prerequisites are installed
+- Install `CosmicNvim` with `lazyman`:
+  - `lazyman -b main -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic -z`
+- Copy the example configs:
+  - `cd ~/.config/nvim-Cosmic/lua/cosmic/config`
+  - `cp examples/config.lua config.lua`
+  - `cp examples/editor.lua editor.lua`
+- Run Neovim with the `CosmicNvim` configuration:
+  - `NVIM_APPNAME="nvim-Cosmic" nvim`
+
+Custom Neovim configurations will be displayed and available in subsequent
+runs of `lazyman` in the Lazyman Menu System.
+
+Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
 process that Lazyman does not yet support. However, you may find it useful
 or interesting to explore, resolve errors and issues, and contribute to the
