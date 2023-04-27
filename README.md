@@ -121,7 +121,9 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 
 The `lazyman` Neovim configuration manager requires Neovim 0.9. The `lazyman`
 installation and initialization process checks for Neovim 0.9 and, if not
-found, uses Homebrew to install it in the isolated Homebrew directory.
+found, uses Homebrew to install it in the isolated Homebrew directory or,
+if the `-h` option was provided, uses the native package manger rather
+than Homebrew.
 
 Lazyman requires a Unix or Linux operating system, Linux and macOS only,
 and the Bash shell.
@@ -150,7 +152,7 @@ These 2 steps perform the following:
 
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
-   1. Installs Homebrew if not already installed
+   1. Installs Homebrew if not already installed (unless `-h` specified)
    1. Installs language servers and tools for coding diagnostics
    1. Installs the latest version of Neovim if not already installed
    1. Installs and initializes configured Neovim plugins
@@ -158,14 +160,34 @@ These 2 steps perform the following:
 After the download and initialization are complete, execute the `lazyman`
 command found in `~/.local/bin/lazyman`.
 
-Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not
-already Neovim 0.9 or later installed and in the execution path.
-In addition, Lazyman uses Homebrew to install Neovim dependencies,
+By default, Lazyman uses [Homebrew](https://brew.sh) to install Neovim
+if there is not already Neovim 0.9 or later installed and in the execution path.
+In addition, by default, Lazyman uses Homebrew to install Neovim dependencies,
 language servers, and tools.
 
-The installation of Homebrew, Neovim 0.9, language servers, and tools
-ensures a proper runtime environment. To avoid the installation of
-Homebrew, Neovim, language servers, and tools, execute `lazyman -Z`:
+Alternately, command line options exist to direct `lazyman` to install Neovim,
+dependencies and tools using the native package manger or to skip the Neovim
+installation altogether.
+
+To install Neovim, dependencies, and tools using the native package
+manger rather than Homebrew, invoke `lazyman` with the `-h` option
+when first initializing:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh -h
+```
+
+To compile and install the nightly build of Neovim, use the `-H` option:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh -H
+```
+
+The installation of Neovim 0.9, language servers, and tools ensures a proper
+runtime environment. To avoid the installation of Homebrew, Neovim, language
+servers, and tools altogether, execute `lazyman -Z`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -214,12 +236,6 @@ rm -f /tmp/lazyman.sh
 Once the `lazyman.sh` script has been downloaded and executed, subsequent
 Lazyman operations can be performed with the `lazyman` command found in
 `~/.local/bin/lazyman`. The manual page can be viewed with `man lazyman`.
-
-If you do not wish to use this automated installation and initialization
-method then manual installation and initialization is described below.
-Manual installation and initialization may be preferred by those who
-do not wish to upgrade Neovim to the latest version or by those who
-do not wish to use Homebrew.
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
 to control where Neovim looks for its configuration.
@@ -503,8 +519,8 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 
 ```
 Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]
-       [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
-       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
+       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
+       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
        [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
 Where:
     -A indicates install all supported Neovim configurations
@@ -519,6 +535,7 @@ Where:
            'ecovim', 'nvchad', 'lazyvim', 'lunarvim', 'spacevim'
        or any Neovim configuration directory in '~/.config'
            (e.g. 'lazyman -E lazyvim foo.lua')
+    -F indicates present the Lazyman Configuration menu
     -i indicates install and initialize Lazyman Neovim configuration
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
@@ -530,6 +547,9 @@ Where:
     -p indicates use vim-plug rather than Lazy to initialize
     -P indicates use Packer rather than Lazy to initialize
     -q indicates quiet install
+    -h indicates do not use Homebrew, install with native pkg mgr
+        (Pacman always used on Arch Linux, Homebrew on macOS)
+    -H indicates compile and install the nightly Neovim build
     -I indicates install language servers and tools for coding diagnostics
     -L 'cmd' specifies a Lazy command to run in the selected configuration
     -r indicates remove the previously installed configuration
@@ -544,8 +564,8 @@ Where:
     -W indicates install and initialize all 'Extra' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           'Minimal', 'Base', 'Opinion', 'Lsp', 'Mason', or 'Modular'
-    -X indicates install and initialize all nvim-starter configs
+       'Minimal', 'StartBase', 'Opinion', 'StartLsp', 'StartMason', or 'Modular'
+    -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
