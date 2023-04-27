@@ -13,8 +13,8 @@ configurations
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l]
-[-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-D
-subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+[-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
+[-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -170,6 +170,11 @@ directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit
 'foo.lua' with the LazyVim config
 
 `-F` : indicates present the Lazyman Configuration menu
+
+`-h` : indicates do not use Homebrew, install with native package manager
+(Pacman always used on Arch Linux, Homebrew on macOS)
+
+`-H` : indicates compile and install the nightly Neovim build
 
 `-i` : indicates install and initialize the 'Lazyman' Neovim configuration
 
