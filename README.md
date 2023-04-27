@@ -121,16 +121,14 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 
 The `lazyman` Neovim configuration manager requires Neovim 0.9. The `lazyman`
 installation and initialization process checks for Neovim 0.9 and, if not
-found, uses Homebrew to install it in the isolated Homebrew directory or,
-if the `-h` option was provided, uses the native package manger rather
-than Homebrew.
+found, installs it and required dependencies and tools.
 
-Lazyman requires a Unix or Linux operating system, Linux and macOS only,
-and the Bash shell.
+Lazyman requires Linux or macOS, git, and the Bash shell.
 
 - Neovim 0.9 (automatically installed if not found)
 - Unix/Linux/macOS
 - Bash
+- Git
 
 ## Installation
 
@@ -152,7 +150,6 @@ These 2 steps perform the following:
 
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
-   1. Installs Homebrew if not already installed (unless `-h` specified)
    1. Installs language servers and tools for coding diagnostics
    1. Installs the latest version of Neovim if not already installed
    1. Installs and initializes configured Neovim plugins
@@ -160,18 +157,16 @@ These 2 steps perform the following:
 After the download and initialization are complete, execute the `lazyman`
 command found in `~/.local/bin/lazyman`.
 
-By default, Lazyman uses [Homebrew](https://brew.sh) to install Neovim
-if there is not already Neovim 0.9 or later installed and in the execution path.
-In addition, by default, Lazyman uses Homebrew to install Neovim dependencies,
-language servers, and tools.
+By default, Lazyman uses the native package manager to install Neovim
+dependencies and tools if Neovim 0.9 or later is not already installed
+and in the execution path.
 
 Alternately, command line options exist to direct `lazyman` to install Neovim,
-dependencies and tools using the native package manger or to skip the Neovim
+dependencies and tools using [Homebrew](https://brew.sh) or to skip the Neovim
 installation altogether.
 
-To install Neovim, dependencies, and tools using the native package
-manger rather than Homebrew, invoke `lazyman` with the `-h` option
-when first initializing:
+To install Neovim, dependencies, and tools using Homebrew rather than the
+native package manger, invoke `lazyman` with the `-h` option when initializing:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -198,7 +193,7 @@ Note that circumventing the Neovim installation means that Neovim 0.9 must
 be installed in some other manner. Also, language servers and tools
 required by some Neovim configurations may not be present. However, some
 may prefer to handle the installation of Neovim 0.9, language servers,
-and tools on their own. In this case, the `-Z` option is your friend.
+and tools on their own.
 
 If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman
 install Neovim 0.9, language servers and tools, then issue the command
@@ -547,8 +542,8 @@ Where:
     -p indicates use vim-plug rather than Lazy to initialize
     -P indicates use Packer rather than Lazy to initialize
     -q indicates quiet install
-    -h indicates do not use Homebrew, install with native pkg mgr
-        (Pacman always used on Arch Linux, Homebrew on macOS)
+    -h indicates use Homebrew to install rather than native pkg mgr
+        (Pacman is always used on Arch Linux, Homebrew on macOS)
     -H indicates compile and install the nightly Neovim build
     -I indicates install language servers and tools for coding diagnostics
     -L 'cmd' specifies a Lazy command to run in the selected configuration
@@ -1625,8 +1620,8 @@ usage() {
   printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
-  printf "\n    -h indicates do not use Homebrew, install with native pkg mgr"
-  printf "\n        (Pacman always used on Arch Linux, Homebrew on macOS)"
+  printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
+  printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
   printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
@@ -3644,6 +3639,7 @@ spacevim=
 plug=
 packer=
 proceed=
+yes=
 quiet=
 remove=
 removeall=
@@ -3703,10 +3699,10 @@ while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       confmenu=1
       ;;
     h)
-      brew="-n"
+      brew="-h"
       ;;
     H)
-      head="-h"
+      head="-n"
       ;;
     i)
       lazyman=1
@@ -3788,6 +3784,7 @@ while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     y)
       proceed=1
+      yes="-y"
       ;;
     z)
       runvim=
@@ -4019,7 +4016,7 @@ shift $((OPTIND - 1))
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
-      "$debug" "$head" "$brew"
+      "$debug" "$head" "$brew" "$yes"
     exit 0
   fi
   exit 1
@@ -4073,7 +4070,7 @@ shift $((OPTIND - 1))
       printf "\n\tThis will make it incompatible with '-E <config>' in subsequent runs\n"
     }
     [ "$proceed" ] || {
-      printf "\nDo you wish to proceed with this non-standard initialization?"
+      printf "\nDo you wish to proceed with this non-standard initialization?\n"
       while true; do
         read -r -p "Proceed with config in ${name} ? (y/n) " yn
         case $yn in
@@ -4234,7 +4231,7 @@ fi
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
-      "$debug" "$head" "$brew"
+      "$debug" "$head" "$brew" "$yes"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
@@ -5087,6 +5084,9 @@ install_tools() {
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
+    log "Installing tree-sitter command line npm package ..."
+    npm i -g tree-sitter-cli >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     log "Installing Neovim npm package ..."
     npm i -g neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -5131,13 +5131,18 @@ install_tools() {
     fi
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat terraform; do
-    plat_install "${pkg}"
-  done
-  plat_install tree-sitter
+  if ! command -v tree-sitter >/dev/null 2>&1; then
+    if command -v "cargo" >/dev/null 2>&1; then
+      cargo install tree-sitter-cli >/dev/null 2>&1
+    fi
+  fi
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
+
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
+    plat_install "${pkg}"
+  done
 
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
@@ -5225,22 +5230,38 @@ install_tools() {
 main() {
   check_prerequisites
   get_platform
-  [ "${native}" ] || [ "$proceed" ] || {
+  [ "$proceed" ] || {
     [ "${debian}" ] || [ "${fedora}" ] && {
-      printf "\nHomebrew will be used to install Neovim, dependencies, and tools."
+      if [ "${native}" ]; then
+        printf "\nNative package manager will be used to install dependencies and tools."
+        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager\n"
+      else
+        printf "\nHomebrew will be used to install dependencies and tools."
+        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use the native package manager\n"
+      fi
       while true; do
-        read -r -p "Do you wish to use the native package manager instead ? (y/n) " yn
+        read -r -p "Do you wish to use the native package manager or Homebrew ? (h/n) " yn
         case $yn in
-          [Yy]*)
+          [Nn]*)
+            printf "\nUsing native package manager to install dependencies and tools\n"
             native=1
             break
             ;;
-          [Nn]*)
-            printf "\nUsing Homebrew to install Neovim, dependencies, and tools\n"
+          [Hh]*)
+            printf "\nUsing Homebrew to install dependencies and tools\n"
+            native=
+            break
+            ;;
+          '')
+            if [ "${native}" ]; then
+              printf "\nUsing native package manager to install dependencies and tools\n"
+            else
+              printf "\nUsing Homebrew to install dependencies and tools\n"
+            fi
             break
             ;;
           *)
-            printf "\nPlease answer yes or no.\n"
+            printf "\nPlease answer 'h' or 'n'.\n"
             ;;
         esac
       done
@@ -5300,7 +5321,7 @@ have_apt=$(type -p apt)
 have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
 have_yum=$(type -p yum)
-native=
+native=1
 proceed=
 
 while getopts "dhnqy" flag; do
@@ -5308,11 +5329,11 @@ while getopts "dhnqy" flag; do
     d)
       debug=1
       ;;
-    h)
+    n)
       nvim_head=1
       ;;
-    n)
-      native=1
+    h)
+      native=
       ;;
     q)
       quiet=1

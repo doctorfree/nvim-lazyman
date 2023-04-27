@@ -161,7 +161,7 @@ The following command line options are available with the `lazyman` command:
 
 `-F` : indicates present the Lazyman Configuration menu
 
-`-h` : indicates do not use Homebrew, install with native package manager (Pacman always used on Arch Linux, Homebrew on macOS)
+`-h` : indicates use Homebrew rather than the native package manager (Pacman always used on Arch Linux, Homebrew on macOS)
 
 `-H` : indicates compile and install the nightly Neovim build
 

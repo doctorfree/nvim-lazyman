@@ -65,8 +65,8 @@ usage() {
   printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
-  printf "\n    -h indicates do not use Homebrew, install with native pkg mgr"
-  printf "\n        (Pacman always used on Arch Linux, Homebrew on macOS)"
+  printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
+  printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
   printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
@@ -2144,10 +2144,10 @@ while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       confmenu=1
       ;;
     h)
-      brew="-n"
+      brew="-h"
       ;;
     H)
-      head="-h"
+      head="-n"
       ;;
     i)
       lazyman=1
@@ -2515,7 +2515,7 @@ shift $((OPTIND - 1))
       printf "\n\tThis will make it incompatible with '-E <config>' in subsequent runs\n"
     }
     [ "$proceed" ] || {
-      printf "\nDo you wish to proceed with this non-standard initialization?"
+      printf "\nDo you wish to proceed with this non-standard initialization?\n"
       while true; do
         read -r -p "Proceed with config in ${name} ? (y/n) " yn
         case $yn in

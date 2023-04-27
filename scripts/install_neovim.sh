@@ -466,6 +466,9 @@ install_tools() {
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
+    log "Installing tree-sitter command line npm package ..."
+    npm i -g tree-sitter-cli >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     log "Installing Neovim npm package ..."
     npm i -g neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -510,13 +513,18 @@ install_tools() {
     fi
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat terraform; do
-    plat_install "${pkg}"
-  done
-  plat_install tree-sitter
+  if ! command -v tree-sitter >/dev/null 2>&1; then
+    if command -v "cargo" >/dev/null 2>&1; then
+      cargo install tree-sitter-cli >/dev/null 2>&1
+    fi
+  fi
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
+
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
+    plat_install "${pkg}"
+  done
 
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
@@ -604,22 +612,38 @@ install_tools() {
 main() {
   check_prerequisites
   get_platform
-  [ "${native}" ] || [ "$proceed" ] || {
+  [ "$proceed" ] || {
     [ "${debian}" ] || [ "${fedora}" ] && {
-      printf "\nHomebrew will be used to install Neovim, dependencies, and tools."
+      if [ "${native}" ]; then
+        printf "\nNative package manager will be used to install dependencies and tools."
+        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager\n"
+      else
+        printf "\nHomebrew will be used to install dependencies and tools."
+        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use the native package manager\n"
+      fi
       while true; do
-        read -r -p "Do you wish to use the native package manager instead ? (y/n) " yn
+        read -r -p "Do you wish to use the native package manager or Homebrew ? (h/n) " yn
         case $yn in
-          [Yy]*)
+          [Nn]*)
+            printf "\nUsing native package manager to install dependencies and tools\n"
             native=1
             break
             ;;
-          [Nn]*)
-            printf "\nUsing Homebrew to install Neovim, dependencies, and tools\n"
+          [Hh]*)
+            printf "\nUsing Homebrew to install dependencies and tools\n"
+            native=
+            break
+            ;;
+          '')
+            if [ "${native}" ]; then
+              printf "\nUsing native package manager to install dependencies and tools\n"
+            else
+              printf "\nUsing Homebrew to install dependencies and tools\n"
+            fi
             break
             ;;
           *)
-            printf "\nPlease answer yes or no.\n"
+            printf "\nPlease answer 'h' or 'n'.\n"
             ;;
         esac
       done
@@ -679,7 +703,7 @@ have_apt=$(type -p apt)
 have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
 have_yum=$(type -p yum)
-native=
+native=1
 proceed=
 
 while getopts "dhnqy" flag; do
@@ -687,11 +711,11 @@ while getopts "dhnqy" flag; do
     d)
       debug=1
       ;;
-    h)
+    n)
       nvim_head=1
       ;;
-    n)
-      native=1
+    h)
+      native=
       ;;
     q)
       quiet=1
