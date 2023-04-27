@@ -24,9 +24,9 @@ configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k]
-[-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C
-url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y]
-[-z] [-Z] [-u]
+[-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd]
+[-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf]
+[-X] [-y] [-z] [-Z] [-u]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -219,6 +219,11 @@ For example, \[aq]lazyman -E lazyvim foo.lua\[aq] would edit
 \[aq]foo.lua\[aq] with the LazyVim config
 .PP
 \f[V]-F\f[R] : indicates present the Lazyman Configuration menu
+.PP
+\f[V]-h\f[R] : indicates do not use Homebrew, install with native
+package manager (Pacman always used on Arch Linux, Homebrew on macOS)
+.PP
+\f[V]-H\f[R] : indicates compile and install the nightly Neovim build
 .PP
 \f[V]-i\f[R] : indicates install and initialize the \[aq]Lazyman\[aq]
 Neovim configuration

@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
 
 ## FEATURES
 
@@ -160,6 +160,10 @@ The following command line options are available with the `lazyman` command:
 `-E 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'astronvim', 'ecovim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
 `-F` : indicates present the Lazyman Configuration menu
+
+`-h` : indicates do not use Homebrew, install with native package manager (Pacman always used on Arch Linux, Homebrew on macOS)
+
+`-H` : indicates compile and install the nightly Neovim build
 
 `-i` : indicates install and initialize the 'Lazyman' Neovim configuration
 
