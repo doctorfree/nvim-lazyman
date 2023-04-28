@@ -2771,7 +2771,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]; then
-      update_config "$astronvimdir"/lua/user
+      update_config "$astronvimdir"
     else
       git clone https://github.com/doctorfree/astronvim \
         "${HOME}/.config/$astronvimdir"/lua/user >/dev/null 2>&1
@@ -2876,7 +2876,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]; then
-      update_config "$nvchaddir"/lua/custom
+      update_config "$nvchaddir"
     else
       git clone https://github.com/doctorfree/NvChad-custom \
         "${HOME}/.config/$nvchaddir"/lua/custom >/dev/null 2>&1
