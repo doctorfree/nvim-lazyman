@@ -291,7 +291,7 @@ install_neovim_dependencies() {
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
           | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "Linux_x86_64\.tar\.gz")
+          | grep "Linux_x86_64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -371,7 +371,7 @@ install_neovim() {
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
           | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "linux64\.tar\.gz")
+          | grep "linux64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -413,7 +413,7 @@ install_neovim() {
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
           | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "linux64\.tar\.gz")
+          | grep "linux64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
