@@ -110,8 +110,6 @@ install_homebrew() {
     [ "$debug" ] && START_SECONDS=$(date +%s)
     log "Installing Homebrew ..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-    have_curl=$(type -p curl)
-    [ "$have_curl" ] || abort "The curl command could not be located."
     curl -fsSL "$BREW_URL" >/tmp/brew-$$.sh
     [ $? -eq 0 ] || {
       rm -f /tmp/brew-$$.sh
@@ -280,10 +278,15 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl tar unzip fd fzf gh xclip"
+  PKGS="git curl jq tar unzip fd fzf gh wget xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
+
+  have_curl=$(type -p curl)
+  [ "$have_curl" ] || abort "The curl command could not be located."
+  have_jq=$(type -p jq)
+  have_wget=$(type -p wget)
 
   if command -v lazygit >/dev/null 2>&1; then
     log "Using previously installed lazygit"
@@ -292,15 +295,10 @@ install_neovim_dependencies() {
       # Things are so much easier with Homebrew
       brew_install lazygit
     else
-      plat_install jq
-      plat_install wget
       OWNER=jesseduffield
       PROJECT=lazygit
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
-      have_curl=$(type -p curl)
-      have_jq=$(type -p jq)
-      have_wget=$(type -p wget)
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
           | jq --raw-output '.assets | .[]?.browser_download_url' \
@@ -369,38 +367,95 @@ install_neovim_dependencies() {
 }
 
 install_neovim() {
-  [ "${use_homebrew}" ] && "$BREW_EXE" link -q libuv >/dev/null 2>&1
   log "Installing Neovim ..."
+  OWNER=neovim
+  PROJECT=neovim
+  API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+  DL_URL=
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
     if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" link -q libuv
       "$BREW_EXE" install neovim
     else
-      [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
-      APP="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
-      curl -fSL "$APP" >/tmp/nvim$$
-      [ $? -eq 0 ] || {
-        rm -f /tmp/nvim$$
-        curl -kfSL "$APP" >/tmp/nvim$$
+      [ -d $HOME/.local ] || mkdir -p $HOME/.local
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux64\.tar\.gz")
       }
-      cp /tmp/nvim$$ $HOME/.local/bin/nvim
-      chmod u+x $HOME/.local/bin/nvim
-      rm -f /tmp/nvim$$
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}"
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/nvim$$
+          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+            chmod 755 ${HOME}/.local/bin/nvim
+          else
+            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
+              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+              [ -f "${nvimbin}" ] && {
+                nvimdir=$(dirname ${nvimbin})
+                nvimdir=$(dirname ${nvimdir})
+                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                chmod 755 ${HOME}/.local/bin/nvim
+                break
+              }
+            done
+          fi
+          rm -f "${TEMP_TGZ}"
+          rm -f /tmp/nvim-$$.tar
+          rm -rf /tmp/nvim$$
+          [ "$quiet" ] || printf " done"
+        }
+      }
     fi
   else
     if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" link -q libuv >/dev/null 2>&1
       "$BREW_EXE" install -q neovim >/dev/null 2>&1
     else
-      [ -d $HOME/.local/bin ] || mkdir -p $HOME/.local/bin
-      APP="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
-      curl -fsSL "$APP" >/tmp/nvim$$
-      [ $? -eq 0 ] || {
-        rm -f /tmp/nvim$$
-        curl -kfsSL "$APP" >/tmp/nvim$$
+      [ -d $HOME/.local ] || mkdir -p $HOME/.local
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux64\.tar\.gz")
       }
-      cp /tmp/nvim$$ $HOME/.local/bin/nvim
-      chmod u+x $HOME/.local/bin/nvim
-      rm -f /tmp/nvim$$
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/nvim$$
+          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+            chmod 755 ${HOME}/.local/bin/nvim
+          else
+            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
+              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+              [ -f "${nvimbin}" ] && {
+                nvimdir=$(dirname ${nvimbin})
+                nvimdir=$(dirname ${nvimdir})
+                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                chmod 755 ${HOME}/.local/bin/nvim
+                break
+              }
+            done
+          fi
+          rm -f "${TEMP_TGZ}"
+          rm -f /tmp/nvim-$$.tar
+          rm -rf /tmp/nvim$$
+          [ "$quiet" ] || printf " done"
+        }
+      }
     fi
   fi
   if [ "$debug" ]; then
