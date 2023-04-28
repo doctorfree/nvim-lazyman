@@ -110,6 +110,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
   - [Using aliases](#using-aliases)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
+- [Known limitations](#known-limitations)
 - [Removal](#removal)
 - [Troubleshooting](#troubleshooting)
 - [Appendix](#appendix)
@@ -880,8 +881,8 @@ conf.lsp_servers = {
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "beautysh", "black", "goimports", "gofumpt", "golangci-lint",
-  "google-java-format", "latexindent", "markdownlint", "prettier", "ruff",
+  "actionlint", "goimports", "gofumpt", "golangci-lint",
+  "google-java-format", "latexindent", "markdownlint", "prettier",
   "sql-formatter", "shellcheck", "shfmt", "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
@@ -1431,6 +1432,62 @@ When invoked with the `-E config` option, `lazyman` sets the **NVIM_APPNAME**
 environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
+
+## Known limitations
+
+The installation of some programming languages is left to the system
+administrator. In particular, `lazyman` does not install Java, the
+Java Development Kit (JDK), Composer, PHP, or Julia. These may show
+up as warnings when performing a `:checkhealth`. These can be installed
+manually if needed.
+
+SSH users may need to install
+[lemonade](https://github.com/lemonade-command/lemonade)
+to support the clipboard over SSH.
+
+### Homebrew
+
+Homebrew can be used to install Neovim dependencies and tools by using the
+`-h` switch to `lazyman` or by selecting Homebrew when prompted. Using
+Homebrew on some Linux systems has the advantage of providing more recent
+versions of some packages. However, the Homebrew python package will be
+installed as a dependency and will appear first in your PATH. This results
+in a system which no longer recognizes previously installed python modules
+in the system python. This issue has been reported to the Homebrew team
+but is unlikely to be addressed.
+
+If you wish to use Homebrew and want to retain your existing python modules
+then the following manual process may suffice:
+
+- Locate the module paths the Homebrew python is using. For example:
+  - `/home/linuxbrew/.linuxbrew/bin/python3 -c 'import site; print(site.getsitepackages())' | tr -d '[],'`
+- Locate the module paths the system python is using. For example:
+  - `/usr/bin/python3 -c 'import site; print(site.getsitepackages())' | tr -d '[],'`
+- Append the system python module paths to `PYTHONPATH` with Homebrew's first
+- Export the constructed `PYTHONPATH` environment variable in your shell init, e.g.
+  - `export PYTHONPATH="<colon separated list of paths>"`
+
+This Homebrew python module path issue is not a problem when using the
+native package manager to install dependencies and tools. This is the default.
+
+### Ubuntu Linux
+
+The `terraform` command is not available in the default repositories. See the
+[Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+to install `terraform` on Ubuntu Linux. This is not
+an issue when using Homebrew to install dependencies.
+
+#### Ubuntu 20.04
+
+The version of `luarocks` in the Ubuntu 20.04 default repositories is
+no longer supported. If `luarocks` is required then it can be installed
+manually by following the instructions in the
+[Luarocks documentation](https://luarocks.org/#quick-start). This is not
+an issue when using Homebrew to install dependencies.
+
+The binary distribution of the `tree-sitter-cli` npm package depends on GLIBC
+2.32 but this is unavailable in this release of Ubuntu Linux. The `tree-sitter`
+command is not functional, disabling the `:TSInstallFromGrammar` command.
 
 ## Removal
 
@@ -4885,10 +4942,22 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl jq tar unzip fd fzf gh wget xclip"
+  PKGS="git curl jq tar unzip fzf gh wget xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
+
+  if [ "${use_homebrew}" ]; then
+    brew_install fd
+    brew_install clipboard
+  else
+    if [ "${arch}" ]; then
+      platform_install fd
+    else
+      platform_install "fd-find" fd
+    fi
+    platform_install "wl-clipboard" wl-copy
+  fi
 
   have_curl=$(type -p curl)
   [ "$have_curl" ] || abort "The curl command could not be located."
@@ -5268,6 +5337,11 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    log 'Installing black, beautysh, and ruff formatters/linters ...'
+    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
+    "$PYTHON" -m pip install black >/dev/null 2>&1
+    "$PYTHON" -m pip install ruff >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
@@ -5303,6 +5377,11 @@ install_tools() {
     fi
     check_ruby
     [ "$quiet" ] || printf " done"
+  }
+
+  [ "${native}" ] && {
+    [ "${debian}" ] && platform_install ruby-dev
+    [ "${rpm}" ] && platform_install ruby-devel
   }
 
   [ "$GEM" ] && {

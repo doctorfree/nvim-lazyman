@@ -267,10 +267,22 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl jq tar unzip fd fzf gh wget xclip"
+  PKGS="git curl jq tar unzip fzf gh wget xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
+
+  if [ "${use_homebrew}" ]; then
+    brew_install fd
+    brew_install clipboard
+  else
+    if [ "${arch}" ]; then
+      platform_install fd
+    else
+      platform_install "fd-find" fd
+    fi
+    platform_install "wl-clipboard" wl-copy
+  fi
 
   have_curl=$(type -p curl)
   [ "$have_curl" ] || abort "The curl command could not be located."
@@ -650,6 +662,11 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    log 'Installing black, beautysh, and ruff formatters/linters ...'
+    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
+    "$PYTHON" -m pip install black >/dev/null 2>&1
+    "$PYTHON" -m pip install ruff >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
@@ -685,6 +702,11 @@ install_tools() {
     fi
     check_ruby
     [ "$quiet" ] || printf " done"
+  }
+
+  [ "${native}" ] && {
+    [ "${debian}" ] && platform_install ruby-dev
+    [ "${rpm}" ] && platform_install ruby-devel
   }
 
   [ "$GEM" ] && {

@@ -149,8 +149,6 @@ conf.lsp_servers = {
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
   "actionlint",
-  "beautysh",
-  "black",
   "goimports",
   "gofumpt",
   "golangci-lint",
@@ -158,7 +156,6 @@ conf.formatters_linters = {
   "latexindent",
   "markdownlint",
   "prettier",
-  "ruff",
   "sql-formatter",
   "shellcheck",
   "shfmt",
