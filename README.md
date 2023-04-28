@@ -4764,29 +4764,15 @@ install_homebrew() {
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
         echo 'fi' >>"${HOME}/.bashrc"
       }
-      grep "eval \"\$(zoxide init" "${HOME}/.bashrc" >/dev/null || {
-        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
-        echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
-        echo 'fi' >>"${HOME}/.bashrc"
-      }
     else
       echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"${HOME}/.bashrc"
       echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
-      echo 'fi' >>"${HOME}/.bashrc"
-
-      echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
-      echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
       echo 'fi' >>"${HOME}/.bashrc"
     fi
     [ -f "${HOME}/.zshrc" ] && {
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" >/dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
-        echo 'fi' >>"${HOME}/.zshrc"
-      }
-      grep "eval \"\$(zoxide init" "${HOME}/.zshrc" >/dev/null || {
-        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.zshrc"
-        echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
     }
