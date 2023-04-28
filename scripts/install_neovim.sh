@@ -714,10 +714,14 @@ main() {
   [ "$proceed" ] || {
     [ "${debian}" ] || [ "${rpm}" ] && {
       if [ "${native}" ]; then
-        printf "\n${PKGMGR} will be used to install dependencies and tools."
+        printf "\n\n${PKGMGR} will be used to install dependencies and tools.\n"
+        have_brew=$(type -p brew)
+        [ "${have_brew}" ] && {
+          printf "\nAn existing Homebrew installation has been detected.\n"
+        }
         printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use ${PKGMGR}"
       else
-        printf "\nHomebrew will be used to install dependencies and tools."
+        printf "\n\nHomebrew will be used to install dependencies and tools.\n"
         printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use ${PKGMGR}"
       fi
       printf "\nEnter 'q' to exit the Neovim installer\n"
