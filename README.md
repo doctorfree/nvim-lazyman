@@ -4743,15 +4743,6 @@ install_homebrew() {
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_NO_AUTO_UPDATE=1
     [ "$quiet" ] || printf " done"
-    if [ -f "$HOME"/.profile ]; then
-      BASHINIT="${HOME}/.profile"
-    else
-      if [ -f "$HOME"/.bashrc ]; then
-        BASHINIT="${HOME}/.bashrc"
-      else
-        BASHINIT="${HOME}/.profile"
-      fi
-    fi
     if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
       HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
       BREW_EXE="${HOMEBREW_HOME}/bin/brew"
@@ -4769,25 +4760,25 @@ install_homebrew() {
       fi
     fi
 
-    if [ -f "$BASHINIT" ]; then
-      grep "eval \"\$(${BREW_EXE} shellenv)\"" "$BASHINIT" >/dev/null || {
-        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-        echo 'fi' >>"$BASHINIT"
+    if [ -f "${HOME}/.bashrc" ]; then
+      grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.bashrc" >/dev/null || {
+        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo 'fi' >>"${HOME}/.bashrc"
       }
-      grep "eval \"\$(zoxide init" "$BASHINIT" >/dev/null || {
-        echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
-        echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
-        echo 'fi' >>"$BASHINIT"
+      grep "eval \"\$(zoxide init" "${HOME}/.bashrc" >/dev/null || {
+        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
+        echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+        echo 'fi' >>"${HOME}/.bashrc"
       }
     else
-      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"$BASHINIT"
-      echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-      echo 'fi' >>"$BASHINIT"
+      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"${HOME}/.bashrc"
+      echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+      echo 'fi' >>"${HOME}/.bashrc"
 
-      echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
-      echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
-      echo 'fi' >>"$BASHINIT"
+      echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
+      echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+      echo 'fi' >>"${HOME}/.bashrc"
     fi
     [ -f "${HOME}/.zshrc" ] && {
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" >/dev/null || {
@@ -4907,10 +4898,45 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl tar unzip lazygit fd fzf gh xclip zoxide"
+  PKGS="git curl tar unzip lazygit fd fzf gh xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
+
+  if command -v zoxide >/dev/null 2>&1; then
+    log "Using previously installed zoxide"
+  else
+    log "Installing zoxide ..."
+    ZOXI_URL="https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
+    curl -fsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+    [ $? -eq 0 ] || {
+      rm -f /tmp/zoxi-$$.sh
+      curl -kfsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+    }
+    [ -f /tmp/zoxi-$$.sh ] && bash /tmp/zoxi-$$.sh >/dev/null 2>&1
+    rm -f /tmp/zoxi-$$.sh
+
+    if [ -f "${HOME}/.bashrc" ]; then
+      grep "eval \"\$(zoxide init" "${HOME}/.bashrc" >/dev/null || {
+        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
+        echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+        echo 'fi' >>"${HOME}/.bashrc"
+      }
+    else
+      echo 'if command -v zoxide > /dev/null; then' >"${HOME}/.bashrc"
+      echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+      echo 'fi' >>"${HOME}/.bashrc"
+    fi
+    [ -f "${HOME}/.zshrc" ] && {
+      grep "eval \"\$(zoxide init" "${HOME}/.zshrc" >/dev/null || {
+        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.zshrc"
+        echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
+        echo 'fi' >>"${HOME}/.zshrc"
+      }
+    }
+    [ "$quiet" ] || printf " done"
+  fi
+
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
   else
