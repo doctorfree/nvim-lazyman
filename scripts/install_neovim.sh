@@ -42,7 +42,6 @@ check_prerequisites() {
 }
 
 get_platform() {
-  mach=$(uname -m)
   platform=$(uname -s)
   if [ "$platform" == "Darwin" ]; then
     darwin=1
@@ -51,38 +50,28 @@ get_platform() {
       . /etc/os-release
       [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && debian=1
       [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && arch=1
-      [ "${ID}" == "fedora" ] && fedora=1
-      [ "${arch}" ] || [ "${debian}" ] || [ "${fedora}" ] || {
+      [ "${ID}" == "fedora" ] && rpm=1
+      [ "${ID}" == "centos" ] && rpm=1
+      [ "${arch}" ] || [ "${debian}" ] || [ "${rpm}" ] || {
         echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
       }
     else
       if [ -f /etc/arch-release ]; then
         arch=1
       else
-        case "${mach}" in
-          arm*)
-            debian=1
-            ;;
-          x86*)
-            if [ "${have_apt}" ]; then
-              debian=1
+        if [ "${have_apt}" ]; then
+          debian=1
+        else
+          if [ -f /etc/fedora-release ]; then
+            rpm=1
+          else
+            if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
+              rpm=1
             else
-              if [ -f /etc/fedora-release ]; then
-                fedora=1
-              else
-                if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
-                  # Use Fedora RPM for all other rpm based systems
-                  fedora=1
-                else
-                  echo "Unknown operating system distribution"
-                fi
-              fi
+              echo "Unknown operating system distribution"
             fi
-            ;;
-          *)
-            echo "Unknown machine architecture"
-            ;;
-        esac
+          fi
+        fi
       fi
     fi
   fi
@@ -99,7 +88,7 @@ get_platform() {
     fi
   }
 
-  [ "${fedora}" ] && {
+  [ "${rpm}" ] && {
     if [ "${have_dnf}" ]; then
       DNF="dnf --assumeyes --quiet"
     else
@@ -250,7 +239,7 @@ platform_install() {
         [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
       fi
     else
-      if [ "${fedora}" ]; then
+      if [ "${rpm}" ]; then
         if [ "${DNF}" ]; then
           sudo ${DNF} install ${platpkg} >/dev/null 2>&1
         else
@@ -613,7 +602,7 @@ main() {
   check_prerequisites
   get_platform
   [ "$proceed" ] || {
-    [ "${debian}" ] || [ "${fedora}" ] && {
+    [ "${debian}" ] || [ "${rpm}" ] && {
       if [ "${native}" ]; then
         printf "\nNative package manager will be used to install dependencies and tools."
         printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager\n"
@@ -650,20 +639,15 @@ main() {
     }
   }
   if [ "${darwin}" ]; then
+    # Always use Homebrew on macOS
     use_homebrew=1
   else
-    if [ "${debian}" ]; then
-      [ "${native}" ] || use_homebrew=1
+    if [ "${arch}" ]; then
+      # Always use pacman on Arch and Arch-like platforms
+      use_homebrew=
     else
-      if [ "${arch}" ]; then
-        use_homebrew=
-      else
-        if [ "${fedora}" ]; then
-          [ "${native}" ] || use_homebrew=1
-        else
-          use_homebrew=1
-        fi
-      fi
+      # All other platforms, use Homebrew only when instructed
+      [ "${native}" ] || use_homebrew=1
     fi
   fi
   [ "${use_homebrew}" ] && install_homebrew
@@ -698,7 +682,7 @@ debug=
 darwin=
 arch=
 debian=
-fedora=
+rpm=
 have_apt=$(type -p apt)
 have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
