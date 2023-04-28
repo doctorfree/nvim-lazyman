@@ -3,19 +3,19 @@
 # after first sourcing ~/.config/nvim-Lazyman/.lazymanrc
 command -v nvims > /dev/null && {
   if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
-   bindkey -s ^n "nvims\n"
+   bindkey -s "^n" "nvims\n"
   elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
    bind -x '"\C-n": nvims'
   else
-   bindkey -s ^n "nvims\n"
+   bindkey -s "^n" "nvims\n"
   fi
 }
 command -v neovide > /dev/null && {
   if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
-   bindkey -s ^N "neovides\n"
+   bindkey -s "^N" "neovides\n"
   elif [ -n "$($SHELL -c 'echo $BASH_VERSION')" ]; then
    bind -x '"\C-N": neovides'
   else
-   bindkey -s ^N "neovides\n"
+   bindkey -s "^N" "neovides\n"
   fi
 }
