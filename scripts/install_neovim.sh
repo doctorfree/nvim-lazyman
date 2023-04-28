@@ -186,12 +186,13 @@ install_homebrew() {
 brew_install() {
   brewpkg="$1"
   if command -v "$brewpkg" >/dev/null 2>&1; then
-    log "Using previously installed ${brewpkg} ..."
+    log "Using previously installed ${brewpkg}"
   else
     log "Installing ${brewpkg} ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "$brewpkg" >/dev/null 2>&1
     [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$brewpkg" >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -199,7 +200,6 @@ brew_install() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
-  [ "$quiet" ] || printf " done"
 }
 
 platform_install() {
@@ -210,7 +210,7 @@ platform_install() {
     pkgname="$platpkg"
   fi
   if command -v "$pkgname" >/dev/null 2>&1; then
-    log "Using previously installed ${platpkg} ..."
+    log "Using previously installed ${platpkg}"
   else
     log "Installing ${platpkg} ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
@@ -231,6 +231,7 @@ platform_install() {
         [ "${arch}" ] && sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
       fi
     fi
+    [ "$quiet" ] || printf " done"
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -238,7 +239,6 @@ platform_install() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
-  [ "$quiet" ] || printf " done"
 }
 
 plat_install() {
@@ -400,7 +400,6 @@ install_neovim() {
           rm -f "${TEMP_TGZ}"
           rm -f /tmp/nvim-$$.tar
           rm -rf /tmp/nvim$$
-          [ "$quiet" ] || printf " done"
         }
       }
     fi
@@ -442,18 +441,17 @@ install_neovim() {
           rm -f "${TEMP_TGZ}"
           rm -f /tmp/nvim-$$.tar
           rm -rf /tmp/nvim$$
-          [ "$quiet" ] || printf " done"
         }
       }
     fi
   fi
+  [ "$quiet" ] || printf " done"
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
     ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
     ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
     printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
-  [ "$quiet" ] || printf " done"
 }
 
 install_neovim_head() {
@@ -586,7 +584,7 @@ install_tools() {
   }
 
   if command -v "cargo" >/dev/null 2>&1; then
-    log "Using previously installed cargo ..."
+    log "Using previously installed cargo"
   else
     log "Installing cargo ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
@@ -659,7 +657,7 @@ install_tools() {
       ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
     fi
     if command -v "rich" >/dev/null 2>&1; then
-      log "Using previously installed rich-cli ..."
+      log "Using previously installed rich-cli"
     else
       log "Installing rich-cli ..."
       if [ "${use_homebrew}" ]; then
