@@ -650,12 +650,13 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
-    [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr)"
+    [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
     else
       ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
     fi
+    [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"
     else
@@ -714,7 +715,8 @@ main() {
   [ "$proceed" ] || {
     [ "${debian}" ] || [ "${rpm}" ] && {
       if [ "${native}" ]; then
-        printf "\n\n${PKGMGR} will be used to install dependencies and tools.\n"
+        printf "\n\n${PKGMGR} will be used to install dependencies and tools."
+        printf "\nThis requires 'sudo' (root) privilege.\n"
         have_brew=$(type -p brew)
         [ "${have_brew}" ] && {
           printf "\nAn existing Homebrew installation has been detected.\n"
