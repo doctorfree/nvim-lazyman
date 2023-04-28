@@ -68,7 +68,7 @@ get_platform() {
             if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
               rpm=1
             else
-              echo "Unknown operating system distribution"
+              printf "\nUnknown operating system distribution\n"
             fi
           fi
         fi
@@ -83,7 +83,9 @@ get_platform() {
       if [ "${have_aptget}" ]; then
         APT="apt-get -q -y"
       else
-        echo "Could not locate apt or apt-get."
+        printf "\nCould not locate apt or apt-get"
+        printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+        native=
       fi
     fi
   }
@@ -95,7 +97,9 @@ get_platform() {
       if [ "${have_yum}" ]; then
         DNF="yum --assumeyes --quiet"
       else
-        echo "Could not locate dnf or yum."
+        printf "\nCould not locate dnf or yum"
+        printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+        native=
       fi
     fi
   }
@@ -605,13 +609,14 @@ main() {
     [ "${debian}" ] || [ "${rpm}" ] && {
       if [ "${native}" ]; then
         printf "\nNative package manager will be used to install dependencies and tools."
-        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager\n"
+        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager"
       else
         printf "\nHomebrew will be used to install dependencies and tools."
-        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use the native package manager\n"
+        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use the native package manager"
       fi
+      printf "\nEnter 'q' to exit the Neovim installer\n"
       while true; do
-        read -r -p "Do you wish to use the native package manager or Homebrew ? (h/n) " yn
+        read -r -p "Do you wish to use the native package manager or Homebrew ? (h/n/q) " yn
         case $yn in
           [Nn]*)
             printf "\nUsing native package manager to install dependencies and tools\n"
@@ -622,6 +627,10 @@ main() {
             printf "\nUsing Homebrew to install dependencies and tools\n"
             native=
             break
+            ;;
+          [Qq]*)
+            printf "\nExiting Neovim installer without installing dependencies or tools\n"
+            exit 1
             ;;
           '')
             if [ "${native}" ]; then
