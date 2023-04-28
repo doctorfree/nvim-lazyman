@@ -4695,6 +4695,7 @@ get_platform() {
   fi
 
   [ "${debian}" ] && {
+    PKGMGR="APT"
     if [ "${have_apt}" ]; then
       APT="apt -q -y"
     else
@@ -4711,9 +4712,11 @@ get_platform() {
   [ "${rpm}" ] && {
     if [ "${have_dnf}" ]; then
       DNF="dnf --assumeyes --quiet"
+      PKGMGR="DNF"
     else
       if [ "${have_yum}" ]; then
         DNF="yum --assumeyes --quiet"
+        PKGMGR="YUM"
       else
         printf "\nCould not locate dnf or yum"
         printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
@@ -5331,18 +5334,18 @@ main() {
   [ "$proceed" ] || {
     [ "${debian}" ] || [ "${rpm}" ] && {
       if [ "${native}" ]; then
-        printf "\nNative package manager will be used to install dependencies and tools."
-        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use the native package manager"
+        printf "\n${PKGMGR} will be used to install dependencies and tools."
+        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use ${PKGMGR}"
       else
         printf "\nHomebrew will be used to install dependencies and tools."
-        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use the native package manager"
+        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use ${PKGMGR}"
       fi
       printf "\nEnter 'q' to exit the Neovim installer\n"
       while true; do
-        read -r -p "Do you wish to use the native package manager or Homebrew ? (h/n/q) " yn
+        read -r -p "Do you wish to use ${PKGMGR} or Homebrew ? (h/n/q) " yn
         case $yn in
           [Nn]*)
-            printf "\nUsing native package manager to install dependencies and tools\n"
+            printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
             native=1
             break
             ;;
@@ -5357,7 +5360,7 @@ main() {
             ;;
           '')
             if [ "${native}" ]; then
-              printf "\nUsing native package manager to install dependencies and tools\n"
+              printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
             else
               printf "\nUsing Homebrew to install dependencies and tools\n"
             fi
@@ -5432,6 +5435,7 @@ while getopts "dhnqy" flag; do
       ;;
     h)
       native=
+      PKGMGR="Homebrew"
       ;;
     q)
       quiet=1
