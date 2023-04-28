@@ -4898,10 +4898,51 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl tar unzip lazygit fd fzf gh xclip"
+  PKGS="git curl tar unzip fd fzf gh xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
+
+  if command -v lazygit >/dev/null 2>&1; then
+    log "Using previously installed lazygit"
+  else
+    if [ "${use_homebrew}" ]; then
+      # Things are so much easier with Homebrew
+      brew_install lazygit
+    else
+      plat_install jq
+      plat_install wget
+      OWNER=jesseduffield
+      PROJECT=lazygit
+      API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      DL_URL=
+      have_curl=$(type -p curl)
+      have_jq=$(type -p jq)
+      have_wget=$(type -p wget)
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "Linux_x86_64\.tar\.gz")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          log "Installing lazygit ..."
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/lgit$$
+          tar -C /tmp/lgit$$ -xzf "${TEMP_TGZ}"
+          [ -f /tmp/lgit$$/lazygit ] && {
+            cp /tmp/lgit$$/lazygit ${HOME}/.local/bin/lazygit
+            chmod 755 ${HOME}/.local/bin/lazygit
+          }
+          rm -f "${TEMP_TGZ}"
+          rm -rf /tmp/lgit$$
+          [ "$quiet" ] || printf " done"
+        }
+      }
+    fi
+  fi
 
   if command -v zoxide >/dev/null 2>&1; then
     log "Using previously installed zoxide"
@@ -5098,7 +5139,6 @@ install_tools() {
   [ "${use_homebrew}" ] && {
     "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
   }
-  [ "$quiet" ] || printf "\nDone"
 
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
@@ -5186,13 +5226,12 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
-    [ "$quiet" ] || printf "\nInstalling neovim-remote (nvr)"
+    [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr)"
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
     else
       ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
     fi
-    [ "$quiet" ] || printf "\nDone"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli ..."
     else
@@ -5206,7 +5245,6 @@ install_tools() {
     fi
     [ "$quiet" ] || printf " done"
   }
-  [ "$quiet" ] || printf "\nDone"
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
   check_ruby
@@ -5243,7 +5281,7 @@ install_tools() {
     /bin/bash -c "/tmp/jetb-$$.sh" >/dev/null 2>&1
     rm -f /tmp/jetb-$$.sh
   }
-  [ "$quiet" ] || printf "done\nDone\n"
+  [ "$quiet" ] || printf "done\n"
 }
 
 main() {
