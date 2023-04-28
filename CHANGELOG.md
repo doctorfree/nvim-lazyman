@@ -6,6 +6,32 @@
 
 ### 🐞 Fixed
 
+## v2.0.0r1
+
+### ⚡️ Added
+
+- Default to native package managers for Arch, Debian, and RPM systems
+- Add -h option to indicate use Homebrew rather than native package manager
+- Inform user of `sudo` privilege when doing native installs
+- Notify if Homebrew is detected during install prompt
+- Use binary distribution tar archive for native Neovim install
+- Install `lazygit` with release asset download if doing native install
+- Install `zoxide` with install script rather than package manager
+- If no native package manager found then use Homebrew
+- Use `dnf/yum` on all RPM based platforms
+- Use apt on all Debian based platforms
+- Default to `pacman` on Arch and Arch-Like platforms
+- Default to Homebrew on macOS
+- Make native install the default, -h to use Homebrew
+- Prompt to use native package manager on Debian and RPM systems unless -y is given
+- Add `CosmicNvim` example custom config
+
+### 🐞 Fixed
+
+- Quote arguments to `bindkey`
+- Update NvChad and AstroNvim custom folders when updating the respective repos
+- Move appending sourcing of .lazymanrc after Homebrew shell setup
+
 ## v1.0.5r3
 
 ### ⚡️ Added

@@ -33,7 +33,7 @@ styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedar
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
-  printf "\n       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
+  printf "\n       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -65,6 +65,9 @@ usage() {
   printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
+  printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
+  printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
+  printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n    -r indicates remove the previously installed configuration"
@@ -2060,7 +2063,9 @@ branch=
 instnvim=1
 subdir=
 command=
+brew=
 debug=
+head=
 invoke=
 confmenu=
 langservers=
@@ -2079,6 +2084,7 @@ spacevim=
 plug=
 packer=
 proceed=
+yes=
 quiet=
 remove=
 removeall=
@@ -2099,7 +2105,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2136,6 +2142,12 @@ while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     F)
       confmenu=1
+      ;;
+    h)
+      brew="-h"
+      ;;
+    H)
+      head="-n"
       ;;
     i)
       lazyman=1
@@ -2217,6 +2229,7 @@ while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     y)
       proceed=1
+      yes="-y"
       ;;
     z)
       runvim=
@@ -2447,7 +2460,8 @@ shift $((OPTIND - 1))
     brief_usage
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew" "$yes"
     exit 0
   fi
   exit 1
@@ -2501,7 +2515,7 @@ shift $((OPTIND - 1))
       printf "\n\tThis will make it incompatible with '-E <config>' in subsequent runs\n"
     }
     [ "$proceed" ] || {
-      printf "\nDo you wish to proceed with this non-standard initialization?"
+      printf "\nDo you wish to proceed with this non-standard initialization?\n"
       while true; do
         read -r -p "Proceed with config in ${name} ? (y/n) " yn
         case $yn in
@@ -2661,7 +2675,8 @@ fi
 
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew" "$yes"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
@@ -2756,7 +2771,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]; then
-      update_config "$astronvimdir"/lua/user
+      update_config "$astronvimdir"
     else
       git clone https://github.com/doctorfree/astronvim \
         "${HOME}/.config/$astronvimdir"/lua/user >/dev/null 2>&1
@@ -2861,7 +2876,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]; then
-      update_config "$nvchaddir"/lua/custom
+      update_config "$nvchaddir"
     else
       git clone https://github.com/doctorfree/NvChad-custom \
         "${HOME}/.config/$nvchaddir"/lua/custom >/dev/null 2>&1

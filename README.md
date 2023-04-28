@@ -121,14 +121,14 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 
 The `lazyman` Neovim configuration manager requires Neovim 0.9. The `lazyman`
 installation and initialization process checks for Neovim 0.9 and, if not
-found, uses Homebrew to install it in the isolated Homebrew directory.
+found, installs it and required dependencies and tools.
 
-Lazyman requires a Unix or Linux operating system, Linux and macOS only,
-and the Bash shell.
+Lazyman requires Linux or macOS, git, and the Bash shell.
 
 - Neovim 0.9 (automatically installed if not found)
 - Unix/Linux/macOS
 - Bash
+- Git
 
 ## Installation
 
@@ -150,7 +150,6 @@ These 2 steps perform the following:
 
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
-   1. Installs Homebrew if not already installed
    1. Installs language servers and tools for coding diagnostics
    1. Installs the latest version of Neovim if not already installed
    1. Installs and initializes configured Neovim plugins
@@ -158,14 +157,32 @@ These 2 steps perform the following:
 After the download and initialization are complete, execute the `lazyman`
 command found in `~/.local/bin/lazyman`.
 
-Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not
-already Neovim 0.9 or later installed and in the execution path.
-In addition, Lazyman uses Homebrew to install Neovim dependencies,
-language servers, and tools.
+By default, Lazyman uses the native package manager to install Neovim
+dependencies and tools if Neovim 0.9 or later is not already installed
+and in the execution path.
 
-The installation of Homebrew, Neovim 0.9, language servers, and tools
-ensures a proper runtime environment. To avoid the installation of
-Homebrew, Neovim, language servers, and tools, execute `lazyman -Z`:
+Alternately, command line options exist to direct `lazyman` to install Neovim,
+dependencies and tools using [Homebrew](https://brew.sh) or to skip the Neovim
+installation altogether.
+
+To install Neovim, dependencies, and tools using Homebrew rather than the
+native package manger, invoke `lazyman` with the `-h` option when initializing:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh -h
+```
+
+To compile and install the nightly build of Neovim, use the `-H` option:
+
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh -H
+```
+
+The installation of Neovim 0.9, language servers, and tools ensures a proper
+runtime environment. To avoid the installation of Homebrew, Neovim, language
+servers, and tools altogether, execute `lazyman -Z`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -176,7 +193,7 @@ Note that circumventing the Neovim installation means that Neovim 0.9 must
 be installed in some other manner. Also, language servers and tools
 required by some Neovim configurations may not be present. However, some
 may prefer to handle the installation of Neovim 0.9, language servers,
-and tools on their own. In this case, the `-Z` option is your friend.
+and tools on their own.
 
 If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman
 install Neovim 0.9, language servers and tools, then issue the command
@@ -214,12 +231,6 @@ rm -f /tmp/lazyman.sh
 Once the `lazyman.sh` script has been downloaded and executed, subsequent
 Lazyman operations can be performed with the `lazyman` command found in
 `~/.local/bin/lazyman`. The manual page can be viewed with `man lazyman`.
-
-If you do not wish to use this automated installation and initialization
-method then manual installation and initialization is described below.
-Manual installation and initialization may be preferred by those who
-do not wish to upgrade Neovim to the latest version or by those who
-do not wish to use Homebrew.
 
 Neovim 0.9 and later users can use the `NVIM_APPNAME` environment variable
 to control where Neovim looks for its configuration.
@@ -503,8 +514,8 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 
 ```
 Usage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]
-       [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
-       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
+       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
+       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
        [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
 Where:
     -A indicates install all supported Neovim configurations
@@ -519,6 +530,7 @@ Where:
            'ecovim', 'nvchad', 'lazyvim', 'lunarvim', 'spacevim'
        or any Neovim configuration directory in '~/.config'
            (e.g. 'lazyman -E lazyvim foo.lua')
+    -F indicates present the Lazyman Configuration menu
     -i indicates install and initialize Lazyman Neovim configuration
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
@@ -530,6 +542,9 @@ Where:
     -p indicates use vim-plug rather than Lazy to initialize
     -P indicates use Packer rather than Lazy to initialize
     -q indicates quiet install
+    -h indicates use Homebrew to install rather than native pkg mgr
+        (Pacman is always used on Arch Linux, Homebrew on macOS)
+    -H indicates compile and install the nightly Neovim build
     -I indicates install language servers and tools for coding diagnostics
     -L 'cmd' specifies a Lazy command to run in the selected configuration
     -r indicates remove the previously installed configuration
@@ -544,8 +559,8 @@ Where:
     -W indicates install and initialize all 'Extra' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           'Minimal', 'Base', 'Opinion', 'Lsp', 'Mason', or 'Modular'
-    -X indicates install and initialize all nvim-starter configs
+       'Minimal', 'StartBase', 'Opinion', 'StartLsp', 'StartMason', or 'Modular'
+    -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
@@ -1573,7 +1588,7 @@ styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedar
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
-  printf "\n       [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
+  printf "\n       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -1605,6 +1620,9 @@ usage() {
   printf "\n    -p indicates use vim-plug rather than Lazy to initialize"
   printf "\n    -P indicates use Packer rather than Lazy to initialize"
   printf "\n    -q indicates quiet install"
+  printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
+  printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
+  printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -I indicates install language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n    -r indicates remove the previously installed configuration"
@@ -3600,7 +3618,9 @@ branch=
 instnvim=1
 subdir=
 command=
+brew=
 debug=
+head=
 invoke=
 confmenu=
 langservers=
@@ -3619,6 +3639,7 @@ spacevim=
 plug=
 packer=
 proceed=
+yes=
 quiet=
 remove=
 removeall=
@@ -3639,7 +3660,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -3676,6 +3697,12 @@ while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     F)
       confmenu=1
+      ;;
+    h)
+      brew="-h"
+      ;;
+    H)
+      head="-n"
       ;;
     i)
       lazyman=1
@@ -3757,6 +3784,7 @@ while getopts "aAb:cdD:eE:FiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       ;;
     y)
       proceed=1
+      yes="-y"
       ;;
     z)
       runvim=
@@ -3987,7 +4015,8 @@ shift $((OPTIND - 1))
     brief_usage
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew" "$yes"
     exit 0
   fi
   exit 1
@@ -4041,7 +4070,7 @@ shift $((OPTIND - 1))
       printf "\n\tThis will make it incompatible with '-E <config>' in subsequent runs\n"
     }
     [ "$proceed" ] || {
-      printf "\nDo you wish to proceed with this non-standard initialization?"
+      printf "\nDo you wish to proceed with this non-standard initialization?\n"
       while true; do
         read -r -p "Proceed with config in ${name} ? (y/n) " yn
         case $yn in
@@ -4201,7 +4230,8 @@ fi
 
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
-    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh "$debug"
+    "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
+      "$debug" "$head" "$brew" "$yes"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
@@ -4296,7 +4326,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]; then
-      update_config "$astronvimdir"/lua/user
+      update_config "$astronvimdir"
     else
       git clone https://github.com/doctorfree/astronvim \
         "${HOME}/.config/$astronvimdir"/lua/user >/dev/null 2>&1
@@ -4401,7 +4431,7 @@ done
   }
   [ "$tellme" ] || {
     if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]; then
-      update_config "$nvchaddir"/lua/custom
+      update_config "$nvchaddir"
     else
       git clone https://github.com/doctorfree/NvChad-custom \
         "${HOME}/.config/$nvchaddir"/lua/custom >/dev/null 2>&1
@@ -4623,10 +4653,77 @@ check_prerequisites() {
     abort "Script must not be run as root user"
   fi
 
-  arch=$(uname -m)
-  if [[ $arch =~ "arm" || $arch =~ "aarch64" ]]; then
+  architecture=$(uname -m)
+  if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
     abort "Only amd64/x86_64 is supported"
   fi
+}
+
+get_platform() {
+  platform=$(uname -s)
+  if [ "$platform" == "Darwin" ]; then
+    darwin=1
+  else
+    if [ -f /etc/os-release ]; then
+      . /etc/os-release
+      [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && debian=1
+      [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && arch=1
+      [ "${ID}" == "fedora" ] && rpm=1
+      [ "${ID}" == "centos" ] && rpm=1
+      [ "${arch}" ] || [ "${debian}" ] || [ "${rpm}" ] || {
+        echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
+      }
+    else
+      if [ -f /etc/arch-release ]; then
+        arch=1
+      else
+        if [ "${have_apt}" ]; then
+          debian=1
+        else
+          if [ -f /etc/fedora-release ]; then
+            rpm=1
+          else
+            if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
+              rpm=1
+            else
+              printf "\nUnknown operating system distribution\n"
+            fi
+          fi
+        fi
+      fi
+    fi
+  fi
+
+  [ "${debian}" ] && {
+    PKGMGR="APT"
+    if [ "${have_apt}" ]; then
+      APT="apt -q -y"
+    else
+      if [ "${have_aptget}" ]; then
+        APT="apt-get -q -y"
+      else
+        printf "\nCould not locate apt or apt-get"
+        printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+        native=
+      fi
+    fi
+  }
+
+  [ "${rpm}" ] && {
+    if [ "${have_dnf}" ]; then
+      DNF="dnf --assumeyes --quiet"
+      PKGMGR="DNF"
+    else
+      if [ "${have_yum}" ]; then
+        DNF="yum --assumeyes --quiet"
+        PKGMGR="YUM"
+      else
+        printf "\nCould not locate dnf or yum"
+        printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+        native=
+      fi
+    fi
+  }
 }
 
 install_homebrew() {
@@ -4634,8 +4731,6 @@ install_homebrew() {
     [ "$debug" ] && START_SECONDS=$(date +%s)
     log "Installing Homebrew ..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-    have_curl=$(type -p curl)
-    [ "$have_curl" ] || abort "The curl command could not be located."
     curl -fsSL "$BREW_URL" >/tmp/brew-$$.sh
     [ $? -eq 0 ] || {
       rm -f /tmp/brew-$$.sh
@@ -4649,15 +4744,6 @@ install_homebrew() {
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_NO_AUTO_UPDATE=1
     [ "$quiet" ] || printf " done"
-    if [ -f "$HOME"/.profile ]; then
-      BASHINIT="${HOME}/.profile"
-    else
-      if [ -f "$HOME"/.bashrc ]; then
-        BASHINIT="${HOME}/.bashrc"
-      else
-        BASHINIT="${HOME}/.profile"
-      fi
-    fi
     if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
       HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
       BREW_EXE="${HOMEBREW_HOME}/bin/brew"
@@ -4675,35 +4761,21 @@ install_homebrew() {
       fi
     fi
 
-    if [ -f "$BASHINIT" ]; then
-      grep "eval \"\$(${BREW_EXE} shellenv)\"" "$BASHINIT" >/dev/null || {
-        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-        echo 'fi' >>"$BASHINIT"
-      }
-      grep "eval \"\$(zoxide init" "$BASHINIT" >/dev/null || {
-        echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
-        echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
-        echo 'fi' >>"$BASHINIT"
+    if [ -f "${HOME}/.bashrc" ]; then
+      grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.bashrc" >/dev/null || {
+        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo 'fi' >>"${HOME}/.bashrc"
       }
     else
-      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"$BASHINIT"
-      echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"$BASHINIT"
-      echo 'fi' >>"$BASHINIT"
-
-      echo 'if command -v zoxide > /dev/null; then' >>"$BASHINIT"
-      echo '  eval "$(zoxide init bash)"' >>"$BASHINIT"
-      echo 'fi' >>"$BASHINIT"
+      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"${HOME}/.bashrc"
+      echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+      echo 'fi' >>"${HOME}/.bashrc"
     fi
     [ -f "${HOME}/.zshrc" ] && {
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" >/dev/null || {
         echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
         echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
-        echo 'fi' >>"${HOME}/.zshrc"
-      }
-      grep "eval \"\$(zoxide init" "${HOME}/.zshrc" >/dev/null || {
-        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.zshrc"
-        echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
     }
@@ -4732,12 +4804,13 @@ install_homebrew() {
 brew_install() {
   brewpkg="$1"
   if command -v "$brewpkg" >/dev/null 2>&1; then
-    log "Using previously installed ${brewpkg} ..."
+    log "Using previously installed ${brewpkg}"
   else
     log "Installing ${brewpkg} ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
     "$BREW_EXE" install --quiet "$brewpkg" >/dev/null 2>&1
     [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$brewpkg" >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -4745,7 +4818,53 @@ brew_install() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
-  [ "$quiet" ] || printf " done"
+}
+
+platform_install() {
+  platpkg="$1"
+  if [ "$2" ]; then
+    pkgname="$2"
+  else
+    pkgname="$platpkg"
+  fi
+  if command -v "$pkgname" >/dev/null 2>&1; then
+    log "Using previously installed ${platpkg}"
+  else
+    log "Installing ${platpkg} ..."
+    [ "$debug" ] && START_SECONDS=$(date +%s)
+    if [ "${debian}" ]; then
+      if [ "${APT}" ]; then
+        sudo ${APT} install ${platpkg} >/dev/null 2>&1
+      else
+        [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
+      fi
+    else
+      if [ "${rpm}" ]; then
+        if [ "${DNF}" ]; then
+          sudo ${DNF} install ${platpkg} >/dev/null 2>&1
+        else
+          [ "${quiet}" ] || printf "\n\t\tCannot locate dnf to install. Skipping ..."
+        fi
+      else
+        [ "${arch}" ] && sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
+      fi
+    fi
+    [ "$quiet" ] || printf " done"
+    if [ "$debug" ]; then
+      FINISH_SECONDS=$(date +%s)
+      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      printf " elapsed time = %s${ELAPSED}"
+    fi
+  fi
+}
+
+plat_install() {
+  if [ "${use_homebrew}" ]; then
+    brew_install "$1"
+  else
+    platform_install "$1"
+  fi
 }
 
 install_neovim_dependencies() {
@@ -4753,8 +4872,12 @@ install_neovim_dependencies() {
   [ "$install_bash" ] && {
     log "Installing a modern version of bash ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet bash >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --quiet bash >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet bash >/dev/null 2>&1
+    else
+      platform_install bash xxxfoobaryyy
+    fi
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -4762,28 +4885,223 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl tar unzip lazygit fd fzf gh xclip zoxide"
+  PKGS="git curl jq tar unzip fd fzf gh wget xclip"
   for pkg in $PKGS; do
-    brew_install "$pkg"
+    plat_install "$pkg"
   done
+
+  have_curl=$(type -p curl)
+  [ "$have_curl" ] || abort "The curl command could not be located."
+  have_jq=$(type -p jq)
+  have_wget=$(type -p wget)
+
+  if command -v lazygit >/dev/null 2>&1; then
+    log "Using previously installed lazygit"
+  else
+    if [ "${use_homebrew}" ]; then
+      # Things are so much easier with Homebrew
+      brew_install lazygit
+    else
+      OWNER=jesseduffield
+      PROJECT=lazygit
+      API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      DL_URL=
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "Linux_x86_64\.tar\.gz$")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          log "Installing lazygit ..."
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/lgit$$
+          tar -C /tmp/lgit$$ -xzf "${TEMP_TGZ}"
+          [ -f /tmp/lgit$$/lazygit ] && {
+            cp /tmp/lgit$$/lazygit ${HOME}/.local/bin/lazygit
+            chmod 755 ${HOME}/.local/bin/lazygit
+          }
+          rm -f "${TEMP_TGZ}"
+          rm -rf /tmp/lgit$$
+          [ "$quiet" ] || printf " done"
+        }
+      }
+    fi
+  fi
+
+  if command -v zoxide >/dev/null 2>&1; then
+    log "Using previously installed zoxide"
+  else
+    log "Installing zoxide ..."
+    ZOXI_URL="https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
+    curl -fsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+    [ $? -eq 0 ] || {
+      rm -f /tmp/zoxi-$$.sh
+      curl -kfsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+    }
+    [ -f /tmp/zoxi-$$.sh ] && bash /tmp/zoxi-$$.sh >/dev/null 2>&1
+    rm -f /tmp/zoxi-$$.sh
+
+    if [ -f "${HOME}/.bashrc" ]; then
+      grep "eval \"\$(zoxide init" "${HOME}/.bashrc" >/dev/null || {
+        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.bashrc"
+        echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+        echo 'fi' >>"${HOME}/.bashrc"
+      }
+    else
+      echo 'if command -v zoxide > /dev/null; then' >"${HOME}/.bashrc"
+      echo '  eval "$(zoxide init bash)"' >>"${HOME}/.bashrc"
+      echo 'fi' >>"${HOME}/.bashrc"
+    fi
+    [ -f "${HOME}/.zshrc" ] && {
+      grep "eval \"\$(zoxide init" "${HOME}/.zshrc" >/dev/null || {
+        echo 'if command -v zoxide > /dev/null; then' >>"${HOME}/.zshrc"
+        echo '  eval "$(zoxide init zsh)"' >>"${HOME}/.zshrc"
+        echo 'fi' >>"${HOME}/.zshrc"
+      }
+    }
+    [ "$quiet" ] || printf " done"
+  fi
+
   if command -v rg >/dev/null 2>&1; then
     log "Using previously installed ripgrep"
   else
-    brew_install ripgrep
+    plat_install ripgrep
   fi
   [ "$quiet" ] || printf "\n"
 }
 
-install_neovim_head() {
-  "$BREW_EXE" link -q libuv >/dev/null 2>&1
+install_neovim() {
   log "Installing Neovim ..."
+  OWNER=neovim
+  PROJECT=neovim
+  API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+  DL_URL=
   if [ "$debug" ]; then
     START_SECONDS=$(date +%s)
-    "$BREW_EXE" install neovim
-    "$BREW_EXE" install neovim-remote
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" link -q libuv
+      "$BREW_EXE" install neovim
+    else
+      [ -d $HOME/.local ] || mkdir -p $HOME/.local
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux64\.tar\.gz$")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}"
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/nvim$$
+          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+            chmod 755 ${HOME}/.local/bin/nvim
+          else
+            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
+              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+              [ -f "${nvimbin}" ] && {
+                nvimdir=$(dirname ${nvimbin})
+                nvimdir=$(dirname ${nvimdir})
+                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                chmod 755 ${HOME}/.local/bin/nvim
+                break
+              }
+            done
+          fi
+          rm -f "${TEMP_TGZ}"
+          rm -f /tmp/nvim-$$.tar
+          rm -rf /tmp/nvim$$
+        }
+      }
+    fi
   else
-    "$BREW_EXE" install -q neovim >/dev/null 2>&1
-    "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" link -q libuv >/dev/null 2>&1
+      "$BREW_EXE" install -q neovim >/dev/null 2>&1
+    else
+      [ -d $HOME/.local ] || mkdir -p $HOME/.local
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+          | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux64\.tar\.gz$")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/nvim$$
+          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+            chmod 755 ${HOME}/.local/bin/nvim
+          else
+            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
+              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+              [ -f "${nvimbin}" ] && {
+                nvimdir=$(dirname ${nvimbin})
+                nvimdir=$(dirname ${nvimdir})
+                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                chmod 755 ${HOME}/.local/bin/nvim
+                break
+              }
+            done
+          fi
+          rm -f "${TEMP_TGZ}"
+          rm -f /tmp/nvim-$$.tar
+          rm -rf /tmp/nvim$$
+        }
+      }
+    fi
+  fi
+  [ "$quiet" ] || printf " done"
+  if [ "$debug" ]; then
+    FINISH_SECONDS=$(date +%s)
+    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+    printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
+  fi
+}
+
+install_neovim_head() {
+  [ "${use_homebrew}" ] && "$BREW_EXE" link -q libuv >/dev/null 2>&1
+  log "Building and installing nightly Neovim ..."
+  if [ "$debug" ]; then
+    START_SECONDS=$(date +%s)
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --HEAD neovim
+    else
+      [ -d $HOME/src ] || mkdir -p $HOME/src
+      git clone https://github.com/neovim/neovim.git $HOME/src/neovim
+      cd $HOME/src/neovim || exit 1
+      sudo rm /usr/local/bin/nvim
+      sudo rm -r /usr/local/share/nvim/
+      make CMAKE_BUILD_TYPE=RelWithDebInfo
+      sudo make install
+      sudo rm -rf $HOME/src/neovim
+    fi
+  else
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
+    else
+      [ -d $HOME/src ] || mkdir -p $HOME/src
+      git clone https://github.com/neovim/neovim.git $HOME/src/neovim >/dev/null 2>&1
+      cd $HOME/src/neovim || exit 1
+      sudo rm -f /usr/local/bin/nvim
+      sudo rm -rf /usr/local/share/nvim/
+      make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null 2>&1
+      sudo make install >/dev/null 2>&1
+      sudo rm -rf $HOME/src/neovim
+    fi
   fi
   if [ "$debug" ]; then
     FINISH_SECONDS=$(date +%s)
@@ -4859,15 +5177,17 @@ link_python() {
 
 install_tools() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
-
-  brew_install ccls
-  "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
-
-  [ "$quiet" ] || printf "\nDone"
+  plat_install ccls
+  [ "${use_homebrew}" ] && {
+    "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
+  }
 
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
+    log "Installing tree-sitter command line npm package ..."
+    npm i -g tree-sitter-cli >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
     log "Installing Neovim npm package ..."
     npm i -g neovim >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -4882,12 +5202,28 @@ install_tools() {
   }
 
   if command -v "cargo" >/dev/null 2>&1; then
-    log "Using previously installed cargo ..."
+    log "Using previously installed cargo"
   else
     log "Installing cargo ..."
     [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "rust" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --quiet "rust" >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
+    else
+      RUST_URL="https://sh.rustup.rs"
+      curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+      [ $? -eq 0 ] || {
+        rm -f /tmp/rust-$$.sh
+        curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
+        [ -f /tmp/rust-$$.sh ] && {
+          cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+          cp /tmp/ins$$ /tmp/rust-$$.sh
+          rm -f /tmp/ins$$
+        }
+      }
+      [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
+      rm -f /tmp/rust-$$.sh
+    fi
     if [ "$debug" ]; then
       FINISH_SECONDS=$(date +%s)
       ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
@@ -4896,37 +5232,31 @@ install_tools() {
     fi
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat terraform; do
-    brew_install "${pkg}"
-  done
-
-  if command -v "rich" >/dev/null 2>&1; then
-    log "Using previously installed rich-cli ..."
-  else
-    log "Installing rich-cli ..."
-    [ "$debug" ] && START_SECONDS=$(date +%s)
-    "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
-    if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
-      printf " elapsed time = %s${ELAPSED}"
+  if ! command -v tree-sitter >/dev/null 2>&1; then
+    if command -v "cargo" >/dev/null 2>&1; then
+      cargo install tree-sitter-cli >/dev/null 2>&1
     fi
   fi
-  [ "$quiet" ] || printf " done"
-  brew_install tree-sitter
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi
 
+  for pkg in bat lsd figlet luarocks lolcat terraform; do
+    plat_install "${pkg}"
+  done
+
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
   [ "$PYTHON" ] || {
-    # Could not find Python, install with Homebrew
-    log 'Installing Python with Homebrew ...'
-    "$BREW_EXE" install --quiet python >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
+    # Could not find Python
+    if [ "${use_homebrew}" ]; then
+      log 'Installing Python with Homebrew ...'
+      "$BREW_EXE" install --quiet python >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet python >/dev/null 2>&1
+    else
+      log 'Installing Python ...'
+      platform_install python3
+    fi
     check_python
     [ "$quiet" ] || printf " done"
   }
@@ -4938,16 +5268,39 @@ install_tools() {
     "$PYTHON" -m pip install wheel >/dev/null 2>&1
     "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
+    else
+      ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf " done"
+    if command -v "rich" >/dev/null 2>&1; then
+      log "Using previously installed rich-cli"
+    else
+      log "Installing rich-cli ..."
+      if [ "${use_homebrew}" ]; then
+        "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
+        [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
+      else
+        ${PYTHON} -m pip install rich-cli >/dev/null 2>&1
+      fi
+    fi
+    [ "$quiet" ] || printf " done"
   }
-  [ "$quiet" ] || printf "\nDone"
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
   check_ruby
   [ "$RUBY" ] || {
-    # Could not find Ruby, install with Homebrew
-    log 'Installing Ruby with Homebrew ...'
-    "$BREW_EXE" install --quiet ruby >/dev/null 2>&1
-    [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet ruby >/dev/null 2>&1
+    # Could not find Ruby
+    if [ "${use_homebrew}" ]; then
+      log 'Installing Ruby with Homebrew ...'
+      "$BREW_EXE" install --quiet ruby >/dev/null 2>&1
+      [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet ruby >/dev/null 2>&1
+    else
+      log 'Installing Ruby ...'
+      platform_install ruby
+    fi
     check_ruby
     [ "$quiet" ] || printf " done"
   }
@@ -4971,47 +5324,128 @@ install_tools() {
     /bin/bash -c "/tmp/jetb-$$.sh" >/dev/null 2>&1
     rm -f /tmp/jetb-$$.sh
   }
-  [ "$quiet" ] || printf "done\nDone\n"
+  [ "$quiet" ] || printf "done\n"
 }
 
 main() {
   check_prerequisites
-  install_homebrew
+  get_platform
+  [ "$proceed" ] || {
+    [ "${debian}" ] || [ "${rpm}" ] && {
+      if [ "${native}" ]; then
+        printf "\n\n${PKGMGR} will be used to install dependencies and tools."
+        printf "\nThis requires 'sudo' (root) privilege.\n"
+        have_brew=$(type -p brew)
+        [ "${have_brew}" ] && {
+          printf "\nAn existing Homebrew installation has been detected.\n"
+        }
+        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use ${PKGMGR}"
+      else
+        printf "\n\nHomebrew will be used to install dependencies and tools.\n"
+        printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use ${PKGMGR}"
+      fi
+      printf "\nEnter 'q' to exit the Neovim installer\n"
+      while true; do
+        read -r -p "Do you wish to use ${PKGMGR} or Homebrew ? (h/n/q) " yn
+        case $yn in
+          [Nn]*)
+            printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
+            native=1
+            break
+            ;;
+          [Hh]*)
+            printf "\nUsing Homebrew to install dependencies and tools\n"
+            native=
+            break
+            ;;
+          [Qq]*)
+            printf "\nExiting Neovim installer without installing dependencies or tools\n"
+            exit 1
+            ;;
+          '')
+            if [ "${native}" ]; then
+              printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
+            else
+              printf "\nUsing Homebrew to install dependencies and tools\n"
+            fi
+            break
+            ;;
+          *)
+            printf "\nPlease answer 'h' or 'n'.\n"
+            ;;
+        esac
+      done
+    }
+  }
+  if [ "${darwin}" ]; then
+    # Always use Homebrew on macOS
+    use_homebrew=1
+  else
+    if [ "${arch}" ]; then
+      # Always use pacman on Arch and Arch-like platforms
+      use_homebrew=
+    else
+      # All other platforms, use Homebrew only when instructed
+      [ "${native}" ] || use_homebrew=1
+    fi
+  fi
+  [ "${use_homebrew}" ] && install_homebrew
   install_neovim_dependencies
   if command -v nvim >/dev/null 2>&1; then
     nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
     if (($(echo "$nvim_version < 0.9 " | bc -l))); then
       printf "\nCurrently installed Neovim is less than version 0.9"
-      [ "$nvim_head" ] && {
-        printf "\nInstalling latest Neovim version with Homebrew"
+      if [ "$nvim_head" ]; then
+        printf "\nInstalling nightly build of Neovim"
         install_neovim_head
-      }
+      else
+        printf "\nInstalling/upgrading Neovim"
+        install_neovim
+      fi
     fi
   else
     if [ "$nvim_head" ]; then
       install_neovim_head
     else
-      brew_install neovim
-      brew_install nvr
+      install_neovim
     fi
   fi
   install_tools
 }
 
-nvim_head=1
+APT=
+DNF=
+nvim_head=
 quiet=
 debug=
+darwin=
+arch=
+debian=
+rpm=
+have_apt=$(type -p apt)
+have_aptget=$(type -p apt-get)
+have_dnf=$(type -p dnf)
+have_yum=$(type -p yum)
+native=1
+proceed=
 
-while getopts "dhq" flag; do
+while getopts "dhnqy" flag; do
   case $flag in
     d)
       debug=1
       ;;
+    n)
+      nvim_head=1
+      ;;
     h)
-      nvim_head=
+      native=
+      PKGMGR="Homebrew"
       ;;
     q)
       quiet=1
+      ;;
+    y)
+      proceed=1
       ;;
     *) ;;
   esac
