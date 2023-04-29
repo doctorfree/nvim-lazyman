@@ -327,7 +327,7 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl jq tar unzip fzf gh wget xclip"
+  PKGS="git curl jq tar unzip fzf wget xclip"
   for pkg in $PKGS; do
     plat_install "$pkg"
   done
@@ -342,6 +342,50 @@ install_neovim_dependencies() {
   [ "$have_curl" ] || abort "The curl command could not be located."
   have_jq=$(type -p jq)
   have_wget=$(type -p wget)
+
+  if command -v gh >/dev/null 2>&1; then
+    log "Using previously installed gh"
+  else
+    if [ "${use_homebrew}" ]; then
+      # Things are so much easier with Homebrew
+      brew_install gh
+    else
+      OWNER=cli
+      PROJECT=cli
+      API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      DL_URL=
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux_amd64\.tar\.gz$")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          log "Installing gh ..."
+          TEMP_TGZ="$(mktemp --suffix=.tgz)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/ghit$$
+          tar -C /tmp/ghit$$ -xzf "${TEMP_TGZ}"
+          for ghimbin in /tmp/"ghit$$"/*/bin/gh /tmp/"ghit$$"/bin/gh; do
+            [ "${ghimbin}" == "/tmp/nvim$$/*/bin/gh" ] && continue
+            [ -f "${ghimbin}" ] && {
+              ghimdir=$(dirname ${ghimbin})
+              ghimdir=$(dirname ${ghimdir})
+              tar -C ${ghimdir} -cf /tmp/ghim-$$.tar bin share
+              tar -C ${HOME}/.local -xf /tmp/ghim-$$.tar
+              [ -f ${HOME}/.local/bin/gh ] && chmod 755 ${HOME}/.local/bin/gh
+              break
+            }
+          done
+          rm -f "${TEMP_TGZ}"
+          rm -f "/tmp/ghim-$$.tar"
+          rm -rf /tmp/ghit$$
+          [ "$quiet" ] || printf " done"
+        }
+      }
+    fi
+  fi
 
   if command -v lazygit >/dev/null 2>&1; then
     log "Using previously installed lazygit"
