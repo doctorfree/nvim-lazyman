@@ -30,6 +30,17 @@ themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "oned
 # Themes with styles
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedarkpro" "monokai-pro")
 
+have_brew=$(type -p brew)
+have_fzf=$(type -p fzf)
+have_cargo=$(type -p cargo)
+have_neovide=$(type -p neovide)
+have_figlet=$(type -p figlet)
+have_tscli=$(type -p tree-sitter)
+have_rocks=$(type -p luarocks)
+have_lolcat=$(type -p lolcat)
+have_rich=$(type -p rich)
+have_zoxi=$(type -p zoxide)
+
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
@@ -539,6 +550,7 @@ clone_repo() {
 }
 
 show_figlet() {
+  clear
   # Seed random generator
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
@@ -1021,8 +1033,8 @@ select_theme() {
 }
 
 show_conf_menu() {
-  have_figlet=$(type -p figlet)
-  have_lolcat=$(type -p lolcat)
+  set_haves
+
   while true; do
     [ "$debug" ] || clear
     [ "${have_figlet}" ] && show_figlet
