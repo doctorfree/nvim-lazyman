@@ -4756,8 +4756,7 @@ get_platform() {
       [ "${ID}" == "centos" ] && redhat=1
       [ "${ID}" == "opensuse" ] && suse=1
       [ "${ID}" == "void" ] && void=1
-      [ "${arch}" ] || [ "${debian}" ] || [ "${redhat}" ] \
-        || [ "${suse}" ] || [ "${void}" ] || {
+      [ "${arch}" ] || [ "${debian}" ] || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] || {
         echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
         echo "${ID_LIKE}" | grep suse >/dev/null && suse=1
         echo "${ID_LIKE}" | grep void >/dev/null && void=1
@@ -5036,14 +5035,8 @@ install_neovim_dependencies() {
   done
 
   if [ "${use_homebrew}" ]; then
-    brew_install fd
     brew_install clipboard
   else
-    if [ "${arch}" ]; then
-      platform_install fd
-    else
-      platform_install "fd-find" fd
-    fi
     platform_install "wl-clipboard" wl-copy
   fi
 
@@ -5065,7 +5058,7 @@ install_neovim_dependencies() {
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
-          | jq --raw-output '.assets | .[]?.browser_download_url' \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "Linux_x86_64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
@@ -5145,7 +5138,7 @@ install_neovim() {
       [ -d $HOME/.local ] || mkdir -p $HOME/.local
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
-          | jq --raw-output '.assets | .[]?.browser_download_url' \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "linux64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
@@ -5186,7 +5179,7 @@ install_neovim() {
       [ -d $HOME/.local ] || mkdir -p $HOME/.local
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
-          | jq --raw-output '.assets | .[]?.browser_download_url' \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "linux64\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
@@ -5345,8 +5338,13 @@ install_tools() {
     log "Installing tree-sitter command line npm package ..."
     npm i -g tree-sitter-cli >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+
     log "Installing Neovim npm package ..."
     npm i -g neovim >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
+    log "Installing fd-find package ..."
+    npm i -g fd-find >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
     log "Installing cspell npm package ..."
