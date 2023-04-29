@@ -51,7 +51,8 @@ The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
-The Lazyman Neovim configuration categories:
+Currently 25 popular Neovim configurations are supported in the following
+Lazyman Neovim configuration categories:
 
 | **Base**                                         |                                                      |                                                       | **Configs**                                   |
 | ------------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------- |
