@@ -1581,11 +1581,7 @@ show_main_menu() {
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    if [ ${numitems} -gt 24 ]; then
-      printf "\n"
-    else
-      [ "${have_figlet}" ] && show_figlet
-    fi
+    [ "${have_figlet}" ] && show_figlet
     [ "${show_warning}" ] && {
       if [ "${have_rich}" ]; then
         rich "[bold red]WARNING[/]: missing [b yellow]${LMANDIR}/.lazymanrc[/]
@@ -1679,15 +1675,19 @@ show_main_menu() {
     partial=
     get_config_str "${BASECFGS}"
     base_installed=${installed}
+    base_partial=${partial}
     options+=("Install Base ${configstr}")
     installed=1
     partial=
     get_config_str "${EXTRACFGS}"
     extra_installed=${installed}
+    extra_partial=${partial}
     options+=("Install Extras ${configstr}")
     installed=1
     partial=
     get_config_str "${STARTCFGS}"
+    start_installed=${installed}
+    start_partial=${partial}
     options+=("Install Starters ${configstr}")
     installed=1
     partial=
@@ -1696,14 +1696,17 @@ show_main_menu() {
     [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
-    options+=("Remove Base")
-    options+=("Remove Extras")
-    options+=("Remove Starters")
-    options+=("Remove All")
+    [ "${base_partial}" ] && options+=("Remove Base")
+    [ "${extra_partial}" ] && options+=("Remove Extras")
+    [ "${start_partial}" ] && options+=("Remove Starters")
+    [ "${base_partial}" ] || [ "${extra_partial}" ] || [ "${start_partial}" ] && {
+      options+=("Remove All")
+    }
     if [ "${base_installed}" ]; then
       if [ "${extra_installed}" ]; then
         for neovim in ${STARTCFGS}; do
-          if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+          if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
             options+=("Install ${nvdir}")
           fi
         done
