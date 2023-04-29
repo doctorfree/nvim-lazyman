@@ -10,7 +10,11 @@
 
 ### ⚡️ Added
 
-- Default to native package managers for Arch, Debian, and RPM systems
+- Default to native package managers for Arch, Debian, SUSE, Void, and RPM systems
+- Add support for SUSE and Void Linux native package managers
+- Move black, beautysh, and ruff to pip install
+- Add known limitations section
+- Install ruby-dev/ruby-devel if needed
 - Add -h option to indicate use Homebrew rather than native package manager
 - Inform user of `sudo` privilege when doing native installs
 - Notify if Homebrew is detected during install prompt
@@ -22,7 +26,6 @@
 - Use apt on all Debian based platforms
 - Default to `pacman` on Arch and Arch-Like platforms
 - Default to Homebrew on macOS
-- Make native install the default, -h to use Homebrew
 - Prompt to use native package manager on Debian and RPM systems unless -y is given
 - Add `CosmicNvim` example custom config
 
