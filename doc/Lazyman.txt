@@ -211,8 +211,8 @@ always used on Arch Linux, Homebrew on macOS)
 `-U` : indicates update an existing configuration
 
 `-w conf` : indicates install and initialize Extra 'conf' configuration. 'conf'
-can be one of: 'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak', 'Optixal', 'Plug',
-'Simple', or 'Heiker'
+can be one of: 'Abstract', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak', 'Optixal',
+'Plug', 'Simple', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Extra' Neovim configurations
 
