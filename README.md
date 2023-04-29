@@ -159,12 +159,18 @@ After the download and initialization are complete, execute the `lazyman`
 command found in `~/.local/bin/lazyman`.
 
 By default, Lazyman uses the native package manager to install Neovim
-dependencies and tools if Neovim 0.9 or later is not already installed
-and in the execution path.
+dependencies and tools. Supported native package managers include:
+
+- `apt` or `apt-get` on Debian based platforms (e.g. Ubuntu)
+- `dnf` or `yum` on RPM based platforms (Fedora, CentOS, Red Hat)
+- `pacman` on Arch Linux and Arch-Like platforms
+- `xbps-install` on Void Linux
+- `zypper` on SUSE Linux
 
 Alternately, command line options exist to direct `lazyman` to install Neovim,
 dependencies and tools using [Homebrew](https://brew.sh) or to skip the Neovim
-installation altogether.
+installation altogether. If no supported native package manager is found then
+Homebrew is used. Homebrew is always used on macOS.
 
 To install Neovim, dependencies, and tools using Homebrew rather than the
 native package manger, invoke `lazyman` with the `-h` option when initializing:
@@ -4725,10 +4731,15 @@ get_platform() {
       . /etc/os-release
       [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && debian=1
       [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && arch=1
-      [ "${ID}" == "fedora" ] && rpm=1
-      [ "${ID}" == "centos" ] && rpm=1
-      [ "${arch}" ] || [ "${debian}" ] || [ "${rpm}" ] || {
+      [ "${ID}" == "fedora" ] && redhat=1
+      [ "${ID}" == "centos" ] && redhat=1
+      [ "${ID}" == "opensuse" ] && suse=1
+      [ "${ID}" == "void" ] && void=1
+      [ "${arch}" ] || [ "${debian}" ] || [ "${redhat}" ] \
+        || [ "${suse}" ] || [ "${void}" ] || {
         echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
+        echo "${ID_LIKE}" | grep suse >/dev/null && suse=1
+        echo "${ID_LIKE}" | grep void >/dev/null && void=1
       }
     else
       if [ -f /etc/arch-release ]; then
@@ -4738,12 +4749,20 @@ get_platform() {
           debian=1
         else
           if [ -f /etc/fedora-release ]; then
-            rpm=1
+            redhat=1
           else
             if [ "${have_dnf}" ] || [ "${have_yum}" ]; then
-              rpm=1
+              redhat=1
             else
-              printf "\nUnknown operating system distribution\n"
+              if [ "${have_zyp}" ]; then
+                suse=1
+              else
+                if [ "${have_xbps}" ]; then
+                  void=1
+                else
+                  printf "\nUnknown operating system distribution\n"
+                fi
+              fi
             fi
           fi
         fi
@@ -4766,7 +4785,7 @@ get_platform() {
     fi
   }
 
-  [ "${rpm}" ] && {
+  [ "${redhat}" ] && {
     if [ "${have_dnf}" ]; then
       DNF="dnf --assumeyes --quiet"
       PKGMGR="DNF"
@@ -4779,6 +4798,26 @@ get_platform() {
         printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
         native=
       fi
+    fi
+  }
+
+  [ "${suse}" ] && {
+    if [ "${have_zyp}" ]; then
+      PKGMGR="DNF"
+    else
+      printf "\nCould not locate zypper"
+      printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+      native=
+    fi
+  }
+
+  [ "${void}" ] && {
+    if [ "${have_xbps}" ]; then
+      PKGMGR="XBPS"
+    else
+      printf "\nCould not locate xbps-install"
+      printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+      native=
     fi
   }
 }
@@ -4896,14 +4935,42 @@ platform_install() {
         [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
       fi
     else
-      if [ "${rpm}" ]; then
+      if [ "${redhat}" ]; then
         if [ "${DNF}" ]; then
           sudo ${DNF} install ${platpkg} >/dev/null 2>&1
         else
-          [ "${quiet}" ] || printf "\n\t\tCannot locate dnf to install. Skipping ..."
+          [ "${quiet}" ] || {
+            printf "\n\t\tCannot locate dnf to install. Skipping ..."
+          }
         fi
       else
-        [ "${arch}" ] && sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
+        [ "${arch}" ] && {
+          if [ "${have_pac}" ]; then
+            sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
+          else
+            [ "${quiet}" ] || {
+              printf "\n\t\tCannot locate pacman to install. Skipping ..."
+            }
+          fi
+        }
+        [ "${suse}" ] && {
+          if [ "${have_zyp}" ]; then
+            sudo zypper install ${platpkg} >/dev/null 2>&1
+          else
+            [ "${quiet}" ] || {
+              printf "\n\t\tCannot locate zypper to install. Skipping ..."
+            }
+          fi
+        }
+        [ "${void}" ] && {
+          if [ "${have_xbps}" ]; then
+            sudo xbps-install -S ${platpkg} >/dev/null 2>&1
+          else
+            [ "${quiet}" ] || {
+              printf "\n\t\tCannot locate xbps-install to install. Skipping ..."
+            }
+          fi
+        }
       fi
     fi
     [ "$quiet" ] || printf " done"
@@ -5381,7 +5448,9 @@ install_tools() {
 
   [ "${native}" ] && {
     [ "${debian}" ] && platform_install ruby-dev
-    [ "${rpm}" ] && platform_install ruby-devel
+    [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
+      platform_install ruby-devel
+    }
   }
 
   [ "$GEM" ] && {
@@ -5410,7 +5479,7 @@ main() {
   check_prerequisites
   get_platform
   [ "$proceed" ] || {
-    [ "${debian}" ] || [ "${rpm}" ] && {
+    [ "${debian}" ] || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       if [ "${native}" ]; then
         printf "\n\n${PKGMGR} will be used to install dependencies and tools."
         printf "\nThis requires 'sudo' (root) privilege.\n"
@@ -5500,11 +5569,16 @@ debug=
 darwin=
 arch=
 debian=
-rpm=
+redhat=
+suse=
+void=
 have_apt=$(type -p apt)
 have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
+have_pac=$(type -p pacman)
+have_xbps=$(type -p xbps-install)
 have_yum=$(type -p yum)
+have_zyp=$(type -p zypper)
 native=1
 proceed=
 
