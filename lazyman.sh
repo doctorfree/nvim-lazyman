@@ -21,7 +21,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
+EXTRACFGS="Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -77,8 +77,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak',"
-  printf "\n           'Optixal', 'Plug', 'Simple', or 'Heiker'"
+  printf "\n           'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
+  printf "\n           'NvPak' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -1841,6 +1841,9 @@ show_main_menu() {
         "Install "*,* | *,"Install "*)
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
           case ${nvimconf} in
+            Abstract)
+              lazyman -w Abstract -z -y
+              ;;
             AstroNvim)
               lazyman -a -z -y
               ;;
@@ -2269,7 +2272,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
+      for neovim in Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2281,6 +2284,13 @@ shift $((OPTIND - 1))
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimextra}" == "all" ]; then
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
+      printf "\n${action} Abstract Neovim configuration ..."
+      lazyman -b main -C https://github.com/Abstract-IDE/Abstract \
+        -N nvim-Abstract -P -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Abstract"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
       printf "\n${action} Nv Neovim configuration ..."
@@ -2351,6 +2361,10 @@ shift $((OPTIND - 1))
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimextra} in
+        Abstract)
+          extra_url="https://github.com/Abstract-IDE/Abstract"
+          extra_opt="-b main -P"
+          ;;
         Knvim)
           extra_url="https://github.com/knmac/knvim"
           extra_opt="-b main"

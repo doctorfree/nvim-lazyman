@@ -58,16 +58,15 @@ The Lazyman Neovim configuration categories:
 | [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
 
-| **Extra**                                              |                                                                           | **Configs**                                         |
-| ------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------- |
-| [Nv](https://github.com/appelgriebsch/Nv)              | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim)                     | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
-| [Heiker](https://github.com/VonHeikemen/dotfiles)      | [Roiz](https://github.com/MrRoiz/rnvim)                                | [Simple](https://github.com/anthdm/.nvim)           |
+| **Extra** |       |        |        | **Configs** |
+| --------- | ----- | ------ | ------ | ----------- |
+| [Abstract](https://github.com/Abstract-IDE/Abstract) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
+| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 
-| **Starter**                                                         |                                                                                 |                                                                        | **Configs**                                                                    |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [Kickstart](https://github.com/nvim-lua/kickstart.nvim)             | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)          | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)  | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
-| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |                                                                                |
+| **Starter** |       |       | **Configs** |
+| ----------- | ----- | ----- | ----------- |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)  | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
+| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -302,6 +301,9 @@ All of the 'Extra' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Extra' configurations can be
 installed with the `-w conf` option.
 
+- [Abstract](https://github.com/Abstract-IDE/Abstract)
+  - Preconfigured Neovim as IDE (see https://abstract-ide.github.io/site/)
+  - Install and initialize with `lazyman -w Abstract`
 - [Nv](https://github.com/appelgriebsch/Nv)
   - Install and initialize with `lazyman -w Nv`
 - [Knvim](https://github.com/knmac/knvim)
@@ -1639,7 +1641,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
+EXTRACFGS="Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -1695,8 +1697,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak',"
-  printf "\n           'Optixal', 'Plug', 'Simple', or 'Heiker'"
+  printf "\n           'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
+  printf "\n           'NvPak' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -3459,6 +3461,9 @@ show_main_menu() {
         "Install "*,* | *,"Install "*)
           nvimconf=$(echo ${opt} | awk ' { print $2 } ')
           case ${nvimconf} in
+            Abstract)
+              lazyman -w Abstract -z -y
+              ;;
             AstroNvim)
               lazyman -a -z -y
               ;;
@@ -3887,7 +3892,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
+      for neovim in Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -3899,6 +3904,13 @@ shift $((OPTIND - 1))
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimextra}" == "all" ]; then
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
+      printf "\n${action} Abstract Neovim configuration ..."
+      lazyman -b main -C https://github.com/Abstract-IDE/Abstract \
+        -N nvim-Abstract -P -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Abstract"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
       printf "\n${action} Nv Neovim configuration ..."
@@ -3969,6 +3981,10 @@ shift $((OPTIND - 1))
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimextra} in
+        Abstract)
+          extra_url="https://github.com/Abstract-IDE/Abstract"
+          extra_opt="-b main -P"
+          ;;
         Knvim)
           extra_url="https://github.com/knmac/knvim"
           extra_opt="-b main"
