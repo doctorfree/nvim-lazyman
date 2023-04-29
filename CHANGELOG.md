@@ -28,6 +28,7 @@
 - Default to Homebrew on macOS
 - Prompt to use native package manager on Debian and RPM systems unless -y is given
 - Add `CosmicNvim` example custom config
+- Rename Knmac to Knvim with new repository url
 
 ### 🐞 Fixed
 

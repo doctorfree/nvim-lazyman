@@ -60,7 +60,7 @@ The Lazyman Neovim configuration categories:
 
 | **Extra**                                              |                                                                           | **Configs**                                         |
 | ------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------- |
-| [Nv](https://github.com/appelgriebsch/Nv)              | [Knmac](https://github.com/knmac/.dotfiles/tree/master/nvim/.config/nvim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
+| [Nv](https://github.com/appelgriebsch/Nv)              | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
 | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Optixal](https://github.com/Optixal/neovim-init.vim)                     | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 | [Heiker](https://github.com/VonHeikemen/dotfiles)      | [Roiz](https://github.com/MrRoiz/rnvim)                                | [Simple](https://github.com/anthdm/.nvim)           |
 
@@ -304,10 +304,10 @@ installed with the `-w conf` option.
 
 - [Nv](https://github.com/appelgriebsch/Nv)
   - Install and initialize with `lazyman -w Nv`
-- [Knmac](https://github.com/knmac/.dotfiles)
+- [Knvim](https://github.com/knmac/knvim)
   - Research Scientist at Amazon
-  - See the [Knmac Neovim Config Cheat Sheet](https://github.com/knmac/.dotfiles/blob/master/cheatsheets/nvim_cheatsheet.md)
-  - Install and initialize with `lazyman -w Knmac`
+  - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
+  - Install and initialize with `lazyman -w Knvim`
 - [Fennel](https://github.com/jhchabran/nvim-config)
   - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
   - Install and initialize with `lazyman -w Fennel`
@@ -561,7 +561,7 @@ Where:
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Extra 'conf' config
        'conf' can be one of:
-           'Knmac', 'Roiz', 'Fennel', 'Nv', 'NvPak',
+           'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak',
            'Optixal', 'Plug', 'Simple', or 'Heiker'
     -W indicates install and initialize all 'Extra' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
@@ -1639,7 +1639,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Nv Knmac Roiz Fennel NvPak Optixal Plug Heiker Simple"
+EXTRACFGS="Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
 fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
@@ -1695,7 +1695,7 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Knmac', 'Roiz', 'Fennel', 'Nv', 'NvPak',"
+  printf "\n           'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak',"
   printf "\n           'Optixal', 'Plug', 'Simple', or 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
@@ -3199,7 +3199,7 @@ show_main_menu() {
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    if [ ${numitems} -gt 16 ]; then
+    if [ ${numitems} -gt 24 ]; then
       printf "\n"
     else
       [ "${have_figlet}" ] && show_figlet
@@ -3486,8 +3486,8 @@ show_main_menu() {
             Nv)
               lazyman -w Nv -z -y
               ;;
-            Knmac)
-              lazyman -w Knmac -z -y
+            Knvim)
+              lazyman -w Knvim -z -y
               ;;
             Roiz)
               lazyman -w Roiz -z -y
@@ -3884,7 +3884,7 @@ shift $((OPTIND - 1))
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Nv Knmac Roiz Fennel NvPak Optixal Plug Heiker Simple; do
+      for neovim in Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -3904,12 +3904,12 @@ shift $((OPTIND - 1))
       printf " done"
       show_alias "nvim-Nv"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Knmac ] && action="Updating"
-      printf "\n${action} Knmac Neovim configuration ..."
-      lazyman -C https://github.com/knmac/.dotfiles \
-        -D nvim/.config/nvim -N nvim-Knmac -q -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
+      printf "\n${action} Knvim Neovim configuration ..."
+      lazyman -b main -C https://github.com/knmac/knvim \
+        -N nvim-Knvim -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-Knmac"
+      show_alias "nvim-Knvim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
@@ -3966,12 +3966,13 @@ shift $((OPTIND - 1))
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimextra} in
-        Knmac)
-          extra_url="https://github.com/knmac/.dotfiles"
-          extra_dir="-D nvim/.config/nvim"
+        Knvim)
+          extra_url="https://github.com/knmac/knvim"
+          extra_opt="-b main"
           ;;
         Roiz)
           extra_url="https://github.com/MrRoiz/rnvim"
+          extra_opt="-b main"
           ;;
         Fennel)
           extra_url="https://github.com/jhchabran/nvim-config"
