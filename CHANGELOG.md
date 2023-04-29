@@ -6,6 +6,20 @@
 
 ### 🐞 Fixed
 
+## v2.0.0r2
+
+### ⚡️ Added
+
+- Install `gh` from binary download rather than package manager
+- Use `npm` to install `fd-find` rather than package managers
+- Add Abstract Neovim configuration to extras
+- Rename Knmac config to Knvim with new config url
+
+### 🐞 Fixed
+
+- Fix install starter menu entries
+- Only show remove menu entries when partial or fully installed
+
 ## v2.0.0r1
 
 ### ⚡️ Added
