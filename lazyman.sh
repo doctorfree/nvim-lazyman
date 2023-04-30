@@ -31,10 +31,10 @@ themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "oned
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedarkpro" "monokai-pro")
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
+  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
   printf "\n       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
-  printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
+  printf "\n       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -43,6 +43,7 @@ usage() {
   printf "\nWhere:"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvim Neovim configuration"
+  printf "\n    -B indicates install and initialize all 'Base' Neovim configurations"
   printf "\n    -b 'branch' specifies an ${LAZYMAN} git branch to checkout"
   printf "\n    -c indicates install and initialize NvChad Neovim configuration"
   printf "\n    -d indicates debug mode"
@@ -88,6 +89,7 @@ usage() {
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -u displays this usage message and exits"
+  printf "\n    'status' displays a brief status report and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
   printf "\nor, if initialized, an interactive menu system is displayed.\n"
@@ -2106,13 +2108,27 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
-while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:BcdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
       nvimdir=("$astronvimdir")
       ;;
     A)
+      all=1
+      nvimextra="all"
+      nvimstarter="all"
+      astronvim=1
+      ecovim=1
+      lazyman=1
+      lazyvim=1
+      lunarvim=1
+      magicvim=1
+      nvchad=1
+      spacevim=1
+      nvimdir=("${basenvimdirs[@]}")
+      ;;
+    B)
       all=1
       astronvim=1
       ecovim=1
@@ -2248,6 +2264,11 @@ while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   esac
 done
 shift $((OPTIND - 1))
+
+[ "$1" == "status" ] && {
+  show_info
+  exit 0
+}
 
 set_haves
 
@@ -2411,7 +2432,6 @@ set_haves
       printf " done"
     fi
   fi
-  exit 0
 }
 
 [ "$nvimstarter" ] && {
@@ -2464,7 +2484,6 @@ set_haves
     fi
   fi
   printf "\n"
-  exit 0
 }
 
 [ "$langservers" ] && {

@@ -23,10 +23,10 @@ lazyman - install, initialize, manage, and explore multiple Neovim
 configurations
 .SS SYNOPSIS
 .PP
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k]
-[-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd]
-[-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf]
-[-X] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i]
+[-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L
+cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x
+conf] [-X] [-y] [-z] [-Z] [-u] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -196,6 +196,9 @@ The following command line options are available with the
 \f[V]-a\f[R] : indicates install and initialize the the
 \[aq]AstroNvim\[aq] Neovim configuration
 .PP
+\f[V]-B\f[R] : indicates install and initialize all \[aq]Base\[aq]
+Neovim configurations
+.PP
 \f[V]-b branch\f[R] : specifies an nvim-lazyman git branch to checkout
 .PP
 \f[V]-c\f[R] : indicates install and initialize the \[aq]NvChad\[aq]
@@ -296,6 +299,8 @@ prompt
 tools during initialization
 .PP
 \f[V]-u\f[R] : displays this usage message and exits
+.PP
+\f[V]status\f[R] : displays a brief status report and exits
 .PP
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]

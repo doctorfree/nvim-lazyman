@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 
 ## FEATURES
 
@@ -147,6 +147,8 @@ The following command line options are available with the `lazyman` command:
 
 `-a` : indicates install and initialize the the 'AstroNvim' Neovim configuration
 
+`-B` : indicates install and initialize all 'Base' Neovim configurations
+
 `-b branch` : specifies an nvim-lazyman git branch to checkout
 
 `-c` : indicates install and initialize the 'NvChad' Neovim configuration
@@ -214,6 +216,8 @@ The following command line options are available with the `lazyman` command:
 `-Z` : indicates do not install Homebrew, Neovim, or any other tools during initialization
 
 `-u` : displays this usage message and exits
+
+`status` : displays a brief status report and exits
 
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
