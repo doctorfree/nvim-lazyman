@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r1
+
+### ⚡️ Added
+
+- The -A flag now installs all configs
+- Add -B flag to install Base configs
+- Add status argument
+- Add Select and Install menu option
+- Remove individual install menu options
+- Remove Lazyman from lazymanrc items for removal
+
+### 🐞 Fixed
+
+- Install `python3-venv` on Debian based platforms
+- Fix use of missing figlet fonts
+
 ## v2.0.0r2
 
 ### ⚡️ Added
