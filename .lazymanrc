@@ -92,6 +92,16 @@ command -v nvim > /dev/null && {
     then
       action="Remove"
       remove=1
+      for i in "${!items[@]}"; do
+        if [[ ${items[i]} = "Lazyman" ]]; then
+          unset 'items[i]'
+        fi
+      done
+      for i in "${!items[@]}"; do
+        new_items+=( "${items[i]}" )
+      done
+      items=("${new_items[@]}")
+      unset new_items
       shift
     fi
     filter="$1"

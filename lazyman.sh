@@ -675,6 +675,87 @@ set_chat_gpt() {
   }
 }
 
+install_config() {
+  confname="$1"
+  case ${confname} in
+    Abstract)
+      lazyman -w Abstract -z -y
+      ;;
+    AstroNvim)
+      lazyman -a -z -y
+      ;;
+    Ecovim)
+      lazyman -e -z -y
+      ;;
+    Kickstart)
+      lazyman -k -z -y
+      ;;
+    Lazyman)
+      lazyman -i -z -y
+      ;;
+    LazyVim)
+      lazyman -l -z -y
+      ;;
+    LunarVim)
+      lazyman -v -z -y
+      ;;
+    NvChad)
+      lazyman -c -z -y
+      ;;
+    SpaceVim)
+      lazyman -s -z -y
+      ;;
+    MagicVim)
+      lazyman -m -z -y
+      ;;
+    Nv)
+      lazyman -w Nv -z -y
+      ;;
+    Knvim)
+      lazyman -w Knvim -z -y
+      ;;
+    Roiz)
+      lazyman -w Roiz -z -y
+      ;;
+    Fennel)
+      lazyman -w Fennel -z -y
+      ;;
+    NvPak)
+      lazyman -w NvPak -z -y
+      ;;
+    Optixal)
+      lazyman -w Optixal -z -y
+      ;;
+    Plug)
+      lazyman -w Plug -z -y
+      ;;
+    Heiker)
+      lazyman -w Heiker -z -y
+      ;;
+    Minimal)
+      lazyman -x Minimal -z -y
+      ;;
+    Simple)
+      lazyman -w Simple -z -y
+      ;;
+    StartBase)
+      lazyman -x StartBase -z -y
+      ;;
+    Opinion)
+      lazyman -x Opinion -z -y
+      ;;
+    StartLsp)
+      lazyman -x StartLsp -z -y
+      ;;
+    StartMason)
+      lazyman -x StartMason -z -y
+      ;;
+    Modular)
+      lazyman -x Modular -z -y
+      ;;
+  esac
+}
+
 select_theme_style() {
   selected_style="${theme_style}"
   case "$1" in
@@ -1639,6 +1720,17 @@ show_main_menu() {
 
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
+    uninstalled=()
+    [ "${have_fzf}" ] && {
+      for neovim in ${BASECFGS} ${EXTRACFGS} ${STARTCFGS}; do
+        nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
+          uninstalled+=("${nvdir}")
+        fi
+      done
+      numunins=${#uninstalled[@]}
+      [ ${numunins} -gt 0 ] && options+=("Select and Install")
+    }
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if alias neovides >/dev/null 2>&1; then
@@ -1679,19 +1771,16 @@ show_main_menu() {
     installed=1
     partial=
     get_config_str "${BASECFGS}"
-    base_installed=${installed}
     base_partial=${partial}
     options+=("Install Base ${configstr}")
     installed=1
     partial=
     get_config_str "${EXTRACFGS}"
-    extra_installed=${installed}
     extra_partial=${partial}
     options+=("Install Extras ${configstr}")
     installed=1
     partial=
     get_config_str "${STARTCFGS}"
-    start_installed=${installed}
     start_partial=${partial}
     options+=("Install Starters ${configstr}")
     installed=1
@@ -1707,39 +1796,13 @@ show_main_menu() {
     [ "${base_partial}" ] || [ "${extra_partial}" ] || [ "${start_partial}" ] && {
       options+=("Remove All")
     }
-    if [ "${base_installed}" ]; then
-      if [ "${extra_installed}" ]; then
-        if [ ! "${start_installed}" ]; then
-          for neovim in ${STARTCFGS}; do
-            nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-              options+=("Install ${nvdir}")
-            fi
-          done
-        fi
-      else
-        for neovim in ${EXTRACFGS}; do
-          nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-            options+=("Install ${nvdir}")
-          fi
-        done
-      fi
-    else
-      for neovim in "${basenvimdirs[@]}"; do
-        nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-          options+=("Install ${nvdir}")
-        fi
-      done
-    fi
     for neovim in "${sorted[@]}"; do
       options+=("Open ${neovim}")
     done
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Lazyman Configuration")
+    options+=("Lazyman Config")
     options+=("Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
@@ -1751,6 +1814,11 @@ show_main_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
+          break
+          ;;
+        "Select and Install"*,* | *,"Select and Install"*)
+          choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Config  " --layout=reverse --border --exit-0)
+          [ "${choice}" ] && install_config "${choice}"
           break
           ;;
         "Select and Open"*,* | *,"Select and Open"*)
@@ -1845,87 +1913,6 @@ show_main_menu() {
           }
           break
           ;;
-        "Install "*,* | *,"Install "*)
-          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
-          case ${nvimconf} in
-            Abstract)
-              lazyman -w Abstract -z -y
-              ;;
-            AstroNvim)
-              lazyman -a -z -y
-              ;;
-            Ecovim)
-              lazyman -e -z -y
-              ;;
-            Kickstart)
-              lazyman -k -z -y
-              ;;
-            Lazyman)
-              lazyman -i -z -y
-              ;;
-            LazyVim)
-              lazyman -l -z -y
-              ;;
-            LunarVim)
-              lazyman -v -z -y
-              ;;
-            NvChad)
-              lazyman -c -z -y
-              ;;
-            SpaceVim)
-              lazyman -s -z -y
-              ;;
-            MagicVim)
-              lazyman -m -z -y
-              ;;
-            Nv)
-              lazyman -w Nv -z -y
-              ;;
-            Knvim)
-              lazyman -w Knvim -z -y
-              ;;
-            Roiz)
-              lazyman -w Roiz -z -y
-              ;;
-            Fennel)
-              lazyman -w Fennel -z -y
-              ;;
-            NvPak)
-              lazyman -w NvPak -z -y
-              ;;
-            Optixal)
-              lazyman -w Optixal -z -y
-              ;;
-            Plug)
-              lazyman -w Plug -z -y
-              ;;
-            Heiker)
-              lazyman -w Heiker -z -y
-              ;;
-            Minimal)
-              lazyman -x Minimal -z -y
-              ;;
-            Simple)
-              lazyman -w Simple -z -y
-              ;;
-            StartBase)
-              lazyman -x StartBase -z -y
-              ;;
-            Opinion)
-              lazyman -x Opinion -z -y
-              ;;
-            StartLsp)
-              lazyman -x StartLsp -z -y
-              ;;
-            StartMason)
-              lazyman -x StartMason -z -y
-              ;;
-            Modular)
-              lazyman -x Modular -z -y
-              ;;
-          esac
-          break
-          ;;
         "Open Neovide"*,* | *,"Open Neovide"*)
           NVIM_APPNAME="${LAZYMAN}" neovide
           break
@@ -1981,7 +1968,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Lazyman Configuration",* | *,"Lazyman Configuration")
+        "Lazyman Config",* | *,"Lazyman Config")
           confmenu=1
           break 2
           ;;
