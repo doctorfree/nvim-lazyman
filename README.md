@@ -1645,22 +1645,11 @@ BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
 EXTRACFGS="Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
 # Array with font names
-fonts=("sblood" "lean" "sblood" "slant" "shadow" "speed" "small" "script" "standard")
+fonts=("lean" "slant" "shadow" "small" "script" "standard")
 # Supported themes
 themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "onedarkpro" "everforest" "monokai-pro")
 # Themes with styles
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedarkpro" "monokai-pro")
-
-have_brew=$(type -p brew)
-have_fzf=$(type -p fzf)
-have_cargo=$(type -p cargo)
-have_neovide=$(type -p neovide)
-have_figlet=$(type -p figlet)
-have_tscli=$(type -p tree-sitter)
-have_rocks=$(type -p luarocks)
-have_lolcat=$(type -p lolcat)
-have_rich=$(type -p rich)
-have_zoxi=$(type -p zoxide)
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config]"
@@ -1815,6 +1804,19 @@ run_command() {
     packer=${oldpack}
     plug=${oldplug}
   }
+}
+
+set_haves() {
+  have_brew=$(type -p brew)
+  have_fzf=$(type -p fzf)
+  have_cargo=$(type -p cargo)
+  have_neovide=$(type -p neovide)
+  have_figlet=$(type -p figlet)
+  have_tscli=$(type -p tree-sitter)
+  have_rocks=$(type -p luarocks)
+  have_lolcat=$(type -p lolcat)
+  have_rich=$(type -p rich)
+  have_zoxi=$(type -p zoxide)
 }
 
 init_neovim() {
@@ -2171,7 +2173,6 @@ clone_repo() {
 }
 
 show_figlet() {
-  clear
   # Seed random generator
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
@@ -2259,19 +2260,6 @@ show_alias() {
   printf "\n"
 }
 
-set_haves() {
-  have_brew=$(type -p brew)
-  have_fzf=$(type -p fzf)
-  have_cargo=$(type -p cargo)
-  have_neovide=$(type -p neovide)
-  have_figlet=$(type -p figlet)
-  have_tscli=$(type -p tree-sitter)
-  have_rocks=$(type -p luarocks)
-  have_lolcat=$(type -p lolcat)
-  have_rich=$(type -p rich)
-  have_zoxi=$(type -p zoxide)
-}
-
 get_conf_value() {
   confname="$1"
   confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
@@ -2336,7 +2324,6 @@ select_theme_style() {
       styles=()
       ;;
   esac
-  have_fzf=$(type -p fzf)
   if [ "${have_fzf}" ]; then
     choice=$(printf "%s\n" "${styles[@]}" | fzf --prompt=" Neovim Theme Style  " --layout=reverse --border --exit-0)
     [ "${choice}" == "${theme_style}" ] || {
@@ -2345,10 +2332,11 @@ select_theme_style() {
       fi
     }
   else
-    have_figlet=$(type -p figlet)
-    have_lolcat=$(type -p lolcat)
+    set_haves
     while true; do
-      [ "$debug" ] || clear
+      confmenu=
+      mainmenu=
+      [ "$debug" ] || tput reset
       printf "\n"
       [ "${have_figlet}" ] && show_figlet
       printf "\n"
@@ -2368,7 +2356,7 @@ select_theme_style() {
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
           "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-            [ "$debug" ] || clear
+            [ "$debug" ] || tput reset
             printf "\n"
             man lazyman
             break
@@ -2506,12 +2494,12 @@ select_theme_style() {
             break 2
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"*)
-            show_conf_menu
-            break
+            confmenu=1
+            break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"*)
-            show_main_menu
-            break
+            mainmenu=1
+            break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
             printf "\nExiting Lazyman\n"
@@ -2521,6 +2509,8 @@ select_theme_style() {
         REPLY=
       done
     done
+    [ "${confmenu}" ] && show_conf_menu
+    [ "${mainmenu}" ] && show_main_menu
   fi
 }
 
@@ -2555,7 +2545,6 @@ set_default_style() {
 
 select_theme() {
   selected_theme="$1"
-  have_fzf=$(type -p fzf)
   if [ "${have_fzf}" ]; then
     theme=$(printf "%s\n" "${themes[@]}" | fzf --prompt=" Neovim Theme  " --layout=reverse --border --exit-0)
     [ "${theme}" == "${selected_theme}" ] || {
@@ -2565,10 +2554,11 @@ select_theme() {
       fi
     }
   else
-    have_figlet=$(type -p figlet)
-    have_lolcat=$(type -p lolcat)
+    set_haves
     while true; do
-      [ "$debug" ] || clear
+      confmenu=
+      mainmenu=
+      [ "$debug" ] || tput reset
       printf "\n"
       [ "${have_figlet}" ] && show_figlet
       printf "\n"
@@ -2588,7 +2578,7 @@ select_theme() {
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
           "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-            [ "$debug" ] || clear
+            [ "$debug" ] || tput reset
             printf "\n"
             man lazyman
             break
@@ -2635,12 +2625,12 @@ select_theme() {
             break 2
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"*)
-            show_conf_menu
-            break
+            confmenu=1
+            break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"*)
-            show_main_menu
-            break
+            mainmenu=1
+            break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
             printf "\nExiting Lazyman\n"
@@ -2651,23 +2641,25 @@ select_theme() {
       done
     done
   fi
+  [ "${confmenu}" ] && show_conf_menu
+  [ "${mainmenu}" ] && show_main_menu
 }
 
 show_conf_menu() {
   set_haves
-
   while true; do
-    [ "$debug" ] || clear
-    [ "${have_figlet}" ] && show_figlet
+    mainmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
       printf "\nPress Enter to continue\n"
       read -r yn
-      show_main_menu
+      mainmenu=1
       break
     }
+    [ "$debug" ] || tput reset
+    [ "${have_figlet}" ] && show_figlet
     theme=$(get_conf_value theme)
     use_theme="${theme}"
     theme_style=$(get_conf_value theme_style)
@@ -2891,7 +2883,7 @@ show_conf_menu() {
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          [ "$debug" ] || clear
+          [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
           break
@@ -3180,8 +3172,8 @@ show_conf_menu() {
           break
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
-          show_main_menu
-          break
+          mainmenu=1
+          break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           printf "\nExiting Lazyman\n"
@@ -3191,21 +3183,22 @@ show_conf_menu() {
       REPLY=
     done
   done
+  [ "${mainmenu}" ] && show_main_menu
 }
 
 show_main_menu() {
   set_haves
-
   while true; do
+    [ "$debug" ] || tput reset
     if [ "${USEGUI}" ]; then
       use_gui="neovide"
     else
       use_gui="neovim"
     fi
-    [ "$debug" ] || clear
     items=()
     showinstalled=1
     show_warning=
+    confmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -3337,12 +3330,14 @@ show_main_menu() {
     }
     if [ "${base_installed}" ]; then
       if [ "${extra_installed}" ]; then
-        for neovim in ${STARTCFGS}; do
-          nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-            options+=("Install ${nvdir}")
-          fi
-        done
+        if [ ! "${start_installed}" ]; then
+          for neovim in ${STARTCFGS}; do
+            nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
+              options+=("Install ${nvdir}")
+            fi
+          done
+        fi
       else
         for neovim in ${EXTRACFGS}; do
           nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3374,7 +3369,7 @@ show_main_menu() {
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          [ "$debug" ] || clear
+          [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
           break
@@ -3608,8 +3603,8 @@ show_main_menu() {
           break
           ;;
         "Lazyman Configuration",* | *,"Lazyman Configuration")
-          show_conf_menu
-          break
+          confmenu=1
+          break 2
           ;;
         "Lazyman Status",* | *,"Lazyman Status")
           show_info >/tmp/lminfo$$
@@ -3641,6 +3636,7 @@ show_main_menu() {
       REPLY=
     done
   done
+  [ "${confmenu}" ] && show_conf_menu
 }
 
 get_config_str() {
@@ -3886,6 +3882,8 @@ while getopts "aAb:cdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   esac
 done
 shift $((OPTIND - 1))
+
+set_haves
 
 [ "$select" ] && {
   if [ -f "${LMANDIR}"/.lazymanrc ]; then
@@ -4265,7 +4263,6 @@ shift $((OPTIND - 1))
 
 have_git=$(type -p git)
 [ "$have_git" ] || {
-  have_brew=$(type -p brew)
   [ "$have_brew" ] && {
     brew install git >/dev/null 2>&1
   }
@@ -4585,7 +4582,7 @@ done
   fi
 }
 
-[ "$interactive" ] || {
+[ "${interactive}" ] || {
   for neovim in "${nvimdir[@]}"; do
     [ "$quiet" ] || {
       pm="$pmgr"
@@ -4630,7 +4627,7 @@ fi
   [ "$quiet" ] || printf "\nView the lazyman man page with 'man lazyman'"
 }
 
-[ "$quiet" ] || [ "$interactive" ] || {
+[ "$quiet" ] || [ "${interactive}" ] || {
   printf "\n\nTo use this lazyman installed Neovim configuration as the default,"
   printf "\nadd a line like the following to your .bashrc or .zshrc:\n"
   if [ "$all" ]; then
@@ -4648,14 +4645,19 @@ fi
   fi
   show_alias "${nvimdir[0]}"
 }
-[ "$quiet" ] || {
-  printf "\nRun 'lazyman' with no arguments for an interactive menu system"
-  printf "\nRun 'lazyman -F' for the Lazyman Configuration menu\n"
-}
+
+if [ "${interactive}" ]; then
+  [ "$debug" ] || tput reset
+else
+  [ "$quiet" ] || {
+    printf "\nRun 'lazyman' with no arguments for an interactive menu system"
+    printf "\nRun 'lazyman -F' for the Lazyman Configuration menu\n"
+  }
+fi
 
 [ "$tellme" ] || {
   [ "$runvim" ] && {
-    [ "$interactive" ] || {
+    [ "${interactive}" ] || {
       [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
       nvim
     }
@@ -4682,7 +4684,7 @@ fi
   }
 }
 
-[ "$interactive" ] && {
+[ "${interactive}" ] && {
   if [ "$confmenu" ]; then
     show_conf_menu
   else
