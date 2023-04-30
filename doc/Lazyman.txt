@@ -12,9 +12,10 @@ configurations
 
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
-lazyman [-A] [-a] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l]
-[-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
-[-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k]
+[-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C
+url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z]
+[-u] [status]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -152,6 +153,8 @@ The following command line options are available with the `lazyman` command:
 `-a` : indicates install and initialize the the 'AstroNvim' Neovim
 configuration
 
+`-B` : indicates install and initialize all 'Base' Neovim configurations
+
 `-b branch` : specifies an nvim-lazyman git branch to checkout
 
 `-c` : indicates install and initialize the 'NvChad' Neovim configuration
@@ -230,6 +233,8 @@ can be one of: 'Abstract', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak', 'Optixal',
 initialization
 
 `-u` : displays this usage message and exits
+
+`status` : displays a brief status report and exits
 
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
