@@ -808,7 +808,10 @@ install_tools() {
   }
 
   [ "${native}" ] && {
-    [ "${debian}" ] && platform_install ruby-dev
+    [ "${debian}" ] && {
+      platform_install python3-venv
+      platform_install ruby-dev
+    }
     [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       platform_install ruby-devel
     }
