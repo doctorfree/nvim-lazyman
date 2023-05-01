@@ -10,6 +10,8 @@
 
 ### ⚡️ Added
 
+- Add support for native package manager on Alpine Linux
+- Install nightly neovim build in HOME/.local rather than /usr/local
 - The -A flag now installs all configs
 - Add -B flag to install Base configs
 - Add status argument
@@ -19,6 +21,8 @@
 
 ### 🐞 Fixed
 
+- Fix test for neovim version
+- Fix build/install of nightly neovim
 - Install `python3-venv` on Debian based platforms
 - Fix use of missing figlet fonts
 
