@@ -25,6 +25,12 @@ log() {
   }
 }
 
+calc_elapsed() {
+  FINISH_SECONDS=$(date +%s)
+  ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+  ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+}
+
 check_prerequisites() {
   if [ "${BASH_VERSION:-}" = "" ]; then
     abort "Bash is required to interpret this script."
@@ -140,6 +146,60 @@ get_platform() {
   }
 }
 
+# Compare two version strings [$1: version string 1 (v1), $2: version string 2 (v2)]
+# Return values:
+#   0: v1 == v2
+#   1: v1 > v2
+#   2: v1 < v2
+# Based on https://stackoverflow.com/a/4025065 by Dennis Williamson
+# and https://stackoverflow.com/questions/4023830/how-to-compare-two-strings-in-dot-separated-version-format-in-bash/49351294#49351294 by Github user @fonic
+compare_versions() {
+
+  # Trivial v1 == v2 test based on string comparison
+  [[ "$1" == "$2" ]] && return 0
+
+  # Local variables
+  local regex="^(.*)-r([0-9]*)$" va1=() vr1=0 va2=() vr2=0 len i IFS="."
+
+  # Split version strings into arrays, extract trailing revisions
+  if [[ "$1" =~ ${regex} ]]; then
+    va1=("${BASH_REMATCH[1]}")
+    [[ -n "${BASH_REMATCH[2]}" ]] && vr1=${BASH_REMATCH[2]}
+  else
+    va1=("$1")
+  fi
+  if [[ "$2" =~ ${regex} ]]; then
+    va2=("${BASH_REMATCH[1]}")
+    [[ -n "${BASH_REMATCH[2]}" ]] && vr2=${BASH_REMATCH[2]}
+  else
+    va2=("$2")
+  fi
+
+  # Bring va1 and va2 to same length by filling empty fields with zeros
+  ((${#va1[@]} > ${#va2[@]})) && len=${#va1[@]} || len=${#va2[@]}
+  for ((i = 0; i < len; ++i)); do
+    [[ -z "${va1[i]}" ]] && va1[i]="0"
+    [[ -z "${va2[i]}" ]] && va2[i]="0"
+  done
+
+  # Append revisions, increment length
+  va1+=("$vr1")
+  va2+=("$vr2")
+  len=$((len + 1))
+
+  # Compare version elements, check if v1 > v2 or v1 < v2
+  for ((i = 0; i < len; ++i)); do
+    if ((10#${va1[i]} > 10#${va2[i]})); then
+      return 1
+    elif ((10#${va1[i]} < 10#${va2[i]})); then
+      return 2
+    fi
+  done
+
+  # All elements are equal, thus v1 == v2
+  return 0
+}
+
 install_homebrew() {
   if ! command -v brew >/dev/null 2>&1; then
     [ "$debug" ] && START_SECONDS=$(date +%s)
@@ -194,9 +254,7 @@ install_homebrew() {
       }
     }
     [ "$debug" ] && {
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      calc_elapsed
       printf "\nHomebrew install elapsed time = ${ELAPSED}\n"
     }
     log "Homebrew installed in ${HOMEBREW_HOME}"
@@ -226,9 +284,7 @@ brew_install() {
     [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "$brewpkg" >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
     if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      calc_elapsed
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
@@ -293,9 +349,7 @@ platform_install() {
     fi
     [ "$quiet" ] || printf " done"
     if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      calc_elapsed
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
@@ -321,9 +375,7 @@ install_neovim_dependencies() {
       platform_install bash xxxfoobaryyy
     fi
     if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      calc_elapsed
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
@@ -557,9 +609,7 @@ install_neovim() {
   fi
   [ "$quiet" ] || printf " done"
   if [ "$debug" ]; then
-    FINISH_SECONDS=$(date +%s)
-    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+    calc_elapsed
     printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
 }
@@ -572,33 +622,33 @@ install_neovim_head() {
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install --HEAD neovim
     else
-      [ -d $HOME/src ] || mkdir -p $HOME/src
-      git clone https://github.com/neovim/neovim.git $HOME/src/neovim
-      cd $HOME/src/neovim || exit 1
-      sudo rm /usr/local/bin/nvim
-      sudo rm -r /usr/local/share/nvim/
+      [ -d /tmp/neovim$$ ] && sudo rm -rf /tmp/neovim$$
+      git clone https://github.com/neovim/neovim.git /tmp/neovim$$
+      cd /tmp/neovim$$ || return
+      sudo rm -f /usr/local/bin/nvim
+      sudo rm -rf /usr/local/share/nvim/
       make CMAKE_BUILD_TYPE=RelWithDebInfo
       sudo make install
-      sudo rm -rf $HOME/src/neovim
+      cd
+      sudo rm -rf /tmp/neovim$$
     fi
   else
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
     else
-      [ -d $HOME/src ] || mkdir -p $HOME/src
-      git clone https://github.com/neovim/neovim.git $HOME/src/neovim >/dev/null 2>&1
-      cd $HOME/src/neovim || exit 1
+      [ -d /tmp/neovim$$ ] && sudo rm -rf /tmp/neovim$$
+      git clone https://github.com/neovim/neovim.git /tmp/neovim$$ >/dev/null 2>&1
+      cd /tmp/neovim$$ || return
       sudo rm -f /usr/local/bin/nvim
       sudo rm -rf /usr/local/share/nvim/
       make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null 2>&1
       sudo make install >/dev/null 2>&1
-      sudo rm -rf $HOME/src/neovim
+      cd
+      sudo rm -rf /tmp/neovim$$
     fi
   fi
   if [ "$debug" ]; then
-    FINISH_SECONDS=$(date +%s)
-    ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-    ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+    calc_elapsed
     printf "\nInstall Neovim elapsed time = %s${ELAPSED}\n"
   fi
   [ "$quiet" ] || printf " done"
@@ -722,9 +772,7 @@ install_tools() {
       rm -f /tmp/rust-$$.sh
     fi
     if [ "$debug" ]; then
-      FINISH_SECONDS=$(date +%s)
-      ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
-      ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+      calc_elapsed
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
@@ -904,13 +952,22 @@ main() {
   [ "${use_homebrew}" ] && install_homebrew
   install_neovim_dependencies
   if command -v nvim >/dev/null 2>&1; then
-    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
-    if (($(echo "$nvim_version < 0.9 " | bc -l))); then
-      printf "\nCurrently installed Neovim is less than version 0.9"
-      if [ "$nvim_head" ]; then
-        printf "\nInstalling nightly build of Neovim"
-        install_neovim_head
+    if [ "$nvim_head" ]; then
+      printf "\nInstalling nightly build of Neovim"
+      install_neovim_head
+    else
+      # Check if installed nvim is v0.9.0 or greater
+      ver_head=$(nvim --version | head -1 | awk '{ print $2 }')
+      nvim_ver=$(echo ${ver_head} | awk -F '-' '{ print $1 }' | sed -e "s/^v//")
+      if [ "${nvim_ver}" ]; then
+        compare_versions "${nvim_ver}" "0.9.0" >/dev/null 2>&1
+        [ $? -eq 2 ] && {
+          printf "\nCurrently installed Neovim is less than version 0.9"
+          printf "\nInstalling/upgrading Neovim"
+          install_neovim
+        }
       else
+        # Don't know, install anyway
         printf "\nInstalling/upgrading Neovim"
         install_neovim
       fi
