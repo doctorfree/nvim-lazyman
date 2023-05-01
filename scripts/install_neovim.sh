@@ -622,29 +622,29 @@ install_neovim_head() {
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install --HEAD neovim
     else
-      [ -d /tmp/neovim$$ ] && sudo rm -rf /tmp/neovim$$
+      [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
       git clone https://github.com/neovim/neovim.git /tmp/neovim$$
       cd /tmp/neovim$$ || return
-      sudo rm -f /usr/local/bin/nvim
-      sudo rm -rf /usr/local/share/nvim/
-      make CMAKE_BUILD_TYPE=RelWithDebInfo
-      sudo make install
+      rm -f ${HOME}/.local/bin/nvim
+      rm -rf ${HOME}/.local/share/nvim
+      make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local"
+      make install
       cd
-      sudo rm -rf /tmp/neovim$$
+      rm -rf /tmp/neovim$$
     fi
   else
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
     else
-      [ -d /tmp/neovim$$ ] && sudo rm -rf /tmp/neovim$$
+      [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
       git clone https://github.com/neovim/neovim.git /tmp/neovim$$ >/dev/null 2>&1
       cd /tmp/neovim$$ || return
-      sudo rm -f /usr/local/bin/nvim
-      sudo rm -rf /usr/local/share/nvim/
-      make CMAKE_BUILD_TYPE=RelWithDebInfo >/dev/null 2>&1
-      sudo make install >/dev/null 2>&1
+      rm -f ${HOME}/.local/bin/nvim
+      rm -rf ${HOME}/.local/share/nvim
+      make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local" >/dev/null 2>&1
+      make install >/dev/null 2>&1
       cd
-      sudo rm -rf /tmp/neovim$$
+      rm -rf /tmp/neovim$$
     fi
   fi
   if [ "$debug" ]; then
