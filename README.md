@@ -164,6 +164,7 @@ dependencies and tools. Supported native package managers include:
 - `apt` or `apt-get` on Debian based platforms (e.g. Ubuntu)
 - `dnf` or `yum` on RPM based platforms (Fedora, CentOS, Red Hat)
 - `pacman` on Arch Linux and Arch-Like platforms
+- `apk` on Alpine Linux
 - `xbps-install` on Void Linux
 - `zypper` on SUSE Linux
 
@@ -4745,7 +4746,7 @@ executes the following on your system:
 # Install Neovim and all dependencies for the Neovim config at:
 #     https://github.com/doctorfree/nvim-lazyman
 #
-# shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059
+# shellcheck disable=SC2001,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2164
 
 DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
@@ -4795,11 +4796,13 @@ get_platform() {
       . /etc/os-release
       [ "${ID}" == "debian" ] || [ "${ID_LIKE}" == "debian" ] && debian=1
       [ "${ID}" == "arch" ] || [ "${ID_LIKE}" == "arch" ] && arch=1
+      [ "${ID}" == "alpine" ] && alpine=1
       [ "${ID}" == "fedora" ] && redhat=1
       [ "${ID}" == "centos" ] && redhat=1
       [ "${ID}" == "opensuse" ] && suse=1
       [ "${ID}" == "void" ] && void=1
-      [ "${arch}" ] || [ "${debian}" ] || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] || {
+      [ "${alpine}" ] || [ "${arch}" ] || [ "${debian}" ] \
+        || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] || {
         echo "${ID_LIKE}" | grep debian >/dev/null && debian=1
         echo "${ID_LIKE}" | grep suse >/dev/null && suse=1
         echo "${ID_LIKE}" | grep void >/dev/null && void=1
@@ -4823,7 +4826,11 @@ get_platform() {
                 if [ "${have_xbps}" ]; then
                   void=1
                 else
-                  printf "\nUnknown operating system distribution\n"
+                  if [ "${have_apk}" ]; then
+                    alpine=1
+                  else
+                    printf "\nUnknown operating system distribution\n"
+                  fi
                 fi
               fi
             fi
@@ -4869,6 +4876,26 @@ get_platform() {
       PKGMGR="DNF"
     else
       printf "\nCould not locate zypper"
+      printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+      native=
+    fi
+  }
+
+  [ "${alpine}" ] && {
+    if [ "${have_apk}" ]; then
+      PKGMGR="APK"
+    else
+      printf "\nCould not locate apk"
+      printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
+      native=
+    fi
+  }
+
+  [ "${arch}" ] && {
+    if [ "${have_pac}" ]; then
+      PKGMGR="PACMAN"
+    else
+      printf "\nCould not locate pacman"
       printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
       native=
     fi
@@ -5072,6 +5099,15 @@ platform_install() {
           else
             [ "${quiet}" ] || {
               printf "\n\t\tCannot locate zypper to install. Skipping ..."
+            }
+          fi
+        }
+        [ "${alpine}" ] && {
+          if [ "${have_apk}" ]; then
+            sudo apk add ${platpkg} >/dev/null 2>&1
+          else
+            [ "${quiet}" ] || {
+              printf "\n\t\tCannot locate apk to install. Skipping ..."
             }
           fi
         }
@@ -5363,10 +5399,11 @@ install_neovim_head() {
     else
       [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
       git clone https://github.com/neovim/neovim.git /tmp/neovim$$
-      cd /tmp/neovim$$ || return
+      cd /tmp/neovim$$
       rm -f ${HOME}/.local/bin/nvim
       rm -rf ${HOME}/.local/share/nvim
-      make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local"
+      make CMAKE_BUILD_TYPE=Release \
+        CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local"
       make install
       cd
       rm -rf /tmp/neovim$$
@@ -5377,10 +5414,11 @@ install_neovim_head() {
     else
       [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
       git clone https://github.com/neovim/neovim.git /tmp/neovim$$ >/dev/null 2>&1
-      cd /tmp/neovim$$ || return
+      cd /tmp/neovim$$
       rm -f ${HOME}/.local/bin/nvim
       rm -rf ${HOME}/.local/share/nvim
-      make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local" >/dev/null 2>&1
+      make CMAKE_BUILD_TYPE=Release \
+        CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local" >/dev/null 2>&1
       make install >/dev/null 2>&1
       cd
       rm -rf /tmp/neovim$$
@@ -5557,6 +5595,7 @@ install_tools() {
     "$PYTHON" -m pip install black >/dev/null 2>&1
     "$PYTHON" -m pip install ruff >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    [ "${native}" ] && [ "${debian}" ] && platform_install python3-venv
     [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
@@ -5595,10 +5634,7 @@ install_tools() {
   }
 
   [ "${native}" ] && {
-    [ "${debian}" ] && {
-      platform_install python3-venv
-      platform_install ruby-dev
-    }
+    [ "${debian}" ] && platform_install ruby-dev
     [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       platform_install ruby-devel
     }
@@ -5630,7 +5666,8 @@ main() {
   check_prerequisites
   get_platform
   [ "$proceed" ] || {
-    [ "${debian}" ] || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
+    [ "${alpine}" ] || [ "${arch}" ] || [ "${debian}" ] \
+      || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       if [ "${native}" ]; then
         printf "\n\n${PKGMGR} will be used to install dependencies and tools."
         printf "\nThis requires 'sudo' (root) privilege.\n"
@@ -5680,13 +5717,8 @@ main() {
     # Always use Homebrew on macOS
     use_homebrew=1
   else
-    if [ "${arch}" ]; then
-      # Always use pacman on Arch and Arch-like platforms
-      use_homebrew=
-    else
-      # All other platforms, use Homebrew only when instructed
-      [ "${native}" ] || use_homebrew=1
-    fi
+    # All other platforms, use Homebrew only when instructed
+    [ "${native}" ] || use_homebrew=1
   fi
   [ "${use_homebrew}" ] && install_homebrew
   install_neovim_dependencies
@@ -5727,11 +5759,13 @@ nvim_head=
 quiet=
 debug=
 darwin=
+alpine=
 arch=
 debian=
 redhat=
 suse=
 void=
+have_apk=$(type -p apk)
 have_apt=$(type -p apt)
 have_aptget=$(type -p apt-get)
 have_dnf=$(type -p dnf)
