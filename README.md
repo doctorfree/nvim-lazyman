@@ -444,12 +444,15 @@ installing or initializing Neovim configurations with Lazyman.
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
+- 25 supported Neovim configurations out of the box, additional custom configs
+- convenience shell functions and aliases with fuzzy search and selection
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 
 See the [Usage](#usage) section below for details on `lazyman` command usage.
 
-### General ⚙️
+### Lazyman Neovim Configuration Features
 
+#### General ⚙️
 ![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png)
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -471,10 +474,10 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements)
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
-- Over 90 plugins
-- Fast startup < 70 ms 🚀
+- Over 100 plugins
+- Fast startup 🚀
 
-### Navigation 🧭
+#### Navigation 🧭
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
@@ -482,7 +485,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
 
-### Coding 🖥️
+#### Coding 🖥️
 
 ![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png)
 
