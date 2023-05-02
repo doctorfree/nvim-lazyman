@@ -6,6 +6,18 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r2
+
+### ⚡️ Added
+
+- Bug fix release
+
+### 🐞 Fixed
+
+- Remove Lazyman config from Base, it is installed by default
+- Fix install All in menu, -A is now install all
+- Fix install Base in menu, -A changed to -B
+
 ## v2.0.1r1
 
 ### ⚡️ Added
