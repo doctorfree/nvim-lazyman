@@ -2104,7 +2104,7 @@ lunarvimdir="nvim-LunarVim"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazymandir" "$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir")
 nvimdir=()
 while getopts "aAb:BcdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
@@ -2118,7 +2118,6 @@ while getopts "aAb:BcdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       nvimstarter="all"
       astronvim=1
       ecovim=1
-      lazyman=1
       lazyvim=1
       lunarvim=1
       magicvim=1
@@ -2130,7 +2129,6 @@ while getopts "aAb:BcdD:eE:FhHiIklmnL:pPqrRsSUC:N:vw:Wx:XyzZu" flag; do
       all=1
       astronvim=1
       ecovim=1
-      lazyman=1
       lazyvim=1
       lunarvim=1
       magicvim=1
