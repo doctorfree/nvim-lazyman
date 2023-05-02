@@ -1840,7 +1840,7 @@ show_main_menu() {
           break
           ;;
         "Install Base"*,* | *,"Install Base"*)
-          lazyman -A -y -z
+          lazyman -B -y -z
           break
           ;;
         "Install Extra"*,* | *,"Install Extra"*)
@@ -1853,8 +1853,6 @@ show_main_menu() {
           ;;
         "Install All"*,* | *,"Install All"*)
           lazyman -A -y -z
-          lazyman -W -y -z
-          lazyman -X -y -z
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
@@ -1943,7 +1941,7 @@ show_main_menu() {
           break
           ;;
         "Remove Base"*,* | *,"Remove Base"*)
-          lazyman -R -A -y
+          lazyman -R -B -y
           break
           ;;
         "Remove Extra"*,* | *,"Remove Extra"*)
