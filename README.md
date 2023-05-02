@@ -110,8 +110,8 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
   - [Using aliases](#using-aliases)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
-- [Known limitations](#known-limitations)
 - [Removal](#removal)
+- [Known limitations](#known-limitations)
 - [Troubleshooting](#troubleshooting)
 - [Appendix](#appendix)
   - [get_conf.lua](#get-configuration-script)
@@ -1460,17 +1460,46 @@ environment variable to the specified `config` and executes `nvim` with
 all following arguments. This is a pretty easy way to explore all the
 `lazyman` installed and initialized Neovim configurations.
 
+## Removal
+
+The [lazyman.sh](lazyman.sh) script can be used to remove previously installed
+Neovim configurations with the `-r` command line option. For example, to remove
+a previously installed `LazyVim` configuration, its initialized plugins, state,
+and cache, execute the following command:
+
+```bash
+$HOME/.config/nvim-Lazyman/lazyman.sh -l -r
+```
+
+To remove the `nvim-Lazyman` configuration and associated plugins, state, and cache:
+
+```bash
+$HOME/.config/nvim-Lazyman/lazyman.sh -r
+```
+
+All `lazyman.sh` operations can be performed as a dry run with `-n`. For
+example, to see which `LazyVim` folders would be removed without removing any:
+
+```bash
+$HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
+```
+
 ## Known limitations
 
+### Lazyman Neovim Configuration
+
 The installation of some programming languages is left to the system
-administrator. In particular, `lazyman` does not install Java, the
+administrator. In particular, `lazyman` does not install Go, Java, the
 Java Development Kit (JDK), Composer, PHP, or Julia. These may show
-up as warnings when performing a `:checkhealth`. These can be installed
+up as warnings when performing a `:checkhealth` and can be installed
 manually if needed.
 
 SSH users may need to install
 [lemonade](https://github.com/lemonade-command/lemonade)
 to support the clipboard over SSH.
+
+If `go` is not installed or incorrectly configured then the Mason installs
+of `goimports`, `gopls`, and `gofumpt` will fail.
 
 ### Homebrew
 
@@ -1516,29 +1545,13 @@ The binary distribution of the `tree-sitter-cli` npm package depends on GLIBC
 2.32 but this is unavailable in this release of Ubuntu Linux. The `tree-sitter`
 command is not functional, disabling the `:TSInstallFromGrammar` command.
 
-## Removal
+### Alpine, SUSE, and Void Linux
 
-The [lazyman.sh](lazyman.sh) script can be used to remove previously installed
-Neovim configurations with the `-r` command line option. For example, to remove
-a previously installed `LazyVim` configuration, its initialized plugins, state,
-and cache, execute the following command:
-
-```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -l -r
-```
-
-To remove the `nvim-Lazyman` configuration and associated plugins, state, and cache:
-
-```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -r
-```
-
-All `lazyman.sh` operations can be performed as a dry run with `-n`. For
-example, to see which `LazyVim` folders would be removed without removing any:
-
-```bash
-$HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
-```
+Due to limited resources, very little testing has been performed on Alpine
+Linux, SUSE Linux, or Void Linux. Support for these platforms
+was recently introduced and issues are expected. If you encounter a problem
+on these platforms please
+[open an issue](https://github.com/doctorfree/nvim-lazyman/issues).
 
 ## Troubleshooting
 
