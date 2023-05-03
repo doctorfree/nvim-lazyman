@@ -1,0 +1,39 @@
+## cheatsheet @quick @reference
+Open (in telescope if installed)    | :Cheatsheet
+Open (in telescope if installed)    | <leader>?
+Force open in floating window       | :Cheatsheet!
+Open user cheatsheet                | :CheatsheetEdit
+Open user cheatsheet from Telescope | <C-E>
+Toggle default cheatsheet Telescope | <C-D>
+
+## lazyman @quick @reference
+Asciiville Command                       | <leader>av
+Generate .gitignore                      | <leader>gi
+Htop Command                             | <leader>H
+Lazygit Command                          | <leader>G
+Lazygit Root Dir                         | <leader>gg
+Lazygit Current Dir                      | <leader>gG
+Lazy Menu                                | <leader>L
+Lazy Update                              | <leader>U
+Lazyman Configuration                    | <leader>lc
+Lazyman Help                             | <leader>hl
+Lazyman Keymaps                          | <leader>hk
+Lazyman Menu                             | <leader>lm
+Mason Menu                               | <leader>M
+Options                                  | <leader>o
+Toggle Conceal Level                     | <leader>uc
+Toggle Line Numbers                      | <leader>ul
+Toggle Spelling                          | <leader>us
+Toggle Word Wrap                         | <leader>uw
+
+## window @quick @reference
+Other Window                             | <leader>ww
+Delete Window                            | <leader>wd
+Split Window Below                       | <leader>w-
+Split Window Right                       | <leader>w|
+Last Tab                                 | <leader><tab>l
+First Tab                                | <leader><tab>f
+New Tab                                  | <leader><tab><tab>
+Next Tab                                 | <leader><tab>]
+Close Tab                                | <leader><tab>d
+Previous Tab                             | <leader><tab>[]
