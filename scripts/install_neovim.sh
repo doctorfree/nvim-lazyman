@@ -761,30 +761,6 @@ install_tools() {
     "$BREW_EXE" link --overwrite --quiet ccls >/dev/null 2>&1
   }
 
-  [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
-  have_npm=$(type -p npm)
-  [ "$have_npm" ] && {
-    log "Installing tree-sitter command line npm package ..."
-    npm i -g tree-sitter-cli >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
-
-    log "Installing Neovim npm package ..."
-    npm i -g neovim >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
-
-    log "Installing fd-find package ..."
-    npm i -g fd-find >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
-
-    log "Installing cspell npm package ..."
-    npm i -g cspell >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
-
-    log "Installing the icon font for Visual Studio Code ..."
-    npm i -g @vscode/codicons >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
-  }
-
   if command -v "cargo" >/dev/null 2>&1; then
     log "Using previously installed cargo"
   else
@@ -813,12 +789,42 @@ install_tools() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   fi
+  if ! command -v "cargo" >/dev/null 2>&1; then
+    [ -x "${HOME}"/.cargo/bin/cargo ] && {
+      export PATH="$HOME/.cargo/bin:$PATH"
+    }
+  fi
 
+  [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
+
+  # First try to install tree-sitter-cli with cargo then npm
   if ! command -v tree-sitter >/dev/null 2>&1; then
     if command -v "cargo" >/dev/null 2>&1; then
       cargo install tree-sitter-cli >/dev/null 2>&1
     fi
   fi
+  have_npm=$(type -p npm)
+  [ "$have_npm" ] && {
+    log "Installing tree-sitter command line npm package ..."
+    npm i -g tree-sitter-cli >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
+    log "Installing Neovim npm package ..."
+    npm i -g neovim >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
+    log "Installing fd-find package ..."
+    npm i -g fd-find >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
+    log "Installing cspell npm package ..."
+    npm i -g cspell >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
+    log "Installing the icon font for Visual Studio Code ..."
+    npm i -g @vscode/codicons >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+  }
   if command -v tree-sitter >/dev/null 2>&1; then
     tree-sitter init-config >/dev/null 2>&1
   fi

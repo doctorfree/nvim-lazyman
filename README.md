@@ -209,7 +209,7 @@ install Neovim 0.9, language servers and tools, then issue the command
 
 See the [Appendix section](#appendix) below to examine the
 [lazyman command](lazyman.sh) and associated
-[Neovim install script](scripts/neovim.sh).
+[Neovim install script](scripts/install_neovim.sh).
 
 ### Bootstrap
 
