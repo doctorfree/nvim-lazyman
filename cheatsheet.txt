@@ -24,9 +24,8 @@ Options                                  | <leader>o
 Toggle Conceal Level                     | <leader>uc
 Toggle Line Numbers                      | <leader>ul
 Toggle Spelling                          | <leader>us
+Toggle Transparency                      | <leader>ut
 Toggle Word Wrap                         | <leader>uw
-
-## window @quick @reference
 Other Window                             | <leader>ww
 Delete Window                            | <leader>wd
 Split Window Below                       | <leader>w-
