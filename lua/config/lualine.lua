@@ -108,6 +108,7 @@ lualine.setup({
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
       "alpha",
+      "dashboard",
       "neo-tree",
       "NvimTree",
       "Outline",
@@ -121,7 +122,6 @@ lualine.setup({
       "dapui_watches",
       "dap-terminal",
       "dapui_console",
-      "dashboard",
       "help",
       "lazy",
       "lir",
@@ -144,7 +144,8 @@ lualine.setup({
       },
     },
     lualine_c = {
-      { -- show session name
+      {
+        -- show session name
         session_name,
         icon = { "", align = "left" },
         padding = { left = 0, right = 1 },

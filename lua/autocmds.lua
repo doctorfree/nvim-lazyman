@@ -144,8 +144,8 @@ if settings.enable_alpha then
     group = alpha_group,
     callback = function()
       require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
-        unhide = false, -- whether to re-enable lualine again/
+        place = { "statusline", "tabline", "winbar" },
+        unhide = false,
       })
     end,
   })
@@ -156,8 +156,8 @@ if settings.enable_alpha then
     group = alpha_group,
     callback = function()
       require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" }, -- the segment this change applies to.
-        unhide = true, -- whether to re-enable lualine again/
+        place = { "statusline", "tabline", "winbar" },
+        unhide = true,
       })
     end,
   })
