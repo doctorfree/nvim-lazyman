@@ -934,49 +934,57 @@ main() {
   [ "$proceed" ] || {
     [ "${alpine}" ] || [ "${arch}" ] || [ "${debian}" ] \
       || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
+      prompt=
       if [ "${native}" ]; then
         printf "\n\n${PKGMGR} will be used to install dependencies and tools."
         printf "\nThis requires 'sudo' (root) privilege.\n"
         have_brew=$(type -p brew)
         [ "${have_brew}" ] && {
+          prompt=1
           printf "\nAn existing Homebrew installation has been detected.\n"
+          printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use ${PKGMGR}"
         }
-        printf "\nEnter 'h' to use Homebrew, 'n' or <Enter> to use ${PKGMGR}"
       else
+        prompt=1
         printf "\n\nHomebrew will be used to install dependencies and tools.\n"
         printf "\nEnter 'h' or <Enter> to use Homebrew, 'n' to use ${PKGMGR}"
       fi
-      printf "\nEnter 'q' to exit the Neovim installer\n"
-      while true; do
-        read -r -p "Do you wish to use ${PKGMGR} or Homebrew ? (h/n/q) " yn
-        case $yn in
-          [Nn]*)
-            printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
-            native=1
-            break
-            ;;
-          [Hh]*)
-            printf "\nUsing Homebrew to install dependencies and tools\n"
-            native=
-            break
-            ;;
-          [Qq]*)
-            printf "\nExiting Neovim installer without installing dependencies or tools\n"
-            exit 1
-            ;;
-          '')
-            if [ "${native}" ]; then
+      if [ "${prompt}" ]; then
+        printf "\nEnter 'q' to exit the Neovim installer\n"
+        while true; do
+          read -r -p "Do you wish to use ${PKGMGR} or Homebrew ? (h/n/q) " yn
+          case $yn in
+            [Nn]*)
               printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
-            else
+              native=1
+              break
+              ;;
+            [Hh]*)
               printf "\nUsing Homebrew to install dependencies and tools\n"
-            fi
-            break
-            ;;
-          *)
-            printf "\nPlease answer 'h' or 'n'.\n"
-            ;;
-        esac
-      done
+              native=
+              break
+              ;;
+            [Qq]*)
+              printf "\nExiting Neovim installer without installing dependencies or tools\n"
+              exit 1
+              ;;
+            '')
+              if [ "${native}" ]; then
+                printf "\nUsing ${PKGMGR} to install dependencies and tools\n"
+              else
+                printf "\nUsing Homebrew to install dependencies and tools\n"
+              fi
+              break
+              ;;
+            *)
+              printf "\nPlease answer 'h' or 'n'.\n"
+              ;;
+          esac
+        done
+      else
+        printf "\nPress <Enter> to continue\n"
+        read -r yn
+      fi
     }
   }
   if [ "${darwin}" ]; then
