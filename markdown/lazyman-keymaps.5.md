@@ -14,6 +14,123 @@ lazyman-keymaps - key mappings in the Lazyman Neovim configurations
 
 ## DESCRIPTION
 
+The Lazyman Neovim configuration includes a custom cheatsheet for
+easy reference using the `:Cheatsheet` command. The Lazyman
+cheatsheet includes the following key mappings.
+
+## Custom Cheatsheet Lazyman Mappings
+
+- Asciiville Command : `<leader>av`
+- Htop Command : `<leader>H`
+- Lazygit Command : `<leader>G`
+- Lazygit Root Dir : `<leader>gg`
+- Lazygit Current Dir : `<leader>gG`
+- Generate .gitignore : `<leader>gi`
+- Lazy Menu : `<leader>L`
+- Lazy Update : `<leader>U`
+- Lazyman Configuration : `<leader>lc`
+- Lazyman Help : `<leader>hl`
+- Lazyman Keymaps : `<leader>hk`
+- Lazyman Menu : `<leader>lm`
+- Mason Menu : `<leader>M`
+- Options : `<leader>o`
+- Toggle Conceal Level : `<leader>uc`
+- Toggle Line Numbers : `<leader>ul`
+- Toggle Spelling : `<leader>us`
+- Toggle Transparency : `<leader>ut`
+- Toggle File Tree : `<leader>T`
+- Toggle Word Wrap : `<leader>uw`
+- Other Window : `<leader>ww`
+- Delete Window : `<leader>wd`
+- Split Window Below : `<leader>w-`
+- Split Window Right : <code><leader>w&#124;</code>
+- Last Tab : `<leader><tab>l`
+- First Tab : `<leader><tab>f`
+- New Tab : `<leader><tab><tab>`
+- Next Tab : `<leader><tab>]`
+- Close Tab : `<leader><tab>d`
+- Previous Tab : `<leader><tab>[]`
+
+## Custom Cheatsheet Plugin Mappings
+
+- Open Diagnostics Float : `<leader>de`
+- Diagnostics Location List : `<leader>dq`
+- Toggle Diagnostics : `<leader>dt`
+- Line Diagnostics : `<leader>cd`
+- LSP Info : `<leader>cl`
+- Code Action : `<leader>ca`
+- Format Document : `<leader>cf`
+- Rename : `<leader>cr`
+- Signature Help : `<leader>ls`
+- Toggle Breakpoint : `<leader>B`
+- Alpha Dashboard : `<leader>ad`
+- Noice Last Message : `<leader>snl`
+- Noice History : `<leader>snh`
+- Noice All : `<leader>sna`
+- Delete All Notifications : `<leader>un`
+- Toggle Treesitter Join : `<leader>tt`
+- Treesitter Join : `<leader>tj`
+- Treesitter Split : `<leader>ts`
+- Explorer (root dir)\_ : `<leader>e`
+- Explorer Float \_ : `<leader>E`
+- Find in Files (Grep) : `<leader>/`
+- Command History : `<leader>:`
+- Find Files (root dir) : `<leader><space>`
+- Find Files (cwd) : `<leader>fF`
+- Git Commits : `<leader>gc`
+- Git Commits : `<leader>gm`
+- Git Status : `<leader>gs`
+- Telescope Auto Commands : `<leader>sa`
+- Telescope Command History : `<leader>sc`
+- Telescope Commands : `<leader>sC`
+- Telescope Diagnostics : `<leader>sd`
+- Live Grep (root dir) : `<leader>sg`
+- Live Grep (cwd) : `<leader>sG`
+- Search Hightlight Groups : `<leader>sH`
+- Telescope Man Pages : `<leader>sM`
+- Jump to Mark : `<leader>sm`
+- Options : `<leader>so`
+- Resume : `<leader>sR`
+- Grep Word (root dir) : `<leader>sw`
+- Grep Word (cwd) : `<leader>sW`
+- Colorscheme with Preview : `<leader>uC`
+- Goto Symbol : `<leader>ss`
+- Goto Symbol (workspace) : `<leader>sS`
+- Document Diagnostics (Trouble) : `<leader>xx`
+- Workspace Diagnostics (Trouble) : `<leader>xX`
+- Location List (Trouble) : `<leader>xL`
+- Quickfix List (Trouble) : `<leader>xQ`
+- Todo (Trouble) : `<leader>xt`
+- Todo/Fix/Fixme (Trouble) : `<leader>xT`
+- Todo : `<leader>st`
+- Restore Session (persistence) : `<leader>ps`
+- Restore Last Session (persistence) : `<leader>pl`
+- Don't Save Current Session : `<leader>pd`
+- Close Buffer : `<leader>D`
+- Commands : `<leader>sc`
+- Strings : `<leader>st`
+- Help : `<leader>s?`
+- Headings : `<leader>sh`
+- Keymaps : `<leader>sk`
+- Vim Options : `<leader>sO`
+- Projects : `<leader>sp`
+- Registers : `<leader>sR`
+- Text Under Cursor : `<leader>ss`
+- Emoji : `<leader>sS`
+- Search History : `<leader>s:`
+- Command History : `<leader>s;`
+- Fuzzy Search : `<leader>sf`
+- Branches : `<leader>gh`
+- File Browser : `<leader>fb`
+- Zoxide : `<leader>fz`
+- Open File : `<leader>ff`
+- Recent Files : `<leader>fr`
+- Run 'make' : `<leader>mm`
+- Telescope : `<leader>mt`
+- Buffer List : `<leader>bb`
+
+## List of Key Mappings
+
 This list of keymaps was generated using the following commands
 with a file open in the `nvim-Lazyman` Neovim configuration:
 
