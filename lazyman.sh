@@ -20,8 +20,8 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple"
-STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular"
+EXTRACFGS="Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
 # Supported themes
@@ -78,11 +78,12 @@ usage() {
   printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
   printf "\n       'conf' can be one of:"
   printf "\n           'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
-  printf "\n           'NvPak' 'Optixal' 'Plug' 'Simple' 'Heiker'"
+  printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n       'Minimal', 'StartBase', 'Opinion', 'StartLsp', 'StartMason', or 'Modular'"
+  printf "\n           'Kickstart' 'NvPak' 'Minimal' 'StartBase'"
+  printf "\n           'Opinion' 'StartLsp' 'StartMason', or 'Modular'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -z indicates do not run nvim after initialization"
@@ -709,6 +710,9 @@ install_config() {
     MagicVim)
       lazyman -m -z -y
       ;;
+    Adib)
+      lazyman -w Adib -z -y
+      ;;
     Nv)
       lazyman -w Nv -z -y
       ;;
@@ -722,7 +726,7 @@ install_config() {
       lazyman -w Fennel -z -y
       ;;
     NvPak)
-      lazyman -w NvPak -z -y
+      lazyman -x NvPak -z -y
       ;;
     Optixal)
       lazyman -w Optixal -z -y
@@ -2285,7 +2289,7 @@ set_haves
 [ "$nvimextra" ] && {
   if [ "$remove" ]; then
     if [ "${nvimextra}" == "all" ]; then
-      for neovim in Abstract Nv Knvim Roiz Fennel NvPak Optixal Plug Heiker Simple; do
+      for neovim in Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2326,12 +2330,12 @@ set_haves
       printf " done"
       show_alias "nvim-Fennel"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
-      printf "\n${action} NvPak Neovim configuration ..."
-      lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
-        -N nvim-NvPak -q -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-Adib ] && action="Updating"
+      printf "\n${action} Adib Neovim configuration ..."
+      lazyman -b main -C https://github.com/adibhanna/nvim \
+        -N nvim-Adib -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-NvPak"
+      show_alias "nvim-Adib"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
@@ -2377,6 +2381,10 @@ set_haves
         Abstract)
           extra_url="https://github.com/Abstract-IDE/Abstract"
           extra_opt="-b main -P"
+          ;;
+        Adib)
+          extra_url="https://github.com/adibhanna/nvim"
+          extra_opt="-b main"
           ;;
         Knvim)
           extra_url="https://github.com/knmac/knvim"
@@ -2463,7 +2471,15 @@ set_haves
       lazyman -k -q -z ${yesflag}
       printf " done"
       show_alias "nvim-Kickstart"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
+      printf "\n${action} NvPak Neovim configuration ..."
+      lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
+        -N nvim-NvPak -q -z ${yesflag}
+      printf " done"
+      show_alias "nvim-NvPak"
     else
+      # TODO: What about Kickstart and NvPak ?
       runflag=
       [ "${runvim}" ] || runflag="-z"
       startbranch=
