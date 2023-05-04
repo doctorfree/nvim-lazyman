@@ -4,7 +4,18 @@
 
 ### ⚡️ Added
 
+- Add cheatsheet keymaps to keymaps doc
+- Add plugins section to cheatsheet
+- Add cheatsheet plugin and custom cheatsheet.txt
+- Add treesj Treesitter split/join plugin and custom keymaps
+- Replace mini.surround with nvim-surround
+
 ### 🐞 Fixed
+
+- Install tree-sitter cli with cargo if available then npm if not
+- Widen telescope popup window
+- Do not prompt for install type if native packaging and Homebrew not detected
+- Update Lazyman keymaps doc
 
 ## v2.0.1r2
 
