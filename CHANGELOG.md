@@ -5,10 +5,11 @@
 ### ⚡️ Added
 
 - Add cheatsheet keymaps to keymaps doc
-- Add plugins section to cheatsheet
+- Add lazyman, plugins, gitsigns, and markdown sections to custom cheatsheet
 - Add cheatsheet plugin and custom cheatsheet.txt
 - Add treesj Treesitter split/join plugin and custom keymaps
 - Replace mini.surround with nvim-surround
+- Add Adib Neovim configuration to extras
 
 ### 🐞 Fixed
 
@@ -18,6 +19,7 @@
 - Widen telescope popup window
 - Do not prompt for install type if native packaging and Homebrew not detected
 - Update Lazyman keymaps doc
+- Move NvPak Neovim configuration to starters
 
 ## v2.0.1r2
 
