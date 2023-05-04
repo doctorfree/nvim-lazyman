@@ -9,7 +9,6 @@ if not path_ok then
 end
 
 local settings = require("configuration")
-local keymaps_lua = vim.fn.stdpath("config") .. "/lua/keymaps.lua"
 local options_lua = vim.fn.stdpath("config") .. "/lua/options.lua"
 local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
@@ -171,7 +170,7 @@ vim.cmd([[
 local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
 new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
-  dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
+    dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
 -- local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
 -- file_browser_btn.opts.hl = "AlphaShortcut"
@@ -187,7 +186,7 @@ session_btn.opts.hl = "AlphaShortcut"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
 search_zoxide_btn.opts.hl = "AlphaShortcut"
 local recent_files_btn =
-  dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
+    dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
 recent_files_btn.opts.hl = "AlphaShortcut"
 local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
 git_commit_btn.opts.hl = "AlphaShortcut"
@@ -202,19 +201,17 @@ health_btn.opts.hl = "AlphaShortcut"
 local settings_btn = dashboard.button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>")
 local lazyman_btn = dashboard.button("l", "  Lazyman Help", ":h nvim-Lazyman<CR>")
 if settings.enable_terminal then
-  settings_btn = dashboard.button("c", " Lazyman Configuration Menu", ":Lazyconf<CR>")
+  settings_btn = dashboard.button("c", "  Lazyman Configuration", ":Lazyconf<CR>")
   lazyman_btn = dashboard.button("l", "  Lazyman Main Menu", ":Lazyman<CR>")
 end
 settings_btn.opts.hl = "AlphaShortcut"
 lazyman_btn.opts.hl = "AlphaShortcut"
 local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
 options_btn.opts.hl = "AlphaShortcut"
-local mappings_btn = dashboard.button("k", "  Neovim Keymaps", ":e " .. keymaps_lua .. "<CR>")
+local mappings_btn = dashboard.button("C", "  Lazyman Cheatsheet", ":Cheatsheet<CR>")
 mappings_btn.opts.hl = "AlphaShortcut"
 
 -- Plugin Management
-local clean_btn = dashboard.button("C", "  Clean Plugins", ":Lazy clean<CR>")
-clean_btn.opts.hl = "AlphaHeader"
 local update_btn = dashboard.button("U", "  Update Plugins", ":Lazy update<CR>")
 update_btn.opts.hl = "AlphaHeader"
 local install_btn = dashboard.button("L", "  Lazy Menu", ":Lazy<CR>")
@@ -225,20 +222,19 @@ status_btn.opts.hl = "AlphaHeader"
 local buttons = {
   type = "group",
   val = {
-    { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text",    val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
     health_btn,
     lazyman_btn,
     mappings_btn,
     options_btn,
     settings_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Plugin Management", opts = { hl = "AlphaFooter", position = "center" } },
-    clean_btn,
+    { type = "text",    val = "Plugin Management",    opts = { hl = "AlphaFooter", position = "center" } },
     update_btn,
     install_btn,
     status_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text",    val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
     new_file_btn,
     find_file_btn,
     -- file_browser_btn,
