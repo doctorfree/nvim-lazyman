@@ -51,11 +51,11 @@ The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
-Currently 25 popular Neovim configurations are supported in the following
-Lazyman Neovim configuration categories:
+Currently over 25 popular Neovim configurations are supported in the
+following Lazyman Neovim configuration categories:
 
-| **Base**                                         |                                                      |                                                       | **Configs**                                   |
-| ------------------------------------------------ | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------- |
+| **Base** |       |       | **Configs** |
+| -------- | ----- | ----- | ----------- |
 | [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
 
