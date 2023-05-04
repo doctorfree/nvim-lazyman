@@ -12,6 +12,8 @@
 
 ### 🐞 Fixed
 
+- Enable and disable bundled cheatsheets selectively
+- Replace bundled gitsigns and markdown cheatsheets with custom ones
 - Install tree-sitter cli with cargo if available then npm if not
 - Widen telescope popup window
 - Do not prompt for install type if native packaging and Homebrew not detected

@@ -10,8 +10,21 @@ return {
     config = function()
       local ctactions = require("cheatsheet.telescope.actions")
       require("cheatsheet").setup({
-        bundled_cheatsheets = true,
-        bundled_plugin_cheatsheets = true,
+        bundled_cheetsheets = {
+          enabled = { "default", "lua", "regex", "netrw", "unicode" },
+          disabled = { "markdown", "nerd-fonts" },
+        },
+        bundled_plugin_cheatsheets = {
+          enabled = {
+            "auto-session",
+            "goto-preview",
+            "octo.nvim",
+            "telescope.nvim",
+            "vim-easy-align",
+            "vim-sandwich",
+          },
+          disabled = { "gitsigns" },
+        },
         include_only_installed_plugins = true,
         telescope_mappings = {
           ["<CR>"] = ctactions.select_or_fill_commandline,
