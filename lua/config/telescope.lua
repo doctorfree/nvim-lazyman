@@ -157,7 +157,7 @@ telescope.setup({
     sorting_strategy = "descending",
     layout_strategy = "vertical",
     layout_config = {
-      width = 0.95,
+      width = 0.99,
       height = 0.85,
       -- preview_cutoff = 120,
       prompt_position = "top",
@@ -170,8 +170,8 @@ telescope.setup({
           end
         end,
       },
-      vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
-      flex = { horizontal = { preview_width = 0.9 } },
+      vertical = { width = 0.99, height = 0.95, preview_height = 0.5 },
+      flex = { horizontal = { preview_width = 0.99 } },
     },
     winblend = 0,
     border = {},
