@@ -350,7 +350,7 @@ installed with the `-x conf` option.
   - Install and initialize with `lazyman -k`
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
   - PaK in Farsi means pure, something that is in its purest form
-  - Install and initialize with `lazyman -w NvPak`
+  - Install and initialize with `lazyman -x NvPak`
 - [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
   - Small configuration without third party plugins
   - Install and initialize with `lazyman -x Minimal`

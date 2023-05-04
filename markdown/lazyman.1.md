@@ -201,11 +201,11 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Extra 'conf' configuration. 'conf' can be one of: 'Abstract', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'NvPak', 'Optixal', 'Plug', 'Simple', or 'Heiker'
+`-w conf` : indicates install and initialize Extra 'conf' configuration. 'conf' can be one of: 'Abstract', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Extra' Neovim configurations
 
-`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of: 'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'
+`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of: 'Kickstart', 'NvPak', 'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
