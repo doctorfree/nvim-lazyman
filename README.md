@@ -479,8 +479,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements)
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
-- Over 100 plugins
-- Fast startup 🚀
+- Over 100 plugins with custom configuration
 
 #### Navigation 🧭
 

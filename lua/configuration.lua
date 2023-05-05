@@ -74,7 +74,11 @@ conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the Alpha dashboard
-conf.enable_alpha = true
+conf.enable_alpha = false
+-- Enable the Startup dashboard
+conf.enable_startup = true
+-- Startup dashboard theme ("dashboard", "lazyman", or "startify")
+conf.startup_theme = "lazyman"
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)

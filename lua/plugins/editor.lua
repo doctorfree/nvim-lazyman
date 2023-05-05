@@ -171,6 +171,7 @@ return {
         "dirvish",
         "alpha",
         "dashboard",
+        "startup",
         "NvimTree",
         "neo-tree",
         "neogitstatus",

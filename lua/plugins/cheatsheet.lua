@@ -1,6 +1,7 @@
 return {
   {
     "sudormrfbin/cheatsheet.nvim",
+    -- event = "VeryLazy",
     lazy = false,
     dependencies = {
       { "nvim-telescope/telescope.nvim" },

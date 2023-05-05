@@ -21,6 +21,22 @@ if settings.enable_alpha then
       end,
     },
   }
+elseif settings.enable_startup then
+  dashboard_type = {
+    {
+      "startup-nvim/startup.nvim",
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim",
+      },
+      event = "VimEnter",
+      keys = { { "<leader>S", "<cmd>Startup<cr>", "Startup Dashboard" } },
+      config = function()
+        local startup_config = "config.startup." .. settings.startup_theme
+        require("startup").setup(require(startup_config))
+      end,
+    },
+  }
 end
 
 local lualine_cfg = {
@@ -188,6 +204,9 @@ return {
     end,
   },
 
+  -- dashboard
+  dashboard_type,
+
   -- statusline
   lualine_cfg,
 
@@ -235,9 +254,6 @@ return {
 
   -- noicer ui
   noice_cfg,
-
-  -- dashboard
-  dashboard_type,
 
   -- lsp symbol navigation for lualine
   {

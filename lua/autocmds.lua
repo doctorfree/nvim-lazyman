@@ -190,4 +190,27 @@ if settings.enable_alpha then
       end
     end,
   })
+elseif settings.enable_startup then
+  local st_group = vim.api.nvim_create_augroup("Startup_au", { clear = true })
+  vim.api.nvim_create_autocmd("Filetype", {
+    pattern = "startup",
+    group = st_group,
+    callback = function()
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" },
+        unhide = false,
+      })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("BufUnload", {
+    desc = "enable status and tabline after dashboard",
+    group = st_group,
+    callback = function()
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" },
+        unhide = true,
+      })
+    end,
+  })
 end

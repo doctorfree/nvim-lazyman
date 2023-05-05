@@ -189,7 +189,6 @@ vim.api.nvim_create_autocmd("Filetype", {
 })
 
 vim.api.nvim_create_autocmd("BufUnload", {
-  -- buffer = 0,
   desc = "enable status and tabline after dashboard",
   group = db_group,
   callback = function()
