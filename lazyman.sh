@@ -1852,7 +1852,8 @@ show_main_menu() {
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${extra_partial}" ] && options+=("Remove Extras")
     [ "${start_partial}" ] && options+=("Remove Starters")
-    [ "${base_partial}" ] || [ "${extra_partial}" ] || [ "${start_partial}" ] && {
+    numndirs=${#ndirs[@]}
+    [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
     }
     for neovim in "${sorted[@]}"; do
