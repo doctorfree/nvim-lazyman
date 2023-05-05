@@ -476,7 +476,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
   - Preconfigured Neovim terminal execution of `htop` command (`<leader>H`)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
-- Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
+- Choice of preconfigured dashboard: [alpha](https://github.com/goolord/alpha-nvim) (default), [dashboard](https://github.com/nvimdev/dashboard-nvim), or [startup](https://github.com/startup-nvim/startup.nvim)
 - Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements)
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
 - Over 100 plugins with custom configuration
@@ -863,8 +863,13 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
+-- If neither Alpha or Startup is enabled then dashboard-nvim is used
 -- Enable the Alpha dashboard
 conf.enable_alpha = true
+-- Enable the Startup dashboard
+conf.enable_startup = false
+-- Startup dashboard theme ("dashboard", "lazyman", or "startify")
+conf.startup_theme = "lazyman"
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
@@ -881,6 +886,8 @@ conf.enable_smooth_scrolling = true
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
+-- number of recent files, dashboard header and quick links settings
+-- only apply to the Alpha dashboard
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 3
@@ -907,8 +914,9 @@ conf.lsp_servers = {
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
   "actionlint", "goimports", "gofumpt", "golangci-lint",
-  "google-java-format", "latexindent", "markdownlint", "prettier",
-  "sql-formatter", "shellcheck", "shfmt", "stylua", "tflint", "yamllint",
+  "google-java-format", "latexindent", "markdownlint",
+  "prettier", "sql-formatter", "shellcheck", "shfmt",
+  "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
