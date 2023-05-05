@@ -1227,9 +1227,14 @@ show_conf_menu() {
     fi
     enable_alpha=$(get_conf_value enable_alpha)
     if [ "${enable_alpha}" == "true" ]; then
-      use_alpha=""
+      use_dash="Alpha"
     else
-      use_alpha="✗"
+      enable_startup=$(get_conf_value enable_startup)
+      if [ "${enable_startup}" == "true" ]; then
+        use_dash=$(get_conf_value startup_theme)
+      else
+        use_dash="Dashboard"
+      fi
     fi
     enable_bookmarks=$(get_conf_value enable_bookmarks)
     if [ "${enable_bookmarks}" == "true" ]; then
@@ -1323,16 +1328,18 @@ show_conf_menu() {
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable Alpha  [${use_alpha}]")
+    options+=("Dashboard     [${use_dash}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Project       [${use_project}]")
     options+=("Picker        [${use_picker}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("Alpha Header  [${use_dashboard_header}]")
-    options+=("Recent Files  [${use_dashboard_recent_files}]")
-    options+=("Quick Links   [${use_dashboard_quick_links}]")
+    if [ "${enable_alpha}" == "true" ]; then
+      options+=("Alpha Header  [${use_dashboard_header}]")
+      options+=("Recent Files  [${use_dashboard_recent_files}]")
+      options+=("Quick Links   [${use_dashboard_quick_links}]")
+    fi
     options+=("Color Indent  [${use_color_indentline}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
@@ -1505,11 +1512,23 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Enable Alpha"*,* | *,"Enable Alpha"*)
-          if [ "${enable_alpha}" == "true" ]; then
-            set_conf_value "enable_alpha" "false"
-          else
+        "Dashboard"*,* | *,"Dashboard"*)
+          choices=("Alpha" "Dashboard" "Startup")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Dashboard  " --layout=reverse --border --exit-0)
+          if [ "${choice}" == "Startup" ]; then
+            tchoices=("lazyman" "dashboard" "startify")
+            tchoice=$(printf "%s\n" "${tchoices[@]}" | fzf --prompt=" Startup Dashboard Theme  " --layout=reverse --border --exit-0)
+            if [[ " ${tchoices[*]} " =~ " ${tchoice} " ]]; then
+              set_conf_value "enable_alpha" "false"
+              set_conf_value "enable_startup" "true"
+              set_conf_value "startup_theme" "${tchoice}"
+            fi
+          elif [ "${choice}" == "Alpha" ]; then
             set_conf_value "enable_alpha" "true"
+            set_conf_value "enable_startup" "false"
+          elif [ "${choice}" == "Dashboard" ]; then
+            set_conf_value "enable_alpha" "false"
+            set_conf_value "enable_startup" "false"
           fi
           break
           ;;

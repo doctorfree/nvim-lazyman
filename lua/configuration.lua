@@ -96,6 +96,8 @@ conf.enable_smooth_scrolling = true
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
+-- number of recent files, dashboard header and quick links settings
+-- only apply to the Alpha dashboard
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 3
