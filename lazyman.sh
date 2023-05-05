@@ -1226,14 +1226,15 @@ show_conf_menu() {
       use_games="✗"
     fi
     enable_alpha=$(get_conf_value enable_alpha)
+    enable_startup=$(get_conf_value enable_startup)
+    startup_theme=$(get_conf_value startup_theme)
     if [ "${enable_alpha}" == "true" ]; then
-      use_dash="Alpha"
+      use_dash="alpha"
     else
-      enable_startup=$(get_conf_value enable_startup)
       if [ "${enable_startup}" == "true" ]; then
-        use_dash=$(get_conf_value startup_theme)
+        use_dash="start"
       else
-        use_dash="Dashboard"
+        use_dash="dash"
       fi
     fi
     enable_bookmarks=$(get_conf_value enable_bookmarks)
@@ -1312,6 +1313,15 @@ show_conf_menu() {
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=("Style [${use_theme_style}]")
     fi
+    options+=("Dashboard [${use_dash}]")
+    if [ "${enable_alpha}" == "true" ]; then
+      options+=("Alpha Header  [${use_dashboard_header}]")
+      options+=("Recent Files  [${use_dashboard_recent_files}]")
+      options+=("Quick Links   [${use_dashboard_quick_links}]")
+    fi
+    if [ "${enable_startup}" == "true" ]; then
+      options+=("Startup [${startup_theme}]")
+    fi
     options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Session [${use_session_manager}]")
@@ -1328,18 +1338,12 @@ show_conf_menu() {
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Dashboard     [${use_dash}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Project       [${use_project}]")
     options+=("Picker        [${use_picker}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    if [ "${enable_alpha}" == "true" ]; then
-      options+=("Alpha Header  [${use_dashboard_header}]")
-      options+=("Recent Files  [${use_dashboard_recent_files}]")
-      options+=("Quick Links   [${use_dashboard_quick_links}]")
-    fi
     options+=("Color Indent  [${use_color_indentline}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
@@ -1513,30 +1517,53 @@ show_conf_menu() {
           break
           ;;
         "Dashboard"*,* | *,"Dashboard"*)
-          choices=("Alpha" "Dashboard" "Startup")
+          choices=("alpha" "dashboard" "startup")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Dashboard  " --layout=reverse --border --exit-0)
-          if [ "${choice}" == "Startup" ]; then
+          if [ "${choice}" == "startup" ]; then
             tchoices=("lazyman" "dashboard" "startify")
             tchoice=$(printf "%s\n" "${tchoices[@]}" | fzf --prompt=" Startup Dashboard Theme  " --layout=reverse --border --exit-0)
             if [[ " ${tchoices[*]} " =~ " ${tchoice} " ]]; then
+              [ "${startup_theme}" == "${tchoice}" ] || {
+                set_conf_value "startup_theme" "${tchoice}"
+              }
+              [ "${enable_startup}" == "true" ] || {
+                set_conf_value "enable_startup" "true"
+                NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+                  "+Lazy! sync startup" +qa >/dev/null 2>&1
+              }
               set_conf_value "enable_alpha" "false"
-              set_conf_value "enable_startup" "true"
-              set_conf_value "startup_theme" "${tchoice}"
-              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-                "+Lazy! sync startup" +qa >/dev/null 2>&1
             fi
-          elif [ "${choice}" == "Alpha" ]; then
-            set_conf_value "enable_alpha" "true"
+          elif [ "${choice}" == "alpha" ]; then
             set_conf_value "enable_startup" "false"
-            init_neovim "${LAZYMAN}"
-            NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-              "+Lazy! sync alpha" +qa >/dev/null 2>&1
-          elif [ "${choice}" == "Dashboard" ]; then
-            set_conf_value "enable_alpha" "false"
-            set_conf_value "enable_startup" "false"
-            init_neovim "${LAZYMAN}"
-            NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-              "+Lazy! sync dashboard" +qa >/dev/null 2>&1
+            [ "${enable_alpha}" == "true" ] || {
+              set_conf_value "enable_alpha" "true"
+              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+                "+Lazy! sync alpha" +qa >/dev/null 2>&1
+            }
+          elif [ "${choice}" == "dashboard" ]; then
+            resync=
+            [ "${enable_alpha}" == "true" ] && {
+              set_conf_value "enable_alpha" "false"
+              resync=1
+            }
+            [ "${enable_startup}" == "true" ] && {
+              set_conf_value "enable_startup" "false"
+              resync=1
+            }
+            [ "${resync}" ] && {
+              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+                "+Lazy! sync dashboard" +qa >/dev/null 2>&1
+            }
+          fi
+          break
+          ;;
+        "Startup"*,* | *,"Startup"*)
+          choices=("lazyman" "dashboard" "startify")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Startup Dashboard Theme  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            [ "${startup_theme}" == "${choice}" ] || {
+              set_conf_value "startup_theme" "${choice}"
+            }
           fi
           break
           ;;
