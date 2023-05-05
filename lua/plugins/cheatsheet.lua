@@ -1,8 +1,7 @@
 return {
   {
     "sudormrfbin/cheatsheet.nvim",
-    -- event = "VeryLazy",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
       { "nvim-lua/popup.nvim" },
