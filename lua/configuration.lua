@@ -73,10 +73,11 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
+-- If neither Alpha or Startup is enabled then dashboard-nvim is used
 -- Enable the Alpha dashboard
-conf.enable_alpha = false
+conf.enable_alpha = true
 -- Enable the Startup dashboard
-conf.enable_startup = true
+conf.enable_startup = false
 -- Startup dashboard theme ("dashboard", "lazyman", or "startify")
 conf.startup_theme = "lazyman"
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
