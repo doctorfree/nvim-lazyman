@@ -1522,16 +1522,21 @@ show_conf_menu() {
               set_conf_value "enable_alpha" "false"
               set_conf_value "enable_startup" "true"
               set_conf_value "startup_theme" "${tchoice}"
-              init_neovim "${LAZYMAN}"
+              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+                "+Lazy! sync startup" +qa >/dev/null 2>&1
             fi
           elif [ "${choice}" == "Alpha" ]; then
             set_conf_value "enable_alpha" "true"
             set_conf_value "enable_startup" "false"
             init_neovim "${LAZYMAN}"
+            NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+              "+Lazy! sync alpha" +qa >/dev/null 2>&1
           elif [ "${choice}" == "Dashboard" ]; then
             set_conf_value "enable_alpha" "false"
             set_conf_value "enable_startup" "false"
             init_neovim "${LAZYMAN}"
+            NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+              "+Lazy! sync dashboard" +qa >/dev/null 2>&1
           fi
           break
           ;;
