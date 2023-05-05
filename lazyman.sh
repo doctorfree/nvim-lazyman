@@ -1522,13 +1522,16 @@ show_conf_menu() {
               set_conf_value "enable_alpha" "false"
               set_conf_value "enable_startup" "true"
               set_conf_value "startup_theme" "${tchoice}"
+              init_neovim "${LAZYMAN}"
             fi
           elif [ "${choice}" == "Alpha" ]; then
             set_conf_value "enable_alpha" "true"
             set_conf_value "enable_startup" "false"
+            init_neovim "${LAZYMAN}"
           elif [ "${choice}" == "Dashboard" ]; then
             set_conf_value "enable_alpha" "false"
             set_conf_value "enable_startup" "false"
+            init_neovim "${LAZYMAN}"
           fi
           break
           ;;
