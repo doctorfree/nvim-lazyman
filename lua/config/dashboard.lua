@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd("User", {
           },
           config_entry,
           {
-            icon = "   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
             desc = "Cheatsheet",
             desc_hl = "DashboardCenter",
@@ -137,7 +137,7 @@ vim.api.nvim_create_autocmd("User", {
             action = "Cheatsheet",
           },
           {
-            icon = "󰤄   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
             desc = "Lazy",
             desc_hl = "DashboardCenter",
@@ -146,7 +146,7 @@ vim.api.nvim_create_autocmd("User", {
             action = "Lazy",
           },
           {
-            icon = "   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
             desc = "Mason",
             desc_hl = "DashboardCenter",
@@ -173,6 +173,18 @@ vim.api.nvim_create_autocmd("User", {
         tabline = true,
       },
     })
+  end,
+})
+
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "dashboard",
+  group = vim.api.nvim_create_augroup("Dashboard_au", { clear = true }),
+  callback = function()
+    vim.cmd([[
+      setlocal buftype=nofile
+      setlocal nonumber norelativenumber nocursorline noruler
+      nnoremap <buffer> <F2> :h news.txt<CR>
+    ]])
   end,
 })
 
