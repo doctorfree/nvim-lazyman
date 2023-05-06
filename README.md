@@ -768,7 +768,7 @@ below along with their default settings:
 - Enable playing games inside Neovim!
   - `conf.enable_games = true`
 - Enable the Alpha dashboard
-  - `conf.enable_alpha = true`
+  - `conf.dashboard = "alpha"`
 - Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_bookmarks = false`
 - Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
@@ -868,22 +868,8 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
---
--- Enable preferred dashboard, disable all for no dashboard
---
--- Enable the Alpha dashboard
-conf.enable_alpha = true
--- Enable the dashboard-nvim dashboard
-conf.enable_dashboard = false
--- Enable the Mini Starter dashboard
-conf.enable_mini_starter = false
---
--- TODO: fix startup dashboard configuration
--- Enable the Startup dashboard
--- conf.enable_startup = false
--- Startup dashboard theme ("dashboard", "lazyman", or "startify")
--- conf.startup_theme = "lazyman"
---
+-- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
+conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
 -- only apply to the Alpha dashboard
 -- Number of recent files shown in dashboard
@@ -930,8 +916,8 @@ conf.lsp_servers = {
 conf.formatters_linters = {
   "actionlint", "goimports", "gofumpt", "golangci-lint",
   "google-java-format", "latexindent", "markdownlint",
-  "prettier", "sql-formatter", "shellcheck",
-  "shfmt", "stylua", "tflint", "yamllint",
+  "prettier", "sql-formatter", "shellcheck", "shfmt",
+  "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

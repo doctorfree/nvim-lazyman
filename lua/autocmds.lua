@@ -136,7 +136,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
   end,
 })
 
-if settings.enable_alpha then
+if settings.dashboard == "alpha" then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 
   vim.api.nvim_create_autocmd("User", {
@@ -188,29 +188,6 @@ if settings.enable_alpha then
         vim.api.nvim_command("Alpha")
         vim.api.nvim_command(event.buf .. "bwipeout")
       end
-    end,
-  })
-elseif settings.enable_startup then
-  local st_group = vim.api.nvim_create_augroup("Startup_au", { clear = true })
-  vim.api.nvim_create_autocmd("Filetype", {
-    pattern = "startup",
-    group = st_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = false,
-      })
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("BufUnload", {
-    desc = "enable status and tabline after dashboard",
-    group = st_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = true,
-      })
     end,
   })
 end

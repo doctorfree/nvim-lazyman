@@ -389,7 +389,7 @@ below along with their default settings:
 - Enable playing games inside Neovim!
   - `conf.enable_games = true`
 - Enable the Alpha dashboard
-  - `conf.enable_alpha = true`
+  - `conf.dashboard = "alpha"`
 - Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_bookmarks = false`
 - Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)

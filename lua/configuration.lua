@@ -73,22 +73,8 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
---
--- Enable preferred dashboard, disable all for no dashboard
---
--- Enable the Alpha dashboard
-conf.enable_alpha = true
--- Enable the dashboard-nvim dashboard
-conf.enable_dashboard = false
--- Enable the Mini Starter dashboard
-conf.enable_mini_starter = false
---
--- TODO: fix startup dashboard configuration
--- Enable the Startup dashboard
--- conf.enable_startup = false
--- Startup dashboard theme ("dashboard", "lazyman", or "startify")
--- conf.startup_theme = "lazyman"
---
+-- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
+conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
 -- only apply to the Alpha dashboard
 -- Number of recent files shown in dashboard

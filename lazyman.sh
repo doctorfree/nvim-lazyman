@@ -1253,16 +1253,7 @@ show_conf_menu() {
     else
       use_games="✗"
     fi
-    enable_alpha=$(get_conf_value enable_alpha)
-    enable_dashboard=$(get_conf_value enable_dashboard)
-    enable_mini_starter=$(get_conf_value enable_mini_starter)
-    if [ "${enable_alpha}" == "true" ]; then
-      use_dash="alpha"
-    elif [ "${enable_mini_starter}" == "true" ]; then
-        use_dash="mini"
-    elif [ "${enable_dashboard}" == "true" ]; then
-        use_dash="dash"
-    fi
+    use_dash=$(get_conf_value dashboard)
     enable_bookmarks=$(get_conf_value enable_bookmarks)
     if [ "${enable_bookmarks}" == "true" ]; then
       use_bookmarks=""
@@ -1340,7 +1331,7 @@ show_conf_menu() {
       options+=("Style [${use_theme_style}]")
     fi
     options+=("Dashboard [${use_dash}]")
-    if [ "${enable_alpha}" == "true" ]; then
+    if [ "${use_dash}" == "alpha" ]; then
       options+=("Alpha Header  [${use_dashboard_header}]")
       options+=("Recent Files  [${use_dashboard_recent_files}]")
       options+=("Quick Links   [${use_dashboard_quick_links}]")
@@ -1540,25 +1531,11 @@ show_conf_menu() {
           break
           ;;
         "Dashboard"*,* | *,"Dashboard"*)
-          choices=("alpha" "dashboard" "mini")
+          choices=("alpha" "dash" "mini" "none")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Dashboard  " --layout=reverse --border --exit-0)
-          if [ "${choice}" == "alpha" ]; then
-            set_conf_value "enable_dashboard" "false"
-            set_conf_value "enable_mini_starter" "false"
-            [ "${enable_alpha}" == "true" ] || {
-              set_conf_value "enable_alpha" "true"
-            }
-          elif [ "${choice}" == "dashboard" ]; then
-            set_conf_value "enable_alpha" "false"
-            set_conf_value "enable_mini_starter" "false"
-            [ "${enable_dashboard}" == "true" ] || {
-              set_conf_value "enable_dashboard" "true"
-            }
-          elif [ "${choice}" == "mini" ]; then
-            set_conf_value "enable_alpha" "false"
-            set_conf_value "enable_dashboard" "false"
-            [ "${enable_mini_starter}" == "true" ] || {
-              set_conf_value "enable_mini_starter" "true"
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            [ "${choice}" == "${use_dash}" ] || {
+              set_conf_value "dashboard" "${choice}"
             }
           fi
           break
