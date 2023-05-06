@@ -266,11 +266,13 @@ init_neovim() {
             export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
             export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
           fi
-          if [ "${neodir}" == "${minivimdir}" ] || [ "${treesitter}" ]
+          if [ "${treesitter}" ]
           then
-            nvim --headless "+TSUpdate!" +qa
+            nvim --headless '+TSUpdate' +qa
           else
-            nvim --headless "+Lazy! sync" +qa
+            [ "${neodir}" == "${minivimdir}" ] || {
+              nvim --headless "+Lazy! sync" +qa
+            }
           fi
         fi
       fi
@@ -300,7 +302,14 @@ init_neovim() {
             export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
             export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
           fi
-          nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
+          if [ "${treesitter}" ]
+          then
+            nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
+          else
+            [ "${neodir}" == "${minivimdir}" ] || {
+              nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
+            }
+          fi
         fi
       fi
     fi
