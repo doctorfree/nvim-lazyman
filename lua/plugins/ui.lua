@@ -1,28 +1,5 @@
 local settings = require("configuration")
 
-local dashboard_type = {
-  "glepnir/dashboard-nvim",
-  event = "VimEnter",
-  dependencies = { { "nvim-tree/nvim-web-devicons" } },
-  keys = { { "<leader>0", "<cmd>Dashboard<CR>", desc = "Dashboard" } },
-  config = function()
-    require("config.dashboard")
-  end,
-}
-
-if settings.enable_alpha then
-  dashboard_type = {
-    {
-      "goolord/alpha-nvim",
-      event = "VimEnter",
-      keys = { { "<leader>ad", "<cmd>Alpha<cr>", "Alpha Dashboard" } },
-      config = function()
-        require("config.alpha.alpha")
-      end,
-    },
-  }
-end
-
 local lualine_cfg = {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -235,9 +212,6 @@ return {
 
   -- noicer ui
   noice_cfg,
-
-  -- dashboard
-  dashboard_type,
 
   -- lsp symbol navigation for lualine
   {

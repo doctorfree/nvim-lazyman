@@ -105,7 +105,6 @@ vim.api.nvim_create_autocmd("User", {
         { desc = " Update", group = "@property", action = "Lazy update", key = "u" },
       },
       config = {
-        --header = vim.split("\n" .. days_of_week[current_day] .. "\n" .. os.date("%Y-%m-%d %H:%M:%S" .. "\n"), "\n"),
         header = vim.split(days_of_week[current_day] .. "\n" .. os.date("%Y-%m-%d %H:%M:%S" .. "\n"), "\n"),
         center = {
           {
@@ -128,7 +127,7 @@ vim.api.nvim_create_autocmd("User", {
           },
           config_entry,
           {
-            icon = "   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
             desc = "Cheatsheet",
             desc_hl = "DashboardCenter",
@@ -137,18 +136,18 @@ vim.api.nvim_create_autocmd("User", {
             action = "Cheatsheet",
           },
           {
-            icon = "󰤄   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
-            desc = "Lazy",
+            desc = "Manage Plugins (Lazy)",
             desc_hl = "DashboardCenter",
             key = "l",
             key_hl = "DashboardShortcut",
             action = "Lazy",
           },
           {
-            icon = "   ",
+            icon = "   ",
             icon_hl = "DashboardHeader",
-            desc = "Mason",
+            desc = "Manage Packages (Mason)",
             desc_hl = "DashboardCenter",
             key = "m",
             key_hl = "DashboardShortcut",
@@ -185,11 +184,11 @@ vim.api.nvim_create_autocmd("Filetype", {
       place = { "statusline", "tabline", "winbar" },
       unhide = false,
     })
+    vim.cmd([[ setlocal nonumber norelativenumber nocursorline noruler ]])
   end,
 })
 
 vim.api.nvim_create_autocmd("BufUnload", {
-  -- buffer = 0,
   desc = "enable status and tabline after dashboard",
   group = db_group,
   callback = function()

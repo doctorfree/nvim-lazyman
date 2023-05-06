@@ -1226,10 +1226,14 @@ show_conf_menu() {
       use_games="✗"
     fi
     enable_alpha=$(get_conf_value enable_alpha)
+    enable_dashboard=$(get_conf_value enable_dashboard)
+    enable_mini_starter=$(get_conf_value enable_mini_starter)
     if [ "${enable_alpha}" == "true" ]; then
-      use_alpha=""
-    else
-      use_alpha="✗"
+      use_dash="alpha"
+    elif [ "${enable_mini_starter}" == "true" ]; then
+        use_dash="mini"
+    elif [ "${enable_dashboard}" == "true" ]; then
+        use_dash="dash"
     fi
     enable_bookmarks=$(get_conf_value enable_bookmarks)
     if [ "${enable_bookmarks}" == "true" ]; then
@@ -1307,6 +1311,12 @@ show_conf_menu() {
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=("Style [${use_theme_style}]")
     fi
+    options+=("Dashboard [${use_dash}]")
+    if [ "${enable_alpha}" == "true" ]; then
+      options+=("Alpha Header  [${use_dashboard_header}]")
+      options+=("Recent Files  [${use_dashboard_recent_files}]")
+      options+=("Quick Links   [${use_dashboard_quick_links}]")
+    fi
     options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Session [${use_session_manager}]")
@@ -1323,16 +1333,12 @@ show_conf_menu() {
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable Alpha  [${use_alpha}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Project       [${use_project}]")
     options+=("Picker        [${use_picker}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("Alpha Header  [${use_dashboard_header}]")
-    options+=("Recent Files  [${use_dashboard_recent_files}]")
-    options+=("Quick Links   [${use_dashboard_quick_links}]")
     options+=("Color Indent  [${use_color_indentline}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
@@ -1505,11 +1511,27 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Enable Alpha"*,* | *,"Enable Alpha"*)
-          if [ "${enable_alpha}" == "true" ]; then
+        "Dashboard"*,* | *,"Dashboard"*)
+          choices=("alpha" "dashboard" "mini")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Dashboard  " --layout=reverse --border --exit-0)
+          if [ "${choice}" == "alpha" ]; then
+            set_conf_value "enable_dashboard" "false"
+            set_conf_value "enable_mini_starter" "false"
+            [ "${enable_alpha}" == "true" ] || {
+              set_conf_value "enable_alpha" "true"
+            }
+          elif [ "${choice}" == "dashboard" ]; then
             set_conf_value "enable_alpha" "false"
-          else
-            set_conf_value "enable_alpha" "true"
+            set_conf_value "enable_mini_starter" "false"
+            [ "${enable_dashboard}" == "true" ] || {
+              set_conf_value "enable_dashboard" "true"
+            }
+          elif [ "${choice}" == "mini" ]; then
+            set_conf_value "enable_alpha" "false"
+            set_conf_value "enable_dashboard" "false"
+            [ "${enable_mini_starter}" == "true" ] || {
+              set_conf_value "enable_mini_starter" "true"
+            }
           fi
           break
           ;;
@@ -1798,7 +1820,8 @@ show_main_menu() {
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${extra_partial}" ] && options+=("Remove Extras")
     [ "${start_partial}" ] && options+=("Remove Starters")
-    [ "${base_partial}" ] || [ "${extra_partial}" ] || [ "${start_partial}" ] && {
+    numndirs=${#ndirs[@]}
+    [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
     }
     for neovim in "${sorted[@]}"; do

@@ -23,6 +23,7 @@ require("indent_blankline").setup({
     "help",
     "startify",
     "dashboard",
+    "startup",
     "packer",
     "neogitstatus",
     "NvimTree",

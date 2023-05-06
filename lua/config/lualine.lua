@@ -69,6 +69,7 @@ if settings.enable_winbar then
         filetype_names = {
           TelescopePrompt = "Telescope",
           dashboard = "Dashboard",
+          startup = "Startup",
           packer = "Packer",
           fzf = "FZF",
           alpha = "Alpha",
@@ -109,6 +110,7 @@ lualine.setup({
     disabled_filetypes = {
       "alpha",
       "dashboard",
+      "startup",
       "neo-tree",
       "NvimTree",
       "Outline",

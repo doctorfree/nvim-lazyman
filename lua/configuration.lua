@@ -73,8 +73,32 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
+--
+-- Enable preferred dashboard, disable all for no dashboard
+--
 -- Enable the Alpha dashboard
 conf.enable_alpha = true
+-- Enable the dashboard-nvim dashboard
+conf.enable_dashboard = false
+-- Enable the Mini Starter dashboard
+conf.enable_mini_starter = false
+--
+-- TODO: fix startup dashboard configuration
+-- Enable the Startup dashboard
+-- conf.enable_startup = false
+-- Startup dashboard theme ("dashboard", "lazyman", or "startify")
+-- conf.startup_theme = "lazyman"
+--
+-- Number of recent files, dashboard header and quick links settings
+-- only apply to the Alpha dashboard
+-- Number of recent files shown in dashboard
+-- 0 disables showing recent files
+conf.dashboard_recent_files = 3
+-- Enable the header of the dashboard
+conf.enable_dashboard_header = false
+-- Enable quick links of the dashboard
+conf.enable_dashboard_quick_links = true
+--
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
@@ -91,13 +115,6 @@ conf.enable_smooth_scrolling = true
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
--- Number of recent files shown in dashboard
--- 0 disables showing recent files
-conf.dashboard_recent_files = 3
--- Enable the header of the dashboard
-conf.enable_dashboard_header = false
--- Enable quick links of the dashboard
-conf.enable_dashboard_quick_links = true
 -- Enable colored indentation lines if theme supports it
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
