@@ -56,8 +56,8 @@ following Lazyman Neovim configuration categories:
 
 | **Base** |       |       | **Configs** |
 | -------- | ----- | ----- | ----------- |
-| [AstroNvim](https://astronvim.com)               | [Ecovim](https://github.com/ecosse3/nvim)            | [Lazyman](https://github.com/doctorfree/nvim-lazyman) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                         | [SpaceVim](https://spacevim.org)              |
+| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [MiniVim](https://github.com/echasnovski/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
 
 | **Extra** |       |        |        | **Configs** |
 | --------- | ----- | ------ | ------ | ----------- |
@@ -271,7 +271,7 @@ Currently the following "Base" Neovim configurations are supported:
 
 - [nvim-Lazyman](https://github.com/doctorfree/nvim-lazyman)
   - See the [Installation section](#installation) above
-  - Install and initialize with `lazyman -i`
+  - Installed and initialized by default
 - [AstroNvim](https://astronvim.com)
   - Install and initialize with `lazyman -a`
   - An example [AstroNvim community]() plugins configuration is added
@@ -287,6 +287,9 @@ Currently the following "Base" Neovim configurations are supported:
 - [MagicVim](https://gitlab.com/GitMaster210/magicvim)
   - Uses Packer plugin manager, installs in `~/.config/nvim-MagicVim`
   - Install and initialize with `lazyman -m`
+- [MiniVim](https://github.com/echasnovski/nvim)
+  - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) system
+  - Install and initialize with `lazyman -M`
 - [NvChad](https://nvchad.com)
   - The [NvChad example](https://github.com/NvChad/example_config) configuration
   - Install and initialize with `lazyman -c`
@@ -537,9 +540,9 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
-       [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
-       [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
-       [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+   [-F] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q]
+   [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
+   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -559,6 +562,7 @@ Where:
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize MagicVim Neovim configuration
+    -M indicates install and initialize MiniVim Neovim configuration
     -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -S indicates show Neovim configuration fuzzy selector menu
@@ -575,6 +579,7 @@ Where:
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
     -N 'nvimdir' specifies the folder name to use for the config given by -C
+    -T indicates no plugin manager, initialize with :TSUpdate
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Extra 'conf' config
        'conf' can be one of:

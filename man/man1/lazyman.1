@@ -24,9 +24,9 @@ configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i]
-[-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L
-cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x
-conf] [-X] [-y] [-z] [-Z] [-u] [status]
+[-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I]
+[-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf]
+[-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -240,8 +240,16 @@ Neovim configuration
 \f[V]-m\f[R] : indicates install and initialize \[aq]MagicVim\[aq]
 Neovim configuration
 .PP
+\f[V]-M\f[R] : indicates install and initialize \[aq]MiniVim\[aq] Neovim
+configuration
+.PP
 \f[V]-s\f[R] : indicates install and initialize the \[aq]SpaceVim\[aq]
 Neovim configuration
+.PP
+\f[V]-S\f[R] : indicates show Neovim configuration fuzzy selector menu
+.PP
+\f[V]-T\f[R] : indicates no plugin manager, initialize with
+\f[V]:TSUpdate\f[R]
 .PP
 \f[V]-v\f[R] : indicates install and initialize the \[aq]LunarVim\[aq]
 Neovim configuration

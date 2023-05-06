@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 
 ## FEATURES
 
@@ -175,7 +175,13 @@ The following command line options are available with the `lazyman` command:
 
 `-m` : indicates install and initialize 'MagicVim' Neovim configuration
 
+`-M` : indicates install and initialize 'MiniVim' Neovim configuration
+
 `-s` : indicates install and initialize the 'SpaceVim' Neovim configuration
+
+`-S` : indicates show Neovim configuration fuzzy selector menu
+
+`-T` : indicates no plugin manager, initialize with `:TSUpdate`
 
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
