@@ -4,6 +4,22 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.0.1r3
+
+### ⚡️ Added
+
+- Add support for MiniVim base neovim configuration
+- Support for multiple dashboards
+- Configure mini.starter start screen
+- Add mini.starter dashboard, remove startup dashboard
+- Add support for mini.starter dashboard
+- Improve dashboard-nvim
+- Lazy sync newly configured dashboard
+- Fuzzy selection dialogs for dashboards
+- Enable Alpha dashboard by default
+- Add cheatsheet to dashboards
 - Add cheatsheet keymaps to keymaps doc
 - Add lazyman, plugins, gitsigns, and markdown sections to custom cheatsheet
 - Add cheatsheet plugin and custom cheatsheet.txt
@@ -13,8 +29,13 @@
 
 ### 🐞 Fixed
 
+- The MiniVim configuration needs no initialization
+- Fix mini.starter autocmd for dynamic footer
 - Enable and disable bundled cheatsheets selectively
 - Replace bundled gitsigns and markdown cheatsheets with custom ones
+- Show Remove All menu entry based on number of nvimdirs
+- Lazy load cheatsheet plugin
+- Lazy load lspconfig
 - Install tree-sitter cli with cargo if available then npm if not
 - Widen telescope popup window
 - Do not prompt for install type if native packaging and Homebrew not detected
