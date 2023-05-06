@@ -58,7 +58,7 @@ elseif settings.enable_mini_starter then
     enabled = true,
     event = "VimEnter",
     opts = function()
-      local pad = string.rep(" ", 22)
+      local pad = string.rep(" ", 10)
       local new_section = function(name, action, section)
         return { name = name, action = action, section = pad .. section }
       end
@@ -73,7 +73,7 @@ elseif settings.enable_mini_starter then
           local day_part =
             ({ 'evening', 'morning', 'afternoon', 'evening' })[part_id]
           local username = vim.loop.os_get_passwd()['username'] or 'USERNAME'
-          return ('    Greetings! Good %s, %s'):format(day_part, username)
+          return ('  Greetings! Good %s, %s'):format(day_part, username)
         end,
         items = {
           new_section("Find file",          "Telescope find_files", "Telescope"),
@@ -83,13 +83,14 @@ elseif settings.enable_mini_starter then
           new_section("Configuration Menu", "Lazyconf",             "Config"),
           new_section("Manage Plugins",     "Lazy",                 "Config"),
           new_section("Package Manager",    "Mason",                "Config"),
+          new_section("Help Cheatsheet",    "Cheatsheet",           "Config"),
           new_section("Session restore",    session_restore,        "Session"),
           new_section("New file",           "ene | startinsert",    "Built-in"),
           new_section("Quit",               "qa",                   "Built-in"),
         },
         content_hooks = {
-          starter.gen_hook.adding_bullet(pad .. "░ ", false),
-          starter.gen_hook.aligning("left", "center"),
+          starter.gen_hook.adding_bullet(pad .. "» ", false),
+          starter.gen_hook.aligning("center", "center"),
         },
       }
       return config
@@ -113,8 +114,7 @@ elseif settings.enable_mini_starter then
         pattern = "MiniStarterOpened",
         callback = function()
           local stats = require("lazy").stats()
-          local pad_footer = string.rep(" ", 8)
-          starter.config.footer = pad_footer .. "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
+          starter.config.footer = "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
           pcall(starter.refresh)
         end,
       })
