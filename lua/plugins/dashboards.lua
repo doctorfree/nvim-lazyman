@@ -40,7 +40,7 @@ elseif settings.dashboard == "mini" then
     enabled = true,
     event = "VimEnter",
     opts = function()
-      local pad = string.rep(" ", 10)
+      local pad = string.rep(" ", 18)
       local new_section = function(name, action, section)
         return { name = name, action = action, section = pad .. section }
       end
@@ -55,7 +55,7 @@ elseif settings.dashboard == "mini" then
           local day_part =
             ({ 'evening', 'morning', 'afternoon', 'evening' })[part_id]
           local username = vim.loop.os_get_passwd()['username'] or 'USERNAME'
-          return ('  Greetings! Good %s, %s'):format(day_part, username)
+          return ('        Greetings! Good %s, %s'):format(day_part, username)
         end,
         items = {
           new_section("Find file",          "Telescope find_files", "Telescope"),
@@ -95,9 +95,18 @@ elseif settings.dashboard == "mini" then
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniStarterOpened",
         callback = function()
+          local datetime = os.date("  %Y-%b-%d   %H:%M:%S", os.time())
+          local version = vim.version()
+          local version_info = ""
+          if version ~= nil then
+            version_info = "v" .. version.major .. "." ..
+                                  version.minor .. "." .. version.patch
+          end
           local stats = require("lazy").stats()
-          starter.config.footer =
-            "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
+          local vinfo = "Neovim " .. version_info
+          local lazystats = "  loaded " .. stats.count .. " plugins "
+          starter.config.footer = datetime .. "  " .. vinfo .. lazystats
+          -- "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
           pcall(starter.refresh)
         end,
       })
