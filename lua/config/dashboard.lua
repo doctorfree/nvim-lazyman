@@ -95,7 +95,7 @@ if vim.o.filetype == "lazy" then
 end
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyVimStarted",
+  pattern = "LazymanStarted",
   callback = function()
     local stats = require("lazy").stats()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
@@ -139,7 +139,7 @@ vim.api.nvim_create_autocmd("User", {
           {
             icon = "   ",
             icon_hl = "DashboardHeader",
-            desc = "Lazy",
+            desc = "Manage Plugins (Lazy)",
             desc_hl = "DashboardCenter",
             key = "l",
             key_hl = "DashboardShortcut",
@@ -148,7 +148,7 @@ vim.api.nvim_create_autocmd("User", {
           {
             icon = "   ",
             icon_hl = "DashboardHeader",
-            desc = "Mason",
+            desc = "Manage Packages (Mason)",
             desc_hl = "DashboardCenter",
             key = "m",
             key_hl = "DashboardShortcut",
@@ -176,18 +176,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.api.nvim_create_autocmd("Filetype", {
-  pattern = "dashboard",
-  group = vim.api.nvim_create_augroup("Dashboard_au", { clear = true }),
-  callback = function()
-    vim.cmd([[
-      setlocal buftype=nofile
-      setlocal nonumber norelativenumber nocursorline noruler
-      nnoremap <buffer> <F2> :h news.txt<CR>
-    ]])
-  end,
-})
-
 local db_group = vim.api.nvim_create_augroup("Dashboard_au", { clear = true })
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "dashboard",
@@ -197,6 +185,10 @@ vim.api.nvim_create_autocmd("Filetype", {
       place = { "statusline", "tabline", "winbar" },
       unhide = false,
     })
+    vim.cmd([[
+      setlocal buftype=nofile
+      setlocal nonumber norelativenumber nocursorline noruler
+    ]])
   end,
 })
 

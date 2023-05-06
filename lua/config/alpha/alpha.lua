@@ -212,11 +212,13 @@ local mappings_btn = dashboard.button("C", "  Lazyman Cheatsheet", ":Cheatshe
 mappings_btn.opts.hl = "AlphaShortcut"
 
 -- Plugin Management
-local update_btn = dashboard.button("U", "  Update Plugins", ":Lazy update<CR>")
+local Checker = require("lazy.manage.checker")
+local updates = #Checker.updated
+local update_btn = dashboard.button("U", "  Update Plugins  (" .. updates .. " pending)", ":Lazy update<CR>")
 update_btn.opts.hl = "AlphaHeader"
-local install_btn = dashboard.button("L", "  Lazy Menu", ":Lazy<CR>")
+local install_btn = dashboard.button("L", "  Manage Plugins  (Lazy)", ":Lazy<CR>")
 install_btn.opts.hl = "AlphaHeader"
-local status_btn = dashboard.button("M", "  Mason Menu", ":Mason<CR>")
+local status_btn = dashboard.button("M", "  Manage Packages (Mason)", ":Mason<CR>")
 status_btn.opts.hl = "AlphaHeader"
 
 local buttons = {
@@ -230,9 +232,9 @@ local buttons = {
     mappings_btn,
     { type = "padding", val = 1 },
     { type = "text",    val = "Plugin Management",    opts = { hl = "AlphaFooter", position = "center" } },
-    update_btn,
     install_btn,
     status_btn,
+    update_btn,
     { type = "padding", val = 1 },
     { type = "text",    val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
     new_file_btn,

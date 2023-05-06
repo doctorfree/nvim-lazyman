@@ -1226,16 +1226,18 @@ show_conf_menu() {
       use_games="✗"
     fi
     enable_alpha=$(get_conf_value enable_alpha)
+    enable_dashboard=$(get_conf_value enable_dashboard)
+    enable_mini_starter=$(get_conf_value enable_mini_starter)
     enable_startup=$(get_conf_value enable_startup)
     startup_theme=$(get_conf_value startup_theme)
     if [ "${enable_alpha}" == "true" ]; then
       use_dash="alpha"
-    else
-      if [ "${enable_startup}" == "true" ]; then
+    elif [ "${enable_mini_starter}" == "true" ]; then
+        use_dash="mini"
+    elif [ "${enable_startup}" == "true" ]; then
         use_dash="start"
-      else
+    elif [ "${enable_dashboard}" == "true" ]; then
         use_dash="dash"
-      fi
     fi
     enable_bookmarks=$(get_conf_value enable_bookmarks)
     if [ "${enable_bookmarks}" == "true" ]; then
@@ -1517,11 +1519,14 @@ show_conf_menu() {
           break
           ;;
         "Dashboard"*,* | *,"Dashboard"*)
-          choices=("alpha" "dashboard" "startup")
+          choices=("alpha" "dashboard" "mini" "startup")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Dashboard  " --layout=reverse --border --exit-0)
           if [ "${choice}" == "startup" ]; then
             tchoices=("lazyman" "dashboard" "startify")
             tchoice=$(printf "%s\n" "${tchoices[@]}" | fzf --prompt=" Startup Dashboard Theme  " --layout=reverse --border --exit-0)
+            set_conf_value "enable_alpha" "false"
+            set_conf_value "enable_dashboard" "false"
+            set_conf_value "enable_mini_starter" "false"
             if [[ " ${tchoices[*]} " =~ " ${tchoice} " ]]; then
               [ "${startup_theme}" == "${tchoice}" ] || {
                 set_conf_value "startup_theme" "${tchoice}"
@@ -1531,28 +1536,33 @@ show_conf_menu() {
                 NVIM_APPNAME="${LAZYMAN}" nvim --headless \
                   "+Lazy! sync startup" +qa >/dev/null 2>&1
               }
-              set_conf_value "enable_alpha" "false"
             fi
           elif [ "${choice}" == "alpha" ]; then
             set_conf_value "enable_startup" "false"
+            set_conf_value "enable_dashboard" "false"
+            set_conf_value "enable_mini_starter" "false"
             [ "${enable_alpha}" == "true" ] || {
               set_conf_value "enable_alpha" "true"
               NVIM_APPNAME="${LAZYMAN}" nvim --headless \
                 "+Lazy! sync alpha" +qa >/dev/null 2>&1
             }
           elif [ "${choice}" == "dashboard" ]; then
-            resync=
-            [ "${enable_alpha}" == "true" ] && {
-              set_conf_value "enable_alpha" "false"
-              resync=1
-            }
-            [ "${enable_startup}" == "true" ] && {
-              set_conf_value "enable_startup" "false"
-              resync=1
-            }
-            [ "${resync}" ] && {
+            set_conf_value "enable_startup" "false"
+            set_conf_value "enable_alpha" "false"
+            set_conf_value "enable_mini_starter" "false"
+            [ "${enable_dashboard}" == "true" ] || {
+              set_conf_value "enable_dashboard" "true"
               NVIM_APPNAME="${LAZYMAN}" nvim --headless \
                 "+Lazy! sync dashboard" +qa >/dev/null 2>&1
+            }
+          elif [ "${choice}" == "mini" ]; then
+            set_conf_value "enable_startup" "false"
+            set_conf_value "enable_alpha" "false"
+            set_conf_value "enable_dashboard" "false"
+            [ "${enable_mini_starter}" == "true" ] || {
+              set_conf_value "enable_mini_starter" "true"
+              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
+                "+Lazy! sync mini.starter" +qa >/dev/null 2>&1
             }
           fi
           break
