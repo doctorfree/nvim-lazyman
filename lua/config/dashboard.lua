@@ -105,7 +105,6 @@ vim.api.nvim_create_autocmd("User", {
         { desc = " Update", group = "@property", action = "Lazy update", key = "u" },
       },
       config = {
-        --header = vim.split("\n" .. days_of_week[current_day] .. "\n" .. os.date("%Y-%m-%d %H:%M:%S" .. "\n"), "\n"),
         header = vim.split(days_of_week[current_day] .. "\n" .. os.date("%Y-%m-%d %H:%M:%S" .. "\n"), "\n"),
         center = {
           {
