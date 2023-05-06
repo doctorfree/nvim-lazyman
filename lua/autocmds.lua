@@ -190,41 +190,6 @@ if settings.enable_alpha then
       end
     end,
   })
-elseif settings.enable_mini_starter then
-  local mini_group = vim.api.nvim_create_augroup("Startup_mini", { clear = true })
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniStarterOpened",
-    group = mini_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = false,
-      })
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("BufUnload", {
-    buffer = 0,
-    desc = "enable status and tabline after alpha",
-    group = mini_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = true,
-      })
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniStarterOpened",
-    group = mini_group,
-    callback = function()
-      vim.cmd([[
-        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-        setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-      ]])
-    end,
-  })
 elseif settings.enable_startup then
   local st_group = vim.api.nvim_create_augroup("Startup_au", { clear = true })
   vim.api.nvim_create_autocmd("Filetype", {

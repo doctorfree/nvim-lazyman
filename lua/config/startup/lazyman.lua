@@ -8,8 +8,11 @@ end
 local stats = require("lazy").stats()
 local vinfo = "Neovim " .. version_info
 local lazystats = "  loaded " .. stats.count .. " plugins "
+if vim.o.filetype == "lazy" then
+  vim.cmd.close()
+end
+
 local settings = {
-  -- every line should be same width without escaped \
   header = {
     type = "text",
     oldfiles_directory = false,
@@ -30,7 +33,6 @@ local settings = {
     default_color = "",
     oldfiles_amount = 0,
   },
-  -- name which will be displayed and command
   body = {
     type = "mapping",
     oldfiles_directory = false,
@@ -70,7 +72,6 @@ local settings = {
     default_color = "",
     oldfiles_amount = 0,
   },
-
   options = {
     mapping_keys = true,
     cursor_column = 0.5,

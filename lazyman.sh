@@ -1519,24 +1519,18 @@ show_conf_menu() {
             set_conf_value "enable_mini_starter" "false"
             [ "${enable_alpha}" == "true" ] || {
               set_conf_value "enable_alpha" "true"
-              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-                "+Lazy! sync alpha" +qa >/dev/null 2>&1
             }
           elif [ "${choice}" == "dashboard" ]; then
             set_conf_value "enable_alpha" "false"
             set_conf_value "enable_mini_starter" "false"
             [ "${enable_dashboard}" == "true" ] || {
               set_conf_value "enable_dashboard" "true"
-              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-                "+Lazy! sync dashboard" +qa >/dev/null 2>&1
             }
           elif [ "${choice}" == "mini" ]; then
             set_conf_value "enable_alpha" "false"
             set_conf_value "enable_dashboard" "false"
             [ "${enable_mini_starter}" == "true" ] || {
               set_conf_value "enable_mini_starter" "true"
-              NVIM_APPNAME="${LAZYMAN}" nvim --headless \
-                "+Lazy! sync mini.starter" +qa >/dev/null 2>&1
             }
           fi
           break

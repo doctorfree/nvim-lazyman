@@ -54,7 +54,7 @@ elseif settings.enable_mini_starter then
   mini_disabled = {}
   dashboard_type = {
     "echasnovski/mini.starter",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
+    version = "*",
     enabled = true,
     event = "VimEnter",
     opts = function()
@@ -110,17 +110,38 @@ elseif settings.enable_mini_starter then
       starter.setup(config)
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
+        pattern = "MiniStarterOpened",
         callback = function()
           local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           local pad_footer = string.rep(" ", 8)
-          starter.config.footer = pad_footer .. "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+          starter.config.footer = pad_footer .. "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
           pcall(starter.refresh)
         end,
       })
     end,
   }
+  local mini_group = vim.api.nvim_create_augroup("Startup_mini", { clear = true })
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniStarterOpened",
+    group = mini_group,
+    callback = function()
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" },
+        unhide = false,
+      })
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniStarterOpened",
+    group = mini_group,
+    callback = function()
+      vim.cmd([[
+        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+        setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+      ]])
+    end,
+  })
 end
 
 return {
