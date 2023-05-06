@@ -5,6 +5,11 @@ local mini_disabled = { "echasnovski/mini.starter", enabled = false }
 local startup_disabled = { "startup-nvim/startup.nvim", enabled = false }
 local dashboard_disabled = { "glepnir/dashboard-nvim", enabled = false }
 
+local session_restore = 'lua require("persistence").load()'
+if settings.session_manager == "possession" then
+  session_restore = 'lua require("possession").list()'
+end
+
 if settings.enable_alpha then
   alpha_disabled = {}
   dashboard_type = {
@@ -53,15 +58,6 @@ elseif settings.enable_mini_starter then
     enabled = true,
     event = "VimEnter",
     opts = function()
-      local logo = table.concat({
-        " _                                            ",
-        "| |                                           ",
-        "| |  __,   __         _  _  _    __,   _  _   ",
-        "|/  /  |  / / _|   | / |/ |/ |  /  |  / |/ |  ",
-        "|__/\\_/|_/ /_/  \\_/|/  |  |  |_/\\_/|_/  |  |_/",
-        "            /|    /|                          ",
-        "            \\|    \\|                          ",
-      }, "\n")
       local pad = string.rep(" ", 22)
       local new_section = function(name, action, section)
         return { name = name, action = action, section = pad .. section }
@@ -71,20 +67,29 @@ elseif settings.enable_mini_starter then
       --stylua: ignore
       local config = {
         evaluate_single = true,
-        header = logo,
+        header = function()
+          local hour = tonumber(vim.fn.strftime('%H'))
+          local part_id = math.floor((hour + 4) / 8) + 1
+          local day_part =
+            ({ 'evening', 'morning', 'afternoon', 'evening' })[part_id]
+          local username = vim.loop.os_get_passwd()['username'] or 'USERNAME'
+          return ('    Greetings! Good %s, %s'):format(day_part, username)
+        end,
         items = {
-          new_section("Find file",    "Telescope find_files", "Telescope"),
-          new_section("Recent files", "Telescope oldfiles",   "Telescope"),
-          new_section("Grep text",    "Telescope live_grep",  "Telescope"),
-          new_section("init.lua",     "e $MYVIMRC",           "Config"),
-          new_section("Lazy",         "Lazy",                 "Config"),
-          new_section("New file",     "ene | startinsert",    "Built-in"),
-          new_section("Quit",         "qa",                   "Built-in"),
-          new_section("Session restore", [[lua require("persistence").load()]], "Session"),
+          new_section("Find file",          "Telescope find_files", "Telescope"),
+          new_section("Recent files",       "Telescope oldfiles",   "Telescope"),
+          new_section("Grep text",          "Telescope live_grep",  "Telescope"),
+          new_section("Lazyman Menu",       "Lazyman",              "Config"),
+          new_section("Configuration Menu", "Lazyconf",             "Config"),
+          new_section("Manage Plugins",     "Lazy",                 "Config"),
+          new_section("Package Manager",    "Mason",                "Config"),
+          new_section("Session restore",    session_restore,        "Session"),
+          new_section("New file",           "ene | startinsert",    "Built-in"),
+          new_section("Quit",               "qa",                   "Built-in"),
         },
         content_hooks = {
           starter.gen_hook.adding_bullet(pad .. "░ ", false),
-          starter.gen_hook.aligning("center", "center"),
+          starter.gen_hook.aligning("left", "center"),
         },
       }
       return config

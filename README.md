@@ -1527,9 +1527,7 @@ to support the clipboard over SSH.
 If `go` is not installed or incorrectly configured then the Mason installs
 of `goimports`, `gopls`, and `gofumpt` will fail.
 
-The Alpha dashboard is the only dashboard included in Lazyman that hides
-the tabline effectively after a new buffer has been opened. The Startup
-and Dashboard dashboards may display the tabline after performing some
+The `dashboard-nvim` dashboard may display the tabline after performing some
 dashboard actions.
 
 Changing the configured dashboard from within Neovim via the Terminal display
