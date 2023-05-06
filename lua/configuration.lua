@@ -82,11 +82,14 @@ conf.enable_alpha = true
 conf.enable_dashboard = false
 -- Enable the Mini Starter dashboard
 conf.enable_mini_starter = false
+--
+-- TODO: fix startup dashboard configuration
 -- Enable the Startup dashboard
-conf.enable_startup = false
+-- conf.enable_startup = false
 -- Startup dashboard theme ("dashboard", "lazyman", or "startify")
-conf.startup_theme = "lazyman"
--- number of recent files, dashboard header and quick links settings
+-- conf.startup_theme = "lazyman"
+--
+-- Number of recent files, dashboard header and quick links settings
 -- only apply to the Alpha dashboard
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files

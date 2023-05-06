@@ -95,7 +95,7 @@ if vim.o.filetype == "lazy" then
 end
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazymanStarted",
+  pattern = "LazyVimStarted",
   callback = function()
     local stats = require("lazy").stats()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
@@ -185,10 +185,7 @@ vim.api.nvim_create_autocmd("Filetype", {
       place = { "statusline", "tabline", "winbar" },
       unhide = false,
     })
-    vim.cmd([[
-      setlocal buftype=nofile
-      setlocal nonumber norelativenumber nocursorline noruler
-    ]])
+    vim.cmd([[ setlocal nonumber norelativenumber nocursorline noruler ]])
   end,
 })
 

@@ -9,6 +9,7 @@ if settings.enable_alpha then
   alpha_disabled = {}
   dashboard_type = {
     "goolord/alpha-nvim",
+    enabled = true,
     event = "VimEnter",
     keys = { { "<leader>ad", "<cmd>Alpha<CR>", "Alpha Dashboard" } },
     config = function()
@@ -19,6 +20,7 @@ elseif settings.enable_dashboard then
   dashboard_disabled = {}
   dashboard_type = {
     "glepnir/dashboard-nvim",
+    enabled = true,
     event = "VimEnter",
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
     keys = { { "<leader>0", "<cmd>Dashboard<CR>", desc = "Dashboard" } },
@@ -30,6 +32,7 @@ elseif settings.enable_startup then
   startup_disabled = {}
   dashboard_type = {
     "startup-nvim/startup.nvim",
+    enabled = true,
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
@@ -47,6 +50,7 @@ elseif settings.enable_mini_starter then
   dashboard_type = {
     "echasnovski/mini.starter",
     version = false, -- wait till new 0.7.0 release to put it back on semver
+    enabled = true,
     event = "VimEnter",
     opts = function()
       local logo = table.concat({
@@ -101,7 +105,7 @@ elseif settings.enable_mini_starter then
       starter.setup(config)
 
       vim.api.nvim_create_autocmd("User", {
-        pattern = "LazymanStarted",
+        pattern = "LazyVimStarted",
         callback = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
