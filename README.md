@@ -312,6 +312,7 @@ installed with the `-w conf` option.
 
 - [MiniVim](https://github.com/echasnovski/nvim)
   - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) system
+  - Personal configuration of the `mini.nvim` author
   - Install and initialize with `lazyman -M`
 - [Nv](https://github.com/appelgriebsch/Nv)
   - Install and initialize with `lazyman -w Nv`
