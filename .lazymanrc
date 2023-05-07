@@ -7,7 +7,7 @@ command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
 	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
 command -v tldr > /dev/null && {
   command -v fzf > /dev/null && {
-    alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+    alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right:70% | xargs tldr --color=always'
   }
 }
 command -v bat > /dev/null && alias less='bat'
