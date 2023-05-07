@@ -20,7 +20,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="AstroNvim Ecovim LazyVim LunarVim MiniVim NvChad SpaceVim MagicVim"
-EXTRACFGS="Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+PRSNLCFGS="Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -77,11 +77,11 @@ usage() {
   printf "\n    -N 'nvimdir' specifies the folder name to use for the config given by -C"
   printf "\n    -T indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -U indicates update an existing configuration"
-  printf "\n    -w 'conf' indicates install and initialize Extra 'conf' config"
+  printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
   printf "\n           'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
-  printf "\n    -W indicates install and initialize all 'Extra' Neovim configurations"
+  printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
   printf "\n           'Kickstart' 'NvPak' 'Minimal' 'StartBase'"
@@ -1830,7 +1830,7 @@ show_main_menu() {
     options=()
     uninstalled=()
     [ "${have_fzf}" ] && {
-      for neovim in ${BASECFGS} ${EXTRACFGS} ${STARTCFGS}; do
+      for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS}; do
         nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
         if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
           uninstalled+=("${nvdir}")
@@ -1883,9 +1883,9 @@ show_main_menu() {
     options+=("Install Base ${configstr}")
     installed=1
     partial=
-    get_config_str "${EXTRACFGS}"
-    extra_partial=${partial}
-    options+=("Install Extras ${configstr}")
+    get_config_str "${PRSNLCFGS}"
+    prsnl_partial=${partial}
+    options+=("Install Personals ${configstr}")
     installed=1
     partial=
     get_config_str "${STARTCFGS}"
@@ -1893,13 +1893,13 @@ show_main_menu() {
     options+=("Install Starters ${configstr}")
     installed=1
     partial=
-    get_config_str "${BASECFGS} ${EXTRACFGS} ${STARTCFGS}"
+    get_config_str "${BASECFGS} ${PRSNLCFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
     [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
     [ "${base_partial}" ] && options+=("Remove Base")
-    [ "${extra_partial}" ] && options+=("Remove Extras")
+    [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
     numndirs=${#ndirs[@]}
     [ ${numndirs} -gt 1 ] && {
@@ -1950,7 +1950,7 @@ show_main_menu() {
           lazyman -B -y -z
           break
           ;;
-        "Install Extra"*,* | *,"Install Extra"*)
+        "Install Personal"*,* | *,"Install Personal"*)
           lazyman -W -y -z
           break
           ;;
@@ -2051,7 +2051,7 @@ show_main_menu() {
           lazyman -R -B -y
           break
           ;;
-        "Remove Extra"*,* | *,"Remove Extra"*)
+        "Remove Personal"*,* | *,"Remove Personal"*)
           lazyman -R -W -y
           break
           ;;
@@ -2187,7 +2187,7 @@ lunarvim=
 minivim=
 magicvim=
 nvchad=
-nvimextra=
+nvimprsnl=
 nvimstarter=
 spacevim=
 plug=
@@ -2224,7 +2224,7 @@ while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
       ;;
     A)
       all=1
-      nvimextra="all"
+      nvimprsnl="all"
       nvimstarter="all"
       astronvim=1
       ecovim=1
@@ -2347,10 +2347,10 @@ while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
       nvimdir=("$lunarvimdir")
       ;;
     w)
-      nvimextra="$OPTARG"
+      nvimprsnl="$OPTARG"
       ;;
     W)
-      nvimextra="all"
+      nvimprsnl="all"
       ;;
     x)
       nvimstarter="$OPTARG"
@@ -2401,21 +2401,21 @@ set_haves
   exit 0
 }
 
-[ "$nvimextra" ] && {
+[ "$nvimprsnl" ] && {
   if [ "$remove" ]; then
-    if [ "${nvimextra}" == "all" ]; then
+    if [ "${nvimprsnl}" == "all" ]; then
       for neovim in Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
-      remove_config "nvim-${nvimextra}"
+      remove_config "nvim-${nvimprsnl}"
     fi
   else
     yesflag=
     [ "${proceed}" ] && yesflag="-y"
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
-    if [ "${nvimextra}" == "all" ]; then
+    if [ "${nvimprsnl}" == "all" ]; then
       action="Installing"
       [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
       printf "\n${action} Abstract Neovim configuration ..."
@@ -2487,65 +2487,65 @@ set_haves
       printf " done"
       show_alias "nvim-Simple"
     else
-      extra_url=
-      extra_dir=
-      extra_opt=
+      prsnl_url=
+      prsnl_dir=
+      prsnl_opt=
       runflag=
       [ "${runvim}" ] || runflag="-z"
-      case ${nvimextra} in
+      case ${nvimprsnl} in
         Abstract)
-          extra_url="https://github.com/Abstract-IDE/Abstract"
-          extra_opt="-b main -P"
+          prsnl_url="https://github.com/Abstract-IDE/Abstract"
+          prsnl_opt="-b main -P"
           ;;
         Adib)
-          extra_url="https://github.com/adibhanna/nvim"
-          extra_opt="-b main"
+          prsnl_url="https://github.com/adibhanna/nvim"
+          prsnl_opt="-b main"
           ;;
         Knvim)
-          extra_url="https://github.com/knmac/knvim"
-          extra_opt="-b main"
+          prsnl_url="https://github.com/knmac/knvim"
+          prsnl_opt="-b main"
           ;;
         Roiz)
-          extra_url="https://github.com/MrRoiz/rnvim"
-          extra_opt="-b main"
+          prsnl_url="https://github.com/MrRoiz/rnvim"
+          prsnl_opt="-b main"
           ;;
         Fennel)
-          extra_url="https://github.com/jhchabran/nvim-config"
-          extra_opt="-P"
+          prsnl_url="https://github.com/jhchabran/nvim-config"
+          prsnl_opt="-P"
           ;;
         Nv)
-          extra_url="https://github.com/appelgriebsch/Nv"
+          prsnl_url="https://github.com/appelgriebsch/Nv"
           ;;
         NvPak)
-          extra_url="https://github.com/Pakrohk-DotFiles/NvPak.git"
+          prsnl_url="https://github.com/Pakrohk-DotFiles/NvPak.git"
           ;;
         Optixal)
-          extra_url="https://github.com/Optixal/neovim-init.vim"
-          extra_opt="-p"
+          prsnl_url="https://github.com/Optixal/neovim-init.vim"
+          prsnl_opt="-p"
           ;;
         Plug)
-          extra_url="https://github.com/doctorfree/nvim-plug"
-          extra_opt="-p"
+          prsnl_url="https://github.com/doctorfree/nvim-plug"
+          prsnl_opt="-p"
           ;;
         Heiker)
-          extra_url="https://github.com/VonHeikemen/dotfiles"
-          extra_dir="-D my-configs/neovim"
+          prsnl_url="https://github.com/VonHeikemen/dotfiles"
+          prsnl_dir="-D my-configs/neovim"
           ;;
         Simple)
-          extra_url="https://github.com/anthdm/.nvim"
-          extra_opt="-P"
+          prsnl_url="https://github.com/anthdm/.nvim"
+          prsnl_opt="-P"
           ;;
         *)
-          printf "\nUnrecognized extra configuration: ${nvimextra}"
+          printf "\nUnrecognized personal configuration: ${nvimprsnl}"
           printf "\nPress Enter to continue\n"
           read -r yn
           usage
           ;;
       esac
       action="Installing"
-      [ -d ${HOME}/.config/nvim-${nvimextra} ] && action="Updating"
-      printf "\n${action} ${nvimextra} Neovim configuration ..."
-      lazyman -C ${extra_url} -N nvim-${nvimextra} ${extra_dir} ${extra_opt} \
+      [ -d ${HOME}/.config/nvim-${nvimprsnl} ] && action="Updating"
+      printf "\n${action} ${nvimprsnl} Neovim configuration ..."
+      lazyman -C ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} ${prsnl_opt} \
         ${quietflag} ${runflag} ${yesflag}
       printf " done"
     fi

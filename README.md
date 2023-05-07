@@ -41,12 +41,16 @@ Once Lazyman is installed, execute the `lazyman` command to manage
 Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
 The `lazyman` command separates Neovim configurations into 4 categories:
-`Base`, `Extra`, `Starter`, and `Custom`. The `Base` category consists of well
-tested Neovim configurations, all of which provide significant value. The
-`Extra` category includes additional Neovim configurations that provide
-significant value but have not been thoroughly tested. The `Starter` category
-includes the Neovim `Kickstart` configuration and the Neovim configurations
-provided by the [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
+`Base`, `Personal`, `Starter`, and `Custom`. The `Base` category consists of
+well tested Neovim configurations and distributions, all of which provide
+significant value. The `Personal` category includes personal Neovim
+configurations that provide significant value or demonstrate some cool
+features. Configurations in the `Personal` category are not necessarily
+intended for public use, these repositories are maintained for the personal
+use of the authors but are included here for their value. The `Starter`
+category includes the Neovim `Kickstart` configuration, the `NvPak` config,
+and the Neovim configurations provided by the
+[nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
 The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
@@ -59,8 +63,8 @@ following Lazyman Neovim configuration categories:
 | [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [MiniVim](https://github.com/echasnovski/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
 
-| **Extra** |       |        |        | **Configs** |
-| --------- | ----- | ------ | ------ | ----------- |
+| **Personal** |       |        |        | **Configs** |
+| ------------ | ----- | ------ | ------ | ----------- |
 | [Abstract](https://github.com/Abstract-IDE/Abstract) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 
@@ -87,7 +91,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Manual installation](#manual-installation)
 - [Supported configurations](#supported-configurations)
   - [Base configurations](#base-configurations)
-  - [Extra configurations](#extra-configurations)
+  - [Personal configurations](#personal-configurations)
   - [Starter configurations](#starter-configurations)
   - [Custom configurations](#custom-configurations)
 - [Features](#features)
@@ -297,13 +301,13 @@ Currently the following "Base" Neovim configurations are supported:
   - Does not use the SpaceVim installer script, installs in `~/.config/nvim-SpaceVim`
   - Install and initialize with `lazyman -s`
 
-### Extra configurations
+### Personal configurations
 
 In addition to the base Neovim configurations listed above, `lazyman` can
-install and initialize several "Extra" Neovim configurations.
+install and initialize several "Personal" Neovim configurations.
 
-All of the 'Extra' configurations can be installed and initialized with
-the command `lazyman -W`. Individual 'Extra' configurations can be
+All of the 'Personal' configurations can be installed and initialized with
+the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
 
 - [Abstract](https://github.com/Abstract-IDE/Abstract)
@@ -519,8 +523,8 @@ The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
 configuration execute the command `lazyman -l`. To install and initialize
 all supported Lazyman Neovim configurations execute `lazyman -A -y`, to install
-just the "Base" Neovim configurations run `lazyman -B -y`, the "Extra" configs
-with `lazyman -W -y`, and the "Starter" configs with `lazyman -X -y`.
+just the "Base" Neovim configurations run `lazyman -B -y`, the "Personal"
+configs with `lazyman -W -y`, and the "Starter" configs with `lazyman -X -y`.
 
 All of these actions and more are available in the Lazyman Menu displayed
 when executing the `lazyman` command with no arguments.
@@ -581,11 +585,11 @@ Where:
     -N 'nvimdir' specifies the folder name to use for the config given by -C
     -T indicates no plugin manager, initialize with :TSUpdate
     -U indicates update an existing configuration
-    -w 'conf' indicates install and initialize Extra 'conf' config
+    -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
            'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'
            'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'
-    -W indicates install and initialize all 'Extra' Neovim configurations
+    -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
            'Kickstart' 'NvPak' 'Minimal' 'StartBase'
@@ -1051,7 +1055,7 @@ After `export NVIM_APPNAME="nvim-Abstract"`, invoking `nvim` will bring up
 the Abstract Neovim configuration.
 
 Another Packer based Neovim configuration, this one using Fennel, serves as
-a second example and is included as a Lazyman supported "Extra" config:
+a second example and is included as a Lazyman supported "Personal" config:
 
 ```bash
 lazyman -w Fennel
@@ -1605,7 +1609,7 @@ for an overview of changes. In particular, many of these types of issues
 are detailed in the [news.txt for Neovim 0.9](https://github.com/neovim/neovim/blob/040f1459849ab05b04f6bb1e77b3def16b4c2f2b/runtime/doc/news.txt) (`:help news` within nvim).
 
 This is life on the bleeding edge. However, all of the supported Lazyman
-Neovim configurations and most of the extra Neovim configurations supported
+Neovim configurations and most of the Personal Neovim configurations supported
 by `lazyman` do not have Neovim version incompatibilities.
 
 ### Lazyman installation
