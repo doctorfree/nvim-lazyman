@@ -1364,6 +1364,8 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=("Winbar        [${use_winbar}]")
+    options+=("Disable All")
+    options+=("Enable All")
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
@@ -1646,6 +1648,68 @@ show_conf_menu() {
           else
             set_conf_value "convert_semantic_highlighting" "true"
           fi
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          set_conf_value "dashboard" "none"
+          set_conf_value "number" "false"
+          set_conf_value "relative_number" "false"
+          set_conf_value "enable_statusline" "false"
+          set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_winbar" "false"
+          set_conf_value "enable_transparent" "false"
+          set_conf_value "enable_neotree" "false"
+          set_conf_value "enable_noice" "false"
+          set_conf_value "enable_chatgpt" "false"
+          set_conf_value "enable_rainbow2" "false"
+          set_conf_value "enable_fancy" "false"
+          set_conf_value "enable_wilder" "false"
+          set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_games" "false"
+          set_conf_value "enable_bookmarks" "false"
+          set_conf_value "enable_ide" "false"
+          set_conf_value "enable_navigator" "false"
+          set_conf_value "enable_project" "false"
+          set_conf_value "enable_picker" "false"
+          set_conf_value "enable_smooth_scrolling" "false"
+          set_conf_value "enable_dashboard_header" "false"
+          set_conf_value "enable_dashboard_quick_links" "false"
+          set_conf_value "enable_color_indentline" "false"
+          set_conf_value "show_diagnostics" "none"
+          set_conf_value "enable_semantic_highlighting" "false"
+          set_conf_value "convert_semantic_highlighting" "false"
+          set_conf_value "list" "false"
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          set_conf_value "dashboard" "dash"
+          set_conf_value "number" "true"
+          set_conf_value "relative_number" "true"
+          set_conf_value "enable_statusline" "true"
+          set_conf_value "enable_tabline" "true"
+          set_conf_value "enable_winbar" "true"
+          set_conf_value "enable_transparent" "true"
+          set_conf_value "enable_neotree" "true"
+          set_conf_value "enable_noice" "true"
+          set_conf_value "enable_chatgpt" "true"
+          set_conf_value "enable_rainbow2" "true"
+          set_conf_value "enable_fancy" "true"
+          set_conf_value "enable_wilder" "true"
+          set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_games" "true"
+          set_conf_value "enable_bookmarks" "true"
+          set_conf_value "enable_ide" "true"
+          set_conf_value "enable_navigator" "true"
+          set_conf_value "enable_project" "true"
+          set_conf_value "enable_picker" "true"
+          set_conf_value "enable_smooth_scrolling" "true"
+          set_conf_value "enable_dashboard_header" "true"
+          set_conf_value "enable_dashboard_quick_links" "true"
+          set_conf_value "enable_color_indentline" "true"
+          set_conf_value "show_diagnostics" "popup"
+          set_conf_value "enable_semantic_highlighting" "true"
+          set_conf_value "convert_semantic_highlighting" "true"
+          set_conf_value "list" "true"
           break
           ;;
         "Reset"*,* | *,"Reset"*)
