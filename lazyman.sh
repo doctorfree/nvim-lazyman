@@ -501,7 +501,19 @@ update_config() {
   }
   [ "${ndir}" == "${lazymandir}" ] && {
     [ -f /tmp/lazyconf$$ ] && {
-      cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+      if grep 'conf.enable_alpha' /tmp/lazyconf$$ > /dev/null
+      then
+        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
+        printf "\n\nThe format of the Lazyman configuration file has changed."
+        printf "\nSaving your previous configuration file as:"
+        printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
+        printf "\nRe-apply any customizations to the new config at:"
+        printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+        printf "\nPress Enter to continue\n"
+        read -r yn
+      else
+        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+      fi
       rm -f /tmp/lazyconf$$
     }
     [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
