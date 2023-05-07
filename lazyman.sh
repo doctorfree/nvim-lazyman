@@ -19,8 +19,8 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
-BASECFGS="AstroNvim Ecovim LazyVim LunarVim MiniVim NvChad SpaceVim MagicVim"
-PRSNLCFGS="Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
+PRSNLCFGS="MiniVim Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -31,8 +31,8 @@ styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedar
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-F] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q]"
-  printf "\n   [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
+  printf "\n   [-F] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]"
+  printf "\n   [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -54,6 +54,7 @@ usage() {
   printf "\n       or any Neovim configuration directory in '~/.config'"
   printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
   printf "\n    -F indicates present the Lazyman Configuration menu"
+  printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -i indicates install and initialize Lazyman Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
@@ -79,7 +80,7 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Abstract' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
+  printf "\n           'MiniVim' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
@@ -652,6 +653,8 @@ show_alias() {
   printf "\nAliases like the following are defined in ~/.config/nvim-Lazyman/.lazymanrc"
   if [ "$all" ]; then
     printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
+  elif [ "$abstract" ]; then
+    printf "\n\talias avim='NVIM_APPNAME=nvim-Abstract nvim'"
   elif [ "$astronvim" ]; then
     printf "\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
   elif [ "$ecovim" ]; then
@@ -718,7 +721,7 @@ install_config() {
   confname="$1"
   case ${confname} in
     Abstract)
-      lazyman -w Abstract -z -y
+      lazyman -g -z -y
       ;;
     AstroNvim)
       lazyman -a -z -y
@@ -2179,6 +2182,7 @@ confmenu=
 langservers=
 tellme=
 astronvim=
+abstract=
 ecovim=
 kickstart=
 lazyman=
@@ -2206,6 +2210,7 @@ name=
 pmgr="Lazy"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
+abstractdir="nvim-Abstract"
 ecovimdir="nvim-Ecovim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
@@ -2214,9 +2219,9 @@ minivimdir="nvim-MiniVim"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$minivimdir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir")
 nvimdir=()
-while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2227,6 +2232,7 @@ while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
       nvimprsnl="all"
       nvimstarter="all"
       astronvim=1
+      abstract=1
       ecovim=1
       lazyvim=1
       lunarvim=1
@@ -2238,6 +2244,7 @@ while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
     B)
       all=1
       astronvim=1
+      abstract=1
       ecovim=1
       lazyvim=1
       lunarvim=1
@@ -2265,6 +2272,10 @@ while getopts "aAb:BcdD:eE:FhHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
       ;;
     F)
       confmenu=1
+      ;;
+    g)
+      abstract=1
+      nvimdir=("$abstractdir")
       ;;
     h)
       brew="-h"
@@ -2404,7 +2415,7 @@ set_haves
 [ "$nvimprsnl" ] && {
   if [ "$remove" ]; then
     if [ "${nvimprsnl}" == "all" ]; then
-      for neovim in Abstract Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
+      for neovim in MiniVim Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2417,12 +2428,11 @@ set_haves
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimprsnl}" == "all" ]; then
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Abstract ] && action="Updating"
-      printf "\n${action} Abstract Neovim configuration ..."
-      lazyman -b main -C https://github.com/Abstract-IDE/Abstract \
-        -N nvim-Abstract -P -q -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-MiniVim ] && action="Updating"
+      printf "\n${action} MiniVim Neovim configuration ..."
+      lazyman -M -q -z ${yesflag}
       printf " done"
-      show_alias "nvim-Abstract"
+      show_alias "nvim-MiniVim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
       printf "\n${action} Nv Neovim configuration ..."
@@ -2493,9 +2503,8 @@ set_haves
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
-        Abstract)
-          prsnl_url="https://github.com/Abstract-IDE/Abstract"
-          prsnl_opt="-b main -P"
+        MiniVim)
+          prsnl_url="https://github.com/echasnovski/nvim"
           ;;
         Adib)
           prsnl_url="https://github.com/adibhanna/nvim"
@@ -2647,6 +2656,7 @@ set_haves
 [ "$name" ] && {
   numvim=0
   [ "$astronvim" ] && numvim=$((numvim + 1))
+  [ "$abstract" ] && numvim=$((numvim + 1))
   [ "$ecovim" ] && numvim=$((numvim + 1))
   [ "$kickstart" ] && numvim=$((numvim + 1))
   [ "$lazyvim" ] && numvim=$((numvim + 1))
@@ -2661,6 +2671,7 @@ set_haves
     brief_usage
   }
   [ "$astronvim" ] && astronvimdir="$name"
+  [ "$abstract" ] && astronvimdir="$name"
   [ "$ecovim" ] && ecovimdir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
   [ "$lazyman" ] && lazymandir="$name"
@@ -2702,6 +2713,9 @@ set_haves
   case "$nvimlower" in
     astronvim)
       ndir="$astronvimdir"
+      ;;
+    abstract)
+      ndir="$abstractdir"
       ;;
     ecovim)
       ndir="$ecovimdir"
@@ -2925,6 +2939,9 @@ for neovim in "${nvimdir[@]}"; do
   fi
 done
 
+[ "$abstract" ] && {
+  clone_repo Abstract Abstract-IDE/Abstract "$abstractdir"
+}
 [ "$astronvim" ] && {
   clone_repo AstroNvim AstroNvim/AstroNvim "$astronvimdir"
   [ "$quiet" ] || {

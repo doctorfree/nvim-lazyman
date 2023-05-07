@@ -10,12 +10,12 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 
 | **Base** |       |       | **Configs** |
 | -------- | ----- | ----- | ----------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [MiniVim](https://github.com/echasnovski/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
 
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [Abstract](https://github.com/Abstract-IDE/Abstract) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
+| [MiniVim](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 
 | **Starter** |       |       | **Configs** |

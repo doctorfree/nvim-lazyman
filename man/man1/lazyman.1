@@ -23,10 +23,10 @@ lazyman - install, initialize, manage, and explore multiple Neovim
 configurations
 .SS SYNOPSIS
 .PP
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-i]
-[-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I]
-[-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf]
-[-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-g]
+[-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H]
+[-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w
+conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -223,6 +223,9 @@ For example, \[aq]lazyman -E lazyvim foo.lua\[aq] would edit
 .PP
 \f[V]-F\f[R] : indicates present the Lazyman Configuration menu
 .PP
+\f[V]-g\f[R] : indicates install and initialize the \[aq]Abstract\[aq]
+Neovim configuration
+.PP
 \f[V]-h\f[R] : indicates use Homebrew rather than the native package
 manager (Pacman always used on Arch Linux, Homebrew on macOS)
 .PP
@@ -283,7 +286,7 @@ given by -C
 .PP
 \f[V]-w conf\f[R] : indicates install and initialize Personal
 \[aq]conf\[aq] configuration.
-\[aq]conf\[aq] can be one of: \[aq]Abstract\[aq], \[aq]Knvim\[aq],
+\[aq]conf\[aq] can be one of: \[aq]MiniVim\[aq], \[aq]Knvim\[aq],
 \[aq]Roiz\[aq], \[aq]Fennel\[aq], \[aq]Nv\[aq], \[aq]Adib\[aq],
 \[aq]Optixal\[aq], \[aq]Plug\[aq], \[aq]Simple\[aq], or \[aq]Heiker\[aq]
 .PP
