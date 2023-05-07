@@ -101,6 +101,11 @@ Similarly, if `neovide` is found in the execution PATH then a fuzzy
 selectable menu is provided with the `neovides` alias and convenience
 key binding of `ctrl-N` to bring up that menu.
 
+The `.lazymanrc` file also creates aliases for `ls`, `less`, and others
+including a `tldrf` alias that allows fuzzy searching and selecting from
+the list of cheatsheets supported by `tldr`. Try out the `tldrf` command
+to quickly and easily display documentation for thousands of commands.
+
 Another alternative to setting `NVIM_APPNAME` in the environment or with an
 alias is to use the `lazyman` command to specify which Neovim configuration
 to use with this invocation. This is done using the `-E config` option to

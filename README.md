@@ -1180,9 +1180,14 @@ removal of the selected Neovim configuration.
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
-# Aliases for lsd and bat if they exist
+# Aliases for lsd, tldr, and bat if they exist
 command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
 	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
+command -v tldr > /dev/null && {
+  command -v fzf > /dev/null && {
+    alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right:70% | xargs tldr --color=always'
+  }
+}
 command -v bat > /dev/null && alias less='bat'
 command -v batcat > /dev/null && \
 	alias bat='batcat' && \
@@ -1434,6 +1439,13 @@ he provides details on use and customization of the `nvims` shell function.
 Lazyman has incorporated and adapted the `nvims` shell function for use
 with the Lazyman installed Neovim configurations. The `nvims` shell
 function is automatically configured during `lazyman` installation.
+
+The `.lazymanrc` file also creates aliases for `ls`, `less`, and others
+including a `tldrf` alias that allows fuzzy searching and selecting from
+the list of cheatsheets supported by `tldr`. Try out the `tldrf` command
+to quickly and easily display documentation for thousands of commands.
+The idea for the `tldrf` alias came from another
+[video by Elijah Manor](https://youtu.be/4EE7qlTaO7c).
 
 ### Using aliases
 
