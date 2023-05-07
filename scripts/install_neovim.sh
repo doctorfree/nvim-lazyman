@@ -803,6 +803,36 @@ install_tools() {
       cargo install tree-sitter-cli >/dev/null 2>&1
     fi
   fi
+  if ! command -v tldr >/dev/null 2>&1; then
+    if [ "${use_homebrew}" ]; then
+      brew_install tealdeer
+    else
+      OWNER=dbrgn
+      PROJECT=tealdeer
+      API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      DL_URL=
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "linux-x86_64-musl$")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          log "Installing tealdeer ..."
+          TEMP_TGZ="$(mktemp --suffix=.bin)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
+          cp "${TEMP_TGZ}" ${HOME}/.local/bin/tldr
+          [ -f ${HOME}/.local/bin/tldr ] && {
+            chmod 755 ${HOME}/.local/bin/tldr
+            ${HOME}/.local/bin/tldr --update > /dev/null 2>&1
+          }
+          rm -f "${TEMP_TGZ}"
+          [ "$quiet" ] || printf " done"
+        }
+      }
+    fi
+  fi
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
     log "Installing tree-sitter command line npm package ..."

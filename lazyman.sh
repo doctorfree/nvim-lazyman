@@ -1950,19 +1950,19 @@ show_main_menu() {
           break
           ;;
         "Install Base"*,* | *,"Install Base"*)
-          lazyman -B -y -z
+          lazyman -B -y -z -Q
           break
           ;;
         "Install Personal"*,* | *,"Install Personal"*)
-          lazyman -W -y -z
+          lazyman -W -y -z -Q
           break
           ;;
         "Install Starter"*,* | *,"Install Starter"*)
-          lazyman -X -y -z
+          lazyman -X -y -z -Q
           break
           ;;
         "Install All"*,* | *,"Install All"*)
-          lazyman -A -y -z
+          lazyman -A -y -z -Q
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
@@ -2181,6 +2181,7 @@ invoke=
 confmenu=
 langservers=
 tellme=
+exitafter=
 astronvim=
 abstract=
 ecovim=
@@ -2221,7 +2222,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir")
 nvimdir=()
-while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2319,6 +2320,9 @@ while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqrRsSTUC:N:vw:Wx:XyzZu" flag; do
     P)
       packer=1
       pmgr="Packer"
+      ;;
+    Q)
+      exitafter=1
       ;;
     q)
       quiet=1
@@ -3229,6 +3233,8 @@ fi
     }
   }
 }
+
+[ "${exitafter}" ] && exit 0
 
 [ "${interactive}" ] && {
   if [ "$confmenu" ]; then

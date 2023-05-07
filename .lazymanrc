@@ -2,9 +2,14 @@
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
-# Aliases for lsd and bat if they exist
+# Aliases for lsd, tldr, and bat if they exist
 command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
 	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
+command -v tldr > /dev/null && {
+  command -v fzf > /dev/null && {
+    alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+  }
+}
 command -v bat > /dev/null && alias less='bat'
 command -v batcat > /dev/null && \
 	alias bat='batcat' && \
