@@ -15,6 +15,12 @@ table.insert(vimgrep_arguments, "--trim")
 
 telescope.setup({
   extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown({}),
     },
@@ -194,3 +200,4 @@ telescope.load_extension("media")
 if settings.enable_noice then
   telescope.load_extension("noice")
 end
+telescope.load_extension("fzf")

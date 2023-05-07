@@ -12,38 +12,62 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Plugin Management
-map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy Menu" })
-map("n", "<leader>U", "<cmd>:Lazy update<cr>", { desc = "Lazy Update" })
-map("n", "<leader>M", "<cmd>:Mason<cr>", { desc = "Mason Menu" })
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
+map("n", "<leader>U", "<cmd>Lazy update<cr>", { desc = "Lazy Update" })
+map("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Mason Menu" })
 -- Options
-map("n", "<leader>o", "<cmd>:options<cr>", { desc = "Options" })
+map("n", "<leader>o", "<cmd>options<cr>", { desc = "Options" })
 
 -- Lazyman help
-map("n", "<leader>hl", "<cmd>:help Lazyman-lazyman<cr>", { desc = "Lazyman Help" })
-map("n", "<leader>hk", "<cmd>:help Lazyman-Keymaps-lazymankeys<cr>", { desc = "Lazyman Keymaps" })
+map("n", "<leader>hl", "<cmd>help Lazyman-lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps-lazymankeys<cr>", { desc = "Lazyman Keymaps" })
 
 -- Terminal commands
 if settings.enable_terminal then
   if vim.fn.executable("htop") == 1 then
-    map("n", "<leader>H", "<cmd>:Htop<cr>", { desc = "Htop command" })
+    map("n", "<leader>H", "<cmd>Htop<cr>", { desc = "Htop command" })
   end
   if vim.fn.executable("lazygit") == 1 then
-    map("n", "<leader>G", "<cmd>:Lazygit<cr>", { desc = "Lazygit command" })
+    map("n", "<leader>gg", "<cmd>Lazygit<cr>", { desc = "Lazygit command" })
   end
   if vim.fn.executable("lazyman") == 1 then
-    map("n", "<leader>lm", "<cmd>:Lazyman<cr>", { desc = "Lazyman menu" })
-    map("n", "<leader>lc", "<cmd>:Lazyconf<cr>",
+    map("n", "<leader>lm", "<cmd>Lazyman<cr>", { desc = "Lazyman menu" })
+    map("n", "<leader>lc", "<cmd>Lazyconf<cr>",
       { desc = "Lazyman configuration" })
   end
   if vim.fn.executable("asciiville") == 1 then
-    map("n", "<leader>av", "<cmd>:Asciiville<cr>", { desc = "Asciiville" })
+    map("n", "<leader>av", "<cmd>Asciiville<cr>", { desc = "Asciiville" })
   end
+else
+  map("n", "<leader>gg", function()
+    Util.float_term({ "lazygit" }, { cwd = Util.get_root() })
+  end, { desc = "Lazygit (root dir)" })
+  map("n", "<leader>gG", function()
+    Util.float_term({ "lazygit" })
+  end, { desc = "Lazygit (cwd)" })
 end
 
 if settings.enable_neotree then
-  map("n", "<leader>T", ":Neotree toggle<CR>")
+  map("n", "<leader>T", "<cmd>Neotree toggle<CR>")
 else
-  map("n", "<leader>T", ":NvimTreeFindFileToggle<CR>")
+  map("n", "<leader>T", "<cmd>NvimTreeFindFileToggle<CR>")
+end
+
+if settings.enable_games then
+  map("n", "<leader>Gb", "<cmd>BlackJackNewGame<CR>",
+    { desc = "Blackjack" })
+  map("n", "<leader>Gh", "<cmd>:Hack<CR>",
+    { desc = "Hack" })
+  map("n", "<leader>Gf", "<cmd>:HackFollow<CR>",
+    { desc = "Hack current buffer" })
+  map("n", "<leader>Gs", "<cmd>Sudoku<CR>",
+    { desc = "Sudoku" })
+  map("n", "<leader>Gv", "<cmd>VimBeGood<CR>",
+    { desc = "Vim-Be-Good" })
+  map("n", "<leader>Gr", "<cmd>CellularAutomaton make_it_rain<CR>",
+    { desc = "Make it Rain" })
+  map("n", "<leader>Gg", "<cmd>CellularAutomaton game_of_life<CR>",
+    { desc = "Game of Life"} )
 end
 
 -- better up/down
@@ -153,11 +177,6 @@ end, { desc = "Toggle Line Numbers" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
   { desc = "Toggle Conceal" })
-
--- lazygit
-map("n", "<leader>gg", function() Util.float_term({ "lazygit" }, { cwd = Util.get_root() }) end,
-  { desc = "Lazygit (root dir)" })
-map("n", "<leader>gG", function() Util.float_term({ "lazygit" }) end, { desc = "Lazygit (cwd)" })
 
 -- gitignore
 local gitignore = require("gitignore")

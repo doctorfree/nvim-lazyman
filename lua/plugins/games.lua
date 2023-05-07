@@ -66,6 +66,10 @@ if settings.enable_games then
         })
       end,
     },
+    {
+      "eandrju/cellular-automaton.nvim",
+      event = "VeryLazy",
+    },
   }
 else
   return {}

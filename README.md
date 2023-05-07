@@ -484,7 +484,8 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Code diagnostics via [LSP](https://github.com/neovim/nvim-lspconfig)
 - Choice of preconfigured dashboard: [alpha](https://github.com/goolord/alpha-nvim) (default), [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim), or [mini.starter](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-starter.md)
-- Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements)
+- Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements, and more).
+  - Key map `<leader>G` (e.g. `,G`) displays the available games and amusements.
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
 - Over 100 plugins with custom configuration
 
