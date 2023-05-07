@@ -721,85 +721,85 @@ install_config() {
   confname="$1"
   case ${confname} in
     Abstract)
-      lazyman -g -z -y
+      lazyman -g -z -y -Q
       ;;
     AstroNvim)
-      lazyman -a -z -y
+      lazyman -a -z -y -Q
       ;;
     Ecovim)
-      lazyman -e -z -y
+      lazyman -e -z -y -Q
       ;;
     Kickstart)
-      lazyman -k -z -y
+      lazyman -k -z -y -Q
       ;;
     Lazyman)
-      lazyman -i -z -y
+      lazyman -i -z -y -Q
       ;;
     LazyVim)
-      lazyman -l -z -y
+      lazyman -l -z -y -Q
       ;;
     LunarVim)
-      lazyman -v -z -y
+      lazyman -v -z -y -Q
       ;;
     MiniVim)
-      lazyman -M -z -y
+      lazyman -M -z -y -Q
       ;;
     NvChad)
-      lazyman -c -z -y
+      lazyman -c -z -y -Q
       ;;
     SpaceVim)
-      lazyman -s -z -y
+      lazyman -s -z -y -Q
       ;;
     MagicVim)
-      lazyman -m -z -y
+      lazyman -m -z -y -Q
       ;;
     Adib)
-      lazyman -w Adib -z -y
+      lazyman -w Adib -z -y -Q
       ;;
     Nv)
-      lazyman -w Nv -z -y
+      lazyman -w Nv -z -y -Q
       ;;
     Knvim)
-      lazyman -w Knvim -z -y
+      lazyman -w Knvim -z -y -Q
       ;;
     Roiz)
-      lazyman -w Roiz -z -y
+      lazyman -w Roiz -z -y -Q
       ;;
     Fennel)
-      lazyman -w Fennel -z -y
+      lazyman -w Fennel -z -y -Q
       ;;
     NvPak)
-      lazyman -x NvPak -z -y
+      lazyman -x NvPak -z -y -Q
       ;;
     Optixal)
-      lazyman -w Optixal -z -y
+      lazyman -w Optixal -z -y -Q
       ;;
     Plug)
-      lazyman -w Plug -z -y
+      lazyman -w Plug -z -y -Q
       ;;
     Heiker)
-      lazyman -w Heiker -z -y
+      lazyman -w Heiker -z -y -Q
       ;;
     Minimal)
-      lazyman -x Minimal -z -y
+      lazyman -x Minimal -z -y -Q
       ;;
     Simple)
-      lazyman -w Simple -z -y
+      lazyman -w Simple -z -y -Q
       ;;
     StartBase)
-      lazyman -x StartBase -z -y
+      lazyman -x StartBase -z -y -Q
       ;;
     Opinion)
-      lazyman -x Opinion -z -y
+      lazyman -x Opinion -z -y -Q
       ;;
     StartLsp)
-      lazyman -x StartLsp -z -y
+      lazyman -x StartLsp -z -y -Q
       ;;
     StartMason)
-      lazyman -x StartMason -z -y
+      lazyman -x StartMason -z -y -Q
       ;;
     Modular)
-      lazyman -x Modular -z -y
+      lazyman -x Modular -z -y -Q
       ;;
   esac
 }
@@ -2426,78 +2426,78 @@ set_haves
       remove_config "nvim-${nvimprsnl}"
     fi
   else
-    yesflag=
-    [ "${proceed}" ] && yesflag="-y"
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimprsnl}" == "all" ]; then
       action="Installing"
       [ -d ${HOME}/.config/nvim-MiniVim ] && action="Updating"
       printf "\n${action} MiniVim Neovim configuration ..."
-      lazyman -M -q -z ${yesflag}
+      lazyman -M ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-MiniVim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
       printf "\n${action} Nv Neovim configuration ..."
       lazyman -C https://github.com/appelgriebsch/Nv \
-        -N nvim-Nv -q -z ${yesflag}
+        -N nvim-Nv ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Nv"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration ..."
       lazyman -b main -C https://github.com/knmac/knvim \
-        -N nvim-Knvim -q -z ${yesflag}
+        -N nvim-Knvim ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Knvim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
       lazyman -C https://github.com/jhchabran/nvim-config \
-        -N nvim-Fennel -P -q -z ${yesflag}
+        -N nvim-Fennel -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Fennel"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Adib ] && action="Updating"
       printf "\n${action} Adib Neovim configuration ..."
       lazyman -b main -C https://github.com/adibhanna/nvim \
-        -N nvim-Adib -q -z ${yesflag}
+        -N nvim-Adib ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Adib"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
       lazyman -C https://github.com/Optixal/neovim-init.vim \
-        -N nvim-Optixal -p -q -z ${yesflag}
+        -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Optixal"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
       printf "\n${action} Plug Neovim configuration ..."
       lazyman -C https://github.com/doctorfree/nvim-plug \
-        -N nvim-Plug -p -q -z ${yesflag}
+        -N nvim-Plug -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
       lazyman -C https://github.com/VonHeikemen/dotfiles \
-        -D my-configs/neovim -N nvim-Heiker -q -z ${yesflag}
+        -D my-configs/neovim -N nvim-Heiker ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Heiker"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Roiz ] && action="Updating"
       printf "\n${action} Roiz Neovim configuration ..."
       lazyman -b main -C https://github.com/MrRoiz/rnvim \
-        -N nvim-Roiz -q -z ${yesflag}
+        -N nvim-Roiz ${quietflag} -z ${yesflag}
       printf " done\n"
       show_alias "nvim-Roiz"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Simple ] && action="Updating"
       printf "\n${action} Simple Neovim configuration ..."
       lazyman -C https://github.com/anthdm/.nvim \
-        -N nvim-Simple -P -q -z ${yesflag}
+        -N nvim-Simple -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Simple"
     else
@@ -2576,8 +2576,8 @@ set_haves
       remove_config "nvim-${nvimstarter}"
     fi
   else
-    yesflag=
-    [ "${proceed}" ] && yesflag="-y"
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimstarter}" == "all" ]; then
@@ -2589,21 +2589,21 @@ set_haves
         [ -d ${HOME}/.config/nvim-${neovim} ] && action="Updating"
         printf "\n${action} nvim-starter ${neovim} Neovim configuration ..."
         lazyman -C https://github.com/VonHeikemen/nvim-starter \
-          -N nvim-${neovim} -b ${startbranch} -q -z ${yesflag}
+          -N nvim-${neovim} -b ${startbranch} ${quietflag} -z ${yesflag}
         printf " done"
         show_alias "nvim-${neovim}"
       done
       action="Installing"
       [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
       printf "\n${action} Kickstart Neovim configuration ..."
-      lazyman -k -q -z ${yesflag}
+      lazyman -k ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Kickstart"
       action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration ..."
       lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
-        -N nvim-NvPak -q -z ${yesflag}
+        -N nvim-NvPak ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-NvPak"
     else
