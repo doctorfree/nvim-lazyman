@@ -26,7 +26,7 @@ require("everforest").setup({
 -- setup must be called before loading
 if settings.theme == "everforest" then
   vim.cmd([[colorscheme everforest]])
-  if settings.enable_alpha then
+  if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaButtons", { link = "DashboardCenter" })

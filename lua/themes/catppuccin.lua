@@ -236,7 +236,7 @@ catppuccin.setup({
 })
 if settings.theme == "catppuccin" then
   set_colorscheme(style)
-  if settings.enable_alpha then
+  if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DashboardHeader" })
     vim.api.nvim_set_hl(0, "AlphaButtons", { link = "DashboardCenter" })

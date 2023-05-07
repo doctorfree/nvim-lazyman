@@ -70,7 +70,7 @@ if settings.theme == "tundra" then
     vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { link = "NvimTreeNormalNC" })
     vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { link = "NvimTreeSymlink" })
   end
-  if settings.enable_alpha then
+  if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "DiagnosticError" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "DiagnosticError" })
     vim.api.nvim_set_hl(0, "AlphaButtons", { link = "DiagnosticWarn" })

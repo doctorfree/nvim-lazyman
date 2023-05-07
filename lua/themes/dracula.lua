@@ -168,7 +168,7 @@ end
 
 if settings.theme == "dracula" then
   vim.cmd([[colorscheme dracula]])
-  if settings.enable_alpha then
+  if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "Type" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "Type" })
     vim.api.nvim_set_hl(0, "AlphaButtons", { link = "Keyword" })

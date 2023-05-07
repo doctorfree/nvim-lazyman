@@ -2,7 +2,6 @@ local settings = require("configuration")
 local dashboard_type = {}
 local alpha_disabled = { "goolord/alpha-nvim", enabled = false }
 local mini_disabled = { "echasnovski/mini.starter", enabled = false }
-local startup_disabled = { "startup-nvim/startup.nvim", enabled = false }
 local dashboard_disabled = { "glepnir/dashboard-nvim", enabled = false }
 
 local session_restore = 'lua require("persistence").load()'
@@ -10,7 +9,7 @@ if settings.session_manager == "possession" then
   session_restore = 'lua require("possession").list()'
 end
 
-if settings.enable_alpha then
+if settings.dashboard == "alpha" then
   alpha_disabled = {}
   dashboard_type = {
     "goolord/alpha-nvim",
@@ -21,7 +20,7 @@ if settings.enable_alpha then
       require("config.alpha.alpha")
     end
   }
-elseif settings.enable_dashboard then
+elseif settings.dashboard == "dash" then
   dashboard_disabled = {}
   dashboard_type = {
     "glepnir/dashboard-nvim",
@@ -33,24 +32,7 @@ elseif settings.enable_dashboard then
       require("config.dashboard")
     end,
   }
-elseif settings.enable_startup then
-  startup_disabled = {}
-  dashboard_type = {
-    "startup-nvim/startup.nvim",
-    enabled = true,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    event = "VimEnter",
-    keys = { { "<leader>S", "<cmd>Startup display<CR>", "Startup Dashboard" } },
-    config = function()
-      vim.g.startup_disable_on_startup = false
-      local startup_config = "config.startup." .. settings.startup_theme
-      require("startup").setup(require(startup_config))
-    end
-  }
-elseif settings.enable_mini_starter then
+elseif settings.dashboard == "mini" then
   mini_disabled = {}
   dashboard_type = {
     "echasnovski/mini.starter",
@@ -58,7 +40,7 @@ elseif settings.enable_mini_starter then
     enabled = true,
     event = "VimEnter",
     opts = function()
-      local pad = string.rep(" ", 10)
+      local pad = string.rep(" ", 18)
       local new_section = function(name, action, section)
         return { name = name, action = action, section = pad .. section }
       end
@@ -73,7 +55,7 @@ elseif settings.enable_mini_starter then
           local day_part =
             ({ 'evening', 'morning', 'afternoon', 'evening' })[part_id]
           local username = vim.loop.os_get_passwd()['username'] or 'USERNAME'
-          return ('  Greetings! Good %s, %s'):format(day_part, username)
+          return ('        Greetings! Good %s, %s'):format(day_part, username)
         end,
         items = {
           new_section("Find file",          "Telescope find_files", "Telescope"),
@@ -113,8 +95,18 @@ elseif settings.enable_mini_starter then
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniStarterOpened",
         callback = function()
+          local datetime = os.date("  %Y-%b-%d   %H:%M:%S", os.time())
+          local version = vim.version()
+          local version_info = ""
+          if version ~= nil then
+            version_info = "v" .. version.major .. "." ..
+                                  version.minor .. "." .. version.patch
+          end
           local stats = require("lazy").stats()
-          starter.config.footer = "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
+          local vinfo = "Neovim " .. version_info
+          local lazystats = "  loaded " .. stats.count .. " plugins "
+          starter.config.footer = datetime .. "  " .. vinfo .. lazystats
+          -- "⚡ Lazyman Neovim loaded " .. stats.count .. " plugins"
           pcall(starter.refresh)
         end,
       })
@@ -149,5 +141,4 @@ return {
   alpha_disabled,
   dashboard_disabled,
   mini_disabled,
-  startup_disabled
 }
