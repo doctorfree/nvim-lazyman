@@ -20,7 +20,7 @@ PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-PRSNLCFGS="MiniVim Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+PRSNLCFGS="Mini Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -59,7 +59,7 @@ usage() {
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
-  printf "\n    -M indicates install and initialize MiniVim Neovim configuration"
+  printf "\n    -M indicates install and initialize Mini Neovim configuration"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -S indicates show Neovim configuration fuzzy selector menu"
@@ -80,7 +80,7 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'MiniVim' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
+  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
@@ -668,7 +668,7 @@ show_alias() {
   elif [ "$lunarvim" ]; then
     printf "\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
   elif [ "$minivim" ]; then
-    printf "\n\talias lvim='NVIM_APPNAME=nvim-MiniVim nvim'"
+    printf "\n\talias lvim='NVIM_APPNAME=nvim-Mini nvim'"
   elif [ "$spacevim" ]; then
     printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
   elif [ "$nvchad" ]; then
@@ -741,7 +741,7 @@ install_config() {
     LunarVim)
       lazyman -v -z -y -Q
       ;;
-    MiniVim)
+    Mini)
       lazyman -M -z -y -Q
       ;;
     NvChad)
@@ -2216,7 +2216,7 @@ ecovimdir="nvim-Ecovim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
-minivimdir="nvim-MiniVim"
+minivimdir="nvim-Mini"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
@@ -2419,7 +2419,7 @@ set_haves
 [ "$nvimprsnl" ] && {
   if [ "$remove" ]; then
     if [ "${nvimprsnl}" == "all" ]; then
-      for neovim in MiniVim Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
+      for neovim in Mini Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2432,11 +2432,11 @@ set_haves
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimprsnl}" == "all" ]; then
       action="Installing"
-      [ -d ${HOME}/.config/nvim-MiniVim ] && action="Updating"
-      printf "\n${action} MiniVim Neovim configuration ..."
+      [ -d ${HOME}/.config/nvim-Mini ] && action="Updating"
+      printf "\n${action} Mini Neovim configuration ..."
       lazyman -M ${quietflag} -z ${yesflag}
       printf " done"
-      show_alias "nvim-MiniVim"
+      show_alias "nvim-Mini"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
       printf "\n${action} Nv Neovim configuration ..."
@@ -2507,7 +2507,7 @@ set_haves
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
-        MiniVim)
+        Mini)
           prsnl_url="https://github.com/echasnovski/nvim"
           ;;
         Adib)
@@ -3044,7 +3044,7 @@ done
 [ "$minivim" ] && {
   [ -d "${HOME}/.config/$minivimdir" ] || {
     [ "$quiet" ] || {
-      printf "\nCloning MiniVim configuration into"
+      printf "\nCloning Mini configuration into"
       printf "\n\t${HOME}/.config/${minivimdir} ... "
     }
     [ "$tellme" ] || {

@@ -65,7 +65,7 @@ following Lazyman Neovim configuration categories:
 
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [MiniVim](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
+| [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 
 | **Starter** |       |       | **Configs** |
@@ -304,14 +304,18 @@ Currently the following "Base" Neovim configurations are supported:
 ### Personal configurations
 
 In addition to the base Neovim configurations listed above, `lazyman` can
-install and initialize several "Personal" Neovim configurations.
+install and initialize several "Personal" Neovim configurations. These are
+used as personal Neovim configurations, so there are no guarantees made about
+stability or compatibility. Each supported personal configuration uses some
+interesting approach and provides significant value making them worthy of
+study, exploration, and possible use in tailoring your own configuration.
 
 All of the 'Personal' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
 
-- [MiniVim](https://github.com/echasnovski/nvim)
-  - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) system
+- [Mini](https://github.com/echasnovski/nvim)
+  - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library
   - Personal configuration of the `mini.nvim` author
   - Install and initialize with `lazyman -M`
 - [Nv](https://github.com/appelgriebsch/Nv)
@@ -569,7 +573,7 @@ Where:
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize MagicVim Neovim configuration
-    -M indicates install and initialize MiniVim Neovim configuration
+    -M indicates install and initialize Mini Neovim configuration
     -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -S indicates show Neovim configuration fuzzy selector menu
@@ -590,7 +594,7 @@ Where:
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           'MiniVim' 'Knvim' 'Roiz' 'Fennel' 'Nv'
+           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Nv'
            'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config

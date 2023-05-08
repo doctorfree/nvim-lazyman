@@ -182,7 +182,7 @@ The following command line options are available with the `lazyman` command:
 
 `-m` : indicates install and initialize 'MagicVim' Neovim configuration
 
-`-M` : indicates install and initialize 'MiniVim' Neovim configuration
+`-M` : indicates install and initialize 'Mini' Neovim configuration
 
 `-s` : indicates install and initialize the 'SpaceVim' Neovim configuration
 
@@ -214,7 +214,7 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'MiniVim', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
