@@ -6,6 +6,29 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r4
+
+
+### ⚡️ Added
+
+- Add `tldrf` alias for fuzzy search and select tldr cheatsheet
+- Add -Q option to exit lazyman after install
+- Install tealdeer in install_neovim.sh
+- Add cellular automota to games and game keymaps
+- Move Abstract config to Base category and MiniVim to Personal
+- Renamed 'Extra' category to 'Personal' to better reflect its nature
+- Check for older format configuration.lua during updates
+- Add Disable All and Enable All entries to configuration menu
+- Add to mini.starter footer
+- Simplify multiple dashboard configuration
+- Add cheatsheet to mini.starter dashboard
+
+### 🐞 Fixed
+
+- Improved telescope with keymaps and fzf extension
+- Fix tldrf alias preview window and color output
+- Removed duplicate telescope entries
+
 ## v2.0.1r3
 
 ### ⚡️ Added
