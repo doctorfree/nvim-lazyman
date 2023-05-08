@@ -19,8 +19,8 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 FIG_TEXT="Lazyman"
 USEGUI=
-BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim NvChad SpaceVim MagicVim"
-PRSNLCFGS="Mini Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
+PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -31,7 +31,7 @@ styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedar
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-F] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]"
+  printf "\n   [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]"
   printf "\n   [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]"
   [ "$1" == "noexit" ] || exit 1
@@ -56,6 +56,7 @@ usage() {
   printf "\n    -F indicates present the Lazyman Configuration menu"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -i indicates install and initialize Lazyman Neovim configuration"
+  printf "\n    -j indicates install and initialize Nv Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
@@ -80,7 +81,7 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Nv'"
+  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember'"
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
@@ -671,6 +672,8 @@ show_alias() {
     printf "\n\talias lvim='NVIM_APPNAME=nvim-Mini nvim'"
   elif [ "$spacevim" ]; then
     printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
+  elif [ "$nv" ]; then
+    printf "\n\talias lvim='NVIM_APPNAME=nvim-Nv nvim'"
   elif [ "$nvchad" ]; then
     printf "\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
   elif [ "$magicvim" ]; then
@@ -744,6 +747,9 @@ install_config() {
     Mini)
       lazyman -M -z -y -Q
       ;;
+    Nv)
+      lazyman -j -z -y -Q
+      ;;
     NvChad)
       lazyman -c -z -y -Q
       ;;
@@ -756,8 +762,8 @@ install_config() {
     Adib)
       lazyman -w Adib -z -y -Q
       ;;
-    Nv)
-      lazyman -w Nv -z -y -Q
+    Ember)
+      lazyman -w Ember -z -y -Q
       ;;
     Knvim)
       lazyman -w Knvim -z -y -Q
@@ -1834,9 +1840,9 @@ show_main_menu() {
     uninstalled=()
     [ "${have_fzf}" ] && {
       for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS}; do
-        nvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${nvdir} " ]]; then
-          uninstalled+=("${nvdir}")
+        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+          uninstalled+=("${basenvdir}")
         fi
       done
       numunins=${#uninstalled[@]}
@@ -2191,6 +2197,7 @@ lazyvim=
 lunarvim=
 minivim=
 magicvim=
+nv=
 nvchad=
 nvimprsnl=
 nvimstarter=
@@ -2217,12 +2224,13 @@ kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
+nvdir="nvim-Nv"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvdir" "$nvchaddir" "$lunarvimdir" "$abstractdir")
 nvimdir=()
-while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:BcdD:eE:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2238,6 +2246,7 @@ while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       lazyvim=1
       lunarvim=1
       magicvim=1
+      nv=1
       nvchad=1
       spacevim=1
       nvimdir=("${basenvimdirs[@]}")
@@ -2250,6 +2259,7 @@ while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       lazyvim=1
       lunarvim=1
       magicvim=1
+      nv=1
       nvchad=1
       spacevim=1
       nvimdir=("${basenvimdirs[@]}")
@@ -2290,6 +2300,10 @@ while getopts "aAb:BcdD:eE:FghHiIklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       ;;
     I)
       langservers=1
+      ;;
+    j)
+      nv=1
+      nvimdir=("$nvdir")
       ;;
     k)
       kickstart=1
@@ -2419,7 +2433,7 @@ set_haves
 [ "$nvimprsnl" ] && {
   if [ "$remove" ]; then
     if [ "${nvimprsnl}" == "all" ]; then
-      for neovim in Mini Nv Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
+      for neovim in Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2438,12 +2452,12 @@ set_haves
       printf " done"
       show_alias "nvim-Mini"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
-      printf "\n${action} Nv Neovim configuration ..."
-      lazyman -C https://github.com/appelgriebsch/Nv \
-        -N nvim-Nv ${quietflag} -z ${yesflag}
+      [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
+      printf "\n${action} Ember Neovim configuration ..."
+      lazyman -b main -C https://github.com/danlikestocode/embervim \
+        -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
       printf " done"
-      show_alias "nvim-Nv"
+      show_alias "nvim-Ember"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration ..."
@@ -2526,8 +2540,10 @@ set_haves
           prsnl_url="https://github.com/jhchabran/nvim-config"
           prsnl_opt="-P"
           ;;
-        Nv)
-          prsnl_url="https://github.com/appelgriebsch/Nv"
+        Ember)
+          prsnl_url="https://github.com/danlikestocode/embervim"
+          prsnl_opt="-b main"
+          prsnl_dir="-D nvim"
           ;;
         NvPak)
           prsnl_url="https://github.com/Pakrohk-DotFiles/NvPak.git"
@@ -2668,6 +2684,7 @@ set_haves
   [ "$lunarvim" ] && numvim=$((numvim + 1))
   [ "$magicvim" ] && numvim=$((numvim + 1))
   [ "$minivim" ] && numvim=$((numvim + 1))
+  [ "$nv" ] && numvim=$((numvim + 1))
   [ "$nvchad" ] && numvim=$((numvim + 1))
   [ "$spacevim" ] && numvim=$((numvim + 1))
   [ "$numvim" -gt 1 ] && {
@@ -2683,6 +2700,7 @@ set_haves
   [ "$lunarvim" ] && lunarvimdir="$name"
   [ "$magicvim" ] && magicvimdir="$name"
   [ "$minivim" ] && minivimdir="$name"
+  [ "$nv" ] && nvdir="$name"
   [ "$nvchad" ] && nvchaddir="$name"
   [ "$spacevim" ] && spacevimdir="$name"
   [ "$numvim" -eq 1 ] && {
@@ -2738,6 +2756,9 @@ set_haves
       ;;
     minivim)
       ndir="$minivimdir"
+      ;;
+    nv)
+      ndir="$nvdir"
       ;;
     nvchad)
       ndir="$nvchaddir"
@@ -3054,6 +3075,21 @@ done
       git -C "${HOME}/.config/${minivimdir}" submodule update \
         --init --recursive >/dev/null 2>&1
       add_nvimdirs_entry "$minivimdir"
+    }
+    [ "$quiet" ] || printf "done"
+  }
+}
+[ "$nv" ] && {
+  [ -d "${HOME}/.config/$nvdir" ] || {
+    [ "$quiet" ] || {
+      printf "\nCloning Nv configuration into"
+      printf "\n\t${HOME}/.config/${nvdir} ... "
+    }
+    [ "$tellme" ] || {
+      git clone \
+        https://github.com/appelgriebsch/Nv \
+        "${HOME}/.config/${nvdir}" >/dev/null 2>&1
+      add_nvimdirs_entry "$nvdir"
     }
     [ "$quiet" ] || printf "done"
   }

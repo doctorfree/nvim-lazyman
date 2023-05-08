@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 
 ## FEATURES
 
@@ -176,6 +176,8 @@ The following command line options are available with the `lazyman` command:
 
 `-i` : indicates install and initialize the 'Lazyman' Neovim configuration
 
+`-j` : indicates install and initialize the 'Nv' Neovim configuration
+
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 
 `-l` : indicates install and initialize the 'LazyVim' Neovim configuration
@@ -214,7 +216,7 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Nv', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
