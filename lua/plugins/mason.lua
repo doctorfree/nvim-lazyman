@@ -16,6 +16,7 @@ return {
 
   {
     "RubixDev/mason-update-all",
+    cmd = "MasonUpdateAll",
     config = function()
       require("mason-update-all").setup()
       vim.api.nvim_create_autocmd("User", {

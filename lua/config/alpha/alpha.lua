@@ -212,11 +212,7 @@ local mappings_btn = dashboard.button("C", "  Lazyman Cheatsheet", ":Cheatshe
 mappings_btn.opts.hl = "AlphaShortcut"
 
 -- Plugin Management
-local update_btn = dashboard.button("U", "  Update Plugins (none pending)", ":Lazy update<CR>")
-local has_updates = require("lazy.status").has_updates
-if has_updates then
-  update_btn = dashboard.button("U", "  Update Plugins (pending updates)", ":Lazy update<CR>")
-end
+local update_btn = dashboard.button("U", "  Update Plugins", ":Lazy update<CR>")
 update_btn.opts.hl = "AlphaHeader"
 local install_btn = dashboard.button("L", "  Manage Plugins  (Lazy)", ":Lazy<CR>")
 install_btn.opts.hl = "AlphaHeader"
