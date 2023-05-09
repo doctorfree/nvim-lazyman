@@ -306,6 +306,7 @@ Currently the following "Base" Neovim configurations are supported:
   - SpaceVim started in December 2016, mature and well supported
   - Standard SpaceVim install uses `curl`:
     - `curl -sLf https://spacevim.org/install.sh | bash`
+  - Lazyman custom SpaceVim configuratin installed in `~/.SpaceVim.d/`
   - Install and initialize using Lazyman with `lazyman -s`
 
 ### Personal configurations
@@ -340,6 +341,7 @@ installed with the `-w conf` option.
   - Install and initialize with `lazyman -w Adib`
 - [Optixal](https://github.com/Optixal/neovim-init.vim)
   - Hybrid Neovim config for developers with a functional yet aesthetic experience
+  - Uses a combination of vimscript and lua with the `vim-plug` plugin manager
   - Install and initialize with `lazyman -w Optixal`
 - [Vim Plug](https://github.com/doctorfree/nvim-plug)
   - Older vim-plug based configuration of the author

@@ -22,6 +22,7 @@ USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
 STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
+SPDIR="${HOME}/.SpaceVim.d"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
 # Supported themes
@@ -538,6 +539,21 @@ update_config() {
         git -C "${HOME}/${GITDIR}/${cdir}" stash >/dev/null 2>&1
         git -C "${HOME}/${GITDIR}"/${cdir} reset --hard >/dev/null 2>&1
         git -C "${HOME}/${GITDIR}"/${cdir} pull >/dev/null 2>&1
+      }
+      [ "$quiet" ] || {
+        printf " done"
+      }
+    }
+  }
+  [ "${ndir}" == "${spacevimdir}" ] && {
+    [ -d "${SPDIR}"/.git ] && {
+      [ "$quiet" ] || {
+        printf "\nUpdating existing SpaceVim add-on config at ${SPDIR} ..."
+      }
+      [ "$tellme" ] || {
+        git -C "${SPDIR}" stash >/dev/null 2>&1
+        git -C "${SPDIR}" reset --hard >/dev/null 2>&1
+        git -C "${SPDIR}" pull >/dev/null 2>&1
       }
       [ "$quiet" ] || {
         printf " done"
@@ -3122,6 +3138,17 @@ done
 }
 [ "$spacevim" ] && {
   clone_repo SpaceVim SpaceVim/SpaceVim "$spacevimdir"
+  [ -d "${SPDIR}" ] || {
+    [ "$quiet" ] || {
+      printf "\nAdding custom SpaceVim configuration into"
+      printf "\n\t${SPDIR} ... "
+    }
+    [ "$tellme" ] || {
+      [ -d "${HOME}"/.vim_backups ] || mkdir -p "${HOME}"/.vim_backups
+      git clone https://github.com/doctorfree/spacevim "${SPDIR}" > /dev/null 2>&1
+    }
+    [ "$quiet" ] || printf "done"
+  }
 }
 [ "$url" ] && {
   if [ -d "${HOME}/.config/${nvimdir[0]}" ]; then
