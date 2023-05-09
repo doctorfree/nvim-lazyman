@@ -1113,15 +1113,25 @@ lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p
 ```
 
 After `export NVIM_APPNAME="nvim-Optixal"`, invoking `nvim` will bring up
-the Optixal Neovim configuration.
+the Optixal Neovim configuration. Note, the `Optixal` configuration is one
+of the supported Lazyman configs and can be installed with `lazyman -w Optixal`.
 
 Another Plug based Neovim configuration serves as a second example:
 
 ```bash
-lazyman -C https://github.com/doctorfree/nvim-plug -N nvim-Plug -p
+lazyman -C https://github.com/offa/nvim-config -N nvim-Offa -p
 ```
 
 To begin exploring this Neovim configuration:
+
+```bash
+NVIM_APPNAME="nvim-Offa" nvim ~/.config/nvim-Offa/init.lua
+```
+
+Also included as a supported Lazyman config is the previous Neovim
+configuration of the author which uses `vim-plug` and a vimscript
+initialization file. Install the Lazyman `Plug` config with the command
+`lazyman -w Plug` and start exploring with:
 
 ```bash
 NVIM_APPNAME="nvim-Plug" nvim ~/.config/nvim-Plug/init.vim
