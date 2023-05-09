@@ -851,6 +851,10 @@ install_tools() {
     npm i -g cspell >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
+    log "Installing typescript npm package ..."
+    npm i -g typescript >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
