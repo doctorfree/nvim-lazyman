@@ -6,6 +6,16 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r6
+
+### ⚡️ Added
+
+- Add table of custom configs and expand section on custom configurations
+
+### 🐞 Fixed
+
+- Fix argument passing to `install_neovim.sh`
+
 ## v2.0.1r5
 
 ### ⚡️ Added
