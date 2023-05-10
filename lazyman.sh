@@ -359,6 +359,14 @@ remove_nvimdirs_entry() {
 
 remove_config() {
   ndir="$1"
+  if [ "${ndir}" == "nvim" ]; then
+    printf "\nYou have requested removal of the Neovim configuration at:"
+    printf "\n\t${HOME}/.config/nvim\n"
+    printf "\nLazyman will not modify the standard nvim folders in any way."
+    printf "\nRemoval cancelled, press <Enter> to continue ... "
+    read -r yn
+    return
+  fi
   [ "$proceed" ] || {
     printf "\nYou have requested removal of the Neovim configuration at:"
     printf "\n\t${HOME}/.config/${ndir}\n"
