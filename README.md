@@ -74,6 +74,16 @@ following Lazyman Neovim configuration categories:
 | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)  | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
 | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
 
+Known working custom Lazyman configurations not yet integrated into the above
+categories. See the [custom configuration section](#custom-configurations)
+for installation details.
+
+| **Custom** |       | **Configs** |
+| ---------- | ----- | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [ONNO](https://github.com/loctvl842/nvim.git) |
+
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
 highlighting, completion, diagnostics, and more for many programming languages.
@@ -471,9 +481,22 @@ Known working custom Lazyman configurations include the following:
 
 - [AlanVim](https://github.com/alanRizzo/dot-files)
   - `lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P`
+- [Basic IDE](https://github.com/LunarVim/nvim-basic-ide)
+  - Maintained by LunarVim, descendent of "Neovim from Scratch"
+  - All plugins are pinned to known working versions
+  - `lazyman -C https://github.com/LunarVim/nvim-basic-ide -N nvim-BasicIde`
+- [Brain](https://github.com/brainfucksec/neovim-lua)
+  - `lazyman -b main -C https://github.com/brainfucksec/neovim-lua -N nvim-Brain -D nvim`
+- [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
+  - `lazyman -C https://github.com/CharlesChiuGit/nvimdots.lua -N nvim-Charles`
+- [CodeArt](https://github.com/artart222/CodeArt)
+  - `lazyman -C https://github.com/artart222/CodeArt -N nvim-CodeArt -P`
 - [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
   - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic`
   - See additional custom configuration details above
+- [Magidc](https://github.com/magidc/nvim-config)
+  - Java, Python, Lua, and RUST IDE
+  - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
   - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P`
 - [ONNO](https://github.com/loctvl842/nvim.git)
