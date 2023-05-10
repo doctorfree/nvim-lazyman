@@ -6,8 +6,26 @@
 
 ### 🐞 Fixed
 
-## v2.0.1r4
+## v2.0.1r5
 
+### ⚡️ Added
+
+- Add known custom configs, expand custom section
+- Added another example of a config using vim-plug
+- Install typescript npm package
+- Add custom SpaceVim config
+- Add support for mason-nvim-dap auto install of adapters
+- Add Ember to Personal
+
+### 🐞 Fixed
+
+- Cancel removal if the requested config is the standard Neovim config dir
+- Fix nvim-dap configuration
+- Move Nv to Base
+- Rename MiniVim to Mini
+- Clarify description of Personal category, mini.nvim is a library
+
+## v2.0.1r4
 
 ### ⚡️ Added
 
