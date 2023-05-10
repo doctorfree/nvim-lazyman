@@ -14,8 +14,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
       - name: lazyman
-        uses: kdheepak/panvimdoc@main
+        uses: kdheepak/panvimdoc@v3.0.5
         with:
           vimdoc: Lazyman # Output vimdoc project name (required)
           # The following are all optional
