@@ -429,6 +429,10 @@ initialize it with Packer:
 lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
 ```
 
+Note the `-b main` argument in this Lazyman command. When specifying a
+subdirectory of a repository with `-D <subdir>` it is necessary to also
+provide the default branch of the repository if not `master`.
+
 Custom Neovim configurations may require additional setup work not
 performed by `lazyman`. For example, the `CosmicNvim` Neovim config
 requires `Node.js`, `prettierd`, and `eslint_d` but these are installed
@@ -437,7 +441,7 @@ Neovim configuration perform the following:
 
 - Verify the above prerequisites are installed
 - Install `CosmicNvim` with `lazyman`:
-  - `lazyman -b main -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic -z`
+  - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic -z`
 - Copy the example configs:
   - `cd ~/.config/nvim-Cosmic/lua/cosmic/config`
   - `cp examples/config.lua config.lua`
@@ -445,12 +449,35 @@ Neovim configuration perform the following:
 - Run Neovim with the `CosmicNvim` configuration:
   - `NVIM_APPNAME="nvim-Cosmic" nvim`
 
+Often a custom Lazyman configuration will appear to work without issue but
+contain references to `~/.config/nvim/` in its configuration files. For
+example, the `oh-my-nvim` Neovim configuration installs and initializes
+without issue using `lazyman` but its dashboard contains a reference to
+`~/.config/nvim/init.lua`. References like this can be fixed so the config
+is relocatable by doing something like the following in Lua:
+
+```lua
+local config_path = vim.fn.stdpath("config") .. "/init.lua"
+```
+
 Custom Neovim configurations will be displayed and available in subsequent
 runs of `lazyman` in the Lazyman Menu System.
 
 An excellent list of preconfigured Neovim configurations is available at the
 [Awesome Neovim Repository](https://github.com/rockerBOO/awesome-neovim#preconfigured-configuration). Many of these can be easily installed and initialized using
 `lazyman -b <branch> -C <url> -N <nvimdir> ...`.
+
+Known working custom Lazyman configurations include the following:
+
+- [AlanVim](https://github.com/alanRizzo/dot-files)
+  - `lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P`
+- [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
+  - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic`
+  - See additional custom configuration details above
+- [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
+  - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P`
+- [ONNO](https://github.com/loctvl842/nvim.git)
+  - `lazyman -C https://github.com/loctvl842/nvim.git -N nvim-Loctvl`
 
 Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
@@ -1062,7 +1089,23 @@ The `lazyman` command can be used to install and initialize Neovim configuration
 using the `Packer` plugin manager. To install and initialize a `Packer` managed
 Neovim configuration, specify the `-P` flag on the `lazyman` command line.
 
-For example, to install and initialize the `Abstract` Neovim configuration
+For example, to install and initialize the `oh-my-nvim` Neovim configuration
+by HardHackerLabs, issue the command:
+
+```bash
+lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P
+```
+
+This will clone the indicated repository into `$HOME/.config/nvim-Ohmynvim`
+and initialize it using Packer with:
+
+```bash
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+
+Try it out with `NVIM_APPNAME="nvim-Ohmynvim nvim`.
+
+To install and initialize the `Abstract` Neovim configuration
 at <https://github.com/Abstract-IDE/Abstract> invoke `lazyman` as follows:
 
 ```bash
@@ -1070,10 +1113,11 @@ lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P
 ```
 
 After `export NVIM_APPNAME="nvim-Abstract"`, invoking `nvim` will bring up
-the Abstract Neovim configuration.
+the Abstract Neovim configuration. Note, `Abstract` is now a supported
+Lazyman Neovim configuration and can be installed with `lazyman -g`.
 
-Another Packer based Neovim configuration, this one using Fennel, serves as
-a second example and is included as a Lazyman supported "Personal" config:
+Another Packer based Neovim configuration, this one using Fennel, is included
+as a Lazyman supported "Personal" config:
 
 ```bash
 lazyman -w Fennel
@@ -1085,7 +1129,7 @@ To begin exploring this Neovim configuration:
 NVIM_APPNAME="nvim-Fennel" nvim ~/.config/nvim-Fennel/fnl/conf/init.fnl
 ```
 
-A third example of a Packer based Neovim configuration is the excellent
+Another example of a Packer based Neovim configuration is the excellent
 `MagicVim` config, a fully supported Lazyman Neovim config. To install and
 initialize `MagicVim`:
 
