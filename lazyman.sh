@@ -2674,7 +2674,7 @@ set_haves
   }
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
-      "$debug" "$head" "$brew" "$yes"
+      $debug $head $brew $yes
     exit 0
   fi
   exit 1
@@ -2901,7 +2901,7 @@ fi
 [ "${instnvim}" ] && {
   if [ -x "${HOME}/.config/${lazymandir}/scripts/install_neovim.sh" ]; then
     "${HOME}/.config/${lazymandir}"/scripts/install_neovim.sh \
-      "$debug" "$head" "$brew" "$yes"
+      $debug $head $brew $yes
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
