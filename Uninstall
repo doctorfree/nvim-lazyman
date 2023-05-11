@@ -1,0 +1,26 @@
+#!/bin/bash
+
+DESTDIR="${HOME}"/.config/nvim-Lazyman
+
+have_lman=$(type -p lazyman)
+if [ "${have_lman}" ]
+then
+  LMAN="lazyman"
+else
+  if [ -x "${DESTDIR}"/lazyman.sh ]
+  then
+    LMAN="${DESTDIR}"/lazyman.sh
+  else
+    rm -rf "${DESTDIR}"
+    rm -rf "${HOME}"/.local/share/nvim-Lazyman
+    rm -rf "${HOME}"/.local/state/nvim-Lazyman
+    rm -rf "${HOME}"/.cache/nvim-Lazyman
+    rm -f "${HOME}"/.local/bin/lazyman
+    exit 0
+  fi
+fi
+
+${LMAN} -A -R -y
+${LMAN} -R -N nvim-Lazyman -y
+
+exit 0
