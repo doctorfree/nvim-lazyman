@@ -21,7 +21,8 @@ FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
-STARTCFGS="Basic Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
+MINIMCFGS="Minimal StartBase Opinion StartLsp StartMason Modular"
+STARTCFGS="Basic Kickstart NvPak ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -2624,7 +2625,7 @@ set_haves
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal StartBase Opinion StartLsp StartMason Modular; do
+      for neovim in ${MINIMCFGS}; do
         startbranch=
         set_starter_branch "${neovim}"
         [ "${startbranch}" ] || usage
@@ -2660,18 +2661,6 @@ set_haves
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimstarter} in
-        Minimal | StartBase | Opinion | StartLsp | StartMason | Modular)
-          startbranch=
-          set_starter_branch "${nvimstarter}"
-          [ "${startbranch}" ] || usage
-          action="Installing"
-          [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
-          printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
-          lazyman -C https://github.com/VonHeikemen/nvim-starter \
-            -N nvim-${nvimstarter} -b ${startbranch} \
-            ${quietflag} ${runflag} ${yesflag}
-          printf " done"
-          ;;
         Basic)
           action="Installing"
           [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
@@ -2699,8 +2688,16 @@ set_haves
           show_alias "nvim-NvPak"
           ;;
         *)
-          printf "\nUnknown starter configuration name: ${nvimstarter}"
-          printf "\nSkipping"
+          startbranch=
+          set_starter_branch "${nvimstarter}"
+          [ "${startbranch}" ] || usage
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
+          printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
+          lazyman -C https://github.com/VonHeikemen/nvim-starter \
+            -N nvim-${nvimstarter} -b ${startbranch} \
+            ${quietflag} ${runflag} ${yesflag}
+          printf " done"
           ;;
       esac
     fi

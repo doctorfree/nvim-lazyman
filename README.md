@@ -311,7 +311,8 @@ Currently the following "Base" Neovim configurations are supported:
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
   - Install and initialize with `lazyman -j`
 - [NvChad](https://nvchad.com)
-  - The [NvChad example](https://github.com/NvChad/example_config) configuration
+  - Lazyman customized [NvChad example](https://github.com/NvChad/example_config) configuration
+  - Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
   - Install and initialize with `lazyman -c`
 - [SpaceVim](https://spacevim.org)
   - SpaceVim started in December 2016, mature and well supported

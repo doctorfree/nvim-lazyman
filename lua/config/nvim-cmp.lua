@@ -48,7 +48,13 @@ cmp.setup({
       return item
     end,
   },
-  experimental = { ghost_text = true },
+  experimental = {
+    native_menu = false,
+    ghost_text = {
+      enabled = true,
+      hl_group = "Comment",
+    },
+  },
   mapping = {
     ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
     ["<Down>"] = cmp.mapping.select_next_item(select_opts),

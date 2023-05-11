@@ -6,6 +6,19 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r7
+
+### ⚡️ Added
+
+- Add Basic config to starters
+- Add table of custom configs to release notes
+
+### 🐞 Fixed
+
+- Fix `nvim-cmp` experimental `ghost_text` setting [#1565](/hrsh7th/nvim-cmp/issues/1565)
+- Improved custom NvChad add-on
+- Specify branch and panvimdoc version in workflows
+
 ## v2.0.1r6
 
 ### ⚡️ Added
