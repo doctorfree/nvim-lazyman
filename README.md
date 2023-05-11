@@ -49,7 +49,7 @@ features. Configurations in the `Personal` category are not necessarily
 intended for public use, these repositories are maintained for the personal
 use of the authors but are included here for their value. The `Starter`
 category includes the Neovim `Kickstart` configuration, the `NvPak` config,
-and the Neovim configurations provided by the
+the `Basic` config, and the Neovim configurations provided by the
 [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
 The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
@@ -69,10 +69,11 @@ following Lazyman Neovim configuration categories:
 | [Mini](https://github.com/echasnovski/nvim) | [Ember](https://github.com/danlikestocode/embervim) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 
-| **Starter** |       |       | **Configs** |
-| ----------- | ----- | ----- | ----------- |
-| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)  | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
-| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
+| **Starter** |       | **Configs** |
+| ----------- | ----- | ----------- |
+| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
+| [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) |
+| [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
 
 Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
@@ -370,15 +371,19 @@ installed with the `-w conf` option.
 
 ### Starter configurations
 
-The 'Starter' Neovim configurations include `Kickstart`, `NvPak`, and those
-provided by [VonHeikemen](https://github.com/VonHeikemen), the author of
-[LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim).
+The 'Starter' Neovim configurations include `Basic`, `Kickstart`, `NvPak`,
+and those provided by [VonHeikemen](https://github.com/VonHeikemen),
+the author of [LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim).
 
 All of the 'Starter' configurations can be installed and initialized with
 the command `lazyman -X`. Individual 'Starter' configurations can be
 installed with the `-x conf` option.
 
+- [Basic](https://github.com/NvChad/basic-config)
+  - Starter config by the author of NvChad with [video tutorial](https://youtube.com/playlist?list=PLYVQrj2EVSUL1NqYn3jsIVXG3U9eWaMcq)
+  - Install and initialize with `lazyman -x Basic`
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+  - Popular starting point, small, single file, well documented, modular
   - Install and initialize with `lazyman -k`
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
   - PaK in Farsi means pure, something that is in its purest form
@@ -660,7 +665,7 @@ Where:
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           'Kickstart' 'NvPak' 'Minimal' 'StartBase'
+           'Basic' 'Kickstart' 'NvPak' 'Minimal' 'StartBase'
            'Opinion' 'StartLsp' 'StartMason', or 'Modular'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt

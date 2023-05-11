@@ -21,7 +21,7 @@ FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
-STARTCFGS="Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
+STARTCFGS="Basic Kickstart Minimal StartBase Opinion StartLsp StartMason Modular NvPak"
 SPDIR="${HOME}/.SpaceVim.d"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
@@ -87,7 +87,7 @@ usage() {
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Kickstart' 'NvPak' 'Minimal' 'StartBase'"
+  printf "\n           'Basic' 'Kickstart' 'NvPak' 'Minimal' 'StartBase'"
   printf "\n           'Opinion' 'StartLsp' 'StartMason', or 'Modular'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
@@ -752,6 +752,9 @@ install_config() {
       ;;
     AstroNvim)
       lazyman -a -z -y -Q
+      ;;
+    Basic)
+      lazyman -x Basic -z -y -Q
       ;;
     Ecovim)
       lazyman -e -z -y -Q
@@ -2243,6 +2246,7 @@ pmgr="Lazy"
 lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 abstractdir="nvim-Abstract"
+basicdir="nvim-Basic"
 ecovimdir="nvim-Ecovim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
@@ -2457,7 +2461,7 @@ set_haves
 [ "$nvimprsnl" ] && {
   if [ "$remove" ]; then
     if [ "${nvimprsnl}" == "all" ]; then
-      for neovim in Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple; do
+      for neovim in ${PRSNLCFGS}; do
         remove_config "nvim-${neovim}"
       done
     else
@@ -2608,10 +2612,9 @@ set_haves
 [ "$nvimstarter" ] && {
   if [ "$remove" ]; then
     if [ "${nvimstarter}" == "all" ]; then
-      for neovim in Minimal StartBase Opinion StartLsp StartMason Modular; do
+      for neovim in ${STARTCFGS}; do
         remove_config "nvim-${neovim}"
       done
-      remove_config "nvim-Kickstart"
     else
       remove_config "nvim-${nvimstarter}"
     fi
@@ -2634,6 +2637,13 @@ set_haves
         show_alias "nvim-${neovim}"
       done
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
+      printf "\n${action} Basic Neovim configuration ..."
+      lazyman -C https://github.com/NvChad/basic-config \
+        -N nvim-Basic ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Basic"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
       printf "\n${action} Kickstart Neovim configuration ..."
       lazyman -k ${quietflag} -z ${yesflag}
@@ -2647,19 +2657,52 @@ set_haves
       printf " done"
       show_alias "nvim-NvPak"
     else
-      # TODO: What about Kickstart and NvPak ?
       runflag=
       [ "${runvim}" ] || runflag="-z"
-      startbranch=
-      set_starter_branch "${nvimstarter}"
-      [ "${startbranch}" ] || usage
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
-      printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
-      lazyman -C https://github.com/VonHeikemen/nvim-starter \
-        -N nvim-${nvimstarter} -b ${startbranch} \
-        ${quietflag} ${runflag} ${yesflag}
-      printf " done"
+      case ${nvimstarter} in
+        Minimal | StartBase | Opinion | StartLsp | StartMason | Modular)
+          startbranch=
+          set_starter_branch "${nvimstarter}"
+          [ "${startbranch}" ] || usage
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
+          printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
+          lazyman -C https://github.com/VonHeikemen/nvim-starter \
+            -N nvim-${nvimstarter} -b ${startbranch} \
+            ${quietflag} ${runflag} ${yesflag}
+          printf " done"
+          ;;
+        Basic)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
+          printf "\n${action} Basic Neovim configuration ..."
+          lazyman -C https://github.com/NvChad/basic-config \
+            -N nvim-Basic ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-Basic"
+          ;;
+        Kickstart)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
+          printf "\n${action} Kickstart Neovim configuration ..."
+          lazyman -k ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-Kickstart"
+          ;;
+        NvPak)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
+          printf "\n${action} NvPak Neovim configuration ..."
+          lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
+            -N nvim-NvPak ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-NvPak"
+          ;;
+        *)
+          printf "\nUnknown starter configuration name: ${nvimstarter}"
+          printf "\nSkipping"
+          ;;
+      esac
     fi
   fi
   printf "\n"
@@ -2762,6 +2805,9 @@ set_haves
       ;;
     abstract)
       ndir="$abstractdir"
+      ;;
+    basic)
+      ndir="$basicdir"
       ;;
     ecovim)
       ndir="$ecovimdir"
