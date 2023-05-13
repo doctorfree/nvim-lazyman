@@ -276,6 +276,9 @@ init_neovim() {
           else
             [ "${neodir}" == "${minivimdir}" ] || {
               nvim --headless "+Lazy! sync" +qa
+              [ "${neodir}" == "${nvchaddir}" ] && {
+                nvim --headless "+MasonInstallAll" +qa
+              }
             }
           fi
         fi
@@ -312,6 +315,9 @@ init_neovim() {
           else
             [ "${neodir}" == "${minivimdir}" ] || {
               nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
+              [ "${neodir}" == "${nvchaddir}" ] && {
+                nvim --headless "+MasonInstallAll" +qa >/dev/null 2>&1
+              }
             }
           fi
         fi
