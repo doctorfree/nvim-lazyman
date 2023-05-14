@@ -4,7 +4,7 @@ return {
     build = ":MasonUpdate",
     cmd = "Mason",
     lazy = false,
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
   },
 
   {

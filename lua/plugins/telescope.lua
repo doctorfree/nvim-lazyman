@@ -47,7 +47,7 @@ return {
     { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" },
     { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },
     -- Other
-    { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
+    { "<leader>B", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
     { "<C-s>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
     { "<leader>,",       "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
     { "<leader>/",       Util.telescope("live_grep"),                        desc = "Find in Files (Grep)" },

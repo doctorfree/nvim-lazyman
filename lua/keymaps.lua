@@ -14,7 +14,6 @@ end
 -- Plugin Management
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
 map("n", "<leader>U", "<cmd>Lazy update<cr>", { desc = "Lazy Update" })
-map("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Mason Menu" })
 -- Options
 map("n", "<leader>o", "<cmd>options<cr>", { desc = "Options" })
 
