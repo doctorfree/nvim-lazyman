@@ -218,7 +218,7 @@ end, { desc = "HopLineStart target in normal mode", noremap = true, silent = tru
 
 --  Hop can even trigger LuaSnip Snippets (complicated)
 
-set("n", "Ls", function()
+set("n", "<leader>lS", function()
 	vim.cmd([[:HopLineStart]])
 	vim.schedule(function()
 		vim.cmd([[:normal ojja ]])
