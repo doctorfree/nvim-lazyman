@@ -200,7 +200,6 @@ lspconfig.tsserver.setup({
 local other_servers_with_navic = {
   "html",
   "pylsp",
-  "terraformls",
   "vimls",
   "bashls",
   "awk_ls",

@@ -415,7 +415,8 @@ install_neovim_dependencies() {
     fi
   }
   PKGS="git curl jq tar unzip fzf wget xclip"
-  for pkg in $PKGS; do
+  for pkg in $PKGS
+  do
     plat_install "$pkg"
   done
 
@@ -454,7 +455,8 @@ install_neovim_dependencies() {
           chmod 644 "${TEMP_TGZ}"
           mkdir -p /tmp/ghit$$
           tar -C /tmp/ghit$$ -xzf "${TEMP_TGZ}"
-          for ghimbin in /tmp/"ghit$$"/*/bin/gh /tmp/"ghit$$"/bin/gh; do
+          for ghimbin in /tmp/"ghit$$"/*/bin/gh /tmp/"ghit$$"/bin/gh
+          do
             [ "${ghimbin}" == "/tmp/nvim$$/*/bin/gh" ] && continue
             [ -f "${ghimbin}" ] && {
               ghimdir=$(dirname ${ghimbin})
@@ -582,7 +584,8 @@ install_neovim() {
             tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
             chmod 755 ${HOME}/.local/bin/nvim
           else
-            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
+            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim
+            do
               [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
               [ -f "${nvimbin}" ] && {
                 nvimdir=$(dirname ${nvimbin})
@@ -871,7 +874,8 @@ install_tools() {
     tree-sitter init-config >/dev/null 2>&1
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat terraform; do
+  for pkg in bat lsd figlet luarocks lolcat
+  do
     plat_install "${pkg}"
   done
 

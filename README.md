@@ -222,6 +222,9 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman
 install Neovim 0.9, language servers and tools, then issue the command
 `lazyman -I` or choose the `Install Tools` lazyman menu option.
 
+The `lazyman -I` command can also be used to install additional tools, often
+resolving some `:checkhealth` warnings.
+
 See the [Appendix section](#appendix) below to examine the
 [lazyman command](lazyman.sh) and associated
 [Neovim install script](scripts/install_neovim.sh).
@@ -988,7 +991,7 @@ conf.enable_clangd = false
 conf.lsp_servers = {
   "bashls", "cssmodules_ls", "denols", "dockerls", "eslint", "gopls",
   "graphql", "html", "jdtls", "jsonls", "julials", "ltex", "lua_ls",
-  "marksman", "pylsp", "pyright", "sqlls", "tailwindcss", "terraformls",
+  "marksman", "pylsp", "pyright", "sqlls", "tailwindcss",
   "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters and linters installed by Mason
@@ -1666,13 +1669,6 @@ then the following manual process may suffice:
 
 This Homebrew python module path issue is not a problem when using the
 native package manager to install dependencies and tools. This is the default.
-
-### Ubuntu Linux
-
-The `terraform` command is not available in the default repositories. See the
-[Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-to install `terraform` on Ubuntu Linux. This is not
-an issue when using Homebrew to install dependencies.
 
 #### Ubuntu 20.04
 

@@ -90,7 +90,6 @@ return {
             timeout = 10000,
             extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
           }),
-          formatting.terraform_fmt,
           formatting.goimports,
           formatting.gofumpt,
           formatting.latexindent.with({

@@ -143,7 +143,6 @@ conf.lsp_servers = {
   "pyright",
   "sqlls",
   "tailwindcss",
-  "terraformls",
   "texlab",
   "tsserver",
   "vimls",
