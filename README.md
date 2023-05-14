@@ -79,11 +79,10 @@ Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       | **Configs** |
-| ---------- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
-| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [ONNO](https://github.com/loctvl842/nvim.git) |
+| **Custom** |       |        |        | **Configs** |
+| ---------- | ----- | ------ | ------ | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
+| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [ONNO](https://github.com/loctvl842/nvim.git) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -500,6 +499,8 @@ Known working custom Lazyman configurations include the following:
 - [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
   - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic`
   - See additional custom configuration details above
+- [Elianiva](https://github.com/elianiva/dotfiles)
+  - `lazyman -C https://github.com/elianiva/dotfiles -D nvim/.config/nvim -N nvim-Elianiva`
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`

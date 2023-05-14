@@ -42,7 +42,6 @@ o.formatoptions = "jcroqlnt" -- tcqj
 o.grepformat = "%f:%l:%c:%m"
 o.ignorecase = true -- Ignore case
 o.inccommand = "nosplit" -- preview incremental substitute
-o.laststatus = 0
 o.list = settings.list -- Show some invisible characters (tabs...
 o.listchars = settings.listchars
 o.mouse = settings.mouse -- Enable mouse mode
