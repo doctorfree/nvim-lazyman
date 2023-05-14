@@ -57,7 +57,6 @@ usage() {
   printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
   printf "\n    -F indicates present the Lazyman Configuration menu"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
-  printf "\n    -i indicates install and initialize Lazyman Neovim configuration"
   printf "\n    -j indicates install and initialize Nv Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
@@ -73,7 +72,8 @@ usage() {
   printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
   printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
   printf "\n    -H indicates compile and install the nightly Neovim build"
-  printf "\n    -I indicates install language servers and tools for coding diagnostics"
+  printf "\n    -i indicates install language servers and tools for coding diagnostics"
+  printf "\n    -I indicates install all language servers and tools for coding diagnostics"
   printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
   printf "\n    -r indicates remove the previously installed configuration"
   printf "\n    -R indicates remove previously installed configuration and backups"
@@ -2330,11 +2330,10 @@ while getopts "aAb:BcdD:eE:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       head="-n"
       ;;
     i)
-      lazyman=1
-      neovimdir=("${lazymandir}")
+      langservers=1
       ;;
     I)
-      langservers=1
+      langservers=2
       ;;
     j)
       nv=1
@@ -2713,14 +2712,18 @@ set_haves
 
 [ "$langservers" ] && {
   [ "${instnvim}" ] || {
-    printf "\n\n-I and -Z are incompatible options."
-    printf "\nThe '-I' option indicates install tools."
+    printf "\n\n-I/-i and -Z are incompatible options."
+    printf "\nThe '-I' or '-i' option indicates install tools."
     printf "\nThe '-Z' option indicates do not install tools."
     brief_usage
   }
   if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
-    "${LMANDIR}"/scripts/install_neovim.sh \
-      $debug $head $brew $yes
+    if [ $langservers -eq 2 ]
+    then
+      "${LMANDIR}"/scripts/install_neovim.sh -a $debug $head $brew $yes
+    else
+      "${LMANDIR}"/scripts/install_neovim.sh $debug $head $brew $yes
+    fi
     exit 0
   fi
   exit 1

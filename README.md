@@ -636,7 +636,6 @@ Where:
            (e.g. 'lazyman -E lazyvim foo.lua')
     -F indicates present the Lazyman Configuration menu
     -g indicates install and initialize Abstract Neovim configuration
-    -i indicates install and initialize Lazyman Neovim configuration
     -j indicates install and initialize Nv Neovim configuration
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
@@ -652,7 +651,8 @@ Where:
     -h indicates use Homebrew to install rather than native pkg mgr
         (Pacman is always used on Arch Linux, Homebrew on macOS)
     -H indicates compile and install the nightly Neovim build
-    -I indicates install language servers and tools for coding diagnostics
+    -i indicates install language servers and tools for coding diagnostics
+    -I indicates install all language servers and tools for coding diagnostics
     -L 'cmd' specifies a Lazy command to run in the selected configuration
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups

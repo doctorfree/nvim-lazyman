@@ -174,8 +174,6 @@ The following command line options are available with the `lazyman` command:
 
 `-H` : indicates compile and install the nightly Neovim build
 
-`-i` : indicates install and initialize the 'Lazyman' Neovim configuration
-
 `-j` : indicates install and initialize the 'Nv' Neovim configuration
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
@@ -194,7 +192,9 @@ The following command line options are available with the `lazyman` command:
 
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
-`-I` : indicates install language servers and tools for coding diagnostics
+`-i` : indicates install language servers and tools for coding diagnostics
+
+`-I` : indicates install all language servers and tools for coding diagnostics
 
 `-L cmd` : specifies a Lazy command to run
 

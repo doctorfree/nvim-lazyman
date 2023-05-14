@@ -754,6 +754,14 @@ link_python() {
   }
 }
 
+install_extra() {
+  [ "$quiet" ] || printf "\nInstalling extra language servers and tools"
+  for pkg in luarocks julia php composer
+  do
+    plat_install ${pkg}
+  done
+}
+
 install_tools() {
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
   plat_install ccls
@@ -1059,6 +1067,7 @@ main() {
     fi
   fi
   install_tools
+  [ "${alltools}" ] && install_extra
 }
 
 APT=
@@ -1081,11 +1090,15 @@ have_pac=$(type -p pacman)
 have_xbps=$(type -p xbps-install)
 have_yum=$(type -p yum)
 have_zyp=$(type -p zypper)
+alltools=
 native=1
 proceed=
 
-while getopts "dhnqy" flag; do
+while getopts "adhnqy" flag; do
   case $flag in
+    a)
+      alltools=1
+      ;;
     d)
       debug=1
       ;;
