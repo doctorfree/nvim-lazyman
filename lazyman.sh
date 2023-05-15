@@ -1353,6 +1353,12 @@ show_conf_menu() {
     else
       use_terminal="✗"
     fi
+    enable_wakatime=$(get_conf_value enable_wakatime)
+    if [ "${enable_wakatime}" == "true" ]; then
+      use_wakatime=""
+    else
+      use_wakatime="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1457,6 +1463,7 @@ show_conf_menu() {
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("WakaTime      [${use_wakatime}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
@@ -1630,6 +1637,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "WakaTime"*,* | *,"WakaTime"*)
+          if [ "${enable_wakatime}" == "true" ]; then
+            set_conf_value "enable_wakatime" "false"
+          else
+            set_conf_value "enable_wakatime" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -1771,6 +1786,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
           set_conf_value "enable_ide" "false"
@@ -1802,6 +1818,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"

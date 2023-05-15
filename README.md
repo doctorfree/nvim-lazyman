@@ -1619,13 +1619,32 @@ $HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
 
 ## Known limitations
 
+### Interactive Neovim Configuration Initialization
+
+Lazyman does not support automatic initialization of interactive configurations.
+If the initialization process is interactive, the auto initialization will hang.
+Some effort is made to detect an interactive initialization and avoid a hung
+process. For example, if the configuration includes the
+[WakaTime metrics plugin](https://github.com/wakatime/vim-wakatime) and no
+WakaTime configuration is detected then the user is prompted before continuing.
+Other configurations that prompt for an example config are handled by Lazyman
+but some custom configurations not yet supported by Lazyman may hang during
+initialization if they prompt for input.
+
+If the initialization process takes more than a few minutes it can be terminated
+with `Ctrl-c`. After termination the configuration can be manually initialized:
+
+```bash
+NVIM_APPNAME="<nvim dir>" nvim
+```
+
 ### Lazyman Neovim Configuration
 
 The installation of some programming languages is left to the system
 administrator. In particular, `lazyman` does not install Go, Java, the
 Java Development Kit (JDK), Composer, PHP, or Julia. These may show
 up as warnings when performing a `:checkhealth` and can be installed
-manually if needed.
+manually if needed. Some additional tools can be installed with `lazyman -I`.
 
 SSH users may need to install
 [lemonade](https://github.com/lemonade-command/lemonade)
