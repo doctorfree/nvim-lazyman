@@ -200,6 +200,8 @@ set_haves() {
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
   have_tscli=$(type -p tree-sitter)
+  have_julia=$(type -p julia)
+  have_composer=$(type -p composer)
   have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
@@ -1938,7 +1940,8 @@ show_main_menu() {
     partial=
     get_config_str "${BASECFGS} ${PRSNLCFGS} ${STARTCFGS}"
     options+=("Install All ${configstr}")
-    [[ "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
+    [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" && \
+       "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
     [ "${base_partial}" ] && options+=("Remove Base")
