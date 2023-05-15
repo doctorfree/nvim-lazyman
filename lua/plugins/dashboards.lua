@@ -11,7 +11,10 @@ if settings.session_manager == "possession" then
 end
 
 if settings.enable_wakatime then
-  wakatime_type = { "wakatime/vim-wakatime" }
+  wakatime_type = {
+    "wakatime/vim-wakatime",
+    lazy = false
+  }
 end
 
 if settings.dashboard == "alpha" then

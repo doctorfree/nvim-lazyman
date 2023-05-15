@@ -6,6 +6,29 @@
 
 ### 🐞 Fixed
 
+## v2.0.1r8
+
+### ⚡️ Added
+
+- Add WakaTime plugin enable/disable to Lazyman Configuration Menu
+- Check for WakaTime in custom configs
+- Add optional support for WakaTime in Lazyman config
+- Check for julia and composer for Install Tools menu entry
+- Simplify leader keymaps a little
+- Add hop and treehopper plugins with extensive keymaps
+- Add -a argument to install_neovim.sh to install all servers and tools
+- Link to NvChad customization repo
+- Add Elianiva to known working custom configs
+- Add Install and Uninstall scripts
+
+### 🐞 Fixed
+
+- Check .initialized and if not present initialize Lazyman
+- Run MasonInstallAll for NvChad initialization
+- `lazyman -I` now invokes Neovim install script with -a, -i does what -I used to do
+- Remove terraform
+- Change keymap for LuaSnip with Hop to lS, conflicted with bnext
+
 ## v2.0.1r7
 
 ### ⚡️ Added
