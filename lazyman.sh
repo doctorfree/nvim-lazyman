@@ -277,6 +277,7 @@ init_neovim() {
             [Nn]*)
               printf "\nSkipping initialization of ${neodir}\n"
               skipthis=1
+              break
               ;;
             *)
               printf "\nPlease answer yes or no.\n"
@@ -1641,7 +1642,28 @@ show_conf_menu() {
           if [ "${enable_wakatime}" == "true" ]; then
             set_conf_value "enable_wakatime" "false"
           else
-            set_conf_value "enable_wakatime" "true"
+            if [ -f "${HOME}"/.wakatime.cfg ]
+            then
+              set_conf_value "enable_wakatime" "true"
+            else
+              printf "\nIt appears you do not have a configured WakaTime API key."
+              printf "\nWould you like to proceed with enabling WakaTime?\n"
+              while true; do
+                read -r -p "Enable WakaTime (API key required) ? (y/n) " yn
+                case $yn in
+                  [Yy]*)
+                    set_conf_value "enable_wakatime" "true"
+                    break
+                    ;;
+                  [Nn]*)
+                    break
+                    ;;
+                  *)
+                    printf "\nPlease answer yes or no.\n"
+                    ;;
+                esac
+              done
+            fi
           fi
           break
           ;;
@@ -1818,7 +1840,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"
-          set_conf_value "enable_wakatime" "true"
+          [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"

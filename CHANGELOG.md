@@ -23,6 +23,7 @@
 
 ### 🐞 Fixed
 
+- Fix prompt for enabling WakaTime if no `.wakatime.cfg` detected
 - Check .initialized and if not present initialize Lazyman
 - Run MasonInstallAll for NvChad initialization
 - `lazyman -I` now invokes Neovim install script with -a, -i does what -I used to do
