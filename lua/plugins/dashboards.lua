@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local dashboard_type = {}
+local wakatime_type = {}
 local alpha_disabled = { "goolord/alpha-nvim", enabled = false }
 local mini_disabled = { "echasnovski/mini.starter", enabled = false }
 local dashboard_disabled = { "glepnir/dashboard-nvim", enabled = false }
@@ -7,6 +8,10 @@ local dashboard_disabled = { "glepnir/dashboard-nvim", enabled = false }
 local session_restore = 'lua require("persistence").load()'
 if settings.session_manager == "possession" then
   session_restore = 'lua require("possession").list()'
+end
+
+if settings.enable_wakatime then
+  wakatime_type = { "wakatime/vim-wakatime" }
 end
 
 if settings.dashboard == "alpha" then
@@ -141,4 +146,5 @@ return {
   alpha_disabled,
   dashboard_disabled,
   mini_disabled,
+  wakatime_type,
 }

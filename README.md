@@ -875,7 +875,6 @@ Additional plugin configuration and options are available in `configuration.lua`
 
 ```lua
 local conf = {}
-
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -894,7 +893,6 @@ conf.theme = "tokyonight"
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
-
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
 conf.mapleader = ","
@@ -922,7 +920,6 @@ conf.listchars = {
 }
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
-
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
@@ -949,6 +946,8 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
+-- Enable the WakaTime metrics dashboard (requires API key)
+conf.enable_wakatime = false
 -- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
 conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
@@ -973,7 +972,6 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
-
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
@@ -988,17 +986,15 @@ conf.treesitter_ensure_installed = {
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "denols", "dockerls", "eslint", "gopls",
-  "graphql", "html", "jdtls", "jsonls", "julials", "ltex", "lua_ls",
-  "marksman", "pylsp", "pyright", "sqlls", "tailwindcss",
-  "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", "cssmodules_ls", "denols", "dockerls", "eslint", "gopls", "graphql",
+  "html", "jdtls", "jsonls", "julials", "ltex", "lua_ls", "marksman", "pylsp",
+  "pyright", "sqlls", "tailwindcss", "texlab", "tsserver", "vimls", "yamlls",
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "goimports", "gofumpt", "golangci-lint",
-  "google-java-format", "latexindent", "markdownlint",
-  "prettier", "sql-formatter", "shellcheck", "shfmt",
-  "stylua", "tflint", "yamllint",
+  "actionlint", "goimports", "gofumpt", "golangci-lint", "google-java-format",
+  "latexindent", "markdownlint", "prettier", "sql-formatter", "shellcheck",
+  "shfmt", "stylua", "tflint", "yamllint",
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

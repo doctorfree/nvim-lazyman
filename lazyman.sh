@@ -252,84 +252,133 @@ init_neovim() {
     }
   }
 
-  if [ "$debug" ]; then
-    if [ "${packer}" ]; then
-      nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-    else
-      if [ "${plug}" ]; then
-        nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa'
-        nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa'
-        nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa'
+  skipthis=
+  [ "${custom_url}" ] && {
+    # Check for wakatime plugin and use debug mode if found
+    havewaka=
+    find "${HOME}"/.config/"${neodir}" -type f -print0 | \
+         xargs -0 grep wakatime/vim-wakatime > /dev/null && {
+      [ -f "${HOME}"/.wakatime.cfg ] && havewaka=1
+      wakafile=$(find "${HOME}"/.config/"${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
+      printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
+      printf "\nand cannot be automatically initialized as it requires user interaction."
+      if [ "${havewaka}" ]
+      then
+        printf "\nHowever, it appears you may have previously configured WakaTime."
+        printf "\nWould you like to proceed with the Neovim ${neodir} initialization?\n"
+        while true; do
+          read -r -p "Initialze ${neodir} (may hang if API key not configured) ? (y/n) " yn
+          case $yn in
+            [Yy]*)
+              printf "\nProceeding with initialization of ${neodir}"
+              printf "\nIf the initialization process hangs, 'Ctrl-c' to exit and manually initialize\n"
+              break
+              ;;
+            [Nn]*)
+              printf "\nSkipping initialization of ${neodir}\n"
+              skipthis=1
+              ;;
+            *)
+              printf "\nPlease answer yes or no.\n"
+              ;;
+          esac
+        done
       else
-        if [ "${neodir}" == "${spacevimdir}" ]; then
-          nvim --headless "+SPInstall" +qa
-          nvim --headless "+UpdateRemotePlugins" +qa
+        skipthis=1
+      fi
+      [ "${skipthis}" ] && {
+        printf "\nTo initialize this configuration, either comment out the WakaTime plugin in:"
+        printf "\n\t${wakafile}"
+        printf "\nor get a WakaTime API key and manually initialize this configuration with:"
+        printf "\n\tNVIM_APPNAME=${neodir} nvim"
+        printf "\n\nSkipping auto-initialization, press <Enter> to continue ... "
+        read -r yn
+      }
+    }
+  }
+
+  [ "${skipthis}" ] || {
+    if [ "$debug" ]; then
+      [ "$quiet" ] || printf "\nInitializing configuration in debug mode ..."
+      if [ "${packer}" ]; then
+        nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+      else
+        if [ "${plug}" ]; then
+          nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa'
+          nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa'
+          nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa'
         else
-          if [ "${neodir}" == "${lunarvimdir}" ]; then
-            export NVIM_APPNAME="nvim-LunarVim"
-            export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-            export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
-            export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-            export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
-          fi
-          if [ "${treesitter}" ]
-          then
-            nvim --headless '+TSUpdate' +qa
+          if [ "${neodir}" == "${spacevimdir}" ]; then
+            nvim --headless "+SPInstall" +qa
+            nvim --headless "+UpdateRemotePlugins" +qa
           else
-            [ "${neodir}" == "${minivimdir}" ] || {
-              nvim --headless "+Lazy! sync" +qa
-              [ "${neodir}" == "${nvchaddir}" ] && {
-                nvim --headless "+MasonInstallAll" +qa
+            if [ "${neodir}" == "${lunarvimdir}" ]; then
+              export NVIM_APPNAME="nvim-LunarVim"
+              export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+              export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+              export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+            fi
+            if [ "${treesitter}" ]
+            then
+              nvim --headless '+TSUpdate' +qa
+            else
+              [ "${neodir}" == "${minivimdir}" ] || {
+                nvim --headless "+Lazy! sync" +qa
+                [ "${neodir}" == "${nvchaddir}" ] && {
+                  nvim --headless "+MasonInstallAll" +qa
+                }
               }
-            }
+            fi
           fi
         fi
       fi
-    fi
-    [ -d "${HOME}/.config/${neodir}/doc" ] && {
-      nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
-    }
-  else
-    [ "$quiet" ] || printf "\nInitializing configuration ..."
-    if [ "${packer}" ]; then
-      nvim --headless -c \
-        'autocmd User PackerComplete quitall' -c 'PackerSync' >/dev/null 2>&1
+      [ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
+      }
+      [ "$quiet" ] || printf " done"
     else
-      if [ "${plug}" ]; then
-        nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa' >/dev/null 2>&1
-        nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >/dev/null 2>&1
-        nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa' >/dev/null 2>&1
+      [ "$quiet" ] || printf "\nInitializing configuration ..."
+      if [ "${packer}" ]; then
+        nvim --headless -c \
+          'autocmd User PackerComplete quitall' -c 'PackerSync' >/dev/null 2>&1
       else
-        if [ "${neodir}" == "${spacevimdir}" ]; then
-          nvim --headless "+SPInstall" +qa >/dev/null 2>&1
-          nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
+        if [ "${plug}" ]; then
+          nvim --headless -c 'set nomore' -c 'PlugInstall' -c 'qa' >/dev/null 2>&1
+          nvim --headless -c 'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >/dev/null 2>&1
+          nvim --headless -c 'set nomore' -c 'GoInstallBinaries' -c 'qa' >/dev/null 2>&1
         else
-          if [ "${neodir}" == "${lunarvimdir}" ]; then
-            export NVIM_APPNAME="nvim-LunarVim"
-            export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-            export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
-            export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-            export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
-          fi
-          if [ "${treesitter}" ]
-          then
-            nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
+          if [ "${neodir}" == "${spacevimdir}" ]; then
+            nvim --headless "+SPInstall" +qa >/dev/null 2>&1
+            nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
           else
-            [ "${neodir}" == "${minivimdir}" ] || {
-              nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
-              [ "${neodir}" == "${nvchaddir}" ] && {
-                nvim --headless "+MasonInstallAll" +qa >/dev/null 2>&1
+            if [ "${neodir}" == "${lunarvimdir}" ]; then
+              export NVIM_APPNAME="nvim-LunarVim"
+              export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+              export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+              export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+            fi
+            if [ "${treesitter}" ]
+            then
+              nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
+            else
+              [ "${neodir}" == "${minivimdir}" ] || {
+                nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
+                [ "${neodir}" == "${nvchaddir}" ] && {
+                  nvim --headless "+MasonInstallAll" +qa >/dev/null 2>&1
+                }
               }
-            }
+            fi
           fi
         fi
       fi
+      [ -d "${HOME}/.config/${neodir}/doc" ] && {
+        nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa >/dev/null 2>&1
+      }
+      [ "$quiet" ] || printf " done"
     fi
-    [ -d "${HOME}/.config/${neodir}/doc" ] && {
-      nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa >/dev/null 2>&1
-    }
-    [ "$quiet" ] || printf " done"
-  fi
+  }
   [ "${neodir}" == "${magicvimdir}" ] && packer=${oldpack}
   [ "${neodir}" == "${lazymandir}" ] && {
     [ -f "${LMANDIR}/.initialized" ] || {
@@ -2250,7 +2299,7 @@ removeall=
 runvim=1
 select=
 update=
-url=
+custom_url=
 name=
 pmgr="Lazy"
 lazymandir="${LAZYMAN}"
@@ -2393,7 +2442,7 @@ while getopts "aAb:BcdD:eE:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       select=1
       ;;
     C)
-      url="$OPTARG"
+      custom_url="$OPTARG"
       ;;
     D)
       subdir="$OPTARG"
@@ -2732,7 +2781,7 @@ set_haves
   exit 1
 }
 
-[ "$url" ] && {
+[ "$custom_url" ] && {
   [ "$name" ] || {
     printf "\nERROR: '-C url' must be accompanied with '-N nvimdir'\n"
     brief_usage
@@ -3213,14 +3262,14 @@ done
     [ "$quiet" ] || printf "done"
   }
 }
-[ "$url" ] && {
+[ "$custom_url" ] && {
   if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
     [ "$quiet" ] || {
       printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists."
     }
   else
     [ "$quiet" ] || {
-      printf "\nCloning ${url} into"
+      printf "\nCloning ${custom_url} into"
       printf "\n\t${HOME}/.config/${neovimdir[0]} ... "
     }
     [ "$tellme" ] || {
@@ -3233,7 +3282,7 @@ done
           exit 1
         }
         git init >/dev/null 2>&1
-        git remote add -f origin $url >/dev/null 2>&1
+        git remote add -f origin ${custom_url} >/dev/null 2>&1
         git config core.sparseCheckout true >/dev/null 2>&1
         [ -d .git/info ] || mkdir -p .git/info
         echo "${subdir}" >>.git/info/sparse-checkout
@@ -3243,7 +3292,7 @@ done
         rm -rf "/tmp/lazyman$$"
       else
         git clone \
-          "$url" "${HOME}/.config/${neovimdir[0]}" >/dev/null 2>&1
+          "${custom_url}" "${HOME}/.config/${neovimdir[0]}" >/dev/null 2>&1
         [ "$branch" ] && {
           git -C "${HOME}/.config/${neovimdir[0]}" checkout "$branch" >/dev/null 2>&1
         }
@@ -3335,7 +3384,7 @@ fi
   [ "$runvim" ] && {
     [ "${interactive}" ] || {
       [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
-      nvim
+      [ "${skipthis}" ] || nvim
     }
   }
 }

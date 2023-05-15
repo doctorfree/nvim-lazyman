@@ -73,6 +73,8 @@ conf.enable_winbar = true
 conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
+-- Enable the WakaTime metrics dashboard (requires API key)
+conf.enable_wakatime = false
 -- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
 conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
