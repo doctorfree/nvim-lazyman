@@ -344,7 +344,6 @@ installed with the `-w conf` option.
   - Dan is a computer science student at Arizona State University
   - Install and initialize with `lazyman -w Ember`
 - [Knvim](https://github.com/knmac/knvim)
-  - Dr. Khoi-Nguyen C. Mac is a Research Scientist at Amazon
   - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
   - Install and initialize with `lazyman -w Knvim`
 - [Fennel](https://github.com/jhchabran/nvim-config)
