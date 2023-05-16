@@ -938,7 +938,12 @@ select_theme_style() {
       mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
-      [ "${have_figlet}" ] && show_figlet
+      if [ "${have_figlet}" ]
+      then
+        show_figlet
+      else
+        [ "${have_rich}" ] && rich "[cyan]Select Theme Style[/cyan]" -p -a rounded -c -C
+      fi
       printf "\n"
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
       options=()
@@ -1160,7 +1165,12 @@ select_theme() {
       mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
-      [ "${have_figlet}" ] && show_figlet
+      if [ "${have_figlet}" ]
+      then
+        show_figlet
+      else
+        [ "${have_rich}" ] && rich "[cyan]Select Theme[/cyan]" -p -a rounded -c -C
+      fi
       printf "\n"
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
       options=()
@@ -1259,7 +1269,12 @@ show_conf_menu() {
       break
     }
     [ "$debug" ] || tput reset
-    [ "${have_figlet}" ] && show_figlet
+    if [ "${have_figlet}" ]
+    then
+      show_figlet
+    else
+      [ "${have_rich}" ] && rich "[cyan]Lazyman Configuration Menu[/cyan]" -p -a rounded -c -C
+    fi
     theme=$(get_conf_value theme)
     use_theme="${theme}"
     theme_style=$(get_conf_value theme_style)
@@ -1908,7 +1923,12 @@ show_main_menu() {
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    [ "${have_figlet}" ] && show_figlet
+    if [ "${have_figlet}" ]
+    then
+      show_figlet
+    else
+      [ "${have_rich}" ] && rich "[cyan]Lazyman Main Menu[/cyan]" -p -a rounded -c -C
+    fi
     [ "${show_warning}" ] && {
       if [ "${have_rich}" ]; then
         rich "[bold red]WARNING[/]: missing [b yellow]${LMANDIR}/.lazymanrc[/]
@@ -2237,7 +2257,7 @@ show_main_menu() {
         *,*)
           printf "\nCould not match '${REPLY}' with a menu entry."
           printf "\nPlease try again with an exact match.\n"
-          [ "${have_figlet}" ] && show_figlet
+          break
           ;;
       esac
       REPLY=
