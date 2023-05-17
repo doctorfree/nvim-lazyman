@@ -19,7 +19,7 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
-PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
+PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic Kickstart NvPak ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -38,7 +38,7 @@ all_lsp_servers=("bashls" "cssmodules_ls" "denols" "dockerls" "eslint" "gopls" \
 lsp_enabled_table=()
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
+  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]"
   printf "\n   [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]"
   printf "\n   [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]"
   printf "\n   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]"
@@ -61,6 +61,7 @@ usage() {
   printf "\n           'ecovim', 'nvchad', 'lazyvim', 'lunarvim', 'spacevim'"
   printf "\n       or any Neovim configuration directory in '~/.config'"
   printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
+  printf "\n    -f 'path' fix treesitter 'help' parser in config file 'path'"
   printf "\n    -F indicates present the Lazyman Configuration menu"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -j indicates install and initialize Nv Neovim configuration"
@@ -89,8 +90,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember'"
-  printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'"
+  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember' 'ONNO'"
+  printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -212,6 +213,17 @@ set_haves() {
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
   have_zoxi=$(type -p zoxide)
+}
+
+fix_help_file() {
+  helpfile="$1"
+  [ -f "${helpfile}" ] && {
+    grep help "${helpfile}" > /dev/null && {
+      cat "${helpfile}" | sed -e "s/\"help\",/\"vimdoc\",/" > /tmp/nvimhelp$$
+      cp /tmp/nvimhelp$$ "${helpfile}"
+      rm -f /tmp/nvimhelp$$
+    }
+  }
 }
 
 init_neovim() {
@@ -637,6 +649,12 @@ update_config() {
     git -C "${HOME}/${GITDIR}" submodule update \
         --remote --init --recursive >/dev/null 2>&1
   }
+  [ "${ndir}" == "${onnovimdir}" ] && {
+    fix_help_file "${HOME}/.config/${ndir}/${fix_onno}"
+  }
+  [ "${ndir}" == "${latexvimdir}" ] && {
+    fix_help_file "${HOME}/.config/${ndir}/${fix_latex}"
+  }
 }
 
 set_brew() {
@@ -905,6 +923,12 @@ install_config() {
       ;;
     Adib)
       lazyman -w Adib -z -y -Q
+      ;;
+    ONNO)
+      lazyman -w ONNO -z -y -Q
+      ;;
+    LaTeX)
+      lazyman -w LaTeX -z -y -Q
       ;;
     Ember)
       lazyman -w Ember -z -y -Q
@@ -2528,6 +2552,7 @@ command=
 brew=
 debug=
 head=
+fix_help=
 invoke=
 confmenu=
 langservers=
@@ -2570,13 +2595,17 @@ kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
+onnovimdir="nvim-ONNO"
+fix_onno="lua/tvl/core/resources/treesitter.lua"
+latexvimdir="nvim-LaTeX"
+fix_latex="lua/user/treesitter.lua"
 nvdir="nvim-Nv"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvdir" "$nvchaddir" "$lunarvimdir" "$abstractdir")
 neovimdir=()
-while getopts "aAb:BcdD:eE:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
+while getopts "aAb:BcdD:eE:f:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2626,6 +2655,9 @@ while getopts "aAb:BcdD:eE:FghHiIjklmMnL:pPqQrRsSTUC:N:vw:Wx:XyzZu" flag; do
       ;;
     E)
       invoke="$OPTARG"
+      ;;
+    f)
+      fix_help="$OPTARG"
       ;;
     F)
       confmenu=1
@@ -2825,6 +2857,20 @@ set_haves
       printf " done"
       show_alias "nvim-Adib"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-ONNO ] && action="Updating"
+      printf "\n${action} ONNO Neovim configuration ..."
+      lazyman -C https://github.com/loctvl842/nvim.git -N nvim-ONNO \
+        -f "${fix_onno}" ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-ONNO"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-LaTeX ] && action="Updating"
+      printf "\n${action} LaTeX Neovim configuration ..."
+      lazyman -C https://github.com/benbrastmckie/.config -D nvim \
+        -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-LaTeX"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
       lazyman -C https://github.com/Optixal/neovim-init.vim \
@@ -2863,6 +2909,7 @@ set_haves
       prsnl_url=
       prsnl_dir=
       prsnl_opt=
+      help_opt=
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
@@ -2884,6 +2931,16 @@ set_haves
         Fennel)
           prsnl_url="https://github.com/jhchabran/nvim-config"
           prsnl_opt="-P"
+          ;;
+        LaTeX)
+          prsnl_url="https://github.com/benbrastmckie/.config"
+          prsnl_opt="-P"
+          prsnl_dir="-D nvim"
+          help_opt="-f ${fix_latex}"
+          ;;
+        ONNO)
+          prsnl_url="https://github.com/loctvl842/nvim.git"
+          help_opt="-f ${fix_onno}"
           ;;
         Ember)
           prsnl_url="https://github.com/danlikestocode/embervim"
@@ -2920,7 +2977,7 @@ set_haves
       [ -d ${HOME}/.config/nvim-${nvimprsnl} ] && action="Updating"
       printf "\n${action} ${nvimprsnl} Neovim configuration ..."
       lazyman -C ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} ${prsnl_opt} \
-        ${quietflag} ${runflag} ${yesflag}
+        ${help_opt} ${quietflag} ${runflag} ${yesflag}
       printf " done"
     fi
   fi
@@ -3571,6 +3628,10 @@ done
     }
     [ "$quiet" ] || printf "done"
   fi
+}
+
+[ "${fix_help}" ] && {
+  fix_help_file "${HOME}/.config/${neovimdir[0]}/${fix_help}"
 }
 
 [ "${interactive}" ] || {

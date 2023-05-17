@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
 
 ## FEATURES
 
@@ -166,6 +166,8 @@ The following command line options are available with the `lazyman` command:
 
 `-E 'config'` : execute 'nvim' with 'config' Neovim configuration where 'config' can be one of 'lazyman', 'astronvim', 'ecovim', 'kickstart', 'lazyvim', 'lunarvim', 'magicvim', 'spacevim', or any Neovim configuration directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit 'foo.lua' with the LazyVim config
 
+`-f 'path'` : fix treesitter 'help' parser in config file 'path'
+
 `-F` : indicates present the Lazyman Configuration menu
 
 `-g` : indicates install and initialize the 'Abstract' Neovim configuration
@@ -216,7 +218,7 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', or 'Heiker'
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', 'LaTeX', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 

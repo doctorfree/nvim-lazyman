@@ -66,8 +66,10 @@ following Lazyman Neovim configuration categories:
 
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [Mini](https://github.com/echasnovski/nvim) | [Ember](https://github.com/danlikestocode/embervim) | [Knvim](https://github.com/knmac/knvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) |
-| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
+| [Mini](https://github.com/echasnovski/nvim) | [Ember](https://github.com/danlikestocode/embervim) | [Knvim](https://github.com/knmac/knvim) |
+| [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) | [Optixal](https://github.com/Optixal/neovim-init.vim) |
+| [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) |
+| [Simple](https://github.com/anthdm/.nvim) | [ONNO](https://github.com/loctvl842/nvim.git) | [LaTeX](https://github.com/benbrastmckie/.config) |
 
 | **Starter** |       | **Configs** |
 | ----------- | ----- | ----------- |
@@ -81,8 +83,9 @@ for installation details.
 
 | **Custom** |       |        |        | **Configs** |
 | ---------- | ----- | ------ | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
-| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [ONNO](https://github.com/loctvl842/nvim.git) |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -370,6 +373,14 @@ installed with the `-w conf` option.
   - A remarkably effective Neovim configuration in only one small file
   - The author's [video description of this config](https://youtu.be/AzhSnM0uHvM)
   - Install and initialize with `lazyman -w Simple`
+- [ONNO](https://github.com/loctvl842/nvim.git)
+  - One of the primary inspirations for Lazyman
+  - Install and initialize with `lazyman -w ONNO`
+- [LaTeX](https://github.com/benbrastmckie/.config)
+  - Neovim configuration optimized for writing in LaTeX
+  - Personal Neovim configuration of [Benjamin Brast-McKie](http://www.benbrastmckie.com)
+  - Keymaps and more described in the configuration [Cheatsheet](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md)
+  - Install and initialize with `lazyman -w LaTeX`
 
 ### Starter configurations
 
@@ -508,8 +519,6 @@ Known working custom Lazyman configurations include the following:
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
   - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P`
-- [ONNO](https://github.com/loctvl842/nvim.git)
-  - `lazyman -C https://github.com/loctvl842/nvim.git -N nvim-Loctvl`
 
 Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
@@ -618,7 +627,7 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>View the lazyman usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
+Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
    [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]
    [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
    [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
@@ -636,6 +645,7 @@ Where:
            'ecovim', 'nvchad', 'lazyvim', 'lunarvim', 'spacevim'
        or any Neovim configuration directory in '~/.config'
            (e.g. 'lazyman -E lazyvim foo.lua')
+    -f 'path' fix treesitter 'help' parser in config file 'path'
     -F indicates present the Lazyman Configuration menu
     -g indicates install and initialize Abstract Neovim configuration
     -j indicates install and initialize Nv Neovim configuration
@@ -664,8 +674,8 @@ Where:
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember'
-           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker'
+           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember' 'ONNO'
+           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:

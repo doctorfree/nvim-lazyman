@@ -874,7 +874,7 @@ install_tools() {
     tree-sitter init-config >/dev/null 2>&1
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat
+  for pkg in bat lsd figlet luarocks lolcat xsel
   do
     plat_install "${pkg}"
   done
