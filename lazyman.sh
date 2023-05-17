@@ -1314,6 +1314,7 @@ show_lsp_menu() {
     if [ "${have_rich}" ]
     then
       rich "[cyan]Lazyman LSP Servers Menu[/cyan]" -p -a rounded -c -C
+      rich "[b green]Enable/Disable LSP servers used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "LSP Menu"
     fi
@@ -1412,7 +1413,8 @@ show_conf_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]
     then
-      rich "[cyan]Lazyman Configuration Menu[/cyan]" -p -a rounded -c -C
+      rich "[b cyan]Lazyman Configuration Menu[/]" -p -a rounded -c -C
+      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Config"
     fi

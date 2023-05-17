@@ -1,5 +1,7 @@
 local settings = require("configuration")
+local lsp_servers = settings.lsp_servers
 local showdiag = settings.show_diagnostics
+local table_contains = require("utils.functions").table_contains
 
 local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
 if not showdiag == "popup" then
@@ -141,61 +143,65 @@ null_ls.setup({
 local lspconfig = require("lspconfig")
 local navic = require("nvim-navic")
 
-lspconfig.jsonls.setup({
-  capabilities = capabilities,
-  settings = {
-    json = {
-      schemas = require("schemastore").json.schemas(),
+if table_contains(lsp_servers, "jsonls") then
+  lspconfig.jsonls.setup({
+    capabilities = capabilities,
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+      },
     },
-  },
-})
-
--- make sure to only run this once!
-local tsserver_on_attach = function(client, bufnr)
-  -- disable tsserver formatting if you plan on formatting via null-ls
-  client.server_capabilities.document_formatting = false
-  client.server_capabilities.document_range_formatting = false
-
-  local ts_utils = require("nvim-lsp-ts-utils")
-
-  -- defaults
-  ts_utils.setup({
-    enable_import_on_completion = true,
-    -- eslint
-    eslint_enable_code_actions = true,
-    eslint_enable_disable_comments = true,
-    eslint_bin = "eslint_d",
-    eslint_enable_diagnostics = false,
-    eslint_opts = {},
-    -- formatting
-    enable_formatting = true,
-    formatter = "prettier",
-    formatter_opts = {},
-    -- update imports on file move
-    update_imports_on_move = true,
-    require_confirmation_on_move = false,
-    watch_dir = nil,
-    -- filter diagnostics
-    filter_out_diagnostics_by_severity = {},
-    filter_out_diagnostics_by_code = {},
   })
-
-  -- required to fix code action ranges and filter diagnostics
-  ts_utils.setup_client(client)
-
-  -- no default maps, so you may want to define some here
-  local opts = { silent = true }
-  vim.api.nvim_buf_set_keymap(bufnr, "n", ",go", ":TSLspOrganize<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", ",gR", ":TSLspRenameFile<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", ",gi", ":TSLspImportAll<CR>", opts)
-
-  navic.attach(client, bufnr)
 end
 
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = tsserver_on_attach,
-})
+if table_contains(lsp_servers, "tsserver") then
+  -- make sure to only run this once!
+  local tsserver_on_attach = function(client, bufnr)
+    -- disable tsserver formatting if you plan on formatting via null-ls
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+
+    local ts_utils = require("nvim-lsp-ts-utils")
+
+    -- defaults
+    ts_utils.setup({
+      enable_import_on_completion = true,
+      -- eslint
+      eslint_enable_code_actions = true,
+      eslint_enable_disable_comments = true,
+      eslint_bin = "eslint_d",
+      eslint_enable_diagnostics = false,
+      eslint_opts = {},
+      -- formatting
+      enable_formatting = true,
+      formatter = "prettier",
+      formatter_opts = {},
+      -- update imports on file move
+      update_imports_on_move = true,
+      require_confirmation_on_move = false,
+      watch_dir = nil,
+      -- filter diagnostics
+      filter_out_diagnostics_by_severity = {},
+      filter_out_diagnostics_by_code = {},
+    })
+
+    -- required to fix code action ranges and filter diagnostics
+    ts_utils.setup_client(client)
+
+    -- no default maps, so you may want to define some here
+    local opts = { silent = true }
+    vim.api.nvim_buf_set_keymap(bufnr, "n", ",go", ":TSLspOrganize<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", ",gR", ":TSLspRenameFile<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", ",gi", ":TSLspImportAll<CR>", opts)
+
+    navic.attach(client, bufnr)
+  end
+
+  lspconfig.tsserver.setup({
+    capabilities = capabilities,
+    on_attach = tsserver_on_attach,
+  })
+end
 
 local other_servers_with_navic = {
   "html",
@@ -215,13 +221,15 @@ local other_servers_with_navic = {
   "texlab",
 }
 for _, server in ipairs(other_servers_with_navic) do
-  if lspconfig[server] then
-    lspconfig[server].setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-      end,
-    })
+  if table_contains(lsp_servers, server) then
+    if lspconfig[server] then
+      lspconfig[server].setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+        end,
+      })
+    end
   end
 end
 
@@ -236,35 +244,37 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
 
-lspconfig.yamlls.setup({
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end,
-  schemaStore = {
-    enable = true,
-    url = "https://www.schemastore.org/api/json/catalog.json",
-  },
-  schemas = {
-    kubernetes = "*.yaml",
-    ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-    ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-    ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-    ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-    ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-    ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
-    ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-    ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-    ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
-    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
-    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-    ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-  },
-  format = { enabled = false },
-  validate = false,
-  completion = true,
-  hover = true,
-})
+if table_contains(lsp_servers, "yamlls") then
+  lspconfig.yamlls.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      navic.attach(client, bufnr)
+    end,
+    schemaStore = {
+      enable = true,
+      url = "https://www.schemastore.org/api/json/catalog.json",
+    },
+    schemas = {
+      kubernetes = "*.yaml",
+      ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+      ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+      ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+      ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+      ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+      ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+      ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+      ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+      ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
+      ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+      ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+      ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+    },
+    format = { enabled = false },
+    validate = false,
+    completion = true,
+    hover = true,
+  })
+end
 
 if settings.enable_clangd then
   lspconfig.clangd.setup({})
@@ -283,55 +293,57 @@ else
   })
 end
 
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  on_attach = navic.attach,
-  require("neodev").setup({
-    library = { plugins = { "nvim-dap-ui" }, types = true },
-    setup_jsonls = true,
-    lspconfig = false,
-    pathStrict = true,
-    override = function(root_dir, library)
-      local util = require("neodev.util")
-      if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
-        library.enabled = true
-        library.plugins = true
-      end
-    end,
-  }),
-  -- Note: These settings will meaningfully increase the time until lua_ls
-  -- can service initial requests (completion, location) upon starting as well
-  -- as time to first diagnostics. Completion results will include a workspace
-  -- indexing progress message until the server has finished indexing.
-  before_init = require("neodev.lsp").before_init,
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        globals = {
-          "vim",
-          "describe",
-          "it",
-          "before_each",
-          "after_each",
-          "pending",
-          "nnoremap",
-          "vnoremap",
-          "inoremap",
-          "tnoremap",
+if table_contains(lsp_servers, "lua_ls") then
+  lspconfig.lua_ls.setup({
+    capabilities = capabilities,
+    on_attach = navic.attach,
+    require("neodev").setup({
+      library = { plugins = { "nvim-dap-ui" }, types = true },
+      setup_jsonls = true,
+      lspconfig = false,
+      pathStrict = true,
+      override = function(root_dir, library)
+        local util = require("neodev.util")
+        if util.has_file(root_dir, "/etc/nixos") or util.has_file(root_dir, "nvim-config") then
+          library.enabled = true
+          library.plugins = true
+        end
+      end,
+    }),
+    -- Note: These settings will meaningfully increase the time until lua_ls
+    -- can service initial requests (completion, location) upon starting as well
+    -- as time to first diagnostics. Completion results will include a workspace
+    -- indexing progress message until the server has finished indexing.
+    before_init = require("neodev.lsp").before_init,
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          globals = {
+            "vim",
+            "describe",
+            "it",
+            "before_each",
+            "after_each",
+            "pending",
+            "nnoremap",
+            "vnoremap",
+            "inoremap",
+            "tnoremap",
+          },
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false,
+        },
+        telemetry = {
+          enable = false,
         },
       },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-      telemetry = {
-        enable = false,
-      },
     },
-  },
-})
+  })
+end
 
 vim.cmd([[ do User LspAttachBuffers ]])

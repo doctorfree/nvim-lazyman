@@ -179,6 +179,16 @@ function cfg.map(mode, lhs, rhs, opts)
   end
 end
 
+function cfg.table_contains(tbl, x)
+  local found = false
+  for _, v in pairs(tbl) do
+    if v == x then
+      found = true
+    end
+  end
+  return found
+end
+
 -- returns the require for use in `config` parameter of packer's `use`
 -- expects the name of the config file
 -- prefixes with `config.`
