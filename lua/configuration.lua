@@ -58,6 +58,8 @@ conf.enable_noice = true
 conf.enable_chatgpt = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
+-- Add/change/delete surrounding delimiter pairs with ease
+conf.enable_surround = true
 -- Enable fancy lualine components
 conf.enable_fancy = true
 -- Enable the wilder plugin

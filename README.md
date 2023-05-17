@@ -875,6 +875,7 @@ Additional plugin configuration and options are available in `configuration.lua`
 
 ```lua
 local conf = {}
+
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -893,6 +894,7 @@ conf.theme = "tokyonight"
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
+
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
 conf.mapleader = ","
@@ -920,6 +922,7 @@ conf.listchars = {
 }
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
+
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
@@ -931,6 +934,8 @@ conf.enable_noice = true
 conf.enable_chatgpt = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
+-- Add/change/delete surrounding delimiter pairs with ease
+conf.enable_surround = true
 -- Enable fancy lualine components
 conf.enable_fancy = true
 -- Enable the wilder plugin
@@ -959,6 +964,7 @@ conf.dashboard_recent_files = 3
 conf.enable_dashboard_header = false
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
+--
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
@@ -971,6 +977,7 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
+
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"

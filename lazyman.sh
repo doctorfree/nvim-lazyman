@@ -1496,6 +1496,12 @@ show_conf_menu() {
     else
       use_rainbow2="✗"
     fi
+    enable_surround=$(get_conf_value enable_surround)
+    if [ "${enable_surround}" == "true" ]; then
+      use_surround=""
+    else
+      use_surround="✗"
+    fi
     enable_fancy=$(get_conf_value enable_fancy)
     if [ "${enable_fancy}" == "true" ]; then
       use_fancy=""
@@ -1640,6 +1646,7 @@ show_conf_menu() {
     options+=("Noice UI      [${use_noice}]")
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("Rainbow 2     [${use_rainbow2}]")
+    options+=("Surround      [${use_surround}]")
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
@@ -1791,6 +1798,14 @@ show_conf_menu() {
             set_conf_value "enable_rainbow2" "false"
           else
             set_conf_value "enable_rainbow2" "true"
+          fi
+          break
+          ;;
+        "Surround"*,* | *,"Surround"*)
+          if [ "${enable_surround}" == "true" ]; then
+            set_conf_value "enable_surround" "false"
+          else
+            set_conf_value "enable_surround" "true"
           fi
           break
           ;;
@@ -1996,6 +2011,7 @@ show_conf_menu() {
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_rainbow2" "false"
+          set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_terminal" "false"
@@ -2029,6 +2045,7 @@ show_conf_menu() {
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
           set_conf_value "enable_rainbow2" "true"
+          set_conf_value "enable_surround" "true"
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"

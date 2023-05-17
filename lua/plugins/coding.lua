@@ -1,3 +1,16 @@
+local settings = require("configuration")
+local surround = {}
+
+if settings.enable_surround then
+  surround = {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  }
+end
+
 return {
 
   -- snippets
@@ -70,14 +83,7 @@ return {
     end,
   },
 
-  -- surround
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup()
-    end,
-  },
+  surround,
 
   -- comments
   { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
