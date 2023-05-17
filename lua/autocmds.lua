@@ -1,4 +1,5 @@
 local settings = require("configuration")
+local autocmd = vim.api.nvim_create_autocmd
 local links = {
   ["@lsp.type.namespace"] = "@namespace",
   ["@lsp.type.type"] = "@type",
@@ -17,7 +18,7 @@ local links = {
 }
 
 if not settings.enable_semantic_highlighting or settings.convert_semantic_highlighting then
-  vim.api.nvim_create_autocmd("ColorScheme", {
+  autocmd("ColorScheme", {
     callback = function()
       if not settings.enable_semantic_highlighting then
         for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
@@ -39,13 +40,13 @@ local function augroup(name)
 end
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
   command = "checktime",
 })
 
 -- Auto insert mode for Terminal
-vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
+autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
   callback = function(args)
     if vim.startswith(vim.api.nvim_buf_get_name(args.buf), "term://") then
       vim.opt_local.wrap = true
@@ -56,7 +57,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
   callback = function()
     vim.cmd("tabdo wincmd =")
@@ -64,7 +65,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 })
 
 -- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
   group = augroup("last_loc"),
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -76,7 +77,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- popup completion menu if there is something before the cursor and nothing after.
-vim.api.nvim_create_autocmd({ "TextChangedI", "TextChangedP" }, {
+autocmd({ "TextChangedI", "TextChangedP" }, {
   callback = function()
     local line = vim.api.nvim_get_current_line()
     local cursor = vim.api.nvim_win_get_cursor(0)[2]
@@ -98,7 +99,7 @@ vim.api.nvim_create_autocmd({ "TextChangedI", "TextChangedP" }, {
 })
 
 -- close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
     "PlenaryTestPopup",
@@ -119,7 +120,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown", "text" },
   callback = function()
@@ -129,7 +130,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Get GUI config when entering UI
-vim.api.nvim_create_autocmd("UIEnter", {
+autocmd("UIEnter", {
   once = true,
   callback = function()
     require("ginit")
@@ -139,43 +140,56 @@ vim.api.nvim_create_autocmd("UIEnter", {
 if settings.dashboard == "alpha" then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "AlphaReady",
+  autocmd("User", {
+    desc = "Disable status and tablines for alpha",
     group = alpha_group,
+    pattern = "AlphaReady",
     callback = function()
+      local prev_showtabline = vim.opt.showtabline
+      local prev_status = vim.opt.laststatus
+      vim.opt.laststatus = 0
+      vim.opt.showtabline = 0
+      vim.opt_local.winbar = nil
       require("lualine").hide({
         place = { "statusline", "tabline", "winbar" },
         unhide = false,
       })
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("BufUnload", {
-    buffer = 0,
-    desc = "enable status and tabline after alpha",
-    group = alpha_group,
-    callback = function()
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = true,
+      autocmd("BufUnload", {
+        desc = "Reenable status and tablines for alpha",
+        group = alpha_group,
+        pattern = "<buffer>",
+        callback = function()
+          vim.opt.laststatus = prev_status
+          vim.opt.showtabline = prev_showtabline
+          require("lualine").hide({
+            place = { "statusline", "tabline", "winbar" },
+            unhide = true,
+          })
+        end,
       })
     end,
   })
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "AlphaReady",
+  autocmd("VimEnter", {
+    desc = "Start Alpha when vim is opened with no arguments",
     group = alpha_group,
     callback = function()
-      vim.cmd([[
-        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-        setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-      ]])
+      local should_skip = false
+      if vim.fn.argc() > 0 or vim.fn.line2byte(vim.fn.line "$") ~= -1 or not vim.o.modifiable then
+        should_skip = true
+      else
+        for _, arg in pairs(vim.v.argv) do
+          if arg == "-b" or arg == "-c" or vim.startswith(arg, "+") or arg == "-S" then
+            should_skip = true
+            break
+          end
+        end
+      end
+      if not should_skip then require("alpha").start(true, require("alpha").default_config) end
     end,
   })
-
   -- when there is no buffer left show Alpha dashboard
   -- requires "famiu/bufdelete.nvim" and "goolord/alpha-nvim"
-  vim.api.nvim_create_autocmd("User", {
+  autocmd("User", {
     pattern = "BDeletePost*",
     group = alpha_group,
     callback = function(event)

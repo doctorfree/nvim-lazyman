@@ -833,14 +833,31 @@ set_conf_value() {
   }
 }
 
+set_waka_opt() {
+  waka="false"
+  [ -f "${HOME}"/.wakatime.cfg ] && {
+    grep api_key "${HOME}"/.wakatime.cfg > /dev/null && waka="true"
+  }
+  grep 'conf.enable_wakatime' "${NVIMCONF}" >/dev/null && {
+    cat "${NVIMCONF}" \
+      | sed -e "s/conf.enable_wakatime.*/conf.enable_wakatime = ${waka}/" >/tmp/nvim$$
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
+  }
+}
+
 set_chat_gpt() {
-  [ "$OPENAI_API_KEY" ] && {
-    grep 'conf.enable_chatgpt' "${NVIMCONF}" >/dev/null && {
-      cat "${NVIMCONF}" \
-        | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = true/" >/tmp/nvim$$
-      cp /tmp/nvim$$ "${NVIMCONF}"
-      rm -f /tmp/nvim$$
-    }
+  if [ "$OPENAI_API_KEY" ]
+  then
+    openai="true"
+  else
+    openai="false"
+  fi
+  grep 'conf.enable_chatgpt' "${NVIMCONF}" >/dev/null && {
+    cat "${NVIMCONF}" \
+      | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = ${openai}/" >/tmp/nvim$$
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
   }
 }
 
@@ -1445,6 +1462,8 @@ show_conf_menu() {
     else
       use_relative_number="✗"
     fi
+    showtabline=$(get_conf_value showtabline)
+    use_showtabline="${showtabline}"
     enable_list=$(get_conf_value list)
     if [ "${enable_list}" == "true" ]; then
       use_list=""
@@ -1616,6 +1635,7 @@ show_conf_menu() {
     options+=("Transparency  [${use_transparent}]")
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
+    options+=("Show Tabline  [${use_showtabline}]")
     options+=("List Chars    [${use_list}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("ChatGPT       [${use_chatgpt}]")
@@ -1893,6 +1913,16 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Show Tabline"*,* | *,"Show Tabline"*)
+          choices=("0" "1" "2")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${showtabline}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "showtabline" "${choice}"
+            fi
+          }
+          break
+          ;;
         "Recent Files"*,* | *,"Recent Files"*)
           choices=("0" "1" "2" "3" "4" "5" "6" "7" "8" "9")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Number of Recent Files  " --layout=reverse --border --exit-0)
@@ -1959,6 +1989,7 @@ show_conf_menu() {
           set_conf_value "relative_number" "false"
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
+          set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "false"
           set_conf_value "enable_transparent" "false"
           set_conf_value "enable_neotree" "false"
@@ -1991,6 +2022,7 @@ show_conf_menu() {
           set_conf_value "relative_number" "true"
           set_conf_value "enable_statusline" "true"
           set_conf_value "enable_tabline" "true"
+          set_conf_value "showtabline" "2"
           set_conf_value "enable_winbar" "true"
           set_conf_value "enable_transparent" "true"
           set_conf_value "enable_neotree" "true"
@@ -2021,6 +2053,7 @@ show_conf_menu() {
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
             set_chat_gpt
+            set_waka_opt
           }
           break
           ;;
@@ -3198,10 +3231,15 @@ fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 set_chat_gpt
+# Enable WakaTime plugin if api_key set in .wakatime.cfg
+set_waka_opt
+
+# Stash original config for future reset
 [ -f ${CONFBACK} ] || {
   cp ${NVIMCONF} ${CONFBACK}
 }
 
+# Increase user limits before kicking off Neovim install script
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 [ "$hardlimit" == "unlimited" ] && hardlimit=9999

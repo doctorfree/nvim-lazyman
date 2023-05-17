@@ -4,6 +4,7 @@ local wakatime_type = {}
 local alpha_disabled = { "goolord/alpha-nvim", enabled = false }
 local mini_disabled = { "echasnovski/mini.starter", enabled = false }
 local dashboard_disabled = { "glepnir/dashboard-nvim", enabled = false }
+local autocmd = vim.api.nvim_create_autocmd
 
 local session_restore = 'lua require("persistence").load()'
 if settings.session_manager == "possession" then
@@ -89,7 +90,7 @@ elseif settings.dashboard == "mini" then
       -- close Lazy and re-open when starter is ready
       if vim.o.filetype == "lazy" then
         vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
+        autocmd("User", {
           pattern = "MiniStarterOpened",
           callback = function()
             require("lazy").show()
@@ -100,7 +101,7 @@ elseif settings.dashboard == "mini" then
       local starter = require("mini.starter")
       starter.setup(config)
 
-      vim.api.nvim_create_autocmd("User", {
+      autocmd("User", {
         pattern = "MiniStarterOpened",
         callback = function()
           local datetime = os.date("  %Y-%b-%d   %H:%M:%S", os.time())
@@ -121,25 +122,33 @@ elseif settings.dashboard == "mini" then
     end,
   }
   local mini_group = vim.api.nvim_create_augroup("Startup_mini", { clear = true })
-  vim.api.nvim_create_autocmd("User", {
+  autocmd("User", {
+    desc = "Disable status and tablines for mini.starter",
     pattern = "MiniStarterOpened",
     group = mini_group,
     callback = function()
+      local prev_showtabline = vim.opt.showtabline
+      local prev_status = vim.opt.laststatus
+      vim.opt.laststatus = 0
+      vim.opt.showtabline = 0
+      vim.opt_local.winbar = nil
+      autocmd("BufUnload", {
+        desc = "Reenable status and tablines for mini.starter",
+        group = mini_group,
+        pattern = "<buffer>",
+        callback = function()
+          vim.opt.laststatus = prev_status
+          vim.opt.showtabline = prev_showtabline
+          require("lualine").hide({
+            place = { "statusline", "tabline", "winbar" },
+            unhide = true,
+          })
+        end,
+      })
       require("lualine").hide({
         place = { "statusline", "tabline", "winbar" },
         unhide = false,
       })
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniStarterOpened",
-    group = mini_group,
-    callback = function()
-      vim.cmd([[
-        setlocal showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-        setlocal laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-      ]])
     end,
   })
 end

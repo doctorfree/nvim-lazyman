@@ -32,7 +32,7 @@ conf.mouse = "nv"
 -- set relative numbered lines
 conf.relative_number = false
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
--- see enable_tabline below to disable or enable the tabline
+-- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
@@ -55,7 +55,7 @@ conf.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = false
+conf.enable_chatgpt = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable fancy lualine components
@@ -74,7 +74,7 @@ conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
-conf.enable_wakatime = false
+conf.enable_wakatime = true
 -- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
 conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings

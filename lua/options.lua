@@ -10,7 +10,7 @@ end
 if settings.enable_tabline then
   o.showtabline = settings.showtabline
 else
-  o.showtabline = 0
+  o.showtabline = 2
 end
 
 if utils.isNotEmpty(settings.grepprg) then

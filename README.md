@@ -893,7 +893,6 @@ conf.theme = "tokyonight"
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
-
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
 conf.mapleader = ","
@@ -907,7 +906,7 @@ conf.mouse = "nv"
 -- set relative numbered lines
 conf.relative_number = false
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
--- see enable_tabline below to disable or enable the tabline
+-- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
@@ -921,7 +920,6 @@ conf.listchars = {
 }
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
-
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
@@ -930,7 +928,7 @@ conf.enable_neotree = true
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = false
+conf.enable_chatgpt = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable fancy lualine components
@@ -949,7 +947,7 @@ conf.enable_terminal = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
-conf.enable_wakatime = false
+conf.enable_wakatime = true
 -- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
 conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
@@ -961,7 +959,6 @@ conf.dashboard_recent_files = 3
 conf.enable_dashboard_header = false
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
---
 -- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
@@ -974,7 +971,6 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
-
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
