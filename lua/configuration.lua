@@ -71,8 +71,6 @@ conf.enable_tabline = true
 conf.enable_winbar = true
 -- Enable rebelot/terminal.nvim
 conf.enable_terminal = true
--- Enable shell and file manager from https://github.com/lvim-tech
-conf.enable_lvimshell = false
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
