@@ -59,6 +59,26 @@ if settings.enable_noice then
   }
 end
 
+local lvim_shell = {}
+if settings.enable_lvimshell then
+  lvim_shell = {
+    {
+      "lvim-tech/lvim-shell",
+      config = function()
+        require("config.lvim-shell")
+      end,
+    },
+    {
+      "lvim-tech/lvim-fm",
+      dependencies = { "lvim-tech/lvim-shell" },
+      cmd = { "LvimFileManager" },
+      config = function()
+        require("lvim-fm").setup()
+      end,
+    }
+  }
+end
+
 local terminal_nvim = {}
 if settings.enable_terminal then
   terminal_nvim = {
@@ -249,6 +269,7 @@ return {
   -- ui components
   { "MunifTanjim/nui.nvim",        lazy = true },
 
+  lvim_shell,
   terminal_nvim,
   wilder_type,
 }

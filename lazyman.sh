@@ -1513,6 +1513,12 @@ show_conf_menu() {
     else
       use_terminal="✗"
     fi
+    enable_lvimshell=$(get_conf_value enable_lvimshell)
+    if [ "${enable_lvimshell}" == "true" ]; then
+      use_lvimshell=""
+    else
+      use_lvimshell="✗"
+    fi
     enable_wakatime=$(get_conf_value enable_wakatime)
     if [ "${enable_wakatime}" == "true" ]; then
       use_wakatime=""
@@ -1623,6 +1629,7 @@ show_conf_menu() {
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("Lvim Shell    [${use_lvimshell}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Bookmarks     [${use_bookmarks}]")
@@ -1798,6 +1805,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Lvim Shell"*,* | *,"Lvim Shell"*)
+          if [ "${enable_lvimshell}" == "true" ]; then
+            set_conf_value "enable_lvimshell" "false"
+          else
+            set_conf_value "enable_lvimshell" "true"
+          fi
+          break
+          ;;
         "WakaTime"*,* | *,"WakaTime"*)
           if [ "${enable_wakatime}" == "true" ]; then
             set_conf_value "enable_wakatime" "false"
@@ -1968,6 +1983,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_lvimshell" "false"
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
@@ -2000,6 +2016,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_lvimshell" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
