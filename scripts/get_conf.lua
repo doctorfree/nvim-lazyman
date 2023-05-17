@@ -9,5 +9,16 @@
 
 local settings = require("configuration")
 local config = vim.inspect(_G.arg[1])
-local entry = string.gsub(config, '"', "")
-print(settings[entry])
+local arg = string.gsub(config, '"', "")
+local entry = settings[arg]
+if type (entry) == 'string' then
+  print(entry)
+elseif type (entry) == 'table' then
+  table.sort(entry)
+  for _,val in ipairs(entry) do
+    print(val)
+  end
+  print("\n")
+else
+  print(tostring(entry))
+end

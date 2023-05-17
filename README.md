@@ -893,6 +893,7 @@ conf.theme = "tokyonight"
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
 conf.enable_transparent = true
+
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
 conf.mapleader = ","
@@ -920,6 +921,7 @@ conf.listchars = {
 }
 -- use rg instead of grep
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
+
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
@@ -972,6 +974,7 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
+
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
 conf.media_backend = "jp2a"
@@ -985,10 +988,30 @@ conf.treesitter_ensure_installed = {
 -- Enable clangd or ccls will be used for C/C++ diagnostics
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
+-- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  "bashls", "cssmodules_ls", "denols", "dockerls", "eslint", "gopls", "graphql",
-  "html", "jdtls", "jsonls", "julials", "ltex", "lua_ls", "marksman", "pylsp",
-  "pyright", "sqlls", "tailwindcss", "texlab", "tsserver", "vimls", "yamlls",
+  "bashls", -- LSP_SERVERS
+  "cssmodules_ls", -- LSP_SERVERS
+  "denols", -- LSP_SERVERS
+  "dockerls", -- LSP_SERVERS
+  "eslint", -- LSP_SERVERS
+  "gopls", -- LSP_SERVERS
+  "graphql", -- LSP_SERVERS
+  "html", -- LSP_SERVERS
+  "jdtls", -- LSP_SERVERS
+  "jsonls", -- LSP_SERVERS
+  "julials", -- LSP_SERVERS
+  "ltex", -- LSP_SERVERS
+  "lua_ls", -- LSP_SERVERS
+  "marksman", -- LSP_SERVERS
+  "pylsp", -- LSP_SERVERS
+  "pyright", -- LSP_SERVERS
+  "sqlls", -- LSP_SERVERS
+  "tailwindcss", -- LSP_SERVERS
+  "texlab", -- LSP_SERVERS
+  "tsserver", -- LSP_SERVERS
+  "vimls", -- LSP_SERVERS
+  "yamlls", -- LSP_SERVERS
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {

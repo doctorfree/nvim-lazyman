@@ -17,7 +17,6 @@ LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
-FIG_TEXT="Lazyman"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple"
@@ -27,9 +26,16 @@ SPDIR="${HOME}/.SpaceVim.d"
 # Array with font names
 fonts=("lean" "slant" "shadow" "small" "script" "standard")
 # Supported themes
-themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "onedarkpro" "everforest" "monokai-pro")
+themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" \
+        "onedarkpro" "everforest" "monokai-pro")
 # Themes with styles
-styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "onedarkpro" "monokai-pro")
+styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" \
+               "onedarkpro" "monokai-pro")
+all_lsp_servers=("bashls" "cssmodules_ls" "denols" "dockerls" "eslint" "gopls" \
+                 "graphql" "html" "jdtls" "jsonls" "julials" "ltex" "lua_ls" \
+                 "marksman" "pylsp" "pyright" "sqlls" "tailwindcss" "texlab" \
+                 "tsserver" "vimls" "yamlls")
+lsp_enabled_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
@@ -674,6 +680,12 @@ clone_repo() {
 }
 
 show_figlet() {
+  if [ "$1" ]
+  then
+    FIG_TEXT="$1"
+  else
+    FIG_TEXT="Lazyman"
+  fi
   # Seed random generator
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
@@ -767,10 +779,39 @@ show_alias() {
   printf "\n"
 }
 
+get_conf_table() {
+  confname="$1"
+  lsp_enabled_table=()
+  while read -r val
+  do
+    lsp_enabled_table+=("$val")
+  done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+}
+
 get_conf_value() {
   confname="$1"
   confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
   echo "${confval}"
+}
+
+set_conf_table() {
+  marker="$1"
+  confval="$2"
+  action="$3"
+  grep "${marker}" "${NVIMCONF}" | grep "${confval}" >/dev/null && {
+    case ${action} in
+      disable)
+        cat "${NVIMCONF}" \
+          | sed -e "s/  \"${confval}\", -- ${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+        ;;
+      enable)
+        cat "${NVIMCONF}" \
+          | sed -e "s/-- \"${confval}\", -- ${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+        ;;
+    esac
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
+  }
 }
 
 set_conf_value() {
@@ -938,11 +979,11 @@ select_theme_style() {
       mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
-      if [ "${have_figlet}" ]
+      if [ "${have_rich}" ]
       then
-        show_figlet
+        rich "[cyan]Select Theme Style[/cyan]" -p -a rounded -c -C
       else
-        [ "${have_rich}" ] && rich "[cyan]Select Theme Style[/cyan]" -p -a rounded -c -C
+        [ "${have_figlet}" ] && show_figlet "Style"
       fi
       printf "\n"
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
@@ -1165,11 +1206,11 @@ select_theme() {
       mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
-      if [ "${have_figlet}" ]
+      if [ "${have_rich}" ]
       then
-        show_figlet
+        rich "[cyan]Select Theme[/cyan]" -p -a rounded -c -C
       else
-        [ "${have_rich}" ] && rich "[cyan]Select Theme[/cyan]" -p -a rounded -c -C
+        [ "${have_figlet}" ] && show_figlet "Theme"
       fi
       printf "\n"
       PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
@@ -1255,10 +1296,11 @@ select_theme() {
   [ "${mainmenu}" ] && show_main_menu
 }
 
-show_conf_menu() {
+show_lsp_menu() {
   set_haves
   while true; do
     mainmenu=
+    confmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -1269,12 +1311,112 @@ show_conf_menu() {
       break
     }
     [ "$debug" ] || tput reset
-    if [ "${have_figlet}" ]
+    if [ "${have_rich}" ]
     then
-      show_figlet
+      rich "[cyan]Lazyman LSP Servers Menu[/cyan]" -p -a rounded -c -C
     else
-      [ "${have_rich}" ] && rich "[cyan]Lazyman Configuration Menu[/cyan]" -p -a rounded -c -C
+      [ "${have_figlet}" ] && show_figlet "LSP Menu"
     fi
+    printf '\n'
+    get_conf_table lsp_servers
+    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    for lsp in "${all_lsp_servers[@]}"; do
+      len=${#lsp}
+      numsp=$((14 - len))
+      [ ${numsp} -lt 0 ] && numsp=0
+      longlsp="${lsp}"
+      while [ ${numsp} -gt 0 ]
+      do
+        longlsp="${longlsp} "
+        ((numsp-=1))
+      done
+      if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" > /dev/null
+      then
+        options+=("${longlsp} []")
+      else
+        options+=("${longlsp} [✗]")
+      fi
+    done
+    options+=("Disable All")
+    options+=("Enable All")
+    options+=("Config Menu")
+    options+=("Main Menu")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          for lsp in "${all_lsp_servers[@]}"; do
+            set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+          done
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          for lsp in "${all_lsp_servers[@]}"; do
+            set_conf_table "LSP_SERVERS" "${lsp}" "enable"
+          done
+          break
+          ;;
+        "Config Menu"*,* | *,"Config Menu"*)
+          confmenu=1
+          break 2
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          mainmenu=1
+          break 2
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+        *,*)
+          enable=
+          lspname=$(echo "${opt}" | awk ' { print $1 } ')
+          grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
+          if [ "${enable}" ]
+          then
+            set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+          else
+            set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+          fi
+          break
+          ;;
+      esac
+      REPLY=
+    done
+  done
+  [ "${mainmenu}" ] && show_main_menu
+  [ "${confmenu}" ] && show_conf_menu
+}
+
+show_conf_menu() {
+  set_haves
+  while true; do
+    mainmenu=
+    lspmenu=
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      mainmenu=1
+      break
+    }
+    [ "$debug" ] || tput reset
+    if [ "${have_rich}" ]
+    then
+      rich "[cyan]Lazyman Configuration Menu[/cyan]" -p -a rounded -c -C
+    else
+      [ "${have_figlet}" ] && show_figlet "Config"
+    fi
+    printf '\n'
     theme=$(get_conf_value theme)
     use_theme="${theme}"
     theme_style=$(get_conf_value theme_style)
@@ -1493,6 +1635,7 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=("Winbar        [${use_winbar}]")
+    options+=("LSP Servers")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
@@ -1887,6 +2030,10 @@ show_conf_menu() {
           fi
           break
           ;;
+        "LSP Servers"*,* | *,"LSP Servers"*)
+          lspmenu=1
+          break 2
+          ;;
         "Main Menu"*,* | *,"Main Menu"*)
           mainmenu=1
           break 2
@@ -1900,6 +2047,7 @@ show_conf_menu() {
     done
   done
   [ "${mainmenu}" ] && show_main_menu
+  [ "${lspmenu}" ] && show_lsp_menu
 }
 
 show_main_menu() {
