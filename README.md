@@ -380,6 +380,7 @@ installed with the `-w conf` option.
   - Neovim configuration optimized for writing in LaTeX
   - Personal Neovim configuration of [Benjamin Brast-McKie](http://www.benbrastmckie.com)
   - Keymaps and more described in the configuration [Cheatsheet](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md)
+  - Blog article by the author detailing [tools used by his configuration](http://www.benbrastmckie.com/tools#access)
   - Install and initialize with `lazyman -w LaTeX`
 
 ### Starter configurations
