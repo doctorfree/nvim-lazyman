@@ -1,6 +1,6 @@
 local settings = require("configuration")
-local lsp_servers = settings.lsp_servers
 local formatters_linters = settings.formatters_linters
+local external_formatters = settings.external_formatters
 local table_contains = require("utils.functions").table_contains
 
 return {
@@ -82,20 +82,34 @@ return {
       local diagnostics = null_ls.builtins.diagnostics
       local actions = null_ls.builtins.code_actions
       local conf_sources = {
+        actions.gitsigns,
         diagnostics.zsh.with({
           filetypes = { "zsh" },
         }),
-        actions.gitsigns,
-        diagnostics.ruff,
-        formatting.black.with({
-          timeout = 10000,
-          extra_args = { "--fast" },
-        }),
-        formatting.beautysh.with({
-          timeout = 10000,
-          extra_args = { "--indent-size", "2" },
-        }),
       }
+      if table_contains(external_formatters, "ruff") then
+        if vim.fn.executable('ruff') == 1 then
+          table.insert(conf_sources, diagnostics.ruff)
+        end
+      end
+      if table_contains(external_formatters, "black") then
+        if vim.fn.executable('black') == 1 then
+          table.insert(conf_sources,
+            formatting.black.with({
+              timeout = 10000,
+              extra_args = { "--fast" },
+            }))
+        end
+      end
+      if table_contains(external_formatters, "beautysh") then
+        if vim.fn.executable('beautysh') == 1 then
+          table.insert(conf_sources,
+            formatting.beautysh.with({
+              timeout = 10000,
+              extra_args = { "--indent-size", "2" },
+            }))
+        end
+      end
       if table_contains(formatters_linters, "prettier") then
         table.insert(conf_sources,
           formatting.prettier.with({

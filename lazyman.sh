@@ -31,13 +31,27 @@ themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" \
 # Themes with styles
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" \
                "onedarkpro" "monokai-pro")
+
 all_lsp_servers=("bashls" "cssmodules_ls" "denols" "dockerls" "eslint" "gopls" \
                  "graphql" "html" "jdtls" "jsonls" "julials" "ltex" "lua_ls" \
                  "marksman" "pylsp" "pyright" "sqlls" "tailwindcss" "texlab" \
                  "tsserver" "vimls" "yamlls")
-all_formatters=("actionlint" "goimports" "gofumpt" "golangci-lint" \
-                "google-java-format" "latexindent" "markdownlint" "prettier" \
-                "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
+have_ccls=$(type -p ccls)
+[ "${have_ccls}" ] && all_lsp_servers+=("ccls")
+have_clangd=$(type -p clangd)
+[ "${have_clangd}" ] && all_lsp_servers+=("clangd")
+
+all_formatters=("actionlint" "goimports" "golangci-lint" "gofumpt" \
+                "google-java-format" "latexindent" "markdownlint" \
+                "prettier" "sql-formatter" "shellcheck" "shfmt" \
+                "stylua" "tflint" "yamllint")
+have_beautysh=$(type -p beautysh)
+[ "${have_beautysh}" ] && all_formatters+=("beautysh")
+have_black=$(type -p black)
+[ "${have_black}" ] && all_formatters+=("black")
+have_ruff=$(type -p ruff)
+[ "${have_ruff}" ] && all_formatters+=("ruff")
+
 lsp_enabled_table=()
 for_enabled_table=()
 
@@ -810,6 +824,14 @@ get_conf_table() {
     do
       lsp_enabled_table+=("$val")
     done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+    enable_ccls=$(get_conf_value enable_ccls)
+    if [ "${enable_ccls}" == "true" ]; then
+      lsp_enabled_table+=("ccls")
+    fi
+    enable_clangd=$(get_conf_value enable_clangd)
+    if [ "${enable_clangd}" == "true" ]; then
+      lsp_enabled_table+=("clangd")
+    fi
   else
     if [ "${confname}" == "formatters_linters" ]
     then
@@ -818,6 +840,10 @@ get_conf_table() {
       do
         for_enabled_table+=("$val")
       done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+      while read -r val
+      do
+        for_enabled_table+=("$val")
+      done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} "external_formatters" 2>&1)
     fi
   fi
 }
@@ -832,20 +858,43 @@ set_conf_table() {
   marker="$1"
   confval="$2"
   action="$3"
-  grep "${marker}" "${NVIMCONF}" | grep "${confval}" >/dev/null && {
-    case ${action} in
-      disable)
-        cat "${NVIMCONF}" \
-          | sed -e "s/  \"${confval}\", -- ${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
-        ;;
-      enable)
-        cat "${NVIMCONF}" \
-          | sed -e "s/-- \"${confval}\", -- ${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
-        ;;
-    esac
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
+  case ${confval} in
+    ccls)
+      case ${action} in
+        disable)
+          set_conf_value "enable_ccls" "false"
+          ;;
+        enable)
+          set_conf_value "enable_ccls" "true"
+          ;;
+      esac
+      ;;
+    clangd)
+      case ${action} in
+        disable)
+          set_conf_value "enable_clangd" "false"
+          ;;
+        enable)
+          set_conf_value "enable_clangd" "true"
+          ;;
+      esac
+      ;;
+    *)
+      grep "${marker}" "${NVIMCONF}" | grep "${confval}" >/dev/null && {
+        case ${action} in
+          disable)
+            cat "${NVIMCONF}" \
+              | sed -e "s/  \"${confval}\", -- ${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+            ;;
+          enable)
+            cat "${NVIMCONF}" \
+              | sed -e "s/-- \"${confval}\", -- ${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+            ;;
+        esac
+        cp /tmp/nvim$$ "${NVIMCONF}"
+        rm -f /tmp/nvim$$
+      }
+  esac
 }
 
 set_conf_value() {
@@ -1380,7 +1429,8 @@ show_lsp_menu() {
     get_conf_table lsp_servers
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    for lsp in "${all_lsp_servers[@]}"; do
+    readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
+    for lsp in "${lsp_sorted[@]}"; do
       len=${#lsp}
       numsp=$((14 - len))
       [ ${numsp} -lt 0 ] && numsp=0
@@ -1441,7 +1491,12 @@ show_lsp_menu() {
           ;;
         *,*)
           enable=
-          lspname=$(echo "${opt}" | awk ' { print $1 } ')
+          if [ "${opt}" ]
+          then
+            lspname=$(echo "${opt}" | awk ' { print $1 } ')
+          else
+            lspname=$(echo "${REPLY}" | awk ' { print $1 } ')
+          fi
           grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
           if [ "${enable}" ]
           then
@@ -1487,7 +1542,8 @@ show_formlint_menu() {
     get_conf_table formatters_linters
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    for form in "${all_formatters[@]}"; do
+    readarray -t form_sorted < <(printf '%s\0' "${all_formatters[@]}" | sort -z | xargs -0n1)
+    for form in "${form_sorted[@]}"; do
       len=${#form}
       numsp=$((19 - len))
       [ ${numsp} -lt 0 ] && numsp=0
@@ -1548,7 +1604,12 @@ show_formlint_menu() {
           ;;
         *,*)
           enable=
-          forname=$(echo "${opt}" | awk ' { print $1 } ')
+          if [ "${opt}" ]
+          then
+            forname=$(echo "${opt}" | awk ' { print $1 } ')
+          else
+            forname=$(echo "${REPLY}" | awk ' { print $1 } ')
+          fi
           grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" >/dev/null && enable=1
           if [ "${enable}" ]
           then
@@ -2540,7 +2601,12 @@ show_main_menu() {
           break
           ;;
         "Open "*,* | *,"Open "*)
-          nvimconf=$(echo ${opt} | awk ' { print $2 } ')
+          if [ "${opt}" ]
+          then
+            nvimconf=$(echo ${opt} | awk ' { print $2 } ')
+          else
+            nvimconf=$(echo ${REPLY} | awk ' { print $2 } ')
+          fi
           if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${nvimconf}" neovide

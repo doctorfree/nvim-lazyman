@@ -125,7 +125,9 @@ conf.treesitter_ensure_installed = {
   "vimdoc",
   "yaml",
 }
--- Enable clangd or ccls will be used for C/C++ diagnostics
+-- Enable clangd or ccls for C/C++ diagnostics
+-- Note: if enabled then the tool must be installed and in the execution path
+conf.enable_ccls = true
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
@@ -134,7 +136,7 @@ conf.lsp_servers = {
   "cssmodules_ls", -- LSP_SERVERS
   "denols", -- LSP_SERVERS
   "dockerls", -- LSP_SERVERS
-  "eslint", -- LSP_SERVERS
+  -- "eslint", -- LSP_SERVERS
   "gopls", -- LSP_SERVERS
   "graphql", -- LSP_SERVERS
   "html", -- LSP_SERVERS
@@ -169,6 +171,12 @@ conf.formatters_linters = {
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
+}
+-- Formatters and linters installed externally
+conf.external_formatters = {
+  -- "beautysh", -- FORMATTERS_LINTERS
+  "black", -- FORMATTERS_LINTERS
+  "ruff", -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
