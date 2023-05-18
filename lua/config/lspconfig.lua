@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
+local formatters_linters = settings.formatters_linters
 local showdiag = settings.show_diagnostics
 local table_contains = require("utils.functions").table_contains
 
@@ -123,6 +124,24 @@ capabilities.textDocument.foldingRange = {
 }
 
 local null_ls = require("null-ls")
+local conf_sources = {
+  null_ls.builtins.formatting.trim_newlines,
+  null_ls.builtins.formatting.trim_whitespace,
+}
+if table_contains(formatters_linters, "actionlint") then
+  table.insert(conf_sources, null_ls.builtins.diagnostics.actionlint)
+end
+if table_contains(formatters_linters, "stylua") then
+  table.insert(conf_sources, null_ls.builtins.formatting.stylua)
+end
+local formatter_bin = "eslint_d"
+if table_contains(formatters_linters, "prettier") then
+  table.insert(conf_sources, null_ls.builtins.formatting.prettier)
+  formatter_bin = "prettier"
+else
+  table.insert(conf_sources, null_ls.builtins.formatting.eslint_d)
+end
+
 null_ls.setup({
   should_attach = function(bufnr)
     local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
@@ -131,13 +150,7 @@ null_ls.setup({
     end
     return true
   end,
-  sources = {
-    null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.trim_newlines,
-    null_ls.builtins.formatting.trim_whitespace,
-    null_ls.builtins.diagnostics.actionlint,
-  },
+  sources = conf_sources
 })
 
 local lspconfig = require("lspconfig")
@@ -174,7 +187,7 @@ if table_contains(lsp_servers, "tsserver") then
       eslint_opts = {},
       -- formatting
       enable_formatting = true,
-      formatter = "prettier",
+      formatter = formatter_bin,
       formatter_opts = {},
       -- update imports on file move
       update_imports_on_move = true,

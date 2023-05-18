@@ -35,7 +35,11 @@ all_lsp_servers=("bashls" "cssmodules_ls" "denols" "dockerls" "eslint" "gopls" \
                  "graphql" "html" "jdtls" "jsonls" "julials" "ltex" "lua_ls" \
                  "marksman" "pylsp" "pyright" "sqlls" "tailwindcss" "texlab" \
                  "tsserver" "vimls" "yamlls")
+all_formatters=("actionlint" "goimports" "gofumpt" "golangci-lint" \
+                "google-java-format" "latexindent" "markdownlint" "prettier" \
+                "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
 lsp_enabled_table=()
+for_enabled_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]"
@@ -799,11 +803,23 @@ show_alias() {
 
 get_conf_table() {
   confname="$1"
-  lsp_enabled_table=()
-  while read -r val
-  do
-    lsp_enabled_table+=("$val")
-  done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+  if [ "${confname}" == "lsp_servers" ]
+  then
+    lsp_enabled_table=()
+    while read -r val
+    do
+      lsp_enabled_table+=("$val")
+    done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+  else
+    if [ "${confname}" == "formatters_linters" ]
+    then
+      for_enabled_table=()
+      while read -r val
+      do
+        for_enabled_table+=("$val")
+      done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+    fi
+  fi
 }
 
 get_conf_value() {
@@ -1342,6 +1358,7 @@ show_lsp_menu() {
   while true; do
     mainmenu=
     confmenu=
+    formmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -1382,6 +1399,7 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
+    options+=("Formatters Menu")
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -1404,6 +1422,10 @@ show_lsp_menu() {
             set_conf_table "LSP_SERVERS" "${lsp}" "enable"
           done
           break
+          ;;
+        "Formatters Menu"*,* | *,"Formatters Menu"*)
+          formmenu=1
+          break 2
           ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
@@ -1435,6 +1457,114 @@ show_lsp_menu() {
   done
   [ "${mainmenu}" ] && show_main_menu
   [ "${confmenu}" ] && show_conf_menu
+  [ "${formmenu}" ] && show_formlint_menu
+}
+
+show_formlint_menu() {
+  set_haves
+  while true; do
+    mainmenu=
+    confmenu=
+    lspsmenu=
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      mainmenu=1
+      break
+    }
+    [ "$debug" ] || tput reset
+    if [ "${have_rich}" ]
+    then
+      rich "[cyan]Lazyman Formatters and Linters Menu[/cyan]" -p -a rounded -c -C
+      rich "[b green]Enable/Disable formatters and linters used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+    else
+      [ "${have_figlet}" ] && show_figlet "Formatters"
+    fi
+    printf '\n'
+    get_conf_table formatters_linters
+    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    for form in "${all_formatters[@]}"; do
+      len=${#form}
+      numsp=$((19 - len))
+      [ ${numsp} -lt 0 ] && numsp=0
+      longform="${form}"
+      while [ ${numsp} -gt 0 ]
+      do
+        longform="${longform} "
+        ((numsp-=1))
+      done
+      if echo "${for_enabled_table[@]}" | grep -qw "$form" > /dev/null
+      then
+        options+=("${longform} []")
+      else
+        options+=("${longform} [✗]")
+      fi
+    done
+    options+=("Disable All")
+    options+=("Enable All")
+    options+=("LSP Servers Menu")
+    options+=("Config Menu")
+    options+=("Main Menu")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          for form in "${all_formatters[@]}"; do
+            set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
+          done
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          for form in "${all_formatters[@]}"; do
+            set_conf_table "FORMATTERS_LINTERS" "${form}" "enable"
+          done
+          break
+          ;;
+        "LSP Servers"*,* | *,"LSP Servers"*)
+          lspsmenu=1
+          break 2
+          ;;
+        "Config Menu"*,* | *,"Config Menu"*)
+          confmenu=1
+          break 2
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          mainmenu=1
+          break 2
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+        *,*)
+          enable=
+          forname=$(echo "${opt}" | awk ' { print $1 } ')
+          grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" >/dev/null && enable=1
+          if [ "${enable}" ]
+          then
+            set_conf_table "FORMATTERS_LINTERS" "${forname}" "enable"
+          else
+            set_conf_table "FORMATTERS_LINTERS" "${forname}" "disable"
+          fi
+          break
+          ;;
+      esac
+      REPLY=
+    done
+  done
+  [ "${mainmenu}" ] && show_main_menu
+  [ "${confmenu}" ] && show_conf_menu
+  [ "${lspsmenu}" ] && show_lsp_menu
 }
 
 show_conf_menu() {
@@ -1442,6 +1572,7 @@ show_conf_menu() {
   while true; do
     mainmenu=
     lspmenu=
+    formenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -1688,6 +1819,7 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=("Winbar        [${use_winbar}]")
+    options+=("Formatters")
     options+=("LSP Servers")
     options+=("Disable All")
     options+=("Enable All")
@@ -2106,6 +2238,10 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Formatters"*,* | *,"Formatters"*)
+          formenu=1
+          break 2
+          ;;
         "LSP Servers"*,* | *,"LSP Servers"*)
           lspmenu=1
           break 2
@@ -2124,6 +2260,7 @@ show_conf_menu() {
   done
   [ "${mainmenu}" ] && show_main_menu
   [ "${lspmenu}" ] && show_lsp_menu
+  [ "${formenu}" ] && show_formlint_menu
 }
 
 show_main_menu() {

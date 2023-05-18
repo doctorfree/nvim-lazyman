@@ -1,4 +1,7 @@
 local settings = require("configuration")
+local lsp_servers = settings.lsp_servers
+local formatters_linters = settings.formatters_linters
+local table_contains = require("utils.functions").table_contains
 
 return {
   {
@@ -78,49 +81,76 @@ return {
       local formatting = null_ls.builtins.formatting
       local diagnostics = null_ls.builtins.diagnostics
       local actions = null_ls.builtins.code_actions
-      null_ls.setup({
-        debug = false,
-        sources = {
+      local conf_sources = {
+        diagnostics.zsh.with({
+          filetypes = { "zsh" },
+        }),
+        actions.gitsigns,
+        diagnostics.ruff,
+        formatting.black.with({
+          timeout = 10000,
+          extra_args = { "--fast" },
+        }),
+        formatting.beautysh.with({
+          timeout = 10000,
+          extra_args = { "--indent-size", "2" },
+        }),
+      }
+      if table_contains(formatters_linters, "prettier") then
+        table.insert(conf_sources,
           formatting.prettier.with({
             -- milliseconds
             timeout = 10000,
             extra_args = { "--single-quote", "false" },
-          }),
+          }))
+      end
+      if table_contains(formatters_linters, "stylua") then
+        table.insert(conf_sources,
           formatting.stylua.with({
             timeout = 10000,
             extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
-          }),
-          formatting.goimports,
-          formatting.gofumpt,
+          }))
+      end
+      if table_contains(formatters_linters, "goimports") then
+        table.insert(conf_sources, formatting.goimports)
+      end
+      if table_contains(formatters_linters, "gofumpt") then
+        table.insert(conf_sources, formatting.gofumpt)
+      end
+      if table_contains(formatters_linters, "shellcheck") then
+        table.insert(conf_sources, actions.shellcheck)
+      end
+      if table_contains(formatters_linters, "google-jave-format") then
+        table.insert(conf_sources, formatting.google_java_format)
+      end
+      if table_contains(formatters_linters, "latexindent") then
+        table.insert(conf_sources,
+          -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
           formatting.latexindent.with({
             timeout = 10000,
-            extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
-          }),
-          actions.shellcheck,
-          actions.gitsigns,
+            extra_args = { "-g", "/dev/null" },
+          }))
+      end
+      if table_contains(formatters_linters, "shfmt") then
+        table.insert(conf_sources,
           formatting.shfmt.with({
             extra_args = { "-i", "2", "-ci", "-bn" },
             filetypes = { "sh", "zsh", "bash" },
-          }),
-          diagnostics.ruff,
-          formatting.google_java_format,
-          formatting.black.with({
-            timeout = 10000,
-            extra_args = { "--fast" },
-          }),
+          }))
+      end
+      if table_contains(formatters_linters, "sql_formatter") then
+        table.insert(conf_sources,
           formatting.sql_formatter.with({
             timeout = 10000,
             extra_args = { "--config" },
-          }),
-          formatting.markdownlint,
-          formatting.beautysh.with({
-            timeout = 10000,
-            extra_args = { "--indent-size", "2" },
-          }),
-          diagnostics.zsh.with({
-            filetypes = { "zsh" },
-          }),
-        },
+          }))
+      end
+      if table_contains(formatters_linters, "markdownlint") then
+        table.insert(conf_sources, formatting.markdownlint)
+      end
+      null_ls.setup({
+        debug = false,
+        sources = conf_sources,
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
             local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
