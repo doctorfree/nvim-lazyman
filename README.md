@@ -943,6 +943,8 @@ conf.enable_bbye = true
 conf.enable_cheatsheet = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
+-- Enable dressing plugin for improved default vim.ui interfaces
+conf.enable_dressing = true
 -- Enable hop plugin for easy motions
 conf.enable_hop = true
 -- Enable renamer plugin for VS Code-like renaming UI

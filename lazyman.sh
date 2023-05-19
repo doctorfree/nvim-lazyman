@@ -1811,6 +1811,12 @@ show_conf_menu() {
     else
       use_startuptime="✗"
     fi
+    enable_dressing=$(get_conf_value enable_dressing)
+    if [ "${enable_dressing}" == "true" ]; then
+      use_dressing=""
+    else
+      use_dressing="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1929,6 +1935,7 @@ show_conf_menu() {
     options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Compile & Run [${use_compile}]")
+    options+=("Dressing UI   [${use_dressing}]")
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
@@ -2228,6 +2235,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Dressing"*,* | *,"Dressing"*)
+          if [ "${enable_dressing}" == "true" ]; then
+            set_conf_value "enable_dressing" "false"
+          else
+            set_conf_value "enable_dressing" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2386,6 +2401,7 @@ show_conf_menu() {
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
           set_conf_value "enable_compile" "false"
+          set_conf_value "enable_dressing" "false"
           set_conf_value "enable_hop" "false"
           set_conf_value "enable_ranger" "false"
           set_conf_value "enable_renamer" "false"
@@ -2429,6 +2445,7 @@ show_conf_menu() {
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"
           set_conf_value "enable_compile" "true"
+          set_conf_value "enable_dressing" "true"
           set_conf_value "enable_hop" "true"
           set_conf_value "enable_ranger" "true"
           set_conf_value "enable_renamer" "true"
