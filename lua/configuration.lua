@@ -48,6 +48,12 @@ conf.listchars = {
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
+-- Enable display of ascii art
+conf.enable_asciiart = true
+-- Enable display of custom cheatsheets
+conf.enable_cheatsheet = true
+-- Enable hop plugin for easy motions
+conf.enable_hop = true
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
 -- neo-tree or nvim-tree, false will enable nvim-tree

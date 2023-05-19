@@ -1760,6 +1760,24 @@ show_conf_menu() {
     else
       use_wakatime="✗"
     fi
+    enable_asciiart=$(get_conf_value enable_asciiart)
+    if [ "${enable_asciiart}" == "true" ]; then
+      use_asciiart=""
+    else
+      use_asciiart="✗"
+    fi
+    enable_cheatsheet=$(get_conf_value enable_cheatsheet)
+    if [ "${enable_cheatsheet}" == "true" ]; then
+      use_cheatsheet=""
+    else
+      use_cheatsheet="✗"
+    fi
+    enable_hop=$(get_conf_value enable_hop)
+    if [ "${enable_hop}" == "true" ]; then
+      use_hop=""
+    else
+      use_hop="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1867,6 +1885,9 @@ show_conf_menu() {
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("WakaTime      [${use_wakatime}]")
+    options+=("Ascii Art     [${use_asciiart}]")
+    options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Enable Hop    [${use_hop}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
@@ -2079,6 +2100,30 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Ascii Art"*,* | *,"Ascii Art"*)
+          if [ "${enable_asciiart}" == "true" ]; then
+            set_conf_value "enable_asciiart" "false"
+          else
+            set_conf_value "enable_asciiart" "true"
+          fi
+          break
+          ;;
+        "Cheatsheets"*,* | *,"Cheatsheets"*)
+          if [ "${enable_cheatsheet}" == "true" ]; then
+            set_conf_value "enable_cheatsheet" "false"
+          else
+            set_conf_value "enable_cheatsheet" "true"
+          fi
+          break
+          ;;
+        "Enable Hop"*,* | *,"Enable Hop"*)
+          if [ "${enable_hop}" == "true" ]; then
+            set_conf_value "enable_hop" "false"
+          else
+            set_conf_value "enable_hop" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2233,6 +2278,9 @@ show_conf_menu() {
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_terminal" "false"
           set_conf_value "enable_wakatime" "false"
+          set_conf_value "enable_asciiart" "false"
+          set_conf_value "enable_cheatsheet" "false"
+          set_conf_value "enable_hop" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
           set_conf_value "enable_ide" "false"
@@ -2267,6 +2315,9 @@ show_conf_menu() {
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
+          set_conf_value "enable_asciiart" "true"
+          set_conf_value "enable_cheatsheet" "true"
+          set_conf_value "enable_hop" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"
