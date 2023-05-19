@@ -866,6 +866,10 @@ install_tools() {
     npm i -g typescript >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
+    log "Installing eslint_d npm package ..."
+    npm i -g eslint_d >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons >/dev/null 2>&1
     [ "$quiet" ] || printf " done"

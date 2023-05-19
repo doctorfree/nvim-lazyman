@@ -886,7 +886,6 @@ Additional plugin configuration and options are available in `configuration.lua`
 
 ```lua
 local conf = {}
-
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -999,7 +998,9 @@ conf.treesitter_ensure_installed = {
   "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
   "query", "python", "regex", "toml", "vim", "vimdoc", "yaml",
 }
--- Enable clangd or ccls will be used for C/C++ diagnostics
+-- Enable clangd or ccls for C/C++ diagnostics
+-- Note: if enabled then the tool must be installed and in the execution path
+conf.enable_ccls = true
 conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
@@ -1008,7 +1009,7 @@ conf.lsp_servers = {
   "cssmodules_ls", -- LSP_SERVERS
   "denols", -- LSP_SERVERS
   "dockerls", -- LSP_SERVERS
-  "eslint", -- LSP_SERVERS
+  -- "eslint", -- LSP_SERVERS
   "gopls", -- LSP_SERVERS
   "graphql", -- LSP_SERVERS
   "html", -- LSP_SERVERS
@@ -1029,9 +1030,26 @@ conf.lsp_servers = {
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", "goimports", "gofumpt", "golangci-lint", "google-java-format",
-  "latexindent", "markdownlint", "prettier", "sql-formatter", "shellcheck",
-  "shfmt", "stylua", "tflint", "yamllint",
+  "actionlint", -- FORMATTERS_LINTERS
+  "goimports", -- FORMATTERS_LINTERS
+  "gofumpt", -- FORMATTERS_LINTERS
+  "golangci-lint", -- FORMATTERS_LINTERS
+  "google-java-format", -- FORMATTERS_LINTERS
+  "latexindent", -- FORMATTERS_LINTERS
+  "markdownlint", -- FORMATTERS_LINTERS
+  "prettier", -- FORMATTERS_LINTERS
+  "sql-formatter", -- FORMATTERS_LINTERS
+  "shellcheck", -- FORMATTERS_LINTERS
+  "shfmt", -- FORMATTERS_LINTERS
+  "stylua", -- FORMATTERS_LINTERS
+  "tflint", -- FORMATTERS_LINTERS
+  "yamllint", -- FORMATTERS_LINTERS
+}
+-- Formatters and linters installed externally
+conf.external_formatters = {
+  -- "beautysh", -- FORMATTERS_LINTERS
+  "black", -- FORMATTERS_LINTERS
+  "ruff", -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

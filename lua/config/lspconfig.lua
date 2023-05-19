@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
+local formatters_linters = settings.formatters_linters
 local showdiag = settings.show_diagnostics
 local table_contains = require("utils.functions").table_contains
 
@@ -123,6 +124,24 @@ capabilities.textDocument.foldingRange = {
 }
 
 local null_ls = require("null-ls")
+local conf_sources = {
+  null_ls.builtins.formatting.trim_newlines,
+  null_ls.builtins.formatting.trim_whitespace,
+}
+if table_contains(formatters_linters, "actionlint") then
+  table.insert(conf_sources, null_ls.builtins.diagnostics.actionlint)
+end
+if table_contains(formatters_linters, "stylua") then
+  table.insert(conf_sources, null_ls.builtins.formatting.stylua)
+end
+local formatter_bin = "eslint_d"
+if table_contains(formatters_linters, "prettier") then
+  table.insert(conf_sources, null_ls.builtins.formatting.prettier)
+  formatter_bin = "prettier"
+else
+  table.insert(conf_sources, null_ls.builtins.formatting.eslint_d)
+end
+
 null_ls.setup({
   should_attach = function(bufnr)
     local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
@@ -131,13 +150,7 @@ null_ls.setup({
     end
     return true
   end,
-  sources = {
-    null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.trim_newlines,
-    null_ls.builtins.formatting.trim_whitespace,
-    null_ls.builtins.diagnostics.actionlint,
-  },
+  sources = conf_sources
 })
 
 local lspconfig = require("lspconfig")
@@ -151,6 +164,75 @@ if table_contains(lsp_servers, "jsonls") then
         schemas = require("schemastore").json.schemas(),
       },
     },
+  })
+end
+
+if table_contains(lsp_servers, "eslint") then
+  lspconfig.eslint.setup({
+    cmd = { "vscode-eslint-language-server", "--stdio" },
+    capabilities = capabilities,
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+      "svelte",
+      "astro"
+    },
+    handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        silent = true,
+        border = "rounded",
+      }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+      ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        { virtual_text = true }
+      ),
+    },
+    root_dir = require('lspconfig.util').root_pattern('.git'),
+    settings = {
+      codeAction = {
+        disableRuleComment = {
+          enable = true,
+          location = "separateLine"
+        },
+        showDocumentation = {
+          enable = true
+        }
+      },
+      codeActionOnSave = {
+        enable = false,
+        mode = "all"
+      },
+      experimental = {
+        useFlatConfig = false
+      },
+      format = true,
+      nodePath = "",
+      onIgnoredFiles = "off",
+      packageManager = "npm",
+      problems = {
+        shortenToSingleLine = false
+      },
+      quiet = false,
+      rulesCustomizations = {},
+      run = "onType",
+      useESLintClass = false,
+      validate = "on",
+      workingDirectory = {
+        mode = "location"
+      }
+    },
+    on_attach = function(_, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+    end,
   })
 end
 
@@ -174,7 +256,7 @@ if table_contains(lsp_servers, "tsserver") then
       eslint_opts = {},
       -- formatting
       enable_formatting = true,
-      formatter = "prettier",
+      formatter = formatter_bin,
       formatter_opts = {},
       -- update imports on file move
       update_imports_on_move = true,
@@ -277,20 +359,26 @@ if table_contains(lsp_servers, "yamlls") then
 end
 
 if settings.enable_clangd then
-  lspconfig.clangd.setup({})
-else
-  lspconfig.ccls.setup({
-    capabilities = capabilities,
-    on_attach = navic.attach,
-    init_options = {
-      cache = {
-        directory = ".ccls-cache",
+  if vim.fn.executable('clangd') == 1 then
+    lspconfig.clangd.setup({})
+  end
+end
+
+if settings.enable_ccls then
+  if vim.fn.executable('ccls') == 1 then
+    lspconfig.ccls.setup({
+      capabilities = capabilities,
+      on_attach = navic.attach,
+      init_options = {
+        cache = {
+          directory = ".ccls-cache",
+        },
+        highlight = {
+          lsRanges = true,
+        },
       },
-      highlight = {
-        lsRanges = true,
-      },
-    },
-  })
+    })
+  end
 end
 
 if table_contains(lsp_servers, "lua_ls") then
