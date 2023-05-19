@@ -87,6 +87,18 @@ if settings.enable_compile then
   }
 end
 
+local renamer = {}
+if settings.enable_renamer then
+  renamer = {
+    "filipdutescu/renamer.nvim",
+    lazy = true,
+    branch = "master",
+    config = function()
+      require("config.renamer")
+    end,
+  }
+end
+
 return {
   ranger_float,
 
@@ -96,14 +108,7 @@ return {
 
   session,
 
-  {
-    "filipdutescu/renamer.nvim",
-    lazy = true,
-    branch = "master",
-    config = function()
-      require("config.renamer")
-    end,
-  },
+  renamer,
 
   {
     "moll/vim-bbye",

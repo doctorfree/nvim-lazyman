@@ -1,4 +1,5 @@
 local cfg = {}
+local settings = require("configuration")
 
 ---@type PluginLspKeys
 cfg._keys = nil
@@ -74,7 +75,9 @@ function cfg.on_attach(client, buffer)
   local map = vim.api.nvim_buf_set_keymap
   map(buffer, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   map(buffer, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  map(buffer, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<CR>", opts)
+  if settings.enable_renamer then
+    map(buffer, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<CR>", opts)
+  end
   map(buffer, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   map(buffer, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
   map(buffer, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", opts)

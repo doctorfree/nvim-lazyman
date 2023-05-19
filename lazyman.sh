@@ -1792,6 +1792,12 @@ show_conf_menu() {
     else
       use_games="✗"
     fi
+    enable_renamer=$(get_conf_value enable_renamer)
+    if [ "${enable_renamer}" == "true" ]; then
+      use_renamer=""
+    else
+      use_renamer="✗"
+    fi
     use_dash=$(get_conf_value dashboard)
     enable_bookmarks=$(get_conf_value enable_bookmarks)
     if [ "${enable_bookmarks}" == "true" ]; then
@@ -1898,6 +1904,7 @@ show_conf_menu() {
     options+=("Compile & Run [${use_compile}]")
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable Ranger [${use_ranger}]")
+    options+=("Enable Rename [${use_renamer}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
@@ -2170,6 +2177,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Enable Rename"*,* | *,"Enable Rename"*)
+          if [ "${enable_renamer}" == "true" ]; then
+            set_conf_value "enable_renamer" "false"
+          else
+            set_conf_value "enable_renamer" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2330,6 +2345,7 @@ show_conf_menu() {
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_hop" "false"
           set_conf_value "enable_ranger" "false"
+          set_conf_value "enable_renamer" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
           set_conf_value "enable_ide" "false"
@@ -2370,6 +2386,7 @@ show_conf_menu() {
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_hop" "true"
           set_conf_value "enable_ranger" "true"
+          set_conf_value "enable_renamer" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"

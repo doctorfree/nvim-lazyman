@@ -56,6 +56,8 @@ conf.enable_cheatsheet = true
 conf.enable_compile = false
 -- Enable hop plugin for easy motions
 conf.enable_hop = true
+-- Enable renamer plugin for VS Code-like renaming UI
+conf.enable_renamer = true
 -- Enable ranger in a floating window
 conf.enable_ranger_float = true
 -- Enable multiple cursors
