@@ -45,8 +45,9 @@ if settings.session_manager == "persistence" then
   }
 end
 
-return {
-  {
+local ranger_float = {}
+if settings.ranger_float then
+  ranger_float = {
     "kevinhwang91/rnvimr",
     init = function()
       -- Make Ranger to be hidden after picking a file
@@ -62,7 +63,11 @@ return {
       -- Add a shadow window, value is equal to 100 will disable shadow
       vim.g.rnvimr_shadow_winblend = 90
     end,
-  },
+  }
+end
+
+return {
+  ranger_float,
 
   {
     "mg979/vim-visual-multi",

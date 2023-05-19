@@ -940,6 +940,8 @@ conf.enable_asciiart = true
 conf.enable_cheatsheet = true
 -- Enable hop plugin for easy motions
 conf.enable_hop = true
+-- Enable ranger in a floating window
+conf.enable_ranger_float = true
 -- neovim session manager to use, either persistence or possession
 conf.session_manager = "possession"
 -- neo-tree or nvim-tree, false will enable nvim-tree

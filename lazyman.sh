@@ -1778,6 +1778,12 @@ show_conf_menu() {
     else
       use_hop="✗"
     fi
+    enable_ranger=$(get_conf_value enable_ranger)
+    if [ "${enable_ranger}" == "true" ]; then
+      use_ranger=""
+    else
+      use_ranger="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1888,6 +1894,7 @@ show_conf_menu() {
     options+=("Ascii Art     [${use_asciiart}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable Hop    [${use_hop}]")
+    options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("Enable IDE    [${use_ide}]")
@@ -2124,6 +2131,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Enable Ranger"*,* | *,"Enable Ranger"*)
+          if [ "${enable_ranger}" == "true" ]; then
+            set_conf_value "enable_ranger" "false"
+          else
+            set_conf_value "enable_ranger" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2281,6 +2296,7 @@ show_conf_menu() {
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
           set_conf_value "enable_hop" "false"
+          set_conf_value "enable_ranger" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
           set_conf_value "enable_ide" "false"
@@ -2318,6 +2334,7 @@ show_conf_menu() {
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"
           set_conf_value "enable_hop" "true"
+          set_conf_value "enable_ranger" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"
