@@ -380,6 +380,8 @@ below along with their default settings:
 
 - Enable display of ascii art
   - `conf.enable_asciiart = true`
+- Delete buffers and close files without closing your windows
+  - `conf.enable_bbye = true`
 - Enable display of custom cheatsheets
   - `conf.enable_cheatsheet = true`
 - Enable compile plugin to compile and run current file
@@ -402,6 +404,8 @@ below along with their default settings:
   - `conf.enable_chatgpt = true`
 - Enable the newer rainbow treesitter delimiter highlighting
   - `conf.enable_rainbow2 = true`
+- Enable 'StartupTime' command
+  - `conf.enable_startuptime = true`
 - Add/change/delete surrounding delimiter pairs with ease
   - `conf.enable_surround = true`
 - Enable fancy lualine components

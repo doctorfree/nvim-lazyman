@@ -1786,6 +1786,18 @@ show_conf_menu() {
     else
       use_compile="✗"
     fi
+    enable_bbye=$(get_conf_value enable_bbye)
+    if [ "${enable_bbye}" == "true" ]; then
+      use_bbye=""
+    else
+      use_bbye="✗"
+    fi
+    enable_startuptime=$(get_conf_value enable_startuptime)
+    if [ "${enable_startuptime}" == "true" ]; then
+      use_startuptime=""
+    else
+      use_startuptime="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1894,12 +1906,14 @@ show_conf_menu() {
     options+=("Noice UI      [${use_noice}]")
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("Rainbow 2     [${use_rainbow2}]")
+    options+=("StartupTime   [${use_startuptime}]")
     options+=("Surround      [${use_surround}]")
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Ascii Art     [${use_asciiart}]")
+    options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Compile & Run [${use_compile}]")
     options+=("Enable Hop    [${use_hop}]")
@@ -2185,6 +2199,22 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Bdelete"*,* | *,"Bdelete"*)
+          if [ "${enable_bbye}" == "true" ]; then
+            set_conf_value "enable_bbye" "false"
+          else
+            set_conf_value "enable_bbye" "true"
+          fi
+          break
+          ;;
+        "StartupTime"*,* | *,"StartupTime"*)
+          if [ "${enable_startuptime}" == "true" ]; then
+            set_conf_value "enable_startuptime" "false"
+          else
+            set_conf_value "enable_startuptime" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2346,6 +2376,8 @@ show_conf_menu() {
           set_conf_value "enable_hop" "false"
           set_conf_value "enable_ranger" "false"
           set_conf_value "enable_renamer" "false"
+          set_conf_value "enable_bbye" "false"
+          set_conf_value "enable_startuptime" "false"
           set_conf_value "enable_games" "false"
           set_conf_value "enable_bookmarks" "false"
           set_conf_value "enable_ide" "false"
@@ -2387,6 +2419,8 @@ show_conf_menu() {
           set_conf_value "enable_hop" "true"
           set_conf_value "enable_ranger" "true"
           set_conf_value "enable_renamer" "true"
+          set_conf_value "enable_bbye" "true"
+          set_conf_value "enable_startuptime" "true"
           set_conf_value "enable_games" "true"
           set_conf_value "enable_bookmarks" "true"
           set_conf_value "enable_ide" "true"

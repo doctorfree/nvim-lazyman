@@ -99,6 +99,26 @@ if settings.enable_renamer then
   }
 end
 
+local bbye = {}
+if settings.enable_bbye then
+  bbye = {
+    "moll/vim-bbye",
+    keys = { { "<leader>D", "<cmd>Bdelete!<cr>", desc = "Close Buffer" } },
+  }
+end
+
+local startuptime = {}
+if settings.enable_startuptime then
+  -- measure startuptime
+  startuptime = {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 10
+    end,
+  }
+end
+
 return {
   ranger_float,
 
@@ -110,19 +130,9 @@ return {
 
   renamer,
 
-  {
-    "moll/vim-bbye",
-    keys = { { "<leader>D", "<cmd>Bdelete!<cr>", desc = "Close Buffer" } },
-  },
+  bbye,
 
-  -- measure startuptime
-  {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-    config = function()
-      vim.g.startuptime_tries = 10
-    end,
-  },
+  startuptime,
 
   -- library used by other plugins
   { "nvim-lua/plenary.nvim", lazy = true },
