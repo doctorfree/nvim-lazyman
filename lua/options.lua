@@ -2,10 +2,20 @@ local settings = require("configuration")
 local utils = require("utils.functions")
 local o = vim.opt
 
-if settings.global_statusline then
-  o.laststatus = 3
+if settings.enable_statusline then
+  o.showmode = false -- Dont show mode since we have a statusline
+  o.ruler = true
+  o.showcmd = true
+  if settings.global_statusline then
+    o.laststatus = 3
+  else
+    o.laststatus = 2
+  end
 else
-  o.laststatus = 2
+  o.showmode = true -- Dont show mode since we have a statusline
+  o.ruler = false
+  o.showcmd = false
+  o.laststatus = 0
 end
 if settings.enable_tabline then
   o.showtabline = settings.showtabline
@@ -57,7 +67,6 @@ o.shiftwidth = 2 -- the number of spaces inserted for each indentation
 o.tabstop = 2 -- how many spaces a tab counts for
 o.softtabstop = 2
 o.shortmess:append({ W = true, I = true, c = true })
-o.showmode = false -- Dont show mode since we have a statusline
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text
 o.smartcase = true -- Don't ignore case with capitals
 o.smartindent = true -- Insert indents automatically

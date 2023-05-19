@@ -49,7 +49,7 @@ conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- Enable display of ascii art
-conf.enable_asciiart = true
+conf.enable_asciiart = false
 -- Delete buffers and close files without closing your windows
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets

@@ -1415,236 +1415,11 @@ select_theme() {
   [ "${mainmenu}" ] && show_main_menu
 }
 
-show_lsp_menu() {
+show_plugin_menu() {
   set_haves
   while true; do
     mainmenu=
     confmenu=
-    formmenu=
-    [ -f ${GET_CONF} ] || {
-      printf "\n\nWARNING: missing ${GET_CONF}"
-      printf "\nUnable to modify configuration from this menu"
-      printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
-      read -r yn
-      mainmenu=1
-      break
-    }
-    [ "$debug" ] || tput reset
-    if [ "${have_rich}" ]
-    then
-      rich "[cyan]Lazyman LSP Servers Menu[/cyan]" -p -a rounded -c -C
-      rich "[b green]Enable/Disable LSP servers used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
-    else
-      [ "${have_figlet}" ] && show_figlet "LSP Menu"
-    fi
-    printf '\n'
-    get_conf_table lsp_servers
-    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
-    options=()
-    readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
-    for lsp in "${lsp_sorted[@]}"; do
-      len=${#lsp}
-      numsp=$((14 - len))
-      [ ${numsp} -lt 0 ] && numsp=0
-      longlsp="${lsp}"
-      while [ ${numsp} -gt 0 ]
-      do
-        longlsp="${longlsp} "
-        ((numsp-=1))
-      done
-      if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" > /dev/null
-      then
-        options+=("${longlsp} []")
-      else
-        options+=("${longlsp} [✗]")
-      fi
-    done
-    options+=("Disable All")
-    options+=("Enable All")
-    options+=("Formatters Menu")
-    options+=("Config Menu")
-    options+=("Main Menu")
-    options+=("Quit")
-    select opt in "${options[@]}"; do
-      case "$opt,$REPLY" in
-        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          [ "$debug" ] || tput reset
-          printf "\n"
-          man lazyman
-          break
-          ;;
-        "Disable All"*,* | *,"Disable All"*)
-          for lsp in "${all_lsp_servers[@]}"; do
-            set_conf_table "LSP_SERVERS" "${lsp}" "disable"
-          done
-          break
-          ;;
-        "Enable All"*,* | *,"Enable All"*)
-          for lsp in "${all_lsp_servers[@]}"; do
-            set_conf_table "LSP_SERVERS" "${lsp}" "enable"
-          done
-          break
-          ;;
-        "Formatters Menu"*,* | *,"Formatters Menu"*)
-          formmenu=1
-          break 2
-          ;;
-        "Config Menu"*,* | *,"Config Menu"*)
-          confmenu=1
-          break 2
-          ;;
-        "Main Menu"*,* | *,"Main Menu"*)
-          mainmenu=1
-          break 2
-          ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
-          printf "\nExiting Lazyman\n"
-          exit 0
-          ;;
-        *,*)
-          enable=
-          if [ "${opt}" ]
-          then
-            lspname=$(echo "${opt}" | awk ' { print $1 } ')
-          else
-            lspname=$(echo "${REPLY}" | awk ' { print $1 } ')
-          fi
-          grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
-          if [ "${enable}" ]
-          then
-            set_conf_table "LSP_SERVERS" "${lspname}" "enable"
-          else
-            set_conf_table "LSP_SERVERS" "${lspname}" "disable"
-          fi
-          break
-          ;;
-      esac
-      REPLY=
-    done
-  done
-  [ "${mainmenu}" ] && show_main_menu
-  [ "${confmenu}" ] && show_conf_menu
-  [ "${formmenu}" ] && show_formlint_menu
-}
-
-show_formlint_menu() {
-  set_haves
-  while true; do
-    mainmenu=
-    confmenu=
-    lspsmenu=
-    [ -f ${GET_CONF} ] || {
-      printf "\n\nWARNING: missing ${GET_CONF}"
-      printf "\nUnable to modify configuration from this menu"
-      printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
-      read -r yn
-      mainmenu=1
-      break
-    }
-    [ "$debug" ] || tput reset
-    if [ "${have_rich}" ]
-    then
-      rich "[cyan]Lazyman Formatters and Linters Menu[/cyan]" -p -a rounded -c -C
-      rich "[b green]Enable/Disable formatters and linters used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
-    else
-      [ "${have_figlet}" ] && show_figlet "Formatters"
-    fi
-    printf '\n'
-    get_conf_table formatters_linters
-    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
-    options=()
-    readarray -t form_sorted < <(printf '%s\0' "${all_formatters[@]}" | sort -z | xargs -0n1)
-    for form in "${form_sorted[@]}"; do
-      len=${#form}
-      numsp=$((19 - len))
-      [ ${numsp} -lt 0 ] && numsp=0
-      longform="${form}"
-      while [ ${numsp} -gt 0 ]
-      do
-        longform="${longform} "
-        ((numsp-=1))
-      done
-      if echo "${for_enabled_table[@]}" | grep -qw "$form" > /dev/null
-      then
-        options+=("${longform} []")
-      else
-        options+=("${longform} [✗]")
-      fi
-    done
-    options+=("Disable All")
-    options+=("Enable All")
-    options+=("LSP Servers Menu")
-    options+=("Config Menu")
-    options+=("Main Menu")
-    options+=("Quit")
-    select opt in "${options[@]}"; do
-      case "$opt,$REPLY" in
-        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
-          [ "$debug" ] || tput reset
-          printf "\n"
-          man lazyman
-          break
-          ;;
-        "Disable All"*,* | *,"Disable All"*)
-          for form in "${all_formatters[@]}"; do
-            set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
-          done
-          break
-          ;;
-        "Enable All"*,* | *,"Enable All"*)
-          for form in "${all_formatters[@]}"; do
-            set_conf_table "FORMATTERS_LINTERS" "${form}" "enable"
-          done
-          break
-          ;;
-        "LSP Servers"*,* | *,"LSP Servers"*)
-          lspsmenu=1
-          break 2
-          ;;
-        "Config Menu"*,* | *,"Config Menu"*)
-          confmenu=1
-          break 2
-          ;;
-        "Main Menu"*,* | *,"Main Menu"*)
-          mainmenu=1
-          break 2
-          ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
-          printf "\nExiting Lazyman\n"
-          exit 0
-          ;;
-        *,*)
-          enable=
-          if [ "${opt}" ]
-          then
-            forname=$(echo "${opt}" | awk ' { print $1 } ')
-          else
-            forname=$(echo "${REPLY}" | awk ' { print $1 } ')
-          fi
-          grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" >/dev/null && enable=1
-          if [ "${enable}" ]
-          then
-            set_conf_table "FORMATTERS_LINTERS" "${forname}" "enable"
-          else
-            set_conf_table "FORMATTERS_LINTERS" "${forname}" "disable"
-          fi
-          break
-          ;;
-      esac
-      REPLY=
-    done
-  done
-  [ "${mainmenu}" ] && show_main_menu
-  [ "${confmenu}" ] && show_conf_menu
-  [ "${lspsmenu}" ] && show_lsp_menu
-}
-
-show_conf_menu() {
-  set_haves
-  while true; do
-    mainmenu=
     lspmenu=
     formenu=
     [ -f ${GET_CONF} ] || {
@@ -1659,46 +1434,12 @@ show_conf_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]
     then
-      rich "[b cyan]Lazyman Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+      rich "[b cyan]Lazyman Plugins Configuration Menu[/]" -p -a rounded -c -C
+      rich "[b green]Manage the Neovim plugin configuration in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
     else
-      [ "${have_figlet}" ] && show_figlet "Config"
+      [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
     printf '\n'
-    theme=$(get_conf_value theme)
-    use_theme="${theme}"
-    theme_style=$(get_conf_value theme_style)
-    use_theme_style="${theme_style}"
-    enable_transparent=$(get_conf_value enable_transparent)
-    if [ "${enable_transparent}" == "true" ]; then
-      use_transparent=""
-    else
-      use_transparent="✗"
-    fi
-    mapleader=$(get_conf_value mapleader)
-    use_mapleader="${mapleader}"
-    maplocalleader=$(get_conf_value maplocalleader)
-    use_maplocalleader="${maplocalleader}"
-    enable_number=$(get_conf_value number)
-    if [ "${enable_number}" == "true" ]; then
-      use_number=""
-    else
-      use_number="✗"
-    fi
-    enable_relative_number=$(get_conf_value relative_number)
-    if [ "${enable_relative_number}" == "true" ]; then
-      use_relative_number=""
-    else
-      use_relative_number="✗"
-    fi
-    showtabline=$(get_conf_value showtabline)
-    use_showtabline="${showtabline}"
-    enable_list=$(get_conf_value list)
-    if [ "${enable_list}" == "true" ]; then
-      use_list=""
-    else
-      use_list="✗"
-    fi
     session_manager=$(get_conf_value session_manager)
     use_session_manager="${session_manager}"
     file_tree=$(get_conf_value file_tree)
@@ -1738,24 +1479,6 @@ show_conf_menu() {
       use_wilder=""
     else
       use_wilder="✗"
-    fi
-    enable_statusline=$(get_conf_value enable_statusline)
-    if [ "${enable_statusline}" == "true" ]; then
-      use_statusline=""
-    else
-      use_statusline="✗"
-    fi
-    enable_tabline=$(get_conf_value enable_tabline)
-    if [ "${enable_tabline}" == "true" ]; then
-      use_tabline=""
-    else
-      use_tabline="✗"
-    fi
-    enable_winbar=$(get_conf_value enable_winbar)
-    if [ "${enable_winbar}" == "true" ]; then
-      use_winbar=""
-    else
-      use_winbar="✗"
     fi
     enable_terminal=$(get_conf_value enable_terminal)
     if [ "${enable_terminal}" == "true" ]; then
@@ -1892,42 +1615,16 @@ show_conf_menu() {
     else
       use_color_indentline="✗"
     fi
-    show_diagnostics=$(get_conf_value show_diagnostics)
-    use_show_diagnostics="${show_diagnostics}"
-    enable_semantic_highlighting=$(get_conf_value enable_semantic_highlighting)
-    if [ "${enable_semantic_highlighting}" == "true" ]; then
-      use_semantic_highlighting=""
-    else
-      use_semantic_highlighting="✗"
-    fi
-    convert_semantic_highlighting=$(get_conf_value convert_semantic_highlighting)
-    if [ "${convert_semantic_highlighting}" == "true" ]; then
-      convert_semantic_highlighting=""
-    else
-      convert_semantic_highlighting="✗"
-    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Theme [${use_theme}]")
-    if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
-      options+=("Style [${use_theme_style}]")
-    fi
     options+=("Dashboard [${use_dash}]")
     if [ "${use_dash}" == "alpha" ]; then
       options+=("Alpha Header  [${use_dashboard_header}]")
       options+=("Recent Files  [${use_dashboard_recent_files}]")
       options+=("Quick Links   [${use_dashboard_quick_links}]")
     fi
-    options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Session [${use_session_manager}]")
-    options+=("Leader        [${use_mapleader}]")
-    options+=("Local Leader  [${use_maplocalleader}]")
-    options+=("Transparency  [${use_transparent}]")
-    options+=("Number Lines  [${use_number}]")
-    options+=("Relative Nums [${use_relative_number}]")
-    options+=("Show Tabline  [${use_showtabline}]")
-    options+=("List Chars    [${use_list}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("Rainbow 2     [${use_rainbow2}]")
@@ -1954,19 +1651,15 @@ show_conf_menu() {
     options+=("Picker        [${use_picker}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Color Indent  [${use_color_indentline}]")
-    options+=("Semantic HL   [${use_semantic_highlighting}]")
-    options+=("Convert SemHL [${convert_semantic_highlighting}]")
-    options+=("Status Line   [${use_statusline}]")
-    options+=("Tab Line      [${use_tabline}]")
-    options+=("Winbar        [${use_winbar}]")
-    options+=("Formatters")
-    options+=("LSP Servers")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
+    options+=("Formatters")
+    options+=("LSP Servers")
+    options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
     select opt in "${options[@]}"; do
@@ -1975,86 +1668,6 @@ show_conf_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
-          break
-          ;;
-        "Status Line"*,* | *,"Status Line"*)
-          if [ "${enable_statusline}" == "true" ]; then
-            set_conf_value "enable_statusline" "false"
-          else
-            set_conf_value "enable_statusline" "true"
-          fi
-          break
-          ;;
-        "Tab Line"*,* | *,"Tab Line"*)
-          if [ "${enable_tabline}" == "true" ]; then
-            set_conf_value "enable_tabline" "false"
-          else
-            set_conf_value "enable_tabline" "true"
-          fi
-          break
-          ;;
-        "Winbar"*,* | *,"Winbar"*)
-          if [ "${enable_winbar}" == "true" ]; then
-            set_conf_value "enable_winbar" "false"
-          else
-            set_conf_value "enable_winbar" "true"
-          fi
-          break
-          ;;
-        "Style"*,* | *,"Style"*)
-          select_theme_style ${theme}
-          break
-          ;;
-        "Theme"*,* | *,"Theme"*)
-          select_theme ${theme}
-          break
-          ;;
-        "Transparency"*,* | *,"Transparency"*)
-          if [ "${enable_transparent}" == "true" ]; then
-            set_conf_value "enable_transparent" "false"
-          else
-            set_conf_value "enable_transparent" "true"
-          fi
-          break
-          ;;
-        "Leader"*,* | *,"Leader"*)
-          if [ "${use_mapleader}" == "," ]; then
-            set_conf_value "mapleader" " "
-          else
-            set_conf_value "mapleader" ","
-          fi
-          break
-          ;;
-        "Local Leader"*,* | *,"Local Leader"*)
-          if [ "${use_maplocalleader}" == "," ]; then
-            set_conf_value "maplocalleader" " "
-          else
-            set_conf_value "maplocalleader" ","
-          fi
-          break
-          ;;
-        "Number Lines"*,* | *,"Number Lines"*)
-          if [ "${enable_number}" == "true" ]; then
-            set_conf_value "number" "false"
-          else
-            set_conf_value "number" "true"
-          fi
-          break
-          ;;
-        "Relative Num"*,* | *,"Relative Num"*)
-          if [ "${enable_relative_number}" == "true" ]; then
-            set_conf_value "relative_number" "false"
-          else
-            set_conf_value "relative_number" "true"
-          fi
-          break
-          ;;
-        "List"*,* | *,"List"*)
-          if [ "${enable_list}" == "true" ]; then
-            set_conf_value "list" "false"
-          else
-            set_conf_value "list" "true"
-          fi
           break
           ;;
         "Session"*,* | *,"Session"*)
@@ -2324,16 +1937,6 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Show Tabline"*,* | *,"Show Tabline"*)
-          choices=("0" "1" "2")
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
-          [ "${choice}" == "${showtabline}" ] || {
-            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-              set_conf_value "showtabline" "${choice}"
-            fi
-          }
-          break
-          ;;
         "Recent Files"*,* | *,"Recent Files"*)
           choices=("0" "1" "2" "3" "4" "5" "6" "7" "8" "9")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Number of Recent Files  " --layout=reverse --border --exit-0)
@@ -2368,41 +1971,8 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Diagnostic"*,* | *,"Diagnostic"*)
-          choices=("none" "icons" "popup")
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Diagnostics  " --layout=reverse --border --exit-0)
-          [ "${choice}" == "${show_diagnostics}" ] || {
-            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-              set_conf_value "show_diagnostics" "${choice}"
-            fi
-          }
-          break
-          ;;
-        "Semantic HL"*,* | *,"Semantic HL"*)
-          if [ "${enable_semantic_highlighting}" == "true" ]; then
-            set_conf_value "enable_semantic_highlighting" "false"
-          else
-            set_conf_value "enable_semantic_highlighting" "true"
-          fi
-          break
-          ;;
-        "Convert SemHL"*,* | *,"Convert SemHL"*)
-          if [ "${convert_semantic_highlighting}" == "true" ]; then
-            set_conf_value "convert_semantic_highlighting" "false"
-          else
-            set_conf_value "convert_semantic_highlighting" "true"
-          fi
-          break
-          ;;
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "dashboard" "none"
-          set_conf_value "number" "false"
-          set_conf_value "relative_number" "false"
-          set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
-          set_conf_value "showtabline" "0"
-          set_conf_value "enable_winbar" "false"
-          set_conf_value "enable_transparent" "false"
           set_conf_value "file_tree" "none"
           set_conf_value "session_manager" "none"
           set_conf_value "enable_noice" "false"
@@ -2433,21 +2003,10 @@ show_conf_menu() {
           set_conf_value "enable_dashboard_header" "false"
           set_conf_value "enable_dashboard_quick_links" "false"
           set_conf_value "enable_color_indentline" "false"
-          set_conf_value "show_diagnostics" "none"
-          set_conf_value "enable_semantic_highlighting" "false"
-          set_conf_value "convert_semantic_highlighting" "false"
-          set_conf_value "list" "false"
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "dashboard" "dash"
-          set_conf_value "number" "true"
-          set_conf_value "relative_number" "true"
-          set_conf_value "enable_statusline" "true"
-          set_conf_value "enable_tabline" "true"
-          set_conf_value "showtabline" "2"
-          set_conf_value "enable_winbar" "true"
-          set_conf_value "enable_transparent" "true"
           set_conf_value "file_tree" "neo-tree"
           set_conf_value "session_manager" "possession"
           set_conf_value "enable_noice" "true"
@@ -2478,9 +2037,6 @@ show_conf_menu() {
           set_conf_value "enable_dashboard_header" "true"
           set_conf_value "enable_dashboard_quick_links" "true"
           set_conf_value "enable_color_indentline" "true"
-          set_conf_value "show_diagnostics" "popup"
-          set_conf_value "enable_semantic_highlighting" "true"
-          set_conf_value "convert_semantic_highlighting" "true"
           set_conf_value "list" "true"
           break
           ;;
@@ -2488,6 +2044,7 @@ show_conf_menu() {
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
             set_chat_gpt
+            set_ranger_float
             set_waka_opt
           }
           break
@@ -2499,6 +2056,10 @@ show_conf_menu() {
             NVIM_APPNAME="nvim-Lazyman" nvim
           fi
           break
+          ;;
+        "Config Menu"*,* | *,"Config Menu"*)
+          confmenu=1
+          break 2
           ;;
         "Formatters"*,* | *,"Formatters"*)
           formenu=1
@@ -2520,7 +2081,568 @@ show_conf_menu() {
       REPLY=
     done
   done
+  [ "${confmenu}" ] && show_conf_menu
   [ "${mainmenu}" ] && show_main_menu
+  [ "${lspmenu}" ] && show_lsp_menu
+  [ "${formenu}" ] && show_formlint_menu
+}
+
+show_lsp_menu() {
+  set_haves
+  while true; do
+    mainmenu=
+    confmenu=
+    plugmenu=
+    formmenu=
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      mainmenu=1
+      break
+    }
+    [ "$debug" ] || tput reset
+    if [ "${have_rich}" ]
+    then
+      rich "[cyan]Lazyman LSP Servers Menu[/cyan]" -p -a rounded -c -C
+      rich "[b green]Enable/Disable LSP servers used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+    else
+      [ "${have_figlet}" ] && show_figlet "LSP Menu"
+    fi
+    printf '\n'
+    get_conf_table lsp_servers
+    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
+    for lsp in "${lsp_sorted[@]}"; do
+      len=${#lsp}
+      numsp=$((14 - len))
+      [ ${numsp} -lt 0 ] && numsp=0
+      longlsp="${lsp}"
+      while [ ${numsp} -gt 0 ]
+      do
+        longlsp="${longlsp} "
+        ((numsp-=1))
+      done
+      if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" > /dev/null
+      then
+        options+=("${longlsp} []")
+      else
+        options+=("${longlsp} [✗]")
+      fi
+    done
+    options+=("Disable All")
+    options+=("Enable All")
+    options+=("Formatters Menu")
+    options+=("Plugins Menu")
+    options+=("Config Menu")
+    options+=("Main Menu")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          for lsp in "${all_lsp_servers[@]}"; do
+            set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+          done
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          for lsp in "${all_lsp_servers[@]}"; do
+            set_conf_table "LSP_SERVERS" "${lsp}" "enable"
+          done
+          break
+          ;;
+        "Formatters Menu"*,* | *,"Formatters Menu"*)
+          formmenu=1
+          break 2
+          ;;
+        "Config Menu"*,* | *,"Config Menu"*)
+          confmenu=1
+          break 2
+          ;;
+        "Plugins Menu"*,* | *,"Plugins Menu"*)
+          plugmenu=1
+          break 2
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          mainmenu=1
+          break 2
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+        *,*)
+          enable=
+          if [ "${opt}" ]
+          then
+            lspname=$(echo "${opt}" | awk ' { print $1 } ')
+          else
+            lspname=$(echo "${REPLY}" | awk ' { print $1 } ')
+          fi
+          grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
+          if [ "${enable}" ]
+          then
+            set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+          else
+            set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+          fi
+          break
+          ;;
+      esac
+      REPLY=
+    done
+  done
+  [ "${mainmenu}" ] && show_main_menu
+  [ "${confmenu}" ] && show_conf_menu
+  [ "${plugmenu}" ] && show_plugin_menu
+  [ "${formmenu}" ] && show_formlint_menu
+}
+
+show_formlint_menu() {
+  set_haves
+  while true; do
+    mainmenu=
+    confmenu=
+    plugmenu=
+    lspsmenu=
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      mainmenu=1
+      break
+    }
+    [ "$debug" ] || tput reset
+    if [ "${have_rich}" ]
+    then
+      rich "[cyan]Lazyman Formatters and Linters Menu[/cyan]" -p -a rounded -c -C
+      rich "[b green]Enable/Disable formatters and linters used by[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+    else
+      [ "${have_figlet}" ] && show_figlet "Formatters"
+    fi
+    printf '\n'
+    get_conf_table formatters_linters
+    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    readarray -t form_sorted < <(printf '%s\0' "${all_formatters[@]}" | sort -z | xargs -0n1)
+    for form in "${form_sorted[@]}"; do
+      len=${#form}
+      numsp=$((19 - len))
+      [ ${numsp} -lt 0 ] && numsp=0
+      longform="${form}"
+      while [ ${numsp} -gt 0 ]
+      do
+        longform="${longform} "
+        ((numsp-=1))
+      done
+      if echo "${for_enabled_table[@]}" | grep -qw "$form" > /dev/null
+      then
+        options+=("${longform} []")
+      else
+        options+=("${longform} [✗]")
+      fi
+    done
+    options+=("Disable All")
+    options+=("Enable All")
+    options+=("LSP Servers Menu")
+    options+=("Plugins Menu")
+    options+=("Config Menu")
+    options+=("Main Menu")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          for form in "${all_formatters[@]}"; do
+            set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
+          done
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          for form in "${all_formatters[@]}"; do
+            set_conf_table "FORMATTERS_LINTERS" "${form}" "enable"
+          done
+          break
+          ;;
+        "LSP Servers"*,* | *,"LSP Servers"*)
+          lspsmenu=1
+          break 2
+          ;;
+        "Plugins Menu"*,* | *,"Plugins Menu"*)
+          plugmenu=1
+          break 2
+          ;;
+        "Config Menu"*,* | *,"Config Menu"*)
+          confmenu=1
+          break 2
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          mainmenu=1
+          break 2
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+        *,*)
+          enable=
+          if [ "${opt}" ]
+          then
+            forname=$(echo "${opt}" | awk ' { print $1 } ')
+          else
+            forname=$(echo "${REPLY}" | awk ' { print $1 } ')
+          fi
+          grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" >/dev/null && enable=1
+          if [ "${enable}" ]
+          then
+            set_conf_table "FORMATTERS_LINTERS" "${forname}" "enable"
+          else
+            set_conf_table "FORMATTERS_LINTERS" "${forname}" "disable"
+          fi
+          break
+          ;;
+      esac
+      REPLY=
+    done
+  done
+  [ "${mainmenu}" ] && show_main_menu
+  [ "${confmenu}" ] && show_conf_menu
+  [ "${plugmenu}" ] && show_plugin_menu
+  [ "${lspsmenu}" ] && show_lsp_menu
+}
+
+show_conf_menu() {
+  set_haves
+  while true; do
+    mainmenu=
+    plugmenu=
+    lspmenu=
+    formenu=
+    [ -f ${GET_CONF} ] || {
+      printf "\n\nWARNING: missing ${GET_CONF}"
+      printf "\nUnable to modify configuration from this menu"
+      printf "\nYou may need to update or re-install Lazyman"
+      printf "\nPress Enter to continue\n"
+      read -r yn
+      mainmenu=1
+      break
+    }
+    [ "$debug" ] || tput reset
+    if [ "${have_rich}" ]
+    then
+      rich "[b cyan]Lazyman Configuration Menu[/]" -p -a rounded -c -C
+      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+    else
+      [ "${have_figlet}" ] && show_figlet "Config"
+    fi
+    printf '\n'
+    theme=$(get_conf_value theme)
+    use_theme="${theme}"
+    theme_style=$(get_conf_value theme_style)
+    use_theme_style="${theme_style}"
+    enable_transparent=$(get_conf_value enable_transparent)
+    if [ "${enable_transparent}" == "true" ]; then
+      use_transparent=""
+    else
+      use_transparent="✗"
+    fi
+    mapleader=$(get_conf_value mapleader)
+    use_mapleader="${mapleader}"
+    maplocalleader=$(get_conf_value maplocalleader)
+    use_maplocalleader="${maplocalleader}"
+    enable_number=$(get_conf_value number)
+    if [ "${enable_number}" == "true" ]; then
+      use_number=""
+    else
+      use_number="✗"
+    fi
+    enable_relative_number=$(get_conf_value relative_number)
+    if [ "${enable_relative_number}" == "true" ]; then
+      use_relative_number=""
+    else
+      use_relative_number="✗"
+    fi
+    showtabline=$(get_conf_value showtabline)
+    use_showtabline="${showtabline}"
+    enable_list=$(get_conf_value list)
+    if [ "${enable_list}" == "true" ]; then
+      use_list=""
+    else
+      use_list="✗"
+    fi
+    enable_statusline=$(get_conf_value enable_statusline)
+    if [ "${enable_statusline}" == "true" ]; then
+      use_statusline=""
+    else
+      use_statusline="✗"
+    fi
+    enable_tabline=$(get_conf_value enable_tabline)
+    if [ "${enable_tabline}" == "true" ]; then
+      use_tabline=""
+    else
+      use_tabline="✗"
+    fi
+    enable_winbar=$(get_conf_value enable_winbar)
+    if [ "${enable_winbar}" == "true" ]; then
+      use_winbar=""
+    else
+      use_winbar="✗"
+    fi
+    show_diagnostics=$(get_conf_value show_diagnostics)
+    use_show_diagnostics="${show_diagnostics}"
+    enable_semantic_highlighting=$(get_conf_value enable_semantic_highlighting)
+    if [ "${enable_semantic_highlighting}" == "true" ]; then
+      use_semantic_highlighting=""
+    else
+      use_semantic_highlighting="✗"
+    fi
+    convert_semantic_highlighting=$(get_conf_value convert_semantic_highlighting)
+    if [ "${convert_semantic_highlighting}" == "true" ]; then
+      convert_semantic_highlighting=""
+    else
+      convert_semantic_highlighting="✗"
+    fi
+    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    options=()
+    options+=("Theme [${use_theme}]")
+    if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
+      options+=("Style [${use_theme_style}]")
+    fi
+    options+=("Diagnostics [${use_show_diagnostics}]")
+    options+=("Leader        [${use_mapleader}]")
+    options+=("Local Leader  [${use_maplocalleader}]")
+    options+=("Transparency  [${use_transparent}]")
+    options+=("Number Lines  [${use_number}]")
+    options+=("Relative Nums [${use_relative_number}]")
+    options+=("Show Tabline  [${use_showtabline}]")
+    options+=("List Chars    [${use_list}]")
+    options+=("Semantic HL   [${use_semantic_highlighting}]")
+    options+=("Convert SemHL [${convert_semantic_highlighting}]")
+    options+=("Status Line   [${use_statusline}]")
+    options+=("Tab Line      [${use_tabline}]")
+    options+=("Winbar        [${use_winbar}]")
+    options+=("Disable All")
+    options+=("Enable All")
+    [ -f ${CONFBACK} ] && {
+      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+    }
+    [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
+    options+=("Formatters")
+    options+=("LSP Servers")
+    options+=("Plugins Menu")
+    options+=("Main Menu")
+    options+=("Quit")
+    select opt in "${options[@]}"; do
+      case "$opt,$REPLY" in
+        "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          man lazyman
+          break
+          ;;
+        "Status Line"*,* | *,"Status Line"*)
+          if [ "${enable_statusline}" == "true" ]; then
+            set_conf_value "enable_statusline" "false"
+          else
+            set_conf_value "enable_statusline" "true"
+          fi
+          break
+          ;;
+        "Tab Line"*,* | *,"Tab Line"*)
+          if [ "${enable_tabline}" == "true" ]; then
+            set_conf_value "enable_tabline" "false"
+          else
+            set_conf_value "enable_tabline" "true"
+          fi
+          break
+          ;;
+        "Winbar"*,* | *,"Winbar"*)
+          if [ "${enable_winbar}" == "true" ]; then
+            set_conf_value "enable_winbar" "false"
+          else
+            set_conf_value "enable_winbar" "true"
+          fi
+          break
+          ;;
+        "Style"*,* | *,"Style"*)
+          select_theme_style ${theme}
+          break
+          ;;
+        "Theme"*,* | *,"Theme"*)
+          select_theme ${theme}
+          break
+          ;;
+        "Transparency"*,* | *,"Transparency"*)
+          if [ "${enable_transparent}" == "true" ]; then
+            set_conf_value "enable_transparent" "false"
+          else
+            set_conf_value "enable_transparent" "true"
+          fi
+          break
+          ;;
+        "Leader"*,* | *,"Leader"*)
+          if [ "${use_mapleader}" == "," ]; then
+            set_conf_value "mapleader" " "
+          else
+            set_conf_value "mapleader" ","
+          fi
+          break
+          ;;
+        "Local Leader"*,* | *,"Local Leader"*)
+          if [ "${use_maplocalleader}" == "," ]; then
+            set_conf_value "maplocalleader" " "
+          else
+            set_conf_value "maplocalleader" ","
+          fi
+          break
+          ;;
+        "Number Lines"*,* | *,"Number Lines"*)
+          if [ "${enable_number}" == "true" ]; then
+            set_conf_value "number" "false"
+          else
+            set_conf_value "number" "true"
+          fi
+          break
+          ;;
+        "Relative Num"*,* | *,"Relative Num"*)
+          if [ "${enable_relative_number}" == "true" ]; then
+            set_conf_value "relative_number" "false"
+          else
+            set_conf_value "relative_number" "true"
+          fi
+          break
+          ;;
+        "List"*,* | *,"List"*)
+          if [ "${enable_list}" == "true" ]; then
+            set_conf_value "list" "false"
+          else
+            set_conf_value "list" "true"
+          fi
+          break
+          ;;
+        "Show Tabline"*,* | *,"Show Tabline"*)
+          choices=("0" "1" "2")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${showtabline}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "showtabline" "${choice}"
+            fi
+          }
+          break
+          ;;
+        "Diagnostic"*,* | *,"Diagnostic"*)
+          choices=("none" "icons" "popup")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Diagnostics  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${show_diagnostics}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "show_diagnostics" "${choice}"
+            fi
+          }
+          break
+          ;;
+        "Semantic HL"*,* | *,"Semantic HL"*)
+          if [ "${enable_semantic_highlighting}" == "true" ]; then
+            set_conf_value "enable_semantic_highlighting" "false"
+          else
+            set_conf_value "enable_semantic_highlighting" "true"
+          fi
+          break
+          ;;
+        "Convert SemHL"*,* | *,"Convert SemHL"*)
+          if [ "${convert_semantic_highlighting}" == "true" ]; then
+            set_conf_value "convert_semantic_highlighting" "false"
+          else
+            set_conf_value "convert_semantic_highlighting" "true"
+          fi
+          break
+          ;;
+        "Disable All"*,* | *,"Disable All"*)
+          set_conf_value "number" "false"
+          set_conf_value "relative_number" "false"
+          set_conf_value "enable_statusline" "false"
+          set_conf_value "enable_tabline" "false"
+          set_conf_value "showtabline" "0"
+          set_conf_value "enable_winbar" "false"
+          set_conf_value "enable_transparent" "false"
+          set_conf_value "show_diagnostics" "none"
+          set_conf_value "enable_semantic_highlighting" "false"
+          set_conf_value "convert_semantic_highlighting" "false"
+          set_conf_value "list" "false"
+          break
+          ;;
+        "Enable All"*,* | *,"Enable All"*)
+          set_conf_value "number" "true"
+          set_conf_value "relative_number" "true"
+          set_conf_value "enable_statusline" "true"
+          set_conf_value "enable_tabline" "true"
+          set_conf_value "showtabline" "2"
+          set_conf_value "enable_winbar" "true"
+          set_conf_value "enable_transparent" "true"
+          set_conf_value "show_diagnostics" "popup"
+          set_conf_value "enable_semantic_highlighting" "true"
+          set_conf_value "convert_semantic_highlighting" "true"
+          set_conf_value "list" "true"
+          break
+          ;;
+        "Reset"*,* | *,"Reset"*)
+          [ -f ${CONFBACK} ] && {
+            cp ${CONFBACK} ${NVIMCONF}
+            set_chat_gpt
+            set_ranger_float
+            set_waka_opt
+          }
+          break
+          ;;
+        "Open Lazyman",* | *,"Open Lazyman")
+          if [ "${USEGUI}" ]; then
+            NVIM_APPNAME="nvim-Lazyman" neovide
+          else
+            NVIM_APPNAME="nvim-Lazyman" nvim
+          fi
+          break
+          ;;
+        "Formatters"*,* | *,"Formatters"*)
+          formenu=1
+          break 2
+          ;;
+        "LSP Servers"*,* | *,"LSP Servers"*)
+          lspmenu=1
+          break 2
+          ;;
+        "Plugins Menu"*,* | *,"Plugins Menu"*)
+          plugmenu=1
+          break 2
+          ;;
+        "Main Menu"*,* | *,"Main Menu"*)
+          mainmenu=1
+          break 2
+          ;;
+        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          printf "\nExiting Lazyman\n"
+          exit 0
+          ;;
+      esac
+      REPLY=
+    done
+  done
+  [ "${mainmenu}" ] && show_main_menu
+  [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
   [ "${formenu}" ] && show_formlint_menu
 }
@@ -2538,6 +2660,7 @@ show_main_menu() {
     showinstalled=1
     show_warning=
     confmenu=
+    plugmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -2689,6 +2812,7 @@ show_main_menu() {
       options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Lazyman Config")
+    options+=("Lazyman Plugins")
     options+=("Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
@@ -2857,6 +2981,10 @@ show_main_menu() {
           fi
           break
           ;;
+        "Lazyman Plugins",* | *,"Lazyman Plugins")
+          plugmenu=1
+          break 2
+          ;;
         "Lazyman Config",* | *,"Lazyman Config")
           confmenu=1
           break 2
@@ -2892,6 +3020,7 @@ show_main_menu() {
     done
   done
   [ "${confmenu}" ] && show_conf_menu
+  [ "${plugmenu}" ] && show_plugin_menu
 }
 
 get_config_str() {
