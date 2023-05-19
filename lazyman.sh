@@ -916,6 +916,19 @@ set_conf_value() {
   }
 }
 
+set_ranger_float() {
+  have_ranger=$(type -p ranger)
+  [ "${have_ranger}" ] || {
+    ranger_float=$(get_conf_value enable_ranger_float)
+    [ "${ranger_float}" == "true" ] && {
+      cat "${NVIMCONF}" \
+      | sed -e "s/conf.enable_ranger_float.*/conf.enable_ranger_float = false/" >/tmp/nvim$$
+      cp /tmp/nvim$$ "${NVIMCONF}"
+      rm -f /tmp/nvim$$
+    }
+  }
+}
+
 set_waka_opt() {
   waka="false"
   [ -f "${HOME}"/.wakatime.cfg ] && {
@@ -3662,6 +3675,8 @@ fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 set_chat_gpt
+# Disable ranger float plugin if ranger not found
+set_ranger_float
 # Enable WakaTime plugin if api_key set in .wakatime.cfg
 set_waka_opt
 
