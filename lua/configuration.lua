@@ -52,6 +52,8 @@ conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 conf.enable_asciiart = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
+-- Enable compile plugin to compile and run current file
+conf.enable_compile = false
 -- Enable hop plugin for easy motions
 conf.enable_hop = true
 -- Enable ranger in a floating window

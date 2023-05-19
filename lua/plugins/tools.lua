@@ -76,18 +76,25 @@ if settings.enable_multi_cursor then
   }
 end
 
-return {
-  ranger_float,
-
-  multi_cursor,
-
-  {
+local compile = {}
+if settings.enable_compile then
+  compile = {
     "loctvl842/compile-nvim",
     lazy = true,
     config = function()
       require("config.compile")
     end,
-  },
+  }
+end
+
+return {
+  ranger_float,
+
+  multi_cursor,
+
+  compile,
+
+  session,
 
   {
     "filipdutescu/renamer.nvim",
@@ -102,9 +109,6 @@ return {
     "moll/vim-bbye",
     keys = { { "<leader>D", "<cmd>Bdelete!<cr>", desc = "Close Buffer" } },
   },
-
-  -- session manager, see above
-  session,
 
   -- measure startuptime
   {

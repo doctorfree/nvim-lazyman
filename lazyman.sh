@@ -1780,6 +1780,12 @@ show_conf_menu() {
     else
       use_ranger="✗"
     fi
+    enable_compile=$(get_conf_value enable_compile)
+    if [ "${enable_compile}" == "true" ]; then
+      use_compile=""
+    else
+      use_compile="✗"
+    fi
     enable_games=$(get_conf_value enable_games)
     if [ "${enable_games}" == "true" ]; then
       use_games=""
@@ -1889,6 +1895,7 @@ show_conf_menu() {
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Ascii Art     [${use_asciiart}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Compile & Run [${use_compile}]")
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Games  [${use_games}]")
@@ -2155,6 +2162,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Compile"*,* | *,"Compile"*)
+          if [ "${enable_compile}" == "true" ]; then
+            set_conf_value "enable_compile" "false"
+          else
+            set_conf_value "enable_compile" "true"
+          fi
+          break
+          ;;
         "Enable Games"*,* | *,"Enable Games"*)
           if [ "${enable_games}" == "true" ]; then
             set_conf_value "enable_games" "false"
@@ -2312,6 +2327,7 @@ show_conf_menu() {
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
+          set_conf_value "enable_compile" "false"
           set_conf_value "enable_hop" "false"
           set_conf_value "enable_ranger" "false"
           set_conf_value "enable_games" "false"
@@ -2351,6 +2367,7 @@ show_conf_menu() {
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"
+          set_conf_value "enable_compile" "true"
           set_conf_value "enable_hop" "true"
           set_conf_value "enable_ranger" "true"
           set_conf_value "enable_games" "true"
