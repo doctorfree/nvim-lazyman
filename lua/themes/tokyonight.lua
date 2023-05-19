@@ -64,7 +64,7 @@ if settings.theme == "tokyonight" then
   local style = settings.theme_style
   set_colorscheme(style)
   vim.api.nvim_set_hl(0, "MiniJump", { fg = "#FFFFFF", bg = "#ff00a0" })
-  if settings.enable_neotree then
+  if settings.file_tree == "neo-tree" then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "NvimTreeFolderIcon" })
     vim.api.nvim_set_hl(0, "NeoTreeRootName", { link = "NvimTreeRootFolder" })
     vim.api.nvim_set_hl(0, "NeoTreeFileName", { link = "NvimTreeExecFile" })

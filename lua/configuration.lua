@@ -56,10 +56,12 @@ conf.enable_cheatsheet = true
 conf.enable_hop = true
 -- Enable ranger in a floating window
 conf.enable_ranger_float = true
--- neovim session manager to use, either persistence or possession
+-- Enable multiple cursors
+conf.enable_multi_cursor = true
+-- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "possession"
--- neo-tree or nvim-tree, false will enable nvim-tree
-conf.enable_neotree = true
+-- File explorer tree plugin: neo-tree, nvim-tree, or none
+conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)

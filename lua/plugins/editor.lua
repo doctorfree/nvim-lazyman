@@ -1,17 +1,17 @@
-local Util = require("utils.utils")
 local settings = require("configuration")
 
-local treetype = {
-  "nvim-tree/nvim-tree.lua",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    require("config.nvim-tree")
-  end,
-}
-
-if settings.enable_neotree then
+local treetype = {}
+if settings.file_tree == "nvim-tree" then
+  treetype = {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("config.nvim-tree")
+    end,
+  }
+elseif settings.file_tree == "neo-tree" then
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   treetype = {
     "nvim-neo-tree/neo-tree.nvim",

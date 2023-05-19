@@ -378,41 +378,57 @@ installed or replaced by another plugin with similar functionality. The plugins
 that are configurable in this way in `configuration.lua` are briefly described
 below along with their default settings:
 
-- Neovim session manager to use, either persistence or possession
+- Enable display of ascii art
+  - `conf.enable_asciiart = true`
+- Enable display of custom cheatsheets
+  - `conf.enable_cheatsheet = true`
+- Enable hop plugin for easy motions
+  - `conf.enable_hop = true`
+- Enable ranger in a floating window
+  - `conf.enable_ranger_float = true`
+- Enable multiple cursors
+  - `conf.enable_multi_cursor = true`
+- neovim session manager to use: persistence, possession, or none
   - `conf.session_manager = "possession"`
-- Neo-tree or nvim-tree, false will enable nvim-tree
-  - `conf.enable_neotree = true`
+- File explorer tree plugin: neo-tree, nvim-tree, or none
+  - `conf.file_tree = "neo-tree"`
 - Replace the UI for messages, cmdline and the popupmenu
   - `conf.enable_noice = true`
-- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
-  - `conf.enable_chatgpt = false`
+- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+  - `conf.enable_chatgpt = true`
 - Enable the newer rainbow treesitter delimiter highlighting
   - `conf.enable_rainbow2 = true`
+- Add/change/delete surrounding delimiter pairs with ease
+  - `conf.enable_surround = true`
+- Enable fancy lualine components
+  - `conf.enable_fancy = true`
 - Enable the wilder plugin
   - `conf.enable_wilder = false`
 - The statusline (lualine) and tabline can each be enabled or disabled
-  - `conf.disable_statusline = false`
+  - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
-- The winbar with navic location via lspconfig if available
+- Enable winbar with navic location via lspconfig
   - `conf.enable_winbar = true`
-- Enable the rebelot/terminal.nvim terminal plugin
+- Enable rebelot/terminal.nvim
   - `conf.enable_terminal = true`
 - Enable playing games inside Neovim!
   - `conf.enable_games = true`
-- Enable the Alpha dashboard
+- Enable the WakaTime metrics dashboard (requires API key)
+  - `conf.enable_wakatime = true`
+- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
   - `conf.dashboard = "alpha"`
-- Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
+- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
   - `conf.enable_bookmarks = false`
-- Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
   - `conf.enable_ide = false`
 - Enable Navigator
   - `conf.enable_navigator = true`
 - Enable Project manager
   - `conf.enable_project = true`
-- Enable smooth scrolling with the neoscroll plugin
-  - `conf.enable_smooth_scrolling = true`
 - Enable window picker
   - `conf.enable_picker = true`
+- Enable smooth scrolling with neoscroll plugin
+  - `conf.enable_smooth_scrolling = true`
 - Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
   - `conf.show_diagnostics = "icons"`
 - Disable semantic highlighting

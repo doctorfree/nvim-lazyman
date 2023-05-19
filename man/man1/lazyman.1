@@ -560,16 +560,46 @@ The plugins that are configurable in this way in
 \f[V]configuration.lua\f[R] are briefly described below along with their
 default settings:
 .IP \[bu] 2
-Neovim session manager to use, either persistence or possession
+Enable display of ascii art
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_asciiart = true\f[R]
+.RE
+.IP \[bu] 2
+Enable display of custom cheatsheets
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_cheatsheet = true\f[R]
+.RE
+.IP \[bu] 2
+Enable hop plugin for easy motions
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_hop = true\f[R]
+.RE
+.IP \[bu] 2
+Enable ranger in a floating window
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_ranger_float = true\f[R]
+.RE
+.IP \[bu] 2
+Enable multiple cursors
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_multi_cursor = true\f[R]
+.RE
+.IP \[bu] 2
+neovim session manager to use: persistence, possession, or none
 .RS 2
 .IP \[bu] 2
 \f[V]conf.session_manager = \[dq]possession\[dq]\f[R]
 .RE
 .IP \[bu] 2
-Neo-tree or nvim-tree, false will enable nvim-tree
+File explorer tree plugin: neo-tree, nvim-tree, or none
 .RS 2
 .IP \[bu] 2
-\f[V]conf.enable_neotree = true\f[R]
+\f[V]conf.file_tree = \[dq]neo-tree\[dq]\f[R]
 .RE
 .IP \[bu] 2
 Replace the UI for messages, cmdline and the popupmenu
@@ -578,16 +608,28 @@ Replace the UI for messages, cmdline and the popupmenu
 \f[V]conf.enable_noice = true\f[R]
 .RE
 .IP \[bu] 2
-Enable ChatGPT (set \f[V]OPENAI_API_KEY\f[R] environment variable)
+Enable ChatGPT (set OPENAI_API_KEY environment variable)
 .RS 2
 .IP \[bu] 2
-\f[V]conf.enable_chatgpt = false\f[R]
+\f[V]conf.enable_chatgpt = true\f[R]
 .RE
 .IP \[bu] 2
 Enable the newer rainbow treesitter delimiter highlighting
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_rainbow2 = true\f[R]
+.RE
+.IP \[bu] 2
+Add/change/delete surrounding delimiter pairs with ease
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_surround = true\f[R]
+.RE
+.IP \[bu] 2
+Enable fancy lualine components
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_fancy = true\f[R]
 .RE
 .IP \[bu] 2
 Enable the wilder plugin
@@ -599,18 +641,18 @@ Enable the wilder plugin
 The statusline (lualine) and tabline can each be enabled or disabled
 .RS 2
 .IP \[bu] 2
-\f[V]conf.disable_statusline = false\f[R]
+\f[V]conf.enable_statusline = true\f[R]
 .IP \[bu] 2
 \f[V]conf.enable_tabline = true\f[R]
 .RE
 .IP \[bu] 2
-The winbar with navic location via lspconfig if available
+Enable winbar with navic location via lspconfig
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_winbar = true\f[R]
 .RE
 .IP \[bu] 2
-Enable the rebelot/terminal.nvim terminal plugin
+Enable rebelot/terminal.nvim
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_terminal = true\f[R]
@@ -622,20 +664,27 @@ Enable playing games inside Neovim!
 \f[V]conf.enable_games = true\f[R]
 .RE
 .IP \[bu] 2
-Enable the Alpha dashboard
+Enable the WakaTime metrics dashboard (requires API key)
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_wakatime = true\f[R]
+.RE
+.IP \[bu] 2
+Enable a dashboard, can be one of \[dq]alpha\[dq], \[dq]dash\[dq],
+\[dq]mini\[dq], or \[dq]none\[dq]
 .RS 2
 .IP \[bu] 2
 \f[V]conf.dashboard = \[dq]alpha\[dq]\f[R]
 .RE
 .IP \[bu] 2
-Enable the Neovim bookmarks plugin
+enable the Neovim bookmarks plugin
 (<https://github.com/ldelossa/nvim-ide>)
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_bookmarks = false\f[R]
 .RE
 .IP \[bu] 2
-Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_ide = false\f[R]
@@ -653,16 +702,16 @@ Enable Project manager
 \f[V]conf.enable_project = true\f[R]
 .RE
 .IP \[bu] 2
-Enable smooth scrolling with the neoscroll plugin
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_smooth_scrolling = true\f[R]
-.RE
-.IP \[bu] 2
 Enable window picker
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_picker = true\f[R]
+.RE
+.IP \[bu] 2
+Enable smooth scrolling with neoscroll plugin
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_smooth_scrolling = true\f[R]
 .RE
 .IP \[bu] 2
 Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq],

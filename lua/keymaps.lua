@@ -46,9 +46,9 @@ else
   end, { desc = "Lazygit (cwd)" })
 end
 
-if settings.enable_neotree then
+if settings.file_tree == "neo-tree" then
   map("n", "<leader>T", "<cmd>Neotree toggle<CR>")
-else
+elseif settings.file_tree == "nvim-tree" then
   map("n", "<leader>T", "<cmd>NvimTreeFindFileToggle<CR>")
 end
 

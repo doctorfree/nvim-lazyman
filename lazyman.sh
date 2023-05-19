@@ -1688,12 +1688,8 @@ show_conf_menu() {
     fi
     session_manager=$(get_conf_value session_manager)
     use_session_manager="${session_manager}"
-    enable_neotree=$(get_conf_value enable_neotree)
-    if [ "${enable_neotree}" == "true" ]; then
-      use_neotree="neo-tree"
-    else
-      use_neotree="nvim-tree"
-    fi
+    file_tree=$(get_conf_value file_tree)
+    use_neotree="${file_tree}"
     enable_noice=$(get_conf_value enable_noice)
     if [ "${enable_noice}" == "true" ]; then
       use_noice=""
@@ -2007,18 +2003,38 @@ show_conf_menu() {
           break
           ;;
         "Session"*,* | *,"Session"*)
-          if [ "${session_manager}" == "possession" ]; then
-            set_conf_value "session_manager" "persistence"
-          else
-            set_conf_value "session_manager" "possession"
+          choices=("Persistence" "Possession" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Session Manager  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Possession" ]; then
+              set_conf_value "session_manager" "possession"
+            else
+              if [ "${choice}" == "Persistence" ]; then
+                set_conf_value "session_manager" "persistence"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "session_manager" "none"
+                fi
+              fi
+            fi
           fi
           break
           ;;
         "File"*,* | *,"File"*)
-          if [ "${enable_neotree}" == "true" ]; then
-            set_conf_value "enable_neotree" "false"
-          else
-            set_conf_value "enable_neotree" "true"
+          choices=("Neotree" "Nvimtree" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim File Tree  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Neotree" ]; then
+              set_conf_value "file_tree" "neo-tree"
+            else
+              if [ "${choice}" == "Nvimtree" ]; then
+                set_conf_value "file_tree" "nvim-tree"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "file_tree" "none"
+                fi
+              fi
+            fi
           fi
           break
           ;;
@@ -2284,7 +2300,8 @@ show_conf_menu() {
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "false"
           set_conf_value "enable_transparent" "false"
-          set_conf_value "enable_neotree" "false"
+          set_conf_value "file_tree" "none"
+          set_conf_value "session_manager" "none"
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_rainbow2" "false"
@@ -2322,7 +2339,8 @@ show_conf_menu() {
           set_conf_value "showtabline" "2"
           set_conf_value "enable_winbar" "true"
           set_conf_value "enable_transparent" "true"
-          set_conf_value "enable_neotree" "true"
+          set_conf_value "file_tree" "neo-tree"
+          set_conf_value "session_manager" "possession"
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
           set_conf_value "enable_rainbow2" "true"

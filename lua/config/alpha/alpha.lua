@@ -12,9 +12,11 @@ local settings = require("configuration")
 local options_lua = vim.fn.stdpath("config") .. "/lua/options.lua"
 local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
-local filetree = ":NvimTreeOpen<CR>"
-if settings.enable_neotree then
+local filetree = ":Telescope file_browser<CR>"
+if settings.file_tree == "neo-tree" then
   filetree = ":Neotree<CR>"
+elseif settings.file_tree == "nvim-tree" then
+  filetree = ":NvimTreeOpen<CR>"
 end
 
 local dashboard = require("alpha.themes.dashboard")
@@ -172,9 +174,7 @@ new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
     dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
--- local file_browser_btn = dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true<CR>")
--- file_browser_btn.opts.hl = "AlphaShortcut"
-local file_tree_btn = dashboard.button("e", "  File Tree", filetree)
+local file_tree_btn = dashboard.button("e", "  File Browser", filetree)
 file_tree_btn.opts.hl = "AlphaShortcut"
 local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
 find_text_btn.opts.hl = "AlphaShortcut"
@@ -237,7 +237,6 @@ local buttons = {
     { type = "text",    val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
     new_file_btn,
     find_file_btn,
-    -- file_browser_btn,
     file_tree_btn,
     find_text_btn,
     session_btn,

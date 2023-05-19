@@ -1,14 +1,16 @@
 local settings = require("configuration")
 
-local session = {
-  "jedrzejboczar/possession.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  event = "VeryLazy",
-  config = function(_, opts)
-    require("config.possession")
-  end,
-}
-if settings.session_manager == "persistence" then
+local session = {}
+if settings.session_manager == "possession" then
+  session = {
+    "jedrzejboczar/possession.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+    config = function()
+      require("config.possession")
+    end,
+  }
+elseif settings.session_manager == "persistence" then
   session = {
     "folke/persistence.nvim",
     event = "BufReadPre",
@@ -46,7 +48,7 @@ if settings.session_manager == "persistence" then
 end
 
 local ranger_float = {}
-if settings.ranger_float then
+if settings.enable_ranger_float then
   ranger_float = {
     "kevinhwang91/rnvimr",
     init = function()
@@ -66,13 +68,18 @@ if settings.ranger_float then
   }
 end
 
+local multi_cursor = {}
+if settings.enable_multi_cursor then
+  multi_cursor = {
+    "mg979/vim-visual-multi",
+    event = "BufAdd",
+  }
+end
+
 return {
   ranger_float,
 
-  {
-    "mg979/vim-visual-multi",
-    event = "BufAdd",
-  },
+  multi_cursor,
 
   {
     "loctvl842/compile-nvim",
