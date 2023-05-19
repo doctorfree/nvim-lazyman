@@ -5,6 +5,7 @@
 ### ⚡️ Added
 
 - Disable ranger float plugin if ranger not found
+- Add enable/disable for `dressing` ui improvement plugin
 - Add enable/disable for `bbye` and `startuptime` plugins
 - Add enable/disable `renamer` plugin to Lazyman config menu
 - Add enable/disable `compile` plugin to compile and run current file

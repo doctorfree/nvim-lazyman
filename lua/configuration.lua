@@ -93,6 +93,8 @@ conf.enable_tabline = true
 conf.enable_winbar = true
 -- Enable rebelot/terminal.nvim
 conf.enable_terminal = true
+-- Enable toggleterm plugin
+conf.enable_toggleterm = true
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)

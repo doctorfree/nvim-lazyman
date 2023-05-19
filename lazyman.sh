@@ -1763,6 +1763,12 @@ show_conf_menu() {
     else
       use_terminal="✗"
     fi
+    enable_toggleterm=$(get_conf_value enable_toggleterm)
+    if [ "${enable_toggleterm}" == "true" ]; then
+      use_toggleterm=""
+    else
+      use_toggleterm="✗"
+    fi
     enable_wakatime=$(get_conf_value enable_wakatime)
     if [ "${enable_wakatime}" == "true" ]; then
       use_wakatime=""
@@ -1930,6 +1936,7 @@ show_conf_menu() {
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("Toggle Term   [${use_toggleterm}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Ascii Art     [${use_asciiart}]")
     options+=("Bdelete cmd   [${use_bbye}]")
@@ -2139,6 +2146,14 @@ show_conf_menu() {
             set_conf_value "enable_terminal" "false"
           else
             set_conf_value "enable_terminal" "true"
+          fi
+          break
+          ;;
+        "Toggle Term"*,* | *,"Toggle Term"*)
+          if [ "${enable_toggleterm}" == "true" ]; then
+            set_conf_value "enable_toggleterm" "false"
+          else
+            set_conf_value "enable_toggleterm" "true"
           fi
           break
           ;;
@@ -2397,6 +2412,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
@@ -2441,6 +2457,7 @@ show_conf_menu() {
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_toggleterm" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"

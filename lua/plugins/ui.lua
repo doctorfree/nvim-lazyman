@@ -53,6 +53,35 @@ if settings.enable_smooth_scrolling then
   }
 end
 
+local toggleterm = {}
+if settings.enable_toggleterm then
+  toggleterm = {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      open_mapping = [[<C-\>]],
+      start_in_insert = true,
+      direction = "float",
+      autochdir = false,
+      float_opts = {
+        -- [ top top top - right - bottom bottom bottom - left ]
+        border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
+        winblend = 0,
+      },
+      highlights = {
+        FloatBorder = { link = "ToggleTermBorder" },
+        Normal = { link = "ToggleTerm" },
+        NormalFloat = { link = "ToggleTerm" },
+      },
+      winbar = {
+        enabled = settings.enable_winbar,
+        name_formatter = function(term)
+          return string.format("%d:%s", term.id, term:_display_name())
+        end,
+      },
+    },
+  }
+end
+
 local noice_cfg = {}
 if settings.enable_noice then
   noice_cfg = {
@@ -190,30 +219,7 @@ return {
     end,
   },
 
-  {
-    "akinsho/toggleterm.nvim",
-    opts = {
-      open_mapping = [[<C-\>]],
-      start_in_insert = true,
-      direction = "float",
-      autochdir = false,
-      float_opts = {
-        border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" }, -- [ top top top - right - bottom bottom bottom - left ]
-        winblend = 0,
-      },
-      highlights = {
-        FloatBorder = { link = "ToggleTermBorder" },
-        Normal = { link = "ToggleTerm" },
-        NormalFloat = { link = "ToggleTerm" },
-      },
-      winbar = {
-        enabled = settings.enable_winbar,
-        name_formatter = function(term)
-          return string.format("%d:%s", term.id, term:_display_name())
-        end,
-      },
-    },
-  },
+  toggleterm,
 
   -- noicer ui
   noice_cfg,
