@@ -5,11 +5,9 @@ hop.setup()
 local set = vim.keymap.set
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local nosilent_opts = { noremap = true, silent = false }
 
 keymap("n", "<A-q>", "q", opts) -- Macro q remap
 keymap("x", "<A-q>", "q", opts)
-keymap("n", "?", "/", nosilent_opts)
 
 keymap("x", "<leader>hw", "<cmd>HopWord<cr>", opts)
 keymap("n", "<leader>hw", "<cmd>HopWord<cr>", opts)
