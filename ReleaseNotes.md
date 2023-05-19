@@ -28,8 +28,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
 
 Known working custom Lazyman configurations not yet integrated into the above
-categories. See the [custom configuration section](#custom-configurations)
-for installation details.
+categories.
 
 | **Custom** |       | **Configs** |
 | ---------- | ----- | ----------- |
