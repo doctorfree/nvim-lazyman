@@ -4,7 +4,30 @@
 
 ### ⚡️ Added
 
+- Disable ranger float plugin if ranger not found
+- Add enable/disable for `bbye` and `startuptime` plugins
+- Add enable/disable `renamer` plugin to Lazyman config menu
+- Add enable/disable `compile` plugin to compile and run current file
+- Add enable/disable file tree plugin and session manager with 'none' as an option
+- Add enable/disable `ranger` float plugin to lazyman config menu
+- Add enable/disable `asciiart`, `cheatsheet`, and `hop` to lazyman menu plugin configuration
+- Add configuration menus for LSP servers, formatters, and linters
+- Configure LSP servers, formatters, and linters based on settings in `configuation.lua`
+- Add '-f path' argument to fix treesitter help parser config
+- Add LaTeX personal config, move ONNO config from custom to personal
+- Add `nvim-surround` to configurable plugins in configuration.lua and lazyman menu
+- Improve dashboard autocmds to preserve tabline and statusline
+- Add showtabline to config menu, auto-configure wakatime
+- Add LSP Servers menu to enable and disable individual lsp servers
+- Use `rich-cli` for menu headings if `figlet` not available
+
 ### 🐞 Fixed
+
+- Fix prompt for enabling WakaTime if no .wakatime.cfg detected
+- Do not remap '?' to '/' in hop config
+- Fix bug in menu selection by name rather than number
+- Remove lvim-shell and lvim-fm
+- Only configure LSP servers if enabled in configuration.lua
 
 ## v2.0.1r8
 
