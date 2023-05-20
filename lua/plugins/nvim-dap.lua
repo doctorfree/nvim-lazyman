@@ -1,4 +1,4 @@
-local settings = require("configure")
+local settings = require("configuration")
 
 if settings.enable_coding then
   return {
