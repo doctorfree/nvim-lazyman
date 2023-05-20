@@ -188,7 +188,7 @@ conf.formatters_linters = {
   "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
-  "shellcheck", -- FORMATTERS_LINTERS
+  -- "shellcheck", -- FORMATTERS_LINTERS
   "shfmt", -- FORMATTERS_LINTERS
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
@@ -196,7 +196,7 @@ conf.formatters_linters = {
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  -- "beautysh", -- FORMATTERS_LINTERS
+  "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }

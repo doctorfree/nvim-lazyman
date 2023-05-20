@@ -182,8 +182,10 @@ if not settings.enable_statusline then
 end
 -- Hide tabline if showtabline = 0
 if settings.enable_tabline then
-  require("lualine").hide({
-    place = { "tabline" },
-    unhide = vim.o.showtabline == 0,
-  })
+  if vim.o.showtabline == 0 then
+    require("lualine").hide({
+      place = { "tabline" },
+      unhide = false,
+    })
+  end
 end

@@ -1617,40 +1617,40 @@ show_plugin_menu() {
     fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
+    options+=("Ascii Art     [${use_asciiart}]")
+    options+=("Bdelete cmd   [${use_bbye}]")
+    options+=("Bookmarks     [${use_bookmarks}]")
+    options+=("ChatGPT       [${use_chatgpt}]")
+    options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Compile & Run [${use_compile}]")
     options+=("Dashboard [${use_dash}]")
     if [ "${use_dash}" == "alpha" ]; then
-      options+=("Alpha Header  [${use_dashboard_header}]")
-      options+=("Recent Files  [${use_dashboard_recent_files}]")
-      options+=("Quick Links   [${use_dashboard_quick_links}]")
+      options+=("  Alpha Header [${use_dashboard_header}]")
+      options+=("  Recent Files [${use_dashboard_recent_files}]")
+      options+=("  Quick Links  [${use_dashboard_quick_links}]")
     fi
+    options+=("Dressing UI   [${use_dressing}]")
+    options+=("Fancy Icons   [${use_fancy}]")
     options+=("File Tree [${use_neotree}]")
-    options+=("Session [${use_session_manager}]")
+    options+=("Enable Games  [${use_games}]")
+    options+=("Enable Hop    [${use_hop}]")
+    options+=("Enable IDE    [${use_ide}]")
+    options+=("Color Indent  [${use_color_indentline}]")
+    options+=("Navigator     [${use_navigator}]")
     options+=("Noice UI      [${use_noice}]")
-    options+=("ChatGPT       [${use_chatgpt}]")
+    options+=("Project       [${use_project}]")
+    options+=("Picker        [${use_picker}]")
     options+=("Rainbow 2     [${use_rainbow2}]")
+    options+=("Enable Ranger [${use_ranger}]")
+    options+=("Enable Rename [${use_renamer}]")
+    options+=("Session [${use_session_manager}]")
+    options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("StartupTime   [${use_startuptime}]")
     options+=("Surround      [${use_surround}]")
-    options+=("Fancy Icons   [${use_fancy}]")
-    options+=("Wilder Menus  [${use_wilder}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Toggle Term   [${use_toggleterm}]")
     options+=("WakaTime      [${use_wakatime}]")
-    options+=("Ascii Art     [${use_asciiart}]")
-    options+=("Bdelete cmd   [${use_bbye}]")
-    options+=("Cheatsheets   [${use_cheatsheet}]")
-    options+=("Compile & Run [${use_compile}]")
-    options+=("Dressing UI   [${use_dressing}]")
-    options+=("Enable Hop    [${use_hop}]")
-    options+=("Enable Ranger [${use_ranger}]")
-    options+=("Enable Rename [${use_renamer}]")
-    options+=("Enable Games  [${use_games}]")
-    options+=("Bookmarks     [${use_bookmarks}]")
-    options+=("Enable IDE    [${use_ide}]")
-    options+=("Navigator     [${use_navigator}]")
-    options+=("Project       [${use_project}]")
-    options+=("Picker        [${use_picker}]")
-    options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("Color Indent  [${use_color_indentline}]")
+    options+=("Wilder Menus  [${use_wilder}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
@@ -1937,7 +1937,7 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "Recent Files"*,* | *,"Recent Files"*)
+        "  Recent Files"*,* | *,"  Recent Files"*)
           choices=("0" "1" "2" "3" "4" "5" "6" "7" "8" "9")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Number of Recent Files  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${dashboard_recent_files}" ] || {
@@ -1947,7 +1947,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        "Alpha Header"*,* | *,"Alpha Header"*)
+        "  Alpha Header"*,* | *,"  Alpha Header"*)
           if [ "${enable_dashboard_header}" == "true" ]; then
             set_conf_value "enable_dashboard_header" "false"
           else
@@ -1955,7 +1955,7 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "Quick Links"*,* | *,"Quick Links"*)
+        "  Quick Links"*,* | *,"  Quick Links"*)
           if [ "${enable_dashboard_quick_links}" == "true" ]; then
             set_conf_value "enable_dashboard_quick_links" "false"
           else
@@ -2424,19 +2424,19 @@ show_conf_menu() {
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=("Style [${use_theme_style}]")
     fi
+    options+=("Transparency  [${use_transparent}]")
     options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("Leader        [${use_mapleader}]")
     options+=("Local Leader  [${use_maplocalleader}]")
-    options+=("Transparency  [${use_transparent}]")
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
-    options+=("Show Tabline  [${use_showtabline}]")
     options+=("List Chars    [${use_list}]")
-    options+=("Semantic HL   [${use_semantic_highlighting}]")
-    options+=("Convert SemHL [${convert_semantic_highlighting}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
+    options+=("o.showtabline [${use_showtabline}]")
     options+=("Winbar        [${use_winbar}]")
+    options+=("Semantic HL   [${use_semantic_highlighting}]")
+    options+=("Convert SemHL [${convert_semantic_highlighting}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
@@ -2536,7 +2536,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Show Tabline"*,* | *,"Show Tabline"*)
+        "o.showtabline"*,* | *,"o.showtabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${showtabline}" ] || {
@@ -2660,7 +2660,6 @@ show_main_menu() {
     showinstalled=1
     show_warning=
     confmenu=
-    plugmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -2812,7 +2811,6 @@ show_main_menu() {
       options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Lazyman Config")
-    options+=("Lazyman Plugins")
     options+=("Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
@@ -2981,10 +2979,6 @@ show_main_menu() {
           fi
           break
           ;;
-        "Lazyman Plugins",* | *,"Lazyman Plugins")
-          plugmenu=1
-          break 2
-          ;;
         "Lazyman Config",* | *,"Lazyman Config")
           confmenu=1
           break 2
@@ -3020,7 +3014,6 @@ show_main_menu() {
     done
   done
   [ "${confmenu}" ] && show_conf_menu
-  [ "${plugmenu}" ] && show_plugin_menu
 }
 
 get_config_str() {
