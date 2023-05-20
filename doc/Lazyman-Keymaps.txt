@@ -18,7 +18,6 @@ following key mappings.
 
 CUSTOM CHEATSHEET LAZYMAN MAPPINGS*Lazyman-Keymaps-lazymankeys-custom-cheatsheet-lazyman-mappings*
 
-
 - Asciiville Command : `<leader>av`
 - Htop Command : `<leader>H`
 - Lazygit Command : `<leader>G`
@@ -52,7 +51,6 @@ CUSTOM CHEATSHEET LAZYMAN MAPPINGS*Lazyman-Keymaps-lazymankeys-custom-cheatsheet
 
 
 CUSTOM CHEATSHEET PLUGIN MAPPINGS*Lazyman-Keymaps-lazymankeys-custom-cheatsheet-plugin-mappings*
-
 
 - Open Diagnostics Float : `<leader>de`
 - Diagnostics Location List : `<leader>dq`
