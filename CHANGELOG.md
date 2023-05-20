@@ -4,14 +4,25 @@
 
 ### ⚡️ Added
 
-- Disable ranger float plugin if ranger not found
+### 🐞 Fixed
+
+## v2.1.0r1
+
+### ⚡️ Added
+
+- Most plugins can now be enabled or disabled in `configuration.lua`
+- All entries in `configuration.lua` can be set via `lazyman` menus
+- Split plugins config out into separate menu
+- Add enable/disable for `toggleterm` plugin
+- Add enable/disable for `dressing` UI improvement plugin
+- Disable ranger float plugin if `ranger` not found
 - Add enable/disable for `dressing` ui improvement plugin
 - Add enable/disable for `bbye` and `startuptime` plugins
 - Add enable/disable `renamer` plugin to Lazyman config menu
 - Add enable/disable `compile` plugin to compile and run current file
 - Add enable/disable file tree plugin and session manager with 'none' as an option
 - Add enable/disable `ranger` float plugin to lazyman config menu
-- Add enable/disable `asciiart`, `cheatsheet`, and `hop` to lazyman menu plugin configuration
+- Add enable/disable `asciiart`, `cheatsheet`, and `hop`
 - Add configuration menus for LSP servers, formatters, and linters
 - Configure LSP servers, formatters, and linters based on settings in `configuation.lua`
 - Add '-f path' argument to fix treesitter help parser config
@@ -21,38 +32,32 @@
 - Add showtabline to config menu, auto-configure wakatime
 - Add LSP Servers menu to enable and disable individual lsp servers
 - Use `rich-cli` for menu headings if `figlet` not available
+- Add `WakaTime` plugin enable/disable to Lazyman Configuration Menu
+- Check for `WakaTime` in custom configs
+- Add optional support for `WakaTime` in Lazyman config
+- Check for `julia` and `composer` for Install Tools menu entry
+- Simplify leader keymaps a little
+- Add `hop` and `treehopper` plugins with extensive keymaps
+- Add `-a` argument to `install_neovim.sh` to install all servers and tools
+- Link to NvChad customization repo
+- Add `Elianiva` to known working custom configs
+- Add `Install` and `Uninstall` scripts
 
 ### 🐞 Fixed
 
+- Make `enable_tabline` and `enable_statusline` work as expected
+- Enable `beautysh`, disable `shellcheck` - it is choking on large files
 - Fix prompt for enabling WakaTime if no .wakatime.cfg detected
 - Do not remap '?' to '/' in hop config
 - Fix bug in menu selection by name rather than number
 - Remove lvim-shell and lvim-fm
 - Only configure LSP servers if enabled in configuration.lua
-
-## v2.0.1r8
-
-### ⚡️ Added
-
-- Add WakaTime plugin enable/disable to Lazyman Configuration Menu
-- Check for WakaTime in custom configs
-- Add optional support for WakaTime in Lazyman config
-- Check for julia and composer for Install Tools menu entry
-- Simplify leader keymaps a little
-- Add hop and treehopper plugins with extensive keymaps
-- Add -a argument to install_neovim.sh to install all servers and tools
-- Link to NvChad customization repo
-- Add Elianiva to known working custom configs
-- Add Install and Uninstall scripts
-
-### 🐞 Fixed
-
-- Fix prompt for enabling WakaTime if no `.wakatime.cfg` detected
-- Check .initialized and if not present initialize Lazyman
-- Run MasonInstallAll for NvChad initialization
-- `lazyman -I` now invokes Neovim install script with -a, -i does what -I used to do
-- Remove terraform
-- Change keymap for LuaSnip with Hop to lS, conflicted with bnext
+- Fix prompt for enabling `WakaTime` if no `.wakatime.cfg` detected
+- Check `.initialized` and if not present initialize Lazyman
+- Run `MasonInstallAll` for NvChad initialization
+- `lazyman -I` now invokes Neovim install script with `-a`, `-i` does what `-I` used to do
+- Remove `terraform`
+- Change keymap for `LuaSnip` with Hop to `lS`, conflicted with `bnext`
 
 ## v2.0.1r7
 
