@@ -34,7 +34,7 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Over 25 popular Neovim configurations are supported.
+Neovim configurations. Over 30 popular Neovim configurations are supported.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
@@ -55,7 +55,7 @@ The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
-Currently over 25 popular Neovim configurations are supported in the
+Currently over 30 popular Neovim configurations are supported in the
 following Lazyman Neovim configuration categories:
 
 | **Base** |       | **Configs** |
@@ -276,7 +276,7 @@ the `lazyman` command.
 ## Supported configurations
 
 After installing and initializing `lazyman`, additional Neovim configurations
-can be installed and initialized using the `lazyman` command. Over 25
+can be installed and initialized using the `lazyman` command. Over 30
 excellent Neovim configurations are supported. Additional Neovim
 configurations can be installed using the `-C url` and `-N nvimdir` options.
 
@@ -538,7 +538,7 @@ installing or initializing Neovim configurations with Lazyman.
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
-- 25 supported Neovim configurations out of the box, additional custom configs
+- 31 supported Neovim configurations out of the box, additional custom configs
 - convenience shell functions and aliases with fuzzy search and selection
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 
@@ -936,7 +936,7 @@ conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
 -- Enable display of ascii art
-conf.enable_asciiart = true
+conf.enable_asciiart = false
 -- Delete buffers and close files without closing your windows
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
@@ -1062,7 +1062,7 @@ conf.formatters_linters = {
   "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
-  "shellcheck", -- FORMATTERS_LINTERS
+  -- "shellcheck", -- FORMATTERS_LINTERS
   "shfmt", -- FORMATTERS_LINTERS
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
@@ -1070,7 +1070,7 @@ conf.formatters_linters = {
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  -- "beautysh", -- FORMATTERS_LINTERS
+  "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }
