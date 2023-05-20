@@ -157,7 +157,7 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  -- "bashls", -- LSP_SERVERS
+  "bashls", -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
   "denols", -- LSP_SERVERS
   "dockerls", -- LSP_SERVERS

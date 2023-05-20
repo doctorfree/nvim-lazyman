@@ -205,3 +205,13 @@ if settings.dashboard == "alpha" then
     end,
   })
 end
+
+-- Avoid duplication between bashls and null-ls with shellcheck
+autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "bashls" then
+      require("null-ls").disable("shellcheck")
+    end
+  end,
+})
