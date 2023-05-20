@@ -373,7 +373,7 @@ init_neovim() {
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa
       }
-      [ "$quiet" ] || printf " done"
+      [ "$quiet" ] || printf " done\n"
     else
       [ "$quiet" ] || printf "\nInitializing configuration ..."
       if [ "${packer}" ]; then
@@ -413,7 +413,7 @@ init_neovim() {
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         nvim --headless "+helptags ${HOME}/.config/${neodir}/doc" +qa >/dev/null 2>&1
       }
-      [ "$quiet" ] || printf " done"
+      [ "$quiet" ] || printf " done\n"
     fi
   }
   [ "${neodir}" == "${magicvimdir}" ] && packer=${oldpack}
@@ -592,7 +592,14 @@ update_config() {
     }
     [ "$tellme" ] || {
       [ "${ndir}" == "${lazymandir}" ] && {
+        restore_config=
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+          export NVIM_APPNAME="nvim-Lazyman"
+          config_version=$(nvim -l ${GET_CONF} config_version 2>&1)
+          [ "${config_version}" ] && [ "${config_version}" != "nil" ] && {
+            config_number=$((${config_version}))
+            [ ${config_number} -ge 210 ] && restore_config=1
+          }
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }
       }
@@ -607,20 +614,28 @@ update_config() {
   }
   [ "${ndir}" == "${lazymandir}" ] && {
     [ -f /tmp/lazyconf$$ ] && {
-      if grep 'conf.enable_alpha' /tmp/lazyconf$$ > /dev/null
+      if [ "${restore_config}" ]
       then
+        [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+          printf "\nSaving new configuration file as:"
+          printf "\n\t${HOME}/${GITDIR}/lua/configuration-new.lua"
+          cp "${HOME}/${GITDIR}/lua/configuration.lua" \
+             "${HOME}/${GITDIR}/lua/configuration-new.lua"
+        }
+        printf "\nRestoring your previous configuration file as:"
+        printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+      else
         cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
         printf "\n\nThe format of the Lazyman configuration file has changed."
         printf "\nSaving your previous configuration file as:"
         printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
         printf "\nRe-apply any customizations to the new config at:"
         printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
-        printf "\nPress Enter to continue\n"
-        read -r yn
-      else
-        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
       fi
       rm -f /tmp/lazyconf$$
+      printf "\nPress <Enter> to continue ... "
+      read -r yn
     }
     [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
     [ -f "${LMANDIR}"/lazyman.sh ] && {
@@ -1426,7 +1441,7 @@ show_plugin_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
+      printf "\nPress <Enter> to continue ... "
       read -r yn
       mainmenu=1
       break
@@ -2098,7 +2113,7 @@ show_lsp_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
+      printf "\nPress <Enter> to continue ... "
       read -r yn
       mainmenu=1
       break
@@ -2218,7 +2233,7 @@ show_formlint_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
+      printf "\nPress <Enter> to continue ... "
       read -r yn
       mainmenu=1
       break
@@ -2338,7 +2353,7 @@ show_conf_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress Enter to continue\n"
+      printf "\nPress <Enter> to continue ... "
       read -r yn
       mainmenu=1
       break
@@ -2433,7 +2448,7 @@ show_conf_menu() {
     options+=("List Chars    [${use_list}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
-    options+=("o.showtabline [${use_showtabline}]")
+    options+=("  Showtabline [${use_showtabline}]")
     options+=("Winbar        [${use_winbar}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
@@ -2536,7 +2551,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "o.showtabline"*,* | *,"o.showtabline"*)
+        "  Showtabline"*,* | *,"  Showtabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${showtabline}" ] || {
@@ -2945,7 +2960,7 @@ show_main_menu() {
               fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"
-              printf "\nPress Enter to continue\n"
+              printf "\nPress <Enter> to continue ... "
               read -r yn
             fi
           fi
@@ -3063,7 +3078,7 @@ set_starter_branch() {
       ;;
     *)
       printf "\nUnrecognized nvim-starter configuration: ${nvimstarter}"
-      printf "\nPress Enter to continue\n"
+      printf "\nPress <Enter> to continue ... "
       read -r yn
       usage
       ;;
@@ -3494,7 +3509,7 @@ set_haves
           ;;
         *)
           printf "\nUnrecognized personal configuration: ${nvimprsnl}"
-          printf "\nPress Enter to continue\n"
+          printf "\nPress <Enter> to continue ... "
           read -r yn
           usage
           ;;

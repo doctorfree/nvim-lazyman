@@ -1,5 +1,8 @@
 local conf = {}
 
+-- Version info, do not modify
+conf.config_version = 210
+
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -154,7 +157,7 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  "bashls", -- LSP_SERVERS
+  -- "bashls", -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
   "denols", -- LSP_SERVERS
   "dockerls", -- LSP_SERVERS
@@ -188,8 +191,8 @@ conf.formatters_linters = {
   "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
-  -- "shellcheck", -- FORMATTERS_LINTERS
-  "shfmt", -- FORMATTERS_LINTERS
+  "shellcheck", -- FORMATTERS_LINTERS
+  -- "shfmt", -- FORMATTERS_LINTERS
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
