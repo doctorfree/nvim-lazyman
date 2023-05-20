@@ -11,11 +11,44 @@ if not settings.enable_wilder then
     sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
   })
 end
-local luasnip = require("luasnip")
+local snippet = {}
+local mapping = {
+  ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
+  ["<Down>"] = cmp.mapping.select_next_item(select_opts),
+  ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
+  ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
+  ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-d>"] = cmp.mapping.scroll_docs(4),
+  ["<C-e>"] = cmp.mapping.abort(),
+  ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }),
+  ["<C-f>"] = cmp.mapping(function(fallback)
+    fallback()
+  end, { "i", "s" }),
+  ["<C-b>"] = cmp.mapping(function(fallback)
+    fallback()
+  end, { "i", "s" }),
+  ["<Tab>"] = cmp.mapping(function(fallback)
+    local col = vim.fn.col(".") - 1
 
-local select_opts = { behavior = cmp.SelectBehavior.Select }
-
-cmp.setup({
+    if cmp.visible() then
+      cmp.select_next_item(select_opts)
+    elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+      fallback()
+    else
+      cmp.complete()
+    end
+  end, { "i", "s" }),
+  ["<S-Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item(select_opts)
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
+}
+if settings.enable_coding then
+  local luasnip = require("luasnip")
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -24,37 +57,7 @@ cmp.setup({
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
-  },
-  window = {
-    documentation = {
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    },
-    completion = {
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    },
-  },
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, item)
-      local icons = require("utils.icons").kinds
-      item.kind = icons[item.kind]
-      item.menu = ({
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[Lua]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-      })[entry.source.name]
-      return item
-    end,
-  },
-  experimental = {
-    native_menu = false,
-    ghost_text = {
-      enabled = true,
-      hl_group = "Comment",
-    },
-  },
+  }
   mapping = {
     ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
     ["<Down>"] = cmp.mapping.select_next_item(select_opts),
@@ -97,7 +100,44 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
+  }
+end
+
+local select_opts = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
+  snippet = snippet,
+  window = {
+    documentation = {
+      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    },
+    completion = {
+      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    },
   },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, item)
+      local icons = require("utils.icons").kinds
+      item.kind = icons[item.kind]
+      item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[Lua]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return item
+    end,
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = {
+      enabled = true,
+      hl_group = "Comment",
+    },
+  },
+  mapping = mapping,
   performance = {
     debounce = 300,
     throttle = 60,
