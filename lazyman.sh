@@ -592,7 +592,14 @@ update_config() {
     }
     [ "$tellme" ] || {
       [ "${ndir}" == "${lazymandir}" ] && {
+        restore_config=
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+          export NVIM_APPNAME="nvim-Lazyman"
+          config_version=$(nvim -l ${GET_CONF} config_version 2>&1)
+          [ "${config_version}" ] && [ "${config_version}" != "nil" ] && {
+            config_number=$((${config_version}))
+            [ ${config_number} -ge 210 ] && restore_config=1
+          }
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }
       }
@@ -607,20 +614,28 @@ update_config() {
   }
   [ "${ndir}" == "${lazymandir}" ] && {
     [ -f /tmp/lazyconf$$ ] && {
-      if grep 'conf.enable_alpha' /tmp/lazyconf$$ > /dev/null
+      if [ "${restore_config}" ]
       then
+        [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+          printf "\nSaving new configuration file as:"
+          printf "\n\t${HOME}/${GITDIR}/lua/configuration-new.lua"
+          cp "${HOME}/${GITDIR}/lua/configuration.lua" \
+             "${HOME}/${GITDIR}/lua/configuration-new.lua"
+        }
+        printf "\nRestoring your previous configuration file as:"
+        printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+      else
         cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
         printf "\n\nThe format of the Lazyman configuration file has changed."
         printf "\nSaving your previous configuration file as:"
         printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
         printf "\nRe-apply any customizations to the new config at:"
         printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
-        printf "\nPress Enter to continue\n"
-        read -r yn
-      else
-        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
       fi
       rm -f /tmp/lazyconf$$
+      printf "\nPress Enter to continue\n"
+      read -r yn
     }
     [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
     [ -f "${LMANDIR}"/lazyman.sh ] && {

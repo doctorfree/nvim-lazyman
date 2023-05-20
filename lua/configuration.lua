@@ -1,5 +1,8 @@
 local conf = {}
 
+-- Version info, do not modify
+conf.config_version = 210
+
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
