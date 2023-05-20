@@ -1537,6 +1537,12 @@ show_plugin_menu() {
     else
       use_ranger="✗"
     fi
+    enable_coding=$(get_conf_value enable_coding)
+    if [ "${enable_coding}" == "true" ]; then
+      use_coding=""
+    else
+      use_coding="✗"
+    fi
     enable_compile=$(get_conf_value enable_compile)
     if [ "${enable_compile}" == "true" ]; then
       use_compile=""
@@ -1637,6 +1643,7 @@ show_plugin_menu() {
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
     options+=("Dashboard [${use_dash}]")
     if [ "${use_dash}" == "alpha" ]; then
@@ -1846,6 +1853,14 @@ show_plugin_menu() {
           fi
           break
           ;;
+        "Enable coding"*,* | *,"Enable coding"*)
+          if [ "${enable_coding}" == "true" ]; then
+            set_conf_value "enable_coding" "false"
+          else
+            set_conf_value "enable_coding" "true"
+          fi
+          break
+          ;;
         "Compile"*,* | *,"Compile"*)
           if [ "${enable_compile}" == "true" ]; then
             set_conf_value "enable_compile" "false"
@@ -2001,6 +2016,7 @@ show_plugin_menu() {
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
+          set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_hop" "false"
@@ -2035,6 +2051,7 @@ show_plugin_menu() {
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"
+          set_conf_value "enable_coding" "true"
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_dressing" "true"
           set_conf_value "enable_hop" "true"

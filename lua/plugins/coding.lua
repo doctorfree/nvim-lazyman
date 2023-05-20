@@ -1,6 +1,6 @@
 local settings = require("configuration")
-local surround = {}
 
+local surround = {}
 if settings.enable_surround then
   surround = {
     "kylechui/nvim-surround",
@@ -11,10 +11,29 @@ if settings.enable_surround then
   }
 end
 
-return {
+local luasnip = {}
+local nvimcmp = {
+  "hrsh7th/nvim-cmp",
+  version = false, -- last release is way too old
+  event = "VeryLazy",
+  dependencies = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+  },
+  config = function()
+    require("config.nvim-cmp")
+  end,
+}
+local actionmenu = {}
+local tscontext = {}
+local minicomment = {}
+local inlayhints = {}
+local signature = {}
+local lspsaga = {}
 
-  -- snippets
-  {
+if settings.enable_coding then
+  luasnip = {
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
         and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
@@ -43,10 +62,8 @@ return {
       { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
-  },
-
-  -- auto completion
-  {
+  }
+  nvimcmp = {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
     event = "VeryLazy",
@@ -61,7 +78,62 @@ return {
     config = function()
       require("config.nvim-cmp")
     end,
-  },
+  }
+  tscontext = { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true }
+  minicomment = {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        ignore_blank_line = false,
+      },
+      mappings = {
+        comment = "mc",
+        comment_line = "ml",
+        textobject = "mt",
+      },
+      hooks = {
+        pre = function()
+          require("ts_context_commentstring.internal").update_commentstring({})
+        end,
+      },
+    },
+    config = function(_, opts)
+      require("mini.comment").setup(opts)
+    end,
+  }
+  inlayhints = {
+    "lvimuser/lsp-inlayhints.nvim",
+    lazy = true,
+  }
+  signature = {
+    "ray-x/lsp_signature.nvim",
+    lazy = true,
+    config = function()
+      require("config.lsp.signature")
+    end,
+  }
+  lspsaga = {
+    "glepnir/lspsaga.nvim",
+    lazy = true,
+    config = function()
+      require("config.lspsaga")
+    end,
+  }
+  actionmenu = {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+    lazy = true,
+  }
+end
+
+return {
+
+  -- snippets
+  luasnip,
+
+  -- auto completion
+  nvimcmp,
 
   -- auto pairs
   {
@@ -85,55 +157,15 @@ return {
 
   surround,
 
-  -- comments
-  { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
-  {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        ignore_blank_line = false,
-      },
-      mappings = {
-        comment = "mc",
-        comment_line = "ml",
-        textobject = "mt",
-      },
-      hooks = {
-        pre = function()
-          require("ts_context_commentstring.internal").update_commentstring({})
-        end,
-      },
-    },
-    config = function(_, opts)
-      require("mini.comment").setup(opts)
-    end,
-  },
+  tscontext,
 
-  {
-    "lvimuser/lsp-inlayhints.nvim",
-    lazy = true,
-  },
+  minicomment,
 
-  {
-    "ray-x/lsp_signature.nvim",
-    lazy = true,
-    config = function()
-      require("config.lsp.signature")
-    end,
-  },
+  inlayhints,
 
-  {
-    "glepnir/lspsaga.nvim",
-    lazy = true,
-    config = function()
-      require("config.lspsaga")
-    end,
-  },
+  signature,
 
-  {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-    lazy = true,
-  },
+  lspsaga,
+
+  actionmenu,
 }

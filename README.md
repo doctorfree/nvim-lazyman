@@ -887,6 +887,9 @@ Additional plugin configuration and options are available in `configuration.lua`
 ```lua
 local conf = {}
 
+-- Version info, do not modify
+conf.config_version = 211
+
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -941,6 +944,8 @@ conf.enable_asciiart = false
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
+-- Enable coding plugins for diagnostics, debugging, and language sservers
+conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
 -- Enable dressing plugin for improved default vim.ui interfaces
@@ -1062,8 +1067,8 @@ conf.formatters_linters = {
   "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
-  -- "shellcheck", -- FORMATTERS_LINTERS
-  "shfmt", -- FORMATTERS_LINTERS
+  "shellcheck", -- FORMATTERS_LINTERS
+  -- "shfmt", -- FORMATTERS_LINTERS
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
