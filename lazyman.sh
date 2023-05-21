@@ -1531,7 +1531,7 @@ show_plugin_menu() {
     else
       use_hop="✗"
     fi
-    enable_ranger=$(get_conf_value enable_ranger)
+    enable_ranger=$(get_conf_value enable_ranger_float)
     if [ "${enable_ranger}" == "true" ]; then
       use_ranger=""
     else
@@ -1647,9 +1647,9 @@ show_plugin_menu() {
     options+=("Compile & Run [${use_compile}]")
     options+=("Dashboard [${use_dash}]")
     if [ "${use_dash}" == "alpha" ]; then
-      options+=("  Alpha Header [${use_dashboard_header}]")
-      options+=("  Recent Files [${use_dashboard_recent_files}]")
-      options+=("  Quick Links  [${use_dashboard_quick_links}]")
+      options+=(" Alpha Header [${use_dashboard_header}]")
+      options+=(" Recent Files [${use_dashboard_recent_files}]")
+      options+=(" Quick Links  [${use_dashboard_quick_links}]")
     fi
     options+=("Dressing UI   [${use_dressing}]")
     options+=("Fancy Icons   [${use_fancy}]")
@@ -1660,8 +1660,8 @@ show_plugin_menu() {
     options+=("Color Indent  [${use_color_indentline}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Noice UI      [${use_noice}]")
-    options+=("Project       [${use_project}]")
     options+=("Picker        [${use_picker}]")
+    options+=("Project       [${use_project}]")
     options+=("Rainbow 2     [${use_rainbow2}]")
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
@@ -1847,17 +1847,36 @@ show_plugin_menu() {
           ;;
         "Enable Ranger"*,* | *,"Enable Ranger"*)
           if [ "${enable_ranger}" == "true" ]; then
-            set_conf_value "enable_ranger" "false"
+            set_conf_value "enable_ranger_float" "false"
           else
-            set_conf_value "enable_ranger" "true"
+            set_conf_value "enable_ranger_float" "true"
           fi
           break
           ;;
         "Enable coding"*,* | *,"Enable coding"*)
           if [ "${enable_coding}" == "true" ]; then
-            set_conf_value "enable_coding" "false"
-            for lsp in "${all_lsp_servers[@]}"; do
-              set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+            printf "\n\nDisabling coding will disable LSP servers and several"
+            printf "\nplugins providing coding and diagnostics features."
+            printf "\nThis will create an editing environment for non-programmers."
+            printf "\nIndividual features can be re-enabled using these menus.\n"
+            while true; do
+              read -r -p "Proceed with disabling coding features? (y/n) " yn
+              case $yn in
+                [Yy]*)
+                  set_conf_value "enable_coding" "false"
+                  for lsp in "${all_lsp_servers[@]}"; do
+                    set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+                  done
+                  break
+                  ;;
+                [Nn]*)
+                  printf "\nSkipping disabling coding features\n"
+                  break
+                  ;;
+                *)
+                  printf "\nPlease answer yes or no.\n"
+                  ;;
+              esac
             done
           else
             set_conf_value "enable_coding" "true"
@@ -1973,7 +1992,7 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "  Recent Files"*,* | *,"  Recent Files"*)
+        " Recent Files"*,* | *," Recent Files"*)
           choices=("0" "1" "2" "3" "4" "5" "6" "7" "8" "9")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Number of Recent Files  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${dashboard_recent_files}" ] || {
@@ -1983,7 +2002,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        "  Alpha Header"*,* | *,"  Alpha Header"*)
+        " Alpha Header"*,* | *," Alpha Header"*)
           if [ "${enable_dashboard_header}" == "true" ]; then
             set_conf_value "enable_dashboard_header" "false"
           else
@@ -1991,7 +2010,7 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "  Quick Links"*,* | *,"  Quick Links"*)
+        " Quick Links"*,* | *," Quick Links"*)
           if [ "${enable_dashboard_quick_links}" == "true" ]; then
             set_conf_value "enable_dashboard_quick_links" "false"
           else
@@ -2026,7 +2045,7 @@ show_plugin_menu() {
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_hop" "false"
-          set_conf_value "enable_ranger" "false"
+          set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"
@@ -2061,7 +2080,7 @@ show_plugin_menu() {
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_dressing" "true"
           set_conf_value "enable_hop" "true"
-          set_conf_value "enable_ranger" "true"
+          set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
           set_conf_value "enable_bbye" "true"
           set_conf_value "enable_startuptime" "true"
@@ -2471,7 +2490,7 @@ show_conf_menu() {
     options+=("List Chars    [${use_list}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
-    options+=("  Showtabline [${use_showtabline}]")
+    options+=(" Showtabline  [${use_showtabline}]")
     options+=("Winbar        [${use_winbar}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
@@ -2574,7 +2593,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "  Showtabline"*,* | *,"  Showtabline"*)
+        " Showtabline"*,* | *," Showtabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${showtabline}" ] || {
