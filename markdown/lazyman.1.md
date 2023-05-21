@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 
 ## FEATURES
 
@@ -208,6 +208,8 @@ The following command line options are available with the `lazyman` command:
 
 `-q` : indicates quiet install
 
+`-Q` : indicates exit after performing specified action(s)
+
 `-r` : indicates remove the previously installed configuration
 
 `-R` : indicates remove previously installed configuration and backups
@@ -233,6 +235,12 @@ The following command line options are available with the `lazyman` command:
 `-Z` : indicates do not install Homebrew, Neovim, or any other tools during initialization
 
 `-u` : displays this usage message and exits
+
+`install` : fuzzy search and select configuration to install
+
+`open` : fuzzy search and select configuration to open
+
+`remove` : fuzzy search and select configuration to remove
 
 `status` : displays a brief status report and exits
 

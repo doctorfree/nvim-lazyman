@@ -25,8 +25,9 @@ configurations
 .PP
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
 [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]
-[-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
-[-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+[-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N
+nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+[install] [open] [remove] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -284,6 +285,8 @@ printf\[aq]s
 .PP
 \f[V]-q\f[R] : indicates quiet install
 .PP
+\f[V]-Q\f[R] : indicates exit after performing specified action(s)
+.PP
 \f[V]-r\f[R] : indicates remove the previously installed configuration
 .PP
 \f[V]-R\f[R] : indicates remove previously installed configuration and
@@ -325,6 +328,12 @@ prompt
 tools during initialization
 .PP
 \f[V]-u\f[R] : displays this usage message and exits
+.PP
+\f[V]install\f[R] : fuzzy search and select configuration to install
+.PP
+\f[V]open\f[R] : fuzzy search and select configuration to open
+.PP
+\f[V]remove\f[R] : fuzzy search and select configuration to remove
 .PP
 \f[V]status\f[R] : displays a brief status report and exits
 .PP

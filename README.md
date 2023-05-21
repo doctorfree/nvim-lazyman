@@ -628,10 +628,11 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>View the lazyman usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
-   [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]
-   [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
-   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
+   [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
+   [-n] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
+   [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf]
+   [-X] [-y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -661,6 +662,7 @@ Where:
     -p indicates use vim-plug rather than Lazy to initialize
     -P indicates use Packer rather than Lazy to initialize
     -q indicates quiet install
+    -Q indicates exit after performing specified action(s)
     -h indicates use Homebrew to install rather than native pkg mgr
         (Pacman is always used on Arch Linux, Homebrew on macOS)
     -H indicates compile and install the nightly Neovim build
@@ -687,6 +689,9 @@ Where:
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits
+    'install' fuzzy search and select configuration to install
+    'open' fuzzy search and select configuration to open
+    'remove' fuzzy search and select configuration to remove
     'status' displays a brief status report and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-Lazyman
