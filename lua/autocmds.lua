@@ -174,7 +174,7 @@ if settings.dashboard == "alpha" then
     group = alpha_group,
     callback = function()
       local should_skip = false
-      if vim.fn.argc() > 0 or vim.fn.line2byte(vim.fn.line "$") ~= -1 or not vim.o.modifiable then
+      if vim.fn.argc() > 0 or vim.fn.line2byte(vim.fn.line("$")) ~= -1 or not vim.o.modifiable then
         should_skip = true
       else
         for _, arg in pairs(vim.v.argv) do
@@ -184,7 +184,9 @@ if settings.dashboard == "alpha" then
           end
         end
       end
-      if not should_skip then require("alpha").start(true, require("alpha").default_config) end
+      if not should_skip then
+        require("alpha").start(true, require("alpha").default_config)
+      end
     end,
   })
   -- when there is no buffer left show Alpha dashboard
@@ -224,13 +226,15 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
     if ok and stats and (stats.size > 1000000) then
       vim.b.large_buf = true
       vim.cmd("syntax off")
-      vim.cmd("IlluminatePauseBuf")     -- disable vim-illuminate
+      vim.cmd("IlluminatePauseBuf") -- disable vim-illuminate
       vim.cmd("IndentBlanklineDisable") -- disable indent-blankline.nvim
       vim.opt_local.foldmethod = "manual"
       vim.opt_local.spell = false
-      require("null-ls").disable("shellcheck")
     else
       vim.b.large_buf = false
+    end
+    if ok and stats and (stats.size > 100000) then
+      require("null-ls").disable("shellcheck")
     end
   end,
   group = aug,

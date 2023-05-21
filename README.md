@@ -1100,7 +1100,7 @@ conf.formatters_linters = {
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  "beautysh", -- FORMATTERS_LINTERS
+  -- "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }
