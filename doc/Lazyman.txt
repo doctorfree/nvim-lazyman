@@ -13,9 +13,9 @@ configurations
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F]
-[-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-h] [-H]
-[-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W]
-[-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+[-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P] [-q] [-Q] [-h]
+[-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-T] [-U] [-w conf]
+[-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -218,6 +218,8 @@ always used on Arch Linux, Homebrew on macOS)
 
 `-q` : indicates quiet install
 
+`-Q` : indicates exit after performing specified action(s)
+
 `-r` : indicates remove the previously installed configuration
 
 `-R` : indicates remove previously installed configuration and backups
@@ -248,6 +250,12 @@ always used on Arch Linux, Homebrew on macOS)
 initialization
 
 `-u` : displays this usage message and exits
+
+`install` : fuzzy search and select configuration to install
+
+`open` : fuzzy search and select configuration to open
+
+`remove` : fuzzy search and select configuration to remove
 
 `status` : displays a brief status report and exits
 
