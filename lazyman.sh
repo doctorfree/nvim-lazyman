@@ -1540,7 +1540,7 @@ show_plugin_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[b cyan]Lazyman Plugins Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim plugin configuration in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
+      rich "[b green]Manage the Neovim plugins enabled in[/] [b yellow]~/.config/nvim-Lazyman[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
@@ -2223,6 +2223,13 @@ show_plugin_menu() {
           printf "\nExiting Lazyman\n"
           exit 0
           ;;
+        *,*)
+          printf "\nNo matching menu item located."
+          printf "\nSelection out of range or malformed."
+          printf "\nPress <Enter> to continue ... "
+          read -r yn
+          break
+          ;;
       esac
       REPLY=
     done
@@ -2555,12 +2562,12 @@ show_conf_menu() {
     fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
+    options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("Theme [${use_theme}]")
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
-      options+=("Style [${use_theme_style}]")
+      options+=(" Style [${use_theme_style}]")
     fi
-    options+=("Transparency  [${use_transparent}]")
-    options+=("Diagnostics [${use_show_diagnostics}]")
+    options+=(" Transparency [${use_transparent}]")
     options+=("Leader        [${use_mapleader}]")
     options+=("Local Leader  [${use_maplocalleader}]")
     options+=("Number Lines  [${use_number}]")
@@ -2615,7 +2622,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Style"*,* | *,"Style"*)
+        " Style"*,* | *," Style"*)
           select_theme_style ${theme}
           break
           ;;
@@ -2623,7 +2630,7 @@ show_conf_menu() {
           select_theme ${theme}
           break
           ;;
-        "Transparency"*,* | *,"Transparency"*)
+        " Transparency"*,* | *," Transparency"*)
           if [ "${enable_transparent}" == "true" ]; then
             set_conf_value "enable_transparent" "false"
           else
@@ -2771,6 +2778,13 @@ show_conf_menu() {
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           printf "\nExiting Lazyman\n"
           exit 0
+          ;;
+        *,*)
+          printf "\nNo matching menu item located."
+          printf "\nSelection out of range or malformed."
+          printf "\nPress <Enter> to continue ... "
+          read -r yn
+          break
           ;;
       esac
       REPLY=
