@@ -4,18 +4,30 @@
 
 ### ⚡️ Added
 
-- Disable `vim-illuminate`, `indent-blankline`, and `treesitter` highlights for large files
+### 🐞 Fixed
+
+## v2.1.1r1
+
+### ⚡️ Added
+
 - Use `null-ls` when `enable_coding` is false
 - Enable/Disable all LSP servers when `enable_coding` is true/false
 - Split `null-ls` config out into separate file
 - Mods to `nvim-cmp` configuration for coding/non-coding settings
 - Add `enable_coding` setting to `configuration.lua`
 - Add `enable_coding` to `configuration.lua` and base plugins off that
+- Add support for configuring a non-programming editing environment
 - Add autocmd to avoid shellcheck duplication between `bashls` and `null-ls`
 - Use version info in `configuration.lua` to restore or replace it during updates
 - Add version info to `configuration.lua`, check in `update_config`
+- Add `install`, `open`, and `remove` arguments to fuzzy search and select a configuration to 'install', 'open', or 'remove' from the lazyman command line
 
 ### 🐞 Fixed
+
+- Disable `vim-illuminate`, `indent-blankline`, and `treesitter` highlights for large files
+- Menu formatting, handle out of range menu selections
+- Reduce file size for which `shellcheck` is disabled, disable `beautysh` by default
+- Fix ranger float auto-configuration, disable `shellcheck` on large files, prompt before disabling coding features
 
 ## v2.1.0r1
 
