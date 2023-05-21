@@ -1856,8 +1856,14 @@ show_plugin_menu() {
         "Enable coding"*,* | *,"Enable coding"*)
           if [ "${enable_coding}" == "true" ]; then
             set_conf_value "enable_coding" "false"
+            for lsp in "${all_lsp_servers[@]}"; do
+              set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+            done
           else
             set_conf_value "enable_coding" "true"
+            for lsp in "${all_lsp_servers[@]}"; do
+              set_conf_table "LSP_SERVERS" "${lsp}" "enable"
+            done
           fi
           break
           ;;
