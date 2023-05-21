@@ -560,10 +560,16 @@ The plugins that are configurable in this way in
 \f[V]configuration.lua\f[R] are briefly described below along with their
 default settings:
 .IP \[bu] 2
+Neovim session manager to use, either persistence or possession
+.RS 2
+.IP \[bu] 2
+\f[V]conf.session_manager = \[dq]possession\[dq]\f[R]
+.RE
+.IP \[bu] 2
 Enable display of ascii art
 .RS 2
 .IP \[bu] 2
-\f[V]conf.enable_asciiart = true\f[R]
+\f[V]conf.enable_asciiart = false\f[R]
 .RE
 .IP \[bu] 2
 Delete buffers and close files without closing your windows
@@ -578,13 +584,19 @@ Enable display of custom cheatsheets
 \f[V]conf.enable_cheatsheet = true\f[R]
 .RE
 .IP \[bu] 2
+Enable coding plugins for diagnostics, debugging, and language sservers
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_coding = true\f[R]
+.RE
+.IP \[bu] 2
 Enable compile plugin to compile and run current file
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_compile = false\f[R]
 .RE
 .IP \[bu] 2
-Enable dressing plugin for improved default \f[V]vim.ui\f[R] interfaces
+Enable dressing plugin for improved default vim.ui interfaces
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_dressing = true\f[R]
@@ -614,52 +626,28 @@ Enable multiple cursors
 \f[V]conf.enable_multi_cursor = true\f[R]
 .RE
 .IP \[bu] 2
-neovim session manager to use: persistence, possession, or none
+Neo-tree or nvim-tree, false will enable nvim-tree
 .RS 2
 .IP \[bu] 2
-\f[V]conf.session_manager = \[dq]possession\[dq]\f[R]
+\f[V]conf.enable_neotree = true\f[R]
 .RE
 .IP \[bu] 2
-File explorer tree plugin: neo-tree, nvim-tree, or none
-.RS 2
-.IP \[bu] 2
-\f[V]conf.file_tree = \[dq]neo-tree\[dq]\f[R]
-.RE
-.IP \[bu] 2
-Replace the UI for messages, cmdline and the popupmenu
+Replace the UI for messages, cmdline and the popup menu
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_noice = true\f[R]
 .RE
 .IP \[bu] 2
-Enable ChatGPT (set OPENAI_API_KEY environment variable)
+Enable ChatGPT (set \f[V]OPENAI_API_KEY\f[R] environment variable)
 .RS 2
 .IP \[bu] 2
-\f[V]conf.enable_chatgpt = true\f[R]
+\f[V]conf.enable_chatgpt = false\f[R]
 .RE
 .IP \[bu] 2
 Enable the newer rainbow treesitter delimiter highlighting
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_rainbow2 = true\f[R]
-.RE
-.IP \[bu] 2
-Enable \[aq]StartupTime\[aq] command
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_startuptime = true\f[R]
-.RE
-.IP \[bu] 2
-Add/change/delete surrounding delimiter pairs with ease
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_surround = true\f[R]
-.RE
-.IP \[bu] 2
-Enable fancy lualine components
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_fancy = true\f[R]
 .RE
 .IP \[bu] 2
 Enable the wilder plugin
@@ -676,22 +664,16 @@ The statusline (lualine) and tabline can each be enabled or disabled
 \f[V]conf.enable_tabline = true\f[R]
 .RE
 .IP \[bu] 2
-Enable winbar with navic location via lspconfig
+The winbar with navic location via lspconfig if available
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_winbar = true\f[R]
 .RE
 .IP \[bu] 2
-Enable rebelot/terminal.nvim
+Enable the rebelot/terminal.nvim terminal plugin
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_terminal = true\f[R]
-.RE
-.IP \[bu] 2
-Enable toggleterm plugin
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_toggleterm = true\f[R]
 .RE
 .IP \[bu] 2
 Enable playing games inside Neovim!
@@ -700,27 +682,20 @@ Enable playing games inside Neovim!
 \f[V]conf.enable_games = true\f[R]
 .RE
 .IP \[bu] 2
-Enable the WakaTime metrics dashboard (requires API key)
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_wakatime = true\f[R]
-.RE
-.IP \[bu] 2
-Enable a dashboard, can be one of \[dq]alpha\[dq], \[dq]dash\[dq],
-\[dq]mini\[dq], or \[dq]none\[dq]
+Enable the Alpha dashboard
 .RS 2
 .IP \[bu] 2
 \f[V]conf.dashboard = \[dq]alpha\[dq]\f[R]
 .RE
 .IP \[bu] 2
-enable the Neovim bookmarks plugin
+Enable the Neovim bookmarks plugin
 (<https://github.com/ldelossa/nvim-ide>)
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_bookmarks = false\f[R]
 .RE
 .IP \[bu] 2
-enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_ide = false\f[R]
@@ -738,16 +713,16 @@ Enable Project manager
 \f[V]conf.enable_project = true\f[R]
 .RE
 .IP \[bu] 2
+Enable smooth scrolling with the \f[V]neoscroll\f[R] plugin
+.RS 2
+.IP \[bu] 2
+\f[V]conf.enable_smooth_scrolling = true\f[R]
+.RE
+.IP \[bu] 2
 Enable window picker
 .RS 2
 .IP \[bu] 2
 \f[V]conf.enable_picker = true\f[R]
-.RE
-.IP \[bu] 2
-Enable smooth scrolling with neoscroll plugin
-.RS 2
-.IP \[bu] 2
-\f[V]conf.enable_smooth_scrolling = true\f[R]
 .RE
 .IP \[bu] 2
 Show diagnostics, can be one of \[dq]none\[dq], \[dq]icons\[dq],
@@ -758,10 +733,10 @@ Default is \[dq]popup\[dq]
 \f[V]conf.show_diagnostics = \[dq]icons\[dq]\f[R]
 .RE
 .IP \[bu] 2
-Disable semantic highlighting
+Enable semantic highlighting
 .RS 2
 .IP \[bu] 2
-\f[V]conf.disable_semantic_highlighting = false\f[R]
+\f[V]conf.enable_semantic_highlighting = true\f[R]
 .RE
 .IP \[bu] 2
 Convert semantic highlights to treesitter highlights

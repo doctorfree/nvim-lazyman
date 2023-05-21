@@ -598,7 +598,7 @@ update_config() {
           config_version=$(nvim -l ${GET_CONF} config_version 2>&1)
           [ "${config_version}" ] && [ "${config_version}" != "nil" ] && {
             config_number=$((${config_version}))
-            [ ${config_number} -ge 210 ] && restore_config=1
+            [ ${config_number} -ge 211 ] && restore_config=1
           }
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }

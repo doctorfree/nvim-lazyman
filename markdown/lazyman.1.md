@@ -378,15 +378,19 @@ installed or replaced by another plugin with similar functionality. The plugins
 that are configurable in this way in `configuration.lua` are briefly described
 below along with their default settings:
 
+- Neovim session manager to use, either persistence or possession
+  - `conf.session_manager = "possession"`
 - Enable display of ascii art
-  - `conf.enable_asciiart = true`
+  - `conf.enable_asciiart = false`
 - Delete buffers and close files without closing your windows
   - `conf.enable_bbye = true`
 - Enable display of custom cheatsheets
   - `conf.enable_cheatsheet = true`
+- Enable coding plugins for diagnostics, debugging, and language sservers
+  - `conf.enable_coding = true`
 - Enable compile plugin to compile and run current file
   - `conf.enable_compile = false`
-- Enable dressing plugin for improved default `vim.ui` interfaces
+- Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
 - Enable hop plugin for easy motions
   - `conf.enable_hop = true`
@@ -396,55 +400,43 @@ below along with their default settings:
   - `conf.enable_ranger_float = true`
 - Enable multiple cursors
   - `conf.enable_multi_cursor = true`
-- neovim session manager to use: persistence, possession, or none
-  - `conf.session_manager = "possession"`
-- File explorer tree plugin: neo-tree, nvim-tree, or none
-  - `conf.file_tree = "neo-tree"`
-- Replace the UI for messages, cmdline and the popupmenu
+- Neo-tree or nvim-tree, false will enable nvim-tree
+  - `conf.enable_neotree = true`
+- Replace the UI for messages, cmdline and the popup menu
   - `conf.enable_noice = true`
-- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-  - `conf.enable_chatgpt = true`
+- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
+  - `conf.enable_chatgpt = false`
 - Enable the newer rainbow treesitter delimiter highlighting
   - `conf.enable_rainbow2 = true`
-- Enable 'StartupTime' command
-  - `conf.enable_startuptime = true`
-- Add/change/delete surrounding delimiter pairs with ease
-  - `conf.enable_surround = true`
-- Enable fancy lualine components
-  - `conf.enable_fancy = true`
 - Enable the wilder plugin
   - `conf.enable_wilder = false`
 - The statusline (lualine) and tabline can each be enabled or disabled
   - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
-- Enable winbar with navic location via lspconfig
+- The winbar with navic location via lspconfig if available
   - `conf.enable_winbar = true`
-- Enable rebelot/terminal.nvim
+- Enable the rebelot/terminal.nvim terminal plugin
   - `conf.enable_terminal = true`
-- Enable toggleterm plugin
-  - `conf.enable_toggleterm = true`
 - Enable playing games inside Neovim!
   - `conf.enable_games = true`
-- Enable the WakaTime metrics dashboard (requires API key)
-  - `conf.enable_wakatime = true`
-- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
+- Enable the Alpha dashboard
   - `conf.dashboard = "alpha"`
-- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_bookmarks = false`
-- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+- Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
   - `conf.enable_ide = false`
 - Enable Navigator
   - `conf.enable_navigator = true`
 - Enable Project manager
   - `conf.enable_project = true`
+- Enable smooth scrolling with the `neoscroll` plugin
+  - `conf.enable_smooth_scrolling = true`
 - Enable window picker
   - `conf.enable_picker = true`
-- Enable smooth scrolling with neoscroll plugin
-  - `conf.enable_smooth_scrolling = true`
 - Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
   - `conf.show_diagnostics = "icons"`
-- Disable semantic highlighting
-  - `conf.disable_semantic_highlighting = false`
+- Enable semantic highlighting
+  - `conf.enable_semantic_highlighting = true`
 - Convert semantic highlights to treesitter highlights
   - `conf.convert_semantic_highlighting = true`
 

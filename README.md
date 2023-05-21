@@ -840,6 +840,26 @@ below along with their default settings:
 
 - Neovim session manager to use, either persistence or possession
   - `conf.session_manager = "possession"`
+- Enable display of ascii art
+  - `conf.enable_asciiart = false`
+- Delete buffers and close files without closing your windows
+  - `conf.enable_bbye = true`
+- Enable display of custom cheatsheets
+  - `conf.enable_cheatsheet = true`
+- Enable coding plugins for diagnostics, debugging, and language sservers
+  - `conf.enable_coding = true`
+- Enable compile plugin to compile and run current file
+  - `conf.enable_compile = false`
+- Enable dressing plugin for improved default vim.ui interfaces
+  - `conf.enable_dressing = true`
+- Enable hop plugin for easy motions
+  - `conf.enable_hop = true`
+- Enable renamer plugin for VS Code-like renaming UI
+  - `conf.enable_renamer = true`
+- Enable ranger in a floating window
+  - `conf.enable_ranger_float = true`
+- Enable multiple cursors
+  - `conf.enable_multi_cursor = true`
 - Neo-tree or nvim-tree, false will enable nvim-tree
   - `conf.enable_neotree = true`
 - Replace the UI for messages, cmdline and the popup menu
