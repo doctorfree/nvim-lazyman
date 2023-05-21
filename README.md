@@ -628,10 +628,11 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>View the lazyman usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
-   [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]
-   [-q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir]
-   [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [status]
+Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
+   [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
+   [-n] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
+   [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf]
+   [-X] [-y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -661,6 +662,7 @@ Where:
     -p indicates use vim-plug rather than Lazy to initialize
     -P indicates use Packer rather than Lazy to initialize
     -q indicates quiet install
+    -Q indicates exit after performing specified action(s)
     -h indicates use Homebrew to install rather than native pkg mgr
         (Pacman is always used on Arch Linux, Homebrew on macOS)
     -H indicates compile and install the nightly Neovim build
@@ -687,6 +689,9 @@ Where:
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits
+    'install' fuzzy search and select configuration to install
+    'open' fuzzy search and select configuration to open
+    'remove' fuzzy search and select configuration to remove
     'status' displays a brief status report and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-Lazyman
@@ -840,6 +845,26 @@ below along with their default settings:
 
 - Neovim session manager to use, either persistence or possession
   - `conf.session_manager = "possession"`
+- Enable display of ascii art
+  - `conf.enable_asciiart = false`
+- Delete buffers and close files without closing your windows
+  - `conf.enable_bbye = true`
+- Enable display of custom cheatsheets
+  - `conf.enable_cheatsheet = true`
+- Enable coding plugins for diagnostics, debugging, and language sservers
+  - `conf.enable_coding = true`
+- Enable compile plugin to compile and run current file
+  - `conf.enable_compile = false`
+- Enable dressing plugin for improved default vim.ui interfaces
+  - `conf.enable_dressing = true`
+- Enable hop plugin for easy motions
+  - `conf.enable_hop = true`
+- Enable renamer plugin for VS Code-like renaming UI
+  - `conf.enable_renamer = true`
+- Enable ranger in a floating window
+  - `conf.enable_ranger_float = true`
+- Enable multiple cursors
+  - `conf.enable_multi_cursor = true`
 - Neo-tree or nvim-tree, false will enable nvim-tree
   - `conf.enable_neotree = true`
 - Replace the UI for messages, cmdline and the popup menu
@@ -886,6 +911,9 @@ Additional plugin configuration and options are available in `configuration.lua`
 
 ```lua
 local conf = {}
+
+-- Version info, do not modify
+conf.config_version = 211
 
 -- THEME CONFIGURATION
 -- Available themes:
@@ -941,6 +969,8 @@ conf.enable_asciiart = false
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
+-- Enable coding plugins for diagnostics, debugging, and language sservers
+conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
 -- Enable dressing plugin for improved default vim.ui interfaces
@@ -1062,15 +1092,15 @@ conf.formatters_linters = {
   "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
-  -- "shellcheck", -- FORMATTERS_LINTERS
-  "shfmt", -- FORMATTERS_LINTERS
+  "shellcheck", -- FORMATTERS_LINTERS
+  -- "shfmt", -- FORMATTERS_LINTERS
   "stylua", -- FORMATTERS_LINTERS
   "tflint", -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  "beautysh", -- FORMATTERS_LINTERS
+  -- "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }

@@ -1,7 +1,7 @@
 local conf = {}
 
 -- Version info, do not modify
-conf.config_version = 210
+conf.config_version = 211
 
 -- THEME CONFIGURATION
 -- Available themes:
@@ -57,6 +57,8 @@ conf.enable_asciiart = false
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
+-- Enable coding plugins for diagnostics, debugging, and language sservers
+conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
 -- Enable dressing plugin for improved default vim.ui interfaces
@@ -199,7 +201,7 @@ conf.formatters_linters = {
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  "beautysh", -- FORMATTERS_LINTERS
+  -- "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }

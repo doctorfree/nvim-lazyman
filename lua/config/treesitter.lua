@@ -17,36 +17,22 @@ local rainbow_cfg = {
 if settings.enable_rainbow2 then
   rainbow_cfg = {
     enable = true,
-    -- list of languages you want to disable the plugin for
     disable = { "html" },
-    -- Which query to use for finding delimiters
     query = "rainbow-parens",
   }
 end
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = settings.treesitter_ensure_installed,
-  -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = {}, -- List of parsers to ignore installing
+  ignore_install = {},
 
   highlight = {
     enable = true,
-    -- to disable slow treesitter highlight for large files
-    -- disable = function(lang, buf)
-    --   local max_filesize = 100 * 1024 -- 100 KB
-    --   local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-    --   if ok and stats and stats.size > max_filesize then
-    --     return true
-    --   end
-    -- end,
-    disable = {}, -- list of language that will be disabled
-
-    -- Instead of true it can also be a list of languages
+    disable = function()
+      return vim.b.large_buf
+    end,
     additional_vim_regex_highlighting = false,
   },
 
@@ -67,10 +53,8 @@ require("nvim-treesitter.configs").setup({
   textobjects = {
     select = {
       enable = true,
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
