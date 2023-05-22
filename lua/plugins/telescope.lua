@@ -1,16 +1,19 @@
 local settings = require("configuration")
 local Util = require("utils.utils")
 
-local makefile = ""
 local mmapping = {}
+local dependencies = {
+  "nvim-lua/plenary.nvim",
+  "jvgrootveld/telescope-zoxide",
+  "crispgm/telescope-heading.nvim",
+  "nvim-telescope/telescope-symbols.nvim",
+  "nvim-telescope/telescope-file-browser.nvim",
+  "nvim-telescope/telescope-ui-select.nvim",
+  "dharmx/telescope-media.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+}
 if settings.enable_toggleterm then
-  makefile = "ptethng/telescope-makefile"
   mmapping = { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" }
-end
-return {
-  "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
-  -- branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "jvgrootveld/telescope-zoxide",
@@ -18,10 +21,16 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    makefile,
+    "ptethng/telescope-makefile",
     "dharmx/telescope-media.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  },
+  }
+end
+return {
+  "nvim-telescope/telescope.nvim",
+  cmd = "Telescope",
+  -- branch = "0.1.x",
+  dependencies = dependencies,
   keys = {
     -- Search stuff
     { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
