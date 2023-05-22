@@ -208,16 +208,6 @@ if settings.dashboard == "alpha" then
   })
 end
 
--- Avoid duplication between bashls and null-ls with shellcheck
-autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "bashls" then
-      require("null-ls").disable("shellcheck")
-    end
-  end,
-})
-
 -- Disable some things for large files
 local aug = vim.api.nvim_create_augroup("buf_large", { clear = true })
 vim.api.nvim_create_autocmd({ "BufReadPre" }, {
@@ -232,9 +222,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
       vim.opt_local.spell = false
     else
       vim.b.large_buf = false
-    end
-    if ok and stats and (stats.size > 100000) then
-      require("null-ls").disable("shellcheck")
     end
   end,
   group = aug,

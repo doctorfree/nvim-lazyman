@@ -969,6 +969,8 @@ set_chat_gpt() {
 
 install_config() {
   confname="$1"
+  dodone=1
+  printf "\nInstalling and initializing ${confname} Neovim configuration ... "
   case ${confname} in
     Abstract)
       lazyman -g -z -y -Q -q
@@ -1063,7 +1065,13 @@ install_config() {
     Modular)
       lazyman -x Modular -z -y -Q -q
       ;;
+    *)
+      dodone=
+      printf "\nUnsupported Neovim configuration!"
+      printf "\nSkipping installation and initialization of ${confname}\n"
+      ;;
   esac
+  [ "${dodone}" ] && printf "done\n"
 }
 
 select_install() {

@@ -127,6 +127,29 @@ if settings.enable_coding then
   local lspconfig = require("lspconfig")
   local navic = require("nvim-navic")
 
+  -- Enable/Disable shellcheck in bashls
+  local bashls_cmd_env = { SHELLCHECK_PATH = "" }
+  local bashls_settings = {
+    bashIde = {
+      shellcheckPath = "",
+    },
+  }
+  if table_contains(lsp_servers, "bashls") then
+    if table_contains(formatters_linters, "shellcheck") then
+      bashls_cmd_env = { SHELLCHECK_PATH = "shellcheck" }
+      bashls_settings = {
+        bashIde = {
+          shellcheckPath = "shellcheck",
+        },
+      }
+    end
+    lspconfig.bashls.setup({
+      capabilities = capabilities,
+      cmd_env = bashls_cmd_env,
+      settings = bashls_settings,
+    })
+  end
+
   if table_contains(lsp_servers, "jsonls") then
     lspconfig.jsonls.setup({
       capabilities = capabilities,
@@ -264,7 +287,6 @@ if settings.enable_coding then
     "html",
     "pylsp",
     "vimls",
-    "bashls",
     "awk_ls",
     "pyright",
     "rust_analyzer",

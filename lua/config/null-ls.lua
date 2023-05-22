@@ -72,22 +72,6 @@ if table_contains(external_formatters, "beautysh") then
     )
   end
 end
-if table_contains(formatters_linters, "shellcheck") then
-  table.insert(
-    conf_sources,
-    diagnostics.shellcheck.with({
-      timeout = 10000,
-      diagnostic_config = {
-        -- see :help vim.diagnostic.config()
-        underline = false,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-        severity_sort = true,
-      },
-    })
-  )
-end
 if table_contains(formatters_linters, "latexindent") then
   table.insert(
     conf_sources,
