@@ -48,6 +48,10 @@ tmp/*
 # Neovide leaves a backtrace when it crashes
 neovide_backtraces*
 
+# Lazyman generated files
+.initialized
+lua/configuration-orig.lua
+
 # vim files
 .*.sw[a-z]
 *.un~
