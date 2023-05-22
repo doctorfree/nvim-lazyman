@@ -1,3 +1,12 @@
+local settings = require("configuration")
+
+local enable_progress = true
+if settings.enable_lualine_lsp_progress then
+  if settings.enable_winbar then
+    enable_progress = false
+  end
+end
+
 require("noice").setup({
   cmdline = {
     enabled = true, -- enables the Noice cmdline UI
@@ -86,7 +95,7 @@ require("noice").setup({
   },
   lsp = {
     progress = {
-      enabled = true,
+      enabled = enable_progress,
       -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
       -- See the section on formatting for more details on how to customize.
       format = "lsp_progress",

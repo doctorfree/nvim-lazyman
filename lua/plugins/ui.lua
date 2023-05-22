@@ -20,6 +20,13 @@ if settings.enable_dressing then
   }
 end
 
+local lualine_lsp_progress = {}
+if settings.enable_lualine_lsp_progress then
+  if settings.enable_winbar then
+    lualine_lsp_progress = { "arkav/lualine-lsp-progress" }
+  end
+end
+
 local lualine_cfg = {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -201,6 +208,9 @@ return {
 
   -- statusline
   lualine_cfg,
+
+  -- LSP progress in lualine
+  lualine_lsp_progress,
 
   {
     "kdheepak/tabline.nvim",

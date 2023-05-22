@@ -60,9 +60,45 @@ end
 local winbar_cfg = {}
 local inactive_winbar_cfg = {}
 if settings.enable_winbar then
-  winbar_cfg = {
-    lualine_a = {},
-    lualine_b = {
+  local lsp_progress = {}
+  if settings.enable_lualine_lsp_progress then
+    -- Color for highlights
+    local colors = {
+      yellow = "#ECBE7B",
+      cyan = "#008080",
+      darkblue = "#081633",
+      green = "#98be65",
+      orange = "#FF8800",
+      violet = "#a9a1e1",
+      magenta = "#c678dd",
+      blue = "#51afef",
+      red = "#ec5f67",
+    }
+    lsp_progress = {
+      {
+        "lsp_progress",
+        display_components = { "lsp_client_name", "spinner", { "title", "percentage", "message" } },
+        colors = {
+          percentage = colors.magenta,
+          title = colors.green,
+          message = colors.violet,
+          spinner = colors.magenta,
+          lsp_client_name = colors.darkblue,
+          use = true,
+        },
+        separators = {
+          component = " ",
+          progress = " | ",
+          message = { pre = "(", post = ")" },
+          percentage = { pre = "", post = "%% " },
+          title = { pre = "", post = ": " },
+          lsp_client_name = { pre = "[", post = "]" },
+          spinner = { pre = "", post = "" },
+          -- message = { commenced = 'In Progress', completed = 'Completed' },
+        },
+        timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
+        spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
+      },
       {
         "filename",
         path = 3,
@@ -75,7 +111,11 @@ if settings.enable_winbar then
           alpha = "Alpha",
         },
       },
-    },
+    }
+  end
+  winbar_cfg = {
+    lualine_a = {},
+    lualine_b = lsp_progress,
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},

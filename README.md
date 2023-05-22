@@ -880,6 +880,8 @@ below along with their default settings:
   - `conf.enable_tabline = true`
 - The winbar with navic location via lspconfig if available
   - `conf.enable_winbar = true`
+- Enable LSP progress in winbar
+  - `conf.enable_lualine_lsp_progress = true`
 - Enable the rebelot/terminal.nvim terminal plugin
   - `conf.enable_terminal = true`
 - Enable playing games inside Neovim!
@@ -1008,6 +1010,8 @@ conf.enable_statusline = true
 conf.enable_tabline = true
 -- Enable winbar with navic location via lspconfig
 conf.enable_winbar = true
+-- Enable LSP progress in winbar
+conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim
 conf.enable_terminal = true
 -- Enable toggleterm plugin
