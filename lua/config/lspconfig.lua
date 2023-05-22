@@ -128,24 +128,35 @@ if settings.enable_coding then
   local navic = require("nvim-navic")
 
   -- Enable/Disable shellcheck in bashls
-  local bashls_cmd_env = { SHELLCHECK_PATH = "" }
   local bashls_settings = {
     bashIde = {
-      shellcheckPath = "",
+      backgroundAnalysisMaxFiles = 500,
+      enableSourceErrorDiagnostics = false,
+      explainshellEndpoint = "",
+      globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+      includeAllWorkspaceSymbols = false,
+      logLevel = "info",
+      shellcheckArguments = "",
+      shellcheckPath = vim.env.SHELLCHECK_PATH or "",
     },
   }
   if table_contains(lsp_servers, "bashls") then
     if table_contains(formatters_linters, "shellcheck") then
-      bashls_cmd_env = { SHELLCHECK_PATH = "shellcheck" }
       bashls_settings = {
         bashIde = {
-          shellcheckPath = "shellcheck",
+          backgroundAnalysisMaxFiles = 500,
+          enableSourceErrorDiagnostics = false,
+          explainshellEndpoint = "",
+          globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+          includeAllWorkspaceSymbols = false,
+          logLevel = "info",
+          shellcheckArguments = "",
+          shellcheckPath = vim.env.SHELLCHECK_PATH or "shellcheck",
         },
       }
     end
     lspconfig.bashls.setup({
       capabilities = capabilities,
-      cmd_env = bashls_cmd_env,
       settings = bashls_settings,
     })
   end
