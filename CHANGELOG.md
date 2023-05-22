@@ -9,6 +9,8 @@
 
 ### 🐞 Fixed
 
+- Enable/disable shellcheck in `bashls`
+- Do not use shellcheck as a source in `null-ls`
 - Fix telescope make extension dependency on toggleterm
 - Add timeout to null-ls formatters
 
