@@ -1767,6 +1767,14 @@ dashboard actions.
 Changing the configured dashboard from within Neovim via the Terminal display
 of the `lazyman` menu system will not take effect until a restart of Neovim.
 
+### Updates
+
+An update of the Lazyman configuration and `lazyman` command can be performed
+with the command `lazyman -U`. However, early releases of Lazyman always
+preserve any existing `~/.config/nvim-Lazyman/lua/configuration.lua`. Later
+releases of Lazyman include a different format for this file. When updating
+from an older Lazyman release it may be necessary to run the update twice.
+
 ### Homebrew
 
 Homebrew can be used to install Neovim dependencies and tools by using the

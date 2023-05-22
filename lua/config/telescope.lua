@@ -195,7 +195,9 @@ telescope.setup({
 telescope.load_extension("zoxide")
 telescope.load_extension("heading")
 telescope.load_extension("ui-select")
-telescope.load_extension("make")
+if settings.enable_toggleterm then
+  telescope.load_extension("make")
+end
 telescope.load_extension("media")
 if settings.enable_noice then
   telescope.load_extension("noice")
