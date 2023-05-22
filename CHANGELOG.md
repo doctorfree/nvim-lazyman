@@ -4,15 +4,25 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.1r2
+
+### ⚡️ Added
+
+- Use `SHELLCHECK_PATH` environment variable to override `bashls` shellcheck setting
+- Check `OPENAI_API_KEY` before enabling ChatGPT plugin
 - Add update section to known limitations
 - Add `.initialized` and `lua/configuration-orig.lua` to `.gitignore`
 
 ### 🐞 Fixed
 
+- Disable shellcheck by default as it is behaving poorly
 - Enable/disable shellcheck in `bashls`
 - Do not use shellcheck as a source in `null-ls`
 - Fix telescope make extension dependency on toggleterm
 - Add timeout to null-ls formatters
+- Provide some output when performing installs via `lazyman install`
 
 ## v2.1.1r1
 
