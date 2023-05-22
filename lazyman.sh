@@ -599,7 +599,7 @@ update_config() {
           export NVIM_APPNAME="nvim-Lazyman"
           config_version=$(nvim -l ${GET_CONF} config_version 2>&1)
           [ "${config_version}" ] && [ "${config_version}" != "nil" ] && {
-            config_number=$((${config_version}))
+            config_number=$((config_version))
             [ ${config_number} -ge 211 ] && restore_config=1
           }
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
@@ -635,6 +635,9 @@ update_config() {
         printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
       fi
       rm -f /tmp/lazyconf$$
+      set_chat_gpt
+      set_ranger_float
+      set_waka_opt
       printf "\nPress <Enter> to continue ... "
       read -r yn
     }
@@ -1838,7 +1841,14 @@ show_plugin_menu() {
           if [ "${enable_chatgpt}" == "true" ]; then
             set_conf_value "enable_chatgpt" "false"
           else
-            set_conf_value "enable_chatgpt" "true"
+            if [ "$OPENAI_API_KEY" ]; then
+              set_conf_value "enable_chatgpt" "true"
+            else
+              printf "\nThe OPENAI_API_KEY environment variable must be set"
+              printf "\nbefore enabling the ChatGPT plugin."
+              printf "\nPress <Enter> to continue ... "
+              read -r yn
+            fi
           fi
           break
           ;;
