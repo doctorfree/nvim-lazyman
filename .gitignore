@@ -50,6 +50,7 @@ neovide_backtraces*
 
 # Lazyman generated files
 .initialized
+lua/configuration-new.lua
 lua/configuration-orig.lua
 
 # vim files

@@ -1,7 +1,6 @@
 local settings = require("configuration")
 local Util = require("utils.utils")
 
-local mmapping = {}
 local dependencies = {
   "nvim-lua/plenary.nvim",
   "jvgrootveld/telescope-zoxide",
@@ -13,7 +12,6 @@ local dependencies = {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }
 if settings.enable_toggleterm then
-  mmapping = { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" }
   dependencies = {
     "nvim-lua/plenary.nvim",
     "jvgrootveld/telescope-zoxide",
@@ -60,15 +58,23 @@ return {
     { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
     { "<leader>fr", "<cmd>Telescope oldfiles prompt_title=Recent<cr>", desc = "Recent files" },
     -- misc
-    mmapping,
+    { "<leader>mm", "<cmd>Telescope make<cr>", desc = "Run make" },
     { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },
     -- Other
     { "<leader>B", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
     { "<C-s>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
     { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-    { "<leader>/", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
+    {
+      "<leader>/",
+      Util.telescope("live_grep"),
+      desc = "Find in Files (Grep)",
+    },
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-    { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
+    {
+      "<leader><space>",
+      Util.telescope("files"),
+      desc = "Find Files (root dir)",
+    },
     -- search
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
     { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
@@ -78,7 +84,11 @@ return {
     { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
     { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-    { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+    {
+      "<leader>sH",
+      "<cmd>Telescope highlights<cr>",
+      desc = "Search Highlight Groups",
+    },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
     { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
     { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
