@@ -4,7 +4,13 @@
 
 ### ⚡️ Added
 
+- Add update section to known limitations
+- Add `.initialized` and `lua/configuration-orig.lua` to `.gitignore`
+
 ### 🐞 Fixed
+
+- Fix telescope make extension dependency on toggleterm
+- Add timeout to null-ls formatters
 
 ## v2.1.1r1
 

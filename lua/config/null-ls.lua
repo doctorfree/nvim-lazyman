@@ -76,6 +76,7 @@ if table_contains(formatters_linters, "shellcheck") then
   table.insert(
     conf_sources,
     diagnostics.shellcheck.with({
+      timeout = 10000,
       diagnostic_config = {
         -- see :help vim.diagnostic.config()
         underline = false,
@@ -101,6 +102,7 @@ if table_contains(formatters_linters, "shfmt") then
   table.insert(
     conf_sources,
     formatting.shfmt.with({
+      timeout = 10000,
       extra_args = { "-i", "2", "-ci", "-bn" },
       filetypes = { "sh", "zsh", "bash" },
     })
@@ -116,17 +118,37 @@ if table_contains(formatters_linters, "sql_formatter") then
   )
 end
 if table_contains(formatters_linters, "markdownlint") then
-  table.insert(conf_sources, formatting.markdownlint)
+  table.insert(
+    conf_sources,
+    formatting.markdownlint.with({
+      timeout = 10000,
+    })
+  )
 end
 if settings.enable_coding then
   if table_contains(formatters_linters, "goimports") then
-    table.insert(conf_sources, formatting.goimports)
+    table.insert(
+      conf_sources,
+      formatting.goimports.with({
+        timeout = 10000,
+      })
+    )
   end
   if table_contains(formatters_linters, "gofumpt") then
-    table.insert(conf_sources, formatting.gofumpt)
+    table.insert(
+      conf_sources,
+      formatting.gofumpt.with({
+        timeout = 10000,
+      })
+    )
   end
   if table_contains(formatters_linters, "google-jave-format") then
-    table.insert(conf_sources, formatting.google_java_format)
+    table.insert(
+      conf_sources,
+      formatting.google_java_format.with({
+        timeout = 10000,
+      })
+    )
   end
 end
 
