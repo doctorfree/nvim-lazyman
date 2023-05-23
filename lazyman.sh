@@ -3016,15 +3016,15 @@ show_main_menu() {
             break
             ;;
           "Install Personal"*,* | *,"Install Personal"*)
-            lazyman -W -y -z -Q
+            lazyman -W -y -z -Q -q
             break
             ;;
           "Install Starter"*,* | *,"Install Starter"*)
-            lazyman -X -y -z -Q
+            lazyman -X -y -z -Q -q
             break
             ;;
           "Install All"*,* | *,"Install All"*)
-            lazyman -A -y -z -Q
+            lazyman -A -y -z -Q -q
             break
             ;;
           "Install Tools"*,* | *,"Install Tools"*)
