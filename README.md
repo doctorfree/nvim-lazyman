@@ -81,11 +81,10 @@ Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       | **Configs** |
-| ---------- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
-| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) |
+| **Custom** |       |       |       | **Configs** |
+| ---------- | ----- | ----- | ----- | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
+| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -520,6 +519,8 @@ Known working custom Lazyman configurations include the following:
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
   - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P`
+- [penguinVim](https://github.com/p3nguin-kun/penguinVim)
+  - `lazyman -C https://github.com/p3nguin-kun/penguinVim -N nvim-Penguin`
 
 Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
