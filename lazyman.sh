@@ -485,6 +485,18 @@ remove_config() {
     done
   }
 
+  if [ "${ndir}" == "${spacevimdir}" ]; then
+    [ -f ${SPDIR}/.git/config ] && {
+      grep github.com/doctorfree/spacevim ${SPDIR}/.git/config > /dev/null && {
+        [ "$quiet" ] || {
+          printf "\nRemoving custom SpaceVim config at ${SPDIR}"
+        }
+        [ "$tellme" ] || {
+          rm -rf "${SPDIR}"
+        }
+      }
+    }
+  fi
   if [ "${ndir}" == "${lunarvimdir}" ]; then
     USCP="${HOME}/.local/share/${lunarvimdir}/lvim/utils/installer/uninstall.sh"
     [ -x ${USCP} ] || {
