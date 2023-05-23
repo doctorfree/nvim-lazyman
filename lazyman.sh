@@ -1568,6 +1568,8 @@ show_plugin_menu() {
       [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
     printf '\n'
+    media_backend=$(get_conf_value media_backend)
+    use_media_backend="${media_backend}"
     session_manager=$(get_conf_value session_manager)
     use_session_manager="${session_manager}"
     file_tree=$(get_conf_value file_tree)
@@ -1783,6 +1785,7 @@ show_plugin_menu() {
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Color Indent  [${use_color_indentline}]")
+    options+=("Media Backend [${use_media_backend}]")
     options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Noice UI      [${use_noice}]")
@@ -1817,6 +1820,14 @@ show_plugin_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
+          break
+          ;;
+        "Media"*,* | *,"Media"*)
+          choices=("none" "catimg" "chafa" "jp2a" "ueberzug" "viu")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Telescope Media Backend  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            set_conf_value "media_backend" "${choice}"
+          fi
           break
           ;;
         "Session"*,* | *,"Session"*)
@@ -2178,6 +2189,7 @@ show_plugin_menu() {
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "dashboard" "none"
           set_conf_value "file_tree" "none"
+          set_conf_value "media_backend" "none"
           set_conf_value "session_manager" "none"
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
@@ -2215,6 +2227,7 @@ show_plugin_menu() {
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "dashboard" "dash"
           set_conf_value "file_tree" "neo-tree"
+          set_conf_value "media_backend" "jp2a"
           set_conf_value "session_manager" "possession"
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
