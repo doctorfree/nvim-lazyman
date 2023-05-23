@@ -48,6 +48,9 @@ tmp/*
 # Neovide leaves a backtrace when it crashes
 neovide_backtraces*
 
+# Neovim plugins can leave behind some cruft
+.null-ls*
+
 # Lazyman generated files
 .initialized
 .nvimdirs

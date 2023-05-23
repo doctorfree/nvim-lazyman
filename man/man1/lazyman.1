@@ -26,8 +26,8 @@ configurations
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
 [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-p] [-P]
 [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N
-nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
-[install] [open] [remove] [status]
+nvimdir] [-T] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z]
+[-u] [install] [open] [remove] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -37,6 +37,8 @@ support for Lazy, Packer, and vim-plug plugin managers
 .IP \[bu] 2
 automated installation of dependencies, tools, language servers, and
 Neovim 0.9
+.IP \[bu] 2
+over 40 popular Neovim configurations supported
 .IP \[bu] 2
 richly configured \f[V]nvim-Lazyman\f[R] Neovim configuration
 .IP \[bu] 2
@@ -321,6 +323,9 @@ Neovim configurations
 .PP
 \f[V]-y\f[R] : indicates do not prompt, answer \[aq]yes\[aq] to any
 prompt
+.PP
+\f[V]-Y\f[R] : indicates install and initialize all \[aq]Custom\[aq]
+Neovim configurations
 .PP
 \f[V]-z\f[R] : indicates do not run nvim after initialization
 .PP
@@ -822,3 +827,75 @@ Submit bug reports online at:
 Full documentation and sources at:
 .PP
 <https://github.com/doctorfree/nvim-lazyman>
+.PP
+foobar
+.IP
+.nf
+\f[C]
+-A indicates install all supported Neovim configurations
+-a indicates install and initialize AstroNvim Neovim configuration
+-B indicates install and initialize all \[aq]Base\[aq] Neovim configurations
+-b \[aq]branch\[aq] specifies an nvim-Lazyman git branch to checkout
+-c indicates install and initialize NvChad Neovim configuration
+-d indicates debug mode
+-e indicates install and initialize Ecovim Neovim configuration
+-E \[aq]config\[aq] execute \[aq]nvim\[aq] with \[aq]config\[aq] Neovim configuration
+   \[aq]config\[aq] can be one of:
+       \[aq]lazyman\[aq], \[aq]astronvim\[aq], \[aq]kickstart\[aq], \[aq]magicvim\[aq],
+       \[aq]ecovim\[aq], \[aq]nvchad\[aq], \[aq]lazyvim\[aq], \[aq]lunarvim\[aq], \[aq]spacevim\[aq]
+   or any Neovim configuration directory in \[aq]\[ti]/.config\[aq]
+       (e.g. \[aq]lazyman -E lazyvim foo.lua\[aq])
+-f \[aq]path\[aq] fix treesitter \[aq]help\[aq] parser in config file \[aq]path\[aq]
+-F indicates present the Lazyman Configuration menu
+-g indicates install and initialize Abstract Neovim configuration
+-j indicates install and initialize Nv Neovim configuration
+-k indicates install and initialize Kickstart Neovim configuration
+-l indicates install and initialize LazyVim Neovim configuration
+-m indicates install and initialize MagicVim Neovim configuration
+-M indicates install and initialize Mini Neovim configuration
+-s indicates install and initialize SpaceVim Neovim configuration
+-v indicates install and initialize LunarVim Neovim configuration
+-S indicates show Neovim configuration fuzzy selector menu
+-n indicates dry run, don\[aq]t actually do anything, just printf\[aq]s
+-p indicates use vim-plug rather than Lazy to initialize
+-P indicates use Packer rather than Lazy to initialize
+-q indicates quiet install
+-Q indicates exit after performing specified action(s)
+-h indicates use Homebrew to install rather than native pkg mgr
+    (Pacman is always used on Arch Linux, Homebrew on macOS)
+-H indicates compile and install the nightly Neovim build
+-i indicates install language servers and tools for coding diagnostics
+-I indicates install all language servers and tools for coding diagnostics
+-L \[aq]cmd\[aq] specifies a Lazy command to run in the selected configuration
+-r indicates remove the previously installed configuration
+-R indicates remove previously installed configuration and backups
+-C \[aq]url\[aq] specifies a URL to a Neovim configuration git repository
+-N \[aq]nvimdir\[aq] specifies the folder name to use for the config given by -C
+-T indicates no plugin manager, initialize with :TSUpdate
+-U indicates update an existing configuration
+-w \[aq]conf\[aq] indicates install and initialize Personal \[aq]conf\[aq] config
+   \[aq]conf\[aq] can be one of:
+       \[aq]Mini\[aq] \[aq]Knvim\[aq] \[aq]Roiz\[aq] \[aq]Fennel\[aq] \[aq]Ember\[aq] \[aq]ONNO\[aq]
+       \[aq]Adib\[aq] \[aq]Optixal\[aq] \[aq]Plug\[aq] \[aq]Simple\[aq] \[aq]Heiker\[aq] \[aq]LaTeX\[aq]
+-W indicates install and initialize all \[aq]Personal\[aq] Neovim configurations
+-x \[aq]conf\[aq] indicates install and initialize nvim-starter \[aq]conf\[aq] config
+   \[aq]conf\[aq] can be one of:
+       \[aq]Basic\[aq] \[aq]Kickstart\[aq] \[aq]NvPak\[aq] \[aq]Minimal\[aq] \[aq]StartBase\[aq]
+       \[aq]Opinion\[aq] \[aq]StartLsp\[aq] \[aq]StartMason\[aq], or \[aq]Modular\[aq]
+-X indicates install and initialize all \[aq]Starter\[aq] configs
+-y indicates do not prompt, answer \[aq]yes\[aq] to any prompt
+-Y indicates install and initialize all \[aq]Custom\[aq] configs
+-z indicates do not run nvim after initialization
+-Z indicates do not install Homebrew, Neovim, or any other tools
+-u displays this usage message and exits
+\[aq]install\[aq] fuzzy search and select configuration to install
+\[aq]open\[aq] fuzzy search and select configuration to open
+\[aq]remove\[aq] fuzzy search and select configuration to remove
+\[aq]status\[aq] displays a brief status report and exits
+\f[R]
+.fi
+.PP
+Commands act on NVIM_APPNAME, override with \[aq]-N nvimdir\[aq] or
+\[aq]-A\[aq] Without arguments lazyman installs and initializes
+nvim-Lazyman or, if initialized, an interactive menu system is
+displayed.

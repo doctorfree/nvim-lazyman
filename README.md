@@ -34,7 +34,7 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Over 30 popular Neovim configurations are supported.
+Neovim configurations. Over 40 popular Neovim configurations are supported.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
@@ -55,7 +55,7 @@ The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
-Currently over 30 popular Neovim configurations are supported in the
+Currently over 40 popular Neovim configurations are supported in the
 following Lazyman Neovim configuration categories:
 
 | **Base** |       | **Configs** |
@@ -275,7 +275,7 @@ the `lazyman` command.
 ## Supported configurations
 
 After installing and initializing `lazyman`, additional Neovim configurations
-can be installed and initialized using the `lazyman` command. Over 30
+can be installed and initialized using the `lazyman` command. Over 40
 excellent Neovim configurations are supported. Additional Neovim
 configurations can be installed using the `-C url` and `-N nvimdir` options.
 
@@ -518,7 +518,7 @@ Known working custom Lazyman configurations include the following:
   - Java, Python, Lua, and RUST IDE
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
-  - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P`
+  - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim`
 - [penguinVim](https://github.com/p3nguin-kun/penguinVim)
   - `lazyman -C https://github.com/p3nguin-kun/penguinVim -N nvim-Penguin`
 
@@ -633,7 +633,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
    [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
    [-n] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
    [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf]
-   [-X] [-y] [-z] [-Z] [-u] [install] [open] [remove] [status]
+   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -687,6 +687,7 @@ Where:
            'Opinion' 'StartLsp' 'StartMason', or 'Modular'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
+    -Y indicates install and initialize all 'Custom' configs
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits
@@ -1230,27 +1231,18 @@ The `lazyman` command can be used to install and initialize Neovim configuration
 using the `Packer` plugin manager. To install and initialize a `Packer` managed
 Neovim configuration, specify the `-P` flag on the `lazyman` command line.
 
-For example, to install and initialize the `oh-my-nvim` Neovim configuration
-by HardHackerLabs, issue the command:
-
-```bash
-lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim -P
-```
-
-This will clone the indicated repository into `$HOME/.config/nvim-Ohmynvim`
-and initialize it using Packer with:
-
-```bash
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-```
-
-Try it out with `NVIM_APPNAME="nvim-Ohmynvim nvim`.
-
-To install and initialize the `Abstract` Neovim configuration
+For example, to install and initialize the `Abstract` Neovim configuration
 at <https://github.com/Abstract-IDE/Abstract> invoke `lazyman` as follows:
 
 ```bash
 lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P
+```
+
+This will clone the indicated repository into `$HOME/.config/nvim-Abstract`
+and initialize it using Packer with:
+
+```bash
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 After `export NVIM_APPNAME="nvim-Abstract"`, invoking `nvim` will bring up
