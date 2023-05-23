@@ -1,7 +1,7 @@
 local conf = {}
 
 -- Version info, do not modify
-conf.config_version = 211
+conf.config_version = 212
 
 -- THEME CONFIGURATION
 -- Available themes:
