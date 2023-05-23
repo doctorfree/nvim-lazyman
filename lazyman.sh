@@ -253,6 +253,7 @@ fix_help_file() {
 
 init_neovim() {
   neodir="$1"
+  [ -d "${HOME}/.config/${neodir}" ] || return
   [ "${neodir}" == "${lazymandir}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     oldpack=${packer}
     oldplug=${plug}
