@@ -704,18 +704,28 @@ remove_custom() {
 
   if [ "${allcustom}" ]
   then
-    lazyman -R -N nvim-AlanVim -y
-    lazyman -R -N nvim-BasicIde -y
-    lazyman -R -N nvim-Brain -y
-    lazyman -R -N nvim-Charles -y
-    lazyman -R -N nvim-CodeArt -y
-    lazyman -R -N nvim-Cosmic -y
-    lazyman -R -N nvim-Elianiva -y
-    lazyman -R -N nvim-Magidc -y
-    lazyman -R -N nvim-Ohmynvim -y
-    lazyman -R -N nvim-Penguin -y
+    for custom in ${CUSTMCFGS}
+    do
+      lazyman -R -N nvim-${custom} -y
+    done
   else
     lazyman -R -N nvim-${customdir} -y
+  fi
+}
+
+update_custom() {
+  allcustom=
+  [ "$1" == "all" ] && allcustom=1
+  customdir="$1"
+
+  if [ "${allcustom}" ]
+  then
+    for custom in ${CUSTMCFGS}
+    do
+      lazyman -U -N nvim-${custom} -y
+    done
+  else
+    lazyman -U -N nvim-${customdir} -y
   fi
 }
 
@@ -3091,29 +3101,54 @@ show_main_menu() {
     get_config_str "${BASECFGS}"
     base_partial=${partial}
     base_installed=${installed}
-    options+=("Install Base      ${configstr}")
+    if [ "${base_installed}" ]
+    then
+      options+=("Update Base       ${configstr}")
+    else
+      options+=("Install Base      ${configstr}")
+    fi
     installed=1
     partial=
     get_config_str "${PRSNLCFGS}"
     prsnl_partial=${partial}
     prsnl_installed=${installed}
-    options+=("Install Personals ${configstr}")
+    if [ "${prsnl_installed}" ]
+    then
+      options+=("Update Personals  ${configstr}")
+    else
+      options+=("Install Personals ${configstr}")
+    fi
     installed=1
     partial=
     get_config_str "${STARTCFGS}"
     start_partial=${partial}
     start_installed=${installed}
-    options+=("Install Starters  ${configstr}")
+    if [ "${start_installed}" ]
+    then
+      options+=("Update Starters   ${configstr}")
+    else
+      options+=("Install Starters  ${configstr}")
+    fi
     installed=1
     partial=
     get_config_str "${CUSTMCFGS}"
     custm_partial=${partial}
     custm_installed=${installed}
-    options+=("Install Custom    ${configstr}")
+    if [ "${custm_installed}" ]
+    then
+      options+=("Update Custom     ${configstr}")
+    else
+      options+=("Install Custom    ${configstr}")
+    fi
     installed=1
     partial=
     get_config_str "${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}"
-    options+=("Install All       ${configstr}")
+    if [ "${installed}" ]
+    then
+      options+=("Update All        ${configstr}")
+    else
+      options+=("Install All       ${configstr}")
+    fi
     [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" &&
        "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
@@ -3437,6 +3472,31 @@ show_main_menu() {
         "Install All"*,* | *,"Install All"*)
           printf "\nInstalling all Lazyman Neovim configurations\n"
           lazyman -A -y -z -Q -q
+          break
+          ;;
+        "Update Base"*,* | *,"Update Base"*)
+          printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
+          lazyman -B -y -z -Q -U
+          break
+          ;;
+        "Update Personal"*,* | *,"Update Personal"*)
+          printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
+          lazyman -W -y -z -Q -q -U
+          break
+          ;;
+        "Update Starter"*,* | *,"Update Starter"*)
+          printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
+          lazyman -X -y -z -Q -q -U
+          break
+          ;;
+        "Update Custom"*,* | *,"Update Custom"*)
+          printf "\nUpdating all Lazyman 'Custom' Neovim configurations\n"
+          update_custom all
+          break
+          ;;
+        "Update All"*,* | *,"Update All"*)
+          printf "\nUpdating all Lazyman Neovim configurations\n"
+          lazyman -A -y -z -Q -q -U
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
@@ -3943,8 +4003,14 @@ set_haves
   if [ "$remove" ]; then
     remove_custom all
   else
-    install_custom all
+    if [ "${update}" ]
+    then
+      update_custom all
+    else
+      install_custom all
+    fi
   fi
+  exit 0
 }
 
 [ "$nvimprsnl" ] && {
