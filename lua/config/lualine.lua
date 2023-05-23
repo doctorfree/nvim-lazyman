@@ -60,7 +60,20 @@ end
 local winbar_cfg = {}
 local inactive_winbar_cfg = {}
 if settings.enable_winbar then
-  local lsp_progress = {}
+  local lsp_progress = {
+    {
+      "filename",
+      path = 3,
+      filetype_names = {
+        TelescopePrompt = "Telescope",
+        dashboard = "Dashboard",
+        startup = "Startup",
+        packer = "Packer",
+        fzf = "FZF",
+        alpha = "Alpha",
+      },
+    },
+  }
   if settings.enable_lualine_lsp_progress then
     -- Color for highlights
     local colors = {

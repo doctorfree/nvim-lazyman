@@ -1608,6 +1608,12 @@ show_plugin_menu() {
     else
       use_wilder="✗"
     fi
+    enable_lualine_lsp_progress=$(get_conf_value enable_lualine_lsp_progress)
+    if [ "${enable_lualine_lsp_progress}" == "true" ]; then
+      use_lualine_lsp_progress=""
+    else
+      use_lualine_lsp_progress="✗"
+    fi
     enable_terminal=$(get_conf_value enable_terminal)
     if [ "${enable_terminal}" == "true" ]; then
       use_terminal=""
@@ -1685,6 +1691,12 @@ show_plugin_menu() {
       use_games=""
     else
       use_games="✗"
+    fi
+    enable_multi_cursor=$(get_conf_value enable_multi_cursor)
+    if [ "${enable_multi_cursor}" == "true" ]; then
+      use_multi_cursor=""
+    else
+      use_multi_cursor="✗"
     fi
     enable_renamer=$(get_conf_value enable_renamer)
     if [ "${enable_renamer}" == "true" ]; then
@@ -1771,6 +1783,7 @@ show_plugin_menu() {
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Color Indent  [${use_color_indentline}]")
+    options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Navigator     [${use_navigator}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("Picker        [${use_picker}]")
@@ -1786,6 +1799,7 @@ show_plugin_menu() {
     options+=("Toggle Term   [${use_toggleterm}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Wilder Menus  [${use_wilder}]")
+    options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
@@ -1893,6 +1907,14 @@ show_plugin_menu() {
             set_conf_value "enable_wilder" "false"
           else
             set_conf_value "enable_wilder" "true"
+          fi
+          break
+          ;;
+        "Winbar LSP"*,* | *,"Winbar LSP"*)
+          if [ "${enable_lualine_lsp_progress}" == "true" ]; then
+            set_conf_value "enable_lualine_lsp_progress" "false"
+          else
+            set_conf_value "enable_lualine_lsp_progress" "true"
           fi
           break
           ;;
@@ -2010,6 +2032,14 @@ show_plugin_menu() {
             set_conf_value "enable_compile" "false"
           else
             set_conf_value "enable_compile" "true"
+          fi
+          break
+          ;;
+        "Multi Cursor"*,* | *,"Multi Cursor"*)
+          if [ "${enable_multi_cursor}" == "true" ]; then
+            set_conf_value "enable_multi_cursor" "false"
+          else
+            set_conf_value "enable_multi_cursor" "true"
           fi
           break
           ;;
@@ -2155,6 +2185,7 @@ show_plugin_menu() {
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
+          set_conf_value "enable_lualine_lsp_progress" "false"
           set_conf_value "enable_terminal" "false"
           set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_wakatime" "false"
@@ -2166,6 +2197,7 @@ show_plugin_menu() {
           set_conf_value "enable_hop" "false"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
+          set_conf_value "enable_multi_cursor" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"
           set_conf_value "enable_games" "false"
@@ -2190,6 +2222,7 @@ show_plugin_menu() {
           set_conf_value "enable_surround" "true"
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
+          set_conf_value "enable_lualine_lsp_progress" "true"
           set_conf_value "enable_terminal" "true"
           set_conf_value "enable_toggleterm" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
@@ -2201,6 +2234,7 @@ show_plugin_menu() {
           set_conf_value "enable_hop" "true"
           set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
+          set_conf_value "enable_multi_cursor" "true"
           set_conf_value "enable_bbye" "true"
           set_conf_value "enable_startuptime" "true"
           set_conf_value "enable_games" "true"
@@ -2550,6 +2584,12 @@ show_conf_menu() {
     else
       use_relative_number="✗"
     fi
+    enable_global_statusline=$(get_conf_value global_statusline)
+    if [ "${enable_global_statusline}" == "true" ]; then
+      use_global_statusline=""
+    else
+      use_global_statusline="✗"
+    fi
     showtabline=$(get_conf_value showtabline)
     use_showtabline="${showtabline}"
     enable_list=$(get_conf_value list)
@@ -2603,6 +2643,7 @@ show_conf_menu() {
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
+    options+=("Global Status [${use_global_statusline}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=(" Showtabline  [${use_showtabline}]")
@@ -2708,6 +2749,14 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Global Status"*,* | *,"Global Status"*)
+          if [ "${enable_global_statusline}" == "true" ]; then
+            set_conf_value "global_statusline" "false"
+          else
+            set_conf_value "global_statusline" "true"
+          fi
+          break
+          ;;
         " Showtabline"*,* | *," Showtabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
@@ -2747,6 +2796,7 @@ show_conf_menu() {
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "number" "false"
           set_conf_value "relative_number" "false"
+          set_conf_value "global_statusline" "false"
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
           set_conf_value "showtabline" "0"
@@ -2761,6 +2811,7 @@ show_conf_menu() {
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "number" "true"
           set_conf_value "relative_number" "true"
+          set_conf_value "global_statusline" "true"
           set_conf_value "enable_statusline" "true"
           set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
