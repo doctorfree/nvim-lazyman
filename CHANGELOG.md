@@ -6,6 +6,19 @@
 
 ### 🐞 Fixed
 
+## v2.1.2r2
+
+### ⚡️ Added
+
+- Over 40 Neovim configurations now supported
+- Add select and 'Install' 'Open' 'Remove' config entries to menu
+- Add support for installing, removing, and opening `Custom` configs from the command line and `lazyman` menu
+
+### 🐞 Fixed
+
+- Use Moon phases for installation status
+- Remove individual 'Open' configs from menu
+
 ## v2.1.2r1
 
 ### ⚡️ Added
