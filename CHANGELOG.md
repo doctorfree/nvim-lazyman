@@ -6,10 +6,14 @@
 
 ### 🐞 Fixed
 
-## v2.1.1r2
+## v2.1.2r1
 
 ### ⚡️ Added
 
+- Add menu support for configuring telescope media backend
+- Add menu support for multi cursor and lualine lsp progress
+- Add configuration option to display LSP progress in winbar rather than with Noice
+- Add penguinVim to custom configs
 - Use `SHELLCHECK_PATH` environment variable to override `bashls` shellcheck setting
 - Check `OPENAI_API_KEY` before enabling ChatGPT plugin
 - Add update section to known limitations
@@ -17,6 +21,9 @@
 
 ### 🐞 Fixed
 
+- Fix lualine winbar without lsp progress
+- Remove custom SpaceVim folder when removing SpaceVim
+- Remove `.nvimdirs` from git repo, auto-generate it during initialization
 - Disable shellcheck by default as it is behaving poorly
 - Enable/disable shellcheck in `bashls`
 - Do not use shellcheck as a source in `null-ls`

@@ -1047,7 +1047,7 @@ conf.enable_picker = true
 conf.enable_smooth_scrolling = true
 
 -- PLUGINS CONFIGURATION
--- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
+-- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"
 conf.media_backend = "jp2a"
 -- Enable colored indentation lines if theme supports it
 conf.enable_color_indentline = true
