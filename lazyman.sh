@@ -3147,7 +3147,7 @@ show_main_menu() {
     get_config_str "${BASECFGS}"
     base_partial=${partial}
     base_installed=${installed}
-    options+=("Install Base ${configstr}")
+    options+=("Install Base      ${configstr}")
     installed=1
     partial=
     get_config_str "${PRSNLCFGS}"
@@ -3159,17 +3159,17 @@ show_main_menu() {
     get_config_str "${STARTCFGS}"
     start_partial=${partial}
     start_installed=${installed}
-    options+=("Install Starters ${configstr}")
+    options+=("Install Starters  ${configstr}")
     installed=1
     partial=
     get_config_str "${CUSTMCFGS}"
     custm_partial=${partial}
     custm_installed=${installed}
-    options+=("Install Custom ${configstr}")
+    options+=("Install Custom    ${configstr}")
     installed=1
     partial=
     get_config_str "${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}"
-    options+=("Install All ${configstr}")
+    options+=("Install All       ${configstr}")
     [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" &&
        "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
         options+=("Install Tools")
@@ -3618,12 +3618,12 @@ show_main_menu() {
       [ "${inst}" ] || installed=
     done
     if [ "${installed}" ]; then
-      configstr=" "
+      configstr="🌝"
     else
       if [ "${partial}" ]; then
-        configstr=" "
+        configstr="🌓"
       else
-        configstr=""
+        configstr="🌚"
       fi
     fi
   }
