@@ -20,34 +20,6 @@ if settings.enable_dressing then
   }
 end
 
-local drop_plugin = {}
-local drop_theme = settings.enable_dashboard_saver
-if drop_theme ~= "none" then
-  if settings.enable_dashboard_saver == "random" then
-    drop_theme = ({
-      "xmas",
-      "stars",
-      "leaves",
-      "snow",
-      "spring",
-      "summer",
-    })[math.random(1, 6)]
-  end
-  drop_plugin = {
-    "folke/drop.nvim",
-    event = "VimEnter",
-    config = function()
-      require("drop").setup({
-        theme = drop_theme,
-        -- Show afer 15 minutes of inactivity
-        screensaver = 1000 * 60 * 15,
-        -- filetypes = { "dashboard", "alpha", "starter" },
-        filetypes = {},
-      })
-    end,
-  }
-end
-
 local lualine_lsp_progress = {}
 if settings.enable_lualine_lsp_progress then
   if settings.enable_winbar then
@@ -233,9 +205,6 @@ return {
 
   -- better vim.ui
   dressing,
-
-  -- Screensaver
-  drop_plugin,
 
   -- statusline
   lualine_cfg,

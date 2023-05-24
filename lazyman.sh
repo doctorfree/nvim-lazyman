@@ -1889,6 +1889,8 @@ show_plugin_menu() {
     fi
     enable_screensaver=$(get_conf_value enable_screensaver)
     use_screensaver="${enable_screensaver}"
+    screensaver_timeout=$(get_conf_value screensaver_timeout)
+    use_timeout="${screensaver_timeout}"
     enable_color_indentline=$(get_conf_value enable_color_indentline)
     if [ "${enable_color_indentline}" == "true" ]; then
       use_color_indentline=""
@@ -1927,6 +1929,7 @@ show_plugin_menu() {
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
     options+=("Screensaver [${use_screensaver}]")
+    options+=(" Timeout    [${use_timeout}]")
     options+=("Session [${use_session_manager}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("StartupTime   [${use_startuptime}]")
@@ -2312,11 +2315,21 @@ show_plugin_menu() {
           break
           ;;
         "Screensaver"*,* | *,"Screensaver"*)
-          choices=("random" "xmas" "stars" "leaves" "snow" "spring" "summer" "none")
+          choices=("epilepsy" "leaves" "snow" "spring" "stars" "summer" "treadmill" "vanish" "xmas" "drop" "zone" "random" "none")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Screensaver  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             set_conf_value "enable_screensaver" "${choice}"
           fi
+          break
+          ;;
+        " Timeout"*,* | *," Timeout"*)
+          choices=("1" "2" "3" "4" "5" "10" "15" "30" "45")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Screensaver Timeout in Minutes  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${screensaver_timeout}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "screensaver_timeout" "${choice}"
+            fi
+          }
           break
           ;;
         "Color Indent"*,* | *,"Color Indent"*)

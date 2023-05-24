@@ -1033,9 +1033,14 @@ conf.dashboard_recent_files = 3
 conf.enable_dashboard_header = false
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
--- Enable the 'drop' screensaver
--- Can be one of xmas, stars, leaves, snow, spring, summer, random, none
+-- Enable either the Drop screensaver or the Zone screensaver
+-- Drop can be one of xmas, stars, leaves, snow, spring, summer, or drop
+-- Zone can be one of treadmill, matrix, epilepsy, vanish, or zone
+-- 'drop' indicates a random drop, 'zone' a random zone
+-- 'random' to randomly select between the two, 'none' to disable
 conf.enable_screensaver = "random"
+-- Screensaver timeout in minutes
+conf.screensaver_timeout = 15
 -- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
 -- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
@@ -1056,8 +1061,21 @@ conf.media_backend = "jp2a"
 conf.enable_color_indentline = true
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash", "go", "html", "java", "json", "lua", "markdown", "markdown_inline",
-  "query", "python", "regex", "toml", "vim", "vimdoc", "yaml",
+  "bash",
+  "go",
+  "html",
+  "java",
+  "json",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "query",
+  "python",
+  "regex",
+  "toml",
+  "vim",
+  "vimdoc",
+  "yaml",
 }
 -- Enable clangd or ccls for C/C++ diagnostics
 -- Note: if enabled then the tool must be installed and in the execution path
@@ -1108,7 +1126,7 @@ conf.formatters_linters = {
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  "beautysh", -- FORMATTERS_LINTERS
+  -- "beautysh", -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
   "ruff", -- FORMATTERS_LINTERS
 }
