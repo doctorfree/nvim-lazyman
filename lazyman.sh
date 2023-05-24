@@ -3222,17 +3222,17 @@ show_main_menu() {
       fi
     fi
     [ "${base_installed}" ] || options+=("Select/Install Base")
-    [ "${prsnl_installed}" ] || options+=("Select/Install Personal")
-    [ "${start_installed}" ] || options+=("Select/Install Starter")
-    [ "${custm_installed}" ] || options+=("Select/Install Custom")
+    [ "${prsnl_installed}" ] || options+=("Select/Install Prnl")
+    [ "${start_installed}" ] || options+=("Select/Install Strt")
+    [ "${custm_installed}" ] || options+=("Select/Install Cstm")
     [ "${base_partial}" ] && options+=("Select/Open Base")
-    [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
-    [ "${start_partial}" ] && options+=("Select/Open Starter")
+    [ "${prsnl_partial}" ] && options+=("Select/Open Persnl")
+    [ "${start_partial}" ] && options+=("Select/Open Startr")
     [ "${custm_partial}" ] && options+=("Select/Open Custom")
     [ "${base_partial}" ] && options+=("Select/Remove Base")
-    [ "${prsnl_partial}" ] && options+=("Select/Remove Personal")
-    [ "${start_partial}" ] && options+=("Select/Remove Starter")
-    [ "${custm_partial}" ] && options+=("Select/Remove Custom")
+    [ "${prsnl_partial}" ] && options+=("Select/Remove Prnl")
+    [ "${start_partial}" ] && options+=("Select/Remove Strt")
+    [ "${custm_partial}" ] && options+=("Select/Remove Cstm")
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
@@ -3272,7 +3272,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Personal"*,* | *,"Select/Install Personal"*)
+        "Select/Install Prnl"*,* | *,"Select/Install Prnl"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3286,7 +3286,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Starter"*,* | *,"Select/Install Starter"*)
+        "Select/Install Strt"*,* | *,"Select/Install Strt"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3300,7 +3300,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Custom"*,* | *,"Select/Install Custom"*)
+        "Select/Install Cstm"*,* | *,"Select/Install Cstm"*)
           choices=()
           for neovim in ${CUSTMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3337,7 +3337,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Personal"*,* | *,"Select/Open Personal"*)
+        "Select/Open Persnl"*,* | *,"Select/Open Persnl"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3355,7 +3355,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Starter"*,* | *,"Select/Open Starter"*)
+        "Select/Open Startr"*,* | *,"Select/Open Startr"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3405,7 +3405,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Personal"*,* | *,"Select/Remove Personal"*)
+        "Select/Remove Prnl"*,* | *,"Select/Remove Prnl"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3419,7 +3419,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Starter"*,* | *,"Select/Remove Starter"*)
+        "Select/Remove Strt"*,* | *,"Select/Remove Strt"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3433,7 +3433,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Custom"*,* | *,"Select/Remove Custom"*)
+        "Select/Remove Cstm"*,* | *,"Select/Remove Cstm"*)
           choices=()
           for neovim in ${CUSTMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")

@@ -118,6 +118,21 @@ Run 'make'                          | <leader>mm
 Telescope                           | <leader>mt
 Buffer List                         | <leader>bb
 
+## terminal.nvim @terminal
+Terminal Send                       | <leader>ts
+Terminal Toggle                     | <leader>to
+New Terminal Toggle                 | <leader>tO
+Terminal Run                        | <leader>tr
+New Terminal Run                    | <leader>tR
+Terminal Kill                       | <leader>tk
+Terminal Next                       | <leader>t]
+Terminal Prev                       | <leader>t[
+Move Below Right                    | <leader>tl
+Move Bottom Right                   | <leader>tL
+Move Below Right New                | <leader>th
+Move Bottom Right New               | <leader>tH
+Move Float                          | <leader>tf
+
 ## gitsigns @git
 Diff This                                | <leader>ghd
 Diff This ~                              | <leader>ghD

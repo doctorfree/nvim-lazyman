@@ -158,7 +158,7 @@ if settings.enable_terminal then
       "Lazyconf",
       "Htop",
     },
-    event = "TermOpen",
+    lazy = false,
     config = function()
       require("config.terminal_nvim")
     end,
