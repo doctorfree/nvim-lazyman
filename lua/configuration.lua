@@ -117,10 +117,12 @@ conf.dashboard_recent_files = 3
 conf.enable_dashboard_header = false
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
---
--- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+-- Enable the 'drop' screensaver
+-- Can be one of xmas, stars, leaves, snow, spring, summer, random, none
+conf.enable_screensaver = "random"
+-- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
--- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+-- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_ide = false
 -- Enable Navigator
 conf.enable_navigator = true

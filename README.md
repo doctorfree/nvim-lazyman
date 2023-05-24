@@ -422,6 +422,9 @@ installed with the `-x conf` option.
 
 ### Custom configurations
 
+Lazyman includes support for several `Custom` Neovim configurations. These
+can be installed with `lazyman -Y` or through the `lazyman` menu system.
+
 To install and initialize a Neovim configuration not supported out-of-the-box
 by Lazyman, use the `-C url` and `-N nvimdir` options to `lazyman`. After the
 installation and initialization completes, set the `NVIM_APPNAME`
@@ -917,7 +920,7 @@ Additional plugin configuration and options are available in `configuration.lua`
 local conf = {}
 
 -- Version info, do not modify
-conf.config_version = 211
+conf.config_version = 212
 
 -- THEME CONFIGURATION
 -- Available themes:
@@ -1033,10 +1036,12 @@ conf.dashboard_recent_files = 3
 conf.enable_dashboard_header = false
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
---
--- enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
+-- Enable the 'drop' screensaver
+-- Can be one of xmas, stars, leaves, snow, spring, summer, random, none
+conf.enable_screensaver = "random"
+-- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_bookmarks = false
--- enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
+-- Enable the Neovim IDE plugin (https://github.com/ldelossa/nvim-ide)
 conf.enable_ide = false
 -- Enable Navigator
 conf.enable_navigator = true

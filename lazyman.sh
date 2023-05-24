@@ -1886,6 +1886,8 @@ show_plugin_menu() {
     else
       use_dashboard_quick_links="✗"
     fi
+    enable_screensaver=$(get_conf_value enable_screensaver)
+    use_screensaver="${enable_screensaver}"
     enable_color_indentline=$(get_conf_value enable_color_indentline)
     if [ "${enable_color_indentline}" == "true" ]; then
       use_color_indentline=""
@@ -1923,6 +1925,7 @@ show_plugin_menu() {
     options+=("Rainbow 2     [${use_rainbow2}]")
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
+    options+=("Screensaver [${use_screensaver}]")
     options+=("Session [${use_session_manager}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("StartupTime   [${use_startuptime}]")
@@ -2307,6 +2310,14 @@ show_plugin_menu() {
           fi
           break
           ;;
+        "Screensaver"*,* | *,"Screensaver"*)
+          choices=("random" "xmas" "stars" "leaves" "snow" "spring" "summer" "none")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Screensaver  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            set_conf_value "enable_screensaver" "${choice}"
+          fi
+          break
+          ;;
         "Color Indent"*,* | *,"Color Indent"*)
           if [ "${enable_color_indentline}" == "true" ]; then
             set_conf_value "enable_color_indentline" "false"
@@ -2350,6 +2361,7 @@ show_plugin_menu() {
           set_conf_value "enable_smooth_scrolling" "false"
           set_conf_value "enable_dashboard_header" "false"
           set_conf_value "enable_dashboard_quick_links" "false"
+          set_conf_value "enable_screensaver" "none"
           set_conf_value "enable_color_indentline" "false"
           break
           ;;
@@ -2388,6 +2400,7 @@ show_plugin_menu() {
           set_conf_value "enable_smooth_scrolling" "true"
           set_conf_value "enable_dashboard_header" "true"
           set_conf_value "enable_dashboard_quick_links" "true"
+          set_conf_value "enable_screensaver" "random"
           set_conf_value "enable_color_indentline" "true"
           set_conf_value "list" "true"
           break
@@ -3150,8 +3163,7 @@ show_main_menu() {
     else
       options+=("Install All       ${configstr}")
     fi
-    [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" &&
-       "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
+    [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
       options+=("Install Tools")
     }
     uninstalled=()
