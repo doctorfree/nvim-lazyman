@@ -129,6 +129,38 @@ CUSTOM CHEATSHEET PLUGIN MAPPINGS*Lazyman-Keymaps-lazymankeys-custom-cheatsheet-
 - Buffer List : `<leader>bb`
 
 
+TERMINAL MAPPINGS ~
+
+- Terminal Send : `<leader>ts`
+- Terminal Toggle : `<leader>to`
+- New Terminal Toggle : `<leader>tO`
+- Terminal Run : `<leader>tr`
+- New Terminal Run : `<leader>tR`
+- Terminal Kill : `<leader>tk`
+- Terminal Next : `<leader>t]`
+- Terminal Prev : `<leader>t[`
+- Move Below Right : `<leader>tl`
+- Move Bottom Right : `<leader>tL`
+- Move Below Right New : `<leader>th`
+- Move Bottom Right New : `<leader>tH`
+- Move Float : `<leader>tf`
+
+
+GITSIGNS MAPPINGS ~
+
+- Diff This : `<leader>ghd`
+- Diff This ~ : `<leader>ghD`
+- Stage Buffer : `<leader>ghS`
+- Reset Buffer : `<leader>ghR`
+- Stage Hunk : `<leader>ghs`
+- Undo Stage Hunk : `<leader>ghu`
+- Reset hunk : `<leader>ghr`
+- Preview Hunk : `<leader>ghp`
+- Blame Current Line : `<leader>ghb`
+- Next Hunk : `]h`
+- Previous Hunk : `[h`
+
+
 LIST OF KEY MAPPINGS        *Lazyman-Keymaps-lazymankeys-list-of-key-mappings*
 
 This list of keymaps was generated using the following commands with a file
