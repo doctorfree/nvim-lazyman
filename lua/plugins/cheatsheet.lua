@@ -3,7 +3,7 @@ local settings = require("configuration")
 if settings.enable_cheatsheet then
   return {
     {
-      "sudormrfbin/cheatsheet.nvim",
+      "doctorfree/cheatsheet.nvim",
       event = "VeryLazy",
       dependencies = {
         { "nvim-telescope/telescope.nvim" },
@@ -14,8 +14,8 @@ if settings.enable_cheatsheet then
         local ctactions = require("cheatsheet.telescope.actions")
         require("cheatsheet").setup({
           bundled_cheetsheets = {
-            enabled = { "default", "lua", "regex", "netrw", "unicode" },
-            disabled = { "markdown", "nerd-fonts" },
+            enabled = { "default", "lua", "markdown", "regex", "netrw", "unicode" },
+            disabled = { "nerd-fonts" },
           },
           bundled_plugin_cheatsheets = {
             enabled = {
