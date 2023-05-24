@@ -129,6 +129,36 @@ cheatsheet includes the following key mappings.
 - Telescope : `<leader>mt`
 - Buffer List : `<leader>bb`
 
+### Terminal mappings
+
+- Terminal Send : `<leader>ts`
+- Terminal Toggle : `<leader>to`
+- New Terminal Toggle : `<leader>tO`
+- Terminal Run : `<leader>tr`
+- New Terminal Run : `<leader>tR`
+- Terminal Kill : `<leader>tk`
+- Terminal Next : `<leader>t]`
+- Terminal Prev : `<leader>t[`
+- Move Below Right : `<leader>tl`
+- Move Bottom Right : `<leader>tL`
+- Move Below Right New : `<leader>th`
+- Move Bottom Right New : `<leader>tH`
+- Move Float : `<leader>tf`
+
+### Gitsigns mappings
+
+- Diff This : `<leader>ghd`
+- Diff This ~ : `<leader>ghD`
+- Stage Buffer : `<leader>ghS`
+- Reset Buffer : `<leader>ghR`
+- Stage Hunk : `<leader>ghs`
+- Undo Stage Hunk : `<leader>ghu`
+- Reset hunk : `<leader>ghr`
+- Preview Hunk : `<leader>ghp`
+- Blame Current Line : `<leader>ghb`
+- Next Hunk : `]h`
+- Previous Hunk : `[h`
+
 ## List of Key Mappings
 
 This list of keymaps was generated using the following commands
