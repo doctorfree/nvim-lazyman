@@ -919,9 +919,6 @@ Additional plugin configuration and options are available in `configuration.lua`
 ```lua
 local conf = {}
 
--- Version info, do not modify
-conf.config_version = 212
-
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,

@@ -740,14 +740,7 @@ update_config() {
     }
     [ "$tellme" ] || {
       [ "${ndir}" == "${lazymandir}" ] && {
-        restore_config=
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
-          export NVIM_APPNAME="nvim-Lazyman"
-          config_version=$(nvim -l ${GET_CONF} config_version 2>&1)
-          [ "${config_version}" ] && [ "${config_version}" != "nil" ] && {
-            config_number=$((config_version))
-            [ ${config_number} -ge 212 ] && restore_config=1
-          }
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }
       }
@@ -762,6 +755,14 @@ update_config() {
   }
   [ "${ndir}" == "${lazymandir}" ] && {
     [ -f /tmp/lazyconf$$ ] && {
+      restore_config=
+      numconfold=$(grep ^conf /tmp/lazyconf$$ | wc -l)
+      if [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ]; then
+        numconfnew=$(grep ^conf "${HOME}/${GITDIR}/lua/configuration.lua" | wc -l)
+        [ ${numconfold} -eq ${numconfnew} ] && restore_config=1
+      else
+        restore_config=1
+      fi
       if [ "${restore_config}" ]; then
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
           printf "\nSaving new configuration file as:"

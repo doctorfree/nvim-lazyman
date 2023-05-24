@@ -6,6 +6,20 @@
 
 ### 🐞 Fixed
 
+## v2.1.2r3
+
+### ⚡️ Added
+
+- Add configurable support for `drop` screensaver
+- Add support for `Custom` configurations updates
+
+### 🐞 Fixed
+
+- Check if config folder exists before initializing
+- Order menu options
+- Remove `lean` figlet font
+- Replace `config_version` test with check for number of config entries
+
 ## v2.1.2r2
 
 ### ⚡️ Added
