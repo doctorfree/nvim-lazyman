@@ -58,11 +58,10 @@ and initialized with `lazyman` by the end-user using the `-C url` and
 Currently over 40 popular Neovim configurations are supported in the
 following Lazyman Neovim configuration categories:
 
-| **Base** |       | **Configs** |
-| -------- | ----- | ----------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Abstract](https://github.com/Abstract-IDE/Abstract) |
-| [LazyVim](https://github.com/LazyVim/LazyVim) | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) |
-| [Nv](https://github.com/appelgriebsch/Nv) | [NvChad](https://nvchad.com/) | [SpaceVim](https://spacevim.org) |
+| **Base** |       |       |       | **Configs** |
+| -------- | ----- | ----- | ----- | ----------- |
+| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [LazyVim](https://github.com/LazyVim/LazyVim) | [LunarVim](https://github.com/LunarVim/LunarVim) |
+| [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [Nv](https://github.com/appelgriebsch/Nv) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
 
 | **Personal** |       | **Configs** |
 | ------------ | ----- | ----------- |
@@ -84,7 +83,7 @@ for installation details.
 | **Custom** |       |       |       | **Configs** |
 | ---------- | ----- | ----- | ----- | ----------- |
 | [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
-| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) |
+| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -318,11 +317,14 @@ Currently the following "Base" Neovim configurations are supported:
   - Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom)
   - Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
   - Install and initialize with `lazyman -c`
+- [penguinVim](https://github.com/p3nguin-kun/penguinVim)
+  - Aims to provide a base configuration with beautiful UI and fast startup time
+  - Install and initialize with `lazyman -o`
 - [SpaceVim](https://spacevim.org)
   - SpaceVim started in December 2016, mature and well supported
   - Standard SpaceVim install uses `curl`:
     - `curl -sLf https://spacevim.org/install.sh | bash`
-  - Lazyman custom SpaceVim configuratin installed in `~/.SpaceVim.d/`
+  - Lazyman custom SpaceVim configuration installed in `~/.SpaceVim.d/`
   - Install and initialize using Lazyman with `lazyman -s`
 
 ### Personal configurations
@@ -522,8 +524,9 @@ Known working custom Lazyman configurations include the following:
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
   - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim`
-- [penguinVim](https://github.com/p3nguin-kun/penguinVim)
-  - `lazyman -C https://github.com/p3nguin-kun/penguinVim -N nvim-Penguin`
+- [Slydragonn](https://github.com/slydragonn/dotfiles)
+  - [Introductory video](https://youtu.be/vkCnPdaRBE0)
+  - `lazyman -b main -C https://github.com/slydragonn/dotfiles -D '.config/nvim' -N nvim-Slydragonn -P`
 
 Custom Neovim configurations can be installed and initialized in this
 manner but there are often errors and issues such as an initialization
