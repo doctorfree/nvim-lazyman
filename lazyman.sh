@@ -781,7 +781,7 @@ update_custom() {
 update_config() {
   ndir="$1"
   GITDIR=".config/${ndir}"
-  [ "${ndir}" == "${lunarvimdir}" ] && GITDIR=".local/share/${lunarvimdir}/lvim"
+  # [ "${ndir}" == "${lunarvimdir}" ] && GITDIR=".local/share/${lunarvimdir}/lvim"
   [ -d "${HOME}/${GITDIR}" ] && {
     [ "$quiet" ] || {
       printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
@@ -799,93 +799,96 @@ update_config() {
     [ "$quiet" ] || {
       printf " done"
     }
-    add_nvimdirs_entry "${ndir}"
+    [ "$tellme" ] || add_nvimdirs_entry "${ndir}"
   }
-  [ "${ndir}" == "${lazymandir}" ] && {
-    [ -f /tmp/lazyconf$$ ] && {
-      restore_config=
-      numconfold=$(grep ^conf /tmp/lazyconf$$ | wc -l)
-      if [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ]; then
-        numconfnew=$(grep ^conf "${HOME}/${GITDIR}/lua/configuration.lua" | wc -l)
-        [ ${numconfold} -eq ${numconfnew} ] && restore_config=1
+  [ "$tellme" ] || {
+    [ "${ndir}" == "${lazymandir}" ] && {
+      cp ${NVIMCONF} ${CONFBACK}
+      [ -f /tmp/lazyconf$$ ] && {
+        restore_config=
+        numconfold=$(grep ^conf /tmp/lazyconf$$ | wc -l)
+        if [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ]; then
+          numconfnew=$(grep ^conf "${HOME}/${GITDIR}/lua/configuration.lua" | wc -l)
+          [ ${numconfold} -eq ${numconfnew} ] && restore_config=1
+        else
+          restore_config=1
+        fi
+        if [ "${restore_config}" ]; then
+          [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
+            printf "\nSaving new configuration file as:"
+            printf "\n\t${HOME}/${GITDIR}/lua/configuration-new.lua"
+            cp "${HOME}/${GITDIR}/lua/configuration.lua" \
+              "${HOME}/${GITDIR}/lua/configuration-new.lua"
+          }
+          printf "\nRestoring your previous configuration file as:"
+          printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+          cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+        else
+          cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
+          printf "\n\nThe format of the Lazyman configuration file has changed."
+          printf "\nSaving your previous configuration file as:"
+          printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
+          printf "\nRe-apply any customizations to the new config at:"
+          printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+        fi
+        rm -f /tmp/lazyconf$$
+        set_chat_gpt
+        set_ranger_float
+        set_waka_opt
+        printf "\nPress <Enter> to continue ... "
+        read -r yn
+      }
+      [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
+      [ -f "${LMANDIR}"/lazyman.sh ] && {
+        cp "${LMANDIR}"/lazyman.sh "${HOME}"/.local/bin/lazyman
+        chmod 755 "${HOME}"/.local/bin/lazyman
+      }
+    }
+    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
+      if [ "${ndir}" == "${astronvimdir}" ]; then
+        cdir="lua/user"
       else
-        restore_config=1
+        cdir="lua/custom"
       fi
-      if [ "${restore_config}" ]; then
-        [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
-          printf "\nSaving new configuration file as:"
-          printf "\n\t${HOME}/${GITDIR}/lua/configuration-new.lua"
-          cp "${HOME}/${GITDIR}/lua/configuration.lua" \
-            "${HOME}/${GITDIR}/lua/configuration-new.lua"
+      [ -d "${HOME}/${GITDIR}/${cdir}" ] && {
+        [ "$quiet" ] || {
+          printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
         }
-        printf "\nRestoring your previous configuration file as:"
-        printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
-        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
-      else
-        cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
-        printf "\n\nThe format of the Lazyman configuration file has changed."
-        printf "\nSaving your previous configuration file as:"
-        printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
-        printf "\nRe-apply any customizations to the new config at:"
-        printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
-      fi
-      rm -f /tmp/lazyconf$$
-      set_chat_gpt
-      set_ranger_float
-      set_waka_opt
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
-    }
-    [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
-    [ -f "${LMANDIR}"/lazyman.sh ] && {
-      cp "${LMANDIR}"/lazyman.sh "${HOME}"/.local/bin/lazyman
-      chmod 755 "${HOME}"/.local/bin/lazyman
-    }
-  }
-  [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
-    if [ "${ndir}" == "${astronvimdir}" ]; then
-      cdir="lua/user"
-    else
-      cdir="lua/custom"
-    fi
-    [ -d "${HOME}/${GITDIR}/${cdir}" ] && {
-      [ "$quiet" ] || {
-        printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
-      }
-      [ "$tellme" ] || {
-        git -C "${HOME}/${GITDIR}/${cdir}" stash >/dev/null 2>&1
-        git -C "${HOME}/${GITDIR}"/${cdir} reset --hard >/dev/null 2>&1
-        git -C "${HOME}/${GITDIR}"/${cdir} pull >/dev/null 2>&1
-      }
-      [ "$quiet" ] || {
-        printf " done"
+        [ "$tellme" ] || {
+          git -C "${HOME}/${GITDIR}/${cdir}" stash >/dev/null 2>&1
+          git -C "${HOME}/${GITDIR}"/${cdir} reset --hard >/dev/null 2>&1
+          git -C "${HOME}/${GITDIR}"/${cdir} pull >/dev/null 2>&1
+        }
+        [ "$quiet" ] || {
+          printf " done"
+        }
       }
     }
-  }
-  [ "${ndir}" == "${spacevimdir}" ] && {
-    [ -d "${SPDIR}"/.git ] && {
-      [ "$quiet" ] || {
-        printf "\nUpdating existing SpaceVim add-on config at ${SPDIR} ..."
-      }
-      [ "$tellme" ] || {
-        git -C "${SPDIR}" stash >/dev/null 2>&1
-        git -C "${SPDIR}" reset --hard >/dev/null 2>&1
-        git -C "${SPDIR}" pull >/dev/null 2>&1
-      }
-      [ "$quiet" ] || {
-        printf " done"
+    [ "${ndir}" == "${spacevimdir}" ] && {
+      [ -d "${SPDIR}"/.git ] && {
+        [ "$quiet" ] || {
+          printf "\nUpdating existing SpaceVim add-on config at ${SPDIR} ..."
+        }
+        [ "$tellme" ] || {
+          git -C "${SPDIR}" stash >/dev/null 2>&1
+          git -C "${SPDIR}" reset --hard >/dev/null 2>&1
+          git -C "${SPDIR}" pull >/dev/null 2>&1
+        }
+        [ "$quiet" ] || {
+          printf " done"
+        }
       }
     }
-  }
-  [ "${ndir}" == "${minivimdir}" ] && {
-    git -C "${HOME}/${GITDIR}" submodule update \
-      --remote --init --recursive >/dev/null 2>&1
-  }
-  [ "${ndir}" == "${onnovimdir}" ] && {
-    fix_help_file "${HOME}/.config/${ndir}/${fix_onno}"
-  }
-  [ "${ndir}" == "${latexvimdir}" ] && {
-    fix_help_file "${HOME}/.config/${ndir}/${fix_latex}"
+    [ "${ndir}" == "${minivimdir}" ] && {
+      git -C "${HOME}/${GITDIR}" submodule update \
+        --remote --init --recursive >/dev/null 2>&1
+    }
+    [ "${ndir}" == "${onnovimdir}" ] && {
+      fix_help_file "${HOME}/.config/${ndir}/${fix_onno}"
+    }
+    [ "${ndir}" == "${latexvimdir}" ] && {
+      fix_help_file "${HOME}/.config/${ndir}/${fix_latex}"
+    }
   }
 }
 
@@ -946,6 +949,29 @@ show_figlet() {
   fi
 }
 
+git_status() {
+  gpath="$1"
+  tpath=$(echo "${gpath}" | sed -e "s%${HOME}%~%")
+  git -C "${gpath}" remote update >/dev/null 2>&1
+  UPSTREAM=${2:-'@{u}'}
+  LOCAL=$(git -C "${gpath}" rev-parse @)
+  REMOTE=$(git -C "${gpath}" rev-parse "$UPSTREAM")
+  BASE=$(git -C "${gpath}" merge-base @ "$UPSTREAM")
+
+  if [ $LOCAL = $REMOTE ]; then
+    printf "\n  %-45s  Up-to-date " "${tpath}"
+  elif [ $LOCAL = $BASE ]; then
+    printf "\n  %-45s  Updates available" "${tpath}"
+    printf "\n    Update with: lazyman -U -N ${neovim}"
+  elif [ $REMOTE = $BASE ]; then
+    printf "\n  %-45s  Local changes to tracked files" "${tpath}"
+    printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+  else
+    printf "\n  %-45s  Appears to have diverged" "${tpath}"
+    printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+  fi
+}
+
 show_info() {
   nvim_version=$(nvim --version | head -2)
   printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
@@ -982,24 +1008,7 @@ show_info() {
     twiddlpath="~/.config/${neovim}"
     if [ -d "${configpath}/.git" ]; then
       # Check if updates are available
-      git -C "${configpath}" remote update >/dev/null 2>&1
-      UPSTREAM=${1:-'@{u}'}
-      LOCAL=$(git -C "${configpath}" rev-parse @)
-      REMOTE=$(git -C "${configpath}" rev-parse "$UPSTREAM")
-      BASE=$(git -C "${configpath}" merge-base @ "$UPSTREAM")
-
-      if [ $LOCAL = $REMOTE ]; then
-        printf "\n  %-45s  Up-to-date " "${twiddlpath}"
-      elif [ $LOCAL = $BASE ]; then
-        printf "\n  %-45s  Updates available" "${twiddlpath}"
-        printf "\n    Update with: lazyman -U -N ${neovim}"
-      elif [ $REMOTE = $BASE ]; then
-        printf "\n  %-45s  Local changes to tracked files" "${twiddlpath}"
-        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
-      else
-        printf "\n  %-45s  Appears to have diverged" "${twiddlpath}"
-        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
-      fi
+      git_status "${configpath}"
     else
       if [ -d "${configpath}" ]; then
         printf "\n  %-45s  Not a git repository" "${twiddlpath}"
@@ -1007,6 +1016,38 @@ show_info() {
         printf "\n  %-45s  Config folder not found!" "${twiddlpath}"
       fi
     fi
+    [ "${neovim}" == "${spacevimdir}" ] && {
+      tdir="~/.SpaceVim.d"
+      if [ -d "${SPDIR}" ]; then
+        if [ -d "${SPDIR}/.git" ]; then
+          # Check if updates are available
+          git_status "${SPDIR}"
+        else
+          printf "\n  %-45s  Not a git repository" "${tdir}"
+        fi
+      else
+        printf "\n  %-45s  Custom config folder not found" "${tdir}"
+      fi
+    }
+    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] && {
+      if [ "${neovim}" == "${astronvimdir}" ]; then
+        cdir="lua/user"
+        tdir="~/.config/${neovim}/lua/user"
+      else
+        cdir="lua/custom"
+        tdir="~/.config/${neovim}/lua/custom"
+      fi
+      if [ -d "${configpath}/${cdir}" ]; then
+        if [ -d "${configpath}/${cdir}/.git" ]; then
+          # Check if updates are available
+          git_status "${configpath}/${cdir}"
+        else
+          printf "\n  %-45s  Not a git repository" "${tdir}"
+        fi
+      else
+        printf "\n  %-45s  Custom config folder not found" "${tdir}"
+      fi
+    }
   done
 }
 
