@@ -1041,7 +1041,7 @@ conf.enable_dashboard_quick_links = true
 -- Zone can be one of treadmill, matrix, epilepsy, vanish, or zone
 -- 'drop' indicates a random drop, 'zone' a random zone
 -- 'random' to randomly select between the two, 'none' to disable
-conf.enable_screensaver = "random"
+conf.enable_screensaver = "none"
 -- Screensaver timeout in minutes
 conf.screensaver_timeout = 15
 -- Enable the Neovim bookmarks plugin (https://github.com/ldelossa/nvim-ide)

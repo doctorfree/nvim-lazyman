@@ -947,6 +947,9 @@ show_figlet() {
 }
 
 show_info() {
+  nvim_version=$(nvim --version | head -2)
+  printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
+
   [ -f "${LMANDIR}"/.lazymanrc ] && {
     source "${LMANDIR}"/.lazymanrc
   }
@@ -975,14 +978,36 @@ show_info() {
   fi
   printf "\n\n${numitems} Lazyman Neovim configurations installed:\n"
   for neovim in "${sorted[@]}"; do
-    if [ -d ${HOME}/.config/${neovim} ]; then
-      printf "\n\t${HOME}/.config/${neovim}"
+    configpath="${HOME}/.config/${neovim}"
+    twiddlpath="~/.config/${neovim}"
+    if [ -d "${configpath}/.git" ]; then
+      # Check if updates are available
+      git -C "${configpath}" remote update >/dev/null 2>&1
+      UPSTREAM=${1:-'@{u}'}
+      LOCAL=$(git -C "${configpath}" rev-parse @)
+      REMOTE=$(git -C "${configpath}" rev-parse "$UPSTREAM")
+      BASE=$(git -C "${configpath}" merge-base @ "$UPSTREAM")
+
+      if [ $LOCAL = $REMOTE ]; then
+        printf "\n  %-45s  Up-to-date " "${twiddlpath}"
+      elif [ $LOCAL = $BASE ]; then
+        printf "\n  %-45s  Updates available" "${twiddlpath}"
+        printf "\n    Update with: lazyman -U -N ${neovim}"
+      elif [ $REMOTE = $BASE ]; then
+        printf "\n  %-45s  Local changes to tracked files" "${twiddlpath}"
+        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      else
+        printf "\n  %-45s  Appears to have diverged" "${twiddlpath}"
+        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      fi
     else
-      printf "\n\tMissing ${HOME}/.config/${neovim} !"
+      if [ -d "${configpath}" ]; then
+        printf "\n  %-45s  Not a git repository" "${twiddlpath}"
+      else
+        printf "\n  %-45s  Config folder not found!" "${twiddlpath}"
+      fi
     fi
   done
-  nvim_version=$(nvim --version)
-  printf "\n\nInstalled Neovim version info:\n\n${nvim_version}\n"
 }
 
 show_alias() {
@@ -1982,7 +2007,9 @@ show_plugin_menu() {
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
     options+=("Screensaver [${use_screensaver}]")
-    options+=(" Timeout    [${use_timeout}]")
+    [ "${use_screensaver}" == "none" ] || {
+      options+=(" Timeout    [${use_timeout}]")
+    }
     options+=("Session [${use_session_manager}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("StartupTime   [${use_startuptime}]")
@@ -3710,6 +3737,7 @@ show_main_menu() {
           break 2
           ;;
         "Lazyman Status",* | *,"Lazyman Status")
+          printf "\nPreparing Lazyman status report\n"
           show_info >/tmp/lminfo$$
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="${LAZYMAN}" neovide /tmp/lminfo$$
@@ -4064,6 +4092,7 @@ shift $((OPTIND - 1))
 }
 
 [ "$1" == "status" ] && {
+  printf "\nPreparing Lazyman status report\n"
   show_info
   exit 0
 }
