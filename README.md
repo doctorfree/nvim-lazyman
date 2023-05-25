@@ -553,8 +553,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### Lazyman Neovim Configuration Features
 
+![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazyman-plugins.png)
+
 #### General ⚙️
-![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png)
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
@@ -581,6 +582,8 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Over 100 plugins with custom configuration
 
 #### Navigation 🧭
+
+![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png)
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
