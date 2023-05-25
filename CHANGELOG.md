@@ -6,6 +6,27 @@
 
 ### 🐞 Fixed
 
+## v2.1.3r1
+
+### ⚡️ Added
+
+- Use a timeout function to terminate hung headless `nvim` initialization
+- Add `Slydragonn` to Custom
+- Add `zone.nvim` screensaver and configuration support for both zone and drop
+- Configuration timeout parameter for screensavers
+- Menu support for screensavers and timeout
+- Add `terminal.nvim` keymaps to cheatsheet
+
+### 🐞 Fixed
+
+- Use my fork of the cheatsheet plugin
+  - Enhanced plugin and markdown cheatsheets
+  - Which-Key integration
+- Move Penguin to Base
+- Add `configuration-prev.lua` to gitignore
+- Update keymaps doc with terminal and gitsigns mappings
+- Shorten some lazyman menu entries
+
 ## v2.1.2r3
 
 ### ⚡️ Added
