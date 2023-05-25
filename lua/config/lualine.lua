@@ -43,17 +43,24 @@ local function session_name()
   return require("possession.session").session_name or ""
 end
 
+local navic_loc = {
+  { "require'nvim-navic'.get_location()" },
+}
+local navic_tabline = navic_loc
+local navic_winbar = {}
+if settings.enable_winbar then
+  navic_tabline = {}
+  navic_winbar = navic_loc
+end
 local tabline_cfg = {}
 if settings.enable_tabline then
   tabline_cfg = {
     lualine_a = { require("tabline").tabline_buffers },
     lualine_b = {},
-    lualine_c = {
-      { "require'nvim-navic'.get_location()" },
-    },
-    lualine_x = {},
+    lualine_c = navic_tabline,
+    lualine_x = { lsp_servers },
     lualine_y = {},
-    lualine_z = { lsp_servers },
+    lualine_z = {},
   }
 end
 
@@ -129,7 +136,7 @@ if settings.enable_winbar then
   winbar_cfg = {
     lualine_a = {},
     lualine_b = lsp_progress,
-    lualine_c = {},
+    lualine_c = navic_winbar,
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
