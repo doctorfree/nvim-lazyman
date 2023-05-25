@@ -3318,22 +3318,20 @@ show_main_menu() {
       printf "\nPress <Enter> to continue ... "
       read -r yn
     fi
+    [ "${base_installed}" ] || options+=("Select/Install Base")
+    [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
+    [ "${start_installed}" ] || options+=("Select/Inst Starter")
+    [ "${custm_installed}" ] || options+=("Select/Inst Custom")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if alias neovides >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && {
-            options+=("Select and Open")
-            options+=("Select and Remove")
-          }
+          [ ${numitems} -gt 1 ] && options+=("Select and Open")
         else
           options+=("Open Neovide")
           if alias nvims >/dev/null 2>&1; then
             USEGUI=
             use_gui="neovim"
-            [ ${numitems} -gt 1 ] && {
-              options+=("Select and Open")
-              options+=("Select and Remove")
-            }
+            [ ${numitems} -gt 1 ] && options+=("Select and Open")
           fi
         fi
       else
@@ -3341,32 +3339,30 @@ show_main_menu() {
         use_gui="neovim"
         options+=("Install Neovide")
         if alias nvims >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && {
-            options+=("Select and Open")
-            options+=("Select and Remove")
-          }
+          [ ${numitems} -gt 1 ] && options+=("Select and Open")
         fi
       fi
     else
+      [ "${have_neovide}" ] || {
+        USEGUI=
+        use_gui="neovim"
+        options+=("Install Neovide")
+      }
       if alias nvims >/dev/null 2>&1; then
-        [ ${numitems} -gt 1 ] && {
-          options+=("Select and Open")
-          options+=("Select and Remove")
-        }
+        [ ${numitems} -gt 1 ] && options+=("Select and Open")
       fi
     fi
-    [ "${base_installed}" ] || options+=("Select/Install Base")
-    [ "${prsnl_installed}" ] || options+=("Select/Install Prnl")
-    [ "${start_installed}" ] || options+=("Select/Install Strt")
-    [ "${custm_installed}" ] || options+=("Select/Install Cstm")
+
     [ "${base_partial}" ] && options+=("Select/Open Base")
-    [ "${prsnl_partial}" ] && options+=("Select/Open Persnl")
-    [ "${start_partial}" ] && options+=("Select/Open Startr")
+    [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
+    [ "${start_partial}" ] && options+=("Select/Open Starter")
     [ "${custm_partial}" ] && options+=("Select/Open Custom")
+
+    [ ${numitems} -gt 1 ] && options+=("Select and Remove")
     [ "${base_partial}" ] && options+=("Select/Remove Base")
-    [ "${prsnl_partial}" ] && options+=("Select/Remove Prnl")
-    [ "${start_partial}" ] && options+=("Select/Remove Strt")
-    [ "${custm_partial}" ] && options+=("Select/Remove Cstm")
+    [ "${prsnl_partial}" ] && options+=("Select/Rem Personal")
+    [ "${start_partial}" ] && options+=("Select/Rem Starter")
+    [ "${custm_partial}" ] && options+=("Select/Remove Custom")
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
@@ -3406,7 +3402,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Prnl"*,* | *,"Select/Install Prnl"*)
+        "Select/Inst Personal"*,* | *,"Select/Inst Personal"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3420,7 +3416,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Strt"*,* | *,"Select/Install Strt"*)
+        "Select/Inst Starter"*,* | *,"Select/Inst Starter"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3434,7 +3430,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Install Cstm"*,* | *,"Select/Install Cstm"*)
+        "Select/Inst Custom"*,* | *,"Select/Inst Custom"*)
           choices=()
           for neovim in ${CUSTMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3471,7 +3467,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Persnl"*,* | *,"Select/Open Persnl"*)
+        "Select/Open Personal"*,* | *,"Select/Open Personal"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3489,7 +3485,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Startr"*,* | *,"Select/Open Startr"*)
+        "Select/Open Starter"*,* | *,"Select/Open Starter"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3539,7 +3535,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Prnl"*,* | *,"Select/Remove Prnl"*)
+        "Select/Rem Personal"*,* | *,"Select/Rem Personal"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3553,7 +3549,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Strt"*,* | *,"Select/Remove Strt"*)
+        "Select/Rem Starter"*,* | *,"Select/Rem Starter"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -3567,7 +3563,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Cstm"*,* | *,"Select/Remove Cstm"*)
+        "Select/Remove Custom"*,* | *,"Select/Remove Custom"*)
           choices=()
           for neovim in ${CUSTMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
