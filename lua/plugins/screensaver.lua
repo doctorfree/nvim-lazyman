@@ -66,7 +66,7 @@ if save_theme ~= "none" then
           },
 
           matrix = {
-            tick_time = 100,
+            tick_time = 120,
             headache = false,
           },
 
