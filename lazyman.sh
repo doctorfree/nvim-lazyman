@@ -1190,6 +1190,25 @@ get_conf_value() {
   echo "${confval}"
 }
 
+set_conf_value() {
+  confname="$1"
+  confval="$2"
+  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
+    case ${confval} in
+      true | false | [0-9])
+        cat "${NVIMCONF}" \
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+        ;;
+      *)
+        cat "${NVIMCONF}" \
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+        ;;
+    esac
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
+  }
+}
+
 set_conf_table() {
   marker="$1"
   confval="$2"
@@ -1234,34 +1253,12 @@ set_conf_table() {
   esac
 }
 
-set_conf_value() {
-  confname="$1"
-  confval="$2"
-  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
-    case ${confval} in
-      true | false | [0-9])
-        cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
-        ;;
-      *)
-        cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
-        ;;
-    esac
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
-}
-
 set_ranger_float() {
   have_ranger=$(type -p ranger)
   [ "${have_ranger}" ] || {
     ranger_float=$(get_conf_value enable_ranger_float)
     [ "${ranger_float}" == "true" ] && {
-      cat "${NVIMCONF}" \
-        | sed -e "s/conf.enable_ranger_float.*/conf.enable_ranger_float = false/" >/tmp/nvim$$
-      cp /tmp/nvim$$ "${NVIMCONF}"
-      rm -f /tmp/nvim$$
+      set_conf_value "enable_ranger_float" "false"
     }
   }
 }
@@ -1271,12 +1268,7 @@ set_waka_opt() {
   [ -f "${HOME}"/.wakatime.cfg ] && {
     grep api_key "${HOME}"/.wakatime.cfg >/dev/null && waka="true"
   }
-  grep 'conf.enable_wakatime' "${NVIMCONF}" >/dev/null && {
-    cat "${NVIMCONF}" \
-      | sed -e "s/conf.enable_wakatime.*/conf.enable_wakatime = ${waka}/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
+  set_conf_value "enable_wakatime" "${waka}"
 }
 
 set_chat_gpt() {
@@ -1285,26 +1277,15 @@ set_chat_gpt() {
   else
     openai="false"
   fi
-  grep 'conf.enable_chatgpt' "${NVIMCONF}" >/dev/null && {
-    cat "${NVIMCONF}" \
-      | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = ${openai}/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
+  set_conf_value "enable_chatgpt" "${openai}"
 }
 
 set_code_explain() {
   if [ -f "${HOME}/.codeexplain/model.bin" ]; then
-    code="true"
+    set_conf_value "enable_codeexplain" "true"
   else
-    code="false"
+    set_conf_value "enable_codeexplain" "false"
   fi
-  grep 'conf.enable_codeexplain' "${NVIMCONF}" >/dev/null && {
-    cat "${NVIMCONF}" \
-      | sed -e "s/conf.enable_codeexplain.*/conf.enable_codeexplain = ${code}/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
 }
 
 install_config() {
@@ -2238,6 +2219,12 @@ show_plugin_menu() {
           ;;
         " Remove GPT"*,* | *," Remove GPT"*)
           rm -f "${HOME}/.codeexplain/model.bin"
+          for models in "${HOME}"/.codeexplain/*
+          do
+            [ "${models}" == "${HOME}/.codeexplain/*" ] && {
+              rmdir "${HOME}/.codeexplain"
+            }
+          done
           set_conf_value "enable_codeexplain" "false"
           break
           ;;
