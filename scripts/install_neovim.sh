@@ -919,9 +919,10 @@ install_tools() {
       ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
     fi
     [ "$quiet" ] || printf " done"
-    log 'Installing langchain and Pygments ...'
+    log 'Installing langchain, llama-cpp-python, and Pygments ...'
     "$PYTHON" -m pip install langchain >/dev/null 2>&1
     "$PYTHON" -m pip install Pygments >/dev/null 2>&1
+    "$PYTHON" -m pip install llama-cpp-python >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"

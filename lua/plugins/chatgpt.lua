@@ -3,7 +3,11 @@ local codeexplain = {}
 if settings.enable_codeexplain then
   codeexplain = {
     "mthbernardes/codeexplain.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    cmd = "CodeExplain",
+    build = function()
+      vim.cmd([[silent UpdateRemotePlugins]])
+    end,
   }
 end
 local chatgpt = {}

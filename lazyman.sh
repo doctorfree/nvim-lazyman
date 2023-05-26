@@ -3430,9 +3430,7 @@ show_main_menu() {
     else
       options+=("Install All       ${configstr}")
     fi
-    [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
-      options+=("Install Tools")
-    }
+    options+=("Install Tools")
     uninstalled=()
     if [ "${have_fzf}" ]
     then
