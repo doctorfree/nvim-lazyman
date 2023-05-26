@@ -2110,6 +2110,9 @@ show_plugin_menu() {
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("GPT4ALL       [${use_codeexplain}]")
+    [ -f "${HOME}/.codeexplain/model.bin" ] && {
+      options+=(" Remove GPT model file")
+    }
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
@@ -2231,6 +2234,10 @@ show_plugin_menu() {
               prompt_continue
             fi
           fi
+          break
+          ;;
+        " Remove GPT"*,* | *," Remove GPT"*)
+          rm -f "${HOME}/.codeexplain/model.bin"
           break
           ;;
         "GPT4ALL"*,* | *,"GPT4ALL"*)
