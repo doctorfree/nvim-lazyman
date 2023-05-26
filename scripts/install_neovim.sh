@@ -921,9 +921,9 @@ install_tools() {
     fi
     [ "$quiet" ] || printf " done"
     log 'Installing langchain, llama-cpp-python, and pygments ...'
-    "$PYTHON" -m pip install ${PIPARGS} langchain >/dev/null 2>&1
     "$PYTHON" -m pip install ${PIPARGS} pygments >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} llama-cpp-python >/dev/null 2>&1
+    "$PYTHON" -m pip install --user --no-cache-dir --force-reinstall \
+      langchain==0.0.177 llama-cpp-python==0.1.48 > /dev/null 2>&1
     [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"
