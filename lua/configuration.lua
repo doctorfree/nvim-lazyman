@@ -76,6 +76,8 @@ conf.file_tree = "neo-tree"
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
 conf.enable_chatgpt = true
+-- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
+conf.enable_codeexplain = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable 'StartupTime' command

@@ -1,10 +1,18 @@
 local settings = require("configuration")
+local codeexplain = {}
+if settings.enable_codeexplain then
+  codeexplain = {
+    "mthbernardes/codeexplain.nvim",
+    event = "VeryLazy",
+  }
+end
+local chatgpt = {}
 if settings.enable_chatgpt then
   local api_key = os.getenv("OPENAI_API_KEY")
-  if api_key == "" then
-    return {}
+  if api_key == "" or api_key == nil then
+    chatgpt = {}
   else
-    return {
+    chatgpt = {
       {
         "jackMort/ChatGPT.nvim",
         event = "VeryLazy",
@@ -142,6 +150,9 @@ if settings.enable_chatgpt then
       },
     }
   end
-else
-  return {}
 end
+
+return {
+  chatgpt,
+  codeexplain,
+}
