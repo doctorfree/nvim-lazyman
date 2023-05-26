@@ -900,29 +900,30 @@ install_tools() {
   }
   link_python
   [ "$PYTHON" ] && {
+    PIPARGS="--user --no-cache-dir --upgrade --force-reinstall"
     log 'Upgrading pip, setuptools, wheel, doq, and pynvim ...'
-    "$PYTHON" -m pip install --upgrade pip >/dev/null 2>&1
-    "$PYTHON" -m pip install --upgrade setuptools >/dev/null 2>&1
-    "$PYTHON" -m pip install wheel >/dev/null 2>&1
-    "$PYTHON" -m pip install pynvim doq >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} pip >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} setuptools >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} wheel >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} pynvim doq >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
     log 'Installing black, beautysh, and ruff formatters/linters ...'
-    "$PYTHON" -m pip install beautysh >/dev/null 2>&1
-    "$PYTHON" -m pip install black >/dev/null 2>&1
-    "$PYTHON" -m pip install ruff >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} beautysh >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} black >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} ruff >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
     [ "${native}" ] && [ "${debian}" ] && platform_install python3-venv
     [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
     else
-      ${PYTHON} -m pip install neovim-remote >/dev/null 2>&1
+      ${PYTHON} -m pip install ${PIPARGS} neovim-remote >/dev/null 2>&1
     fi
     [ "$quiet" ] || printf " done"
-    log 'Installing langchain, llama-cpp-python, and Pygments ...'
-    "$PYTHON" -m pip install langchain >/dev/null 2>&1
-    "$PYTHON" -m pip install Pygments >/dev/null 2>&1
-    "$PYTHON" -m pip install llama-cpp-python >/dev/null 2>&1
+    log 'Installing langchain, llama-cpp-python, and pygments ...'
+    "$PYTHON" -m pip install ${PIPARGS} langchain >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} pygments >/dev/null 2>&1
+    "$PYTHON" -m pip install ${PIPARGS} llama-cpp-python >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"
@@ -932,7 +933,7 @@ install_tools() {
         "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
         [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
       else
-        ${PYTHON} -m pip install rich-cli >/dev/null 2>&1
+        ${PYTHON} -m pip install ${PIPARGS} rich-cli >/dev/null 2>&1
       fi
     fi
     [ "$quiet" ] || printf " done"
