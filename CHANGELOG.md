@@ -6,6 +6,24 @@
 
 ### 🐞 Fixed
 
+## v2.1.3r2
+
+### ⚡️ Added
+
+- Add -t and -T flags to list installed and uninstalled configs
+- Add plugins menu screenshot to README
+- Add custom config folders to status report
+- Add git report to Lazyman status
+- List uninstalled in Lazyman status
+
+### 🐞 Fixed
+
+- Fix debug mode and add it to menu
+- Reorder main menu entries
+- Fix GUI toggle menu entry
+- Move navic location to tabline if winbar not enabled
+- Disable screensaver by default
+
 ## v2.1.3r1
 
 ### ⚡️ Added
