@@ -2111,7 +2111,7 @@ show_plugin_menu() {
     options+=("ChatGPT       [${use_chatgpt}]")
     options+=("GPT4ALL       [${use_codeexplain}]")
     [ -f "${HOME}/.codeexplain/model.bin" ] && {
-      options+=(" Remove GPT model file")
+      options+=(" Remove GPT model")
     }
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
@@ -2238,6 +2238,7 @@ show_plugin_menu() {
           ;;
         " Remove GPT"*,* | *," Remove GPT"*)
           rm -f "${HOME}/.codeexplain/model.bin"
+          set_conf_value "enable_codeexplain" "false"
           break
           ;;
         "GPT4ALL"*,* | *,"GPT4ALL"*)
