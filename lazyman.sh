@@ -62,7 +62,7 @@ brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
   printf "\n   [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
   printf "\n   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]"
-  printf "\n   [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf]"
+  printf "\n   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]"
   printf "\n   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -76,6 +76,7 @@ usage() {
   printf "\n    -b 'branch' specifies an ${LAZYMAN} git branch to checkout"
   printf "\n    -c indicates install and initialize NvChad Neovim configuration"
   printf "\n    -d indicates debug mode"
+  printf "\n    -D 'subdir' specifies the subdirectory of the repository to retrieve"
   printf "\n    -e indicates install and initialize Ecovim Neovim configuration"
   printf "\n    -E 'config' execute 'nvim' with 'config' Neovim configuration"
   printf "\n       'config' can be one of:"
@@ -85,6 +86,7 @@ usage() {
   printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
   printf "\n    -f 'path' fix treesitter 'help' parser in config file 'path'"
   printf "\n    -F indicates present the Lazyman Configuration menu"
+  printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -j indicates install and initialize Nv Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
@@ -110,7 +112,8 @@ usage() {
   printf "\n    -R indicates remove previously installed configuration and backups"
   printf "\n    -C 'url' specifies a URL to a Neovim configuration git repository"
   printf "\n    -N 'nvimdir' specifies the folder name to use for the config given by -C"
-  printf "\n    -T indicates no plugin manager, initialize with :TSUpdate"
+  printf "\n    -t indicates list all installed Lazyman Neovim configurations"
+  printf "\n    -T indicates list all uninstalled Lazyman Neovim configurations"
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
@@ -278,6 +281,12 @@ fix_help_file() {
   }
 }
 
+calc_elapsed() {
+  FINISH_SECONDS=$(date +%s)
+  ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
+  ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+}
+
 init_neovim() {
   neodir="$1"
   [ -d "${HOME}/.config/${neodir}" ] || return
@@ -371,6 +380,7 @@ init_neovim() {
   [ "${skipthis}" ] || {
     if [ "$debug" ]; then
       [ "$quiet" ] || printf "\nInitializing configuration in debug mode ..."
+      START_SECONDS=$(date +%s)
       if [ "${packer}" ]; then
         xtimeout ${timeout} nvim --headless -c \
           'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -412,6 +422,8 @@ init_neovim() {
           "+helptags ${HOME}/.config/${neodir}/doc" +qa
       }
       [ "$quiet" ] || printf " done\n"
+      calc_elapsed
+      printf "\nInitialization elapsed time = ${ELAPSED}\n"
     else
       [ "$quiet" ] || printf "\nInitializing configuration ..."
       if [ "${packer}" ]; then
@@ -648,7 +660,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "AlanVim" ] && {
     printf "\nInstalling and initializing the AlanVim Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -b main -C https://github.com/alanRizzo/dot-files \
+      lazyman ${darg} -b main -C https://github.com/alanRizzo/dot-files \
         -D nvim -N nvim-AlanVim -P ${allflags}
     }
     printf "done"
@@ -656,7 +668,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "BasicIde" ] && {
     printf "\nInstalling and initializing the BasicIde Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/LunarVim/nvim-basic-ide \
+      lazyman ${darg} -C https://github.com/LunarVim/nvim-basic-ide \
         -N nvim-BasicIde ${allflags}
     }
     printf "done"
@@ -664,7 +676,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Brain" ] && {
     printf "\nInstalling and initializing the Brain Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -b main -C https://github.com/brainfucksec/neovim-lua \
+      lazyman ${darg} -b main -C https://github.com/brainfucksec/neovim-lua \
         -N nvim-Brain -D nvim ${allflags}
     }
     printf "done"
@@ -672,7 +684,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Charles" ] && {
     printf "\nInstalling and initializing the Charles Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/CharlesChiuGit/nvimdots.lua \
+      lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
         -N nvim-Charles ${allflags}
     }
     printf "done"
@@ -680,7 +692,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "CodeArt" ] && {
     printf "\nInstalling and initializing the CodeArt Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/artart222/CodeArt \
+      lazyman ${darg} -C https://github.com/artart222/CodeArt \
         -N nvim-CodeArt -P ${allflags}
     }
     printf "done"
@@ -688,7 +700,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Elianiva" ] && {
     printf "\nInstalling and initializing the Elianiva Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/elianiva/dotfiles \
+      lazyman ${darg} -C https://github.com/elianiva/dotfiles \
         -D nvim/.config/nvim -N nvim-Elianiva ${allflags}
     }
     printf "done"
@@ -696,7 +708,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Magidc" ] && {
     printf "\nInstalling and initializing the Magidc Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/magidc/nvim-config \
+      lazyman ${darg} -C https://github.com/magidc/nvim-config \
         -N nvim-Magidc ${allflags}
     }
     printf "done"
@@ -704,7 +716,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Ohmynvim" ] && {
     printf "\nInstalling and initializing the Ohmynvim Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/hardhackerlabs/oh-my-nvim \
+      lazyman ${darg} -C https://github.com/hardhackerlabs/oh-my-nvim \
         -N nvim-Ohmynvim ${allflags}
     }
     printf "done"
@@ -712,7 +724,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Penguin" ] && {
     printf "\nInstalling and initializing the Penguin Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/p3nguin-kun/penguinVim \
+      lazyman ${darg} -C https://github.com/p3nguin-kun/penguinVim \
         -N nvim-Penguin ${allflags}
     }
     printf "done"
@@ -720,7 +732,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Slydragonn" ] && {
     printf "\nInstalling and initializing the Slydragonn Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -b main -C https://github.com/slydragonn/dotfiles \
+      lazyman ${darg} -b main -C https://github.com/slydragonn/dotfiles \
         -D '.config/nvim' -N nvim-Slydragonn -P ${allflags}
     }
     printf "done"
@@ -728,7 +740,7 @@ install_custom() {
   [ "${allcustom}" ] || [ "${customdir}" == "Cosmic" ] && {
     printf "\nInstalling and initializing the CosmicNvim Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman -C https://github.com/CosmicNvim/CosmicNvim \
+      lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
         -N nvim-Cosmic ${allflags}
       CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
       [ -f "${CMICDIR}"/config.lua ] || {
@@ -771,10 +783,10 @@ update_custom() {
   then
     for custom in ${CUSTMCFGS}
     do
-      lazyman -U -N nvim-${custom} -y
+      lazyman ${darg} -U -N nvim-${custom} -y
     done
   else
-    lazyman -U -N nvim-${customdir} -y
+    lazyman ${darg} -U -N nvim-${customdir} -y
   fi
 }
 
@@ -972,6 +984,56 @@ git_status() {
   fi
 }
 
+list_installed() {
+  items=()
+  [ -f "${LMANDIR}"/.lazymanrc ] && {
+    source "${LMANDIR}"/.lazymanrc
+    readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+    installed=()
+    for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+      basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+      if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+        installed+=("${basenvdir}")
+      fi
+    done
+    numins=${#installed[@]}
+    if [ ${numins} -gt 0 ]; then
+      printf "\n\n${numins} installed Lazyman Neovim configurations:\n"
+      for conf in "${installed[@]}"; do
+        printf "\n\t${conf}"
+      done
+    else
+      printf "\n\nNo supported Lazyman Neovim configurations are installed."
+    fi
+  }
+  printf "\n"
+}
+
+list_uninstalled() {
+  items=()
+  [ -f "${LMANDIR}"/.lazymanrc ] && {
+    source "${LMANDIR}"/.lazymanrc
+    readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+    uninstalled=()
+    for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+      basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+      if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+        uninstalled+=("${basenvdir}")
+      fi
+    done
+    numunins=${#uninstalled[@]}
+    if [ ${numunins} -gt 0 ]; then
+      printf "\n\n${numunins} uninstalled Lazyman Neovim configurations:\n"
+      for conf in "${uninstalled[@]}"; do
+        printf "\n\t${conf}"
+      done
+    else
+      printf "\n\nAll supported Lazyman Neovim configurations are installed."
+    fi
+  }
+  printf "\n"
+}
+
 show_info() {
   nvim_version=$(nvim --version | head -2)
   printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
@@ -1049,6 +1111,7 @@ show_info() {
       fi
     }
   done
+  list_uninstalled
 }
 
 show_alias() {
@@ -1231,100 +1294,100 @@ install_config() {
   printf "\nInstalling and initializing ${confname} Neovim configuration ... "
   case ${confname} in
     Abstract)
-      lazyman -g -z -y -Q -q
+      lazyman ${darg} -g -z -y -Q -q
       ;;
     AstroNvim)
-      lazyman -a -z -y -Q -q
+      lazyman ${darg} -a -z -y -Q -q
       ;;
     Basic)
-      lazyman -x Basic -z -y -Q -q
+      lazyman ${darg} -x Basic -z -y -Q -q
       ;;
     Ecovim)
-      lazyman -e -z -y -Q -q
+      lazyman ${darg} -e -z -y -Q -q
       ;;
     Kickstart)
-      lazyman -k -z -y -Q -q
+      lazyman ${darg} -k -z -y -Q -q
       ;;
     Lazyman)
-      lazyman -i -z -y -Q -q
+      lazyman ${darg} -i -z -y -Q -q
       ;;
     LazyVim)
-      lazyman -l -z -y -Q -q
+      lazyman ${darg} -l -z -y -Q -q
       ;;
     LunarVim)
-      lazyman -v -z -y -Q -q
+      lazyman ${darg} -v -z -y -Q -q
       ;;
     Mini)
-      lazyman -M -z -y -Q -q
+      lazyman ${darg} -M -z -y -Q -q
       ;;
     Nv)
-      lazyman -j -z -y -Q -q
+      lazyman ${darg} -j -z -y -Q -q
       ;;
     NvChad)
-      lazyman -c -z -y -Q -q
+      lazyman ${darg} -c -z -y -Q -q
       ;;
     Penguin)
-      lazyman -o -z -y -Q -q
+      lazyman ${darg} -o -z -y -Q -q
       ;;
     SpaceVim)
-      lazyman -s -z -y -Q -q
+      lazyman ${darg} -s -z -y -Q -q
       ;;
     MagicVim)
-      lazyman -m -z -y -Q -q
+      lazyman ${darg} -m -z -y -Q -q
       ;;
     Adib)
-      lazyman -w Adib -z -y -Q -q
+      lazyman ${darg} -w Adib -z -y -Q -q
       ;;
     ONNO)
-      lazyman -w ONNO -z -y -Q -q
+      lazyman ${darg} -w ONNO -z -y -Q -q
       ;;
     LaTeX)
-      lazyman -w LaTeX -z -y -Q -q
+      lazyman ${darg} -w LaTeX -z -y -Q -q
       ;;
     Ember)
-      lazyman -w Ember -z -y -Q -q
+      lazyman ${darg} -w Ember -z -y -Q -q
       ;;
     Knvim)
-      lazyman -w Knvim -z -y -Q -q
+      lazyman ${darg} -w Knvim -z -y -Q -q
       ;;
     Roiz)
-      lazyman -w Roiz -z -y -Q -q
+      lazyman ${darg} -w Roiz -z -y -Q -q
       ;;
     Fennel)
-      lazyman -w Fennel -z -y -Q -q
+      lazyman ${darg} -w Fennel -z -y -Q -q
       ;;
     NvPak)
-      lazyman -x NvPak -z -y -Q -q
+      lazyman ${darg} -x NvPak -z -y -Q -q
       ;;
     Optixal)
-      lazyman -w Optixal -z -y -Q -q
+      lazyman ${darg} -w Optixal -z -y -Q -q
       ;;
     Plug)
-      lazyman -w Plug -z -y -Q -q
+      lazyman ${darg} -w Plug -z -y -Q -q
       ;;
     Heiker)
-      lazyman -w Heiker -z -y -Q -q
+      lazyman ${darg} -w Heiker -z -y -Q -q
       ;;
     Minimal)
-      lazyman -x Minimal -z -y -Q -q
+      lazyman ${darg} -x Minimal -z -y -Q -q
       ;;
     Simple)
-      lazyman -w Simple -z -y -Q -q
+      lazyman ${darg} -w Simple -z -y -Q -q
       ;;
     StartBase)
-      lazyman -x StartBase -z -y -Q -q
+      lazyman ${darg} -x StartBase -z -y -Q -q
       ;;
     Opinion)
-      lazyman -x Opinion -z -y -Q -q
+      lazyman ${darg} -x Opinion -z -y -Q -q
       ;;
     StartLsp)
-      lazyman -x StartLsp -z -y -Q -q
+      lazyman ${darg} -x StartLsp -z -y -Q -q
       ;;
     StartMason)
-      lazyman -x StartMason -z -y -Q -q
+      lazyman ${darg} -x StartMason -z -y -Q -q
       ;;
     Modular)
-      lazyman -x Modular -z -y -Q -q
+      lazyman ${darg} -x Modular -z -y -Q -q
       ;;
     AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Ohmynvim|Penguin|Slydragonn)
       install_custom "${confname}"
@@ -3371,6 +3434,11 @@ show_main_menu() {
     [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
     }
+    if [ "${debug}" ]; then
+      options+=("Debug Mode [on]")
+    else
+      options+=("Debug Mode [off]")
+    fi
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
@@ -3595,17 +3663,17 @@ show_main_menu() {
           ;;
         "Install Base"*,* | *,"Install Base"*)
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman -B -y -z -Q
+          lazyman ${darg} -B -y -z -Q
           break
           ;;
         "Install Personal"*,* | *,"Install Personal"*)
           printf "\nInstalling all Lazyman 'Personal' Neovim configurations\n"
-          lazyman -W -y -z -Q -q
+          lazyman ${darg} -W -y -z -Q -q
           break
           ;;
         "Install Starter"*,* | *,"Install Starter"*)
           printf "\nInstalling all Lazyman 'Starter' Neovim configurations\n"
-          lazyman -X -y -z -Q -q
+          lazyman ${darg} -X -y -z -Q -q
           break
           ;;
         "Install Custom"*,* | *,"Install Custom"*)
@@ -3615,22 +3683,22 @@ show_main_menu() {
           ;;
         "Install All"*,* | *,"Install All"*)
           printf "\nInstalling all Lazyman Neovim configurations\n"
-          lazyman -A -y -z -Q -q
+          lazyman ${darg} -A -y -z -Q -q
           break
           ;;
         "Update Base"*,* | *,"Update Base"*)
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman -B -y -z -Q -U
+          lazyman ${darg} -B -y -z -Q -U
           break
           ;;
         "Update Personal"*,* | *,"Update Personal"*)
           printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
-          lazyman -W -y -z -Q -q -U
+          lazyman ${darg} -W -y -z -Q -q -U
           break
           ;;
         "Update Starter"*,* | *,"Update Starter"*)
           printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
-          lazyman -X -y -z -Q -q -U
+          lazyman ${darg} -X -y -z -Q -q -U
           break
           ;;
         "Update Custom"*,* | *,"Update Custom"*)
@@ -3640,11 +3708,11 @@ show_main_menu() {
           ;;
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
-          lazyman -A -y -z -Q -q -U
+          lazyman ${darg} -A -y -z -Q -q -U
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
-          lazyman -I
+          lazyman ${darg} -I
           set_haves
           break
           ;;
@@ -3761,6 +3829,16 @@ show_main_menu() {
           remove_custom all
           break
           ;;
+        "Debug Mode"*,* | *,"Debug Mode"*)
+          if [ "${debug}" ]; then
+            debug=
+            darg=
+          else
+            debug=1
+            darg="-d"
+          fi
+          break
+          ;;
         "Toggle"*,* | *,"Toggle"*)
           if [ "${USEGUI}" ]; then
             USEGUI=
@@ -3868,6 +3946,7 @@ subdir=
 command=
 brew=
 debug=
+darg=
 head=
 fix_help=
 invoke=
@@ -3894,6 +3973,8 @@ spacevim=
 plug=
 packer=
 treesitter=
+listinstalled=
+listuninstalled=
 proceed=
 yes=
 quiet=
@@ -3925,7 +4006,7 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir")
 neovimdir=()
-while getopts "aAb:BcdD:eE:f:FghHiIjklmMnL:opPqQrRsSTUC:N:vw:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:FgGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -3968,7 +4049,8 @@ while getopts "aAb:BcdD:eE:f:FghHiIjklmMnL:opPqQrRsSTUC:N:vw:Wx:XyYzZu" flag; do
       neovimdir=("$nvchaddir")
       ;;
     d)
-      debug="-d"
+      debug=1
+      darg="-d"
       ;;
     e)
       ecovim=1
@@ -4054,6 +4136,12 @@ while getopts "aAb:BcdD:eE:f:FghHiIjklmMnL:opPqQrRsSTUC:N:vw:Wx:XyYzZu" flag; do
       spacevim=1
       neovimdir=("$spacevimdir")
       ;;
+    t)
+      listinstalled=1
+      ;;
+    T)
+      listuninstalled=1
+      ;;
     S)
       select=1
       ;;
@@ -4063,12 +4151,12 @@ while getopts "aAb:BcdD:eE:f:FghHiIjklmMnL:opPqQrRsSTUC:N:vw:Wx:XyYzZu" flag; do
     D)
       subdir="$OPTARG"
       ;;
-    N)
-      name="$OPTARG"
-      ;;
-    T)
+    G)
       treesitter=1
       pmgr="Treesitter"
+      ;;
+    N)
+      name="$OPTARG"
       ;;
     U)
       update=1
@@ -4134,6 +4222,12 @@ shift $((OPTIND - 1))
   exit 0
 }
 
+[ "${listinstalled}" ] || [ "${listuninstalled}" ] && {
+  [ "${listinstalled}" ] && list_installed
+  [ "${listuninstalled}" ] && list_uninstalled
+  exit 0
+}
+
 set_haves
 
 [ "$select" ] && {
@@ -4182,83 +4276,83 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-Mini ] && action="Updating"
       printf "\n${action} Mini Neovim configuration ..."
-      lazyman -M ${quietflag} -z ${yesflag}
+      lazyman ${darg} -M ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Mini"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
       printf "\n${action} Ember Neovim configuration ..."
-      lazyman -b main -C https://github.com/danlikestocode/embervim \
+      lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
         -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Ember"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration ..."
-      lazyman -b main -C https://github.com/knmac/knvim \
+      lazyman ${darg} -b main -C https://github.com/knmac/knvim \
         -N nvim-Knvim ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Knvim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration ..."
-      lazyman -C https://github.com/jhchabran/nvim-config \
+      lazyman ${darg} -C https://github.com/jhchabran/nvim-config \
         -N nvim-Fennel -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Fennel"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Adib ] && action="Updating"
       printf "\n${action} Adib Neovim configuration ..."
-      lazyman -b main -C https://github.com/adibhanna/nvim \
+      lazyman ${darg} -b main -C https://github.com/adibhanna/nvim \
         -N nvim-Adib ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Adib"
       action="Installing"
       [ -d ${HOME}/.config/nvim-ONNO ] && action="Updating"
       printf "\n${action} ONNO Neovim configuration ..."
-      lazyman -C https://github.com/loctvl842/nvim.git -N nvim-ONNO \
+      lazyman ${darg} -C https://github.com/loctvl842/nvim.git -N nvim-ONNO \
         -f "${fix_onno}" ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-ONNO"
       action="Installing"
       [ -d ${HOME}/.config/nvim-LaTeX ] && action="Updating"
       printf "\n${action} LaTeX Neovim configuration ..."
-      lazyman -C https://github.com/benbrastmckie/.config -D nvim \
+      lazyman ${darg} -C https://github.com/benbrastmckie/.config -D nvim \
         -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-LaTeX"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
-      lazyman -C https://github.com/Optixal/neovim-init.vim \
+      lazyman ${darg} -C https://github.com/Optixal/neovim-init.vim \
         -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Optixal"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
       printf "\n${action} Plug Neovim configuration ..."
-      lazyman -C https://github.com/doctorfree/nvim-plug \
+      lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
         -N nvim-Plug -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
-      lazyman -C https://github.com/VonHeikemen/dotfiles \
+      lazyman ${darg} -C https://github.com/VonHeikemen/dotfiles \
         -D my-configs/neovim -N nvim-Heiker ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Heiker"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Roiz ] && action="Updating"
       printf "\n${action} Roiz Neovim configuration ..."
-      lazyman -b main -C https://github.com/MrRoiz/rnvim \
+      lazyman ${darg} -b main -C https://github.com/MrRoiz/rnvim \
         -N nvim-Roiz ${quietflag} -z ${yesflag}
       printf " done\n"
       show_alias "nvim-Roiz"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Simple ] && action="Updating"
       printf "\n${action} Simple Neovim configuration ..."
-      lazyman -C https://github.com/anthdm/.nvim \
+      lazyman ${darg} -C https://github.com/anthdm/.nvim \
         -N nvim-Simple -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Simple"
@@ -4333,8 +4427,8 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-${nvimprsnl} ] && action="Updating"
       printf "\n${action} ${nvimprsnl} Neovim configuration ..."
-      lazyman -C ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} ${prsnl_opt} \
-        ${help_opt} ${quietflag} ${runflag} ${yesflag}
+      lazyman ${darg} -C ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} \
+        ${prsnl_opt} ${help_opt} ${quietflag} ${runflag} ${yesflag}
       printf " done"
     fi
   fi
@@ -4362,7 +4456,7 @@ set_haves
         action="Installing"
         [ -d ${HOME}/.config/nvim-${neovim} ] && action="Updating"
         printf "\n${action} nvim-starter ${neovim} Neovim configuration ..."
-        lazyman -C https://github.com/VonHeikemen/nvim-starter \
+        lazyman ${darg} -C https://github.com/VonHeikemen/nvim-starter \
           -N nvim-${neovim} -b ${startbranch} ${quietflag} -z ${yesflag}
         printf " done"
         show_alias "nvim-${neovim}"
@@ -4370,20 +4464,20 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
       printf "\n${action} Basic Neovim configuration ..."
-      lazyman -C https://github.com/NvChad/basic-config \
+      lazyman ${darg} -C https://github.com/NvChad/basic-config \
         -N nvim-Basic ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Basic"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
       printf "\n${action} Kickstart Neovim configuration ..."
-      lazyman -k ${quietflag} -z ${yesflag}
+      lazyman ${darg} -k ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Kickstart"
       action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration ..."
-      lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
+      lazyman ${darg} -C https://github.com/Pakrohk-DotFiles/NvPak.git \
         -N nvim-NvPak ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-NvPak"
@@ -4395,7 +4489,7 @@ set_haves
           action="Installing"
           [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
           printf "\n${action} Basic Neovim configuration ..."
-          lazyman -C https://github.com/NvChad/basic-config \
+          lazyman ${darg} -C https://github.com/NvChad/basic-config \
             -N nvim-Basic ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-Basic"
@@ -4404,7 +4498,7 @@ set_haves
           action="Installing"
           [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
           printf "\n${action} Kickstart Neovim configuration ..."
-          lazyman -k ${quietflag} -z ${yesflag}
+          lazyman ${darg} -k ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-Kickstart"
           ;;
@@ -4412,7 +4506,7 @@ set_haves
           action="Installing"
           [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
           printf "\n${action} NvPak Neovim configuration ..."
-          lazyman -C https://github.com/Pakrohk-DotFiles/NvPak.git \
+          lazyman ${darg} -C https://github.com/Pakrohk-DotFiles/NvPak.git \
             -N nvim-NvPak ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-NvPak"
@@ -4424,7 +4518,7 @@ set_haves
           action="Installing"
           [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
           printf "\n${action} nvim-starter ${nvimstarter} Neovim configuration ..."
-          lazyman -C https://github.com/VonHeikemen/nvim-starter \
+          lazyman ${darg} -C https://github.com/VonHeikemen/nvim-starter \
             -N nvim-${nvimstarter} -b ${startbranch} \
             ${quietflag} ${runflag} ${yesflag}
           printf " done"
@@ -4444,9 +4538,9 @@ set_haves
   }
   if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
     if [ $langservers -eq 2 ]; then
-      "${LMANDIR}"/scripts/install_neovim.sh -a $debug $head $brew $yes
+      "${LMANDIR}"/scripts/install_neovim.sh -a $darg $head $brew $yes
     else
-      "${LMANDIR}"/scripts/install_neovim.sh $debug $head $brew $yes
+      "${LMANDIR}"/scripts/install_neovim.sh $darg $head $brew $yes
     fi
     exit 0
   fi
@@ -4689,7 +4783,7 @@ fi
 [ "${instnvim}" ] && {
   if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
     "${LMANDIR}"/scripts/install_neovim.sh \
-      $debug $head $brew $yes
+      $darg $head $brew $yes
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."

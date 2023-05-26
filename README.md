@@ -640,8 +640,8 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
    [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
-   [-n] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
-   [-D subdir] [-N nvimdir] [-T] [-U] [-w conf] [-W] [-x conf]
+   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
+   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]
    [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
@@ -650,6 +650,7 @@ Where:
     -b 'branch' specifies an nvim-Lazyman git branch to checkout
     -c indicates install and initialize NvChad Neovim configuration
     -d indicates debug mode
+    -D 'subdir' specifies the subdirectory of the repository to retrieve
     -e indicates install and initialize Ecovim Neovim configuration
     -E 'config' execute 'nvim' with 'config' Neovim configuration
        'config' can be one of:
@@ -659,12 +660,14 @@ Where:
            (e.g. 'lazyman -E lazyvim foo.lua')
     -f 'path' fix treesitter 'help' parser in config file 'path'
     -F indicates present the Lazyman Configuration menu
+    -G indicates no plugin manager, initialize with :TSUpdate
     -g indicates install and initialize Abstract Neovim configuration
     -j indicates install and initialize Nv Neovim configuration
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize MagicVim Neovim configuration
     -M indicates install and initialize Mini Neovim configuration
+    -o indicates install and initialize penguinVim Neovim configuration
     -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -S indicates show Neovim configuration fuzzy selector menu
@@ -683,7 +686,8 @@ Where:
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
     -N 'nvimdir' specifies the folder name to use for the config given by -C
-    -T indicates no plugin manager, initialize with :TSUpdate
+    -t indicates list all installed Lazyman Neovim configurations
+    -T indicates list all uninstalled Lazyman Neovim configurations
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
