@@ -563,6 +563,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
   - Keymap to toggle transparency for several color schemes (`,ut`)
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
+- Auto-configure [codeexplain.nvim](https://github.com/mthbernardes/codeexplain.nvim) (GPT4ALL) if the GPT model is found
+  - Lazyman menu provides auto-download and setup
+  - This plugin is new and experimental. Unlike ChatGPT, it uses a self-hosted model and requires no API key or money
 - Custom Lazyman Cheat Sheets using [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim)
   - `:Cheatsheet` command, fuzzy search `lazyman` for custom Lazyman keymaps
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
@@ -579,7 +582,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Neovim games for fun and learning ([Sudoku](https://github.com/jim-fx/sudoku.nvim), [Blackjack](https://github.com/alanfortlink/blackjack.nvim), [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) practice basic movements, and more).
   - Key map `<leader>G` (e.g. `,G`) displays the available games and amusements.
 - Github actions to publish docker image on Docker Hub, check spelling/syntax, and auto-generate vim help doc (see `.github/workflows/*.yml`)
-- Over 100 plugins with custom configuration
+- Over 100 plugins with custom configuration and management via menu system
 
 #### Navigation 🧭
 
@@ -1005,6 +1008,8 @@ conf.file_tree = "neo-tree"
 conf.enable_noice = true
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
 conf.enable_chatgpt = true
+-- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
+conf.enable_codeexplain = true
 -- Enable the newer rainbow treesitter delimiter highlighting
 conf.enable_rainbow2 = true
 -- Enable 'StartupTime' command

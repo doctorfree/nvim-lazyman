@@ -140,6 +140,11 @@ usage() {
   exit 1
 }
 
+prompt_continue() {
+  printf "\nPress <Enter> to continue ... "
+  read -r yn
+}
+
 # Use a timeout function in case the headless nvim hangs waiting for input
 xtimeout() {
   timeout=$1
@@ -845,10 +850,10 @@ update_config() {
         fi
         rm -f /tmp/lazyconf$$
         set_chat_gpt
+        set_code_explain
         set_ranger_float
         set_waka_opt
-        printf "\nPress <Enter> to continue ... "
-        read -r yn
+        prompt_continue
       }
       [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
       [ -f "${LMANDIR}"/lazyman.sh ] && {
@@ -1185,6 +1190,25 @@ get_conf_value() {
   echo "${confval}"
 }
 
+set_conf_value() {
+  confname="$1"
+  confval="$2"
+  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
+    case ${confval} in
+      true | false | [0-9])
+        cat "${NVIMCONF}" \
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+        ;;
+      *)
+        cat "${NVIMCONF}" \
+          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+        ;;
+    esac
+    cp /tmp/nvim$$ "${NVIMCONF}"
+    rm -f /tmp/nvim$$
+  }
+}
+
 set_conf_table() {
   marker="$1"
   confval="$2"
@@ -1229,34 +1253,12 @@ set_conf_table() {
   esac
 }
 
-set_conf_value() {
-  confname="$1"
-  confval="$2"
-  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
-    case ${confval} in
-      true | false | [0-9])
-        cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
-        ;;
-      *)
-        cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
-        ;;
-    esac
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
-}
-
 set_ranger_float() {
   have_ranger=$(type -p ranger)
   [ "${have_ranger}" ] || {
     ranger_float=$(get_conf_value enable_ranger_float)
     [ "${ranger_float}" == "true" ] && {
-      cat "${NVIMCONF}" \
-        | sed -e "s/conf.enable_ranger_float.*/conf.enable_ranger_float = false/" >/tmp/nvim$$
-      cp /tmp/nvim$$ "${NVIMCONF}"
-      rm -f /tmp/nvim$$
+      set_conf_value "enable_ranger_float" "false"
     }
   }
 }
@@ -1266,12 +1268,7 @@ set_waka_opt() {
   [ -f "${HOME}"/.wakatime.cfg ] && {
     grep api_key "${HOME}"/.wakatime.cfg >/dev/null && waka="true"
   }
-  grep 'conf.enable_wakatime' "${NVIMCONF}" >/dev/null && {
-    cat "${NVIMCONF}" \
-      | sed -e "s/conf.enable_wakatime.*/conf.enable_wakatime = ${waka}/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
+  set_conf_value "enable_wakatime" "${waka}"
 }
 
 set_chat_gpt() {
@@ -1280,12 +1277,15 @@ set_chat_gpt() {
   else
     openai="false"
   fi
-  grep 'conf.enable_chatgpt' "${NVIMCONF}" >/dev/null && {
-    cat "${NVIMCONF}" \
-      | sed -e "s/conf.enable_chatgpt.*/conf.enable_chatgpt = ${openai}/" >/tmp/nvim$$
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
-  }
+  set_conf_value "enable_chatgpt" "${openai}"
+}
+
+set_code_explain() {
+  if [ -f "${HOME}/.codeexplain/model.bin" ]; then
+    set_conf_value "enable_codeexplain" "true"
+  else
+    set_conf_value "enable_codeexplain" "false"
+  fi
 }
 
 install_config() {
@@ -1867,8 +1867,7 @@ show_plugin_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
       mainmenu=1
       break
     }
@@ -1897,6 +1896,12 @@ show_plugin_menu() {
       use_chatgpt=""
     else
       use_chatgpt="✗"
+    fi
+    enable_codeexplain=$(get_conf_value enable_codeexplain)
+    if [ "${enable_codeexplain}" == "true" ]; then
+      use_codeexplain=""
+    else
+      use_codeexplain="✗"
     fi
     enable_rainbow2=$(get_conf_value enable_rainbow2)
     if [ "${enable_rainbow2}" == "true" ]; then
@@ -2085,6 +2090,10 @@ show_plugin_menu() {
     options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("ChatGPT       [${use_chatgpt}]")
+    options+=("GPT4ALL       [${use_codeexplain}]")
+    [ -f "${HOME}/.codeexplain/model.bin" ] && {
+      options+=(" Remove GPT model")
+    }
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
@@ -2203,8 +2212,62 @@ show_plugin_menu() {
             else
               printf "\nThe OPENAI_API_KEY environment variable must be set"
               printf "\nbefore enabling the ChatGPT plugin."
-              printf "\nPress <Enter> to continue ... "
-              read -r yn
+              prompt_continue
+            fi
+          fi
+          break
+          ;;
+        " Remove GPT"*,* | *," Remove GPT"*)
+          rm -f "${HOME}/.codeexplain/model.bin"
+          for models in "${HOME}"/.codeexplain/*
+          do
+            [ "${models}" == "${HOME}/.codeexplain/*" ] && {
+              rmdir "${HOME}/.codeexplain"
+            }
+          done
+          set_conf_value "enable_codeexplain" "false"
+          break
+          ;;
+        "GPT4ALL"*,* | *,"GPT4ALL"*)
+          if [ "${enable_codeexplain}" == "true" ]; then
+            set_conf_value "enable_codeexplain" "false"
+          else
+            if [ -f "${HOME}/.codeexplain/model.bin" ]; then
+              set_conf_value "enable_codeexplain" "true"
+            else
+              [ -x ${LMANDIR}/scripts/gpt4all.sh ] || {
+                printf "\n${LMANDIR}/scripts/gpt4all.sh not executable"
+                printf "\nUnable to enable the codeexplain.nvim plugin."
+                printf "\nPlease check the Lazyman installation."
+                prompt_continue
+              }
+              printf "\nThe GPT4ALL model must be downloaded before"
+              printf "\nenabling the codeexplain.nvim GPT4ALL plugin."
+              printf "\nThe model is 3.5GB, located in your HOME directory."
+              printf "\nWould you like to download the GPT4ALL model?\n"
+              while true; do
+                read -r -p "Download GPT4ALL model (no API key required) ? (y/n) " yn
+                case $yn in
+                  [Yy]*)
+                    printf "\nDownloading large file, please be patient ..."
+                    ${LMANDIR}/scripts/gpt4all.sh
+                    if [ -f "${HOME}/.codeexplain/model.bin" ]; then
+                      printf " done\n"
+                      set_conf_value "enable_codeexplain" "true"
+                    else
+                      printf "\nDownload failed. Unable to enable plugin."
+                      prompt_continue
+                    fi
+                    break
+                    ;;
+                  [Nn]*)
+                    break
+                    ;;
+                  *)
+                    printf "\nPlease answer yes or no.\n"
+                    ;;
+                esac
+              done
             fi
           fi
           break
@@ -2531,6 +2594,7 @@ show_plugin_menu() {
           set_conf_value "session_manager" "none"
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
+          set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_rainbow2" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
@@ -2570,6 +2634,9 @@ show_plugin_menu() {
           set_conf_value "session_manager" "possession"
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
+          [ -f "${HOME}/.codeexplain/model.bin" ] && {
+            set_conf_value "enable_codeexplain" "true"
+          }
           set_conf_value "enable_rainbow2" "true"
           set_conf_value "enable_surround" "true"
           set_conf_value "enable_fancy" "true"
@@ -2607,6 +2674,7 @@ show_plugin_menu() {
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
             set_chat_gpt
+            set_code_explain
             set_ranger_float
             set_waka_opt
           }
@@ -2643,8 +2711,7 @@ show_plugin_menu() {
         *,*)
           printf "\nNo matching menu item located."
           printf "\nSelection out of range or malformed."
-          printf "\nPress <Enter> to continue ... "
-          read -r yn
+          prompt_continue
           break
           ;;
       esac
@@ -2668,8 +2735,7 @@ show_lsp_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
       mainmenu=1
       break
     }
@@ -2783,8 +2849,7 @@ show_formlint_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
       mainmenu=1
       break
     }
@@ -2898,8 +2963,7 @@ show_conf_menu() {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install Lazyman"
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
       mainmenu=1
       break
     }
@@ -3180,6 +3244,7 @@ show_conf_menu() {
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
             set_chat_gpt
+            set_code_explain
             set_ranger_float
             set_waka_opt
           }
@@ -3216,8 +3281,7 @@ show_conf_menu() {
         *,*)
           printf "\nNo matching menu item located."
           printf "\nSelection out of range or malformed."
-          printf "\nPress <Enter> to continue ... "
-          read -r yn
+          prompt_continue
           break
           ;;
       esac
@@ -3361,9 +3425,7 @@ show_main_menu() {
     else
       options+=("Install All       ${configstr}")
     fi
-    [[ "${have_composer}" && "${have_julia}" && "${have_figlet}" && "${have_rocks}" && "${have_tscli}" && "${have_zoxi}" ]] || {
-      options+=("Install Tools")
-    }
+    options+=("Install Tools")
     uninstalled=()
     if [ "${have_fzf}" ]
     then
@@ -3378,8 +3440,7 @@ show_main_menu() {
     else
       printf "\n\nConfiguration selection requires fzf but fzf is not found."
       printf "\nInstall fzf with 'lazyman -I' and verify fzf is in your PATH."
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
     fi
     [ "${base_installed}" ] || options+=("Select/Install Base")
     [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
@@ -3794,8 +3855,7 @@ show_main_menu() {
               fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"
-              printf "\nPress <Enter> to continue ... "
-              read -r yn
+              prompt_continue
             fi
           fi
           break
@@ -3932,8 +3992,7 @@ set_starter_branch() {
       ;;
     *)
       printf "\nUnrecognized nvim-starter configuration: ${nvimstarter}"
-      printf "\nPress <Enter> to continue ... "
-      read -r yn
+      prompt_continue
       usage
       ;;
   esac
@@ -4419,8 +4478,7 @@ set_haves
           ;;
         *)
           printf "\nUnrecognized personal configuration: ${nvimprsnl}"
-          printf "\nPress <Enter> to continue ... "
-          read -r yn
+          prompt_continue
           usage
           ;;
       esac
@@ -4760,6 +4818,8 @@ fi
 
 # Enable ChatGPT plugin if OPENAI_API_KEY set
 set_chat_gpt
+# Enable Code Explain plugin if model has been downloaded
+set_code_explain
 # Disable ranger float plugin if ranger not found
 set_ranger_float
 # Enable WakaTime plugin if api_key set in .wakatime.cfg
