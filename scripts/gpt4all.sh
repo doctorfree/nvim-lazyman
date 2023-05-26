@@ -21,3 +21,13 @@ else
     curl -kfsSL -o "${HOME}/.codeexplain/model.bin" "${MODEL_URL}"
   }
 fi
+
+# For now, codeexplain.nvim requires specific versions of these pip modules
+have_python3=$(type -p python3)
+[ "${have_python3}" ] && {
+  python3 -m pip install --user --no-cache-dir --force-reinstall \
+    langchain==0.0.177 \
+    llama-cpp-python==0.1.48 \
+    Pygments==2.15.1 \
+    pynvim==0.4.3 > /dev/null 2>&1
+}
