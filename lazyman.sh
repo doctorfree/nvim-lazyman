@@ -25,7 +25,7 @@ STARTCFGS="Basic Kickstart NvPak ${MINIMCFGS}"
 CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Ohmynvim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
-timeout=180
+timeout=120
 # Array with font names
 fonts=("slant" "shadow" "small" "script" "standard")
 # Supported themes
@@ -384,23 +384,28 @@ init_neovim() {
 
   [ "${skipthis}" ] || {
     if [ "$debug" ]; then
-      [ "$quiet" ] || printf "\nInitializing configuration in debug mode ..."
+      LOG="${LMANDIR}/logs/${neodir}"
+      [ "$quiet" ] || {
+        printf "\nInitializing configuration in debug mode."
+        printf "\nLogging output in ${LMANDIR}/logs/ ... "
+      }
+      [ -d ${LMANDIR}/logs ] || mkdir -p ${LMANDIR}/logs
       START_SECONDS=$(date +%s)
       if [ "${packer}" ]; then
         xtimeout ${timeout} nvim --headless -c \
-          'autocmd User PackerComplete quitall' -c 'PackerSync'
+          'autocmd User PackerComplete quitall' -c 'PackerSync' > ${LOG} 2>&1
       else
         if [ "${plug}" ]; then
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'PlugInstall' -c 'qa'
+            'set nomore' -c 'PlugInstall' -c 'qa' > ${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'UpdateRemotePlugins' -c 'qa'
+            'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >> ${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'GoInstallBinaries' -c 'qa'
+            'set nomore' -c 'GoInstallBinaries' -c 'qa' >> ${LOG} 2>&1
         else
           if [ "${neodir}" == "${spacevimdir}" ]; then
-            xtimeout ${timeout} nvim --headless "+SPInstall" +qa
-            xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa
+            xtimeout ${timeout} nvim --headless "+SPInstall" +qa > ${LOG} 2>&1
+            xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
           else
             if [ "${neodir}" == "${lunarvimdir}" ]; then
               export NVIM_APPNAME="nvim-LunarVim"
@@ -410,12 +415,12 @@ init_neovim() {
               export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
             fi
             if [ "${treesitter}" ]; then
-              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa
+              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa > ${LOG} 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
-                xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa
+                xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa > ${LOG} 2>&1
                 [ "${neodir}" == "${nvchaddir}" ] && {
-                  xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa
+                  xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
                 }
               }
             fi
@@ -424,7 +429,7 @@ init_neovim() {
       fi
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         xtimeout ${timeout} nvim --headless \
-          "+helptags ${HOME}/.config/${neodir}/doc" +qa
+          "+helptags ${HOME}/.config/${neodir}/doc" +qa >> ${LOG} 2>&1
       }
       [ "$quiet" ] || printf " done\n"
       calc_elapsed
