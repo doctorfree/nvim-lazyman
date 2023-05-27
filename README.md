@@ -355,6 +355,7 @@ installed with the `-w conf` option.
   - Install and initialize with `lazyman -w Fennel`
 - [Adib](https://github.com/adibhanna/nvim)
   - Personal Neovim configuration of Adib Hanna
+  - Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
   - Install and initialize with `lazyman -w Adib`
 - [Optixal](https://github.com/Optixal/neovim-init.vim)
   - Hybrid Neovim config for developers with a functional yet aesthetic experience
@@ -702,7 +703,7 @@ Where:
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           'Basic' 'Kickstart' 'NvPak' 'Minimal' 'StartBase'
+           'Basic' 'Kickstart' 'NvPak' 'PDE' 'Minimal' 'StartBase'
            'Opinion' 'StartLsp' 'StartMason', or 'Modular'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
@@ -1802,7 +1803,7 @@ dashboard actions.
 Changing the configured dashboard from within Neovim via the Terminal display
 of the `lazyman` menu system will not take effect until a restart of Neovim.
 
-### Updates
+### Updating lazyman
 
 An update of the Lazyman configuration and `lazyman` command can be performed
 with the command `lazyman -U`. However, early releases of Lazyman always
