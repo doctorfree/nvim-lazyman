@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
+local lsp_servers = settings.lsp_servers
 
 if settings.enable_coding then
   return {
@@ -16,7 +17,7 @@ if settings.enable_coding then
       },
       config = function()
         local opts = {
-          ensure_installed = settings.formatters_linters,
+          ensure_installed = formatters_linters,
           ui = {
             border = "rounded",
             icons = {
@@ -42,7 +43,7 @@ if settings.enable_coding then
           install_ensured()
         end
         require("mason-lspconfig").setup({
-          ensure_installed = settings.lsp_servers,
+          ensure_installed = lsp_servers,
           automatic_installation = true,
         })
         require("config.lspconfig")
@@ -111,7 +112,7 @@ else
       },
       config = function()
         local opts = {
-          ensure_installed = settings.formatters_linters,
+          ensure_installed = formatters_linters,
           ui = {
             border = "rounded",
             icons = {
@@ -137,7 +138,7 @@ else
           install_ensured()
         end
         require("mason-lspconfig").setup({
-          ensure_installed = settings.lsp_servers,
+          ensure_installed = lsp_servers,
           automatic_installation = true,
         })
         require("config.lspconfig")

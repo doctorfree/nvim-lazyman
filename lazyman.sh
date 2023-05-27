@@ -397,7 +397,7 @@ init_neovim() {
       else
         if [ "${plug}" ]; then
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'PlugInstall' -c 'qa' > ${LOG} 2>&1
+            'set nomore' -c 'PlugInstall!' -c 'qa' > ${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
             'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >> ${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
@@ -442,7 +442,7 @@ init_neovim() {
       else
         if [ "${plug}" ]; then
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'PlugInstall' -c 'qa' >/dev/null 2>&1
+            'set nomore' -c 'PlugInstall!' -c 'qa' >/dev/null 2>&1
           xtimeout ${timeout} nvim --headless -c \
             'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >/dev/null 2>&1
           xtimeout ${timeout} nvim --headless -c \
