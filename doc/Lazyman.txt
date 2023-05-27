@@ -243,8 +243,8 @@ always used on Arch Linux, Homebrew on macOS)
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
-'conf' can be one of: 'Basic', 'Kickstart', 'NvPak', 'Minimal', 'StartBase',
-'Opinion', 'Lsp', 'Mason', or 'Modular'
+'conf' can be one of: 'Basic', 'Kickstart', 'NvPak', 'PDE', 'Minimal',
+'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
