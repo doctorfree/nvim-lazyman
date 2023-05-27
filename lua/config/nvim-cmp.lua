@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local cmp = require("cmp")
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 if not settings.enable_wilder then
   cmp.setup.cmdline("/", {
@@ -103,8 +104,6 @@ if settings.enable_coding then
   }
 end
 
-local select_opts = { behavior = cmp.SelectBehavior.Select }
-
 cmp.setup({
   snippet = snippet,
   window = {
@@ -147,8 +146,8 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp", keyword_length = 1 },
     { name = "nvim_lua", keyword_length = 2 },
-    { name = "buffer", keyword_length = 3 },
-    { name = "luasnip", keyword_length = 2 },
+    { name = "buffer",   keyword_length = 3 },
+    { name = "luasnip",  keyword_length = 2 },
     -- { name = 'zsh' }, -- With tamago324/cmp-zsh
     -- { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
