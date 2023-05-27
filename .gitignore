@@ -57,6 +57,8 @@ neovide_backtraces*
 lua/configuration-new.lua
 lua/configuration-orig.lua
 lua/configuration-prev.lua
+logs/*
+!logs/README.md
 
 # vim files
 .*.sw[a-z]
