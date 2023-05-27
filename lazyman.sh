@@ -21,7 +21,7 @@ USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="Basic Kickstart NvPak ${MINIMCFGS}"
+STARTCFGS="Basic Kickstart NvPak PDE ${MINIMCFGS}"
 CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Ohmynvim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
@@ -122,7 +122,7 @@ usage() {
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Basic' 'Kickstart' 'NvPak' 'Minimal' 'StartBase'"
+  printf "\n           'Basic' 'Kickstart' 'NvPak' 'PDE' 'Minimal' 'StartBase'"
   printf "\n           'Opinion' 'StartLsp' 'StartMason', or 'Modular'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
@@ -1137,6 +1137,8 @@ show_alias() {
     printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
   elif [ "$kickstart" ]; then
     printf "\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
+  elif [ "$pde" ]; then
+    printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
   elif [ "$lazyman" ]; then
     printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
   elif [ "$lazyvim" ]; then
@@ -1330,6 +1332,9 @@ install_config() {
       ;;
     NvChad)
       lazyman ${darg} -c -z -y -Q -q
+      ;;
+    PDE)
+      lazyman ${darg} -x PDE -z -y -Q -q
       ;;
     Penguin)
       lazyman ${darg} -o -z -y -Q -q
@@ -4032,6 +4037,7 @@ nvchad=
 nvimcustom=
 nvimprsnl=
 nvimstarter=
+pde=
 penguinvim=
 spacevim=
 plug=
@@ -4060,6 +4066,7 @@ lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
 onnovimdir="nvim-ONNO"
+pdedir="nvim-PDE"
 penguinvimdir="nvim-Penguin"
 fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
@@ -4462,9 +4469,6 @@ set_haves
           prsnl_opt="-b main"
           prsnl_dir="-D nvim"
           ;;
-        NvPak)
-          prsnl_url="https://github.com/Pakrohk-DotFiles/NvPak.git"
-          ;;
         Optixal)
           prsnl_url="https://github.com/Optixal/neovim-init.vim"
           prsnl_opt="-p"
@@ -4544,6 +4548,13 @@ set_haves
         -N nvim-NvPak ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-NvPak"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+      printf "\n${action} PDE Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
+        -N nvim-PDE ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-PDE"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -4573,6 +4584,15 @@ set_haves
             -N nvim-NvPak ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-NvPak"
+          ;;
+        PDE)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+          printf "\n${action} PDE Neovim configuration ..."
+          lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
+            -N nvim-PDE ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-PDE"
           ;;
         *)
           startbranch=
@@ -4640,6 +4660,7 @@ set_haves
   [ "$minivim" ] && numvim=$((numvim + 1))
   [ "$nv" ] && numvim=$((numvim + 1))
   [ "$nvchad" ] && numvim=$((numvim + 1))
+  [ "$pde" ] && numvim=$((numvim + 1))
   [ "$penguinvim" ] && numvim=$((numvim + 1))
   [ "$spacevim" ] && numvim=$((numvim + 1))
   [ "$numvim" -gt 1 ] && {
@@ -4657,6 +4678,7 @@ set_haves
   [ "$minivim" ] && minivimdir="$name"
   [ "$nv" ] && nvdir="$name"
   [ "$nvchad" ] && nvchaddir="$name"
+  [ "$pde" ] && pdedir="$name"
   [ "$penguinvim" ] && penguinvimdir="$name"
   [ "$spacevim" ] && spacevimdir="$name"
   [ "$numvim" -eq 1 ] && {
@@ -4724,6 +4746,9 @@ set_haves
       ;;
     magicvim)
       ndir="$magicvimdir"
+      ;;
+    pde)
+      ndir="$pdedir"
       ;;
     penguinvim)
       ndir="$penguinvimdir"
@@ -5090,6 +5115,9 @@ done
     fi
   }
   [ "$quiet" ] || printf "done"
+}
+[ "$pde" ] && {
+  clone_repo PDE alpha2phi/neovim-pde "$pdedir"
 }
 [ "$penguinvim" ] && {
   clone_repo Penguin p3nguin-kun/penguinVim "$penguinvimdir"

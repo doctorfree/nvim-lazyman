@@ -49,7 +49,8 @@ features. Configurations in the `Personal` category are not necessarily
 intended for public use, these repositories are maintained for the personal
 use of the authors but are included here for their value. The `Starter`
 category includes the Neovim `Kickstart` configuration, the `NvPak` config,
-the `Basic` config, and the Neovim configurations provided by the
+the `PDE` personal development environment config, the `Basic` config, and
+the Neovim configurations provided by the
 [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
 The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
@@ -70,11 +71,10 @@ following Lazyman Neovim configuration categories:
 | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) |
 | [Simple](https://github.com/anthdm/.nvim) | [ONNO](https://github.com/loctvl842/nvim.git) | [LaTeX](https://github.com/benbrastmckie/.config) |
 
-| **Starter** |       | **Configs** |
-| ----------- | ----- | ----------- |
-| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
-| [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) |
-| [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
+| **Starter** |       |       |       | **Configs** |
+| ----------- | ----- | ----- | ----- | ----------- |
+| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
+| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) |
 
 Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
@@ -387,7 +387,7 @@ installed with the `-w conf` option.
 ### Starter configurations
 
 The 'Starter' Neovim configurations include `Basic`, `Kickstart`, `NvPak`,
-and those provided by [VonHeikemen](https://github.com/VonHeikemen),
+`PDE`, and those provided by [VonHeikemen](https://github.com/VonHeikemen),
 the author of [LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim).
 
 All of the 'Starter' configurations can be installed and initialized with
@@ -403,6 +403,9 @@ installed with the `-x conf` option.
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
   - PaK in Farsi means pure, something that is in its purest form
   - Install and initialize with `lazyman -x NvPak`
+- [PDE](https://github.com/alpha2phi/neovim-pde)
+  - Configure Neovim as a Personalized Development Environment (PDE)
+  - Install and initialize with `lazyman -x PDE`
 - [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
   - Small configuration without third party plugins
   - Install and initialize with `lazyman -x Minimal`
