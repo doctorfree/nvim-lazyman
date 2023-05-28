@@ -457,7 +457,7 @@ install_neovim_dependencies() {
           tar -C /tmp/ghit$$ -xzf "${TEMP_TGZ}"
           for ghimbin in /tmp/"ghit$$"/*/bin/gh /tmp/"ghit$$"/bin/gh
           do
-            [ "${ghimbin}" == "/tmp/nvim$$/*/bin/gh" ] && continue
+            [ "${ghimbin}" == "/tmp/ghit$$/*/bin/gh" ] && continue
             [ -f "${ghimbin}" ] && {
               ghimdir=$(dirname ${ghimbin})
               ghimdir=$(dirname ${ghimdir})
@@ -839,6 +839,47 @@ install_tools() {
             ${HOME}/.local/bin/tldr --update > /dev/null 2>&1
           }
           rm -f "${TEMP_TGZ}"
+          [ "$quiet" ] || printf " done"
+        }
+      }
+    fi
+  fi
+  if ! command -v ascii-image-converter >/dev/null 2>&1; then
+    if [ "${use_homebrew}" ]; then
+      "$BREW_EXE" install --quiet \
+        TheZoraiz/ascii-image-converter/ascii-image-converter >/dev/null 2>&1
+    else
+      OWNER=TheZoraiz
+      PROJECT=ascii-image-converter
+      API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      DL_URL=
+      [ "${have_curl}" ] && [ "${have_jq}" ] && {
+        DL_URL=$(curl --silent "${API_URL}" \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
+          | grep "Linux_amd64")
+      }
+      [ "${DL_URL}" ] && {
+        [ "${have_wget}" ] && {
+          log "Installing ascii-image-converter ..."
+          TEMP_TGZ="$(mktemp --suffix=.bin)"
+          wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+          chmod 644 "${TEMP_TGZ}"
+          mkdir -p /tmp/ascc$$
+          [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
+          tar -C /tmp/ascc$$ -xzf "${TEMP_TGZ}"
+          for asccbin in /tmp/"ascc$$"/*/ascii-image-converter /tmp/"ascc$$"/ascii-image-converter
+          do
+            [ "${asccbin}" == "/tmp/ascc$$/*/ascii-image-converter" ] && continue
+            [ -f "${asccbin}" ] && {
+              cp "${asccbin}" ${HOME}/.local/bin/ascii-image-converter
+              [ -f ${HOME}/.local/bin/ascii-image-converter ] && {
+                chmod 755 ${HOME}/.local/bin/ascii-image-converter
+                break
+              }
+            }
+          done
+          rm -f "${TEMP_TGZ}"
+          rm -rf /tmp/ascc$$
           [ "$quiet" ] || printf " done"
         }
       }
