@@ -194,8 +194,10 @@ conf.lsp_servers = {
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
   "actionlint",         -- FORMATTERS_LINTERS
-  "goimports",          -- FORMATTERS_LINTERS
   "gofumpt",            -- FORMATTERS_LINTERS
+  "goimports",          -- FORMATTERS_LINTERS
+  "goimports_reviser",  -- FORMATTERS_LINTERS
+  "golines",            -- FORMATTERS_LINTERS
   "golangci-lint",      -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
   "latexindent",        -- FORMATTERS_LINTERS

@@ -126,6 +126,22 @@ if settings.enable_coding then
       })
     )
   end
+  if table_contains(formatters_linters, "goimports_reviser") then
+    table.insert(
+      conf_sources,
+      formatting.goimports_reviser.with({
+        timeout = 10000,
+      })
+    )
+  end
+  if table_contains(formatters_linters, "golines") then
+    table.insert(
+      conf_sources,
+      formatting.golines.with({
+        timeout = 10000,
+      })
+    )
+  end
   if table_contains(formatters_linters, "google-jave-format") then
     table.insert(
       conf_sources,
