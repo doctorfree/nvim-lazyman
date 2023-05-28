@@ -6,6 +6,36 @@
 
 ### 🐞 Fixed
 
+## v2.1.3r3
+
+### ⚡️ Added
+
+- Add `golines` to `null-ls` formatters
+- Add script to install `delve`
+- Add `rust` to treesitter parsers
+- Add `PDE` config to Starters
+- Use bang in `PlugInstall`
+- Configure `gopls` in `go.lua` off setting in configuration.lua
+- Log debug initialization to logs folder
+- Install specific versions of pip modules for `codeexplain` in `gpt4all.sh`
+- Add menu option to remove GPT model file
+- Add `llama-cpp-python` to dependencies
+- Run `UpdateRemotePlugins` in `codeexplain` build
+- Add `langchain` and `Pygments` to installed dependencies
+- Add GPT4ALL `codeexplain.nvim` plugin and menu support
+
+### 🐞 Fixed
+
+- Force reinstall and upgrade of pip modules in `install_neovim.sh`
+- Change GPT model download to `vicuna`
+- Disable `codeexplain` plugin when GPT model is removed
+- Use `set_conf_value` rather than `sed`
+- Only need to install specific versions of `langchain` and `llama-cpp-python` for `codeexplain.nvim`
+- Fix `select_opts` setting in `nvim-cmp`
+- Fix navic attached lspconfig, enable `rust analyzer`
+- Improve `sed` of `configuration.lua` table entries to permit multiple spaces or tabs preceding comment markers
+- Git ignore everything in logs folder except README.md
+
 ## v2.1.3r2
 
 ### ⚡️ Added
