@@ -809,9 +809,13 @@ install_tools() {
   [ "$quiet" ] || printf "\nInstalling npm and treesitter dependencies"
 
   # First try to install tree-sitter-cli with cargo then npm
-  if ! command -v tree-sitter >/dev/null 2>&1; then
+  if command -v tree-sitter >/dev/null 2>&1; then
+    log "Using previously installed tree-sitter cli"
+  else
     if command -v "cargo" >/dev/null 2>&1; then
+      log "Installing tree-sitter cli with cargo ..."
       cargo install tree-sitter-cli >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     fi
   fi
   if ! command -v tldr >/dev/null 2>&1; then
@@ -844,10 +848,14 @@ install_tools() {
       }
     fi
   fi
-  if ! command -v ascii-image-converter >/dev/null 2>&1; then
+  if command -v ascii-image-converter >/dev/null 2>&1; then
+      log "Using previously installed ascii-image-converter"
+  else
     if [ "${use_homebrew}" ]; then
+      log "Installing ascii-image-converter ..."
       "$BREW_EXE" install --quiet \
         TheZoraiz/ascii-image-converter/ascii-image-converter >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     else
       OWNER=TheZoraiz
       PROJECT=ascii-image-converter
@@ -887,9 +895,11 @@ install_tools() {
   fi
   have_npm=$(type -p npm)
   [ "$have_npm" ] && {
-    log "Installing tree-sitter command line npm package ..."
-    npm i -g tree-sitter-cli >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
+    if ! command -v tree-sitter >/dev/null 2>&1; then
+      log "Installing tree-sitter command line npm package ..."
+      npm i -g tree-sitter-cli >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
 
     log "Installing Neovim npm package ..."
     npm i -g neovim >/dev/null 2>&1
@@ -899,17 +909,29 @@ install_tools() {
     npm i -g fd-find >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
 
-    log "Installing cspell npm package ..."
-    npm i -g cspell >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
+    if command -v cspell >/dev/null 2>&1; then
+      log "Using previously installed cspell"
+    else
+      log "Installing cspell npm package ..."
+      npm i -g cspell >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
 
-    log "Installing typescript npm package ..."
-    npm i -g typescript >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
+    if command -v tsserver >/dev/null 2>&1; then
+      log "Using previously installed typescript package"
+    else
+      log "Installing typescript npm package ..."
+      npm i -g typescript >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
 
-    log "Installing eslint_d npm package ..."
-    npm i -g eslint_d >/dev/null 2>&1
-    [ "$quiet" ] || printf " done"
+    if command -v eslint_d >/dev/null 2>&1; then
+      log "Using previously installed eslint_d"
+    else
+      log "Installing eslint_d npm package ..."
+      npm i -g eslint_d >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
 
     log "Installing the icon font for Visual Studio Code ..."
     npm i -g @vscode/codicons >/dev/null 2>&1
