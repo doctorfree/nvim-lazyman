@@ -1246,11 +1246,11 @@ set_conf_table() {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | sed -e "s/  \"${confval}\", -- ${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | sed -e "s/  \"${confval}\",[[:space:]]\+--[[:space:]]\+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | sed -e "s/-- \"${confval}\", -- ${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | sed -e "s/-- \"${confval}\",[[:space:]]\+--[[:space:]]\+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
         esac
         cp /tmp/nvim$$ "${NVIMCONF}"
