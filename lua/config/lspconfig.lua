@@ -311,15 +311,13 @@ if settings.enable_coding then
     "texlab",
   }
   for _, server in ipairs(other_servers_with_navic) do
-    if table_contains(lsp_servers, server) then
-      if lspconfig[server] then
-        lspconfig[server].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            navic.attach(client, bufnr)
-          end,
-        })
-      end
+    if lspconfig[server] then
+      lspconfig[server].setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+        end,
+      })
     end
   end
 
