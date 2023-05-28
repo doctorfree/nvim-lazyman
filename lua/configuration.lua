@@ -172,7 +172,7 @@ conf.lsp_servers = {
   "cssmodules_ls", -- LSP_SERVERS
   "denols",        -- LSP_SERVERS
   "dockerls",      -- LSP_SERVERS
-  -- "eslint",     -- LSP_SERVERS
+  -- "eslint", -- LSP_SERVERS
   "gopls",         -- LSP_SERVERS
   "graphql",       -- LSP_SERVERS
   "html",          -- LSP_SERVERS
@@ -193,18 +193,18 @@ conf.lsp_servers = {
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint",         -- FORMATTERS_LINTERS
-  "gofumpt",            -- FORMATTERS_LINTERS
-  "goimports",          -- FORMATTERS_LINTERS
-  "golines",            -- FORMATTERS_LINTERS
-  "golangci-lint",      -- FORMATTERS_LINTERS
-  "google-java-format", -- FORMATTERS_LINTERS
-  "latexindent",        -- FORMATTERS_LINTERS
-  "markdownlint",       -- FORMATTERS_LINTERS
-  "prettier",           -- FORMATTERS_LINTERS
-  "sql-formatter",      -- FORMATTERS_LINTERS
-  -- "shellcheck",      -- FORMATTERS_LINTERS
-  -- "shfmt",           -- FORMATTERS_LINTERS
+  "actionlint",    -- FORMATTERS_LINTERS
+  "gofumpt",       -- FORMATTERS_LINTERS
+  "goimports",     -- FORMATTERS_LINTERS
+  "golines",       -- FORMATTERS_LINTERS
+  "golangci-lint", -- FORMATTERS_LINTERS
+  "google-java-format", FORMATTERS_LINTERS
+"latexindent",     -- FORMATTERS_LINTERS
+  "markdownlint",  -- FORMATTERS_LINTERS
+  "prettier",      -- FORMATTERS_LINTERS
+  "sql-formatter", -- FORMATTERS_LINTERS
+  -- "shellcheck", -- FORMATTERS_LINTERS
+  -- "shfmt", -- FORMATTERS_LINTERS
   "stylua",   -- FORMATTERS_LINTERS
   "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
