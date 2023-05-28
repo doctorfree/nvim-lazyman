@@ -568,7 +568,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Auto-configure [codeexplain.nvim](https://github.com/mthbernardes/codeexplain.nvim) (GPT4ALL) if the GPT model is found
-  - Lazyman menu provides auto-download and setup
+  - Lazyman menu provides auto-download and setup (requires Python 3.9 or greater)
   - This plugin is new and experimental. Unlike ChatGPT, it uses a self-hosted model and requires no API key or money
 - Custom Lazyman Cheat Sheets using [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim)
   - `:Cheatsheet` command, fuzzy search `lazyman` for custom Lazyman keymaps
