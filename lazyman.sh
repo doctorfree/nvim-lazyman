@@ -1163,6 +1163,30 @@ show_alias() {
   printf "\n"
 }
 
+check_python_version() {
+  have_python3=$(type -p python3)
+  [ "${have_python3}" ] || {
+    echo "NO"
+    return 3
+  }
+  major=$(python3 -c 'import sys; print(sys.version_info.major)')
+  if [ ${major} -eq 3 ]
+  then
+    minor=$(python3 -c 'import sys; print(sys.version_info.minor)')
+    if [ ${minor} -ge 9 ]
+    then
+      echo "OK"
+      return 0
+    else
+      echo "NO"
+      return 1
+    fi
+  else
+    echo "NO"
+    return 2
+  fi
+}
+
 get_conf_table() {
   confname="$1"
   if [ "${confname}" == "lsp_servers" ]; then
@@ -1289,7 +1313,13 @@ set_chat_gpt() {
 
 set_code_explain() {
   if [ -f "${HOME}/.codeexplain/model.bin" ]; then
-    set_conf_value "enable_codeexplain" "true"
+    pyver=$(check_python_version)
+    if [ "${pyver}" == "OK" ]
+    then
+      set_conf_value "enable_codeexplain" "true"
+    else
+      set_conf_value "enable_codeexplain" "false"
+    fi
   else
     set_conf_value "enable_codeexplain" "false"
   fi
@@ -1873,6 +1903,7 @@ show_plugin_menu() {
     confmenu=
     lspmenu=
     formenu=
+    pluginit=1
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2100,7 +2131,10 @@ show_plugin_menu() {
     options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("ChatGPT       [${use_chatgpt}]")
-    options+=("GPT4ALL       [${use_codeexplain}]")
+    pyver=$(check_python_version)
+    [ "${pyver}" == "OK" ] && {
+      options+=("GPT4ALL       [${use_codeexplain}]")
+    }
     [ -f "${HOME}/.codeexplain/model.bin" ] && {
       options+=(" Remove GPT model")
     }
@@ -2159,6 +2193,7 @@ show_plugin_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
+          pluginit=
           break
           ;;
         "Media"*,* | *,"Media"*)
@@ -2645,7 +2680,10 @@ show_plugin_menu() {
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
-            set_conf_value "enable_codeexplain" "true"
+            pyver=$(check_python_version)
+            [ "${pyver}" == "OK" ] && {
+              set_conf_value "enable_codeexplain" "true"
+            }
           }
           set_conf_value "enable_rainbow2" "true"
           set_conf_value "enable_surround" "true"
@@ -2696,22 +2734,27 @@ show_plugin_menu() {
           else
             NVIM_APPNAME="nvim-Lazyman" nvim
           fi
+          pluginit=
           break
           ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
+          pluginit=
           break 2
           ;;
         "Formatters"*,* | *,"Formatters"*)
           formenu=1
+          pluginit=
           break 2
           ;;
         "LSP Servers"*,* | *,"LSP Servers"*)
           lspmenu=1
+          pluginit=
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
           mainmenu=1
+          pluginit=
           break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
@@ -2722,11 +2765,13 @@ show_plugin_menu() {
           printf "\nNo matching menu item located."
           printf "\nSelection out of range or malformed."
           prompt_continue
+          pluginit=
           break
           ;;
       esac
       REPLY=
     done
+    [ "${pluginit}" ] && init_neovim nvim-Lazyman
   done
   [ "${confmenu}" ] && show_conf_menu
   [ "${mainmenu}" ] && show_main_menu
@@ -3079,6 +3124,7 @@ show_conf_menu() {
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
     options+=("Disable All")
     options+=("Enable All")
+    options+=("Minimal Config")
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
@@ -3220,6 +3266,51 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Minimal Config"*,* | *,"Minimal Config"*)
+          set_conf_value "global_statusline" "false"
+          set_conf_value "enable_statusline" "false"
+          set_conf_value "enable_tabline" "false"
+          set_conf_value "showtabline" "0"
+          set_conf_value "enable_winbar" "false"
+          set_conf_value "show_diagnostics" "none"
+          set_conf_value "enable_semantic_highlighting" "false"
+          set_conf_value "convert_semantic_highlighting" "false"
+          set_conf_value "media_backend" "none"
+          set_conf_value "enable_chatgpt" "false"
+          set_conf_value "enable_codeexplain" "false"
+          set_conf_value "enable_rainbow2" "false"
+          set_conf_value "enable_surround" "false"
+          set_conf_value "enable_fancy" "false"
+          set_conf_value "enable_wilder" "false"
+          set_conf_value "enable_lualine_lsp_progress" "false"
+          set_conf_value "enable_wakatime" "false"
+          set_conf_value "enable_asciiart" "false"
+          set_conf_value "enable_coding" "false"
+          set_conf_value "enable_compile" "false"
+          set_conf_value "enable_dressing" "false"
+          set_conf_value "enable_hop" "false"
+          set_conf_value "enable_ranger_float" "false"
+          set_conf_value "enable_renamer" "false"
+          set_conf_value "enable_multi_cursor" "false"
+          set_conf_value "enable_bbye" "false"
+          set_conf_value "enable_startuptime" "false"
+          set_conf_value "enable_games" "false"
+          set_conf_value "enable_bookmarks" "false"
+          set_conf_value "enable_ide" "false"
+          set_conf_value "enable_navigator" "false"
+          set_conf_value "enable_project" "false"
+          set_conf_value "enable_picker" "false"
+          set_conf_value "enable_dashboard_header" "false"
+          set_conf_value "enable_screensaver" "none"
+          for lsp in "${all_lsp_servers[@]}"; do
+            set_conf_table "LSP_SERVERS" "${lsp}" "disable"
+          done
+          for form in "${all_formatters[@]}"; do
+            set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
+          done
+          init_neovim nvim-Lazyman
+          break
+          ;;
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "number" "false"
           set_conf_value "relative_number" "false"
@@ -3233,6 +3324,7 @@ show_conf_menu() {
           set_conf_value "enable_semantic_highlighting" "false"
           set_conf_value "convert_semantic_highlighting" "false"
           set_conf_value "list" "false"
+          init_neovim nvim-Lazyman
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
@@ -3248,6 +3340,7 @@ show_conf_menu() {
           set_conf_value "enable_semantic_highlighting" "true"
           set_conf_value "convert_semantic_highlighting" "true"
           set_conf_value "list" "true"
+          init_neovim nvim-Lazyman
           break
           ;;
         "Reset"*,* | *,"Reset"*)
@@ -3257,6 +3350,7 @@ show_conf_menu() {
             set_code_explain
             set_ranger_float
             set_waka_opt
+            init_neovim nvim-Lazyman
           }
           break
           ;;
