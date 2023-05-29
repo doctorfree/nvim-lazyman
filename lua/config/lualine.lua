@@ -7,6 +7,12 @@ local lualine = require("lualine")
 local settings = require("configuration")
 local utils = require("utils.functions")
 
+local status_in_tab = false
+if settings.enable_statusline then
+  if not settings.enable_tabline then
+    status_in_tab = true
+  end
+end
 local fancy = settings.enable_fancy
 local mode = { "mode" }
 local branch = "branch"
@@ -182,6 +188,36 @@ if settings.enable_tabline then
   }
 end
 
+local sections = {
+  lualine_a = { mode },
+  lualine_b = {
+    branch,
+    diff,
+    diagnostics,
+    {
+      require("lazy.status").updates,
+      cond = require("lazy.status").has_updates,
+    },
+  },
+  lualine_c = line_c,
+  lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
+  lualine_y = { "progress" },
+  lualine_z = { "location" },
+}
+local inactive_sections = {
+  lualine_a = {},
+  lualine_b = {},
+  lualine_c = {},
+  lualine_x = {},
+  lualine_y = {},
+  lualine_z = {},
+}
+if status_in_tab then
+  tabline_cfg = sections
+  sections = {}
+  inactive_sections = {}
+end
+
 lualine.setup({
   options = {
     globalstatus = true,
@@ -216,31 +252,8 @@ lualine.setup({
     },
     always_divide_middle = true,
   },
-  sections = {
-    lualine_a = { mode },
-    lualine_b = {
-      branch,
-      diff,
-      diagnostics,
-      {
-        require("lazy.status").updates,
-        cond = require("lazy.status").has_updates,
-      },
-    },
-    lualine_c = line_c,
-    lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { "filename" },
-    lualine_x = { "location" },
-    lualine_y = {},
-    lualine_z = {},
-  },
-
+  sections = sections,
+  inactive_sections = inactive_sections,
   tabline = tabline_cfg,
   winbar = winbar_cfg,
   inactive_winbar = inactive_winbar_cfg,

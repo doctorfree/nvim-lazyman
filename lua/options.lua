@@ -7,9 +7,9 @@ if settings.enable_statusline then
   o.ruler = true
   o.showcmd = true
   if settings.global_statusline then
-    o.laststatus = 3
-  else
     o.laststatus = 2
+  else
+    o.laststatus = 1
   end
 else
   o.showmode = true -- Dont show mode since we have a statusline
