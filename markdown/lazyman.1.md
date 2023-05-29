@@ -229,7 +229,7 @@ The following command line options are available with the `lazyman` command:
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
-`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of: 'Basic', 'Kickstart', 'NvPak', 'PDE', 'Minimal', 'StartBase', 'Opinion', 'Lsp', 'Mason', or 'Modular'
+`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion', 'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'PDE', 'StartBase'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 

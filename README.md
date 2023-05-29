@@ -71,19 +71,21 @@ following Lazyman Neovim configuration categories:
 | [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) |
 | [Simple](https://github.com/anthdm/.nvim) | [ONNO](https://github.com/loctvl842/nvim.git) | [LaTeX](https://github.com/benbrastmckie/.config) |
 
-| **Starter** |       |       |       | **Configs** |
-| ----------- | ----- | ----- | ----- | ----------- |
-| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) |
-| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) |
+| **Starter** |       |       | **Configs** |
+| ----------- | ----- | ----- | ----------- |
+| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
+| [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
+| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
 
 Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       |       |       | **Configs** |
-| ---------- | ----- | ----- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
-| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
+| **Custom** |       | **Configs** |
+| ---------- | ----- | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -404,9 +406,15 @@ installed with the `-x conf` option.
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
   - PaK in Farsi means pure, something that is in its purest form
   - Install and initialize with `lazyman -x NvPak`
+- [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim)
+  - A theme-driven modern Neovim configuration
+  - Install and initialize with `lazyman -x HardHacker`
 - [PDE](https://github.com/alpha2phi/neovim-pde)
   - Configure Neovim as a Personalized Development Environment (PDE)
   - Install and initialize with `lazyman -x PDE`
+- [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
+  - Single file lightweight configuration focused on providing basic features
+  - Install and initialize with `lazyman -x Extralight`
 - [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
   - Small configuration without third party plugins
   - Install and initialize with `lazyman -x Minimal`
@@ -488,8 +496,7 @@ Neovim configuration perform the following:
 
 Often a custom Lazyman configuration will appear to work without issue but
 contain references to `~/.config/nvim/` in its configuration files. For
-example, the `oh-my-nvim` Neovim configuration installs and initializes
-without issue using `lazyman` but its dashboard contains a reference to
+example, a configuration's dashboard may contain a reference to
 `~/.config/nvim/init.lua`. References like this can be fixed so the config
 is relocatable by doing something like the following in Lua:
 
@@ -526,8 +533,6 @@ Known working custom Lazyman configurations include the following:
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
-- [Oh-My-Nvim](https://github.com/hardhackerlabs/oh-my-nvim)
-  - `lazyman -C https://github.com/hardhackerlabs/oh-my-nvim -N nvim-Ohmynvim`
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -b main -C https://github.com/slydragonn/dotfiles -D '.config/nvim' -N nvim-Slydragonn -P`
@@ -704,9 +709,9 @@ Where:
            'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
-       'conf' can be one of:
-           'Basic' 'Kickstart' 'NvPak' 'PDE' 'Minimal' 'StartBase'
-           'Opinion' 'StartLsp' 'StartMason', or 'Modular'
+       'conf' can be one of 'Basic', 'Kickstart', 'NvPak',
+       'Extralight', 'Opinion', 'StartLsp', 'StartMason',
+       'Minimal', 'Modular', 'HardHacker', 'PDE', 'StartBase'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates install and initialize all 'Custom' configs

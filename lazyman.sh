@@ -20,9 +20,9 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
-MINIMCFGS="Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="Basic Kickstart NvPak PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Ohmynvim Slydragonn"
+MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
+STARTCFGS="Basic Kickstart NvPak HardHacker PDE ${MINIMCFGS}"
+CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -123,9 +123,9 @@ usage() {
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
-  printf "\n       'conf' can be one of:"
-  printf "\n           'Basic' 'Kickstart' 'NvPak' 'PDE' 'Minimal' 'StartBase'"
-  printf "\n           'Opinion' 'StartLsp' 'StartMason', or 'Modular'"
+  printf "\n       'conf' can be one of 'Basic', 'Kickstart', 'NvPak',"
+  printf "\n       'Extralight', 'Opinion', 'StartLsp', 'StartMason',"
+  printf "\n       'Minimal', 'Modular', 'HardHacker', 'PDE', 'StartBase'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -Y indicates install and initialize all 'Custom' configs"
@@ -722,14 +722,6 @@ install_custom() {
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/magidc/nvim-config \
         -N nvim-Magidc ${allflags}
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "Ohmynvim" ] && {
-    printf "\nInstalling and initializing the Ohmynvim Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/hardhackerlabs/oh-my-nvim \
-        -N nvim-Ohmynvim ${allflags}
     }
     printf "done"
   }
@@ -1401,6 +1393,9 @@ install_config() {
     NvPak)
       lazyman ${darg} -x NvPak -z -y -Q -q
       ;;
+    HardHacker)
+      lazyman ${darg} -x HardHacker -z -y -Q -q
+      ;;
     Optixal)
       lazyman ${darg} -w Optixal -z -y -Q -q
       ;;
@@ -1431,7 +1426,10 @@ install_config() {
     Modular)
       lazyman ${darg} -x Modular -z -y -Q -q
       ;;
-    AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Ohmynvim|Penguin|Slydragonn)
+    Extralight)
+      lazyman ${darg} -x Extralight -z -y -Q -q
+      ;;
+    AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Penguin|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -4151,6 +4149,9 @@ set_starter_branch() {
     Modular)
       startbranch="05-modular"
       ;;
+    Extralight)
+      startbranch="xx-light"
+      ;;
     *)
       printf "\nUnrecognized nvim-starter configuration: ${nvimstarter}"
       prompt_continue
@@ -4723,6 +4724,13 @@ set_haves
       printf " done"
       show_alias "nvim-NvPak"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-HardHacker ] && action="Updating"
+      printf "\n${action} HardHacker Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/hardhackerlabs/oh-my-nvim \
+        -N nvim-HardHacker ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-HardHacker"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
       printf "\n${action} PDE Neovim configuration ..."
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
@@ -4758,6 +4766,15 @@ set_haves
             -N nvim-NvPak ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-NvPak"
+          ;;
+        HardHacker)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-HardHacker ] && action="Updating"
+          printf "\n${action} HardHacker Neovim configuration ..."
+          lazyman ${darg} -C https://github.com/hardhackerlabs/oh-my-nvim \
+            -N nvim-HardHacker ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-HardHacker"
           ;;
         PDE)
           action="Installing"
