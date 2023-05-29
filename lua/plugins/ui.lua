@@ -27,24 +27,38 @@ if settings.enable_lualine_lsp_progress then
   end
 end
 
-local lualine_cfg = {
-  "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  config = function()
-    require("config.lualine")
-  end,
-}
+local lualine_cfg = {}
+if settings.enable_statusline then
+  if settings.enable_fancy then
+    lualine_cfg = {
+      "nvim-lualine/lualine.nvim",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "meuter/lualine-so-fancy.nvim",
+      },
+      event = "VeryLazy",
+      config = function()
+        require("config.lualine")
+      end,
+    }
+  else
+    lualine_cfg = {
+      "nvim-lualine/lualine.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("config.lualine")
+      end,
+    }
+  end
+end
 
-if settings.enable_fancy then
-  lualine_cfg = {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "meuter/lualine-so-fancy.nvim",
-    },
+local tabline_cfg =  {}
+if settings.enable_tabline then
+  tabline_cfg =  {
+    "kdheepak/tabline.nvim",
     event = "VeryLazy",
     config = function()
-      require("config.lualine")
+      require("config.tabline")
     end,
   }
 end
@@ -212,13 +226,8 @@ return {
   -- LSP progress in lualine
   lualine_lsp_progress,
 
-  {
-    "kdheepak/tabline.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("config.tabline")
-    end,
-  },
+  -- tabline
+  tabline_cfg,
 
   -- indent guides for Neovim
   {

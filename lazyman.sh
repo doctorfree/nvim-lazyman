@@ -1898,12 +1898,12 @@ select_theme() {
 
 show_plugin_menu() {
   set_haves
+  pluginit=
   while true; do
     mainmenu=
     confmenu=
     lspmenu=
     formenu=
-    pluginit=1
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2193,7 +2193,6 @@ show_plugin_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
-          pluginit=
           break
           ;;
         "Media"*,* | *,"Media"*)
@@ -2201,6 +2200,7 @@ show_plugin_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Telescope Media Backend  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             set_conf_value "media_backend" "${choice}"
+            pluginit=1
           fi
           break
           ;;
@@ -2219,6 +2219,7 @@ show_plugin_menu() {
                 fi
               fi
             fi
+            pluginit=1
           fi
           break
           ;;
@@ -2237,6 +2238,7 @@ show_plugin_menu() {
                 fi
               fi
             fi
+            pluginit=1
           fi
           break
           ;;
@@ -2246,14 +2248,17 @@ show_plugin_menu() {
           else
             set_conf_value "enable_noice" "true"
           fi
+          pluginit=1
           break
           ;;
         "ChatGPT"*,* | *,"ChatGPT"*)
           if [ "${enable_chatgpt}" == "true" ]; then
             set_conf_value "enable_chatgpt" "false"
+            pluginit=1
           else
             if [ "$OPENAI_API_KEY" ]; then
               set_conf_value "enable_chatgpt" "true"
+              pluginit=1
             else
               printf "\nThe OPENAI_API_KEY environment variable must be set"
               printf "\nbefore enabling the ChatGPT plugin."
@@ -2271,6 +2276,7 @@ show_plugin_menu() {
             }
           done
           set_conf_value "enable_codeexplain" "false"
+          pluginit=1
           break
           ;;
         "GPT4ALL"*,* | *,"GPT4ALL"*)
@@ -2315,6 +2321,7 @@ show_plugin_menu() {
               done
             fi
           fi
+          pluginit=1
           break
           ;;
         "Rainbow"*,* | *,"Rainbow"*)
@@ -2323,6 +2330,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_rainbow2" "true"
           fi
+          pluginit=1
           break
           ;;
         "Surround"*,* | *,"Surround"*)
@@ -2331,6 +2339,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_surround" "true"
           fi
+          pluginit=1
           break
           ;;
         "Fancy"*,* | *,"Fancy"*)
@@ -2339,6 +2348,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_fancy" "true"
           fi
+          pluginit=1
           break
           ;;
         "Wilder"*,* | *,"Wilder"*)
@@ -2347,6 +2357,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_wilder" "true"
           fi
+          pluginit=1
           break
           ;;
         "Winbar LSP"*,* | *,"Winbar LSP"*)
@@ -2355,6 +2366,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_lualine_lsp_progress" "true"
           fi
+          pluginit=1
           break
           ;;
         "Terminal"*,* | *,"Terminal"*)
@@ -2363,6 +2375,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_terminal" "true"
           fi
+          pluginit=1
           break
           ;;
         "Toggle Term"*,* | *,"Toggle Term"*)
@@ -2371,6 +2384,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_toggleterm" "true"
           fi
+          pluginit=1
           break
           ;;
         "WakaTime"*,* | *,"WakaTime"*)
@@ -2399,6 +2413,7 @@ show_plugin_menu() {
               done
             fi
           fi
+          pluginit=1
           break
           ;;
         "Ascii Art"*,* | *,"Ascii Art"*)
@@ -2407,6 +2422,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_asciiart" "true"
           fi
+          pluginit=1
           break
           ;;
         "Cheatsheets"*,* | *,"Cheatsheets"*)
@@ -2415,6 +2431,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_cheatsheet" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable Hop"*,* | *,"Enable Hop"*)
@@ -2423,6 +2440,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_hop" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable Ranger"*,* | *,"Enable Ranger"*)
@@ -2431,6 +2449,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_ranger_float" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable coding"*,* | *,"Enable coding"*)
@@ -2464,6 +2483,7 @@ show_plugin_menu() {
               set_conf_table "LSP_SERVERS" "${lsp}" "enable"
             done
           fi
+          pluginit=1
           break
           ;;
         "Compile"*,* | *,"Compile"*)
@@ -2472,6 +2492,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_compile" "true"
           fi
+          pluginit=1
           break
           ;;
         "Multi Cursor"*,* | *,"Multi Cursor"*)
@@ -2480,6 +2501,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_multi_cursor" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable Rename"*,* | *,"Enable Rename"*)
@@ -2488,6 +2510,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_renamer" "true"
           fi
+          pluginit=1
           break
           ;;
         "Bdelete"*,* | *,"Bdelete"*)
@@ -2496,6 +2519,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_bbye" "true"
           fi
+          pluginit=1
           break
           ;;
         "StartupTime"*,* | *,"StartupTime"*)
@@ -2504,6 +2528,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_startuptime" "true"
           fi
+          pluginit=1
           break
           ;;
         "Dressing"*,* | *,"Dressing"*)
@@ -2512,6 +2537,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_dressing" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable Games"*,* | *,"Enable Games"*)
@@ -2520,6 +2546,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_games" "true"
           fi
+          pluginit=1
           break
           ;;
         "Dashboard"*,* | *,"Dashboard"*)
@@ -2528,6 +2555,7 @@ show_plugin_menu() {
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             [ "${choice}" == "${use_dash}" ] || {
               set_conf_value "dashboard" "${choice}"
+              pluginit=1
             }
           fi
           break
@@ -2538,6 +2566,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_bookmarks" "true"
           fi
+          pluginit=1
           break
           ;;
         "Enable IDE"*,* | *,"Enable IDE"*)
@@ -2546,6 +2575,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_ide" "true"
           fi
+          pluginit=1
           break
           ;;
         "Navigator"*,* | *,"Navigator"*)
@@ -2554,6 +2584,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_navigator" "true"
           fi
+          pluginit=1
           break
           ;;
         "Project"*,* | *,"Project"*)
@@ -2562,6 +2593,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_project" "true"
           fi
+          pluginit=1
           break
           ;;
         "Picker"*,* | *,"Picker"*)
@@ -2570,6 +2602,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_picker" "true"
           fi
+          pluginit=1
           break
           ;;
         "Smooth Scroll"*,* | *,"Smooth Scroll"*)
@@ -2578,6 +2611,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_smooth_scrolling" "true"
           fi
+          pluginit=1
           break
           ;;
         " Recent Files"*,* | *," Recent Files"*)
@@ -2586,6 +2620,7 @@ show_plugin_menu() {
           [ "${choice}" == "${dashboard_recent_files}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
               set_conf_value "dashboard_recent_files" "${choice}"
+              pluginit=1
             fi
           }
           break
@@ -2596,6 +2631,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_dashboard_header" "true"
           fi
+          pluginit=1
           break
           ;;
         " Quick Links"*,* | *," Quick Links"*)
@@ -2604,6 +2640,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_dashboard_quick_links" "true"
           fi
+          pluginit=1
           break
           ;;
         "Screensaver"*,* | *,"Screensaver"*)
@@ -2611,6 +2648,7 @@ show_plugin_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Screensaver  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             set_conf_value "enable_screensaver" "${choice}"
+            pluginit=1
           fi
           break
           ;;
@@ -2620,6 +2658,7 @@ show_plugin_menu() {
           [ "${choice}" == "${screensaver_timeout}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
               set_conf_value "screensaver_timeout" "${choice}"
+              pluginit=1
             fi
           }
           break
@@ -2630,6 +2669,7 @@ show_plugin_menu() {
           else
             set_conf_value "enable_color_indentline" "true"
           fi
+          pluginit=1
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -2670,6 +2710,7 @@ show_plugin_menu() {
           set_conf_value "enable_dashboard_quick_links" "false"
           set_conf_value "enable_screensaver" "none"
           set_conf_value "enable_color_indentline" "false"
+          pluginit=1
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
@@ -2716,6 +2757,7 @@ show_plugin_menu() {
           set_conf_value "enable_screensaver" "random"
           set_conf_value "enable_color_indentline" "true"
           set_conf_value "list" "true"
+          pluginit=1
           break
           ;;
         "Reset"*,* | *,"Reset"*)
@@ -2725,6 +2767,7 @@ show_plugin_menu() {
             set_code_explain
             set_ranger_float
             set_waka_opt
+            pluginit=1
           }
           break
           ;;
@@ -2734,30 +2777,26 @@ show_plugin_menu() {
           else
             NVIM_APPNAME="nvim-Lazyman" nvim
           fi
-          pluginit=
           break
           ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
-          pluginit=
           break 2
           ;;
         "Formatters"*,* | *,"Formatters"*)
           formenu=1
-          pluginit=
           break 2
           ;;
         "LSP Servers"*,* | *,"LSP Servers"*)
           lspmenu=1
-          pluginit=
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
           mainmenu=1
-          pluginit=
           break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          [ "${pluginit}" ] && init_neovim nvim-Lazyman
           printf "\nExiting Lazyman\n"
           exit 0
           ;;
@@ -2765,14 +2804,13 @@ show_plugin_menu() {
           printf "\nNo matching menu item located."
           printf "\nSelection out of range or malformed."
           prompt_continue
-          pluginit=
           break
           ;;
       esac
       REPLY=
     done
-    [ "${pluginit}" ] && init_neovim nvim-Lazyman
   done
+  [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${confmenu}" ] && show_conf_menu
   [ "${mainmenu}" ] && show_main_menu
   [ "${lspmenu}" ] && show_lsp_menu
@@ -2781,6 +2819,7 @@ show_plugin_menu() {
 
 show_lsp_menu() {
   set_haves
+  pluginit=
   while true; do
     mainmenu=
     confmenu=
@@ -2840,12 +2879,14 @@ show_lsp_menu() {
           for lsp in "${all_lsp_servers[@]}"; do
             set_conf_table "LSP_SERVERS" "${lsp}" "disable"
           done
+          pluginit=1
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
           for lsp in "${all_lsp_servers[@]}"; do
             set_conf_table "LSP_SERVERS" "${lsp}" "enable"
           done
+          pluginit=1
           break
           ;;
         "Formatters Menu"*,* | *,"Formatters Menu"*)
@@ -2865,6 +2906,7 @@ show_lsp_menu() {
           break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          [ "${pluginit}" ] && init_neovim nvim-Lazyman
           printf "\nExiting Lazyman\n"
           exit 0
           ;;
@@ -2881,12 +2923,14 @@ show_lsp_menu() {
           else
             set_conf_table "LSP_SERVERS" "${lspname}" "disable"
           fi
+          pluginit=1
           break
           ;;
       esac
       REPLY=
     done
   done
+  [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
@@ -2895,6 +2939,7 @@ show_lsp_menu() {
 
 show_formlint_menu() {
   set_haves
+  pluginit=
   while true; do
     mainmenu=
     confmenu=
@@ -2954,12 +2999,14 @@ show_formlint_menu() {
           for form in "${all_formatters[@]}"; do
             set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
           done
+          pluginit=1
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
           for form in "${all_formatters[@]}"; do
             set_conf_table "FORMATTERS_LINTERS" "${form}" "enable"
           done
+          pluginit=1
           break
           ;;
         "LSP Servers"*,* | *,"LSP Servers"*)
@@ -2979,6 +3026,7 @@ show_formlint_menu() {
           break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          [ "${pluginit}" ] && init_neovim nvim-Lazyman
           printf "\nExiting Lazyman\n"
           exit 0
           ;;
@@ -2995,12 +3043,14 @@ show_formlint_menu() {
           else
             set_conf_table "FORMATTERS_LINTERS" "${forname}" "disable"
           fi
+          pluginit=1
           break
           ;;
       esac
       REPLY=
     done
   done
+  [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
@@ -3009,6 +3059,7 @@ show_formlint_menu() {
 
 show_conf_menu() {
   set_haves
+  pluginit=
   while true; do
     mainmenu=
     plugmenu=
@@ -3148,6 +3199,7 @@ show_conf_menu() {
           else
             set_conf_value "enable_statusline" "true"
           fi
+          pluginit=1
           break
           ;;
         "Tab Line"*,* | *,"Tab Line"*)
@@ -3156,6 +3208,7 @@ show_conf_menu() {
           else
             set_conf_value "enable_tabline" "true"
           fi
+          pluginit=1
           break
           ;;
         "Winbar"*,* | *,"Winbar"*)
@@ -3164,6 +3217,7 @@ show_conf_menu() {
           else
             set_conf_value "enable_winbar" "true"
           fi
+          pluginit=1
           break
           ;;
         " Style"*,* | *," Style"*)
@@ -3172,6 +3226,7 @@ show_conf_menu() {
           ;;
         "Theme"*,* | *,"Theme"*)
           select_theme ${theme}
+          pluginit=1
           break
           ;;
         " Transparency"*,* | *," Transparency"*)
@@ -3308,7 +3363,7 @@ show_conf_menu() {
           for form in "${all_formatters[@]}"; do
             set_conf_table "FORMATTERS_LINTERS" "${form}" "disable"
           done
-          init_neovim nvim-Lazyman
+          pluginit=1
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -3324,7 +3379,7 @@ show_conf_menu() {
           set_conf_value "enable_semantic_highlighting" "false"
           set_conf_value "convert_semantic_highlighting" "false"
           set_conf_value "list" "false"
-          init_neovim nvim-Lazyman
+          pluginit=1
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
@@ -3340,7 +3395,7 @@ show_conf_menu() {
           set_conf_value "enable_semantic_highlighting" "true"
           set_conf_value "convert_semantic_highlighting" "true"
           set_conf_value "list" "true"
-          init_neovim nvim-Lazyman
+          pluginit=1
           break
           ;;
         "Reset"*,* | *,"Reset"*)
@@ -3350,7 +3405,7 @@ show_conf_menu() {
             set_code_explain
             set_ranger_float
             set_waka_opt
-            init_neovim nvim-Lazyman
+            pluginit=1
           }
           break
           ;;
@@ -3379,6 +3434,7 @@ show_conf_menu() {
           break 2
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          [ "${pluginit}" ] && init_neovim nvim-Lazyman
           printf "\nExiting Lazyman\n"
           exit 0
           ;;
@@ -3392,6 +3448,7 @@ show_conf_menu() {
       REPLY=
     done
   done
+  [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
