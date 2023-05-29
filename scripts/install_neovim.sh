@@ -945,6 +945,13 @@ install_tools() {
   do
     plat_install "${pkg}"
   done
+  if ! command -v lsd >/dev/null 2>&1; then
+    if command -v "cargo" >/dev/null 2>&1; then
+      log "Installing lsd with cargo ..."
+      cargo install lsd >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
+  fi
 
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
   check_python
