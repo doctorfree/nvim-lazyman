@@ -63,6 +63,17 @@ if settings.enable_tabline then
   }
 end
 
+local indentline_cfg = {
+  "lukas-reineke/indent-blankline.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  config = function()
+    require("config.indent-blankline")
+  end,
+}
+if settings.indentline_style == "none" then
+  indentline_cfg = {}
+end
+
 local neoscroll = {}
 if settings.enable_smooth_scrolling then
   neoscroll = {
@@ -230,13 +241,7 @@ return {
   tabline_cfg,
 
   -- indent guides for Neovim
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("config.indent-blankline")
-    end,
-  },
+  indentline_cfg,
 
   toggleterm,
 

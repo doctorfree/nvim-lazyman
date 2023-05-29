@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 
 ## FEATURES
 
@@ -169,7 +169,7 @@ The following command line options are available with the `lazyman` command:
 
 `-f 'path'` : fix treesitter 'help' parser in config file 'path'
 
-`-F` : indicates present the Lazyman Configuration menu
+`-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be one of 'main', 'conf', 'lsp', 'format', or 'plugin'
 
 `-G` : indicates no plugin manager, initialize with ``:TSUpdate``
 

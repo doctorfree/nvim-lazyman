@@ -646,7 +646,7 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
-   [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
+   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
    [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
    [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]
    [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
@@ -666,7 +666,9 @@ Where:
        or any Neovim configuration directory in '~/.config'
            (e.g. 'lazyman -E lazyvim foo.lua')
     -f 'path' fix treesitter 'help' parser in config file 'path'
-    -F indicates present the Lazyman Configuration menu
+    -F 'menu' indicates present the specified Lazyman menu
+       'menu' can be one of:
+           'main', 'conf', 'lsp', 'format', 'plugin'
     -G indicates no plugin manager, initialize with :TSUpdate
     -g indicates install and initialize Abstract Neovim configuration
     -j indicates install and initialize Nv Neovim configuration
@@ -1076,8 +1078,9 @@ conf.enable_smooth_scrolling = true
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"
 conf.media_backend = "jp2a"
--- Enable colored indentation lines if theme supports it
-conf.enable_color_indentline = true
+-- Style of indentation, can be one of:
+-- 'background' colored' 'context' 'listchars' 'simple' 'none'
+conf.indentline_style = "colored"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
@@ -1104,51 +1107,52 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  "bashls", -- LSP_SERVERS
+  "bashls",        -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
-  "denols", -- LSP_SERVERS
-  "dockerls", -- LSP_SERVERS
-  -- "eslint", -- LSP_SERVERS
-  "gopls", -- LSP_SERVERS
-  "graphql", -- LSP_SERVERS
-  "html", -- LSP_SERVERS
-  "jdtls", -- LSP_SERVERS
-  "jsonls", -- LSP_SERVERS
-  "julials", -- LSP_SERVERS
-  "ltex", -- LSP_SERVERS
-  "lua_ls", -- LSP_SERVERS
-  "marksman", -- LSP_SERVERS
-  "pylsp", -- LSP_SERVERS
-  "pyright", -- LSP_SERVERS
-  "sqlls", -- LSP_SERVERS
-  "tailwindcss", -- LSP_SERVERS
-  "texlab", -- LSP_SERVERS
-  "tsserver", -- LSP_SERVERS
-  "vimls", -- LSP_SERVERS
-  "yamlls", -- LSP_SERVERS
+  "denols",        -- LSP_SERVERS
+  "dockerls",      -- LSP_SERVERS
+  -- "eslint",     -- LSP_SERVERS
+  "gopls",         -- LSP_SERVERS
+  "graphql",       -- LSP_SERVERS
+  "html",          -- LSP_SERVERS
+  "jdtls",         -- LSP_SERVERS
+  "jsonls",        -- LSP_SERVERS
+  "julials",       -- LSP_SERVERS
+  "ltex",          -- LSP_SERVERS
+  "lua_ls",        -- LSP_SERVERS
+  "marksman",      -- LSP_SERVERS
+  "pylsp",         -- LSP_SERVERS
+  "pyright",       -- LSP_SERVERS
+  "sqlls",         -- LSP_SERVERS
+  "tailwindcss",   -- LSP_SERVERS
+  "texlab",        -- LSP_SERVERS
+  "tsserver",      -- LSP_SERVERS
+  "vimls",         -- LSP_SERVERS
+  "yamlls",        -- LSP_SERVERS
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", -- FORMATTERS_LINTERS
-  "goimports", -- FORMATTERS_LINTERS
-  "gofumpt", -- FORMATTERS_LINTERS
-  "golangci-lint", -- FORMATTERS_LINTERS
+  "actionlint",         -- FORMATTERS_LINTERS
+  "gofumpt",            -- FORMATTERS_LINTERS
+  "goimports",          -- FORMATTERS_LINTERS
+  "golines",            -- FORMATTERS_LINTERS
+  "golangci-lint",      -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
-  "latexindent", -- FORMATTERS_LINTERS
-  "markdownlint", -- FORMATTERS_LINTERS
-  "prettier", -- FORMATTERS_LINTERS
-  "sql-formatter", -- FORMATTERS_LINTERS
-  -- "shellcheck", -- FORMATTERS_LINTERS
-  -- "shfmt", -- FORMATTERS_LINTERS
-  "stylua", -- FORMATTERS_LINTERS
-  "tflint", -- FORMATTERS_LINTERS
+  "latexindent",        -- FORMATTERS_LINTERS
+  "markdownlint",       -- FORMATTERS_LINTERS
+  "prettier",           -- FORMATTERS_LINTERS
+  "sql-formatter",      -- FORMATTERS_LINTERS
+  -- "shellcheck",      -- FORMATTERS_LINTERS
+  -- "shfmt",           -- FORMATTERS_LINTERS
+  "stylua",   -- FORMATTERS_LINTERS
+  "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  -- "beautysh", -- FORMATTERS_LINTERS
+  -- "beautysh",        -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
-  "ruff", -- FORMATTERS_LINTERS
+  "ruff",  -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true

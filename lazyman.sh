@@ -60,7 +60,7 @@ for_enabled_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-f path] [-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
+  printf "\n   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
   printf "\n   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]"
   printf "\n   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]"
   printf "\n   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]"
@@ -85,7 +85,9 @@ usage() {
   printf "\n       or any Neovim configuration directory in '~/.config'"
   printf "\n           (e.g. 'lazyman -E lazyvim foo.lua')"
   printf "\n    -f 'path' fix treesitter 'help' parser in config file 'path'"
-  printf "\n    -F indicates present the Lazyman Configuration menu"
+  printf "\n    -F 'menu' indicates present the specified Lazyman menu"
+  printf "\n       'menu' can be one of:"
+  printf "\n           'main', 'conf', 'lsp', 'format', 'plugin'"
   printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -j indicates install and initialize Nv Neovim configuration"
@@ -2119,12 +2121,8 @@ show_plugin_menu() {
     use_screensaver="${enable_screensaver}"
     screensaver_timeout=$(get_conf_value screensaver_timeout)
     use_timeout="${screensaver_timeout}"
-    enable_color_indentline=$(get_conf_value enable_color_indentline)
-    if [ "${enable_color_indentline}" == "true" ]; then
-      use_color_indentline=""
-    else
-      use_color_indentline="✗"
-    fi
+    indentline_style=$(get_conf_value indentline_style)
+    use_indentline="${indentline_style}"
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Ascii Art     [${use_asciiart}]")
@@ -2153,7 +2151,7 @@ show_plugin_menu() {
     options+=("Enable Games  [${use_games}]")
     options+=("Enable Hop    [${use_hop}]")
     options+=("Enable IDE    [${use_ide}]")
-    options+=("Color Indent  [${use_color_indentline}]")
+    options+=("Indentline [${use_indentline}]")
     options+=("Media Backend [${use_media_backend}]")
     options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Navigator     [${use_navigator}]")
@@ -2663,13 +2661,15 @@ show_plugin_menu() {
           }
           break
           ;;
-        "Color Indent"*,* | *,"Color Indent"*)
-          if [ "${enable_color_indentline}" == "true" ]; then
-            set_conf_value "enable_color_indentline" "false"
-          else
-            set_conf_value "enable_color_indentline" "true"
-          fi
-          pluginit=1
+        "Indentline"*,* | *,"Indentline"*)
+          choices=("background" "colored" "context" "listchars" "simple" "none")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Indentline Styule  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${use_indentline}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "indentline_style" "${choice}"
+              pluginit=1
+            fi
+          }
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -2709,7 +2709,7 @@ show_plugin_menu() {
           set_conf_value "enable_dashboard_header" "false"
           set_conf_value "enable_dashboard_quick_links" "false"
           set_conf_value "enable_screensaver" "none"
-          set_conf_value "enable_color_indentline" "false"
+          set_conf_value "indentline_style" "none"
           pluginit=1
           break
           ;;
@@ -2755,7 +2755,7 @@ show_plugin_menu() {
           set_conf_value "enable_dashboard_header" "true"
           set_conf_value "enable_dashboard_quick_links" "true"
           set_conf_value "enable_screensaver" "random"
-          set_conf_value "enable_color_indentline" "true"
+          set_conf_value "indentline_style" "colored"
           set_conf_value "list" "true"
           pluginit=1
           break
@@ -4222,13 +4222,14 @@ penguinvimdir="nvim-Penguin"
 fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
+menu="main"
 nvdir="nvim-Nv"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir")
 neovimdir=()
-while getopts "aAb:BcdD:eE:f:FgGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -4285,7 +4286,29 @@ while getopts "aAb:BcdD:eE:f:FgGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       fix_help="$OPTARG"
       ;;
     F)
-      confmenu=1
+      menu="${OPTARG}"
+      if [ "${menu}" ]
+      then
+        case "${menu}" in
+          conf*|Conf*)
+            menu="confmenu"
+            ;;
+          plug*|Plug*)
+            menu="plugmenu"
+            ;;
+          lsp*|Lsp*|LSP*)
+            menu="lspmenu"
+            ;;
+          for*|For*|lint*|Lint*)
+            menu="formenu"
+            ;;
+          *)
+            menu="main"
+            ;;
+        esac
+      else
+        menu="confmenu"
+      fi
       ;;
     g)
       abstract=1
@@ -5441,8 +5464,24 @@ fi
 [ "${exitafter}" ] && exit 0
 
 [ "${interactive}" ] && {
-  if [ "$confmenu" ]; then
-    show_conf_menu
+  if [ "$menu" ]; then
+    if [ "$menu" == "confmenu" ]; then
+      show_conf_menu
+    else
+      if [ "$menu" == "plugmenu" ]; then
+        show_plugin_menu
+      else
+        if [ "$menu" == "lspmenu" ]; then
+          show_lsp_menu
+        else
+          if [ "$menu" == "formenu" ]; then
+            show_formlint_menu
+          else
+            show_main_menu
+          fi
+        fi
+      fi
+    fi
   else
     show_main_menu
   fi

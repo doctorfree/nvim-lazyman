@@ -24,10 +24,10 @@ configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
-[-F] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p]
-[-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N
-nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z]
-[-Z] [-u] [install] [open] [remove] [status]
+[-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o]
+[-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir]
+[-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y]
+[-z] [-Z] [-u] [install] [open] [remove] [status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -234,7 +234,9 @@ For example, \[aq]lazyman -E lazyvim foo.lua\[aq] would edit
 \f[V]-f \[aq]path\[aq]\f[R] : fix treesitter \[aq]help\[aq] parser in
 config file \[aq]path\[aq]
 .PP
-\f[V]-F\f[R] : indicates present the Lazyman Configuration menu
+\f[V]-F \[aq]menu\[aq]\f[R] : indicates present the specified Lazyman
+menu where \[aq]menu\[aq] can be one of \[aq]main\[aq], \[aq]conf\[aq],
+\[aq]lsp\[aq], \[aq]format\[aq], or \[aq]plugin\[aq]
 .PP
 \f[V]-G\f[R] : indicates no plugin manager, initialize with
 \f[V]:TSUpdate\f[R]
