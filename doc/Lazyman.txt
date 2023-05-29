@@ -12,11 +12,11 @@ configurations
 
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F]
-[-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q]
-[-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]
-[-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open]
-[remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F
+menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P]
+[-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G]
+[-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install]
+[open] [remove] [status]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -179,7 +179,8 @@ directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit
 
 `-f 'path'` : fix treesitter 'help' parser in config file 'path'
 
-`-F` : indicates present the Lazyman Configuration menu
+`-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be
+one of 'main', 'conf', 'lsp', 'format', or 'plugin'
 
 `-G` : indicates no plugin manager, initialize with `:TSUpdate`
 
