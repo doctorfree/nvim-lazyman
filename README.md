@@ -1149,7 +1149,7 @@ conf.formatters_linters = {
   "sql-formatter",      -- FORMATTERS_LINTERS
   -- "shellcheck",      -- FORMATTERS_LINTERS
   -- "shfmt",           -- FORMATTERS_LINTERS
-  "stylua",   -- FORMATTERS_LINTERS
+  -- "stylua",   -- FORMATTERS_LINTERS
   "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }
