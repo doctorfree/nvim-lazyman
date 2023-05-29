@@ -13,10 +13,10 @@ configurations
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F
-menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P]
-[-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G]
-[-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install]
-[open] [remove] [status]
+menu] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q]
+[-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT]
+[-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open]
+[remove] [status]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -190,8 +190,6 @@ one of 'main', 'conf', 'lsp', 'format', or 'plugin'
 always used on Arch Linux, Homebrew on macOS)
 
 `-H` : indicates compile and install the nightly Neovim build
-
-`-j` : indicates install and initialize the 'Nv' Neovim configuration
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 
