@@ -6,6 +6,26 @@
 
 ### 🐞 Fixed
 
+## v2.1.3r4
+
+### ⚡️ Added
+
+- Add `Extralight` starter config
+- Change `indent-blankline` configuration from boolean to string indicating style
+- Don't re-initialize in menus unless a change in plugins has been made
+- Move statusline to tabline if tabline disabled and statusline enabled
+- Use `configuration.lua` entries to reset showtabline and laststatus
+- Install `lsd` with cargo if native platform install fails
+- Python 3.9 or greater required for `codeexplain` plugin
+- Add download and install of `ascii-image-converter`
+
+### 🐞 Fixed
+
+- Move `Nv` to Custom configs
+- Disable `stylua` by default when using `lua_ls`
+- Move `Ohmynvim` from Custom to Starter and rename it `HardHacker`
+- Check for existence of some commands before installing
+
 ## v2.1.3r3
 
 ### ⚡️ Added
