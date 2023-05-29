@@ -52,7 +52,14 @@ if settings.enable_winbar then
   navic_tabline = {}
   navic_winbar = navic_loc
 end
-local tabline_cfg = {}
+local tabline_cfg = {
+  lualine_a = {},
+  lualine_b = {},
+  lualine_c = {},
+  lualine_x = {},
+  lualine_y = {},
+  lualine_z = {},
+}
 if settings.enable_tabline then
   tabline_cfg = {
     lualine_a = { require("tabline").tabline_buffers },
@@ -160,6 +167,21 @@ local fmt_stat = function()
   return stat
 end
 
+local line_c = {
+  { "filename", path = 1 }
+}
+if settings.enable_tabline then
+  line_c = {
+    {
+      -- show session name
+      session_name,
+      icon = { "", align = "left" },
+      padding = { left = 0, right = 1 },
+      separator = "|",
+    }
+  }
+end
+
 lualine.setup({
   options = {
     globalstatus = true,
@@ -205,15 +227,7 @@ lualine.setup({
         cond = require("lazy.status").has_updates,
       },
     },
-    lualine_c = {
-      {
-        -- show session name
-        session_name,
-        icon = { "", align = "left" },
-        padding = { left = 0, right = 1 },
-        separator = "|",
-      },
-    },
+    lualine_c = line_c,
     lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
     lualine_y = { "progress" },
     lualine_z = { "location" },

@@ -145,8 +145,6 @@ if settings.dashboard == "alpha" then
     group = alpha_group,
     pattern = "AlphaReady",
     callback = function()
-      local prev_showtabline = vim.opt.showtabline
-      local prev_status = vim.opt.laststatus
       vim.opt.laststatus = 0
       vim.opt.showtabline = 0
       vim.opt_local.winbar = nil
@@ -159,8 +157,17 @@ if settings.dashboard == "alpha" then
         group = alpha_group,
         pattern = "<buffer>",
         callback = function()
-          vim.opt.laststatus = prev_status
-          vim.opt.showtabline = prev_showtabline
+          local config = require("configuration")
+          if config.enable_statusline then
+            if config.global_statusline then
+              vim.opt.laststatus = 3
+            else
+              vim.opt.laststatus = 2
+            end
+          else
+            vim.opt.laststatus = 0
+          end
+          vim.opt.showtabline = require("configuration").showtabline
           require("lualine").hide({
             place = { "statusline", "tabline", "winbar" },
             unhide = true,
