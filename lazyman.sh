@@ -18,11 +18,11 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
-BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim Nv NvChad Penguin SpaceVim MagicVim"
+BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic Kickstart NvPak HardHacker PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Slydragonn"
+CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Nv Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -60,7 +60,7 @@ for_enabled_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
+  printf "\n   [-f path] [-F menu] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
   printf "\n   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]"
   printf "\n   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]"
   printf "\n   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]"
@@ -90,7 +90,6 @@ usage() {
   printf "\n           'main', 'conf', 'lsp', 'format', 'plugin'"
   printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
-  printf "\n    -j indicates install and initialize Nv Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
@@ -725,11 +724,11 @@ install_custom() {
     }
     printf "done"
   }
-  [ "${allcustom}" ] || [ "${customdir}" == "Penguin" ] && {
-    printf "\nInstalling and initializing the Penguin Neovim configuration ... "
+  [ "${allcustom}" ] || [ "${customdir}" == "Nv" ] && {
+    printf "\nInstalling and initializing the Nv Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/p3nguin-kun/penguinVim \
-        -N nvim-Penguin ${allflags}
+      lazyman ${darg} -C https://github.com/appelgriebsch/Nv \
+        -N nvim-Nv ${allflags}
     }
     printf "done"
   }
@@ -1145,8 +1144,6 @@ show_alias() {
     printf "\n\talias pvim='NVIM_APPNAME=nvim-Penguin nvim'"
   elif [ "$spacevim" ]; then
     printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
-  elif [ "$nv" ]; then
-    printf "\n\talias lvim='NVIM_APPNAME=nvim-Nv nvim'"
   elif [ "$nvchad" ]; then
     printf "\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
   elif [ "$magicvim" ]; then
@@ -1351,9 +1348,6 @@ install_config() {
     Mini)
       lazyman ${darg} -M -z -y -Q -q
       ;;
-    Nv)
-      lazyman ${darg} -j -z -y -Q -q
-      ;;
     NvChad)
       lazyman ${darg} -c -z -y -Q -q
       ;;
@@ -1429,7 +1423,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Penguin|Slydragonn)
+    AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -4184,7 +4178,6 @@ lazyvim=
 lunarvim=
 minivim=
 magicvim=
-nv=
 nvchad=
 nvimcustom=
 nvimprsnl=
@@ -4224,13 +4217,12 @@ fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
-nvdir="nvim-Nv"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir")
 neovimdir=()
-while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -4326,10 +4318,6 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       ;;
     I)
       langservers=2
-      ;;
-    j)
-      nv=1
-      neovimdir=("$nvdir")
       ;;
     k)
       kickstart=1
@@ -4867,7 +4855,6 @@ set_haves
   [ "$lunarvim" ] && lunarvimdir="$name"
   [ "$magicvim" ] && magicvimdir="$name"
   [ "$minivim" ] && minivimdir="$name"
-  [ "$nv" ] && nvdir="$name"
   [ "$nvchad" ] && nvchaddir="$name"
   [ "$pde" ] && pdedir="$name"
   [ "$penguinvim" ] && penguinvimdir="$name"
@@ -5262,21 +5249,6 @@ done
       git -C "${HOME}/.config/${minivimdir}" submodule update \
         --init --recursive >/dev/null 2>&1
       add_nvimdirs_entry "$minivimdir"
-    }
-    [ "$quiet" ] || printf "done"
-  }
-}
-[ "$nv" ] && {
-  [ -d "${HOME}/.config/$nvdir" ] || {
-    [ "$quiet" ] || {
-      printf "\nCloning Nv configuration into"
-      printf "\n\t${HOME}/.config/${nvdir} ... "
-    }
-    [ "$tellme" ] || {
-      git clone \
-        https://github.com/appelgriebsch/Nv \
-        "${HOME}/.config/${nvdir}" >/dev/null 2>&1
-      add_nvimdirs_entry "$nvdir"
     }
     [ "$quiet" ] || printf "done"
   }

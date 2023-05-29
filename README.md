@@ -59,10 +59,11 @@ and initialized with `lazyman` by the end-user using the `-C url` and
 Currently over 40 popular Neovim configurations are supported in the
 following Lazyman Neovim configuration categories:
 
-| **Base** |       |       |       | **Configs** |
-| -------- | ----- | ----- | ----- | ----------- |
-| [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) | [Abstract](https://github.com/Abstract-IDE/Abstract) | [LazyVim](https://github.com/LazyVim/LazyVim) | [LunarVim](https://github.com/LunarVim/LunarVim) |
-| [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [Nv](https://github.com/appelgriebsch/Nv) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
+| **Base** |       | **Configs** |
+| -------- | ----- | ----------- |
+| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvim](https://astronvim.com) | [Ecovim](https://github.com/ecosse3/nvim) |
+| [LazyVim](https://github.com/LazyVim/LazyVim) | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) |
+| [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
 
 | **Personal** |       | **Configs** |
 | ------------ | ----- | ----------- |
@@ -81,11 +82,10 @@ Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       | **Configs** |
-| ---------- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) |
-| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
+| **Custom** |       |       |       | **Configs** |
+| ---------- | ----- | ----- | ----- | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) |
+| [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -311,10 +311,6 @@ Currently the following "Base" Neovim configurations are supported:
 - [MagicVim](https://gitlab.com/GitMaster210/magicvim)
   - Uses Packer plugin manager, installs in `~/.config/nvim-MagicVim`
   - Install and initialize with `lazyman -m`
-- [Nv](https://github.com/appelgriebsch/Nv)
-  - LazyVim based Neovim configuration
-  - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
-  - Install and initialize with `lazyman -j`
 - [NvChad](https://nvchad.com)
   - Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom)
   - Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
@@ -533,6 +529,10 @@ Known working custom Lazyman configurations include the following:
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
+- [Nv](https://github.com/appelgriebsch/Nv)
+  - LazyVim based Neovim configuration
+  - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
+  - `lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv`
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -b main -C https://github.com/slydragonn/dotfiles -D '.config/nvim' -N nvim-Slydragonn -P`
@@ -651,7 +651,7 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
-   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
+   [-f path] [-F menu] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
    [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
    [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]
    [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
@@ -676,7 +676,6 @@ Where:
            'main', 'conf', 'lsp', 'format', 'plugin'
     -G indicates no plugin manager, initialize with :TSUpdate
     -g indicates install and initialize Abstract Neovim configuration
-    -j indicates install and initialize Nv Neovim configuration
     -k indicates install and initialize Kickstart Neovim configuration
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize MagicVim Neovim configuration
