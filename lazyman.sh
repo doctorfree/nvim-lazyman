@@ -4530,7 +4530,7 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration ..."
-      lazyman ${darg} -b main -C https://github.com/knmac/knvim \
+      lazyman ${darg} -C https://github.com/knmac/knvim \
         -N nvim-Knvim ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Knvim"
@@ -4544,14 +4544,14 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-Adib ] && action="Updating"
       printf "\n${action} Adib Neovim configuration ..."
-      lazyman ${darg} -b main -C https://github.com/adibhanna/nvim \
+      lazyman ${darg} -C https://github.com/adibhanna/nvim \
         -N nvim-Adib ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Adib"
       action="Installing"
       [ -d ${HOME}/.config/nvim-ONNO ] && action="Updating"
       printf "\n${action} ONNO Neovim configuration ..."
-      lazyman ${darg} -C https://github.com/loctvl842/nvim.git -N nvim-ONNO \
+      lazyman ${darg} -C https://github.com/loctvl842/nvim -N nvim-ONNO \
         -f "${fix_onno}" ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-ONNO"
@@ -4586,7 +4586,7 @@ set_haves
       action="Installing"
       [ -d ${HOME}/.config/nvim-Roiz ] && action="Updating"
       printf "\n${action} Roiz Neovim configuration ..."
-      lazyman ${darg} -b main -C https://github.com/MrRoiz/rnvim \
+      lazyman ${darg} -C https://github.com/MrRoiz/rnvim \
         -N nvim-Roiz ${quietflag} -z ${yesflag}
       printf " done\n"
       show_alias "nvim-Roiz"
@@ -4610,15 +4610,12 @@ set_haves
           ;;
         Adib)
           prsnl_url="https://github.com/adibhanna/nvim"
-          prsnl_opt="-b main"
           ;;
         Knvim)
           prsnl_url="https://github.com/knmac/knvim"
-          prsnl_opt="-b main"
           ;;
         Roiz)
           prsnl_url="https://github.com/MrRoiz/rnvim"
-          prsnl_opt="-b main"
           ;;
         Fennel)
           prsnl_url="https://github.com/jhchabran/nvim-config"
@@ -4631,7 +4628,7 @@ set_haves
           help_opt="-f ${fix_latex}"
           ;;
         ONNO)
-          prsnl_url="https://github.com/loctvl842/nvim.git"
+          prsnl_url="https://github.com/loctvl842/nvim"
           help_opt="-f ${fix_onno}"
           ;;
         Ember)
@@ -5176,7 +5173,7 @@ done
   clone_repo Ecovim ecosse3/nvim "$ecovimdir"
 }
 [ "$kickstart" ] && {
-  clone_repo Kickstart nvim-lua/kickstart.nvim.git "$kickstartdir"
+  clone_repo Kickstart nvim-lua/kickstart.nvim "$kickstartdir"
 }
 [ "$lazyvim" ] && {
   clone_repo LazyVim LazyVim/starter "$lazyvimdir"
@@ -5259,7 +5256,7 @@ done
     }
     [ "$tellme" ] || {
       git clone \
-        https://github.com/echasnovski/nvim.git \
+        https://github.com/echasnovski/nvim \
         "${HOME}/.config/${minivimdir}" >/dev/null 2>&1
       git -C "${HOME}/.config/${minivimdir}" submodule update \
         --init --recursive >/dev/null 2>&1
