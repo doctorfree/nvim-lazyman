@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F menu] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
 
 ## FEATURES
 
@@ -178,6 +178,8 @@ The following command line options are available with the `lazyman` command:
 `-h` : indicates use Homebrew rather than the native package manager (Pacman always used on Arch Linux, Homebrew on macOS)
 
 `-H` : indicates compile and install the nightly Neovim build
+
+`-j` : indicates install and initialize the 'BasicIde' Neovim configuration
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
 

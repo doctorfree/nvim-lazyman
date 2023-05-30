@@ -18,11 +18,11 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
-BASECFGS="Abstract AstroNvim Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
+BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic Kickstart NvPak HardHacker PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim BasicIde Brain Charles CodeArt Cosmic Elianiva Magidc Nv Slydragonn"
+CUSTMCFGS="AlanVim Brain Charles CodeArt Cosmic Elianiva Magidc Nv Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -60,7 +60,7 @@ for_enabled_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-f path] [-F menu] [-g] [-i] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
+  printf "\n   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
   printf "\n   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]"
   printf "\n   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]"
   printf "\n   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]"
@@ -90,6 +90,7 @@ usage() {
   printf "\n           'main', 'conf', 'lsp', 'format', 'plugin'"
   printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
+  printf "\n    -j indicates install and initialize BasicIde Neovim configuration"
   printf "\n    -k indicates install and initialize Kickstart Neovim configuration"
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
@@ -676,14 +677,6 @@ install_custom() {
     }
     printf "done"
   }
-  [ "${allcustom}" ] || [ "${customdir}" == "BasicIde" ] && {
-    printf "\nInstalling and initializing the BasicIde Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/LunarVim/nvim-basic-ide \
-        -N nvim-BasicIde ${allflags}
-    }
-    printf "done"
-  }
   [ "${allcustom}" ] || [ "${customdir}" == "Brain" ] && {
     printf "\nInstalling and initializing the Brain Neovim configuration ... "
     [ "$tellme" ] || {
@@ -1126,6 +1119,8 @@ show_alias() {
     printf "\n\talias avim='NVIM_APPNAME=nvim-Abstract nvim'"
   elif [ "$astronvim" ]; then
     printf "\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
+  elif [ "$basicide" ]; then
+    printf "\n\talias bvim='NVIM_APPNAME=nvim-BasicIde nvim'"
   elif [ "$ecovim" ]; then
     printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
   elif [ "$kickstart" ]; then
@@ -1330,6 +1325,9 @@ install_config() {
     Basic)
       lazyman ${darg} -x Basic -z -y -Q -q
       ;;
+    BasicIde)
+      lazyman ${darg} -j -z -y -Q -q
+      ;;
     Ecovim)
       lazyman ${darg} -e -z -y -Q -q
       ;;
@@ -1423,7 +1421,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|BasicIde|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|Slydragonn)
+    AlanVim|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -4171,6 +4169,7 @@ tellme=
 exitafter=
 astronvim=
 abstract=
+basicide=
 ecovim=
 kickstart=
 lazyman=
@@ -4205,6 +4204,7 @@ lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvim"
 abstractdir="nvim-Abstract"
 basicdir="nvim-Basic"
+basicidedir="nvim-BasicIde"
 ecovimdir="nvim-Ecovim"
 kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
@@ -4220,9 +4220,9 @@ menu="main"
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir" "$basicidedir")
 neovimdir=()
-while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -4235,6 +4235,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       nvimstarter="all"
       astronvim=1
       abstract=1
+      basicide=1
       ecovim=1
       lazyvim=1
       lunarvim=1
@@ -4248,6 +4249,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       all=1
       astronvim=1
       abstract=1
+      basicide=1
       ecovim=1
       lazyvim=1
       lunarvim=1
@@ -4255,6 +4257,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       nv=1
       nvchad=1
       spacevim=1
+      penguinvim=1
       neovimdir=("${basenvimdirs[@]}")
       ;;
     b)
@@ -4318,6 +4321,10 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       ;;
     I)
       langservers=2
+      ;;
+    j)
+      basicide=1
+      neovimdir=("$basicidedir")
       ;;
     k)
       kickstart=1
@@ -4830,6 +4837,7 @@ set_haves
   numvim=0
   [ "$astronvim" ] && numvim=$((numvim + 1))
   [ "$abstract" ] && numvim=$((numvim + 1))
+  [ "$basicide" ] && numvim=$((numvim + 1))
   [ "$ecovim" ] && numvim=$((numvim + 1))
   [ "$kickstart" ] && numvim=$((numvim + 1))
   [ "$lazyvim" ] && numvim=$((numvim + 1))
@@ -4848,6 +4856,7 @@ set_haves
   }
   [ "$astronvim" ] && astronvimdir="$name"
   [ "$abstract" ] && astronvimdir="$name"
+  [ "$basicide" ] && basicidedir="$name"
   [ "$ecovim" ] && ecovimdir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
   [ "$lazyman" ] && lazymandir="$name"
@@ -4897,6 +4906,9 @@ set_haves
       ;;
     basic)
       ndir="$basicdir"
+      ;;
+    basicide)
+      ndir="$basicidedir"
       ;;
     ecovim)
       ndir="$ecovimdir"
@@ -5156,6 +5168,9 @@ done
     fi
   }
   [ "$quiet" ] || printf "done"
+}
+[ "$basicide" ] && {
+  clone_repo BasicIde LunarVim/nvim-basic-ide "$basicidedir"
 }
 [ "$ecovim" ] && {
   clone_repo Ecovim ecosse3/nvim "$ecovimdir"
