@@ -4239,8 +4239,8 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; 
       lazyvim=1
       lunarvim=1
       magicvim=1
-      nv=1
       nvchad=1
+      penguinvim=1
       spacevim=1
       neovimdir=("${basenvimdirs[@]}")
       ;;
