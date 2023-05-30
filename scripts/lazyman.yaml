@@ -1,0 +1,228 @@
+# Lazyman supported Neovim categories and configurations
+---
+Categories:
+  - Base:
+      - Abstract
+      - AstroNvim
+      - Ecovim
+      - Lazyman
+      - LazyVim
+      - LunarVim
+      - MagicVim
+      - NvChad
+      - Penguin
+      - SpaceVim
+  - Personal:
+      - Adib
+      - Ember
+      - Fennel
+      - Heiker
+      - Knvim
+      - LaTeX
+      - Mini
+      - ONNO
+      - Optixal
+      - Plug
+      - Roiz
+      - Simple
+  - Starters:
+      - Basic
+      - Extralight
+      - HardHacker
+      - Kickstart
+      - Minimal
+      - Modular
+      - NvPak
+      - Opinion
+      - PDE
+      - StartBase
+      - StartLsp
+      - StartMason
+  - Custom:
+      - AlanVim
+      - BasicIde
+      - Brain
+      - Charles
+      - CodeArt
+      - Cosmic
+      - Elianiva
+      - Magidc
+      - Nv
+      - Slydragonn
+Configs:
+  - name: Abstract
+    url: "https://github.com/Abstract-IDE/Abstract"
+    opt:
+    dir:
+  - name: Adib
+    url:
+    opt:
+    dir:
+  - name: AlanVim
+    url:
+    opt:
+    dir:
+  - name: AstroNvim
+    url:
+    opt:
+    dir:
+  - name: Basic
+    url:
+    opt:
+    dir:
+  - name: BasicIde
+    url:
+    opt:
+    dir:
+  - name: Brain
+    url:
+    opt:
+    dir:
+  - name: Charles
+    url:
+    opt:
+    dir:
+  - name: CodeArt
+    url:
+    opt:
+    dir:
+  - name: Cosmic
+    url:
+    opt:
+    dir:
+  - name: Ecovim
+    url:
+    opt:
+    dir:
+  - name: Elianiva
+    url:
+    opt:
+    dir:
+  - name: Ember
+    url: "https://github.com/danlikestocode/embervim"
+    opt: "-b main"
+    dir: "-D nvim"
+  - name: Extralight
+    url:
+    opt:
+    dir:
+  - name: Fennel
+    url:
+    opt:
+    dir:
+  - name: HardHacker
+    url:
+    opt:
+    dir:
+  - name: Heiker
+    url:
+    opt:
+    dir:
+  - name: Kickstart
+    url:
+    opt:
+    dir:
+  - name: Knvim
+    url:
+    opt:
+    dir:
+  - name: LaTeX
+    url: "https://github.com/benbrastmckie/.config"
+    opt: "-P -f lua/user/treesitter.lua"
+    dir: "-D nvim"
+  - name: Lazyman
+    url:
+    opt:
+    dir:
+  - name: LazyVim
+    url:
+    opt:
+    dir:
+  - name: LunarVim
+    url:
+    opt:
+    dir:
+  - name: MagicVim
+    url:
+    opt:
+    dir:
+  - name: Magidc
+    url:
+    opt:
+    dir:
+  - name: Mini
+    url:
+    opt:
+    dir:
+  - name: Minimal
+    url:
+    opt:
+    dir:
+  - name: Modular
+    url:
+    opt:
+    dir:
+  - name: Nv
+    url:
+    opt:
+    dir:
+  - name: NvChad
+    url:
+    opt:
+    dir:
+  - name: NvPak
+    url:
+    opt:
+    dir:
+  - name: ONNO
+    url:
+    opt:
+    dir:
+  - name: Opinion
+    url:
+    opt:
+    dir:
+  - name: Optixal
+    url:
+    opt:
+    dir:
+  - name: PDE
+    url:
+    opt:
+    dir:
+  - name: Penguin
+    url:
+    opt:
+    dir:
+  - name: Plug
+    url:
+    opt:
+    dir:
+  - name: Roiz
+    url:
+    opt:
+    dir:
+  - name: Simple
+    url:
+    opt:
+    dir:
+  - name: Slydragonn
+    url:
+    opt:
+    dir:
+  - name: SpaceVim
+    url:
+    opt:
+    dir:
+  - name: StartBase
+    url:
+    opt:
+    dir:
+  - name: StartLsp
+    url:
+    opt:
+    dir:
+  - name: StartMason
+    url:
+    opt:
+    dir:

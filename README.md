@@ -493,8 +493,8 @@ Neovim configuration perform the following:
 Often a custom Lazyman configuration will appear to work without issue but
 contain references to `~/.config/nvim/` in its configuration files. For
 example, a configuration's dashboard may contain a reference to
-`~/.config/nvim/init.lua`. References like this can be fixed so the config
-is relocatable by doing something like the following in Lua:
+`~/.config/nvim/init.lua`. References like this can be fixed so the
+configuration is relocatable by doing something like the following in Lua:
 
 ```lua
 local config_path = vim.fn.stdpath("config") .. "/init.lua"
