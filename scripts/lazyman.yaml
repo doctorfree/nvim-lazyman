@@ -1,54 +1,54 @@
 # Lazyman supported Neovim categories and configurations
 ---
 Categories:
-  - Base:
-      - Abstract
-      - AstroNvim
-      - Ecovim
-      - Lazyman
-      - LazyVim
-      - LunarVim
-      - MagicVim
-      - NvChad
-      - Penguin
-      - SpaceVim
-  - Personal:
-      - Adib
-      - Ember
-      - Fennel
-      - Heiker
-      - Knvim
-      - LaTeX
-      - Mini
-      - ONNO
-      - Optixal
-      - Plug
-      - Roiz
-      - Simple
-  - Starters:
-      - Basic
-      - Extralight
-      - HardHacker
-      - Kickstart
-      - Minimal
-      - Modular
-      - NvPak
-      - Opinion
-      - PDE
-      - StartBase
-      - StartLsp
-      - StartMason
-  - Custom:
-      - AlanVim
-      - BasicIde
-      - Brain
-      - Charles
-      - CodeArt
-      - Cosmic
-      - Elianiva
-      - Magidc
-      - Nv
-      - Slydragonn
+  Base:
+    - Abstract
+    - AstroNvim
+    - Ecovim
+    - Lazyman
+    - LazyVim
+    - LunarVim
+    - MagicVim
+    - NvChad
+    - Penguin
+    - SpaceVim
+  Personal:
+    - Adib
+    - Ember
+    - Fennel
+    - Heiker
+    - Knvim
+    - LaTeX
+    - Mini
+    - ONNO
+    - Optixal
+    - Plug
+    - Roiz
+    - Simple
+  Starters:
+    - Basic
+    - Extralight
+    - HardHacker
+    - Kickstart
+    - Minimal
+    - Modular
+    - NvPak
+    - Opinion
+    - PDE
+    - StartBase
+    - StartLsp
+    - StartMason
+  Custom:
+    - AlanVim
+    - BasicIde
+    - Brain
+    - Charles
+    - CodeArt
+    - Cosmic
+    - Elianiva
+    - Magidc
+    - Nv
+    - Slydragonn
 Configs:
   - name: Abstract
     url: "https://github.com/Abstract-IDE/Abstract"

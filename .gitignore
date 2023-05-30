@@ -42,8 +42,9 @@ luac.out
 # vimdoc tags
 doc/tags
 
-# Working dirs
+# Working dirs and test files
 tmp/*
+scripts/lazyman-test.yaml
 
 # Neovide leaves a backtrace when it crashes
 neovide_backtraces*
