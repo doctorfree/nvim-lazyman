@@ -22,7 +22,7 @@ BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin Spa
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic Kickstart NvPak HardHacker PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim Brain Charles CodeArt Cosmic Elianiva Magidc Nv Slydragonn"
+CUSTMCFGS="AlanVim Brain Charles CodeArt Cosmic Elianiva Magidc Nv SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -725,6 +725,14 @@ install_custom() {
     }
     printf "done"
   }
+  [ "${allcustom}" ] || [ "${customdir}" == "SaleVim" ] && {
+    printf "\nInstalling and initializing the SaleVim Neovim configuration ... "
+    [ "$tellme" ] || {
+      lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
+        -N nvim-SaleVim -P ${allflags}
+    }
+    printf "done"
+  }
   [ "${allcustom}" ] || [ "${customdir}" == "Slydragonn" ] && {
     printf "\nInstalling and initializing the Slydragonn Neovim configuration ... "
     [ "$tellme" ] || {
@@ -1421,7 +1429,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|Slydragonn)
+    AlanVim|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|SaleVim|Slydragonn)
       install_custom "${confname}"
       ;;
     *)

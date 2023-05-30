@@ -81,11 +81,10 @@ Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       | **Configs** |
-| ---------- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) |
-| [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
+| **Custom** |       |       |       | **Configs** |
+| ---------- | ----- | ----- | ----- | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -533,6 +532,9 @@ Known working custom Lazyman configurations include the following:
   - LazyVim based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
   - `lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv`
+- [SaleVim](https://github.com/igorcguedes/SaleVim)
+  - `Salesforce` optimized IDE with custom features for editing `Apex`, `Visualforce`, and `Lightning` code
+  - `lazyman -C https://github.com/igorcguedes/SaleVim -N nvim-SaleVim -P`
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -b main -C https://github.com/slydragonn/dotfiles -D '.config/nvim' -N nvim-Slydragonn -P`
