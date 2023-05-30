@@ -51,6 +51,7 @@ Categories:
     - Elianiva
     - Magidc
     - Nv
+    - SaleVim
     - Slydragonn
 Configs:
   - name: Abstract
@@ -204,6 +205,10 @@ Configs:
   - name: Roiz
     url: https://github.com/MrRoiz/rnvim
     opt: ""
+    dir: ""
+  - name: SaleVim
+    url: https://github.com/igorcguedes/SaleVim
+    opt: -P
     dir: ""
   - name: Simple
     url: https://github.com/anthdm/.nvim
