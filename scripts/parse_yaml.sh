@@ -3,12 +3,17 @@
 # Bash script to read a Yaml file and create variables
 # Based on https://gist.github.com/pkuczynski/8665367
 #
+# Intended for use parsing a lazyman.yaml config file
+# on systems where yq is not available. See yq at:
+# https://github.com/mikefarah/yq
+#
 # Source this file in a bash script and it provides two functions:
 #
 # parse_yaml : Output result from the read yaml file
 # create_variables : Create variables based on yaml file passed by argument
 #
-# Or it can be executed directly from the command line: ./yaml.sh file.yaml
+# Or it can be executed directly from the command line:
+#   /path/to/parse_yaml.sh file.yaml
 #
 # shellcheck disable=SC1003
 
