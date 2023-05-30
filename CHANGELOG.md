@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v2.1.3r5
+
+### ⚡️ Added
+
+- Add `SaleVim` to Custom configs
+- Begin defining the data structure for a YAML representation of Lazyman configurations
+- Add `scripts/parse_yaml.sh` to parse YAML in pure Bash if `yq` not available
+- Add `scripts/lazyman.yaml` initial version of a configuration configuration
+- Add `scripts/test-yaml.sh` script to test lazyman config `lazyman.yaml`
+
+### 🐞 Fixed
+
+- Move `BasicIde` from Custom to Base
+- If no subir is specified then no branch need be specified
+- Fix `Penguin` install as part of all
+
 ## v2.1.3r4
 
 ### ⚡️ Added
