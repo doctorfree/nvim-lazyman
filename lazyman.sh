@@ -3584,6 +3584,8 @@ show_main_menu() {
     else
       options+=("Install All       ${configstr}")
     fi
+    have_bob=$(type -p bob)
+    [ "${have_bob}" ] || options+=("Install Bob")
     options+=("Install Tools")
     uninstalled=()
     if [ "${have_fzf}" ]
@@ -3929,6 +3931,39 @@ show_main_menu() {
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
           lazyman ${darg} -A -y -z -Q -q -U
+          break
+          ;;
+        "Install Bob"*,* | *,"Install Bob"*)
+          if [ -x "${LMANDIR}/scripts/install_bob.sh" ]; then
+            "${LMANDIR}"/scripts/install_bob.sh
+          else
+            if command -v "cargo" >/dev/null 2>&1; then
+              printf "\n\tInstalling bob with cargo ..."
+              cargo install bob >/dev/null 2>&1
+              printf " done\n"
+            else
+              printf "\n\tCannot locate cargo. Skipping installation of bob.\n"
+              prompt_continue
+              break
+            fi
+          fi
+          if [ -x ${HOME}/.cargo/bin/bob ]
+          then
+            have_bob="${HOME}/.cargo/bin/bob"
+            export PATH=$PATH:${HOME}/.cargo/bin
+          else
+            have_bob=$(type -p bob)
+          fi
+          if [ "${have_bob}" ]
+          then
+            printf "\n\tThe 'bob' neovim version manager is installed as:"
+            printf "\n\t\t${have_bob}"
+          else
+            printf "\n\tThe 'bob' neovim version manager cannot be located."
+            printf "\n\tCheck your execution PATH or reinstall bob."
+            printf "\n\tSee https://github.com/MordechaiHadad/bob"
+          fi
+          prompt_continue
           break
           ;;
         "Install Tools"*,* | *,"Install Tools"*)
