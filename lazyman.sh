@@ -21,7 +21,7 @@ USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="Basic Kickstart NvPak HardHacker PDE ${MINIMCFGS}"
+STARTCFGS="Basic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 CUSTMCFGS="AlanVim Brain Charles CodeArt Cosmic Elianiva Magidc Nv SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
@@ -123,9 +123,9 @@ usage() {
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
-  printf "\n       'conf' can be one of 'Basic', 'Kickstart', 'NvPak',"
-  printf "\n       'Extralight', 'Opinion', 'StartLsp', 'StartMason',"
-  printf "\n       'Minimal', 'Modular', 'HardHacker', 'PDE', 'StartBase'"
+  printf "\n       'conf' can be one of 'Basic' 'Kickstart' 'NvPak'"
+  printf "\n       'Extralight' 'Opinion' 'StartLsp' 'StartMason' 'Minimal'"
+  printf "\n       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -Y indicates install and initialize all 'Custom' configs"
@@ -1133,6 +1133,8 @@ show_alias() {
     printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
   elif [ "$kickstart" ]; then
     printf "\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
+  elif [ "$modern" ]; then
+    printf "\n\talias mvim='NVIM_APPNAME=nvim-Modern nvim'"
   elif [ "$pde" ]; then
     printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
   elif [ "$lazyman" ]; then
@@ -1356,6 +1358,9 @@ install_config() {
       ;;
     NvChad)
       lazyman ${darg} -c -z -y -Q -q
+      ;;
+    Modern)
+      lazyman ${darg} -x Modern -z -y -Q -q
       ;;
     PDE)
       lazyman ${darg} -x PDE -z -y -Q -q
@@ -4224,6 +4229,7 @@ nvchad=
 nvimcustom=
 nvimprsnl=
 nvimstarter=
+modern=
 pde=
 penguinvim=
 spacevim=
@@ -4254,6 +4260,7 @@ lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
 onnovimdir="nvim-ONNO"
+moderndir="nvim-Modern"
 pdedir="nvim-PDE"
 penguinvimdir="nvim-Penguin"
 fix_onno="lua/tvl/core/resources/treesitter.lua"
@@ -4767,6 +4774,13 @@ set_haves
       printf " done"
       show_alias "nvim-HardHacker"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Modern ] && action="Updating"
+      printf "\n${action} Modern Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/alpha2phi/modern-neovim \
+        -N nvim-Modern ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Modern"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
       printf "\n${action} PDE Neovim configuration ..."
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
@@ -4811,6 +4825,15 @@ set_haves
             -N nvim-HardHacker ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-HardHacker"
+          ;;
+        Modern)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Modern ] && action="Updating"
+          printf "\n${action} Modern Neovim configuration ..."
+          lazyman ${darg} -C https://github.com/alpha2phi/modern-neovim \
+            -N nvim-Modern ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-Modern"
           ;;
         PDE)
           action="Installing"
@@ -4888,6 +4911,7 @@ set_haves
   [ "$minivim" ] && numvim=$((numvim + 1))
   [ "$nv" ] && numvim=$((numvim + 1))
   [ "$nvchad" ] && numvim=$((numvim + 1))
+  [ "$modern" ] && numvim=$((numvim + 1))
   [ "$pde" ] && numvim=$((numvim + 1))
   [ "$penguinvim" ] && numvim=$((numvim + 1))
   [ "$spacevim" ] && numvim=$((numvim + 1))
@@ -4906,6 +4930,7 @@ set_haves
   [ "$magicvim" ] && magicvimdir="$name"
   [ "$minivim" ] && minivimdir="$name"
   [ "$nvchad" ] && nvchaddir="$name"
+  [ "$modern" ] && moderndir="$name"
   [ "$pde" ] && pdedir="$name"
   [ "$penguinvim" ] && penguinvimdir="$name"
   [ "$spacevim" ] && spacevimdir="$name"
@@ -4977,6 +5002,9 @@ set_haves
       ;;
     magicvim)
       ndir="$magicvimdir"
+      ;;
+    modern)
+      ndir="$moderndir"
       ;;
     pde)
       ndir="$pdedir"
@@ -5334,6 +5362,9 @@ done
     fi
   }
   [ "$quiet" ] || printf "done"
+}
+[ "$modern" ] && {
+  clone_repo Modern alpha2phi/modern-neovim "$moderndir"
 }
 [ "$pde" ] && {
   clone_repo PDE alpha2phi/neovim-pde "$pdedir"
