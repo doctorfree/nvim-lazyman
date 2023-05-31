@@ -245,7 +245,7 @@ always used on Arch Linux, Homebrew on macOS)
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
 'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion',
-'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'PDE',
+'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'PDE',
 'StartBase'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
