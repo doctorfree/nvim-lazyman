@@ -3590,7 +3590,12 @@ show_main_menu() {
       options+=("Install All       ${configstr}")
     fi
     have_bob=$(type -p bob)
-    [ "${have_bob}" ] || options+=("Install Bob")
+    if [ "${have_bob}" ]
+    then
+      options+=("List Neovim Versions")
+    else
+      options+=("Install Bob")
+    fi
     options+=("Install Tools")
     uninstalled=()
     if [ "${have_fzf}" ]
@@ -3936,6 +3941,12 @@ show_main_menu() {
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
           lazyman ${darg} -A -y -z -Q -q -U
+          break
+          ;;
+        "List Neovim Versions"*,* | *,"List Neovim Versions"*)
+          printf "\nListing all Neovim versions managed by Bob\n"
+          bob list
+          prompt_continue
           break
           ;;
         "Install Bob"*,* | *,"Install Bob"*)
