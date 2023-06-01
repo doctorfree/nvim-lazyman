@@ -1904,17 +1904,21 @@ select_theme() {
 }
 
 show_vers_help() {
+  if [ "${have_rich}" ]; then
+    rich "[cyan]Lazyman Neovim Version Manager Menu Help[/cyan]" -p -a rounded -c -C
+  else
+    printf "\n\tLazyman Neovim Version Manager Menu Help\n"
+  fi
   printf "\nSelect and install Neovim versions managed by the Bob Neovim version manager."
   printf "\nThe Bob Neovim version manager can also be used from the command line.\n"
   printf "\n${BOLD}${LINE}Usage:${NORM} ${BOLD}bob <COMMAND>${NORM}"
   printf "\n${BOLD}${LINE}Commands:${NORM}"
-  printf "\n  ${BOLD}use${NORM}        Switch to the specified version, by default will auto-invoke install command if the version is not installed already"
-  printf "\n  ${BOLD}install${NORM}    Install the specified version, can also be used to update out-of-date nightly version"
-  printf "\n  ${BOLD}sync${NORM}       If Config::version_sync_file_location is set, the version in that file will be parsed and installed"
-  printf "\n  ${BOLD}uninstall${NORM}  Uninstall the specified version [aliases: rm]"
+  printf "\n  ${BOLD}use${NORM}        Switch to the specified version (install if not installed)"
+  printf "\n  ${BOLD}install${NORM}    Install the specified version"
+  printf "\n  ${BOLD}uninstall${NORM}  Uninstall the specified version"
   printf "\n  ${BOLD}rollback${NORM}   Rollback to an existing nightly rollback"
-  printf "\n  ${BOLD}erase${NORM}      Erase any change bob ever made, including neovim installation, neovim version downloads and registry changes"
-  printf "\n  ${BOLD}list${NORM}       List all installed and used versions [aliases: ls]"
+  printf "\n  ${BOLD}erase${NORM}      Erase any change bob ever made"
+  printf "\n  ${BOLD}list${NORM}       List all installed and used versions"
   printf "\n  ${BOLD}complete${NORM}   Generate shell completion"
   printf "\n  ${BOLD}help${NORM}       Print this message or the help of the given subcommand(s)"
   printf "\n${BOLD}${LINE}Options:${NORM}"
@@ -1997,6 +2001,20 @@ show_vers_menu() {
     REPLY=
   done
   [ "${help}" ] && show_vers_menu
+}
+
+show_plug_help() {
+  if [ "${have_rich}" ]; then
+    rich "[cyan]Lazyman Plugins Menu Help[/cyan]" -p -a rounded -c -C
+  else
+    printf "\n\tLazyman Plugins Menu Help\n"
+  fi
+  printf "\nEnable and disable installed Neovim plugins and plugin configuration."
+  printf "\nEnabled plugins and plugin configurations are indicated with a []"
+  printf "\nDisabled plugins and plugin configurations are indicated with a [✗]\n"
+  printf "\nSettings in this menu only effect the Lazyman Neovim configuration in:"
+  printf "\n\t${HOME}/.config/nvim-Lazyman\n"
+  prompt_continue
 }
 
 show_plugin_menu() {
@@ -2296,8 +2314,7 @@ show_plugin_menu() {
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
-          printf "\n"
-          man lazyman
+          show_plug_help
           break
           ;;
         "Media"*,* | *,"Media"*)
@@ -2929,6 +2946,25 @@ show_plugin_menu() {
   [ "${formenu}" ] && show_formlint_menu
 }
 
+show_lsp_help() {
+  if [ "${have_rich}" ]; then
+    rich "[cyan]Lazyman LSP Servers Menu Help[/cyan]" -p -a rounded -c -C
+  else
+    printf "\n\tLazyman LSP Servers Menu Help\n"
+  fi
+  printf "\nEnable and disable installed Neovim language servers."
+  printf "\nEnabled language servers are indicated with a []"
+  printf "\nDisabled language servers are indicated with a [✗]\n"
+  printf "\nThe Language Server Protocol (LSP) is an open protocol for use between"
+  printf "\nsource code editors or integrated development environments (IDEs) and"
+  printf "\nservers that provide programming language-specific features like code"
+  printf "\ncompletion, syntax highlighting and marking of warnings and errors,"
+  printf "\nas well as refactoring routines.\n"
+  printf "\nSettings in this menu only effect the Lazyman Neovim configuration in:"
+  printf "\n\t${HOME}/.config/nvim-Lazyman\n"
+  prompt_continue
+}
+
 show_lsp_menu() {
   set_haves
   pluginit=
@@ -2989,8 +3025,7 @@ show_lsp_menu() {
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
-          printf "\n"
-          man lazyman
+          show_lsp_help
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -3060,6 +3095,22 @@ show_lsp_menu() {
   [ "${formmenu}" ] && show_formlint_menu
 }
 
+show_form_help() {
+  if [ "${have_rich}" ]; then
+    rich "[cyan]Lazyman Formatters and Linters Menu Help[/cyan]" -p -a rounded -c -C
+  else
+    printf "\n\tLazyman Formatters and Linters Menu Help\n"
+  fi
+  printf "\nEnable and disable installed Neovim formatters and linters."
+  printf "\nEnabled formatters and linters are indicated with a []"
+  printf "\nDisabled formatters and linters are indicated with a [✗]\n"
+  printf "\nThese tools perform code formatting, static code analysis, and flag"
+  printf "\nprogramming errors, bugs, stylistic errors and suspicious constructs.\n"
+  printf "\nSettings in this menu only effect the Lazyman Neovim configuration in:"
+  printf "\n\t${HOME}/.config/nvim-Lazyman\n"
+  prompt_continue
+}
+
 show_formlint_menu() {
   set_haves
   pluginit=
@@ -3120,8 +3171,7 @@ show_formlint_menu() {
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
-          printf "\n"
-          man lazyman
+          show_form_help
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
