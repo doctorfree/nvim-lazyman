@@ -3952,8 +3952,8 @@ show_main_menu() {
           bob list
           if [ ${numversions} -gt 5 ]
           then
-            readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$)
-            readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$)
+            readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+            readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
             if [ "${have_rich}" ]; then
               rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
               rich "[b green]Manage the installed Neovim version" -p -c
@@ -3964,7 +3964,9 @@ show_main_menu() {
             nveropts=()
             for ind in "${!bob_versions[@]}"; do
               vlen=${#bob_versions[$ind]}
-              numspaces=$((8 - vlen))
+              slen=${#bob_status[$ind]}
+              tlen=$((vlen + slen))
+              numspaces=$((17 - tlen))
               [ ${numspaces} -lt 1 ] && numspaces=1
               spaces=
               while [ ${numspaces} -gt 0 ]
@@ -3974,6 +3976,33 @@ show_main_menu() {
               done
               nveropts+=("${bob_versions[$ind]}${spaces}[${bob_status[$ind]}]")
             done
+            OWNER=neovim
+            REPO=neovim
+            API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
+            have_jq=$(type -p jq)
+            [ "${have_jq}" ] && {
+              readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
+              for release in "${nvim_releases[@]}"; do
+                # [ "${release}" == "stable" ] && continue
+                if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
+                  rlen=$((${#release} + 5))
+                  numspaces=$((19 - rlen))
+                  [ ${numspaces} -lt 1 ] && numspaces=1
+                  spaces=
+                  while [ ${numspaces} -gt 0 ]
+                  do
+                    spaces="${spaces} "
+                    ((numspaces--))
+                  done
+                  nveropts+=("${release}${spaces}[Use]")
+                fi
+              done
+              if [[ ! " ${bob_versions[*]} " =~ " nightly " ]]; then
+                if [[ ! " ${nvim_releases[*]} " =~ " nightly " ]]; then
+                  nveropts+=("nightly       [Use]")
+                fi
+              fi
+            }
             nveropts+=("OK")
             nveropts+=("Quit")
             select opt in "${nveropts[@]}"; do
@@ -3991,8 +4020,10 @@ show_main_menu() {
                   else
                     nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
                   fi
-                  if [[ " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
-                    [ "${nvimvers}" == "${used}" ] || bob use ${nvimvers}
+                  if [[ ! " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
+                    [ "${nvimvers}" == "${used}" ] || {
+                      bob use ${nvimvers}
+                    }
                   fi
                   break 2
                   ;;
