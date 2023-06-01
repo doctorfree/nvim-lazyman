@@ -4002,11 +4002,9 @@ show_main_menu() {
                 else
                   nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
                 fi
-                #if [[ ! " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
-                  [ "${nvimvers}" == "${used_ver}" ] || {
-                    bob use ${nvimvers}
-                  }
-                #fi
+                [ "${nvimvers}" == "${used_ver}" ] || {
+                  bob use ${nvimvers} > /dev/null 2>&1
+                }
                 break 2
                 ;;
             esac
