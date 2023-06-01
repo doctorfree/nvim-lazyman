@@ -1901,6 +1901,82 @@ select_theme() {
   [ "${mainmenu}" ] && show_main_menu
 }
 
+show_vers_menu() {
+  help=
+  tput reset
+  readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+  readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+  if [ "${have_rich}" ]; then
+    rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
+  else
+    [ "${have_figlet}" ] && show_figlet "Neovim Version"
+  fi
+  bob list
+  nveropts=()
+  used_ver=
+  for ind in "${!bob_versions[@]}"; do
+    spc_status=$(echo ${bob_status[$ind]} | sed -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+    if [ "${spc_status}" == "Used" ]
+    then
+      status="[Used]"
+      used_ver="${bob_versions[$ind]}"
+    else
+      status=
+    fi
+    nveropts+=("${bob_versions[$ind]} ${status}")
+  done
+  OWNER=neovim
+  REPO=neovim
+  API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
+  have_jq=$(type -p jq)
+  [ "${have_jq}" ] && {
+    readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
+    for release in "${nvim_releases[@]}"; do
+      if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
+        nveropts+=("${release}")
+      fi
+    done
+    if [[ ! " ${bob_versions[*]} " =~ " nightly " ]]; then
+      if [[ ! " ${nvim_releases[*]} " =~ " nightly " ]]; then
+        nveropts+=("nightly")
+      fi
+    fi
+  }
+  nveropts+=("OK")
+  nveropts+=("Quit")
+  select opt in "${nveropts[@]}"; do
+    case "$opt,$REPLY" in
+      "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+        [ "$debug" ] || tput reset
+        printf "\n"
+        man lazyman
+        help=1
+        break
+        ;;
+      "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
+        break
+        ;;
+      "Quit",* | *,"Quit" | "quit",* | *,"quit")
+        printf "\nExiting Lazyman\n"
+        exit 0
+        ;;
+      *)
+        if [ "${opt}" ]; then
+          nvimvers=$(echo ${opt} | awk ' { print $1 } ')
+        else
+          nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
+        fi
+        [ "${nvimvers}" == "${used_ver}" ] || {
+          bob use ${nvimvers} > /dev/null 2>&1
+        }
+        break
+        ;;
+    esac
+    REPLY=
+  done
+  [ "${help}" ] && show_vers_menu
+}
+
 show_plugin_menu() {
   set_haves
   pluginit=
@@ -1909,6 +1985,7 @@ show_plugin_menu() {
     confmenu=
     lspmenu=
     formenu=
+    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2185,6 +2262,11 @@ show_plugin_menu() {
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")
     options+=("LSP Servers")
+    have_bob=$(type -p bob)
+    [ "${have_bob}" ] && {
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
+    }
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -2782,6 +2864,10 @@ show_plugin_menu() {
           fi
           break
           ;;
+        "Neovim Ver"*,* | *,"Neovim Ver"*)
+          versmenu=1
+          break
+          ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
           break 2
@@ -2812,6 +2898,7 @@ show_plugin_menu() {
       esac
       REPLY=
     done
+    [ "${versmenu}" ] && show_vers_menu
   done
   [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${confmenu}" ] && show_conf_menu
@@ -2828,6 +2915,7 @@ show_lsp_menu() {
     confmenu=
     plugmenu=
     formmenu=
+    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2867,6 +2955,11 @@ show_lsp_menu() {
     options+=("Enable All")
     options+=("Formatters Menu")
     options+=("Plugins Menu")
+    have_bob=$(type -p bob)
+    [ "${have_bob}" ] && {
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
+    }
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -2895,6 +2988,10 @@ show_lsp_menu() {
         "Formatters Menu"*,* | *,"Formatters Menu"*)
           formmenu=1
           break 2
+          ;;
+        "Neovim Ver"*,* | *,"Neovim Ver"*)
+          versmenu=1
+          break
           ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
@@ -2932,6 +3029,7 @@ show_lsp_menu() {
       esac
       REPLY=
     done
+    [ "${versmenu}" ] && show_vers_menu
   done
   [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
@@ -2948,6 +3046,7 @@ show_formlint_menu() {
     confmenu=
     plugmenu=
     lspsmenu=
+    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2987,6 +3086,11 @@ show_formlint_menu() {
     options+=("Enable All")
     options+=("LSP Servers Menu")
     options+=("Plugins Menu")
+    have_bob=$(type -p bob)
+    [ "${have_bob}" ] && {
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
+    }
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -3020,6 +3124,10 @@ show_formlint_menu() {
           plugmenu=1
           break 2
           ;;
+        "Neovim Ver"*,* | *,"Neovim Ver"*)
+          versmenu=1
+          break
+          ;;
         "Config Menu"*,* | *,"Config Menu"*)
           confmenu=1
           break 2
@@ -3052,6 +3160,7 @@ show_formlint_menu() {
       esac
       REPLY=
     done
+    [ "${versmenu}" ] && show_vers_menu
   done
   [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
@@ -3068,6 +3177,7 @@ show_conf_menu() {
     plugmenu=
     lspmenu=
     formenu=
+    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -3181,6 +3291,11 @@ show_conf_menu() {
     options+=("Minimal Config")
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+    }
+    have_bob=$(type -p bob)
+    [ "${have_bob}" ] && {
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")
@@ -3412,6 +3527,10 @@ show_conf_menu() {
           }
           break
           ;;
+        "Neovim Ver"*,* | *,"Neovim Ver"*)
+          versmenu=1
+          break
+          ;;
         "Open Lazyman",* | *,"Open Lazyman")
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="nvim-Lazyman" neovide
@@ -3450,6 +3569,7 @@ show_conf_menu() {
       esac
       REPLY=
     done
+    [ "${versmenu}" ] && show_vers_menu
   done
   [ "${pluginit}" ] && init_neovim nvim-Lazyman
   [ "${mainmenu}" ] && show_main_menu
@@ -3471,6 +3591,7 @@ show_main_menu() {
     showinstalled=1
     show_warning=
     confmenu=
+    versmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -3946,70 +4067,7 @@ show_main_menu() {
           break
           ;;
         "Neovim Ver"*,* | *,"Neovim Ver"*)
-          tput reset
-          readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
-          readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          if [ "${have_rich}" ]; then
-            rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
-          else
-            [ "${have_figlet}" ] && show_figlet "Neovim Version"
-          fi
-          bob list
-          nveropts=()
-          used_ver=
-          for ind in "${!bob_versions[@]}"; do
-            spc_status=$(echo ${bob_status[$ind]} | sed -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
-            if [ "${spc_status}" == "Used" ]
-            then
-              status="[Used]"
-              used_ver="${bob_versions[$ind]}"
-            else
-              status=
-            fi
-            nveropts+=("${bob_versions[$ind]} ${status}")
-          done
-          OWNER=neovim
-          REPO=neovim
-          API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
-          have_jq=$(type -p jq)
-          [ "${have_jq}" ] && {
-            readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
-            for release in "${nvim_releases[@]}"; do
-              if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
-                nveropts+=("${release}")
-              fi
-            done
-            if [[ ! " ${bob_versions[*]} " =~ " nightly " ]]; then
-              if [[ ! " ${nvim_releases[*]} " =~ " nightly " ]]; then
-                nveropts+=("nightly")
-              fi
-            fi
-          }
-          nveropts+=("OK")
-          nveropts+=("Quit")
-          select opt in "${nveropts[@]}"; do
-            case "$opt,$REPLY" in
-              "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
-                break 2
-                ;;
-              "Quit",* | *,"Quit" | "quit",* | *,"quit")
-                printf "\nExiting Lazyman\n"
-                exit 0
-                ;;
-              *)
-                if [ "${opt}" ]; then
-                  nvimvers=$(echo ${opt} | awk ' { print $1 } ')
-                else
-                  nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
-                fi
-                [ "${nvimvers}" == "${used_ver}" ] || {
-                  bob use ${nvimvers} > /dev/null 2>&1
-                }
-                break 2
-                ;;
-            esac
-            REPLY=
-          done
+          versmenu=1
           break
           ;;
         " What is Bob"*,* | *," What is Bob"*)
@@ -4224,6 +4282,7 @@ show_main_menu() {
       esac
       REPLY=
     done
+    [ "${versmenu}" ] && show_vers_menu
   done
   [ "${confmenu}" ] && show_conf_menu
 }
