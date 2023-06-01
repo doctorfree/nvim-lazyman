@@ -16,6 +16,8 @@ GET_CONF="${LMANDIR}/scripts/get_conf.lua"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
+LINE=$(tput smul 2>/dev/null)
+
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
@@ -1901,6 +1903,26 @@ select_theme() {
   [ "${mainmenu}" ] && show_main_menu
 }
 
+show_vers_help() {
+  printf "\nSelect and install Neovim versions managed by the Bob Neovim version manager."
+  printf "\nThe Bob Neovim version manager can also be used from the command line.\n"
+  printf "\n${BOLD}${LINE}Usage:${NORM} ${BOLD}bob <COMMAND>${NORM}"
+  printf "\n${BOLD}${LINE}Commands:${NORM}"
+  printf "\n  ${BOLD}use${NORM}        Switch to the specified version, by default will auto-invoke install command if the version is not installed already"
+  printf "\n  ${BOLD}install${NORM}    Install the specified version, can also be used to update out-of-date nightly version"
+  printf "\n  ${BOLD}sync${NORM}       If Config::version_sync_file_location is set, the version in that file will be parsed and installed"
+  printf "\n  ${BOLD}uninstall${NORM}  Uninstall the specified version [aliases: rm]"
+  printf "\n  ${BOLD}rollback${NORM}   Rollback to an existing nightly rollback"
+  printf "\n  ${BOLD}erase${NORM}      Erase any change bob ever made, including neovim installation, neovim version downloads and registry changes"
+  printf "\n  ${BOLD}list${NORM}       List all installed and used versions [aliases: ls]"
+  printf "\n  ${BOLD}complete${NORM}   Generate shell completion"
+  printf "\n  ${BOLD}help${NORM}       Print this message or the help of the given subcommand(s)"
+  printf "\n${BOLD}${LINE}Options:${NORM}"
+  printf "\n  ${BOLD}-h, --help${NORM}     Print help"
+  printf "\n  ${BOLD}-V, --version${NORM}  Print version\n"
+  prompt_continue
+}
+
 show_vers_menu() {
   help=
   tput reset
@@ -1949,7 +1971,7 @@ show_vers_menu() {
       "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
         [ "$debug" ] || tput reset
         printf "\n"
-        man lazyman
+        show_vers_help
         help=1
         break
         ;;
