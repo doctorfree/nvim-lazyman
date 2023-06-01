@@ -3947,92 +3947,71 @@ show_main_menu() {
           ;;
         "Neovim Ver"*,* | *,"Neovim Ver"*)
           tput reset
-          printf "\nListing all Neovim versions managed by Bob\n"
-          numversions=$(bob list | wc -l)
-          bob list
-          if [ ${numversions} -gt 5 ]
-          then
-            readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
-            readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
-            if [ "${have_rich}" ]; then
-              rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
-              rich "[b green]Manage the installed Neovim version" -p -c
-            else
-              [ "${have_figlet}" ] && show_figlet "Neovim Version"
-            fi
-            printf '\n'
-            nveropts=()
-            for ind in "${!bob_versions[@]}"; do
-              vlen=${#bob_versions[$ind]}
-              slen=${#bob_status[$ind]}
-              tlen=$((vlen + slen))
-              numspaces=$((17 - tlen))
-              [ ${numspaces} -lt 1 ] && numspaces=1
-              spaces=
-              while [ ${numspaces} -gt 0 ]
-              do
-                spaces="${spaces} "
-                ((numspaces--))
-              done
-              nveropts+=("${bob_versions[$ind]}${spaces}[${bob_status[$ind]}]")
-            done
-            OWNER=neovim
-            REPO=neovim
-            API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
-            have_jq=$(type -p jq)
-            [ "${have_jq}" ] && {
-              readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
-              for release in "${nvim_releases[@]}"; do
-                # [ "${release}" == "stable" ] && continue
-                if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
-                  rlen=$((${#release} + 5))
-                  numspaces=$((19 - rlen))
-                  [ ${numspaces} -lt 1 ] && numspaces=1
-                  spaces=
-                  while [ ${numspaces} -gt 0 ]
-                  do
-                    spaces="${spaces} "
-                    ((numspaces--))
-                  done
-                  nveropts+=("${release}${spaces}[Use]")
-                fi
-              done
-              if [[ ! " ${bob_versions[*]} " =~ " nightly " ]]; then
-                if [[ ! " ${nvim_releases[*]} " =~ " nightly " ]]; then
-                  nveropts+=("nightly       [Use]")
-                fi
-              fi
-            }
-            nveropts+=("OK")
-            nveropts+=("Quit")
-            select opt in "${nveropts[@]}"; do
-              case "$opt,$REPLY" in
-                "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
-                  break 2
-                  ;;
-                "Quit",* | *,"Quit" | "quit",* | *,"quit")
-                  printf "\nExiting Lazyman\n"
-                  exit 0
-                  ;;
-                *)
-                  if [ "${opt}" ]; then
-                    nvimvers=$(echo ${opt} | awk ' { print $1 } ')
-                  else
-                    nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
-                  fi
-                  if [[ ! " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
-                    [ "${nvimvers}" == "${used}" ] || {
-                      bob use ${nvimvers}
-                    }
-                  fi
-                  break 2
-                  ;;
-              esac
-              REPLY=
-            done
+          readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+          readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          if [ "${have_rich}" ]; then
+            rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
           else
-            prompt_continue
+            [ "${have_figlet}" ] && show_figlet "Neovim Version"
           fi
+          bob list
+          nveropts=()
+          used_ver=
+          for ind in "${!bob_versions[@]}"; do
+            spc_status=$(echo ${bob_status[$ind]} | sed -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+            if [ "${spc_status}" == "Used" ]
+            then
+              status="[Used]"
+              used_ver="${bob_versions[$ind]}"
+            else
+              status=
+            fi
+            nveropts+=("${bob_versions[$ind]} ${status}")
+          done
+          OWNER=neovim
+          REPO=neovim
+          API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
+          have_jq=$(type -p jq)
+          [ "${have_jq}" ] && {
+            readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
+            for release in "${nvim_releases[@]}"; do
+              if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
+                nveropts+=("${release}")
+              fi
+            done
+            if [[ ! " ${bob_versions[*]} " =~ " nightly " ]]; then
+              if [[ ! " ${nvim_releases[*]} " =~ " nightly " ]]; then
+                nveropts+=("nightly")
+              fi
+            fi
+          }
+          nveropts+=("OK")
+          nveropts+=("Quit")
+          select opt in "${nveropts[@]}"; do
+            case "$opt,$REPLY" in
+              "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
+                break 2
+                ;;
+              "Quit",* | *,"Quit" | "quit",* | *,"quit")
+                printf "\nExiting Lazyman\n"
+                exit 0
+                ;;
+              *)
+                if [ "${opt}" ]; then
+                  nvimvers=$(echo ${opt} | awk ' { print $1 } ')
+                else
+                  nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
+                fi
+                #if [[ ! " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
+                  [ "${nvimvers}" == "${used_ver}" ] || {
+                    bob use ${nvimvers}
+                  }
+                #fi
+                break 2
+                ;;
+            esac
+            REPLY=
+          done
           break
           ;;
         " What is Bob"*,* | *," What is Bob"*)
