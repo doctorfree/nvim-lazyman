@@ -2666,7 +2666,7 @@ show_plugin_menu() {
           ;;
         "Indentline"*,* | *,"Indentline"*)
           choices=("background" "colored" "context" "listchars" "simple" "none")
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Indentline Styule  " --layout=reverse --border --exit-0)
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Indentline Style  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${use_indentline}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
               set_conf_value "indentline_style" "${choice}"
@@ -3589,14 +3589,6 @@ show_main_menu() {
     else
       options+=("Install All       ${configstr}")
     fi
-    have_bob=$(type -p bob)
-    if [ "${have_bob}" ]
-    then
-      options+=("List Neovim Versions")
-    else
-      options+=("Install Bob")
-    fi
-    options+=("Install Tools")
     uninstalled=()
     if [ "${have_fzf}" ]
     then
@@ -3666,10 +3658,20 @@ show_main_menu() {
     [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
     }
+    options+=("Install Tools")
     if [ "${debug}" ]; then
       options+=("Debug Mode [on]")
     else
       options+=("Debug Mode [off]")
+    fi
+    have_bob=$(type -p bob)
+    if [ "${have_bob}" ]
+    then
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
+    else
+      options+=("Install Bob")
+      options+=(" What is Bob?")
     fi
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
@@ -3943,9 +3945,72 @@ show_main_menu() {
           lazyman ${darg} -A -y -z -Q -q -U
           break
           ;;
-        "List Neovim Versions"*,* | *,"List Neovim Versions"*)
+        "Neovim Ver"*,* | *,"Neovim Ver"*)
+          tput reset
           printf "\nListing all Neovim versions managed by Bob\n"
+          numversions=$(bob list | wc -l)
           bob list
+          if [ ${numversions} -gt 5 ]
+          then
+            readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$)
+            readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$)
+            if [ "${have_rich}" ]; then
+              rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
+              rich "[b green]Manage the installed Neovim version" -p -c
+            else
+              [ "${have_figlet}" ] && show_figlet "Neovim Version"
+            fi
+            printf '\n'
+            nveropts=()
+            for ind in "${!bob_versions[@]}"; do
+              vlen=${#bob_versions[$ind]}
+              numspaces=$((8 - vlen))
+              [ ${numspaces} -lt 1 ] && numspaces=1
+              spaces=
+              while [ ${numspaces} -gt 0 ]
+              do
+                spaces="${spaces} "
+                ((numspaces--))
+              done
+              nveropts+=("${bob_versions[$ind]}${spaces}[${bob_status[$ind]}]")
+            done
+            nveropts+=("OK")
+            nveropts+=("Quit")
+            select opt in "${nveropts[@]}"; do
+              case "$opt,$REPLY" in
+                "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
+                  break 2
+                  ;;
+                "Quit",* | *,"Quit" | "quit",* | *,"quit")
+                  printf "\nExiting Lazyman\n"
+                  exit 0
+                  ;;
+                *)
+                  if [ "${opt}" ]; then
+                    nvimvers=$(echo ${opt} | awk ' { print $1 } ')
+                  else
+                    nvimvers=$(echo ${REPLY} | awk ' { print $1 } ')
+                  fi
+                  if [[ " ${bob_versions[*]} " =~ " ${nvimvers} " ]]; then
+                    [ "${nvimvers}" == "${used}" ] || bob use ${nvimvers}
+                  fi
+                  break 2
+                  ;;
+              esac
+              REPLY=
+            done
+          else
+            prompt_continue
+          fi
+          break
+          ;;
+        " What is Bob"*,* | *," What is Bob"*)
+          printf "\nBob is a cross-platform and easy-to-use Neovim version manager,"
+          printf "\nallowing easy switching between versions from the command line.\n"
+          printf "\nFor example, with Bob you could easily open a Neovim configuration"
+          printf "\nin the latest stable release of Neovim and then quickly and easily"
+          printf "\nreopen that same configuration using the nightly Neovim build.\n"
+          printf "\nSee https://github.com/MordechaiHadad/bob for more info on Bob.\n"
           prompt_continue
           break
           ;;
