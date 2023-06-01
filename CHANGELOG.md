@@ -6,6 +6,25 @@
 
 ### 🐞 Fixed
 
+## v2.1.4r1
+
+### ⚡️ Added
+
+- Add help to all menus
+- Add help for the Neovim version selection menu
+- Split Neovim version selection menu out into a function, call it from all other menus
+- Add Neovim version management menu using the `bob` Neovim version manager
+- Add submenu to select Neovim version if `bob` is installed and multiple versions have been installed
+- Add list neovim versions to menu if `bob` installed
+- Add `Modern` neovim configuration to `Personals`
+- Add menu option to install `Bob` neovim version manager
+
+### 🐞 Fixed
+
+- Redirect `bob` output
+- Format neovim version menu
+- Display config menu if just `-F` is provided
+
 ## v2.1.3r5
 
 ### ⚡️ Added
