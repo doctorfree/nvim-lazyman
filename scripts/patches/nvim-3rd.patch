@@ -1,0 +1,63 @@
+--- lua/modules/language-support/tree-sitter.lua.orig	2023-06-02 15:09:24.598125966 -0700
++++ lua/modules/language-support/tree-sitter.lua	2023-06-02 15:12:53.608693775 -0700
+@@ -25,7 +25,7 @@
+     "rust",
+     "scss",
+     "svelte",
+-    "syslang",
++    -- "syslang",
+     "toml",
+     "tsx",
+     "typescript",
+@@ -98,15 +98,15 @@
+   local treesitter = require("nvim-treesitter.configs")
+ 
+   local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+-  parser_config.syslang = {
+-    install_info = {
+-      url = "~/brain/core/syslang/tree-sitter-syslang",
+-      files = { "src/parser.c", "src/scanner.cc" },
+-      generate_requires_npm = false,
+-      requires_generate_from_grammar = true,
+-    },
+-    filetype = "syslang",
+-  }
++  -- parser_config.syslang = {
++  --   install_info = {
++  --     url = "~/brain/core/syslang/tree-sitter-syslang",
++  --     files = { "src/parser.c", "src/scanner.cc" },
++  --     generate_requires_npm = false,
++  --     requires_generate_from_grammar = true,
++  --   },
++  --   filetype = "syslang",
++  -- }
+ 
+   treesitter.setup(config)
+ 
+@@ -125,16 +125,16 @@
+       })
+     end,
+   })
+-  vim.api.nvim_create_autocmd("FileType", {
+-    group = vim.api.nvim_create_augroup("tsnode-marker-syslang", {}),
+-    pattern = "syslang",
+-    callback = function(ctx)
+-      require("tsnode-marker").set_automark(ctx.buf, {
+-        target = { "code_block" }, -- list of target node types
+-        hl_group = "@slang.code_block_fence", -- highlight group
+-      })
+-    end,
+-  })
++  -- vim.api.nvim_create_autocmd("FileType", {
++  --   group = vim.api.nvim_create_augroup("tsnode-marker-syslang", {}),
++  --   pattern = "syslang",
++  --   callback = function(ctx)
++  --     require("tsnode-marker").set_automark(ctx.buf, {
++  --       target = { "code_block" }, -- list of target node types
++  --       hl_group = "@slang.code_block_fence", -- highlight group
++  --     })
++  --   end,
++  -- })
+ end
+ 
+ return lib.module.create({

@@ -5676,6 +5676,12 @@ done
   fi
 }
 
+# Apply any patch we have created for this config
+[ -f "${LMANDIR}"/scripts/patches/${neovimdir[0]}.patch ] && {
+  [ -x "${LMANDIR}"/scripts/patch_config.sh ] && {
+    "${LMANDIR}"/scripts/patch_config.sh "${neovimdir[0]}"
+  }
+}
 [ "${fix_help}" ] && {
   fix_help_file "${HOME}/.config/${neovimdir[0]}/${fix_help}"
 }
