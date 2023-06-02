@@ -4143,11 +4143,14 @@ show_main_menu() {
           break
           ;;
         " What is Bob"*,* | *," What is Bob"*)
-          printf "\nBob is a cross-platform and easy-to-use Neovim version manager,"
-          printf "\nallowing easy switching between versions from the command line.\n"
-          printf "\nFor example, with Bob you could easily open a Neovim configuration"
-          printf "\nin the latest stable release of Neovim and then quickly and easily"
+          printf "\nBob is an easy to use cross-platform Neovim version manager,"
+          printf "\nallowing switching between Neovim versions from the command line.\n"
+          printf "\nFor example, with Bob you could open a Neovim configuration with"
+          printf "\nthe latest stable release of Neovim and then quickly and easily"
           printf "\nreopen that same configuration using the nightly Neovim build.\n"
+          printf "\nThe Bob Neovim version manager can install and manage multiple"
+          printf "\nNeovim versions from the command line and has been integrated"
+          printf "\ninto Lazyman via the Lazyman Menu interface for ease of use.\n"
           printf "\nSee https://github.com/MordechaiHadad/bob for more info on Bob.\n"
           prompt_continue
           break
