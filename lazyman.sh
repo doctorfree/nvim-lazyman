@@ -4180,6 +4180,7 @@ show_main_menu() {
           then
             printf "\n\tThe 'bob' neovim version manager is installed as:"
             printf "\n\t\t${have_bob}"
+            export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
           else
             printf "\n\tThe 'bob' neovim version manager cannot be located."
             printf "\n\tCheck your execution PATH or reinstall bob."
