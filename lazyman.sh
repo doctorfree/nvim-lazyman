@@ -2046,6 +2046,8 @@ show_plugin_menu() {
     use_media_backend="${media_backend}"
     session_manager=$(get_conf_value session_manager)
     use_session_manager="${session_manager}"
+    enable_snippets=$(get_conf_value enable_snippets)
+    use_enable_snippets="${enable_snippets}"
     file_tree=$(get_conf_value file_tree)
     use_neotree="${file_tree}"
     enable_noice=$(get_conf_value enable_noice)
@@ -2287,6 +2289,7 @@ show_plugin_menu() {
     }
     options+=("Session [${use_session_manager}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
+    options+=("Snippets [${use_enable_snippets}]")
     options+=("StartupTime   [${use_startuptime}]")
     options+=("Surround      [${use_surround}]")
     options+=("Terminal      [${use_terminal}]")
@@ -2338,6 +2341,25 @@ show_plugin_menu() {
               else
                 if [ "${choice}" == "None" ]; then
                   set_conf_value "session_manager" "none"
+                fi
+              fi
+            fi
+            pluginit=1
+          fi
+          break
+          ;;
+        "Snippets"*,* | *,"Snippets"*)
+          choices=("Luasnip" "Snippy" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Snippets Plugin  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Luasnip" ]; then
+              set_conf_value "enable_snippets" "luasnip"
+            else
+              if [ "${choice}" == "Snippy" ]; then
+                set_conf_value "enable_snippets" "snippy"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "enable_snippets" "none"
                 fi
               fi
             fi
@@ -2801,6 +2823,7 @@ show_plugin_menu() {
           set_conf_value "file_tree" "none"
           set_conf_value "media_backend" "none"
           set_conf_value "session_manager" "none"
+          set_conf_value "enable_snippets" "none"
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_codeexplain" "false"
@@ -2842,6 +2865,7 @@ show_plugin_menu() {
           set_conf_value "file_tree" "neo-tree"
           set_conf_value "media_backend" "jp2a"
           set_conf_value "session_manager" "possession"
+          set_conf_value "enable_snippets" "luasnip"
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {

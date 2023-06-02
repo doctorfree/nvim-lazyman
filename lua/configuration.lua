@@ -70,6 +70,8 @@ conf.enable_ranger_float = true
 conf.enable_multi_cursor = true
 -- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "possession"
+-- Snippet support, can be one of: luasnip, snippy, or none
+conf.enable_snippets = "luasnip"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
