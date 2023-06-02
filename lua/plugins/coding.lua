@@ -37,8 +37,8 @@ if settings.enable_coding then
     snippet = {
       "L3MON4D3/LuaSnip",
       build = (not jit.os:find("Windows"))
-        and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
-        or nil,
+          and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
+          or nil,
       dependencies = {
         "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
@@ -88,7 +88,7 @@ if settings.enable_coding then
               ["<S-Tab>"] = "previous",
             },
             nx = {
-              ["<leader>x"] = "cut_text",
+              ["<leader>X"] = "cut_text",
             },
           },
         })
