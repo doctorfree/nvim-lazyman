@@ -1,0 +1,150 @@
+snippet boil "boilerplace"
+	#!/usr/bin/env bash
+	set -uf -o pipefail
+	IFS=$'\n\t'
+
+	$0
+
+snippet boil2 "Boilerplate" b
+	#!/usr/bin/env bash
+	set -euf -o pipefail
+	IFS=$'\n\t'
+
+	#/ Usage:
+	#/ Description:
+	#/ Examples:
+	#/ Options:
+	#/   --help: Display this help message
+	usage() {
+		grep '^#/' "\$0" | cut -c4-
+		exit 0
+	}
+	expr "$*" : ".*--help" > /dev/null && usage
+
+	echoerr() { printf "%s\n" "$*" >&2; }
+	info() { echoerr "[INFO]    $*"; }
+	warning() { echoerr "[WARNING] $*"; }
+	error() { echoerr "[ERROR]   $*"; }
+	fatal() {
+		echoerr "[FATAL]   $*"
+		exit 1
+	}
+
+	cleanup() {
+		info "... cleaned up"
+	}
+
+	if [[ "\${BASH_SOURCE[0]}" = "\$0" ]]; then
+		trap cleanup EXIT
+		$0
+	fi
+
+snippet scriptdir "get dir of current script"
+	DIR="$( cd "$(dirname "\${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+snippet arg_default "argument with default value"
+	ARG=\$\{1:-default\}
+
+snippet arg_switch "getopts switch"
+	while getopts "hv" arg; do
+		case "\$arg" in
+			h) # help
+				show_help
+				exit 0
+				;;
+			v) # version
+				printf "%s\\n" "\$version"
+				exit 0
+				;;
+			*)
+				exit 1
+		esac
+	done
+
+snippet if_empty "if empty"
+	if [ -z "$VAR" ]; then
+		true
+	fi
+
+snippet if_not_empty "if not empty"
+	if [ -n "$VAR" ]; then
+		true
+	fi
+
+snippet if_file "if file exists"
+	if [[ -f "$PATH" ]]; then
+		$0
+	fi
+
+snippet if_dir "if dir exists"
+	if [[ -d "$PATH" ]]; then
+		$0
+	fi
+
+snippet if_grep "if file contains"
+	if grep -q "$1" "$2"; then
+		$0
+	fi
+
+snippet if_argc "if argument count"
+	if [ "$#" -eq $1 ]; then
+		$0
+	fi
+	echo $#
+
+snippet if_not_argc "if not argument count"
+	if [ "$#" -ne $1 ]; then
+		$0
+	fi
+	echo $#
+
+snippet if_numeric "check if numeric"
+	if printf "%s" "$1" | grep -Eq '^[+-]?[0-9]+$'; then
+		$0
+	fi
+
+snippet if_tmux "if in tmux"
+	if printf "%s" "$TERM" | grep -Fq screen && test "$TMUX" ; then
+		$0
+	fi
+
+snippet if_root "if not running as root"
+	if [[ $EUID -eq 0 ]]; then
+		$0
+	fi
+
+snippet if_not_root "if not running as root"
+	if [[ $EUID -ne 0 ]]; then
+		echo "This script must be run as root" 
+		exit 1
+	fi
+
+snippet for_line_in_var "for line in variable"
+	while read -r LINE; do
+		printf 'line: %s\n' "$LINE"
+	done <<< "$VAR"
+
+snippet for_file_rg "for file in rg match"
+	FILES=$(rg -e "^<<<<<<")
+	while IFS=: read -r FILE _; do
+		printf 'file: %s\n' "$FILE"
+	done <<< "$FILES"
+
+snippet confirm "prompt user to confirm action"
+	read -p "$1" -n 1 -r
+	echo
+	if [[ \$REPLY =~ ^[Yy]$ ]]
+	then
+			$0
+	fi
+
+snippet colors "use colors"
+	BLACK   = $(shell tput -Txterm setaf 0)
+	RED     = $(shell tput -Txterm setaf 1)
+	GREEN   = $(shell tput -Txterm setaf 2)
+	YELLOW  = $(shell tput -Txterm setaf 3)
+	BLUE    = $(shell tput -Txterm setaf 4)
+	MAGENTA = $(shell tput -Txterm setaf 5)
+	CYAN    = $(shell tput -Txterm setaf 6)
+	WHITE   = $(shell tput -Txterm setaf 7)
+	RESET   = $(shell tput -Txterm sgr0)

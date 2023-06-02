@@ -1,0 +1,39 @@
+snippet boil "react component"
+	import React from "react";
+
+	interface $1Props {
+	}
+
+	const $1 = ({$2}: $1Props) => {
+		return $0;
+	};
+
+	export { $1 };
+	export default $1;
+
+snippet bstory "react fixture"
+	import React from "react";
+	import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+	import $1 from "./$1";
+
+	export default {
+		title: '$1',
+		component: $1,
+		argTypes: {
+			// https://storybook.js.org/docs/react/api/argtypes
+			backgroundColor: { control: 'color' },
+			onClick: { action: "clicked" },
+		},
+	} as ComponentMeta<typeof $1>;
+
+	// https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+	const Template: ComponentStory<typeof $1> = (args) => <$1 {...args} />;
+
+	export const Default = Template.bind({});
+	// https://storybook.js.org/docs/react/writing-stories/args
+	Default.args = {
+		primary: true,
+		label: '$1',
+	};
+
