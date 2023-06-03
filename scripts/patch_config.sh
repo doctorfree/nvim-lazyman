@@ -5,7 +5,11 @@ confname="$1"
 confdir="${HOME}/.config/${confname}"
 have_patch=$(type -p patch)
 
-[ "${have_patch}" ] || exit 1
+[ "${have_patch}" ] || {
+  printf "\n\nWARNING: Unable to apply patch for ${confname}"
+  printf "\nUnable to locate the patch executable in your PATH\n"
+  exit 1
+}
 
 [ -f ${patchdir}/${confname}.patch ] && {
   [ -d ${confdir} ] && {
