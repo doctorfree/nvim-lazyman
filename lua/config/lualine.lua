@@ -28,6 +28,9 @@ if fancy then
   filetype = "fancy_filetype"
   lsp_servers = "fancy_lsp_servers"
 end
+if settings.enable_winbar == "none" then
+  lsp_servers = ""
+end
 
 local theme = settings.theme
 local style = settings.theme_style

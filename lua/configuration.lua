@@ -17,7 +17,7 @@ conf.theme = "tokyonight"
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
-conf.enable_transparent = false
+conf.enable_transparent = true
 
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
