@@ -5279,6 +5279,13 @@ set_haves
     [ "${all}" ] && [ "${neovim}" == "${lazymandir}" ] && continue
     remove_config "$neovim"
   done
+  [ "${all}" ] && {
+    cat "${NVIMDIRS}" | while read nvimdir
+    do
+      [ "${nvimdir}" == "${lazymandir}" ] && continue
+      remove_config "$nvimdir"
+    done
+  }
   exit 0
 }
 
