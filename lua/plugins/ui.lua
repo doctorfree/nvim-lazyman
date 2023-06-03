@@ -1,5 +1,22 @@
 local settings = require("configuration")
 
+local barbecue = {}
+if settings.enable_barbecue then
+  barbecue = {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = "VeryLazy",
+    config = function()
+      require("config.barbecue")
+    end,
+  }
+end
+
 local dressing = {}
 if settings.enable_dressing then
   dressing = {
@@ -52,9 +69,9 @@ if settings.enable_statusline then
   end
 end
 
-local tabline_cfg =  {}
+local tabline_cfg = {}
 if settings.enable_tabline then
-  tabline_cfg =  {
+  tabline_cfg = {
     "kdheepak/tabline.nvim",
     event = "VeryLazy",
     config = function()
@@ -228,6 +245,9 @@ return {
     end,
   },
 
+  -- VSCode-like winbar
+  barbecue,
+
   -- better vim.ui
   dressing,
 
@@ -282,7 +302,7 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- ui components
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
 
   terminal_nvim,
   wilder_type,
