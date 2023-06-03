@@ -1,7 +1,7 @@
 local settings = require("configuration")
 
 local barbecue = {}
-if settings.enable_barbecue then
+if settings.enable_winbar == "barbecue" then
   barbecue = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
@@ -39,7 +39,7 @@ end
 
 local lualine_lsp_progress = {}
 if settings.enable_lualine_lsp_progress then
-  if settings.enable_winbar then
+  if settings.enable_winbar == "winbar" then
     lualine_lsp_progress = { "arkav/lualine-lsp-progress" }
   end
 end
@@ -122,7 +122,7 @@ if settings.enable_toggleterm then
         NormalFloat = { link = "ToggleTerm" },
       },
       winbar = {
-        enabled = settings.enable_winbar,
+        enabled = settings.enable_winbar == "winbar",
         name_formatter = function(term)
           return string.format("%d:%s", term.id, term:_display_name())
         end,

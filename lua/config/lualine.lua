@@ -51,13 +51,13 @@ end
 
 local navic_tabline = {}
 local navic_winbar = {}
-if not settings.enable_barbecue then
+if settings.enable_winbar == "winbar" then
   local navic_loc = {
     { "require'nvim-navic'.get_location()" },
   }
   navic_tabline = navic_loc
   navic_winbar = {}
-  if settings.enable_winbar then
+  if settings.enable_winbar == "winbar" then
     navic_tabline = {}
     navic_winbar = navic_loc
   end
@@ -83,7 +83,7 @@ end
 
 local winbar_cfg = {}
 local inactive_winbar_cfg = {}
-if settings.enable_winbar and not settings.enable_barbecue then
+if settings.enable_winbar == "winbar" then
   local lsp_progress = {
     {
       "filename",

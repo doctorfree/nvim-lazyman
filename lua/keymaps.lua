@@ -165,7 +165,7 @@ end
 -- stylua: ignore start
 
 -- toggle options
-if settings.enable_barbecue then
+if settings.enable_winbar == "barbecue" then
   map("n", "<leader>ub", function() require("barbecue.ui").toggle() end, { desc = "Toggle barbecue winbar" })
 end
 map("n", "<leader>uf", require("config.lsp.format").toggle, { desc = "Toggle format on Save" })

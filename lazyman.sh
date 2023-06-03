@@ -3338,11 +3338,7 @@ show_conf_menu() {
       use_tabline="✗"
     fi
     enable_winbar=$(get_conf_value enable_winbar)
-    if [ "${enable_winbar}" == "true" ]; then
-      use_winbar=""
-    else
-      use_winbar="✗"
-    fi
+    use_winbar="${enable_winbar}"
     show_diagnostics=$(get_conf_value show_diagnostics)
     use_show_diagnostics="${show_diagnostics}"
     enable_semantic_highlighting=$(get_conf_value enable_semantic_highlighting)
@@ -3374,7 +3370,7 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=(" Showtabline  [${use_showtabline}]")
-    options+=("Winbar        [${use_winbar}]")
+    options+=("Winbar  [${use_winbar}]")
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
     options+=("Disable All")
@@ -3421,12 +3417,22 @@ show_conf_menu() {
           break
           ;;
         "Winbar"*,* | *,"Winbar"*)
-          if [ "${enable_winbar}" == "true" ]; then
-            set_conf_value "enable_winbar" "false"
-          else
-            set_conf_value "enable_winbar" "true"
+          choices=("Barbecue" "Winbar" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select winbar style  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Barbecue" ]; then
+              set_conf_value "enable_winbar" "barbecue"
+            else
+              if [ "${choice}" == "Winbar" ]; then
+                set_conf_value "enable_winbar" "winbar"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "enable_winbar" "none"
+                fi
+              fi
+            fi
+            pluginit=1
           fi
-          pluginit=1
           break
           ;;
         " Style"*,* | *," Style"*)
@@ -3535,7 +3541,7 @@ show_conf_menu() {
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
           set_conf_value "showtabline" "0"
-          set_conf_value "enable_winbar" "false"
+          set_conf_value "enable_winbar" "none"
           set_conf_value "show_diagnostics" "none"
           set_conf_value "enable_semantic_highlighting" "false"
           set_conf_value "convert_semantic_highlighting" "false"
@@ -3582,7 +3588,7 @@ show_conf_menu() {
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
           set_conf_value "showtabline" "0"
-          set_conf_value "enable_winbar" "false"
+          set_conf_value "enable_winbar" "none"
           set_conf_value "enable_transparent" "false"
           set_conf_value "show_diagnostics" "none"
           set_conf_value "enable_semantic_highlighting" "false"
@@ -3598,7 +3604,7 @@ show_conf_menu() {
           set_conf_value "enable_statusline" "true"
           set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
-          set_conf_value "enable_winbar" "true"
+          set_conf_value "enable_winbar" "barbecue"
           set_conf_value "enable_transparent" "true"
           set_conf_value "show_diagnostics" "popup"
           set_conf_value "enable_semantic_highlighting" "true"
