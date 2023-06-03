@@ -3370,7 +3370,12 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=(" Showtabline  [${use_showtabline}]")
-    options+=("Winbar  [${use_winbar}]")
+    if [ "${use_winbar}" == "none" ]
+    then
+      options+=("Winbar     [${use_winbar}]")
+    else
+      options+=("Winbar [${use_winbar}]")
+    fi
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
     options+=("Disable All")
@@ -3417,14 +3422,14 @@ show_conf_menu() {
           break
           ;;
         "Winbar"*,* | *,"Winbar"*)
-          choices=("Barbecue" "Winbar" "None")
+          choices=("Barbecue" "Standard" "None")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select winbar style  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${choice}" == "Barbecue" ]; then
               set_conf_value "enable_winbar" "barbecue"
             else
               if [ "${choice}" == "Winbar" ]; then
-                set_conf_value "enable_winbar" "winbar"
+                set_conf_value "enable_winbar" "standard"
               else
                 if [ "${choice}" == "None" ]; then
                   set_conf_value "enable_winbar" "none"

@@ -39,7 +39,7 @@ end
 
 local lualine_lsp_progress = {}
 if settings.enable_lualine_lsp_progress then
-  if settings.enable_winbar == "winbar" then
+  if settings.enable_winbar == "standard" then
     lualine_lsp_progress = { "arkav/lualine-lsp-progress" }
   end
 end
@@ -122,7 +122,7 @@ if settings.enable_toggleterm then
         NormalFloat = { link = "ToggleTerm" },
       },
       winbar = {
-        enabled = settings.enable_winbar == "winbar",
+        enabled = settings.enable_winbar == "standard",
         name_formatter = function(term)
           return string.format("%d:%s", term.id, term:_display_name())
         end,

@@ -96,7 +96,7 @@ conf.enable_statusline = true
 -- Enable tabline
 conf.enable_tabline = true
 -- Enable winbar with navic location
--- Can be one of "winbar", "barbecue", or "none"
+-- Can be one of "barbecue", "standard", or "none"
 -- Barbecue provides a clickable navic location so we default to that
 conf.enable_winbar = "barbecue"
 -- Enable LSP progress in winbar

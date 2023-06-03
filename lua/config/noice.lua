@@ -2,7 +2,7 @@ local settings = require("configuration")
 
 local enable_progress = true
 if settings.enable_lualine_lsp_progress then
-  if settings.enable_winbar == "winbar" then
+  if settings.enable_winbar == "standard" then
     enable_progress = false
   end
 end
