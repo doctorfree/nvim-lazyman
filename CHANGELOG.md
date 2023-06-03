@@ -6,6 +6,30 @@
 
 ### 🐞 Fixed
 
+## v2.1.4r2
+
+### ⚡️ Added
+
+- Configure `barbecue` based on `enable_tabline`
+- Add support for `barbecue` winbar
+- Add `3rd` to Custom
+- Add Makefile for generating profiles and benchmarks
+- Add configuration patch script for patches applied during initialization
+- Add snippets for additional languages
+- Add support for multiple snippet plugins, right now `luasnip` and `snippy`
+- Add `bob` nvim to path after install bob
+
+### 🐞 Fixed
+
+- Hide `lualine` only if enabled
+- Only show lsp servers in tabline if winbar is enabled
+- Change `enable_winbar` from boolean to string, remove `enable_barbecue`
+- Issue warning if patch utility not found
+- Remove custom installed configs as well when -A -R are provided
+- Change snippy cut text mapping from <leader>x to <leader>X to avoid conflict with diagnostics mapping
+- Move `CodeArt` and `CosmicNvim` up into Starter configs
+- Expand description of Bob Neovim version manager
+
 ## v2.1.4r1
 
 ### ⚡️ Added
