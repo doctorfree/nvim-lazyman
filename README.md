@@ -107,6 +107,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Personal configurations](#personal-configurations)
   - [Starter configurations](#starter-configurations)
   - [Custom configurations](#custom-configurations)
+    - [Custom configuration patches](#custom-configuration-patches)
 - [Features](#features)
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
@@ -122,6 +123,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Packer](#packer)
   - [Plug](#plug)
   - [Health check](#health-check)
+  - [Profiling and benchmarking](#profiling-and-benchmarking)
   - [Symbolic links](#symbolic-links)
   - [Shell initialization setup](#shell-initialization-setup)
   - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
@@ -553,6 +555,46 @@ Feel free to open an issue at
 <https://github.com/doctorfree/nvim-lazyman/issues> to help tackle any problems
 installing or initializing Neovim configurations with Lazyman.
 
+#### Custom configuration patches
+
+If you encounter a Neovim configuration that does not cleanly initialize
+with `lazyman` it is often possible to make a few minor changes to the
+configuration to get it working. Lazyman supports custom configuration
+patches that are applied during initialization of a configuration.
+
+The `~/.config/nvim-Lazyman/scripts/patches/` directory contains patches
+to Neovim configurations applied after cloning the repo with `lazyman`.
+
+The patch file for a configuration must be named `<Name>.patch` where
+`<Name>` is the name of the configuration folder in `~/.config/`.
+
+Some Neovim configurations do not initialize cleanly using `lazyman`
+and modifications to the configuration files may be necessary. In this
+case it is possible to generate a patch file for the config, place it
+here, and re-run `lazyman` to install and initialize that configuration.
+
+The patch should be created from the top of the configuration directory
+after making the necessary changes and backing up the original file(s).
+
+For example, the Neovim configuration by [3rd](https://github.com/3rd/config)
+contains references to a custom tree-sitter grammar and does not initialize
+cleanly with `lazyman`. After commenting out these references a patch can be
+created for this config with:
+
+```bash
+diff -Naur lua/modules/language-support/tree-sitter.lua.orig \
+           lua/modules/language-support/tree-sitter.lua \
+           > ~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch
+```
+
+Subsequently, running:
+
+```bash
+lazyman -C https://github.com/3rd/config -D home/dotfiles/nvim -N nvim-3rd
+```
+
+will produce a cleanly initialized Neovim configuration.
+
 ## Features
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
@@ -966,7 +1008,7 @@ conf.theme = "tokyonight"
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
-conf.enable_transparent = true
+conf.enable_transparent = false
 
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
@@ -1019,6 +1061,8 @@ conf.enable_ranger_float = true
 conf.enable_multi_cursor = true
 -- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "possession"
+-- Snippet support, can be one of: luasnip, snippy, or none
+conf.enable_snippets = "luasnip"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
@@ -1155,7 +1199,7 @@ conf.formatters_linters = {
   "sql-formatter",      -- FORMATTERS_LINTERS
   -- "shellcheck",      -- FORMATTERS_LINTERS
   -- "shfmt",           -- FORMATTERS_LINTERS
-  -- "stylua",   -- FORMATTERS_LINTERS
+  -- "stylua",          -- FORMATTERS_LINTERS
   "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }
@@ -1375,6 +1419,39 @@ After installing and initializing the Neovim configuration, perform a health
 check while in Neovim with `:checkhealth`. Examine any warnings or errors and
 perform any necessary remedial actions such as installing missing packages
 or resolving keymap conflicts.
+
+### Profiling and benchmarking
+
+A Makefile for profiling and benchmarking Neovim configurations is included
+in the `Lazyman` Neovim configuration at `~/.config/nvim-Lazyman/Makefile`.
+
+To create startup and loading profiles for a Neovim configuration:
+
+```bash
+cd ~/.config/nvim-<Name> # e.g. 'cd ~/.config/nvim-AstroNvim'
+export NVIM_APPNAME="nvim-<Name>" # e.g. 'export NVIM_APPNAME="nvim-AstroNvim"
+make -f ~/.config/nvim-Lazyman/Makefile profile
+```
+
+The files `profile-startup.log` and `profile-viml.log` will be generated.
+
+Benchmarking a Neovim configuration startup requires `hyperfine`. If not present,
+install `hyperfine` with `cargo`:
+
+```bash
+cargo install --locked hyperfine
+```
+
+To benchmark a Neovim configuration:
+
+```bash
+cd ~/.config/nvim-<Name> # e.g. 'cd ~/.config/nvim-LazyVim'
+export NVIM_APPNAME="nvim-<Name>" # e.g. 'export NVIM_APPNAME="nvim-LazyVim"
+make -f ~/.config/nvim-Lazyman/Makefile benchmark
+```
+
+The files `profile-bench-baseline.md`, `profile-bench-startup.md`,
+`profile-bench-baseline.log` and `profile-bench-startup.log` will be generated.
 
 ### Symbolic links
 

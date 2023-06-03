@@ -1,0 +1,18 @@
+snippet bvstory "vue story"
+	import $1 from './$1.vue';
+
+	export default {
+		title: 'Components/$1',
+		component: $1,
+	};
+
+	const Template = (_, { argTypes }) => ({
+		components: { $1 },
+		props: Object.keys(argTypes),
+		template: '<$1 v-bind="$$props" />',
+	});
+
+	export const Default = Template.bind({});
+	Default.args = {
+		$0
+	};

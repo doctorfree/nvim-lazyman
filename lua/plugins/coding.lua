@@ -11,7 +11,7 @@ if settings.enable_surround then
   }
 end
 
-local luasnip = {}
+local snippet = {}
 local nvimcmp = {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
@@ -33,36 +33,68 @@ local signature = {}
 local lspsaga = {}
 
 if settings.enable_coding then
-  luasnip = {
-    "L3MON4D3/LuaSnip",
-    build = (not jit.os:find("Windows"))
-        and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
-        or nil,
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
-    },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
-    -- stylua: ignore
-    keys = {
-      {
-        "<tab>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+  if settings.enable_snippets == "luasnip" then
+    snippet = {
+      "L3MON4D3/LuaSnip",
+      build = (not jit.os:find("Windows"))
+          and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
+          or nil,
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+        "saadparwaiz1/cmp_luasnip",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
         end,
-        expr = true,
-        silent = true,
-        mode = "i",
       },
-      { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
-      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-    },
-  }
+      opts = {
+        history = true,
+        delete_check_events = "TextChanged",
+      },
+      -- stylua: ignore
+      keys = {
+        {
+          "<tab>",
+          function()
+            return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+          end,
+          expr = true,
+          silent = true,
+          mode = "i",
+        },
+        { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
+        { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+      },
+    }
+  elseif settings.enable_snippets == "snippy" then
+    snippet = {
+      "dcampos/nvim-snippy",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+        "honza/vim-snippets",
+        "dcampos/cmp-snippy",
+      },
+      event = "VeryLazy",
+      keys = {
+        { "<Tab>", mode = { "i", "x" } },
+        "g<Tab>",
+      },
+      ft = "snippets",
+      cmd = { "SnippyEdit", "SnippyReload" },
+      config = function()
+        require("snippy").setup({
+          mappings = {
+            is = {
+              ["<Tab>"] = "expand_or_advance",
+              ["<S-Tab>"] = "previous",
+            },
+            nx = {
+              ["<leader>X"] = "cut_text",
+            },
+          },
+        })
+      end,
+    }
+  end
   nvimcmp = {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
@@ -73,7 +105,6 @@ if settings.enable_coding then
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       require("config.nvim-cmp")
@@ -130,7 +161,7 @@ end
 return {
 
   -- snippets
-  luasnip,
+  snippet,
 
   -- auto completion
   nvimcmp,

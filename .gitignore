@@ -61,6 +61,11 @@ lua/configuration-prev.lua
 logs/*
 !logs/README.md
 
+# Users can add configuration patches, we ship some
+scripts/patches/*
+!scripts/patches/nvim-3rd.patch
+!scripts/patches/README.md
+
 # vim files
 .*.sw[a-z]
 *.un~

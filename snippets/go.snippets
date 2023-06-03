@@ -1,0 +1,61 @@
+snippet qq "qq"
+	q.Q(${1:})
+	${2}
+
+snippet httphandler "http handler"
+	func $1(${2:w} http.ResponseWriter, ${3:r} *http.Request){
+		$0
+	}
+
+snippet httpredir "http redirect"
+	http.Redirect(${1:w}, ${2:r}, \"${3:/}\", ${4:http.StatusFound})
+
+snippet httperr "http error"
+	http.Error(${1:w}, ${2:err}.Error(), ${3:http.StatusInternalServerError})
+
+snippet httpboil "http boilerplate"
+	package main
+	import (
+		"fmt"
+		"net/http"
+		"time"
+	)
+
+	func greet(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello World! %s", time.Now())
+	}
+
+	func main() {
+		http.HandleFunc("/", greet)
+		http.ListenAndServe(":8080", nil)
+	}
+
+snippet testfn "test function"
+	func Test$1(t *testing.T) {
+		$0
+	}
+
+snippet testfnt "test table"
+	func Test$1(t *testing.T) {
+		testCases := []struct {
+			desc string
+			$2
+		}{
+			{
+				desc: \"$3\",
+				$4
+			},
+		}
+		for _, tC := range testCases {
+			tt.Run(tC.desc, func(t *testing.T) {
+				$0
+			})
+		}
+	}
+
+snippet benchfn "benchmark"
+	func Benchmark$1(b *testing.B) {
+		for ${2:i} := 0; ${2:i} < b.N; ${2:i}++ {
+			$0
+		}
+	}
