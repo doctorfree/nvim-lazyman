@@ -148,10 +148,12 @@ if settings.dashboard == "alpha" then
       vim.opt.laststatus = 0
       vim.opt.showtabline = 0
       vim.opt_local.winbar = nil
-      require("lualine").hide({
-        place = { "statusline", "tabline", "winbar" },
-        unhide = false,
-      })
+      if settings.enable_statusline then
+        require("lualine").hide({
+          place = { "statusline", "tabline", "winbar" },
+          unhide = false,
+        })
+      end
       autocmd("BufUnload", {
         desc = "Reenable status and tablines for alpha",
         group = alpha_group,
@@ -168,10 +170,12 @@ if settings.dashboard == "alpha" then
             vim.opt.laststatus = 0
           end
           vim.opt.showtabline = require("configuration").showtabline
-          require("lualine").hide({
-            place = { "statusline", "tabline", "winbar" },
-            unhide = true,
-          })
+          if settings.enable_statusline then
+            require("lualine").hide({
+              place = { "statusline", "tabline", "winbar" },
+              unhide = true,
+            })
+          end
         end,
       })
     end,
@@ -223,7 +227,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
     if ok and stats and (stats.size > 1000000) then
       vim.b.large_buf = true
       vim.cmd("syntax off")
-      vim.cmd("IlluminatePauseBuf") -- disable vim-illuminate
+      vim.cmd("IlluminatePauseBuf")     -- disable vim-illuminate
       vim.cmd("IndentBlanklineDisable") -- disable indent-blankline.nvim
       vim.opt_local.foldmethod = "manual"
       vim.opt_local.spell = false

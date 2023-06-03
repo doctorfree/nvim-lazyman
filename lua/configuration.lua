@@ -96,9 +96,9 @@ conf.enable_statusline = true
 -- Enable tabline
 conf.enable_tabline = true
 -- Enable winbar with navic location via lspconfig
-conf.enable_winbar = true
+conf.enable_winbar = false
 -- Enable barbecue VSCode-like winbar with navic location
-conf.enable_barbecue = false
+conf.enable_barbecue = true
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim

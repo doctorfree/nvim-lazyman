@@ -180,10 +180,12 @@ vim.api.nvim_create_autocmd("Filetype", {
   pattern = "dashboard",
   group = db_group,
   callback = function()
-    require("lualine").hide({
-      place = { "statusline", "tabline", "winbar" },
-      unhide = false,
-    })
+    if settings.enable_statusline then
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" },
+        unhide = false,
+      })
+    end
     vim.cmd([[ setlocal nonumber norelativenumber nocursorline noruler ]])
   end,
 })
@@ -192,9 +194,11 @@ vim.api.nvim_create_autocmd("BufUnload", {
   desc = "enable status and tabline after dashboard",
   group = db_group,
   callback = function()
-    require("lualine").hide({
-      place = { "statusline", "tabline", "winbar" },
-      unhide = true,
-    })
+    if settings.enable_statusline then
+      require("lualine").hide({
+        place = { "statusline", "tabline", "winbar" },
+        unhide = true,
+      })
+    end
   end,
 })

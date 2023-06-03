@@ -66,7 +66,7 @@ if settings.enable_games then
   map("n", "<leader>Gr", "<cmd>CellularAutomaton make_it_rain<CR>",
     { desc = "Make it Rain" })
   map("n", "<leader>Gg", "<cmd>CellularAutomaton game_of_life<CR>",
-    { desc = "Game of Life"} )
+    { desc = "Game of Life" })
 end
 
 -- better up/down
@@ -165,6 +165,9 @@ end
 -- stylua: ignore start
 
 -- toggle options
+if settings.enable_barbecue then
+  map("n", "<leader>ub", function() require("barbecue.ui").toggle() end, { desc = "Toggle barbecue winbar" })
+end
 map("n", "<leader>uf", require("config.lsp.format").toggle, { desc = "Toggle format on Save" })
 map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })

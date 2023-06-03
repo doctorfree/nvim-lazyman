@@ -676,6 +676,14 @@ install_custom() {
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/3rd/config \
         -D home/dotfiles/nvim -N nvim-3rd ${allflags}
+      for symlink in plugins/syslang/queries/syslang linters/eslint
+      do
+        [ -L ${HOME}/.config/nvim-3rd/${symlink} ] && {
+          [ -e ${HOME}/.config/nvim-3rd/${symlink} ] || {
+            rm -f ${HOME}/.config/nvim-3rd/${symlink}
+          }
+        }
+      done
     }
     printf "done"
   }
