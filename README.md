@@ -944,8 +944,8 @@ below along with their default settings:
 - The statusline (lualine) and tabline can each be enabled or disabled
   - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
-- The winbar with navic location via lspconfig if available
-  - `conf.enable_winbar = true`
+- The winbar with navic location can be one of barbecue, standard, or none
+  - `conf.enable_winbar = "barbecue"`
 - Enable LSP progress in winbar
   - `conf.enable_lualine_lsp_progress = true`
 - Enable the rebelot/terminal.nvim terminal plugin
@@ -997,7 +997,7 @@ conf.theme = "tokyonight"
 --   monokai-pro: classic, octagon, pro, machine, ristretto, spectrum
 conf.theme_style = "moon"
 -- enable transparency if the theme supports it
-conf.enable_transparent = false
+conf.enable_transparent = true
 
 -- GLOBAL OPTIONS CONFIGURATION
 -- Some prefer space as the map leader, but why
@@ -1075,8 +1075,10 @@ conf.enable_wilder = false
 conf.enable_statusline = true
 -- Enable tabline
 conf.enable_tabline = true
--- Enable winbar with navic location via lspconfig
-conf.enable_winbar = true
+-- Enable winbar with navic location
+-- Can be one of "barbecue", "standard", or "none"
+-- Barbecue provides a clickable navic location so we default to that
+conf.enable_winbar = "barbecue"
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim

@@ -428,8 +428,8 @@ below along with their default settings:
 - The statusline (lualine) and tabline can each be enabled or disabled
   - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
-- The winbar with navic location via lspconfig if available
-  - `conf.enable_winbar = true`
+- The winbar with navic location can be one of barbecue, standard, or none
+  - `conf.enable_winbar = "barbecue"`
 - Enable the rebelot/terminal.nvim terminal plugin
   - `conf.enable_terminal = true`
 - Enable playing games inside Neovim!

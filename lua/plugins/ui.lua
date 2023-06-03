@@ -1,5 +1,22 @@
 local settings = require("configuration")
 
+local barbecue = {}
+if settings.enable_winbar == "barbecue" then
+  barbecue = {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = "VeryLazy",
+    config = function()
+      require("config.barbecue")
+    end,
+  }
+end
+
 local dressing = {}
 if settings.enable_dressing then
   dressing = {
@@ -22,7 +39,7 @@ end
 
 local lualine_lsp_progress = {}
 if settings.enable_lualine_lsp_progress then
-  if settings.enable_winbar then
+  if settings.enable_winbar == "standard" then
     lualine_lsp_progress = { "arkav/lualine-lsp-progress" }
   end
 end
@@ -52,9 +69,9 @@ if settings.enable_statusline then
   end
 end
 
-local tabline_cfg =  {}
+local tabline_cfg = {}
 if settings.enable_tabline then
-  tabline_cfg =  {
+  tabline_cfg = {
     "kdheepak/tabline.nvim",
     event = "VeryLazy",
     config = function()
@@ -105,7 +122,7 @@ if settings.enable_toggleterm then
         NormalFloat = { link = "ToggleTerm" },
       },
       winbar = {
-        enabled = settings.enable_winbar,
+        enabled = settings.enable_winbar == "standard",
         name_formatter = function(term)
           return string.format("%d:%s", term.id, term:_display_name())
         end,
@@ -228,6 +245,9 @@ return {
     end,
   },
 
+  -- VSCode-like winbar
+  barbecue,
+
   -- better vim.ui
   dressing,
 
@@ -282,7 +302,7 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- ui components
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
 
   terminal_nvim,
   wilder_type,

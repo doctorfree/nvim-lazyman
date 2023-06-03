@@ -28,6 +28,9 @@ if fancy then
   filetype = "fancy_filetype"
   lsp_servers = "fancy_lsp_servers"
 end
+if settings.enable_winbar == "none" then
+  lsp_servers = ""
+end
 
 local theme = settings.theme
 local style = settings.theme_style
@@ -49,12 +52,19 @@ local function session_name()
   return require("possession.session").session_name or ""
 end
 
-local navic_loc = {
-  { "require'nvim-navic'.get_location()" },
-}
-local navic_tabline = navic_loc
+local navic_tabline = {}
 local navic_winbar = {}
-if settings.enable_winbar then
+local navic_loc = {}
+if settings.enable_winbar == "barbecue" then
+  navic_loc = {}
+else
+  navic_loc = {
+    { "require'nvim-navic'.get_location()" },
+  }
+end
+navic_tabline = navic_loc
+navic_winbar = {}
+if settings.enable_winbar == "standard" then
   navic_tabline = {}
   navic_winbar = navic_loc
 end
@@ -79,7 +89,7 @@ end
 
 local winbar_cfg = {}
 local inactive_winbar_cfg = {}
-if settings.enable_winbar then
+if settings.enable_winbar == "standard" then
   local lsp_progress = {
     {
       "filename",
