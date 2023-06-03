@@ -23,8 +23,8 @@ USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="Basic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim Brain Charles CodeArt Cosmic Elianiva Magidc Nv SaleVim Slydragonn"
+STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
+CUSTMCFGS="AlanVim Brain Charles 3rd Elianiva Magidc Nv SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -125,9 +125,9 @@ usage() {
   printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
-  printf "\n       'conf' can be one of 'Basic' 'Kickstart' 'NvPak'"
+  printf "\n       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'"
   printf "\n       'Extralight' 'Opinion' 'StartLsp' 'StartMason' 'Minimal'"
-  printf "\n       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase'"
+  printf "\n       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -Y indicates install and initialize all 'Custom' configs"
@@ -671,6 +671,14 @@ install_custom() {
   customdir="$1"
   allflags="-q -Q -y -z"
 
+  [ "${allcustom}" ] || [ "${customdir}" == "3rd" ] && {
+    printf "\nInstalling and initializing the 3rd Neovim configuration ... "
+    [ "$tellme" ] || {
+      lazyman ${darg} -C https://github.com/3rd/config \
+        -D home/dotfiles/nvim -N nvim-3rd ${allflags}
+    }
+    printf "done"
+  }
   [ "${allcustom}" ] || [ "${customdir}" == "AlanVim" ] && {
     printf "\nInstalling and initializing the AlanVim Neovim configuration ... "
     [ "$tellme" ] || {
@@ -692,14 +700,6 @@ install_custom() {
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
         -N nvim-Charles ${allflags}
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "CodeArt" ] && {
-    printf "\nInstalling and initializing the CodeArt Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/artart222/CodeArt \
-        -N nvim-CodeArt -P ${allflags}
     }
     printf "done"
   }
@@ -740,25 +740,6 @@ install_custom() {
     [ "$tellme" ] || {
       lazyman ${darg} -b main -C https://github.com/slydragonn/dotfiles \
         -D '.config/nvim' -N nvim-Slydragonn -P ${allflags}
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "Cosmic" ] && {
-    printf "\nInstalling and initializing the CosmicNvim Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
-        -N nvim-Cosmic ${allflags}
-      CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
-      [ -f "${CMICDIR}"/config.lua ] || {
-        [ -f "${CMICDIR}"/examples/config.lua ] && {
-          cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
-        }
-      }
-      [ -f "${CMICDIR}"/editor.lua ] || {
-        [ -f "${CMICDIR}"/examples/editor.lua ] && {
-          cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
-        }
-      }
     }
     printf "done"
   }
@@ -1397,6 +1378,12 @@ install_config() {
     Fennel)
       lazyman ${darg} -w Fennel -z -y -Q -q
       ;;
+    CodeArt)
+      lazyman ${darg} -x CodeArt -z -y -Q -q
+      ;;
+    Cosmic)
+      lazyman ${darg} -x Cosmic -z -y -Q -q
+      ;;
     NvPak)
       lazyman ${darg} -x NvPak -z -y -Q -q
       ;;
@@ -1436,7 +1423,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|Brain|Charles|CodeArt|Cosmic|Elianiva|Magidc|Nv|SaleVim|Slydragonn)
+    AlanVim|Brain|Charles|3rd|Elianiva|Magidc|Nv|SaleVim|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -5003,6 +4990,31 @@ set_haves
       printf " done"
       show_alias "nvim-Kickstart"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
+      printf "\n${action} CodeArt Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/artart222/CodeArt \
+        -N nvim-CodeArt ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-CodeArt"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
+      printf "\n${action} Cosmic Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
+        -N nvim-Cosmic ${quietflag} -z ${yesflag}
+      CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
+      [ -f "${CMICDIR}"/config.lua ] || {
+        [ -f "${CMICDIR}"/examples/config.lua ] && {
+          cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+        }
+      }
+      [ -f "${CMICDIR}"/editor.lua ] || {
+        [ -f "${CMICDIR}"/examples/editor.lua ] && {
+          cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+        }
+      }
+      printf " done"
+      show_alias "nvim-Cosmic"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration ..."
       lazyman ${darg} -C https://github.com/Pakrohk-DotFiles/NvPak.git \
@@ -5050,6 +5062,35 @@ set_haves
           lazyman ${darg} -k ${quietflag} -z ${yesflag}
           printf " done"
           show_alias "nvim-Kickstart"
+          ;;
+        CodeArt)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
+          printf "\n${action} CodeArt Neovim configuration ..."
+          lazyman ${darg} -C https://github.com/artart222/CodeArt \
+            -N nvim-CodeArt ${quietflag} -z ${yesflag}
+          printf " done"
+          show_alias "nvim-CodeArt"
+          ;;
+        Cosmic)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
+          printf "\n${action} Cosmic Neovim configuration ..."
+          lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
+            -N nvim-Cosmic ${quietflag} -z ${yesflag}
+          CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
+          [ -f "${CMICDIR}"/config.lua ] || {
+            [ -f "${CMICDIR}"/examples/config.lua ] && {
+              cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+            }
+          }
+          [ -f "${CMICDIR}"/editor.lua ] || {
+            [ -f "${CMICDIR}"/examples/editor.lua ] && {
+              cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+            }
+          }
+          printf " done"
+          show_alias "nvim-Cosmic"
           ;;
         NvPak)
           action="Installing"

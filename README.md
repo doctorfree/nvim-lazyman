@@ -73,9 +73,9 @@ following Lazyman Neovim configuration categories:
 
 | **Starter** |       |       |       | **Configs** |
 | ----------- | ----- | ----- | ----- | ------------ |
-| [Basic](https://github.com/NvChad/basic-config) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) |
-| [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
-| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) | | |
+| [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
+| [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
+| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
 
 Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
@@ -83,8 +83,8 @@ for installation details.
 
 | **Custom** |       |       |       | **Configs** |
 | ---------- | ----- | ----- | ----- | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Elianiva](https://github.com/elianiva/dotfiles) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
+| [3rd](https://github.com/3rd/config) |[AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
+| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -401,6 +401,11 @@ installed with the `-x conf` option.
 - [Basic](https://github.com/NvChad/basic-config)
   - Starter config by the author of NvChad with [video tutorial](https://youtube.com/playlist?list=PLYVQrj2EVSUL1NqYn3jsIVXG3U9eWaMcq)
   - Install and initialize with `lazyman -x Basic`
+- [CodeArt](https://github.com/artart222/CodeArt)
+  - Install and initialize with `lazyman -x CodeArt`
+- [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
+  - Install `Node.js`, `prettierd`, and `eslint_d`
+  - Install and initialize with `lazyman -x Cosmic`
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
   - Popular starting point, small, single file, well documented, modular
   - Install and initialize with `lazyman -k`
@@ -483,23 +488,8 @@ Note the `-b main` argument in this Lazyman command. When specifying a
 subdirectory of a repository with `-D <subdir>` it is necessary to also
 provide the default branch of the repository if not `master`.
 
-Custom Neovim configurations may require additional setup work not
-performed by `lazyman`. For example, the `CosmicNvim` Neovim config
-requires `Node.js`, `prettierd`, and `eslint_d` but these are installed
-with Mason when using `lazyman`. To install and initialize the `CosmicNvim`
-Neovim configuration perform the following:
-
-- Verify the above prerequisites are installed
-- Install `CosmicNvim` with `lazyman`:
-  - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic -z`
-- Copy the example configs:
-  - `cd ~/.config/nvim-Cosmic/lua/cosmic/config`
-  - `cp examples/config.lua config.lua`
-  - `cp examples/editor.lua editor.lua`
-- Run Neovim with the `CosmicNvim` configuration:
-  - `NVIM_APPNAME="nvim-Cosmic" nvim`
-
-Often a custom Lazyman configuration will appear to work without issue but
+Custom Neovim configurations may require additional setup work. Often
+a custom Lazyman configuration will appear to work without issue but
 contain references to `~/.config/nvim/` in its configuration files. For
 example, a configuration's dashboard may contain a reference to
 `~/.config/nvim/init.lua`. References like this can be fixed so the
@@ -518,17 +508,16 @@ An excellent list of preconfigured Neovim configurations is available at the
 
 Known working custom Lazyman configurations include the following:
 
+- [3rd](https://github.com/3rd/config)
+  - `lazyman -C https://github.com/3rd/config -D home/dotfiles/nvim -N nvim-3rd`
+  - Patch in `~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch` applied
+  - Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 - [AlanVim](https://github.com/alanRizzo/dot-files)
   - `lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P`
 - [Brain](https://github.com/brainfucksec/neovim-lua)
   - `lazyman -b main -C https://github.com/brainfucksec/neovim-lua -N nvim-Brain -D nvim`
 - [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
   - `lazyman -C https://github.com/CharlesChiuGit/nvimdots.lua -N nvim-Charles`
-- [CodeArt](https://github.com/artart222/CodeArt)
-  - `lazyman -C https://github.com/artart222/CodeArt -N nvim-CodeArt -P`
-- [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
-  - `lazyman -C https://github.com/CosmicNvim/CosmicNvim -N nvim-Cosmic`
-  - See additional custom configuration details above
 - [Elianiva](https://github.com/elianiva/dotfiles)
   - `lazyman -C https://github.com/elianiva/dotfiles -D nvim/.config/nvim -N nvim-Elianiva`
 - [Magidc](https://github.com/magidc/nvim-config)
