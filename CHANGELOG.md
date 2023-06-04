@@ -18,9 +18,15 @@
 - Add snippets for additional languages
 - Add support for multiple snippet plugins, right now `luasnip` and `snippy`
 - Add `bob` nvim to path after install bob
+- Add NvChad based Python developer config to Custom
 
 ### 🐞 Fixed
 
+- Remove rainbow 2 plugin, it was hanging on large files
+- Only enable lsp servers listed in configuration.lua
+- Don't use quiet flag when installing or updating Base configs
+- Only show alias if not quiet mode
+- Do not use -A to install or update all as it appears broken
 - Hide `lualine` only if enabled
 - Only show lsp servers in tabline if winbar is enabled
 - Change `enable_winbar` from boolean to string, remove `enable_barbecue`
