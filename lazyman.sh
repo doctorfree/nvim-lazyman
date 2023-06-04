@@ -1141,43 +1141,45 @@ show_info() {
 
 show_alias() {
   adir="$1"
-  printf "\nAliases like the following are defined in ~/.config/nvim-Lazyman/.lazymanrc"
-  if [ "$all" ]; then
-    printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
-  elif [ "$abstract" ]; then
-    printf "\n\talias avim='NVIM_APPNAME=nvim-Abstract nvim'"
-  elif [ "$astronvim" ]; then
-    printf "\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
-  elif [ "$basicide" ]; then
-    printf "\n\talias bvim='NVIM_APPNAME=nvim-BasicIde nvim'"
-  elif [ "$ecovim" ]; then
-    printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
-  elif [ "$kickstart" ]; then
-    printf "\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
-  elif [ "$modern" ]; then
-    printf "\n\talias mvim='NVIM_APPNAME=nvim-Modern nvim'"
-  elif [ "$pde" ]; then
-    printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
-  elif [ "$lazyman" ]; then
-    printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
-  elif [ "$lazyvim" ]; then
-    printf "\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
-  elif [ "$lunarvim" ]; then
-    printf "\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
-  elif [ "$minivim" ]; then
-    printf "\n\talias lvim='NVIM_APPNAME=nvim-Mini nvim'"
-  elif [ "$penguinvim" ]; then
-    printf "\n\talias pvim='NVIM_APPNAME=nvim-Penguin nvim'"
-  elif [ "$spacevim" ]; then
-    printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
-  elif [ "$nvchad" ]; then
-    printf "\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
-  elif [ "$magicvim" ]; then
-    printf "\n\talias mvim='NVIM_APPNAME=nvim-MagicVim nvim'"
-  else
-    printf "\n\talias lmvim=\"NVIM_APPNAME=${adir} nvim\""
-  fi
-  printf "\n"
+  [ "${quiet}" ] || {
+    printf "\nAliases like the following are defined in ~/.config/nvim-Lazyman/.lazymanrc"
+    if [ "$all" ]; then
+      printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
+    elif [ "$abstract" ]; then
+      printf "\n\talias avim='NVIM_APPNAME=nvim-Abstract nvim'"
+    elif [ "$astronvim" ]; then
+      printf "\n\talias avim='NVIM_APPNAME=nvim-AstroNvim nvim'"
+    elif [ "$basicide" ]; then
+      printf "\n\talias bvim='NVIM_APPNAME=nvim-BasicIde nvim'"
+    elif [ "$ecovim" ]; then
+      printf "\n\talias evim='NVIM_APPNAME=nvim-Ecovim nvim'"
+    elif [ "$kickstart" ]; then
+      printf "\n\talias kvim='NVIM_APPNAME=nvim-Kickstart nvim'"
+    elif [ "$modern" ]; then
+      printf "\n\talias mvim='NVIM_APPNAME=nvim-Modern nvim'"
+    elif [ "$pde" ]; then
+      printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
+    elif [ "$lazyman" ]; then
+      printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
+    elif [ "$lazyvim" ]; then
+      printf "\n\talias lvim='NVIM_APPNAME=nvim-LazyVim nvim'"
+    elif [ "$lunarvim" ]; then
+      printf "\n\talias lvim='NVIM_APPNAME=nvim-LunarVim nvim'"
+    elif [ "$minivim" ]; then
+      printf "\n\talias lvim='NVIM_APPNAME=nvim-Mini nvim'"
+    elif [ "$penguinvim" ]; then
+      printf "\n\talias pvim='NVIM_APPNAME=nvim-Penguin nvim'"
+    elif [ "$spacevim" ]; then
+      printf "\n\talias svim='NVIM_APPNAME=nvim-SpaceVim nvim'"
+    elif [ "$nvchad" ]; then
+      printf "\n\talias cvim='NVIM_APPNAME=nvim-NvChad nvim'"
+    elif [ "$magicvim" ]; then
+      printf "\n\talias mvim='NVIM_APPNAME=nvim-MagicVim nvim'"
+    else
+      printf "\n\talias lmvim=\"NVIM_APPNAME=${adir} nvim\""
+    fi
+    printf "\n"
+  }
 }
 
 check_python_version() {
@@ -4150,7 +4152,7 @@ show_main_menu() {
           ;;
         "Install Base"*,* | *,"Install Base"*)
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q
+          lazyman ${darg} -B -y -z -Q -q
           break
           ;;
         "Install Personal"*,* | *,"Install Personal"*)
@@ -4170,12 +4172,19 @@ show_main_menu() {
           ;;
         "Install All"*,* | *,"Install All"*)
           printf "\nInstalling all Lazyman Neovim configurations\n"
-          lazyman ${darg} -A -y -z -Q -q
+          printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
+          lazyman ${darg} -B -y -z -Q -q
+          printf "\nInstalling all Lazyman 'Personal' Neovim configurations\n"
+          lazyman ${darg} -W -y -z -Q -q
+          printf "\nInstalling all Lazyman 'Starter' Neovim configurations\n"
+          lazyman ${darg} -X -y -z -Q -q
+          printf "\nInstalling all Lazyman 'Custom' Neovim configurations\n"
+          install_custom all
           break
           ;;
         "Update Base"*,* | *,"Update Base"*)
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -U
+          lazyman ${darg} -B -y -z -Q -q -U
           break
           ;;
         "Update Personal"*,* | *,"Update Personal"*)
@@ -4195,7 +4204,14 @@ show_main_menu() {
           ;;
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
-          lazyman ${darg} -A -y -z -Q -q -U
+          printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
+          lazyman ${darg} -B -y -z -Q -q -U
+          printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
+          lazyman ${darg} -W -y -z -Q -q -U
+          printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
+          lazyman ${darg} -X -y -z -Q -q -U
+          printf "\nUpdating all Lazyman 'Custom' Neovim configurations\n"
+          update_custom all
           break
           ;;
         "Neovim Ver"*,* | *,"Neovim Ver"*)
