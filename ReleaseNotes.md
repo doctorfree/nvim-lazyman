@@ -33,10 +33,10 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 
 Known working custom Lazyman configurations not yet integrated into the above categories.
 
-| **Custom**                                      |                                                   |                                                     |                                                           | **Configs**                                      |
-| ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------ |
-| [3rd](https://github.com/3rd/config)            | [AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv)         | [SaleVim](https://github.com/igorcguedes/SaleVim)   | [Slydragonn](https://github.com/slydragonn/dotfiles)      |                                                  |
+| **Custom**                                      |                                                   |                                                     |                                                           | **Configs**                                                |
+| ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
+| [3rd](https://github.com/3rd/config)            | [AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles)           |
+| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv)         | [SaleVim](https://github.com/igorcguedes/SaleVim)   | [Slydragonn](https://github.com/slydragonn/dotfiles)      | [Python](https://github.com/dreamsofcode-io/neovim-python) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 

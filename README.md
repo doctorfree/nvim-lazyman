@@ -84,7 +84,7 @@ for installation details.
 | **Custom** |       |       |       | **Configs** |
 | ---------- | ----- | ----- | ----- | ----------- |
 | [3rd](https://github.com/3rd/config) |[AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | |
+| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -527,6 +527,11 @@ Known working custom Lazyman configurations include the following:
   - LazyVim based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
   - `lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv`
+- [Python](https://github.com/dreamsofcode-io/neovim-python)
+  - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
+  - Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc)
+  - Install and initialize this config from the `lazyman` menu system
+  - These features are included in the Base `NvChad` custom add-on (`lazyman -c`)
 - [SaleVim](https://github.com/igorcguedes/SaleVim)
   - `Salesforce` optimized IDE with custom features for editing `Apex`, `Visualforce`, and `Lightning` code
   - `lazyman -C https://github.com/igorcguedes/SaleVim -N nvim-SaleVim -P`

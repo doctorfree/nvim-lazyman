@@ -24,7 +24,7 @@ BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin Spa
 PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim Brain Charles 3rd Elianiva Magidc Nv SaleVim Slydragonn"
+CUSTMCFGS="AlanVim Brain Charles 3rd Elianiva Magidc Nv Python SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -423,7 +423,7 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa > ${LOG} 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] && {
+                [ "${neodir}" == "${nvchaddir}" ] || [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
                 }
               }
@@ -471,7 +471,7 @@ init_neovim() {
               [ "${neodir}" == "${minivimdir}" ] || {
                 xtimeout ${timeout} nvim --headless \
                   "+Lazy! sync" +qa >/dev/null 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] && {
+                [ "${neodir}" == "${nvchaddir}" ] || [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless \
                     "+MasonInstallAll" +qa >/dev/null 2>&1
                 }
@@ -735,6 +735,36 @@ install_custom() {
     }
     printf "done"
   }
+  [ "${allcustom}" ] || [ "${customdir}" == "Python" ] && {
+    printf "\nInstalling and initializing the Python Neovim configuration ... "
+    [ "$tellme" ] || {
+      [ -d "${HOME}/.config/nvim-Python" ] || {
+        git clone https://github.com/NvChad/NvChad \
+          "${HOME}/.config/nvim-Python" --depth 1 >/dev/null 2>&1
+      }
+      if [ -d "${HOME}/.config/nvim-Python/lua/custom" ]; then
+        update_config "nvim-Python"
+      else
+        printf "\nAdding custom Python configuration into"
+        printf "\n\t${HOME}/.config/nvim-Python/lua/custom ... "
+        git clone https://github.com/dreamsofcode-io/neovim-python \
+          ${HOME}/.config/nvim-Python/lua/custom >/dev/null 2>&1
+      fi
+      # Patch reference to ~/.config/nvim/
+      custom_plugins="${HOME}/.config/nvim-Python/lua/custom/plugins.lua"
+      [ -f ${custom_plugins} ] && {
+        grep /nvim/ ${custom_plugins} > /dev/null && {
+          cat "${custom_plugins}" | sed -e "s%/nvim/%/nvim-Python/%" > /tmp/nvim$$
+          cp /tmp/nvim$$ "${custom_plugins}"
+          rm -f /tmp/nvim$$
+        }
+      }
+      # Initialize nvim-Python
+      init_neovim nvim-Python
+      add_nvimdirs_entry "nvim-Python"
+    }
+    printf "done"
+  }
   [ "${allcustom}" ] || [ "${customdir}" == "SaleVim" ] && {
     printf "\nInstalling and initializing the SaleVim Neovim configuration ... "
     [ "$tellme" ] || {
@@ -851,7 +881,7 @@ update_config() {
         chmod 755 "${HOME}"/.local/bin/lazyman
       }
     }
-    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] && {
+    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] || [ "${ndir}" == "nvim-Python" ] && {
       if [ "${ndir}" == "${astronvimdir}" ]; then
         cdir="lua/user"
       else
@@ -1086,7 +1116,7 @@ show_info() {
         printf "\n  %-45s  Custom config folder not found" "${tdir}"
       fi
     }
-    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] && {
+    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] || [ "${neovim}" == "nvim-Python" ] && {
       if [ "${neovim}" == "${astronvimdir}" ]; then
         cdir="lua/user"
         tdir="~/.config/${neovim}/lua/user"
@@ -1431,7 +1461,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|Brain|Charles|3rd|Elianiva|Magidc|Nv|SaleVim|Slydragonn)
+    AlanVim|Brain|Charles|3rd|Elianiva|Magidc|Nv|Python|SaleVim|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
