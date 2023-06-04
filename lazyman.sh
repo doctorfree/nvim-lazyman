@@ -279,6 +279,20 @@ set_haves() {
   have_zoxi=$(type -p zoxide)
 }
 
+# Patch references to ~/.config/nvim/
+fix_nvim_dir() {
+  fixnvimdir="$1"
+  find "${HOME}/.config/${fixnvimdir}" -type f | while read f
+  do
+    echo "$f" | grep /.git/ > /dev/null && continue
+    grep /nvim/ "$f" > /dev/null && {
+      cat "$f" | sed -e "s%/nvim/%/${fixnvimdir}/%g" > /tmp/nvim$$
+      cp /tmp/nvim$$ "$f"
+      rm -f /tmp/nvim$$
+    }
+  done
+}
+
 fix_help_file() {
   helpfile="$1"
   [ -f "${helpfile}" ] && {
@@ -750,15 +764,8 @@ install_custom() {
         git clone https://github.com/dreamsofcode-io/neovim-python \
           ${HOME}/.config/nvim-Python/lua/custom >/dev/null 2>&1
       fi
-      # Patch reference to ~/.config/nvim/
-      custom_plugins="${HOME}/.config/nvim-Python/lua/custom/plugins.lua"
-      [ -f ${custom_plugins} ] && {
-        grep /nvim/ ${custom_plugins} > /dev/null && {
-          cat "${custom_plugins}" | sed -e "s%/nvim/%/nvim-Python/%" > /tmp/nvim$$
-          cp /tmp/nvim$$ "${custom_plugins}"
-          rm -f /tmp/nvim$$
-        }
-      }
+      # Replace references to /nvim/ with /nvim-Python/
+      fix_nvim_dir "nvim-Python"
       # Initialize nvim-Python
       init_neovim nvim-Python
       add_nvimdirs_entry "nvim-Python"
@@ -832,6 +839,7 @@ update_config() {
       git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" reset --hard >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" pull >/dev/null 2>&1
+      fix_nvim_dir "${ndir}"
     }
     [ "$quiet" ] || {
       printf " done"
@@ -964,6 +972,8 @@ clone_repo() {
         https://github.com/"$repourl" \
         "${HOME}/.config/${repodest}" >/dev/null 2>&1
       add_nvimdirs_entry "$repodest"
+      # Replace references to /nvim/ with /$repodest/
+      fix_nvim_dir "${repodest}"
     }
     [ "$quiet" ] || printf "done"
   }
@@ -4571,6 +4581,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       penguinvim=1
       spacevim=1
       neovimdir=("${basenvimdirs[@]}")
+      quiet=1
       ;;
     B)
       all=1
@@ -4738,12 +4749,14 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       ;;
     W)
       nvimprsnl="all"
+      quiet=1
       ;;
     x)
       nvimstarter="$OPTARG"
       ;;
     X)
       nvimstarter="all"
+      quiet=1
       ;;
     y)
       proceed=1
@@ -4751,6 +4764,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       ;;
     Y)
       nvimcustom=1
+      quiet=1
       ;;
     z)
       runvim=
@@ -5640,6 +5654,8 @@ done
       rm -rf "${HOME}/.config/${lunarvimdir}"/tmp$$
     }
   }
+  # Replace references to /nvim/ with /$lunarvimdir/
+  fix_nvim_dir "${lunarvimdir}"
   [ "$quiet" ] || printf "done"
 }
 [ "$magicvim" ] && {
@@ -5653,6 +5669,8 @@ done
         https://gitlab.com/GitMaster210/magicvim \
         "${HOME}/.config/${magicvimdir}" >/dev/null 2>&1
       add_nvimdirs_entry "$magicvimdir"
+      # Replace references to /nvim/ with /$magicvimdir/
+      fix_nvim_dir "${magicvimdir}"
     }
     [ "$quiet" ] || printf "done"
   }
@@ -5667,6 +5685,8 @@ done
       git clone \
         https://github.com/echasnovski/nvim \
         "${HOME}/.config/${minivimdir}" >/dev/null 2>&1
+      # Replace references to /nvim/ with /$minivimdir/
+      fix_nvim_dir "${minivimdir}"
       git -C "${HOME}/.config/${minivimdir}" submodule update \
         --init --recursive >/dev/null 2>&1
       add_nvimdirs_entry "$minivimdir"
@@ -5683,6 +5703,8 @@ done
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
         "${HOME}/.config/${nvchaddir}" --depth 1 >/dev/null 2>&1
+      # Replace references to /nvim/ with /$nvchaddir/
+      fix_nvim_dir "${nvchaddir}"
       add_nvimdirs_entry "$nvchaddir"
     }
     [ "$quiet" ] || {
@@ -5757,6 +5779,8 @@ done
         [ "$branch" ] && {
           git -C "${HOME}/.config/${neovimdir[0]}" checkout "$branch" >/dev/null 2>&1
         }
+        # Replace references to /nvim/ with /$neovimdir[0]/
+        fix_nvim_dir "${neovimdir[0]}"
       fi
       [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.sample ] && {
         [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua ] || {
