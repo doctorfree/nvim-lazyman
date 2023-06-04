@@ -942,8 +942,6 @@ below along with their default settings:
   - `conf.enable_noice = true`
 - Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
   - `conf.enable_chatgpt = false`
-- Enable the newer rainbow treesitter delimiter highlighting
-  - `conf.enable_rainbow2 = true`
 - Enable the wilder plugin
   - `conf.enable_wilder = false`
 - The statusline (lualine) and tabline can each be enabled or disabled
@@ -1065,8 +1063,6 @@ conf.enable_noice = true
 conf.enable_chatgpt = true
 -- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
 conf.enable_codeexplain = true
--- Enable the newer rainbow treesitter delimiter highlighting
-conf.enable_rainbow2 = true
 -- Enable 'StartupTime' command
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease

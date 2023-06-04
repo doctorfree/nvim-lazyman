@@ -1,9 +1,3 @@
-local settings = require("configuration")
-local rainbow_plugin = "mrjones2014/nvim-ts-rainbow"
-if settings.enable_rainbow2 then
-  rainbow_plugin = "HiPhish/nvim-ts-rainbow2"
-end
-
 local M = {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -55,7 +49,7 @@ local M = {
     end,
   },
   {
-    rainbow_plugin,
+    "mrjones2014/nvim-ts-rainbow",
     event = { "BufReadPost" },
   },
 }

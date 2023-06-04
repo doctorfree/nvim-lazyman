@@ -80,8 +80,6 @@ conf.enable_noice = true
 conf.enable_chatgpt = true
 -- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
 conf.enable_codeexplain = true
--- Enable the newer rainbow treesitter delimiter highlighting
-conf.enable_rainbow2 = true
 -- Enable 'StartupTime' command
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease

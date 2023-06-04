@@ -2,12 +2,6 @@ local catppuccin = require("catppuccin")
 local settings = require("configuration")
 local style = settings.theme_style
 
-local rainbow = true
-local rainbow2 = false
-if settings.enable_rainbow2 then
-  rainbow = false
-  rainbow2 = true
-end
 -- Adjust these to create a custom flavor
 local custom_highlights = {}
 local color_overrides = {}
@@ -223,8 +217,8 @@ catppuccin.setup({
     bufferline = false,
     markdown = true,
     lightspeed = false,
-    ts_rainbow = rainbow,
-    ts_rainbow2 = rainbow2,
+    ts_rainbow = true,
+    ts_rainbow2 = false,
     hop = false,
     notify = true,
     telekasten = false,

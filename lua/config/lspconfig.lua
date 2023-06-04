@@ -295,21 +295,28 @@ if settings.enable_coding then
   end
 
   local other_servers_with_navic = {
-    "html",
-    "pylsp",
-    "vimls",
     "awk_ls",
-    "pyright",
     "rust_analyzer",
     "ansiblels",
     "cmake",
+    "taplo",
+  }
+  local check_servers_with_navic = {
+    "html",
+    "pylsp",
+    "vimls",
+    "pyright",
     "cssmodules_ls",
     "dockerls",
     "marksman",
     "sqlls",
-    "taplo",
     "texlab",
   }
+  for _, server in ipairs(check_servers_with_navic) do
+    if table_contains(lsp_servers, server) then
+      table.insert(other_servers_with_navic, server)
+    end
+  end
   for _, server in ipairs(other_servers_with_navic) do
     if lspconfig[server] then
       lspconfig[server].setup({

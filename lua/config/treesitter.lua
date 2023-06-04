@@ -1,27 +1,6 @@
 local settings = require("configuration")
 local utils = require("utils.functions")
 
-local rainbow_cfg = {
-  enable = true,
-  extended_mode = false,
-  colors = {
-    "#ff6188",
-    "#fc9867",
-    "#ffd866",
-    "#a9dc76",
-    "#78dce8",
-    "#ab9df2",
-  },
-  disable = { "html" },
-}
-if settings.enable_rainbow2 then
-  rainbow_cfg = {
-    enable = true,
-    disable = { "html" },
-    query = "rainbow-parens",
-  }
-end
-
 require("nvim-treesitter.configs").setup({
   ensure_installed = settings.treesitter_ensure_installed,
   sync_install = true,
@@ -69,5 +48,17 @@ require("nvim-treesitter.configs").setup({
     },
   },
   context_commentstring = { enable = true },
-  rainbow = rainbow_cfg,
+  rainbow = {
+    enable = true,
+    extended_mode = false,
+    colors = {
+      "#ff6188",
+      "#fc9867",
+      "#ffd866",
+      "#a9dc76",
+      "#78dce8",
+      "#ab9df2",
+    },
+    disable = { "html" },
+  },
 })

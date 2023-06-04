@@ -2095,12 +2095,6 @@ show_plugin_menu() {
     else
       use_codeexplain="✗"
     fi
-    enable_rainbow2=$(get_conf_value enable_rainbow2)
-    if [ "${enable_rainbow2}" == "true" ]; then
-      use_rainbow2=""
-    else
-      use_rainbow2="✗"
-    fi
     enable_surround=$(get_conf_value enable_surround)
     if [ "${enable_surround}" == "true" ]; then
       use_surround=""
@@ -2307,7 +2301,6 @@ show_plugin_menu() {
     options+=("Noice UI      [${use_noice}]")
     options+=("Picker        [${use_picker}]")
     options+=("Project       [${use_project}]")
-    options+=("Rainbow 2     [${use_rainbow2}]")
     options+=("Enable Ranger [${use_ranger}]")
     options+=("Enable Rename [${use_renamer}]")
     options+=("Screensaver [${use_screensaver}]")
@@ -2491,15 +2484,6 @@ show_plugin_menu() {
                 esac
               done
             fi
-          fi
-          pluginit=1
-          break
-          ;;
-        "Rainbow"*,* | *,"Rainbow"*)
-          if [ "${enable_rainbow2}" == "true" ]; then
-            set_conf_value "enable_rainbow2" "false"
-          else
-            set_conf_value "enable_rainbow2" "true"
           fi
           pluginit=1
           break
@@ -2854,7 +2838,6 @@ show_plugin_menu() {
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_codeexplain" "false"
-          set_conf_value "enable_rainbow2" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -2901,7 +2884,6 @@ show_plugin_menu() {
               set_conf_value "enable_codeexplain" "true"
             }
           }
-          set_conf_value "enable_rainbow2" "true"
           set_conf_value "enable_surround" "true"
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
@@ -3585,7 +3567,6 @@ show_conf_menu() {
           set_conf_value "media_backend" "none"
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_codeexplain" "false"
-          set_conf_value "enable_rainbow2" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
