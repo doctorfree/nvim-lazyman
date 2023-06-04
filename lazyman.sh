@@ -3442,7 +3442,7 @@ show_conf_menu() {
             if [ "${choice}" == "Barbecue" ]; then
               set_conf_value "enable_winbar" "barbecue"
             else
-              if [ "${choice}" == "Winbar" ]; then
+              if [ "${choice}" == "Standard" ]; then
                 set_conf_value "enable_winbar" "standard"
               else
                 if [ "${choice}" == "None" ]; then

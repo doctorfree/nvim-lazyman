@@ -62,6 +62,7 @@ logs/*
 !logs/README.md
 
 # Users can add configuration patches, we ship some
+scripts/nvims
 scripts/patches/*
 !scripts/patches/nvim-3rd.patch
 !scripts/patches/README.md
