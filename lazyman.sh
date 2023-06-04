@@ -4152,7 +4152,7 @@ show_main_menu() {
           ;;
         "Install Base"*,* | *,"Install Base"*)
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -q
+          lazyman ${darg} -B -y -z -Q
           break
           ;;
         "Install Personal"*,* | *,"Install Personal"*)
@@ -4173,7 +4173,7 @@ show_main_menu() {
         "Install All"*,* | *,"Install All"*)
           printf "\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -q
+          lazyman ${darg} -B -y -z -Q
           printf "\nInstalling all Lazyman 'Personal' Neovim configurations\n"
           lazyman ${darg} -W -y -z -Q -q
           printf "\nInstalling all Lazyman 'Starter' Neovim configurations\n"
@@ -4184,7 +4184,7 @@ show_main_menu() {
           ;;
         "Update Base"*,* | *,"Update Base"*)
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -q -U
+          lazyman ${darg} -B -y -z -Q -U
           break
           ;;
         "Update Personal"*,* | *,"Update Personal"*)
@@ -4205,7 +4205,7 @@ show_main_menu() {
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -q -U
+          lazyman ${darg} -B -y -z -Q -U
           printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
           lazyman ${darg} -W -y -z -Q -q -U
           printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
