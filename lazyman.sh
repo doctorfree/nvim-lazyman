@@ -282,15 +282,17 @@ set_haves() {
 # Patch references to ~/.config/nvim/
 fix_nvim_dir() {
   fixnvimdir="$1"
-  find "${HOME}/.config/${fixnvimdir}" -type f | while read f
-  do
-    echo "$f" | grep /.git/ > /dev/null && continue
-    grep /nvim/ "$f" > /dev/null && {
-      cat "$f" | sed -e "s%/nvim/%/${fixnvimdir}/%g" > /tmp/nvim$$
-      cp /tmp/nvim$$ "$f"
-      rm -f /tmp/nvim$$
-    }
-  done
+  [ "${fixnvimdir}" == "${lazymandir}" ] || {
+    find "${HOME}/.config/${fixnvimdir}" -type f | while read f
+    do
+      echo "$f" | grep /.git/ > /dev/null && continue
+      grep /nvim/ "$f" > /dev/null && {
+        cat "$f" | sed -e "s%/nvim/%/${fixnvimdir}/%g" > /tmp/nvim$$
+        cp /tmp/nvim$$ "$f"
+        rm -f /tmp/nvim$$
+      }
+    done
+  }
 }
 
 fix_help_file() {
@@ -839,7 +841,7 @@ update_config() {
       git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" reset --hard >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" pull >/dev/null 2>&1
-      fix_nvim_dir "${ndir}"
+      [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
     }
     [ "$quiet" ] || {
       printf " done"
