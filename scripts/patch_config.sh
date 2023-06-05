@@ -13,8 +13,14 @@ have_patch=$(type -p patch)
 
 [ -f ${patchdir}/${confname}.patch ] && {
   [ -d ${confdir} ] && {
-    printf "\n"
-    patch --directory="${confdir}" --quiet --backup \
-          --strip=0 --suffix=".orig" --input="${patchdir}/${confname}.patch"
+    # Check if the patch has previously been applied
+    patch --directory="${confdir}" --backup \
+          --forward --dry-run --silent  --strip=0 --suffix=".orig" \
+          --input="${patchdir}/${confname}.patch" >/dev/null 2>&1
+    [ $? -eq 0 ] && {
+      patch --directory="${confdir}" --backup \
+            --forward --silent --strip=0 --suffix=".orig" \
+            --input="${patchdir}/${confname}.patch" >/dev/null 2>&1
+    }
   }
 }

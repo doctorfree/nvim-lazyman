@@ -4592,7 +4592,6 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       lazyvim=1
       lunarvim=1
       magicvim=1
-      nv=1
       nvchad=1
       spacevim=1
       penguinvim=1
@@ -5540,35 +5539,35 @@ BREW_EXE=
 set_brew
 [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
 
-for neovim in "${neovimdir[@]}"; do
-  [ "$neovim" == "${lazymandir}" ] && continue
-  if [ "$proceed" ]; then
-    update_config "$neovim"
-  else
-    [ -d "${HOME}/.config/$neovim" ] && {
-      printf "\nYou have requested installation of the ${neovim} Neovim configuration."
-      printf "\nIt appears there is a previously installed Neovim configuration at:"
-      printf "\n\t${HOME}/.config/${neovim}\n"
-      printf "\nThe existing Neovim configuration can be updated or backed up.\n"
-      while true; do
-        read -r -p "Update ${neovim} ? (y/n) " yn
-        case $yn in
-          [Yy]*)
-            update_config "$neovim"
-            break
-            ;;
-          [Nn]*)
-            create_backups "$neovim"
-            break
-            ;;
-          *)
-            echo "Please answer yes or no."
-            ;;
-        esac
-      done
-    }
-  fi
-done
+#for neovim in "${neovimdir[@]}"; do
+#  [ "$neovim" == "${lazymandir}" ] && continue
+#  if [ "$proceed" ]; then
+#    update_config "$neovim"
+#  else
+#    [ -d "${HOME}/.config/$neovim" ] && {
+#      printf "\nYou have requested installation of the ${neovim} Neovim configuration."
+#      printf "\nIt appears there is a previously installed Neovim configuration at:"
+#      printf "\n\t${HOME}/.config/${neovim}\n"
+#      printf "\nThe existing Neovim configuration can be updated or backed up.\n"
+#      while true; do
+#        read -r -p "Update ${neovim} ? (y/n) " yn
+#        case $yn in
+#          [Yy]*)
+#            update_config "$neovim"
+#            break
+#            ;;
+#          [Nn]*)
+#            create_backups "$neovim"
+#            break
+#            ;;
+#          *)
+#            echo "Please answer yes or no."
+#            ;;
+#        esac
+#      done
+#    }
+#  fi
+#done
 
 [ "$abstract" ] && {
   clone_repo Abstract Abstract-IDE/Abstract "$abstractdir"
@@ -5779,8 +5778,6 @@ done
         [ "$branch" ] && {
           git -C "${HOME}/.config/${neovimdir[0]}" checkout "$branch" >/dev/null 2>&1
         }
-        # Replace references to /nvim/ with /$neovimdir[0]/
-        fix_nvim_dir "${neovimdir[0]}"
       fi
       [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.sample ] && {
         [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua ] || {
@@ -5788,6 +5785,8 @@ done
             ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua
         }
       }
+      # Replace references to /nvim/ with /$neovimdir[0]/
+      fix_nvim_dir "${neovimdir[0]}"
       add_nvimdirs_entry "${neovimdir[0]}"
     }
     [ "$quiet" ] || printf "done"
