@@ -1073,11 +1073,12 @@ show_health() {
   then
     checkdir="$1"
     ${HEALTHSC} "${checkdir}"
-    if [ -f ${LMANDIR}/logs/health-${checkdir}.md ]
+    nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+    if [ -f ${LMANDIR}/logs/health-${nvimconf}.md ]
     then
-      nvim ${LMANDIR}/logs/health-${checkdir}.md
+      nvim ${LMANDIR}/logs/health-${nvimconf}.md
     else
-      echo "${LMANDIR}/logs/health-${checkdir}.md not found"
+      echo "${LMANDIR}/logs/health-${nvimconf}.md not found"
     fi
   else
     echo "${HEALTHSC} not executable or missing"
@@ -3937,8 +3938,7 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Lazyman Config")
-    options+=("Lazyman Status")
+    options+=("Health Check" "Lazyman Config" "Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
@@ -4395,6 +4395,19 @@ show_main_menu() {
             USEGUI=
           else
             USEGUI=1
+          fi
+          break
+          ;;
+        "Health Check",* | *,"Health Check")
+          choices=()
+          items=()
+          [ -f "${LMANDIR}"/.lazymanrc ] && {
+            source "${LMANDIR}"/.lazymanrc
+            readarray -t choices < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+          }
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Health Check  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            lazyman -N "nvim-${choice}" health
           fi
           break
           ;;
