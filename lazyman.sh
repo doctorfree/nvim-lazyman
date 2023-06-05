@@ -12,6 +12,7 @@ NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
+HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -61,11 +62,12 @@ lsp_enabled_table=()
 for_enabled_table=()
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]"
-  printf "\n   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]"
-  printf "\n   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]"
-  printf "\n   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]"
-  printf "\n   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]"
+  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
+  printf "\n   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]"
+  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd]"
+  printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf]"
+  printf "\n   [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u]"
+  printf "\n   [health] [install] [open] [remove] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -134,6 +136,7 @@ usage() {
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -u displays this usage message and exits"
+  printf "\n    'health' generate and display a health check for a configuration"
   printf "\n    'install' fuzzy search and select configuration to install"
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
@@ -1063,6 +1066,22 @@ list_uninstalled() {
     fi
   }
   printf "\n"
+}
+
+show_health() {
+  if [ -x ${HEALTHSC} ]
+  then
+    checkdir="$1"
+    ${HEALTHSC} "${checkdir}"
+    if [ -f ${LMANDIR}/logs/health-${checkdir}.md ]
+    then
+      nvim ${LMANDIR}/logs/health-${checkdir}.md
+    else
+      echo "${LMANDIR}/logs/health-${checkdir}.md not found"
+    fi
+  else
+    echo "${HEALTHSC} not executable or missing"
+  fi
 }
 
 show_info() {
@@ -4776,6 +4795,14 @@ shift $((OPTIND - 1))
 
 [ "$1" == "remove" ] && {
   select_remove
+  exit 0
+}
+
+[ "$1" == "health" ] && {
+  checkdir="nvim-Lazyman"
+  [ "$name" ] && checkdir="$name"
+  printf "\nPreparing Lazyman health check for ${checkdir} Neovim configuration\n"
+  show_health "${checkdir}"
   exit 0
 }
 

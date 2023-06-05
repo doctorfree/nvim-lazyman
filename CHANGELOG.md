@@ -6,6 +6,25 @@
 
 ### 🐞 Fixed
 
+## v2.1.4r3
+
+### ⚡️ Added
+
+- Added `health` argument to `lazyman` to generate a Neovim configuration health check
+- Added `scripts/healthcheck.sh` to generate a health check from the command line
+
+### 🐞 Fixed
+
+- Format and order of messages
+- Do not fixup `/nvim/` references for nvim-Lazyman
+- Fix install all from command line, include `Base`
+- If only `-U` given then set `neovimdir` to `nvim-Lazyman`
+- Check for applied patch before applying
+- Remove troublesome `update_config` section
+- Fix references to `/nvim/` during installs and updates
+- When installing multiple configs enable quiet mode
+- Fix `winbar` menu selection
+
 ## v2.1.4r2
 
 ### ⚡️ Added
