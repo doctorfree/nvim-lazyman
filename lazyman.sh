@@ -4558,7 +4558,10 @@ spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
 basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir" "$basicidedir")
 neovimdir=()
-[ $# -eq 1 ] && [ "$1" == "-F" ] && set -- "$@" 'config'
+[ $# -eq 1 ] && {
+  [ "$1" == "-F" ] && set -- "$@" 'config'
+  [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
+}
 while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
   case $flag in
     a)
