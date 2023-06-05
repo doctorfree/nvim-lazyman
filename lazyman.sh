@@ -4512,6 +4512,7 @@ lunarvim=
 minivim=
 magicvim=
 nvchad=
+nvimbase=
 nvimcustom=
 nvimprsnl=
 nvimstarter=
@@ -4570,20 +4571,10 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       ;;
     A)
       all=1
+      nvimbase=1
       nvimcustom=1
       nvimprsnl="all"
       nvimstarter="all"
-      astronvim=1
-      abstract=1
-      basicide=1
-      ecovim=1
-      lazyvim=1
-      lunarvim=1
-      magicvim=1
-      nvchad=1
-      penguinvim=1
-      spacevim=1
-      neovimdir=("${basenvimdirs[@]}")
       quiet=1
       ;;
     B)
@@ -4827,6 +4818,23 @@ set_haves
     nvimselect "$@"
   fi
   exit 0
+}
+
+[ "$nvimbase" ] && {
+  yesflag="-Q"
+  [ "${proceed}" ] && yesflag="-Q -y"
+  debugflag=
+  [ "${debug}" ] && debugflag="-d"
+  if [ "$remove" ]; then
+    lazyman -R -B ${debugflag} ${yesflag}
+  else
+    if [ "${update}" ]
+    then
+      lazyman -B -U -z ${debugflag} ${yesflag}
+    else
+      lazyman -B -z ${debugflag} ${yesflag}
+    fi
+  fi
 }
 
 [ "$nvimcustom" ] && {
@@ -5541,36 +5549,6 @@ fi
 BREW_EXE=
 set_brew
 [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
-
-#for neovim in "${neovimdir[@]}"; do
-#  [ "$neovim" == "${lazymandir}" ] && continue
-#  if [ "$proceed" ]; then
-#    update_config "$neovim"
-#  else
-#    [ -d "${HOME}/.config/$neovim" ] && {
-#      printf "\nYou have requested installation of the ${neovim} Neovim configuration."
-#      printf "\nIt appears there is a previously installed Neovim configuration at:"
-#      printf "\n\t${HOME}/.config/${neovim}\n"
-#      printf "\nThe existing Neovim configuration can be updated or backed up.\n"
-#      while true; do
-#        read -r -p "Update ${neovim} ? (y/n) " yn
-#        case $yn in
-#          [Yy]*)
-#            update_config "$neovim"
-#            break
-#            ;;
-#          [Nn]*)
-#            create_backups "$neovim"
-#            break
-#            ;;
-#          *)
-#            echo "Please answer yes or no."
-#            ;;
-#        esac
-#      done
-#    }
-#  fi
-#done
 
 [ "$abstract" ] && {
   clone_repo Abstract Abstract-IDE/Abstract "$abstractdir"
