@@ -809,6 +809,12 @@ remove_custom() {
 }
 
 update_custom() {
+  yesflag="-Q"
+  [ "${proceed}" ] && yesflag="-Q -y"
+  debugflag=
+  [ "${debug}" ] && debugflag="-d"
+  quietflag=
+  [ "${quiet}" ] && quietflag="-q"
   allcustom=
   [ "$1" == "all" ] && allcustom=1
   customdir="$1"
@@ -817,10 +823,10 @@ update_custom() {
   then
     for custom in ${CUSTMCFGS}
     do
-      lazyman ${darg} -U -N nvim-${custom} -y
+      lazyman ${debugflag} -U -N nvim-${custom} ${yesflag} ${quietflag}
     done
   else
-    lazyman ${darg} -U -N nvim-${customdir} -y
+    lazyman ${debugflag} -U -N nvim-${customdir} ${yesflag} ${quietflag}
   fi
 }
 
@@ -829,9 +835,7 @@ update_config() {
   GITDIR=".config/${ndir}"
   # [ "${ndir}" == "${lunarvimdir}" ] && GITDIR=".local/share/${lunarvimdir}/lvim"
   [ -d "${HOME}/${GITDIR}" ] && {
-    [ "$quiet" ] || {
-      printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
-    }
+    printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
     [ "$tellme" ] || {
       [ "${ndir}" == "${lazymandir}" ] && {
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
@@ -843,9 +847,7 @@ update_config() {
       git -C "${HOME}/${GITDIR}" pull >/dev/null 2>&1
       [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
     }
-    [ "$quiet" ] || {
-      printf " done"
-    }
+    printf " done"
     [ "$tellme" ] || add_nvimdirs_entry "${ndir}"
   }
   [ "$tellme" ] || {
@@ -877,13 +879,13 @@ update_config() {
           printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
           printf "\nRe-apply any customizations to the new config at:"
           printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
+          prompt_continue
         fi
         rm -f /tmp/lazyconf$$
         set_chat_gpt
         set_code_explain
         set_ranger_float
         set_waka_opt
-        prompt_continue
       }
       [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
       [ -f "${LMANDIR}"/lazyman.sh ] && {
@@ -898,32 +900,24 @@ update_config() {
         cdir="lua/custom"
       fi
       [ -d "${HOME}/${GITDIR}/${cdir}" ] && {
-        [ "$quiet" ] || {
-          printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
-        }
+        printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir} ..."
         [ "$tellme" ] || {
           git -C "${HOME}/${GITDIR}/${cdir}" stash >/dev/null 2>&1
           git -C "${HOME}/${GITDIR}"/${cdir} reset --hard >/dev/null 2>&1
           git -C "${HOME}/${GITDIR}"/${cdir} pull >/dev/null 2>&1
         }
-        [ "$quiet" ] || {
-          printf " done"
-        }
+        printf " done"
       }
     }
     [ "${ndir}" == "${spacevimdir}" ] && {
       [ -d "${SPDIR}"/.git ] && {
-        [ "$quiet" ] || {
-          printf "\nUpdating existing SpaceVim add-on config at ${SPDIR} ..."
-        }
+        printf "\nUpdating existing SpaceVim add-on config at ${SPDIR} ..."
         [ "$tellme" ] || {
           git -C "${SPDIR}" stash >/dev/null 2>&1
           git -C "${SPDIR}" reset --hard >/dev/null 2>&1
           git -C "${SPDIR}" pull >/dev/null 2>&1
         }
-        [ "$quiet" ] || {
-          printf " done"
-        }
+        printf " done"
       }
     }
     [ "${ndir}" == "${minivimdir}" ] && {
@@ -4144,32 +4138,28 @@ show_main_menu() {
           break
           ;;
         "Install Base"*,* | *,"Install Base"*)
-          printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q
+          printf "\n\nInstalling all Lazyman 'Base' Neovim configurations\n"
+          lazyman ${darg} -B -y -z -q -Q
           break
           ;;
         "Install Personal"*,* | *,"Install Personal"*)
-          printf "\nInstalling all Lazyman 'Personal' Neovim configurations\n"
           lazyman ${darg} -W -y -z -Q -q
           break
           ;;
         "Install Starter"*,* | *,"Install Starter"*)
-          printf "\nInstalling all Lazyman 'Starter' Neovim configurations\n"
           lazyman ${darg} -X -y -z -Q -q
           break
           ;;
         "Install Custom"*,* | *,"Install Custom"*)
-          printf "\nInstalling all Lazyman 'Custom' Neovim configurations\n"
+          printf "\n\nInstalling all Lazyman 'Custom' Neovim configurations\n"
           install_custom all
           break
           ;;
         "Install All"*,* | *,"Install All"*)
-          printf "\nInstalling all Lazyman Neovim configurations\n"
+          printf "\n\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q
-          printf "\nInstalling all Lazyman 'Personal' Neovim configurations\n"
+          lazyman ${darg} -B -y -z -Q -q
           lazyman ${darg} -W -y -z -Q -q
-          printf "\nInstalling all Lazyman 'Starter' Neovim configurations\n"
           lazyman ${darg} -X -y -z -Q -q
           printf "\nInstalling all Lazyman 'Custom' Neovim configurations\n"
           install_custom all
@@ -4177,16 +4167,14 @@ show_main_menu() {
           ;;
         "Update Base"*,* | *,"Update Base"*)
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -U
+          lazyman ${darg} -B -y -z -Q -q -U
           break
           ;;
         "Update Personal"*,* | *,"Update Personal"*)
-          printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
           lazyman ${darg} -W -y -z -Q -q -U
           break
           ;;
         "Update Starter"*,* | *,"Update Starter"*)
-          printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
           lazyman ${darg} -X -y -z -Q -q -U
           break
           ;;
@@ -4198,10 +4186,8 @@ show_main_menu() {
         "Update All"*,* | *,"Update All"*)
           printf "\nUpdating all Lazyman Neovim configurations\n"
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
-          lazyman ${darg} -B -y -z -Q -U
-          printf "\nUpdating all Lazyman 'Personal' Neovim configurations\n"
+          lazyman ${darg} -B -y -z -Q -q -U
           lazyman ${darg} -W -y -z -Q -q -U
-          printf "\nUpdating all Lazyman 'Starter' Neovim configurations\n"
           lazyman ${darg} -X -y -z -Q -q -U
           printf "\nUpdating all Lazyman 'Custom' Neovim configurations\n"
           update_custom all
@@ -4832,9 +4818,11 @@ set_haves
   else
     if [ "${update}" ]
     then
-      lazyman -B -U -z ${debugflag} ${yesflag}
+      printf "\n\nUpdating all installed Base Neovim configurations."
+      lazyman -B -U -q -z ${debugflag} ${yesflag}
     else
-      lazyman -B -z ${debugflag} ${yesflag}
+      printf "\n\nInstalling and initializing all Base Neovim configurations."
+      lazyman -B -q -z ${debugflag} ${yesflag}
     fi
   fi
 }
@@ -4845,8 +4833,10 @@ set_haves
   else
     if [ "${update}" ]
     then
+      printf "\n\nUpdating all installed Custom Neovim configurations."
       update_custom all
     else
+      printf "\n\nInstalling and initializing all Custom Neovim configurations."
       install_custom all
     fi
   fi
@@ -4862,6 +4852,7 @@ set_haves
       remove_config "nvim-${nvimprsnl}"
     fi
   else
+    printf "\n\nInstalling/Updating all Personal Neovim configurations."
     yesflag="-Q"
     [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
@@ -4941,7 +4932,7 @@ set_haves
       printf "\n${action} Roiz Neovim configuration ..."
       lazyman ${darg} -C https://github.com/MrRoiz/rnvim \
         -N nvim-Roiz ${quietflag} -z ${yesflag}
-      printf " done\n"
+      printf " done"
       show_alias "nvim-Roiz"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Simple ] && action="Updating"
@@ -5031,6 +5022,7 @@ set_haves
       remove_config "nvim-${nvimstarter}"
     fi
   else
+    printf "\n\nInstalling/Updating all Starter Neovim configurations."
     yesflag="-Q"
     [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
@@ -5055,11 +5047,9 @@ set_haves
         -N nvim-Basic ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Basic"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Kickstart ] && action="Updating"
-      printf "\n${action} Kickstart Neovim configuration ..."
-      lazyman ${darg} -k ${quietflag} -z ${yesflag}
-      printf " done"
+      updflag=
+      [ -d ${HOME}/.config/nvim-Kickstart ] && updflag="-U"
+      lazyman ${darg} -k ${quietflag} -z ${yesflag} ${updflag}
       show_alias "nvim-Kickstart"
       action="Installing"
       [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
@@ -5413,13 +5403,12 @@ set_haves
 }
 
 [ "$update" ] && {
-  [ "$all" ] || [ "$name" ] || {
-    [ "$NVIM_APPNAME" ] && neovimdir=("$NVIM_APPNAME")
+  [ ${#neovimdir[@]} -eq 0 ] || {
+    for neovim in "${neovimdir[@]}"; do
+      update_config "$neovim"
+      [ "$tellme" ] || init_neovim "$neovim"
+    done
   }
-  for neovim in "${neovimdir[@]}"; do
-    update_config "$neovim"
-    [ "$tellme" ] || init_neovim "$neovim"
-  done
   exit 0
 }
 
@@ -5552,6 +5541,7 @@ BREW_EXE=
 set_brew
 [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
 
+[ "${all}" ] && printf "\nCloning Neovim configuration repositories ..."
 [ "$abstract" ] && {
   clone_repo Abstract Abstract-IDE/Abstract "$abstractdir"
 }
@@ -5727,8 +5717,10 @@ set_brew
     [ "$quiet" ] || printf "done"
   }
 }
+[ "${all}" ] && printf " done"
 [ "$custom_url" ] && {
   if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
+    update=1
     [ "$quiet" ] || {
       printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists."
     }
@@ -5788,11 +5780,13 @@ set_brew
 
 [ "${interactive}" ] || {
   for neovim in "${neovimdir[@]}"; do
-    [ "$quiet" ] || {
-      pm="$pmgr"
-      [ "$neovim" == "$spacevimdir" ] && pm="SP"
-      [ "$neovim" == "$magicvimdir" ] && pm="Packer"
-      printf "\nInitializing ${neovim} Neovim configuration with ${pm}"
+    [ "${update}" ] || {
+      if [[ " ${basenvimdirs[*]} " =~ " ${neovim} " ]]; then
+        pm="$pmgr"
+        [ "$neovim" == "$spacevimdir" ] && pm="SP"
+        [ "$neovim" == "$magicvimdir" ] && pm="Packer"
+        printf "\nInitializing ${neovim} Neovim configuration with ${pm}"
+      fi
     }
     [ "$tellme" ] || init_neovim "$neovim"
   done
