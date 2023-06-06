@@ -1,0 +1,26 @@
+extends javascript
+
+snippet component
+	export default function $1(){
+			return <>$0</>;
+	}
+
+snippet el 
+	<$1>
+	$0
+	</$1>
+
+snippet us "useState()"
+	const [$1, set${1/(.)/${1:/upcase}/}] = useState($0);
+
+snippet ur "useRef()"
+	const $0 = useRef(null);
+
+snippet ue "useEffect()"
+	useEffect(() => $0, []);
+
+snippet um "useMemo()"
+	const $1 = useMemo(() => $0, []);
+
+snippet uc "useCallback()"
+	const $1 = useCallback(() => $0, []);

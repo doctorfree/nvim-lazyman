@@ -16,4 +16,8 @@ snippet fori
 	for ${1:i},${2:v} in ipairs(${3:table_name}) do
 		${0:-- body}
 	end
-	
+
+snippet fn "Create a local function"
+	local $1 = function($2)
+		$0
+	end

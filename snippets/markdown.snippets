@@ -1,3 +1,5 @@
+extends tex
+
 snippet boil
   ---
   layout: "@layouts/ArticleLayout.astro"
@@ -9,3 +11,23 @@ snippet boil
   # $1
 
   There I was, sitting in my chair, thinking about $1.
+
+snippet te "Create an inline TeX block"
+	$$1$$0
+
+snippet tex "Create a TeX block"
+	$$
+	$0
+	$$
+
+snippet bo
+	__$1__$0
+
+snippet it
+	_$1_$0
+
+snippet link
+	[$1]($0)
+
+snippet img
+	![$1]($0)

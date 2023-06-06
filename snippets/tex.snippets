@@ -92,8 +92,8 @@ snippet i "Item"
 #
 
 # Cases
-snippet case "Cases" 
-	${1:LHS}=	
+snippet case "Cases"
+	${1:LHS}=
 	\begin{cases}
 		${2:Value}, &\text{ if } ${3:case}\\
 		${4:Value}, &\text{ otherwise.} ${5:otherwise}.
@@ -256,7 +256,49 @@ snippet example "Example" bi
 		${0:${VISUAL}}
 	\end{example}
 
+snippet matrix
+	\begin{bmatrix}$0\end{bmatrix}
 
+snippet vec
+	\vec{$0}
 
+snippet frac
+	\frac{$1}{$0}
 
+snippet ra "→"
+	\rightarrow
 
+snippet la "←"
+	\leftarrow
+
+snippet det "det(A)"
+	\text{det}($1)$0
+
+snippet hat
+	\hat{$1}$0
+
+snippet it
+	\textit{$1}$0
+
+snippet bo
+	\textbf{$1}$0
+
+snippet bq
+	\begin{quote}
+		$0
+	\end{quote}
+
+snippet ci
+	\cite{$1}$0
+
+snippet pc
+	\parencite{$1}$0
+
+snippet cy
+	\cite*{$1}$0
+
+snippet pcy
+	\parencite*{$1}$0
+
+snippet se
+	\section{$1}$0
