@@ -65,6 +65,7 @@ logs/*
 scripts/nvims
 scripts/patches/*
 !scripts/patches/nvim-3rd.patch
+!scripts/patches/nvim-Allaman.patch
 !scripts/patches/README.md
 
 # vim files
