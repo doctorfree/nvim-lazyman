@@ -407,8 +407,8 @@ below along with their default settings:
   - `conf.enable_compile = false`
 - Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
-- Enable hop plugin for easy motions
-  - `conf.enable_hop = true`
+- Enable easy motions, can be one of "hop", "leap", or "none"
+  - `conf.enable_motion = "leap"`
 - Enable renamer plugin for VS Code-like renaming UI
   - `conf.enable_renamer = true`
 - Enable ranger in a floating window

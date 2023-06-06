@@ -7,7 +7,8 @@
 #
 # Generated health checks are stored in ~/.config/nvim-Lazyman/logs/
 
-LOGDIR="${HOME}/.config/nvim-Lazyman/logs"
+LMANDIR="${HOME}/.config/nvim-Lazyman"
+LOGDIR="${LMANDIR}/logs"
 [ -d "${LOGDIR}" ] || exit 1
 
 checkdir="nvim-Lazyman"
@@ -16,7 +17,8 @@ nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
 HEALTH="health-${nvimconf}.md"
 
 export NVIM_APPNAME="${checkdir}"
-nvim --headless "+checkhealth" "+w!${LOGDIR}/${HEALTH}" +qa >/dev/null 2>&1
+nvim --headless "+checkhealth" "+w!${LOGDIR}/${HEALTH}" +qa \
+  "${LMANDIR}"/README.md "${LMANDIR}"/init.lua >/dev/null 2>&1
 
 [ -f "${LOGDIR}/${HEALTH}" ] && {
   sed -i "1s;^;# ${checkdir} Neovim health check\n;" "${LOGDIR}/${HEALTH}"

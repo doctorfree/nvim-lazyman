@@ -1076,7 +1076,7 @@ show_health() {
     nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
     if [ -f ${LMANDIR}/logs/health-${nvimconf}.md ]
     then
-      nvim ${LMANDIR}/logs/health-${nvimconf}.md
+      NVIM_APPNAME="${checkdir}" nvim ${LMANDIR}/logs/health-${nvimconf}.md
     else
       echo "${LMANDIR}/logs/health-${nvimconf}.md not found"
     fi
@@ -2175,12 +2175,8 @@ show_plugin_menu() {
     else
       use_cheatsheet="✗"
     fi
-    enable_hop=$(get_conf_value enable_hop)
-    if [ "${enable_hop}" == "true" ]; then
-      use_hop=""
-    else
-      use_hop="✗"
-    fi
+    enable_motion=$(get_conf_value enable_motion)
+    use_motion="${enable_motion}"
     enable_ranger=$(get_conf_value enable_ranger_float)
     if [ "${enable_ranger}" == "true" ]; then
       use_ranger=""
@@ -2318,7 +2314,7 @@ show_plugin_menu() {
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable Hop    [${use_hop}]")
+    options+=("Enable Motion [${use_motion}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Indentline [${use_indentline}]")
     options+=("Media Backend [${use_media_backend}]")
@@ -2615,13 +2611,23 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
-        "Enable Hop"*,* | *,"Enable Hop"*)
-          if [ "${enable_hop}" == "true" ]; then
-            set_conf_value "enable_hop" "false"
-          else
-            set_conf_value "enable_hop" "true"
+        "Enable Motion"*,* | *,"Enable Motion"*)
+          choices=("Hop" "Leap" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Motion Plugin  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Hop" ]; then
+              set_conf_value "enable_motion" "hop"
+            else
+              if [ "${choice}" == "Leap" ]; then
+                set_conf_value "enable_motion" "leap"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "enable_motion" "none"
+                fi
+              fi
+            fi
+            pluginit=1
           fi
-          pluginit=1
           break
           ;;
         "Enable Ranger"*,* | *,"Enable Ranger"*)
@@ -2876,7 +2882,7 @@ show_plugin_menu() {
           set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
-          set_conf_value "enable_hop" "false"
+          set_conf_value "enable_motion" "none"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_multi_cursor" "false"
@@ -2922,7 +2928,7 @@ show_plugin_menu() {
           set_conf_value "enable_coding" "true"
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_dressing" "true"
-          set_conf_value "enable_hop" "true"
+          set_conf_value "enable_motion" "leap"
           set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
           set_conf_value "enable_multi_cursor" "true"
@@ -3602,7 +3608,7 @@ show_conf_menu() {
           set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
-          set_conf_value "enable_hop" "false"
+          set_conf_value "enable_motion" "none"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_multi_cursor" "false"

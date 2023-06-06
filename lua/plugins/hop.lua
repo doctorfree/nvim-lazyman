@@ -1,6 +1,6 @@
 local settings = require("configuration")
 
-if settings.enable_hop then
+if settings.enable_motion == "hop" then
   return {
     { "ziontee113/syntax-tree-surfer" },
     {
