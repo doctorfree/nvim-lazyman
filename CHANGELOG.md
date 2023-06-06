@@ -6,6 +6,19 @@
 
 ### 🐞 Fixed
 
+## v2.1.4r4
+
+### ⚡️ Added
+
+- Add support for multiple easy motion plugins (`hop` and `leap`)
+- Add and enhance snippets
+- Add patch for the `Allaman` config
+
+### 🐞 Fixed
+
+- Improve lazyman health check report
+- Fix health check file name in lazyman show_health
+
 ## v2.1.4r3
 
 ### ⚡️ Added
