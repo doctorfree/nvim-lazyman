@@ -475,10 +475,12 @@ select_theme_style() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"*)
+            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             mainmenu=1
             break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
+            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
             ;;
@@ -610,10 +612,12 @@ select_theme() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"*)
+            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             mainmenu=1
             break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
+            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
             ;;
@@ -642,7 +646,6 @@ show_plug_help() {
 
 show_plugin_menu() {
   set_haves
-  pluginit=
   while true; do
     mainmenu=
     confmenu=
@@ -1670,6 +1673,7 @@ show_plugin_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
+          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
           ;;
@@ -1688,7 +1692,6 @@ show_plugin_menu() {
       REPLY=
     done
   done
-  [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
   [ "${confmenu}" ] && show_conf_menu
   [ "${mainmenu}" ] && exit 2
   [ "${lspmenu}" ] && show_lsp_menu
@@ -1716,7 +1719,6 @@ show_lsp_help() {
 
 show_lsp_menu() {
   set_haves
-  pluginit=
   while true; do
     mainmenu=
     confmenu=
@@ -1799,6 +1801,7 @@ show_lsp_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
+          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
           ;;
@@ -1827,7 +1830,6 @@ show_lsp_menu() {
       REPLY=
     done
   done
-  [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
   [ "${mainmenu}" ] && exit 2
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
@@ -1852,7 +1854,6 @@ show_form_help() {
 
 show_formlint_menu() {
   set_haves
-  pluginit=
   while true; do
     mainmenu=
     confmenu=
@@ -1935,6 +1936,7 @@ show_formlint_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
+          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
           ;;
@@ -1963,7 +1965,6 @@ show_formlint_menu() {
       REPLY=
     done
   done
-  [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
   [ "${mainmenu}" ] && exit 2
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
@@ -1972,7 +1973,6 @@ show_formlint_menu() {
 
 show_conf_menu() {
   set_haves
-  pluginit=
   while true; do
     mainmenu=
     plugmenu=
@@ -2354,6 +2354,7 @@ show_conf_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"*)
+          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
           ;;
@@ -2372,7 +2373,6 @@ show_conf_menu() {
       REPLY=
     done
   done
-  [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
   [ "${mainmenu}" ] && exit 2
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
@@ -2384,6 +2384,7 @@ darg=
 confmenu=
 initplugs=
 menu="conf"
+pluginit=
 # TODO: configure options
 while getopts "dim:u" flag; do
   case $flag in
