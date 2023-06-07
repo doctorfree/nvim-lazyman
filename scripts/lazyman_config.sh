@@ -479,15 +479,15 @@ select_theme_style() {
             break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
-            printf "\nExiting Lazyman\n"
-            exit 0
+            printf "\nExiting Lazyman Configuration Menu System\n\n"
+            exit 3
             ;;
         esac
         REPLY=
       done
     done
     [ "${confmenu}" ] && show_conf_menu
-    [ "${mainmenu}" ] && exit 0
+    [ "${mainmenu}" ] && exit 2
   fi
 }
 
@@ -614,8 +614,8 @@ select_theme() {
             break 2
             ;;
           "Quit",* | *,"Quit" | "quit",* | *,"quit")
-            printf "\nExiting Lazyman\n"
-            exit 0
+            printf "\nExiting Lazyman Configuration Menu System\n\n"
+            exit 3
             ;;
         esac
         REPLY=
@@ -623,7 +623,7 @@ select_theme() {
     done
   fi
   [ "${confmenu}" ] && show_conf_menu
-  [ "${mainmenu}" ] && exit 0
+  [ "${mainmenu}" ] && exit 2
 }
 
 show_plug_help() {
@@ -1675,8 +1675,8 @@ show_plugin_menu() {
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-          printf "\nExiting Lazyman\n"
-          exit 0
+          printf "\nExiting Lazyman Configuration Menu System\n\n"
+          exit 3
           ;;
         *,*)
           printf "\nNo matching menu item located."
@@ -1690,7 +1690,7 @@ show_plugin_menu() {
   done
   [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
   [ "${confmenu}" ] && show_conf_menu
-  [ "${mainmenu}" ] && exit 0
+  [ "${mainmenu}" ] && exit 2
   [ "${lspmenu}" ] && show_lsp_menu
   [ "${formenu}" ] && show_formlint_menu
 }
@@ -1804,8 +1804,8 @@ show_lsp_menu() {
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-          printf "\nExiting Lazyman\n"
-          exit 0
+          printf "\nExiting Lazyman Configuration Menu System\n\n"
+          exit 3
           ;;
         *,*)
           enable=
@@ -1828,7 +1828,7 @@ show_lsp_menu() {
     done
   done
   [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-  [ "${mainmenu}" ] && exit 0
+  [ "${mainmenu}" ] && exit 2
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${formmenu}" ] && show_formlint_menu
@@ -1940,8 +1940,8 @@ show_formlint_menu() {
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-          printf "\nExiting Lazyman\n"
-          exit 0
+          printf "\nExiting Lazyman Configuration Menu System\n\n"
+          exit 3
           ;;
         *,*)
           enable=
@@ -1964,7 +1964,7 @@ show_formlint_menu() {
     done
   done
   [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-  [ "${mainmenu}" ] && exit 0
+  [ "${mainmenu}" ] && exit 2
   [ "${confmenu}" ] && show_conf_menu
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspsmenu}" ] && show_lsp_menu
@@ -2359,8 +2359,8 @@ show_conf_menu() {
           ;;
         "Quit",* | *,"Quit" | "quit",* | *,"quit")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-          printf "\nExiting Lazyman\n"
-          exit 0
+          printf "\nExiting Lazyman Configuration Menu System\n\n"
+          exit 3
           ;;
         *,*)
           printf "\nNo matching menu item located."
@@ -2373,7 +2373,7 @@ show_conf_menu() {
     done
   done
   [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
-  [ "${mainmenu}" ] && exit 0
+  [ "${mainmenu}" ] && exit 2
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
   [ "${formenu}" ] && show_formlint_menu

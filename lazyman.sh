@@ -2184,7 +2184,7 @@ show_main_menu() {
           ;;
         "Lazyman Config",* | *,"Lazyman Config")
           confmenu=1
-          break 2
+          break
           ;;
         "Lazyman Status",* | *,"Lazyman Status")
           printf "\nPreparing Lazyman status report\n"
@@ -2216,9 +2216,12 @@ show_main_menu() {
       esac
       REPLY=
     done
+    [ "${confmenu}" ] && {
+      ${SUBMENUS} -m conf
+      [ $? -eq 3 ] && exit 0
+    }
     [ "${versmenu}" ] && show_vers_menu
   done
-  [ "${confmenu}" ] && ${SUBMENUS} -m conf
 }
 
 get_config_str() {
@@ -3724,18 +3727,23 @@ fi
 [ "${exitafter}" ] && exit 0
 
 [ "${interactive}" ] && {
+  exitstatus=0
   if [ "$menu" ]; then
     if [ "$menu" == "confmenu" ]; then
       ${SUBMENUS} -m conf
+      exitstatus=$?
     else
       if [ "$menu" == "plugmenu" ]; then
         ${SUBMENUS} -m plugmenu
+        exitstatus=$?
       else
         if [ "$menu" == "lspmenu" ]; then
           ${SUBMENUS} -m lspmenu
+          exitstatus=$?
         else
           if [ "$menu" == "formenu" ]; then
             ${SUBMENUS} -m formenu
+            exitstatus=$?
           else
             show_main_menu
           fi
@@ -3746,5 +3754,7 @@ fi
     show_main_menu
   fi
 }
+# Submenus can exit 2 to indicate display main menu
+[ ${exitstatus} -eq 2 ] && exec lazyman
 
 exit 0
