@@ -10,12 +10,15 @@
 
 ### ⚡️ Added
 
+- Add `Allaman` config
+- Add note taking plugins with menu configuration support
 - Add support for multiple easy motion plugins (`hop` and `leap`)
 - Add and enhance snippets
 - Add patch for the `Allaman` config
 
 ### 🐞 Fixed
 
+- Move `AlanVim`, `Charles`, and `Magidc` Custom configs to Personal
 - Improve lazyman health check report
 - Fix health check file name in lazyman show_health
 
