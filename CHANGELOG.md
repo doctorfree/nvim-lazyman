@@ -19,8 +19,9 @@
 ### 🐞 Fixed
 
 - Move `AlanVim`, `Charles`, and `Magidc` Custom configs to Personal
-- Improve lazyman health check report
-- Fix health check file name in lazyman show_health
+- Improve `lazyman` health check report
+- Fix health check file name in `lazyman` show_health
+- Remove trim newlines and whitespace from `null-ls` sources
 
 ## v2.1.4r3
 
