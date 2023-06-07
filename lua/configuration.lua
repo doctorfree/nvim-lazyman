@@ -62,6 +62,19 @@ conf.enable_compile = false
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"
 conf.enable_motion = "leap"
+-- Enable note making using Markdown preview and Obsidian plugins
+conf.enable_notes = true
+-- If notes enabled, markdown preview to use (preview, peek, none)
+conf.markdown_preview = "peek"
+-- If notes enabled, Neorg notes folders, multiple folders supported
+conf.neorg_notes = {
+  "~/Documents/Notes/Neorg", -- NEORG_NOTES
+  -- "XXXXX", -- NEORG_NOTES
+  -- "YYYYY", -- NEORG_NOTES
+  -- "ZZZZZ", -- NEORG_NOTES
+}
+-- If notes enabled, Obsidian vault folder
+conf.obsidian_vault = "~/Documents/Notes/Obsidian"
 -- Enable renamer plugin for VS Code-like renaming UI
 conf.enable_renamer = true
 -- Enable ranger in a floating window

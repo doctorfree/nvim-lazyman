@@ -225,7 +225,7 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', 'LaTeX', or 'Heiker'
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', 'LaTeX', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
@@ -409,6 +409,8 @@ below along with their default settings:
   - `conf.enable_dressing = true`
 - Enable easy motions, can be one of "hop", "leap", or "none"
   - `conf.enable_motion = "leap"`
+- Enable note making using Markdown preview and Obsidian plugins
+  - `conf.enable_notes = true`
 - Enable renamer plugin for VS Code-like renaming UI
   - `conf.enable_renamer = true`
 - Enable ranger in a floating window

@@ -22,10 +22,10 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-PRSNLCFGS="Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
+PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="AlanVim Brain Charles 3rd Elianiva Magidc Nv Python SaleVim Slydragonn"
+CUSTMCFGS="Allaman Brain 3rd Elianiva Nv Python SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -60,6 +60,7 @@ have_ruff=$(type -p ruff)
 
 lsp_enabled_table=()
 for_enabled_table=()
+neorg_notes_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
@@ -123,8 +124,8 @@ usage() {
   printf "\n    -U indicates update an existing configuration"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember' 'ONNO'"
-  printf "\n           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'"
+  printf "\n           AlanVim Charles Magidc Mini Knvim Roiz Fennel"
+  printf "\n           Ember ONNO Adib Optixal Plug Simple Heiker LaTeX"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'"
@@ -706,11 +707,11 @@ install_custom() {
     }
     printf "done"
   }
-  [ "${allcustom}" ] || [ "${customdir}" == "AlanVim" ] && {
-    printf "\nInstalling and initializing the AlanVim Neovim configuration ... "
+  [ "${allcustom}" ] || [ "${customdir}" == "Allaman" ] && {
+    printf "\nInstalling and initializing the Allaman Neovim configuration ... "
     [ "$tellme" ] || {
-      lazyman ${darg} -b main -C https://github.com/alanRizzo/dot-files \
-        -D nvim -N nvim-AlanVim -P ${allflags}
+      lazyman ${darg} -C https://github.com/Allaman/nvim \
+        -N nvim-Allaman ${allflags}
     }
     printf "done"
   }
@@ -722,27 +723,11 @@ install_custom() {
     }
     printf "done"
   }
-  [ "${allcustom}" ] || [ "${customdir}" == "Charles" ] && {
-    printf "\nInstalling and initializing the Charles Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
-        -N nvim-Charles ${allflags}
-    }
-    printf "done"
-  }
   [ "${allcustom}" ] || [ "${customdir}" == "Elianiva" ] && {
     printf "\nInstalling and initializing the Elianiva Neovim configuration ... "
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/elianiva/dotfiles \
         -D nvim/.config/nvim -N nvim-Elianiva ${allflags}
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "Magidc" ] && {
-    printf "\nInstalling and initializing the Magidc Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/magidc/nvim-config \
-        -N nvim-Magidc ${allflags}
     }
     printf "done"
   }
@@ -1256,6 +1241,13 @@ get_conf_table() {
       while read -r val; do
         for_enabled_table+=("$val")
       done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} "external_formatters" 2>&1)
+    else
+      if [ "${confname}" == "neorg_notes" ]; then
+        neorg_notes_table=()
+        while read -r val; do
+          neorg_notes_table+=("$val")
+        done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+      fi
     fi
   fi
 }
@@ -1432,6 +1424,15 @@ install_config() {
     LaTeX)
       lazyman ${darg} -w LaTeX -z -y -Q -q
       ;;
+    AlanVim)
+      lazyman ${darg} -w AlanVim -z -y -Q -q
+      ;;
+    Charles)
+      lazyman ${darg} -w Charles -z -y -Q -q
+      ;;
+    Magidc)
+      lazyman ${darg} -w Magidc -z -y -Q -q
+      ;;
     Ember)
       lazyman ${darg} -w Ember -z -y -Q -q
       ;;
@@ -1489,7 +1490,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    AlanVim|Brain|Charles|3rd|Elianiva|Magidc|Nv|Python|SaleVim|Slydragonn)
+    Allaman|Brain|3rd|Elianiva|Nv|Python|SaleVim|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -2177,6 +2178,18 @@ show_plugin_menu() {
     fi
     enable_motion=$(get_conf_value enable_motion)
     use_motion="${enable_motion}"
+    enable_notes=$(get_conf_value enable_notes)
+    if [ "${enable_notes}" == "true" ]; then
+      use_notes=""
+    else
+      use_notes="✗"
+    fi
+    markdown_preview=$(get_conf_value markdown_preview)
+    use_markdown_preview="${markdown_preview}"
+    obsidian_vault=$(get_conf_value obsidian_vault)
+    use_obsidian_vault=$(basename "${obsidian_vault}")
+    get_conf_table neorg_notes
+    num_neorg_notes=${#neorg_notes_table[@]}
     enable_ranger=$(get_conf_value enable_ranger_float)
     if [ "${enable_ranger}" == "true" ]; then
       use_ranger=""
@@ -2314,9 +2327,17 @@ show_plugin_menu() {
     options+=("Fancy Icons   [${use_fancy}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable Motion [${use_motion}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Indentline [${use_indentline}]")
+    options+=("Enable Motion [${use_motion}]")
+    options+=("Enable Notes  [${use_notes}]")
+    if [ "${enable_notes}" == "true" ]; then
+      options+=(" Preview  [${use_markdown_preview}]")
+      options+=(" Obsidian [${use_obsidian_vault}]")
+      [ ${num_neorg_notes} -lt 4 ] && {
+        options+=(" Neorg Notes  [add]")
+      }
+    fi
     options+=("Media Backend [${use_media_backend}]")
     options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Navigator     [${use_navigator}]")
@@ -2367,6 +2388,98 @@ show_plugin_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Telescope Media Backend  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             set_conf_value "media_backend" "${choice}"
+            pluginit=1
+          fi
+          break
+          ;;
+        " Neorg Note"*,* | *," Neorg Note"*)
+          printf "\n\nCurrent Neorg notes location(s):"
+          for notedir in "${neorg_notes_table[@]}"; do
+            printf "\n\t$notedir"
+          done
+          printf "\nEnter the full pathname to a new Neorg notes folder."
+          printf "\nPress <Enter> to continue using existing folder(s).\n"
+          while true; do
+            read -r -p "Neorg notes location: " notes
+            case $notes in
+              "")
+                break
+                ;;
+              *)
+                if [ -d "${notes}" ]
+                then
+                  case ${num_neorg_notes} in
+                    0|1)
+                      neorg_temp="XXXXX"
+                      ;;
+                    2)
+                      neorg_temp="YYYYY"
+                      ;;
+                    3)
+                      neorg_temp="ZZZZZ"
+                      ;;
+                    *)
+                      neorg_temp=
+                      ;;
+                  esac
+                  [ "${neorg_temp}" ] && {
+                    cat "${NVIMCONF}" \
+                      | sed -e "s/${neorg_temp}/${notes}/" >/tmp/nvim$$
+                    cp /tmp/nvim$$ "${NVIMCONF}"
+                    rm -f /tmp/nvim$$
+                    set_conf_table "NEORG_NOTES" "${notes}" "enable"
+                  }
+                  break
+                else
+                  printf "\n${notes} does not exist or is not a directory."
+                  printf "\nEnter the full path to a Neorg notes folder, or"
+                  printf "\npress <Enter> to retain the current setting.\n"
+                fi
+                ;;
+            esac
+          done
+          break
+          ;;
+        " Obsidian"*,* | *," Obsidian"*)
+          printf "\n\nCurrent Obsidian Vault location: ${obsidian_vault}"
+          printf "\nEnter the full pathname to the Obsidian vault."
+          printf "\nPress <Enter> to continue using existing vault.\n"
+          while true; do
+            read -r -p "Obsidian vault location: " vault
+            case $vault in
+              "")
+                break
+                ;;
+              *)
+                if [ -d "${vault}" ]
+                then
+                  set_conf_value "obsidian_vault" "${vault}"
+                  break
+                else
+                  printf "\n${vault} does not exist or is not a directory."
+                  printf "\nEnter the full path to an Obsidian folder, or"
+                  printf "\npress <Enter> to retain the current setting.\n"
+                fi
+                ;;
+            esac
+          done
+          break
+          ;;
+        " Preview"*,* | *," Preview"*)
+          choices=("Preview" "Peek" "None")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Markdown Preview  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "Preview" ]; then
+              set_conf_value "markdown_preview" "preview"
+            else
+              if [ "${choice}" == "Peek" ]; then
+                set_conf_value "markdown_preview" "peek"
+              else
+                if [ "${choice}" == "None" ]; then
+                  set_conf_value "markdown_preview" "none"
+                fi
+              fi
+            fi
             pluginit=1
           fi
           break
@@ -2630,6 +2743,15 @@ show_plugin_menu() {
           fi
           break
           ;;
+        "Enable Notes"*,* | *,"Enable Notes"*)
+          if [ "${enable_notes}" == "true" ]; then
+            set_conf_value "enable_notes" "false"
+          else
+            set_conf_value "enable_notes" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Enable Ranger"*,* | *,"Enable Ranger"*)
           if [ "${enable_ranger}" == "true" ]; then
             set_conf_value "enable_ranger_float" "false"
@@ -2879,6 +3001,8 @@ show_plugin_menu() {
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
+          set_conf_value "enable_notes" "false"
+          set_conf_value "markdown_preview" "none"
           set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
@@ -2925,6 +3049,8 @@ show_plugin_menu() {
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"
+          set_conf_value "enable_notes" "true"
+          set_conf_value "markdown_preview" "peek"
           set_conf_value "enable_coding" "true"
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_dressing" "true"
@@ -4911,6 +5037,27 @@ set_haves
       printf " done"
       show_alias "nvim-Mini"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-AlanVim ] && action="Updating"
+      printf "\n${action} AlanVim Neovim configuration ..."
+      lazyman ${darg} -b main -C https://github.com/alanRizzo/dot-files \
+        -D nvim -N nvim-AlanVim -P ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-AlanVim"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Charles ] && action="Updating"
+      printf "\n${action} Charles Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
+        -N nvim-Charles ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Charles"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
+      printf "\n${action} Magidc Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/magidc/nvim-config \
+        -N nvim-Magidc ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Magidc"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
       printf "\n${action} Ember Neovim configuration ..."
       lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
@@ -4995,6 +5142,17 @@ set_haves
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
+        AlanVim)
+          prsnl_url="https://github.com/alanRizzo/dot-files"
+          prsnl_opt="-b main -P"
+          prsnl_dir="-D nvim"
+          ;;
+        Charles)
+          prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
+          ;;
+        Magidc)
+          prsnl_url="https://github.com/magidc/nvim-config"
+          ;;
         Mini)
           prsnl_url="https://github.com/echasnovski/nvim"
           ;;

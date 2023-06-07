@@ -1038,6 +1038,15 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   }
 
+  if command -v deno >/dev/null 2>&1; then
+    log "Using previously installed deno"
+  else
+    log "Installing deno ..."
+    export DENO_INSTALL="${HOME}/.local"
+    curl -fsSL https://deno.land/x/install/install.sh | sh > /dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+  fi
+
   GHUC="https://raw.githubusercontent.com"
   JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
   [ "$quiet" ] || printf "\n\tInstalling JetBrains Mono font ... "

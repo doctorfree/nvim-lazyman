@@ -66,10 +66,9 @@ following Lazyman Neovim configuration categories:
 
 | **Personal** |       | **Configs** |
 | ------------ | ----- | ----------- |
-| [Mini](https://github.com/echasnovski/nvim) | [Ember](https://github.com/danlikestocode/embervim) | [Knvim](https://github.com/knmac/knvim) |
-| [Fennel](https://github.com/jhchabran/nvim-config) | [Adib](https://github.com/adibhanna/nvim) | [Optixal](https://github.com/Optixal/neovim-init.vim) |
-| [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Roiz](https://github.com/MrRoiz/rnvim) |
-| [Simple](https://github.com/anthdm/.nvim) | [ONNO](https://github.com/loctvl842/nvim.git) | [LaTeX](https://github.com/benbrastmckie/.config) |
+| [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) |
+| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
+| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 
 | **Starter** |       |       |       | **Configs** |
 | ----------- | ----- | ----- | ----- | ------------ |
@@ -81,10 +80,10 @@ Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       |       |       | **Configs** |
-| ---------- | ----- | ----- | ----- | ----------- |
-| [3rd](https://github.com/3rd/config) |[AlanVim](https://github.com/alanRizzo/dot-files) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
+| **Custom** |       |       | **Configs** |
+| ---------- | ----- | ----- | ----------- |
+| [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
+| [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -343,6 +342,13 @@ All of the 'Personal' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
 
+- [AlanVim](https://github.com/alanRizzo/dot-files)
+  - Install and initialize with `lazyman -w AlanVim`
+- [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
+  - Install and initialize with `lazyman -w Charles`
+- [Magidc](https://github.com/magidc/nvim-config)
+  - Java, Python, Lua, and RUST IDE
+  - Install and initialize with `lazyman -w Magidc`
 - [Mini](https://github.com/echasnovski/nvim)
   - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library
   - Personal configuration of the `mini.nvim` author
@@ -512,17 +518,13 @@ Known working custom Lazyman configurations include the following:
   - `lazyman -C https://github.com/3rd/config -D home/dotfiles/nvim -N nvim-3rd`
   - Patch in `~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch` applied
   - Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
-- [AlanVim](https://github.com/alanRizzo/dot-files)
-  - `lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P`
+- [Allaman](https://github.com/Allaman/nvim)
+  - One of the inspirations for `Lazyman`
+  - `lazyman -C https://github.com/Allaman/nvim -N nvim-Allaman`
 - [Brain](https://github.com/brainfucksec/neovim-lua)
   - `lazyman -b main -C https://github.com/brainfucksec/neovim-lua -N nvim-Brain -D nvim`
-- [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
-  - `lazyman -C https://github.com/CharlesChiuGit/nvimdots.lua -N nvim-Charles`
 - [Elianiva](https://github.com/elianiva/dotfiles)
   - `lazyman -C https://github.com/elianiva/dotfiles -D nvim/.config/nvim -N nvim-Elianiva`
-- [Magidc](https://github.com/magidc/nvim-config)
-  - Java, Python, Lua, and RUST IDE
-  - `lazyman -C https://github.com/magidc/nvim-config -N nvim-Magidc`
 - [Nv](https://github.com/appelgriebsch/Nv)
   - LazyVim based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
@@ -692,11 +694,12 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>View the lazyman usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config]
-   [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v]
-   [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url]
-   [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf]
-   [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
+Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]
+   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]
+   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd]
+   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf]
+   [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u]
+   [health] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvim Neovim configuration
@@ -747,19 +750,20 @@ Where:
     -U indicates update an existing configuration
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           'Mini' 'Knvim' 'Roiz' 'Fennel' 'Ember' 'ONNO'
-           'Adib' 'Optixal' 'Plug' 'Simple' 'Heiker' 'LaTeX'
+           AlanVim Charles Magidc Mini Knvim Roiz Fennel
+           Ember ONNO Adib Optixal Plug Simple Heiker LaTeX
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
-       'conf' can be one of 'Basic' 'Kickstart' 'NvPak'
+       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'
        'Extralight' 'Opinion' 'StartLsp' 'StartMason' 'Minimal'
-       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase'
+       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates install and initialize all 'Custom' configs
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits
+    'health' generate and display a health check for a configuration
     'install' fuzzy search and select configuration to install
     'open' fuzzy search and select configuration to open
     'remove' fuzzy search and select configuration to remove
@@ -930,6 +934,8 @@ below along with their default settings:
   - `conf.enable_dressing = true`
 - Enable easy motions, can be one of "hop", "leap", or "none"
   - `conf.enable_motion = "leap"`
+- Enable note making using Markdown preview and Obsidian plugins
+  - `conf.enable_notes = true`
 - Enable renamer plugin for VS Code-like renaming UI
   - `conf.enable_renamer = true`
 - Enable ranger in a floating window
@@ -1045,6 +1051,19 @@ conf.enable_compile = false
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"
 conf.enable_motion = "leap"
+-- Enable note making using Markdown preview and Obsidian plugins
+conf.enable_notes = true
+-- If notes enabled, markdown preview to use (preview, peek, none)
+conf.markdown_preview = "peek"
+-- If notes enabled, Neorg notes folders, multiple folders supported
+conf.neorg_notes = {
+  "~/Documents/Notes/Neorg", -- NEORG_NOTES
+  -- "XXXXX", -- NEORG_NOTES
+  -- "YYYYY", -- NEORG_NOTES
+  -- "ZZZZZ", -- NEORG_NOTES
+}
+-- If notes enabled, Obsidian vault folder
+conf.obsidian_vault = "~/Documents/Notes/Obsidian"
 -- Enable renamer plugin for VS Code-like renaming UI
 conf.enable_renamer = true
 -- Enable ranger in a floating window
