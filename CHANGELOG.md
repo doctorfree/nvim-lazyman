@@ -6,6 +6,18 @@
 
 ### 🐞 Fixed
 
+## v2.1.5r1
+
+### ⚡️ Added
+
+- Break `nvim-Lazyman` configuration menus out into separate script
+- New configuration script `~/.config/nvim-Lazyman/scripts/lazyman_config.sh`
+
+### 🐞 Fixed
+
+- Check exit status from sub-menus to either exit or redisplay main menu
+- Remove trim newlines and white space from `null-ls` sources
+
 ## v2.1.4r4
 
 ### ⚡️ Added
