@@ -1,7 +1,31 @@
 local settings = require("configuration")
-local cmp = require("cmp")
-local select_opts = { behavior = cmp.SelectBehavior.Select }
+local copilot_enabled = settings.enable_copilot
+local lspkind = require("lspkind")
+local types = require("cmp.types")
 
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
+
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
+end
+require("luasnip.loaders.from_vscode").lazy_load()
+
+local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
+local copilot_source = {}
+if copilot_enabled then
+  if not copilot_status_ok then
+    return
+  end
+  copilot_source = { name = "copilot",     priority = 9 }
+end
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Command Line                                             │
+-- ╰──────────────────────────────────────────────────────────╯
 if not settings.enable_wilder then
   cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
@@ -12,287 +36,250 @@ if not settings.enable_wilder then
     sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
   })
 end
-local snippet = {}
-local mapping = {
-  ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
-  ["<Down>"] = cmp.mapping.select_next_item(select_opts),
-  ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-  ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-  ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-  ["<C-d>"] = cmp.mapping.scroll_docs(4),
-  ["<C-e>"] = cmp.mapping.abort(),
-  ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-  ["<C-f>"] = cmp.mapping(function(fallback)
-    fallback()
-  end, { "i", "s" }),
-  ["<C-b>"] = cmp.mapping(function(fallback)
-    fallback()
-  end, { "i", "s" }),
-  ["<Tab>"] = cmp.mapping(function(fallback)
-    local col = vim.fn.col(".") - 1
 
-    if cmp.visible() then
-      cmp.select_next_item(select_opts)
-    elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-      fallback()
-    else
-      cmp.complete()
-    end
-  end, { "i", "s" }),
-  ["<S-Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item(select_opts)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-}
-local item_menu = {
-  nvim_lsp = "[LSP]",
-  nvim_lua = "[Lua]",
-  buffer = "[Buffer]",
-  path = "[Path]",
-}
-local copilot_source = {}
-local snippet_source = {}
-if settings.enable_coding then
-  if settings.enable_copilot_cmp then
-    table.insert(item_menu, { copilot = "[Copilot]" })
-    copilot_source = { name = "copilot",  keyword_length = 2 }
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Utils                                                    │
+-- ╰──────────────────────────────────────────────────────────╯
+local check_backspace = function()
+  local col = vim.fn.col(".") - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+end
+
+local function deprioritize_snippet(entry1, entry2)
+  if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+    return false
   end
-  if settings.enable_snippets == "luasnip" then
-    local luasnip = require("luasnip")
-    table.insert(item_menu, { luasnip = "[Snippet]" })
-    snippet_source = { name = "luasnip",  keyword_length = 2 }
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    }
-    mapping = {
-      ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<Down>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-d>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-      ["<C-f>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(1) then
-          luasnip.jump(1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<C-b>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        local col = vim.fn.col(".") - 1
-
-        if cmp.visible() then
-          cmp.select_next_item(select_opts)
-        elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-          fallback()
-        else
-          cmp.complete()
-        end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item(select_opts)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-    }
-  elseif settings.enable_snippets == "snippy" then
-    local has_words_before = function()
-      unpack = unpack or table.unpack
-      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
-
-    local snippy = require("snippy")
-    table.insert(item_menu, { snippy = "[Snippet]" })
-    snippet_source = { name = 'snippy' }
-    snippet = {
-      expand = function(args)
-        snippy.expand_snippet(args.body)
-      end,
-    }
-    mapping = {
-      ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<Down>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-d>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif snippy.can_expand_or_advance() then
-          snippy.expand_or_advance()
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif snippy.can_jump(-1) then
-          snippy.previous()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-    }
-  else
-    local has_words_before = function()
-      unpack = unpack or table.unpack
-      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-    end
-
-    mapping = {
-      ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<Down>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-      ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
-      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-d>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-      ['<C-Space>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = true,
-      },
-      ['<Tab>'] = function(fallback)
-        if not cmp.select_next_item() then
-          if vim.bo.buftype ~= 'prompt' and has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end
-      end,
-      ['<S-Tab>'] = function(fallback)
-        if not cmp.select_prev_item() then
-          if vim.bo.buftype ~= 'prompt' and has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end
-      end,
-    }
-
-    snippet = {
-      expand = function(args)
-        unpack = unpack or table.unpack
-        local line_num, col = unpack(vim.api.nvim_win_get_cursor(0))
-        local line_text = vim.api.nvim_buf_get_lines(0, line_num - 1, line_num, true)[1]
-        local indent = string.match(line_text, '^%s*')
-        local replace = vim.split(args.body, '\n', true)
-        local surround = string.match(line_text, '%S.*') or ''
-        local surround_end = surround:sub(col)
-
-        replace[1] = surround:sub(0, col - 1)..replace[1]
-        replace[#replace] = replace[#replace]..(#surround_end > 1 and ' ' or '')..surround_end
-        if indent ~= '' then
-          for i, line in ipairs(replace) do
-            replace[i] = indent..line
-          end
-        end
-
-        vim.api.nvim_buf_set_lines(0, line_num - 1, line_num, true, replace)
-      end,
-    }
+  if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+    return true
   end
 end
 
-local confirm = cmp.mapping.confirm({
-  select = false,
-})
-local confirm_copilot = cmp.mapping.confirm({
-  select = false,
-})
+local function limit_lsp_types(entry, ctx)
+  local kind = entry:get_kind()
+  local line = ctx.cursor.line
+  local col = ctx.cursor.col
+  local char_before_cursor = string.sub(line, col - 1, col - 1)
+  local char_after_dot = string.sub(line, col, col)
 
-if settings.enable_copilot_cmp then
-  confirm_copilot = cmp.mapping.confirm({
-    select = true,
-    behavior = cmp.ConfirmBehavior.Replace,
-  })
+  if char_before_cursor == "." and char_after_dot:match("[a-zA-Z]") then
+    if
+        kind == types.lsp.CompletionItemKind.Method
+        or kind == types.lsp.CompletionItemKind.Field
+        or kind == types.lsp.CompletionItemKind.Property
+    then
+      return true
+    else
+      return false
+    end
+  elseif string.match(line, "^%s+%w+$") then
+    if kind == types.lsp.CompletionItemKind.Function or kind == types.lsp.CompletionItemKind.Variable then
+      return true
+    else
+      return false
+    end
+  end
+
+  return true
 end
 
-mapping = vim.tbl_extend("force", mapping, {
-  ["<CR>"] = function(...)
-    local entry = cmp.get_selected_entry()
-    if entry and entry.source.name == "copilot" then
-      return confirm_copilot(...)
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+end
+
+--- Get completion context, i.e., auto-import/target module location.
+--- Depending on the LSP this information is stored in different parts of the
+--- lsp.CompletionItem payload. The process to find them is very manual: log the payloads
+--- And see where useful information is stored.
+---@param completion lsp.CompletionItem
+---@param source cmp.Source
+---@see Astronvim, because i just discovered they're already doing this thing, too
+--  https://github.com/AstroNvim/AstroNvim
+local function get_lsp_completion_context(completion, source)
+  local ok, source_name = pcall(function()
+    return source.source.client.config.name
+  end)
+  if not ok then
+    return nil
+  end
+  if source_name == "tsserver" then
+    return completion.detail
+  elseif source_name == "pyright" then
+    if completion.labelDetails ~= nil then
+      return completion.labelDetails.description
     end
-    return confirm(...)
+  end
+end
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Setup                                                    │
+-- ╰──────────────────────────────────────────────────────────╯
+local icons = require("utils.icons")
+local source_mapping = {
+  npm = icons.misc.terminal .. "NPM",
+  Copilot = icons.misc.copilot,
+  nvim_lsp = icons.misc.paragraph .. "LSP",
+  buffer = icons.misc.buffer .. "BUF",
+  nvim_lua = icons.misc.bomb,
+  luasnip = icons.misc.snippet .. "SNP",
+  calc = icons.misc.calculator,
+  path = icons.misc.folderOpen2,
+  treesitter = icons.misc.tree,
+  zsh = icons.misc.terminal .. "ZSH",
+}
+
+local buffer_option = {
+  -- Complete from all visible buffers (splits)
+  get_bufnrs = function()
+    local bufs = {}
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      bufs[vim.api.nvim_win_get_buf(win)] = true
+    end
+    return vim.tbl_keys(bufs)
   end,
-})
+}
 
 cmp.setup({
-  snippet = snippet,
-  window = {
-    documentation = {
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    },
-    completion = {
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    },
-  },
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, item)
-      local icons = require("utils.icons").kinds
-      item.kind = icons[item.kind]
-      item.menu = (item_menu)[entry.source.name]
-      return item
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
     end,
   },
-  experimental = {
-    native_menu = false,
-    ghost_text = {
-      enabled = true,
-      hl_group = "Comment",
-    },
-  },
-  mapping = mapping,
-  performance = {
-    debounce = 300,
-    throttle = 60,
-    fetching_timeout = 200,
+  mapping = cmp.mapping.preset.insert({
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-2), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(2), { "i", "c" }),
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-y>"] = cmp.config.disable,
+    ["<C-e>"] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ["<CR>"] = cmp.mapping.confirm({
+      -- this is the important line for Copilot
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<C-l>"] = cmp.mapping(function(fallback)
+      if luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<C-h>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+  }),
+  formatting = {
+    format = function(entry, vim_item)
+      -- Get the item with kind from the lspkind plugin
+      local item_with_kind = require("lspkind").cmp_format({
+        mode = "symbol_text",
+        maxwidth = 50,
+        symbol_map = source_mapping,
+      })(entry, vim_item)
+
+      item_with_kind.kind = lspkind.symbolic(item_with_kind.kind, { with_text = true })
+      item_with_kind.menu = source_mapping[entry.source.name]
+      item_with_kind.menu = vim.trim(item_with_kind.menu or "")
+      item_with_kind.abbr = string.sub(item_with_kind.abbr, 1, item_with_kind.maxwidth)
+
+      local completion_context = get_lsp_completion_context(entry.completion_item, entry.source)
+      if completion_context ~= nil and completion_context ~= "" then
+        item_with_kind.menu = item_with_kind.menu .. [[ -> ]] .. completion_context
+      end
+
+      return item_with_kind
+    end,
   },
   sources = {
+    {
+      name = "nvim_lsp",
+      priority = 10,
+      -- Limits LSP results to specific types based on line context (FIelds, Methods, Variables)
+      entry_filter = limit_lsp_types,
+    },
+    { name = "npm",         priority = 9 },
     copilot_source,
-    { name = "path" },
-    { name = "nvim_lsp", keyword_length = 2 },
-    { name = "nvim_lua", keyword_length = 2 },
-    { name = "buffer",   keyword_length = 3 },
-    snippet_source,
+    { name = "luasnip",     priority = 7, max_item_count = 5 },
+    { name = "buffer",      priority = 7, keyword_length = 5, option = buffer_option, max_item_count = 5 },
+    { name = "nvim_lua",    priority = 5 },
+    { name = "path",        priority = 4 },
+    { name = "calc",        priority = 3 },
   },
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({
-    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = "buffer" },
-  }),
+  sorting = {
+    comparators = {
+      deprioritize_snippet,
+      cmp.config.compare.exact,
+      cmp.config.compare.locality,
+      copilot_cmp_comparators.prioritize or function() end,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.offset,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.order,
+    },
+  },
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+  window = {
+    completion = cmp.config.window.bordered({
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+    }),
+    documentation = cmp.config.window.bordered({
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+    }),
+  },
+  experimental = {
+    ghost_text = true,
+  },
 })
