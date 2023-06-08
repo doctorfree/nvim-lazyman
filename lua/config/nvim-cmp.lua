@@ -22,7 +22,6 @@ local mapping = {
   ["<C-d>"] = cmp.mapping.scroll_docs(4),
   ["<C-e>"] = cmp.mapping.abort(),
   ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-  ["<CR>"] = cmp.mapping.confirm({ select = false }),
   ["<C-f>"] = cmp.mapping(function(fallback)
     fallback()
   end, { "i", "s" }),
@@ -54,17 +53,16 @@ local item_menu = {
   buffer = "[Buffer]",
   path = "[Path]",
 }
+local copilot_source = {}
 local snippet_source = {}
 if settings.enable_coding then
+  if settings.enable_copilot then
+    table.insert(item_menu, { copilot = "[Copilot]" })
+    copilot_source = { name = "copilot",  keyword_length = 2 }
+  end
   if settings.enable_snippets == "luasnip" then
     local luasnip = require("luasnip")
-    item_menu = {
-      nvim_lsp = "[LSP]",
-      nvim_lua = "[Lua]",
-      luasnip = "[Snippet]",
-      buffer = "[Buffer]",
-      path = "[Path]",
-    }
+    table.insert(item_menu, { luasnip = "[Snippet]" })
     snippet_source = { name = "luasnip",  keyword_length = 2 }
     snippet = {
       expand = function(args)
@@ -82,7 +80,6 @@ if settings.enable_coding then
       ["<C-d>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.abort(),
       ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
       ["<C-f>"] = cmp.mapping(function(fallback)
         if luasnip.jumpable(1) then
           luasnip.jump(1)
@@ -124,13 +121,7 @@ if settings.enable_coding then
     end
 
     local snippy = require("snippy")
-    item_menu = {
-      nvim_lsp = "[LSP]",
-      nvim_lua = "[Lua]",
-      snippy = "[Snippet]",
-      buffer = "[Buffer]",
-      path = "[Path]",
-    }
+    table.insert(item_menu, { snippy = "[Snippet]" })
     snippet_source = { name = 'snippy' }
     snippet = {
       expand = function(args)
@@ -146,7 +137,6 @@ if settings.enable_coding then
       ["<C-d>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.abort(),
       ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -232,6 +222,21 @@ if settings.enable_coding then
   end
 end
 
+if settings.enable_copilot then
+  table.insert(mapping, {
+    ["<CR>"] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace
+    })
+  })
+else
+  table.insert(mapping, {
+    ["<CR>"] = cmp.mapping.confirm({
+      select = false
+    })
+  })
+end
+
 cmp.setup({
   snippet = snippet,
   window = {
@@ -266,10 +271,11 @@ cmp.setup({
   },
   sources = {
     { name = "path" },
-    { name = "nvim_lsp", keyword_length = 1 },
+    { name = "nvim_lsp", keyword_length = 2 },
     { name = "nvim_lua", keyword_length = 2 },
     { name = "buffer",   keyword_length = 3 },
     snippet_source,
+    copilot_source,
   },
 })
 

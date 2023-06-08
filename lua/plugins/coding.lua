@@ -1,5 +1,23 @@
 local settings = require("configuration")
 
+local copilot = {}
+local copilot_cmp = {}
+if settings.enable_copilot then
+  copilot = {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    config = function()
+      require("config.copilot")
+    end,
+  }
+  copilot_cmp = {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
+end
+
 local surround = {}
 if settings.enable_surround then
   surround = {
@@ -159,6 +177,9 @@ if settings.enable_coding then
 end
 
 return {
+
+  copilot,
+  copilot_cmp,
 
   -- snippets
   snippet,
