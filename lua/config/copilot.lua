@@ -1,7 +1,12 @@
--- Disable panel and suggestion modules as they can interfere with completions
+local settings = require("configuration")
+local copilot_cmp = true
+if settings.enable_copilot_cmp then
+  -- Disable panel and suggestion modules as they can interfere with completions
+  copilot_cmp = false
+end
 require('copilot').setup({
   panel = {
-    enabled = false,
+    enabled = copilot_cmp,
     auto_refresh = false,
     keymap = {
       jump_prev = "[[",
@@ -16,8 +21,8 @@ require('copilot').setup({
     },
   },
   suggestion = {
-    enabled = false,
-    auto_trigger = false,
+    enabled = copilot_cmp,
+    auto_trigger = copilot_cmp,
     debounce = 75,
     keymap = {
       accept = "<M-l>",

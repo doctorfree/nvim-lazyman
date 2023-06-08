@@ -56,7 +56,7 @@ local item_menu = {
 local copilot_source = {}
 local snippet_source = {}
 if settings.enable_coding then
-  if settings.enable_copilot then
+  if settings.enable_copilot_cmp then
     table.insert(item_menu, { copilot = "[Copilot]" })
     copilot_source = { name = "copilot",  keyword_length = 2 }
   end
@@ -222,20 +222,29 @@ if settings.enable_coding then
   end
 end
 
-if settings.enable_copilot then
-  table.insert(mapping, {
-    ["<CR>"] = cmp.mapping.confirm({
-      select = true,
-      behavior = cmp.ConfirmBehavior.Replace
-    })
-  })
-else
-  table.insert(mapping, {
-    ["<CR>"] = cmp.mapping.confirm({
-      select = false
-    })
+local confirm = cmp.mapping.confirm({
+  select = false,
+})
+local confirm_copilot = cmp.mapping.confirm({
+  select = false,
+})
+
+if settings.enable_copilot_cmp then
+  confirm_copilot = cmp.mapping.confirm({
+    select = true,
+    behavior = cmp.ConfirmBehavior.Replace,
   })
 end
+
+mapping = vim.tbl_extend("force", mapping, {
+  ["<CR>"] = function(...)
+    local entry = cmp.get_selected_entry()
+    if entry and entry.source.name == "copilot" then
+      return confirm_copilot(...)
+    end
+    return confirm(...)
+  end,
+})
 
 cmp.setup({
   snippet = snippet,
@@ -270,12 +279,12 @@ cmp.setup({
     fetching_timeout = 200,
   },
   sources = {
+    copilot_source,
     { name = "path" },
     { name = "nvim_lsp", keyword_length = 2 },
     { name = "nvim_lua", keyword_length = 2 },
     { name = "buffer",   keyword_length = 3 },
     snippet_source,
-    copilot_source,
   },
 })
 

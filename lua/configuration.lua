@@ -60,6 +60,8 @@ conf.enable_coding = true
 conf.enable_compile = false
 -- If coding is enabled, enable Copilot
 conf.enable_copilot = false
+-- If copilot is enabled, enable nvim-cmp copilot completions
+conf.enable_copilot_cmp = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"

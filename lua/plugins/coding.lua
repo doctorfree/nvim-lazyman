@@ -5,11 +5,15 @@ local copilot_cmp = {}
 if settings.enable_copilot then
   copilot = {
     "zbirenbaum/copilot.lua",
+    build = ":Copilot auth",
+    cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       require("config.copilot")
     end,
   }
+end
+if settings.enable_copilot_cmp then
   copilot_cmp = {
     "zbirenbaum/copilot-cmp",
     config = function()
