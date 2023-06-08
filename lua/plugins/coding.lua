@@ -44,7 +44,6 @@ local nvimcmp = {
   end,
 }
 local actionmenu = {}
-local tscontext = {}
 local minicomment = {}
 local inlayhints = {}
 local signature = {}
@@ -128,23 +127,15 @@ if settings.enable_coding then
       require("config.nvim-cmp")
     end,
   }
-  tscontext = { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true }
   minicomment = {
     "echasnovski/mini.comment",
+    version = false,
     event = "VeryLazy",
     opts = {
-      options = {
-        ignore_blank_line = false,
-      },
       mappings = {
         comment = "mc",
         comment_line = "ml",
         textobject = "mt",
-      },
-      hooks = {
-        pre = function()
-          require("ts_context_commentstring.internal").update_commentstring({})
-        end,
       },
     },
     config = function(_, opts)
@@ -208,8 +199,6 @@ return {
   },
 
   surround,
-
-  tscontext,
 
   minicomment,
 
