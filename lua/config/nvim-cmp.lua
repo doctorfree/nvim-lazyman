@@ -1,3 +1,4 @@
+-- Partially borrowed from Ecovim: https://github.com/ecosse3/nvim
 local settings = require("configuration")
 local copilot_enabled = settings.enable_copilot
 local lspkind = require("lspkind")
@@ -120,7 +121,7 @@ end
 local icons = require("utils.icons")
 local source_mapping = {
   npm = icons.misc.terminal .. "NPM",
-  Copilot = icons.misc.copilot,
+  copilot = icons.misc.copilot,
   nvim_lsp = icons.misc.paragraph .. "LSP",
   buffer = icons.misc.buffer .. "BUF",
   nvim_lua = icons.misc.bomb,
@@ -130,6 +131,7 @@ local source_mapping = {
   treesitter = icons.misc.tree,
   zsh = icons.misc.terminal .. "ZSH",
 }
+for k,v in pairs(icons.kinds) do source_mapping[k] = v end
 
 local buffer_option = {
   -- Complete from all visible buffers (splits)
