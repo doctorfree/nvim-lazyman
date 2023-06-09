@@ -22,7 +22,8 @@ if settings.enable_copilot then
 else
   cmpnpm = {
     "David-Kunz/cmp-npm",
-    lazy = false,
+    ft = "json",
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('cmp-npm').setup({
         ignore = {},
