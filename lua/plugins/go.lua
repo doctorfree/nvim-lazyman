@@ -3,10 +3,6 @@ local lsp_servers = settings.lsp_servers
 local table_contains = require("utils.functions").table_contains
 
 if settings.enable_coding then
-  local luasnip = false
-  if settings.enable_snippets == "luasnip" then
-    luasnip = true
-  end
   return {
     "ray-x/go.nvim",
     dependencies = {
@@ -143,7 +139,7 @@ if settings.enable_coding then
         test_runner = "go",       -- richgo, go test, richgo, dlv, ginkgo
         run_in_floaterm = false,  -- set to true to run in float window.
         -- float term recommended if you use richgo/ginkgo with terminal color
-        luasnip = luasnip,
+        luasnip = true,
       })
     end,
   }

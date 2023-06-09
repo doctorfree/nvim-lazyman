@@ -6,10 +6,6 @@ if settings.enable_lualine_lsp_progress then
     enable_progress = false
   end
 end
-local luasnip = false
-if settings.enable_snippets == "luasnip" then
-  luasnip = true
-end
 
 require("noice").setup({
   cmdline = {
@@ -125,7 +121,7 @@ require("noice").setup({
       auto_open = {
         enabled = true,
         trigger = true,    -- Automatically show signature help when typing a trigger character from the LSP
-        luasnip = luasnip, -- Will open signature help when jumping to Luasnip insert nodes
+        luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
         throttle = 50,     -- Debounce lsp signature help request by 50ms
       },
       view = nil,          -- when nil, use defaults from documentation

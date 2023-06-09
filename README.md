@@ -614,6 +614,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
 - Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
   - Keymap to toggle transparency for several color schemes (`,ut`)
+- Support for [Github Copilot](https://github.com/features/copilot) with completions
 - Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
   - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Auto-configure [codeexplain.nvim](https://github.com/mthbernardes/codeexplain.nvim) (GPT4ALL) if the GPT model is found
@@ -930,6 +931,8 @@ below along with their default settings:
   - `conf.enable_coding = true`
 - Enable compile plugin to compile and run current file
   - `conf.enable_compile = false`
+- If coding is enabled, enable Github Copilot
+  - `conf.enable_copilot = false`
 - Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
 - Enable easy motions, can be one of "hop", "leap", or "none"
@@ -1047,6 +1050,8 @@ conf.enable_cheatsheet = true
 conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
+-- If coding is enabled, enable Github Copilot
+conf.enable_copilot = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"
@@ -1072,8 +1077,6 @@ conf.enable_ranger_float = true
 conf.enable_multi_cursor = true
 -- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "possession"
--- Snippet support, can be one of: luasnip, snippy, or none
-conf.enable_snippets = "luasnip"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu

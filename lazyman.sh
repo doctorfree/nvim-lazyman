@@ -225,7 +225,9 @@ set_haves() {
 fix_nvim_dir() {
   fixnvimdir="$1"
   [ "${fixnvimdir}" == "${lazymandir}" ] || {
-    find "${HOME}/.config/${fixnvimdir}" -type f | while read f
+    find "${HOME}/.config/${fixnvimdir}" \
+      -type f -a \( -name \*lua -o -name \*vim  \) | \
+    while read f
     do
       echo "$f" | grep /.git/ > /dev/null && continue
       grep /nvim/ "$f" > /dev/null && {
