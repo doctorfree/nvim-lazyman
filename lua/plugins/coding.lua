@@ -151,6 +151,7 @@ return {
   nvimcmp,
   {
     "David-Kunz/cmp-npm",
+    lazy = false,
     config = function()
       require('cmp-npm').setup({
         ignore = {},
@@ -158,7 +159,6 @@ return {
       })
     end,
   },
-
   { "onsails/lspkind-nvim" },
 
   -- auto pairs

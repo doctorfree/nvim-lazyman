@@ -39,6 +39,19 @@ if not settings.enable_wilder then
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
+-- │ Highlight Groups                                         │
+-- ╰──────────────────────────────────────────────────────────╯
+local highlights = {
+  CmpItemMenu = { fg = "#C586C0", bg = "NONE" },
+  CmpItemAbbrMatch = { fg = "#569CD6", bg = "NONE" },
+  CmpItemAbbrMatchFuzzy = { fg = "#569CD6", bg = "NONE" },
+}
+
+for group, hl in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, hl)
+end
+
+-- ╭──────────────────────────────────────────────────────────╮
 -- │ Utils                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
 local check_backspace = function()
@@ -221,6 +234,14 @@ cmp.setup({
   }),
   formatting = {
     format = function(entry, vim_item)
+      -- Set the highlight group for some sources
+      if entry.source.name == "copilot" then
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      elseif entry.source.name == "codeium" then
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      elseif entry.source.name == "luasnip" then
+        vim_item.kind_hl_group = "Number"
+      end
       -- Get the item with kind from the lspkind plugin
       local item_with_kind = require("lspkind").cmp_format({
         mode = "symbol_text",
