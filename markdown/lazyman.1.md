@@ -431,7 +431,7 @@ below along with their default settings:
   - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
 - The winbar with navic location can be one of barbecue, standard, or none
-  - `conf.enable_winbar = "barbecue"`
+  - `conf.enable_winbar = "standard"`
 - Enable the rebelot/terminal.nvim terminal plugin
   - `conf.enable_terminal = true`
 - Enable playing games inside Neovim!

@@ -957,7 +957,7 @@ below along with their default settings:
   - `conf.enable_statusline = true`
   - `conf.enable_tabline = true`
 - The winbar with navic location can be one of barbecue, standard, or none
-  - `conf.enable_winbar = "barbecue"`
+  - `conf.enable_winbar = "standard"`
 - Enable LSP progress in winbar
   - `conf.enable_lualine_lsp_progress = true`
 - Enable the rebelot/terminal.nvim terminal plugin
@@ -1100,8 +1100,8 @@ conf.enable_statusline = true
 conf.enable_tabline = true
 -- Enable winbar with navic location
 -- Can be one of "barbecue", "standard", or "none"
--- Barbecue provides a clickable navic location so we default to that
-conf.enable_winbar = "barbecue"
+-- Barbecue provides a clickable navic location, standard has more info
+conf.enable_winbar = "standard"
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim

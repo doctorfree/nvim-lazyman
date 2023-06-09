@@ -9,12 +9,14 @@ if settings.enable_copilot then
     build = ":Copilot auth",
     cmd = "Copilot",
     event = "InsertEnter",
+    lazy = false,
     config = function()
       require("config.copilot")
     end,
   }
   copilot_cmp = {
     "zbirenbaum/copilot-cmp",
+    lazy = false,
     config = function()
       require("copilot_cmp").setup()
     end,
