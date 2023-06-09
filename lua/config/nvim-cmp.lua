@@ -16,12 +16,12 @@ end
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
-local copilot_source = {}
+local npm_or_copilot = { name = "npm",     priority = 9 }
 if copilot_enabled then
   if not copilot_status_ok then
     return
   end
-  copilot_source = { name = "copilot",     priority = 9 }
+  npm_or_copilot = { name = "copilot",     priority = 9 }
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -134,7 +134,6 @@ end
 local icons = require("utils.icons")
 local source_mapping = {
   npm = icons.misc.terminal .. "NPM",
-  copilot = icons.misc.copilot,
   nvim_lsp = icons.misc.paragraph .. "LSP",
   buffer = icons.misc.buffer .. "BUF",
   nvim_lua = icons.misc.bomb,
@@ -144,6 +143,19 @@ local source_mapping = {
   treesitter = icons.misc.tree,
   zsh = icons.misc.terminal .. "ZSH",
 }
+if copilot_enabled then
+  source_mapping = {
+    copilot = icons.misc.copilot,
+    nvim_lsp = icons.misc.paragraph .. "LSP",
+    buffer = icons.misc.buffer .. "BUF",
+    nvim_lua = icons.misc.bomb,
+    luasnip = icons.misc.snippet .. "SNP",
+    calc = icons.misc.calculator,
+    path = icons.misc.folderOpen2,
+    treesitter = icons.misc.tree,
+    zsh = icons.misc.terminal .. "ZSH",
+  }
+end
 for k,v in pairs(icons.kinds) do source_mapping[k] = v end
 
 local buffer_option = {
@@ -269,8 +281,7 @@ cmp.setup({
       -- Limits LSP results to specific types based on line context (FIelds, Methods, Variables)
       entry_filter = limit_lsp_types,
     },
-    { name = "npm",         priority = 9 },
-    copilot_source,
+    npm_or_copilot,
     { name = "luasnip",     priority = 7, max_item_count = 5 },
     { name = "buffer",      priority = 7, keyword_length = 5, option = buffer_option, max_item_count = 5 },
     { name = "nvim_lua",    priority = 5 },

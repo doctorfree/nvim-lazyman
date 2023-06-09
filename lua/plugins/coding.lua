@@ -2,6 +2,7 @@ local settings = require("configuration")
 
 local copilot = {}
 local copilot_cmp = {}
+local cmpnpm = {}
 if settings.enable_copilot then
   copilot = {
     "zbirenbaum/copilot.lua",
@@ -16,6 +17,17 @@ if settings.enable_copilot then
     "zbirenbaum/copilot-cmp",
     config = function()
       require("copilot_cmp").setup()
+    end,
+  }
+else
+  cmpnpm = {
+    "David-Kunz/cmp-npm",
+    lazy = false,
+    config = function()
+      require('cmp-npm').setup({
+        ignore = {},
+        only_semantic_versions = true,
+      })
     end,
   }
 end
@@ -149,16 +161,7 @@ return {
 
   -- auto completion
   nvimcmp,
-  {
-    "David-Kunz/cmp-npm",
-    lazy = false,
-    config = function()
-      require('cmp-npm').setup({
-        ignore = {},
-        only_semantic_versions = true,
-      })
-    end,
-  },
+  cmpnpm,
   { "onsails/lspkind-nvim" },
 
   -- auto pairs
