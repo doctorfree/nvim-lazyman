@@ -6,7 +6,7 @@
 
 ### 🐞 Fixed
 
-## v2.1.5r1
+## v2.1.5r2
 
 ### ⚡️ Added
 
@@ -25,9 +25,13 @@
 - Add support for `copilot` `nvim-cmp` completions
 - Update `mini.comment`
 - Add `enable_copilot` to `configuration.lua`
+- Use standard winbar by default
 
 ### 🐞 Fixed
 
+- Fix exit status check
+- Disable lazy loading of `copilot`
+- Update `cmp-npm` config with `filetype` loading trigger and dependency
 - Fix find command to modify Lua and Vimscript `/nvim/` pathnames
 - Remove `snippy` support, always use `luasnip`
 - Get `copilot` completion and snippets right in `nvim-cmp`
