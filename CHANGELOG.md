@@ -10,13 +10,30 @@
 
 ### ⚡️ Added
 
+- Add support for `copilot`
 - Break `nvim-Lazyman` configuration menus out into separate script
 - New configuration script `~/.config/nvim-Lazyman/scripts/lazyman_config.sh`
+- Adjust `cmp` highlights
+- Only modify occurrences of `/nvim/` in Lua and Vimscript files
+- Only load `cmp-npm` if `copilot` is disabled as copilot handles `npm` completion
+- Set `nvim-cmp` highlight groups, do not lazy load `cmp-npm`
+- Add `cmp-calc` and `cmp-npm` to `nvim-cmp`
+- Add `codicons` to `utils/icons.lua`
+- Update man page with `copilot` entry
+- Merge icon tables in `nvim-cmp` to display completion type icons correctly
+- Add menu config support for `copilot`
+- Add support for `copilot` `nvim-cmp` completions
+- Update `mini.comment`
+- Add `enable_copilot` to `configuration.lua`
 
 ### 🐞 Fixed
 
+- Fix find command to modify Lua and Vimscript `/nvim/` pathnames
+- Remove `snippy` support, always use `luasnip`
+- Get `copilot` completion and snippets right in `nvim-cmp`
 - Check exit status from sub-menus to either exit or redisplay main menu
 - Remove trim newlines and white space from `null-ls` sources
+- Only re-initialize Lazyman config when exiting `lazyman_config.sh`
 
 ## v2.1.4r4
 

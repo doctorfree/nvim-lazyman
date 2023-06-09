@@ -226,7 +226,7 @@ fix_nvim_dir() {
   fixnvimdir="$1"
   [ "${fixnvimdir}" == "${lazymandir}" ] || {
     find "${HOME}/.config/${fixnvimdir}" \
-      -type f -a \( -name \*lua -o -name \*vim  \) | \
+      -type f -a \( -name \*\.lua -o -name \*\.vim  \) | \
     while read f
     do
       echo "$f" | grep /.git/ > /dev/null && continue
