@@ -93,6 +93,7 @@ if settings.enable_coding then
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-calc",
     },
     config = function()
       require("config.nvim-cmp")
@@ -148,8 +149,17 @@ return {
 
   -- auto completion
   nvimcmp,
+  {
+    "David-Kunz/cmp-npm",
+    config = function()
+      require('cmp-npm').setup({
+        ignore = {},
+        only_semantic_versions = true,
+      })
+    end,
+  },
 
-	{ "onsails/lspkind-nvim" },
+  { "onsails/lspkind-nvim" },
 
   -- auto pairs
   {
