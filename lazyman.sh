@@ -3728,8 +3728,8 @@ fi
 
 [ "${exitafter}" ] && exit 0
 
+exitstatus=0
 [ "${interactive}" ] && {
-  exitstatus=0
   if [ "$menu" ]; then
     if [ "$menu" == "confmenu" ]; then
       ${SUBMENUS} -m conf
