@@ -42,7 +42,8 @@ end
 -- │ Highlight Groups                                         │
 -- ╰──────────────────────────────────────────────────────────╯
 local highlights = {
-  CmpItemMenu = { fg = "#C586C0", bg = "NONE" },
+  CmpItemKindSnippet = { fg = "#A2D5A2", bg = "NONE" },
+  CmpItemMenu = { fg = "#7D7DD0", bg = "NONE" },
   CmpItemAbbrMatch = { fg = "#569CD6", bg = "NONE" },
   CmpItemAbbrMatchFuzzy = { fg = "#569CD6", bg = "NONE" },
 }
@@ -252,7 +253,7 @@ cmp.setup({
       elseif entry.source.name == "codeium" then
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       elseif entry.source.name == "luasnip" then
-        vim_item.kind_hl_group = "Number"
+        vim_item.kind_hl_group = "CmpItemKindSnippet"
       end
       -- Get the item with kind from the lspkind plugin
       local item_with_kind = require("lspkind").cmp_format({
