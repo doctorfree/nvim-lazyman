@@ -1044,6 +1044,19 @@ conf.listchars = {
 conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
+--
+-- AI coding assistants - ChatGPT, Code Explain, Copilot, NeoAI
+-- Enable Github Copilot if you have an account, it is superior
+--
+-- Enable ChatGPT (set OPENAI_API_KEY environment variable)
+conf.enable_chatgpt = false
+-- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
+conf.enable_codeexplain = false
+-- Enable Github Copilot
+conf.enable_copilot = false
+-- Enable Neoai, https://github.com/Bryley/neoai.nvim
+conf.enable_neoai = false
+--
 -- Enable display of ascii art
 conf.enable_asciiart = false
 -- Delete buffers and close files without closing your windows
@@ -1054,10 +1067,6 @@ conf.enable_cheatsheet = true
 conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
--- If coding is enabled, enable Github Copilot
-conf.enable_copilot = false
--- If coding is enabled, enable Neoai, https://github.com/Bryley/neoai.nvim
-conf.enable_neoai = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"
@@ -1087,10 +1096,6 @@ conf.session_manager = "possession"
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
--- Enable ChatGPT (set OPENAI_API_KEY environment variable)
-conf.enable_chatgpt = true
--- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
-conf.enable_codeexplain = true
 -- Enable 'StartupTime' command
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease
