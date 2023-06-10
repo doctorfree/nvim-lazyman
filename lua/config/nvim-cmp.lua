@@ -18,7 +18,7 @@ local snippet_path = vim.fn.stdpath("config") .. "/snippets"
 require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
 
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
-local npm_or_copilot = { name = "npm",     priority = 5 }
+local npm_or_copilot = { name = "npm",     priority = 7 }
 if copilot_enabled then
   if not copilot_status_ok then
     return
@@ -250,7 +250,7 @@ cmp.setup({
     { name = "luasnip",     priority = 9, max_item_count = 5 },
     {
       name = "buffer",
-      priority = 7,
+      priority = 5,
       keyword_length = 5,
       option = buffer_option,
       max_item_count = 5

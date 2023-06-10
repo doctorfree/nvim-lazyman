@@ -54,6 +54,17 @@ o.ignorecase = true -- Ignore case
 o.inccommand = "nosplit" -- preview incremental substitute
 o.list = settings.list -- Show some invisible characters (tabs...
 o.listchars = settings.listchars
+-- Fold options
+o.foldcolumn = "0"
+o.foldlevel = 49
+o.foldlevelstart = 49
+o.foldenable = true
+o.fillchars:append('stl: ');
+o.fillchars:append('eob: ');
+o.fillchars:append('fold: ');
+o.fillchars:append('foldopen: ');
+o.fillchars:append('foldsep: ');
+o.fillchars:append('foldclose:');
 o.mouse = settings.mouse -- Enable mouse mode
 o.number = settings.number -- Print line number
 o.pumblend = 10 -- Popup blend
