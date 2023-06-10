@@ -1540,7 +1540,7 @@ show_plugin_menu() {
           break
           ;;
         "Indentline"*,* | *,"Indentline"*)
-          choices=("background" "colored" "context" "listchars" "simple" "none")
+          choices=("background" "colored" "context" "listchars" "mini" "simple" "none")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Indentline Style  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${use_indentline}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
@@ -1639,7 +1639,7 @@ show_plugin_menu() {
           set_conf_value "enable_dashboard_header" "true"
           set_conf_value "enable_dashboard_quick_links" "true"
           set_conf_value "enable_screensaver" "random"
-          set_conf_value "indentline_style" "colored"
+          set_conf_value "indentline_style" "mini"
           set_conf_value "list" "true"
           pluginit=1
           break

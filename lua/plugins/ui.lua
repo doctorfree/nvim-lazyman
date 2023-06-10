@@ -89,6 +89,26 @@ local indentline_cfg = {
 }
 if settings.indentline_style == "none" then
   indentline_cfg = {}
+elseif settings.indentline_style == "mini" then
+  indentline_cfg = {
+    "echasnovski/mini.indentscope",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy", "mason" },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function(_, opts)
+      require("mini.indentscope").setup(opts)
+    end,
+  }
 end
 
 local neoscroll = {}

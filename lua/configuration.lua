@@ -163,8 +163,8 @@ conf.enable_smooth_scrolling = true
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"
 conf.media_backend = "jp2a"
 -- Style of indentation, can be one of:
--- 'background' colored' 'context' 'listchars' 'simple' 'none'
-conf.indentline_style = "colored"
+-- 'background' colored' 'context' 'listchars' 'mini' 'simple' 'none'
+conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",

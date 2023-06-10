@@ -59,30 +59,30 @@ and initialized with `lazyman` by the end-user using the `-C url` and
 Currently over 40 popular Neovim configurations are supported in the
 following Lazyman Neovim configuration categories:
 
-| **Base** |       |       |       | **Configs** |
-| -------- | ----- | ----- | ----- | ----------- |
-| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvim](https://astronvim.com) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
+| **Base**                                             |                                                      |                                                         |                                                         | **Configs**                                   |
+| ---------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------- |
+| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvim](https://astronvim.com)                   | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim)               | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [LunarVim](https://github.com/LunarVim/LunarVim)     | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/)                           | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org)              |
 
-| **Personal** |       | **Configs** |
-| ------------ | ----- | ----------- |
-| [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) |
-| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
-| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| **Personal**                                      |                                                       | **Configs**                                               |
+| ------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| [Adib](https://github.com/adibhanna/nvim)         | [AlanVim](https://github.com/alanRizzo/dot-files)     | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
+| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim)               | [LaTeX](https://github.com/benbrastmckie/.config)         | [Magidc](https://github.com/magidc/nvim-config)     | [Mini](https://github.com/echasnovski/nvim)         |
+| [ONNO](https://github.com/loctvl842/nvim.git)     | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim)                   | [Simple](https://github.com/anthdm/.nvim)           | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 
-| **Starter** |       |       |       | **Configs** |
-| ----------- | ----- | ----- | ----- | ------------ |
-| [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
+| **Starter**                                                            |                                                                       |                                                                                |                                                                     | **Configs**                                                                     |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [Basic](https://github.com/NvChad/basic-config)                        | [CodeArt](https://github.com/artart222/CodeArt)                       | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)                         | [Kickstart](https://github.com/nvim-lua/kickstart.nvim)             | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)         |
 | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
-| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
+| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)                | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim)                     | [Modern](https://github.com/alpha2phi/modern-neovim)                | [PDE](https://github.com/alpha2phi/neovim-pde)                                  |
 
 Known working custom Lazyman configurations not yet integrated into the above
 categories. See the [custom configuration section](#custom-configurations)
 for installation details.
 
-| **Custom** |       |       | **Configs** |
-| ---------- | ----- | ----- | ----------- |
-| [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
+| **Custom**                                |                                                   |                                                      | **Configs**                                                |
+| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
+| [3rd](https://github.com/3rd/config)      | [Allaman](https://github.com/Allaman/nvim)        | [Brain](https://github.com/brainfucksec/neovim-lua)  | [Elianiva](https://github.com/elianiva/dotfiles)           |
 | [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
@@ -294,7 +294,7 @@ Currently the following "Base" Neovim configurations are supported:
   - See the [Installation section](#installation) above
   - Installed and initialized by default
 - [Abstract](https://github.com/Abstract-IDE/Abstract)
-  - Preconfigured Neovim as IDE (see https://abstract-ide.github.io/site/)
+  - Preconfigured Neovim as IDE (see <https://abstract-ide.github.io/site/>)
   - Install and initialize with `lazyman -g`
 - [AstroNvim](https://astronvim.com)
   - Install and initialize with `lazyman -a`
@@ -935,7 +935,7 @@ below along with their default settings:
   - `conf.enable_compile = false`
 - If coding is enabled, enable Github Copilot
   - `conf.enable_copilot = false`
-- If coding is enabled, enable Neoai, https://github.com/Bryley/neoai.nvim
+- If coding is enabled, enable Neoai, <https://github.com/Bryley/neoai.nvim>
   - `conf.enable_neoai = false`
 - Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
@@ -1159,8 +1159,8 @@ conf.enable_smooth_scrolling = true
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"
 conf.media_backend = "jp2a"
 -- Style of indentation, can be one of:
--- 'background' colored' 'context' 'listchars' 'simple' 'none'
-conf.indentline_style = "colored"
+-- 'background' colored' 'context' 'listchars' 'mini' 'simple' 'none'
+conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
@@ -1541,7 +1541,7 @@ removal of the selected Neovim configuration.
 #
 # Aliases for lsd, tldr, and bat if they exist
 command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
-	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
+ alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
 command -v tldr > /dev/null && {
   command -v fzf > /dev/null && {
     alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right:70% | xargs tldr --color=always'
@@ -1549,8 +1549,8 @@ command -v tldr > /dev/null && {
 }
 command -v bat > /dev/null && alias less='bat'
 command -v batcat > /dev/null && \
-	alias bat='batcat' && \
-	alias less='batcat'
+ alias bat='batcat' && \
+ alias less='batcat'
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
