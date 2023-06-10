@@ -10,6 +10,7 @@
 
 ### ⚡️ Added
 
+- Add better folding with `nvim-ufo` and active window highlight with `nvim-shade`
 - Add `lua/extras` folder with reference plugin configurations for possible future use
 - Add support for `mini.indentscope` as an indent line option, make it the default
 - Add support for `NeoAI` coding assistant

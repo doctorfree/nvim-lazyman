@@ -51,12 +51,11 @@ if settings.enable_notes then
       "preservim/vim-markdown",
       event = "VeryLazy",
       config = function()
-	      vim.g.vim_markdown_folding_disabled = true
-	      vim.g.vim_markdown_math = true
-	      vim.g.vim_markdown_frontmatter = true
-	      vim.g.vim_markdown_strikethrough = true
-	      vim.g.vim_markdown_autowrite = true
-	      vim.g.vim_markdown_toc_autofit = true
+        vim.g.vim_markdown_math = true
+        vim.g.vim_markdown_frontmatter = true
+        vim.g.vim_markdown_strikethrough = true
+        vim.g.vim_markdown_autowrite = true
+        vim.g.vim_markdown_toc_autofit = true
       end
     },
     {
