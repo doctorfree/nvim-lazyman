@@ -46,8 +46,19 @@ if settings.enable_notes then
     --Markdown (or any Outline)
     { "simrat39/symbols-outline.nvim", event = "VeryLazy" },
     { "stevearc/aerial.nvim",          event = "VeryLazy" },
-    { "preservim/vim-markdown",        event = "VeryLazy" },
     { "godlygeek/tabular",             event = "VeryLazy" },
+    {
+      "preservim/vim-markdown",
+      event = "VeryLazy",
+      config = function()
+	      vim.g.vim_markdown_folding_disabled = true
+	      vim.g.vim_markdown_math = true
+	      vim.g.vim_markdown_frontmatter = true
+	      vim.g.vim_markdown_strikethrough = true
+	      vim.g.vim_markdown_autowrite = true
+	      vim.g.vim_markdown_toc_autofit = true
+      end
+    },
     {
       "epwalsh/obsidian.nvim",
       event = "VeryLazy",

@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v2.1.5r3
+
+### ⚡️ Added
+
+- Add `lua/extras` folder with reference plugin configurations for possible future use
+- Add support for `mini.indentscope` as an indent line option, make it the default
+- Add support for `NeoAI` coding assistant
+- Add options setting to `vim-markdown` plugin
+
+### 🐞 Fixed
+
+- Check `OPENAI_API_KEY` before enabling `NeoAI` plugin
+- Use `snipmate` rather than `vscode` for custom snippets
+- Remove support for `codeium` coding assistant
+- Update `codeexplain` model size
+
 ## v2.1.5r2
 
 ### ⚡️ Added
