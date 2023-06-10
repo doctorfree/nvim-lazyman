@@ -18,6 +18,7 @@
 
 ### 🐞 Fixed
 
+- Fix input error initially loading copilot in `nvim-cmp`
 - Check `OPENAI_API_KEY` before enabling `NeoAI` plugin
 - Use `snipmate` rather than `vscode` for custom snippets
 - Remove support for `codeium` coding assistant
