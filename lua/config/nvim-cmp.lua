@@ -18,12 +18,12 @@ local snippet_path = vim.fn.stdpath("config") .. "/snippets"
 require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
 
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
-local npm_or_copilot = { name = "npm",     priority = 9 }
+local npm_or_copilot = { name = "npm",     priority = 5 }
 if copilot_enabled then
   if not copilot_status_ok then
     return
   end
-  npm_or_copilot = { name = "copilot",     priority = 9 }
+  npm_or_copilot = { name = "copilot",     priority = 10 }
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -245,9 +245,9 @@ cmp.setup({
     end,
   },
   sources = {
-    { name = "nvim_lsp",    priority = 10, entry_filter = limit_lsp_types, },
+    { name = "nvim_lsp",    priority = 8, entry_filter = limit_lsp_types, },
     npm_or_copilot,
-    { name = "luasnip",     priority = 7, max_item_count = 5 },
+    { name = "luasnip",     priority = 9, max_item_count = 5 },
     {
       name = "buffer",
       priority = 7,
@@ -255,9 +255,9 @@ cmp.setup({
       option = buffer_option,
       max_item_count = 5
     },
-    { name = "nvim_lua",    priority = 5 },
-    { name = "path",        priority = 4 },
-    { name = "calc",        priority = 3 },
+    { name = "nvim_lua",    priority = 4 },
+    { name = "path",        priority = 3 },
+    { name = "calc",        priority = 2 },
   },
   sorting = {
     comparators = {
