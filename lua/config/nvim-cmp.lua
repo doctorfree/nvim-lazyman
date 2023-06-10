@@ -14,6 +14,8 @@ if not snip_status_ok then
   return
 end
 require("luasnip.loaders.from_vscode").lazy_load()
+local snippet_path = vim.fn.stdpath("config") .. "/snippets"
+require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
 
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
 local npm_or_copilot = { name = "npm",     priority = 9 }
@@ -105,30 +107,6 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
---- Get completion context, i.e., auto-import/target module location.
---- Depending on the LSP this information is stored in different parts of the
---- lsp.CompletionItem payload. The process to find them is very manual: log the payloads
---- And see where useful information is stored.
----@param completion lsp.CompletionItem
----@param source cmp.Source
----@see Astronvim, because i just discovered they're already doing this thing, too
---  https://github.com/AstroNvim/AstroNvim
-local function get_lsp_completion_context(completion, source)
-  local ok, source_name = pcall(function()
-    return source.source.client.config.name
-  end)
-  if not ok then
-    return nil
-  end
-  if source_name == "tsserver" then
-    return completion.detail
-  elseif source_name == "pyright" then
-    if completion.labelDetails ~= nil then
-      return completion.labelDetails.description
-    end
-  end
-end
-
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
@@ -188,7 +166,6 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
     ["<CR>"] = cmp.mapping.confirm({
-      -- this is the important line for Copilot
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     }),
@@ -247,7 +224,6 @@ cmp.setup({
   }),
   formatting = {
     format = function(entry, vim_item)
-      -- Set the highlight group for some sources
       if entry.source.name == "copilot" then
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       elseif entry.source.name == "luasnip" then
@@ -265,24 +241,20 @@ cmp.setup({
       item_with_kind.menu = vim.trim(item_with_kind.menu or "")
       item_with_kind.abbr = string.sub(item_with_kind.abbr, 1, item_with_kind.maxwidth)
 
-      local completion_context = get_lsp_completion_context(entry.completion_item, entry.source)
-      if completion_context ~= nil and completion_context ~= "" then
-        item_with_kind.menu = item_with_kind.menu .. [[ -> ]] .. completion_context
-      end
-
       return item_with_kind
     end,
   },
   sources = {
-    {
-      name = "nvim_lsp",
-      priority = 10,
-      -- Limits LSP results to specific types based on line context (FIelds, Methods, Variables)
-      entry_filter = limit_lsp_types,
-    },
+    { name = "nvim_lsp",    priority = 10, entry_filter = limit_lsp_types, },
     npm_or_copilot,
     { name = "luasnip",     priority = 7, max_item_count = 5 },
-    { name = "buffer",      priority = 7, keyword_length = 5, option = buffer_option, max_item_count = 5 },
+    {
+      name = "buffer",
+      priority = 7,
+      keyword_length = 5,
+      option = buffer_option,
+      max_item_count = 5
+    },
     { name = "nvim_lua",    priority = 5 },
     { name = "path",        priority = 4 },
     { name = "calc",        priority = 3 },

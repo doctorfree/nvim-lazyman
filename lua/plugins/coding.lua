@@ -28,7 +28,7 @@ end
 
 local nvimcmp = {
   "hrsh7th/nvim-cmp",
-  version = false, -- last release is way too old
+  version = false,
   event = "VeryLazy",
   dependencies = {
     "hrsh7th/cmp-buffer",
@@ -57,6 +57,8 @@ if settings.enable_coding then
       "saadparwaiz1/cmp_luasnip",
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
+        local snippet_path = vim.fn.stdpath("config") .. "/snippets"
+        require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
       end,
     },
     opts = {
@@ -149,16 +151,15 @@ return {
     "windwp/nvim-autopairs",
     event = "VeryLazy",
     opts = {
-      enable_check_bracket_line = false, -- Don't add pairs if it already has a close pair in the same line
-      ignored_next_char = "[%w%.]",      -- will ignore alphanumeric and `.` symbol
-      check_ts = true,                   -- use treesitter to check for a pair.
+      enable_check_bracket_line = false,
+      ignored_next_char = "[%w%.]",
+      check_ts = true,
       ts_config = {
-        lua = { "string" },              -- it will not add pair on that treesitter node
+        lua = { "string" },
         javascript = { "template_string" },
-        java = false,                    -- don't check treesitter on java
+        java = false,
       },
     },
-    -- config = function() require("nvim-autopairs").setup {} end
     config = function(_, opts)
       require("nvim-autopairs").setup({ opts })
     end,

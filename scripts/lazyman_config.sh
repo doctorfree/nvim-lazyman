@@ -1184,10 +1184,17 @@ show_plugin_menu() {
         "NeoAI"*,* | *,"NeoAI"*)
           if [ "${enable_neoai}" == "true" ]; then
             set_conf_value "enable_neoai" "false"
+            pluginit=1
           else
-            set_conf_value "enable_neoai" "true"
+            if [ "$OPENAI_API_KEY" ]; then
+              set_conf_value "enable_neoai" "true"
+              pluginit=1
+            else
+              printf "\nThe OPENAI_API_KEY environment variable must be set"
+              printf "\nbefore enabling the NeoAI plugin."
+              prompt_continue
+            fi
           fi
-          pluginit=1
           break
           ;;
         "Surround"*,* | *,"Surround"*)
