@@ -1151,7 +1151,7 @@ show_plugin_menu() {
               }
               printf "\nThe GPT4ALL model must be downloaded before"
               printf "\nenabling the codeexplain.nvim GPT4ALL plugin."
-              printf "\nThe model is 3.5GB, located in your HOME directory."
+              printf "\nThe model is nearly 4GB in ${HOME}/.codeexplain/."
               printf "\nWould you like to download the GPT4ALL model?\n"
               while true; do
                 read -r -p "Download GPT4ALL model (no API key required) ? (y/n) " yn
