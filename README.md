@@ -614,9 +614,11 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
 - Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
   - Keymap to toggle transparency for several color schemes (`,ut`)
-- Support for [Github Copilot](https://github.com/features/copilot) with completions
-- Auto-configure ChatGPT (GPT-4) if `OPENAI_API_KEY` is found in the environment using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
-  - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
+- AI developer assistants:
+  - Support for [Github Copilot](https://github.com/features/copilot) with completions
+  - Support for ChatGPT using [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)
+    - Uses ChatGPT prompts from [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
+  - Support for [Neoai](https://github.com/Bryley/neoai.nvim) plugin for OpenAI's GPT-4
 - Auto-configure [codeexplain.nvim](https://github.com/mthbernardes/codeexplain.nvim) (GPT4ALL) if the GPT model is found
   - Lazyman menu provides auto-download and setup (requires Python 3.9 or greater)
   - This plugin is new and experimental. Unlike ChatGPT, it uses a self-hosted model and requires no API key or money
@@ -933,6 +935,8 @@ below along with their default settings:
   - `conf.enable_compile = false`
 - If coding is enabled, enable Github Copilot
   - `conf.enable_copilot = false`
+- If coding is enabled, enable Neoai, https://github.com/Bryley/neoai.nvim
+  - `conf.enable_neoai = false`
 - Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
 - Enable easy motions, can be one of "hop", "leap", or "none"
@@ -1052,6 +1056,8 @@ conf.enable_coding = true
 conf.enable_compile = false
 -- If coding is enabled, enable Github Copilot
 conf.enable_copilot = false
+-- If coding is enabled, enable Neoai, https://github.com/Bryley/neoai.nvim
+conf.enable_neoai = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "leap", or "none"

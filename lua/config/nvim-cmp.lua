@@ -250,8 +250,6 @@ cmp.setup({
       -- Set the highlight group for some sources
       if entry.source.name == "copilot" then
         vim_item.kind_hl_group = "CmpItemKindCopilot"
-      elseif entry.source.name == "codeium" then
-        vim_item.kind_hl_group = "CmpItemKindCopilot"
       elseif entry.source.name == "luasnip" then
         vim_item.kind_hl_group = "CmpItemKindSnippet"
       end

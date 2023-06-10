@@ -246,15 +246,6 @@ set_waka_opt() {
   set_conf_value "enable_wakatime" "${waka}"
 }
 
-set_chat_gpt() {
-  if [ "$OPENAI_API_KEY" ]; then
-    openai="true"
-  else
-    openai="false"
-  fi
-  set_conf_value "enable_chatgpt" "${openai}"
-}
-
 set_code_explain() {
   if [ -f "${HOME}/.codeexplain/model.bin" ]; then
     pyver=$(check_python_version)
@@ -697,6 +688,12 @@ show_plugin_menu() {
     else
       use_copilot="✗"
     fi
+    enable_neoai=$(get_conf_value enable_neoai)
+    if [ "${enable_neoai}" == "true" ]; then
+      use_neoai=""
+    else
+      use_neoai="✗"
+    fi
     enable_surround=$(get_conf_value enable_surround)
     if [ "${enable_surround}" == "true" ]; then
       use_surround=""
@@ -881,15 +878,16 @@ show_plugin_menu() {
     options+=("Ascii Art     [${use_asciiart}]")
     options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Bookmarks     [${use_bookmarks}]")
-    options+=("ChatGPT       [${use_chatgpt}]")
-    options+=("Copilot       [${use_copilot}]")
+    options+=("ChatGPT (AI)  [${use_chatgpt}]")
+    options+=("Copilot (AI)  [${use_copilot}]")
     pyver=$(check_python_version)
     [ "${pyver}" == "OK" ] && {
-      options+=("GPT4ALL       [${use_codeexplain}]")
+      options+=("GPT4ALL (AI)  [${use_codeexplain}]")
     }
     [ -f "${HOME}/.codeexplain/model.bin" ] && {
       options+=(" Remove GPT model")
     }
+    options+=("NeoAI   (AI)  [${use_neoai}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
@@ -1179,6 +1177,15 @@ show_plugin_menu() {
                 esac
               done
             fi
+          fi
+          pluginit=1
+          break
+          ;;
+        "NeoAI"*,* | *,"NeoAI"*)
+          if [ "${enable_neoai}" == "true" ]; then
+            set_conf_value "enable_neoai" "false"
+          else
+            set_conf_value "enable_neoai" "true"
           fi
           pluginit=1
           break
@@ -1552,6 +1559,7 @@ show_plugin_menu() {
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
+          set_conf_value "enable_neoai" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -1594,6 +1602,7 @@ show_plugin_menu() {
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
           set_conf_value "enable_copilot" "true"
+          set_conf_value "enable_neoai" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
             pyver=$(check_python_version)
             [ "${pyver}" == "OK" ] && {
@@ -1638,7 +1647,6 @@ show_plugin_menu() {
         "Reset"*,* | *,"Reset"*)
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
-            set_chat_gpt
             set_code_explain
             set_ranger_float
             set_waka_opt
@@ -2253,6 +2261,7 @@ show_conf_menu() {
           set_conf_value "enable_chatgpt" "false"
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
+          set_conf_value "enable_neoai" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -2320,7 +2329,6 @@ show_conf_menu() {
         "Reset"*,* | *,"Reset"*)
           [ -f ${CONFBACK} ] && {
             cp ${CONFBACK} ${NVIMCONF}
-            set_chat_gpt
             set_code_explain
             set_ranger_float
             set_waka_opt
@@ -2429,7 +2437,6 @@ shift $((OPTIND - 1))
 set_haves
 
 [ "${initplugs}" ] && {
-  set_chat_gpt
   set_code_explain
   set_ranger_float
   set_waka_opt

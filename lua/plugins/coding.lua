@@ -1,27 +1,7 @@
 local settings = require("configuration")
 
-local copilot = {}
-local copilot_cmp = {}
 local cmpnpm = {}
-if settings.enable_copilot then
-  copilot = {
-    "zbirenbaum/copilot.lua",
-    build = ":Copilot auth",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    lazy = false,
-    config = function()
-      require("config.copilot")
-    end,
-  }
-  copilot_cmp = {
-    "zbirenbaum/copilot-cmp",
-    lazy = false,
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  }
-else
+if not settings.enable_copilot then
   cmpnpm = {
     "David-Kunz/cmp-npm",
     ft = "json",
@@ -155,9 +135,6 @@ if settings.enable_coding then
 end
 
 return {
-
-  copilot,
-  copilot_cmp,
 
   -- snippets
   snippet,
