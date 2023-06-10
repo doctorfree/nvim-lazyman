@@ -260,6 +260,7 @@ cmp.setup({
     { name = "calc",        priority = 2 },
   },
   sorting = {
+    priority_weight = 2,
     comparators = {
       deprioritize_snippet,
       cmp.config.compare.exact,
