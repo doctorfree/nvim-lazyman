@@ -198,10 +198,18 @@ return {
       },
     },
     config = function()
-      require("ufo").setup()
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+      require("ufo").setup({
+        close_fold_kinds = { "imports" },
+      })
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+      vim.keymap.set("n", "zk", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
+      vim.keymap.set("n", "zK", function()
+        local winid = require('ufo').peekFoldedLinesUnderCursor()
+        if not winid then
+          vim.lsp.buf.hover()
+        end
+      end, { desc = "Peek folded lines under cursor" })
     end,
   },
   -- shading
