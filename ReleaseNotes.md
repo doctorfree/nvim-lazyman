@@ -11,7 +11,7 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 
 See below for detailed [Installation instructions](#installation) to bootstrap Lazyman. Once Lazyman is installed, execute the `lazyman` command to manage Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
-The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently over 50 popular Neovim configurations are supported in the following Lazyman Neovim configuration categories:
+The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently over 50 popular Neovim configurations are supported in the following configuration categories:
 
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |

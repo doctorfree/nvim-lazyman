@@ -58,7 +58,7 @@ and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
 
 Currently over 50 popular Neovim configurations are supported in the
-following Lazyman Neovim configuration categories:
+following configuration categories:
 
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |
