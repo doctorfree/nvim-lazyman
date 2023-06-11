@@ -15,9 +15,24 @@
 - Add support for `mini.indentscope` as an indent line option, make it the default
 - Add support for `NeoAI` coding assistant
 - Add options setting to `vim-markdown` plugin
+- Instruct `prettier` to ignore tables in markdown
+- Update number of supported configs, update config tables in release notes
+- Move `SaleVim` from Custom to Language category
+- Add `Josean` config to Custom
+- Create and populate new `Language` category of configurations
+- Adjust `copilot` suggestion keymaps
+- Improve `nvim-ufo` configuration
+- Reconfigure `nvim-ufo`, add `fillchar` and folding options
+- Add `nvim-cmp` sorting priority weight
+- Set priority levels for `nvim-cmp` sources
+- Add better folding with `nvim-ufo` and active window highlight with `nvim-shade`
 
 ### 🐞 Fixed
 
+- Do not lazy load `copilot` to avoid `EPIPE` error
+- Fix `copilot` cmp loading error
+- Change `-Y` to accept Custom config name or All
+- Fix Install All with install Language category
 - Set priority levels for `nvim-cmp` sources
 - Fix input error initially loading copilot in `nvim-cmp`
 - Check `OPENAI_API_KEY` before enabling `NeoAI` plugin
