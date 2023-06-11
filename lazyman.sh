@@ -1862,6 +1862,7 @@ show_main_menu() {
           printf "\n\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
           lazyman ${darg} -B -y -z -Q -q
+          lazyman ${darg} -L all -y -z -Q -q
           lazyman ${darg} -W -y -z -Q -q
           lazyman ${darg} -X -y -z -Q -q
           printf "\nInstalling all Lazyman 'Custom' Neovim configurations\n"
@@ -1894,6 +1895,7 @@ show_main_menu() {
           printf "\nUpdating all Lazyman Neovim configurations\n"
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
           lazyman ${darg} -B -y -z -Q -q -U
+          lazyman ${darg} -L all -y -z -Q -q -U
           lazyman ${darg} -W -y -z -Q -q -U
           lazyman ${darg} -X -y -z -Q -q -U
           printf "\nUpdating all Lazyman 'Custom' Neovim configurations\n"
