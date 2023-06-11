@@ -109,7 +109,7 @@ if enable_copilot then
     "zbirenbaum/copilot.lua",
     build = ":Copilot auth",
     cmd = "Copilot",
-    event = "InsertEnter",
+    lazy = false,
     config = function()
       require("config.copilot")
     end,
@@ -205,7 +205,7 @@ if settings.enable_coding then
   nvimcmp = {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
-    event = "VeryLazy",
+    event = "InsertEnter",
     dependencies = {
       "mfussenegger/nvim-jdtls",
       "hrsh7th/cmp-nvim-lsp",
