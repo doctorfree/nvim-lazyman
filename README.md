@@ -88,7 +88,7 @@ for installation details.
 | **Custom** |       |       | **Configs** |
 | ---------- | ----- | ----- | ----------- |
 | [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | |
+| [Nv](https://github.com/appelgriebsch/Nv) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -546,29 +546,33 @@ An excellent list of preconfigured Neovim configurations is available at the
 Known working custom Lazyman configurations include the following:
 
 - [3rd](https://github.com/3rd/config)
-  - `lazyman -C https://github.com/3rd/config -D home/dotfiles/nvim -N nvim-3rd`
+  - `lazyman -Y 3rd`
   - Patch in `~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch` applied
   - Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 - [Allaman](https://github.com/Allaman/nvim)
   - One of the inspirations for `Lazyman`
-  - `lazyman -C https://github.com/Allaman/nvim -N nvim-Allaman`
+  - `lazyman -Y Allaman`
 - [Brain](https://github.com/brainfucksec/neovim-lua)
-  - `lazyman -b main -C https://github.com/brainfucksec/neovim-lua -N nvim-Brain -D nvim`
+  - `lazyman -Y Brain`
 - [Elianiva](https://github.com/elianiva/dotfiles)
-  - `lazyman -C https://github.com/elianiva/dotfiles -D nvim/.config/nvim -N nvim-Elianiva`
+  - `lazyman -Y Elianiva`
+- [Josean](https://github.com/josean-dev/dev-environment-files)
+  - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
+  - `lazyman -Y Josean`
 - [Nv](https://github.com/appelgriebsch/Nv)
   - LazyVim based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
-  - `lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv`
+  - `lazyman -Y Nv`
 - [SaleVim](https://github.com/igorcguedes/SaleVim)
   - `Salesforce` optimized IDE with custom features for editing `Apex`, `Visualforce`, and `Lightning` code
-  - `lazyman -C https://github.com/igorcguedes/SaleVim -N nvim-SaleVim -P`
+  - `lazyman -Y SaleVim`
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
-  - `lazyman -b main -C https://github.com/slydragonn/dotfiles -D '.config/nvim' -N nvim-Slydragonn -P`
+  - `lazyman -Y Slydragonn`
 
-Custom Neovim configurations can be installed and initialized in this
-manner but there are often errors and issues such as an initialization
+Additional Custom Neovim configurations can be installed and initialized
+using the `-C url -N name` flags along with any necessary initialization flags.
+There are occasionally errors and issues such as an initialization
 process that Lazyman does not yet support. However, you may find it useful
 or interesting to explore, resolve errors and issues, and contribute to the
 ever expanding set of Lazyman supported Neovim configurations.
@@ -727,7 +731,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]
    [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]
    [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
-   [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u]
+   [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u]
    [health] [init] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
@@ -769,7 +773,7 @@ Where:
     -H indicates compile and install the nightly Neovim build
     -i indicates install language servers and tools for coding diagnostics
     -I indicates install all language servers and tools for coding diagnostics
-    -L 'lang' indicates install and initialize the 'lang' configuration
+    -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
            All Go LaTeX Python Rust
     -r indicates remove the previously installed configuration
@@ -791,7 +795,9 @@ Where:
        'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
-    -Y indicates install and initialize all 'Custom' configs
+    -Y 'cust' indicates install the 'cust' Custom configuration
+       'cust' can be one of:
+           All Allaman Brain 3rd Elianiva Josean Nv SaleVim Slydragonn
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits

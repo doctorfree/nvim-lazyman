@@ -27,7 +27,7 @@ LANGUCFGS="Go LaTeX Python Rust"
 PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="Allaman Brain 3rd Elianiva Nv SaleVim Slydragonn"
+CUSTMCFGS="Allaman Brain 3rd Elianiva Josean Nv SaleVim Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -43,7 +43,7 @@ brief_usage() {
   printf "\n   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]"
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
-  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u]"
+  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u]"
   printf "\n   [health] [init] [install] [open] [remove] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -90,9 +90,9 @@ usage() {
   printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -i indicates install language servers and tools for coding diagnostics"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
-  printf "\n    -L 'lang' indicates install and initialize the 'lang' configuration"
+  printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
   printf "\n       'lang' can be one of:"
-  printf "\n           All Go LaTeX Python Rust"
+  printf "\n           All ${LANGUCFGS}"
   printf "\n    -r indicates remove the previously installed configuration"
   printf "\n    -R indicates remove previously installed configuration and backups"
   printf "\n    -C 'url' specifies a URL to a Neovim configuration git repository"
@@ -112,7 +112,9 @@ usage() {
   printf "\n       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
-  printf "\n    -Y indicates install and initialize all 'Custom' configs"
+  printf "\n    -Y 'cust' indicates install the 'cust' Custom configuration"
+  printf "\n       'cust' can be one of:"
+  printf "\n           All ${CUSTMCFGS}"
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -u displays this usage message and exits"
@@ -625,6 +627,14 @@ install_custom() {
     }
     printf "done"
   }
+  [ "${allcustom}" ] || [ "${customdir}" == "Josean" ] && {
+    printf "\nInstalling and initializing the Josean Neovim configuration ... "
+    [ "$tellme" ] || {
+      lazyman ${darg} -C https://github.com/josean-dev/dev-environment-files \
+        -b main -D .config/nvim -N nvim-Josean -P ${allflags}
+    }
+    printf "done"
+  }
   [ "${allcustom}" ] || [ "${customdir}" == "Nv" ] && {
     printf "\nInstalling and initializing the Nv Neovim configuration ... "
     [ "$tellme" ] || {
@@ -649,22 +659,6 @@ install_custom() {
     }
     printf "done"
   }
-}
-
-remove_custom() {
-  allcustom=
-  [ "$1" == "all" ] && allcustom=1
-  customdir="$1"
-
-  if [ "${allcustom}" ]
-  then
-    for custom in ${CUSTMCFGS}
-    do
-      lazyman -R -N nvim-${custom} -y
-    done
-  else
-    lazyman -R -N nvim-${customdir} -y
-  fi
 }
 
 update_custom() {
@@ -1226,7 +1220,7 @@ install_config() {
     Extralight)
       lazyman ${darg} -x Extralight -z -y -Q -q
       ;;
-    Allaman|Brain|3rd|Elianiva|Nv|SaleVim|Slydragonn)
+    Allaman|Brain|3rd|Elianiva|Josean|Nv|SaleVim|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -2168,7 +2162,9 @@ show_main_menu() {
           ;;
         "Remove Custom"*,* | *,"Remove Custom"*)
           printf "\nRemoving all Lazyman 'Custom' Neovim configurations\n"
-          remove_custom all
+          for ndirc in ${CUSTMCFGS}; do
+            lazyman -R -N ${ndirc} -y
+          done
           break
           ;;
         "Debug Mode"*,* | *,"Debug Mode"*)
@@ -2379,7 +2375,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
 }
-while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyY:zZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2388,7 +2384,7 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyYzZu" fla
     A)
       all=1
       nvimbase=1
-      nvimcustom=1
+      nvimcustom="all"
       nvimlang="all"
       nvimprsnl="all"
       nvimstarter="all"
@@ -2580,8 +2576,12 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyYzZu" fla
       yes="-y"
       ;;
     Y)
-      nvimcustom=1
-      quiet=1
+      custom="$OPTARG"
+      nvimcustom="${custom}"
+      [ "${custom}" == "all" ] || [ "${custom}" == "All" ] && {
+        nvimcustom="all"
+        quiet=1
+      }
       ;;
     z)
       runvim=
@@ -2680,15 +2680,27 @@ set_haves
 
 [ "$nvimcustom" ] && {
   if [ "$remove" ]; then
-    remove_custom all
-  else
-    if [ "${update}" ]
-    then
-      printf "\n\nUpdating all installed Custom Neovim configurations."
-      update_custom all
+    if [ "${nvimcustom}" == "all" ]; then
+      for neovim in ${CUSTMCFGS}; do
+        remove_config "nvim-${neovim}"
+      done
     else
-      printf "\n\nInstalling and initializing all Custom Neovim configurations."
+      remove_config "nvim-${nvimcustom}"
+    fi
+  else
+    if [ "${nvimcustom}" == "all" ]; then
+      printf "\n\nInstalling/Updating all Custom Neovim configurations."
+    else
+      printf "\n\nInstalling/Updating ${nvimcustom} Custom Neovim configuration."
+    fi
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
+    quietflag=
+    [ "${quiet}" ] && quietflag="-q"
+    if [ "${nvimcustom}" == "all" ]; then
       install_custom all
+    else
+      install_custom "${nvimcustom}"
     fi
   fi
 }

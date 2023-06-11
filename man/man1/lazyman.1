@@ -23,11 +23,12 @@ lazyman - install, initialize, manage, and explore multiple Neovim
 configurations
 .SS SYNOPSIS
 .PP
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path]
 [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o]
-[-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir]
-[-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y]
-[-z] [-Z] [-u] [install] [open] [remove] [status]
+[-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang] [-rR] [-C url] [-D subdir]
+[-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y]
+[-Y cust] [-z] [-Z] [-u] [health] [init] [install] [open] [remove]
+[status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -284,7 +285,9 @@ diagnostics
 \f[V]-I\f[R] : indicates install all language servers and tools for
 coding diagnostics
 .PP
-\f[V]-L cmd\f[R] : specifies a Lazy command to run
+\f[V]-L lang\f[R] : indicates install the \f[V]lang\f[R] Language
+configuration where \[aq]lang\[aq] can be one of: All Go LaTeX Python
+Rust
 .PP
 \f[V]-n\f[R] : indicates dry run, don\[aq]t actually do anything, just
 printf\[aq]s
@@ -309,6 +312,8 @@ repository
 given by -C
 .PP
 \f[V]-U\f[R] : indicates update an existing configuration
+.PP
+\f[V]-V url\f[R] : specifies an NvChad user configuration git repository
 .PP
 \f[V]-w conf\f[R] : indicates install and initialize Personal
 \[aq]conf\[aq] configuration.
@@ -335,8 +340,9 @@ Neovim configurations
 \f[V]-y\f[R] : indicates do not prompt, answer \[aq]yes\[aq] to any
 prompt
 .PP
-\f[V]-Y\f[R] : indicates install and initialize all \[aq]Custom\[aq]
-Neovim configurations
+\f[V]-Y cust\f[R] : indicates install the \f[V]cust\f[R] Custom
+configuration where \[aq]cust\[aq] can be one of: All Allaman Brain 3rd
+Elianiva Josean Nv SaleVim Slydragonn
 .PP
 \f[V]-z\f[R] : indicates do not run nvim after initialization
 .PP
@@ -344,6 +350,11 @@ Neovim configurations
 tools during initialization
 .PP
 \f[V]-u\f[R] : displays this usage message and exits
+.PP
+\f[V]health\f[R] : generate and display a health check for a
+configuration
+.PP
+\f[V]init\f[R] : initialize specified Neovim configuration and exit
 .PP
 \f[V]install\f[R] : fuzzy search and select configuration to install
 .PP
@@ -376,9 +387,6 @@ configurations
 .PP
 \f[V]lazyman -I\f[R] : installs language servers and tools for coding
 diagnostics
-.PP
-\f[V]lazyman -L update\f[R] : runs the \f[V]:Lazy update\f[R] command in
-the active Neovim configuration (combine with -N or -A to override)
 .PP
 \f[V]lazyman -U -N nvim-LazyVim\f[R] : updates the \f[V]LazyVim\f[R]
 Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]
