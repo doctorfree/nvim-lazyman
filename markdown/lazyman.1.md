@@ -14,14 +14,14 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-e] [-E config] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u] [install] [open] [remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status]
 
 ## FEATURES
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
 - support for Lazy, Packer, and vim-plug plugin managers
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
-- over 40 popular Neovim configurations supported
+- over 50 popular Neovim configurations supported
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
@@ -203,7 +203,7 @@ The following command line options are available with the `lazyman` command:
 
 `-I` : indicates install all language servers and tools for coding diagnostics
 
-`-L cmd` : specifies a Lazy command to run
+`-L lang` : indicates install the `lang` Language configuration where 'lang' can be one of: All Go LaTeX Python Rust SaleVim
 
 `-n` : indicates dry run, don't actually do anything, just printf's
 
@@ -225,7 +225,9 @@ The following command line options are available with the `lazyman` command:
 
 `-U` : indicates update an existing configuration
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', 'LaTeX', or 'Heiker'
+`-V url` : specifies an NvChad user configuration git repository
+
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
@@ -235,13 +237,17 @@ The following command line options are available with the `lazyman` command:
 
 `-y` : indicates do not prompt, answer 'yes' to any prompt
 
-`-Y` : indicates install and initialize all 'Custom' Neovim configurations
+`-Y cust` : indicates install the `cust` Custom configuration where 'cust' can be one of: All Allaman Brain 3rd Elianiva Josean Nv Slydragonn
 
 `-z` : indicates do not run nvim after initialization
 
 `-Z` : indicates do not install Homebrew, Neovim, or any other tools during initialization
 
 `-u` : displays this usage message and exits
+
+`health` : generate and display a health check for a configuration
+
+`init` : initialize specified Neovim configuration and exit
 
 `install` : fuzzy search and select configuration to install
 
@@ -267,8 +273,6 @@ if initialized presents an interactive menu system.
 `lazyman -A` : installs and initializes all supported Neovim configurations
 
 `lazyman -I` : installs language servers and tools for coding diagnostics
-
-`lazyman -L update` : runs the `:Lazy update` command in the active Neovim configuration (combine with -N or -A to override)
 
 `lazyman -U -N nvim-LazyVim` : updates the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`
 

@@ -23,10 +23,11 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO LaTeX"
+LANGUCFGS="Go LaTeX Python Rust SaleVim"
+PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="Allaman Brain 3rd Elianiva Nv Python SaleVim Slydragonn"
+CUSTMCFGS="Allaman Brain 3rd Elianiva Josean Nv Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -40,9 +41,9 @@ neorg_notes_table=()
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
   printf "\n   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]"
-  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L cmd]"
-  printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-w conf]"
-  printf "\n   [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-u]"
+  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]"
+  printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
+  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u]"
   printf "\n   [health] [init] [install] [open] [remove] [status]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -89,7 +90,9 @@ usage() {
   printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -i indicates install language servers and tools for coding diagnostics"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
-  printf "\n    -L 'cmd' specifies a Lazy command to run in the selected configuration"
+  printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
+  printf "\n       'lang' can be one of:"
+  printf "\n           All ${LANGUCFGS}"
   printf "\n    -r indicates remove the previously installed configuration"
   printf "\n    -R indicates remove previously installed configuration and backups"
   printf "\n    -C 'url' specifies a URL to a Neovim configuration git repository"
@@ -97,10 +100,11 @@ usage() {
   printf "\n    -t indicates list all installed Lazyman Neovim configurations"
   printf "\n    -T indicates list all uninstalled Lazyman Neovim configurations"
   printf "\n    -U indicates update an existing configuration"
+  printf "\n    -V 'url' specifies an NvChad user configuration git repository"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
   printf "\n           AlanVim Charles Magidc Mini Knvim Roiz Fennel"
-  printf "\n           Ember ONNO Adib Optixal Plug Simple Heiker LaTeX"
+  printf "\n           Ember ONNO Adib Optixal Plug Simple Heiker"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
   printf "\n       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'"
@@ -108,7 +112,9 @@ usage() {
   printf "\n       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
-  printf "\n    -Y indicates install and initialize all 'Custom' configs"
+  printf "\n    -Y 'cust' indicates install the 'cust' Custom configuration"
+  printf "\n       'cust' can be one of:"
+  printf "\n           All ${CUSTMCFGS}"
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -u displays this usage message and exits"
@@ -148,62 +154,6 @@ xtimeout() {
     wait $runnerpid
     kill -SIGKILL $killerpid
   )
-}
-
-run_command() {
-  neodir="$1"
-  comm="$2"
-  [ "$neodir" == "${lazymandir}" ] && {
-    oldpack=${packer}
-    oldplug=${plug}
-    plug=
-    packer=
-  }
-  [ "$neodir" == "$magicvimdir" ] && {
-    oldpack=${packer}
-    packer=1
-  }
-  [ "$tellme" ] || {
-    export NVIM_APPNAME="$neodir"
-    if [ "$debug" ]; then
-      if [ "$packer" ]; then
-        xtimeout ${timeout} nvim \
-          --headless -c 'autocmd User PackerComplete quitall' -c "Packer${comm}"
-      else
-        if [ "$plug" ]; then
-          xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c "Plug${comm}" -c 'qa'
-        else
-          if [ "$neodir" == "$spacevimdir" ]; then
-            xtimeout ${timeout} nvim --headless "+${comm}" +qa
-          else
-            xtimeout ${timeout} nvim --headless "+Lazy! ${comm}" +qa
-          fi
-        fi
-      fi
-    else
-      if [ "$packer" ]; then
-        xtimeout ${timeout} nvim --headless -c \
-          'autocmd User PackerComplete quitall' -c "Packer${comm}" >/dev/null 2>&1
-      else
-        if [ "$plug" ]; then
-          xtimeout ${timeout} nvim --headless -c
-          'set nomore' -c "Plug${comm}" -c 'qa' >/dev/null 2>&1
-        else
-          if [ "$neodir" == "$spacevimdir" ]; then
-            xtimeout ${timeout} nvim --headless "+${comm}" +qa >/dev/null 2>&1
-          else
-            xtimeout ${timeout} nvim --headless "+Lazy! ${comm}" +qa >/dev/null 2>&1
-          fi
-        fi
-      fi
-    fi
-  }
-  [ "$neodir" == "$magicvimdir" ] && packer=${oldpack}
-  [ "$neodir" == "${lazymandir}" ] && {
-    packer=${oldpack}
-    plug=${oldplug}
-  }
 }
 
 set_haves() {
@@ -383,7 +333,10 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa > ${LOG} 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] || [ "${neodir}" == "nvim-Python" ] && {
+                [ "${neodir}" == "${nvchaddir}" ] || \
+                [ "${neodir}" == "nvim-Go" ] || \
+                [ "${neodir}" == "nvim-Rust" ] || \
+                [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
                 }
               }
@@ -431,7 +384,10 @@ init_neovim() {
               [ "${neodir}" == "${minivimdir}" ] || {
                 xtimeout ${timeout} nvim --headless \
                   "+Lazy! sync" +qa >/dev/null 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] || [ "${neodir}" == "nvim-Python" ] && {
+                [ "${neodir}" == "${nvchaddir}" ] || \
+                [ "${neodir}" == "nvim-Go" ] || \
+                [ "${neodir}" == "nvim-Rust" ] || \
+                [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless \
                     "+MasonInstallAll" +qa >/dev/null 2>&1
                 }
@@ -671,42 +627,19 @@ install_custom() {
     }
     printf "done"
   }
+  [ "${allcustom}" ] || [ "${customdir}" == "Josean" ] && {
+    printf "\nInstalling and initializing the Josean Neovim configuration ... "
+    [ "$tellme" ] || {
+      lazyman ${darg} -C https://github.com/josean-dev/dev-environment-files \
+        -b main -D .config/nvim -N nvim-Josean -P ${allflags}
+    }
+    printf "done"
+  }
   [ "${allcustom}" ] || [ "${customdir}" == "Nv" ] && {
     printf "\nInstalling and initializing the Nv Neovim configuration ... "
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/appelgriebsch/Nv \
         -N nvim-Nv ${allflags}
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "Python" ] && {
-    printf "\nInstalling and initializing the Python Neovim configuration ... "
-    [ "$tellme" ] || {
-      [ -d "${HOME}/.config/nvim-Python" ] || {
-        git clone https://github.com/NvChad/NvChad \
-          "${HOME}/.config/nvim-Python" --depth 1 >/dev/null 2>&1
-      }
-      if [ -d "${HOME}/.config/nvim-Python/lua/custom" ]; then
-        update_config "nvim-Python"
-      else
-        printf "\nAdding custom Python configuration into"
-        printf "\n\t${HOME}/.config/nvim-Python/lua/custom ... "
-        git clone https://github.com/dreamsofcode-io/neovim-python \
-          ${HOME}/.config/nvim-Python/lua/custom >/dev/null 2>&1
-      fi
-      # Replace references to /nvim/ with /nvim-Python/
-      fix_nvim_dir "nvim-Python"
-      # Initialize nvim-Python
-      init_neovim nvim-Python
-      add_nvimdirs_entry "nvim-Python"
-    }
-    printf "done"
-  }
-  [ "${allcustom}" ] || [ "${customdir}" == "SaleVim" ] && {
-    printf "\nInstalling and initializing the SaleVim Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
-        -N nvim-SaleVim -P ${allflags}
     }
     printf "done"
   }
@@ -718,22 +651,6 @@ install_custom() {
     }
     printf "done"
   }
-}
-
-remove_custom() {
-  allcustom=
-  [ "$1" == "all" ] && allcustom=1
-  customdir="$1"
-
-  if [ "${allcustom}" ]
-  then
-    for custom in ${CUSTMCFGS}
-    do
-      lazyman -R -N nvim-${custom} -y
-    done
-  else
-    lazyman -R -N nvim-${customdir} -y
-  fi
 }
 
 update_custom() {
@@ -818,7 +735,9 @@ update_config() {
         chmod 755 "${HOME}"/.local/bin/lazyman
       }
     }
-    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] || [ "${ndir}" == "nvim-Python" ] && {
+    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] || \
+    [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] || \
+    [ "${ndir}" == "nvim-Python" ] && {
       if [ "${ndir}" == "${astronvimdir}" ]; then
         cdir="lua/user"
       else
@@ -946,7 +865,7 @@ list_installed() {
     source "${LMANDIR}"/.lazymanrc
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     installed=()
-    for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+    for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
       basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
       if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
         installed+=("${basenvdir}")
@@ -971,7 +890,7 @@ list_uninstalled() {
     source "${LMANDIR}"/.lazymanrc
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     uninstalled=()
-    for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+    for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
       basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
       if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
         uninstalled+=("${basenvdir}")
@@ -1064,7 +983,9 @@ show_info() {
         printf "\n  %-45s  Custom config folder not found" "${tdir}"
       fi
     }
-    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] || [ "${neovim}" == "nvim-Python" ] && {
+    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] || \
+    [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] || \
+    [ "${neovim}" == "nvim-Python" ] && {
       if [ "${neovim}" == "${astronvimdir}" ]; then
         cdir="lua/user"
         tdir="~/.config/${neovim}/lua/user"
@@ -1165,9 +1086,6 @@ install_config() {
     AstroNvim)
       lazyman ${darg} -a -z -y -Q -q
       ;;
-    Basic)
-      lazyman ${darg} -x Basic -z -y -Q -q
-      ;;
     BasicIde)
       lazyman ${darg} -j -z -y -Q -q
       ;;
@@ -1192,12 +1110,6 @@ install_config() {
     NvChad)
       lazyman ${darg} -c -z -y -Q -q
       ;;
-    Modern)
-      lazyman ${darg} -x Modern -z -y -Q -q
-      ;;
-    PDE)
-      lazyman ${darg} -x PDE -z -y -Q -q
-      ;;
     Penguin)
       lazyman ${darg} -o -z -y -Q -q
       ;;
@@ -1207,82 +1119,16 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    Adib)
-      lazyman ${darg} -w Adib -z -y -Q -q
+    Go|LaTeX|Python|Rust|SaleVim)
+      lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    ONNO)
-      lazyman ${darg} -w ONNO -z -y -Q -q
+    Adib|ONNO|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple)
+      lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
-    LaTeX)
-      lazyman ${darg} -w LaTeX -z -y -Q -q
+    Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+      lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    AlanVim)
-      lazyman ${darg} -w AlanVim -z -y -Q -q
-      ;;
-    Charles)
-      lazyman ${darg} -w Charles -z -y -Q -q
-      ;;
-    Magidc)
-      lazyman ${darg} -w Magidc -z -y -Q -q
-      ;;
-    Ember)
-      lazyman ${darg} -w Ember -z -y -Q -q
-      ;;
-    Knvim)
-      lazyman ${darg} -w Knvim -z -y -Q -q
-      ;;
-    Roiz)
-      lazyman ${darg} -w Roiz -z -y -Q -q
-      ;;
-    Fennel)
-      lazyman ${darg} -w Fennel -z -y -Q -q
-      ;;
-    CodeArt)
-      lazyman ${darg} -x CodeArt -z -y -Q -q
-      ;;
-    Cosmic)
-      lazyman ${darg} -x Cosmic -z -y -Q -q
-      ;;
-    NvPak)
-      lazyman ${darg} -x NvPak -z -y -Q -q
-      ;;
-    HardHacker)
-      lazyman ${darg} -x HardHacker -z -y -Q -q
-      ;;
-    Optixal)
-      lazyman ${darg} -w Optixal -z -y -Q -q
-      ;;
-    Plug)
-      lazyman ${darg} -w Plug -z -y -Q -q
-      ;;
-    Heiker)
-      lazyman ${darg} -w Heiker -z -y -Q -q
-      ;;
-    Minimal)
-      lazyman ${darg} -x Minimal -z -y -Q -q
-      ;;
-    Simple)
-      lazyman ${darg} -w Simple -z -y -Q -q
-      ;;
-    StartBase)
-      lazyman ${darg} -x StartBase -z -y -Q -q
-      ;;
-    Opinion)
-      lazyman ${darg} -x Opinion -z -y -Q -q
-      ;;
-    StartLsp)
-      lazyman ${darg} -x StartLsp -z -y -Q -q
-      ;;
-    StartMason)
-      lazyman ${darg} -x StartMason -z -y -Q -q
-      ;;
-    Modular)
-      lazyman ${darg} -x Modular -z -y -Q -q
-      ;;
-    Extralight)
-      lazyman ${darg} -x Extralight -z -y -Q -q
-      ;;
-    Allaman|Brain|3rd|Elianiva|Nv|Python|SaleVim|Slydragonn)
+    Allaman|Brain|3rd|Elianiva|Josean|Nv|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -1313,7 +1159,7 @@ select_install() {
   fi
   readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
   uninstalled=()
-  for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+  for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
     basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
     if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
       uninstalled+=("${basenvdir}")
@@ -1584,6 +1430,17 @@ show_main_menu() {
     fi
     installed=1
     partial=
+    get_config_str "${LANGUCFGS}"
+    lang_partial=${partial}
+    lang_installed=${installed}
+    if [ "${lang_installed}" ]
+    then
+      options+=("Update Languages  ${configstr}")
+    else
+      options+=("Install Languages ${configstr}")
+    fi
+    installed=1
+    partial=
     get_config_str "${PRSNLCFGS}"
     prsnl_partial=${partial}
     prsnl_installed=${installed}
@@ -1617,7 +1474,7 @@ show_main_menu() {
     fi
     installed=1
     partial=
-    get_config_str "${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}"
+    get_config_str "${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}"
     if [ "${installed}" ]
     then
       options+=("Update All        ${configstr}")
@@ -1627,7 +1484,7 @@ show_main_menu() {
     uninstalled=()
     if [ "${have_fzf}" ]
     then
-      for neovim in ${BASECFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
+      for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS} ${CUSTMCFGS}; do
         basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
         if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
           uninstalled+=("${basenvdir}")
@@ -1641,6 +1498,7 @@ show_main_menu() {
       prompt_continue
     fi
     [ "${base_installed}" ] || options+=("Select/Install Base")
+    [ "${lang_installed}" ] || options+=("Select/Inst Language")
     [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
     [ "${start_installed}" ] || options+=("Select/Inst Starter")
     [ "${custm_installed}" ] || options+=("Select/Inst Custom")
@@ -1676,16 +1534,19 @@ show_main_menu() {
     fi
 
     [ "${base_partial}" ] && options+=("Select/Open Base")
+    [ "${lang_partial}" ] && options+=("Select/Open Language")
     [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
     [ "${start_partial}" ] && options+=("Select/Open Starter")
     [ "${custm_partial}" ] && options+=("Select/Open Custom")
 
     [ ${numitems} -gt 1 ] && options+=("Select and Remove")
     [ "${base_partial}" ] && options+=("Select/Remove Base")
+    [ "${lang_partial}" ] && options+=("Select/Rem Language")
     [ "${prsnl_partial}" ] && options+=("Select/Rem Personal")
     [ "${start_partial}" ] && options+=("Select/Rem Starter")
     [ "${custm_partial}" ] && options+=("Select/Remove Custom")
     [ "${base_partial}" ] && options+=("Remove Base")
+    [ "${lang_partial}" ] && options+=("Remove Languages")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
     [ "${custm_partial}" ] && options+=("Remove Custom")
@@ -1733,6 +1594,20 @@ show_main_menu() {
             fi
           done
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Install  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            install_config "${choice}"
+          fi
+          break
+          ;;
+        "Select/Inst Language"*,* | *,"Select/Inst Language"*)
+          choices=()
+          for neovim in ${LANGUCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Install  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             install_config "${choice}"
           fi
@@ -1794,6 +1669,24 @@ show_main_menu() {
             fi
           done
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Open  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${USEGUI}" ]; then
+              NVIM_APPNAME="nvim-${choice}" neovide
+            else
+              NVIM_APPNAME="nvim-${choice}" nvim
+            fi
+          fi
+          break
+          ;;
+        "Select/Open Language"*,* | *,"Select/Open Language"*)
+          choices=()
+          for neovim in ${LANGUCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
@@ -1871,6 +1764,20 @@ show_main_menu() {
           fi
           break
           ;;
+        "Select/Rem Language"*,* | *,"Select/Rem Language"*)
+          choices=()
+          for neovim in ${LANGUCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Remove  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            lazyman -R -N "nvim-${choice}"
+          fi
+          break
+          ;;
         "Select/Rem Personal"*,* | *,"Select/Rem Personal"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
@@ -1934,6 +1841,10 @@ show_main_menu() {
           lazyman ${darg} -B -y -z -q -Q
           break
           ;;
+        "Install Language"*,* | *,"Install Language"*)
+          lazyman ${darg} -L all -y -z -Q -q
+          break
+          ;;
         "Install Personal"*,* | *,"Install Personal"*)
           lazyman ${darg} -W -y -z -Q -q
           break
@@ -1951,6 +1862,7 @@ show_main_menu() {
           printf "\n\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
           lazyman ${darg} -B -y -z -Q -q
+          lazyman ${darg} -L all -y -z -Q -q
           lazyman ${darg} -W -y -z -Q -q
           lazyman ${darg} -X -y -z -Q -q
           printf "\nInstalling all Lazyman 'Custom' Neovim configurations\n"
@@ -1960,6 +1872,10 @@ show_main_menu() {
         "Update Base"*,* | *,"Update Base"*)
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
           lazyman ${darg} -B -y -z -Q -q -U
+          break
+          ;;
+        "Update Language"*,* | *,"Update Language"*)
+          lazyman ${darg} -L all -y -z -Q -q -U
           break
           ;;
         "Update Personal"*,* | *,"Update Personal"*)
@@ -1979,6 +1895,7 @@ show_main_menu() {
           printf "\nUpdating all Lazyman Neovim configurations\n"
           printf "\nUpdating all Lazyman 'Base' Neovim configurations\n"
           lazyman ${darg} -B -y -z -Q -q -U
+          lazyman ${darg} -L all -y -z -Q -q -U
           lazyman ${darg} -W -y -z -Q -q -U
           lazyman ${darg} -X -y -z -Q -q -U
           printf "\nUpdating all Lazyman 'Custom' Neovim configurations\n"
@@ -2129,6 +2046,11 @@ show_main_menu() {
           lazyman -R -B -y
           break
           ;;
+        "Remove Language"*,* | *,"Remove Language"*)
+          printf "\nRemoving all Lazyman 'Language' Neovim configurations\n"
+          lazyman -R -L all -y
+          break
+          ;;
         "Remove Personal"*,* | *,"Remove Personal"*)
           printf "\nRemoving all Lazyman 'Personal' Neovim configurations\n"
           lazyman -R -W -y
@@ -2150,7 +2072,9 @@ show_main_menu() {
           ;;
         "Remove Custom"*,* | *,"Remove Custom"*)
           printf "\nRemoving all Lazyman 'Custom' Neovim configurations\n"
-          remove_custom all
+          for ndirc in ${CUSTMCFGS}; do
+            lazyman -R -N ${ndirc} -y
+          done
           break
           ;;
         "Debug Mode"*,* | *,"Debug Mode"*)
@@ -2286,7 +2210,7 @@ all=
 branch=
 instnvim=1
 subdir=
-command=
+language=
 brew=
 debug=
 darg=
@@ -2295,6 +2219,7 @@ fix_help=
 invoke=
 confmenu=
 langservers=
+nvchadcustom=
 tellme=
 exitafter=
 astronvim=
@@ -2310,6 +2235,7 @@ magicvim=
 nvchad=
 nvimbase=
 nvimcustom=
+nvimlang=
 nvimprsnl=
 nvimstarter=
 modern=
@@ -2359,7 +2285,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
 }
-while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag; do
+while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyY:zZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2368,7 +2294,8 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
     A)
       all=1
       nvimbase=1
-      nvimcustom=1
+      nvimcustom="all"
+      nvimlang="all"
       nvimprsnl="all"
       nvimstarter="all"
       quiet=1
@@ -2462,7 +2389,11 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       neovimdir=("$lazyvimdir")
       ;;
     L)
-      command="$OPTARG"
+      language="$OPTARG"
+      nvimlang="${language}"
+      [ "${language}" == "all" ] || [ "${language}" == "All" ] && {
+        nvimlang="all"
+      }
       ;;
     m)
       magicvim=1
@@ -2529,6 +2460,9 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
     U)
       update=1
       ;;
+    V)
+      nvchadcustom="$OPTARG"
+      ;;
     v)
       lunarvim=1
       neovimdir=("$lunarvimdir")
@@ -2552,8 +2486,12 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vw:Wx:XyYzZu" flag;
       yes="-y"
       ;;
     Y)
-      nvimcustom=1
-      quiet=1
+      custom="$OPTARG"
+      nvimcustom="${custom}"
+      [ "${custom}" == "all" ] || [ "${custom}" == "All" ] && {
+        nvimcustom="all"
+        quiet=1
+      }
       ;;
     z)
       runvim=
@@ -2652,15 +2590,128 @@ set_haves
 
 [ "$nvimcustom" ] && {
   if [ "$remove" ]; then
-    remove_custom all
-  else
-    if [ "${update}" ]
-    then
-      printf "\n\nUpdating all installed Custom Neovim configurations."
-      update_custom all
+    if [ "${nvimcustom}" == "all" ]; then
+      for neovim in ${CUSTMCFGS}; do
+        remove_config "nvim-${neovim}"
+      done
     else
-      printf "\n\nInstalling and initializing all Custom Neovim configurations."
+      remove_config "nvim-${nvimcustom}"
+    fi
+  else
+    if [ "${nvimcustom}" == "all" ]; then
+      printf "\n\nInstalling/Updating all Custom Neovim configurations."
+    else
+      printf "\n\nInstalling/Updating ${nvimcustom} Custom Neovim configuration."
+    fi
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
+    quietflag=
+    [ "${quiet}" ] && quietflag="-q"
+    if [ "${nvimcustom}" == "all" ]; then
       install_custom all
+    else
+      install_custom "${nvimcustom}"
+    fi
+  fi
+}
+
+[ "$nvimlang" ] && {
+  if [ "$remove" ]; then
+    if [ "${nvimlang}" == "all" ]; then
+      for neovim in ${LANGUCFGS}; do
+        remove_config "nvim-${neovim}"
+      done
+    else
+      remove_config "nvim-${nvimlang}"
+    fi
+  else
+    if [ "${nvimlang}" == "all" ]; then
+      printf "\n\nInstalling/Updating all Language Neovim configurations."
+    else
+      printf "\n\nInstalling/Updating ${nvimlang} Language Neovim configuration."
+    fi
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
+    quietflag=
+    [ "${quiet}" ] && quietflag="-q"
+    if [ "${nvimlang}" == "all" ]; then
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Go ] && action="Updating"
+      printf "\n${action} Go Neovim configuration ..."
+      lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-go-config \
+        -b main -N nvim-Go ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Go"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-LaTeX ] && action="Updating"
+      printf "\n${action} LaTeX Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/benbrastmckie/.config -D nvim \
+        -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-LaTeX"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Python ] && action="Updating"
+      printf "\n${action} Python Neovim configuration ..."
+      lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-python \
+        -b main -N nvim-Python ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Python"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Rust ] && action="Updating"
+      printf "\n${action} Rust Neovim configuration ..."
+      lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-rust \
+        -b main -N nvim-Rust ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Rust"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-SaleVim ] && action="Updating"
+      printf "\n${action} SaleVim Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
+        -N nvim-SaleVim -P ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-SaleVim"
+    else
+      lang_url=
+      lang_dir=
+      lang_opt=
+      help_opt=
+      runflag=
+      [ "${runvim}" ] || runflag="-z"
+      case ${nvimlang} in
+        Go)
+          lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
+          lang_opt="-b main"
+          ;;
+        LaTeX)
+          lang_url="-C https://github.com/benbrastmckie/.config"
+          lang_opt="-P"
+          lang_dir="-D nvim"
+          help_opt="-f ${fix_latex}"
+          ;;
+        Python)
+          lang_url="-V https://github.com/dreamsofcode-io/neovim-python"
+          lang_opt="-b main"
+          ;;
+        Rust)
+          lang_url="-V https://github.com/dreamsofcode-io/neovim-rust"
+          lang_opt="-b main"
+          ;;
+        SaleVim)
+          lang_url="-C https://github.com/igorcguedes/SaleVim"
+          lang_opt="-P"
+          ;;
+        *)
+          printf "\nUnrecognized language configuration: ${nvimlang}"
+          prompt_continue
+          usage
+          ;;
+      esac
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-${nvimlang} ] && action="Updating"
+      printf "\n${action} ${nvimlang} Neovim configuration ..."
+      lazyman ${darg} ${lang_url} -N nvim-${nvimlang} ${lang_dir} \
+        ${lang_opt} ${help_opt} ${quietflag} ${runflag} ${yesflag}
+      printf " done"
     fi
   fi
 }
@@ -2744,13 +2795,6 @@ set_haves
       printf " done"
       show_alias "nvim-ONNO"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-LaTeX ] && action="Updating"
-      printf "\n${action} LaTeX Neovim configuration ..."
-      lazyman ${darg} -C https://github.com/benbrastmckie/.config -D nvim \
-        -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
-      printf " done"
-      show_alias "nvim-LaTeX"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration ..."
       lazyman ${darg} -C https://github.com/Optixal/neovim-init.vim \
@@ -2819,12 +2863,6 @@ set_haves
         Fennel)
           prsnl_url="https://github.com/jhchabran/nvim-config"
           prsnl_opt="-P"
-          ;;
-        LaTeX)
-          prsnl_url="https://github.com/benbrastmckie/.config"
-          prsnl_opt="-P"
-          prsnl_dir="-D nvim"
-          help_opt="-f ${fix_latex}"
           ;;
         ONNO)
           prsnl_url="https://github.com/loctvl842/nvim"
@@ -3087,6 +3125,12 @@ set_haves
     brief_usage
   }
 }
+[ "$nvchadcustom" ] && {
+  [ "$name" ] || {
+    printf "\nERROR: '-V url' must be accompanied with '-N nvimdir'\n"
+    brief_usage
+  }
+}
 [ "$all" ] && [ "$name" ] && {
   printf "\nERROR: '-A' cannot be used with '-N nvimdir'\n"
   brief_usage
@@ -3244,16 +3288,6 @@ set_haves
       remove_config "$nvimdir"
     done
   }
-  exit 0
-}
-
-[ "$command" ] && {
-  [ "$all" ] || [ "$name" ] || {
-    [ "$NVIM_APPNAME" ] && neovimdir=("$NVIM_APPNAME")
-  }
-  for neovim in "${neovimdir[@]}"; do
-    run_command "$neovim" "$command"
-  done
   exit 0
 }
 
@@ -3606,6 +3640,48 @@ set_brew
             ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua
         }
       }
+      # Replace references to /nvim/ with /$neovimdir[0]/
+      fix_nvim_dir "${neovimdir[0]}"
+      add_nvimdirs_entry "${neovimdir[0]}"
+    }
+    [ "$quiet" ] || printf "done"
+  fi
+}
+# -V
+[ "$nvchadcustom" ] && {
+  if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
+    update=1
+    [ "$quiet" ] || {
+      printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists."
+    }
+  else
+    [ "$quiet" ] || {
+      printf "\nCloning ${nvchadcustom} into"
+      printf "\n\t${HOME}/.config/${neovimdir[0]} ... "
+    }
+    [ "$tellme" ] || {
+      git clone https://github.com/NvChad/NvChad \
+          "${HOME}/.config/${neovimdir[0]}" --depth 1 >/dev/null 2>&1
+      if [ "${subdir}" ]; then
+        [ "${branch}" ] || branch="master"
+        # Perform some git tricks here to retrieve a repo subdirectory
+        mkdir /tmp/lazyman$$
+        git -C /tmp/lazyman$$ init >/dev/null 2>&1
+        git -C /tmp/lazyman$$ remote add -f origin ${nvchadcustom} >/dev/null 2>&1
+        git -C /tmp/lazyman$$ config core.sparseCheckout true >/dev/null 2>&1
+        [ -d /tmp/lazyman$$/.git/info ] || mkdir -p /tmp/lazyman$$/.git/info
+        echo "${subdir}" >>/tmp/lazyman$$/.git/info/sparse-checkout
+        git -C /tmp/lazyman$$ pull origin ${branch} >/dev/null 2>&1
+        mv "/tmp/lazyman$$/${subdir}" "${HOME}/.config/${neovimdir[0]}"/lua/custom
+        rm -rf "/tmp/lazyman$$"
+      else
+        git clone "${nvchadcustom}" \
+            "${HOME}/.config/${neovimdir[0]}"/lua/custom >/dev/null 2>&1
+        [ "$branch" ] && {
+          git -C "${HOME}/.config/${neovimdir[0]}/lua/custom" \
+            checkout "$branch" >/dev/null 2>&1
+        }
+      fi
       # Replace references to /nvim/ with /$neovimdir[0]/
       fix_nvim_dir "${neovimdir[0]}"
       add_nvimdirs_entry "${neovimdir[0]}"
