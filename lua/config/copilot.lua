@@ -16,15 +16,15 @@ require('copilot').setup({
   },
   suggestion = {
     enabled = false,
-    auto_trigger = false,
+    auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<M-l>",
-      accept_word = false,
-      accept_line = false,
+      accept = "<CR>",
+      accept_word = "<M-k>",
+      accept_line = "<M-l>",
       next = "<M-]>",
       prev = "<M-[>",
-      dismiss = "<C-]>",
+      dismiss = "<M-c>",
     },
   },
   filetypes = {
