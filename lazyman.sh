@@ -23,11 +23,11 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="Go LaTeX Python Rust"
+LANGUCFGS="Go LaTeX Python Rust SaleVim"
 PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="Allaman Brain 3rd Elianiva Josean Nv SaleVim Slydragonn"
+CUSTMCFGS="Allaman Brain 3rd Elianiva Josean Nv Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
@@ -643,14 +643,6 @@ install_custom() {
     }
     printf "done"
   }
-  [ "${allcustom}" ] || [ "${customdir}" == "SaleVim" ] && {
-    printf "\nInstalling and initializing the SaleVim Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
-        -N nvim-SaleVim -P ${allflags}
-    }
-    printf "done"
-  }
   [ "${allcustom}" ] || [ "${customdir}" == "Slydragonn" ] && {
     printf "\nInstalling and initializing the Slydragonn Neovim configuration ... "
     [ "$tellme" ] || {
@@ -1094,9 +1086,6 @@ install_config() {
     AstroNvim)
       lazyman ${darg} -a -z -y -Q -q
       ;;
-    Basic)
-      lazyman ${darg} -x Basic -z -y -Q -q
-      ;;
     BasicIde)
       lazyman ${darg} -j -z -y -Q -q
       ;;
@@ -1121,12 +1110,6 @@ install_config() {
     NvChad)
       lazyman ${darg} -c -z -y -Q -q
       ;;
-    Modern)
-      lazyman ${darg} -x Modern -z -y -Q -q
-      ;;
-    PDE)
-      lazyman ${darg} -x PDE -z -y -Q -q
-      ;;
     Penguin)
       lazyman ${darg} -o -z -y -Q -q
       ;;
@@ -1136,91 +1119,16 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    Adib)
-      lazyman ${darg} -w Adib -z -y -Q -q
+    Go|LaTeX|Python|Rust|SaleVim)
+      lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    ONNO)
-      lazyman ${darg} -w ONNO -z -y -Q -q
+    Adib|ONNO|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple)
+      lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
-    Go)
-      lazyman ${darg} -L Go -z -y -Q -q
+    Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+      lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    LaTeX)
-      lazyman ${darg} -L LaTeX -z -y -Q -q
-      ;;
-    Python)
-      lazyman ${darg} -L Python -z -y -Q -q
-      ;;
-    Rust)
-      lazyman ${darg} -L Rust -z -y -Q -q
-      ;;
-    AlanVim)
-      lazyman ${darg} -w AlanVim -z -y -Q -q
-      ;;
-    Charles)
-      lazyman ${darg} -w Charles -z -y -Q -q
-      ;;
-    Magidc)
-      lazyman ${darg} -w Magidc -z -y -Q -q
-      ;;
-    Ember)
-      lazyman ${darg} -w Ember -z -y -Q -q
-      ;;
-    Knvim)
-      lazyman ${darg} -w Knvim -z -y -Q -q
-      ;;
-    Roiz)
-      lazyman ${darg} -w Roiz -z -y -Q -q
-      ;;
-    Fennel)
-      lazyman ${darg} -w Fennel -z -y -Q -q
-      ;;
-    CodeArt)
-      lazyman ${darg} -x CodeArt -z -y -Q -q
-      ;;
-    Cosmic)
-      lazyman ${darg} -x Cosmic -z -y -Q -q
-      ;;
-    NvPak)
-      lazyman ${darg} -x NvPak -z -y -Q -q
-      ;;
-    HardHacker)
-      lazyman ${darg} -x HardHacker -z -y -Q -q
-      ;;
-    Optixal)
-      lazyman ${darg} -w Optixal -z -y -Q -q
-      ;;
-    Plug)
-      lazyman ${darg} -w Plug -z -y -Q -q
-      ;;
-    Heiker)
-      lazyman ${darg} -w Heiker -z -y -Q -q
-      ;;
-    Minimal)
-      lazyman ${darg} -x Minimal -z -y -Q -q
-      ;;
-    Simple)
-      lazyman ${darg} -w Simple -z -y -Q -q
-      ;;
-    StartBase)
-      lazyman ${darg} -x StartBase -z -y -Q -q
-      ;;
-    Opinion)
-      lazyman ${darg} -x Opinion -z -y -Q -q
-      ;;
-    StartLsp)
-      lazyman ${darg} -x StartLsp -z -y -Q -q
-      ;;
-    StartMason)
-      lazyman ${darg} -x StartMason -z -y -Q -q
-      ;;
-    Modular)
-      lazyman ${darg} -x Modular -z -y -Q -q
-      ;;
-    Extralight)
-      lazyman ${darg} -x Extralight -z -y -Q -q
-      ;;
-    Allaman|Brain|3rd|Elianiva|Josean|Nv|SaleVim|Slydragonn)
+    Allaman|Brain|3rd|Elianiva|Josean|Nv|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -2753,6 +2661,14 @@ set_haves
         -b main -N nvim-Rust ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Rust"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-SaleVim ] && action="Updating"
+      printf "\n${action} SaleVim Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
+        -N nvim-SaleVim -P ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-SaleVim"
+  }
     else
       lang_url=
       lang_dir=
@@ -2778,6 +2694,10 @@ set_haves
         Rust)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-rust"
           lang_opt="-b main"
+          ;;
+        SaleVim)
+          lang_url="-C https://github.com/igorcguedes/SaleVim"
+          lang_opt="-P"
           ;;
         *)
           printf "\nUnrecognized language configuration: ${nvimlang}"
