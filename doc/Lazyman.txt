@@ -216,7 +216,7 @@ always used on Arch Linux, Homebrew on macOS)
 `-I` : indicates install all language servers and tools for coding diagnostics
 
 `-L lang` : indicates install the `lang` Language configuration where 'lang'
-can be one of: All Go LaTeX Python Rust
+can be one of: All Go LaTeX Python Rust SaleVim
 
 `-n` : indicates dry run, don’t actually do anything, just printf’s
 
@@ -242,8 +242,7 @@ can be one of: All Go LaTeX Python Rust
 
 `-w conf` : indicates install and initialize Personal 'conf' configuration.
 'conf' can be one of: 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz',
-'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', 'LaTeX', or
-'Heiker'
+'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
@@ -257,7 +256,7 @@ can be one of: All Go LaTeX Python Rust
 `-y` : indicates do not prompt, answer 'yes' to any prompt
 
 `-Y cust` : indicates install the `cust` Custom configuration where 'cust' can
-be one of: All Allaman Brain 3rd Elianiva Josean Nv SaleVim Slydragonn
+be one of: All Allaman Brain 3rd Elianiva Josean Nv Slydragonn
 
 `-z` : indicates do not run nvim after initialization
 
