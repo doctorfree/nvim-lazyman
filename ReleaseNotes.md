@@ -13,21 +13,25 @@ See below for detailed [Installation instructions](#installation) to bootstrap L
 
 The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently over 50 popular Neovim configurations are supported in the following configuration categories:
 
+<!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |
 | [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvim](https://astronvim.com) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
 
+<!-- prettier-ignore -->
 | **Language** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
 | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [LaTeX](https://github.com/benbrastmckie/.config) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) |
 
-| **Personal** |       |        |        | **Configs** |
-| ------------ | ----- | ------ | ------ | ----------- |
+<!-- prettier-ignore -->
+| **Personal** |       |       |       | **Configs** |
+| ------------ | ----- | ----- | ----- | ----------- |
 | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
 | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
 | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 
+<!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
 | ----------- | ----- | ----- | ----- | ----------- |
 | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
@@ -36,6 +40,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 
 Known working custom Lazyman configurations not yet integrated into the above categories.
 
+<!-- prettier-ignore -->
 | **Custom** |       |       | **Configs** |
 | ---------- | ----- | ----- | ----------- |
 | [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
