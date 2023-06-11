@@ -2668,7 +2668,6 @@ set_haves
         -N nvim-SaleVim -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-SaleVim"
-  }
     else
       lang_url=
       lang_dir=
