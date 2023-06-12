@@ -25,10 +25,10 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [LaTeX](https://github.com/benbrastmckie/.config) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) |
 
 <!-- prettier-ignore -->
-| **Personal** |       |       |       | **Configs** |
-| ------------ | ----- | ----- | ----- | ----------- |
-| [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
-| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
+| **Personal** |       |        |        | **Configs** |
+| ------------ | ----- | ------ | ------ | ----------- |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) |
+| [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
 | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 
 <!-- prettier-ignore -->
@@ -43,8 +43,10 @@ Known working custom Lazyman configurations not yet integrated into the above ca
 <!-- prettier-ignore -->
 | **Custom** |       |       | **Configs** |
 | ---------- | ----- | ----- | ----------- |
-| [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Nv](https://github.com/appelgriebsch/Nv) | | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) |
+
+|
+| [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Nv](https://github.com/appelgriebsch/Nv) |
+| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 

@@ -74,8 +74,8 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config)  |
-| [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) |
+| [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
 | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
 
 <!-- prettier-ignore -->
@@ -92,8 +92,9 @@ for installation details.
 <!-- prettier-ignore -->
 | **Custom** |       |       | **Configs** |
 | ---------- | ----- | ----- | ----------- |
-| [3rd](https://github.com/3rd/config) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
-| [Nv](https://github.com/appelgriebsch/Nv) | | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) |
+|
+| [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Nv](https://github.com/appelgriebsch/Nv) |
+| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -571,6 +572,9 @@ Known working custom Lazyman configurations include the following:
   - LazyVim based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
   - `lazyman -Y Nv`
+- [Rafi](https://github.com/rafi/vim-config)
+  - [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
+  - `lazyman -Y Rafi`
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -Y Slydragonn`
@@ -791,7 +795,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           AlanVim Charles Magidc Mini Knvim Roiz Fennel
+           3rd AlanVim Charles Magidc Mini Knvim Roiz Fennel
            Ember ONNO Adib Optixal Plug Simple Heiker
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
@@ -802,7 +806,7 @@ Where:
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y 'cust' indicates install the 'cust' Custom configuration
        'cust' can be one of:
-           All Allaman Brain 3rd Elianiva Josean Nv Slydragonn
+           All Allaman Brain Elianiva Josean Nv Rafi Slydragonn
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits

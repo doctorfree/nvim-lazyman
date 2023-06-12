@@ -227,7 +227,7 @@ The following command line options are available with the `lazyman` command:
 
 `-V url` : specifies an NvChad user configuration git repository
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', or 'Heiker'
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: '3rd', 'AlanVim', 'Charles', 'Magidc', 'Mini', 'Knvim', 'Roiz', 'Fennel', 'Ember', 'Adib', 'Optixal', 'Plug', 'Simple', 'ONNO', or 'Heiker'
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
@@ -237,7 +237,7 @@ The following command line options are available with the `lazyman` command:
 
 `-y` : indicates do not prompt, answer 'yes' to any prompt
 
-`-Y cust` : indicates install the `cust` Custom configuration where 'cust' can be one of: All Allaman Brain 3rd Elianiva Josean Nv Slydragonn
+`-Y cust` : indicates install the `cust` Custom configuration where 'cust' can be one of: All Allaman Brain Elianiva Josean Nv Rafi Slydragonn
 
 `-z` : indicates do not run nvim after initialization
 

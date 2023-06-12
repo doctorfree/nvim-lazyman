@@ -11,7 +11,6 @@ LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
-GET_CONF="${LMANDIR}/scripts/get_conf.lua"
 HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
 SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
@@ -24,19 +23,15 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO"
+PRSNLCFGS="3rd AlanVim Charles Magidc Mini Ember Knvim Roiz Fennel Adib Optixal Plug Heiker Simple ONNO"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
-CUSTMCFGS="Allaman Brain 3rd Elianiva Josean Nv Slydragonn"
+CUSTMCFGS="Allaman Brain Elianiva Josean Nv Rafi Slydragonn"
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names
 fonts=("slant" "shadow" "small" "script" "standard")
-
-lsp_enabled_table=()
-for_enabled_table=()
-neorg_notes_table=()
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
@@ -103,7 +98,7 @@ usage() {
   printf "\n    -V 'url' specifies an NvChad user configuration git repository"
   printf "\n    -w 'conf' indicates install and initialize Personal 'conf' config"
   printf "\n       'conf' can be one of:"
-  printf "\n           AlanVim Charles Magidc Mini Knvim Roiz Fennel"
+  printf "\n           3rd AlanVim Charles Magidc Mini Knvim Roiz Fennel"
   printf "\n           Ember ONNO Adib Optixal Plug Simple Heiker"
   printf "\n    -W indicates install and initialize all 'Personal' Neovim configurations"
   printf "\n    -x 'conf' indicates install and initialize nvim-starter 'conf' config"
@@ -162,13 +157,8 @@ set_haves() {
   have_cargo=$(type -p cargo)
   have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
-  have_tscli=$(type -p tree-sitter)
-  have_julia=$(type -p julia)
-  have_composer=$(type -p composer)
-  have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
-  have_zoxi=$(type -p zoxide)
 }
 
 # Patch references to ~/.config/nvim/
@@ -177,7 +167,7 @@ fix_nvim_dir() {
   [ "${fixnvimdir}" == "${lazymandir}" ] || {
     find "${HOME}/.config/${fixnvimdir}" \
       -type f -a \( -name \*\.lua -o -name \*\.vim  \) | \
-    while read f
+    while read -r f
     do
       echo "$f" | grep /.git/ > /dev/null && continue
       grep /nvim/ "$f" > /dev/null && {
@@ -587,22 +577,6 @@ install_custom() {
   customdir="$1"
   allflags="-q -Q -y -z"
 
-  [ "${allcustom}" ] || [ "${customdir}" == "3rd" ] && {
-    printf "\nInstalling and initializing the 3rd Neovim configuration ... "
-    [ "$tellme" ] || {
-      lazyman ${darg} -C https://github.com/3rd/config \
-        -D home/dotfiles/nvim -N nvim-3rd ${allflags}
-      for symlink in plugins/syslang/queries/syslang linters/eslint
-      do
-        [ -L ${HOME}/.config/nvim-3rd/${symlink} ] && {
-          [ -e ${HOME}/.config/nvim-3rd/${symlink} ] || {
-            rm -f ${HOME}/.config/nvim-3rd/${symlink}
-          }
-        }
-      done
-    }
-    printf "done"
-  }
   [ "${allcustom}" ] || [ "${customdir}" == "Allaman" ] && {
     printf "\nInstalling and initializing the Allaman Neovim configuration ... "
     [ "$tellme" ] || {
@@ -640,6 +614,14 @@ install_custom() {
     [ "$tellme" ] || {
       lazyman ${darg} -C https://github.com/appelgriebsch/Nv \
         -N nvim-Nv ${allflags}
+    }
+    printf "done"
+  }
+  [ "${allcustom}" ] || [ "${customdir}" == "Rafi" ] && {
+    printf "\nInstalling and initializing the Rafi Neovim configuration ... "
+    [ "$tellme" ] || {
+      lazyman ${darg} -C https://github.com/rafi/vim-config \
+        -N nvim-Rafi ${allflags}
     }
     printf "done"
   }
@@ -1122,13 +1104,13 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple)
+    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Allaman|Brain|3rd|Elianiva|Josean|Nv|Slydragonn)
+    Allaman|Brain|Elianiva|Josean|Nv|Rafi|Slydragonn)
       install_custom "${confname}"
       ;;
     *)
@@ -2746,6 +2728,21 @@ set_haves
       printf " done"
       show_alias "nvim-AlanVim"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-3rd ] && action="Updating"
+      printf "\n${action} 3rd Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/3rd/config \
+        -D home/dotfiles/nvim -N nvim-3rd ${quietflag} -z ${yesflag}
+      for symlink in plugins/syslang/queries/syslang linters/eslint
+      do
+        [ -L ${HOME}/.config/nvim-3rd/${symlink} ] && {
+          [ -e ${HOME}/.config/nvim-3rd/${symlink} ] || {
+            rm -f ${HOME}/.config/nvim-3rd/${symlink}
+          }
+        }
+      done
+      printf " done"
+      show_alias "nvim-3rd"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Charles ] && action="Updating"
       printf "\n${action} Charles Neovim configuration ..."
       lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
@@ -2837,6 +2834,10 @@ set_haves
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
+        3rd)
+          prsnl_url="https://github.com/3rd/config"
+          prsnl_dir="-D home/dotfiles/nvim"
+          ;;
         AlanVim)
           prsnl_url="https://github.com/alanRizzo/dot-files"
           prsnl_opt="-b main -P"
