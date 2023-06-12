@@ -10,6 +10,8 @@
 
 ### ⚡️ Added
 
+- Add `shellcheck` to `null-ls` configuration
+
 ### 🐞 Fixed
 
 - Use `POSIX` compliant `sed` actions in config menu table modifications, `macOS` fix
