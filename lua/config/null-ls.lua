@@ -80,6 +80,15 @@ if table_contains(formatters_linters, "latexindent") then
     })
   )
 end
+if table_contains(formatters_linters, "shellcheck") then
+  table.insert(
+    conf_sources,
+    actions.shellcheck.with({
+      timeout = 10000,
+      filetypes = { "sh", "zsh", "bash" },
+    })
+  )
+end
 if table_contains(formatters_linters, "shfmt") then
   table.insert(
     conf_sources,

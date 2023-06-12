@@ -6,6 +6,14 @@
 
 ### 🐞 Fixed
 
+## v2.1.5r4
+
+### ⚡️ Added
+
+### 🐞 Fixed
+
+- Use `POSIX` compliant `sed` actions in config menu table modifications, `macOS` fix
+
 ## v2.1.5r3
 
 ### ⚡️ Added
