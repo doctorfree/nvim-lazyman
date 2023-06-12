@@ -4,7 +4,11 @@
 
 ### ⚡️ Added
 
+- Add `Rafi` configuration to `Custom`
+
 ### 🐞 Fixed
+
+- Move `3rd` config from `Custom` to `Personal`
 
 ## v2.1.5r4
 
