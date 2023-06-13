@@ -24,12 +24,22 @@ Mason Menu                          | <leader>M
 Mason Menu                          | :Mason
 Options                             | <leader>o
 Options                             | :options
+Toggle Color Column                 | <leader>C
 Toggle Conceal Level                | <leader>uc
-Toggle Line Numbers                 | <leader>ul
-Toggle Spelling                     | <leader>us
-Toggle Transparency                 | <leader>ut
 Toggle File Tree                    | <leader>T
 Toggle Word Wrap                    | <leader>uw
+Toggle Format on Save               | <leader>uf
+Toggle Line Numbers                 | <leader>ul
+Toggle Number                       | <leader>uN
+Toggle Sign Column                  | <leader>ug
+Toggle Spelling                     | <leader>us
+Toggle Status Line                  | <leader>uL
+Toggle Tab Line                     | <leader>uT
+Toggle Transparency                 | <leader>ut
+Toggle Word Wrap                    | <leader>uw
+Toggle Zen Mode                     | <leader>z
+Generate .gitignore                 | <leader>gi
+Quit all                            | <leader>qq
 Other Window                        | <leader>ww
 Delete Window                       | <leader>wd
 Split Window Below                  | <leader>w-
