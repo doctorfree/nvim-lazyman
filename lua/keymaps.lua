@@ -1,4 +1,5 @@
 local Util = require("utils.utils")
+local Info = require("lazy.core.util").info
 local settings = require("configuration")
 
 local function map(mode, lhs, rhs, opts)
@@ -179,6 +180,52 @@ end, { desc = "Toggle Line Numbers" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
 map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
   { desc = "Toggle Conceal" })
+
+map("n", "<leader>ug", function()
+  if vim.wo.signcolumn == "no" then
+    vim.wo.signcolumn = "yes"
+  elseif vim.wo.signcolumn == "yes" then
+    vim.wo.signcolumn = "auto"
+  else
+    vim.wo.signcolumn = "no"
+  end
+  Info("Set signcolumn to " .. vim.wo.signcolumn, { title = "Option" })
+end, { desc = "Toggle signcolumn" })
+
+map("n", "<leader>uT", function()
+  vim.opt.showtabline = vim.opt.showtabline:get() == 0 and 2 or 0
+  Info("Set showtabline to " .. vim.opt.showtabline, { title = "Option" })
+end, { desc = "Toggle tabline" })
+
+map("n", "<leader>uL", function()
+  local laststatus = vim.opt.laststatus:get()
+  if laststatus == 0 then
+    vim.opt.laststatus = 2
+  elseif laststatus == 2 then
+    vim.opt.laststatus = 3
+  elseif laststatus == 3 then
+    vim.opt.laststatus = 0
+  end
+  Info("Set laststatus to " .. vim.opt.laststatus, { title = "Option" })
+end, { desc = "Toggle statusline" })
+
+map("n", "<leader>uN", function()
+  local number = vim.wo.number -- local to window
+  local relativenumber = vim.wo.relativenumber -- local to window
+  if not number and not relativenumber then
+    vim.wo.number = true
+    Info("Set number to true", { title = "Option" })
+  elseif number and not relativenumber then
+    vim.wo.relativenumber = true
+    Info("Set relativenumber to true", { title = "Option" })
+  elseif number and relativenumber then
+    vim.wo.number = false
+    Info("Set number to false", { title = "Option" })
+  else -- not number and relativenumber
+    vim.wo.relativenumber = false
+    Info("Set relativenumber to false", { title = "Option" })
+  end
+end, { desc = "Toggle number" })
 
 -- gitignore
 local gitignore = require("gitignore")

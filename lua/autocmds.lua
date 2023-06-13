@@ -56,6 +56,15 @@ autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
   end,
 })
 
+autocmd({ "TermOpen" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.opt_local["number"] = false
+    vim.opt_local["signcolumn"] = "no"
+    vim.opt_local["foldcolumn"] = "0"
+  end,
+})
+
 -- resize splits if window got resized
 autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
