@@ -2030,6 +2030,12 @@ show_conf_menu() {
     else
       use_relative_number="✗"
     fi
+    enable_smartcolumn=$(get_conf_value enable_smartcolumn)
+    if [ "${enable_smartcolumn}" == "true" ]; then
+      use_smartcolumn=""
+    else
+      use_smartcolumn="✗"
+    fi
     enable_global_statusline=$(get_conf_value global_statusline)
     if [ "${enable_global_statusline}" == "true" ]; then
       use_global_statusline=""
@@ -2072,6 +2078,12 @@ show_conf_menu() {
     else
       convert_semantic_highlighting="✗"
     fi
+    enable_zenmode=$(get_conf_value enable_zenmode)
+    if [ "${enable_zenmode}" == "true" ]; then
+      use_zenmode=""
+    else
+      use_zenmode="✗"
+    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Diagnostics [${use_show_diagnostics}]")
@@ -2085,6 +2097,7 @@ show_conf_menu() {
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
+    options+=("Smart Column  [${use_smartcolumn}]")
     options+=("Global Status [${use_global_statusline}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
@@ -2097,6 +2110,7 @@ show_conf_menu() {
     fi
     options+=("Semantic HL   [${use_semantic_highlighting}]")
     options+=("Convert SemHL [${convert_semantic_highlighting}]")
+    options+=("Zen Mode      [${use_zenmode}]")
     options+=("Disable All")
     options+=("Enable All")
     options+=("Minimal Config")
@@ -2115,6 +2129,15 @@ show_conf_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
+          break
+          ;;
+        "Smart Column"*,* | *,"Smart Column"*)
+          if [ "${enable_smartcolumn}" == "true" ]; then
+            set_conf_value "enable_smartcolumn" "false"
+          else
+            set_conf_value "enable_smartcolumn" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Status Line"*,* | *,"Status Line"*)
@@ -2255,10 +2278,21 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Zen Mode"*,* | *,"Zen Mode"*)
+          if [ "${enable_zenmode}" == "true" ]; then
+            set_conf_value "enable_zenmode" "false"
+          else
+            set_conf_value "enable_zenmode" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Minimal Config"*,* | *,"Minimal Config"*)
           set_conf_value "global_statusline" "false"
+          set_conf_value "enable_smartcolumn" "false"
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
           set_conf_value "show_diagnostics" "none"
@@ -2304,9 +2338,11 @@ show_conf_menu() {
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "number" "false"
           set_conf_value "relative_number" "false"
+          set_conf_value "enable_smartcolumn" "false"
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
           set_conf_value "enable_transparent" "false"
@@ -2320,6 +2356,7 @@ show_conf_menu() {
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "number" "true"
           set_conf_value "relative_number" "true"
+          set_conf_value "enable_smartcolumn" "true"
           set_conf_value "global_statusline" "true"
           set_conf_value "enable_statusline" "true"
           set_conf_value "enable_tabline" "true"

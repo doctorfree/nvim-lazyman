@@ -1141,6 +1141,8 @@ conf.session_manager = "possession"
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
 conf.enable_noice = true
+-- Enable smart column display
+conf.enable_smartcolumn = true
 -- Enable 'StartupTime' command
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease
@@ -1168,6 +1170,12 @@ conf.enable_toggleterm = true
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
 conf.enable_wakatime = true
+-- Enable zen mode distraction-free coding
+conf.enable_zenmode = true
+-- if zenmode enabled then enable terminal support as well
+conf.enable_kitty = false
+conf.enable_alacritty = false
+conf.enable_wezterm = false
 -- Enable a dashboard, can be one of "alpha", "dash", "mini", or "none"
 conf.dashboard = "alpha"
 -- Number of recent files, dashboard header and quick links settings
@@ -1267,9 +1275,9 @@ conf.formatters_linters = {
   "markdownlint",       -- FORMATTERS_LINTERS
   "prettier",           -- FORMATTERS_LINTERS
   "sql-formatter",      -- FORMATTERS_LINTERS
-  -- "shellcheck",      -- FORMATTERS_LINTERS
+  "shellcheck",         -- FORMATTERS_LINTERS
   -- "shfmt",           -- FORMATTERS_LINTERS
-  -- "stylua",          -- FORMATTERS_LINTERS
+  "stylua",             -- FORMATTERS_LINTERS
   "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }

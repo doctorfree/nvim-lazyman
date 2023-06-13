@@ -177,6 +177,44 @@ if settings.enable_noice then
   }
 end
 
+local smart_column = {}
+if settings.enable_smartcolumn then
+  smart_column = {
+    "m4xshen/smartcolumn.nvim",
+    event = "InsertEnter",
+    opts = {
+      colorcolumn = { "80", "100" },
+      disabled_filetypes = {
+        "alpha",
+        "dashboard",
+        "dap-repl",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dap-terminal",
+        "dapui_console",
+        "help",
+        "lazy",
+        "markdown",
+        "mason",
+        "neogitstatus",
+        "neo-tree",
+        "NvimTree",
+        "Outline",
+        "lir",
+        "oil",
+        "packer",
+        "spectre_panel",
+        "startify",
+        "startup",
+        "toggleterm",
+        "Trouble",
+      },
+    },
+  }
+end
+
 local terminal_nvim = {}
 if settings.enable_terminal then
   terminal_nvim = {
@@ -324,6 +362,7 @@ return {
   -- ui components
   { "MunifTanjim/nui.nvim",        lazy = true },
 
+  smart_column,
   terminal_nvim,
   wilder_type,
 }
