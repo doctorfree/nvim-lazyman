@@ -4,11 +4,24 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.5r5
+
+### ⚡️ Added
+
 - Add `Rafi` configuration to `Custom`
+- Add `smartcolumn` and `virt-column` line length delimiter plugins
+- Add highlights for line number and virtual cursor column
+- Add `zen-mode` support
+- Smart column and zen mode configurable from menus
+- Add autocmd for `TermOpen` columns
+- Add `keymaps` for toggling additional settings
 
 ### 🐞 Fixed
 
 - Move `3rd` config from `Custom` to `Personal`
+- Fix `statuscol` plugin entry
 
 ## v2.1.5r4
 
