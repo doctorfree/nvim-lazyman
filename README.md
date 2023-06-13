@@ -718,7 +718,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]
    [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]
    [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
-   [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u]
+   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
    [health] [init] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
@@ -773,18 +773,13 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           3rd AlanVim Charles Magidc Mini Knvim Roiz Fennel
-           Ember ONNO Adib Optixal Plug Simple Heiker
+           All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
-       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'
-       'Extralight' 'Opinion' 'StartLsp' 'StartMason' 'Minimal'
-       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'
+       'conf' can be one of:
+           All Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE Extralight Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
-    -Y 'cust' indicates install the 'cust' Custom configuration
-       'cust' can be one of:
-           All Allaman Brain Elianiva Josean Nv Rafi Slydragonn
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits
