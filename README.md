@@ -92,7 +92,6 @@ for installation details.
 <!-- prettier-ignore -->
 | **Custom** |       |       | **Configs** |
 | ---------- | ----- | ----- | ----------- |
-|
 | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Nv](https://github.com/appelgriebsch/Nv) |
 | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) | |
 
