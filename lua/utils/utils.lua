@@ -19,11 +19,7 @@ AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
 cfg.toggle_autoformat = function()
   AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
-  require("utils.functions").notify(
-    string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"),
-    1,
-    "utils.utils"
-  )
+  utils.notify(string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"), 1, "utils.utils")
 end
 
 function cfg.custom_lsp_attach(client, bufnr)

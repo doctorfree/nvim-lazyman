@@ -124,7 +124,7 @@ cfg.toggle_colorcolumn = function()
   local value = vim.api.nvim_get_option_value("colorcolumn", {})
   if value == "" then
     cfg.notify("Enable colocolumn", 1, "functions.lua")
-    vim.api.nvim_set_option_value("colorcolumn", "79", {})
+    vim.api.nvim_set_option_value("colorcolumn", { "80", "100" }, {})
   else
     cfg.notify("Disable colocolumn", 1, "functions.lua")
     vim.api.nvim_set_option_value("colorcolumn", "", {})

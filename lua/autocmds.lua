@@ -82,6 +82,7 @@ autocmd("BufReadPost", {
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "lightgreen" })
   end,
 })
 
@@ -236,7 +237,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
     if ok and stats and (stats.size > 1000000) then
       vim.b.large_buf = true
       vim.cmd("syntax off")
-      vim.cmd("IlluminatePauseBuf")     -- disable vim-illuminate
+      vim.cmd("IlluminatePauseBuf") -- disable vim-illuminate
       vim.cmd("IndentBlanklineDisable") -- disable indent-blankline.nvim
       vim.opt_local.foldmethod = "manual"
       vim.opt_local.spell = false

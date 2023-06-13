@@ -171,17 +171,16 @@ if settings.enable_noice then
       { "<leader>snl", function() require("noice").cmd("last") end,    desc = "Noice Last Message" },
       { "<leader>snh", function() require("noice").cmd("history") end, desc = "Noice History" },
       { "<leader>sna", function() require("noice").cmd("all") end,     desc = "Noice All" },
-      -- { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = {"i", "n", "s"} },
-      -- { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = {"i", "n", "s"}},
     },
   }
 end
 
 local smart_column = {}
+local virt_column = {}
 if settings.enable_smartcolumn then
   smart_column = {
     "m4xshen/smartcolumn.nvim",
-    event = "InsertEnter",
+    event = { "BufEnter", "TextChanged", "TextChangedI" },
     opts = {
       colorcolumn = { "80", "100" },
       disabled_filetypes = {
@@ -211,7 +210,26 @@ if settings.enable_smartcolumn then
         "toggleterm",
         "Trouble",
       },
+      scope = "line",
     },
+  }
+  virt_column = {
+    "lukas-reineke/virt-column.nvim",
+    event = { "BufEnter" },
+    config = function()
+      require("virt-column").setup()
+      vim.api.nvim_set_hl(0, "VirtColumn", { fg = "#999999", bg = "none" })
+      vim.api.nvim_create_autocmd({
+        "BufEnter",
+        "CursorMoved",
+        "CursorMovedI",
+        "WinScrolled",
+      }, {
+        callback = function()
+          vim.cmd([[VirtColumnRefresh]])
+        end,
+      })
+    end,
   }
 end
 
@@ -360,9 +378,10 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- ui components
-  { "MunifTanjim/nui.nvim",        lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true },
 
   smart_column,
+  virt_column,
   terminal_nvim,
   wilder_type,
 }

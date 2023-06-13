@@ -32,8 +32,7 @@ if settings.enable_terminal then
   end
   if vim.fn.executable("lazyman") == 1 then
     map("n", "<leader>lm", "<cmd>Lazyman<cr>", { desc = "Lazyman menu" })
-    map("n", "<leader>lc", "<cmd>Lazyconf<cr>",
-      { desc = "Lazyman configuration" })
+    map("n", "<leader>lc", "<cmd>Lazyconf<cr>", { desc = "Lazyman configuration" })
   end
   if vim.fn.executable("asciiville") == 1 then
     map("n", "<leader>av", "<cmd>Asciiville<cr>", { desc = "Asciiville" })
@@ -54,20 +53,13 @@ elseif settings.file_tree == "nvim-tree" then
 end
 
 if settings.enable_games then
-  map("n", "<leader>Gb", "<cmd>BlackJackNewGame<CR>",
-    { desc = "Blackjack" })
-  map("n", "<leader>Gh", "<cmd>:Hack<CR>",
-    { desc = "Hack" })
-  map("n", "<leader>Gf", "<cmd>:HackFollow<CR>",
-    { desc = "Hack current buffer" })
-  map("n", "<leader>Gs", "<cmd>Sudoku<CR>",
-    { desc = "Sudoku" })
-  map("n", "<leader>Gv", "<cmd>VimBeGood<CR>",
-    { desc = "Vim-Be-Good" })
-  map("n", "<leader>Gr", "<cmd>CellularAutomaton make_it_rain<CR>",
-    { desc = "Make it Rain" })
-  map("n", "<leader>Gg", "<cmd>CellularAutomaton game_of_life<CR>",
-    { desc = "Game of Life" })
+  map("n", "<leader>Gb", "<cmd>BlackJackNewGame<CR>", { desc = "Blackjack" })
+  map("n", "<leader>Gh", "<cmd>:Hack<CR>", { desc = "Hack" })
+  map("n", "<leader>Gf", "<cmd>:HackFollow<CR>", { desc = "Hack current buffer" })
+  map("n", "<leader>Gs", "<cmd>Sudoku<CR>", { desc = "Sudoku" })
+  map("n", "<leader>Gv", "<cmd>VimBeGood<CR>", { desc = "Vim-Be-Good" })
+  map("n", "<leader>Gr", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "Make it Rain" })
+  map("n", "<leader>Gg", "<cmd>CellularAutomaton game_of_life<CR>", { desc = "Game of Life" })
 end
 
 -- better up/down
@@ -210,7 +202,7 @@ map("n", "<leader>uL", function()
 end, { desc = "Toggle statusline" })
 
 map("n", "<leader>uN", function()
-  local number = vim.wo.number -- local to window
+  local number = vim.wo.number                 -- local to window
   local relativenumber = vim.wo.relativenumber -- local to window
   if not number and not relativenumber then
     vim.wo.number = true
@@ -226,6 +218,7 @@ map("n", "<leader>uN", function()
     Info("Set relativenumber to false", { title = "Option" })
   end
 end, { desc = "Toggle number" })
+map("n", "<leader>C", require("utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
 
 -- gitignore
 local gitignore = require("gitignore")
