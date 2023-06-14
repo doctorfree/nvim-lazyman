@@ -11,6 +11,7 @@
 ### ⚡️ Added
 
 - Move all `Custom` category configs to `Personal`
+- Add `Traap` to `Personals`
 
 ### 🐞 Fixed
 
