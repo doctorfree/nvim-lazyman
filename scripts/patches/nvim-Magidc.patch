@@ -1,0 +1,20 @@
+--- lua/lsp/init.lua.orig	2023-06-14 15:18:15.386987019 -0700
++++ lua/lsp/init.lua	2023-06-14 15:21:13.181351285 -0700
+@@ -14,13 +14,13 @@
+ local _rust, rust = pcall(require, "rust-tools")
+ if _rust then
+     local mason_registry = require("mason-registry")
+-    local extension_path = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
+-    local codelldb_path = extension_path .. "adapter/codelldb"
+-    local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
++    -- local extension_path = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
++    -- local codelldb_path = extension_path .. "adapter/codelldb"
++    -- local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+ 
+     local opts = {
+         dap = {
+-            adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
++            -- adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+         },
+         server = {
+             -- standalone = true,

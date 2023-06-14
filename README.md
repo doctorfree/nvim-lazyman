@@ -74,9 +74,11 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) |
-| [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
-| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
+| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
+| [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
+| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
@@ -84,16 +86,6 @@ following configuration categories:
 | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
 | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
 | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
-
-Known working custom Lazyman configurations not yet integrated into the above
-categories. See the [custom configuration section](#custom-configurations)
-for installation details.
-
-<!-- prettier-ignore -->
-| **Custom** |       |       | **Configs** |
-| ---------- | ----- | ----- | ----------- |
-| [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Nv](https://github.com/appelgriebsch/Nv) |
-| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration,
 a richly configured Neovim environment using Lua, Lazy, and Mason to support
@@ -387,10 +379,42 @@ All of the 'Personal' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
 
+- [3rd](https://github.com/3rd/config)
+  - `lazyman -w 3rd`
+  - Patch in `~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch` applied
+  - Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
+- [Adib](https://github.com/adibhanna/nvim)
+  - Personal Neovim configuration of Adib Hanna
+  - Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
+  - Install and initialize with `lazyman -w Adib`
 - [AlanVim](https://github.com/alanRizzo/dot-files)
   - Install and initialize with `lazyman -w AlanVim`
+- [Allaman](https://github.com/Allaman/nvim)
+  - One of the inspirations for `Lazyman`
+  - `lazyman -w Allaman`
+- [Brain](https://github.com/brainfucksec/neovim-lua)
+  - `lazyman -w Brain`
 - [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
   - Install and initialize with `lazyman -w Charles`
+- [Elianiva](https://github.com/elianiva/dotfiles)
+  - `lazyman -w Elianiva`
+- [Ember](https://github.com/danlikestocode/embervim)
+  - Dan is a computer science student at Arizona State University
+  - Install and initialize with `lazyman -w Ember`
+- [Fennel](https://github.com/jhchabran/nvim-config)
+  - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
+  - Install and initialize with `lazyman -w Fennel`
+- [Heiker](https://github.com/VonHeikemen/dotfiles)
+  - Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
+  - Install and initialize with `lazyman -w Heiker`
+- [J4de](https://codeberg.org/j4de/nvim)
+  - `lazyman -w J4de`
+- [Josean](https://github.com/josean-dev/dev-environment-files)
+  - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
+  - `lazyman -w Josean`
+- [Knvim](https://github.com/knmac/knvim)
+  - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
+  - Install and initialize with `lazyman -w Knvim`
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - Install and initialize with `lazyman -w Magidc`
@@ -398,30 +422,20 @@ installed with the `-w conf` option.
   - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library
   - Personal configuration of the `mini.nvim` author
   - Install and initialize with `lazyman -M`
-- [Ember](https://github.com/danlikestocode/embervim)
-  - Dan is a computer science student at Arizona State University
-  - Install and initialize with `lazyman -w Ember`
-- [Knvim](https://github.com/knmac/knvim)
-  - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
-  - Install and initialize with `lazyman -w Knvim`
-- [Fennel](https://github.com/jhchabran/nvim-config)
-  - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
-  - Install and initialize with `lazyman -w Fennel`
-- [Adib](https://github.com/adibhanna/nvim)
-  - Personal Neovim configuration of Adib Hanna
-  - Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
-  - Install and initialize with `lazyman -w Adib`
+- [Nv](https://github.com/appelgriebsch/Nv)
+  - LazyVim based Neovim configuration
+  - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
+  - `lazyman -w Nv`
+- [ONNO](https://github.com/loctvl842/nvim.git)
+  - One of the primary inspirations for Lazyman
+  - Install and initialize with `lazyman -w ONNO`
 - [Optixal](https://github.com/Optixal/neovim-init.vim)
   - Hybrid Neovim config for developers with a functional yet aesthetic experience
   - Uses a combination of vimscript and lua with the `vim-plug` plugin manager
   - Install and initialize with `lazyman -w Optixal`
-- [Vim Plug](https://github.com/doctorfree/nvim-plug)
-  - Older vim-plug based configuration of the author
-  - Included as an example of vim-plug support in lazyman
-  - Install and initialize with `lazyman -w Plug`
-- [Heiker](https://github.com/VonHeikemen/dotfiles)
-  - Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
-  - Install and initialize with `lazyman -w Heiker`
+- [Rafi](https://github.com/rafi/vim-config)
+  - [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
+  - `lazyman -w Rafi`
 - [Roiz](https://github.com/MrRoiz/rnvim)
   - Just a random Neovim config found on Github, works well
   - Install and initialize with `lazyman -w Roiz`
@@ -429,9 +443,18 @@ installed with the `-w conf` option.
   - A remarkably effective Neovim configuration in only one small file
   - The author's [video description of this config](https://youtu.be/AzhSnM0uHvM)
   - Install and initialize with `lazyman -w Simple`
-- [ONNO](https://github.com/loctvl842/nvim.git)
-  - One of the primary inspirations for Lazyman
-  - Install and initialize with `lazyman -w ONNO`
+- [Slydragonn](https://github.com/slydragonn/dotfiles)
+  - [Introductory video](https://youtu.be/vkCnPdaRBE0)
+  - `lazyman -w Slydragonn`
+- [Spider](https://github.com/fearless-spider/FSAstroNvim)
+  - AstroNvim based configuration with animated status bar and smooth scroll
+  - [Introductory video](https://youtu.be/Lj6MZsKl9MU)
+  - `lazyman -w Spider`
+- [Traap](https://github.com/Traap/nvim)
+  - [Introductory video](https://youtu.be/aD9j6d9pgtc)
+  - `lazyman -w Traap`
+- [Xiao](https://github.com/onichandame/nvim-config)
+  - Install and initialize with `lazyman -w Xiao`
 
 ### Starter configurations
 
@@ -491,13 +514,10 @@ installed with the `-x conf` option.
 
 ### Custom configurations
 
-Lazyman includes support for several `Custom` Neovim configurations. These
-can be installed with `lazyman -Y` or through the `lazyman` menu system.
-
-To install and initialize a Neovim configuration not supported out-of-the-box
-by Lazyman, use the `-C url` and `-N nvimdir` options to `lazyman`. After the
-installation and initialization completes, set the `NVIM_APPNAME`
-environment variable to use the newly created Neovim configuration:
+Lazyman includes support for `Custom` Neovim configurations. To install and initialize
+a Neovim configuration not supported out-of-the-box by Lazyman, use the `-C url` and
+`-N nvimdir` options to `lazyman`. After the installation and initialization completes,
+set the `NVIM_APPNAME` environment variable to use the newly created Neovim configuration:
 
 ```bash
 export NVIM_APPNAME="<nvimdir>"
@@ -505,13 +525,13 @@ export NVIM_APPNAME="<nvimdir>"
 
 Where `<nvimdir>` is the argument provided to `-N` above.
 
-For example, to install and initialize the Lazy based Neovim configuration
-hosted at <https://github.com/appelgriebsch/Nv> and place it in `~/.config/nvim-Nv`,
-execute the command:
+For example, to install and initialize the Packer based Neovim configuration
+hosted at <https://github.com/VapourNvim/VapourNvim> and place it in
+`~/.config/VapourNvim`, execute the command:
 
 ```bash
-lazyman -C https://github.com/appelgriebsch/Nv -N nvim-Nv
-export NVIM_APPNAME="nvim-Nv"
+lazyman -C https://github.com/VapourNvim/VapourNvim -N VapourNvim -P
+export NVIM_APPNAME="VapourNvim"
 nvim
 ```
 
@@ -550,40 +570,6 @@ runs of `lazyman` in the Lazyman Menu System.
 An excellent list of preconfigured Neovim configurations is available at the
 [Awesome Neovim Repository](https://github.com/rockerBOO/awesome-neovim#preconfigured-configuration). Many of these can be easily installed and initialized using
 `lazyman -b <branch> -C <url> -N <nvimdir> ...`.
-
-Known working custom Lazyman configurations include the following:
-
-- [3rd](https://github.com/3rd/config)
-  - `lazyman -Y 3rd`
-  - Patch in `~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch` applied
-  - Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
-- [Allaman](https://github.com/Allaman/nvim)
-  - One of the inspirations for `Lazyman`
-  - `lazyman -Y Allaman`
-- [Brain](https://github.com/brainfucksec/neovim-lua)
-  - `lazyman -Y Brain`
-- [Elianiva](https://github.com/elianiva/dotfiles)
-  - `lazyman -Y Elianiva`
-- [Josean](https://github.com/josean-dev/dev-environment-files)
-  - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
-  - `lazyman -Y Josean`
-- [Nv](https://github.com/appelgriebsch/Nv)
-  - LazyVim based Neovim configuration
-  - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
-  - `lazyman -Y Nv`
-- [Rafi](https://github.com/rafi/vim-config)
-  - [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
-  - `lazyman -Y Rafi`
-- [Slydragonn](https://github.com/slydragonn/dotfiles)
-  - [Introductory video](https://youtu.be/vkCnPdaRBE0)
-  - `lazyman -Y Slydragonn`
-
-Additional Custom Neovim configurations can be installed and initialized
-using the `-C url -N name` flags along with any necessary initialization flags.
-There are occasionally errors and issues such as an initialization
-process that Lazyman does not yet support. However, you may find it useful
-or interesting to explore, resolve errors and issues, and contribute to the
-ever expanding set of Lazyman supported Neovim configurations.
 
 Feel free to open an issue at
 <https://github.com/doctorfree/nvim-lazyman/issues> to help tackle any problems
@@ -636,7 +622,7 @@ will produce a cleanly initialized Neovim configuration.
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
-- 31 supported Neovim configurations out of the box, additional custom configs
+- Over 50 supported Neovim configurations out of the box, additional custom configs
 - convenience shell functions and aliases with fuzzy search and selection
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 
@@ -735,11 +721,11 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>View the lazyman usage message</summary>
 
 ```
-Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]
-   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]
-   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]
+Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
+   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]
+   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
-   [-w conf] [-W] [-x conf] [-X] [-y] [-Y cust] [-z] [-Z] [-u]
+   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
    [health] [init] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
@@ -779,8 +765,11 @@ Where:
     -h indicates use Homebrew to install rather than native pkg mgr
         (Pacman is always used on Arch Linux, Homebrew on macOS)
     -H indicates compile and install the nightly Neovim build
-    -i indicates install language servers and tools for coding diagnostics
+    -i 'group' specifies a group to install/remove/update
+       'group' can be one of:
+           astronvim kickstart lazyvim nvchad packer plug
     -I indicates install all language servers and tools for coding diagnostics
+    -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
            All Go LaTeX Python Rust SaleVim
@@ -794,18 +783,13 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           3rd AlanVim Charles Magidc Mini Knvim Roiz Fennel
-           Ember ONNO Adib Optixal Plug Simple Heiker
+           All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
-       'conf' can be one of 'Basic' 'CodeArt' 'Kickstart' 'NvPak'
-       'Extralight' 'Opinion' 'StartLsp' 'StartMason' 'Minimal'
-       'Modular' 'HardHacker' 'Modern' 'PDE' 'StartBase' 'Cosmic'
+       'conf' can be one of:
+           All Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE Extralight Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
-    -Y 'cust' indicates install the 'cust' Custom configuration
-       'cust' can be one of:
-           All Allaman Brain Elianiva Josean Nv Rafi Slydragonn
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -u displays this usage message and exits

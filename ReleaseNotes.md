@@ -2,7 +2,7 @@
 
 This major new release of `lazyman` supports over 50 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.5r5/lazyman.sh) script. Download and execute to get started:
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.6r1/lazyman.sh) script. Download and execute to get started:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -27,9 +27,11 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Ember](https://github.com/danlikestocode/embervim) |
-| [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
-| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Vim Plug](https://github.com/doctorfree/nvim-plug) |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
+| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
+| [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
+| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
@@ -37,14 +39,6 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
 | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
 | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
-
-Known working custom Lazyman configurations not yet integrated into the above categories.
-
-<!-- prettier-ignore -->
-| **Custom** |       |       | **Configs** |
-| ---------- | ----- | ----- | ----------- |
-| [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Nv](https://github.com/appelgriebsch/Nv) |
-| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Josean](https://github.com/josean-dev/dev-environment-files) | |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 
@@ -90,7 +84,7 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman instal
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.5r5/lazyman.sh).
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.6r1/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 
