@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn Traap"
+PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn Traap"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1022,7 +1022,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|Josean|Nv|Rafi|Slydragonn|Traap)
+    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
@@ -2837,6 +2837,13 @@ install_remove() {
       printf " done"
       show_alias "nvim-Elianiva"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-J4de ] && action="Updating"
+      printf "\n${action} J4de Neovim configuration ..."
+      lazyman ${darg} -C https://codeberg.org/j4de/nvim \
+        -N nvim-J4de ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-J4de"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Josean ] && action="Updating"
       printf "\n${action} Josean Neovim configuration ..."
       lazyman ${darg} -C https://github.com/josean-dev/dev-environment-files \
@@ -2898,6 +2905,9 @@ install_remove() {
         Elianiva)
           prsnl_url="https://github.com/elianiva/dotfiles"
           prsnl_dir="-D nvim/.config/nvim"
+          ;;
+        J4de)
+          prsnl_url="https://codeberg.org/j4de/nvim"
           ;;
         Josean)
           prsnl_url="https://github.com/josean-dev/dev-environment-files"
