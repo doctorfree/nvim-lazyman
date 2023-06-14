@@ -23,13 +23,13 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn Traap"
+PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
-ASTROCFGS="AstroNvim"
+ASTROCFGS="AstroNvim Spider"
 KICKSTARTCFGS="Kickstart"
 PACKERCFGS="AlanVim Fennel Josean LaTeX SaleVim Simple Slydragonn"
 PLUGCFGS="Optixal Plug"
@@ -43,7 +43,7 @@ cfgpart=
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
   printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
-  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]"
+  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
   printf "\n   [health] [init] [install] [open] [remove] [status]"
@@ -94,6 +94,7 @@ usage() {
   printf "\n       'group' can be one of:"
   printf "\n           astronvim kickstart lazyvim nvchad packer plug"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
+  printf "\n    -J indicates install indicated repo as an AstroNvim custom configuration"
   printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
   printf "\n       'lang' can be one of:"
   printf "\n           All ${LANGUCFGS}"
@@ -637,8 +638,8 @@ update_config() {
     }
     [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] || \
     [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] || \
-    [ "${ndir}" == "nvim-Python" ] && {
-      if [ "${ndir}" == "${astronvimdir}" ]; then
+    [ "${ndir}" == "nvim-Python" ] || [ "${customastro}" ] && {
+      if [ "${ndir}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
         cdir="lua/user"
       else
         cdir="lua/custom"
@@ -885,8 +886,8 @@ show_info() {
     }
     [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] || \
     [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] || \
-    [ "${neovim}" == "nvim-Python" ] && {
-      if [ "${neovim}" == "${astronvimdir}" ]; then
+    [ "${neovim}" == "nvim-Python" ] || [ "${customastro}" ] && {
+      if [ "${neovim}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
         cdir="lua/user"
         tdir="~/.config/${neovim}/lua/user"
       else
@@ -975,6 +976,25 @@ check_python_version() {
   fi
 }
 
+install_astronvim() {
+  base_dir="$1"
+  user_url="$2"
+  clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir"
+  [ "$quiet" ] || {
+    printf "\nAdding user configuration into"
+    printf "\n\t${HOME}/.config/${base_dir}/lua/user ... "
+  }
+  [ "$tellme" ] || {
+    if [ -d "${HOME}/.config/$base_dir"/lua/user ]; then
+      update_config "$base_dir"
+    else
+      git clone ${user_url} \
+        "${HOME}/.config/$base_dir"/lua/user >/dev/null 2>&1
+    fi
+  }
+  [ "$quiet" ] || printf "done"
+}
+
 install_config() {
   confname="$1"
   dodone=1
@@ -1022,7 +1042,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap)
+    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Spider|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
@@ -2119,6 +2139,7 @@ nvchadcustom=
 tellme=
 exitafter=
 astronvim=
+customastro=
 abstract=
 basicide=
 ecovim=
@@ -2180,7 +2201,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
 }
-while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
+while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2273,6 +2294,9 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fla
     j)
       basicide=1
       neovimdir=("$basicidedir")
+      ;;
+    J)
+      customastro=1
       ;;
     k)
       kickstart=1
@@ -2697,6 +2721,13 @@ install_remove() {
       printf " done"
       show_alias "nvim-Ember"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Spider ] && action="Updating"
+      printf "\n${action} Spider Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/fearless-spider/FSAstroNvim \
+        -N nvim-Spider ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Spider"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration ..."
       lazyman ${darg} -C https://github.com/knmac/knvim \
@@ -2731,13 +2762,13 @@ install_remove() {
         -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Optixal"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
-      printf "\n${action} Plug Neovim configuration ..."
-      lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
-        -N nvim-Plug -p ${quietflag} -z ${yesflag}
-      printf " done"
-      show_alias "nvim-Plug"
+      # action="Installing"
+      # [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
+      # printf "\n${action} Plug Neovim configuration ..."
+      # lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
+      #   -N nvim-Plug -p ${quietflag} -z ${yesflag}
+      # printf " done"
+      # show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
@@ -2822,6 +2853,13 @@ install_remove() {
         -N nvim-Traap ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Traap"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Xiao ] && action="Updating"
+      printf "\n${action} Xiao Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/onichandame/nvim-config \
+        -N nvim-Xiao ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Xiao"
     else
       prsnl_url=
       prsnl_dir=
@@ -2872,6 +2910,9 @@ install_remove() {
         Traap)
           prsnl_url="https://github.com/Traap/nvim"
           ;;
+        Xiao)
+          prsnl_url="https://github.com/onichandame/nvim-config"
+          ;;
         Charles)
           prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
           ;;
@@ -2883,6 +2924,9 @@ install_remove() {
           ;;
         Adib)
           prsnl_url="https://github.com/adibhanna/nvim"
+          ;;
+        Spider)
+          prsnl_url="https://github.com/fearless-spider/FSAstroNvim"
           ;;
         Knvim)
           prsnl_url="https://github.com/knmac/knvim"
@@ -3191,7 +3235,7 @@ install_remove() {
     brief_usage
   }
   [ "$astronvim" ] && astronvimdir="$name"
-  [ "$abstract" ] && astronvimdir="$name"
+  [ "$abstract" ] && abstractdir="$name"
   [ "$basicide" ] && basicidedir="$name"
   [ "$ecovim" ] && ecovimdir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
@@ -3452,20 +3496,7 @@ set_brew
   clone_repo Abstract Abstract-IDE/Abstract "$abstractdir"
 }
 [ "$astronvim" ] && {
-  clone_repo AstroNvim AstroNvim/AstroNvim "$astronvimdir"
-  [ "$quiet" ] || {
-    printf "\nAdding user configuration into"
-    printf "\n\t${HOME}/.config/${astronvimdir}/lua/user ... "
-  }
-  [ "$tellme" ] || {
-    if [ -d "${HOME}/.config/$astronvimdir"/lua/user ]; then
-      update_config "$astronvimdir"
-    else
-      git clone https://github.com/doctorfree/astronvim \
-        "${HOME}/.config/$astronvimdir"/lua/user >/dev/null 2>&1
-    fi
-  }
-  [ "$quiet" ] || printf "done"
+  install_astronvim "${astronvimdir}" "https://github.com/doctorfree/astronvim"
 }
 [ "$basicide" ] && {
   clone_repo BasicIde LunarVim/nvim-basic-ide "$basicidedir"
@@ -3624,6 +3655,16 @@ set_brew
   }
 }
 [ "${all}" ] && printf " done"
+[ "${customastro}" ] && {
+  if [ "$custom_url" ]
+  then
+    install_astronvim "${neovimdir[0]}" "${custom_url}"
+    custom_url=
+  else
+    printf "\nThe -J argument requires an accompanying -C url. Exiting."
+    brief_usage
+  fi
+}
 [ "$custom_url" ] && {
   if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
     update=1

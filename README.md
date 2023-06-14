@@ -78,7 +78,7 @@ following configuration categories:
 | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
 | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
 | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
-| [Vim Plug](https://github.com/doctorfree/nvim-plug) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Traap](https://github.com/Traap/nvim) | |
+| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
@@ -446,13 +446,15 @@ installed with the `-w conf` option.
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -w Slydragonn`
+- [Spider](https://github.com/fearless-spider/FSAstroNvim)
+  - AstroNvim based configuration with animated status bar and smooth scroll
+  - [Introductory video](https://youtu.be/Lj6MZsKl9MU)
+  - `lazyman -w Spider`
 - [Traap](https://github.com/Traap/nvim)
   - [Introductory video](https://youtu.be/aD9j6d9pgtc)
   - `lazyman -w Traap`
-- [Vim Plug](https://github.com/doctorfree/nvim-plug)
-  - Older vim-plug based configuration of the author
-  - Included as an example of vim-plug support in lazyman
-  - Install and initialize with `lazyman -w Plug`
+- [Xiao](https://github.com/onichandame/nvim-config)
+  - Install and initialize with `lazyman -w Xiao`
 
 ### Starter configurations
 
