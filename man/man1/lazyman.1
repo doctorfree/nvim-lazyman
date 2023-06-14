@@ -24,10 +24,11 @@ configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path]
-[-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o]
-[-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang] [-rR] [-C url] [-D subdir]
-[-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y]
-[-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status]
+[-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n]
+[-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url]
+[-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x
+conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove]
+[status]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -278,11 +279,15 @@ configurations
 \f[V]-v\f[R] : indicates install and initialize the \[aq]LunarVim\[aq]
 Neovim configuration
 .PP
-\f[V]-i\f[R] : indicates install language servers and tools for coding
-diagnostics
+\f[V]-i group\f[R] : specifies a group to install/remove/update.
+\[aq]group\[aq] can be one of: astronvim kickstart lazyvim nvchad packer
+plug
 .PP
 \f[V]-I\f[R] : indicates install all language servers and tools for
 coding diagnostics
+.PP
+\f[V]-J\f[R] : indicates install indicated repo as an AstroNvim custom
+configuration
 .PP
 \f[V]-L lang\f[R] : indicates install the \f[V]lang\f[R] Language
 configuration where \[aq]lang\[aq] can be one of: All Go LaTeX Python
@@ -317,8 +322,8 @@ given by -C
 \f[V]-w conf\f[R] : indicates install and initialize Personal
 \[aq]conf\[aq] configuration.
 \[aq]conf\[aq] can be one of: All 3rd Adib AlanVim Allaman Brain Charles
-Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal
-Plug Rafi Roiz Simple Slydragonn
+Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO
+Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
 .PP
 \f[V]-W\f[R] : indicates install and initialize all \[aq]Personal\[aq]
 Neovim configurations

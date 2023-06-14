@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status]
 
 ## FEATURES
 
@@ -199,9 +199,11 @@ The following command line options are available with the `lazyman` command:
 
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
-`-i` : indicates install language servers and tools for coding diagnostics
+`-i group` : specifies a group to install/remove/update. 'group' can be one of: astronvim kickstart lazyvim nvchad packer plug
 
 `-I` : indicates install all language servers and tools for coding diagnostics
+
+`-J` : indicates install indicated repo as an AstroNvim custom configuration
 
 `-L lang` : indicates install the `lang` Language configuration where 'lang' can be one of: All Go LaTeX Python Rust SaleVim
 
@@ -227,7 +229,7 @@ The following command line options are available with the `lazyman` command:
 
 `-V url` : specifies an NvChad user configuration git repository
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
