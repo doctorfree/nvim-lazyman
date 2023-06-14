@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -2708,13 +2708,13 @@ install_remove() {
         -N nvim-Charles ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Charles"
-      # action="Installing"
-      # [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
-      # printf "\n${action} Magidc Neovim configuration ..."
-      # lazyman ${darg} -C https://github.com/magidc/nvim-config \
-      #   -N nvim-Magidc ${quietflag} -z ${yesflag}
-      # printf " done"
-      # show_alias "nvim-Magidc"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
+      printf "\n${action} Magidc Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/magidc/nvim-config \
+        -N nvim-Magidc ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Magidc"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
       printf "\n${action} Ember Neovim configuration ..."
@@ -2764,13 +2764,13 @@ install_remove() {
         -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Optixal"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
-      printf "\n${action} Plug Neovim configuration ..."
-      lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
-        -N nvim-Plug -p ${quietflag} -z ${yesflag}
-      printf " done"
-      show_alias "nvim-Plug"
+      # action="Installing"
+      # [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
+      # printf "\n${action} Plug Neovim configuration ..."
+      # lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
+      #   -N nvim-Plug -p ${quietflag} -z ${yesflag}
+      # printf " done"
+      # show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration ..."
