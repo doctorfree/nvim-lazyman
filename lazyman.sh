@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvim BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn"
+PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker Josean Knvim Magidc Mini Nv ONNO Optixal Plug Rafi Roiz Simple Slydragonn Traap"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1012,7 +1012,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|Josean|Nv|Rafi|Slydragonn)
+    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|Josean|Nv|Rafi|Slydragonn|Traap)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
@@ -2663,6 +2663,13 @@ set_haves
         -D '.config/nvim' -N nvim-Slydragonn -P ${quietflag} -z ${yesflag}
       printf " done"
       show_alias "nvim-Slydragonn"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Traap ] && action="Updating"
+      printf "\n${action} Traap Neovim configuration ..."
+      lazyman ${darg} -C https://github.com/Traap/nvim \
+        -N nvim-Traap ${quietflag} -z ${yesflag}
+      printf " done"
+      show_alias "nvim-Traap"
     else
       prsnl_url=
       prsnl_dir=
@@ -2706,6 +2713,9 @@ set_haves
           prsnl_url="https://github.com/slydragonn/dotfiles"
           prsnl_opt="-P"
           prsnl_dir="-D .config/nvim"
+          ;;
+        Traap)
+          prsnl_url="https://github.com/Traap/nvim"
           ;;
         Charles)
           prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
