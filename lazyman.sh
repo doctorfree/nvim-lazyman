@@ -27,14 +27,22 @@ PRSNLCFGS="3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
+LAZYVIMCFGS="LazyVim Nv Penguin Traap"
+NVCHADCFGS="Go NvChad Python Rust"
+ASTROCFGS="AstroNvim"
+KICKSTARTCFGS="Kickstart"
+PACKERCFGS="AlanVim Fennel Josean LaTeX SaleVim Simple Slydragonn"
+PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names
 fonts=("slant" "shadow" "small" "script" "standard")
+cfginst=1
+cfgpart=
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
-  printf "\n   [-e] [-f path] [-F menu] [-g] [-i] [-j] [-k] [-l] [-m] [-M] [-s]"
+  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
+  printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
@@ -82,7 +90,9 @@ usage() {
   printf "\n    -h indicates use Homebrew to install rather than native pkg mgr"
   printf "\n        (Pacman is always used on Arch Linux, Homebrew on macOS)"
   printf "\n    -H indicates compile and install the nightly Neovim build"
-  printf "\n    -i indicates install language servers and tools for coding diagnostics"
+  printf "\n    -i 'group' specifies a group to install/remove/update"
+  printf "\n       'group' can be one of:"
+  printf "\n           astronvim kickstart lazyvim nvchad packer plug"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
   printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
   printf "\n       'lang' can be one of:"
@@ -1304,54 +1314,62 @@ show_main_menu() {
 
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    installed=1
-    partial=
     get_config_str "${BASECFGS}"
-    base_partial=${partial}
-    base_installed=${installed}
+    base_partial=${cfgpart}
+    base_installed=${cfginst}
     if [ "${base_installed}" ]
     then
       options+=("Update Base       ${configstr}")
     else
       options+=("Install Base      ${configstr}")
     fi
-    installed=1
-    partial=
     get_config_str "${LANGUCFGS}"
-    lang_partial=${partial}
-    lang_installed=${installed}
+    lang_partial=${cfgpart}
+    lang_installed=${cfginst}
     if [ "${lang_installed}" ]
     then
       options+=("Update Languages  ${configstr}")
     else
       options+=("Install Languages ${configstr}")
     fi
-    installed=1
-    partial=
     get_config_str "${PRSNLCFGS}"
-    prsnl_partial=${partial}
-    prsnl_installed=${installed}
+    prsnl_partial=${cfgpart}
+    prsnl_installed=${cfginst}
     if [ "${prsnl_installed}" ]
     then
       options+=("Update Personals  ${configstr}")
     else
       options+=("Install Personals ${configstr}")
     fi
-    installed=1
-    partial=
     get_config_str "${STARTCFGS}"
-    start_partial=${partial}
-    start_installed=${installed}
+    start_partial=${cfgpart}
+    start_installed=${cfginst}
     if [ "${start_installed}" ]
     then
       options+=("Update Starters   ${configstr}")
     else
       options+=("Install Starters  ${configstr}")
     fi
-    installed=1
-    partial=
+    get_config_str "${LAZYVIMCFGS}"
+    lzyvm_partial=${cfgpart}
+    lzyvm_installed=${cfginst}
+    if [ "${lzyvm_installed}" ]
+    then
+      options+=("Update LazyVims   ${configstr}")
+    else
+      options+=("Install LazyVims  ${configstr}")
+    fi
+    get_config_str "${NVCHADCFGS}"
+    nvchd_partial=${cfgpart}
+    nvchd_installed=${cfginst}
+    if [ "${nvchd_installed}" ]
+    then
+      options+=("Update NvChads    ${configstr}")
+    else
+      options+=("Install NvChads   ${configstr}")
+    fi
     get_config_str "${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}"
-    if [ "${installed}" ]
+    if [ "${cfginst}" ]
     then
       options+=("Update All        ${configstr}")
     else
@@ -1377,6 +1395,8 @@ show_main_menu() {
     [ "${lang_installed}" ] || options+=("Select/Inst Language")
     [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
     [ "${start_installed}" ] || options+=("Select/Inst Starter")
+    [ "${lzyvm_installed}" ] || options+=("Select/Inst LazyVims")
+    [ "${nvchd_installed}" ] || options+=("Select/Inst NvChads")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if alias neovides >/dev/null 2>&1; then
@@ -1412,16 +1432,22 @@ show_main_menu() {
     [ "${lang_partial}" ] && options+=("Select/Open Language")
     [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
     [ "${start_partial}" ] && options+=("Select/Open Starter")
+    [ "${lzyvm_partial}" ] && options+=("Select/Open LazyVims")
+    [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
     [ ${numitems} -gt 1 ] && options+=("Select and Remove")
     [ "${base_partial}" ] && options+=("Select/Remove Base")
     [ "${lang_partial}" ] && options+=("Select/Rem Language")
     [ "${prsnl_partial}" ] && options+=("Select/Rem Personal")
     [ "${start_partial}" ] && options+=("Select/Rem Starter")
+    [ "${lzyvm_partial}" ] && options+=("Select/Rem LazyVims")
+    [ "${nvchd_partial}" ] && options+=("Select/Rem NvChads")
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${lang_partial}" ] && options+=("Remove Languages")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
+    [ "${lzyvm_partial}" ] && options+=("Remove LazyVims")
+    [ "${nvchd_partial}" ] && options+=("Remove NvChads")
     numndirs=${#ndirs[@]}
     [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
@@ -1513,6 +1539,34 @@ show_main_menu() {
           fi
           break
           ;;
+        "Select/Inst NvChad"*,* | *,"Select/Inst NvChad"*)
+          choices=()
+          for neovim in ${NVCHADCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Install  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            install_config "${choice}"
+          fi
+          break
+          ;;
+        "Select/Inst LazyVim"*,* | *,"Select/Inst LazyVim"*)
+          choices=()
+          for neovim in ${LAZYVIMCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Install  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            install_config "${choice}"
+          fi
+          break
+          ;;
         "Select and Install"*,* | *,"Select and Install"*)
           choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Config  " --layout=reverse --border --exit-0)
           [ "${choice}" ] && install_config "${choice}"
@@ -1590,6 +1644,42 @@ show_main_menu() {
           fi
           break
           ;;
+        "Select/Open NvChad"*,* | *,"Select/Open NvChad"*)
+          choices=()
+          for neovim in ${NVCHADCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Open  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${USEGUI}" ]; then
+              NVIM_APPNAME="nvim-${choice}" neovide
+            else
+              NVIM_APPNAME="nvim-${choice}" nvim
+            fi
+          fi
+          break
+          ;;
+        "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"*)
+          choices=()
+          for neovim in ${LAZYVIMCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Open  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${USEGUI}" ]; then
+              NVIM_APPNAME="nvim-${choice}" neovide
+            else
+              NVIM_APPNAME="nvim-${choice}" nvim
+            fi
+          fi
+          break
+          ;;
         "Select/Remove Base"*,* | *,"Select/Remove Base"*)
           choices=()
           for neovim in ${BASECFGS}; do
@@ -1646,6 +1736,34 @@ show_main_menu() {
           fi
           break
           ;;
+        "Select/Rem NvChad"*,* | *,"Select/Rem NvChad"*)
+          choices=()
+          for neovim in ${NVCHADCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Remove  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            lazyman -R -N "nvim-${choice}"
+          fi
+          break
+          ;;
+        "Select/Rem LazyVim"*,* | *,"Select/Rem LazyVim"*)
+          choices=()
+          for neovim in ${LAZYVIMCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Remove  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            lazyman -R -N "nvim-${choice}"
+          fi
+          break
+          ;;
         "Select and Open"*,* | *,"Select and Open"*)
           if [ "${USEGUI}" ]; then
             neovselect
@@ -1679,6 +1797,14 @@ show_main_menu() {
           lazyman ${darg} -X -y -z -Q -q
           break
           ;;
+        "Install NvChad"*,* | *,"Install NvChad"*)
+          lazyman ${darg} -i nvchad -y -z -Q -q
+          break
+          ;;
+        "Install LazyVim"*,* | *,"Install LazyVim"*)
+          lazyman ${darg} -i lazyvim -y -z -Q -q
+          break
+          ;;
         "Install All"*,* | *,"Install All"*)
           printf "\n\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
@@ -1703,6 +1829,14 @@ show_main_menu() {
           ;;
         "Update Starter"*,* | *,"Update Starter"*)
           lazyman ${darg} -X -y -z -Q -q -U
+          break
+          ;;
+        "Update NvChad"*,* | *,"Update NvChad"*)
+          lazyman ${darg} -i nvchad -y -z -Q -q -U
+          break
+          ;;
+        "Update LazyVim"*,* | *,"Update LazyVim"*)
+          lazyman ${darg} -i lazyvim -y -z -Q -q -U
           break
           ;;
         "Update All"*,* | *,"Update All"*)
@@ -1873,6 +2007,16 @@ show_main_menu() {
           lazyman -R -X -y
           break
           ;;
+        "Remove NvChad"*,* | *,"Remove NvChad"*)
+          printf "\nRemoving all Lazyman 'NvChad' Neovim configurations\n"
+          lazyman -R -i nvchad -y
+          break
+          ;;
+        "Remove LazyVim"*,* | *,"Remove LazyVim"*)
+          printf "\nRemoving all Lazyman 'LazyVim' Neovim configurations\n"
+          lazyman -R -i lazyvim -y
+          break
+          ;;
         "Remove All"*,* | *,"Remove All"*)
           printf "\nRemoving all Lazyman Neovim configurations\n"
           for ndirm in "${ndirs[@]}"; do
@@ -1957,21 +2101,23 @@ show_main_menu() {
 
 get_config_str() {
   CFGS="$1"
+  cfginst=1
+  cfgpart=
   for cfg in ${CFGS}; do
     inst=
     for bdir in "${sorted[@]}"; do
       [[ $cfg == "$bdir" ]] && {
-        partial=1
+        cfgpart=1
         inst=1
         break
       }
     done
-    [ "${inst}" ] || installed=
+    [ "${inst}" ] || cfginst=
   done
-  if [ "${installed}" ]; then
+  if [ "${cfginst}" ]; then
     configstr="🌝"
   else
-    if [ "${partial}" ]; then
+    if [ "${cfgpart}" ]; then
       configstr="🌓"
     else
       configstr="🌚"
@@ -2023,6 +2169,7 @@ head=
 fix_help=
 invoke=
 confmenu=
+instcfgs=
 langservers=
 nvchadcustom=
 tellme=
@@ -2089,7 +2236,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
 }
-while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyzZu" flag; do
+while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2174,10 +2321,10 @@ while getopts "aAb:BcdD:eE:f:F:gGhHiIjklmMnL:opPqQrRsStTUC:N:vV:w:Wx:XyzZu" flag
       head="-n"
       ;;
     i)
-      langservers=1
+      instcfgs="${OPTARG}"
       ;;
     I)
-      langservers=2
+      langservers=1
       ;;
     j)
       basicide=1
@@ -2366,6 +2513,60 @@ set_haves
   exit 0
 }
 
+install_remove() {
+  cfg="$1"
+  if [ "$remove" ]; then
+    remove_config "nvim-${cfg}"
+  else
+    install_config ${cfg}
+  fi
+}
+
+[ "${instcfgs}" ] && {
+  case ${instcfgs} in
+    LazyVim|lazyvim)
+      for nvimconfig in ${LAZYVIMCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    AstroNvim|Astronvim|astronvim)
+      for nvimconfig in ${ASTROCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    Kickstart|kickstart)
+      for nvimconfig in ${KICKSTARTCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    NvChad|Nvchad|nvchad)
+      for nvimconfig in ${NVCHADCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    Packer|packer)
+      for nvimconfig in ${PACKERCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    Plug|plug)
+      for nvimconfig in ${PLUGCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
+    *)
+      printf "\nUnknown argument: -i ${instcfgs}"
+      brief_usage
+      ;;
+  esac
+}
+
 [ "$nvimbase" ] && {
   yesflag="-Q"
   [ "${proceed}" ] && yesflag="-Q -y"
@@ -2496,12 +2697,12 @@ set_haves
       remove_config "nvim-${nvimprsnl}"
     fi
   else
-    printf "\n\nInstalling/Updating all Personal Neovim configurations."
     yesflag="-Q"
     [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimprsnl}" == "all" ]; then
+      printf "\n\nInstalling/Updating all Personal Neovim configurations."
       action="Installing"
       [ -d ${HOME}/.config/nvim-Mini ] && action="Updating"
       printf "\n${action} Mini Neovim configuration ..."
@@ -2790,12 +2991,12 @@ set_haves
       remove_config "nvim-${nvimstarter}"
     fi
   else
-    printf "\n\nInstalling/Updating all Starter Neovim configurations."
     yesflag="-Q"
     [ "${proceed}" ] && yesflag="-Q -y"
     quietflag=
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimstarter}" == "all" ]; then
+      printf "\n\nInstalling/Updating all Starter Neovim configurations."
       for neovim in ${MINIMCFGS}; do
         startbranch=
         set_starter_branch "${neovim}"
@@ -2978,17 +3179,13 @@ set_haves
 
 [ "$langservers" ] && {
   [ "${instnvim}" ] || {
-    printf "\n\n-I/-i and -Z are incompatible options."
-    printf "\nThe '-I' or '-i' option indicates install tools."
+    printf "\n\n-I and -Z are incompatible options."
+    printf "\nThe '-I' option indicates install tools."
     printf "\nThe '-Z' option indicates do not install tools."
     brief_usage
   }
   if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
-    if [ $langservers -eq 2 ]; then
-      "${LMANDIR}"/scripts/install_neovim.sh -a $darg $head $brew $yes
-    else
-      "${LMANDIR}"/scripts/install_neovim.sh $darg $head $brew $yes
-    fi
+    "${LMANDIR}"/scripts/install_neovim.sh -a $darg $head $brew $yes
     exit 0
   fi
   exit 1
