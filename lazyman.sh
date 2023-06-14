@@ -1235,7 +1235,33 @@ show_vers_menu() {
   [ "${help}" ] && show_vers_menu
 }
 
+show_main_help() {
+  if [ "${have_rich}" ]; then
+    rich "[cyan]Lazyman Neovim Configuration Manager Menu Help[/cyan]" -p -a rounded -c -C
+  else
+    printf "\n\tLazyman Neovim Configuration Manager Menu Help\n"
+  fi
+  printf "\nSelect and install/open/remove Neovim configurations managed by Lazyman."
+  printf "\nEnter a menu option number or keywords to select an option."
+  printf "\nKeywords include: ${BOLD}help, install, open, remove${NORM}"
+  printf "\nIn the fuzzy selection dialogs, enter a few letters to fuzzy select from the options"
+  printf "\nor use the <Up-Arrow> and <Down-Arrow> keys to move through the options."
+  printf "\nPress <Enter> to select the highlighted option.\n"
+  printf "\nLazyman Neovim configurations are organized into categories. Configurations can be"
+  printf "\nindividually installed/removed or all configurations in a category can be acted on.\n"
+  printf "\nThis menu also provides options to install additional tools, enable debug mode,"
+  printf "\ninstall the Bob Neovim version manager, select the Neovim version to use, toggle"
+  printf "\nthe user interface between Neovim and Neovide, perform a Neovim health check, "
+  printf "\nbring up the Lazyman Neovim Configuration menu, or generate a status report."
+  printf "\nIn addition, an option exists to view the Lazyman manual.\n"
+  printf "\nThe Lazyman Neovim configuration manager can also be used from the command line.\n"
+  printf "\n\t${BOLD}${LINE}Usage:${NORM} ${BOLD}lazyman [options] <COMMAND>${NORM}"
+  printf "\n\t${BOLD}${LINE}See:${NORM}    ${BOLD}lazyman -u${NORM}  for usage details\n"
+  prompt_continue
+}
+
 show_main_menu() {
+  help=
   set_haves
   while true; do
     [ "$debug" ] || tput reset
@@ -1436,12 +1462,6 @@ show_main_menu() {
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
     [ ${numitems} -gt 1 ] && options+=("Select and Remove")
-    [ "${base_partial}" ] && options+=("Select/Remove Base")
-    [ "${lang_partial}" ] && options+=("Select/Rem Language")
-    [ "${prsnl_partial}" ] && options+=("Select/Rem Personal")
-    [ "${start_partial}" ] && options+=("Select/Rem Starter")
-    [ "${lzyvm_partial}" ] && options+=("Select/Rem LazyVims")
-    [ "${nvchd_partial}" ] && options+=("Select/Rem NvChads")
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${lang_partial}" ] && options+=("Remove Languages")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
@@ -1470,7 +1490,7 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Health Check" "Lazyman Config" "Lazyman Status")
+    options+=("Health Check" "Lazyman Config" "Lazyman Manual" "Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
@@ -1478,6 +1498,13 @@ show_main_menu() {
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
+          [ "$debug" ] || tput reset
+          printf "\n"
+          show_main_help
+          help=1
+          break
+          ;;
+        "Lazyman Manual"*,* | *,"Lazyman Manual"*)
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
@@ -1567,7 +1594,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select and Install"*,* | *,"Select and Install"*)
+        "Select and Install"*,* | *,"Select and Install"* | "install",* | *,"install" | "Install",* | *,"Install")
           choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Config  " --layout=reverse --border --exit-0)
           [ "${choice}" ] && install_config "${choice}"
           break
@@ -1680,91 +1707,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Remove Base"*,* | *,"Select/Remove Base"*)
-          choices=()
-          for neovim in ${BASECFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select/Rem Language"*,* | *,"Select/Rem Language"*)
-          choices=()
-          for neovim in ${LANGUCFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select/Rem Personal"*,* | *,"Select/Rem Personal"*)
-          choices=()
-          for neovim in ${PRSNLCFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Personal Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select/Rem Starter"*,* | *,"Select/Rem Starter"*)
-          choices=()
-          for neovim in ${STARTCFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Starter Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select/Rem NvChad"*,* | *,"Select/Rem NvChad"*)
-          choices=()
-          for neovim in ${NVCHADCFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select/Rem LazyVim"*,* | *,"Select/Rem LazyVim"*)
-          choices=()
-          for neovim in ${LAZYVIMCFGS}; do
-            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-              choices+=("${basenvdir}")
-            fi
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Remove  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -R -N "nvim-${choice}"
-          fi
-          break
-          ;;
-        "Select and Open"*,* | *,"Select and Open"*)
+        "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
           if [ "${USEGUI}" ]; then
             neovselect
           else
@@ -1772,7 +1715,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select and Remove"*,* | *,"Select and Remove"*)
+        "Select and Remove"*,* | *,"Select and Remove"* | "remove",* | *,"remove" | "Remove",* | *,"Remove")
           if [ "${USEGUI}" ]; then
             neovselect -r
           else
@@ -2097,6 +2040,7 @@ show_main_menu() {
     }
     [ "${versmenu}" ] && show_vers_menu
   done
+  [ "${help}" ] && show_main_menu
 }
 
 get_config_str() {
