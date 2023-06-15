@@ -25,7 +25,7 @@ BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
 PRSNLCFGS="3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern PDE ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1045,7 +1045,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+    AstroNvimStart|Basic|Modern|PDE|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
     Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
@@ -3105,6 +3105,12 @@ install_remove() {
       }
       show_alias "nvim-Cosmic"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
+      printf "\n${action} Normal Neovim configuration"
+      lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
+        -N nvim-Normal ${quietflag} -z ${yesflag}
+      show_alias "nvim-Normal"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration"
       lazyman ${darg} -C https://github.com/Pakrohk-DotFiles/NvPak.git \
@@ -3181,6 +3187,14 @@ install_remove() {
             }
           }
           show_alias "nvim-Cosmic"
+          ;;
+        Normal)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
+          printf "\n${action} Normal Neovim configuration"
+          lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
+            -N nvim-Normal ${quietflag} -z ${yesflag}
+          show_alias "nvim-Normal"
           ;;
         NvPak)
           action="Installing"

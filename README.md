@@ -49,10 +49,11 @@ category includes personal Neovim configurations that provide significant value
 or demonstrate some cool features. Configurations in the `Personal` category are
 not necessarily intended for public use, these repositories are maintained for
 the personal use of the authors but are included here for their value.
-The `Starter` category includes the Neovim `Kickstart` configuration, the
-`NvPak` config, the `Modern` Neovim config, the `PDE` personal development
-environment config, the `Basic` config, and the Neovim configurations provided
-by the [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
+The `Starter` category includes Neovim configurations tailored to serve as
+a starting point for developing your own Neovim configuration. These include
+the popular Neovim `Kickstart` configuration, a `Modern` Neovim config, the
+`PDE` personal development environment config, and the Neovim configurations
+provided by the [nvim-starter project](https://github.com/VonHeikemen/nvim-starter).
 The `Custom` category includes any additional Neovim configurations installed
 and initialized with `lazyman` by the end-user using the `-C url` and
 `-N nvimdir` options.
@@ -283,12 +284,12 @@ following configuration categories:
 | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | | |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       | **Configs** |
-| ----------- | ----- | ----- | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) |
-| [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
+| **Starter** |       |       |       | **Configs** |
+| ----------- | ----- | ----- | ----- | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
+| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
+| [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [PDE](https://github.com/alpha2phi/neovim-pde) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) |
+| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | | | |
 
 ### Base configurations
 
