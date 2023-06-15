@@ -151,7 +151,7 @@ The following command line options are available with the `lazyman` command:
 
 `-A` : indicates install all supported Neovim configurations
 
-`-a` : indicates install and initialize the the 'AstroNvim' Neovim configuration
+`-a` : indicates install and initialize the the 'AstroNvimPlus' Neovim configuration
 
 `-B` : indicates install and initialize all 'Base' Neovim configurations
 
@@ -171,7 +171,7 @@ The following command line options are available with the `lazyman` command:
 
 `-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be one of 'main', 'conf', 'lsp', 'format', or 'plugin'
 
-`-G` : indicates no plugin manager, initialize with ``:TSUpdate``
+`-G` : indicates no plugin manager, initialize with `:TSUpdate`
 
 `-g` : indicates install and initialize the 'Abstract' Neovim configuration
 
@@ -266,7 +266,7 @@ if initialized presents an interactive menu system.
 
 `lazyman` : installs and initializes the `Lazyman` Neovim configuration in `$HOME/.config/nvim-Lazyman/`. If already initialized, `lazyman` presents an interactive menu interface
 
-`lazyman -a` : installs and initializes the `AstroNvim` Neovim configuration in `$HOME/.config/nvim-AstroNvim/`
+`lazyman -a` : installs and initializes the `AstroNvimPlus` Neovim configuration in `$HOME/.config/nvim-AstroNvimPlus/`
 
 `lazyman -l` : installs and initializes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`
 
@@ -411,7 +411,7 @@ below along with their default settings:
   - `conf.enable_compile = false`
 - If coding is enabled, enable Github Copilot
   - `conf.enable_copilot = false`
-- If coding is enabled, enable Neoai, https://github.com/Bryley/neoai.nvim
+- If coding is enabled, enable Neoai, <https://github.com/Bryley/neoai.nvim>
   - `conf.enable_neoai = false`
 - Enable dressing plugin for improved default vim.ui interfaces
   - `conf.enable_dressing = true`
