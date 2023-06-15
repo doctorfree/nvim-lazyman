@@ -12,10 +12,23 @@
 
 - Move all `Custom` category configs to `Personal`
 - Add `Traap` to `Personals`
+- Add several advanced `AstroNvim` user configurations
+- Add `AstroNvim` configurations menu support
+- Add patch for `Magidc` `codelldb` mason registry error
+- Add `Spider` and `Xiao` configurations
+- Add install/open/remove keywords to main menu
+- Add main menu help screen
+- Add J4de to Personals
+- Add LazyVim and NvChad config groups with menu support
+- Update usage message and man page
 
 ### 🐞 Fixed
 
 - Remove `Custom` category
+- Fix `nvim-tree` config, reduce width of both file tree plugins
+- Rename `AstroNvim` user configs
+- Simplify removal menu entries
+- Reinstate `Magidc` in `Personals`, take `Plug` out of `Personals`
 
 ## v2.1.5r5
 
