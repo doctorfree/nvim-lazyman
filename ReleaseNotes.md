@@ -16,7 +16,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |
-| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvim](https://astronvim.com) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
+| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvimPlus](https://github.com/doctorfree/astronvim) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
 
 <!-- prettier-ignore -->
@@ -27,18 +27,20 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) |
-| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
-| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
-| [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
-| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [AstroNvimKabin](https://github.com/kabinspace/AstroNvim_user) |
+| [AstroNvimLamia](https://github.com/A-Lamia/AstroNvim-conf) | [AstroNvimMicah](https://code.mehalter.com/AstroNvim_user) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
+| [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) |
+| [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) |
+| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
+| [AstroNvimSpider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | | |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       |       | **Configs** |
-| ----------- | ----- | ----- | ----- | ----------- |
-| [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
-| [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
-| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
+| **Starter** |       |       | **Configs** |
+| ----------- | ----- | ----- | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) |
+| [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [PDE](https://github.com/alpha2phi/neovim-pde) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 
