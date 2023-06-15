@@ -4,8 +4,22 @@ local treetype = {}
 if settings.file_tree == "nvim-tree" then
   treetype = {
     "nvim-tree/nvim-tree.lua",
+    cmd = {
+      "NvimTreeOpen",
+      "NvimTreeClose",
+      "NvimTreeToggle",
+      "NvimTreeFindFile",
+      "NvimTreeFindFileToggle",
+    },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      {
+        "<C-e>",
+        "<cmd>lua require('nvim-tree.api').tree.toggle()<CR>",
+        desc = "NvimTree Toggle",
+      },
     },
     config = function()
       require("config.nvim-tree")
@@ -46,10 +60,10 @@ if settings.enable_coding then
     cmd = { "TroubleToggle", "Trouble" },
     opts = { use_diagnostic_signs = true },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>",  desc = "Document Diagnostics (Trouble)" },
+      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
       { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>",               desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>",              desc = "Quickfix List (Trouble)" },
+      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
       {
         "[q",
         function()
@@ -142,7 +156,7 @@ return {
             condition = { true, builtin.not_empty },
             click = "v:lua.ScLa",
           },
-          { text = { "%s" },      click = "v:lua.ScSa" }, -- Sign
+          { text = { "%s" }, click = "v:lua.ScSa" }, -- Sign
           { text = { "%C", " " }, click = "v:lua.ScFa" }, -- Fold
         },
       })
@@ -190,7 +204,7 @@ return {
       vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
       vim.keymap.set("n", "zk", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
       vim.keymap.set("n", "zK", function()
-        local winid = require('ufo').peekFoldedLinesUnderCursor()
+        local winid = require("ufo").peekFoldedLinesUnderCursor()
         if not winid then
           vim.lsp.buf.hover()
         end
