@@ -4,7 +4,14 @@
 
 ### ⚡️ Added
 
+- Add `usage` argument to `lazyman`, add examples to man page
+- Update `LaTeX` video playlist link
+- Move tables of configs down to Supported configurations section
+
 ### 🐞 Fixed
+
+- Split file tree plugins out into separate module
+- Fix `lspconfig` use of `gitsigns`
 
 ## v2.1.6r1
 
