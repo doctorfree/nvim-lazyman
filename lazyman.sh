@@ -46,7 +46,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
-  printf "\n   [health] [init] [install] [open] [remove] [status]"
+  printf "\n   [health] [init] [install] [open] [remove] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -124,6 +124,7 @@ usage() {
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
   printf "\n    'status' displays a brief status report and exits"
+  printf "\n    'usage' displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
   printf "\nor, if initialized, an interactive menu system is displayed.\n"
@@ -2516,6 +2517,8 @@ shift $((OPTIND - 1))
   show_info
   exit 0
 }
+
+[ "$1" == "usage" ] && usage
 
 [ "${listinstalled}" ] || [ "${listuninstalled}" ] && {
   [ "${listinstalled}" ] && list_installed

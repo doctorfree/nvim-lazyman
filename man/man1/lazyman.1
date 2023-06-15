@@ -28,7 +28,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path]
 [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url]
 [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x
 conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove]
-[status]
+[status] [usage]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -362,6 +362,8 @@ configuration
 .PP
 \f[V]status\f[R] : displays a brief status report and exits
 .PP
+\f[V]usage\f[R] : displays a usage message and exits
+.PP
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
@@ -369,14 +371,24 @@ Without arguments lazyman installs and initializes nvim-Lazyman or, if
 initialized presents an interactive menu system.
 .SS EXAMPLES
 .PP
-\f[V]lazyman\f[R] : installs and initializes the \f[V]Lazyman\f[R]
-Neovim configuration in \f[V]$HOME/.config/nvim-Lazyman/\f[R].
-If already initialized, \f[V]lazyman\f[R] presents an interactive menu
-interface
+\f[V]$HOME/.config/nvim-Lazyman/lazyman.sh\f[R] : initializes the
+\f[V]Lazyman\f[R] Neovim configuration in
+\f[V]$HOME/.config/nvim-Lazyman/\f[R]
+.PP
+\f[V]lazyman\f[R] : presents an interactive menu interface
+.PP
+\f[V]lazyman install\f[R] : fuzzy search and select a configuration to
+install and initialize
+.PP
+\f[V]lazyman open\f[R] : fuzzy search and select an initialized
+configuration to open
 .PP
 \f[V]lazyman -a\f[R] : installs and initializes the
 \f[V]AstroNvimPlus\f[R] Neovim configuration in
 \f[V]$HOME/.config/nvim-AstroNvimPlus/\f[R]
+.PP
+\f[V]lazyman -c\f[R] : installs and initializes the \f[V]NvChad\f[R]
+Neovim configuration in \f[V]$HOME/.config/nvim-NvChad/\f[R]
 .PP
 \f[V]lazyman -l\f[R] : installs and initializes the \f[V]LazyVim\f[R]
 Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]

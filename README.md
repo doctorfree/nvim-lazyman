@@ -745,7 +745,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
    [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
-   [health] [init] [install] [open] [remove] [status]
+   [health] [init] [install] [open] [remove] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvimPlus Neovim configuration
@@ -818,6 +818,7 @@ Where:
     'open' fuzzy search and select configuration to open
     'remove' fuzzy search and select configuration to remove
     'status' displays a brief status report and exits
+    'usage' displays this usage message and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-Lazyman
 or, if initialized, an interactive menu system is displayed.
