@@ -354,10 +354,11 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
   - Install and initialize with `lazyman -L Go`
 - [LaTeX](https://github.com/benbrastmckie/.config)
-  - Neovim configuration optimized for writing in LaTeX ([video tutorial](https://youtu.be/RZArcHFMUnY))
+  - Neovim configuration optimized for writing in LaTeX
   - Personal Neovim configuration of [Benjamin Brast-McKie](http://www.benbrastmckie.com)
   - Keymaps and more described in the configuration [Cheatsheet](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md)
   - Blog article by the author detailing [tools used by his configuration](http://www.benbrastmckie.com/tools#access)
+  - [Video playlist](https://www.youtube.com/watch?v=_Ct2S65kpjQ&list=PLBYZ1xfnKeDRhCoaM4bTFrjCl3NKDBvqk) of tutorials on using this config for writing LaTeX in Neovim
   - Install and initialize with `lazyman -L LaTeX`
 - [Python](https://github.com/dreamsofcode-io/neovim-python)
   - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
@@ -2134,7 +2135,7 @@ The convenience script to install and initialize `nvim-Lazyman` is provided at
 by `lazyman` and [install_neovim.sh](scripts/install_neovim.sh).
 
 View the lazyman.sh script in the
-[Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki/lazyman))
+[Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki/lazyman)
 
 ### Install neovim and tools
 
