@@ -74,12 +74,12 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [AstroNvimKabin](https://github.com/kabinspace/AstroNvim_user) |
-| [AstroNvimLamia](https://github.com/A-Lamia/AstroNvim-conf) | [AstroNvimMicah](https://code.mehalter.com/AstroNvim_user) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
+| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) |
+| [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) |
 | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) |
 | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
-| [AstroNvimSpider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | | |
+| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       | **Configs** |
@@ -301,7 +301,7 @@ Currently the following "Base" Neovim configurations are supported:
 - [Abstract](https://github.com/Abstract-IDE/Abstract)
   - Preconfigured Neovim as IDE (see <https://abstract-ide.github.io/site/>)
   - Install and initialize with `lazyman -g`
-- [AstroNvim](https://astronvim.com)
+- [AstroNvimPlus](https://github.com/doctorfree/astronvim)
   - Install and initialize with `lazyman -a`
   - An example [AstroNvim community]() plugins configuration is added
 - [Basic IDE](https://github.com/LunarVim/nvim-basic-ide)
@@ -394,15 +394,15 @@ installed with the `-w conf` option.
 - [Allaman](https://github.com/Allaman/nvim)
   - One of the inspirations for `Lazyman`
   - `lazyman -w Allaman`
-- [AstroNvimKabin](https://github.com/kabinspace/AstroNvim_user)
+- [Kabin](https://github.com/kabinspace/AstroNvim_user)
   - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w AstroNvimKabin`
-- [AstroNvimLamia](https://github.com/A-Lamia/AstroNvim-conf)
+  - `lazyman -w Kabin`
+- [Lamia](https://github.com/A-Lamia/AstroNvim-conf)
   - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w AstroNvimLamia`
-- [AstroNvimMicah](https://code.mehalter.com/AstroNvim_user)
+  - `lazyman -w Lamia`
+- [Micah](https://code.mehalter.com/AstroNvim_user)
   - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w AstroNvimMicah`
+  - `lazyman -w Micah`
 - [Brain](https://github.com/brainfucksec/neovim-lua)
   - `lazyman -w Brain`
 - [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
@@ -457,10 +457,10 @@ installed with the `-w conf` option.
 - [Slydragonn](https://github.com/slydragonn/dotfiles)
   - [Introductory video](https://youtu.be/vkCnPdaRBE0)
   - `lazyman -w Slydragonn`
-- [AstroNvimSpider](https://github.com/fearless-spider/FSAstroNvim)
+- [Spider](https://github.com/fearless-spider/FSAstroNvim)
   - AstroNvim based configuration with animated status bar and smooth scroll
   - [Introductory video](https://youtu.be/Lj6MZsKl9MU)
-  - `lazyman -w AstroNvimSpider`
+  - `lazyman -w Spider`
 - [Traap](https://github.com/Traap/nvim)
   - [Introductory video](https://youtu.be/aD9j6d9pgtc)
   - `lazyman -w Traap`
@@ -743,7 +743,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [health] [init] [install] [open] [remove] [status]
 Where:
     -A indicates install all supported Neovim configurations
-    -a indicates install and initialize AstroNvim Neovim configuration
+    -a indicates install and initialize AstroNvimPlus Neovim configuration
     -B indicates install and initialize all 'Base' Neovim configurations
     -b 'branch' specifies an nvim-Lazyman git branch to checkout
     -c indicates install and initialize NvChad Neovim configuration
@@ -797,11 +797,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+           All 3rd AstroNvimMicah AstroNvimKabin AstroNvimLamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn AstroNvimSpider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE Extralight Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE Extralight Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
@@ -1650,10 +1650,10 @@ command -v nvim > /dev/null && {
       items+=("NvChad")
       ndirs+=("nvim-NvChad")
     }
-    [ -d ${HOME}/.config/nvim-AstroNvim ] && {
-      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
-      items+=("AstroNvim")
-      ndirs+=("nvim-AstroNvim")
+    [ -d ${HOME}/.config/nvim-AstroNvimPlus ] && {
+      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvimPlus nvim"
+      items+=("AstroNvimPlus")
+      ndirs+=("nvim-AstroNvimPlus")
     }
     [ -d ${HOME}/.config/nvim-Ecovim ] && {
       alias nvim-eco="NVIM_APPNAME=nvim-Ecovim nvim"

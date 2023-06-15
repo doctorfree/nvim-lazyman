@@ -67,10 +67,10 @@ command -v nvim > /dev/null && {
       items+=("NvChad")
       ndirs+=("nvim-NvChad")
     }
-    [ -d ${HOME}/.config/nvim-AstroNvim ] && {
-      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvim nvim"
-      items+=("AstroNvim")
-      ndirs+=("nvim-AstroNvim")
+    [ -d ${HOME}/.config/nvim-AstroNvimPlus ] && {
+      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvimPlus nvim"
+      items+=("AstroNvimPlus")
+      ndirs+=("nvim-AstroNvimPlus")
     }
     [ -d ${HOME}/.config/nvim-Ecovim ] && {
       alias nvim-eco="NVIM_APPNAME=nvim-Ecovim nvim"
