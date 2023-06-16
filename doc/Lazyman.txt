@@ -252,7 +252,7 @@ Slydragonn Spider Traap Xiao
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
 'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion',
-'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'PDE',
+'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'pde',
 'StartBase'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
