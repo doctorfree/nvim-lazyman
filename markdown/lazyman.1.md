@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status] [usage]
 
 ## FEATURES
 
@@ -233,7 +233,7 @@ The following command line options are available with the `lazyman` command:
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
-`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion', 'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'PDE', 'StartBase'
+`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion', 'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'pde', 'StartBase'
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
@@ -257,6 +257,8 @@ The following command line options are available with the `lazyman` command:
 
 `status` : displays a brief status report and exits
 
+`usage` : displays a usage message and exits
+
 Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
 Without arguments lazyman installs and initializes nvim-Lazyman or,
@@ -264,9 +266,17 @@ if initialized presents an interactive menu system.
 
 ### EXAMPLES
 
-`lazyman` : installs and initializes the `Lazyman` Neovim configuration in `$HOME/.config/nvim-Lazyman/`. If already initialized, `lazyman` presents an interactive menu interface
+`$HOME/.config/nvim-Lazyman/lazyman.sh` : initializes the `Lazyman` Neovim configuration in `$HOME/.config/nvim-Lazyman/`
+
+`lazyman` : presents an interactive menu interface
+
+`lazyman install` : fuzzy search and select a configuration to install and initialize
+
+`lazyman open` : fuzzy search and select an initialized configuration to open
 
 `lazyman -a` : installs and initializes the `AstroNvimPlus` Neovim configuration in `$HOME/.config/nvim-AstroNvimPlus/`
+
+`lazyman -c` : installs and initializes the `NvChad` Neovim configuration in `$HOME/.config/nvim-NvChad/`
 
 `lazyman -l` : installs and initializes the `LazyVim` Neovim configuration in `$HOME/.config/nvim-LazyVim/`
 

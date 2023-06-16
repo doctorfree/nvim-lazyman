@@ -25,13 +25,13 @@ BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
 PRSNLCFGS="3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
-PACKERCFGS="AlanVim Fennel Josean LaTeX SaleVim Simple Slydragonn"
+PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
@@ -46,7 +46,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
-  printf "\n   [health] [init] [install] [open] [remove] [status]"
+  printf "\n   [health] [init] [install] [open] [remove] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -124,6 +124,7 @@ usage() {
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
   printf "\n    'status' displays a brief status report and exits"
+  printf "\n    'usage' displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
   printf "\nor, if initialized, an interactive menu system is displayed.\n"
@@ -171,7 +172,7 @@ fix_nvim_dir() {
   fixnvimdir="$1"
   [ "${fixnvimdir}" == "${lazymandir}" ] || {
     find "${HOME}/.config/${fixnvimdir}" \
-      -type f -a \( -name \*\.lua -o -name \*\.vim  \) | \
+      -type f -a \( -name \*\.lua -o -name \*\.vim  -o -name \*\.fnl \) | \
     while read -r f
     do
       echo "$f" | grep /.git/ > /dev/null && continue
@@ -210,7 +211,7 @@ init_neovim() {
     plug=
     packer=
   }
-  [ "${neodir}" == "${magicvimdir}" ] && {
+  [ "${neodir}" == "${magicvimdir}" ] || [ "${neodir}" == "${abstractdir}" ] && {
     oldpack=${packer}
     packer=1
   }
@@ -228,6 +229,22 @@ init_neovim() {
           https://github.com/wbthomason/packer.nvim "${PACKER}" >/dev/null 2>&1
       }
     }
+  }
+  [ "${neodir}" == "${abstractdir}" ] && {
+    BUILDER="${HOME}/.local/share/${neodir}/custom_tools/lazy-builder"
+    if [ -d "${BUILDER}" ]
+    then
+      [ "$tellme" ] || git -C ${BUILDER} pull > /dev/null 2>&1
+    else
+      [ "$quiet" ] || {
+        printf "\nCloning lazy builder into"
+        printf "\n\t${BUILDER}"
+      }
+      [ "$tellme" ] || {
+        git clone https://github.com/Abstract-IDE/lazy-builder \
+            "${BUILDER}" >/dev/null 2>&1
+      }
+    fi
   }
 
   [ "${plug}" ] && {
@@ -930,7 +947,7 @@ show_alias() {
     elif [ "$modern" ]; then
       printf "\n\talias mvim='NVIM_APPNAME=nvim-Modern nvim'"
     elif [ "$pde" ]; then
-      printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
+      printf "\n\talias nde='NVIM_APPNAME=nvim-pde nvim'"
     elif [ "$lazyman" ]; then
       printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
     elif [ "$lazyvim" ]; then
@@ -1044,7 +1061,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|PDE|CodeArt|Cosmic|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
     Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
@@ -1647,7 +1664,7 @@ show_main_menu() {
           [ "${choice}" ] && install_config "${choice}"
           break
           ;;
-        "Select/Open Base"*,* | *,"Select/Open Base"*)
+        "Select/Open Base"*,* | *,"Select/Open Base"* | "open b"*,* | *,"open b"* | "Open B"*,* | *,"Open B"*)
           choices=()
           for neovim in ${BASECFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1660,12 +1677,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open Language"*,* | *,"Select/Open Language"*)
+        "Select/Open Language"*,* | *,"Select/Open Language"* | "open lan"*,* | *,"open lan"* | "Open Lan"*,* | *,"Open Lan"*)
           choices=()
           for neovim in ${LANGUCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1678,12 +1695,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open Personal"*,* | *,"Select/Open Personal"*)
+        "Select/Open Personal"*,* | *,"Select/Open Personal"* | "open p"*,* | *,"open p"* | "Open P"*,* | *,"Open P"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1696,12 +1713,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open Starter"*,* | *,"Select/Open Starter"*)
+        "Select/Open Starter"*,* | *,"Select/Open Starter"* | "open s"*,* | *,"open s"* | "Open S"*,* | *,"Open S"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1714,12 +1731,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open Astros"*,* | *,"Select/Open Astros"*)
+        "Select/Open Astros"*,* | *,"Select/Open Astros"* | "open a"*,* | *,"open a"* | "Open A"*,* | *,"Open A"*)
           choices=()
           for neovim in ${ASTROCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1732,12 +1749,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open NvChad"*,* | *,"Select/Open NvChad"*)
+        "Select/Open NvChad"*,* | *,"Select/Open NvChad"* | "open n"*,* | *,"open n"* | "Open N"*,* | *,"Open N"*)
           choices=()
           for neovim in ${NVCHADCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1750,12 +1767,12 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
           ;;
-        "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"*)
+        "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"* | "open laz"*,* | *,"open laz"* | "Open Laz"*,* | *,"Open Laz"*)
           choices=()
           for neovim in ${LAZYVIMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1768,7 +1785,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              runconfig "nvim-${choice}"
             fi
           fi
           break
@@ -1988,14 +2005,14 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${nvimconf}" neovide
             else
-              NVIM_APPNAME="nvim-${nvimconf}" nvim
+              runconfig "nvim-${nvimconf}"
             fi
           else
             if [ -d "${HOME}/.config/${nvimconf}" ]; then
               if [ "${USEGUI}" ]; then
                 NVIM_APPNAME="${nvimconf}" neovide
               else
-                NVIM_APPNAME="${nvimconf}" nvim
+              runconfig "nvim-${nvimconf}"
               fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"
@@ -2245,7 +2262,7 @@ lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
 onnovimdir="nvim-ONNO"
 moderndir="nvim-Modern"
-pdedir="nvim-PDE"
+pdedir="nvim-pde"
 penguinvimdir="nvim-Penguin"
 fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
@@ -2337,6 +2354,8 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fl
     g)
       abstract=1
       neovimdir=("$abstractdir")
+      packer=1
+      pmgr="Packer"
       ;;
     h)
       brew="-h"
@@ -2516,6 +2535,8 @@ shift $((OPTIND - 1))
   show_info
   exit 0
 }
+
+[ "$1" == "usage" ] && usage
 
 [ "${listinstalled}" ] || [ "${listuninstalled}" ] && {
   [ "${listinstalled}" ] && list_installed
@@ -3082,25 +3103,37 @@ install_remove() {
       [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
       printf "\n${action} CodeArt Neovim configuration"
       lazyman ${darg} -C https://github.com/artart222/CodeArt \
-        -N nvim-CodeArt ${quietflag} -z ${yesflag}
+        -N nvim-CodeArt -P ${quietflag} -z ${yesflag}
       show_alias "nvim-CodeArt"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
       printf "\n${action} Cosmic Neovim configuration"
+      updcosmic=
       lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
         -N nvim-Cosmic ${quietflag} -z ${yesflag}
       CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
       [ -f "${CMICDIR}"/config.lua ] || {
         [ -f "${CMICDIR}"/examples/config.lua ] && {
           cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+          updcosmic=1
         }
       }
       [ -f "${CMICDIR}"/editor.lua ] || {
         [ -f "${CMICDIR}"/examples/editor.lua ] && {
           cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+          updcosmic=1
         }
       }
+      [ "${updcosmic}" ] && {
+        lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
+      }
       show_alias "nvim-Cosmic"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
+      printf "\n${action} Normal Neovim configuration"
+      lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
+        -N nvim-Normal ${quietflag} -z ${yesflag}
+      show_alias "nvim-Normal"
       action="Installing"
       [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration"
@@ -3120,11 +3153,11 @@ install_remove() {
         -N nvim-Modern ${quietflag} -z ${yesflag}
       show_alias "nvim-Modern"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+      [ -d ${HOME}/.config/nvim-pde ] && action="Updating"
       printf "\n${action} PDE Neovim configuration"
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
-        -N nvim-PDE ${quietflag} -z ${yesflag}
-      show_alias "nvim-PDE"
+        -N nvim-pde ${quietflag} -z ${yesflag}
+      show_alias "nvim-pde"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -3157,27 +3190,41 @@ install_remove() {
           [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
           printf "\n${action} CodeArt Neovim configuration"
           lazyman ${darg} -C https://github.com/artart222/CodeArt \
-            -N nvim-CodeArt ${quietflag} -z ${yesflag}
+            -N nvim-CodeArt -P ${quietflag} -z ${yesflag}
           show_alias "nvim-CodeArt"
           ;;
         Cosmic)
           action="Installing"
           [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
           printf "\n${action} Cosmic Neovim configuration"
+          updcosmic=
           lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
             -N nvim-Cosmic ${quietflag} -z ${yesflag}
           CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
           [ -f "${CMICDIR}"/config.lua ] || {
             [ -f "${CMICDIR}"/examples/config.lua ] && {
               cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+              updcosmic=1
             }
           }
           [ -f "${CMICDIR}"/editor.lua ] || {
             [ -f "${CMICDIR}"/examples/editor.lua ] && {
               cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+              updcosmic=1
             }
           }
+          [ "${updcosmic}" ] && {
+            lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
+          }
           show_alias "nvim-Cosmic"
+          ;;
+        Normal)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
+          printf "\n${action} Normal Neovim configuration"
+          lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
+            -N nvim-Normal ${quietflag} -z ${yesflag}
+          show_alias "nvim-Normal"
           ;;
         NvPak)
           action="Installing"
@@ -3203,13 +3250,13 @@ install_remove() {
             -N nvim-Modern ${quietflag} -z ${yesflag}
           show_alias "nvim-Modern"
           ;;
-        PDE)
+        pde)
           action="Installing"
-          [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+          [ -d ${HOME}/.config/nvim-pde ] && action="Updating"
           printf "\n${action} PDE Neovim configuration"
           lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
-            -N nvim-PDE ${quietflag} -z ${yesflag}
-          show_alias "nvim-PDE"
+            -N nvim-pde ${quietflag} -z ${yesflag}
+          show_alias "nvim-pde"
           ;;
         *)
           startbranch=
@@ -3558,7 +3605,7 @@ set_brew
   clone_repo Ecovim ecosse3/nvim "$ecovimdir"
 }
 [ "$kickstart" ] && {
-  clone_repo Kickstart nvim-lua/kickstart.nvim "$kickstartdir"
+  clone_repo Kickstart doctorfree/kickstart.nvim "$kickstartdir"
 }
 [ "$lazyvim" ] && {
   clone_repo LazyVim LazyVim/starter "$lazyvimdir"
@@ -3688,7 +3735,7 @@ set_brew
   clone_repo Modern alpha2phi/modern-neovim "$moderndir"
 }
 [ "$pde" ] && {
-  clone_repo PDE alpha2phi/neovim-pde "$pdedir"
+  clone_repo pde alpha2phi/neovim-pde "$pdedir"
 }
 [ "$penguinvim" ] && {
   clone_repo Penguin p3nguin-kun/penguinVim "$penguinvimdir"
