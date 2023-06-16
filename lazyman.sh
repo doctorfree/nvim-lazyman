@@ -13,6 +13,7 @@ NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
 SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
+RUNCONFG="${LMANDIR}/scripts/run_config.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -1677,7 +1678,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1695,7 +1696,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1713,7 +1714,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1731,7 +1732,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1749,7 +1750,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1767,7 +1768,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -1785,7 +1786,7 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${choice}" neovide
             else
-              NVIM_APPNAME="nvim-${choice}" nvim
+              ${RUNCONFG} "nvim-${choice}"
             fi
           fi
           break
@@ -2005,14 +2006,14 @@ show_main_menu() {
             if [ "${USEGUI}" ]; then
               NVIM_APPNAME="nvim-${nvimconf}" neovide
             else
-              NVIM_APPNAME="nvim-${nvimconf}" nvim
+              ${RUNCONFG} "nvim-${nvimconf}"
             fi
           else
             if [ -d "${HOME}/.config/${nvimconf}" ]; then
               if [ "${USEGUI}" ]; then
                 NVIM_APPNAME="${nvimconf}" neovide
               else
-                NVIM_APPNAME="${nvimconf}" nvim
+              ${RUNCONFG} "nvim-${nvimconf}"
               fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"

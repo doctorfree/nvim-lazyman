@@ -129,7 +129,7 @@ command -v nvim > /dev/null && {
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       fi
     fi
-    if [[ -z $config ]]; then
+    if [[ -z ${config} ]]; then
       echo "Nothing selected"
       return 0
     else
@@ -147,26 +147,12 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      case ${config} in
-        nvim-3rd)
-          NVIM_APPNAME=$config nvim -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
-          ;;
-        nvim-Extralight|nvim-Minimal|nvim-Simple)
-          NVIM_APPNAME=$config nvim -c "Lexplore" $@
-          ;;
-        nvim-Kabin|nvim-Lamia|nvim-Micah|nvim-Kickstart)
-          NVIM_APPNAME=$config nvim -c "Neotree" $@
-          ;;
-        nvim-Cosmic|nvim-Go|nvim-Python|nvim-Fennel|nvim-Rust|nvim-Opinion)
-          NVIM_APPNAME=$config nvim -c "NvimTreeOpen" $@
-          ;;
-        nvim-Basic|nvim-Modular|nvim-StartLsp|nvim-StartMason)
-          NVIM_APPNAME=$config nvim -c "NvimTreeToggle" $@
-          ;;
-        *)
-          NVIM_APPNAME=$config nvim $@
-          ;;
-      esac
+      if [ -x ${HOME}/.config/nvim-Lazyman/scripts/run_config.sh ]
+      then
+        ${HOME}/.config/nvim-Lazyman/scripts/run_config.sh "${config}" $@
+      else
+        NVIM_APPNAME="${config}" nvim $@
+      fi
     fi
   }
 
@@ -195,7 +181,7 @@ command -v nvim > /dev/null && {
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       fi
     fi
-    if [[ -z $config ]]; then
+    if [[ -z ${config} ]]; then
       echo "Nothing selected"
       return 0
     else
@@ -213,7 +199,7 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      NVIM_APPNAME=$config neovide $@
+      NVIM_APPNAME="${config}" neovide $@
     fi
   }
 }
