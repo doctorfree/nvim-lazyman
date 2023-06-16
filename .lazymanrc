@@ -147,7 +147,20 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      NVIM_APPNAME=$config nvim $@
+      case ${config} in
+        nvim-Kabin|nvim-Lamia|nvim-Micah|nvim-Kickstart)
+          NVIM_APPNAME=$config nvim -c "Neotree" $@
+          ;;
+        nvim-Cosmic|nvim-Go|nvim-Python|nvim-Fennel|nvim-Rust)
+          NVIM_APPNAME=$config nvim -c "NvimTreeOpen" $@
+          ;;
+        nvim-Basic)
+          NVIM_APPNAME=$config nvim -c "NvimTreeToggle" $@
+          ;;
+        *)
+          NVIM_APPNAME=$config nvim $@
+          ;;
+      esac
     fi
   }
 

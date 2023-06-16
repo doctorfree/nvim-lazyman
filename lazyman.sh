@@ -31,7 +31,7 @@ LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
-PACKERCFGS="AlanVim Fennel Josean LaTeX SaleVim Simple Slydragonn"
+PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
@@ -172,7 +172,7 @@ fix_nvim_dir() {
   fixnvimdir="$1"
   [ "${fixnvimdir}" == "${lazymandir}" ] || {
     find "${HOME}/.config/${fixnvimdir}" \
-      -type f -a \( -name \*\.lua -o -name \*\.vim  \) | \
+      -type f -a \( -name \*\.lua -o -name \*\.vim  -o -name \*\.fnl \) | \
     while read -r f
     do
       echo "$f" | grep /.git/ > /dev/null && continue
@@ -211,7 +211,7 @@ init_neovim() {
     plug=
     packer=
   }
-  [ "${neodir}" == "${magicvimdir}" ] && {
+  [ "${neodir}" == "${magicvimdir}" ] || [ "${neodir}" == "${abstractdir}" ] && {
     oldpack=${packer}
     packer=1
   }
@@ -229,6 +229,22 @@ init_neovim() {
           https://github.com/wbthomason/packer.nvim "${PACKER}" >/dev/null 2>&1
       }
     }
+  }
+  [ "${neodir}" == "${abstractdir}" ] && {
+    BUILDER="${HOME}/.local/share/${neodir}/custom_tools/lazy-builder"
+    if [ -d "${BUILDER}" ]
+    then
+      [ "$tellme" ] || git -C ${BUILDER} pull > /dev/null 2>&1
+    else
+      [ "$quiet" ] || {
+        printf "\nCloning lazy builder into"
+        printf "\n\t${BUILDER}"
+      }
+      [ "$tellme" ] || {
+        git clone https://github.com/Abstract-IDE/lazy-builder \
+            "${BUILDER}" >/dev/null 2>&1
+      }
+    fi
   }
 
   [ "${plug}" ] && {
@@ -2338,6 +2354,8 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fl
     g)
       abstract=1
       neovimdir=("$abstractdir")
+      packer=1
+      pmgr="Packer"
       ;;
     h)
       brew="-h"
@@ -3085,23 +3103,29 @@ install_remove() {
       [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
       printf "\n${action} CodeArt Neovim configuration"
       lazyman ${darg} -C https://github.com/artart222/CodeArt \
-        -N nvim-CodeArt ${quietflag} -z ${yesflag}
+        -N nvim-CodeArt -P ${quietflag} -z ${yesflag}
       show_alias "nvim-CodeArt"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
       printf "\n${action} Cosmic Neovim configuration"
+      updcosmic=
       lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
         -N nvim-Cosmic ${quietflag} -z ${yesflag}
       CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
       [ -f "${CMICDIR}"/config.lua ] || {
         [ -f "${CMICDIR}"/examples/config.lua ] && {
           cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+          updcosmic=1
         }
       }
       [ -f "${CMICDIR}"/editor.lua ] || {
         [ -f "${CMICDIR}"/examples/editor.lua ] && {
           cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+          updcosmic=1
         }
+      }
+      [ "${updcosmic}" ] && {
+        lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
       }
       show_alias "nvim-Cosmic"
       action="Installing"
@@ -3166,25 +3190,31 @@ install_remove() {
           [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
           printf "\n${action} CodeArt Neovim configuration"
           lazyman ${darg} -C https://github.com/artart222/CodeArt \
-            -N nvim-CodeArt ${quietflag} -z ${yesflag}
+            -N nvim-CodeArt -P ${quietflag} -z ${yesflag}
           show_alias "nvim-CodeArt"
           ;;
         Cosmic)
           action="Installing"
           [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
           printf "\n${action} Cosmic Neovim configuration"
+          updcosmic=
           lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
             -N nvim-Cosmic ${quietflag} -z ${yesflag}
           CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
           [ -f "${CMICDIR}"/config.lua ] || {
             [ -f "${CMICDIR}"/examples/config.lua ] && {
               cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
+              updcosmic=1
             }
           }
           [ -f "${CMICDIR}"/editor.lua ] || {
             [ -f "${CMICDIR}"/examples/editor.lua ] && {
               cp "${CMICDIR}"/examples/editor.lua "${CMICDIR}"/editor.lua
+              updcosmic=1
             }
+          }
+          [ "${updcosmic}" ] && {
+            lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
           }
           show_alias "nvim-Cosmic"
           ;;
@@ -3575,7 +3605,7 @@ set_brew
   clone_repo Ecovim ecosse3/nvim "$ecovimdir"
 }
 [ "$kickstart" ] && {
-  clone_repo Kickstart nvim-lua/kickstart.nvim "$kickstartdir"
+  clone_repo Kickstart doctorfree/kickstart.nvim "$kickstartdir"
 }
 [ "$lazyvim" ] && {
   clone_repo LazyVim LazyVim/starter "$lazyvimdir"
