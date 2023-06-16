@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Use the `runconfig()` function for `neovide` as well as `nvim`
+
 ### 🐞 Fixed
 
 ## v2.1.6r2
