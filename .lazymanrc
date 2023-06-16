@@ -107,10 +107,10 @@ command -v nvim > /dev/null && {
       nvim-Extralight|nvim-Minimal|nvim-Simple)
         NVIM_APPNAME="${cfg}" nvim -c 'Lexplore' $@
         ;;
-      nvim-Kabin|nvim-Lamia|nvim-Micah|nvim-Kickstart)
+      nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Rafi|nvim-Slydragonn)
         NVIM_APPNAME="${cfg}" nvim -c 'Neotree' $@
         ;;
-      nvim-Cosmic|nvim-Fennel|nvim-Opinion)
+      nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
         NVIM_APPNAME="${cfg}" nvim -c 'NvimTreeOpen' $@
         ;;
       nvim-Basic|nvim-Go|nvim-Modular|nvim-Python|nvim-Rust|nvim-StartLsp|nvim-StartMason)
