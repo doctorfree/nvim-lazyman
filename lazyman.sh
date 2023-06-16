@@ -1681,7 +1681,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1699,7 +1699,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1717,7 +1717,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Personal Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1735,7 +1735,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Starter Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1753,7 +1753,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select AstroNvim Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1771,7 +1771,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -1789,7 +1789,7 @@ show_main_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Open  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${choice}" neovide
+              runconfig "nvim-${choice}" "neovide"
             else
               runconfig "nvim-${choice}"
             fi
@@ -2009,16 +2009,16 @@ show_main_menu() {
           fi
           if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
             if [ "${USEGUI}" ]; then
-              NVIM_APPNAME="nvim-${nvimconf}" neovide
+              runconfig "nvim-${nvimconf}" "neovide"
             else
               runconfig "nvim-${nvimconf}"
             fi
           else
             if [ -d "${HOME}/.config/${nvimconf}" ]; then
               if [ "${USEGUI}" ]; then
-                NVIM_APPNAME="${nvimconf}" neovide
+                runconfig "nvim-${nvimconf}" "neovide"
               else
-              runconfig "nvim-${nvimconf}"
+                runconfig "nvim-${nvimconf}"
               fi
             else
               printf "\nCannot locate ${nvimconf} Neovim configuration\n"
