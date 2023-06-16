@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -352,6 +352,9 @@ init_neovim() {
                 [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
                 }
+                [ "${neodir}" == "nvim-2k" ] && {
+                  xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
+                }
               }
             fi
           fi
@@ -404,6 +407,9 @@ init_neovim() {
                 [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless \
                     "+MasonInstallAll" +qa >/dev/null 2>&1
+                }
+                [ "${neodir}" == "nvim-2k" ] && {
+                  xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
                 }
               }
             fi
@@ -1064,7 +1070,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2757,6 +2763,12 @@ install_remove() {
         -D nvim -N nvim-AlanVim -P ${quietflag} -z ${yesflag}
       show_alias "nvim-AlanVim"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
+      printf "\n${action} nvim2k Neovim configuration"
+      lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
+        -N nvim-2k ${quietflag} -z ${yesflag}
+      show_alias "nvim-2k"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-3rd ] && action="Updating"
       printf "\n${action} 3rd Neovim configuration"
       lazyman ${darg} -C https://github.com/3rd/config \
@@ -2934,6 +2946,9 @@ install_remove() {
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
+        2k)
+          prsnl_url="https://github.com/2KAbhishek/nvim2k"
+          ;;
         3rd)
           prsnl_url="https://github.com/3rd/config"
           prsnl_dir="-D home/dotfiles/nvim"

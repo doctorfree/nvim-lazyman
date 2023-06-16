@@ -281,7 +281,7 @@ following configuration categories:
 | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Knvim](https://github.com/knmac/knvim) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) |
 | [Magidc](https://github.com/magidc/nvim-config) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
-| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | | |
+| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
@@ -472,6 +472,9 @@ installed with the `-w conf` option.
   - `lazyman -w Traap`
 - [Xiao](https://github.com/onichandame/nvim-config)
   - Install and initialize with `lazyman -w Xiao`
+- [nvim2k](https://github.com/2KAbhishek/nvim2k)
+  - `lazyman -w 2k`
+  - [Video walkthrough](https://youtu.be/WfhylGI_F-o)
 
 ### Starter configurations
 
@@ -803,11 +806,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+           All 2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern pde Extralight Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde Extralight Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization

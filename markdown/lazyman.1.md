@@ -229,7 +229,7 @@ The following command line options are available with the `lazyman` command:
 
 `-V url` : specifies an NvChad user configuration git repository
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 2k 3rd Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
