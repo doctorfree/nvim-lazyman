@@ -4,18 +4,25 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.6r2
+
+### ⚡️ Added
+
 - Add `usage` argument to `lazyman`, add examples to man page
-- Add Rafi, Slydragonn, and Optixal to lazymanrc file tree open function
+- Add `Rafi`, `Slydragonn`, and `Optixal` to `lazymanrc` file tree open function
 - Add `kill_all_neovim` script, fixup lazymanrc
-- Move `run_config.sh` into .lazymanrc as a function
 - Add `run_config.sh` script executed from lazymanrc and lazyman to run neovim with a designated config
-- Expand lazymanrc file tree opening for several configs
-- Add switch to lazymanrc for some configs to bring up file tree
-- Add `Normal` configuration to Starters
+- Expand `lazymanrc` file tree opening for several configs
+- Add switch to `lazymanrc` for some configs to bring up file tree
+- Add `Normal` configuration to `Starters`
+- Add `nvim2k` configuration to `Personals`
 
 ### 🐞 Fixed
 
 - Split file tree plugins out into separate module
+- Move `run_config.sh` into .lazymanrc as a function
 - Fix `lspconfig` use of `gitsigns`
 - Update `LaTeX` video playlist link
 - Move tables of configs down to Supported configurations section
