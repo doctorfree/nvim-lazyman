@@ -25,7 +25,7 @@ BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
 PRSNLCFGS="3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern PDE ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -947,7 +947,7 @@ show_alias() {
     elif [ "$modern" ]; then
       printf "\n\talias mvim='NVIM_APPNAME=nvim-Modern nvim'"
     elif [ "$pde" ]; then
-      printf "\n\talias dvim='NVIM_APPNAME=nvim-PDE nvim'"
+      printf "\n\talias nde='NVIM_APPNAME=nvim-pde nvim'"
     elif [ "$lazyman" ]; then
       printf "\n\talias lmvim='NVIM_APPNAME=${LAZYMAN} nvim'"
     elif [ "$lazyvim" ]; then
@@ -1061,7 +1061,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|PDE|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
     Adib|ONNO|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
@@ -2262,7 +2262,7 @@ lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
 onnovimdir="nvim-ONNO"
 moderndir="nvim-Modern"
-pdedir="nvim-PDE"
+pdedir="nvim-pde"
 penguinvimdir="nvim-Penguin"
 fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
@@ -3153,11 +3153,11 @@ install_remove() {
         -N nvim-Modern ${quietflag} -z ${yesflag}
       show_alias "nvim-Modern"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+      [ -d ${HOME}/.config/nvim-pde ] && action="Updating"
       printf "\n${action} PDE Neovim configuration"
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
-        -N nvim-PDE ${quietflag} -z ${yesflag}
-      show_alias "nvim-PDE"
+        -N nvim-pde ${quietflag} -z ${yesflag}
+      show_alias "nvim-pde"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -3250,13 +3250,13 @@ install_remove() {
             -N nvim-Modern ${quietflag} -z ${yesflag}
           show_alias "nvim-Modern"
           ;;
-        PDE)
+        pde)
           action="Installing"
-          [ -d ${HOME}/.config/nvim-PDE ] && action="Updating"
+          [ -d ${HOME}/.config/nvim-pde ] && action="Updating"
           printf "\n${action} PDE Neovim configuration"
           lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
-            -N nvim-PDE ${quietflag} -z ${yesflag}
-          show_alias "nvim-PDE"
+            -N nvim-pde ${quietflag} -z ${yesflag}
+          show_alias "nvim-pde"
           ;;
         *)
           startbranch=
@@ -3735,7 +3735,7 @@ set_brew
   clone_repo Modern alpha2phi/modern-neovim "$moderndir"
 }
 [ "$pde" ] && {
-  clone_repo PDE alpha2phi/neovim-pde "$pdedir"
+  clone_repo pde alpha2phi/neovim-pde "$pdedir"
 }
 [ "$penguinvim" ] && {
   clone_repo Penguin p3nguin-kun/penguinVim "$penguinvimdir"

@@ -37,7 +37,7 @@ Categories:
     - Modular
     - NvPak
     - Opinion
-    - PDE
+    - pde
     - StartBase
     - StartLsp
     - StartMason
@@ -190,7 +190,7 @@ Configs:
     url: https://github.com/Optixal/neovim-init.vim
     opt: -p
     dir: ""
-  - name: PDE
+  - name: pde
     url: https://github.com/alpha2phi/neovim-pde
     opt: ""
     dir: ""

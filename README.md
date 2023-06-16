@@ -509,7 +509,7 @@ installed with the `-x conf` option.
   - Install and initialize with `lazyman -x Modern`
 - [PDE](https://github.com/alpha2phi/neovim-pde)
   - Configure Neovim as a Personalized Development Environment (PDE)
-  - Install and initialize with `lazyman -x PDE`
+  - Install and initialize with `lazyman -x pde`
 - [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
   - Single file lightweight configuration focused on providing basic features
   - Install and initialize with `lazyman -x Extralight`
@@ -807,7 +807,7 @@ Where:
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern PDE Extralight Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Kickstart NvPak HardHacker Modern pde Extralight Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
