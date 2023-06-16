@@ -105,25 +105,22 @@ command -v nvim > /dev/null && {
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
       nvim-Extralight|nvim-Minimal|nvim-Simple)
-        NVIM_APPNAME="${cfg}" nvim -c 'Lexplore' "$@"
+        NVIM_APPNAME="${cfg}" nvim -c 'Lexplore' $@
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Micah|nvim-Kickstart)
-        NVIM_APPNAME="${cfg}" nvim -c 'Neotree' "$@"
+        NVIM_APPNAME="${cfg}" nvim -c 'Neotree' $@
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion)
-        NVIM_APPNAME="${cfg}" nvim -c 'NvimTreeOpen' "$@"
+        NVIM_APPNAME="${cfg}" nvim -c 'NvimTreeOpen' $@
         ;;
       nvim-Basic|nvim-Go|nvim-Modular|nvim-Python|nvim-Rust|nvim-StartLsp|nvim-StartMason)
-        NVIM_APPNAME="${cfg}" nvim -c 'NvimTreeToggle' "$@"
+        NVIM_APPNAME="${cfg}" nvim -c 'NvimTreeToggle' $@
         ;;
       nvim-3rd)
-        NVIM_APPNAME="${cfg}" nvim -c 'lua
-          local api = require("nvim-tree.api")
-          local tree = require("nvim-tree")
-          api.tree.toggle(true)' "$@"
+        NVIM_APPNAME="${cfg}" nvim -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
         ;;
       *)
-        NVIM_APPNAME="${cfg}" nvim "$@"
+        NVIM_APPNAME="${cfg}" nvim $@
         ;;
     esac
   }

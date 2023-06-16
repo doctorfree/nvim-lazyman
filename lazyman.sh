@@ -1664,7 +1664,7 @@ show_main_menu() {
           [ "${choice}" ] && install_config "${choice}"
           break
           ;;
-        "Select/Open Base"*,* | *,"Select/Open Base"*)
+        "Select/Open Base"*,* | *,"Select/Open Base"* | "open b"*,* | *,"open b"* | "Open B"*,* | *,"Open B"*)
           choices=()
           for neovim in ${BASECFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1682,7 +1682,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Language"*,* | *,"Select/Open Language"*)
+        "Select/Open Language"*,* | *,"Select/Open Language"* | "open lan"*,* | *,"open lan"* | "Open Lan"*,* | *,"Open Lan"*)
           choices=()
           for neovim in ${LANGUCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1700,7 +1700,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Personal"*,* | *,"Select/Open Personal"*)
+        "Select/Open Personal"*,* | *,"Select/Open Personal"* | "open p"*,* | *,"open p"* | "Open P"*,* | *,"Open P"*)
           choices=()
           for neovim in ${PRSNLCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1718,7 +1718,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Starter"*,* | *,"Select/Open Starter"*)
+        "Select/Open Starter"*,* | *,"Select/Open Starter"* | "open s"*,* | *,"open s"* | "Open S"*,* | *,"Open S"*)
           choices=()
           for neovim in ${STARTCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1736,7 +1736,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open Astros"*,* | *,"Select/Open Astros"*)
+        "Select/Open Astros"*,* | *,"Select/Open Astros"* | "open a"*,* | *,"open a"* | "Open A"*,* | *,"Open A"*)
           choices=()
           for neovim in ${ASTROCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1754,7 +1754,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open NvChad"*,* | *,"Select/Open NvChad"*)
+        "Select/Open NvChad"*,* | *,"Select/Open NvChad"* | "open n"*,* | *,"open n"* | "Open N"*,* | *,"Open N"*)
           choices=()
           for neovim in ${NVCHADCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -1772,7 +1772,7 @@ show_main_menu() {
           fi
           break
           ;;
-        "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"*)
+        "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"* | "open laz"*,* | *,"open laz"* | "Open Laz"*,* | *,"Open Laz"*)
           choices=()
           for neovim in ${LAZYVIMCFGS}; do
             basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
