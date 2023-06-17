@@ -1,0 +1,37 @@
+--- lua/user/bufferline.lua.orig	2023-06-16 20:28:52.000000000 -0700
++++ lua/user/bufferline.lua	2023-06-16 20:29:09.000000000 -0700
+@@ -3,7 +3,7 @@
+   return
+ end
+ 
+-bufferline.setup {
++bufferline.setup({
+   options = {
+     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+@@ -13,8 +13,8 @@
+     -- NOTE: this plugin is designed with this icon in mind,
+     -- and so changing this is NOT recommended, this is intended
+     -- as an escape hatch for people who cannot bear it for whatever reason
+-	indicator_icon = nil,
+-    indicator = { style = "icon", icon = "▎"},
++    indicator_icon = nil,
++    indicator = { style = "icon", icon = "▎" },
+     buffer_close_icon = "",
+     -- buffer_close_icon = '',
+     modified_icon = "●",
+@@ -74,7 +74,7 @@
+   },
+   highlights = {
+     fill = {
+-      fg = { attribute = "fg", highlight = "#ff0000" },
++      fg = { attribute = "fg", highlight = "Tabline" },
+       bg = { attribute = "bg", highlight = "TabLine" },
+     },
+     background = {
+@@ -165,4 +165,4 @@
+       bg = { attribute = "bg", highlight = "Normal" },
+     },
+   },
+-}
++})
