@@ -37,7 +37,7 @@ if enable_neoai then
         ui = {
           output_popup_text = "NeoAI",
           input_popup_text = "Prompt",
-          width = 30,      -- As percentage eg. 30%
+          width = 30, -- As percentage eg. 30%
           output_popup_height = 80, -- As percentage eg. 80%
           submit = "<Enter>", -- Key binding to submit the prompt
         },
@@ -63,7 +63,7 @@ if enable_neoai then
               .. "messages. Here is the code/text that I want to refer "
               .. "to in our upcoming conversations:\n\n"
               .. context
-            end,
+          end,
         },
         mappings = {
           ["select_up"] = "<C-k>",
@@ -89,7 +89,7 @@ if enable_neoai then
             key = "<leader>ag",
             desc = "generate git commit message",
             use_context = false,
-            prompt = function ()
+            prompt = function()
               return [[
                 Using the following git diff generate a consise and
                 clear git commit message, with a short title summary
@@ -127,9 +127,9 @@ if not settings.enable_copilot then
   cmpnpm = {
     "David-Kunz/cmp-npm",
     ft = "json",
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require('cmp-npm').setup({
+      require("cmp-npm").setup({
         ignore = {},
         only_semantic_versions = true,
       })
@@ -141,15 +141,16 @@ local securitree = {}
 if settings.enable_securitree then
   securitree = {
     "GeekMasher/securitree.nvim",
+    lazy = false,
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "MunifTanjim/nui.nvim",
-        -- optional
-        -- "nvim-treesitter/playground"
+      "nvim-treesitter/nvim-treesitter",
+      "MunifTanjim/nui.nvim",
+      -- optional
+      -- "nvim-treesitter/playground"
     },
     config = function()
-        require("securitree").setup {}
-    end
+      require("securitree").setup({})
+    end,
   }
 end
 
@@ -190,14 +191,14 @@ if settings.enable_coding then
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
         and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
-        or nil,
+      or nil,
     dependencies = {
       "rafamadriz/friendly-snippets",
       "saadparwaiz1/cmp_luasnip",
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
         local snippet_path = vim.fn.stdpath("config") .. "/snippets"
-        require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
+        require("luasnip.loaders.from_snipmate").load({ path = { snippet_path } })
       end,
     },
     opts = {
