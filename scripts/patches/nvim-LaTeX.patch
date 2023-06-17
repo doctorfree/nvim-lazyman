@@ -35,3 +35,24 @@
    },
 -}
 +})
+--- minimal/minimal.lua.orig	2023-06-16 20:36:39.000000000 -0700
++++ minimal/minimal.lua	2023-06-16 20:41:51.000000000 -0700
+@@ -6,12 +6,12 @@
+ -- vim.opt.runtimepath:prepend "PATH/neovim/nvim-lspconfig"
+ -- vim.opt.runtimepath:prepend "PATH/williamboman/mason.nvim"
+ -- vim.opt.runtimepath:prepend "PATH/williamboman/mason-lspconfig.nvim"
+-vim.opt.runtimepath:prepend "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/cmp-omni"
+-vim.opt.runtimepath:append  "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/cmp-omni/after"
+-vim.opt.runtimepath:prepend "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/nvim-cmp"
+-vim.opt.runtimepath:append  "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/nvim-cmp/after"
+-vim.opt.runtimepath:prepend "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/vimtex"
+-vim.opt.runtimepath:append  "/home/benjamin/.local/share/nvim-LaTeX/site/pack/packer/start/vimtex/after"
++vim.opt.runtimepath:prepend vim.fn.stdpath("data") .. "/site/pack/packer/start/cmp-omni"
++vim.opt.runtimepath:append  vim.fn.stdpath("data") .. "/site/pack/packer/start/cmp-omni/after"
++vim.opt.runtimepath:prepend vim.fn.stdpath("data") .. "/site/pack/packer/start/nvim-cmp"
++vim.opt.runtimepath:append  vim.fn.stdpath("data") .. "/site/pack/packer/start/nvim-cmp/after"
++vim.opt.runtimepath:prepend vim.fn.stdpath("data") .. "/site/pack/packer/start/vimtex"
++vim.opt.runtimepath:append  vim.fn.stdpath("data") .. "/site/pack/packer/start/vimtex/after"
+ 
+ vim.cmd[[filetype plugin indent on]]
+ 
