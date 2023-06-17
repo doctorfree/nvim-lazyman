@@ -853,6 +853,12 @@ show_plugin_menu() {
     else
       use_smooth_scrolling="✗"
     fi
+    enable_securitree=$(get_conf_value enable_securitree)
+    if [ "${enable_securitree}" == "true" ]; then
+      use_securitree=""
+    else
+      use_securitree="✗"
+    fi
     dashboard_recent_files=$(get_conf_value dashboard_recent_files)
     use_dashboard_recent_files="${dashboard_recent_files}"
     enable_dashboard_header=$(get_conf_value enable_dashboard_header)
@@ -924,6 +930,7 @@ show_plugin_menu() {
     [ "${use_screensaver}" == "none" ] || {
       options+=(" Timeout    [${use_timeout}]")
     }
+    options+=("Securitree    [${use_securitree}]")
     options+=("Session [${use_session_manager}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("StartupTime   [${use_startuptime}]")
@@ -1335,6 +1342,15 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
+        "Securitree"*,* | *,"Securitree"*)
+          if [ "${enable_securitree}" == "true" ]; then
+            set_conf_value "enable_securitree" "false"
+          else
+            set_conf_value "enable_securitree" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Enable coding"*,* | *,"Enable coding"*)
           if [ "${enable_coding}" == "true" ]; then
             printf "\n\nDisabling coding will disable LSP servers and several"
@@ -1584,6 +1600,7 @@ show_plugin_menu() {
           set_conf_value "enable_motion" "none"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
+          set_conf_value "enable_securitree" "false"
           set_conf_value "enable_multi_cursor" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"
@@ -1633,6 +1650,7 @@ show_plugin_menu() {
           set_conf_value "enable_motion" "leap"
           set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
+          set_conf_value "enable_securitree" "true"
           set_conf_value "enable_multi_cursor" "true"
           set_conf_value "enable_bbye" "true"
           set_conf_value "enable_startuptime" "true"
@@ -2315,6 +2333,7 @@ show_conf_menu() {
           set_conf_value "enable_motion" "none"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
+          set_conf_value "enable_securitree" "false"
           set_conf_value "enable_multi_cursor" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"

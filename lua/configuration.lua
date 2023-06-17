@@ -94,6 +94,8 @@ conf.enable_renamer = true
 conf.enable_ranger_float = true
 -- Enable multiple cursors
 conf.enable_multi_cursor = true
+-- Highlight sections of code which might have security or quality issues
+conf.enable_securitree = false
 -- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "possession"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none

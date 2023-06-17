@@ -137,6 +137,22 @@ if not settings.enable_copilot then
   }
 end
 
+local securitree = {}
+if settings.enable_securitree then
+  securitree = {
+    "GeekMasher/securitree.nvim",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "MunifTanjim/nui.nvim",
+        -- optional
+        -- "nvim-treesitter/playground"
+    },
+    config = function()
+        require("securitree").setup {}
+    end
+  }
+end
+
 local surround = {}
 if settings.enable_surround then
   surround = {
@@ -300,4 +316,5 @@ return {
   -- AI
   copilot,
   neoai,
+  securitree,
 }
