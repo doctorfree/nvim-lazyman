@@ -2039,6 +2039,19 @@ was recently introduced and issues are expected. If you encounter a problem
 on these platforms please
 [open an issue](https://github.com/doctorfree/nvim-lazyman/issues).
 
+### Semantic token highlighting for types containing hyphens
+
+Neovim 0.9 introduced semantic token highlighting but placed some restrictions
+on the format of semantic tokens. For example, if a filetype contains a hyphen
+then language servers may return semantic tokens that contain a hyphen and this
+will generate an error. This issue may cause some configurations to hang or
+display errors.
+
+### LaTeX configuration hangs on macOS
+
+The `nvim-LaTeX` configuration is hanging on my Mac. It appears to work fine
+on Linux platforms. This is currently under investigation.
+
 ## Troubleshooting
 
 The most frequent type of issue encountered using `lazyman` to install and
