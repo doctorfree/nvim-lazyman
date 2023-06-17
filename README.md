@@ -1503,6 +1503,31 @@ initialization file. Install the Lazyman `Plug` config with the command
 NVIM_APPNAME="nvim-Plug" nvim ~/.config/nvim-Plug/init.vim
 ```
 
+#### Plug with Vim runtimepath manager
+
+Finally, consider this Neovim configuration written in vimscript, stored
+in a subdirectory of a non-default git branch, using the `vim-plug` plugin
+manager, and relying on `pathogen.vim` to manage the runtimepath. Installing
+this Neovim configuration with `lazyman` requires several command line options:
+
+```bash
+lazyman -b vps -C https://github.com/xero/dotfiles \
+        -D vim/.config/nvim -N nvim-Xero -p
+```
+
+This installs and initializes the configuration in `~/.config/nvim-Xero/` but
+fails to install `pathogen`. The `pathogen.vim` runtimepath manager can be
+installed with:
+
+```bash
+cfgdir="${HOME}/.config/nvim-Xero"
+mkdir -p ${cfgdir}/autoload ${cfgdir}/bundle
+curl -LSso ${cfgdir}/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+```
+
+Open the configuration with `NVIM_APPNAME="nvim-Xero" nvim` and issue the
+command `:PlugInstall`. Now the configuration is properly initialized.
+
 ### Health check
 
 After installing and initializing the Neovim configuration, perform a health
