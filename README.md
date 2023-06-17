@@ -1,5 +1,10 @@
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh
+```
+
 <div align="center"><p>
     <a href="https://github.com/neovim/neovim">
       <img src="https://img.shields.io/badge/Neovim-0.9.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/>
