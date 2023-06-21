@@ -539,6 +539,9 @@ installed with the `-x conf` option.
 - [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
   - Same as `StartMason` but everything is split in modules
   - Install and initialize with `lazyman -x Modular`
+- [Normal](https://github.com/NormalNvim/NormalNvim)
+  - Based on AstroNvim with additional features
+  - Install and initialize with `lazyman -x Normal`
 
 ### Custom configurations
 
