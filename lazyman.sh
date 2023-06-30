@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1070,7 +1070,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2849,6 +2849,12 @@ install_remove() {
         -f "${fix_onno}" ${quietflag} -z ${yesflag}
       show_alias "nvim-ONNO"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-OnMyWay ] && action="Updating"
+      printf "\n${action} OnMyWay Neovim configuration"
+      lazyman ${darg} -C https://github.com/RchrdAlv/NvimOnMy_way \
+        -N nvim-OnMyWay -p ${quietflag} -z ${yesflag}
+      show_alias "nvim-OnMyWay"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Optixal ] && action="Updating"
       printf "\n${action} Optixal Neovim configuration"
       lazyman ${darg} -C https://github.com/Optixal/neovim-init.vim \
@@ -3039,6 +3045,9 @@ install_remove() {
           prsnl_url="https://github.com/danlikestocode/embervim"
           prsnl_opt="-b main"
           prsnl_dir="-D nvim"
+          ;;
+        OnMyWay)
+          prsnl_url="https://github.com/RchrdAlv/NvimOnMy_way"
           ;;
         Optixal)
           prsnl_url="https://github.com/Optixal/neovim-init.vim"

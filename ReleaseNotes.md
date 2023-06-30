@@ -32,7 +32,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) |
 | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) |
 | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
-| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | |
+| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
