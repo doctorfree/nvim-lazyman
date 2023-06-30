@@ -4,9 +4,17 @@
 
 ### ⚡️ Added
 
-- Use the `runconfig()` function for `neovide` as well as `nvim`
+- Add `OnMyWay` personal config
+- Add `Normal` to `AstroNvim` configs
+- Add support for `securitree.nvim` security check plugin, disabled by default
+- Add example Plug install with `pathogen`
+- Add notes on semantic tokens and `LaTeX`
+- Add patch for `nvim-LaTeX` but still need to find issue
 
 ### 🐞 Fixed
+
+- Use the `runconfig()` function for `neovide` as well as `nvim`
+- Do not lazy load `securitree.nvim`
 
 ## v2.1.6r2
 
