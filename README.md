@@ -39,7 +39,7 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Over 50 popular Neovim configurations are supported.
+Neovim configurations. Over 70 popular Neovim configurations are supported.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
@@ -264,7 +264,7 @@ presented by invoking `lazyman` without arguments after the initial
 bootstrap process is complete. Lazyman Neovim configurations can
 also be managed with `lazyman` command line operations.
 
-Currently over 50 popular Neovim configurations are supported in the
+Currently over 70 popular Neovim configurations are supported in the
 following configuration categories:
 
 <!-- prettier-ignore -->
@@ -286,7 +286,7 @@ following configuration categories:
 | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) | [Mini](https://github.com/echasnovski/nvim) |
 | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
-| [nvim2k](https://github.com/2KAbhishek/nvim2k) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) | | |
+| [nvim2k](https://github.com/2KAbhishek/nvim2k) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
@@ -441,6 +441,9 @@ installed with the `-w conf` option.
 - [Knvim](https://github.com/knmac/knvim)
   - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
   - Install and initialize with `lazyman -w Knvim`
+- [LazyIde](https://github.com/doctorfree/nvim-LazyIde)
+  - LazyVim IDE config for Neovim
+  - Install and initialize with `lazyman -w LazyIde`
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - Install and initialize with `lazyman -w Magidc`
@@ -482,6 +485,9 @@ installed with the `-w conf` option.
 - [Traap](https://github.com/Traap/nvim)
   - [Introductory video](https://youtu.be/aD9j6d9pgtc)
   - `lazyman -w Traap`
+- [Webdev](https://github.com/doctorfree/nvim-webdev)
+  - LazyVim based config for web developers
+  - Install and initialize with `lazyman -w Webdev`
 - [Xiao](https://github.com/onichandame/nvim-config)
   - Install and initialize with `lazyman -w Xiao`
 - [nvim2k](https://github.com/2KAbhishek/nvim2k)
@@ -684,7 +690,7 @@ will produce a cleanly initialized Neovim configuration.
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
-- Over 50 supported Neovim configurations out of the box, additional custom configs
+- Over 70 supported Neovim configurations out of the box, additional custom configs
 - convenience shell functions and aliases with fuzzy search and selection
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 

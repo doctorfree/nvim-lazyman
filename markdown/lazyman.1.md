@@ -21,7 +21,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
 - support for Lazy, Packer, and vim-plug plugin managers
 - automated installation of dependencies, tools, language servers, and Neovim 0.9
-- over 50 popular Neovim configurations supported
+- over 70 popular Neovim configurations supported
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`

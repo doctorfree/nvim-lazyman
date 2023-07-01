@@ -23,11 +23,11 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim LazyIde Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Webdev Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
-LAZYVIMCFGS="LazyVim Nv Penguin Traap"
+LAZYVIMCFGS="LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
@@ -1070,7 +1070,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Webdev|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2936,6 +2936,18 @@ install_remove() {
         -N nvim-Traap ${quietflag} -z ${yesflag}
       show_alias "nvim-Traap"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-LazyIde ] && action="Updating"
+      printf "\n${action} LazyIde Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/nvim-LazyIde \
+        -N nvim-LazyIde ${quietflag} -z ${yesflag}
+      show_alias "nvim-LazyIde"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Webdev ] && action="Updating"
+      printf "\n${action} Webdev Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/nvim-webdev \
+        -N nvim-Webdev ${quietflag} -z ${yesflag}
+      show_alias "nvim-Webdev"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Xiao ] && action="Updating"
       printf "\n${action} Xiao Neovim configuration"
       lazyman ${darg} -C https://github.com/onichandame/nvim-config \
@@ -2993,6 +3005,12 @@ install_remove() {
           ;;
         Traap)
           prsnl_url="https://github.com/Traap/nvim"
+          ;;
+        LazyIde)
+          prsnl_url="https://github.com/doctorfree/nvim-LazyIde"
+          ;;
+        Webdev)
+          prsnl_url="https://github.com/doctorfree/nvim-webdev"
           ;;
         Xiao)
           prsnl_url="https://github.com/onichandame/nvim-config"
