@@ -244,16 +244,16 @@ can be one of: All Go LaTeX Python Rust SaleVim
 `-V url` : specifies an NvChad user configuration git repository
 
 `-w conf` : indicates install and initialize Personal 'conf' configuration.
-'conf' can be one of: All 2k 3rd Adib AlanVim Allaman Brain Charles Elianiva
-Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO Optixal Rafi Roiz
-Simple Slydragonn Spider Traap Xiao
+'conf' can be one of: All 2k 3rd Adib AlanVim Allaman Brain Charles Dillon
+Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay
+Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
-'conf' can be one of 'Basic', 'Kickstart', 'NvPak', 'Extralight', 'Opinion',
-'StartLsp', 'StartMason', 'Minimal', 'Modular', 'HardHacker', 'Modern', 'pde',
-'StartBase'
+'conf' can be one of: All AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart
+Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason
+Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
