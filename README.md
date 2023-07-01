@@ -409,6 +409,9 @@ installed with the `-w conf` option.
   - `lazyman -w Brain`
 - [Charles](https://github.com/CharlesChiuGit/nvimdots.lua)
   - Install and initialize with `lazyman -w Charles`
+- [Dillon](https://github.com/Dillon/nvimdots.lua)
+  - Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScript type-checking
+  - Install and initialize with `lazyman -w Dillon`
 - [Elianiva](https://github.com/elianiva/dotfiles)
   - `lazyman -w Elianiva`
 - [Ember](https://github.com/danlikestocode/embervim)
