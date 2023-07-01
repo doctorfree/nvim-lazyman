@@ -23,9 +23,9 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1067,10 +1067,10 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Ember|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -1301,7 +1301,7 @@ show_main_help() {
   printf "\nIn addition, an option exists to view the Lazyman manual.\n"
   printf "\nThe Lazyman Neovim configuration manager can also be used from the command line.\n"
   printf "\n\t${BOLD}${LINE}Usage:${NORM} ${BOLD}lazyman [options] <COMMAND>${NORM}"
-  printf "\n\t${BOLD}${LINE}See:${NORM}    ${BOLD}lazyman -u${NORM}  for usage details\n"
+  printf "\n\t${BOLD}${LINE}See:${NORM}   ${BOLD}lazyman -u${NORM}  for usage details\n"
   prompt_continue
 }
 
@@ -2816,12 +2816,6 @@ install_remove() {
         -N nvim-Magidc ${quietflag} -z ${yesflag}
       show_alias "nvim-Magidc"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
-      printf "\n${action} Ember Neovim configuration"
-      lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
-        -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
-      show_alias "nvim-Ember"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Spider ] && action="Updating"
       printf "\n${action} Spider Neovim configuration"
       lazyman ${darg} -C https://github.com/fearless-spider/FSAstroNvim \
@@ -3042,11 +3036,6 @@ install_remove() {
           prsnl_url="https://github.com/loctvl842/nvim"
           help_opt="-f ${fix_onno}"
           ;;
-        Ember)
-          prsnl_url="https://github.com/danlikestocode/embervim"
-          prsnl_opt="-b main"
-          prsnl_dir="-D nvim"
-          ;;
         OnMyWay)
           prsnl_url="https://github.com/RchrdAlv/NvimOnMy_way"
           ;;
@@ -3153,6 +3142,12 @@ install_remove() {
         lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
       }
       show_alias "nvim-Cosmic"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
+      printf "\n${action} Ember Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
+        -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
+      show_alias "nvim-Ember"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
       printf "\n${action} Micah Neovim configuration"
@@ -3266,6 +3261,14 @@ install_remove() {
             lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
           }
           show_alias "nvim-Cosmic"
+          ;;
+        Ember)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
+          printf "\n${action} Ember Neovim configuration"
+          lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
+            -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
+          show_alias "nvim-Ember"
           ;;
         Kabin)
           action="Installing"
