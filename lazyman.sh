@@ -23,7 +23,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1070,7 +1070,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Dillon|Magidc|Ember|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Ember|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2798,10 +2798,14 @@ install_remove() {
         -N nvim-Charles ${quietflag} -z ${yesflag}
       show_alias "nvim-Charles"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Craftzdog ] && action="Updating"
+      printf "\n${action} Craftzdog Neovim configuration"
+      lazyman ${darg} -C https://github.com/craftzdog/dotfiles-public \
+        -D .config/nvim -N nvim-Craftzdog -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Craftzdog"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Dillon ] && action="Updating"
       printf "\n${action} Dillon Neovim configuration"
-      lazyman ${darg} -C https://github.com/Dillon/nvimdots.lua \
-        -N nvim-Dillon ${quietflag} -z ${yesflag}
       lazyman ${darg} -b main -C https://github.com/dmmulroy/dotfiles \
         -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Dillon"
@@ -3001,6 +3005,11 @@ install_remove() {
           ;;
         Charles)
           prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
+          ;;
+        Craftzdog)
+          prsnl_url="https://github.com/craftzdog/dotfiles-public"
+          prsnl_opt="-P"
+          prsnl_dir="-D .config/nvim"
           ;;
         Dillon)
           prsnl_url="https://github.com/dmmulroy/dotfiles"
