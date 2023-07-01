@@ -291,10 +291,15 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
 | ----------- | ----- | ----- | ----- | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
-| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
-| [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
-| [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [PDE](https://github.com/alpha2phi/neovim-pde) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) |
+| [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) |
+| [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | |
+
+<!-- prettier-ignore -->
+| **VonHeikemen** |       | **Starter** |       | **Configs** |
+| --------------- | ----- | ----------- | ----- | ----------- |
+| [BasicLsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp) | [BasicMason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [LspCmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
+| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
 
 ### Base configurations
 
@@ -515,12 +520,42 @@ installed with the `-x conf` option.
 - [PDE](https://github.com/alpha2phi/neovim-pde)
   - Configure Neovim as a Personalized Development Environment (PDE)
   - Install and initialize with `lazyman -x pde`
+- [Kabin](https://github.com/kabinspace/AstroNvim_user)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Kabin`
+- [Lamia](https://github.com/A-Lamia/AstroNvim-conf)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Lamia`
+- [Micah](https://code.mehalter.com/AstroNvim_user)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Micah`
+- [Normal](https://github.com/NormalNvim/NormalNvim)
+  - Based on AstroNvim with additional features
+  - Install and initialize with `lazyman -x Normal`
+- [Scratch](https://github.com/ngscheurich/nvim-from-scratch)
+  - Jumping-off point for new Neovim users or those who have declared config bankruptcy
+  - Install and initialize with `lazyman -x Scratch`
+
+#### VonHeikemen Starter configurations
+
+- [BasicLsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp)
+  - Example lua configuration showing one way to setup LSP servers without plugins
+  - Install and initialize with `lazyman -x BasicLsp`
+- [BasicMason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason)
+  - Minimal setup with `mason.nvim`
+  - Install and initialize with `lazyman -x BasicMason`
+- [LspCmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp)
+  - Minimal setup with `nvim-lspconfig` and `nvim-cmp`
+  - Install and initialize with `lazyman -x LspCmp`
 - [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
   - Single file lightweight configuration focused on providing basic features
   - Install and initialize with `lazyman -x Extralight`
 - [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
   - Small configuration without third party plugins
   - Install and initialize with `lazyman -x Minimal`
+- [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
+  - Same as `StartMason` but everything is split in modules
+  - Install and initialize with `lazyman -x Modular`
 - [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base)
   - Small configuration that includes a plugin manager
   - Install and initialize with `lazyman -x StartBase`
@@ -533,21 +568,6 @@ installed with the `-x conf` option.
 - [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
   - Same as `StartLsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
   - Install and initialize with `lazyman -x StartMason`
-- [Kabin](https://github.com/kabinspace/AstroNvim_user)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -x Kabin`
-- [Lamia](https://github.com/A-Lamia/AstroNvim-conf)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -x Lamia`
-- [Micah](https://code.mehalter.com/AstroNvim_user)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -x Micah`
-- [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
-  - Same as `StartMason` but everything is split in modules
-  - Install and initialize with `lazyman -x Modular`
-- [Normal](https://github.com/NormalNvim/NormalNvim)
-  - Based on AstroNvim with additional features
-  - Install and initialize with `lazyman -x Normal`
 
 ### Custom configurations
 

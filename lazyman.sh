@@ -24,8 +24,8 @@ USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
 PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
-MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
+MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1067,7 +1067,7 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
     Adib|ONNO|2k|3rd|AlanVim|Charles|Dillon|Magidc|Ember|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
@@ -2192,8 +2192,17 @@ set_starter_branch() {
     Modular)
       startbranch="05-modular"
       ;;
+    BasicLsp)
+      startbranch="xx-basic-lsp"
+      ;;
+    BasicMason)
+      startbranch="xx-mason"
+      ;;
     Extralight)
       startbranch="xx-light"
+      ;;
+    LspCmp)
+      startbranch="xx-lsp-cmp"
       ;;
     *)
       printf "\nUnrecognized nvim-starter configuration: ${nvimstarter}"
@@ -3183,6 +3192,12 @@ install_remove() {
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
         -N nvim-pde ${quietflag} -z ${yesflag}
       show_alias "nvim-pde"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Scratch ] && action="Updating"
+      printf "\n${action} Scratch Neovim configuration"
+      lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
+        -N nvim-Scratch ${quietflag} -z ${yesflag}
+      show_alias "nvim-Scratch"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -3306,6 +3321,14 @@ install_remove() {
           lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
             -N nvim-pde ${quietflag} -z ${yesflag}
           show_alias "nvim-pde"
+          ;;
+        Scratch)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Scratch ] && action="Updating"
+          printf "\n${action} Scratch Neovim configuration"
+          lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
+            -N nvim-Scratch ${quietflag} -z ${yesflag}
+          show_alias "nvim-Scratch"
           ;;
         *)
           startbranch=
