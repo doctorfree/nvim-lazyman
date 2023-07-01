@@ -282,19 +282,19 @@ following configuration categories:
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
 | [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) |
-| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
-| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Knvim](https://github.com/knmac/knvim) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) |
-| [Magidc](https://github.com/magidc/nvim-config) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) |
-| [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) |
-| [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) |
+| [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Dillon](https://github.com/Dillon/nvimdots.lua) | [Elianiva](https://github.com/elianiva/dotfiles) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) |
+| [Heiker](https://github.com/VonHeikemen/dotfiles) | [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Knvim](https://github.com/knmac/knvim) | [Magidc](https://github.com/magidc/nvim-config) |
+| [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) |
+| [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) |
+| [Xiao](https://github.com/onichandame/nvim-config) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) | | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       | **Configs** |
 | ----------- | ----- | ----- | ----- | ----------- |
 | [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) |
 | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) |
-| [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [PDE](https://github.com/alpha2phi/neovim-pde) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) |
-| [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) | | | |
+| [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) |
+| [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [PDE](https://github.com/alpha2phi/neovim-pde) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
 
 ### Base configurations
 
@@ -425,21 +425,12 @@ installed with the `-w conf` option.
 - [Josean](https://github.com/josean-dev/dev-environment-files)
   - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
   - `lazyman -w Josean`
-- [Kabin](https://github.com/kabinspace/AstroNvim_user)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w Kabin`
 - [Knvim](https://github.com/knmac/knvim)
   - See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
   - Install and initialize with `lazyman -w Knvim`
-- [Lamia](https://github.com/A-Lamia/AstroNvim-conf)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w Lamia`
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - Install and initialize with `lazyman -w Magidc`
-- [Micah](https://code.mehalter.com/AstroNvim_user)
-  - One of the AstroNvim "Black Belt" example advanced configurations
-  - `lazyman -w Micah`
 - [Mini](https://github.com/echasnovski/nvim)
   - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library
   - Personal configuration of the `mini.nvim` author
@@ -539,6 +530,15 @@ installed with the `-x conf` option.
 - [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
   - Same as `StartLsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
   - Install and initialize with `lazyman -x StartMason`
+- [Kabin](https://github.com/kabinspace/AstroNvim_user)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Kabin`
+- [Lamia](https://github.com/A-Lamia/AstroNvim-conf)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Lamia`
+- [Micah](https://code.mehalter.com/AstroNvim_user)
+  - One of the AstroNvim "Black Belt" example advanced configurations
+  - `lazyman -x Micah`
 - [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
   - Same as `StartMason` but everything is split in modules
   - Install and initialize with `lazyman -x Modular`

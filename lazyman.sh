@@ -23,9 +23,9 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="Extralight Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyVim Nv Penguin Traap"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1067,10 +1067,10 @@ install_config() {
     Go|LaTeX|Python|Rust|SaleVim)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|StartBase|Opinion|StartLsp|StartMason|Modular|Extralight|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Magidc|Ember|Kabin|Lamia|Micah|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Dillon|Magidc|Ember|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2783,29 +2783,19 @@ install_remove() {
       done
       show_alias "nvim-3rd"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
-      printf "\n${action} Micah Neovim configuration"
-      lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
-        -J -N nvim-Micah ${quietflag} -z ${yesflag}
-      show_alias "nvim-Micah"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Kabin ] && action="Updating"
-      printf "\n${action} Kabin Neovim configuration"
-      lazyman ${darg} -C https://github.com/kabinspace/AstroNvim_user \
-        -J -N nvim-Kabin ${quietflag} -z ${yesflag}
-      show_alias "nvim-Kabin"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Lamia ] && action="Updating"
-      printf "\n${action} Lamia Neovim configuration"
-      lazyman ${darg} -C https://github.com/A-Lamia/AstroNvim-conf \
-        -J -N nvim-Lamia ${quietflag} -z ${yesflag}
-      show_alias "nvim-Lamia"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Charles ] && action="Updating"
       printf "\n${action} Charles Neovim configuration"
       lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
         -N nvim-Charles ${quietflag} -z ${yesflag}
       show_alias "nvim-Charles"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Dillon ] && action="Updating"
+      printf "\n${action} Dillon Neovim configuration"
+      lazyman ${darg} -C https://github.com/Dillon/nvimdots.lua \
+        -N nvim-Dillon ${quietflag} -z ${yesflag}
+      lazyman ${darg} -b main -C https://github.com/dmmulroy/dotfiles \
+        -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Dillon"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
       printf "\n${action} Magidc Neovim configuration"
@@ -2967,18 +2957,6 @@ install_remove() {
         Allaman)
           prsnl_url="https://github.com/Allaman/nvim"
           ;;
-        Micah)
-          prsnl_url="https://code.mehalter.com/AstroNvim_user"
-          prsnl_opt="-J"
-          ;;
-        Kabin)
-          prsnl_url="https://github.com/kabinspace/AstroNvim_user"
-          prsnl_opt="-J"
-          ;;
-        Lamia)
-          prsnl_url="https://github.com/A-Lamia/AstroNvim-conf"
-          prsnl_opt="-J"
-          ;;
         Brain)
           prsnl_url="https://github.com/brainfucksec/neovim-lua"
           prsnl_dir="-D nvim"
@@ -3014,6 +2992,11 @@ install_remove() {
           ;;
         Charles)
           prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
+          ;;
+        Dillon)
+          prsnl_url="https://github.com/dmmulroy/dotfiles"
+          prsnl_opt="-b main -P"
+          prsnl_dir="-D .config/nvim"
           ;;
         Magidc)
           prsnl_url="https://github.com/magidc/nvim-config"
@@ -3153,6 +3136,24 @@ install_remove() {
       }
       show_alias "nvim-Cosmic"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
+      printf "\n${action} Micah Neovim configuration"
+      lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
+        -J -N nvim-Micah ${quietflag} -z ${yesflag}
+      show_alias "nvim-Micah"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Kabin ] && action="Updating"
+      printf "\n${action} Kabin Neovim configuration"
+      lazyman ${darg} -C https://github.com/kabinspace/AstroNvim_user \
+        -J -N nvim-Kabin ${quietflag} -z ${yesflag}
+      show_alias "nvim-Kabin"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Lamia ] && action="Updating"
+      printf "\n${action} Lamia Neovim configuration"
+      lazyman ${darg} -C https://github.com/A-Lamia/AstroNvim-conf \
+        -J -N nvim-Lamia ${quietflag} -z ${yesflag}
+      show_alias "nvim-Lamia"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
       printf "\n${action} Normal Neovim configuration"
       lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
@@ -3241,6 +3242,30 @@ install_remove() {
             lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
           }
           show_alias "nvim-Cosmic"
+          ;;
+        Kabin)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Kabin ] && action="Updating"
+          printf "\n${action} Kabin Neovim configuration"
+          lazyman ${darg} -C https://github.com/kabinspace/AstroNvim_user \
+            -J -N nvim-Kabin ${quietflag} -z ${yesflag}
+          show_alias "nvim-Kabin"
+          ;;
+        Micah)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
+          printf "\n${action} Micah Neovim configuration"
+          lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
+            -J -N nvim-Micah ${quietflag} -z ${yesflag}
+          show_alias "nvim-Micah"
+          ;;
+        Lamia)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Lamia ] && action="Updating"
+          printf "\n${action} Lamia Neovim configuration"
+          lazyman ${darg} -C https://github.com/A-Lamia/AstroNvim-conf \
+            -J -N nvim-Lamia ${quietflag} -z ${yesflag}
+          show_alias "nvim-Lamia"
           ;;
         Normal)
           action="Installing"
