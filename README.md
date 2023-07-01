@@ -840,11 +840,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 2k 3rd Micah Kabin Lamia Adib AlanVim Allaman Brain Charles Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+           All 2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All AstroNvimStart Basic CodeArt Cosmic Kickstart Normal NvPak HardHacker Modern pde Extralight Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
