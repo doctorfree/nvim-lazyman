@@ -4,15 +4,27 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.6r3
+
+### ⚡️ Added
+
 - Add `OnMyWay` personal config
 - Add `Normal` to `AstroNvim` configs
 - Add support for `securitree.nvim` security check plugin, disabled by default
 - Add example Plug install with `pathogen`
 - Add notes on semantic tokens and `LaTeX`
 - Add patch for `nvim-LaTeX` but still need to find issue
+- Add new configs to `lazymanrc` open switch to get file browser support
+- Add `Scratch` to starters
+- Add `Lsp/Mason/Cmp` `VonHeikemen` starters
+- Add `Dillon` personal config
 
 ### 🐞 Fixed
 
+- Break `VonHeikemen` starters out
+- Move Black Belt `AstroNvim` configs from personal to starter
 - Use the `runconfig()` function for `neovide` as well as `nvim`
 - Do not lazy load `securitree.nvim`
 
