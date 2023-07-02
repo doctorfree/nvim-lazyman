@@ -6,6 +6,21 @@
 
 ### 🐞 Fixed
 
+## v2.1.7r1
+
+### ⚡️ Added
+
+- Integrate `Webdev` configuration into `lazyman`
+- Add `Webdev` configuration menu
+- Add category install counts to status report
+- Add `Webdev` and `LazyIde` configs based on `LazyVim`
+- Add `Craftzdog` to personals
+
+### 🐞 Fixed
+
+- Move `Ember` from personal to starter
+- Turn off notes plugins by default
+
 ## v2.1.6r3
 
 ### ⚡️ Added
