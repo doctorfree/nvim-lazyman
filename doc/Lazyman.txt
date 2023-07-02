@@ -180,7 +180,7 @@ directory in '~/.config'. For example, 'lazyman -E lazyvim foo.lua' would edit
 `-f 'path'` : fix treesitter 'help' parser in config file 'path'
 
 `-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be
-one of 'main', 'conf', 'lsp', 'format', or 'plugin'
+one of 'main', 'conf', 'lsp', 'format', 'plugin', or 'webdev'
 
 `-G` : indicates no plugin manager, initialize with `:TSUpdate`
 
