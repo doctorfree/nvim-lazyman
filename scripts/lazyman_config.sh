@@ -12,6 +12,7 @@ NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
+WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
@@ -2006,6 +2007,7 @@ show_conf_menu() {
     lspmenu=
     formenu=
     versmenu=
+    wdevmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -2139,6 +2141,9 @@ show_conf_menu() {
     options+=("Formatters")
     options+=("LSP Servers")
     options+=("Plugins Menu")
+    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+      options+=("Webdev Config")
+    }
     options+=("Main Menu")
     options+=("Quit")
     select opt in "${options[@]}"; do
@@ -2419,6 +2424,10 @@ show_conf_menu() {
           plugmenu=1
           break 2
           ;;
+        "Webdev Config",* | *,"Webdev Config")
+          wdevmenu=1
+          break 2
+          ;;
         "Main Menu"*,* | *,"Main Menu"*)
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
@@ -2443,6 +2452,10 @@ show_conf_menu() {
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
   [ "${formenu}" ] && show_formlint_menu
+  [ "${wdevmenu}" ] && {
+    ${WEBDEV} -m conf
+    [ $? -eq 3 ] && exit 0
+  }
 }
 
 debug=

@@ -67,7 +67,7 @@ conf.enable_asciiart = false
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
--- Enable coding plugins for diagnostics, debugging, and language sservers
+-- Enable coding plugins for diagnostics, debugging, and language servers
 conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
