@@ -13,6 +13,7 @@ NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
 SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
+WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -1356,6 +1357,7 @@ show_main_menu() {
     show_warning=
     confmenu=
     versmenu=
+    wdevmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -1584,6 +1586,9 @@ show_main_menu() {
       options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Health Check" "Lazyman Config" "Lazyman Manual" "Lazyman Status")
+    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+      options+=("Webdev Config")
+    }
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
@@ -2142,6 +2147,10 @@ show_main_menu() {
           confmenu=1
           break
           ;;
+        "Webdev Config",* | *,"Webdev Config")
+          wdevmenu=1
+          break
+          ;;
         "Lazyman Status",* | *,"Lazyman Status")
           printf "\nPreparing Lazyman status report\n"
           show_info >/tmp/lminfo$$
@@ -2174,6 +2183,10 @@ show_main_menu() {
     done
     [ "${confmenu}" ] && {
       ${SUBMENUS} -m conf
+      [ $? -eq 3 ] && exit 0
+    }
+    [ "${wdevmenu}" ] && {
+      ${WEBDEV} -m conf
       [ $? -eq 3 ] && exit 0
     }
     [ "${versmenu}" ] && show_vers_menu
