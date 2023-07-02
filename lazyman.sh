@@ -883,6 +883,42 @@ show_info() {
     printf "\n\nThe neovide Neovim GUI is not installed"
   fi
   printf "\n\n${numitems} Lazyman Neovim configurations installed:\n"
+  binst=0
+  btots=0
+  for neovim in ${BASECFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((binst++))
+    fi
+    ((btots++))
+  done
+  linst=0
+  ltots=0
+  for neovim in ${LANGUCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((linst++))
+    fi
+    ((ltots++))
+  done
+  pinst=0
+  ptots=0
+  for neovim in ${PRSNLCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((pinst++))
+    fi
+    ((ptots++))
+  done
+  sinst=0
+  stots=0
+  for neovim in ${STARTCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((sinst++))
+    fi
+    ((stots++))
+  done
+  printf "\n  %-8s  Base Neovim configurations installed" "${binst}/${btots}"
+  printf "\n  %-8s  Language Neovim configurations installed" "${linst}/${ltots}"
+  printf "\n  %-8s  Personal Neovim configurations installed" "${pinst}/${ptots}"
+  printf "\n  %-8s  Starter Neovim configurations installed\n" "${sinst}/${stots}"
   for neovim in "${sorted[@]}"; do
     configpath="${HOME}/.config/${neovim}"
     twiddlpath="~/.config/${neovim}"
