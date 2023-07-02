@@ -13,6 +13,8 @@ NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
 SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
+WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
+LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -264,6 +266,16 @@ init_neovim() {
   }
 
   skipthis=
+  if [ "${neodir}" == "nvim-Webdev" ]
+  then
+    [ -x ${WEBDEV} ] && ${WEBDEV} -i
+    custom_url=
+  else
+    [ "${neodir}" == "nvim-LazyIde" ] && {
+      [ -x ${LZYIDE} ] && ${LZYIDE} -i
+      custom_url=
+    }
+  fi
   [ "${custom_url}" ] && {
     # Check for wakatime plugin and use debug mode if found
     havewaka=
@@ -1356,6 +1368,7 @@ show_main_menu() {
     show_warning=
     confmenu=
     versmenu=
+    wdevmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
       source "${LMANDIR}"/.lazymanrc
     else
@@ -1583,7 +1596,11 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Health Check" "Lazyman Config" "Lazyman Manual" "Lazyman Status")
+    options+=("Health Check" "Lazyman Config")
+    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+      options+=("Webdev Config")
+    }
+    options+=("Lazyman Manual" "Lazyman Status")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
@@ -2142,6 +2159,10 @@ show_main_menu() {
           confmenu=1
           break
           ;;
+        "Webdev Config",* | *,"Webdev Config")
+          wdevmenu=1
+          break
+          ;;
         "Lazyman Status",* | *,"Lazyman Status")
           printf "\nPreparing Lazyman status report\n"
           show_info >/tmp/lminfo$$
@@ -2174,6 +2195,10 @@ show_main_menu() {
     done
     [ "${confmenu}" ] && {
       ${SUBMENUS} -m conf
+      [ $? -eq 3 ] && exit 0
+    }
+    [ "${wdevmenu}" ] && {
+      ${WEBDEV}
       [ $? -eq 3 ] && exit 0
     }
     [ "${versmenu}" ] && show_vers_menu
@@ -2393,6 +2418,9 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fl
             ;;
           for*|For*|lint*|Lint*)
             menu="formenu"
+            ;;
+          webd*|Webd*|wdev*|Wdev*)
+            menu="wdevmenu"
             ;;
           *)
             menu="main"
@@ -4128,7 +4156,12 @@ exitstatus=0
             ${SUBMENUS} -m formenu
             exitstatus=$?
           else
-            show_main_menu
+            if [ "$menu" == "wdevmenu" ]; then
+              ${WEBDEV}
+              exitstatus=$?
+            else
+              show_main_menu
+            fi
           fi
         fi
       fi
