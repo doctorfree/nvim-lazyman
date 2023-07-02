@@ -10,6 +10,8 @@
 
 ### ⚡️ Added
 
+- Integrate `LazyIde` configuration into `lazyman`
+- Add `LazyIde` configuration menu
 - Integrate `Webdev` configuration into `lazyman`
 - Add `Webdev` configuration menu
 - Add category install counts to status report
