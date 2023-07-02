@@ -72,7 +72,7 @@ usage() {
   printf "\n    -f 'path' fix treesitter 'help' parser in config file 'path'"
   printf "\n    -F 'menu' indicates present the specified Lazyman menu"
   printf "\n       'menu' can be one of:"
-  printf "\n           'main', 'conf', 'lsp', 'format', 'plugin'"
+  printf "\n           'main', 'conf', 'lsp', 'format', 'plugin', 'webdev'"
   printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -j indicates install and initialize BasicIde Neovim configuration"
