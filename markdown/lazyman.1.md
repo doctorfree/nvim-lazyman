@@ -169,7 +169,7 @@ The following command line options are available with the `lazyman` command:
 
 `-f 'path'` : fix treesitter 'help' parser in config file 'path'
 
-`-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be one of 'main', 'conf', 'lsp', 'format', 'plugin', or 'webdev'
+`-F 'menu'` : indicates present the specified Lazyman menu where 'menu' can be one of 'main', 'conf', 'lsp', 'format', 'plugin', 'lazyide', or 'webdev'
 
 `-G` : indicates no plugin manager, initialize with `:TSUpdate`
 

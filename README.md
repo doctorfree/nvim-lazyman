@@ -813,7 +813,7 @@ Where:
     -f 'path' fix treesitter 'help' parser in config file 'path'
     -F 'menu' indicates present the specified Lazyman menu
        'menu' can be one of:
-           'main', 'conf', 'lsp', 'format', 'plugin'
+           'main', 'conf', 'lsp', 'format', 'plugin', 'lazyide', 'webdev'
     -G indicates no plugin manager, initialize with :TSUpdate
     -g indicates install and initialize Abstract Neovim configuration
     -j indicates install and initialize BasicIde Neovim configuration
