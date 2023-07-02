@@ -13,6 +13,7 @@ NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
 WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
+LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
@@ -2006,6 +2007,7 @@ show_conf_menu() {
     plugmenu=
     lspmenu=
     formenu=
+    lidemenu=
     versmenu=
     wdevmenu=
     [ -f ${GET_CONF} ] || {
@@ -2141,6 +2143,9 @@ show_conf_menu() {
     options+=("Formatters")
     options+=("LSP Servers")
     options+=("Plugins Menu")
+    [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
+      options+=("LazyIde Config")
+    }
     [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
       options+=("Webdev Config")
     }
@@ -2424,6 +2429,10 @@ show_conf_menu() {
           plugmenu=1
           break 2
           ;;
+        "LazyIde Config",* | *,"LazyIde Config")
+          lidemenu=1
+          break 2
+          ;;
         "Webdev Config",* | *,"Webdev Config")
           wdevmenu=1
           break 2
@@ -2452,8 +2461,12 @@ show_conf_menu() {
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspmenu}" ] && show_lsp_menu
   [ "${formenu}" ] && show_formlint_menu
+  [ "${lidemenu}" ] && {
+    ${LZYIDE}
+    [ $? -eq 3 ] && exit 0
+  }
   [ "${wdevmenu}" ] && {
-    ${WEBDEV} -m conf
+    ${WEBDEV}
     [ $? -eq 3 ] && exit 0
   }
 }

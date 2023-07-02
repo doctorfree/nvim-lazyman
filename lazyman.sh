@@ -1367,6 +1367,7 @@ show_main_menu() {
     showinstalled=1
     show_warning=
     confmenu=
+    lidemenu=
     versmenu=
     wdevmenu=
     if [ -f "${LMANDIR}"/.lazymanrc ]; then
@@ -1597,6 +1598,9 @@ show_main_menu() {
       options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Health Check" "Lazyman Config")
+    [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
+      options+=("LazyIde Config")
+    }
     [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
       options+=("Webdev Config")
     }
@@ -2159,6 +2163,10 @@ show_main_menu() {
           confmenu=1
           break
           ;;
+        "LazyIde Config",* | *,"LazyIde Config")
+          lidemenu=1
+          break
+          ;;
         "Webdev Config",* | *,"Webdev Config")
           wdevmenu=1
           break
@@ -2195,6 +2203,10 @@ show_main_menu() {
     done
     [ "${confmenu}" ] && {
       ${SUBMENUS} -m conf
+      [ $? -eq 3 ] && exit 0
+    }
+    [ "${lidemenu}" ] && {
+      ${LZYIDE}
       [ $? -eq 3 ] && exit 0
     }
     [ "${wdevmenu}" ] && {
@@ -2418,6 +2430,9 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fl
             ;;
           for*|For*|lint*|Lint*)
             menu="formenu"
+            ;;
+          lazy*|Lazy*|lide*|Lide*)
+            menu="lidemenu"
             ;;
           webd*|Webd*|wdev*|Wdev*)
             menu="wdevmenu"
@@ -4156,11 +4171,16 @@ exitstatus=0
             ${SUBMENUS} -m formenu
             exitstatus=$?
           else
-            if [ "$menu" == "wdevmenu" ]; then
-              ${WEBDEV}
+            if [ "$menu" == "lidemenu" ]; then
+              ${LZYIDE}
               exitstatus=$?
             else
-              show_main_menu
+              if [ "$menu" == "wdevmenu" ]; then
+                ${WEBDEV}
+                exitstatus=$?
+              else
+                show_main_menu
+              fi
             fi
           fi
         fi
