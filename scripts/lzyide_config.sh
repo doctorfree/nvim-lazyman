@@ -651,6 +651,30 @@ show_conf_menu() {
     else
       use_tabline="✗"
     fi
+    enable_dashboard_header=$(get_conf_value enable_dashboard_header)
+    if [ "${enable_dashboard_header}" == "true" ]; then
+      use_dashboard_header=""
+    else
+      use_dashboard_header="✗"
+    fi
+    enable_terminal=$(get_conf_value enable_terminal)
+    if [ "${enable_terminal}" == "true" ]; then
+      use_terminal=""
+    else
+      use_terminal="✗"
+    fi
+    enable_wakatime=$(get_conf_value enable_wakatime)
+    if [ "${enable_wakatime}" == "true" ]; then
+      use_wakatime=""
+    else
+      use_wakatime="✗"
+    fi
+    enable_smooth_scrolling=$(get_conf_value enable_smooth_scrolling)
+    if [ "${enable_smooth_scrolling}" == "true" ]; then
+      use_smooth_scrolling=""
+    else
+      use_smooth_scrolling="✗"
+    fi
     show_diagnostics=$(get_conf_value show_diagnostics)
     use_show_diagnostics="${show_diagnostics}"
     enable_zenmode=$(get_conf_value enable_zenmode)
@@ -678,6 +702,10 @@ show_conf_menu() {
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=(" Showtabline  [${use_showtabline}]")
+    options+=("Alpha Header  [${use_dashboard_header}]")
+    options+=("Smooth Scroll [${use_smooth_scrolling}]")
+    options+=("Terminal      [${use_terminal}]")
+    options+=("WakaTime      [${use_wakatime}]")
     options+=("Zen Mode      [${use_zenmode}]")
     options+=("Disable All")
     options+=("Enable All")
@@ -814,6 +842,62 @@ show_conf_menu() {
           }
           break
           ;;
+        "Terminal"*,* | *,"Terminal"*)
+          if [ "${enable_terminal}" == "true" ]; then
+            set_conf_value "enable_terminal" "false"
+          else
+            set_conf_value "enable_terminal" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "WakaTime"*,* | *,"WakaTime"*)
+          if [ "${enable_wakatime}" == "true" ]; then
+            set_conf_value "enable_wakatime" "false"
+          else
+            if [ -f "${HOME}"/.wakatime.cfg ]; then
+              set_conf_value "enable_wakatime" "true"
+            else
+              printf "\nIt appears you do not have a configured WakaTime API key."
+              printf "\nWould you like to proceed with enabling WakaTime?\n"
+              while true; do
+                read -r -p "Enable WakaTime (API key required) ? (y/n) " yn
+                case $yn in
+                  [Yy]*)
+                    set_conf_value "enable_wakatime" "true"
+                    break
+                    ;;
+                  [Nn]*)
+                    break
+                    ;;
+                  *)
+                    printf "\nPlease answer yes or no.\n"
+                    ;;
+                esac
+              done
+            fi
+          fi
+          pluginit=1
+          break
+          ;;
+        "Smooth Scroll"*,* | *,"Smooth Scroll"*)
+          if [ "${enable_smooth_scrolling}" == "true" ]; then
+            set_conf_value "enable_smooth_scrolling" "false"
+          else
+            set_conf_value "enable_smooth_scrolling" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Alpha Header"*,* | *,"Alpha Header"*)
+          if [ "${enable_dashboard_header}" == "true" ]; then
+            set_conf_value "enable_dashboard_header" "false"
+          else
+            set_conf_value "enable_dashboard_header" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Zen Mode"*,* | *,"Zen Mode"*)
           if [ "${enable_zenmode}" == "true" ]; then
             set_conf_value "enable_zenmode" "false"
@@ -834,6 +918,10 @@ show_conf_menu() {
           set_conf_value "enable_transparent" "false"
           set_conf_value "show_diagnostics" "none"
           set_conf_value "list" "false"
+          set_conf_value "enable_dashboard_header" "false"
+          set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_wakatime" "false"
+          set_conf_value "enable_smooth_scrolling" "false"
           pluginit=1
           break
           ;;
@@ -847,6 +935,10 @@ show_conf_menu() {
           set_conf_value "enable_transparent" "true"
           set_conf_value "show_diagnostics" "popup"
           set_conf_value "list" "true"
+          set_conf_value "enable_dashboard_header" "true"
+          set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_wakatime" "true"
+          set_conf_value "enable_smooth_scrolling" "true"
           pluginit=1
           break
           ;;

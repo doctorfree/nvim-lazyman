@@ -1007,6 +1007,13 @@ install_tools() {
       fi
     fi
     [ "$quiet" ] || printf " done"
+    if command -v "trash" >/dev/null 2>&1; then
+      log "Using previously installed trash-cli"
+    else
+      log "Installing trash-cli ..."
+      ${PYTHON} -m pip install ${PIPARGS} trash-cli >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf " done"
   }
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
@@ -1044,6 +1051,20 @@ install_tools() {
     log "Installing deno ..."
     export DENO_INSTALL="${HOME}/.local"
     curl -fsSL https://deno.land/x/install/install.sh | sh > /dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+  fi
+
+  if command -v tectonic >/dev/null 2>&1; then
+    log "Using previously installed tectonic"
+  else
+    log "Installing tectonic ..."
+    curl --proto '=https' --tlsv1.2 -fsSL \
+      https://drop-sh.fullyjustified.net |sh > /dev/null 2>&1
+    [ -f tectonic ] && {
+      chmod +x tectonic
+      [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
+      mv tectonic ${HOME}/.local/bin
+    }
     [ "$quiet" ] || printf " done"
   fi
 

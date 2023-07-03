@@ -24,8 +24,8 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim LazyIde Magidc Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Webdev Xiao"
+LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX Magidc Python Rust SaleVim Webdev"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Heiker J4de Josean LazyIde Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1112,13 +1112,13 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    Go|LaTeX|Python|Rust|SaleVim)
+    AlanVim|Allaman|Fennel|Go|Knvim|LaTeX|Magidc|Python|Rust|SaleVim|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Metis|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Webdev|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2749,17 +2749,47 @@ install_remove() {
     [ "${quiet}" ] && quietflag="-q"
     if [ "${nvimlang}" == "all" ]; then
       action="Installing"
+      [ -d ${HOME}/.config/nvim-AlanVim ] && action="Updating"
+      printf "\n${action} AlanVim Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/alanRizzo/dot-files \
+        -D nvim -N nvim-AlanVim -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-AlanVim"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
+      printf "\n${action} Allaman Neovim configuration"
+      lazyman ${darg} -C https://github.com/Allaman/nvim \
+        -N nvim-Allaman ${quietflag} -z ${yesflag}
+      show_alias "nvim-Allaman"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
+      printf "\n${action} Fennel Neovim configuration"
+      lazyman ${darg} -C https://github.com/jhchabran/nvim-config \
+        -N nvim-Fennel -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Fennel"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Go ] && action="Updating"
       printf "\n${action} Go Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-go-config \
         -b main -N nvim-Go ${quietflag} -z ${yesflag}
       show_alias "nvim-Go"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
+      printf "\n${action} Knvim Neovim configuration"
+      lazyman ${darg} -C https://github.com/knmac/knvim \
+        -N nvim-Knvim ${quietflag} -z ${yesflag}
+      show_alias "nvim-Knvim"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-LaTeX ] && action="Updating"
       printf "\n${action} LaTeX Neovim configuration"
       lazyman ${darg} -C https://github.com/benbrastmckie/.config -D nvim \
         -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
       show_alias "nvim-LaTeX"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
+      printf "\n${action} Magidc Neovim configuration"
+      lazyman ${darg} -C https://github.com/magidc/nvim-config \
+        -N nvim-Magidc ${quietflag} -z ${yesflag}
+      show_alias "nvim-Magidc"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Python ] && action="Updating"
       printf "\n${action} Python Neovim configuration"
@@ -2778,6 +2808,12 @@ install_remove() {
       lazyman ${darg} -C https://github.com/igorcguedes/SaleVim \
         -N nvim-SaleVim -P ${quietflag} -z ${yesflag}
       show_alias "nvim-SaleVim"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-Webdev ] && action="Updating"
+      printf "\n${action} Webdev Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/nvim-webdev \
+        -N nvim-Webdev ${quietflag} -z ${yesflag}
+      show_alias "nvim-Webdev"
     else
       lang_url=
       lang_dir=
@@ -2786,15 +2822,33 @@ install_remove() {
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimlang} in
+        AlanVim)
+          lang_url="-C https://github.com/alanRizzo/dot-files"
+          lang_opt="-b main -P"
+          lang_dir="-D nvim"
+          ;;
+        Allaman)
+          lang_url="-C https://github.com/Allaman/nvim"
+          ;;
+        Fennel)
+          lang_url="-C https://github.com/jhchabran/nvim-config"
+          lang_opt="-P"
+          ;;
         Go)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
           lang_opt="-b main"
+          ;;
+        Knvim)
+          lang_url="-C https://github.com/knmac/knvim"
           ;;
         LaTeX)
           lang_url="-C https://github.com/benbrastmckie/.config"
           lang_opt="-P"
           lang_dir="-D nvim"
           help_opt="-f ${fix_latex}"
+          ;;
+        Magidc)
+          lang_url="-C https://github.com/magidc/nvim-config"
           ;;
         Python)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-python"
@@ -2807,6 +2861,9 @@ install_remove() {
         SaleVim)
           lang_url="-C https://github.com/igorcguedes/SaleVim"
           lang_opt="-P"
+          ;;
+        Webdev)
+          lang_url="-C https://github.com/doctorfree/nvim-webdev"
           ;;
         *)
           printf "\nUnrecognized language configuration: ${nvimlang}"
@@ -2844,12 +2901,6 @@ install_remove() {
       printf "\n${action} Mini Neovim configuration"
       lazyman ${darg} -M ${quietflag} -z ${yesflag}
       show_alias "nvim-Mini"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-AlanVim ] && action="Updating"
-      printf "\n${action} AlanVim Neovim configuration"
-      lazyman ${darg} -b main -C https://github.com/alanRizzo/dot-files \
-        -D nvim -N nvim-AlanVim -P ${quietflag} -z ${yesflag}
-      show_alias "nvim-AlanVim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
       printf "\n${action} nvim2k Neovim configuration"
@@ -2889,12 +2940,6 @@ install_remove() {
         -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Dillon"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
-      printf "\n${action} Magidc Neovim configuration"
-      lazyman ${darg} -C https://github.com/magidc/nvim-config \
-        -N nvim-Magidc ${quietflag} -z ${yesflag}
-      show_alias "nvim-Magidc"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Metis ] && action="Updating"
       printf "\n${action} Metis Neovim configuration"
       lazyman ${darg} -C https://github.com/metis-os/pwnvim \
@@ -2906,18 +2951,6 @@ install_remove() {
       lazyman ${darg} -C https://github.com/fearless-spider/FSAstroNvim \
         -N nvim-Spider ${quietflag} -z ${yesflag}
       show_alias "nvim-Spider"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
-      printf "\n${action} Knvim Neovim configuration"
-      lazyman ${darg} -C https://github.com/knmac/knvim \
-        -N nvim-Knvim ${quietflag} -z ${yesflag}
-      show_alias "nvim-Knvim"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
-      printf "\n${action} Fennel Neovim configuration"
-      lazyman ${darg} -C https://github.com/jhchabran/nvim-config \
-        -N nvim-Fennel -P ${quietflag} -z ${yesflag}
-      show_alias "nvim-Fennel"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Adib ] && action="Updating"
       printf "\n${action} Adib Neovim configuration"
@@ -2966,12 +2999,6 @@ install_remove() {
       lazyman ${darg} -C https://github.com/anthdm/.nvim \
         -N nvim-Simple -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Simple"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Allaman ] && action="Updating"
-      printf "\n${action} Allaman Neovim configuration"
-      lazyman ${darg} -C https://github.com/Allaman/nvim \
-        -N nvim-Allaman ${quietflag} -z ${yesflag}
-      show_alias "nvim-Allaman"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Brain ] && action="Updating"
       printf "\n${action} Brain Neovim configuration"
@@ -3027,12 +3054,6 @@ install_remove() {
         -N nvim-LazyIde ${quietflag} -z ${yesflag}
       show_alias "nvim-LazyIde"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Webdev ] && action="Updating"
-      printf "\n${action} Webdev Neovim configuration"
-      lazyman ${darg} -C https://github.com/doctorfree/nvim-webdev \
-        -N nvim-Webdev ${quietflag} -z ${yesflag}
-      show_alias "nvim-Webdev"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Xiao ] && action="Updating"
       printf "\n${action} Xiao Neovim configuration"
       lazyman ${darg} -C https://github.com/onichandame/nvim-config \
@@ -3052,14 +3073,6 @@ install_remove() {
         3rd)
           prsnl_url="https://github.com/3rd/config"
           prsnl_dir="-D home/dotfiles/nvim"
-          ;;
-        AlanVim)
-          prsnl_url="https://github.com/alanRizzo/dot-files"
-          prsnl_opt="-b main -P"
-          prsnl_dir="-D nvim"
-          ;;
-        Allaman)
-          prsnl_url="https://github.com/Allaman/nvim"
           ;;
         Brain)
           prsnl_url="https://github.com/brainfucksec/neovim-lua"
@@ -3094,9 +3107,6 @@ install_remove() {
         LazyIde)
           prsnl_url="https://github.com/doctorfree/nvim-LazyIde"
           ;;
-        Webdev)
-          prsnl_url="https://github.com/doctorfree/nvim-webdev"
-          ;;
         Xiao)
           prsnl_url="https://github.com/onichandame/nvim-config"
           ;;
@@ -3113,9 +3123,6 @@ install_remove() {
           prsnl_opt="-b main -P"
           prsnl_dir="-D .config/nvim"
           ;;
-        Magidc)
-          prsnl_url="https://github.com/magidc/nvim-config"
-          ;;
         Metis)
           prsnl_url="https://github.com/metis-os/pwnvim"
           ;;
@@ -3128,15 +3135,8 @@ install_remove() {
         Spider)
           prsnl_url="https://github.com/fearless-spider/FSAstroNvim"
           ;;
-        Knvim)
-          prsnl_url="https://github.com/knmac/knvim"
-          ;;
         Roiz)
           prsnl_url="https://github.com/MrRoiz/rnvim"
-          ;;
-        Fennel)
-          prsnl_url="https://github.com/jhchabran/nvim-config"
-          prsnl_opt="-P"
           ;;
         ONNO)
           prsnl_url="https://github.com/loctvl842/nvim"
