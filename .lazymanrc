@@ -119,7 +119,7 @@ command -v nvim > /dev/null && {
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
         NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeOpen' $@
         ;;
-      nvim-Basic|nvim-Go|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+      nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
         NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeToggle' $@
         ;;
       nvim-3rd)

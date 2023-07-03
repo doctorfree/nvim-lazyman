@@ -25,7 +25,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="Go LaTeX Python Rust SaleVim"
-PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim LazyIde Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Webdev Xiao"
+PRSNLCFGS="2k 3rd Adib AlanVim Allaman Brain Charles Craftzdog Dillon Elianiva Fennel Heiker J4de Josean Knvim LazyIde Magidc Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Webdev Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1118,7 +1118,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Webdev|Xiao)
+    Adib|ONNO|2k|3rd|AlanVim|Charles|Craftzdog|Dillon|Magidc|Metis|Knvim|Roiz|Fennel|OnMyWay|Optixal|Plug|Heiker|Simple|Allaman|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Webdev|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2895,6 +2895,12 @@ install_remove() {
         -N nvim-Magidc ${quietflag} -z ${yesflag}
       show_alias "nvim-Magidc"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Metis ] && action="Updating"
+      printf "\n${action} Metis Neovim configuration"
+      lazyman ${darg} -C https://github.com/metis-os/pwnvim \
+        -N nvim-Metis ${quietflag} -z ${yesflag}
+      show_alias "nvim-Metis"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Spider ] && action="Updating"
       printf "\n${action} Spider Neovim configuration"
       lazyman ${darg} -C https://github.com/fearless-spider/FSAstroNvim \
@@ -3109,6 +3115,9 @@ install_remove() {
           ;;
         Magidc)
           prsnl_url="https://github.com/magidc/nvim-config"
+          ;;
+        Metis)
+          prsnl_url="https://github.com/metis-os/pwnvim"
           ;;
         Mini)
           prsnl_url="https://github.com/echasnovski/nvim"
