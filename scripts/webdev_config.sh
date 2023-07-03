@@ -621,12 +621,6 @@ show_conf_menu() {
     else
       use_relative_number="✗"
     fi
-    enable_smartcolumn=$(get_conf_value enable_smartcolumn)
-    if [ "${enable_smartcolumn}" == "true" ]; then
-      use_smartcolumn=""
-    else
-      use_smartcolumn="✗"
-    fi
     enable_global_statusline=$(get_conf_value global_statusline)
     if [ "${enable_global_statusline}" == "true" ]; then
       use_global_statusline=""
@@ -653,8 +647,6 @@ show_conf_menu() {
     else
       use_tabline="✗"
     fi
-    enable_winbar=$(get_conf_value enable_winbar)
-    use_winbar="${enable_winbar}"
     show_diagnostics=$(get_conf_value show_diagnostics)
     use_show_diagnostics="${show_diagnostics}"
     enable_zenmode=$(get_conf_value enable_zenmode)
@@ -677,17 +669,10 @@ show_conf_menu() {
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
-    options+=("Smart Column  [${use_smartcolumn}]")
     options+=("Global Status [${use_global_statusline}]")
     options+=("Status Line   [${use_statusline}]")
     options+=("Tab Line      [${use_tabline}]")
     options+=(" Showtabline  [${use_showtabline}]")
-    if [ "${use_winbar}" == "none" ]
-    then
-      options+=("Winbar     [${use_winbar}]")
-    else
-      options+=("Winbar [${use_winbar}]")
-    fi
     options+=("Zen Mode      [${use_zenmode}]")
     options+=("Disable All")
     options+=("Enable All")
@@ -703,15 +688,6 @@ show_conf_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
-          break
-          ;;
-        "Smart Column"*,* | *,"Smart Column"*)
-          if [ "${enable_smartcolumn}" == "true" ]; then
-            set_conf_value "enable_smartcolumn" "false"
-          else
-            set_conf_value "enable_smartcolumn" "true"
-          fi
-          pluginit=1
           break
           ;;
         "Status Line"*,* | *,"Status Line"*)
@@ -730,25 +706,6 @@ show_conf_menu() {
             set_conf_value "enable_tabline" "true"
           fi
           pluginit=1
-          break
-          ;;
-        "Winbar"*,* | *,"Winbar"*)
-          choices=("Barbecue" "Standard" "None")
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select winbar style  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            if [ "${choice}" == "Barbecue" ]; then
-              set_conf_value "enable_winbar" "barbecue"
-            else
-              if [ "${choice}" == "Standard" ]; then
-                set_conf_value "enable_winbar" "standard"
-              else
-                if [ "${choice}" == "None" ]; then
-                  set_conf_value "enable_winbar" "none"
-                fi
-              fi
-            fi
-            pluginit=1
-          fi
           break
           ;;
         " Style"*,* | *," Style"*)
@@ -856,13 +813,11 @@ show_conf_menu() {
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "number" "false"
           set_conf_value "relative_number" "false"
-          set_conf_value "enable_smartcolumn" "false"
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_statusline" "false"
           set_conf_value "enable_tabline" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
-          set_conf_value "enable_winbar" "none"
           set_conf_value "enable_transparent" "false"
           set_conf_value "show_diagnostics" "none"
           set_conf_value "list" "false"
@@ -872,12 +827,10 @@ show_conf_menu() {
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "number" "true"
           set_conf_value "relative_number" "true"
-          set_conf_value "enable_smartcolumn" "true"
           set_conf_value "global_statusline" "true"
           set_conf_value "enable_statusline" "true"
           set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
-          set_conf_value "enable_winbar" "barbecue"
           set_conf_value "enable_transparent" "true"
           set_conf_value "show_diagnostics" "popup"
           set_conf_value "list" "true"
