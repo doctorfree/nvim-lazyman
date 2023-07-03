@@ -69,16 +69,9 @@ prompt_continue() {
 
 set_haves() {
   have_fzf=$(type -p fzf)
-  have_cargo=$(type -p cargo)
-  have_neovide=$(type -p neovide)
   have_figlet=$(type -p figlet)
-  have_tscli=$(type -p tree-sitter)
-  have_julia=$(type -p julia)
-  have_composer=$(type -p composer)
-  have_rocks=$(type -p luarocks)
   have_lolcat=$(type -p lolcat)
   have_rich=$(type -p rich)
-  have_zoxi=$(type -p zoxide)
 }
 
 show_figlet() {
@@ -680,6 +673,12 @@ show_plugin_menu() {
     else
       use_codeexplain="✗"
     fi
+    enable_codeium=$(get_conf_value enable_codeium)
+    if [ "${enable_codeium}" == "true" ]; then
+      use_codeium=""
+    else
+      use_codeium="✗"
+    fi
     enable_copilot=$(get_conf_value enable_copilot)
     if [ "${enable_copilot}" == "true" ]; then
       use_copilot=""
@@ -883,6 +882,7 @@ show_plugin_menu() {
     options+=("Bdelete cmd   [${use_bbye}]")
     options+=("Bookmarks     [${use_bookmarks}]")
     options+=("ChatGPT (AI)  [${use_chatgpt}]")
+    options+=("Codeium (AI)  [${use_codeium}]")
     options+=("Copilot (AI)  [${use_copilot}]")
     pyver=$(check_python_version)
     [ "${pyver}" == "OK" ] && {
@@ -1118,6 +1118,15 @@ show_plugin_menu() {
               prompt_continue
             fi
           fi
+          break
+          ;;
+        "Codeium"*,* | *,"Codeium"*)
+          if [ "${enable_codeium}" == "true" ]; then
+            set_conf_value "enable_codeium" "false"
+          else
+            set_conf_value "enable_codeium" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Copilot"*,* | *,"Copilot"*)
@@ -1578,6 +1587,7 @@ show_plugin_menu() {
           set_conf_value "session_manager" "none"
           set_conf_value "enable_noice" "false"
           set_conf_value "enable_chatgpt" "false"
+          set_conf_value "enable_codeium" "false"
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
@@ -1623,6 +1633,7 @@ show_plugin_menu() {
           set_conf_value "session_manager" "possession"
           set_conf_value "enable_noice" "true"
           set_conf_value "enable_chatgpt" "true"
+          set_conf_value "enable_codeium" "true"
           set_conf_value "enable_copilot" "true"
           set_conf_value "enable_neoai" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
@@ -2004,7 +2015,6 @@ show_conf_menu() {
     lspmenu=
     formenu=
     lidemenu=
-    versmenu=
     wdevmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
@@ -2324,6 +2334,7 @@ show_conf_menu() {
           set_conf_value "convert_semantic_highlighting" "false"
           set_conf_value "media_backend" "none"
           set_conf_value "enable_chatgpt" "false"
+          set_conf_value "enable_codeium" "false"
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
@@ -2468,7 +2479,6 @@ show_conf_menu() {
 }
 
 debug=
-darg=
 confmenu=
 initplugs=
 menu="conf"
@@ -2478,7 +2488,6 @@ while getopts "dim:u" flag; do
   case $flag in
     d)
       debug=1
-      darg="-d"
       ;;
     i)
       initplugs=1

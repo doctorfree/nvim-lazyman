@@ -26,11 +26,11 @@ conf.maplocalleader = ","
 -- Toggle global status line
 conf.global_statusline = true
 -- set numbered lines
-conf.number = false
+conf.number = true
 -- enable mouse see :h mouse
 conf.mouse = "nv"
 -- set relative numbered lines
-conf.relative_number = false
+conf.relative_number = true
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
 -- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
@@ -49,13 +49,15 @@ conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
 --
--- AI coding assistants - ChatGPT, Code Explain, Copilot, NeoAI
+-- AI coding assistants - ChatGPT, Code Explain, Codeium, Copilot, NeoAI
 -- Enable Github Copilot if you have an account, it is superior
 --
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
 conf.enable_chatgpt = false
 -- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
 conf.enable_codeexplain = false
+-- Enable Codeium
+conf.enable_codeium = false
 -- Enable Github Copilot
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
