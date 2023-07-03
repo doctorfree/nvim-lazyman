@@ -20,6 +20,7 @@
 
 ### 🐞 Fixed
 
+- Remove unused configuration entries from `LazyIde` and `Webdev` menus
 - Move `Ember` from personal to starter
 - Turn off notes plugins by default
 
