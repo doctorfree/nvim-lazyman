@@ -8,7 +8,6 @@
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
-NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
@@ -17,12 +16,9 @@ LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
-LINE=$(tput smul 2>/dev/null)
 
 PLEASE="Please enter your choice"
 USEGUI=
-# Timeout length for nvim headless execution
-timeout=120
 # Array with font names
 fonts=("slant" "shadow" "small" "script" "standard")
 # Supported themes

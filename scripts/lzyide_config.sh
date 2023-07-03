@@ -19,8 +19,6 @@ NORM=$(tput sgr0 2>/dev/null)
 
 PLEASE="Please enter your choice"
 USEGUI=
-# Timeout length for nvim headless execution
-timeout=120
 # Array with font names
 fonts=("slant" "shadow" "small" "script" "standard")
 # Supported themes
