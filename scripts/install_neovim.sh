@@ -1014,6 +1014,30 @@ install_tools() {
       ${PYTHON} -m pip install ${PIPARGS} trash-cli >/dev/null 2>&1
     fi
     [ "$quiet" ] || printf " done"
+    if command -v "codespell" >/dev/null 2>&1; then
+      log "Using previously installed codespell"
+    else
+      log "Installing codespell ..."
+      ${PYTHON} -m pip install ${PIPARGS} codespell >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf " done"
+    if command -v "misspell" >/dev/null 2>&1; then
+      log "Using previously installed misspell"
+    else
+      log "Installing misspell ..."
+      MISS_URL="https://git.io/misspell"
+      curl -fsSL "$MISS_URL" >/tmp/miss-$$.sh
+      [ $? -eq 0 ] || {
+        rm -f /tmp/miss-$$.sh
+        curl -kfsSL "$MISS_URL" >/tmp/miss-$$.sh
+      }
+      [ -f /tmp/miss-$$.sh ] && {
+        chmod 755 /tmp/miss-$$.sh
+        /tmp/miss-$$.sh -b ${HOME}/.local/bin >/dev/null 2>&1
+        rm -f /tmp/miss-$$.sh
+      }
+    fi
+    [ "$quiet" ] || printf " done"
   }
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"

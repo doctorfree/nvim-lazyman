@@ -1,5 +1,6 @@
 -- Partially borrowed from Ecovim: https://github.com/ecosse3/nvim
 local settings = require("configuration")
+local codeium_enabled = settings.enable_codeium
 local copilot_enabled = settings.enable_copilot
 local lspkind = require("lspkind")
 local types = require("cmp.types")
@@ -24,6 +25,10 @@ if copilot_enabled then
     return
   end
   npm_or_copilot = { name = "copilot",     priority = 10 }
+end
+local codeium_source = {}
+if codeium_enabled then
+  codeium_source = { name = "codeium",     priority = 10 }
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -112,6 +117,8 @@ end
 -- ╰──────────────────────────────────────────────────────────╯
 local icons = require("utils.icons")
 local source_mapping = {
+  codeium = icons.misc.codeium,
+  copilot = icons.misc.copilot,
   npm = icons.misc.terminal .. "NPM",
   nvim_lsp = icons.misc.paragraph .. "LSP",
   buffer = icons.misc.buffer .. "BUF",
@@ -122,19 +129,19 @@ local source_mapping = {
   treesitter = icons.misc.tree,
   zsh = icons.misc.terminal .. "ZSH",
 }
-if copilot_enabled then
-  source_mapping = {
-    copilot = icons.misc.copilot,
-    nvim_lsp = icons.misc.paragraph .. "LSP",
-    buffer = icons.misc.buffer .. "BUF",
-    nvim_lua = icons.misc.bomb,
-    luasnip = icons.misc.snippet .. "SNP",
-    calc = icons.misc.calculator,
-    path = icons.misc.folderOpen2,
-    treesitter = icons.misc.tree,
-    zsh = icons.misc.terminal .. "ZSH",
-  }
-end
+-- if copilot_enabled then
+--   source_mapping = {
+--     copilot = icons.misc.copilot,
+--     nvim_lsp = icons.misc.paragraph .. "LSP",
+--     buffer = icons.misc.buffer .. "BUF",
+--     nvim_lua = icons.misc.bomb,
+--     luasnip = icons.misc.snippet .. "SNP",
+--     calc = icons.misc.calculator,
+--     path = icons.misc.folderOpen2,
+--     treesitter = icons.misc.tree,
+--     zsh = icons.misc.terminal .. "ZSH",
+--   }
+-- end
 for k,v in pairs(icons.kinds) do source_mapping[k] = v end
 
 local buffer_option = {
@@ -226,6 +233,8 @@ cmp.setup({
     format = function(entry, vim_item)
       if entry.source.name == "copilot" then
         vim_item.kind_hl_group = "CmpItemKindCopilot"
+      elseif entry.source.name == "codeium" then
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
       elseif entry.source.name == "luasnip" then
         vim_item.kind_hl_group = "CmpItemKindSnippet"
       end
@@ -246,6 +255,7 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp",    priority = 8, entry_filter = limit_lsp_types, },
+    codeium_source,
     npm_or_copilot,
     { name = "luasnip",     priority = 9, max_item_count = 5 },
     {

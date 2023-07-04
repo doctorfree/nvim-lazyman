@@ -5,6 +5,18 @@ local lsp_servers = settings.lsp_servers
 if settings.enable_coding then
   return {
     {
+      "folke/neodev.nvim",
+      version = false, -- last release is way too old
+      event = "VeryLazy",
+      dependencies = {
+        "hrsh7th/nvim-cmp",
+      },
+      config = function()
+        require("config.neodev")
+      end,
+    },
+
+    {
       "neovim/nvim-lspconfig",
       dependencies = {
         "williamboman/mason.nvim",
@@ -50,18 +62,6 @@ if settings.enable_coding then
       end,
     },
 
-    {
-      "folke/neodev.nvim",
-      version = false, -- last release is way too old
-      event = "VeryLazy",
-      dependencies = {
-        "hrsh7th/nvim-cmp",
-      },
-      config = function()
-        require("config.neodev")
-      end,
-    },
-
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 
     {
@@ -81,13 +81,13 @@ if settings.enable_coding then
       branch = "v2.x",
       dependencies = {
         -- LSP Support
-        { "neovim/nvim-lspconfig" },             -- Required
+        { "neovim/nvim-lspconfig" }, -- Required
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" }, -- Optional
         -- Autocompletion
-        { "hrsh7th/nvim-cmp" },                  -- Required
-        { "hrsh7th/cmp-nvim-lsp" },              -- Required
-        { "L3MON4D3/LuaSnip" },                  -- Required
+        { "hrsh7th/nvim-cmp" }, -- Required
+        { "hrsh7th/cmp-nvim-lsp" }, -- Required
+        { "L3MON4D3/LuaSnip" }, -- Required
       },
       config = function()
         local lsp = require("lsp-zero").preset({})

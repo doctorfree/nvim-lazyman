@@ -1,11 +1,14 @@
 local settings = require("configuration")
+local enable_codeium = settings.enable_codeium
 local enable_copilot = settings.enable_copilot
 local enable_neoai = settings.enable_neoai
 if not settings.enable_coding then
+  enable_codeium = false
   enable_copilot = false
   enable_neoai = false
 end
 
+local codeium = {}
 local copilot = {}
 local copilot_cmp = {}
 local neoai = {}
@@ -104,6 +107,21 @@ if enable_neoai then
     end,
   }
 end
+
+if enable_codeium then
+  codeium = {
+    "jcdickinson/codeium.nvim",
+    commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
+    cmd = "Codeium",
+    event = "InsertEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = true,
+  }
+end
+
 if enable_copilot then
   copilot = {
     "zbirenbaum/copilot.lua",
@@ -315,7 +333,9 @@ return {
   lspsaga,
   actionmenu,
   -- AI
+  codeium,
   copilot,
+  copilot_cmp,
   neoai,
   securitree,
 }
