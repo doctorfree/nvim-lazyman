@@ -335,6 +335,7 @@ return {
   -- AI
   codeium,
   copilot,
+  copilot_cmp,
   neoai,
   securitree,
 }
