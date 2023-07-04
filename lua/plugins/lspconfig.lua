@@ -6,14 +6,12 @@ if settings.enable_coding then
   return {
     {
       "folke/neodev.nvim",
-      version = false, -- last release is way too old
+      version = false,
       event = "VeryLazy",
       dependencies = {
         "hrsh7th/nvim-cmp",
       },
-      config = function()
-        require("config.neodev")
-      end,
+      opts = {},
     },
 
     {
