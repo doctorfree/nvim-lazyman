@@ -360,6 +360,7 @@ init_neovim() {
                 xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa > ${LOG} 2>&1
                 [ "${neodir}" == "${nvchaddir}" ] || \
                 [ "${neodir}" == "nvim-Go" ] || \
+                [ "${neodir}" == "nvim-LazyIde" ] || \
                 [ "${neodir}" == "nvim-Rust" ] || \
                 [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
@@ -415,6 +416,7 @@ init_neovim() {
                   "+Lazy! sync" +qa >/dev/null 2>&1
                 [ "${neodir}" == "${nvchaddir}" ] || \
                 [ "${neodir}" == "nvim-Go" ] || \
+                [ "${neodir}" == "nvim-LazyIde" ] || \
                 [ "${neodir}" == "nvim-Rust" ] || \
                 [ "${neodir}" == "nvim-Python" ] && {
                   xtimeout ${timeout} nvim --headless \
