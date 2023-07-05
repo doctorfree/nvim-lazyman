@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
-export NVIM_APPNAME="nvim-LunarVim"
-export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
-export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+#export NVIM_APPNAME="nvim-LunarVim"
+#export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+#export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+#export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+#export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
 
-exec -a "$NVIM_APPNAME" nvim "$@"
+#exec -a "$NVIM_APPNAME" nvim "$@"
+
+export NVIM_APPNAME="${NVIM_APPNAME:-nvim-LunarVim}"
+export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-${HOME}/.local/share/${NVIM_APPNAME}}"
+export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-${HOME}/.config/${NVIM_APPNAME}}"
+export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-${HOME}/.cache/${NVIM_APPNAME}}"
+export LUNARVIM_BASE_DIR="${LUNARVIM_BASE_DIR:-${HOME}/.config/${NVIM_APPNAME}}"
+
+exec -a "$NVIM_APPNAME" nvim -u "$LUNARVIM_BASE_DIR/init.lua" "$@"

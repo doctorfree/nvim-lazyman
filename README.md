@@ -277,8 +277,8 @@ following configuration categories:
 | **Language** |       |        | **Configs** |
 | ------------ | ----- | ------ | ----------- |
 | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) |
-| [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [Magidc](https://github.com/magidc/nvim-config) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
-| [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) | |
+| [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [Magidc](https://github.com/magidc/nvim-config) |
+| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
@@ -388,6 +388,10 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - Blog article by the author detailing [tools used by his configuration](http://www.benbrastmckie.com/tools#access)
   - [Video playlist](https://www.youtube.com/watch?v=_Ct2S65kpjQ&list=PLBYZ1xfnKeDRhCoaM4bTFrjCl3NKDBvqk) of tutorials on using this config for writing LaTeX in Neovim
   - Install and initialize with `lazyman -L LaTeX`
+- [LunarIde](https://github.com/doctorfree/lvim-Christian)
+  - LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChiarulli/lvim)
+  - Java, Python, Lua, Go, JavaScript, Typescript, React, and RUST IDE
+  - Install and initialize with `lazyman -L LunarIde`
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and RUST IDE
   - Install and initialize with `lazyman -L Magidc`

@@ -110,7 +110,7 @@ command -v nvim > /dev/null && {
 
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
-      nvim-BasicLsp|nvim-BasicMason|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
+      nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
         NVIM_APPNAME="${cfg}" ${comm} -c 'Lexplore' $@
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Rafi|nvim-Slydragonn)

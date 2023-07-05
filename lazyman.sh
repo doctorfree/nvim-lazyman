@@ -12,6 +12,7 @@ NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
+JAVADBUG="${LMANDIR}/scripts/java_debug.sh"
 SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
 WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
@@ -24,8 +25,8 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX Magidc Python Rust SaleVim Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Heiker J4de Josean LazyIde Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+LANGUCFGS="AlanVim Allaman Fennel Go LunarIde Knvim LaTeX Magidc Python Rust SaleVim Webdev"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -33,6 +34,7 @@ LAZYVIMCFGS="LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
+LUNARVIMCFGS="LunarIde LunarVim"
 PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
@@ -169,6 +171,24 @@ set_haves() {
   have_rich=$(type -p rich)
 }
 
+# Patch references to ~/.config/lvim/
+fix_lvim_dir() {
+  fixlvimdir="$1"
+  [ "${fixlvimdir}" == "${lazymandir}" ] || {
+    find "${HOME}/.config/${fixlvimdir}" \
+      -type f -a \( -name \*\.lua -o -name \*\.vim  -o -name \*\.fnl \) | \
+    while read -r f
+    do
+      echo "$f" | grep /.git/ > /dev/null && continue
+      grep /lvim/ "$f" > /dev/null && {
+        cat "$f" | sed -e "s%/lvim/%/${fixlvimdir}/%g" > /tmp/lvim$$
+        cp /tmp/lvim$$ "$f"
+        rm -f /tmp/lvim$$
+      }
+    done
+  }
+}
+
 # Patch references to ~/.config/nvim/
 fix_nvim_dir() {
   fixnvimdir="$1"
@@ -202,6 +222,41 @@ calc_elapsed() {
   FINISH_SECONDS=$(date +%s)
   ELAPSECS=$((FINISH_SECONDS - START_SECONDS))
   ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
+}
+
+init_lvim() {
+  lvimdir="$1"
+  export NVIM_APPNAME="${lvimdir}"
+  export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
+  export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
+  export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
+  LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
+  [ "$quiet" ] || printf "\nCloning and initializing LunarVim ... "
+  [ "$tellme" ] || {
+    curl -s ${LVIM_INSTALL} >/tmp/lvim-install$$.sh
+    chmod 755 /tmp/lvim-install$$.sh
+    [ -x $HOME/.local/bin/lvim ] || {
+      [ -f ${LMANDIR}/scripts/lvim ] && {
+        if [ "${lvimdir}" == "nvim-LunarVim" ]; then
+          cp ${LMANDIR}/scripts/lvim $HOME/.local/bin/lvim
+        else
+          cat ${LMANDIR}/scripts/lvim \
+            | sed -e "s/nvim-LunarVim/${lvimdir}/" >$HOME/.local/bin/lvim
+        fi
+        chmod 755 $HOME/.local/bin/lvim
+      }
+    }
+    if [ "$debug" ]; then
+      /tmp/lvim-install$$.sh --no-install-dependencies --yes
+    else
+      /tmp/lvim-install$$.sh --no-install-dependencies --yes >/dev/null 2>&1
+    fi
+    rm -f /tmp/lvim-install$$.sh
+    add_nvimdirs_entry "${lvimdir}"
+  }
+  [ "$quiet" ] || printf "done"
 }
 
 init_neovim() {
@@ -247,6 +302,17 @@ init_neovim() {
             "${BUILDER}" >/dev/null 2>&1
       }
     fi
+  }
+  [ "${neodir}" == "nvim-LunarIde" ] && {
+    [ -x ${JAVADBUG} ] && {
+      if [ "$debug" ]; then
+        ${JAVADBUG} "${neodir}"
+      else
+        ${JAVADBUG} "${neodir}" > /dev/null 2>&1
+      fi
+    }
+    fix_nvim_dir "nvim-LunarIde"
+    fix_lvim_dir "nvim-LunarIde"
   }
 
   [ "${plug}" ] && {
@@ -346,18 +412,23 @@ init_neovim() {
             xtimeout ${timeout} nvim --headless "+SPInstall" +qa > ${LOG} 2>&1
             xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
           else
-            if [ "${neodir}" == "${lunarvimdir}" ]; then
-              export NVIM_APPNAME="nvim-LunarVim"
+            [ "${neodir}" == "${lunarvimdir}" ] || \
+            [ "${neodir}" == "nvim-LunarIde" ] && {
+              export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
               export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
               export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
               export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
-            fi
+            }
             if [ "${treesitter}" ]; then
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa > ${LOG} 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
-                xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa > ${LOG} 2>&1
+                [ "${neodir}" == "nvim-LunarIde" ] && {
+                  xtimeout ${timeout} nvim \
+                    --headless +LvimUpdate +LvimCacheReset +qa > ${LOG} 2>&1
+                }
+                xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >> ${LOG} 2>&1
                 [ "${neodir}" == "${nvchaddir}" ] || \
                 [ "${neodir}" == "nvim-Go" ] || \
                 [ "${neodir}" == "nvim-LazyIde" ] || \
@@ -401,17 +472,22 @@ init_neovim() {
             xtimeout ${timeout} nvim --headless \
               "+UpdateRemotePlugins" +qa >/dev/null 2>&1
           else
-            if [ "${neodir}" == "${lunarvimdir}" ]; then
-              export NVIM_APPNAME="nvim-LunarVim"
+            [ "${neodir}" == "${lunarvimdir}" ] || \
+            [ "${neodir}" == "nvim-LunarIde" ] && {
+              export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
               export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
               export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
               export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
-            fi
+            }
             if [ "${treesitter}" ]; then
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
+                [ "${neodir}" == "nvim-LunarIde" ] && {
+                  xtimeout ${timeout} nvim \
+                    --headless +LvimUpdate +LvimCacheReset +qa >/dev/null 2>&1
+                }
                 xtimeout ${timeout} nvim --headless \
                   "+Lazy! sync" +qa >/dev/null 2>&1
                 [ "${neodir}" == "${nvchaddir}" ] || \
@@ -423,7 +499,8 @@ init_neovim() {
                     "+MasonInstallAll" +qa >/dev/null 2>&1
                 }
                 [ "${neodir}" == "nvim-2k" ] && {
-                  xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
+                  xtimeout ${timeout} nvim \
+                    --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
                 }
               }
             fi
@@ -1114,13 +1191,13 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    AlanVim|Allaman|Fennel|Go|Knvim|LaTeX|Magidc|Python|Rust|SaleVim|Webdev)
+    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|Magidc|Python|Rust|SaleVim|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2775,6 +2852,13 @@ install_remove() {
         -b main -N nvim-Go ${quietflag} -z ${yesflag}
       show_alias "nvim-Go"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-LunarIde ] && action="Updating"
+      printf "\n${action} LunarIde Neovim configuration"
+      # lazyman ${darg} -C https://github.com/abzcoding/lvim.git \
+      lazyman ${darg} -C https://github.com/doctorfree/lvim-Christian \
+        -N nvim-LunarIde ${quietflag} -z ${yesflag}
+      show_alias "nvim-LunarIde"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration"
       lazyman ${darg} -C https://github.com/knmac/knvim \
@@ -2839,6 +2923,10 @@ install_remove() {
         Go)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
           lang_opt="-b main"
+          ;;
+        LunarIde)
+          # lang_url="-C https://github.com/abzcoding/lvim.git"
+          lang_url="-C https://github.com/doctorfree/lvim-Christian"
           ;;
         Knvim)
           lang_url="-C https://github.com/knmac/knvim"
@@ -3014,6 +3102,12 @@ install_remove() {
         -D nvim/.config/nvim -N nvim-Elianiva ${quietflag} -z ${yesflag}
       show_alias "nvim-Elianiva"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Enrique ] && action="Updating"
+      printf "\n${action} Enrique Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/kiyov09/dotfiles \
+        -D .config/nvim -N nvim-Enrique -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Enrique"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-J4de ] && action="Updating"
       printf "\n${action} J4de Neovim configuration"
       lazyman ${darg} -C https://codeberg.org/j4de/nvim \
@@ -3083,6 +3177,11 @@ install_remove() {
         Elianiva)
           prsnl_url="https://github.com/elianiva/dotfiles"
           prsnl_dir="-D nvim/.config/nvim"
+          ;;
+        Enrique)
+          prsnl_url="https://github.com/kiyov09/dotfiles"
+          prsnl_opt="-b main -P"
+          prsnl_dir="-D .config/nvim"
           ;;
         J4de)
           prsnl_url="https://codeberg.org/j4de/nvim"
@@ -3803,37 +3902,7 @@ set_brew
   clone_repo LazyVim LazyVim/starter "$lazyvimdir"
 }
 [ "$lunarvim" ] && {
-  export NVIM_APPNAME="${lunarvimdir}"
-  export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-  export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
-  export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-  export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
-  LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
-  LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
-  [ "$quiet" ] || printf "\nCloning and initializing LunarVim ... "
-  [ "$tellme" ] || {
-    curl -s ${LVIM_INSTALL} >/tmp/lvim-install$$.sh
-    chmod 755 /tmp/lvim-install$$.sh
-    [ -x $HOME/.local/bin/lvim ] || {
-      [ -f ${LMANDIR}/scripts/lvim ] && {
-        if [ "${lunarvimdir}" == "nvim-LunarVim" ]; then
-          cp ${LMANDIR}/scripts/lvim $HOME/.local/bin/lvim
-        else
-          cat ${LMANDIR}/scripts/lvim \
-            | sed -e "s/nvim-LunarVim/${lunarvimdir}/" >$HOME/.local/bin/lvim
-        fi
-        chmod 755 $HOME/.local/bin/lvim
-      }
-    }
-    if [ "$debug" ]; then
-      /tmp/lvim-install$$.sh --no-install-dependencies
-    else
-      /tmp/lvim-install$$.sh --no-install-dependencies >/dev/null 2>&1
-    fi
-    rm -f /tmp/lvim-install$$.sh
-    add_nvimdirs_entry "${lunarvimdir}"
-  }
-  [ "$quiet" ] || printf "done"
+  init_lvim "${lunarvimdir}"
   [ "$quiet" ] || {
     printf "\nAdding LunarVim custom configuration into"
     printf "\n\t${HOME}/.config/${lunarvimdir}/lua/user ... "
@@ -3857,6 +3926,8 @@ set_brew
   }
   # Replace references to /nvim/ with /$lunarvimdir/
   fix_nvim_dir "${lunarvimdir}"
+  # Replace references to /lvim/ with /$lunarvimdir/
+  fix_lvim_dir "${lunarvimdir}"
   [ "$quiet" ] || printf "done"
 }
 [ "$magicvim" ] && {
@@ -3969,6 +4040,10 @@ set_brew
       printf "\n\t${HOME}/.config/${neovimdir[0]} ... "
     }
     [ "$tellme" ] || {
+      [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
+        init_lvim "nvim-LunarIde"
+        mv ${HOME}/.config/nvim-LunarIde /tmp/lvim$$
+      }
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
         # Perform some git tricks here to retrieve a repo subdirectory
@@ -3998,6 +4073,21 @@ set_brew
           cp ${HOME}/.config/${neovimdir[0]}/lua/user/env.sample \
             ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua
         }
+      }
+      [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
+        [ -f ${HOME}/.config/nvim-LunarIde/init.lua ] || {
+          cp /tmp/lvim$$/init.lua ${HOME}/.config/nvim-LunarIde
+        }
+        [ -d ${HOME}/.config/nvim-LunarIde/snapshots ] || {
+          cp -a /tmp/lvim$$/snapshots ${HOME}/.config/nvim-LunarIde
+        }
+        [ -d ${HOME}/.config/nvim-LunarIde/utils ] || {
+          cp -a /tmp/lvim$$/utils ${HOME}/.config/nvim-LunarIde
+        }
+        [ -d ${HOME}/.config/nvim-LunarIde/lua/lvim ] || {
+          cp -a /tmp/lvim$$/lua/lvim ${HOME}/.config/nvim-LunarIde/lua
+        }
+        rm -rf /tmp/lvim$$
       }
       # Replace references to /nvim/ with /$neovimdir[0]/
       fix_nvim_dir "${neovimdir[0]}"

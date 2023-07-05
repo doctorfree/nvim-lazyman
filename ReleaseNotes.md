@@ -23,8 +23,8 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | **Language** |       |        | **Configs** |
 | ------------ | ----- | ------ | ----------- |
 | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) |
-| [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [Magidc](https://github.com/magidc/nvim-config) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
-| [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) | |
+| [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [Magidc](https://github.com/magidc/nvim-config) |
+| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
