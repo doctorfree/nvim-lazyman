@@ -663,6 +663,12 @@ show_conf_menu() {
     else
       use_terminal="✗"
     fi
+    enable_toggleterm=$(get_conf_value enable_toggleterm)
+    if [ "${enable_toggleterm}" == "true" ]; then
+      use_toggleterm=""
+    else
+      use_toggleterm="✗"
+    fi
     enable_wakatime=$(get_conf_value enable_wakatime)
     if [ "${enable_wakatime}" == "true" ]; then
       use_wakatime=""
@@ -705,6 +711,7 @@ show_conf_menu() {
     options+=("Alpha Header  [${use_dashboard_header}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("Toggle Term   [${use_toggleterm}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Zen Mode      [${use_zenmode}]")
     options+=("Disable All")
@@ -851,6 +858,15 @@ show_conf_menu() {
           pluginit=1
           break
           ;;
+        "Toggle Term"*,* | *,"Toggle Term"*)
+          if [ "${enable_toggleterm}" == "true" ]; then
+            set_conf_value "enable_toggleterm" "false"
+          else
+            set_conf_value "enable_toggleterm" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "WakaTime"*,* | *,"WakaTime"*)
           if [ "${enable_wakatime}" == "true" ]; then
             set_conf_value "enable_wakatime" "false"
@@ -920,6 +936,7 @@ show_conf_menu() {
           set_conf_value "list" "false"
           set_conf_value "enable_dashboard_header" "false"
           set_conf_value "enable_terminal" "false"
+          set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_smooth_scrolling" "false"
           pluginit=1
@@ -937,6 +954,7 @@ show_conf_menu() {
           set_conf_value "list" "true"
           set_conf_value "enable_dashboard_header" "true"
           set_conf_value "enable_terminal" "true"
+          set_conf_value "enable_toggleterm" "true"
           set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_smooth_scrolling" "true"
           pluginit=1
