@@ -995,6 +995,13 @@ install_tools() {
     "$PYTHON" -m pip install --user --no-cache-dir --force-reinstall \
       langchain==0.0.177 llama-cpp-python==0.1.48 > /dev/null 2>&1
     [ "$quiet" ] || printf " done"
+    if command -v "flake8" >/dev/null 2>&1; then
+      log "Using previously installed flake8"
+    else
+      log "Installing flake8 ..."
+      ${PYTHON} -m pip install ${PIPARGS} flake8 >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"
     else
