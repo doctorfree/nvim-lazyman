@@ -6,6 +6,25 @@
 
 ### 🐞 Fixed
 
+## v2.1.7r2
+
+### ⚡️ Added
+
+- Add `LazyIde` to configs initialized with `MasonInstallAll`
+- Add `copilot-cmp` to plugins
+- Add `misspell` to installed tools
+- Add support for `Codeium` in `nvim-Lazyman`
+- Install `tectonic` and `trash-cli`
+- Add support for `Metis` personal config
+- Add support for configuring scrolling, `wakatime`, & alpha header in `webdev` config
+
+### 🐞 Fixed
+
+- Fix `navic` icons setting
+- Remove duplicate `neodev` setup, use default `neodev` options
+- Add support for configuring additional settings in `LazyIde` config
+- Move several personal configs to language
+
 ## v2.1.7r1
 
 ### ⚡️ Added
