@@ -256,7 +256,6 @@ init_lvim() {
     rm -f /tmp/lvim-install$$.sh
     add_nvimdirs_entry "${lvimdir}"
   }
-  [ "$quiet" ] || printf "done"
 }
 
 init_neovim() {
@@ -305,11 +304,13 @@ init_neovim() {
   }
   [ "${neodir}" == "nvim-LunarIde" ] && {
     [ -x ${JAVADBUG} ] && {
+      [ "$quiet" ] || printf "\nInstalled Java debug packages ... "
       if [ "$debug" ]; then
         ${JAVADBUG} "${neodir}"
       else
         ${JAVADBUG} "${neodir}" > /dev/null 2>&1
       fi
+      [ "$quiet" ] || printf "done"
     }
     fix_nvim_dir "nvim-LunarIde"
     fix_lvim_dir "nvim-LunarIde"
@@ -2854,7 +2855,6 @@ install_remove() {
       action="Installing"
       [ -d ${HOME}/.config/nvim-LunarIde ] && action="Updating"
       printf "\n${action} LunarIde Neovim configuration"
-      # lazyman ${darg} -C https://github.com/abzcoding/lvim.git \
       lazyman ${darg} -C https://github.com/doctorfree/lvim-Christian \
         -N nvim-LunarIde ${quietflag} -z ${yesflag}
       show_alias "nvim-LunarIde"
@@ -2925,7 +2925,6 @@ install_remove() {
           lang_opt="-b main"
           ;;
         LunarIde)
-          # lang_url="-C https://github.com/abzcoding/lvim.git"
           lang_url="-C https://github.com/doctorfree/lvim-Christian"
           ;;
         Knvim)
@@ -3904,6 +3903,7 @@ set_brew
 [ "$lunarvim" ] && {
   init_lvim "${lunarvimdir}"
   [ "$quiet" ] || {
+    printf "done"
     printf "\nAdding LunarVim custom configuration into"
     printf "\n\t${HOME}/.config/${lunarvimdir}/lua/user ... "
   }
