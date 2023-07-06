@@ -278,23 +278,24 @@ following configuration categories:
 | ------------ | ----- | ------ | ------ | ----------- |
 | [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Knvim](https://github.com/knmac/knvim) |
 | [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) |
-| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) | |
+| [Nv](https://github.com/appelgriebsch/Nv) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
 | [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) |
-| [Daniel](https://github.com/daniel-vera-g/lvim) | [Dillon](https://github.com/dmmulroy/dotfiles) | [Elianiva](https://github.com/elianiva/dotfiles) | [Heiker](https://github.com/VonHeikemen/dotfiles) | [J4de](https://codeberg.org/j4de/nvim) |
-| [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [Nv](https://github.com/appelgriebsch/Nv) | [nvim2k](https://github.com/2KAbhishek/nvim2k) |
+| [Daniel](https://github.com/daniel-vera-g/lvim) | [Dillon](https://github.com/dmmulroy/dotfiles) | [Elianiva](https://github.com/elianiva/dotfiles) | [Enrique](https://github.com/kiyov09/dotfiles) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
+| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [nvim2k](https://github.com/2KAbhishek/nvim2k) |
 | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
 | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       |       | **Configs** |
-| ----------- | ----- | ----- | ----- | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) |
-| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) |
-| [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) |
+| **Starter** |       |       | **Configs** |
+| ----------- | ----- | ----- | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
+| [Ember](https://github.com/danlikestocode/embervim) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) |
+| [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
@@ -457,14 +458,19 @@ installed with the `-w conf` option.
   - Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScript type-checking
   - Install and initialize with `lazyman -w Dillon`
 - [Elianiva](https://github.com/elianiva/dotfiles)
+  - Personal Neovim configuration of Dicha Zelianivan Arkana
   - `lazyman -w Elianiva`
 - [Ember](https://github.com/danlikestocode/embervim)
   - Dan is a computer science student at Arizona State University
   - Install and initialize with `lazyman -w Ember`
+- [Enrique](https://github.com/kiyov09/dotfiles)
+  - Personal Neovim configuration of Enrique Mejidas
+  - `lazyman -w Enrique`
 - [Heiker](https://github.com/VonHeikemen/dotfiles)
   - Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
   - Install and initialize with `lazyman -w Heiker`
 - [J4de](https://codeberg.org/j4de/nvim)
+  - Personal Neovim configuration of Jade Fox
   - `lazyman -w J4de`
 - [Josean](https://github.com/josean-dev/dev-environment-files)
   - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
@@ -492,7 +498,7 @@ installed with the `-w conf` option.
   - Install and initialize with `lazyman -w Optixal`
 - [Rafi](https://github.com/rafi/vim-config)
   - [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
-  - `lazyman -w Rafi`
+  - Install and initialize with `lazyman -w Rafi`
 - [Roiz](https://github.com/MrRoiz/rnvim)
   - Just a random Neovim config found on Github, works well
   - Install and initialize with `lazyman -w Roiz`
@@ -506,15 +512,16 @@ installed with the `-w conf` option.
 - [Spider](https://github.com/fearless-spider/FSAstroNvim)
   - AstroNvim based configuration with animated status bar and smooth scroll
   - [Introductory video](https://youtu.be/Lj6MZsKl9MU)
-  - `lazyman -w Spider`
+  - Install and initialize with `lazyman -w Spider`
 - [Traap](https://github.com/Traap/nvim)
   - [Introductory video](https://youtu.be/aD9j6d9pgtc)
-  - `lazyman -w Traap`
+  - Install and initialize with `lazyman -w Traap`
 - [Xiao](https://github.com/onichandame/nvim-config)
+  - Personal Neovim configuration of XiaoZhang
   - Install and initialize with `lazyman -w Xiao`
 - [nvim2k](https://github.com/2KAbhishek/nvim2k)
-  - `lazyman -w 2k`
   - [Video walkthrough](https://youtu.be/WfhylGI_F-o)
+  - Install and initialize with `lazyman -w 2k`
 
 ### Starter configurations
 
@@ -568,6 +575,9 @@ installed with the `-x conf` option.
 - [Scratch](https://github.com/ngscheurich/nvim-from-scratch)
   - Jumping-off point for new Neovim users or those who have declared config bankruptcy
   - Install and initialize with `lazyman -x Scratch`
+- [SingleFile](https://github.com/creativenull/nvim-oneconfig)
+  - A clean, organized pre-configured Neovim configuration guide in a single `init.lua`
+  - Install and initialize with `lazyman -x SingleFile`
 
 #### VonHeikemen Starter configurations
 

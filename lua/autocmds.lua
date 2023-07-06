@@ -248,3 +248,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = aug,
   pattern = "*",
 })
+
+-- Command to hot reload all plugins (not working yet)
+-- vim.cmd('command! ReloadPlugins lua require("utils.functions").ReloadPlugins()')

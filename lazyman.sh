@@ -27,17 +27,17 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Python Rust SaleVim Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Webdev"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
 LUNARVIMCFGS="LunarIde LunarVim Daniel"
-PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple Slydragonn"
+PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple SingleFile Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
@@ -1200,13 +1200,13 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Python|Rust|SaleVim|Webdev)
+    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2969,6 +2969,12 @@ install_remove() {
         -N nvim-Magidc ${quietflag} -z ${yesflag}
       show_alias "nvim-Magidc"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
+      printf "\n${action} Nv Neovim configuration"
+      lazyman ${darg} -C https://github.com/appelgriebsch/Nv \
+        -N nvim-Nv ${quietflag} -z ${yesflag}
+      show_alias "nvim-Nv"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Python ] && action="Updating"
       printf "\n${action} Python Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-python \
@@ -3036,6 +3042,9 @@ install_remove() {
           ;;
         Magidc)
           lang_url="-C https://github.com/magidc/nvim-config"
+          ;;
+        Nv)
+          lang_url="-C https://github.com/appelgriebsch/Nv"
           ;;
         Python)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-python"
@@ -3168,12 +3177,6 @@ install_remove() {
       lazyman ${darg} -C https://github.com/Optixal/neovim-init.vim \
         -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       show_alias "nvim-Optixal"
-      # action="Installing"
-      # [ -d ${HOME}/.config/nvim-Plug ] && action="Updating"
-      # printf "\n${action} Plug Neovim configuration"
-      # lazyman ${darg} -C https://github.com/doctorfree/nvim-plug \
-      #   -N nvim-Plug -p ${quietflag} -z ${yesflag}
-      # show_alias "nvim-Plug"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Heiker ] && action="Updating"
       printf "\n${action} VonHeikemen Neovim configuration"
@@ -3222,12 +3225,6 @@ install_remove() {
       lazyman ${darg} -C https://github.com/josean-dev/dev-environment-files \
         -b main -D .config/nvim -N nvim-Josean -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Josean"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-Nv ] && action="Updating"
-      printf "\n${action} Nv Neovim configuration"
-      lazyman ${darg} -C https://github.com/appelgriebsch/Nv \
-        -N nvim-Nv ${quietflag} -z ${yesflag}
-      show_alias "nvim-Nv"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Rafi ] && action="Updating"
       printf "\n${action} Rafi Neovim configuration"
@@ -3287,9 +3284,6 @@ install_remove() {
           prsnl_url="https://github.com/josean-dev/dev-environment-files"
           prsnl_opt="-b main -P"
           prsnl_dir="-D .config/nvim"
-          ;;
-        Nv)
-          prsnl_url="https://github.com/appelgriebsch/Nv"
           ;;
         Rafi)
           prsnl_url="https://github.com/rafi/vim-config"
@@ -3506,6 +3500,12 @@ install_remove() {
       lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
         -N nvim-Scratch ${quietflag} -z ${yesflag}
       show_alias "nvim-Scratch"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-SingleFile ] && action="Updating"
+      printf "\n${action} SingleFile Neovim configuration"
+      lazyman ${darg} -C https://github.com/creativenull/nvim-oneconfig \
+        -N nvim-SingleFile -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-SingleFile"
     else
       runflag=
       [ "${runvim}" ] || runflag="-z"
@@ -3645,6 +3645,14 @@ install_remove() {
           lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
             -N nvim-Scratch ${quietflag} -z ${yesflag}
           show_alias "nvim-Scratch"
+          ;;
+        SingleFile)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-SingleFile ] && action="Updating"
+          printf "\n${action} SingleFile Neovim configuration"
+          lazyman ${darg} -C https://github.com/creativenull/nvim-oneconfig \
+            -N nvim-SingleFile -P ${quietflag} -z ${yesflag}
+          show_alias "nvim-SingleFile"
           ;;
         *)
           startbranch=
@@ -4326,7 +4334,15 @@ fi
   [ "$runvim" ] && {
     [ "${interactive}" ] || {
       [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
-      [ "${skipthis}" ] || nvim
+      [ "${skipthis}" ] || {
+        if [ -f "${LMANDIR}"/.lazymanrc ]
+        then
+          source "${LMANDIR}"/.lazymanrc
+          runconfig ${NVIM_APPNAME}
+        else
+          nvim
+        fi
+      }
     }
   }
 }

@@ -196,4 +196,19 @@ cfg.get_config = function(name)
   return string.format('require("config.%s")', name)
 end
 
+-- Reload all plugins (not yet working)
+-- function cfg.ReloadPlugins()
+--   local hls_status = vim.v.hlsearch
+--   for name, _ in pairs(package.loaded) do
+--     if name:match("^plugins") then
+--       package.loaded[name] = nil
+--     end
+--   end
+--
+--   dofile(vim.env.MYVIMRC)
+--   if hls_status == 0 then
+--     vim.opt.hlsearch = false
+--   end
+-- end
+
 return cfg
