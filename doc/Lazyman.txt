@@ -212,7 +212,7 @@ always used on Arch Linux, Homebrew on macOS)
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
 `-i group` : specifies a group to install/remove/update. 'group' can be one of:
-astronvim kickstart lazyvim nvchad packer plug
+astronvim kickstart lazyvim lunarvim nvchad packer plug
 
 `-I` : indicates install all language servers and tools for coding diagnostics
 
