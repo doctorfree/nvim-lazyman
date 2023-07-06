@@ -1,5 +1,5 @@
---- lua/core/global.lua.00	2023-07-06 10:00:11.993619770 -0700
-+++ lua/core/global.lua	2023-07-06 10:00:41.593977762 -0700
+--- lua/core/global.lua.00	2023-07-06 10:31:02.184887128 -0700
++++ lua/core/global.lua	2023-07-06 10:31:26.449204567 -0700
 @@ -16,8 +16,8 @@
  
  function global:load_variables()
@@ -8,6 +8,32 @@
 -    self.cache_path = home .. "/.cache/nvim"
 +    self.lvim_path = home .. "/.config/nvim-LvimIde"
 +    self.cache_path = home .. "/.cache/nvim-LvimIde"
-     self.packer_path = home .. "/.local/share/nvim/site"
-     self.snapshot_path = home .. "/.config/nvim/.snapshots"
-     self.modules_path = home .. "/.config/nvim/lua/modules"
+     self.packer_path = home .. "/.local/share/nvim-LvimIde/site"
+     self.snapshot_path = home .. "/.config/nvim-LvimIde/.snapshots"
+     self.modules_path = home .. "/.config/nvim-LvimIde/lua/modules"
+--- lua/modules/base/configs/languages/init.lua.00	2023-07-06 10:35:29.148343102 -0700
++++ lua/modules/base/configs/languages/init.lua	2023-07-06 10:37:53.350183563 -0700
+@@ -385,7 +385,22 @@
+         return
+     end
+     nvim_treesitter_configs.setup({
+-        ensure_installed = "all",
++        auto_install = true,
++        ensure_installed = {
++          "bash",
++          "html",
++          "json",
++          "lua",
++          "markdown",
++          "markdown_inline",
++          "query",
++          "python",
++          "regex",
++          "toml",
++          "vim",
++          "vimdoc",
++          "yaml",
++        },
+         playground = {
+             enable = true,
+             disable = {},

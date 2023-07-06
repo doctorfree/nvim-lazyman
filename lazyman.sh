@@ -27,7 +27,7 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Fennel Go LunarIde Knvim LaTeX Magidc Python Rust SaleVim Webdev"
+LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LunarIde LvimIde Magidc Python Rust SaleVim Webdev"
 PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
@@ -1200,7 +1200,7 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|Magidc|Python|Rust|SaleVim|Webdev)
+    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|LvimIde|Magidc|Python|Rust|SaleVim|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
@@ -2951,6 +2951,12 @@ install_remove() {
         -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
       show_alias "nvim-LaTeX"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-LvimIde ] && action="Updating"
+      printf "\n${action} LvimIde Neovim configuration"
+      lazyman ${darg} -C https://github.com/lvim-tech/lvim \
+        -N nvim-LvimIde ${quietflag} -z ${yesflag}
+      show_alias "nvim-LvimIde"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Magidc ] && action="Updating"
       printf "\n${action} Magidc Neovim configuration"
       lazyman ${darg} -C https://github.com/magidc/nvim-config \
@@ -3015,6 +3021,9 @@ install_remove() {
           lang_opt="-P"
           lang_dir="-D nvim"
           help_opt="-f ${fix_latex}"
+          ;;
+        LvimIde)
+          lang_url="-C https://github.com/lvim-tech/lvim"
           ;;
         Magidc)
           lang_url="-C https://github.com/magidc/nvim-config"
