@@ -27,8 +27,8 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LunarIde LvimIde Magidc Python Rust SaleVim Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Python Rust SaleVim Webdev"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1200,13 +1200,13 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|LvimIde|Magidc|Python|Rust|SaleVim|Webdev)
+    AlanVim|Allaman|Fennel|Go|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Python|Rust|SaleVim|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2933,6 +2933,12 @@ install_remove() {
         -b main -N nvim-Go ${quietflag} -z ${yesflag}
       show_alias "nvim-Go"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-LazyIde ] && action="Updating"
+      printf "\n${action} LazyIde Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/nvim-LazyIde \
+        -N nvim-LazyIde ${quietflag} -z ${yesflag}
+      show_alias "nvim-LazyIde"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-LunarIde ] && action="Updating"
       printf "\n${action} LunarIde Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/lvim-Christian \
@@ -3009,6 +3015,9 @@ install_remove() {
         Go)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
           lang_opt="-b main"
+          ;;
+        LazyIde)
+          lang_url="-C https://github.com/doctorfree/nvim-LazyIde"
           ;;
         LunarIde)
           lang_url="-C https://github.com/doctorfree/lvim-Christian"
@@ -3238,12 +3247,6 @@ install_remove() {
         -N nvim-Traap ${quietflag} -z ${yesflag}
       show_alias "nvim-Traap"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-LazyIde ] && action="Updating"
-      printf "\n${action} LazyIde Neovim configuration"
-      lazyman ${darg} -C https://github.com/doctorfree/nvim-LazyIde \
-        -N nvim-LazyIde ${quietflag} -z ${yesflag}
-      show_alias "nvim-LazyIde"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-Xiao ] && action="Updating"
       printf "\n${action} Xiao Neovim configuration"
       lazyman ${darg} -C https://github.com/onichandame/nvim-config \
@@ -3298,9 +3301,6 @@ install_remove() {
           ;;
         Traap)
           prsnl_url="https://github.com/Traap/nvim"
-          ;;
-        LazyIde)
-          prsnl_url="https://github.com/doctorfree/nvim-LazyIde"
           ;;
         Xiao)
           prsnl_url="https://github.com/onichandame/nvim-config"

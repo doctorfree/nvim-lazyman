@@ -6,6 +6,21 @@
 
 ### 🐞 Fixed
 
+## v2.1.7r3
+
+### ⚡️ Added
+
+- Add `LvimIde` config to languages
+- Add `LunarVim` config group to menu system and command line options
+- Add `LunarVim` `Daniel` config to personals
+- Install `flake8` in `install_neovim` script
+- Add `LunarIde`, a `LunarVim` based config IDE
+- Add menu configuration of `toggleterm` to `LazyIde`
+
+### 🐞 Fixed
+
+- Add printfs around java debug install
+
 ## v2.1.7r2
 
 ### ⚡️ Added
