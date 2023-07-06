@@ -199,7 +199,7 @@ The following command line options are available with the `lazyman` command:
 
 `-v` : indicates install and initialize the 'LunarVim' Neovim configuration
 
-`-i group` : specifies a group to install/remove/update. 'group' can be one of: astronvim kickstart lazyvim nvchad packer plug
+`-i group` : specifies a group to install/remove/update. 'group' can be one of: astronvim kickstart lazyvim lunarvim nvchad packer plug
 
 `-I` : indicates install all language servers and tools for coding diagnostics
 

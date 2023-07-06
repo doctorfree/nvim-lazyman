@@ -11,11 +11,13 @@ LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
-HEALTHSC="${LMANDIR}/scripts/healthcheck.sh"
-JAVADBUG="${LMANDIR}/scripts/java_debug.sh"
-SUBMENUS="${LMANDIR}/scripts/lazyman_config.sh"
-WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
-LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
+SCRIPTSD="${LMANDIR}/scripts"
+HEALTHSC="${SCRIPTSD}/healthcheck.sh"
+JAVADBUG="${SCRIPTSD}/java_debug.sh"
+KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
+SUBMENUS="${SCRIPTSD}/lazyman_config.sh"
+WEBDEV="${SCRIPTSD}/webdev_config.sh"
+LZYIDE="${SCRIPTSD}/lzyide_config.sh"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -96,7 +98,7 @@ usage() {
   printf "\n    -H indicates compile and install the nightly Neovim build"
   printf "\n    -i 'group' specifies a group to install/remove/update"
   printf "\n       'group' can be one of:"
-  printf "\n           astronvim kickstart lazyvim nvchad packer plug"
+  printf "\n           astronvim kickstart lazyvim lunarvim nvchad packer plug"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
   printf "\n    -J indicates install indicated repo as an AstroNvim custom configuration"
   printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
@@ -1575,6 +1577,15 @@ show_main_menu() {
     else
       options+=("Install LazyVims  ${configstr}")
     fi
+    get_config_str "${LUNARVIMCFGS}"
+    lunar_partial=${cfgpart}
+    lunar_installed=${cfginst}
+    if [ "${lunar_installed}" ]
+    then
+      options+=("Update LunarVims  ${configstr}")
+    else
+      options+=("Install LunarVims ${configstr}")
+    fi
     get_config_str "${NVCHADCFGS}"
     nvchd_partial=${cfgpart}
     nvchd_installed=${cfginst}
@@ -1613,6 +1624,7 @@ show_main_menu() {
     [ "${start_installed}" ] || options+=("Select/Inst Starter")
     [ "${astro_installed}" ] || options+=("Select/Inst Astros")
     [ "${lzyvm_installed}" ] || options+=("Select/Inst LazyVims")
+    [ "${lunar_installed}" ] || options+=("Select/Inst LunarVims")
     [ "${nvchd_installed}" ] || options+=("Select/Inst NvChads")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
@@ -1651,6 +1663,7 @@ show_main_menu() {
     [ "${start_partial}" ] && options+=("Select/Open Starter")
     [ "${astro_partial}" ] && options+=("Select/Open Astros")
     [ "${lzyvm_partial}" ] && options+=("Select/Open LazyVims")
+    [ "${lunar_partial}" ] && options+=("Select/Open LunarVims")
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
     [ ${numitems} -gt 1 ] && options+=("Select and Remove")
@@ -1659,6 +1672,7 @@ show_main_menu() {
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
     [ "${start_partial}" ] && options+=("Remove Starters")
     [ "${astro_partial}" ] && options+=("Remove Astros")
+    [ "${lunar_partial}" ] && options+=("Remove LunarVims")
     [ "${lzyvm_partial}" ] && options+=("Remove LazyVims")
     [ "${nvchd_partial}" ] && options+=("Remove NvChads")
     numndirs=${#ndirs[@]}
@@ -1683,7 +1697,12 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Health Check" "Lazyman Config")
+    options+=("Health Check")
+    numnvim=$(ps -ef | grep ' nvim ' | grep -v grep | wc -l)
+    [ ${numnvim} -gt 0 ] && {
+      [ -x ${KILLNVIM} ] && options+=("Kill All Nvim")
+    }
+    options+=("Lazyman Config")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
     }
@@ -1803,6 +1822,20 @@ show_main_menu() {
             fi
           done
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Install  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            install_config "${choice}"
+          fi
+          break
+          ;;
+        "Select/Inst LunarVim"*,* | *,"Select/Inst LunarVim"*)
+          choices=()
+          for neovim in ${LUNARVIMCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Install  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             install_config "${choice}"
           fi
@@ -1939,6 +1972,24 @@ show_main_menu() {
           fi
           break
           ;;
+        "Select/Open LunarVim"*,* | *,"Select/Open LunarVim"* | "open lun"*,* | *,"open lun"* | "Open Lun"*,* | *,"Open Lun"*)
+          choices=()
+          for neovim in ${LUNARVIMCFGS}; do
+            basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+            if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+              choices+=("${basenvdir}")
+            fi
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Open  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            if [ "${USEGUI}" ]; then
+              runconfig "nvim-${choice}" "neovide"
+            else
+              runconfig "nvim-${choice}"
+            fi
+          fi
+          break
+          ;;
         "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
           if [ "${USEGUI}" ]; then
             neovselect
@@ -1984,6 +2035,10 @@ show_main_menu() {
           lazyman ${darg} -i lazyvim -y -z -Q -q
           break
           ;;
+        "Install LunarVim"*,* | *,"Install LunarVim"*)
+          lazyman ${darg} -i lunarvim -y -z -Q -q
+          break
+          ;;
         "Install All"*,* | *,"Install All"*)
           printf "\n\nInstalling all Lazyman Neovim configurations\n"
           printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
@@ -2020,6 +2075,10 @@ show_main_menu() {
           ;;
         "Update LazyVim"*,* | *,"Update LazyVim"*)
           lazyman ${darg} -i lazyvim -y -z -Q -q -U
+          break
+          ;;
+        "Update LunarVim"*,* | *,"Update LunarVim"*)
+          lazyman ${darg} -i lunarvim -y -z -Q -q -U
           break
           ;;
         "Update All"*,* | *,"Update All"*)
@@ -2205,6 +2264,11 @@ show_main_menu() {
           lazyman -R -i lazyvim -y
           break
           ;;
+        "Remove LunarVim"*,* | *,"Remove LunarVim"*)
+          printf "\nRemoving all Lazyman 'LunarVim' Neovim configurations\n"
+          lazyman -R -i lunarvim -y
+          break
+          ;;
         "Remove All"*,* | *,"Remove All"*)
           printf "\nRemoving all Lazyman Neovim configurations\n"
           for ndirm in "${ndirs[@]}"; do
@@ -2243,6 +2307,10 @@ show_main_menu() {
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             lazyman -N "nvim-${choice}" health
           fi
+          break
+          ;;
+        "Kill All"*,* | *,"Kill All"*)
+          ${KILLNVIM}
           break
           ;;
         "Lazyman Config",* | *,"Lazyman Config")
@@ -2795,7 +2863,7 @@ install_remove() {
       done
       ;;
     *)
-      printf "\nUnknown argument: -i ${instcfgs}"
+      printf "\nUnknown configuration group: -i ${instcfgs}"
       brief_usage
       ;;
   esac

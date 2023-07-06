@@ -849,12 +849,12 @@ Where:
     -H indicates compile and install the nightly Neovim build
     -i 'group' specifies a group to install/remove/update
        'group' can be one of:
-           astronvim kickstart lazyvim nvchad packer plug
+           astronvim kickstart lazyvim lunarvim nvchad packer plug
     -I indicates install all language servers and tools for coding diagnostics
     -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
-           All Go LaTeX Python Rust SaleVim
+           All AlanVim Allaman Fennel Go LunarIde Knvim LaTeX Magidc Python Rust SaleVim Webdev
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
@@ -865,11 +865,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+           All 2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
