@@ -390,10 +390,10 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - Install and initialize with `lazyman -L LaTeX`
 - [LunarIde](https://github.com/doctorfree/lvim-Christian)
   - LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChiarulli/lvim)
-  - Java, Python, Lua, Go, JavaScript, Typescript, React, and RUST IDE
+  - Java, Python, Lua, Go, JavaScript, Typescript, React, and Rust IDE
   - Install and initialize with `lazyman -L LunarIde`
 - [Magidc](https://github.com/magidc/nvim-config)
-  - Java, Python, Lua, and RUST IDE
+  - Java, Python, Lua, and Rust IDE
   - Install and initialize with `lazyman -L Magidc`
 - [Python](https://github.com/dreamsofcode-io/neovim-python)
   - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
