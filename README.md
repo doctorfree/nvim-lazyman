@@ -404,6 +404,10 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
 - [Magidc](https://github.com/magidc/nvim-config)
   - Java, Python, Lua, and Rust IDE
   - Install and initialize with `lazyman -L Magidc`
+- [Nv](https://github.com/appelgriebsch/Nv)
+  - `LazyVim` based Neovim configuration
+  - Andreas Gerlach develops smart farming tech and maintains the `Sway` edition of `Manjaro-arm`
+  - Install and initialize with `lazyman -L Nv`
 - [Python](https://github.com/dreamsofcode-io/neovim-python)
   - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc)
@@ -482,10 +486,6 @@ installed with the `-w conf` option.
   - Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library
   - Personal configuration of the `mini.nvim` author
   - Install and initialize with `lazyman -M`
-- [Nv](https://github.com/appelgriebsch/Nv)
-  - LazyVim based Neovim configuration
-  - Andreas Gerlach develops smart farming tech and maintains the Sway edition of Manjaro-arm
-  - `lazyman -w Nv`
 - [ONNO](https://github.com/loctvl842/nvim.git)
   - One of the primary inspirations for Lazyman
   - Install and initialize with `lazyman -w ONNO`
