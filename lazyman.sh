@@ -26,7 +26,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="AlanVim Allaman Fennel Go LunarIde Knvim LaTeX Magidc Python Rust SaleVim Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean LazyIde Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -34,7 +34,7 @@ LAZYVIMCFGS="LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
-LUNARVIMCFGS="LunarIde LunarVim"
+LUNARVIMCFGS="LunarIde LunarVim Daniel"
 PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
@@ -312,8 +312,12 @@ init_neovim() {
       fi
       [ "$quiet" ] || printf "done"
     }
-    fix_nvim_dir "nvim-LunarIde"
-    fix_lvim_dir "nvim-LunarIde"
+  }
+  [ "${neodir}" == "${lunarvimdir}" ] || \
+  [ "${neodir}" == "nvim-LunarIde" ] || \
+  [ "${neodir}" == "nvim-Daniel" ] && {
+    fix_nvim_dir "${neodir}"
+    fix_lvim_dir "${neodir}"
   }
 
   [ "${plug}" ] && {
@@ -414,6 +418,7 @@ init_neovim() {
             xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
           else
             [ "${neodir}" == "${lunarvimdir}" ] || \
+            [ "${neodir}" == "nvim-Daniel" ] || \
             [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
@@ -474,6 +479,7 @@ init_neovim() {
               "+UpdateRemotePlugins" +qa >/dev/null 2>&1
           else
             [ "${neodir}" == "${lunarvimdir}" ] || \
+            [ "${neodir}" == "nvim-Daniel" ] || \
             [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
@@ -1198,7 +1204,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Nv|Rafi|Slydragonn|Traap|LazyIde|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -2764,6 +2770,12 @@ install_remove() {
         install_remove "${nvimconfig}"
       done
       ;;
+    LunarVim|lunarvim)
+      for nvimconfig in ${LUNARVIMCFGS}
+      do
+        install_remove "${nvimconfig}"
+      done
+      ;;
     NvChad|Nvchad|nvchad)
       for nvimconfig in ${NVCHADCFGS}
       do
@@ -3023,6 +3035,12 @@ install_remove() {
         -D .config/nvim -N nvim-Craftzdog -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Craftzdog"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Daniel ] && action="Updating"
+      printf "\n${action} Daniel Neovim configuration"
+      lazyman ${darg} -C https://github.com/daniel-vera-g/lvim \
+        -N nvim-Daniel ${quietflag} -z ${yesflag}
+      show_alias "nvim-Daniel"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Dillon ] && action="Updating"
       printf "\n${action} Dillon Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/dmmulroy/dotfiles \
@@ -3217,6 +3235,9 @@ install_remove() {
           prsnl_url="https://github.com/craftzdog/dotfiles-public"
           prsnl_opt="-P"
           prsnl_dir="-D .config/nvim"
+          ;;
+        Daniel)
+          prsnl_url="https://github.com/daniel-vera-g/lvim"
           ;;
         Dillon)
           prsnl_url="https://github.com/dmmulroy/dotfiles"
@@ -4040,9 +4061,10 @@ set_brew
       printf "\n\t${HOME}/.config/${neovimdir[0]} ... "
     }
     [ "$tellme" ] || {
+      [ "${neovimdir[0]}" == "nvim-Daniel" ] || \
       [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
-        init_lvim "nvim-LunarIde"
-        mv ${HOME}/.config/nvim-LunarIde /tmp/lvim$$
+        init_lvim "${neovimdir[0]}"
+        mv ${HOME}/.config/${neovimdir[0]} /tmp/lvim$$
       }
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
@@ -4074,18 +4096,19 @@ set_brew
             ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua
         }
       }
+      [ "${neovimdir[0]}" == "nvim-Daniel" ] || \
       [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
-        [ -f ${HOME}/.config/nvim-LunarIde/init.lua ] || {
-          cp /tmp/lvim$$/init.lua ${HOME}/.config/nvim-LunarIde
+        [ -f ${HOME}/.config/${neovimdir[0]}/init.lua ] || {
+          cp /tmp/lvim$$/init.lua ${HOME}/.config/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/nvim-LunarIde/snapshots ] || {
-          cp -a /tmp/lvim$$/snapshots ${HOME}/.config/nvim-LunarIde
+        [ -d ${HOME}/.config/${neovimdir[0]}/snapshots ] || {
+          cp -a /tmp/lvim$$/snapshots ${HOME}/.config/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/nvim-LunarIde/utils ] || {
-          cp -a /tmp/lvim$$/utils ${HOME}/.config/nvim-LunarIde
+        [ -d ${HOME}/.config/${neovimdir[0]}/utils ] || {
+          cp -a /tmp/lvim$$/utils ${HOME}/.config/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/nvim-LunarIde/lua/lvim ] || {
-          cp -a /tmp/lvim$$/lua/lvim ${HOME}/.config/nvim-LunarIde/lua
+        [ -d ${HOME}/.config/${neovimdir[0]}/lua/lvim ] || {
+          cp -a /tmp/lvim$$/lua/lvim ${HOME}/.config/${neovimdir[0]}/lua
         }
         rm -rf /tmp/lvim$$
       }
