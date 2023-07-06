@@ -99,7 +99,7 @@ command -v nvim > /dev/null && {
     neo="$2"
     shift
     comm="nvim"
-    [ "${neo}" == "neovide" ] && {
+    [ "${neo}" ] && [ "${neo}" == "neovide" ] && {
       comm='neovide --'
       shift
     }

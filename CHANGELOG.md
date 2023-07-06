@@ -13,13 +13,17 @@
 - Add `LvimIde` config to languages
 - Add `LunarVim` config group to menu system and command line options
 - Add `LunarVim` `Daniel` config to personals
-- Install `flake8` in `install_neovim` script
+- Add `Enrique` config to personals
 - Add `LunarIde`, a `LunarVim` based config IDE
+- Install `flake8` in `install_neovim` script
 - Add menu configuration of `toggleterm` to `LazyIde`
 
 ### 🐞 Fixed
 
+- Move `LazyIde` from personal to language
+- Fix test in `.lazymanrc` when invoked directly without a second argument
 - Add printfs around java debug install
+- Add patches for `Daniel`, `Enrique`, `LunarVim`, and `LvimIde`
 
 ## v2.1.7r2
 
