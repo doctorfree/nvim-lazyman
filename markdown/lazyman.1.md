@@ -205,7 +205,7 @@ The following command line options are available with the `lazyman` command:
 
 `-J` : indicates install indicated repo as an AstroNvim custom configuration
 
-`-L lang` : indicates install the `lang` Language configuration where 'lang' can be one of: All Go LaTeX Python Rust SaleVim
+`-L lang` : indicates install the `lang` Language configuration where 'lang' can be one of: All AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Python Rust SaleVim Webdev
 
 `-n` : indicates dry run, don't actually do anything, just printf's
 
@@ -229,11 +229,11 @@ The following command line options are available with the `lazyman` command:
 
 `-V url` : specifies an NvChad user configuration git repository
 
-`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 2k 3rd Adib AlanVim Allaman Brain Charles Dillon Elianiva Ember Fennel Heiker J4de Josean Knvim Magidc Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+`-w conf` : indicates install and initialize Personal 'conf' configuration. 'conf' can be one of: All 2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
-`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of: All AstroNvimStart Basic CodeArt Cosmic Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+`-x conf` : indicates install and initialize nvim-starter 'conf' configuration. 'conf' can be one of: All AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
