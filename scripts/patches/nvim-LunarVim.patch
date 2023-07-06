@@ -1,0 +1,16 @@
+--- lua/user/dashboard.lua.00	2023-07-05 11:46:00.288096397 -0700
++++ lua/user/dashboard.lua	2023-07-05 11:51:17.947390317 -0700
+@@ -15,10 +15,9 @@
+ local plugins = ""
+ local date = ""
+ if vim.fn.has "linux" == 1 or vim.fn.has "mac" == 1 then
+-  -- -- this no longer works with packer, need to modify to work with lazy.nvim
+-  -- local handle = io.popen 'fd -d 2 . $HOME"/.local/share/lunarvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" '
+-  -- plugins = handle:read "*a"
+-  -- handle:close()
++  local handle = io.popen 'fd -d 2 . $HOME"/.local/share/nvim-LunarVim/site/pack/lazy" | grep pack | wc -l | tr -d "\n" '
++  plugins = handle:read "*a"
++  handle:close()
+ 
+   local thingy = io.popen 'echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"'
+   date = thingy:read "*a"

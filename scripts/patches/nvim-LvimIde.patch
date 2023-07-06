@@ -1,0 +1,13 @@
+--- lua/core/global.lua.00	2023-07-06 10:00:11.993619770 -0700
++++ lua/core/global.lua	2023-07-06 10:00:41.593977762 -0700
+@@ -16,8 +16,8 @@
+ 
+ function global:load_variables()
+     self.os = os
+-    self.lvim_path = home .. "/.config/nvim"
+-    self.cache_path = home .. "/.cache/nvim"
++    self.lvim_path = home .. "/.config/nvim-LvimIde"
++    self.cache_path = home .. "/.cache/nvim-LvimIde"
+     self.packer_path = home .. "/.local/share/nvim/site"
+     self.snapshot_path = home .. "/.config/nvim/.snapshots"
+     self.modules_path = home .. "/.config/nvim/lua/modules"

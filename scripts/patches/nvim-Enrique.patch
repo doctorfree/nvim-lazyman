@@ -1,0 +1,12 @@
+--- lua/packer_config.lua.00	2023-07-05 13:43:24.641824050 -0700
++++ lua/packer_config.lua	2023-07-05 13:43:39.690017021 -0700
+@@ -22,9 +22,6 @@
+ 	  "windwp/nvim-autopairs",
+   }
+ 
+-  -- Integration with the Dash app
+-  use({ 'mrjones2014/dash.nvim', run = 'make install', })
+-
+   -- PostCSS syntax support
+   use 'alexlafroscia/postcss-syntax.vim'
+ 
