@@ -4,7 +4,16 @@
 
 ### ⚡️ Added
 
+- Add `Hide/Show List` to main menu
+- Add `Justin` config to `Starters`
+- Add `SingleFile` config to `Starters`
+
 ### 🐞 Fixed
+
+- Apply patches in updates
+- Limit display of installed configs in menu heading to 16
+- Don't show `Install Tools` if already run
+- Move `Nv` config to `Languages`
 
 ## v2.1.7r3
 
