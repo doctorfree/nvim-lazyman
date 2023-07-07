@@ -290,12 +290,12 @@ following configuration categories:
 | [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       | **Configs** |
-| ----------- | ----- | ----- | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) |
-| [Ember](https://github.com/danlikestocode/embervim) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) |
-| [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
+| **Starter** |       |       |        | **Configs** |
+| ----------- | ----- | ----- | ------ | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) |
+| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Justin](https://github.com/justinsgithub/dotfiles) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) |
+| [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) |
+| [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) | | | |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
@@ -553,6 +553,13 @@ installed with the `-x conf` option.
 - [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim)
   - A theme-driven modern Neovim configuration
   - Install and initialize with `lazyman -x HardHacker`
+- [Justin](https://github.com/justinsgithub/dotfiles)
+  - LazyVim based Neovim configuration by Justin Angeles
+  - Justin has created a series of YouTube videos on configuring LazyVim
+    - [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8)
+    - [Part 2 - Options](https://youtu.be/I4flypojhUk)
+    - [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k)
+  - Install and initialize with `lazyman -x Justin`
 - [Modern](https://github.com/alpha2phi/modern-neovim)
   - Configure Neovim as a modernized development environment
   - Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)
