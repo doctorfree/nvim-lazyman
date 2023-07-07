@@ -45,6 +45,7 @@ timeout=120
 fonts=("slant" "shadow" "small" "script" "standard")
 cfginst=1
 cfgpart=
+showinstalled=1
 
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
@@ -1452,7 +1453,6 @@ show_main_menu() {
       use_gui="neovim"
     fi
     items=()
-    showinstalled=1
     show_warning=
     confmenu=
     lidemenu=
@@ -1462,11 +1462,11 @@ show_main_menu() {
       source "${LMANDIR}"/.lazymanrc
     else
       show_warning=1
-      showinstalled=
+      showinstalled=0
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    [ ${numitems} -gt 16 ] && showinstalled=
+    [ ${numitems} -gt 16 ] && [ ${showinstalled} -gt 1 ] || showinstalled=0
     if [ "${have_figlet}" ]; then
       show_figlet
     else
@@ -1493,7 +1493,7 @@ show_main_menu() {
     else
       printf "\n${numitems} Lazyman Neovim configurations installed:\n"
     fi
-    if [ "${showinstalled}" ]
+    if [ ${showinstalled} -gt 0 ]
     then
       linelen=0
       if [ "${have_rich}" ]; then
@@ -1683,7 +1683,22 @@ show_main_menu() {
     [ ${numndirs} -gt 1 ] && {
       options+=("Remove All")
     }
-    options+=("Install Tools")
+    if [ ${showinstalled} -gt 1 ]
+    then
+      options+=("Hide List")
+    else
+      [ ${showinstalled} -eq 0 ]
+      options+=("Show List")
+    fi
+    if [ -f "${LMANDIR}/.initialized" ]
+    then
+      grep "__extra_tools__" "${LMANDIR}"/.initialized > /dev/null || {
+        options+=("Install Tools")
+      }
+    else
+      options+=("Initialize Lazyman")
+      options+=("Install Tools")
+    fi
     if [ "${debug}" ]; then
       options+=("Debug Mode [on]")
     else
@@ -2145,6 +2160,15 @@ show_main_menu() {
           prompt_continue
           break
           ;;
+        "Initialize Lazyman"*,* | *,"Initialize Lazyman"*)
+          install_neovim ${darg} -I
+          [ -x "${LMANDIR}/scripts/install_neovim.sh" ] && {
+            "${LMANDIR}"/scripts/install_neovim.sh $darg $head $brew $yes
+          }
+          lazyman ${darg} init
+          set_haves
+          break
+          ;;
         "Install Tools"*,* | *,"Install Tools"*)
           lazyman ${darg} -I
           set_haves
@@ -2280,6 +2304,14 @@ show_main_menu() {
             [ "${ndirm}" == "nvim" ] && continue
             lazyman -R -N ${ndirm} -y
           done
+          break
+          ;;
+        "Hide List"*,* | *,"Hide List"*)
+          showinstalled=0
+          break
+          ;;
+        "Show List"*,* | *,"Show List"*)
+          showinstalled=2
           break
           ;;
         "Debug Mode"*,* | *,"Debug Mode"*)
@@ -3698,6 +3730,9 @@ install_remove() {
   }
   if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
     "${LMANDIR}"/scripts/install_neovim.sh -a $darg $head $brew $yes
+    [ -f "${LMANDIR}/.initialized" ] && {
+      echo "__extra_tools__=1" >> "${LMANDIR}"/.initialized
+    }
     exit 0
   fi
   exit 1
