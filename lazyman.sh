@@ -1466,6 +1466,7 @@ show_main_menu() {
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
+    [ ${numitems} -gt 16 ] && showinstalled=
     if [ "${have_figlet}" ]; then
       show_figlet
     else
@@ -1492,7 +1493,8 @@ show_main_menu() {
     else
       printf "\n${numitems} Lazyman Neovim configurations installed:\n"
     fi
-    [ "${showinstalled}" ] && {
+    if [ "${showinstalled}" ]
+    then
       linelen=0
       if [ "${have_rich}" ]; then
         neovims=""
@@ -1519,7 +1521,9 @@ show_main_menu() {
         done
         printf "\n\n"
       fi
-    }
+    else
+      printf "\n"
+    fi
 
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
