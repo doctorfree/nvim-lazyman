@@ -318,10 +318,7 @@ init_neovim() {
   }
   [ "${neodir}" == "${lunarvimdir}" ] || \
   [ "${neodir}" == "nvim-LunarIde" ] || \
-  [ "${neodir}" == "nvim-Daniel" ] && {
-    fix_nvim_dir "${neodir}"
-    fix_lvim_dir "${neodir}"
-  }
+  [ "${neodir}" == "nvim-Daniel" ] && fix_lvim_dir "${neodir}"
 
   [ "${plug}" ] && {
     PLUG="${HOME}/.local/share/${neodir}/site/autoload/plug.vim"
@@ -702,10 +699,24 @@ remove_config() {
   }
 }
 
+apply_patch() {
+  patchdir="$1"
+  [ -f "${LMANDIR}"/scripts/patches/${patchdir}.patch ] && {
+    [ -x "${LMANDIR}"/scripts/patch_config.sh ] && {
+      "${LMANDIR}"/scripts/patch_config.sh "${patchdir}"
+    }
+  }
+}
+
 update_config() {
   ndir="$1"
   GITDIR=".config/${ndir}"
-  # [ "${ndir}" == "${lunarvimdir}" ] && GITDIR=".local/share/${lunarvimdir}/lvim"
+  [ -d "${HOME}/${GITDIR}" ] || {
+    [ -d "${HOME}/.config/nvim-${ndir}" ] && {
+      ndir="nvim-${ndir}"
+      GITDIR=".config/${ndir}"
+    }
+  }
   [ -d "${HOME}/${GITDIR}" ] && {
     printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
     [ "$tellme" ] || {
@@ -717,7 +728,6 @@ update_config() {
       git -C "${HOME}/${GITDIR}" stash >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" reset --hard >/dev/null 2>&1
       git -C "${HOME}/${GITDIR}" pull >/dev/null 2>&1
-      [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
     }
     printf " done"
     [ "$tellme" ] || add_nvimdirs_entry "${ndir}"
@@ -795,6 +805,11 @@ update_config() {
       git -C "${HOME}/${GITDIR}" submodule update \
         --remote --init --recursive >/dev/null 2>&1
     }
+    [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
+    [ "${ndir}" == "${lunarvimdir}" ] || \
+    [ "${ndir}" == "nvim-LunarIde" ] || \
+    [ "${ndir}" == "nvim-Daniel" ] && fix_lvim_dir "${ndir}"
+    apply_patch "${ndir}"
     [ "${ndir}" == "${onnovimdir}" ] && {
       fix_help_file "${HOME}/.config/${ndir}/${fix_onno}"
     }
@@ -1670,6 +1685,7 @@ show_main_menu() {
     [ "${lunar_partial}" ] && options+=("Select/Open LunarVims")
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
+    options+=("Select and Update")
     [ ${numitems} -gt 1 ] && options+=("Select and Remove")
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${lang_partial}" ] && options+=("Remove Languages")
@@ -1863,6 +1879,11 @@ show_main_menu() {
         "Select and Install"*,* | *,"Select and Install"* | "install",* | *,"install" | "Install",* | *,"Install")
           choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Config  " --layout=reverse --border --exit-0)
           [ "${choice}" ] && install_config "${choice}"
+          break
+          ;;
+        "Select and Update"*,* | *,"Select and Update"* | "update",* | *,"update" | "Update",* | *,"Update")
+          choice=$(printf "%s\n" "${sorted[@]}" | fzf --prompt=" Update Neovim Config  " --layout=reverse --border --exit-0)
+          [ "${choice}" ] && update_config "${choice}"
           break
           ;;
         "Select/Open Base"*,* | *,"Select/Open Base"* | "open b"*,* | *,"open b"* | "Open B"*,* | *,"Open B"*)
@@ -4301,13 +4322,10 @@ set_brew
 }
 
 # Apply any patch we have created for this config
-[ -f "${LMANDIR}"/scripts/patches/${neovimdir[0]}.patch ] && {
-  [ -x "${LMANDIR}"/scripts/patch_config.sh ] && {
-    "${LMANDIR}"/scripts/patch_config.sh "${neovimdir[0]}"
-  }
-}
+apply_patch "${neovimdir[0]}"
+
 [ "${fix_help}" ] && {
-  fix_help_file "${HOME}/.config/${neovimdir[0]}/${fix_help}"
+  fix_help_file "${HOME}/.config/${patchdir}/${fix_help}"
 }
 
 [ "${interactive}" ] || {
