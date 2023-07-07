@@ -28,7 +28,7 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Justin Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -36,7 +36,7 @@ LAZYVIMCFGS="Justin LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
-LUNARVIMCFGS="LunarIde LunarVim Daniel"
+LUNARVIMCFGS="LunarIde LunarVim Daniel LvimAdib"
 PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple SingleFile Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
@@ -318,6 +318,7 @@ init_neovim() {
   }
   [ "${neodir}" == "${lunarvimdir}" ] || \
   [ "${neodir}" == "nvim-LunarIde" ] || \
+  [ "${neodir}" == "nvim-LvimAdib" ] || \
   [ "${neodir}" == "nvim-Daniel" ] && fix_lvim_dir "${neodir}"
 
   [ "${plug}" ] && {
@@ -419,6 +420,7 @@ init_neovim() {
           else
             [ "${neodir}" == "${lunarvimdir}" ] || \
             [ "${neodir}" == "nvim-Daniel" ] || \
+            [ "${neodir}" == "nvim-LvimAdib" ] || \
             [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
@@ -479,6 +481,7 @@ init_neovim() {
               "+UpdateRemotePlugins" +qa >/dev/null 2>&1
           else
             [ "${neodir}" == "${lunarvimdir}" ] || \
+            [ "${neodir}" == "nvim-LvimAdib" ] || \
             [ "${neodir}" == "nvim-Daniel" ] || \
             [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
@@ -808,6 +811,7 @@ update_config() {
     [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
     [ "${ndir}" == "${lunarvimdir}" ] || \
     [ "${ndir}" == "nvim-LunarIde" ] || \
+    [ "${ndir}" == "nvim-LvimAdib" ] || \
     [ "${ndir}" == "nvim-Daniel" ] && fix_lvim_dir "${ndir}"
     apply_patch "${ndir}"
     [ "${ndir}" == "${onnovimdir}" ] && {
@@ -1222,7 +1226,7 @@ install_config() {
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Justin|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|LvimAdib|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -3199,6 +3203,12 @@ install_remove() {
         -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Dillon"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-LvimAdib ] && action="Updating"
+      printf "\n${action} LvimAdib Neovim configuration"
+      lazyman ${darg} -C https://github.com/adibhanna/lvim-config \
+        -N nvim-LvimAdib ${quietflag} -z ${yesflag}
+      show_alias "nvim-LvimAdib"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Metis ] && action="Updating"
       printf "\n${action} Metis Neovim configuration"
       lazyman ${darg} -C https://github.com/metis-os/pwnvim \
@@ -3321,6 +3331,9 @@ install_remove() {
           prsnl_url="https://github.com/3rd/config"
           prsnl_dir="-D home/dotfiles/nvim"
           ;;
+        Adib)
+          prsnl_url="https://github.com/adibhanna/nvim"
+          ;;
         Brain)
           prsnl_url="https://github.com/brainfucksec/neovim-lua"
           prsnl_dir="-D nvim"
@@ -3372,14 +3385,14 @@ install_remove() {
           prsnl_opt="-b main -P"
           prsnl_dir="-D .config/nvim"
           ;;
+        LvimAdib)
+          prsnl_url="https://github.com/adibhanna/lvim-config"
+          ;;
         Metis)
           prsnl_url="https://github.com/metis-os/pwnvim"
           ;;
         Mini)
           prsnl_url="https://github.com/echasnovski/nvim"
-          ;;
-        Adib)
-          prsnl_url="https://github.com/adibhanna/nvim"
           ;;
         Spider)
           prsnl_url="https://github.com/fearless-spider/FSAstroNvim"
@@ -4221,6 +4234,7 @@ set_brew
     }
     [ "$tellme" ] || {
       [ "${neovimdir[0]}" == "nvim-Daniel" ] || \
+      [ "${neovimdir[0]}" == "nvim-LvimAdib" ] || \
       [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
         init_lvim "${neovimdir[0]}"
         mv ${HOME}/.config/${neovimdir[0]} /tmp/lvim$$
@@ -4256,6 +4270,7 @@ set_brew
         }
       }
       [ "${neovimdir[0]}" == "nvim-Daniel" ] || \
+      [ "${neovimdir[0]}" == "nvim-LvimAdib" ] || \
       [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
         [ -f ${HOME}/.config/${neovimdir[0]}/init.lua ] || {
           cp /tmp/lvim$$/init.lua ${HOME}/.config/${neovimdir[0]}
