@@ -32,7 +32,7 @@ BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin
 LANGUCFGS="AlanVim Allaman Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
 PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch SingleFile ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1240,7 +1240,7 @@ install_config() {
     AlanVim|Allaman|Go|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
+    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
     Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|LvimAdib|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|Xiao)
@@ -3556,6 +3556,12 @@ install_remove() {
         -N nvim-pde ${quietflag} -z ${yesflag}
       show_alias "nvim-pde"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Rohit ] && action="Updating"
+      printf "\n${action} Rohit Neovim configuration"
+      lazyman ${darg} -C https://github.com/rohit-kumar-j/nvim \
+        -N nvim-Rohit ${quietflag} -z ${yesflag}
+      show_alias "nvim-Rohit"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Scratch ] && action="Updating"
       printf "\n${action} Scratch Neovim configuration"
       lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
@@ -3722,6 +3728,14 @@ install_remove() {
           lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
             -N nvim-pde ${quietflag} -z ${yesflag}
           show_alias "nvim-pde"
+          ;;
+        Rohit)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-Rohit ] && action="Updating"
+          printf "\n${action} Rohit Neovim configuration"
+          lazyman ${darg} -C https://github.com/rohit-kumar-j/nvim \
+            -N nvim-Rohit ${quietflag} -z ${yesflag}
+          show_alias "nvim-Rohit"
           ;;
         Scratch)
           action="Installing"
