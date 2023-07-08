@@ -9,10 +9,12 @@
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
+LZYMANRC="${LMANDIR}/.lazymanrc"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 SCRIPTSD="${LMANDIR}/scripts"
 HEALTHSC="${SCRIPTSD}/healthcheck.sh"
+INSTNVIM="${SCRIPTSD}/install_neovim.sh"
 JAVADBUG="${SCRIPTSD}/java_debug.sh"
 KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
 SUBMENUS="${SCRIPTSD}/lazyman_config.sh"
@@ -177,7 +179,7 @@ set_haves() {
 # Patch references to ~/.config/lvim/
 fix_lvim_dir() {
   fixlvimdir="$1"
-  [ "${fixlvimdir}" == "${lazymandir}" ] || {
+  [ "${fixlvimdir}" == "${LAZYMAN}" ] || {
     find "${HOME}/.config/${fixlvimdir}" \
       -type f -a \( -name \*\.lua -o -name \*\.vim  -o -name \*\.fnl \) | \
     while read -r f
@@ -195,7 +197,7 @@ fix_lvim_dir() {
 # Patch references to ~/.config/nvim/
 fix_nvim_dir() {
   fixnvimdir="$1"
-  [ "${fixnvimdir}" == "${lazymandir}" ] || {
+  [ "${fixnvimdir}" == "${LAZYMAN}" ] || {
     find "${HOME}/.config/${fixnvimdir}" \
       -type f -a \( -name \*\.lua -o -name \*\.vim  -o -name \*\.fnl \) | \
     while read -r f
@@ -271,7 +273,7 @@ init_lvim() {
 init_neovim() {
   neodir="$1"
   [ -d "${HOME}/.config/${neodir}" ] || return
-  [ "${neodir}" == "${lazymandir}" ] || [ "${neodir}" == "${minivimdir}" ] && {
+  [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     oldpack=${packer}
     oldplug=${plug}
     plug=
@@ -532,12 +534,12 @@ init_neovim() {
     fi
   }
   [ "${neodir}" == "${magicvimdir}" ] && packer=${oldpack}
-  [ "${neodir}" == "${lazymandir}" ] && {
+  [ "${neodir}" == "${LAZYMAN}" ] && {
     [ -f "${LMANDIR}/.initialized" ] || {
       touch "${LMANDIR}/.initialized"
     }
   }
-  [ "${neodir}" == "${lazymandir}" ] || [ "${neodir}" == "${minivimdir}" ] && {
+  [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     packer=${oldpack}
     plug=${oldplug}
   }
@@ -736,7 +738,7 @@ update_config() {
   [ -d "${HOME}/${GITDIR}" ] && {
     printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR} ..."
     [ "$tellme" ] || {
-      [ "${ndir}" == "${lazymandir}" ] && {
+      [ "${ndir}" == "${LAZYMAN}" ] && {
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }
@@ -749,7 +751,7 @@ update_config() {
     [ "$tellme" ] || add_nvimdirs_entry "${ndir}"
   }
   [ "$tellme" ] || {
-    [ "${ndir}" == "${lazymandir}" ] && {
+    [ "${ndir}" == "${LAZYMAN}" ] && {
       cp ${NVIMCONF} ${CONFBACK}
       [ -f /tmp/lazyconf$$ ] && {
         restore_config=
@@ -821,7 +823,7 @@ update_config() {
       git -C "${HOME}/${GITDIR}" submodule update \
         --remote --init --recursive >/dev/null 2>&1
     }
-    [ "${ndir}" == "${lazymandir}" ] || fix_nvim_dir "${ndir}"
+    [ "${ndir}" == "${LAZYMAN}" ] || fix_nvim_dir "${ndir}"
     [ "${ndir}" == "${lunarvimdir}" ] || \
     [ "${ndir}" == "nvim-LunarIde" ] || \
     [ "${ndir}" == "nvim-LvimAdib" ] || \
@@ -922,8 +924,8 @@ git_status() {
 
 list_installed() {
   items=()
-  [ -f "${LMANDIR}"/.lazymanrc ] && {
-    source "${LMANDIR}"/.lazymanrc
+  [ -f "${LZYMANRC}" ] && {
+    source "${LZYMANRC}"
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     installed=()
     for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
@@ -947,8 +949,8 @@ list_installed() {
 
 list_uninstalled() {
   items=()
-  [ -f "${LMANDIR}"/.lazymanrc ] && {
-    source "${LMANDIR}"/.lazymanrc
+  [ -f "${LZYMANRC}" ] && {
+    source "${LZYMANRC}"
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     uninstalled=()
     for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
@@ -991,8 +993,8 @@ show_info() {
   nvim_version=$(nvim --version | head -2)
   printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
 
-  [ -f "${LMANDIR}"/.lazymanrc ] && {
-    source "${LMANDIR}"/.lazymanrc
+  [ -f "${LZYMANRC}" ] && {
+    source "${LZYMANRC}"
   }
   readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
   numitems=${#sorted[@]}
@@ -1002,7 +1004,7 @@ show_info() {
     printf "\n\t${nvims_alias}"
   else
     printf "\nThe 'nvims' alias does not exist"
-    printf "\nSource $HOME/.config/nvim-Lazyman/.lazymanrc in your shell initialization,"
+    printf "\nSource ~/.config/${LAZYMAN}/.lazymanrc in your shell initialization,"
     printf "\nlogout and login"
   fi
   if [ "${have_neovide}" ]; then
@@ -1108,7 +1110,7 @@ show_info() {
 show_alias() {
   adir="$1"
   [ "${quiet}" ] || {
-    printf "\nAliases like the following are defined in ~/.config/nvim-Lazyman/.lazymanrc"
+    printf "\nAliases like the following are defined in ~/.config/${LAZYMAN}/.lazymanrc"
     if [ "$all" ]; then
       printf "\n\talias lnvim='NVIM_APPNAME=${LAZYMAN} nvim'"
     elif [ "$abstract" ]; then
@@ -1262,10 +1264,10 @@ select_install() {
     exit 1
   }
   items=()
-  if [ -f "${LMANDIR}"/.lazymanrc ]; then
-    source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LZYMANRC}" ]; then
+    source "${LZYMANRC}"
   else
-    printf "\n\n${LMANDIR}/.lazymanrc not found or not readable."
+    printf "\n\n${LZYMANRC} not found or not readable."
     printf "\nCheck your Lazyman installation."
     printf "\nExiting\n"
     exit 1
@@ -1297,10 +1299,10 @@ select_install() {
 
 select_open() {
   set_haves
-  if [ -f "${LMANDIR}"/.lazymanrc ]; then
-    source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LZYMANRC}" ]; then
+    source "${LZYMANRC}"
   else
-    printf "\n\n${LMANDIR}/.lazymanrc not found or not readable."
+    printf "\n\n${LZYMANRC} not found or not readable."
     printf "\nCheck your Lazyman installation."
     printf "\nExiting\n"
     exit 1
@@ -1325,10 +1327,10 @@ select_open() {
 
 select_remove() {
   set_haves
-  if [ -f "${LMANDIR}"/.lazymanrc ]; then
-    source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LZYMANRC}" ]; then
+    source "${LZYMANRC}"
   else
-    printf "\n\n${LMANDIR}/.lazymanrc not found or not readable."
+    printf "\n\n${LZYMANRC} not found or not readable."
     printf "\nCheck your Lazyman installation."
     printf "\nExiting\n"
     exit 1
@@ -1492,8 +1494,8 @@ show_main_menu() {
     lidemenu=
     versmenu=
     wdevmenu=
-    if [ -f "${LMANDIR}"/.lazymanrc ]; then
-      source "${LMANDIR}"/.lazymanrc
+    if [ -f "${LZYMANRC}" ]; then
+      source "${LZYMANRC}"
     else
       show_warning=1
       showinstalled=0
@@ -1508,13 +1510,13 @@ show_main_menu() {
     fi
     [ "${show_warning}" ] && {
       if [ "${have_rich}" ]; then
-        rich "[bold red]WARNING[/]: missing [b yellow]${LMANDIR}/.lazymanrc[/]
+        rich "[bold red]WARNING[/]: missing [b yellow]${LZYMANRC}[/]
   reinstall Lazyman with:
     [bold green]lazyman -R -N ${LAZYMAN}[/]
   followed by:
         [bold green]lazyman[/]" -p -a rounded -c
       else
-        printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+        printf "\nWARNING: missing ${LZYMANRC}"
         printf "\nReinstall Lazyman with:"
         printf "\n\tlazyman -R -N ${LAZYMAN}"
         printf "\n\tlazyman\n"
@@ -2202,8 +2204,8 @@ show_main_menu() {
           ;;
         "Initialize Lazyman"*,* | *,"Initialize Lazyman"*)
           install_neovim ${darg} -I
-          [ -x "${LMANDIR}/scripts/install_neovim.sh" ] && {
-            "${LMANDIR}"/scripts/install_neovim.sh $darg $head $brew $yes
+          [ -x "${INSTNVIM}" ] && {
+            "${INSTNVIM}" $darg $head $brew $yes
           }
           lazyman ${darg} init
           set_haves
@@ -2215,55 +2217,12 @@ show_main_menu() {
           break
           ;;
         "Install Neovide"*,* | *,"Install Neovide"*)
-          [ "${have_cargo}" ] || {
-            printf "\nNeovide build requires cargo but cargo not found.\n"
-            while true; do
-              read -r -p "Do you wish to install cargo now ? (y/n) " yn
-              case $yn in
-                [Yy]*)
-                  printf "\nInstalling cargo ..."
-                  if [ "${have_brew}" ]; then
-                    brew install rust >/dev/null 2>&1
-                  else
-                    RUST_URL="https://sh.rustup.rs"
-                    curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
-                    [ $? -eq 0 ] || {
-                      rm -f /tmp/rust-$$.sh
-                      curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
-                      [ -f /tmp/rust-$$.sh ] && {
-                        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
-                        cp /tmp/ins$$ /tmp/rust-$$.sh
-                        rm -f /tmp/ins$$
-                      }
-                    }
-                    [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
-                    rm -f /tmp/rust-$$.sh
-                  fi
-                  printf " done"
-                  break
-                  ;;
-                [Nn]*)
-                  printf "\nAborting cargo and neovide install\n"
-                  break 2
-                  ;;
-                *)
-                  printf "\nPlease answer yes or no.\n"
-                  ;;
-              esac
-            done
-            have_cargo=$(type -p cargo)
+          [ -x "${SCRIPTSD}/install_neovide.sh" ] && {
+            "${SCRIPTSD}/install_neovide.sh"
           }
-          if [ "${have_cargo}" ]; then
-            printf "\nBuilding Neovide GUI, please be patient ... "
-            cargo install --git https://github.com/neovide/neovide >/dev/null 2>&1
-            printf "done\n"
-            have_neovide=$(type -p neovide)
-          else
-            printf "\nCannot locate cargo. Perhaps it is not in your PATH."
-            printf "\nUnable to build Neovide"
-          fi
-          [ -f "${LMANDIR}"/.lazymanrc ] && {
-            source "${LMANDIR}"/.lazymanrc
+          have_neovide=$(type -p neovide)
+          [ -f "${LZYMANRC}" ] && {
+            source "${LZYMANRC}"
           }
           break
           ;;
@@ -2375,8 +2334,8 @@ show_main_menu() {
         "Health Check",* | *,"Health Check")
           choices=()
           items=()
-          [ -f "${LMANDIR}"/.lazymanrc ] && {
-            source "${LMANDIR}"/.lazymanrc
+          [ -f "${LZYMANRC}" ] && {
+            source "${LZYMANRC}"
             readarray -t choices < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
           }
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Health Check  " --layout=reverse --border --exit-0)
@@ -2568,7 +2527,6 @@ update=
 custom_url=
 name=
 pmgr="Lazy"
-lazymandir="${LAZYMAN}"
 astronvimdir="nvim-AstroNvimPlus"
 abstractdir="nvim-Abstract"
 basicdir="nvim-Basic"
@@ -2593,7 +2551,7 @@ basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronv
 neovimdir=()
 [ $# -eq 1 ] && {
   [ "$1" == "-F" ] && set -- "$@" 'config'
-  [ "$1" == "-U" ] && neovimdir=("${lazymandir}")
+  [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
 while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
   case $flag in
@@ -2825,7 +2783,7 @@ done
 shift $((OPTIND - 1))
 
 [ "$1" == "init" ] && {
-  initdir="nvim-Lazyman"
+  initdir="${LAZYMAN}"
   [ "$name" ] && initdir="$name"
   init_neovim ${initdir}
   exit 0
@@ -2847,7 +2805,7 @@ shift $((OPTIND - 1))
 }
 
 [ "$1" == "health" ] && {
-  checkdir="nvim-Lazyman"
+  checkdir="${LAZYMAN}"
   [ "$name" ] && checkdir="$name"
   printf "\nPreparing Lazyman health check for ${checkdir} Neovim configuration\n"
   show_health "${checkdir}"
@@ -2871,10 +2829,10 @@ shift $((OPTIND - 1))
 set_haves
 
 [ "$select" ] && {
-  if [ -f "${LMANDIR}"/.lazymanrc ]; then
-    source "${LMANDIR}"/.lazymanrc
+  if [ -f "${LZYMANRC}" ]; then
+    source "${LZYMANRC}"
   else
-    printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+    printf "\nWARNING: missing ${LZYMANRC}"
     printf "\nReinstall Lazyman with:"
     printf "\n\tlazyman -R -N ${LAZYMAN}"
     printf "\n\tlazyman\n"
@@ -3805,8 +3763,8 @@ install_remove() {
     printf "\nThe '-Z' option indicates do not install tools."
     brief_usage
   }
-  if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
-    "${LMANDIR}"/scripts/install_neovim.sh -a $darg $head $brew $yes
+  if [ -x "${INSTNVIM}" ]; then
+    "${INSTNVIM}" -a $darg $head $brew $yes
     [ -f "${LMANDIR}/.initialized" ] && {
       echo "__extra_tools__=1" >> "${LMANDIR}"/.initialized
     }
@@ -3865,7 +3823,7 @@ install_remove() {
   [ "$basicide" ] && basicidedir="$name"
   [ "$ecovim" ] && ecovimdir="$name"
   [ "$kickstart" ] && kickstartdir="$name"
-  [ "$lazyman" ] && lazymandir="$name"
+  [ "$lazyman" ] && LAZYMAN="$name"
   [ "$lazyvim" ] && lazyvimdir="$name"
   [ "$lunarvim" ] && lunarvimdir="$name"
   [ "$magicvim" ] && magicvimdir="$name"
@@ -3924,7 +3882,7 @@ install_remove() {
       ndir="$kickstartdir"
       ;;
     lazyman)
-      ndir="$lazymandir"
+      ndir="$LAZYMAN"
       ;;
     lazyvim)
       ndir="$lazyvimdir"
@@ -3974,13 +3932,13 @@ install_remove() {
 
 [ "$remove" ] && {
   for neovim in "${neovimdir[@]}"; do
-    [ "${all}" ] && [ "${neovim}" == "${lazymandir}" ] && continue
+    [ "${all}" ] && [ "${neovim}" == "${LAZYMAN}" ] && continue
     remove_config "$neovim"
   done
   [ "${all}" ] && {
     cat "${NVIMDIRS}" | while read nvimdir
     do
-      [ "${nvimdir}" == "${lazymandir}" ] && continue
+      [ "${nvimdir}" == "${LAZYMAN}" ] && continue
       remove_config "$nvimdir"
     done
   }
@@ -4013,14 +3971,14 @@ have_git=$(type -p git)
 interactive=
 numvimdirs=${#neovimdir[@]}
 [ ${numvimdirs} -eq 0 ] && {
-  neovimdir=("${lazymandir}")
+  neovimdir=("${LAZYMAN}")
   [ -f "${LMANDIR}/.initialized" ] && interactive=1
 }
 if [ -d "${LMANDIR}" ]; then
   [ "$branch" ] && {
     git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
   }
-  [ -d "${HOME}/.local/share/${lazymandir}" ] || interactive=
+  [ -d "${HOME}/.local/share/${LAZYMAN}" ] || interactive=
   [ -f "${LMANDIR}/.initialized" ] && instnvim=
 else
   [ "$quiet" ] || {
@@ -4039,7 +3997,7 @@ else
 fi
 # Always make sure nvim-Lazyman is in .nvimdirs
 [ "$tellme" ] || {
-  add_nvimdirs_entry "${lazymandir}"
+  add_nvimdirs_entry "${LAZYMAN}"
 }
 
 # Stash original config for future reset
@@ -4058,9 +4016,8 @@ else
 fi
 
 [ "${instnvim}" ] && {
-  if [ -x "${LMANDIR}/scripts/install_neovim.sh" ]; then
-    "${LMANDIR}"/scripts/install_neovim.sh \
-      $darg $head $brew $yes
+  if [ -x "${INSTNVIM}" ]; then
+    "${INSTNVIM}" $darg $head $brew $yes
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
@@ -4070,32 +4027,32 @@ fi
       brief_usage
     }
   else
-    printf "\n${LMANDIR}/scripts/install_neovim.sh not executable"
+    printf "\n${INSTNVIM} not executable"
     printf "\nPlease check the Lazyman installation and retry this install script\n"
     brief_usage
   fi
 
   # Append sourcing of .lazymanrc to shell initialization files
-  if [ -f "${LMANDIR}"/.lazymanrc ]; then
+  if [ -f "${LZYMANRC}" ]; then
     for shinit in bashrc zshrc; do
       [ -f "${HOME}/.$shinit" ] || continue
       grep lazymanrc "${HOME}/.$shinit" >/dev/null && continue
       COMM="# Source the Lazyman shell initialization for aliases and nvims selector"
       echo "$COMM" >>"${HOME}/.$shinit"
-      SHCK="# shellcheck source=.config/nvim-Lazyman/.lazymanrc"
+      SHCK="# shellcheck source=.config/${LAZYMAN}/.lazymanrc"
       echo "$SHCK" >>"${HOME}/.$shinit"
       TEST_SRC="[ -f ~/.config/${LAZYMAN}/.lazymanrc ] &&"
       SOURCE="source ~/.config/${LAZYMAN}/.lazymanrc"
       echo "${TEST_SRC} ${SOURCE}" >>"${HOME}/.$shinit"
     done
     # Append sourcing of .nvimsbind to shell initialization files
-    [ -f "${HOME}/.config/${lazymandir}"/.nvimsbind ] && {
+    [ -f "${HOME}/.config/${LAZYMAN}"/.nvimsbind ] && {
       for shinit in bashrc zshrc; do
         [ -f "${HOME}/.$shinit" ] || continue
         grep nvimsbind "${HOME}/.$shinit" >/dev/null && continue
         COMM="# Source the Lazyman .nvimsbind for nvims key binding"
         echo "$COMM" >>"${HOME}/.$shinit"
-        SHCK="# shellcheck source=.config/nvim-Lazyman/.nvimsbind"
+        SHCK="# shellcheck source=.config/${LAZYMAN}/.nvimsbind"
         echo "$SHCK" >>"${HOME}/.$shinit"
         TEST_SRC="[ -f ~/.config/${LAZYMAN}/.nvimsbind ] &&"
         SOURCE="source ~/.config/${LAZYMAN}/.nvimsbind"
@@ -4103,7 +4060,7 @@ fi
       done
     }
   else
-    printf "\nWARNING: missing ${LMANDIR}/.lazymanrc"
+    printf "\nWARNING: missing ${LZYMANRC}"
     printf "\nReinstall Lazyman with:"
     printf "\n\tlazyman -R -N ${LAZYMAN}"
     printf "\n\tlazyman\n"
@@ -4112,7 +4069,7 @@ fi
 
 # Source the Lazyman shell initialization for aliases and nvims selector
 # shellcheck source=~/.config/nvim-Lazyman/.lazymanrc
-[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+[ -f "${LZYMANRC}" ] && source "${LZYMANRC}"
 BREW_EXE=
 set_brew
 [ "$BREW_EXE" ] && eval "$("$BREW_EXE" shellenv)"
@@ -4445,7 +4402,7 @@ fi
   fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
   printf "\nshell aliases and the 'nvims' and 'neovides' commands have been created."
-  [ -f "${LMANDIR}"/.lazymanrc ] && source "${LMANDIR}"/.lazymanrc
+  [ -f "${LZYMANRC}" ] && source "${LZYMANRC}"
   if ! alias nvims >/dev/null 2>&1; then
     printf "\nTo activate these aliases and the 'nvims' Neovim config switcher,"
     printf "\nlogout and login or issue the following command:"
@@ -4466,11 +4423,11 @@ fi
 [ "$tellme" ] || {
   [ "$runvim" ] && {
     [ "${interactive}" ] || {
-      [ "$all" ] && export NVIM_APPNAME="${lazymandir}"
+      [ "$all" ] && export NVIM_APPNAME="${LAZYMAN}"
       [ "${skipthis}" ] || {
-        if [ -f "${LMANDIR}"/.lazymanrc ]
+        if [ -f "${LZYMANRC}" ]
         then
-          source "${LMANDIR}"/.lazymanrc
+          source "${LZYMANRC}"
           runconfig ${NVIM_APPNAME}
         else
           nvim
