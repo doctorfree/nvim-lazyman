@@ -2081,6 +2081,18 @@ with `Ctrl-c`. After termination the configuration can be manually initialized:
 NVIM_APPNAME="<nvim dir>" nvim
 ```
 
+### External Configuration Dependencies
+
+Neovim configurations often rely on external commands, utilities, language
+servers, formatters, linters, and tools. The `Lazyman` initialization process
+installs much of what might be required but not all. Some configurations
+may initialize cleanly but subsequent use might provoke an error when an
+external dependency is not available. For example, the `nvim-Shuvro` Neovim
+configuration relies upon an externally installed `luacheck` facility. If this
+is not available then `nvim-Shuvro` will emit an error message when opening
+`lua` files. Most commonly used external dependencies are installed by
+`lazyman` but missing dependencies sometimes occur.
+
 ### Lazyman Neovim Configuration
 
 The installation of some programming languages is left to the system
