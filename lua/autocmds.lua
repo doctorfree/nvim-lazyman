@@ -254,7 +254,18 @@ vim.api.nvim_create_user_command("OpenGithubRepo", function(_)
   local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
   local formatpath = ghpath:sub(2, #ghpath - 1)
   local repourl = "https://www.github.com/" .. formatpath
-  vim.fn.system({ "xdg-open", repourl })
+  if formatpath:sub(1, 5) == "http:" or formatpath:sub(1, 6) == "https:" then
+    repourl = formatpath
+  end
+  if vim.fn.has("mac") == 1 then
+    vim.fn.system({ "open", repourl })
+  else
+    if vim.fn.executable("gio") then
+      vim.fn.system({ "gio", "open", repourl })
+    else
+      vim.fn.system({ "xdg-open", repourl })
+    end
+  end
 end, {
   desc = "Open Github Repo",
   force = true,

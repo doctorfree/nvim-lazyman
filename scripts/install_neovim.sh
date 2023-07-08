@@ -763,6 +763,13 @@ install_extra() {
   do
     plat_install ${pkg}
   done
+  have_check=$(type -p luacheck)
+  [ "${have_check}" ] || {
+    have_rocks=$(type -p luarocks)
+    [ "${have_rocks}" ] && {
+      luarocks --local install luacheck > /dev/null 2>&1
+    }
+  }
 }
 
 install_tools() {
