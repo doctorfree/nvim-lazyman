@@ -248,3 +248,9 @@ command -v nvim > /dev/null && {
     export PATH="$PATH:$HOME/.cargo/bin"
   }
 }
+# Add ~/.luarocks/bin to PATH if it exists
+[ -d $HOME/.luarocks/bin ] && {
+  [[ ":$PATH:" == *":$HOME/.luarocks/bin:"* ]] || {
+    export PATH="$PATH:$HOME/.luarocks/bin"
+  }
+}

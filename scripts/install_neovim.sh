@@ -770,6 +770,28 @@ install_extra() {
       luarocks --local install luacheck > /dev/null 2>&1
     }
   }
+  printf "\nAdding luarocks bin to PATH in shell initialization file(s)"
+  if [ -f "${HOME}/.bashrc" ]; then
+    grep "luarocks/bin" "${HOME}/.bashrc" >/dev/null || {
+      echo '# Luarocks bin path' >>"${HOME}/.bashrc"
+      echo '[ -d ${HOME}/.luarocks/bin ] && {' >>"${HOME}/.bashrc"
+      echo '  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"' >>"${HOME}/.bashrc"
+      echo '}' >>"${HOME}/.bashrc"
+    }
+  else
+    echo '# Luarocks bin path' >"${HOME}/.bashrc"
+    echo '[ -d ${HOME}/.luarocks/bin ] && {' >>"${HOME}/.bashrc"
+    echo '  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"' >>"${HOME}/.bashrc"
+    echo '}' >>"${HOME}/.bashrc"
+  fi
+  [ -f "${HOME}/.zshrc" ] && {
+    grep "luarocks/bin" "${HOME}/.zshrc" >/dev/null || {
+      echo '# Luarocks bin path' >>"${HOME}/.zshrc"
+      echo '[ -d ${HOME}/.luarocks/bin ] && {' >>"${HOME}/.zshrc"
+      echo '  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"' >>"${HOME}/.zshrc"
+      echo '}' >>"${HOME}/.zshrc"
+    }
+  }
 }
 
 install_tools() {
