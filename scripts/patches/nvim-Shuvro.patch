@@ -1,0 +1,98 @@
+--- lua/user/builtin.lua.orig	2023-07-07 12:57:48.813508266 -0700
++++ lua/user/builtin.lua	2023-07-07 13:02:33.704951305 -0700
+@@ -376,15 +376,31 @@
+   -- Treesitter
+   -- =========================================
+   lvim.builtin.treesitter.context_commentstring.enable = true
+-  local languages = vim.tbl_flatten {
+-    { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "d", "dart" },
+-    { "dockerfile", "elixir", "elm", "erlang", "fennel", "fish", "go", "gomod" },
+-    { "gomod", "graphql", "hcl", "vimdoc", "html", "java", "javascript", "jsdoc" },
+-    { "json", "jsonc", "julia", "kotlin", "latex", "ledger", "lua", "make" },
+-    { "markdown", "markdown_inline", "nix", "ocaml", "perl", "php", "python" },
+-    { "query", "r", "regex", "rego", "ruby", "rust", "scala", "scss", "solidity" },
+-    { "swift", "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
++  -- local languages = vim.tbl_flatten {
++  --   { "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "d", "dart" },
++  --   { "dockerfile", "elixir", "elm", "erlang", "fennel", "fish", "go", "gomod" },
++  --   { "gomod", "graphql", "hcl", "vimdoc", "html", "java", "javascript", "jsdoc" },
++  --   { "json", "jsonc", "julia", "kotlin", "latex", "ledger", "lua", "make" },
++  --   { "markdown", "markdown_inline", "nix", "ocaml", "perl", "php", "python" },
++  --   { "query", "r", "regex", "rego", "ruby", "rust", "scala", "scss", "solidity" },
++  --   { "swift", "teal", "toml", "tsx", "typescript", "vim", "vue", "yaml", "zig" },
++  -- }
++  local languages = {
++    "bash",
++    "html",
++    "json",
++    "lua",
++    "markdown",
++    "markdown_inline",
++    "query",
++    "python",
++    "regex",
++    "toml",
++    "vim",
++    "vimdoc",
++    "yaml",
+   }
++  lvim.builtin.treesitter.auto_install = true
+   lvim.builtin.treesitter.ensure_installed = languages
+   lvim.builtin.treesitter.highlight.disable = { "org" }
+   lvim.builtin.treesitter.highlight.aditional_vim_regex_highlighting = { "org" }
+--- lua/user/null_ls/init.lua.orig	2023-07-07 13:33:42.773247445 -0700
++++ lua/user/null_ls/init.lua	2023-07-07 13:42:09.687487175 -0700
+@@ -90,7 +90,6 @@
+       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
+     },
+     nls.builtins.diagnostics.shellcheck,
+-    nls.builtins.diagnostics.luacheck,
+     nls.builtins.diagnostics.vint,
+     nls.builtins.diagnostics.chktex,
+     -- Support for nix files
+@@ -104,18 +103,6 @@
+       filetypes = { "markdown" },
+       extra_args = { "--config", vale_config },
+     },
+-    nls.builtins.diagnostics.revive.with {
+-      condition = function(utils)
+-        return utils.root_has_file "revive.toml" or revive_conf
+-      end,
+-      args = revive_args,
+-      diagnostics_postprocess = function(d)
+-        d.severity = vim.diagnostic.severity.INFO
+-        d.end_col = d.col
+-        d.end_row = d.row
+-        d.end_lnum = d.lnum
+-      end,
+-    },
+     nls.builtins.code_actions.shellcheck,
+     -- WARN: broken on neovim-head because of `nvim.treesitter.get_node_at_pos` being deprecated
+     -- nls.builtins.code_actions.gomodifytags,
+@@ -134,6 +121,26 @@
+     custom_go_actions.gostructhelper,
+     custom_md_hover.dictionary,
+   }
++  if vim.fn.executable("luacheck") then
++    table.insert(sources, nls.builtins.diagnostics.luacheck)
++  end
++  if vim.fn.executable("revive") then
++    table.insert(
++      sources,
++      nls.builtins.diagnostics.revive.with {
++        condition = function(utils)
++          return utils.root_has_file "revive.toml" or revive_conf
++        end,
++        args = revive_args,
++        diagnostics_postprocess = function(d)
++          d.severity = vim.diagnostic.severity.INFO
++          d.end_col = d.col
++          d.end_row = d.row
++          d.end_lnum = d.lnum
++        end,
++      }
++    )
++  end
+   if lvim.builtin.refactoring.active then
+     table.insert(
+       sources,

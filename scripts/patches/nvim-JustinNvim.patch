@@ -1,0 +1,27 @@
+--- lua/plugins/productivity.lua.orig	2023-07-07 16:14:07.261686075 -0700
++++ lua/plugins/productivity.lua	2023-07-07 16:16:22.271534875 -0700
+@@ -49,9 +49,6 @@
+     },
+   },
+   {
+-    "wakatime/vim-wakatime",
+-  },
+-  {
+     "panozzaj/vim-autocorrect",
+   },
+   {
+--- lua/plugins/overrides.lua.orig	2023-07-07 17:34:57.457175206 -0700
++++ lua/plugins/overrides.lua	2023-07-07 17:36:29.582409861 -0700
+@@ -42,7 +42,11 @@
+   {
+     "nvim-treesitter/nvim-treesitter",
+     opts = {
+-      ensure_installed = "all",
++      ensure_installed = {
++        "bash", "html", "json", "lua", "markdown", "markdown_inline",
++        "query", "python", "regex", "toml", "vim", "vimdoc", "yaml",
++      },
++      auto_install = true,
+     },
+   },
+   {

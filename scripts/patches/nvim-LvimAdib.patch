@@ -1,0 +1,14 @@
+--- lua/user/plugins.lua.orig	2023-07-07 11:23:11.369588490 -0700
++++ lua/user/plugins.lua	2023-07-07 11:25:09.174962532 -0700
+@@ -5,7 +5,10 @@
+   "folke/tokyonight.nvim",
+   "fatih/vim-go",
+   "olexsmir/gopher.nvim",
+-  "j-hui/fidget.nvim",
++  {
++    "j-hui/fidget.nvim",
++    branch = "legacy",
++  },
+   {
+     "norcalli/nvim-colorizer.lua",
+     config = function()
