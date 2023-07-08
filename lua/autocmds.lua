@@ -231,7 +231,7 @@ end
 
 -- Disable some things for large files
 local aug = vim.api.nvim_create_augroup("buf_large", { clear = true })
-vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+autocmd({ "BufReadPre" }, {
   callback = function()
     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
     if ok and stats and (stats.size > 1000000) then
@@ -247,6 +247,17 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   end,
   group = aug,
   pattern = "*",
+})
+
+-- Open the Github URL of the plugin spec or 'user/repo' path under the cursor
+vim.api.nvim_create_user_command("OpenGithubRepo", function(_)
+  local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
+  local formatpath = ghpath:sub(2, #ghpath - 1)
+  local repourl = "https://www.github.com/" .. formatpath
+  vim.fn.system({ "xdg-open", repourl })
+end, {
+  desc = "Open Github Repo",
+  force = true,
 })
 
 -- Command to hot reload all plugins (not working yet)

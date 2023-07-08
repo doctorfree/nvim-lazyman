@@ -1,0 +1,44 @@
+--- lua/user/plugins.lua.orig	2023-07-07 16:57:06.913889372 -0700
++++ lua/user/plugins.lua	2023-07-07 17:04:13.663386017 -0700
+@@ -32,13 +32,13 @@
+     config = function() vim.g.mkdp_auto_start = 1 end,
+   },
+   {
+-    dir = "/home/justin/github/justinsgithub/oh-my-monokai.nvim",
++    "justinsgithub/oh-my-monokai.nvim",
+     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+     priority = 1000, -- make sure to load this before all the other start plugins
+     config = function()
+       require("oh-my-monokai").setup({
+         transparent_background = true,
+-        palette = "justinsgithub",
++        -- palette = "justinsgithub",
+       })
+       vim.cmd([[colorscheme oh-my-monokai]])
+       lvim.colorscheme = "oh-my-monokai"
+@@ -97,5 +97,4 @@
+       },
+     },
+   },
+-  "wakatime/vim-wakatime"
+ }
+--- config.lua.orig	2023-07-07 17:14:28.520392832 -0700
++++ config.lua	2023-07-07 17:32:53.095506422 -0700
+@@ -2,7 +2,8 @@
+ -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+ -- Forum: https://www.reddit.com/r/lunarvim/
+ -- Discord: https://discord.com/invite/Xb9B4Ny
+-require("lvim.lsp.manager").setup("marksman")
++--
++-- require("lvim.lsp.manager").setup("marksman")
+ require("user.commands")
+ require("user.plugins")
+ require("user.keymaps")
+@@ -16,7 +17,6 @@
+ vim.opt.clipboard = ""
+ vim.opt_global.clipboard = ""
+ vim.opt.showcmd = true
+-lvim.builtin.treesitter.ensure_installed = "all" -- automatically install syntax highlighting for all languages
+ lvim.colorscheme = "oh-my-monokai"
+ lvim.transparent_window = true
+ lvim.builtin.nvimtree.setup.open_on_tab = true

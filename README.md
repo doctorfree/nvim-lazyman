@@ -276,9 +276,9 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Language** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Fennel](https://github.com/jhchabran/nvim-config) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Knvim](https://github.com/knmac/knvim) |
-| [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) |
-| [Nv](https://github.com/appelgriebsch/Nv) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) |
+| [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) |
+| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
@@ -293,9 +293,9 @@ following configuration categories:
 | **Starter** |       |       |        | **Configs** |
 | ----------- | ----- | ----- | ------ | ----------- |
 | [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) |
-| [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [Justin](https://github.com/justinsgithub/dotfiles) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) |
-| [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) |
-| [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) | | | |
+| [Fennel](https://github.com/jhchabran/nvim-config) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim) | [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) |
+| [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) |
+| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) | |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
@@ -371,9 +371,6 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - One of the inspirations for `Lazyman`
   - Excellent support for Python, Golang, Rust, YAML, and more
   - `lazyman -L Allaman`
-- [Fennel](https://github.com/jhchabran/nvim-config)
-  - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
-  - Install and initialize with `lazyman -L Fennel`
 - [Go](https://github.com/dreamsofcode-io/neovim-go-config)
   - `NvChad` based Neovim config with Go formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
@@ -419,7 +416,10 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - Install and initialize with `lazyman -L Rust`
 - [SaleVim](https://github.com/igorcguedes/SaleVim)
   - `Salesforce` optimized IDE with custom features for editing `Apex`, `Visualforce`, and `Lightning` code
-  - `lazyman -L SaleVim`
+  - Install and initialize with `lazyman -L SaleVim`
+- [Shuvro](https://github.com/shuvro/lvim)
+  - Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/lvim) advanced `LunarVim` config
+  - Install and initialize with `lazyman -L Shuvro`
 - [Webdev](https://github.com/doctorfree/nvim-webdev)
   - LazyVim based config for web developers
   - JavaScript, Typescript, React, and Tailwind CSS support
@@ -544,6 +544,9 @@ installed with the `-x conf` option.
 - [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
   - Install `Node.js`, `prettierd`, and `eslint_d`
   - Install and initialize with `lazyman -x Cosmic`
+- [Fennel](https://github.com/jhchabran/nvim-config)
+  - An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
+  - Install and initialize with `lazyman -x Fennel`
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
   - Popular starting point, small, single file, well documented, modular
   - Install and initialize with `lazyman -k`
@@ -553,14 +556,17 @@ installed with the `-x conf` option.
 - [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim)
   - A theme-driven modern Neovim configuration
   - Install and initialize with `lazyman -x HardHacker`
-- [Justin](https://github.com/justinsgithub/dotfiles)
+- [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim)
+  - LunarVim based Neovim configuration by Justin Angeles
+  - Install and initialize with `lazyman -x JustinLvim`
+- [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim)
   - LazyVim based Neovim configuration by Justin Angeles
   - Justin has created a series of YouTube videos on configuring LazyVim
     - [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8)
     - [Part 2 - Options](https://youtu.be/I4flypojhUk)
     - [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k)
     - [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
-  - Install and initialize with `lazyman -x Justin`
+  - Install and initialize with `lazyman -x JustinNvim`
 - [Modern](https://github.com/alpha2phi/modern-neovim)
   - Configure Neovim as a modernized development environment
   - Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)

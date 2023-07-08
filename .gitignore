@@ -68,10 +68,14 @@ scripts/patches/*
 !scripts/patches/nvim-Allaman.patch
 !scripts/patches/nvim-Daniel.patch
 !scripts/patches/nvim-Enrique.patch
+!scripts/patches/nvim-JustinLvim.patch
+!scripts/patches/nvim-JustinNvim.patch
 !scripts/patches/nvim-LaTeX.patch
 !scripts/patches/nvim-LunarVim.patch
+!scripts/patches/nvim-LvimAdib.patch
 !scripts/patches/nvim-LvimIde.patch
 !scripts/patches/nvim-Magidc.patch
+!scripts/patches/nvim-Shuvro.patch
 !scripts/patches/README.md
 
 # vim files
