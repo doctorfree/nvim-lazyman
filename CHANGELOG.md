@@ -7,9 +7,16 @@
 - Add `Hide/Show List` to main menu
 - Add `Justin` config to `Starters`
 - Add `SingleFile` config to `Starters`
+- Add install of `luacheck` to `install_neovim`
+- Add `JustinLvim` and `Shuvro` `LunarVim` configs
+- Add autocmd and keymap to open Github Repo url
+- Add `LvimAdib` to `LunarVim` configs and `Personals`
 
 ### 🐞 Fixed
 
+- Improve Github repo open autocmd
+- Rename `Justin` to `JustinNvim`
+- Move `Fennel` to `Starters`
 - Apply patches in updates
 - Limit display of installed configs in menu heading to 16
 - Don't show `Install Tools` if already run
