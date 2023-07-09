@@ -29,7 +29,7 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
+LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
 PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
@@ -1237,7 +1237,7 @@ install_config() {
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
       ;;
-    AlanVim|Allaman|Go|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
+    AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
@@ -2961,6 +2961,12 @@ install_remove() {
         -b main -N nvim-Go ${quietflag} -z ${yesflag}
       show_alias "nvim-Go"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Go2one ] && action="Updating"
+      printf "\n${action} Go2one Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/leoluz/go2one \
+        -D nvim -N nvim-Go2one -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Go2one"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-LazyIde ] && action="Updating"
       printf "\n${action} LazyIde Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/nvim-LazyIde \
@@ -3051,6 +3057,11 @@ install_remove() {
         Go)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
           lang_opt="-b main"
+          ;;
+        Go2one)
+          lang_url="-C https://github.com/leoluz/go2one"
+          lang_opt="-b main -P"
+          lang_dir="-D nvim"
           ;;
         LazyIde)
           lang_url="-C https://github.com/doctorfree/nvim-LazyIde"
