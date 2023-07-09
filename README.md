@@ -1725,9 +1725,13 @@ removal of the selected Neovim configuration.
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
+# Bob neovim version manager path
+[ -d ${HOME}/.local/share/bob/nvim-bin ] && {
+  export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
+}
 # Aliases for lsd, tldr, and bat if they exist
 command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
- alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
+	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
 command -v tldr > /dev/null && {
   command -v fzf > /dev/null && {
     alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right:70% | xargs tldr --color=always'
@@ -1735,8 +1739,8 @@ command -v tldr > /dev/null && {
 }
 command -v bat > /dev/null && alias less='bat'
 command -v batcat > /dev/null && \
- alias bat='batcat' && \
- alias less='batcat'
+	alias bat='batcat' && \
+	alias less='batcat'
 # To use Vim
 command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
@@ -1772,7 +1776,7 @@ command -v nvim > /dev/null && {
       ndirs+=("nvim-Lazyman")
     }
     [ -d ${HOME}/.config/nvim-LazyVim ] && {
-      alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+      alias nvim-lvim="NVIM_APPNAME=nvim-LazyVim nvim"
       items+=("LazyVim")
       ndirs+=("nvim-LazyVim")
     }
@@ -1813,6 +1817,43 @@ command -v nvim > /dev/null && {
     }
   fi
 
+  function runconfig() {
+    cfg="$1"
+    neo="$2"
+    shift
+    comm="nvim"
+    [ "${neo}" ] && [ "${neo}" == "neovide" ] && {
+      comm='neovide --'
+      shift
+    }
+
+    [ -d "${HOME}/.config/${cfg}" ] || {
+      [ -d "${HOME}/.config/nvim-${cfg}" ] && cfg="nvim-${cfg}"
+    }
+
+    # Use a file tree explorer for configurations without a dashboard
+    case ${cfg} in
+      nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
+        NVIM_APPNAME="${cfg}" ${comm} -c 'Lexplore' $@
+        ;;
+      nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
+        NVIM_APPNAME="${cfg}" ${comm} -c 'Neotree' $@
+        ;;
+      nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
+        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeOpen' $@
+        ;;
+      nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeToggle' $@
+        ;;
+      nvim-3rd)
+        NVIM_APPNAME="${cfg}" ${comm} -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
+        ;;
+      *)
+        NVIM_APPNAME="${cfg}" ${comm} $@
+        ;;
+    esac
+  }
+
   function nvimselect() {
     action="Open"
     remove=
@@ -1848,7 +1889,7 @@ command -v nvim > /dev/null && {
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       fi
     fi
-    if [[ -z $config ]]; then
+    if [[ -z ${config} ]]; then
       echo "Nothing selected"
       return 0
     else
@@ -1866,7 +1907,7 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      NVIM_APPNAME=$config nvim $@
+        runconfig "${config}" $@
     fi
   }
 
@@ -1895,7 +1936,7 @@ command -v nvim > /dev/null && {
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       fi
     fi
-    if [[ -z $config ]]; then
+    if [[ -z ${config} ]]; then
       echo "Nothing selected"
       return 0
     else
@@ -1913,7 +1954,7 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      NVIM_APPNAME=$config neovide $@
+      runconfig "${config}" "neovide" $@
     fi
   }
 }
@@ -1928,6 +1969,12 @@ command -v nvim > /dev/null && {
 [ -d $HOME/.cargo/bin ] && {
   [[ ":$PATH:" == *":$HOME/.cargo/bin:"* ]] || {
     export PATH="$PATH:$HOME/.cargo/bin"
+  }
+}
+# Add ~/.luarocks/bin to PATH if it exists
+[ -d $HOME/.luarocks/bin ] && {
+  [[ ":$PATH:" == *":$HOME/.luarocks/bin:"* ]] || {
+    export PATH="$PATH:$HOME/.luarocks/bin"
   }
 }
 ```
