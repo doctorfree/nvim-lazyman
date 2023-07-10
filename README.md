@@ -278,9 +278,9 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Language** |       |        |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) | [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) |
-| [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [NV-IDE](https://github.com/crivotz/nv-ide) |
-| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) | |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [CatNvim](https://github.com/nullchilly/CatNvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) | [Knvim](https://github.com/knmac/knvim) |
+| [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) |
+| [NV-IDE](https://github.com/crivotz/nv-ide) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
@@ -371,7 +371,12 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
 - [Allaman](https://github.com/Allaman/nvim)
   - One of the inspirations for `Lazyman`
   - Excellent support for Python, Golang, Rust, YAML, and more
-  - `lazyman -L Allaman`
+  - Install and initialize with `lazyman -L Allaman`
+- [CatNvim](https://github.com/nullchilly/CatNvim)
+  - Included in the `Language` category as the configuration is written in `C`
+  - Yes, this is a Neovim configuration written in the [C programming language](https://en.wikipedia.org/wiki/C_(programming_language))
+  - `CatNvim` is a `LazyVim` based configuration
+  - Install and initialize with `lazyman -L CatNvim`
 - [Go](https://github.com/dreamsofcode-io/neovim-go-config)
   - `NvChad` based Neovim config with Go formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
@@ -416,8 +421,8 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
 - [Python](https://github.com/dreamsofcode-io/neovim-python)
   - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc)
-  - Install and initialize `lazyman -L Python`
   - These features are included in the Base `NvChad` custom add-on (`lazyman -c`)
+  - Install and initialize `lazyman -L Python`
 - [Rust](https://github.com/dreamsofcode-io/neovim-rust)
   - `NvChad` based Neovim config with Rust formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)

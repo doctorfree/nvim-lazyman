@@ -29,12 +29,12 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
+LANGUCFGS="AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
 PRSNLCFGS="3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
-LAZYVIMCFGS="JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
+LAZYVIMCFGS="CatNvim JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
@@ -1258,7 +1258,7 @@ install_config() {
     Nyoom)
       lazyman ${darg} -K Nyoom -z -y -Q -q
       ;;
-    AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|NV-IDE|Python|Rust|SaleVim|Shuvro|Webdev)
+    AlanVim|Allaman|CatNvim|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|NV-IDE|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     2k|AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
@@ -2981,6 +2981,12 @@ install_remove() {
         -N nvim-Allaman ${quietflag} -z ${yesflag}
       show_alias "nvim-Allaman"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-CatNvim ] && action="Updating"
+      printf "\n${action} CatNvim Neovim configuration"
+      lazyman ${darg} -C https://github.com/nullchilly/CatNvim \
+        -N nvim-CatNvim ${quietflag} -z ${yesflag}
+      show_alias "nvim-CatNvim"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Go ] && action="Updating"
       printf "\n${action} Go Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-go-config \
@@ -3085,6 +3091,9 @@ install_remove() {
           ;;
         Allaman)
           lang_url="-C https://github.com/Allaman/nvim"
+          ;;
+        CatNvim)
+          lang_url="-C https://github.com/nullchilly/CatNvim"
           ;;
         Go)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
