@@ -274,12 +274,11 @@ following configuration categories:
 | [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
 
 <!-- prettier-ignore -->
-| **Language** |       |        | **Configs** |
-| ------------ | ----- | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) |
-| [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) |
-| [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [Python](https://github.com/dreamsofcode-io/neovim-python) |
-| [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
+| **Language** |       |        |        |        | **Configs** |
+| ------------ | ----- | ------ | ------ | ------ | ----------- |
+| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) | [Knvim](https://github.com/knmac/knvim) | [LaTeX](https://github.com/benbrastmckie/.config) |
+| [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) | [NV-IDE](https://github.com/crivotz/nv-ide) |
+| [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) | |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
@@ -409,6 +408,9 @@ installed with the `-L lang` option, where `lang` is one of `Go`, `LaTeX`,
   - `LazyVim` based Neovim configuration
   - Andreas Gerlach develops smart farming tech and maintains the `Sway` edition of `Manjaro-arm`
   - Install and initialize with `lazyman -L Nv`
+- [NV-IDE](https://github.com/crivotz/nv-ide)
+  - Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, javascript)
+  - Install and initialize with `lazyman -L NV-IDE`
 - [Python](https://github.com/dreamsofcode-io/neovim-python)
   - `NvChad` based Neovim config with Python formatting, debugging, and diagnostics
   - Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc)

@@ -29,7 +29,7 @@ LINE=$(tput smul 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
+LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
 PRSNLCFGS="3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
@@ -1258,7 +1258,7 @@ install_config() {
     Nyoom)
       lazyman ${darg} -K Nyoom -z -y -Q -q
       ;;
-    AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
+    AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|NV-IDE|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
     2k|AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
@@ -3035,6 +3035,12 @@ install_remove() {
         -N nvim-Nv ${quietflag} -z ${yesflag}
       show_alias "nvim-Nv"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-NV-IDE ] && action="Updating"
+      printf "\n${action} NV-IDE Neovim configuration"
+      lazyman ${darg} -C https://github.com/crivotz/nv-ide \
+        -N nvim-NV-IDE ${quietflag} -z ${yesflag}
+      show_alias "nvim-NV-IDE"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Python ] && action="Updating"
       printf "\n${action} Python Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-python \
@@ -3112,6 +3118,9 @@ install_remove() {
           ;;
         Nv)
           lang_url="-C https://github.com/appelgriebsch/Nv"
+          ;;
+        NV-IDE)
+          lang_url="-C https://github.com/crivotz/nv-ide"
           ;;
         Python)
           lang_url="-V https://github.com/dreamsofcode-io/neovim-python"
