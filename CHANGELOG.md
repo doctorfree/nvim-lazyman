@@ -4,6 +4,12 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.7r4
+
+### ⚡️ Added
+
 - Add `Hide/Show List` to main menu
 - Add `Justin` config to `Starters`
 - Add `SingleFile` config to `Starters`
@@ -11,6 +17,12 @@
 - Add `JustinLvim` and `Shuvro` `LunarVim` configs
 - Add autocmd and keymap to open Github Repo url
 - Add `LvimAdib` to `LunarVim` configs and `Personals`
+- Add unsupported config install with `-K conf` command line option
+- Add unsupported `Nyoom` config
+- Add support for `Go2one` config
+- Add section on external tools to `Known limitations`
+- Add `Rohit` config to `Starters`
+- Add `Neovide` install script, use `Neovide` release asset first then `cargo` build if necessary
 
 ### 🐞 Fixed
 
@@ -21,6 +33,9 @@
 - Limit display of installed configs in menu heading to 16
 - Don't show `Install Tools` if already run
 - Move `Nv` config to `Languages`
+- Add `Luarocks` bin to `PATH` if it exists
+- Update `.lazymanrc` source listing
+- Improve `nvim` kill script to catch headless and `bob` invocations
 
 ## v2.1.7r3
 
