@@ -4,7 +4,11 @@
 
 ### ⚡️ Added
 
+- Add `xero` to `Personals`
+
 ### 🐞 Fixed
+
+- Move `nvim-2k` to `Starters`
 
 ## v2.1.7r4
 
