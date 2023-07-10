@@ -5,10 +5,12 @@
 ### ⚡️ Added
 
 - Add `xero` to `Personals`
+- Add `NV-IDE` to `Languages`
 
 ### 🐞 Fixed
 
 - Move `nvim-2k` to `Starters`
+- Fix hide and show list menu logic
 
 ## v2.1.7r4
 
