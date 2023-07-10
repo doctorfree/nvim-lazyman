@@ -32,14 +32,14 @@ BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin
 LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
 PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
+STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
 LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX SaleVim Simple SingleFile Slydragonn"
+PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX Nyoom SaleVim Simple SingleFile Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
@@ -54,7 +54,7 @@ brief_usage() {
   printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
-  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]"
+  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]"
   printf "\n   [health] [init] [install] [open] [remove] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -126,6 +126,7 @@ usage() {
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
+  printf "\n    -K 'conf' indicates install 'conf' in development unsupported config"
   printf "\n    -u displays this usage message and exits"
   printf "\n    'health' generate and display a health check for a configuration"
   printf "\n    'init' initialize specified Neovim configuration and exit"
@@ -284,6 +285,19 @@ init_neovim() {
     packer=1
   }
   export NVIM_APPNAME="${neodir}"
+
+  [ "${neodir}" == "nvim-Nyoom" ] && {
+    [ -x ${HOME}/.config/nvim-Nyoom/bin/nyoom ] && {
+      if [ "${debug}" ]
+      then
+        ${HOME}/.config/nvim-Nyoom/bin/nyoom install
+        ${HOME}/.config/nvim-Nyoom/bin/nyoom sync
+      else
+        ${HOME}/.config/nvim-Nyoom/bin/nyoom install > /dev/null 2>&1
+        ${HOME}/.config/nvim-Nyoom/bin/nyoom sync > /dev/null 2>&1
+      fi
+    }
+  }
 
   [ "${packer}" ] && {
     PACKER="${HOME}/.local/share/${neodir}/site/pack/packer/start/packer.nvim"
@@ -447,16 +461,18 @@ init_neovim() {
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa > ${LOG} 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
-                xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >> ${LOG} 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] || \
-                [ "${neodir}" == "nvim-Go" ] || \
-                [ "${neodir}" == "nvim-LazyIde" ] || \
-                [ "${neodir}" == "nvim-Rust" ] || \
-                [ "${neodir}" == "nvim-Python" ] && {
-                  xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
-                }
-                [ "${neodir}" == "nvim-2k" ] && {
-                  xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
+                [ "${neodir}" == "nvim-Nyoom" ] || {
+                  xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >> ${LOG} 2>&1
+                  [ "${neodir}" == "${nvchaddir}" ] || \
+                  [ "${neodir}" == "nvim-Go" ] || \
+                  [ "${neodir}" == "nvim-LazyIde" ] || \
+                  [ "${neodir}" == "nvim-Rust" ] || \
+                  [ "${neodir}" == "nvim-Python" ] && {
+                    xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >> ${LOG} 2>&1
+                  }
+                  [ "${neodir}" == "nvim-2k" ] && {
+                    xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >> ${LOG} 2>&1
+                  }
                 }
               }
             fi
@@ -507,19 +523,21 @@ init_neovim() {
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
-                xtimeout ${timeout} nvim --headless \
-                  "+Lazy! sync" +qa >/dev/null 2>&1
-                [ "${neodir}" == "${nvchaddir}" ] || \
-                [ "${neodir}" == "nvim-Go" ] || \
-                [ "${neodir}" == "nvim-LazyIde" ] || \
-                [ "${neodir}" == "nvim-Rust" ] || \
-                [ "${neodir}" == "nvim-Python" ] && {
+                [ "${neodir}" == "nvim-Nyoom" ] || {
                   xtimeout ${timeout} nvim --headless \
-                    "+MasonInstallAll" +qa >/dev/null 2>&1
-                }
-                [ "${neodir}" == "nvim-2k" ] && {
-                  xtimeout ${timeout} nvim \
-                    --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
+                    "+Lazy! sync" +qa >/dev/null 2>&1
+                  [ "${neodir}" == "${nvchaddir}" ] || \
+                  [ "${neodir}" == "nvim-Go" ] || \
+                  [ "${neodir}" == "nvim-LazyIde" ] || \
+                  [ "${neodir}" == "nvim-Rust" ] || \
+                  [ "${neodir}" == "nvim-Python" ] && {
+                    xtimeout ${timeout} nvim --headless \
+                      "+MasonInstallAll" +qa >/dev/null 2>&1
+                  }
+                  [ "${neodir}" == "nvim-2k" ] && {
+                    xtimeout ${timeout} nvim \
+                      --headless "+UpdateRemotePlugins" +qa >/dev/null 2>&1
+                  }
                 }
               }
             fi
@@ -1236,6 +1254,9 @@ install_config() {
       ;;
     MagicVim)
       lazyman ${darg} -m -z -y -Q -q
+      ;;
+    Nyoom)
+      lazyman ${darg} -K Nyoom -z -y -Q -q
       ;;
     AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
@@ -2507,6 +2528,7 @@ nvimbase=
 nvimlang=
 nvimprsnl=
 nvimstarter=
+nvimsupport=
 modern=
 pde=
 penguinvim=
@@ -2553,7 +2575,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
-while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
+while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
   case $flag in
     a)
       astronvim=1
@@ -2661,6 +2683,9 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJklL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" fl
     k)
       kickstart=1
       neovimdir=("$kickstartdir")
+      ;;
+    K)
+      nvimsupport="$OPTARG"
       ;;
     l)
       lazyvim=1
@@ -3777,6 +3802,33 @@ install_remove() {
           ;;
       esac
     fi
+  fi
+  printf "\n"
+}
+
+[ "$nvimsupport" ] && {
+  if [ "$remove" ]; then
+    remove_config "nvim-${nvimsupport}"
+  else
+    yesflag="-Q"
+    [ "${proceed}" ] && yesflag="-Q -y"
+    quietflag=
+    [ "${quiet}" ] && quietflag="-q"
+    runflag=
+    [ "${runvim}" ] || runflag="-z"
+    case ${nvimsupport} in
+      Nyoom)
+        action="Installing"
+        [ -d ${HOME}/.config/nvim-Nyoom ] && action="Updating"
+        printf "\n${action} Nyoom Neovim configuration"
+        lazyman ${darg} -C https://github.com/nyoom-engineering/nyoom.nvim.git \
+          -N nvim-Nyoom ${quietflag} -z ${yesflag}
+        show_alias "nvim-Nyoom"
+        ;;
+      *)
+        usage
+        ;;
+    esac
   fi
   printf "\n"
 }
