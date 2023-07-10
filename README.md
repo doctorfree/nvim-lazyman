@@ -39,7 +39,7 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Over 70 popular Neovim configurations are supported.
+Neovim configurations. Over 80 popular Neovim configurations are supported.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
@@ -266,7 +266,7 @@ presented by invoking `lazyman` without arguments after the initial
 bootstrap process is complete. Lazyman Neovim configurations can
 also be managed with `lazyman` command line operations.
 
-Currently over 70 popular Neovim configurations are supported in the
+Currently over 80 popular Neovim configurations are supported in the
 following configuration categories:
 
 <!-- prettier-ignore -->
@@ -756,7 +756,7 @@ will produce a cleanly initialized Neovim configuration.
 - interactive menu interface for ease of management
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
-- Over 70 supported Neovim configurations out of the box, additional custom configs
+- Over 80 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` aliases to fuzzy search, select, and open Neovim configs
