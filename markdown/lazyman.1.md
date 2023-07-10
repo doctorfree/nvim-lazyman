@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status] [usage]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-K config] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status] [usage]
 
 ## FEATURES
 
@@ -182,6 +182,8 @@ The following command line options are available with the `lazyman` command:
 `-j` : indicates install and initialize the 'BasicIde' Neovim configuration
 
 `-k` : indicates install and initialize the 'Kickstart' Neovim configuration
+
+`-K conf` : indicates install and initialize the unsupported in-development configuration 'conf'
 
 `-l` : indicates install and initialize the 'LazyVim' Neovim configuration
 

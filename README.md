@@ -847,7 +847,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]
    [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
-   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u]
+   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]
    [health] [init] [install] [open] [remove] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
@@ -894,7 +894,7 @@ Where:
     -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
-           All AlanVim Allaman Fennel Go Knvim LaTeX LazyIde LunarIde LvimIde Magidc Python Rust SaleVim Webdev
+           All AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
@@ -905,15 +905,16 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Metis Mini Nv ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
+           All 2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All AstroNvimStart Basic CodeArt Cosmic Ember Kabin Kickstart Lamia Micah Normal NvPak HardHacker Modern pde Scratch BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
+    -K 'conf' indicates install 'conf' in development unsupported config
     -u displays this usage message and exits
     'health' generate and display a health check for a configuration
     'init' initialize specified Neovim configuration and exit
