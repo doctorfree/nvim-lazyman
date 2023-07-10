@@ -87,6 +87,8 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Custom configurations](#custom-configurations)
     - [Custom configuration patches](#custom-configuration-patches)
 - [Features](#features)
+  - [Lazyman Command Features](#lazyman-command-features)
+  - [Lazyman Neovim Configuration Features](#lazyman-neovim-configuration-features)
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
   - [Updates](#updates)
@@ -744,14 +746,24 @@ will produce a cleanly initialized Neovim configuration.
 
 ## Features
 
+### Lazyman Command Features
+
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
-- support for Lazy, Packer, and vim-plug plugin managers
-- automated installation of dependencies, tools, language servers, and Neovim 0.9
+- support for `Lazy`, `Packer`, and `vim-plug` plugin managers
+- automated installation of dependencies, tools, language servers, and Neovim 0.9+
+- install and manage the `Bob` neovim version manager via a menu interface
 - richly configured `nvim-Lazyman` Neovim configuration
 - interactive menu interface for ease of management
+  - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
+  - perform health checks and generate a status report via menus
 - Over 70 supported Neovim configurations out of the box, additional custom configs
-- convenience shell functions and aliases with fuzzy search and selection
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
+- convenience shell functions and aliases with fuzzy search and selection
+  - `nvims` and `neovides` aliases to fuzzy search, select, and open Neovim configs
+  - enhanced `less` command alias
+  - enhanced `ls` command alias
+  - `tree` alias to display a tree view of files and folders
+  - `tldrf` alias to fuzzy search, select, and preview cheat sheets
 
 See the [Usage](#usage) section below for details on `lazyman` command usage.
 
