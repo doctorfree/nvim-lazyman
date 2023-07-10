@@ -11,6 +11,7 @@
 
 - Move `nvim-2k` to `Starters`
 - Fix hide and show list menu logic
+- Add patches for `Nyoom` and `NV-IDE`
 
 ## v2.1.7r4
 
