@@ -1523,7 +1523,9 @@ show_main_menu() {
     fi
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     numitems=${#sorted[@]}
-    [ ${numitems} -gt 16 ] && [ ${showinstalled} -gt 1 ] || showinstalled=0
+    [ ${numitems} -gt 16 ] && {
+      [ ${showinstalled} -gt 1 ] || showinstalled=0
+    }
     if [ "${have_figlet}" ]; then
       show_figlet
     else
@@ -1745,8 +1747,7 @@ show_main_menu() {
     then
       options+=("Hide List")
     else
-      [ ${showinstalled} -eq 0 ]
-      options+=("Show List")
+      [ ${showinstalled} -eq 0 ] && options+=("Show List")
     fi
     if [ -f "${LMANDIR}/.initialized" ]
     then
