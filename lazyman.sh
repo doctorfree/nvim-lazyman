@@ -30,9 +30,9 @@ PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="AlanVim Allaman Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv Python Rust SaleVim Shuvro Webdev"
-PRSNLCFGS="2k 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap Xiao"
+PRSNLCFGS="3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
+STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
 LAZYVIMCFGS="JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
 NVCHADCFGS="Go NvChad Python Rust"
@@ -1261,10 +1261,10 @@ install_config() {
     AlanVim|Allaman|Go|Go2one|LunarIde|Knvim|LaTeX|LazyIde|LvimIde|Magidc|Nv|Python|Rust|SaleVim|Shuvro|Webdev)
       lazyman ${darg} -L ${confname} -z -y -Q -q
       ;;
-    AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
+    2k|AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|2k|3rd|Charles|Craftzdog|Dillon|Daniel|LvimAdib|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|Xiao)
+    Adib|ONNO|3rd|Charles|Craftzdog|Dillon|Daniel|LvimAdib|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|xero|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -3168,12 +3168,6 @@ install_remove() {
       lazyman ${darg} -M ${quietflag} -z ${yesflag}
       show_alias "nvim-Mini"
       action="Installing"
-      [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
-      printf "\n${action} nvim2k Neovim configuration"
-      lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
-        -N nvim-2k ${quietflag} -z ${yesflag}
-      show_alias "nvim-2k"
-      action="Installing"
       [ -d ${HOME}/.config/nvim-3rd ] && action="Updating"
       printf "\n${action} 3rd Neovim configuration"
       lazyman ${darg} -C https://github.com/3rd/config \
@@ -3320,6 +3314,12 @@ install_remove() {
         -N nvim-Traap ${quietflag} -z ${yesflag}
       show_alias "nvim-Traap"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-xero ] && action="Updating"
+      printf "\n${action} xero Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/xero/dotfiles \
+        -D neovim/.config/nvim -N nvim-xero ${quietflag} -z ${yesflag}
+      show_alias "nvim-xero"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Xiao ] && action="Updating"
       printf "\n${action} Xiao Neovim configuration"
       lazyman ${darg} -C https://github.com/onichandame/nvim-config \
@@ -3333,9 +3333,6 @@ install_remove() {
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
-        2k)
-          prsnl_url="https://github.com/2KAbhishek/nvim2k"
-          ;;
         3rd)
           prsnl_url="https://github.com/3rd/config"
           prsnl_dir="-D home/dotfiles/nvim"
@@ -3374,6 +3371,11 @@ install_remove() {
           ;;
         Traap)
           prsnl_url="https://github.com/Traap/nvim"
+          ;;
+        xero)
+          prsnl_url="https://github.com/xero/dotfiles"
+          prsnl_opt="-b main"
+          prsnl_dir="-D neovim/.config/nvim"
           ;;
         Xiao)
           prsnl_url="https://github.com/onichandame/nvim-config"
@@ -3474,6 +3476,12 @@ install_remove() {
           -N nvim-${neovim} -b ${startbranch} ${quietflag} -z ${yesflag}
         show_alias "nvim-${neovim}"
       done
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
+      printf "\n${action} nvim2k Neovim configuration"
+      lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
+        -N nvim-2k ${quietflag} -z ${yesflag}
+      show_alias "nvim-2k"
       action="Installing"
       [ -d ${HOME}/.config/nvim-AstroNvimStart ] && action="Updating"
       printf "\n${action} AstroNvimStart Neovim configuration"
@@ -3613,6 +3621,14 @@ install_remove() {
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimstarter} in
+        2k)
+          action="Installing"
+          [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
+          printf "\n${action} nvim2k Neovim configuration"
+          lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
+            -N nvim-2k ${quietflag} -z ${yesflag}
+          show_alias "nvim-2k"
+          ;;
         AstroNvimStart)
           action="Installing"
           [ -d ${HOME}/.config/nvim-AstroNvimStart ] && action="Updating"

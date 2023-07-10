@@ -286,17 +286,16 @@ following configuration categories:
 | ------------ | ----- | ------ | ------ | ----------- |
 | [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) |
 | [Daniel](https://github.com/daniel-vera-g/lvim) | [Dillon](https://github.com/dmmulroy/dotfiles) | [Elianiva](https://github.com/elianiva/dotfiles) | [Enrique](https://github.com/kiyov09/dotfiles) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
-| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [nvim2k](https://github.com/2KAbhishek/nvim2k) |
-| [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) | [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) |
-| [Rafi](https://github.com/rafi/vim-config) | [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [Xiao](https://github.com/onichandame/nvim-config) |
+| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) |
+| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) |
+| [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [xero](https://github.com/xero/dotfiles) | [Xiao](https://github.com/onichandame/nvim-config) |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       |        | **Configs** |
-| ----------- | ----- | ----- | ------ | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) |
-| [Fennel](https://github.com/jhchabran/nvim-config) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) | [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim) | [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) |
-| [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) | [Normal](https://github.com/NormalNvim/NormalNvim) |
-| [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Rohit](https://github.com/rohit-kumar-j/nvim) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
+| **Starter** |       |       |       |       |        | **Configs** |
+| ----------- | ----- | ----- | ----- | ----- | ------ | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) |
+| [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim) | [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) |
+| [Normal](https://github.com/NormalNvim/NormalNvim) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Rohit](https://github.com/rohit-kumar-j/nvim) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
@@ -521,12 +520,13 @@ installed with the `-w conf` option.
 - [Traap](https://github.com/Traap/nvim)
   - [Introductory video](https://youtu.be/aD9j6d9pgtc)
   - Install and initialize with `lazyman -w Traap`
+- [xero](https://github.com/xero/dotfiles)
+  - personal neovim configuration of [xero harrison](https://x-e.ro/)
+  - xero is a fine example, as are many here, of the unix greybeard
+  - install and initialize with `lazyman -w xero`
 - [Xiao](https://github.com/onichandame/nvim-config)
   - Personal Neovim configuration of XiaoZhang
   - Install and initialize with `lazyman -w Xiao`
-- [nvim2k](https://github.com/2KAbhishek/nvim2k)
-  - [Video walkthrough](https://youtu.be/WfhylGI_F-o)
-  - Install and initialize with `lazyman -w 2k`
 
 ### Starter configurations
 
@@ -555,6 +555,9 @@ installed with the `-x conf` option.
 - [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
   - Popular starting point, small, single file, well documented, modular
   - Install and initialize with `lazyman -k`
+- [nvim2k](https://github.com/2KAbhishek/nvim2k)
+  - [Video walkthrough](https://youtu.be/WfhylGI_F-o)
+  - Install and initialize with `lazyman -x 2k`
 - [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git)
   - PaK in Farsi means pure, something that is in its purest form
   - Install and initialize with `lazyman -x NvPak`
