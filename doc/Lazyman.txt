@@ -29,7 +29,7 @@ FEATURES                                            *Lazyman-lazyman-features*
 - interactive menu interface for ease of management
     - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
     - perform health checks and generate a status report via menus
-- Over 70 supported Neovim configurations out of the box, additional custom configs
+- Over 80 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
     - `nvims` and `neovides` aliases to fuzzy search, select, and open Neovim configs
