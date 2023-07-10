@@ -1,0 +1,48 @@
+--- bin/nyoom.00	2023-07-09 17:19:48.598831373 -0700
++++ bin/nyoom	2023-07-09 17:23:05.281692678 -0700
+@@ -20,7 +20,7 @@
+ }
+ 
+ function install_nyoom() {
+-	if [ -d "${NYOOM_CONFIG}/" ]; then
++	if [ -d "${NYOOM_CONFIG}/fnl" ]; then
+ 		printf "\n\033[1m\033[32mNyoom Dir Already Exists\033[0m\n"
+ 	else
+ 		printf "Linking Nyoom Configs ..."
+@@ -80,28 +80,28 @@
+ 	NYOOM_CLI=true nvim --headless -c 'autocmd User PackerComplete quitall' -c 'lua require("packer").sync()'
+ 	echo
+ 	if [ -d "${DATA_PATH}/site/pack/packer/opt/nvim-treesitter/" ]; then
+-		echo
+-		read -p "Would you like to sync tree-sitter parsers for enabled modules? y/n: " -n 1 -r
+-		if [[ $REPLY =~ ^[Yy]$ ]]; then
++		#echo
++		#read -p "Would you like to sync tree-sitter parsers for enabled modules? y/n: " -n 1 -r
++		#if [[ $REPLY =~ ^[Yy]$ ]]; then
+ 			ts_time=$(date +%s)
+ 			printf "\nSyncing Tree-sitter Parsers (this may take a while)\n"
+                         # upstream bug?
+ 			# nvim --headless -c 'TSUpdate' -c 'sleep 20' -c 'qall'
+ 			nvim --headless -c 'TSUpdateSync' -c 'qall'
+ 			printf "\n\033[1m\033[36mNyoom successfully synced parsers in $(expr $(date +%s) - $ts_time)s\033[0m\n"
+-		fi
++		#fi
+ 	else
+ 		printf "\nTree-sitter module disabled: skipping"
+ 	fi
+ 	if [ -d "${DATA_PATH}/site/pack/packer/opt/mason.nvim/" ]; then
+-		echo
+-		read -p "Would you like to sync tooling for enabled modules through Mason (language-servers, formatters, and linters)? y/n: " -n 1 -r
+-		if [[ $REPLY =~ ^[Yy]$ ]]; then
++		#echo
++		#read -p "Would you like to sync tooling for enabled modules through Mason (language-servers, formatters, and linters)? y/n: " -n 1 -r
++		#if [[ $REPLY =~ ^[Yy]$ ]]; then
+ 			mason_time=$(date +%s)
+ 			printf "\nSyncing tooling (this may take a while)\n"
+ 			nvim --headless -c 'Mason' -c 'qall'
+ 			printf "\n\033[1m\033[36mNyoom successfully synced tooling in $(expr $(date +%s) - $mason_time)s\033[0m\n"
+-		fi
++		#fi
+ 	else
+ 		printf "\nMason module disabled: skipping"
+ 	fi

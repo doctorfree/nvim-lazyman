@@ -1,0 +1,26 @@
+--- lua/config/plugins.lua.00	2023-07-10 11:57:39.304149471 -0700
++++ lua/config/plugins.lua	2023-07-10 12:01:19.851587347 -0700
+@@ -97,7 +97,22 @@
+     lazy = false,
+     config = function()
+       require'nvim-treesitter.configs'.setup {
+-        ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
++        auto_install = true,
++        ensure_installed = {
++          "bash",
++          "html",
++          "json",
++          "lua",
++          "markdown",
++          "markdown_inline",
++          "query",
++          "python",
++          "regex",
++          "toml",
++          "vim",
++          "vimdoc",
++          "yaml",
++        },
+         highlight = {
+           enable = true,
+           --[[ disable = { "embedded_template" } ]]
