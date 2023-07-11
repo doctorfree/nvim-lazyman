@@ -774,7 +774,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### Lazyman Neovim Configuration Features
 
-![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazyman-plugins.png)
+<p float="left">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazyman-plugins.png" style="width:800px;height:600px;">
+</p>
 
 #### General ⚙️
 
@@ -811,7 +813,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 #### Navigation 🧭
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png" style="width:600px;height:800px;">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png" style="width:800px;height:800px;">
 </p>
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
@@ -822,7 +824,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Coding 🖥️
 
-![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png)
+<p float="left">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png" style="width:800px;height:600px;">
+</p>
 
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
