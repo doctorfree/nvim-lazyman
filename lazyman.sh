@@ -1008,6 +1008,45 @@ show_health() {
 }
 
 show_info() {
+  checkdir="$1"
+  nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+  if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]
+  then
+    have_open=$(type -p open)
+    if [ "${have_open}" ]
+    then
+      open ${LMANDIR}/info/html/${nvimconf}.html
+    else
+      have_gio=$(type -p gio)
+      if [ "${have_gio}" ]
+      then
+        gio open ${LMANDIR}/info/html/${nvimconf}.html
+      else
+        have_xdg=$(type -p xdg-open)
+        if [ "${have_xdg}" ]
+        then
+          xdg-open ${LMANDIR}/info/html/${nvimconf}.html
+        else
+          if [ -f ${LMANDIR}/info/${nvimconf}.md ]
+          then
+            NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+          else
+            echo "Unable to locate command to open ${LMANDIR}/info/html/${nvimconf}.html"
+          fi
+        fi
+      fi
+    fi
+  else
+    if [ -f ${LMANDIR}/info/${nvimconf}.md ]
+    then
+      NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+    else
+      echo "${LMANDIR}/info/html/${nvimconf}.html not found"
+    fi
+  fi
+}
+
+show_status() {
   nvim_version=$(nvim --version | head -2)
   printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
 
@@ -1775,7 +1814,7 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Health Check")
+    options+=("Config Info" "Health Check")
     numnvim=$(ps -ef | grep ' nvim ' | grep -v grep | wc -l)
     [ ${numnvim} -gt 0 ] && {
       [ -x ${KILLNVIM} ] && options+=("Kill All Nvim")
@@ -2353,6 +2392,17 @@ show_main_menu() {
           fi
           break
           ;;
+        "Config Info",* | *,"Config Info")
+          choices=()
+          for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+            choices+=("${neovim}")
+          done
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Information Display  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            lazyman -N "nvim-${choice}" info
+          fi
+          break
+          ;;
         "Health Check",* | *,"Health Check")
           choices=()
           items=()
@@ -2384,7 +2434,7 @@ show_main_menu() {
           ;;
         "Lazyman Status",* | *,"Lazyman Status")
           printf "\nPreparing Lazyman status report\n"
-          show_info >/tmp/lminfo$$
+          show_status >/tmp/lminfo$$
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="${LAZYMAN}" neovide /tmp/lminfo$$
           else
@@ -2838,9 +2888,17 @@ shift $((OPTIND - 1))
   exit 0
 }
 
+[ "$1" == "info" ] && {
+  checkdir="${LAZYMAN}"
+  [ "$name" ] && checkdir="$name"
+  printf "\nPreparing Lazyman information display for ${checkdir} Neovim configuration\n"
+  show_info "${checkdir}"
+  exit 0
+}
+
 [ "$1" == "status" ] && {
   printf "\nPreparing Lazyman status report\n"
-  show_info
+  show_status
   exit 0
 }
 
