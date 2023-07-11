@@ -810,7 +810,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Navigation 🧭
 
-![](https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png)
+<p float="left">
+  <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png" style="width:600px;height:800px;">
+</p>
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
@@ -832,6 +834,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
+- Auto-install and setup of dozens of language servers including: `ansiblels`, `astro`, `awk_ls`, `bashls`, `clangd`, `ccls`, `cmake`, `cssmodules_ls`, `denols`, `dockerls`, `eslint`, `gopls`, `graphql`, `html`, `jdtls`, `jsonls`, `julials`, `lua_ls`, `ltex`, `marksman`, `pylsp`, `pyright`, `rust_analyzer`, `sqlls`, `svelte`, `tailwindcss`, `taplo`, `texlab`, `tflint`, `tsserver`, `vimls`, `yamlls`
 
 ## Usage
 
