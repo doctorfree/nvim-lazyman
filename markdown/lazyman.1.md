@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-K config] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [init] [install] [open] [remove] [status] [usage]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-K config] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [info] [init] [install] [open] [remove] [status] [usage]
 
 ## FEATURES
 
@@ -257,6 +257,8 @@ The following command line options are available with the `lazyman` command:
 `-u` : displays this usage message and exits
 
 `health` : generate and display a health check for a configuration
+
+`info` : open an information page for a configuration in the default browser
 
 `init` : initialize specified Neovim configuration and exit
 

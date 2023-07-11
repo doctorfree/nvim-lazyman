@@ -55,7 +55,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]"
-  printf "\n   [health] [init] [install] [open] [remove] [status] [usage]"
+  printf "\n   [health] [info] [init] [install] [open] [remove] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -129,6 +129,7 @@ usage() {
   printf "\n    -K 'conf' indicates install 'conf' in development unsupported config"
   printf "\n    -u displays this usage message and exits"
   printf "\n    'health' generate and display a health check for a configuration"
+  printf "\n    'info' open an information page for a configuration in the default browser"
   printf "\n    'init' initialize specified Neovim configuration and exit"
   printf "\n    'install' fuzzy search and select configuration to install"
   printf "\n    'open' fuzzy search and select configuration to open"
