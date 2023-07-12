@@ -272,37 +272,37 @@ following configuration categories:
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |
-| [Abstract](info/Abstract.md) | [AstroNvimPlus](https://github.com/doctorfree/astronvim) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
+| [Abstract](info/Abstract.md) | [AstroNvimPlus](info/AstroNvimPlus.md) | [Basic IDE](info/BasicIde.md) | [Ecovim](info/Ecovim.md) | [LazyVim](info/LazyVim.md) |
+| [LunarVim](info/LunarVim.md) | [MagicVim](info/MagicVim.md) | [NvChad](info/NvChad.md) | [penguinVim](info/Penguin.md) | [SpaceVim](info/SpaceVim.md) |
 
 <!-- prettier-ignore -->
 | **Language** |       |        |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [CatNvim](https://github.com/nullchilly/CatNvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) | [Knvim](https://github.com/knmac/knvim) |
-| [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) |
-| [NV-IDE](https://github.com/crivotz/nv-ide) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
+| [AlanVim](info/AlanVim.md) | [Allaman](info/Allaman.md) | [CatNvim](info/CatNvim.md) | [Go](info/Go.md) | [Go2one](info/Go2one.md) | [Knvim](info/Knvim.md) |
+| [LaTeX](info/LaTeX.md) | [LazyIde](info/LazyIde.md) | [LunarIde](info/LunarIde.md) | [LvimIde](info/LvimIde.md) | [Magidc](info/Magidc.md) | [Nv](info/Nv.md) |
+| [NV-IDE](info/NV-IDE.md) | [Python](info/Python.md) | [Rust](info/Rust.md) | [SaleVim](info/SaleVim.md) | [Shuvro](info/Shuvro.md) | [Webdev](info/Webdev.md) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) |
-| [Daniel](https://github.com/daniel-vera-g/lvim) | [Dillon](https://github.com/dmmulroy/dotfiles) | [Elianiva](https://github.com/elianiva/dotfiles) | [Enrique](https://github.com/kiyov09/dotfiles) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
-| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) |
-| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) |
-| [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [xero](https://github.com/xero/dotfiles) | [Xiao](https://github.com/onichandame/nvim-config) |
+| [3rd](info/3rd.md) | [Adib](info/Adib.md) | [Brain](info/Brain.md) | [Charles](info/Charles.md) | [Craftzdog](info/Craftzdog.md) |
+| [Daniel](info/Daniel.md) | [Dillon](info/Dillon.md) | [Elianiva](info/Elianiva.md) | [Enrique](info/Enrique.md) | [Heiker](info/Heiker.md) |
+| [J4de](info/J4de.md) | [Josean](info/Josean.md) | [Metis](info/Metis.md) | [Mini](info/Mini.md) | [OnMyWay](info/OnMyWay.md) |
+| [ONNO](info/ONNO.md) | [Optixal](info/Optixal.md) | [Roiz](info/Roiz.md) | [Simple](info/Simple.md) | [Rafi](info/Rafi.md) |
+| [Slydragonn](info/Slydragonn.md) | [Spider](info/Spider.md) | [Traap](info/Traap.md) | [xero](info/xero.md) | [Xiao](info/Xiao.md) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       |       |        | **Configs** |
 | ----------- | ----- | ----- | ----- | ----- | ------ | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) |
-| [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim) | [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) |
-| [Normal](https://github.com/NormalNvim/NormalNvim) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Rohit](https://github.com/rohit-kumar-j/nvim) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
+| [AstroNvimStart](info/AstroNvimStart.md) | [Basic](info/Basic.md) | [CodeArt](info/CodeArt.md) | [CosmicNvim](info/Cosmic.md) | [Ember](info/Ember.md) | [Fennel](info/Fennel.md) | [HardHacker](info/HardHacker.md) |
+| [JustinLvim](info/JustinLvim.md) | [JustinNvim](info/JustinNvim.md) | [Kickstart](info/Kickstart.md) | [Kabin](info/Kabin.md) | [Lamia](info/Lamia.md) | [Micah](info/Micah.md) | [Modern](info/Modern.md) |
+| [Normal](info/Normal.md) | [nvim2k](info/2k.md) | [NvPak](info/NvPak.md) | [PDE](info/pde.md) | [Rohit](info/Rohit.md) | [Scratch](info/Scratch.md) | [SingleFile](info/SingleFile.md) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
 | --------------- | ----- | ----------- | ----- | ----------- |
-| [BasicLsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp) | [BasicMason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [LspCmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
-| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
+| [BasicLsp](info/BasicLsp.md) | [BasicMason](info/BasicMason.md) | [Extralight](info/Extralight.md) | [LspCmp](info/LspCmp.md) | [Minimal](info/Minimal.md) |
+| [Modular](info/Modular.md) | [Opinionated](info/Opinion.md) | [StartBase](info/StartBase.md) | [StartLsp](info/StartLsp.md) | [StartMason](info/StartMason.md) |
 
 ### Base configurations
 
