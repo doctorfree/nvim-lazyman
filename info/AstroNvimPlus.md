@@ -1,12 +1,9 @@
 ## AstroNvimPlus Neovim Configuration Information
 
-The AstroNvimPlus Neovim configuration is in the Base configuration category
-
-The AstroNvimPlus Neovim configuration is based on [AstroNvim](https://astronvim.com)
-
-The AstroNvimPlus Neovim configuration uses the Lazy plugin manager
-
-The AstroNvimPlus Neovim configuration is installed in `~/.config/nvim-AstroNvimPlus`
+- Configuration category: `Base`
+- Base configuration:     `[AstroNvim](https://astronvim.com)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-AstroNvimPlus`
 
 ### Github repository
 

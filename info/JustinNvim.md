@@ -1,14 +1,70 @@
 ## JustinNvim Neovim Configuration Information
 
-The JustinNvim Neovim configuration is in the Starter configuration category
-
-The JustinNvim Neovim configuration is based on [LazyVim](https://lazyvim.github.io)
-
-The JustinNvim Neovim configuration uses the Lazy plugin manager
-
-The JustinNvim Neovim configuration is installed in `~/.config/nvim-JustinNvim`
+- Configuration category: `Starter`
+- Base configuration:     `[LazyVim](https://lazyvim.github.io)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-JustinNvim`
 
 ### Github repository
 
 [https://github.com/justinsgithub/dotfiles](https://github.com/justinsgithub/dotfiles)
 
+### Lazy managed plugins
+
+- LazyVim
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- flash.nvim
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- lazy.nvim
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
+- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- mini.ai
+- mini.bufremove
+- mini.comment
+- mini.indentscope
+- mini.pairs
+- mini.surround
+- neoconf.nvim
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+- [folke/noice.nvim](https://github.com/folke/noice.nvim)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- nvim-spectre
+- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- oh-my-monokai.nvim
+- persistence.nvim
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- treesj
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- vim-autocorrect
+- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
+- vim-startuptime
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+- [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

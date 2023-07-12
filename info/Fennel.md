@@ -1,14 +1,80 @@
 ## Fennel Neovim Configuration Information
 
-The Fennel Neovim configuration is in the Starter configuration category
-
-The Fennel Neovim configuration is a custom design
-
-The Fennel Neovim configuration uses the Packer plugin manager
-
-The Fennel Neovim configuration is installed in `~/.config/nvim-Fennel`
+- Configuration category: `Starter`
+- Base configuration:     `Custom`
+- Plugin manager:         `Packer`
+- Installation location:  `~/.config/nvim-Fennel`
 
 ### Github repository
 
 [https://github.com/jhchabran/nvim-config](https://github.com/jhchabran/nvim-config)
 
+### Packer managed plugins
+
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [numtostr/FTerm.nvim](https://github.com/numtostr/FTerm.nvim)
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [hrsh7th/cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
+- [Olical/conjure](https://github.com/Olical/conjure)
+- [junegunn/fzf](https://github.com/junegunn/fzf)
+- [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
+- [lourenci/github-colors](https://github.com/lourenci/github-colors)
+- [ruifm/gitlinker.nvim](https://github.com/ruifm/gitlinker.nvim)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [luisiacc/gruvbox-baby](https://github.com/luisiacc/gruvbox-baby)
+- [lambdalisue/guise.vim](https://github.com/lambdalisue/guise.vim)
+- [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim)
+- [rktjmp/hotpot.nvim](https://github.com/rktjmp/hotpot.nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [simrat39/inlay-hints.nvim](https://github.com/simrat39/inlay-hints.nvim)
+- [ray-x/lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
+- [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
+- [folke/lua-dev.nvim](https://github.com/folke/lua-dev.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [phaazon/mind.nvim](https://github.com/phaazon/mind.nvim)
+- [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
+- [code-biscuits/nvim-biscuits](https://github.com/code-biscuits/nvim-biscuits)
+- [ojroques/nvim-bufdel](https://github.com/ojroques/nvim-bufdel)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
+- [kosayoda/nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb)
+- [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [ojroques/nvim-lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [gpanders/nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
+- [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
+- [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)
+- [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
+- [nvim-telescope/telescope-dap.nvim](https://github.com/nvim-telescope/telescope-dap.nvim)
+- [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [nvim-telescope/telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)
+- [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
+- [nvim-telescope/telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [jjo/vim-cue](https://github.com/jjo/vim-cue)
+- [junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [romainl/vim-qf](https://github.com/romainl/vim-qf)
+- [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
+- [psliwka/vim-smoothie](https://github.com/psliwka/vim-smoothie)
+- [tpope/vim-surround](https://github.com/tpope/vim-surround)
+- [vim-test/vim-test](https://github.com/vim-test/vim-test)
+- [tpope/vim-vinegar](https://github.com/tpope/vim-vinegar)
+- [bronson/vim-visual-star-search](https://github.com/bronson/vim-visual-star-search)
+- [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip)
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+- [ziglang/zig.vim](https://github.com/ziglang/zig.vim)

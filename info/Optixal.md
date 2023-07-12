@@ -1,12 +1,9 @@
 ## Optixal Neovim Configuration Information
 
-The Optixal Neovim configuration is in the Personal configuration category
-
-The Optixal Neovim configuration is a custom design
-
-The Optixal Neovim configuration uses the Plug plugin manager
-
-The Optixal Neovim configuration is installed in `~/.config/nvim-Optixal`
+- Configuration category: `Personal`
+- Base configuration:     `Custom`
+- Plugin manager:         `Plug`
+- Installation location:  `~/.config/nvim-Optixal`
 
 ### Github repository
 
@@ -16,3 +13,6 @@ The Optixal Neovim configuration is installed in `~/.config/nvim-Optixal`
 
 [http://neovimcraft.com/plugin/Optixal/neovim-init.vim](http://neovimcraft.com/plugin/Optixal/neovim-init.vim)
 
+### Plug managed plugins
+
+- TBD

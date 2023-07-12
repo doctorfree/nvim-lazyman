@@ -1,12 +1,9 @@
 ## SpaceVim Neovim Configuration Information
 
-The SpaceVim Neovim configuration is in the Base configuration category
-
-The SpaceVim Neovim configuration is based on [SpaceVim](https://spacevim.org)
-
-The SpaceVim Neovim configuration uses the Lazy plugin manager
-
-The SpaceVim Neovim configuration is installed in `~/.config/nvim-SpaceVim`
+- Configuration category: `Base`
+- Base configuration:     `[SpaceVim](https://spacevim.org)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-SpaceVim`
 
 ### Github repository
 

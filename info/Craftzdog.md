@@ -1,12 +1,9 @@
 ## Craftzdog Neovim Configuration Information
 
-The Craftzdog Neovim configuration is in the Personal configuration category
-
-The Craftzdog Neovim configuration is a custom design
-
-The Craftzdog Neovim configuration uses the Lazy plugin manager
-
-The Craftzdog Neovim configuration is installed in `~/.config/nvim-Craftzdog`
+- Configuration category: `Personal`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Craftzdog`
 
 ### Github repository
 

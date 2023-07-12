@@ -1,12 +1,9 @@
 ## Kabin Neovim Configuration Information
 
-The Kabin Neovim configuration is in the Starter configuration category
-
-The Kabin Neovim configuration is based on [AstroNvim](https://astronvim.com)
-
-The Kabin Neovim configuration uses the Lazy plugin manager
-
-The Kabin Neovim configuration is installed in `~/.config/nvim-Kabin`
+- Configuration category: `Starter`
+- Base configuration:     `[AstroNvim](https://astronvim.com)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Kabin`
 
 ### Github repository
 

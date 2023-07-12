@@ -1,14 +1,18 @@
 ## LspCmp Neovim Configuration Information
 
-The LspCmp Neovim configuration is in the Starter configuration category
-
-The LspCmp Neovim configuration is a custom design
-
-The LspCmp Neovim configuration uses the Lazy plugin manager
-
-The LspCmp Neovim configuration is installed in `~/.config/nvim-LspCmp`
+- Configuration category: `Starter`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-LspCmp`
 
 ### Github repository
 
 [https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp)
 
+### Lazy managed plugins
+
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- lazy.nvim
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)

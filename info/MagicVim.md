@@ -1,12 +1,9 @@
 ## MagicVim Neovim Configuration Information
 
-The MagicVim Neovim configuration is in the Base configuration category
-
-The MagicVim Neovim configuration is a custom design
-
-The MagicVim Neovim configuration uses the Lazy plugin manager
-
-The MagicVim Neovim configuration is installed in `~/.config/nvim-MagicVim`
+- Configuration category: `Base`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-MagicVim`
 
 ### Github repository
 

@@ -1,12 +1,9 @@
 ## Spider Neovim Configuration Information
 
-The Spider Neovim configuration is in the Personal configuration category
-
-The Spider Neovim configuration is based on [AstroNvim](https://astronvim.com)
-
-The Spider Neovim configuration uses the Lazy plugin manager
-
-The Spider Neovim configuration is installed in `~/.config/nvim-Spider`
+- Configuration category: `Personal`
+- Base configuration:     `[AstroNvim](https://astronvim.com)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Spider`
 
 ### Github repository
 

@@ -1,14 +1,109 @@
 ## LunarIde Neovim Configuration Information
 
-The LunarIde Neovim configuration is in the Language configuration category
-
-The LunarIde Neovim configuration is based on [LunarVim](https://www.lunarvim.org)
-
-The LunarIde Neovim configuration uses the Lazy plugin manager
-
-The LunarIde Neovim configuration is installed in `~/.config/nvim-LunarIde`
+- Configuration category: `Language`
+- Base configuration:     `[LunarVim](https://www.lunarvim.org)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-LunarIde`
 
 ### Github repository
 
 [https://github.com/doctorfree/lvim-Christian](https://github.com/doctorfree/lvim-Christian)
 
+### Lazy managed plugins
+
+- ChatGPT.nvim
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- bigfile.nvim
+- bookmark.nvim
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- cmp-emoji
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- copilot-cmp
+- copilot.lua
+- crates.nvim
+- darkplus.nvim
+- dial.nvim
+- diffview.nvim
+- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- eyeliner.nvim
+- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- git-blame.nvim
+- [ruifm/gitlinker.nvim](https://github.com/ruifm/gitlinker.nvim)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- gopher.nvim
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- jaq-nvim
+- lab.nvim
+- lazy.nvim
+- lir.nvim
+- lsp-inlayhints.nvim
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- lunar.nvim
+- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- modicator.nvim
+- neoai.nvim
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+- neogit
+- [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
+- [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python)
+- nlsp-settings.nvim
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- numb.nvim
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- nvim-bqf
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
+- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- nvim-dap-python
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- nvim-dap-vscode-js
+- nvim-dbee
+- nvim-jdtls
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- nvim-scrollbar
+- nvim-spectre
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+- nvim-ts-rainbow2
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
+- onedarker.nvim
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- primer.nvim
+- [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
+- schemastore.nvim
+- [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)
+- structlog.nvim
+- swenv.nvim
+- synthwave84.nvim
+- tailwindcss-colorizer-cmp.nvim
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+- telescope-tabs
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
+- [moll/vim-bbye](https://github.com/moll/vim-bbye)
+- vim-be-good
+- vim-gist
+- [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
+- [psliwka/vim-smoothie](https://github.com/psliwka/vim-smoothie)
+- webapi-vim
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+- [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

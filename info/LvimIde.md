@@ -1,12 +1,9 @@
 ## LvimIde Neovim Configuration Information
 
-The LvimIde Neovim configuration is in the Language configuration category
-
-The LvimIde Neovim configuration is a custom design
-
-The LvimIde Neovim configuration uses the Lazy plugin manager
-
-The LvimIde Neovim configuration is installed in `~/.config/nvim-LvimIde`
+- Configuration category: `Language`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-LvimIde`
 
 ### Github repository
 
@@ -16,3 +13,131 @@ The LvimIde Neovim configuration is installed in `~/.config/nvim-LvimIde`
 
 [http://neovimcraft.com/plugin/lvim-tech/lvim](http://neovimcraft.com/plugin/lvim-tech/lvim)
 
+### Lazy managed plugins
+
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- Navigator.nvim
+- NeoComposer.nvim
+- NeoZoom.lua
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- any-jump.vim
+- calendar-vim
+- ccc.nvim
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
+- [kdheepak/cmp-latex-symbols](https://github.com/kdheepak/cmp-latex-symbols)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- code_runner.nvim
+- crates.nvim
+- dial.nvim
+- diffview.nvim
+- dirbuf.nvim
+- flash.nvim
+- [akinsho/flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim)
+- fold-preview.nvim
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [junegunn/fzf](https://github.com/junegunn/fzf)
+- fzf-lua
+- gitignore.nvim
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- glance.nvim
+- go.nvim
+- guihua.lua
+- heirline.nvim
+- hydra.nvim
+- inc-rename.nvim
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- lazy.nvim
+- lvim-colorscheme
+- lvim-fm
+- lvim-forgit
+- lvim-helper
+- lvim-linguistics
+- lvim-move
+- lvim-org-utils
+- lvim-qf-loc
+- lvim-shell
+- lvim-ui-config
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- mini.files
+- neo-tree-diagnostics.nvim
+- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- neoconf.nvim
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+- neogen
+- neogit
+- [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
+- neotest-dart
+- neotest-elixir
+- neotest-go
+- neotest-haskell
+- neotest-phpunit
+- [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python)
+- neotest-rust
+- netrw.nvim
+- [folke/noice.nvim](https://github.com/folke/noice.nvim)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- nvim-bqf
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- nvim-dap-vscode-js
+- nvim-hlslens
+- nvim-jdtls
+- nvim-lastplace
+- [kosayoda/nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- nvim-metals
+- nvim-navbuddy
+- [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- nvim-peekup
+- nvim-pqf
+- nvim-spectre
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- nvim-various-textobjs
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- nvim-window-picker
+- octo.nvim
+- one-small-step-for-vimkind
+- orgmode
+- package-info.nvim
+- [nvim-treesitter/playground](https://github.com/nvim-treesitter/playground)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
+- pretty-fold.nvim
+- pubspec-assist.nvim
+- rest.nvim
+- rg.nvim
+- [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
+- sniprun
+- [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)
+- stay-in-place.nvim
+- [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+- tabby.nvim
+- [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+- telescope-tmux.nvim
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- twilight.nvim
+- [mbbill/undotree](https://github.com/mbbill/undotree)
+- vim-bufsurf
+- vim-ctrlspace
+- vim-dadbod
+- vim-dadbod-completion
+- vim-dadbod-ui
+- vim-table-mode
+- [lervag/vimtex](https://github.com/lervag/vimtex)
+- winshift.nvim
+- [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

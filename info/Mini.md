@@ -1,12 +1,9 @@
 ## Mini Neovim Configuration Information
 
-The Mini Neovim configuration is in the Personal configuration category
-
-The Mini Neovim configuration is a custom design
-
-The Mini Neovim configuration uses the Lazy plugin manager
-
-The Mini Neovim configuration is installed in `~/.config/nvim-Mini`
+- Configuration category: `Personal`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Mini`
 
 ### Github repository
 

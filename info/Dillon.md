@@ -1,12 +1,9 @@
 ## Dillon Neovim Configuration Information
 
-The Dillon Neovim configuration is in the Personal configuration category
-
-The Dillon Neovim configuration is a custom design
-
-The Dillon Neovim configuration uses the Lazy plugin manager
-
-The Dillon Neovim configuration is installed in `~/.config/nvim-Dillon`
+- Configuration category: `Personal`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Dillon`
 
 ### Github repository
 

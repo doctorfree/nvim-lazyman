@@ -1,12 +1,9 @@
 ## xero Neovim Configuration Information
 
-The xero Neovim configuration is in the Personal configuration category
-
-The xero Neovim configuration is a custom design
-
-The xero Neovim configuration uses the Lazy plugin manager
-
-The xero Neovim configuration is installed in `~/.config/nvim-xero`
+- Configuration category: `Personal`
+- Base configuration:     `Custom`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-xero`
 
 ### Github repository
 

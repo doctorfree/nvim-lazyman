@@ -1,12 +1,9 @@
 ## Normal Neovim Configuration Information
 
-The Normal Neovim configuration is in the Starter configuration category
-
-The Normal Neovim configuration is based on [AstroNvim](https://astronvim.com)
-
-The Normal Neovim configuration uses the Lazy plugin manager
-
-The Normal Neovim configuration is installed in `~/.config/nvim-Normal`
+- Configuration category: `Starter`
+- Base configuration:     `[AstroNvim](https://astronvim.com)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Normal`
 
 ### Github repository
 

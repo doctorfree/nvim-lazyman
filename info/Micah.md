@@ -1,12 +1,9 @@
 ## Micah Neovim Configuration Information
 
-The Micah Neovim configuration is in the Starter configuration category
-
-The Micah Neovim configuration is based on [AstroNvim](https://astronvim.com)
-
-The Micah Neovim configuration uses the Lazy plugin manager
-
-The Micah Neovim configuration is installed in `~/.config/nvim-Micah`
+- Configuration category: `Starter`
+- Base configuration:     `[AstroNvim](https://astronvim.com)`
+- Plugin manager:         `Lazy`
+- Installation location:  `~/.config/nvim-Micah`
 
 ### Github repository
 

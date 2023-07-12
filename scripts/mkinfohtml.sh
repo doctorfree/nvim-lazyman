@@ -12,6 +12,7 @@ for i in *.md                                                                   
 do
   [ "$i" == "*.md" ] && continue
   j=`echo $i | sed -e "s/.md/.html/"`
+  echo "Generating HTML from $i"
   pandoc -t html -o html/$j $i
 done
 exit 0
