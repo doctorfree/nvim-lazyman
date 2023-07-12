@@ -4,14 +4,27 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.8r1
+
+### ⚡️ Added
+
 - Add `xero` to `Personals`
 - Add `NV-IDE` to `Languages`
+- Generate configuration info documents
+- Add `Config Info` to main menu and info argument to `lazyman`
+- Add list of language servers installed, style dashboard screenshot
+- Add `CatNvim` config to `Languages`
+- Add to list of features
 
 ### 🐞 Fixed
 
 - Move `nvim-2k` to `Starters`
 - Fix hide and show list menu logic
 - Add patches for `Nyoom` and `NV-IDE`
+- Change all config links in `README` and `Release Notes` to info pages
+- Info page generation improvements
 
 ## v2.1.7r4
 

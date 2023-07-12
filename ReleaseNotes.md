@@ -2,7 +2,7 @@
 
 This major new release of `lazyman` supports over 80 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.7r4/lazyman.sh) script. Download and execute to get started:
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.8r1/lazyman.sh) script. Download and execute to get started:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -16,37 +16,37 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
 | -------- | ----- | ----- | ------| ----------- |
-| [Abstract](https://github.com/Abstract-IDE/Abstract) | [AstroNvimPlus](https://github.com/doctorfree/astronvim) | [Basic IDE](https://github.com/LunarVim/nvim-basic-ide) | [Ecovim](https://github.com/ecosse3/nvim) | [LazyVim](https://github.com/LazyVim/LazyVim) |
-| [LunarVim](https://github.com/LunarVim/LunarVim) | [MagicVim](https://gitlab.com/GitMaster210/magicvim) | [NvChad](https://nvchad.com/) | [penguinVim](https://github.com/p3nguin-kun/penguinVim) | [SpaceVim](https://spacevim.org) |
+| [Abstract](https://github.com/doctorfree/info/Abstract.md) | [AstroNvimPlus](https://github.com/doctorfree/info/AstroNvimPlus.md) | [Basic IDE](https://github.com/doctorfree/info/BasicIde.md) | [Ecovim](https://github.com/doctorfree/info/Ecovim.md) | [LazyVim](https://github.com/doctorfree/info/LazyVim.md) |
+| [LunarVim](https://github.com/doctorfree/info/LunarVim.md) | [MagicVim](https://github.com/doctorfree/info/MagicVim.md) | [NvChad](https://github.com/doctorfree/info/NvChad.md) | [penguinVim](https://github.com/doctorfree/info/Penguin.md) | [SpaceVim](https://github.com/doctorfree/info/SpaceVim.md) |
 
 <!-- prettier-ignore -->
 | **Language** |       |        |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ------ | ----------- |
-| [AlanVim](https://github.com/alanRizzo/dot-files) | [Allaman](https://github.com/Allaman/nvim) | [CatNvim](https://github.com/nullchilly/CatNvim) | [Go](https://github.com/dreamsofcode-io/neovim-go-config) | [Go2one](https://github.com/leoluz/go2one) | [Knvim](https://github.com/knmac/knvim) |
-| [LaTeX](https://github.com/benbrastmckie/.config) | [LazyIde](https://github.com/doctorfree/nvim-LazyIde) | [LunarIde](https://github.com/doctorfree/lvim-Christian) | [LvimIde](https://github.com/lvim-tech/lvim) | [Magidc](https://github.com/magidc/nvim-config) | [Nv](https://github.com/appelgriebsch/Nv) |
-| [NV-IDE](https://github.com/crivotz/nv-ide) | [Python](https://github.com/dreamsofcode-io/neovim-python) | [Rust](https://github.com/dreamsofcode-io/neovim-rust) | [SaleVim](https://github.com/igorcguedes/SaleVim) | [Shuvro](https://github.com/shuvro/lvim) | [Webdev](https://github.com/doctorfree/nvim-webdev) |
+| [AlanVim](https://github.com/doctorfree/info/AlanVim.md) | [Allaman](https://github.com/doctorfree/info/Allaman.md) | [CatNvim](https://github.com/doctorfree/info/CatNvim.md) | [Go](https://github.com/doctorfree/info/Go.md) | [Go2one](https://github.com/doctorfree/info/Go2one.md) | [Knvim](https://github.com/doctorfree/info/Knvim.md) |
+| [LaTeX](https://github.com/doctorfree/info/LaTeX.md) | [LazyIde](https://github.com/doctorfree/info/LazyIde.md) | [LunarIde](https://github.com/doctorfree/info/LunarIde.md) | [LvimIde](https://github.com/doctorfree/info/LvimIde.md) | [Magidc](https://github.com/doctorfree/info/Magidc.md) | [Nv](https://github.com/doctorfree/info/Nv.md) |
+| [NV-IDE](https://github.com/doctorfree/info/NV-IDE.md) | [Python](https://github.com/doctorfree/info/Python.md) | [Rust](https://github.com/doctorfree/info/Rust.md) | [SaleVim](https://github.com/doctorfree/info/SaleVim.md) | [Shuvro](https://github.com/doctorfree/info/Shuvro.md) | [Webdev](https://github.com/doctorfree/info/Webdev.md) |
 
 <!-- prettier-ignore -->
 | **Personal** |       |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ----------- |
-| [3rd](https://github.com/3rd/config) | [Adib](https://github.com/adibhanna/nvim) | [Brain](https://github.com/brainfucksec/neovim-lua) | [Charles](https://github.com/CharlesChiuGit/nvimdots.lua) | [Craftzdog](https://github.com/craftzdog/dotfiles-public) |
-| [Daniel](https://github.com/daniel-vera-g/lvim) | [Dillon](https://github.com/dmmulroy/dotfiles) | [Elianiva](https://github.com/elianiva/dotfiles) | [Enrique](https://github.com/kiyov09/dotfiles) | [Heiker](https://github.com/VonHeikemen/dotfiles) |
-| [J4de](https://codeberg.org/j4de/nvim) | [Josean](https://github.com/josean-dev/dev-environment-files) | [Metis](https://github.com/metis-os/pwnvim) | [Mini](https://github.com/echasnovski/nvim) | [OnMyWay](https://github.com/RchrdAlv/NvimOnMy_way) |
-| [ONNO](https://github.com/loctvl842/nvim.git) | [Optixal](https://github.com/Optixal/neovim-init.vim) | [Roiz](https://github.com/MrRoiz/rnvim) | [Simple](https://github.com/anthdm/.nvim) | [Rafi](https://github.com/rafi/vim-config) |
-| [Slydragonn](https://github.com/slydragonn/dotfiles) | [Spider](https://github.com/fearless-spider/FSAstroNvim) | [Traap](https://github.com/Traap/nvim) | [xero](https://github.com/xero/dotfiles) | [Xiao](https://github.com/onichandame/nvim-config) |
+| [3rd](https://github.com/doctorfree/info/3rd.md) | [Adib](https://github.com/doctorfree/info/Adib.md) | [Brain](https://github.com/doctorfree/info/Brain.md) | [Charles](https://github.com/doctorfree/info/Charles.md) | [Craftzdog](https://github.com/doctorfree/info/Craftzdog.md) |
+| [Daniel](https://github.com/doctorfree/info/Daniel.md) | [Dillon](https://github.com/doctorfree/info/Dillon.md) | [Elianiva](https://github.com/doctorfree/info/Elianiva.md) | [Enrique](https://github.com/doctorfree/info/Enrique.md) | [Heiker](https://github.com/doctorfree/info/Heiker.md) |
+| [J4de](https://github.com/doctorfree/info/J4de.md) | [Josean](https://github.com/doctorfree/info/Josean.md) | [Metis](https://github.com/doctorfree/info/Metis.md) | [Mini](https://github.com/doctorfree/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/info/OnMyWay.md) |
+| [ONNO](https://github.com/doctorfree/info/ONNO.md) | [Optixal](https://github.com/doctorfree/info/Optixal.md) | [Roiz](https://github.com/doctorfree/info/Roiz.md) | [Simple](https://github.com/doctorfree/info/Simple.md) | [Rafi](https://github.com/doctorfree/info/Rafi.md) |
+| [Slydragonn](https://github.com/doctorfree/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/info/Spider.md) | [Traap](https://github.com/doctorfree/info/Traap.md) | [xero](https://github.com/doctorfree/info/xero.md) | [Xiao](https://github.com/doctorfree/info/Xiao.md) |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       |       |        | **Configs** |
 | ----------- | ----- | ----- | ----- | ----- | ------ | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/AstroNvimStart) | [Basic](https://github.com/NvChad/basic-config) | [CodeArt](https://github.com/artart222/CodeArt) | [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim) | [Ember](https://github.com/danlikestocode/embervim) | [Fennel](https://github.com/jhchabran/nvim-config) | [HardHacker](https://github.com/hardhackerlabs/oh-my-nvim) |
-| [JustinLvim](https://github.com/justinsgithub/dotfiles/tree/main/lunarvim/.config/lvim) | [JustinNvim](https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim) | [Kickstart](https://github.com/nvim-lua/kickstart.nvim) | [Kabin](https://github.com/kabinspace/AstroNvim_user) | [Lamia](https://github.com/A-Lamia/AstroNvim-conf) | [Micah](https://code.mehalter.com/AstroNvim_user) | [Modern](https://github.com/alpha2phi/modern-neovim) |
-| [Normal](https://github.com/NormalNvim/NormalNvim) | [nvim2k](https://github.com/2KAbhishek/nvim2k) | [NvPak](https://github.com/Pakrohk-DotFiles/NvPak.git) | [PDE](https://github.com/alpha2phi/neovim-pde) | [Rohit](https://github.com/rohit-kumar-j/nvim) | [Scratch](https://github.com/ngscheurich/nvim-from-scratch) | [SingleFile](https://github.com/creativenull/nvim-oneconfig) |
+| [AstroNvimStart](https://github.com/doctorfree/info/AstroNvimStart.md) | [Basic](https://github.com/doctorfree/info/Basic.md) | [CodeArt](https://github.com/doctorfree/info/CodeArt.md) | [CosmicNvim](https://github.com/doctorfree/info/Cosmic.md) | [Ember](https://github.com/doctorfree/info/Ember.md) | [Fennel](https://github.com/doctorfree/info/Fennel.md) | [HardHacker](https://github.com/doctorfree/info/HardHacker.md) |
+| [JustinLvim](https://github.com/doctorfree/info/JustinLvim.md) | [JustinNvim](https://github.com/doctorfree/info/JustinNvim.md) | [Kickstart](https://github.com/doctorfree/info/Kickstart.md) | [Kabin](https://github.com/doctorfree/info/Kabin.md) | [Lamia](https://github.com/doctorfree/info/Lamia.md) | [Micah](https://github.com/doctorfree/info/Micah.md) | [Modern](https://github.com/doctorfree/info/Modern.md) |
+| [Normal](https://github.com/doctorfree/info/Normal.md) | [nvim2k](https://github.com/doctorfree/info/2k.md) | [NvPak](https://github.com/doctorfree/info/NvPak.md) | [PDE](https://github.com/doctorfree/info/pde.md) | [Rohit](https://github.com/doctorfree/info/Rohit.md) | [Scratch](https://github.com/doctorfree/info/Scratch.md) | [SingleFile](https://github.com/doctorfree/info/SingleFile.md) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
 | --------------- | ----- | ----------- | ----- | ----------- |
-| [BasicLsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp) | [BasicMason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason) | [Extralight](https://github.com/VonHeikemen/nvim-starter/tree/xx-light) | [LspCmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp) | [Minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal) |
-| [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) | [Opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated) | [StartBase](https://github.com/VonHeikemen/nvim-starter/tree/01-base) | [StartLsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp) | [StartMason](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer) |
+| [BasicLsp](https://github.com/doctorfree/info/BasicLsp.md) | [BasicMason](https://github.com/doctorfree/info/BasicMason.md) | [Extralight](https://github.com/doctorfree/info/Extralight.md) | [LspCmp](https://github.com/doctorfree/info/LspCmp.md) | [Minimal](https://github.com/doctorfree/info/Minimal.md) |
+| [Modular](https://github.com/doctorfree/info/Modular.md) | [Opinionated](https://github.com/doctorfree/info/Opinion.md) | [StartBase](https://github.com/doctorfree/info/StartBase.md) | [StartLsp](https://github.com/doctorfree/info/StartLsp.md) | [StartMason](https://github.com/doctorfree/info/StartMason.md) |
 
 In addition, Lazyman installs and initializes the Lazyman Neovim configuration, a richly configured Neovim environment using Lua, Lazy, and Mason to support highlighting, completion, diagnostics, and more for many programming languages.
 
@@ -92,7 +92,7 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman instal
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.7r4/lazyman.sh).
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v2.1.8r1/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 
