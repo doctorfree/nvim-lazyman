@@ -1,8 +1,8 @@
 ## Rohit Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Rohit`
 
 ### Github repository
@@ -13,37 +13,37 @@
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- bluloco.nvim
+- [uloco/bluloco.nvim](https://github.com/uloco/bluloco.nvim.git)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
-- cmake-tools.nvim
+- [rohit-kumar-j/cmake-tools.nvim](https://github.com/rohit-kumar-j/cmake-tools.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- cppman.nvim
+- [madskjeldgaard/cppman.nvim](https://github.com/madskjeldgaard/cppman.nvim.git)
 - [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- github-nvim-theme
+- [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- glow.nvim
+- [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim.git)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lazygit.nvim
+- [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim.git)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- lush.nvim
-- markid
+- [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
+- [David-Kunz/markid](https://github.com/David-Kunz/markid.git)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- mason-tool-installer.nvim
+- [WhoIsSethDaniel/mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim.git)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
-- monokai.nvim
+- [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)
 - [Shatur/neovim-ayu](https://github.com/Shatur/neovim-ayu)
@@ -54,37 +54,37 @@
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [terrortylor/nvim-comment](https://github.com/terrortylor/nvim-comment)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- nvim-dap-projects
+- [ldelossa/nvim-dap-projects](https://github.com/ldelossa/nvim-dap-projects.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- nvim-juliana
+- [kaiuri/nvim-juliana](https://github.com/kaiuri/nvim-juliana.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- nvim-workbench
+- [weizheheng/nvim-workbench](https://github.com/weizheheng/nvim-workbench.git)
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [olimorris/onedarkpro.nvim](https://github.com/olimorris/onedarkpro.nvim)
-- oxocarbon.nvim
+- [nyoom-engineering/oxocarbon.nvim](https://github.com/nyoom-engineering/oxocarbon.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
-- rose-pine
+- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [nvim-telescope/telescope-dap.nvim](https://github.com/nvim-telescope/telescope-dap.nvim)
 - [nvim-telescope/telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- tidy.nvim
+- [mcauley-penney/tidy.nvim](https://github.com/mcauley-penney/tidy.nvim.git)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-- tokyodark.nvim
+- [tiagovla/tokyodark.nvim](https://github.com/tiagovla/tokyodark.nvim.git)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [Pocco81/true-zen.nvim](https://github.com/Pocco81/true-zen.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
-- vim-aylin
+- [AhmedAbdulrahman/vim-aylin](https://github.com/AhmedAbdulrahman/vim-aylin.git)
 - [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - [bluz71/vim-moonfly-colors](https://github.com/bluz71/vim-moonfly-colors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- wrapping.nvim
+- [andrewferrier/wrapping.nvim](https://github.com/andrewferrier/wrapping.nvim.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-- zenbones.nvim
+- [mcchrish/zenbones.nvim](https://github.com/mcchrish/zenbones.nvim.git)

@@ -1,8 +1,8 @@
 ## Brain Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Brain`
 
 ### Github repository
@@ -25,7 +25,7 @@
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- monokai.nvim
+- [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -34,5 +34,5 @@
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- rose-pine
-- tagbar
+- [rose-pine/neovim](https://github.com/rose-pine/neovim)
+- [preservim/tagbar](https://github.com/preservim/tagbar.git)

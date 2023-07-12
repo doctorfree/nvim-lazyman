@@ -1,8 +1,8 @@
 ## LaTeX Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `Custom`
-- Plugin manager:         `Packer`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-LaTeX`
 
 ### Github repository

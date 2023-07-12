@@ -1,8 +1,8 @@
 ## MagicVim Neovim Configuration Information
 
-- Configuration category: `Base`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-MagicVim`
 
 ### Github repository

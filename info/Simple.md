@@ -1,8 +1,8 @@
 ## Simple Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Packer`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-Simple`
 
 ### Github repository

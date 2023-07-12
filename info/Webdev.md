@@ -1,8 +1,8 @@
 ## Webdev Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `[LazyVim](https://lazyvim.github.io)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     [LazyVim](https://lazyvim.github.io)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Webdev`
 
 ### Github repository
@@ -11,7 +11,7 @@
 
 ### Lazy managed plugins
 
-- LazyVim
+- [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
@@ -20,32 +20,32 @@
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-tabnine
+- [tzachar/cmp-tabnine](https://github.com/tzachar/cmp-tabnine.git)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [neanias/everforest-nvim](https://github.com/neanias/everforest-nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
-- fold-preview.nvim
+- [anuvyklack/fold-preview.nvim](https://github.com/anuvyklack/fold-preview.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
-- keymap-amend.nvim
+- [anuvyklack/keymap-amend.nvim](https://github.com/anuvyklack/keymap-amend.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- mini.ai
-- mini.bufremove
+- [echasnovski/mini.ai](https://github.com/echasnovski/mini.ai.git)
+- [echasnovski/mini.bufremove](https://github.com/echasnovski/mini.bufremove.git)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
 - [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
-- mini.pairs
-- mini.surround
+- [echasnovski/mini.pairs](https://github.com/echasnovski/mini.pairs.git)
+- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround.git)
 - [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- neoconf.nvim
+- [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
 - [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
@@ -66,12 +66,12 @@
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [olimorris/onedarkpro.nvim](https://github.com/olimorris/onedarkpro.nvim)
-- persistence.nvim
+- [folke/persistence.nvim](https://github.com/folke/persistence.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
-- tailwindcss-colorizer-cmp.nvim
+- [roobert/tailwindcss-colorizer-cmp.nvim](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [rebelot/terminal.nvim](https://github.com/rebelot/terminal.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
@@ -81,9 +81,9 @@
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- vim-jsdoc
+- [heavenshell/vim-jsdoc](https://github.com/heavenshell/vim-jsdoc.git)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [dstein64/vim-startuptime](https://github.com/dstein64/vim-startuptime)
-- vim-wakatime
+- [wakatime/vim-wakatime](https://github.com/wakatime/vim-wakatime.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

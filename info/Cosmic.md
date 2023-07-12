@@ -1,8 +1,8 @@
 ## Cosmic Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Cosmic`
 
 ### Github repository
@@ -22,20 +22,20 @@
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
-- auto-session
+- [rmagatti/auto-session](https://github.com/rmagatti/auto-session.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- cosmic-ui
+- [CosmicNvim/cosmic-ui](https://github.com/CosmicNvim/cosmic-ui.git)
 - [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lightspeed.nvim
-- lsp_lines.nvim
+- [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim.git)
+- [~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)

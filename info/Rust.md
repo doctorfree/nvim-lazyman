@@ -1,8 +1,8 @@
 ## Rust Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `[NvChad](https://nvchad.com)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     [NvChad](https://nvchad.com)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Rust`
 
 ### Github repository
@@ -13,14 +13,14 @@
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- base46
+- [NvChad/base46](https://github.com/NvChad/base46.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- crates.nvim
-- extensions
+- [saecki/crates.nvim](https://github.com/saecki/crates.nvim.git)
+- [NvChad/extensions](https://github.com/NvChad/extensions.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -38,7 +38,7 @@
 - [NvChad/nvterm](https://github.com/NvChad/nvterm)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
-- rust.vim
+- [rust-lang/rust.vim](https://github.com/rust-lang/rust.vim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)

@@ -1,8 +1,8 @@
 ## BasicIde Neovim Configuration Information
 
-- Configuration category: `Base`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-BasicIde`
 
 ### Github repository
@@ -12,7 +12,7 @@
 ### Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-- DAPInstall.nvim
+- [ravenxrz/DAPInstall.nvim](https://github.com/ravenxrz/DAPInstall.nvim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [famiu/bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)
@@ -44,6 +44,6 @@
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-- tokyonight-night
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)

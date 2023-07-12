@@ -1,8 +1,8 @@
 ## Knvim Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Knvim`
 
 ### Github repository
@@ -18,16 +18,16 @@
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- barbar.nvim
+- [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- cmp-nvim-lsp-signature-help
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- colorful-winsep.nvim
+- [nvim-zh/colorful-winsep.nvim](https://github.com/nvim-zh/colorful-winsep.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
@@ -40,7 +40,7 @@
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- neogen
+- [danymat/neogen](https://github.com/danymat/neogen.git)
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
@@ -48,21 +48,21 @@
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- nvim-dap-repl-highlights
+- [LiadOz/nvim-dap-repl-highlights](https://github.com/LiadOz/nvim-dap-repl-highlights.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- nvim-ts-rainbow2
+- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2.git)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- pounce.nvim
+- [rlane/pounce.nvim](https://github.com/rlane/pounce.nvim.git)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
-- swenv.nvim
+- [AckslD/swenv.nvim](https://github.com/AckslD/swenv.nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-bibtex.nvim](https://github.com/nvim-telescope/telescope-bibtex.nvim)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)

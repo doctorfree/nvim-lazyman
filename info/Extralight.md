@@ -1,8 +1,8 @@
 ## Extralight Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Extralight`
 
 ### Github repository
@@ -17,9 +17,9 @@
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- mini.bufremove
+- [echasnovski/mini.bufremove](https://github.com/echasnovski/mini.bufremove.git)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
-- mini.surround
+- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)

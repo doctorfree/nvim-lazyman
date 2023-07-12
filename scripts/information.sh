@@ -32,6 +32,7 @@ get_plugins() {
   else
     [ -d "${HOME}/.config/nvim-${nvimdir}" ] && {
       confdir="${HOME}/.config/nvim-${nvimdir}"
+      nvimdir="nvim-${nvimdir}"
     }
   fi
   [ "${confdir}" ] && {
@@ -50,10 +51,37 @@ get_plugins() {
               plugin=$(echo ${url} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ')
               echo "- [${plugin}](${url})" >> "${outfile}"
             else
-              echo "- ${plug}" >> "${outfile}"
+              gitconf="${HOME}/.local/share/${nvimdir}/lazy/${plug}/.git/config"
+              if [ -f ${gitconf} ]
+              then
+                plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+                plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+                echo "- [${plugin}](${plugurl})" >> "${outfile}"
+              else
+                gitconf="${HOME}/.local/share/${nvimdir}/site/pack/lazy/opt/${plug}/.git/config"
+                if [ -f ${gitconf} ]
+                then
+                  plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+                  plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+                  echo "- [${plugin}](${plugurl})" >> "${outfile}"
+                else
+                  echo "- ${plug}" >> "${outfile}"
+                fi
+              fi
             fi
           done
         }
+        ;;
+      Mini)
+        echo "### Mini.nvim managed plugins" >> "${outfile}"
+        echo "" >> "${outfile}"
+        for gitconf in ${confdir}/.git/modules/*/config
+        do
+          [ "${gitconf}" == "${confdir}/.git/modules/*/config" ] && continue
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          echo "- [${plugin}](${plugurl})" >> "${outfile}"
+        done
         ;;
       Packer)
         echo "### Packer managed plugins" >> "${outfile}"
@@ -70,7 +98,24 @@ get_plugins() {
       Plug)
         echo "### Plug managed plugins" >> "${outfile}"
         echo "" >> "${outfile}"
-        echo "- TBD" >> "${outfile}"
+        for gitconf in ${HOME}/.local/share/${nvimdir}/plugged/*/.git/config
+        do
+          [ "${gitconf}" == "${HOME}/.local/share/${nvimdir}/plugged/*/.git/config" ] && continue
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          echo "- [${plugin}](${plugurl})" >> "${outfile}"
+        done
+        ;;
+      SP*)
+        echo "### SP (dein) managed plugins" >> "${outfile}"
+        echo "" >> "${outfile}"
+        for gitconf in ${HOME}/.cache/vimfiles/repos/*/*/*/.git/config
+        do
+          [ "${gitconf}" == "${HOME}/.cache/vimfiles/repos/*/*/*/.git/config" ] && continue
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          echo "- [${plugin}](${plugurl})" >> "${outfile}"
+        done
         ;;
       *)
         echo "### Unsupported plugin manager" >> "${outfile}"
@@ -81,8 +126,8 @@ get_plugins() {
 
 make_info() {
   nvimconf="$1"
-  INFO="${nvimconf}.md"
-  OUTF="${HOME}/src/Neovim/nvim-lazyman/info/${INFO}"
+  OUTF="${HOME}/src/Neovim/nvim-lazyman/info/${nvimconf}.md"
+  HTML="${HOME}/src/Neovim/nvim-lazyman/info/html/${nvimconf}.html"
 
   GH_URL=
   NC_URL=
@@ -144,6 +189,7 @@ make_info() {
       GH_URL="https://github.com/doctorfree/spacevim"
       CF_CAT="Base"
       CF_TYP="[SpaceVim](https://spacevim.org)"
+      PL_MAN="SP (dein)"
       ;;
     MagicVim)
       GH_URL="https://gitlab.com/GitMaster210/magicvim"
@@ -309,6 +355,7 @@ make_info() {
       GH_URL="https://github.com/echasnovski/nvim"
       NC_URL="http://neovimcraft.com/plugin/echasnovski/nvim"
       CF_CAT="Personal"
+      PL_MAN="Mini"
       ;;
     ONNO)
       GH_URL="https://github.com/loctvl842/nvim"
@@ -507,17 +554,116 @@ make_info() {
       PL_MAN="Packer"
       ;;
     *)
-      echo "Unknown Lazyman configuration name: ${checkdir}"
-      echo "Exiting"
-      exit 1
+      nvimdir="nvim-${nvimconf}"
+      CDIR="${HOME}/.config/${nvimdir}"
+      [ -d "${CDIR}" ] || {
+        nvimdir="${nvimconf}"
+        CDIR="${HOME}/.config/${nvimdir}"
+      }
+      if [ -d "${CDIR}" ]
+      then
+        # Custom config, figure out its nature if we can
+        if [ -f "${CDIR}/.git/config" ]
+        then
+          GH_URL=$(grep url "${CDIR}/.git/config" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+        else
+          GH_URL=
+        fi
+        CF_CAT="Custom"
+        CF_TYP="Unknown"
+        if [ -f "${CDIR}/lazy-lock.json" ]
+        then
+          PL_MAN="Lazy"
+        else
+          pclua=$(find ${CDIR} -name packer_compiled.lua -print0)
+          if [ "${pclua}" ]
+          then
+            PL_MAN="Packer"
+          else
+            if [ -f "${HOME}/.local/share/${nvimdir}/site/autoload/plug.vim" ]
+            then
+              PL_MAN="Plug"
+            else
+              if [ -d "${HOME}/.config/${nvimdir}/lua/spacevim" ]
+              then
+                PL_MAN="SP (dein)"
+              else
+                if [ -d "${HOME}/.config/${nvimdir}/.git/modules/mini" ]
+                then
+                  PL_MAN="Mini"
+                else
+                  PL_MAN="Unknown"
+                fi
+              fi
+            fi
+          fi
+        fi
+      else
+        echo "Unknown Lazyman configuration name: ${nvimconf}"
+        echo "Exiting"
+        exit 1
+      fi
       ;;
   esac
 
   echo "## ${nvimconf} Neovim Configuration Information" > "${OUTF}"
   echo "" >> "${OUTF}"
-  echo "- Configuration category: \`${CF_CAT}\`" >> "${OUTF}"
-  echo "- Base configuration:     \`${CF_TYP}\`" >> "${OUTF}"
-  echo "- Plugin manager:         \`${PL_MAN}\`" >> "${OUTF}"
+  case ${CF_CAT} in
+    Base)
+      caturl="https://github.com/doctorfree/nvim-lazyman#base-configurations"
+      ;;
+    Custom)
+      caturl="https://github.com/doctorfree/nvim-lazyman#custom-configurations"
+      ;;
+    Default)
+      caturl="https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features"
+      ;;
+    Language)
+      caturl="https://github.com/doctorfree/nvim-lazyman#language-configurations"
+      ;;
+    Personal)
+      caturl="https://github.com/doctorfree/nvim-lazyman#personal-configurations"
+      ;;
+    Starter)
+      caturl="https://github.com/doctorfree/nvim-lazyman#starter-configurations"
+      ;;
+    *)
+      caturl=
+      ;;
+  esac
+  if [ "${caturl}" ]
+  then
+    echo "- Configuration category: [${CF_CAT}](${caturl})" >> "${OUTF}"
+  else
+    echo "- Configuration category: ${CF_CAT}" >> "${OUTF}"
+  fi
+  echo "- Base configuration:     ${CF_TYP}" >> "${OUTF}"
+  case ${PL_MAN} in
+    Lazy)
+      plurl="https://github.com/folke/lazy.nvim"
+      ;;
+    Mini)
+      plurl="https://github.com/echasnovski/mini.nvim"
+      ;;
+    Packer)
+      plurl="https://github.com/wbthomason/packer.nvim"
+      ;;
+    Plug)
+      plurl="https://github.com/junegunn/vim-plug"
+      ;;
+    SP*)
+      plurl="https://github.com/Shougo/dein.vim"
+      ;;
+    *)
+      plurl=
+      ;;
+  esac
+  if [ "${plurl}" ]
+  then
+    echo "- Plugin manager:         [${PL_MAN}](${plurl})" >> "${OUTF}"
+  else
+    echo "- Plugin manager:         ${PL_MAN}" >> "${OUTF}"
+  fi
   echo "- Installation location:  \`~/.config/nvim-${nvimconf}\`" >> "${OUTF}"
   echo "" >> "${OUTF}"
   [ "${WS_URL}" ] && {
@@ -545,9 +691,11 @@ make_info() {
     echo "" >> "${OUTF}"
   }
   get_plugins "${nvimconf}" "${OUTF}" "${PL_MAN}"
+  [ "${have_pandoc}" ] && pandoc -t html -o "${HTML}" "${OUTF}"
 }
 
 all=
+have_pandoc=$(type -p pandoc)
 while getopts "au" flag; do
     case $flag in
         a)

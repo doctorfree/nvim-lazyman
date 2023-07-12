@@ -1,8 +1,8 @@
 ## NV-IDE Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-NV-IDE`
 
 ### Github repository
@@ -22,21 +22,21 @@
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-- close-buffers.nvim
+- [kazhala/close-buffers.nvim](https://github.com/kazhala/close-buffers.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- cmp-nvim-tags
+- [quangnguyen30192/cmp-nvim-tags](https://github.com/quangnguyen30192/cmp-nvim-tags.git)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-rg
-- cmp-treesitter
+- [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg.git)
+- [ray-x/cmp-treesitter](https://github.com/ray-x/cmp-treesitter.git)
 - [hrsh7th/cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
-- committia.vim
-- csv.vim
-- edgy.nvim
+- [rhysd/committia.vim](https://github.com/rhysd/committia.vim.git)
+- [chrisbra/csv.vim](https://github.com/chrisbra/csv.vim.git)
+- [folke/edgy.nvim](https://github.com/folke/edgy.nvim.git)
 - [feline-nvim/feline.nvim](https://github.com/feline-nvim/feline.nvim)
-- flash.nvim
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
@@ -45,12 +45,12 @@
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- mini.animate
-- neo-tree-diagnostics.nvim
+- [echasnovski/mini.animate](https://github.com/echasnovski/mini.animate.git)
+- [mrbjarksen/neo-tree-diagnostics.nvim](https://github.com/mrbjarksen/neo-tree-diagnostics.nvim.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
-- numb.nvim
+- [nacro90/numb.nvim](https://github.com/nacro90/numb.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [weilbith/nvim-code-action-menu](https://github.com/weilbith/nvim-code-action-menu)
@@ -58,12 +58,12 @@
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- nvim-hlslens
+- [kevinhwang91/nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- nvim-neoclip.lua
+- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- nvim-spectre
+- [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre.git)
 - [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
@@ -88,25 +88,25 @@
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
-- vim-abolish
-- vim-bundler
-- vim-capslock
-- vim-dadbod
-- vim-dispatch
-- vim-endwise
+- [tpope/vim-abolish](https://github.com/tpope/vim-abolish.git)
+- [tpope/vim-bundler](https://github.com/tpope/vim-bundler.git)
+- [tpope/vim-capslock](https://github.com/tpope/vim-capslock.git)
+- [tpope/vim-dadbod](https://github.com/tpope/vim-dadbod.git)
+- [tpope/vim-dispatch](https://github.com/tpope/vim-dispatch.git)
+- [tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- vim-gutentags
+- [ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
-- vim-numbertoggle
-- vim-rails
+- [jeffkreeftmeijer/vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle.git)
+- [tpope/vim-rails](https://github.com/tpope/vim-rails.git)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [airblade/vim-rooter](https://github.com/airblade/vim-rooter)
-- vim-sandwich
-- vim-sleuth
+- [machakann/vim-sandwich](https://github.com/machakann/vim-sandwich.git)
+- [tpope/vim-sleuth](https://github.com/tpope/vim-sleuth.git)
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip)
-- vim-wordmotion
+- [chaoren/vim-wordmotion](https://github.com/chaoren/vim-wordmotion.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-- zinit-vim-syntax
+- [zdharma-continuum/zinit-vim-syntax](https://github.com/zdharma-continuum/zinit-vim-syntax.git)

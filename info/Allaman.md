@@ -1,8 +1,8 @@
 ## Allaman Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Allaman`
 
 ### Github repository
@@ -18,43 +18,43 @@
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [numToStr/Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- animation.nvim
+- [anuvyklack/animation.nvim](https://github.com/anuvyklack/animation.nvim.git)
 - [famiu/bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- cmp-nvim-lsp-signature-help
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-rg
+- [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg.git)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- colorful-winsep.nvim
-- flash.nvim
-- flatten.nvim
+- [nvim-zh/colorful-winsep.nvim](https://github.com/nvim-zh/colorful-winsep.nvim.git)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
+- [willothy/flatten.nvim](https://github.com/willothy/flatten.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [junegunn/fzf](https://github.com/junegunn/fzf)
-- git-conflict.nvim
+- [akinsho/git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
 - [ray-x/guihua.lua](https://github.com/ray-x/guihua.lua)
-- hydra.nvim
-- inc-rename.nvim
+- [anuvyklack/hydra.nvim](https://github.com/anuvyklack/hydra.nvim.git)
+- [smjonas/inc-rename.nvim](https://github.com/smjonas/inc-rename.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- keymap-layer.nvim
-- kustomize.nvim
+- [anuvyklack/keymap-layer.nvim](https://github.com/anuvyklack/keymap-layer.nvim.git)
+- [allaman/kustomize.nvim](https://github.com/allaman/kustomize.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- middleclass
-- mini.align
+- [anuvyklack/middleclass](https://github.com/anuvyklack/middleclass.git)
+- [echasnovski/mini.align](https://github.com/echasnovski/mini.align.git)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
-- mini.files
-- mini.hipatterns
-- mini.surround
-- mini.test
+- [echasnovski/mini.files](https://github.com/echasnovski/mini.files.git)
+- [echasnovski/mini.hipatterns](https://github.com/echasnovski/mini.hipatterns.git)
+- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround.git)
+- [echasnovski/mini.test](https://github.com/echasnovski/mini.test.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
@@ -62,15 +62,15 @@
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- nvim-bqf
+- [kevinhwang91/nvim-bqf](https://github.com/kevinhwang91/nvim-bqf.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
-- nvim-dap-python
+- [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-luapad
+- [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -84,8 +84,8 @@
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
-- spread.nvim
-- starlite-nvim
+- [aarondiel/spread.nvim](https://github.com/aarondiel/spread.nvim.git)
+- [ironhouzi/starlite-nvim](https://github.com/ironhouzi/starlite-nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
@@ -96,9 +96,9 @@
 - [jvgrootveld/telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
-- ts-advanced-git-search.nvim
+- [aaronhallaert/ts-advanced-git-search.nvim](https://github.com/aaronhallaert/ts-advanced-git-search.nvim.git)
 - [axieax/urlview.nvim](https://github.com/axieax/urlview.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [lervag/vimtex](https://github.com/lervag/vimtex)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- windows.nvim
+- [anuvyklack/windows.nvim](https://github.com/anuvyklack/windows.nvim.git)

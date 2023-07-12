@@ -1,8 +1,8 @@
 ## J4de Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-J4de`
 
 ### Github repository
@@ -13,11 +13,11 @@
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- animation.nvim
+- [anuvyklack/animation.nvim](https://github.com/anuvyklack/animation.nvim.git)
 - [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim)
 - [famiu/bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-- cmp-async-path
+- [FelipeLema/cmp-async-path](https://github.com/FelipeLema/cmp-async-path.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
@@ -25,31 +25,31 @@
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
-- dial.nvim
+- [monaqa/dial.nvim](https://github.com/monaqa/dial.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- hlargs.nvim
+- [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
-- lsp_lines.nvim
+- [~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- middleclass
+- [anuvyklack/middleclass](https://github.com/anuvyklack/middleclass.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
-- numb.nvim
+- [nacro90/numb.nvim](https://github.com/nacro90/numb.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- nvim-gomove
-- nvim-hlslens
+- [booperlv/nvim-gomove](https://github.com/booperlv/nvim-gomove.git)
+- [kevinhwang91/nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
@@ -58,23 +58,23 @@
 - [nvim-treesitter/nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- persistence.nvim
+- [folke/persistence.nvim](https://github.com/folke/persistence.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
-- rainbow-delimiters.nvim
+- [hiphish/rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
-- telescope-undo.nvim
+- [debugloop/telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [Wansmer/treesj](https://github.com/Wansmer/treesj)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
-- vim-cool
+- [romainl/vim-cool](https://github.com/romainl/vim-cool.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- windows.nvim
+- [anuvyklack/windows.nvim](https://github.com/anuvyklack/windows.nvim.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

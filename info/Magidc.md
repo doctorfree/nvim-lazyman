@@ -1,8 +1,8 @@
 ## Magidc Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Magidc`
 
 ### Github repository
@@ -22,17 +22,17 @@
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- coq.artifacts
-- coq.thirdparty
-- coq_nvim
-- dial.nvim
-- diffview.nvim
-- flash.nvim
+- [ms-jpq/coq.artifacts](https://github.com/ms-jpq/coq.artifacts.git)
+- [ms-jpq/coq.thirdparty](https://github.com/ms-jpq/coq.thirdparty.git)
+- [ms-jpq/coq_nvim](https://github.com/ms-jpq/coq_nvim.git)
+- [monaqa/dial.nvim](https://github.com/monaqa/dial.nvim.git)
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- hydra.nvim
+- [anuvyklack/hydra.nvim](https://github.com/anuvyklack/hydra.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lsp-lens.nvim
+- [VidocqH/lsp-lens.nvim](https://github.com/VidocqH/lsp-lens.nvim.git)
 - [ray-x/lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
@@ -41,28 +41,28 @@
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
-- no-clown-fiesta.nvim
+- [aktersnurra/no-clown-fiesta.nvim](https://github.com/aktersnurra/no-clown-fiesta.nvim.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- nvim-dap-python
+- [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-neoclip.lua
+- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- nvim-numbertoggle
-- nvim-scrollbar
-- nvim-spider
+- [sitiom/nvim-numbertoggle](https://github.com/sitiom/nvim-numbertoggle.git)
+- [petertriho/nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar.git)
+- [chrisgrieser/nvim-spider](https://github.com/chrisgrieser/nvim-spider.git)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [mrjones2014/nvim-ts-rainbow](https://github.com/mrjones2014/nvim-ts-rainbow)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-- nvim-various-textobjs
+- [chrisgrieser/nvim-various-textobjs](https://github.com/chrisgrieser/nvim-various-textobjs.git)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-treesitter/playground](https://github.com/nvim-treesitter/playground)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
@@ -72,14 +72,14 @@
 - [nvim-telescope/telescope-dap.nvim](https://github.com/nvim-telescope/telescope-dap.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- tmux.nvim
+- [aserowy/tmux.nvim](https://github.com/aserowy/tmux.nvim.git)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [mbbill/undotree](https://github.com/mbbill/undotree)
-- vim-expand-region
+- [terryma/vim-expand-region](https://github.com/terryma/vim-expand-region.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- vim-startify
+- [mhinz/vim-startify](https://github.com/mhinz/vim-startify.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

@@ -1,8 +1,8 @@
 ## 3rd Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-3rd`
 
 ### Github repository
@@ -17,36 +17,36 @@
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- ascii-blocks.nvim
-- auto-session
-- backseat.nvim
-- barbecue.nvim
+- [superhawk610/ascii-blocks.nvim](https://github.com/superhawk610/ascii-blocks.nvim.git)
+- [rmagatti/auto-session](https://github.com/rmagatti/auto-session.git)
+- [james1236/backseat.nvim](https://github.com/james1236/backseat.nvim.git)
+- [utilyre/barbecue.nvim](https://github.com/utilyre/barbecue.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
-- cmp-emoji
+- [hrsh7th/cmp-emoji](https://github.com/hrsh7th/cmp-emoji.git)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- cmp-nvim-lsp-signature-help
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-treesitter
+- [ray-x/cmp-treesitter](https://github.com/ray-x/cmp-treesitter.git)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- diffview.nvim
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
-- fold-cycle.nvim
-- fzf-lua
-- git-messenger.vim
+- [jghauser/fold-cycle.nvim](https://github.com/jghauser/fold-cycle.nvim.git)
+- [ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua.git)
+- [rhysd/git-messenger.vim](https://github.com/rhysd/git-messenger.vim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- hi-my-words.nvim
+- [dvoytik/hi-my-words.nvim](https://github.com/dvoytik/hi-my-words.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lsp-format.nvim
+- [lukas-reineke/lsp-format.nvim](https://github.com/lukas-reineke/lsp-format.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- lush.nvim
+- [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- maximize.nvim
+- [declancm/maximize.nvim](https://github.com/declancm/maximize.nvim.git)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
@@ -55,36 +55,36 @@
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- nvim-fzf
+- [vijaymarupudi/nvim-fzf](https://github.com/vijaymarupudi/nvim-fzf.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-luapad
+- [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad.git)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
-- nvim-ts-rainbow2
+- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2.git)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- peepsight.nvim
+- [koenverburg/peepsight.nvim](https://github.com/koenverburg/peepsight.nvim.git)
 - [nvim-treesitter/playground](https://github.com/nvim-treesitter/playground)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
-- refactoring.nvim
+- [ThePrimeagen/refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim.git)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
-- shipwright.nvim
-- targets.vim
-- template-string.nvim
-- text-case.nvim
+- [rktjmp/shipwright.nvim](https://github.com/rktjmp/shipwright.nvim.git)
+- [wellle/targets.vim](https://github.com/wellle/targets.vim.git)
+- [axelvc/template-string.nvim](https://github.com/axelvc/template-string.nvim.git)
+- [johmsalas/text-case.nvim](https://github.com/johmsalas/text-case.nvim.git)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
-- tsnode-marker.nvim
-- typescript-tools.nvim
-- venn.nvim
-- vim-eunuch
-- vim-lion
+- [atusy/tsnode-marker.nvim](https://github.com/atusy/tsnode-marker.nvim.git)
+- [pmizio/typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim.git)
+- [jbyuki/venn.nvim](https://github.com/jbyuki/venn.nvim.git)
+- [tpope/vim-eunuch](https://github.com/tpope/vim-eunuch.git)
+- [tommcdo/vim-lion](https://github.com/tommcdo/vim-lion.git)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
-- vim-sort-motion
+- [christoomey/vim-sort-motion](https://github.com/christoomey/vim-sort-motion.git)
 - [alexghergh/nvim-tmux-navigation](https://github.com/alexghergh/nvim-tmux-navigation)
-- vim-tmux-focus-events
+- [tmux-plugins/vim-tmux-focus-events](https://github.com/tmux-plugins/vim-tmux-focus-events.git)
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)

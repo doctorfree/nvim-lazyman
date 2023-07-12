@@ -1,8 +1,8 @@
 ## Lazyman Neovim Configuration Information
 
-- Configuration category: `Default`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Default](https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Lazyman`
 
 ### Github repository

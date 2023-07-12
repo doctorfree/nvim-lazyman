@@ -1,8 +1,8 @@
 ## Penguin Neovim Configuration Information
 
-- Configuration category: `Base`
-- Base configuration:     `[LazyVim](https://lazyvim.github.io)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Base configuration:     [LazyVim](https://lazyvim.github.io)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Penguin`
 
 ### Github repository
@@ -11,7 +11,7 @@
 
 ### Lazy managed plugins
 
-- LazyVim
+- [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
@@ -31,14 +31,14 @@
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- mini.ai
-- mini.bufremove
+- [echasnovski/mini.ai](https://github.com/echasnovski/mini.ai.git)
+- [echasnovski/mini.bufremove](https://github.com/echasnovski/mini.bufremove.git)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
 - [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
-- mini.pairs
-- mini.surround
+- [echasnovski/mini.pairs](https://github.com/echasnovski/mini.pairs.git)
+- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- neoconf.nvim
+- [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
@@ -47,12 +47,12 @@
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- nvim-spectre
+- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre.git)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- persistence.nvim
+- [folke/persistence.nvim](https://github.com/folke/persistence.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)

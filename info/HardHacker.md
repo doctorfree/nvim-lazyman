@@ -1,8 +1,8 @@
 ## HardHacker Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-HardHacker`
 
 ### Github repository
@@ -13,18 +13,18 @@
 
 - [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- barbecue
+- [utilyre/barbecue.nvim](https://github.com/utilyre/barbecue.nvim.git)
 - [famiu/bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- diffview.nvim
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- guess-indent.nvim
-- hardhacker
+- [nmac427/guess-indent.nvim](https://github.com/nmac427/guess-indent.nvim.git)
+- [hardhackerlabs/theme-vim](https://github.com/hardhackerlabs/theme-vim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)

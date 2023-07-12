@@ -14,6 +14,7 @@ NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 SCRIPTSD="${LMANDIR}/scripts"
 HEALTHSC="${SCRIPTSD}/healthcheck.sh"
+INFOSCPT="${SCRIPTSD}/information.sh"
 INSTNVIM="${SCRIPTSD}/install_neovim.sh"
 JAVADBUG="${SCRIPTSD}/java_debug.sh"
 KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
@@ -1008,41 +1009,58 @@ show_health() {
   fi
 }
 
+# open_info ${LMANDIR}/info/html/${nvimconf}.html
+open_info() {
+  nviminfo="$1"
+  have_open=$(type -p open)
+  if [ "${have_open}" ]
+  then
+    open ${LMANDIR}/info/html/${nviminfo}.html
+  else
+    have_gio=$(type -p gio)
+    if [ "${have_gio}" ]
+    then
+      gio open ${LMANDIR}/info/html/${nviminfo}.html
+    else
+      have_xdg=$(type -p xdg-open)
+      if [ "${have_xdg}" ]
+      then
+        xdg-open ${LMANDIR}/info/html/${nviminfo}.html
+      else
+        if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+        then
+          NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+        else
+          echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+        fi
+      fi
+    fi
+  fi
+}
+
 show_info() {
   checkdir="$1"
   nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
   if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]
   then
-    have_open=$(type -p open)
-    if [ "${have_open}" ]
-    then
-      open ${LMANDIR}/info/html/${nvimconf}.html
-    else
-      have_gio=$(type -p gio)
-      if [ "${have_gio}" ]
-      then
-        gio open ${LMANDIR}/info/html/${nvimconf}.html
-      else
-        have_xdg=$(type -p xdg-open)
-        if [ "${have_xdg}" ]
-        then
-          xdg-open ${LMANDIR}/info/html/${nvimconf}.html
-        else
-          if [ -f ${LMANDIR}/info/${nvimconf}.md ]
-          then
-            NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
-          else
-            echo "Unable to locate command to open ${LMANDIR}/info/html/${nvimconf}.html"
-          fi
-        fi
-      fi
-    fi
+    open_info "${nvimconf}"
   else
     if [ -f ${LMANDIR}/info/${nvimconf}.md ]
     then
       NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
     else
-      echo "${LMANDIR}/info/html/${nvimconf}.html not found"
+      [ -x ${INFOSCPT} ] && ${INFOSCPT} ${nvimconf}
+      if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]
+      then
+        open_info "${nvimconf}"
+      else
+        if [ -f ${LMANDIR}/info/${nvimconf}.md ]
+        then
+          NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+        else
+          echo "${LMANDIR}/info/html/${nvimconf}.html not found"
+        fi
+      fi
     fi
   fi
 }
@@ -2393,15 +2411,24 @@ show_main_menu() {
           fi
           break
           ;;
-        "Config Info",* | *,"Config Info")
-          choices=()
-          for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
-            choices+=("${neovim}")
-          done
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Information Display  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -N "nvim-${choice}" info
-          fi
+        "Config Info",* | *,"Config Info" | "info",* | *,"info" | "Info",* | *,"Info")
+          items=()
+          [ -f "${LZYMANRC}" ] && {
+            source "${LZYMANRC}"
+            # This gets all supported configs plus any installed custom configs
+            readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+            for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+              if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                sorted+=("${neovim}")
+              fi
+            done
+            IFS=$'\n' choices=($(sort <<<"${sorted[*]}"))
+            unset IFS
+            choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Information Display  " --layout=reverse --border --exit-0)
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              lazyman -N "nvim-${choice}" info
+            fi
+          }
           break
           ;;
         "Health Check",* | *,"Health Check")

@@ -1,8 +1,8 @@
 ## Shuvro Neovim Configuration Information
 
-- Configuration category: `Language`
-- Base configuration:     `[LunarVim](https://www.lunarvim.org)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Base configuration:     [LunarVim](https://www.lunarvim.org)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Shuvro`
 
 ### Github repository
@@ -14,14 +14,14 @@
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- bigfile.nvim
+- [lunarvim/bigfile.nvim](https://github.com/lunarvim/bigfile.nvim.git)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [kdheepak/cmp-latex-symbols](https://github.com/kdheepak/cmp-latex-symbols)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-tabnine
+- [tzachar/cmp-tabnine](https://github.com/tzachar/cmp-tabnine.git)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [akinsho/flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim)
@@ -29,48 +29,48 @@
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim)
-- incline.nvim
+- [b0o/incline.nvim](https://github.com/b0o/incline.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ray-x/lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- lunar.nvim
+- [lunarvim/lunar.nvim](https://github.com/lunarvim/lunar.nvim.git)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-- neogen
-- neotest-go
+- [danymat/neogen](https://github.com/danymat/neogen.git)
+- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
 - [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python)
-- neotest-rust
-- nlsp-settings.nvim
+- [rouge8/neotest-rust](https://github.com/rouge8/neotest-rust.git)
+- [tamago324/nlsp-settings.nvim](https://github.com/tamago324/nlsp-settings.nvim.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- nvim-bqf
+- [kevinhwang91/nvim-bqf](https://github.com/kevinhwang91/nvim-bqf.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-neoclip.lua
-- nvim-spectre
+- [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua.git)
+- [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre.git)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- onedarker.nvim
-- persisted.nvim
+- [lunarvim/onedarker.nvim](https://github.com/lunarvim/onedarker.nvim.git)
+- [olimorris/persisted.nvim](https://github.com/olimorris/persisted.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
-- rose-pine
+- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
-- structlog.nvim
+- [Tastyep/structlog.nvim](https://github.com/Tastyep/structlog.nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
-- tabout.nvim
+- [abecodes/tabout.nvim](https://github.com/abecodes/tabout.nvim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -79,9 +79,9 @@
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
-- vim-log-highlighting
+- [mtdl9/vim-log-highlighting](https://github.com/mtdl9/vim-log-highlighting.git)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
 - [nvim-neotest/neotest-vim-test](https://github.com/nvim-neotest/neotest-vim-test)
-- vim-ultest
+- [rcarriga/vim-ultest](https://github.com/rcarriga/vim-ultest.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

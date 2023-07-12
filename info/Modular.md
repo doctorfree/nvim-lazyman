@@ -1,8 +1,8 @@
 ## Modular Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Modular`
 
 ### Github repository
@@ -18,24 +18,24 @@
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- darkplus.nvim
+- [lunarvim/darkplus.nvim](https://github.com/lunarvim/darkplus.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- indent_blankline
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [arkav/lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- monokai.nvim
+- [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- onedark.vim
+- [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- targets.vim
+- [wellle/targets.vim](https://github.com/wellle/targets.vim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)

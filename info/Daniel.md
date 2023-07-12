@@ -1,8 +1,8 @@
 ## Daniel Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `[LunarVim](https://www.lunarvim.org)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     [LunarVim](https://www.lunarvim.org)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Daniel`
 
 ### Github repository
@@ -11,41 +11,41 @@
 
 ### Lazy managed plugins
 
-- AutoSave.nvim
+- [Pocco81/AutoSave.nvim](https://github.com/Pocco81/AutoSave.nvim.git)
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- asyncrun.vim
-- bigfile.nvim
+- [skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim.git)
+- [lunarvim/bigfile.nvim](https://github.com/lunarvim/bigfile.nvim.git)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-- bullets.vim
+- [dkarter/bullets.vim](https://github.com/dkarter/bullets.vim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
-- clipboard-image.nvim
+- [ekickx/clipboard-image.nvim](https://github.com/ekickx/clipboard-image.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- colorschemes
-- copilot.lua
-- embark
+- [lunarvim/colorschemes](https://github.com/lunarvim/colorschemes.git)
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
+- [embark-theme/vim](https://github.com/embark-theme/vim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
 - [ray-x/guihua.lua](https://github.com/ray-x/guihua.lua)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lir.nvim
+- [tamago324/lir.nvim](https://github.com/tamago324/lir.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- lunar.nvim
-- lush.nvim
+- [lunarvim/lunar.nvim](https://github.com/lunarvim/lunar.nvim.git)
+- [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
-- markdowny.nvim
+- [antonk52/markdowny.nvim](https://github.com/antonk52/markdowny.nvim.git)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- mellifluous.nvim
-- monokai.nvim
+- [ramojus/mellifluous.nvim](https://github.com/ramojus/mellifluous.nvim.git)
+- [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-- nlsp-settings.nvim
+- [tamago324/nlsp-settings.nvim](https://github.com/tamago324/nlsp-settings.nvim.git)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -57,33 +57,33 @@
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- onedarker.nvim
-- open-browser.vim
-- papercolor-theme
-- persistence.nvim
-- plantuml-previewer.vim
-- plantuml-syntax
+- [lunarvim/onedarker.nvim](https://github.com/lunarvim/onedarker.nvim.git)
+- [tyru/open-browser.vim](https://github.com/tyru/open-browser.vim.git)
+- [NLKNguyen/papercolor-theme](https://github.com/NLKNguyen/papercolor-theme.git)
+- [folke/persistence.nvim](https://github.com/folke/persistence.nvim.git)
+- [weirongxu/plantuml-previewer.vim](https://github.com/weirongxu/plantuml-previewer.vim.git)
+- [aklt/plantuml-syntax](https://github.com/aklt/plantuml-syntax.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
-- seoul256.vim
-- structlog.nvim
-- sweetie.nvim
+- [junegunn/seoul256.vim](https://github.com/junegunn/seoul256.vim.git)
+- [Tastyep/structlog.nvim](https://github.com/Tastyep/structlog.nvim.git)
+- [NTBBloodbath/sweetie.nvim](https://github.com/NTBBloodbath/sweetie.nvim.git)
 - [godlygeek/tabular](https://github.com/godlygeek/tabular)
-- telekasten.nvim
+- [renerocksai/telekasten.nvim](https://github.com/renerocksai/telekasten.nvim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- vim-highlightedyank
+- [machakann/vim-highlightedyank](https://github.com/machakann/vim-highlightedyank.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [preservim/vim-markdown](https://github.com/preservim/vim-markdown)
-- vim-sanegx
+- [felipec/vim-sanegx](https://github.com/felipec/vim-sanegx.git)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
-- vimkubectl
-- vimux
+- [rottencandy/vimkubectl](https://github.com/rottencandy/vimkubectl.git)
+- [preservim/vimux](https://github.com/preservim/vimux.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)

@@ -1,8 +1,8 @@
 ## Xiao Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Xiao`
 
 ### Github repository
@@ -16,21 +16,21 @@
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [hrsh7th/cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
-- dockerfile.vim
+- [ekalinin/dockerfile.vim](https://github.com/ekalinin/dockerfile.vim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- git-blame.nvim
+- [f-person/git-blame.nvim](https://github.com/f-person/git-blame.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- lsp-status.nvim
+- [nvim-lua/lsp-status.nvim](https://github.com/nvim-lua/lsp-status.nvim.git)
 - [arkav/lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- nvim-bqf
+- [kevinhwang91/nvim-bqf](https://github.com/kevinhwang91/nvim-bqf.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-osc52
+- [ojroques/nvim-osc52](https://github.com/ojroques/nvim-osc52.git)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
@@ -41,9 +41,9 @@
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- vim-graphql
-- vim-lastplace
-- vim-markdown-toc
-- vim-rzip
-- vim-solarized8
+- [jparise/vim-graphql](https://github.com/jparise/vim-graphql.git)
+- [farmergreg/vim-lastplace](https://github.com/farmergreg/vim-lastplace.git)
+- [mzlogin/vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc.git)
+- [lbrayner/vim-rzip](https://github.com/lbrayner/vim-rzip.git)
+- [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8.git)
 - [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip)

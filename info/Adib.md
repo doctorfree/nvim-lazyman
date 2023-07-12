@@ -1,8 +1,8 @@
 ## Adib Neovim Configuration Information
 
-- Configuration category: `Personal`
-- Base configuration:     `Custom`
-- Plugin manager:         `Lazy`
+- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Adib`
 
 ### Github repository
@@ -21,16 +21,16 @@
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- copilot-cmp
-- copilot.lua
-- crates.nvim
-- editorconfig-vim
+- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
+- [saecki/crates.nvim](https://github.com/saecki/crates.nvim.git)
+- [editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim.git)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- glance.nvim
+- [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
 - [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
-- gopher.nvim
+- [olexsmir/gopher.nvim](https://github.com/olexsmir/gopher.nvim.git)
 - [sainnhe/gruvbox-material](https://github.com/sainnhe/gruvbox-material)
 - [ray-x/guihua.lua](https://github.com/ray-x/guihua.lua)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -43,12 +43,12 @@
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
-- mini.pairs
+- [echasnovski/mini.pairs](https://github.com/echasnovski/mini.pairs.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
-- neotest-go
+- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -57,18 +57,18 @@
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- nvim-spectre
+- [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre.git)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- refactoring.nvim
-- rose-pine
+- [ThePrimeagen/refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim.git)
+- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
-- splitjoin.nvim
+- [bennypowers/splitjoin.nvim](https://github.com/bennypowers/splitjoin.nvim.git)
 - [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)
 - [nvim-telescope/telescope-dap.nvim](https://github.com/nvim-telescope/telescope-dap.nvim)
 - [nvim-telescope/telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)

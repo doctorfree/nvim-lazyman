@@ -1,8 +1,8 @@
 ## Abstract Neovim Configuration Information
 
-- Configuration category: `Base`
-- Base configuration:     `Custom`
-- Plugin manager:         `Packer`
+- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-Abstract`
 
 ### Website

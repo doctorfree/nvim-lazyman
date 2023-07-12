@@ -1,8 +1,8 @@
 ## CodeArt Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `Custom`
-- Plugin manager:         `Packer`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     Custom
+- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-CodeArt`
 
 ### Github repository

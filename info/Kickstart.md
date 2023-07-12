@@ -1,8 +1,8 @@
 ## Kickstart Neovim Configuration Information
 
-- Configuration category: `Starter`
-- Base configuration:     `[Kickstart](https://github.com/nvim-lua/kickstart.nvim)`
-- Plugin manager:         `Lazy`
+- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Base configuration:     [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Kickstart`
 
 ### Github repository
@@ -37,5 +37,5 @@
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [tpope/vim-rhubarb](https://github.com/tpope/vim-rhubarb)
-- vim-sleuth
+- [tpope/vim-sleuth](https://github.com/tpope/vim-sleuth.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
