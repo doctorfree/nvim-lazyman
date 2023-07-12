@@ -20,7 +20,7 @@
 - [ruifm/gitlinker.nvim](https://github.com/ruifm/gitlinker.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim)
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)

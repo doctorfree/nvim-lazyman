@@ -19,12 +19,12 @@
 - dockerfile.vim
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - git-blame.nvim
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - lsp-status.nvim
-- lualine-lsp-progress
+- [arkav/lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - nvim-bqf
@@ -37,7 +37,7 @@
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
-- schemastore.nvim
+- [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)

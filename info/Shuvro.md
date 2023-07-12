@@ -32,13 +32,13 @@
 - incline.nvim
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ray-x/lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - lunar.nvim
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - neogen
 - neotest-go
@@ -51,7 +51,7 @@
 - nvim-bqf
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
-- nvim-jdtls
+- [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - nvim-neoclip.lua
 - nvim-spectre
@@ -66,7 +66,7 @@
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - rose-pine
-- schemastore.nvim
+- [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
 - structlog.nvim
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
@@ -78,7 +78,7 @@
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
-- twilight.nvim
+- [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - vim-log-highlighting
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
 - [nvim-neotest/neotest-vim-test](https://github.com/nvim-neotest/neotest-vim-test)

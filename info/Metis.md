@@ -17,9 +17,9 @@
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- mini
+- [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)

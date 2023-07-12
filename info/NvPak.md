@@ -34,7 +34,7 @@
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - iceberg.vim
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - lsp-progress.nvim
 - lsp_lines.nvim
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
@@ -42,15 +42,15 @@
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
-- mason-nvim-dap.nvim
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - monokai.nvim
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [shaunsingh/nord.nvim](https://github.com/shaunsingh/nord.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
-- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)

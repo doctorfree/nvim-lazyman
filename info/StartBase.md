@@ -11,7 +11,7 @@
 
 ### Lazy managed plugins
 
-- lazy.nvim
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)

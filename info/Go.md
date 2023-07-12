@@ -24,13 +24,13 @@
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - gopher.nvim
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- lazy.nvim
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
-- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)

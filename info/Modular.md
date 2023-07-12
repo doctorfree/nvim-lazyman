@@ -22,10 +22,10 @@
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - indent_blankline
-- lazy.nvim
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- [arkav/lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - monokai.nvim
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
