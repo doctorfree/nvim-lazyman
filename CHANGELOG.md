@@ -4,7 +4,19 @@
 
 ### ⚡️ Added
 
+- Add link to table of info docs in every info doc
+- Add description and install command to info documents
+- Add `Dotfyle` entry for `Maddison` config
+- Add `Maddison` config to `Personals`
+- Add `info` to keywords in main menu help
+
 ### 🐞 Fixed
+
+- `Go2one` uses `Packer`
+- Fix `MagicVim` plugin manager setting, add `MagicVim` description
+- Fix plugins retrieval for `AstroNvim` configs
+- Add description to `CodeArt` entry in `README`
+- Fix links in tables
 
 ## v2.1.8r1
 
