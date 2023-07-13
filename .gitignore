@@ -74,6 +74,7 @@ scripts/patches/*
 !scripts/patches/nvim-LunarVim.patch
 !scripts/patches/nvim-LvimAdib.patch
 !scripts/patches/nvim-LvimIde.patch
+!scripts/patches/nvim-Maddison.patch
 !scripts/patches/nvim-Magidc.patch
 !scripts/patches/nvim-NV-IDE.patch
 !scripts/patches/nvim-Nyoom.patch
