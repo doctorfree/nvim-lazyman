@@ -1,5 +1,8 @@
 ## Modern Neovim Configuration Information
 
+Configure Neovim as a modernized development environment. Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)
+
+- Install and initialize: `lazyman -x Modern`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

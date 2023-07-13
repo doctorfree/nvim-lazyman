@@ -1,5 +1,8 @@
 ## J4de Neovim Configuration Information
 
+Personal Neovim configuration of Jade Fox
+
+- Install and initialize: `lazyman -w J4de`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Elianiva Neovim Configuration Information
 
+Personal Neovim configuration of Dicha Zelianivan Arkana
+
+- Install and initialize: `lazyman -w Elianiva`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

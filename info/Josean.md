@@ -1,5 +1,8 @@
 ## Josean Neovim Configuration Information
 
+Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
+
+- Install and initialize: `lazyman -w Josean`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

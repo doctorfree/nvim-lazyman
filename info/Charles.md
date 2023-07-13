@@ -1,5 +1,8 @@
 ## Charles Neovim Configuration Information
 
+Well structured lazy config with several setup scripts and a Wiki
+
+- Install and initialize: `lazyman -w Charles`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

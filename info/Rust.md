@@ -1,5 +1,8 @@
 ## Rust Neovim Configuration Information
 
+'NvChad' based Neovim config with Rust formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)
+
+- Install and initialize: `lazyman -L Rust`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

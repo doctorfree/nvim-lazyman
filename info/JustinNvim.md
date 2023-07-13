@@ -1,5 +1,8 @@
 ## JustinNvim Neovim Configuration Information
 
+LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
+
+- Install and initialize: `lazyman -x JustinNvim`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

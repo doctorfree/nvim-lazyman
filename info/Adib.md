@@ -1,5 +1,8 @@
 ## Adib Neovim Configuration Information
 
+Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
+
+- Install and initialize: `lazyman -w Adib`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

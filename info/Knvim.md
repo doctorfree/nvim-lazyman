@@ -1,5 +1,8 @@
 ## Knvim Neovim Configuration Information
 
+Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
+
+- Install and initialize: `lazyman -L Knvim`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

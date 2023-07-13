@@ -1,5 +1,8 @@
 ## Abstract Neovim Configuration Information
 
+Preconfigured Neovim as an IDE
+
+- Install and initialize: `lazyman -g`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

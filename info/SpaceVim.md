@@ -1,5 +1,8 @@
 ## SpaceVim Neovim Configuration Information
 
+SpaceVim started in December 2016, it is a mature and well supported Neovim configuration distribution. Lazyman custom SpaceVim configuration installed in `~/.SpaceVim.d/`
+
+- Install and initialize: `lazyman -s`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [SpaceVim](https://spacevim.org)
 - Plugin manager:         [SP (dein)](https://github.com/Shougo/dein.vim)
@@ -55,10 +58,14 @@
 - [mbbill/fencview](https://github.com/mbbill/fencview)
 - [mhartington/nvim-typescript](https://github.com/mhartington/nvim-typescript)
 - [nanotech/jellybeans.vim](https://github.com/nanotech/jellybeans.vim)
+- [neoclide/vim-node-rpc](https://github.com/neoclide/vim-node-rpc)
 - [octol/vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
 - [othree/html5.vim](https://github.com/othree/html5.vim)
 - [peterhoeg/vim-qml](https://github.com/peterhoeg/vim-qml)
 - [PotatoesMaster/i3-vim-syntax](https://github.com/PotatoesMaster/i3-vim-syntax)
+- [prabirshrestha/async.vim](https://github.com/prabirshrestha/async.vim)
+- [prabirshrestha/vim-lsp](https://github.com/prabirshrestha/vim-lsp)
+- [Quramy/tsuquyomi](https://github.com/Quramy/tsuquyomi)
 - [racer-rust/vim-racer](https://github.com/racer-rust/vim-racer)
 - [rakr/vim-one](https://github.com/rakr/vim-one)
 - [rhysd/vim-wasm](https://github.com/rhysd/vim-wasm)

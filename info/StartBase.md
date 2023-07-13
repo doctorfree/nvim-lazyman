@@ -1,5 +1,8 @@
 ## StartBase Neovim Configuration Information
 
+Small configuration that includes a plugin manager
+
+- Install and initialize: `lazyman -x StartBase`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

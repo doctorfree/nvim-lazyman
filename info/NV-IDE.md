@@ -1,5 +1,8 @@
 ## NV-IDE Neovim Configuration Information
 
+Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, javascript)
+
+- Install and initialize: `lazyman -L NV-IDE`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

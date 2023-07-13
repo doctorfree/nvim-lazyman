@@ -1,5 +1,8 @@
 ## Go Neovim Configuration Information
 
+NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
+
+- Install and initialize: `lazyman -L Go`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

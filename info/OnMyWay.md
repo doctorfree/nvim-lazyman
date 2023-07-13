@@ -1,5 +1,8 @@
 ## OnMyWay Neovim Configuration Information
 
+The personal Neovim configuration of Richard Ariza
+
+- Install and initialize: `lazyman -w OnMyWay`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

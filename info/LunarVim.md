@@ -1,5 +1,8 @@
 ## LunarVim Neovim Configuration Information
 
+Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)
+
+- Install and initialize: `lazyman -v`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

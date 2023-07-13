@@ -1,5 +1,8 @@
 ## Ecovim Neovim Configuration Information
 
+Tailored for frontend development with React and Vue.js
+
+- Install and initialize: `lazyman -e`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

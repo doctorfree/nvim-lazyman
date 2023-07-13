@@ -1,5 +1,8 @@
 ## SaleVim Neovim Configuration Information
 
+'Salesforce' optimized IDE with custom features for editing 'Apex', 'Visualforce', and 'Lightning' code
+
+- Install and initialize: `lazyman -L SaleVim`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

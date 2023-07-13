@@ -1,5 +1,8 @@
 ## 3rd Neovim Configuration Information
 
+Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
+
+- Install and initialize: `lazyman -w 3rd`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

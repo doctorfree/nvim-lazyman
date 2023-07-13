@@ -1,5 +1,8 @@
 ## Slydragonn Neovim Configuration Information
 
+[Introductory video](https://youtu.be/vkCnPdaRBE0)
+
+- Install and initialize: `lazyman -w Slydragonn`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

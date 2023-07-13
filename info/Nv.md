@@ -1,5 +1,8 @@
 ## Nv Neovim Configuration Information
 
+'LazyVim' based Neovim configuration. Andreas Gerlach develops smart farming tech and maintains the 'Sway' edition of 'Manjaro-arm'
+
+- Install and initialize: `lazyman -L Nv`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

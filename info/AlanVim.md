@@ -1,5 +1,8 @@
 ## AlanVim Neovim Configuration Information
 
+Oriented toward Python development
+
+- Install and initialize: `lazyman -L AlanVim`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

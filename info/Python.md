@@ -1,5 +1,8 @@
 ## Python Neovim Configuration Information
 
+'NvChad' based Neovim config with Python formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc). These features are included in the Base 'NvChad' custom add-on (lazyman -c)
+
+- Install and initialize: `-L Python`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

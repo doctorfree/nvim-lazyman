@@ -1,5 +1,8 @@
 ## Xiao Neovim Configuration Information
 
+Personal Neovim configuration of XiaoZhang
+
+- Install and initialize: `lazyman -w Xiao`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

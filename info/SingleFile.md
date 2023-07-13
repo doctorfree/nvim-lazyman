@@ -1,5 +1,8 @@
 ## SingleFile Neovim Configuration Information
 
+A clean, organized pre-configured Neovim configuration guide in a single 'init.lua'
+
+- Install and initialize: `lazyman -x SingleFile`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)

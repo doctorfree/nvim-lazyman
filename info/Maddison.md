@@ -1,5 +1,8 @@
 ## Maddison Neovim Configuration Information
 
+Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' floating statuslines, 'SchemaStore.nvim' JSON schemas, 'mapx.nvim' better keymaps
+
+- Install and initialize: `lazyman -w Maddison`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

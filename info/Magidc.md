@@ -1,5 +1,8 @@
 ## Magidc Neovim Configuration Information
 
+Java, Python, Lua, and Rust IDE
+
+- Install and initialize: `lazyman -L Magidc`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

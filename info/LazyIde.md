@@ -1,5 +1,8 @@
 ## LazyIde Neovim Configuration Information
 
+LazyVim IDE config for Neovim
+
+- Install and initialize: `lazyman -L LazyIde`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

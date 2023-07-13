@@ -1,5 +1,8 @@
 ## HardHacker Neovim Configuration Information
 
+A theme-driven modern Neovim configuration
+
+- Install and initialize: `lazyman -x HardHacker`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

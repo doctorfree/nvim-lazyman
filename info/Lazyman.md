@@ -1,5 +1,8 @@
 ## Lazyman Neovim Configuration Information
 
+Neovim configuration of Dr. Ronald Joe Record
+
+- Install and initialize: `Installed and initialized by default`
 - Configuration category: [Default](https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Rafi Neovim Configuration Information
 
+[Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
+
+- Install and initialize: `lazyman -w Rafi`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

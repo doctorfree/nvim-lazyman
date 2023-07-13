@@ -1,5 +1,8 @@
 ## Opinion Neovim Configuration Information
 
+Includes a combination of popular plugins
+
+- Install and initialize: `lazyman -x Opinion`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

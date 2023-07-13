@@ -1,5 +1,8 @@
 ## Cosmic Neovim Configuration Information
 
+Install 'Node.js', 'prettierd', and 'eslint_d'
+
+- Install and initialize: `lazyman -x Cosmic`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

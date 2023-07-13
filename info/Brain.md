@@ -1,5 +1,8 @@
 ## Brain Neovim Configuration Information
 
+Well structured personal config based on the [KISS](https://en.wikipedia.org/wiki/KISS_principle) principle
+
+- Install and initialize: `lazyman -w Brain`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

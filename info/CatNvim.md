@@ -1,5 +1,8 @@
 ## CatNvim Neovim Configuration Information
 
+Neovim configuration written in the [C programming language](https://en.wikipedia.org/wiki/C_(programming_language))
+
+- Install and initialize: `lazyman -L CatNvim`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

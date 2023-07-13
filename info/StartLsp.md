@@ -1,5 +1,8 @@
 ## StartLsp Neovim Configuration Information
 
+Configures the built-in LSP client with autocompletion, based on 'Opinionated'
+
+- Install and initialize: `lazyman -x StartLsp`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Penguin Neovim Configuration Information
 
+Aims to provide a base configuration with beautiful UI and fast startup time
+
+- Install and initialize: `lazyman -o`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Mini Neovim Configuration Information
 
+Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal configuration of the 'mini.nvim' author
+
+- Install and initialize: `lazyman -M`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Mini](https://github.com/echasnovski/mini.nvim)

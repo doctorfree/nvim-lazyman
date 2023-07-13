@@ -1,5 +1,8 @@
 ## LvimIde Neovim Configuration Information
 
+Not to be confused with 'LunarVim', this is a standalone Neovim configuration. Modular configuration with LSP support for 60+ languages. Debug support for c, cpp, dart, elixir, go, haskell, java, javascript/typescript, lua, php, python, ruby, rust
+
+- Install and initialize: `lazyman -L LvimIde`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

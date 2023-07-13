@@ -1,5 +1,8 @@
 ## ONNO Neovim Configuration Information
 
+One of the primary inspirations for Lazyman
+
+- Install and initialize: `lazyman -w ONNO`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Metis Neovim Configuration Information
 
+Neovim config by the creator of 'MetisLinux' and 'Ewm'
+
+- Install and initialize: `lazyman -w Metis`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

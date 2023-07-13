@@ -315,7 +315,7 @@ Currently the following "Base" Neovim configurations are supported:
   - Install and initialize with `lazyman -g`
 - [AstroNvimPlus](info/AstroNvimPlus.md)
   - Install and initialize with `lazyman -a`
-  - An example [AstroNvim community]() plugins configuration is added
+  - An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) plugins configuration is added
 - [Basic IDE](info/BasicIde.md)
   - Maintained by LunarVim, this is a descendent of "Neovim from Scratch"
   - All plugins are pinned to known working versions

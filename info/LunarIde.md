@@ -1,5 +1,8 @@
 ## LunarIde Neovim Configuration Information
 
+LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChiarulli/lvim). Java, Python, Lua, Go, JavaScript, Typescript, React, and Rust IDE
+
+- Install and initialize: `lazyman -L LunarIde`
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

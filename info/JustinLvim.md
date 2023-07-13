@@ -1,5 +1,8 @@
 ## JustinLvim Neovim Configuration Information
 
+LunarVim based Neovim configuration by Justin Angeles
+
+- Install and initialize: `lazyman -x JustinLvim`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

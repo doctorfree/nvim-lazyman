@@ -1,5 +1,8 @@
 ## NvChad Neovim Configuration Information
 
+Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
+
+- Install and initialize: `lazyman -c`
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

@@ -1,5 +1,8 @@
 ## Traap Neovim Configuration Information
 
+[Introductory video](https://youtu.be/aD9j6d9pgtc)
+
+- Install and initialize: `lazyman -w Traap`
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)

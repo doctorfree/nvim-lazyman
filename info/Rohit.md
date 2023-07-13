@@ -1,5 +1,8 @@
 ## Rohit Neovim Configuration Information
 
+Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
+
+- Install and initialize: `lazyman -x Rohit`
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
