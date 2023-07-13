@@ -349,6 +349,7 @@ make_info() {
       ;;
     Maddison)
       GH_URL="https://github.com/b0o/nvim-conf"
+      DF_URL="https://dotfyle.com/b0o/nvim-conf"
       CF_CAT="Personal"
       ;;
     Metis)

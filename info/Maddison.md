@@ -9,6 +9,10 @@
 
 [https://github.com/b0o/nvim-conf](https://github.com/b0o/nvim-conf)
 
+### Dotfyle entry
+
+[https://dotfyle.com/b0o/nvim-conf](https://dotfyle.com/b0o/nvim-conf)
+
 ### Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
