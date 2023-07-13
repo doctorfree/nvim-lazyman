@@ -268,6 +268,7 @@ make_info() {
     Go2one)
       GH_URL="https://github.com/leoluz/go2one"
       CF_CAT="Language"
+      PL_MAN="Packer"
       C_DESC="Neovim Go development environment that does not touch standard Neovim configuration folders"
       C_INST="lazyman -L Go2one"
       ;;

@@ -40,7 +40,7 @@ NVCHADCFGS="Go NvChad Python Rust"
 ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
 KICKSTARTCFGS="Kickstart"
 LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-PACKERCFGS="Abstract AlanVim CodeArt Fennel Josean LaTeX Nyoom SaleVim Simple SingleFile Slydragonn"
+PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
 PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
