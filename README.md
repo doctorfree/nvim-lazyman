@@ -551,6 +551,7 @@ installed with the `-x conf` option.
   - Starter config by the author of NvChad with [video tutorial](https://youtube.com/playlist?list=PLYVQrj2EVSUL1NqYn3jsIVXG3U9eWaMcq)
   - Install and initialize with `lazyman -x Basic`
 - [CodeArt](info/CodeArt.md)
+  - Use Neovim as general purpose IDE
   - Install and initialize with `lazyman -x CodeArt`
 - [CosmicNvim](info/Cosmic.md)
   - Install `Node.js`, `prettierd`, and `eslint_d`
