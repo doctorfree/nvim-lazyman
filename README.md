@@ -330,6 +330,9 @@ Currently the following "Base" Neovim configurations are supported:
   - Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)
   - Install and initialize with `lazyman -v`
 - [MagicVim](info/MagicVim.md)
+  - Custom Neovim configuration designed to be light and fast
+  - LSP, Treesitter & Code Completion all work out of the box
+  - Auto install when you open a file type that doesn't have code completion for it yet
   - Uses Packer plugin manager, installs in `~/.config/nvim-MagicVim`
   - Install and initialize with `lazyman -m`
 - [NvChad](info/NvChad.md)
