@@ -27,7 +27,6 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 LINE=$(tput smul 2>/dev/null)
 
-PLEASE="Please enter your choice"
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
@@ -1642,7 +1641,7 @@ show_main_menu() {
       printf "\n"
     fi
 
-    PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
+    PS3="${BOLD}Enter a choice (number, shortcut, or text, 'h' help): ${NORM}"
     options=()
     get_config_str "${BASECFGS}"
     base_partial=${cfgpart}
@@ -1720,8 +1719,10 @@ show_main_menu() {
     if [ "${cfginst}" ]
     then
       options+=("Update All        ${configstr}")
+      iushort="update"
     else
       options+=("Install All       ${configstr}")
+      iushort="install"
     fi
     uninstalled=()
     if [ "${have_fzf}" ]
@@ -1788,7 +1789,11 @@ show_main_menu() {
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
     options+=("Select and Update")
-    [ ${numitems} -gt 1 ] && options+=("Select and Remove")
+    rmshort=
+    [ ${numitems} -gt 1 ] && {
+      options+=("Select and Remove")
+      rmshort="remove"
+    }
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${lang_partial}" ] && options+=("Remove Languages")
     [ "${prsnl_partial}" ] && options+=("Remove Personals")
@@ -1850,6 +1855,11 @@ show_main_menu() {
       options+=("Homebrew Upgrade")
     }
     options+=("Quit")
+    if [ "${have_rich}" ]; then
+      rich "[b cyan]Selection shortcuts:[/] [b yellow]help info ${iushort} open ${rmshort}[/]" -p
+    else
+      printf "\nSelection shortcuts: ${BOLD}help info ${iushort} open ${rmshort}${NORM}\n"
+    fi
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
