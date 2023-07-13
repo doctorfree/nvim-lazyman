@@ -8,7 +8,9 @@ Use Neovim as a general purpose IDE
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-CodeArt`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/artart222/CodeArt](https://github.com/artart222/CodeArt)
 

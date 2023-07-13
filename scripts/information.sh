@@ -869,6 +869,8 @@ make_info() {
   fi
   echo "- Installation location:  \`~/.config/nvim-${nvimconf}\`" >> "${OUTF}"
   echo "" >> "${OUTF}"
+  echo "[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)" >> "${OUTF}"
+  echo "" >> "${OUTF}"
   [ "${WS_URL}" ] && {
     echo "### Website" >> "${OUTF}"
     echo "" >> "${OUTF}"
@@ -876,7 +878,7 @@ make_info() {
     echo "" >> "${OUTF}"
   }
   [ "${GH_URL}" ] && {
-    echo "### Github repository" >> "${OUTF}"
+    echo "### Git repository" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${GH_URL}](${GH_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"

@@ -8,11 +8,13 @@ Preconfigured Neovim as an IDE
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-Abstract`
 
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
 ### Website
 
 [https://abstract-ide.github.io/site](https://abstract-ide.github.io/site)
 
-### Github repository
+### Git repository
 
 [https://github.com/Abstract-IDE/Abstract](https://github.com/Abstract-IDE/Abstract)
 

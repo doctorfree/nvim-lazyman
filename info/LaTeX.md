@@ -8,7 +8,9 @@ Neovim configuration optimized for writing in LaTeX. Personal Neovim configurati
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-LaTeX`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/benbrastmckie/.config](https://github.com/benbrastmckie/.config)
 

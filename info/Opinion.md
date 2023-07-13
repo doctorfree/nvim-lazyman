@@ -8,7 +8,9 @@ Includes a combination of popular plugins
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Opinion`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated)
 

@@ -8,7 +8,9 @@ Hybrid Neovim config for developers with a functional yet aesthetic experience. 
 - Plugin manager:         [Plug](https://github.com/junegunn/vim-plug)
 - Installation location:  `~/.config/nvim-Optixal`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/Optixal/neovim-init.vim](https://github.com/Optixal/neovim-init.vim)
 

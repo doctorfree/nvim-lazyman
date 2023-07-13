@@ -8,7 +8,9 @@ Well structured personal config based on the [KISS](https://en.wikipedia.org/wik
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Brain`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/brainfucksec/neovim-lua](https://github.com/brainfucksec/neovim-lua)
 

@@ -8,7 +8,9 @@ Configure Neovim as a modernized development environment. Details described in [
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Modern`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/alpha2phi/modern-neovim](https://github.com/alpha2phi/modern-neovim)
 

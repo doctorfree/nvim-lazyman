@@ -8,7 +8,9 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Rohit`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/rohit-kumar-j/nvim](https://github.com/rohit-kumar-j/nvim)
 

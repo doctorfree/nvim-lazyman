@@ -8,7 +8,9 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-LazyVim`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/LazyVim LazyVim/starter](https://github.com/LazyVim LazyVim/starter)
 

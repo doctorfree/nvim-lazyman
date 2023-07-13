@@ -8,7 +8,9 @@ Personal Neovim configuration of Jade Fox
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-J4de`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://codeberg.org/j4de/nvim](https://codeberg.org/j4de/nvim)
 

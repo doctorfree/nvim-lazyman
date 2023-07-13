@@ -8,7 +8,9 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-LunarVim`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/IfCodingWereNatural/minimal-nvim](https://github.com/IfCodingWereNatural/minimal-nvim)
 

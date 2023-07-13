@@ -8,7 +8,9 @@ Oriented toward Python development
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-AlanVim`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/alanRizzo/dot-files](https://github.com/alanRizzo/dot-files)
 

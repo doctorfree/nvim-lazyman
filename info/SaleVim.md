@@ -8,7 +8,9 @@
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-SaleVim`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/igorcguedes/SaleVim](https://github.com/igorcguedes/SaleVim)
 

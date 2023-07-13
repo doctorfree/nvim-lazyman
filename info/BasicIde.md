@@ -8,7 +8,9 @@ Maintained by LunarVim, this is a descendent of 'Neovim from Scratch'.All plugin
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-BasicIde`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 

@@ -8,7 +8,9 @@ Tailored for frontend development with React and Vue.js
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Ecovim`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/ecosse3/nvim](https://github.com/ecosse3/nvim)
 

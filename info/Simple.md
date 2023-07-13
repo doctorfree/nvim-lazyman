@@ -8,7 +8,9 @@ A remarkably effective Neovim configuration in only one small file. The author's
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-Simple`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/anthdm/.nvim](https://github.com/anthdm/.nvim)
 

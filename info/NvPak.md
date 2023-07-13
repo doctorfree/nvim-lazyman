@@ -8,7 +8,9 @@ PaK in Farsi means pure, something that is in its purest form
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-NvPak`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/Pakrohk-DotFiles/NvPak.git](https://github.com/Pakrohk-DotFiles/NvPak.git)
 

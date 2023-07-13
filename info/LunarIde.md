@@ -8,7 +8,9 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-LunarIde`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/doctorfree/lvim-Christian](https://github.com/doctorfree/lvim-Christian)
 

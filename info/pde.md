@@ -8,7 +8,9 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-pde`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/alpha2phi/neovim-pde](https://github.com/alpha2phi/neovim-pde)
 

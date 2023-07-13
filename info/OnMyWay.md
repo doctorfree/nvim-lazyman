@@ -8,7 +8,9 @@ The personal Neovim configuration of Richard Ariza
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-OnMyWay`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/RchrdAlv/NvimOnMy_way](https://github.com/RchrdAlv/NvimOnMy_way)
 

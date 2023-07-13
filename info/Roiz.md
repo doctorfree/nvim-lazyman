@@ -8,7 +8,9 @@ Just a random Neovim config found on Github, works well
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Roiz`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/MrRoiz/rnvim](https://github.com/MrRoiz/rnvim)
 

@@ -8,7 +8,9 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Penguin`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/p3nguin-kun/penguinVim](https://github.com/p3nguin-kun/penguinVim)
 

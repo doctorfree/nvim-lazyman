@@ -8,7 +8,9 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-LvimIde`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/lvim-tech/lvim](https://github.com/lvim-tech/lvim)
 

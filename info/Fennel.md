@@ -8,7 +8,9 @@ An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  `~/.config/nvim-Fennel`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/jhchabran/nvim-config](https://github.com/jhchabran/nvim-config)
 

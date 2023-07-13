@@ -8,7 +8,9 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-xero`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/xero/dotfiles](https://github.com/xero/dotfiles)
 

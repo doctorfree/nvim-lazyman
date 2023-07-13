@@ -8,7 +8,9 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-AstroNvimPlus`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/doctorfree/astronvim](https://github.com/doctorfree/astronvim)
 

@@ -8,7 +8,9 @@
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  `~/.config/nvim-Python`
 
-### Github repository
+[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
+
+### Git repository
 
 [https://github.com/dreamsofcode-io/neovim-python](https://github.com/dreamsofcode-io/neovim-python)
 
