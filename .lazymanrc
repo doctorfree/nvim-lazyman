@@ -10,6 +10,9 @@
 # For example, to use 'gio' rather than Python's webbrowser module on Linux:
 # export URL_OPEN_COMMAND="gio open"
 #
+# To specify the browser, set the BROWSER environment variable. For example:
+# export BROWSER="w3m"
+#
 # Bob neovim version manager path
 [ -d ${HOME}/.local/share/bob/nvim-bin ] && {
   export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
