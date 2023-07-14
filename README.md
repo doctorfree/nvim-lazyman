@@ -884,7 +884,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]
    [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
    [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]
-   [health] [info] [init] [install] [open] [remove] [status] [usage]
+   [health] [info] [init] [install] [open] [remove] [search] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvimPlus Neovim configuration
@@ -941,7 +941,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
+           All 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
@@ -958,6 +958,7 @@ Where:
     'install' fuzzy search and select configuration to install
     'open' fuzzy search and select configuration to open
     'remove' fuzzy search and select configuration to remove
+    'search' fuzzy search and select configurations for a plugin
     'status' displays a brief status report and exits
     'usage' displays this usage message and exits
 Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
