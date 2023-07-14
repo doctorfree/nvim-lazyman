@@ -1009,19 +1009,37 @@ show_health() {
   fi
 }
 
-# open_info ${LMANDIR}/info/html/${nvimconf}.html
 open_info() {
   nviminfo="$1"
   infourl="${LMANDIR}/info/html/${nviminfo}.html"
-  have_python=$(type -p python3)
-  if [ "${have_python}" ]
+  platform=$(uname -s)
+  if [ "${platform}" == "Darwin" ]
   then
-    python3 -m webbrowser "${infourl}"
-  else
     have_open=$(type -p open)
     if [ "${have_open}" ]
     then
       open "${infourl}"
+    else
+      if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+      then
+        NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+      else
+        echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+      fi
+    fi
+  else
+    # The Firefox Snap on some systems is so weirdly broken
+    # https://bugs.launchpad.net/snapd/+bug/1972762
+    # It won't open documents in /tmp or hidden folders in $HOME
+    # Copy the HTML documents to $HOME/tmp to open
+    [ -d "${HOME}/tmp" ] || mkdir -p "${HOME}/tmp"
+    [ -d "${HOME}/tmp/lazyman_html" ] || mkdir "${HOME}/tmp/lazyman_html"
+    cp "${LMANDIR}/info/html/${nviminfo}.html" "${HOME}/tmp/lazyman_html"
+    infourl="${HOME}/tmp/lazyman_html/${nviminfo}.html"
+    have_python=$(type -p python3)
+    if [ "${have_python}" ]
+    then
+      python3 -m webbrowser "${infourl}"
     else
       have_xdg=$(type -p xdg-open)
       if [ "${have_xdg}" ]
