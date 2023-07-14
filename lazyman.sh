@@ -1012,26 +1012,33 @@ show_health() {
 # open_info ${LMANDIR}/info/html/${nvimconf}.html
 open_info() {
   nviminfo="$1"
-  have_open=$(type -p open)
-  if [ "${have_open}" ]
+  infourl="${LMANDIR}/info/html/${nviminfo}.html"
+  have_python=$(type -p python3)
+  if [ "${have_python}" ]
   then
-    open ${LMANDIR}/info/html/${nviminfo}.html
+    python3 -m webbrowser "${infourl}"
   else
-    have_gio=$(type -p gio)
-    if [ "${have_gio}" ]
+    have_open=$(type -p open)
+    if [ "${have_open}" ]
     then
-      gio open ${LMANDIR}/info/html/${nviminfo}.html
+      open "${infourl}"
     else
       have_xdg=$(type -p xdg-open)
       if [ "${have_xdg}" ]
       then
-        xdg-open ${LMANDIR}/info/html/${nviminfo}.html
+        xdg-open "${infourl}"
       else
-        if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+        have_gio=$(type -p gio)
+        if [ "${have_gio}" ]
         then
-          NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+          gio open "${infourl}"
         else
-          echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+          if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+          then
+            NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+          else
+            echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+          fi
         fi
       fi
     fi
