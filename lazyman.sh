@@ -1015,16 +1015,21 @@ open_info() {
   platform=$(uname -s)
   if [ "${platform}" == "Darwin" ]
   then
-    have_open=$(type -p open)
-    if [ "${have_open}" ]
+    if [ "${URL_OPEN_COMMAND}" ]
     then
-      open "${infourl}"
+      ${URL_OPEN_COMMAND} "${infourl}"
     else
-      if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+      have_open=$(type -p open)
+      if [ "${have_open}" ]
       then
-        NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+        open "${infourl}"
       else
-        echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+        if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+        then
+          NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+        else
+          echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+        fi
       fi
     fi
   else
@@ -1036,26 +1041,31 @@ open_info() {
     [ -d "${HOME}/tmp/lazyman_html" ] || mkdir "${HOME}/tmp/lazyman_html"
     cp "${LMANDIR}/info/html/${nviminfo}.html" "${HOME}/tmp/lazyman_html"
     infourl="${HOME}/tmp/lazyman_html/${nviminfo}.html"
-    have_python=$(type -p python3)
-    if [ "${have_python}" ]
+    if [ "${URL_OPEN_COMMAND}" ]
     then
-      python3 -m webbrowser "${infourl}"
+      ${URL_OPEN_COMMAND} "${infourl}"
     else
-      have_xdg=$(type -p xdg-open)
-      if [ "${have_xdg}" ]
+      have_python=$(type -p python3)
+      if [ "${have_python}" ]
       then
-        xdg-open "${infourl}"
+        python3 -m webbrowser "${infourl}"
       else
-        have_gio=$(type -p gio)
-        if [ "${have_gio}" ]
+        have_xdg=$(type -p xdg-open)
+        if [ "${have_xdg}" ]
         then
-          gio open "${infourl}"
+          xdg-open "${infourl}"
         else
-          if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+          have_gio=$(type -p gio)
+          if [ "${have_gio}" ]
           then
-            NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+            gio open "${infourl}"
           else
-            echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+            if [ -f ${LMANDIR}/info/${nviminfo}.md ]
+            then
+              NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
+            else
+              echo "Unable to locate command to open ${LMANDIR}/info/html/${nviminfo}.html"
+            fi
           fi
         fi
       fi

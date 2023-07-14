@@ -2,6 +2,14 @@
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
+# Command to open a URL
+# Set this to override the defaults:
+#   On macOS the default is the 'open' command
+#   Linux default is 'python3 -m webbrowser' then 'xdg-open' then 'gio open'
+# export URL_OPEN_COMMAND="your custom command"
+# For example, to use 'gio' rather than Python's webbrowser module on Linux:
+# export URL_OPEN_COMMAND="gio open"
+#
 # Bob neovim version manager path
 [ -d ${HOME}/.local/share/bob/nvim-bin ] && {
   export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
