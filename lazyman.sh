@@ -1874,10 +1874,20 @@ show_main_menu() {
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
 
     options+=("Select and Update")
-    rmshort=
+    if [ "${iushort}" == "update" ]
+    then
+      shortcuts="help info open search update"
+    else
+      shortcuts="help info install open search"
+    fi
     [ ${numitems} -gt 1 ] && {
       options+=("Select and Remove")
-      rmshort="remove"
+      if [ "${iushort}" == "update" ]
+      then
+        shortcuts="help info open remove search update"
+      else
+        shortcuts="help info install open remove search"
+      fi
     }
     [ "${base_partial}" ] && options+=("Remove Base")
     [ "${lang_partial}" ] && options+=("Remove Languages")
@@ -1941,9 +1951,9 @@ show_main_menu() {
     }
     options+=("Quit")
     if [ "${have_rich}" ]; then
-      rich "[b cyan]Selection shortcuts:[/] [b yellow]help info ${iushort} open ${rmshort} search[/]" -p
+      rich "[b cyan]Selection shortcuts:[/] [b yellow]${shortcuts}[/]" -p
     else
-      printf "\nSelection shortcuts: ${BOLD}help info ${iushort} open ${rmshort} search${NORM}\n"
+      printf "\nSelection shortcuts: ${BOLD}${shortcuts}${NORM}\n"
     fi
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
