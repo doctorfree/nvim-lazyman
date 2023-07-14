@@ -108,6 +108,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
   - [Shell initialization setup](#shell-initialization-setup)
   - [The nvims fuzzy selector](#the-nvims-fuzzy-selector)
   - [Using aliases](#using-aliases)
+  - [Open URL command](#open-url-command)
   - [Using lazyman to explore configurations](#using-lazyman-to-explore-configurations)
 - [Removal](#removal)
 - [Known limitations](#known-limitations)
@@ -1765,6 +1766,17 @@ removal of the selected Neovim configuration.
 # This file should be sourced from the shell initialization file
 # e.g. $HOME/.bashrc or $HOME/.zshrc
 #
+# Command to open a URL
+# Set this to override the defaults:
+#   On macOS the default is the 'open' command
+#   Linux default is 'python3 -m webbrowser' then 'xdg-open' then 'gio open'
+# export URL_OPEN_COMMAND="your custom command"
+# For example, to use 'gio' rather than Python's webbrowser module on Linux:
+# export URL_OPEN_COMMAND="gio open"
+#
+# To specify the browser, set the BROWSER environment variable. For example:
+# export BROWSER="w3m"
+#
 # Bob neovim version manager path
 [ -d ${HOME}/.local/share/bob/nvim-bin ] && {
   export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
@@ -1876,7 +1888,7 @@ command -v nvim > /dev/null && {
       nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
         NVIM_APPNAME="${cfg}" ${comm} -c 'Lexplore' $@
         ;;
-      nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
+      nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
         NVIM_APPNAME="${cfg}" ${comm} -c 'Neotree' $@
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
@@ -2095,6 +2107,32 @@ alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
 After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
 configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
 config run `nvim-lunar proposal.md`.
+
+### Open URL command
+
+The `lazyman` command includes support for opening Neovim configuration info
+documents in a browser. The command used to open a file URL varies from system
+to system and can be problematic. On `macOS` the `open` command is used and
+works fairly flawlessly. However, on `Linux` there are a variety of ways, none
+of which work well on all platforms. The `lazyman` command does its best to
+figure out what command to use to open a file URL but this may not always
+result in success. If opening a configuration information document fails,
+the open URL command can be overriden in `~/.config/nvim-Lazyman/.lazymanrc`.
+To override the open URL command and/or set the `BROWSER` environment variable,
+uncomment and edit the following section of code there:
+
+```bash
+# Command to open a URL
+# Set this to override the defaults:
+#   On macOS the default is the 'open' command
+#   Linux default is 'python3 -m webbrowser' then 'xdg-open' then 'gio open'
+# export URL_OPEN_COMMAND="your custom command"
+# For example, to use 'gio' rather than Python's webbrowser module on Linux:
+# export URL_OPEN_COMMAND="gio open"
+#
+# To specify the browser, set the BROWSER environment variable. For example:
+# export BROWSER="w3m"
+```
 
 ### Using lazyman to explore configurations
 
