@@ -55,7 +55,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
   printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
   printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]"
-  printf "\n   [health] [info] [init] [install] [open] [remove] [status] [usage]"
+  printf "\n   [health] [info] [init] [install] [open] [remove] [search] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -134,6 +134,7 @@ usage() {
   printf "\n    'install' fuzzy search and select configuration to install"
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
+  printf "\n    'search' fuzzy search and select configurations for a plugin"
   printf "\n    'status' displays a brief status report and exits"
   printf "\n    'usage' displays this usage message and exits"
   printf "\nCommands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'"
@@ -1428,7 +1429,56 @@ select_remove() {
     printf "\nUnable to display selection menu. Exiting.\n"
     exit 1
   fi
-  exit 0
+}
+
+select_search() {
+  noexit="$1"
+  set_haves
+  [ "${have_fzf}" ] || {
+    printf "\n\nPlugin search selection requires fzf but fzf is not found."
+    printf "\nInstall fzf with 'lazyman -I' and verify fzf is in your PATH.\n"
+    if [ "${noexit}" ]
+    then
+      prompt_continue
+    else
+      printf "\nExiting\n"
+      exit 1
+    fi
+  }
+  printf "\nEnter a plugin name or string to match against configuration plugins\n"
+  read -r -p "Plugin search string: " plug_name
+  choices=()
+  while read cfg
+  do
+    match=$(grep "^- " "${cfg}" | grep -v ":" | grep "${plug_name}" "${cfg}" | grep "/")
+    [ "${match}" ] && {
+      matched=
+      while read matchline
+      do
+        if [ "${matched}" ]
+        then
+          newmatch=$(echo "${matchline}" | awk -F '[' ' { print $2 } ' | awk -F ']' ' { print $1 } ')
+          matched="${matched}, ${newmatch}"
+        else
+          matched=$(echo "${matchline}" | awk -F '[' ' { print $2 } ' | awk -F ']' ' { print $1 } ')
+        fi
+      done < <(echo "${match}")
+      neocfg=$(echo "${cfg}" | sed -e "s%${LMANDIR}/info/%%" -e "s/\.md//")
+      if [ -d "${HOME}/.config/nvim-${neocfg}" ]
+      then
+        choices+=("${neocfg}  (Installed, Matches: ${matched})")
+      else
+        choices+=("${neocfg}  (Uninstalled, Matches: ${matched})")
+      fi
+    }
+  done < <(grep -l "${plug_name}" "${LMANDIR}"/info/*.md)
+  IFS=$'\n' choices=($(sort <<<"${choices[*]}"))
+  unset IFS
+  choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config matching ${plug_name} for Information Display  " --layout=reverse --border --exit-0)
+  if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+    infocfg=$(echo "${choice}" | awk ' { print $1 } ')
+    lazyman -N "nvim-${infocfg}" info
+  fi
 }
 
 show_vers_help() {
@@ -1539,7 +1589,7 @@ show_main_help() {
   fi
   printf "\nSelect and install/open/remove Neovim configurations managed by Lazyman."
   printf "\nEnter a menu option number or keywords to select an option."
-  printf "\nKeywords include: ${BOLD}help, info, install, open, remove${NORM}"
+  printf "\nKeywords include: ${BOLD}help, info, install, open, remove search update${NORM}"
   printf "\nIn the fuzzy selection dialogs, enter a few letters to fuzzy select from the options"
   printf "\nor use the <Up-Arrow> and <Down-Arrow> keys to move through the options."
   printf "\nPress <Enter> to select the highlighted option.\n"
@@ -1838,7 +1888,7 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Config Info" "Health Check")
+    options+=("Config Info" "Health Check" "Plugin Search")
     numnvim=$(ps -ef | grep ' nvim ' | grep -v grep | wc -l)
     [ ${numnvim} -gt 0 ] && {
       [ -x ${KILLNVIM} ] && options+=("Kill All Nvim")
@@ -1856,9 +1906,9 @@ show_main_menu() {
     }
     options+=("Quit")
     if [ "${have_rich}" ]; then
-      rich "[b cyan]Selection shortcuts:[/] [b yellow]help info ${iushort} open ${rmshort}[/]" -p
+      rich "[b cyan]Selection shortcuts:[/] [b yellow]help info ${iushort} open ${rmshort} search[/]" -p
     else
-      printf "\nSelection shortcuts: ${BOLD}help info ${iushort} open ${rmshort}${NORM}\n"
+      printf "\nSelection shortcuts: ${BOLD}help info ${iushort} open ${rmshort} search${NORM}\n"
     fi
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -2441,6 +2491,10 @@ show_main_menu() {
           }
           break
           ;;
+        "Plugin Search",* | *,"Plugin Search" | "search"*,* | *,"search"* | "Search"*,* | *,"Search"*)
+          select_search noexit
+          break
+          ;;
         "Health Check",* | *,"Health Check")
           choices=()
           items=()
@@ -2937,6 +2991,11 @@ shift $((OPTIND - 1))
 [ "$1" == "status" ] && {
   printf "\nPreparing Lazyman status report\n"
   show_status
+  exit 0
+}
+
+[ "$1" == "search" ] && {
+  select_search
   exit 0
 }
 
