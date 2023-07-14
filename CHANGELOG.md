@@ -4,6 +4,14 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.8r2
+
+### ⚡️ Added
+
+- Add plugin search to main menu and command line
+- Add shortcuts list to main menu prompt
 - Add link to table of info docs in every info doc
 - Add description and install command to info documents
 - Add `Dotfyle` entry for `Maddison` config

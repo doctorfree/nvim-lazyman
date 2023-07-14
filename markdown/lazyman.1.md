@@ -19,7 +19,8 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
 ## FEATURES
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
-- support for `Lazy`, `Packer`, and `vim-plug` plugin managers
+- support for `Lazy`, `Packer`, and `vim-plug` plugin managers (`dein` for `SpaceVim` only)
+- open, install, remove, get info, search plugins, all from the command line or main menu
 - automated installation of dependencies, tools, language servers, and Neovim 0.9+
 - install and manage the `Bob` neovim version manager via a menu interface
 - richly configured `nvim-Lazyman` Neovim configuration
