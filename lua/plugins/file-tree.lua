@@ -29,7 +29,7 @@ elseif settings.file_tree == "neo-tree" then
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   treetype = {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
