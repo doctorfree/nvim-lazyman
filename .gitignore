@@ -44,6 +44,7 @@ doc/tags
 
 # Working dirs and test files
 tmp/*
+scripts/tmp/*
 scripts/lazyman-test.yaml
 
 # Neovide leaves a backtrace when it crashes
