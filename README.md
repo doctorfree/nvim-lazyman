@@ -1214,11 +1214,11 @@ conf.maplocalleader = ","
 -- Toggle global status line
 conf.global_statusline = true
 -- set numbered lines
-conf.number = false
+conf.number = true
 -- enable mouse see :h mouse
 conf.mouse = "nv"
 -- set relative numbered lines
-conf.relative_number = false
+conf.relative_number = true
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
 -- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
@@ -1237,13 +1237,15 @@ conf.grepprg = "rg --hidden --vimgrep --smart-case --"
 
 -- ENABLE/DISABLE/SELECT PLUGINS
 --
--- AI coding assistants - ChatGPT, Code Explain, Copilot, NeoAI
+-- AI coding assistants - ChatGPT, Code Explain, Codeium, Copilot, NeoAI
 -- Enable Github Copilot if you have an account, it is superior
 --
 -- Enable ChatGPT (set OPENAI_API_KEY environment variable)
 conf.enable_chatgpt = false
 -- Enable Code Explain (requires 3.5GB model, uses GPT4ALL)
 conf.enable_codeexplain = false
+-- Enable Codeium
+conf.enable_codeium = false
 -- Enable Github Copilot
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
@@ -1255,7 +1257,7 @@ conf.enable_asciiart = false
 conf.enable_bbye = true
 -- Enable display of custom cheatsheets
 conf.enable_cheatsheet = true
--- Enable coding plugins for diagnostics, debugging, and language sservers
+-- Enable coding plugins for diagnostics, debugging, and language servers
 conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
@@ -1274,8 +1276,10 @@ conf.neorg_notes = {
   -- "YYYYY", -- NEORG_NOTES
   -- "ZZZZZ", -- NEORG_NOTES
 }
--- If notes enabled, Obsidian vault folder
-conf.obsidian_vault = "~/Documents/Notes/Obsidian"
+-- Enable note making using Obsidian
+conf.enable_obsidian = false
+-- If Obsidian enabled, Obsidian vault folder (relative to HOME)
+conf.obsidian_vault = "Documents/Notes/Obsidian"
 -- Enable renamer plugin for VS Code-like renaming UI
 conf.enable_renamer = true
 -- Enable ranger in a floating window

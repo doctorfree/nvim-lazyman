@@ -88,8 +88,10 @@ conf.neorg_notes = {
   -- "YYYYY", -- NEORG_NOTES
   -- "ZZZZZ", -- NEORG_NOTES
 }
--- If notes enabled, Obsidian vault folder
-conf.obsidian_vault = "~/Documents/Notes/Obsidian"
+-- Enable note making using Obsidian
+conf.enable_obsidian = false
+-- If Obsidian enabled, Obsidian vault folder (relative to HOME)
+conf.obsidian_vault = "Documents/Notes/Obsidian"
 -- Enable renamer plugin for VS Code-like renaming UI
 conf.enable_renamer = true
 -- Enable ranger in a floating window

@@ -4,6 +4,25 @@ if notes == "" or notes == nil then
   notes = { "~/notes" }
 end
 
+local obsidian = {}
+if settings.enable_obsidian then
+  local obsidian_vault = settings.obsidian_vault
+  obsidian = {
+    "epwalsh/obsidian.nvim",
+    lazy = true,
+    event = { "BufReadPre " .. vim.fn.expand "~" .. "/" .. obsidian_vault .. "/**.md" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      "preservim/vim-markdown",
+    },
+    config = function()
+      require("config.obsidian")
+    end
+  }
+end
+
 local preview = {}
 if settings.markdown_preview == "preview" then
   preview = {
@@ -58,13 +77,7 @@ if settings.enable_notes then
         vim.g.vim_markdown_toc_autofit = true
       end
     },
-    {
-      "epwalsh/obsidian.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("config.obsidian")
-      end
-    },
+    obsidian,
     {
       "nvim-neorg/neorg",
       build = ":Neorg sync-parsers",

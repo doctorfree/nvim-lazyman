@@ -755,6 +755,12 @@ show_plugin_menu() {
     fi
     markdown_preview=$(get_conf_value markdown_preview)
     use_markdown_preview="${markdown_preview}"
+    enable_obsidian=$(get_conf_value enable_obsidian)
+    if [ "${enable_obsidian}" == "true" ]; then
+      use_obsidian=""
+    else
+      use_obsidian="✗"
+    fi
     obsidian_vault=$(get_conf_value obsidian_vault)
     use_obsidian_vault=$(basename "${obsidian_vault}")
     get_conf_table neorg_notes
@@ -910,8 +916,11 @@ show_plugin_menu() {
     options+=("Enable Motion [${use_motion}]")
     options+=("Enable Notes  [${use_notes}]")
     if [ "${enable_notes}" == "true" ]; then
+      options+=("Enable Obsidian [${use_obsidian}]")
       options+=(" Preview  [${use_markdown_preview}]")
-      options+=(" Obsidian [${use_obsidian_vault}]")
+      [ "${enable_obsidian}" == "true" ] && {
+        options+=(" Obsidian [${use_obsidian_vault}]")
+      }
       [ ${num_neorg_notes} -lt 4 ] && {
         options+=(" Neorg Notes  [add]")
       }
@@ -1340,6 +1349,15 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
+        "Enable Obsidian"*,* | *,"Enable Obsidian"*)
+          if [ "${enable_obsidian}" == "true" ]; then
+            set_conf_value "enable_obsidian" "false"
+          else
+            set_conf_value "enable_obsidian" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Enable Ranger"*,* | *,"Enable Ranger"*)
           if [ "${enable_ranger}" == "true" ]; then
             set_conf_value "enable_ranger_float" "false"
@@ -1606,6 +1624,7 @@ show_plugin_menu() {
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_motion" "none"
+          set_conf_value "enable_obsidian" "false"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_securitree" "false"
@@ -1657,6 +1676,7 @@ show_plugin_menu() {
           set_conf_value "enable_compile" "true"
           set_conf_value "enable_dressing" "true"
           set_conf_value "enable_motion" "leap"
+          set_conf_value "enable_obsidian" "true"
           set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
           set_conf_value "enable_securitree" "true"
@@ -2348,6 +2368,7 @@ show_conf_menu() {
           set_conf_value "enable_compile" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_motion" "none"
+          set_conf_value "enable_obsidian" "false"
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_securitree" "false"

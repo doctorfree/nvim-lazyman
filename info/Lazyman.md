@@ -50,6 +50,7 @@ Neovim configuration of Dr. Ronald Joe Record
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- [folke/drop.nvim](https://github.com/folke/drop.nvim.git)
 - [neanias/everforest-nvim](https://github.com/neanias/everforest-nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -160,4 +161,3 @@ Neovim configuration of Dr. Ronald Joe Record
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-- [tamton-aquib/zone.nvim](https://github.com/tamton-aquib/zone.nvim.git)
