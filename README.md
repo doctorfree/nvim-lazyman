@@ -287,9 +287,9 @@ following configuration categories:
 | **Personal** |       |        |        |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ------ | ------ | ----------- |
 | [3rd](https://github.com/doctorfree/nvim-lazyman/blob/main/info/3rd.md) | [Adib](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Adib.md) | [Brain](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Brain.md) | [Charles](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Charles.md) | [Craftzdog](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Craftzdog.md) | [Daniel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Daniel.md) | [Dillon](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Dillon.md) |
-| [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) | [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) | [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) |
-| [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) | [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) |
-| [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | | |
+| [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) | [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) |
+| [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) |
+| [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       |       |        | **Configs** |
@@ -492,6 +492,10 @@ installed with the `-w conf` option.
 - [Josean](info/Josean.md)
   - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
   - `lazyman -w Josean`
+- [Kodo](info/Kodo.md)
+  - Personal Neovim configuration of chadcat, a high school student with no life
+  - `Kodo` is a Neovim configuration that looks good and is fast (startuptime < 0.035s)
+  - Install and initialize with `lazyman -w Kodo`
 - [Maddison](info/Maddison.md)
   - Personal Neovim configuration of Maddison Hellstrom
   - Author of `incline.nvim` floating statuslines, `SchemaStore.nvim` JSON schemas, `mapx.nvim` better keymaps
@@ -943,7 +947,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
+           All 3rd Adib Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
