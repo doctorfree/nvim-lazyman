@@ -4,6 +4,12 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.8r3
+
+### ⚡️ Added
+
 - Add `Artur` config to `Personals`
 - Add `-i` argument to `information.sh` to generate info docs in config's installed location
 - Add `Kodo` config to `Personals`
