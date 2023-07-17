@@ -4,7 +4,25 @@
 
 ### ⚡️ Added
 
+- Add `Artur` config to `Personals`
+- Add `-i` argument to `information.sh` to generate info docs in config's installed location
+- Add `Kodo` config to `Personals`
+- Add `keymaps.sh` script to retrieve keymaps from a configuration
+- Update `obsidian` plugin config, add enable/disable `obsidian` plugin to config menu
+- Update `neogit` plugin spec and config, add `diffview.nvim`
+- Add section on open URL command
+- Add note about `BROWSER` environment variable
+- Override url open command in `lazymanrc`
+- Use Python webbrowser module to open info documents
+
 ### 🐞 Fixed
+
+- Improve url open function to workaround Firefox Snap issues
+- Arrange shortcuts in main menu prompt heading
+- Improve plugin search match listing
+- Regenerate info docs including `Cosmic` after patch applied
+- Update info docs with auto-generated keymaps section
+- Update `neo-tree` plugin spec and config to `v3`
 
 ## v2.1.8r2
 
