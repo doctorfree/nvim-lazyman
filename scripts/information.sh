@@ -17,7 +17,12 @@ KEYMAP="${LMANDIR}/scripts/keymaps.sh"
 TBLCSS="${LMANDIR}/scripts/table.css"
 
 usage() {
-  printf "\n\nUsage: information.sh [-a] [nvim-conf]\n\n"
+  printf "\n\nUsage: information.sh [-a] [-d] [-i] [conf]"
+  printf "\nWhere:"
+  printf "\n\t-a indicates generate info for all supported configs"
+  printf "\n\t-d indicates debug mode, leave generated Lua in .config/nvim-Lazyman/tmp/"
+  printf "\n\t-i indicates generate info docs in config's installed location"
+  printf "\n\t[conf] is the configuration name without the 'nvim-' prefix (default: Lazyman)\n\n"
   exit 1
 }
 
@@ -141,9 +146,16 @@ get_plugins() {
 }
 
 make_info() {
-  nvimconf="$1"
-  OUTF="${HOME}/src/Neovim/nvim-lazyman/info/${nvimconf}.md"
-  HTML="${HOME}/src/Neovim/nvim-lazyman/info/html/${nvimconf}.html"
+  if [ "$1" == "-i" ]
+  then
+    nvimconf="$2"
+    OUTF="${LMANDIR}/info/${nvimconf}.md"
+    HTML="${LMANDIR}/info/html/${nvimconf}.html"
+  else
+    nvimconf="$1"
+    OUTF="${HOME}/src/Neovim/nvim-lazyman/info/${nvimconf}.md"
+    HTML="${HOME}/src/Neovim/nvim-lazyman/info/html/${nvimconf}.html"
+  fi
 
   GH_URL=
   NC_URL=
@@ -944,14 +956,18 @@ make_info() {
 
 all=
 debug=
+install=
 have_pandoc=$(type -p pandoc)
-while getopts "adu" flag; do
+while getopts "adiu" flag; do
     case $flag in
         a)
             all=1
             ;;
         d)
             debug="-d"
+            ;;
+        i)
+            install="-i"
             ;;
         u)
             usage
@@ -963,7 +979,7 @@ shift $(( OPTIND - 1 ))
 [ "${all}" ] && {
   for conf in ${CF_NAMES}
   do
-    make_info ${conf}
+    make_info ${install} ${conf}
   done
   exit 0
 }
@@ -971,4 +987,4 @@ shift $(( OPTIND - 1 ))
 checkdir="nvim-Lazyman"
 [ "$1" ] && checkdir="$1"
 conf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
-make_info ${conf}
+make_info ${install} ${conf}

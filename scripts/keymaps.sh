@@ -70,7 +70,8 @@ grep -v callback "${KEYTMP}"/${CFNAME}.lua | grep -v "^\[" | grep -v ^Error | \
   grep -v "[[:space:]]\[C\]" | grep -v ^down | grep -v ^cwd | \
   grep -v "^\.\.\." | grep -v "[[:space:]]\.\.\." | grep -v "^\# stack" | \
   grep -v -- "[[:space:]]- " | grep -v ^Install | grep -v ^Welcome | \
-  grep -v "[[:space:]]vim/" | grep -v -- ^- > /tmp/${CFNAME}$$.lua
+  grep -v "[[:space:]]vim/" | grep -v ^run | \
+  grep -v -- ^- > /tmp/${CFNAME}$$.lua
 for mode in "normal" "visual" "operator"
 do
   cp /tmp/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua

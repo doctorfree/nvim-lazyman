@@ -1084,7 +1084,7 @@ show_info() {
     then
       NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
     else
-      [ -x ${INFOSCPT} ] && ${INFOSCPT} ${nvimconf}
+      [ -x ${INFOSCPT} ] && ${INFOSCPT} -i ${nvimconf}
       if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]
       then
         open_info "${nvimconf}"
