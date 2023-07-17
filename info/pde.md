@@ -30,7 +30,6 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
-- [akinsho/flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [anuvyklack/hydra.nvim](https://github.com/anuvyklack/hydra.nvim.git)
 - [Vigemus/iron.nvim](https://github.com/Vigemus/iron.nvim.git)
@@ -42,11 +41,13 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [echasnovski/mini.hipatterns](https://github.com/echasnovski/mini.hipatterns.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
+- [jfpedroza/neotest-elixir](https://github.com/jfpedroza/neotest-elixir.git)
 - [alfaix/neotest-gtest](https://github.com/alfaix/neotest-gtest.git)
 - [nvim-neotest/neotest-jest](https://github.com/nvim-neotest/neotest-jest.git)
 - [thenbe/neotest-playwright](https://github.com/thenbe/neotest-playwright.git)
 - [nvim-neotest/neotest-plenary](https://github.com/nvim-neotest/neotest-plenary)
 - [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python)
+- [olimorris/neotest-rspec](https://github.com/olimorris/neotest-rspec.git)
 - [rouge8/neotest-rust](https://github.com/rouge8/neotest-rust.git)
 - [stevanmilic/neotest-scala](https://github.com/stevanmilic/neotest-scala.git)
 - [nvim-neotest/neotest-vim-test](https://github.com/nvim-neotest/neotest-vim-test)
@@ -57,6 +58,7 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
+- [suketa/nvim-dap-ruby](https://github.com/suketa/nvim-dap-ruby.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 - [mxsdev/nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js.git)
@@ -90,3 +92,118 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [johnpapa/vscode-angular-snippets](https://github.com/johnpapa/vscode-angular-snippets.git)
 - [microsoft/vscode-js-debug](https://github.com/microsoft/vscode-js-debug.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### pde Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Send File |  xf |  |
+| Send Until Cursor |  xt |  |
+| Send Line |  xl |  |
+| Send Motion |  xs |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
+| Hide |  xH |  |
+| Focus |  xF |  |
+| Restart |  xS |  |
+| REPL |  xR |  |
+| Remove Mark |  xmr |  |
+| Mark Motion |  xmm |  |
+| Send Mark |  xms |  |
+| Clear |  xc |  |
+| Close REPL |  xC |  |
+| Interrupt |  xI |  |
+| ENTER |  x<CR> |  |
+| Select VirtualEnv |  lv |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Attach |  ta |  |
+| Debug Last |  tL |  |
+| Debug File |  td |  |
+| Summary |  tS |  |
+| Stop |  ts |  |
+| Output |  to |  |
+| Debug Nearest |  tN |  |
+| Nearest |  tn |  |
+| Last |  tl |  |
+| All Files |  tF |  |
+| File |  tf |  |
+| Status |  gs |  |
+| Step Out |  du |  |
+| Terminate |  dx |  |
+| Toggle Breakpoint |  dt |  |
+| Start |  ds |  |
+| Toggle REPL |  dr |  |
+| Quit |  dq |  |
+| Pause |  dp |  |
+| Step Over |  do |  |
+| Step Into |  di |  |
+| Scopes |  dS |  |
+| Hover Variables |  dh |  |
+| Get Session |  dg |  |
+| Evaluate |  de |  |
+| Disconnect |  dd |  |
+| Continue |  dc |  |
+| Step Back |  db |  |
+| Toggle UI |  dU |  |
+| Conditional Breakpoint |  dC |  |
+| Evaluate Input |  dE |  |
+| Run to Cursor |  dR |  |
+| Buffers |  fb |  |
+| Git Files |  fg |  |
+| Find Files |  ff |  |
+| Help |  fh |  |
+| Open |  tto |  |
+| Load Bundle |  ttl |  |
+| Delete Bundle |  ttd |  |
+| Close |  ttc |  |
+| Build |  ttb |  |
+| Task Action |  tta |  |
+| Run Command |  ttR |  |
+| Toggle |  ttt |  |
+| Save Bundle |  tts |  |
+| Run |  ttr |  |
+| Quick Action |  ttq |  |
+| Pick |  zCp |  |
+| Toggle Highlighter |  zCh |  |
+| Convert |  zCc |  |
+|  |   |  |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | gx | <Plug>NetrwBrowseX |
+|  | gbc |  |
+|  | gcc |  |
+|  | gc |  |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+| Previous Cell | <M-k> |  |
+| Next Cell | <M-j> |  |
+| Delete Cell | <M-x> |  |
+| Execute Cell | <M-e> |  |
+| Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Evaluate |  de |  |
+| Clear Highlight |  xL |  |
+| Send |  xs |  |
+| Mark Visual |  xmv |  |
+|  |   |  |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | gc |  |
+|  | gbc |  |
+|  | gcc |  |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |

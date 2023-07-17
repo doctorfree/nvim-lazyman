@@ -10,6 +10,10 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://www.lazyvim.org](https://www.lazyvim.org)
+
 ### Git repository
 
 [https://github.com/LazyVim LazyVim/starter](https://github.com/LazyVim LazyVim/starter)
@@ -26,12 +30,11 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-- [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -63,6 +66,141 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [dstein64/vim-startuptime](https://github.com/dstein64/vim-startuptime)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### LazyVim Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Mason |  cm |  |
+| Dismiss all Notifications |  un |  |
+| Replace in files (Spectre) |  sr |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Goto Symbol |  ss |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Options |  so |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
+| Key Maps |  sk |  |
+| Search Highlight Groups |  sH |  |
+| Help Pages |  sh |  |
+| Grep (cwd) |  sG |  |
+| Grep (root dir) |  sg |  |
+| Find Files (root dir) |    |  |
+| Document diagnostics |  sd |  |
+| Commands |  sC |  |
+| Command History |  sc |  |
+| Buffer |  sb |  |
+| Auto Commands |  sa |  |
+| status |  gs |  |
+| commits |  gc |  |
+| Recent (cwd) |  fR |  |
+| Recent |  fr |  |
+| Find Files (cwd) |  fF |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Workspace diagnostics |  sD |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Flash Treesitter | S |  |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
+| Prev Reference | [[ |  |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
+| Next Reference | ]] |  |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Find left surrounding | gzF |  |
+| Find right surrounding | gzf |  |
+| Add surrounding | gza |  |
+| Highlight surrounding | gzh |  |
+| Delete surrounding | gzd |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
+| Replace surrounding | gzr |  |
+| Flash | s |  |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
+| Increment selection | <C-Space> |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Treesitter Search | R |  |
+| Flash Treesitter | S |  |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+| Add surrounding | gza |  |
+| Flash | s |  |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+| Decrement selection | <BS> |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| Treesitter Search | R |  |
+| Flash Treesitter | S |  |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+| Remote Flash | r |  |
+| Flash | s |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

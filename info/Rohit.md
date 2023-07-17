@@ -34,7 +34,9 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim.git)
+- [rmagatti/goto-preview](https://github.com/rmagatti/goto-preview)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+- [b0o/incline.nvim](https://github.com/b0o/incline.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -52,6 +54,7 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)
 - [Shatur/neovim-ayu](https://github.com/Shatur/neovim-ayu)
+- [emakman/neovim-latex-previewer](https://github.com/emakman/neovim-latex-previewer.git)
 - [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [shaunsingh/nord.nvim](https://github.com/shaunsingh/nord.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
@@ -89,7 +92,179 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - [AhmedAbdulrahman/vim-aylin](https://github.com/AhmedAbdulrahman/vim-aylin.git)
 - [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - [bluz71/vim-moonfly-colors](https://github.com/bluz71/vim-moonfly-colors)
+- [lervag/vimtex](https://github.com/lervag/vimtex)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [andrewferrier/wrapping.nvim](https://github.com/andrewferrier/wrapping.nvim.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 - [mcchrish/zenbones.nvim](https://github.com/mcchrish/zenbones.nvim.git)
+
+### Rohit Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Toggle CheckBox |   t | <Plug>WorkbenchToggleCheckbox<CR> |
+| Add CheckBox |   a | <Plug>WorkbenchAddCheckbox<CR> |
+| Toggle Branch Workbench |   b | <Cmd>lua require('workbench').toggle_branch_workbench()<CR> |
+| Toggle Project Workbench |   p | <Cmd>lua require('workbench').toggle_project_workbench()<CR> |
+| Dap.UI.Widget Centered Float |  dws |  |
+| Dap.UI.Widget Preview |  dwf |  |
+| Dap.UI.Widget Preview |  dwp |  |
+| Dap.UI.Widget Hover |  dwh |  |
+|  |  dl |  |
+|  |  dr |  |
+|  |  lp |  |
+|  |  B |  |
+|  |  b |  |
+| TrueZen Ataraxis |  za | :TZAtaraxis<CR> |
+| TrueZen Minimalist |  zm | :TZMinimalist<CR> |
+| TrueZen Focus |  zf | :TZFocus<CR> |
+| TrueZen Narrow |  zn | :TZNarrow<CR> |
+|  |  c | <Cmd>set operatorfunc=CommentOperator<CR>g@ |
+|  |  cl | <Cmd>set operatorfunc=CommentOperator<CR>g@l |
+| Toggle Format on Save |  F | :lua toggleAutoformat()<CR> |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Fold Close | ,f | :%foldclose<CR> |
+| Leap backward to | S | <Plug>(leap-backward-to) |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | \cc |  |
+|  | \cm |  |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Comment insert end of line | gcA |  |
+| Comment insert above | gcO |  |
+| Comment insert below | gco |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle current line | gcc |  |
+| Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
+| Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
+| Leap from window | gs | <Plug>(leap-from-window) |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Leap forward to | s | <Plug>(leap-forward-to) |
+|  | zc | za |
+|  | <F12> |  |
+|  | <F11> |  |
+|  | <F10> |  |
+|  | <F5> |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+| Toggle Terminal | <C-Bslash> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+|  | <Plug>(leap-backward-x) |  |
+|  | <Plug>(leap-forward-x) |  |
+|  | <Plug>(leap-backward) |  |
+|  | <Plug>(leap-forward) |  |
+|  | <Plug>(leap-cross-window) |  |
+|  | <Plug>(leap-from-window) |  |
+|  | <Plug>(leap-backward-till) |  |
+|  | <Plug>(leap-backward-to) |  |
+|  | <Plug>(leap-forward-till) |  |
+|  | <Plug>(leap-forward-to) |  |
+|  | <M-C-H> | <Cmd>vertical resize -2<CR> |
+|  | <M-C-L> | <Cmd>vertical resize +2<CR> |
+|  | <M-C-J> | <Cmd>resize -2<CR> |
+|  | <M-C-K> | <Cmd>resize +2<CR> |
+|  | <C-S-Right> | <Cmd>vertical resize -2<CR> |
+|  | <C-S-Left> | <Cmd>vertical resize +2<CR> |
+|  | <S-Down> | <Cmd>resize -2<CR> |
+|  | <S-Up> | <Cmd>resize +2<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
+|  | <C-H> | <C-W>h |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>ToggleBranchWorkbench | ":lua require('workbench').toggle_branch_workbench()<CR>" |
+|  | <Plug>ToggleProjectWorkbench | ":lua require('workbench').toggle_project_workbench()<CR>" |
+|  | <Plug>ToggleWorkbench | ":lua require('workbench').toggle_project_workbench()<CR>" |
+|  | <Plug>WorkbenchAddCheckbox | ":call markdown#checkbox#toggle(' ')<CR>" |
+|  | <Plug>WorkbenchToggleCheckbox | ":call markdown#checkbox#toggle('x')<CR>" |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Dap.UI.Widget Preview |  dwp |  |
+| Dap.UI.Widget Hover |  dwh |  |
+| TrueZen Narrow Visual |  zn | :'<lt>,'>TZNarrow<CR> |
+|  |  c | :<C-U>call CommentOperator(visualmode())<CR> |
+|  |  p | "_dP |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | J | :m '>+1<CR>gv=gv |
+|  | K | :m '<lt>-2<CR>gv=gv |
+| Leap backward to | S | <Plug>(leap-backward-to) |
+| Leap backward till | X | <Plug>(leap-backward-till) |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+| Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
+| Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
+| Leap from window | gs | <Plug>(leap-from-window) |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | ic | <Cmd>lua require('nvim_comment').select_comment_chunk()<CR> |
+| Leap forward to | s | <Plug>(leap-forward-to) |
+| Leap forward till | x | <Plug>(leap-forward-till) |
+|  | <Plug>luasnip-expand-repeat |  |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <Plug>(leap-backward-x) |  |
+|  | <Plug>(leap-forward-x) |  |
+|  | <Plug>(leap-backward) |  |
+|  | <Plug>(leap-forward) |  |
+|  | <Plug>(leap-cross-window) |  |
+|  | <Plug>(leap-from-window) |  |
+|  | <Plug>(leap-backward-till) |  |
+|  | <Plug>(leap-backward-to) |  |
+|  | <Plug>(leap-forward-till) |  |
+|  | <Plug>(leap-forward-to) |  |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| Leap backward to | S | <Plug>(leap-backward-to) |
+| Leap backward till | X | <Plug>(leap-backward-till) |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+| Leap from window | gs | <Plug>(leap-from-window) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | ic | <Cmd>lua require('nvim_comment').select_comment_chunk()<CR> |
+| Leap forward to | s | <Plug>(leap-forward-to) |
+| Leap forward till | x | <Plug>(leap-forward-till) |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>(leap-backward-x) |  |
+|  | <Plug>(leap-forward-x) |  |
+|  | <Plug>(leap-backward) |  |
+|  | <Plug>(leap-forward) |  |
+|  | <Plug>(leap-cross-window) |  |
+|  | <Plug>(leap-from-window) |  |
+|  | <Plug>(leap-backward-till) |  |
+|  | <Plug>(leap-backward-to) |  |
+|  | <Plug>(leap-forward-till) |  |
+|  | <Plug>(leap-forward-to) |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mini</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Mini</h1>
+</header>
 <h2 id="mini-neovim-configuration-information">Mini Neovim Configuration
 Information</h2>
 <p>Uses the <a
@@ -65,3 +95,744 @@ href="https://github.com/vim-test/vim-test">vim-test/vim-test</a></li>
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
+<h3 id="mini-keymaps">Mini Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Cmd>TREPLSendLine<CR>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>lk</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>la</td>
+<td><Cmd>lua vim.lsp.buf.signature_help()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>li</td>
+<td><Cmd>lua vim.lsp.buf.hover()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>lf</td>
+<td><Cmd>lua vim.lsp.buf.format({ async = true })<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ls</td>
+<td><Cmd>lua vim.lsp.buf.definition()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ld</td>
+<td><Cmd>lua vim.diagnostic.open_float()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>lj</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>lr</td>
+<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>lR</td>
+<td><Cmd>lua vim.lsp.buf.references()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>TF</td>
+<td><Cmd>TestFile -strategy=make</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>TN</td>
+<td><Cmd>TestNearest -strategy=make</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Tl</td>
+<td><Cmd>TestLast<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Tf</td>
+<td><Cmd>TestFile<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>TL</td>
+<td><Cmd>TestLast -strategy=make</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>TS</td>
+<td><Cmd>TestSuite -strategy=make</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Tn</td>
+<td><Cmd>TestNearest<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Ts</td>
+<td><Cmd>TestSuite<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>oh</td>
+<td><Cmd>lua EC.move_arg(‘left’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ol</td>
+<td><Cmd>lua EC.move_arg(‘right’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>os</td>
+<td><Cmd>lua MiniSessions.select()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>oC</td>
+<td><Cmd>lua MiniCursorword.toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>oT</td>
+<td><Cmd>lua vim.b.minitrailspace_disable = not
+vim.b.minitrailspace_disable<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>oz</td>
+<td><Cmd>lua MiniMisc.zoom()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>od</td>
+<td><Cmd>Neogen<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>oS</td>
+<td><Cmd>lua EC.insert_section()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>or</td>
+<td><Cmd>lua MiniMisc.resize_window()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>oH</td>
+<td><Cmd>TSBufToggle highlight<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>og</td>
+<td><Cmd>lua MiniDoc.generate()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ot</td>
+<td><Cmd>lua MiniTrailspace.trim()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Lf</td>
+<td><Cmd>luafile %<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Lx</td>
+<td><Cmd>lua EC.execute_lua_line()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>mf</td>
+<td><Cmd>lua MiniMap.toggle_focus()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>mc</td>
+<td><Cmd>lua MiniMap.close()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>mr</td>
+<td><Cmd>lua MiniMap.refresh()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>mo</td>
+<td><Cmd>lua MiniMap.open()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ms</td>
+<td><Cmd>lua MiniMap.toggle_side()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>mt</td>
+<td><Cmd>lua MiniMap.toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bD</td>
+<td><Cmd>lua MiniBufremove.delete(0, true)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ba</td>
+<td><Cmd>b#<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bw</td>
+<td><Cmd>lua MiniBufremove.wipeout()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bW</td>
+<td><Cmd>lua MiniBufremove.wipeout(0, true)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bs</td>
+<td><Cmd>lua EC.new_scratch_buffer()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bd</td>
+<td><Cmd>lua MiniBufremove.delete()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fD</td>
+<td><Cmd>Telescope diagnostics bufnr=0<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fO</td>
+<td><Cmd>Telescope vim_options<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ff</td>
+<td><Cmd>lua EC.telescope_project_files()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fC</td>
+<td><Cmd>Telescope git_bcommits<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fc</td>
+<td><Cmd>Telescope git_commits<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fB</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fh</td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fj</td>
+<td><Cmd>Telescope jumplist<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fs</td>
+<td><Cmd>Telescope spell_suggest<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fH</td>
+<td><Cmd>Telescope highlights<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fg</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ft</td>
+<td><Cmd>Telescope file_browser<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f/</td>
+<td><Cmd>Telescope search_history<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fo</td>
+<td><Cmd>Telescope oldfiles<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fd</td>
+<td><Cmd>Telescope diagnostics<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fS</td>
+<td><Cmd>Telescope treesitter<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fn</td>
+<td><Cmd>TodoTelescope<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fr</td>
+<td><Cmd>Telescope resume<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f:</td>
+<td><Cmd>Telescope command_history<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fR</td>
+<td><Cmd>Telescope lsp_references<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>rT</td>
+<td><Cmd>T testthat::test_file(“%”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rl</td>
+<td><Cmd>T devtools::load_all()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>rc</td>
+<td><Cmd>T devtools::check()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rC</td>
+<td><Cmd>T devtools::test_coverage()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>rd</td>
+<td><Cmd>T devtools::document()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ri</td>
+<td><Cmd>T devtools::install(keep_source=TRUE)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>rk</td>
+<td><Cmd>T rmarkdown::render(“%”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rt</td>
+<td><Cmd>T devtools::test()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ef</td>
+<td><Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>em</td>
+<td><Cmd>lua
+MiniFiles.open(‘~/.config/nvim-Mini/pack/plugins/opt/mini’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>eq</td>
+<td><Cmd>lua EC.toggle_quickfix()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ed</td>
+<td><Cmd>lua MiniFiles.open()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gA</td>
+<td><Cmd>lua require(“gitsigns”).stage_buffer()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ga</td>
+<td><Cmd>lua require(“gitsigns”).stage_hunk()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gq</td>
+<td><Cmd>lua require(“gitsigns”).setqflist()<CR>:copen<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Cmd>lua require(“gitsigns”).reset_hunk()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gu</td>
+<td><Cmd>lua require(“gitsigns”).undo_stage_hunk()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gb</td>
+<td><Cmd>lua require(“gitsigns”).blame_line()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td><Cmd>lua require(“gitsigns”).preview_hunk()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gg</td>
+<td><Cmd>lua EC.open_lazygit()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gX</td>
+<td><Cmd>lua require(“gitsigns”).reset_buffer()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tf</td>
+<td><Cmd>lua MiniTest.run_file()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tl</td>
+<td><Cmd>lua MiniTest.run_at_location()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ta</td>
+<td><Cmd>lua MiniTest.run()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tT</td>
+<td><Cmd>belowright Tnew<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ts</td>
+<td><Cmd>lua EC.minitest_screenshots.browse()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tt</td>
+<td><Cmd>vertical Tnew<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td>Paste Above</td>
+<td>[p</td>
+<td><Cmd>exe “put!” . v:register<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td>Paste Below</td>
+<td>]p</td>
+<td><Cmd>exe “put” . v:register<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>lf</td>
+<td>:lua vim.lsp.buf.range_formatting()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s</td>
+<td>mode() ==# “v” ? “:TREPLSendSelection<CR>`&gt;l” :
+“:TREPLSendSelection<CR>’&gt;j”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rx</td>
+<td>“+y :T reprex::reprex()<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td>Paste Above</td>
+<td>[p</td>
+<td><Cmd>exe “put!” . v:register<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td>Paste Below</td>
+<td>]p</td>
+<td><Cmd>exe “put” . v:register<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

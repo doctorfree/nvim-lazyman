@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Rafi</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Rafi</h1>
+</header>
 <h2 id="rafi-neovim-configuration-information">Rafi Neovim Configuration
 Information</h2>
 <p><a href="https://github.com/rafi/vim-config#extending">Extensible</a>
@@ -239,3 +269,669 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <li><a
 href="https://github.com/mickael-menu/zk-nvim.git">mickael-menu/zk-nvim</a></li>
 </ul>
+<h3 id="rafi-keymaps">Rafi Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Toggle Fold</td>
+<td><CR></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear Search Highlight</td>
+<td><Esc></td>
+<td><Cmd>noh<CR></td>
+</tr>
+<tr class="odd">
+<td>Open Location List</td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open Quickfix</td>
+<td>q</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dictionary</td>
+<td>?</td>
+<td><Cmd>silent !open dict://<lt>cword&gt;<CR></td>
+</tr>
+<tr class="even">
+<td>Terminal (cwd)</td>
+<td>tT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal (root dir)</td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Lazygit (cwd)</td>
+<td>tG</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Lazygit (root dir)</td>
+<td>tg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Append Modeline</td>
+<td>ml</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Show Treesitter Node</td>
+<td>ui</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Wrap</td>
+<td>uw</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hide Search Highlight</td>
+<td>uu</td>
+<td><Cmd>nohlsearch<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle Whitespace Symbols</td>
+<td>uo</td>
+<td><Cmd>setlocal nolist!<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle Line Numbers</td>
+<td>ul</td>
+<td><Cmd>setlocal nonumber!<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle Spellcheck</td>
+<td>us</td>
+<td><Cmd>setlocal spell!<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle format on Save</td>
+<td>uf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save</td>
+<td>w</td>
+<td><Cmd>write<CR></td>
+</tr>
+<tr class="odd">
+<td>Change Local Directory</td>
+<td>cd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Redraw / clear hlsearch / diff update</td>
+<td>ur</td>
+<td><Cmd>nohlsearch</td>
+</tr>
+<tr class="odd">
+<td>Erase Whitespace</td>
+<td>cw</td>
+<td><Cmd>lua MiniTrailspace.trim()<CR></td>
+</tr>
+<tr class="even">
+<td>Duplicate line</td>
+<td>d</td>
+<td>m<code>""Y""P`` | | Move line down |  j | &lt;Cmd&gt;move+&lt;CR&gt;== | | Move line up |  k | &lt;Cmd&gt;move-2&lt;CR&gt;== | | Yank absolute path |  Y |  | | Yank relative path |  y |  | | Visual Mode |    | V | | Open Lazy UI |  l | &lt;Cmd&gt;Lazy&lt;CR&gt; | | Document Diagnostics |  e |  | | Location List (Trouble) |  xL |  | | Quickfix List (Trouble) |  xQ |  | | Workspace Diagnostics (Trouble) |  xX |  | | Document Diagnostics (Trouble) |  xx |  | | Workspace Diagnostics |  r |  | | Find symbol |  gt |  | | Find file |  gf |  | | Grep cursor word |  gg |  | | Git stashes |  gh |  | | Git buffer commits |  gL |  | | Git commits |  gl |  | | Git branches |  gr |  | | Git status |  gs |  | | Goto Symbol (Workspace) |  sS |  | | Goto Symbol |  ss |  | | Colorscheme |  uC |  | | Colorscheme |  sc |  | | Word |  sw |  | | Man Pages |  sm |  | | Key Maps |  sk |  | | Help Pages |  sh |  | | Workspace diagnostics |  sD |  | | Document diagnostics |  sd |  | | Buffer find |  / |  | | Delete Buffer |  bd |  | | Todo (Trouble) |  xt |  | | Todo/Fix/Fixme |  sT |  | | Todo |  st |  | | Todo/Fix/Fixme (Trouble) |  xT |  | | Line diff show |  mds |  | | Line diff reset |  mdr |  | | Toggle structure panel |  tf |  | | Mason |  mm |  | | Zen Mode |  zz |  | | Undo Tree |  gu |  | | Neogen Comment |  cc |  | | Git open in browser |  go |  | | Diff View |  gv |  | | Git diff |  gd |  | | Git blame |  gb |  | | Neogit |  mg |  | |  |  ue |  | | Highlight word |  mt |  | | Duplicate Paragraph |  cp | yap&lt;S-}&gt;p | | Noice All |  sna |  | | Noice History |  snh |  | | Noice Last Message |  snl |  | | Select VirtualEnv |  cv |  | |  |  v |  | | Zk Search |  zf |  | | Zk Tags |  zt |  | | Zk Notes |  zo |  | | Zk New |  zn |  | | Zk Links |  zl |  | | Zk Backlinks |  zb |  | | Dismiss all Notifications |  un |  | | Spectre |  sp |  | | Execute HTTP request |  mh |  | | Symbols Outline |  o |  | | Execute Shell Command | ! | :! | | Reveal registers | " |  | |  | # | g# | | Nvim builtin | &amp; | :&amp;&amp;&lt;CR&gt; | |  | * | g* | | Pick window | - |  | | Content-aware menu | ;c |  | | Zoxide (MRU) | ;z |  | | Zk notes | ;w |  | | Thesaurus | ;k |  | | Plugins | ;n |  | | Code actions | ;da |  | | References | ;dr |  | | Implementations | ;di |  | | Definitions | ;dd |  | | Search history | ;/ |  | | Commands | ;: |  | | Command history | ;; |  | | Old files | ;x |  | | Sessions | ;s |  | | Spell suggest | ;u |  | | Registers | ;v |  | | Workspace symbols | ;t |  | | Neovim options | ;o |  | | Marks | ;m |  | | Jump list | ;j |  | | Highlights | ;h |  | | Buffers | ;b |  | | Grep | ;g |  | | Find files | ;f |  | | Pickers | ;R |  | | Resume last | ;r |  | | todo | ;dt |  | | Explorer NeoTree Reveal | ;a |  | | Explorer NeoTree Toggle | ;e |  | | F | F |  | | Leap from windows | SS |  | | T | T |  | | Nvim builtin | Y | y$ | | Previous Whitespace | [s |  | | Previous Loclist Item | [a | &lt;Cmd&gt;lprev&lt;CR&gt; | | Previous trouble/quickfix item | [q |  | | Previous todo comment | [t |  | | Prev Reference | [[ |  | | Next Whitespace | ]s |  | | Next Loclist Item | ]a | &lt;Cmd&gt;lnext&lt;CR&gt; | | Next trouble/quickfix item | ]q |  | | Next todo comment | ]t |  | | Next Reference | ]] |  | | Change Surrounding Function | csf |  | | Replace surrounding | cs |  | | Delete Surrounding Function | dsf |  | | Delete surrounding | ds |  | | f | f |  | | Jump to older buffer | g&lt;C-O&gt; |  | | Jump to newer buffer | g&lt;C-I&gt; |  | | Paste Command | g! | :put=execute('')&lt;Left&gt;&lt;Left&gt; | | Select Paste | gpp | '</code>[‘.strpart(getregtype(),
+0,
+1).’<code>]' | |  | g# | # | |  | g* | * | |  | gl | g$ | |  | gh | g^ | | Move to top edge | gk |  | | Move to bottom edge | gj |  | |  | gpd |  | |  | gpr |  | |  | gpi |  | |  | gpy |  | | Update</code>MiniSurround.config.n_lines`</td>
+</tr>
+<tr class="odd">
+<td>Highlight surrounding</td>
+<td>gzh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find right surrounding</td>
+<td>gzf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find left surrounding</td>
+<td>gzF</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>v:count == 0 ? ‘gj’ : ‘j’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>v:count == 0 ? ‘gk’ : ‘k’</td>
+</tr>
+<tr class="even">
+<td>Marks from all opened buffers</td>
+<td>m/</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle background dark/light</td>
+<td>sh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete buffer and open new</td>
+<td>sx</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Maximize</td>
+<td>sz</td>
+<td><Cmd>vertical resize</td>
+</tr>
+<tr class="even">
+<td>Quit</td>
+<td>sq</td>
+<td><Cmd>quit<CR></td>
+</tr>
+<tr class="odd">
+<td>Close other windows</td>
+<td>so</td>
+<td><Cmd>only<CR></td>
+</tr>
+<tr class="even">
+<td>New tab</td>
+<td>st</td>
+<td><Cmd>tabnew<CR></td>
+</tr>
+<tr class="odd">
+<td>Split window vertically</td>
+<td>sg</td>
+<td><Cmd>vsplit<CR></td>
+</tr>
+<tr class="even">
+<td>Split window horizontally</td>
+<td>sv</td>
+<td><Cmd>split<CR></td>
+</tr>
+<tr class="odd">
+<td>Buffer delete</td>
+<td>sd</td>
+<td><Cmd>bdelete<CR></td>
+</tr>
+<tr class="even">
+<td>Close window</td>
+<td>sc</td>
+<td><Cmd>close<CR></td>
+</tr>
+<tr class="odd">
+<td>Alternate buffer</td>
+<td>sb</td>
+<td><Cmd>buffer#<CR></td>
+</tr>
+<tr class="even">
+<td>Split arguments</td>
+<td>sk</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Join arguments</td>
+<td>sj</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add surrounding</td>
+<td>sa</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Leap backward to</td>
+<td>sS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap forward to</td>
+<td>ss</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Swap picked window</td>
+<td>sw</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pick window</td>
+<td>sp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>zh</td>
+<td>z4h</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zl</td>
+<td>z4l</td>
+</tr>
+<tr class="even">
+<td>Swap windows</td>
+<td><C-X></td>
+<td><C-W>x</td>
+</tr>
+<tr class="odd">
+<td>Tab Move Forwards</td>
+<td>&lt;M-}&gt;</td>
+<td><Cmd>+tabmove<CR></td>
+</tr>
+<tr class="even">
+<td>Tab Move Backwards</td>
+<td>&lt;M-{&gt;</td>
+<td><Cmd>-tabmove<CR></td>
+</tr>
+<tr class="odd">
+<td>Previous Tab</td>
+<td><C-S-Tab></td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
+<tr class="even">
+<td>Next Tab</td>
+<td><C-Tab></td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td>Next Tab</td>
+<td>&lt;M-]&gt;</td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="even">
+<td>Previous Tab</td>
+<td>&lt;M-[&gt;</td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
+<tr class="odd">
+<td>Previous Tab</td>
+<td><M-k></td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
+<tr class="even">
+<td>Next Tab</td>
+<td><M-j></td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td>Save</td>
+<td><C-S></td>
+<td><Cmd>write<CR></td>
+</tr>
+<tr class="even">
+<td>Jump to Paren</td>
+<td><BS></td>
+<td>%</td>
+</tr>
+<tr class="odd">
+<td>Macro Prefix</td>
+<td><C-Q></td>
+<td>q</td>
+</tr>
+<tr class="even">
+<td>Focus Fold</td>
+<td><S-CR></td>
+<td>zMzv</td>
+</tr>
+<tr class="odd">
+<td>Jump to upper pane</td>
+<td><C-K></td>
+<td><Cmd>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="even">
+<td>Jump to right pane</td>
+<td><C-L></td>
+<td><Cmd>TmuxNavigateRight<CR></td>
+</tr>
+<tr class="odd">
+<td>Jump to lower pane</td>
+<td><C-J></td>
+<td><Cmd>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="even">
+<td>Jump to left pane</td>
+<td><C-H></td>
+<td><Cmd>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td>Scroll forward</td>
+<td><C-F></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Scroll backward</td>
+<td><C-B></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle terminal</td>
+<td><C-_></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Indent Left</td>
+<td><Tab></td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td>Duplicate selection</td>
+<td>d</td>
+<td>““Y”“Pgv</td>
+</tr>
+<tr class="odd">
+<td>Move selection down</td>
+<td>j</td>
+<td>:move’&gt;+<CR>gv=gv</td>
+</tr>
+<tr class="even">
+<td>Move selection up</td>
+<td>k</td>
+<td>:move’<lt>-2<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td>Exit Visual Mode</td>
+<td></td>
+<td><Esc></td>
+</tr>
+<tr class="even">
+<td>Highlight word</td>
+<td>mt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Grep cursor word</td>
+<td>gg</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git open in browser</td>
+<td>go</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Zk Match</td>
+<td>zf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Line diff</td>
+<td>mdf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Line diff add</td>
+<td>mda</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Spectre Word</td>
+<td>sp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Reveal registers</td>
+<td>”</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="odd">
+<td>Code actions</td>
+<td>;da</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Indent Right and Re-select</td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td>Indent Left and Re-select</td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td>Blockwise Append</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Blockwise Insert</td>
+<td>I</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Paste In-place</td>
+<td>P</td>
+<td>P:let @+=<span class="citation"
+data-cites="0&lt;CR">@0&lt;CR</span>&gt;:let @“=<span class="citation"
+data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
+</tr>
+<tr class="even">
+<td>Leap from windows</td>
+<td>SS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Shrink selection</td>
+<td>V</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>f</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move to bottom edge</td>
+<td>gj</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to top edge</td>
+<td>gk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Blockwise Insert</td>
+<td>gI</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>v:count == 0 ? ‘gj’ : ‘j’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>v:count == 0 ? ‘gk’ : ‘k’</td>
+</tr>
+<tr class="odd">
+<td>Paste</td>
+<td>p</td>
+<td>p:let @+=<span class="citation"
+data-cites="0&lt;CR">@0&lt;CR</span>&gt;:let @“=<span class="citation"
+data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
+</tr>
+<tr class="even">
+<td>Substitute Within Selection</td>
+<td>sg</td>
+<td>:s//gc<Left><Left><Left></td>
+</tr>
+<tr class="odd">
+<td>Split arguments</td>
+<td>sk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Join arguments</td>
+<td>sj</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Leap backward to</td>
+<td>sS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap forward to</td>
+<td>ss</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add surrounding</td>
+<td>sa</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Increment selection</td>
+<td>v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save</td>
+<td><C-S></td>
+<td><Cmd>write<CR></td>
+</tr>
+<tr class="odd">
+<td>Replace Selection</td>
+<td><C-R></td>
+<td>:<C-U>%s/=v:lua.require’rafi.lib.edit’.get_visual_selection()<CR>//gc<Left><Left><Left></td>
+</tr>
+<tr class="even">
+<td>Jump to Paren</td>
+<td><BS></td>
+<td>%</td>
+</tr>
+<tr class="odd">
+<td>Indent Right</td>
+<td><S-Tab></td>
+<td><lt>gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap from windows</td>
+<td>SS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>f</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Leap forward to</td>
+<td>ss</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap backward to</td>
+<td>sS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

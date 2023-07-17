@@ -47,3 +47,135 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+
+### StartLsp Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  e | <Cmd>NvimTreeToggle<CR> |
+|  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
+|  |  fd | <Cmd>Telescope diagnostics<CR> |
+|  |  fg | <Cmd>Telescope live_grep<CR> |
+|  |  ff | <Cmd>Telescope find_files<CR> |
+|  |    | <Cmd>Telescope buffers<CR> |
+|  |  ? | <Cmd>Telescope oldfiles<CR> |
+|  |  bc | <Cmd>Bdelete<CR> |
+|  |  bl | <Cmd>buffer #<CR> |
+|  |  bq | <Cmd>bdelete<CR> |
+|  |  w | <Cmd>write<CR> |
+|  |  a | :keepjumps normal! ggVG<CR> |
+|  |  l | g_ |
+|  |  h | ^ |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | cS | <Plug>CSurround |
+|  | cs | <Plug>Csurround |
+|  | ds | <Plug>Dsurround |
+| Comment insert end of line | gcA |  |
+| Comment insert above | gcO |  |
+| Comment insert below | gco |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle current line | gcc |  |
+| Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
+| Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+|  | gp | "+p |
+|  | gy | "+y |
+|  | x | "_x |
+|  | ySS | <Plug>YSsurround |
+|  | ySs | <Plug>YSsurround |
+|  | yss | <Plug>Yssurround |
+|  | yS | <Plug>YSurround |
+|  | ys | <Plug>Ysurround |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+| Toggle Terminal | <C-G> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+|  | <Plug>YSurround | <SNR>17_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>17_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>17_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>17_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>17_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>17_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>17_dosurround(<SNR>17_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  l | g_ |
+|  |  h | ^ |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | S | <Plug>VSurround |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | a | targets#e('o', 'a', 'a') |
+| Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
+| Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | gS | <Plug>VgSurround |
+|  | gp | "+p |
+|  | gy | "+y |
+|  | i | targets#e('o', 'i', 'i') |
+|  | x | "_x |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <Plug>VgSurround | :<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  l | g_ |
+|  |  h | ^ |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | a | targets#e('o', 'a', 'a') |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | i | targets#e('o', 'i', 'i') |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | <Plug>luasnip-expand-repeat |  |

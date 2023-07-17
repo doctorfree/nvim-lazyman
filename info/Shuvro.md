@@ -10,6 +10,10 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://www.lunarvim.org](https://www.lunarvim.org)
+
 ### Git repository
 
 [https://github.com/shuvro/lvim](https://github.com/shuvro/lvim)
@@ -90,3 +94,75 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 - [rcarriga/vim-ultest](https://github.com/rcarriga/vim-ultest.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+
+### Shuvro Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | <CR> | <Cmd>lua require('user.neovim').maximize_current_split()<CR> |
+|  | <Esc><Esc> | <Cmd>nohlsearch<CR> |
+|  |  y |  |
+| Nvim builtin | & | :&&<CR> |
+|  | H | <Cmd>BufferLineCyclePrev<CR> |
+|  | L | <Cmd>BufferLineCycleNext<CR> |
+|  | X | <Cmd>lua require('user.bufferline').delete_buffer()<CR> |
+|  | Y | y$ |
+|  | [b | <Cmd>BufferLineMoveNext<CR> |
+|  | [d | <Cmd>lua vim.diagnostic.goto_prev()<CR> |
+|  | [q | :cprev<CR> |
+|  | ]b | <Cmd>BufferLineMovePrev<CR> |
+|  | ]d | <Cmd>lua vim.diagnostic.goto_next()<CR> |
+|  | ]q | :cnext<CR> |
+|  | ce | <Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR> |
+|  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
+|  | gb |  |
+|  | gc |  |
+|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
+|  | gx | <Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR> |
+|  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
+|  | tu | <Cmd>lua require('harpoon.term').gotoTerminal(1)<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-Bslash> |  |
+|  | <M-a> | <C-A> |
+|  | <C-N>i | <Tab> |
+|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
+|  | <M-x> | <C-X> |
+|  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
+|  | <M-j> | :m .+1<CR>== |
+|  | <C-Down> | :resize +2<CR> |
+|  | <M-k> | :m .-2<CR>== |
+|  | <C-Up> | :resize -2<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-J> | <C-W>j |
+|  | <C-H> | <C-W>h |
+|  | <C-Right> | :vertical resize +2<CR> |
+|  | <C-Left> | :vertical resize -2<CR> |
+|  | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  st | <Cmd>lua require('user.telescope').grep_string_visual()<CR> |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | <lt> | <lt>gv |
+|  | > | >gv |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | gc |  |
+|  | gb |  |
+|  | ga | <Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR> |
+|  | p | "_dP |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <M-x> | <C-X> |
+|  | <M-a> | <C-A> |
+|  | <M-k> | :m '<lt>-2<CR>gv-gv |
+|  | <M-j> | :m '>+1<CR>gv-gv |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |

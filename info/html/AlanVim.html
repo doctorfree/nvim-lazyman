@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AlanVim</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">AlanVim</h1>
+</header>
 <h2 id="alanvim-neovim-configuration-information">AlanVim Neovim
 Configuration Information</h2>
 <p>Oriented toward Python development</p>
@@ -91,3 +121,692 @@ href="https://github.com/altermo/ultimate-autopair.nvim">altermo/ultimate-autopa
 <li><a
 href="https://github.com/dsznajder/vscode-es7-javascript-react-snippets">dsznajder/vscode-es7-javascript-react-snippets</a></li>
 </ul>
+<h3 id="alanvim-keymaps">AlanVim Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><Esc></td>
+<td>:noh<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>u</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’gR</td>
+<td><Cmd>lua require(‘git.revert’).open(true)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’gr</td>
+<td><Cmd>lua require(‘git.revert’).open(false)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’gD</td>
+<td><Cmd>lua require(‘git.diff’).close()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’gd</td>
+<td><Cmd>lua require(‘git.diff’).open()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’gn</td>
+<td><Cmd>lua require(‘git.browse’).create_pull_request()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’gp</td>
+<td><Cmd>lua require(‘git.browse’).pull_request()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’go</td>
+<td><Cmd>lua require(‘git.browse’).open(false)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’gb</td>
+<td><Cmd>lua require(‘git.blame’).blame()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’s</td>
+<td>:source %<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’p</td>
+<td>:vsplit ~/.config/nvim-AlanVim/lua/packages.lua<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’m</td>
+<td>:vsplit ~/.config/nvim-AlanVim/lua/general/mappings.lua<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>D</td>
+<td>:BufDel<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>H</td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>:BufferLineCycleNext<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td>cS</td>
+<td><Plug>(nvim-surround-change-line)</td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair</td>
+<td>cs</td>
+<td><Plug>(nvim-surround-change)</td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td>ds</td>
+<td><Plug>(nvim-surround-delete)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tt</td>
+<td>:t.<CR></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td>ySS</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td>yS</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td>yss</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td>ys</td>
+<td><Plug>(nvim-surround-normal)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>m</td>
+<td><Plug>(emmet-merge-lines)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-merge-lines)</td>
+<td>:call emmet#mergeLines()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>A</td>
+<td><Plug>(emmet-anchorize-summary)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-anchorize-summary)</td>
+<td>:call emmet#anchorizeURL(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>a</td>
+<td><Plug>(emmet-anchorize-url)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-anchorize-url)</td>
+<td>:call emmet#anchorizeURL(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>k</td>
+<td><Plug>(emmet-remove-tag)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-remove-tag)</td>
+<td>:call emmet#removeTag()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>j</td>
+<td><Plug>(emmet-split-join-tag)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-split-join-tag)</td>
+<td>:call emmet#splitJoinTag()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>/</td>
+<td><Plug>(emmet-toggle-comment)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-toggle-comment)</td>
+<td>:call emmet#toggleComment()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>I</td>
+<td><Plug>(emmet-image-encode)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-image-encode)</td>
+<td>:call emmet#imageEncode()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>i</td>
+<td><Plug>(emmet-image-size)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-image-size)</td>
+<td>:call emmet#imageSize()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-move-prev-item)</td>
+<td>:call emmet#moveNextPrevItem(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-move-next-item)</td>
+<td>:call emmet#moveNextPrevItem(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>N</td>
+<td><Plug>(emmet-move-prev)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-move-prev)</td>
+<td>:call emmet#moveNextPrev(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>n</td>
+<td><Plug>(emmet-move-next)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-move-next)</td>
+<td>:call emmet#moveNextPrev(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>D</td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+<td>:call emmet#balanceTag(-1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>d</td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+<td>:call emmet#balanceTag(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>u</td>
+<td><Plug>(emmet-update-tag)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-update-tag)</td>
+<td>:call emmet#updateTag()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>;</td>
+<td><Plug>(emmet-expand-word)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-expand-word)</td>
+<td>:call emmet#expandAbbr(1,““)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>,</td>
+<td><Plug>(emmet-expand-abbr)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-expand-abbr)</td>
+<td>:call emmet#expandAbbr(3,““)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><Plug>(nvim-surround-change-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair</td>
+<td><Plug>(nvim-surround-change)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td><Plug>(nvim-surround-delete)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><Plug>(nvim-surround-normal)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:lua require’nvim-tmux-navigation’.NvimTmuxNavigateUp()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:lua require’nvim-tmux-navigation’.NvimTmuxNavigateDown()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Space></td>
+<td>:lua require’nvim-tmux-navigation’.NvimTmuxNavigateNext()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Bslash></td>
+<td>:lua
+require’nvim-tmux-navigation’.NvimTmuxNavigateLastActive()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td>:lua require’nvim-tmux-navigation’.NvimTmuxNavigateLeft()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-N></td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-l></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-h></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td>:lua require’nvim-tmux-navigation’.NvimTmuxNavigateRight()<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’go</td>
+<td>:<C-U> lua require(‘git.browse’).open(true)<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td>S</td>
+<td><Plug>(nvim-surround-visual)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td>gS</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>c</td>
+<td><Plug>(emmet-code-pretty)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-code-pretty)</td>
+<td>:call emmet#codePretty()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>D</td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+<td><Esc>:call emmet#balanceTag(-1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>d</td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+<td><Esc>:call emmet#balanceTag(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y>,</td>
+<td><Plug>(emmet-expand-abbr)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-expand-abbr)</td>
+<td>:call emmet#expandAbbr(2,““)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

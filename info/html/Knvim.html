@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Knvim</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Knvim</h1>
+</header>
 <h2 id="knvim-neovim-configuration-information">Knvim Neovim
 Configuration Information</h2>
 <p>Targets Python, Bash, LaTeX, Markdown, and C/C++. See the <a
@@ -146,3 +176,941 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <li><a
 href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </ul>
+<h3 id="knvim-keymaps">Knvim Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Switch python env</td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s</td>
+<td><Cmd>SessionManager load_session<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>n</td>
+<td><Cmd>Telescope notify<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>?</td>
+<td><Cmd>Telescope commands<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>h</td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w</td>
+<td><Cmd>Telescope file_browser<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>v</td>
+<td><Cmd>Telescope vim_options<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>c</td>
+<td><Cmd>Telescope bibtex<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>/</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td><Cmd>Telescope find_files<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><Cmd>Telescope<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(matchup-%)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>DAP: Terminate debugging</td>
+<td>,t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Step out</td>
+<td>,u</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAP: Step into</td>
+<td>,s</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Step over</td>
+<td>,n</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAP: Toggle breakpoint with condition</td>
+<td>,B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Toggle breakpoint</td>
+<td>,b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAP: Run the last debug adapter entry</td>
+<td>,l</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Start/Continue debugging</td>
+<td>,c</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAP: Check variable value on hover</td>
+<td>,k</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Open default REPL</td>
+<td>,D</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAP: Toggle UI</td>
+<td>,d</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Cmd>PounceRepeat<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(matchup-[%)</td>
+</tr>
+<tr class="even">
+<td>LSP: Go to the previous diagnostic</td>
+<td>[e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LSP: Show all diagnostics</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LSP: Show diagnostics of the current line</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAP: Dismiss current notify message</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>=</td>
+<td>:call FillLine(“=”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td>:call FillLine(“-”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><Cmd>ZenMode<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><Cmd>SymbolsOutline<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><Cmd>Neotree dir=%:p:h<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td> <Cmd>Neotree toggle<CR></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td> <Cmd>Neogen<CR></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><Plug>(EasyAlign)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(matchup-]%)</td>
+</tr>
+<tr class="odd">
+<td>LSP: Go to the next diagnostic</td>
+<td>]e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
+</tr>
+<tr class="even">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Cmd>Pounce<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>z%</td>
+<td><Plug>(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td>Move to previous reference</td>
+<td><M-p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to next reference</td>
+<td><M-n></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlignOperator)</td>
+<td>:set opfunc=<SNR>22_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:call <SNR>22_easy_align_repeat()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:set opfunc=<SNR>22_live_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:set opfunc=<SNR>22_easy_align_op<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;2-LeftMouse&gt;</td>
+<td><Plug>(matchup-double-click)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-reload)</td>
+<td>:<C-U>MatchupReload<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-double-click)</td>
+<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>18_(wise)</td>
+<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-hi-surround)</td>
+<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F24></td>
+<td><Cmd>Alpha<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F12></td>
+<td><Cmd>set nu rnu!<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F23></td>
+<td><Cmd>ColorizerToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F11></td>
+<td><Cmd>ZenMode<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F22></td>
+<td><Cmd>make clean<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F10></td>
+<td><Cmd>make<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F21></td>
+<td><Cmd>ClearRegisters<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F9></td>
+<td><Cmd>%s/+$//e<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F20></td>
+<td><Cmd>tabclose<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F8></td>
+<td><Cmd>BufferClose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F19></td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F7></td>
+<td><Cmd>BufferNext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F18></td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F6></td>
+<td><Cmd>BufferPrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F17></td>
+<td><Cmd>tabs<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F5></td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F16></td>
+<td><Cmd>Telescope diagnostics<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F4></td>
+<td><Cmd>SymbolsOutline<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F15></td>
+<td><Cmd>Neotree dir=%:p:h<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F3></td>
+<td><Cmd>Neotree toggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F14></td>
+<td><Cmd>TodoTelescope<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F2></td>
+<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F13></td>
+<td><Cmd>Telescope keymaps<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F1></td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-/></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-C-P></td>
+<td><Cmd>BufferPin<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-C-S-L></td>
+<td><Cmd>BufferMoveNext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-C-S-K></td>
+<td><Cmd>BufferClose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-C-S-J></td>
+<td><Cmd>BufferRestore<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-C-S-H></td>
+<td><Cmd>BufferMovePrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-C-L></td>
+<td><Cmd>BufferNext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-C-K></td>
+<td><Cmd>BufferPickDelete<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-C-J></td>
+<td><Cmd>BufferPick<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-C-H></td>
+<td><Cmd>BufferPrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-L></td>
+<td><C-W>l<C-W>x</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-K></td>
+<td><C-W>k<C-W>x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-J></td>
+<td><C-W>j<C-W>x</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-H></td>
+<td><C-W>h<C-W>x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-l></td>
+<td><C-W>l</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-k></td>
+<td><C-W>k</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-j></td>
+<td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-h></td>
+<td><C-W>h</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(matchup-%)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(matchup-[%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><Plug>(EasyAlign)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(matchup-]%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(matchup-a%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i%</td>
+<td><Plug>(matchup-i%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Cmd>Pounce<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>z%</td>
+<td><Plug>(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-a%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-i%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(1, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td><SNR>25_(matchup-Z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td><SNR>25_(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td><SNR>25_(matchup-[%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td><SNR>25_(matchup-]%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>25_(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td><SNR>25_(matchup-g%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td><SNR>25_(matchup-%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:<C-U>call <SNR>20_repeat_in_visual()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:<C-U>call <SNR>20_live_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:<C-U>call <SNR>20_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-i></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Ignore><Plug>(matchup-%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(matchup-[%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(matchup-]%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(matchup-a%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Ignore><Plug>(matchup-g%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td><Cmd>Pounce<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i%</td>
+<td><Plug>(matchup-i%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>z%</td>
+<td><Plug>(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-a%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(0, 0, ‘delim_all’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-i%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(1, 0, ‘delim_all’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#op(‘Z%’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#op(‘z%’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#op(‘[%’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#op(‘]%’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#op(‘g%’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td>:<C-U>call matchup#motion#op(‘%’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-i></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

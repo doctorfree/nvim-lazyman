@@ -93,3 +93,130 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 - [tmux-plugins/vim-tmux-focus-events](https://github.com/tmux-plugins/vim-tmux-focus-events.git)
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### 3rd Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | <Tab> | za |
+| Clear search | <Esc> | <Esc>:noh<CR><Esc> |
+|  |  rr | :lua require('refactoring').select_refactor()<CR> |
+| Resume last fzf-lua command |    | <Cmd>lua require('fzf-lua').resume()<CR> |
+| Find line in project |  L | <Cmd>lua require('fzf-lua').lines()<CR> |
+| Find line in buffer |  l | <Cmd>lua require('fzf-lua').blines()<CR> |
+|  |  M |  |
+|  |  m |  |
+| Toggle session |  s |  |
+|  |  b | :GitMessenger<CR> |
+| Toggle maximize |  f | <Cmd>lua require('maximize').toggle()<CR> |
+| Toggle venn |  v |  |
+|  |  t | <Cmd>TroubleToggle<CR> |
+| Quit |  q | :qa<CR> |
+|  | % | <Plug>(matchup-%) |
+| Nvim builtin | & | :&&<CR> |
+|  | - |  |
+| Find buffer | ; | <Cmd>lua require('fzf-lua').buffers()<CR> |
+| Decrease indent | <lt> | <lt><lt> |
+|  | == | :tabdo wincmd =<CR> |
+| Increase indent | > | >> |
+| Join with the next line | J | mzJ`z |
+| Previous search result | N | Nzzzv |
+| Run @q macro | Q | @q |
+| Yank to end of line | Y | y$ |
+|  | [% | <Plug>(matchup-[%) |
+|  | ]% | <Plug>(matchup-]%) |
+|  | g% | <Plug>(matchup-g%) |
+| Move down | j | gj |
+| Move up | k | gk |
+| Next search result | n | nzzzv |
+|  | z% | <Plug>(matchup-z%) |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Find text in project | <C-F> | <Cmd>lua require('fzf-lua').grep_project()<CR> |
+| Find file in project | <C-P> |  |
+|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
+|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
+|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
+|  | <SNR>8_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
+|  | <C-S-P> |  |
+| Switch to alternate buffer | <BS> |  |
+|  | <M-m> |  |
+|  | <M-n> |  |
+|  | <F10> |  |
+| Toggle comment | <C-/> | gcc |
+| Toggle comment | <C-_> | gcc |
+| Focus up | <C-K> | <C-W>k |
+| Focus down | <C-J> | <C-W>j |
+| Focus left | <C-H> | <C-W>h |
+| Move line up | <M-k> | mz:m-2<CR>`z |
+| Move line down | <M-j> | mz:m+<CR>`z |
+| Close buffer | <C-W> |  |
+| Save buffer | <C-S> | <Esc>:w<CR> |
+|  | <C-I> | <Tab> |
+|  | <S-Tab> |  |
+| Focus right | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  rr | :lua require('refactoring').select_refactor()<CR> |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(matchup-%) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Search in selection | / | <Esc>/\%V |
+| Decrease indent | <lt> | <lt>gv |
+| Increase indent | > | >gv |
+|  | [% | <Plug>(matchup-[%) |
+|  | ]% | <Plug>(matchup-]%) |
+|  | a% | <Plug>(matchup-a%) |
+|  | g% | <Plug>(matchup-g%) |
+|  | i% | <Plug>(matchup-i%) |
+|  | z% | <Plug>(matchup-z%) |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>9_(matchup-Z%) |
+|  | <SNR>9_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>9_(matchup-z%) |
+|  | <SNR>9_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>9_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>9_(matchup-]%) |
+|  | <SNR>9_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>9_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>9_(matchup-g%) |
+|  | <SNR>9_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>9_(matchup-%) |
+|  | <SNR>9_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <C-S-P> |  |
+| Toggle comment | <C-/> | gc |
+| Toggle comment | <C-_> | gc |
+| Move lines up | <M-k> | :m'<lt>-2<CR>`>my`<lt>mzgv`yo`z |
+| Move lines down | <M-j> | :m'>+<CR>`<lt>my`>mzgv`yo`z |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Ignore><Plug>(matchup-%) |
+|  | [% | <Plug>(matchup-[%) |
+|  | ]% | <Plug>(matchup-]%) |
+|  | a% | <Plug>(matchup-a%) |
+|  | g% | <Ignore><Plug>(matchup-g%) |
+|  | i% | <Plug>(matchup-i%) |
+|  | z% | <Plug>(matchup-z%) |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#op('z%')<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#op('[%')<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |

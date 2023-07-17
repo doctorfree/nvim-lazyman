@@ -27,6 +27,7 @@ Personal Neovim configuration of Jade Fox
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
@@ -45,14 +46,19 @@ Personal Neovim configuration of Jade Fox
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [anuvyklack/middleclass](https://github.com/anuvyklack/middleclass.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [nacro90/numb.nvim](https://github.com/nacro90/numb.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 - [booperlv/nvim-gomove](https://github.com/booperlv/nvim-gomove.git)
 - [kevinhwang91/nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -69,13 +75,13 @@ Personal Neovim configuration of Jade Fox
 - [hiphish/rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
-- [debugloop/telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [Wansmer/treesj](https://github.com/Wansmer/treesj)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - [romainl/vim-cool](https://github.com/romainl/vim-cool.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
@@ -83,3 +89,193 @@ Personal Neovim configuration of Jade Fox
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [anuvyklack/windows.nvim](https://github.com/anuvyklack/windows.nvim.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+
+### J4de Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Go to next buffer | <Tab> |  |
+| Delete the current buffer forcefully |  bK |  |
+| Delete the current buffer |  bk |  |
+| Search help |  fh |  |
+| Search buffers |  fb |  |
+| Find words |  fw |  |
+| Find files |  ff |  |
+| Search and checkout git commits |  gc |  |
+| Search through git branches |  gb |  |
+| Seach through changed files |  go |  |
+| Search through todo comments |  ft |  |
+| Search commands |  fc |  |
+| Search keymaps |  fk |  |
+| Search registers |  fR |  |
+| Search recently opened files |  fr |  |
+| Search man pages |  fm |  |
+| Reset the hunk |  gr |  |
+| Preview the hunk |  gp |  |
+| Open git blame |  gl |  |
+| Previous hunk |  gk |  |
+| Next hunk |  gj |  |
+| Open a diff |  gd |  |
+| Unstage the hunk |  gu |  |
+| Stage the buffer |  gS |  |
+| Stage the hunk |  gs |  |
+| Reset the buffer |  gR |  |
+| Split node under cursor |  s |  |
+| Join node under cursor |  j |  |
+| Toggle node under cursor |  m |  |
+|  |   |  |
+| Jump to seventh buffer |  b7 |  |
+| Jump to ninth buffer |  b9 |  |
+| Jump to eighth buffer |  b8 |  |
+| Jump to sixth buffer |  b6 |  |
+| Jump to fifth buffer |  b5 |  |
+| Jump to fourth buffer |  b4 |  |
+| Jump to third buffer |  b3 |  |
+| Jump to second buffer |  b2 |  |
+| Jump to first buffer |  b1 |  |
+| Jump to last buffer |  b$ |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
+| Toggle twilight.nvim |  t |  |
+| Pause |  dp |  |
+| Step Over |  dO |  |
+| Step Out |  do |  |
+| Run Last |  dl |  |
+| Up |  dk |  |
+| Down |  dj |  |
+| Step Into |  di |  |
+| Go to line (no execute) |  dg |  |
+| Run to Cursor |  dC |  |
+| Continue |  dc |  |
+| Toggle Breakpoint |  db |  |
+| Breakpoint Condition |  dB |  |
+| Widgets |  dw |  |
+| Terminate |  dt |  |
+| Session |  ds |  |
+| Toggle REPL |  dr |  |
+| Toggle zen mode |  z |  |
+| Open symbols-outline |  o |  |
+| Open neo-tree.nvim |  e |  |
+| Neogit |  gg |  |
+| Toggle trouble.nvim |  xx |  |
+| Open lsp references |  xr |  |
+| Open location list |  xl |  |
+| Open quickfix |  xq |  |
+| Open document diagnostics |  xd |  |
+| Open workspace diagnostics |  xw |  |
+| Restore the session for the current directory |  qs |  |
+| Stop persistence |  qd |  |
+| Restore the last session |  ql |  |
+|  |  l |  |
+|  |  w | <Cmd>w<CR> |
+|  |  qq | <Cmd>q<CR> |
+|  |  qQ | <Cmd>qa<CR> |
+|  | " |  |
+|  | # |  |
+| Nvim builtin | & | :&&<CR> |
+|  | ' |  |
+|  | * |  |
+|  | / |  |
+|  | ? |  |
+| F | F |  |
+| Go to next buffer | H |  |
+| Hover | K |  |
+| Go to previous buffer | L |  |
+|  | N |  |
+| Leap backward to | S |  |
+| T | T |  |
+| Nvim builtin | Y | y$ |
+| Jump to previous todo comment | [t |  |
+| Previous hunk | [g |  |
+| Go to next buffer | [b |  |
+| Jump to next todo comment | ]t |  |
+| Next hunk | ]g |  |
+| Go to previous buffer | ]b |  |
+|  | ` |  |
+|  | c |  |
+| Change surroundings | cs |  |
+|  | d |  |
+| Delete surroundings | ds |  |
+| f | f |  |
+| Goto T[y]pe Definition | gy |  |
+| Goto Declaration | gD |  |
+| References | gr |  |
+| Goto Implementation | gI |  |
+| Signature Help | gK |  |
+| Goto Definition | gd |  |
+| Toggle comments (normal mode) | gc |  |
+| Toggle block comments (normal mode) | gb |  |
+| Leap from windows | gs |  |
+|  | g# |  |
+|  | g* |  |
+|  | n |  |
+| Leap forward to | s |  |
+| t | t |  |
+|  | y |  |
+| Add surroundings | ys |  |
+|  | z |  |
+| Open all folds | zR |  |
+| Close all folds | zM |  |
+| Block up | <M-k> |  |
+| Block down | <M-j> |  |
+| Block right | <M-l> |  |
+| Block left | <M-h> |  |
+|  | <C-Bslash> |  |
+|  | <C-W>z |  |
+|  | <C-W>= |  |
+|  | <C-W>| |  |
+|  | <C-W>_ |  |
+| Go to previous buffer | <S-Tab> |  |
+| Decrement | <C-X> |  |
+| Increment | <C-A> |  |
+|  | <C-Right> | <Cmd>vertical resize +2<CR> |
+|  | <C-Left> | <Cmd>vertical resize -2<CR> |
+|  | <C-Down> | <Cmd>resize -2<CR> |
+|  | <C-Up> | <Cmd>resize +2<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
+|  | <C-H> | <C-W>h |
+|  | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Eval |  de |  |
+|  |   |  |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | <lt> | <lt>gv |
+|  | > | >gv |
+| F | F |  |
+|  | N | 'nN'[v:searchforward] |
+| Leap backward to | S |  |
+| T | T |  |
+| f | f |  |
+| Toggle block comments (visual mode) | gb |  |
+| Toggle comments (visual mode) | gc |  |
+| Leap from windows | gs |  |
+|  | n | 'Nn'[v:searchforward] |
+| Leap forward to | s |  |
+| t | t |  |
+| Block down | <M-j> |  |
+| Block up | <M-k> |  |
+| Block left | <M-h> |  |
+| Block right | <M-l> |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |   |  |
+| F | F |  |
+|  | N | 'nN'[v:searchforward] |
+| Leap backward to | S |  |
+| T | T |  |
+| f | f |  |
+| Leap from windows | gs |  |
+|  | n | 'Nn'[v:searchforward] |
+| Leap forward to | s |  |
+| t | t |  |

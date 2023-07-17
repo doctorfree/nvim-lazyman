@@ -10,6 +10,10 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://www.lazyvim.org](https://www.lazyvim.org)
+
 ### Git repository
 
 [https://github.com/Traap/nvim](https://github.com/Traap/nvim)
@@ -35,6 +39,7 @@
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
@@ -118,3 +123,233 @@
 - [xiyaowong/virtcolumn.nvim](https://github.com/xiyaowong/virtcolumn.nvim.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+
+### Traap Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Oil buffer |  no |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Dismiss all Notifications |  un |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Colorscheme with preview |  uC |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Goto Symbol |  ss |  |
+| Find Files (root dir) |    |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Options |  so |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
+| Key Maps |  sk |  |
+| Search Highlight Groups |  sH |  |
+| Help Pages |  sh |  |
+| Grep (cwd) |  sG |  |
+| Grep (root dir) |  sg |  |
+| Workspace diagnostics |  sD |  |
+| Document diagnostics |  sd |  |
+| Commands |  sC |  |
+| Command History |  sc |  |
+| Buffer |  sb |  |
+| Auto Commands |  sa |  |
+| Recent |  fr |  |
+| Eval |  de |  |
+| Dap UI |  du |  |
+| Replace in files (Spectre) |  sr |  |
+| Step Over |  dO |  |
+| Up |  dk |  |
+| Down |  dj |  |
+| Breakpoint Condition |  dB |  |
+|  |  Tl |  |
+|  |  Tb |  |
+|  |  Tr |  |
+|  |  Tm |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
+|  |  cm |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+|  |  oz | <Cmd>lua require("zen-mode").toggle()<CR> |
+|  |  lx | <Plug>(vimtex-reload) |
+|  |  lv | <Plug>(vimtex-view) |
+|  |  lt | <Plug>(vimtex-toc_open) |
+|  |  ls | <Plug>(vimtex-toggle-main) |
+|  |  lq | <Plug>(vimtex-log) |
+|  |  lo | <Plug>(vimtex-compile-output) |
+|  |  lm | <Plug>(vimtex-impas-list) |
+|  |  ll | <Plug>(vimtex-compile) |
+|  |  lk | <Plug>(vimtex-stop) |
+|  |  li | <Plug>(vimtex-info) |
+|  |  lg | <Plug>(vimtex-status) |
+|  |  le | <Plug>(vimtex-error) |
+|  |  lc | <Plug>(vimtex-clean-full) |
+|  |  la | <Plug>(vimtex-context-menu) |
+|  |  lX | <Plug>(vimtex-reload-state) |
+|  |  lT | <Plug>(vimtex-toc-toggle) |
+|  |  lL | <Plug>(vimtex-compile-selected) |
+|  |  lK | <Plug>(vimtex-stop-all) |
+|  |  lI | <Plug>(vimtex-info-full) |
+|  |  lG | <Plug>(vimtex-status-all) |
+|  |  lC | <Plug>(vimtex-clean-full) |
+| status |  gs |  |
+|  |  gp | <Cmd>G push<CR> |
+|  |  gh | <Cmd>vert bo help fugitive<CR> |
+|  |  gl | <Cmd>G log<CR> |
+|  |  gd | <Cmd>G diff<CR> |
+| commits |  gc |  |
+|  |  gP | <Cmd>G pull<CR> |
+|  |  2 | gaip=  |
+|  |  1 | gaip=, |
+|  |  0 | gaip*, |
+|  |  kwiki | <Cmd>Dispatch! tmux kill-session -t wiki<CR> |
+|  |  kvim | <Cmd>Dispatch! tmux kill-session -t vim<CR> |
+|  |  ksoup | <Cmd>Dispatch! tmux kill-session -t soup<CR> |
+|  |  kssh | <Cmd>Dispatch! tmux kill-session -t ssh<CR> |
+|  |  kkjv | <Cmd>Dispatch! tmux kill-session -t kjv<CR> |
+|  |  kbash | <Cmd>Dispatch! tmux kill-session -t bash<CR> |
+|  |  kao | <Cmd>Dispatch! tmux kill-session -t ao<CR> |
+|  |  twiki | <Cmd>Dispatch!ao wiki<CR> |
+|  |  tvim | <Cmd>Dispatch!ao vim<CR> |
+|  |  tsoup | <Cmd>Dispatch!ao soup<CR> |
+|  |  tssh | <Cmd>Dispatch!ao ssh<CR> |
+|  |  tkjv | <Cmd>Dispatch!ao kjv<CR> |
+|  |  tbash | <Cmd>Dispatch!ao bash<CR> |
+|  |  tao | <Cmd>Dispatch!ao ao<CR> |
+|  |  gu | <Cmd>call GenerateUmlDiagram<CR> |
+|  |  fy | <Cmd>TodoTelescope keywords=Youtube,URL<CR> |
+|  |  Ls | <Cmd>Telescope lsp_document_symbols<CR> |
+|  |  LS | <Cmd>Telescope lsp_dynamic_workspace_symbols<CR> |
+|  |  go | <Cmd>Telescope git_status<CR> |
+|  |  gb | <Cmd>Telescope git_branches<CR> |
+|  |  gC | <Cmd>Telescope git_commits<CR> |
+|  |  fw | <Cmd>Telescope grep_string<CR> |
+|  |  fp | <Cmd>Telescope planets<CR> |
+|  |  fo | <Cmd>Telescope oldfiles<CR> |
+|  |  fm | <Cmd>Telescope marks<CR> |
+|  |  fl | <Cmd>Telescope resume<CR> |
+|  |  fk | <Cmd>Telescope keymaps<CR> |
+|  |  fi | <Cmd>lua require('telescope').extensions.media_files.media_files()<CR> |
+|  |  fh | <Cmd>Telescope help_tags<CR> |
+|  |  fg | <Cmd>Telescope live_grep<CR> |
+| Find Files (root dir) |  ff |  |
+|  |  fd | <Cmd>Telescope diagnostics<CR> |
+| Buffers |  fb |  |
+|  |  fS | <Cmd>Telescope colorscheme<CR> |
+| Recent (cwd) |  fR |  |
+|  |  fO | <Cmd>Telescope oldfiles<CR> |
+|  |  fM | <Cmd>Telescope man_pages<CR> |
+| Find Files (cwd) |  fF |  |
+|  |  fC | <Cmd>Telescope commands<CR> |
+|  |  nr | <Cmd>Neotree show<CR> |
+|  |  nf | <Cmd>Neotree focus<CR> |
+|  |  dU | <Cmd>lua require("dapui").toggle()<CR> |
+|  |  Ds | <Cmd>lua require("osv").launch({ port = 8686})<CR> |
+|  |  Dd | <Cmd>lua require("osv").run_this()<CR> |
+| Widgets |  dw |  |
+| Terminate |  dt |  |
+| Toggle REPL |  dr |  |
+| Session |  ds |  |
+|  |  dq | <Cmd>lua require("dap").close()<CR> |
+| Pause |  dp |  |
+| Step Out |  do |  |
+| Run Last |  dl |  |
+| Step Into |  di |  |
+| Go to line (no execute) |  dg |  |
+|  |  dd | <Cmd>lua require("dap").disconnect()<CR> |
+| Continue |  dc |  |
+| Toggle Breakpoint |  db |  |
+| Run to Cursor |  dC |  |
+|  |  nh | <Cmd>NoiceHistory<CR> |
+|  |  ne | <Cmd>NoiceErrors<CR> |
+|  |  aa | <Cmd>Alpha<CR> |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Flash Treesitter | S |  |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
+| Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
+| Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
+|  | g% | <Plug>(MatchitNormalBackward) |
+|  | ga | <Plug>(EasyAlign) |
+| Flash | s |  |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | | | gaip*| |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+| Increment selection | <C-Space> |  |
+|  | <M-3> |  |
+|  | <M-2> |  |
+|  | <M-1> |  |
+|  | <M-8> |  |
+|  | <M-7> |  |
+|  | <M-6> |  |
+|  | <M-5> |  |
+|  | <M-4> |  |
+|  | <C-N> | <Cmd>Neotree toggle<CR> |
+|  | <F12> | <Cmd>lua require("dap").step_out()<CR> |
+|  | <F11> | <Cmd>lua require("dap").step_into()<CR> |
+|  | <F10> | <Cmd>lua require("dap").step_over()<CR> |
+|  | <F5> | <Cmd>lua  require("dap").continue()<CR> |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Eval |  de |  |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Treesitter Search | R |  |
+| Flash Treesitter | S |  |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | ga | <Plug>(EasyAlign) |
+| Flash | s |  |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+| Decrement selection | <BS> |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| Treesitter Search | R |  |
+| Flash Treesitter | S |  |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+| Remote Flash | r |  |
+| Flash | s |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

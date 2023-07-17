@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Go2one</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Go2one</h1>
+</header>
 <h2 id="go2one-neovim-configuration-information">Go2one Neovim
 Configuration Information</h2>
 <p>Neovim Go development environment that does not touch standard Neovim
@@ -100,3 +130,1188 @@ href="https://github.com/airblade/vim-rooter">airblade/vim-rooter</a></li>
 <li><a
 href="https://github.com/tpope/vim-surround">tpope/vim-surround</a></li>
 </ul>
+<h3 id="go2one-keymaps">Go2one Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>q</td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fk</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gp</td>
+<td>:Git push<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td>:Git commit -s<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gg</td>
+<td>:Git<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>db</td>
+<td>:lua require’dap’.toggle_breakpoint()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dd</td>
+<td>:lua require’dap’.continue()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>do</td>
+<td>:lua require’dap’.step_over()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>di</td>
+<td>:lua require’dap’.step_into()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dc</td>
+<td>:lua require’dap’.set_breakpoint(vim.fn.input(‘Breakpoint
+condition:’))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>du</td>
+<td>:lua require’dapui’.toggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i</td>
+<td>:lua require’dapui’.eval()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>9</td>
+<td><Cmd>BufferLineGoToBuffer 9<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>8</td>
+<td><Cmd>BufferLineGoToBuffer 8<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>7</td>
+<td><Cmd>BufferLineGoToBuffer 7<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>6</td>
+<td><Cmd>BufferLineGoToBuffer 6<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>5</td>
+<td><Cmd>BufferLineGoToBuffer 5<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4</td>
+<td><Cmd>BufferLineGoToBuffer 4<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3</td>
+<td><Cmd>BufferLineGoToBuffer 3<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2</td>
+<td><Cmd>BufferLineGoToBuffer 2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>1</td>
+<td><Cmd>BufferLineGoToBuffer 1<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fm</td>
+<td>:DashboardJumpMarks<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fn</td>
+<td>:DashboardNewFile<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fl</td>
+<td>:SessionLoad<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fr</td>
+<td>:DashboardFindHistory<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>t</td>
+<td>:lua require’go2one.gotest’.test_nearest({layout_strategy =
+‘vertical’, layout_config = {preview_cutoff = 1}})<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td>:lua require’utils’.reload(‘go2one’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td>ggVG$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>v</td>
+<td>:e <span
+class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em><em>C</em> &lt; <em>C</em><em>R</em> &gt; |||−| : <em>q</em>! &lt; <em>C</em><em>R</em> &gt; |||<em>g</em><em>j</em>|:</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>_</td>
+<td>:bdelete!<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cS</td>
+<td><Plug>CSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cs</td>
+<td><Plug>Csurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ds</td>
+<td><Plug>Dsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm</td>
+<td><Cmd>lua require’marks’.delete()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm2</td>
+<td><Cmd>lua require’marks’.delete_bookmark2()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm3</td>
+<td><Cmd>lua require’marks’.delete_bookmark3()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm4</td>
+<td><Cmd>lua require’marks’.delete_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm5</td>
+<td><Cmd>lua require’marks’.delete_bookmark5()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm</td>
+<td><Cmd>lua require’marks’.delete_buf()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm-</td>
+<td><Cmd>lua require’marks’.delete_line()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm1</td>
+<td><Cmd>lua require’marks’.delete_bookmark1()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm7</td>
+<td><Cmd>lua require’marks’.delete_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm0</td>
+<td><Cmd>lua require’marks’.delete_bookmark0()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm6</td>
+<td><Cmd>lua require’marks’.delete_bookmark6()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm8</td>
+<td><Cmd>lua require’marks’.delete_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm=</td>
+<td><Cmd>lua require’marks’.delete_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm9</td>
+<td><Cmd>lua require’marks’.delete_bookmark9()<CR></td>
+</tr>
+<tr class="even">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td>g/</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>(v:count == 0 ? ‘gj’ : ‘j’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>(v:count == 0 ? ‘gk’ : ‘k’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m5</td>
+<td><Cmd>lua require’marks’.set_bookmark5()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m[</td>
+<td><Cmd>lua require’marks’.prev()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m;</td>
+<td><Cmd>lua require’marks’.toggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m</td>
+<td><Cmd>lua require’marks’.set()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m2</td>
+<td><Cmd>lua require’marks’.set_bookmark2()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m4</td>
+<td><Cmd>lua require’marks’.set_bookmark4()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m0</td>
+<td><Cmd>lua require’marks’.set_bookmark0()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m3</td>
+<td><Cmd>lua require’marks’.set_bookmark3()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m9</td>
+<td><Cmd>lua require’marks’.set_bookmark9()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m:</td>
+<td><Cmd>lua require’marks’.preview()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m6</td>
+<td><Cmd>lua require’marks’.set_bookmark6()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m1</td>
+<td><Cmd>lua require’marks’.set_bookmark1()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m,</td>
+<td><Cmd>lua require’marks’.set_next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m7</td>
+<td><Cmd>lua require’marks’.set_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m8</td>
+<td><Cmd>lua require’marks’.set_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m{</td>
+<td><Cmd>lua require’marks’.prev_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m}</td>
+<td><Cmd>lua require’marks’.next_bookmark()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m]</td>
+<td><Cmd>lua require’marks’.next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ySS</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ySs</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yss</td>
+<td><Plug>Yssurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yS</td>
+<td><Plug>YSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ys</td>
+<td><Plug>Ysurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>45_opfunc2(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>45_opfunc(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>45_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>45_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>45_changesurround(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>45_changesurround()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>45_dosurround(<SNR>45_inputtarget())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark9)</td>
+<td><Cmd> lua require’marks’.prev_bookmark9()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark9)</td>
+<td><Cmd> lua require’marks’.next_bookmark9()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark9)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark9()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-delete-bookmark9)</td>
+<td><Cmd> lua require’marks’.delete_bookmark9()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-set-bookmark9)</td>
+<td><Cmd> lua require’marks’.set_bookmark9()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev-bookmark8)</td>
+<td><Cmd> lua require’marks’.prev_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next-bookmark8)</td>
+<td><Cmd> lua require’marks’.next_bookmark8()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark8)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark8)</td>
+<td><Cmd> lua require’marks’.delete_bookmark8()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set-bookmark8)</td>
+<td><Cmd> lua require’marks’.set_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark7)</td>
+<td><Cmd> lua require’marks’.prev_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark7)</td>
+<td><Cmd> lua require’marks’.next_bookmark7()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark7)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-delete-bookmark7)</td>
+<td><Cmd> lua require’marks’.delete_bookmark7()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-set-bookmark7)</td>
+<td><Cmd> lua require’marks’.set_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev-bookmark6)</td>
+<td><Cmd> lua require’marks’.prev_bookmark6()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next-bookmark6)</td>
+<td><Cmd> lua require’marks’.next_bookmark6()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark6)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark6()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark6)</td>
+<td><Cmd> lua require’marks’.delete_bookmark6()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set-bookmark6)</td>
+<td><Cmd> lua require’marks’.set_bookmark6()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark5)</td>
+<td><Cmd> lua require’marks’.prev_bookmark5()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark5)</td>
+<td><Cmd> lua require’marks’.next_bookmark5()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark5)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark5()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-delete-bookmark5)</td>
+<td><Cmd> lua require’marks’.delete_bookmark5()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-set-bookmark5)</td>
+<td><Cmd> lua require’marks’.set_bookmark5()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev-bookmark4)</td>
+<td><Cmd> lua require’marks’.prev_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next-bookmark4)</td>
+<td><Cmd> lua require’marks’.next_bookmark4()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark4)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark4)</td>
+<td><Cmd> lua require’marks’.delete_bookmark4()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set-bookmark4)</td>
+<td><Cmd> lua require’marks’.set_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark3)</td>
+<td><Cmd> lua require’marks’.prev_bookmark3()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark3)</td>
+<td><Cmd> lua require’marks’.next_bookmark3()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark3)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark3()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-delete-bookmark3)</td>
+<td><Cmd> lua require’marks’.delete_bookmark3()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-set-bookmark3)</td>
+<td><Cmd> lua require’marks’.set_bookmark3()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev-bookmark2)</td>
+<td><Cmd> lua require’marks’.prev_bookmark2()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next-bookmark2)</td>
+<td><Cmd> lua require’marks’.next_bookmark2()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark2)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark2()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark2)</td>
+<td><Cmd> lua require’marks’.delete_bookmark2()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set-bookmark2)</td>
+<td><Cmd> lua require’marks’.set_bookmark2()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark1)</td>
+<td><Cmd> lua require’marks’.prev_bookmark1()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark1)</td>
+<td><Cmd> lua require’marks’.next_bookmark1()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark1)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark1()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-delete-bookmark1)</td>
+<td><Cmd> lua require’marks’.delete_bookmark1()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-set-bookmark1)</td>
+<td><Cmd> lua require’marks’.set_bookmark1()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev-bookmark0)</td>
+<td><Cmd> lua require’marks’.prev_bookmark0()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next-bookmark0)</td>
+<td><Cmd> lua require’marks’.next_bookmark0()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle-bookmark0)</td>
+<td><Cmd> lua require’marks’.toggle_bookmark0()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark0)</td>
+<td><Cmd> lua require’marks’.delete_bookmark0()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set-bookmark0)</td>
+<td><Cmd> lua require’marks’.set_bookmark0()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-prev-bookmark)</td>
+<td><Cmd> lua require’marks’.prev_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-next-bookmark)</td>
+<td><Cmd> lua require’marks’.next_bookmark()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete-bookmark)</td>
+<td><Cmd> lua require’marks’.delete_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-prev)</td>
+<td><Cmd> lua require’marks’.prev()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-next)</td>
+<td><Cmd> lua require’marks’.next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-preview)</td>
+<td><Cmd> lua require’marks’.preview()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-deletebuf)</td>
+<td><Cmd> lua require’marks’.delete_buf()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-deleteline)</td>
+<td><Cmd> lua require’marks’.delete_line()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-delete)</td>
+<td><Cmd> lua require’marks’.delete()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-toggle)</td>
+<td><Cmd> lua require’marks’.toggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Marks-setnext)</td>
+<td><Cmd> lua require’marks’.set_next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Marks-set)</td>
+<td><Cmd> lua require’marks’.set()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F11></td>
+<td>:lua require’dap’.step_out()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F10></td>
+<td>:lua require’dap’.step_into()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F9></td>
+<td>:lua require’dap’.step_over()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F8></td>
+<td>:lua require’dap’.continue()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F7></td>
+<td>:lua require’dap’.toggle_breakpoint()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:BufferLineMovePrev<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:BufferLineMoveNext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-X></td>
+<td>:split term://bash<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><BS></td>
+<td>:bdelete<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F4></td>
+<td>:setlocal spell! spelllang=en_us<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td>:BufferLineCycleNext<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>silent&gt;<C-S></td>
+<td>:sort<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Plug>VSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gS</td>
+<td><Plug>VgSurround</td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>45_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>45_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

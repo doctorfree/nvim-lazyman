@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Enrique</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Enrique</h1>
+</header>
 <h2 id="enrique-neovim-configuration-information">Enrique Neovim
 Configuration Information</h2>
 <p>Personal Neovim configuration of Enrique Mejidas</p>
@@ -17,3 +47,2054 @@ all Lazyman supported configuration documents</a></p>
 <p><a
 href="https://github.com/kiyov09/dotfiles">https://github.com/kiyov09/dotfiles</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<h3 id="enrique-keymaps">Enrique Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>r#</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>#</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g?</td>
+<td>:map g<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gw</td>
+<td>:GBrowse<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gl</td>
+<td>:Gclog -n 100 –<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gd</td>
+<td>:Git diff<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gP</td>
+<td>:Git push origin</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gpr</td>
+<td>:Git pull –rebase origin</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gpo</td>
+<td>:Git pull –ff-only origin</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td>:Git blame<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td>:Git<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tb</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tg</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>th</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>v*</td>
+<td>:vsplit<CR>*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>x*</td>
+<td>:split<CR>*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>&lt;C-^&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>vf</td>
+<td>:Vexplore!<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sf</td>
+<td>:Sexplore<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td>:Explore<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yy</td>
+<td>“+yy</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y</td>
+<td>“+y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w</td>
+<td>:w<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’[</td>
+<td>:<C-U>call signature#mark#Goto(“prev”, “line”, “alpha”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’]</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “line”, “alpha”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td><Plug>VinegarUp</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>p</td>
+<td><Plug>(unimpaired-put-below-leftward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>P</td>
+<td><Plug>(unimpaired-put-above-leftward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>s<Esc></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>s</td>
+<td><Plug>(unimpaired-enable)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>=p</td>
+<td><Plug>(unimpaired-put-below-reformat)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>=P</td>
+<td><Plug>(unimpaired-put-above-reformat)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>=s<Esc></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>=s</td>
+<td><Plug>(unimpaired-toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&gt;p</td>
+<td><Plug>(unimpaired-put-below-rightward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;P</td>
+<td><Plug>(unimpaired-put-above-rightward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&gt;s<Esc></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;s</td>
+<td><Plug>(unimpaired-disable)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[xx</td>
+<td><Plug>(unimpaired-xml-encode-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[x</td>
+<td><Plug>(unimpaired-xml-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[uu</td>
+<td><Plug>(unimpaired-url-encode-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[u</td>
+<td><Plug>(unimpaired-url-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[CC</td>
+<td><Plug>(unimpaired-string-encode-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[C</td>
+<td><Plug>(unimpaired-string-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[yy</td>
+<td><Plug>(unimpaired-string-encode-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[y</td>
+<td><Plug>(unimpaired-string-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[P</td>
+<td><Plug>(unimpaired-put-above)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[p</td>
+<td><Plug>(unimpaired-put-above)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[o<Esc></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[o</td>
+<td><Plug>(unimpaired-enable)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[e</td>
+<td><Plug>(unimpaired-move-up)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[</td>
+<td><Plug>(unimpaired-blank-up)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[n</td>
+<td><Plug>(unimpaired-context-previous)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[f</td>
+<td><Plug>(unimpaired-directory-previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[<C-T></td>
+<td><Plug>(unimpaired-ptprevious)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[T</td>
+<td><Plug>(unimpaired-tfirst)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[t</td>
+<td><Plug>(unimpaired-tprevious)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[<C-Q></td>
+<td><Plug>(unimpaired-cpfile)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[Q</td>
+<td><Plug>(unimpaired-cfirst)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[q</td>
+<td><Plug>(unimpaired-cprevious)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[<C-L></td>
+<td><Plug>(unimpaired-lpfile)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[L</td>
+<td><Plug>(unimpaired-lfirst)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[l</td>
+<td><Plug>(unimpaired-lprevious)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[B</td>
+<td><Plug>(unimpaired-bfirst)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[b</td>
+<td><Plug>(unimpaired-bprevious)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[A</td>
+<td><Plug>(unimpaired-first)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[a</td>
+<td><Plug>(unimpaired-previous)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[=</td>
+<td>:<C-U>call signature#marker#Goto(“prev”, “any”, v:count)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[-</td>
+<td>:<C-U>call signature#marker#Goto(“prev”, “same”, v:count)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[<code>| :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt; | |  | [' | :&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt; | |  | [% | &lt;Plug&gt;(MatchitNormalMultiBackward) | |  | [d |  | |  | ]xx | &lt;Plug&gt;(unimpaired-xml-decode-line) | |  | ]x | &lt;Plug&gt;(unimpaired-xml-decode) | |  | ]uu | &lt;Plug&gt;(unimpaired-url-decode-line) | |  | ]u | &lt;Plug&gt;(unimpaired-url-decode) | |  | ]CC | &lt;Plug&gt;(unimpaired-string-decode-line) | |  | ]C | &lt;Plug&gt;(unimpaired-string-decode) | |  | ]yy | &lt;Plug&gt;(unimpaired-string-decode-line) | |  | ]y | &lt;Plug&gt;(unimpaired-string-decode) | |  | ]P | &lt;Plug&gt;(unimpaired-put-below) | |  | ]p | &lt;Plug&gt;(unimpaired-put-below) | |  | ]o&lt;Esc&gt; |  | |  | ]o | &lt;Plug&gt;(unimpaired-disable) | |  | ]e | &lt;Plug&gt;(unimpaired-move-down) | |  | ]  | &lt;Plug&gt;(unimpaired-blank-down) | |  | ]n | &lt;Plug&gt;(unimpaired-context-next) | |  | ]f | &lt;Plug&gt;(unimpaired-directory-next) | |  | ]&lt;C-T&gt; | &lt;Plug&gt;(unimpaired-ptnext) | |  | ]T | &lt;Plug&gt;(unimpaired-tlast) | |  | ]t | &lt;Plug&gt;(unimpaired-tnext) | |  | ]&lt;C-Q&gt; | &lt;Plug&gt;(unimpaired-cnfile) | |  | ]Q | &lt;Plug&gt;(unimpaired-clast) | |  | ]q | &lt;Plug&gt;(unimpaired-cnext) | |  | ]&lt;C-L&gt; | &lt;Plug&gt;(unimpaired-lnfile) | |  | ]L | &lt;Plug&gt;(unimpaired-llast) | |  | ]l | &lt;Plug&gt;(unimpaired-lnext) | |  | ]B | &lt;Plug&gt;(unimpaired-blast) | |  | ]b | &lt;Plug&gt;(unimpaired-bnext) | |  | ]A | &lt;Plug&gt;(unimpaired-last) | |  | ]a | &lt;Plug&gt;(unimpaired-next) | |  | ]= | :&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt; | |  | ]- | :&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt; | |  | ]</code></td>
+<td>:<C-U>call signature#mark#Goto(“next”, “spot”, “pos”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]’</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “line”, “pos”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]d</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>[ | :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "alpha")&lt;CR&gt; | |  |</code>]</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “spot”, “alpha”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cS</td>
+<td><Plug>CSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cs</td>
+<td><Plug>Csurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ds</td>
+<td><Plug>Dsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm</td>
+<td>:<C-U>call signature#utils#Remove(v:count)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcu</td>
+<td><Plug>Commentary<Plug>Commentary</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gcc</td>
+<td><Plug>CommentaryLine</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td><Plug>Commentary</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>gj</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>gk</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m?</td>
+<td>:<C-U>call signature#marker#List(v:count, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m/</td>
+<td>:<C-U>call signature#mark#List(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m<BS></td>
+<td>:<C-U>call signature#marker#Purge()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#mark#Purge(“all”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m-</td>
+<td>:<C-U>call signature#mark#Purge(“line”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m.</td>
+<td>:<C-U>call signature#mark#ToggleAtLine()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m,</td>
+<td>:<C-U>call signature#mark#Toggle(“next”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#utils#Input()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yo<Esc></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yo</td>
+<td><Plug>(unimpaired-toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ySS</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ySs</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yss</td>
+<td><Plug>Yssurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yS</td>
+<td><Plug>YSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ys</td>
+<td><Plug>Ysurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:set operatorfunc=<SNR>48_vsnip_cut_text_normal<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:set operatorfunc=<SNR>48_vsnip_select_text_normal<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VinegarVerticalSplitUp</td>
+<td>:call <SNR>47_opendir(‘vsplit’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VinegarSplitUp</td>
+<td>:call <SNR>47_opendir(‘split’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VinegarTabUp</td>
+<td>:call <SNR>47_opendir(‘tabedit’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VinegarUp</td>
+<td>:call <SNR>47_opendir(‘edit’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-xml-decode-line)</td>
+<td><SNR>46_TransformSetup(“xml_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-decode)</td>
+<td><SNR>46_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_xml_decode</td>
+<td><SNR>46_TransformSetup(“xml_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_xml_decode</td>
+<td><SNR>46_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-xml-encode-line)</td>
+<td><SNR>46_TransformSetup(“xml_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-encode)</td>
+<td><SNR>46_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_xml_encode</td>
+<td><SNR>46_TransformSetup(“xml_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_xml_encode</td>
+<td><SNR>46_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-url-decode-line)</td>
+<td><SNR>46_TransformSetup(“url_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-decode)</td>
+<td><SNR>46_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_url_decode</td>
+<td><SNR>46_TransformSetup(“url_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_url_decode</td>
+<td><SNR>46_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-url-encode-line)</td>
+<td><SNR>46_TransformSetup(“url_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-encode)</td>
+<td><SNR>46_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_url_encode</td>
+<td><SNR>46_TransformSetup(“url_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_url_encode</td>
+<td><SNR>46_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-string-decode-line)</td>
+<td><SNR>46_TransformSetup(“string_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-decode)</td>
+<td><SNR>46_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_string_decode</td>
+<td><SNR>46_TransformSetup(“string_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_string_decode</td>
+<td><SNR>46_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-string-encode-line)</td>
+<td><SNR>46_TransformSetup(“string_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-encode)</td>
+<td><SNR>46_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_string_encode</td>
+<td><SNR>46_TransformSetup(“string_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_string_encode</td>
+<td><SNR>46_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedPutBelow</td>
+<td>:call <SNR>46_putline(‘]p’, ‘below’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedPutAbove</td>
+<td>:call <SNR>46_putline(‘[p’, ‘above’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-reformat)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ‘]p’, ‘Below’)<CR>=’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-reformat)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ’[p’, ‘Above’)<CR>=’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-leftward)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ‘]p’, ‘Below’)<CR><lt>’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-leftward)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ’[p’, ‘Above’)<CR><lt>’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-rightward)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ‘]p’, ‘Below’)<CR>&gt;’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-rightward)</td>
+<td>:<C-U>call <SNR>46_putline(v:count1 . ’[p’, ‘Above’)<CR>&gt;’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below)</td>
+<td>:call <SNR>46_putline(‘]p’, ‘below’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above)</td>
+<td>:call <SNR>46_putline(‘[p’, ‘above’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)p</td>
+<td>:<C-U>call <SNR>46_SetupPaste()<CR>0C</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)p</td>
+<td>:<C-U>call <SNR>46_SetupPaste()<CR>o</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)p</td>
+<td>:<C-U>call <SNR>46_SetupPaste()<CR>O</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-paste)</td>
+<td>:<C-U>call <SNR>46_SetupPaste()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedPaste</td>
+<td>:call <SNR>46_SetupPaste()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)t</td>
+<td>:<C-U>set
+colorcolumn=<C-R>=<SNR>46_ColorColumn(!empty(&amp;cc))<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)t</td>
+<td>:<C-U>set colorcolumn=<C-R>=<SNR>46_ColorColumn(1)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)t</td>
+<td>:<C-U>set colorcolumn=<C-R>=<SNR>46_ColorColumn(0)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)+</td>
+<td>:<C-U>set <C-R>=<SNR>46_CursorOptions()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)+</td>
+<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)+</td>
+<td>:<C-U>set cursorline cursorcolumn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)x</td>
+<td>:<C-U>set <C-R>=<SNR>46_CursorOptions()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)x</td>
+<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)x</td>
+<td>:<C-U>set cursorline cursorcolumn<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)v</td>
+<td>:<C-U>set <C-R>=(&amp;virtualedit =~# “all”) ? “virtualedit-=all” :
+“virtualedit+=all”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)v</td>
+<td>:<C-U>set virtualedit-=all<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)v</td>
+<td>:<C-U>set virtualedit+=all<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)z</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“spell”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)z</td>
+<td>:<C-U>setlocal nospell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)z</td>
+<td>:<C-U>setlocal spell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)w</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“wrap”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)w</td>
+<td>:<C-U>setlocal nowrap<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)w</td>
+<td>:<C-U>setlocal wrap<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)s</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“spell”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)s</td>
+<td>:<C-U>setlocal nospell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)s</td>
+<td>:<C-U>setlocal spell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)r</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“relativenumber”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)r</td>
+<td>:<C-U>setlocal
+norelativenumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)r</td>
+<td>:<C-U>setlocal
+relativenumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)n</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“number”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)n</td>
+<td>:<C-U>setlocal
+nonumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)n</td>
+<td>:<C-U>setlocal number<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)l</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“list”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)l</td>
+<td>:<C-U>setlocal nolist<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)l</td>
+<td>:<C-U>setlocal list<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)i</td>
+<td>:<C-U>set <C-R>=<SNR>46_Toggle(“ignorecase”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)i</td>
+<td>:<C-U>set noignorecase<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)i</td>
+<td>:<C-U>set ignorecase<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)h</td>
+<td>:<C-U>set <C-R>=<SNR>46_Toggle(“hlsearch”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)h</td>
+<td>:<C-U>set nohlsearch<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)h</td>
+<td>:<C-U>set hlsearch<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)d</td>
+<td>:<C-U><C-R>=&amp;diff ? “diffoff” : “diffthis”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)d</td>
+<td>:<C-U>diffoff<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)d</td>
+<td>:<C-U>diffthis<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)u</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“cursorcolumn”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)u</td>
+<td>:<C-U>setlocal
+nocursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)u</td>
+<td>:<C-U>setlocal
+cursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)_</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)_</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)_</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)-</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)-</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)-</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)c</td>
+<td>:<C-U>setlocal <C-R>=<SNR>46_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)c</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)c</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)b</td>
+<td>:<C-U>set background=<C-R>=&amp;background == “dark” ? “light” :
+“dark”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)b</td>
+<td>:<C-U>set background=dark<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)b</td>
+<td>:<C-U>set background=light<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveDown</td>
+<td>:<C-U>call <SNR>46_Move(‘+’,v:count1,‘down’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveUp</td>
+<td>:<C-U>call <SNR>46_Move(‘–’,v:count1,‘up’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-down)</td>
+<td>:<C-U>call <SNR>46_Move(‘+’,v:count1,‘down’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-up)</td>
+<td>:<C-U>call <SNR>46_Move(‘–’,v:count1,‘up’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBlankDown</td>
+<td>:<C-U>exe <SNR>46_BlankDown()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBlankUp</td>
+<td>:<C-U>exe <SNR>46_BlankUp()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-blank-down)</td>
+<td>:<C-U>exe <SNR>46_BlankDown()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-blank-up)</td>
+<td>:<C-U>exe <SNR>46_BlankUp()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>call <SNR>46_Context(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>call <SNR>46_Context(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>call <SNR>46_Context(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>call <SNR>46_Context(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedDirectoryPrevious</td>
+<td>:<C-U>execute <SNR>46_PreviousFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedDirectoryNext</td>
+<td>:<C-U>execute <SNR>46_NextFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-directory-previous)</td>
+<td>:<C-U>execute <SNR>46_PreviousFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-directory-next)</td>
+<td>:<C-U>execute <SNR>46_NextFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTPNext</td>
+<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTPPrevious</td>
+<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-ptnext)</td>
+<td>:<C-U>exe v:count1 . “ptnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-ptprevious)</td>
+<td>:<C-U>exe v:count1 . “ptprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tlast”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tfirst”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-tlast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tlast”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-tfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tfirst”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-tnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-tprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQNFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQPFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-cnfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cpfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”clast”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cfirst”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-clast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “cc” : “clast”<CR><CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “cc” : “cfirst”<CR><CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-cnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLNFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLPFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-lnfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lpfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”llast”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lfirst”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-llast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “ll” : “llast”<CR><CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “ll” : “lfirst”<CR><CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-lnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”blast”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bfirst”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-blast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “blast”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-bfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “bfirst”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-bnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-bprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedALast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”last”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedAFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”first”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedANext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedAPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-last)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “argument” : “last”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-first)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “argument” : “first”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-next)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-previous)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>44_opfunc2(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>44_opfunc(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>44_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>44_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>44_changesurround(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>44_changesurround()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>44_dosurround(<SNR>44_inputtarget())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CommentaryUndo</td>
+<td>:echoerr “Change your <Plug>CommentaryUndo map to
+<Plug>Commentary<Plug>Commentary”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ChangeCommentary</td>
+<td>c:<C-U>call <SNR>39_textobject(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CommentaryLine</td>
+<td><SNR>39_go() . ’_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Commentary</td>
+<td><SNR>39_go()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Down></td>
+<td>:resize +1<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Up></td>
+<td>:resize -1<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Right></td>
+<td>:vertical resize +1<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Left></td>
+<td>:vertical resize -1<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>#</td>
+<td>y:match MatchGroup /<C-R>“/<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y</td>
+<td>“+y</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>//</td>
+<td>y/<C-R>“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Plug>VSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[x</td>
+<td><Plug>(unimpaired-xml-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[u</td>
+<td><Plug>(unimpaired-url-encode)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[C</td>
+<td><Plug>(unimpaired-string-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[y</td>
+<td><Plug>(unimpaired-string-encode)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[e</td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[n</td>
+<td><Plug>(unimpaired-context-previous)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]x</td>
+<td><Plug>(unimpaired-xml-decode)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]u</td>
+<td><Plug>(unimpaired-url-decode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]C</td>
+<td><Plug>(unimpaired-string-decode)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]y</td>
+<td><Plug>(unimpaired-string-decode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]e</td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]n</td>
+<td><Plug>(unimpaired-context-next)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gS</td>
+<td><Plug>VgSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td><Plug>Commentary</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:<C-U>call <SNR>48_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:<C-U>call <SNR>48_vsnip_visual_text(visualmode())<CR>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-decode)</td>
+<td><SNR>46_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_xml_decode</td>
+<td><SNR>46_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-encode)</td>
+<td><SNR>46_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_xml_encode</td>
+<td><SNR>46_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-decode)</td>
+<td><SNR>46_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_url_decode</td>
+<td><SNR>46_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-encode)</td>
+<td><SNR>46_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_url_encode</td>
+<td><SNR>46_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-decode)</td>
+<td><SNR>46_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_string_decode</td>
+<td><SNR>46_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-encode)</td>
+<td><SNR>46_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_string_encode</td>
+<td><SNR>46_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Commentary</td>
+<td><SNR>39_go()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[n</td>
+<td><Plug>(unimpaired-context-previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]n</td>
+<td><Plug>(unimpaired-context-next)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td><Plug>Commentary</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>call <SNR>46_ContextMotion(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>call <SNR>46_ContextMotion(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>call <SNR>46_ContextMotion(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>call <SNR>46_ContextMotion(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Commentary</td>
+<td>:<C-U>call <SNR>39_textobject(get(v:, ‘operator’, ’‘) ==#
+’c’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

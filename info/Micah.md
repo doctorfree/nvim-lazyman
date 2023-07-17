@@ -10,6 +10,10 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://astronvim.com](https://astronvim.com)
+
 ### Git repository
 
 [https://code.mehalter.com/AstroNvim_user](https://code.mehalter.com/AstroNvim_user)
@@ -54,7 +58,6 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim.git)
 - [danymat/neogen](https://github.com/danymat/neogen.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim.git)
-- [miversen33/netman.nvim](https://github.com/miversen33/netman.nvim.git)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim.git)
 - [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim.git)
@@ -97,3 +100,76 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim.git)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim.git)
+
+### Micah Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
+| Find left surrounding | sF |  |
+| Delete surrounding | sd |  |
+| Highlight surrounding | sh |  |
+| Replace surrounding | sr |  |
+| Add surrounding | sa |  |
+| Update `MiniSurround.config.n_lines` | sn |  |
+| Find right surrounding | sf |  |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <M-l> |  |
+|  | <M-j> |  |
+|  | <M-k> |  |
+|  | <M-h> |  |
+|  | <Plug>Send |  |
+|  | <Plug>SendLine |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Increment number | + | g<C-A> |
+| Descrement number | - | g<C-X> |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+| Easy Align | ga | <Plug>(EasyAlign) |
+|  | g% | <Plug>(MatchitVisualBackward) |
+| Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
+| Add surrounding | sa |  |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <M-j> |  |
+|  | <M-l> |  |
+|  | <M-h> |  |
+|  | <M-k> |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

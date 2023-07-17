@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>pde</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">pde</h1>
+</header>
 <h2 id="pde-neovim-configuration-information">pde Neovim Configuration
 Information</h2>
 <p>Configure Neovim as a Personalized Development Environment (PDE)</p>
@@ -47,8 +77,6 @@ href="https://github.com/stevearc/dressing.nvim">stevearc/dressing.nvim</a></li>
 <li><a
 href="https://github.com/j-hui/fidget.nvim">j-hui/fidget.nvim</a></li>
 <li><a
-href="https://github.com/akinsho/flutter-tools.nvim">akinsho/flutter-tools.nvim</a></li>
-<li><a
 href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
 <li><a
 href="https://github.com/anuvyklack/hydra.nvim.git">anuvyklack/hydra.nvim</a></li>
@@ -71,6 +99,8 @@ href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a></li>
 <li><a
 href="https://github.com/nvim-neotest/neotest">nvim-neotest/neotest</a></li>
 <li><a
+href="https://github.com/jfpedroza/neotest-elixir.git">jfpedroza/neotest-elixir</a></li>
+<li><a
 href="https://github.com/alfaix/neotest-gtest.git">alfaix/neotest-gtest</a></li>
 <li><a
 href="https://github.com/nvim-neotest/neotest-jest.git">nvim-neotest/neotest-jest</a></li>
@@ -80,6 +110,8 @@ href="https://github.com/thenbe/neotest-playwright.git">thenbe/neotest-playwrigh
 href="https://github.com/nvim-neotest/neotest-plenary">nvim-neotest/neotest-plenary</a></li>
 <li><a
 href="https://github.com/nvim-neotest/neotest-python">nvim-neotest/neotest-python</a></li>
+<li><a
+href="https://github.com/olimorris/neotest-rspec.git">olimorris/neotest-rspec</a></li>
 <li><a
 href="https://github.com/rouge8/neotest-rust.git">rouge8/neotest-rust</a></li>
 <li><a
@@ -100,6 +132,8 @@ href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
 href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
 <li><a
 href="https://github.com/mfussenegger/nvim-dap-python.git">mfussenegger/nvim-dap-python</a></li>
+<li><a
+href="https://github.com/suketa/nvim-dap-ruby.git">suketa/nvim-dap-ruby</a></li>
 <li><a
 href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
 <li><a
@@ -167,3 +201,538 @@ href="https://github.com/microsoft/vscode-js-debug.git">microsoft/vscode-js-debu
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
+<h3 id="pde-keymaps">pde Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Send File</td>
+<td>xf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Until Cursor</td>
+<td>xt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Line</td>
+<td>xl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Motion</td>
+<td>xs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>+Mark</td>
+<td>xm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>+REPL</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hide</td>
+<td>xH</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Focus</td>
+<td>xF</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Restart</td>
+<td>xS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>REPL</td>
+<td>xR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Remove Mark</td>
+<td>xmr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mark Motion</td>
+<td>xmm</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Mark</td>
+<td>xms</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear</td>
+<td>xc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close REPL</td>
+<td>xC</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Interrupt</td>
+<td>xI</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ENTER</td>
+<td>x<CR></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Select VirtualEnv</td>
+<td>lv</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Don’t Save Current Session</td>
+<td>qd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Restore Last Session</td>
+<td>ql</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Restore Session</td>
+<td>qs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Attach</td>
+<td>ta</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debug Last</td>
+<td>tL</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debug File</td>
+<td>td</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Summary</td>
+<td>tS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Stop</td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>to</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debug Nearest</td>
+<td>tN</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nearest</td>
+<td>tn</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td>tl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>All Files</td>
+<td>tF</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>File</td>
+<td>tf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Status</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Out</td>
+<td>du</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminate</td>
+<td>dx</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Breakpoint</td>
+<td>dt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Start</td>
+<td>ds</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle REPL</td>
+<td>dr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Quit</td>
+<td>dq</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pause</td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Over</td>
+<td>do</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Into</td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Scopes</td>
+<td>dS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hover Variables</td>
+<td>dh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Get Session</td>
+<td>dg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Evaluate</td>
+<td>de</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Disconnect</td>
+<td>dd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Continue</td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Back</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle UI</td>
+<td>dU</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Conditional Breakpoint</td>
+<td>dC</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Evaluate Input</td>
+<td>dE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run to Cursor</td>
+<td>dR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Buffers</td>
+<td>fb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git Files</td>
+<td>fg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Files</td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Help</td>
+<td>fh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>tto</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Load Bundle</td>
+<td>ttl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete Bundle</td>
+<td>ttd</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close</td>
+<td>ttc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Build</td>
+<td>ttb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Task Action</td>
+<td>tta</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run Command</td>
+<td>ttR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle</td>
+<td>ttt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save Bundle</td>
+<td>tts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run</td>
+<td>ttr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quick Action</td>
+<td>ttq</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Pick</td>
+<td>zCp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Highlighter</td>
+<td>zCh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Convert</td>
+<td>zCc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td>Previous Cell</td>
+<td><M-k></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Next Cell</td>
+<td><M-j></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete Cell</td>
+<td><M-x></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Execute Cell</td>
+<td><M-e></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Scroll forward</td>
+<td><C-F></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Scroll backward</td>
+<td><C-B></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Evaluate</td>
+<td>de</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear Highlight</td>
+<td>xL</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send</td>
+<td>xs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mark Visual</td>
+<td>xmv</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</body>
+</html>

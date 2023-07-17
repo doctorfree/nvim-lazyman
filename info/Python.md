@@ -10,6 +10,10 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://nvchad.com](https://nvchad.com)
+
 ### Git repository
 
 [https://github.com/dreamsofcode-io/neovim-python](https://github.com/dreamsofcode-io/neovim-python)
@@ -46,3 +50,40 @@
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### Python Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |   |  |
+|  | " |  |
+| Nvim builtin | & | :&&<CR> |
+|  | ' |  |
+| Nvim builtin | Y | y$ |
+|  | ` |  |
+|  | c |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle current line | gcc |  |
+| Comment toggle linewise | gc |  |
+| Comment toggle current block | gbc |  |
+|  | g |  |
+|  | v |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Comment toggle linewise (visual) | gc |  |
+| Comment toggle blockwise (visual) | gb |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |

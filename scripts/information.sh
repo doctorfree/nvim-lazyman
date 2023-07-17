@@ -12,9 +12,9 @@
 CF_NAMES="Lazyman Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev 3rd Adib Brain Charles Craftzdog Dillon Elianiva Enrique Heiker J4de Josean Daniel Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular 2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile"
 
 LMANDIR="${HOME}/.config/nvim-Lazyman"
-LOGDIR="${LMANDIR}/logs"
 PLURLS="${LMANDIR}/scripts/plugin_urls.txt"
-[ -d "${LOGDIR}" ] || mkdir -p "${LOGDIR}"
+KEYMAP="${LMANDIR}/scripts/keymaps.sh"
+TBLCSS="${LMANDIR}/scripts/table.css"
 
 usage() {
   printf "\n\nUsage: information.sh [-a] [nvim-conf]\n\n"
@@ -175,6 +175,7 @@ make_info() {
       ;;
     AstroNvimPlus)
       GH_URL="https://github.com/doctorfree/astronvim"
+      WS_URL="https://astronvim.com"
       CF_CAT="Base"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) plugins configuration"
@@ -195,6 +196,7 @@ make_info() {
       ;;
     LazyVim)
       GH_URL="https://github.com/LazyVim LazyVim/starter"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Base"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="The [LazyVim starter](https://github.com/LazyVim/starter) configuration"
@@ -202,6 +204,7 @@ make_info() {
       ;;
     LunarVim)
       GH_URL="https://github.com/IfCodingWereNatural/minimal-nvim"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Base"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)"
@@ -209,6 +212,7 @@ make_info() {
       ;;
     NvChad)
       GH_URL="https://github.com/doctorfree/NvChad-custom"
+      WS_URL="https://nvchad.com"
       CF_CAT="Base"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad"
@@ -216,6 +220,7 @@ make_info() {
       ;;
     Penguin)
       GH_URL="https://github.com/p3nguin-kun/penguinVim"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Base"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="Aims to provide a base configuration with beautiful UI and fast startup time"
@@ -223,6 +228,7 @@ make_info() {
       ;;
     SpaceVim)
       GH_URL="https://github.com/doctorfree/spacevim"
+      WS_URL="https://spacevim.org"
       CF_CAT="Base"
       CF_TYP="[SpaceVim](https://spacevim.org)"
       PL_MAN="SP (dein)"
@@ -252,6 +258,7 @@ make_info() {
       ;;
     CatNvim)
       GH_URL="https://github.com/nullchilly/CatNvim"
+      WS_URL="https://www.lazyvim.org"
       DF_URL="https://dotfyle.com/nullchilly/catnvim"
       CF_CAT="Language"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
@@ -260,6 +267,7 @@ make_info() {
       ;;
     Go)
       GH_URL="https://github.com/dreamsofcode-io/neovim-go-config"
+      WS_URL="https://nvchad.com"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)"
@@ -289,6 +297,7 @@ make_info() {
       ;;
     LazyIde)
       GH_URL="https://github.com/doctorfree/nvim-LazyIde"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Language"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim IDE config for Neovim"
@@ -296,6 +305,7 @@ make_info() {
       ;;
     LunarIde)
       GH_URL="https://github.com/doctorfree/lvim-Christian"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Language"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChiarulli/lvim). Java, Python, Lua, Go, JavaScript, Typescript, React, and Rust IDE"
@@ -316,6 +326,7 @@ make_info() {
       ;;
     Nv)
       GH_URL="https://github.com/appelgriebsch/Nv"
+      WS_URL="https://www.lazyvim.org"
       NC_URL="http://neovimcraft.com/plugin/appelgriebsch/Nv"
       DF_URL="https://dotfyle.com/appelgriebsch/nv"
       CF_CAT="Language"
@@ -333,6 +344,7 @@ make_info() {
       ;;
     Python)
       GH_URL="https://github.com/dreamsofcode-io/neovim-python"
+      WS_URL="https://nvchad.com"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="'NvChad' based Neovim config with Python formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc). These features are included in the Base 'NvChad' custom add-on (lazyman -c)"
@@ -340,6 +352,7 @@ make_info() {
       ;;
     Rust)
       GH_URL="https://github.com/dreamsofcode-io/neovim-rust"
+      WS_URL="https://nvchad.com"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="'NvChad' based Neovim config with Rust formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)"
@@ -354,6 +367,7 @@ make_info() {
       ;;
     Shuvro)
       GH_URL="https://github.com/shuvro/lvim"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Language"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/lvim) advanced 'LunarVim' config"
@@ -361,6 +375,7 @@ make_info() {
       ;;
     Webdev)
       GH_URL="https://github.com/doctorfree/nvim-webdev"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Language"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim based config for web developers. JavaScript, Typescript, React, and Tailwind CSS support"
@@ -439,6 +454,7 @@ make_info() {
       ;;
     Daniel)
       GH_URL="https://github.com/daniel-vera-g/lvim"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Personal"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="'LunarVim' based config of Daniel Vera Gilliard"
@@ -453,6 +469,7 @@ make_info() {
       ;;
     LvimAdib)
       GH_URL="https://github.com/adibhanna/lvim-config"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Personal"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       ;;
@@ -527,6 +544,7 @@ make_info() {
       ;;
     Spider)
       GH_URL="https://github.com/fearless-spider/FSAstroNvim"
+      WS_URL="https://astronvim.com"
       CF_CAT="Personal"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="AstroNvim based configuration with animated status bar and smooth scroll. [Introductory video](https://youtu.be/Lj6MZsKl9MU)"
@@ -534,6 +552,7 @@ make_info() {
       ;;
     Traap)
       GH_URL="https://github.com/Traap/nvim"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Personal"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="[Introductory video](https://youtu.be/aD9j6d9pgtc)"
@@ -621,6 +640,7 @@ make_info() {
       ;;
     AstroNvimStart)
       GH_URL="https://github.com/doctorfree/AstroNvimStart"
+      WS_URL="https://astronvim.com"
       CF_CAT="Starter"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="Default AstroNvim example configuration"
@@ -643,6 +663,7 @@ make_info() {
       ;;
     Cosmic)
       GH_URL="https://github.com/CosmicNvim/CosmicNvim"
+      WS_URL="https://cosmicnvim.vercel.app"
       NC_URL="http://neovimcraft.com/plugin/CosmicNvim/CosmicNvim"
       DF_URL="https://dotfyle.com/plugins/CosmicNvim/CosmicNvim"
       CF_CAT="Starter"
@@ -671,6 +692,7 @@ make_info() {
       ;;
     JustinLvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
+      WS_URL="https://www.lunarvim.org"
       CF_CAT="Starter"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="LunarVim based Neovim configuration by Justin Angeles"
@@ -678,6 +700,7 @@ make_info() {
       ;;
     JustinNvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
+      WS_URL="https://www.lazyvim.org"
       CF_CAT="Starter"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)"
@@ -685,6 +708,7 @@ make_info() {
       ;;
     Kabin)
       GH_URL="https://github.com/kabinspace/AstroNvim_user"
+      WS_URL="https://astronvim.com"
       CF_CAT="Starter"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="One of the AstroNvim 'Black Belt' example advanced configurations"
@@ -699,6 +723,7 @@ make_info() {
       ;;
     Lamia)
       GH_URL="https://github.com/A-Lamia/AstroNvim-conf"
+      WS_URL="https://astronvim.com"
       CF_CAT="Starter"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="One of the AstroNvim 'Black Belt' example advanced configurations"
@@ -706,6 +731,7 @@ make_info() {
       ;;
     Micah)
       GH_URL="https://code.mehalter.com/AstroNvim_user"
+      WS_URL="https://astronvim.com"
       CF_CAT="Starter"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="One of the AstroNvim 'Black Belt' example advanced configurations"
@@ -904,15 +930,30 @@ make_info() {
     echo "" >> "${OUTF}"
   }
   get_plugins "${nvimconf}" "${OUTF}" "${PL_MAN}"
-  [ "${have_pandoc}" ] && pandoc -t html -o "${HTML}" "${OUTF}"
+  [ -x "${KEYMAP}" ] && {
+    [ "${nvimconf}" == "Cosmic" ] || {
+      "${KEYMAP}" ${debug} "${nvimconf}" "${OUTF}"
+    }
+  }
+  [ "${have_pandoc}" ] && {
+    pandoc -t html \
+           --metadata title="${nvimconf}" \
+           --standalone \
+           --css="${TBLCSS}" \
+           -o "${HTML}" "${OUTF}"
+  }
 }
 
 all=
+debug=
 have_pandoc=$(type -p pandoc)
-while getopts "au" flag; do
+while getopts "adu" flag; do
     case $flag in
         a)
             all=1
+            ;;
+        d)
+            debug="-d"
             ;;
         u)
             usage

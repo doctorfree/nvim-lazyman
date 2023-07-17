@@ -10,6 +10,10 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://cosmicnvim.vercel.app](https://cosmicnvim.vercel.app)
+
 ### Git repository
 
 [https://github.com/CosmicNvim/CosmicNvim](https://github.com/CosmicNvim/CosmicNvim)
@@ -28,6 +32,7 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - [rmagatti/auto-session](https://github.com/rmagatti/auto-session.git)
+- [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)

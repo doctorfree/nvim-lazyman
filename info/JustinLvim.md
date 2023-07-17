@@ -10,6 +10,10 @@ LunarVim based Neovim configuration by Justin Angeles
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://www.lunarvim.org](https://www.lunarvim.org)
+
 ### Git repository
 
 [https://github.com/justinsgithub/dotfiles](https://github.com/justinsgithub/dotfiles)
@@ -72,3 +76,127 @@ LunarVim based Neovim configuration by Justin Angeles
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+
+### JustinLvim Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+|  | <lt> | <lt><lt> |
+|  | > | >> |
+|  | H | :bprev<CR> |
+|  | L | :bnext<CR> |
+| Flash Treesitter | S |  |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | [q | :cprev<CR> |
+|  | \j | :lua require('trevj').format_at_cursor()<CR> |
+|  | \s | :%s///g |
+|  | \c | :BufferKill<CR> |
+|  | \w | :w<CR> |
+|  | \p | :BufferLinePick<CR> |
+|  | \O | :OpenLine above<CR> |
+|  | \o | :OpenLine below<CR> |
+|  | \z | :ZenMode<CR> |
+|  | \b | :BiPolar<CR> |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | ]q | :cnext<CR> |
+|  | cS | <Plug>CSurround |
+|  | cs | <Plug>Csurround |
+|  | ds | <Plug>Dsurround |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Comment insert end of line | gcA |  |
+| Comment insert above | gcO |  |
+| Comment insert below | gco |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle current line | gcc |  |
+|  | gb |  |
+|  | gc |  |
+| Flash | s |  |
+|  | ySS | <Plug>YSsurround |
+|  | ySs | <Plug>YSsurround |
+|  | yss | <Plug>Yssurround |
+|  | yS | <Plug>YSurround |
+|  | ys | <Plug>Ysurround |
+|  | | | "+ |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>YSurround | <SNR>11_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>11_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>11_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>11_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>11_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>11_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+| Float Terminal | <M-3> |  |
+| Vertical Terminal | <M-2> |  |
+| Horizontal Terminal | <M-1> |  |
+|  | <C-Bslash> |  |
+|  | <C-H> | <C-W>h |
+|  | <M-j> | :m .+1<CR>== |
+|  | <C-Right> | :vertical resize +2<CR> |
+|  | <M-k> | :m .-2<CR>== |
+|  | <C-Left> | :vertical resize -2<CR> |
+|  | <C-Down> | :resize +2<CR> |
+|  | <C-Up> | :resize -2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
+|  | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | <lt> | <lt>gv |
+|  | > | >gv |
+|  | J | :move '>+1<CR>gv-gv |
+|  | K | :move '<lt>-2<CR>gv-gv |
+|  | S | <Plug>VSurround |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | gS | <Plug>VgSurround |
+|  | gb |  |
+|  | gc |  |
+| Flash | s |  |
+|  | | | "+ |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <Plug>VgSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <M-j> | :m '>+1<CR>gv-gv |
+|  | <M-k> | :m '<lt>-2<CR>gv-gv |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| Flash Treesitter | S |  |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+| Remote Flash | r |  |
+| Flash | s |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

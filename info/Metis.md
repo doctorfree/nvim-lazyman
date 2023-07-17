@@ -35,3 +35,59 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 - [utilyre/sentiment.nvim](https://github.com/utilyre/sentiment.nvim.git)
 - [artart222/telescope_find_directories](https://github.com/artart222/telescope_find_directories)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+
+### Metis Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | <Tab> |  |
+|  |  lp | :LspInfo<CR> |
+|  |  x | <C-W>c |
+|  |  pd |  |
+|  |  pp |  |
+|  |  pr |  |
+|  |  pl |  |
+|  |  pc |  |
+|  |  px |  |
+|  |  ps |  |
+|  |  pu |  |
+|  |  pi |  |
+|  |  ph |  |
+|  |  d |  |
+|  |  b |  |
+|  |  e |  |
+|  |  fw |  |
+|  |  F |  |
+|  |  ft |  |
+|  |  fr |  |
+| Nvim builtin | & | :&&<CR> |
+|  | J | jzz |
+|  | K | kzz |
+| Nvim builtin | Y | y$ |
+|  | [d |  |
+|  | ]d |  |
+|  | <C-Q> | :bd!<CR> |
+|  | <C-S> | :w <CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
+|  | <C-H> | <C-W>h |
+|  | <S-Tab> |  |
+|  | <M-h> |  |
+|  | <M-t> |  |
+|  | <C-L> | <C-W>l |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | J | :m '>+1<CR>gv=gv |
+|  | K | :m '<lt>-2<CR>gv=gv |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |

@@ -74,3 +74,73 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - [ojroques/vim-oscyank](https://github.com/ojroques/vim-oscyank.git)
 - [powerman/vim-plugin-AnsiEsc](https://github.com/powerman/vim-plugin-AnsiEsc.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim.git)
+
+### xero Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| remove highlighting | <Esc><Esc> | :nohlsearch<CR> |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| toggle colorizer | ,c |  |
+| Search git commits | ,/gc |  |
+| Search git branches | ,/gb |  |
+| Find git files | ,/gf |  |
+| Search treesitter | ,/t |  |
+| Search keymaps | ,/k |  |
+| Search marks | ,/M |  |
+| Search highlights | ,/h |  |
+| Find files | ,/o |  |
+| Find files | ,/f |  |
+| Search command history | ,/C |  |
+| Search commands | ,/c |  |
+| Resume FZF | ,// |  |
+| Search git buffer commits | ,bc |  |
+| Search git buffer commits | ,/gC |  |
+| toggle spell check | ,s | :Sp<CR> |
+| jq format | ,j | :%!jq .<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | g% | <Plug>(MatchitNormalBackward) |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| ios home key | <M-Left> | 0 |
+| exit buffer | <C-D> | :bd<CR> |
+| prev buffer | <C-P> | :bp<CR> |
+| next buffer | <C-N> | :bn<CR> |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

@@ -86,3 +86,128 @@ One of the primary inspirations for Lazyman
 - [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [anuvyklack/windows.nvim](https://github.com/anuvyklack/windows.nvim.git)
+
+### ONNO Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Select Moonokai pro filter |  c | <Cmd>MonokaiProSelect<CR> |
+| Format and Save |  W |  |
+| Workspace Symbols |  lS |  |
+| Document Symbols |  ls |  |
+| Rename |  lr |  |
+| Quickfix |  lq |  |
+| CodeLens Action |  ll |  |
+| Prev Diagnostic |  lk |  |
+| Next Diagnostic |  lj |  |
+| Installer Info |  lI |  |
+| Info |  li |  |
+| Workspace Diagnostics |  lw |  |
+| Document Diagnostics |  ld |  |
+| Code Action |  la |  |
+| Dashboard |  0 |  |
+| Checkout branch |  gb |  |
+| Open changed file |  go |  |
+| Find Text |  F |  |
+| Find files |  f |  |
+| Checkout commit |  gc |  |
+| Diff |  gd |  |
+| Undo Stage Hunk |  gu |  |
+| Stage Hunk |  gs |  |
+| Reset Buffer |  gR |  |
+| Reset Hunk |  gr |  |
+| Preview Hunk |  gp |  |
+| Blame |  gl |  |
+| Prev Hunk |  gk |  |
+| Next Hunk |  gj |  |
+| Lazygit |  gg |  |
+| Explorer (root dir) |  e |  |
+| Explorer Float (root dir) |  E |  |
+| Delete all Notifications |  n |  |
+| Restore Session |  ss |  |
+| Don't Save Current Session |  sd |  |
+| Restore Last Session |  sl |  |
+| Close Buffer |  d |  |
+| Peek (Markdown Preview) |  p |  |
+| Open file manager |  r |  |
+| Zoom window |  m |  |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
+| Open fold under cursor | fo |  |
+| Close all folds under cursor | fc |  |
+| Delete fold under cursor | fd |  |
+| Fold less | fr |  |
+| Toggle fold under cursor | fa |  |
+| Top this line | ft |  |
+| Mark word as bad/misspelling | fw |  |
+| Toggle all folds under cursor | fA |  |
+| Right this line | fe |  |
+| Delete all folds in current buffer | fE |  |
+| Show cursor line | fv |  |
+| Left this line | fs |  |
+| Close all folds | fM |  |
+| Open all folds | fR |  |
+| Half screen to the left | fH |  |
+| Fold more | fm |  |
+| Half screen to the right | fL |  |
+| Add word to spell list | fg |  |
+| Update folds | fx |  |
+| Center this line | fz |  |
+| Open all folds under cursor | fO |  |
+| Bottom this line | fb |  |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Go to definition | gd |  |
+| Go to references | gr |  |
+| Go to implementations | gi |  |
+| Open Recent File | sr |  |
+| Man Pages | sM |  |
+| Registers | sR |  |
+| Keymaps | sk |  |
+| Commands | sC |  |
+| Highlight Groups | sH |  |
+| Checkout branch | sb |  |
+| Colorscheme | sc |  |
+| Find Help | sh |  |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

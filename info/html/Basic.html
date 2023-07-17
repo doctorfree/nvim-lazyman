@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Basic</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Basic</h1>
+</header>
 <h2 id="basic-neovim-configuration-information">Basic Neovim
 Configuration Information</h2>
 <p>Starter config by the author of NvChad with <a
@@ -69,3 +99,133 @@ href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
 <li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
 </ul>
+<h3 id="basic-keymaps">Basic Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><Tab></td>
+<td><Cmd> BufferLineCycleNext <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>/</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gt</td>
+<td><Cmd> Telescope git_status <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fw</td>
+<td><Cmd> Telescope live_grep <CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fo</td>
+<td><Cmd> Telescope oldfiles <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ff</td>
+<td><Cmd> Telescope find_files <CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Q></td>
+<td><Cmd> bd <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><S-Tab></td>
+<td><Cmd> BufferLineCyclePrev <CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td><Cmd> NvimTreeFocus <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-N></td>
+<td><Cmd> NvimTreeToggle <CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-S></td>
+<td><Cmd> w <CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>/</td>
+<td><Esc><Cmd>lua
+require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</body>
+</html>

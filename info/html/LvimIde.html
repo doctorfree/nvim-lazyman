@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>LvimIde</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">LvimIde</h1>
+</header>
 <h2 id="lvimide-neovim-configuration-information">LvimIde Neovim
 Configuration Information</h2>
 <p>Not to be confused with ‘LunarVim’, this is a standalone Neovim
@@ -274,3 +304,1012 @@ href="https://github.com/sindrets/winshift.nvim.git">sindrets/winshift.nvim</a><
 <li><a
 href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </ul>
+<h3 id="lvimide-keymaps">LvimIde Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><Esc></td>
+<td><Esc>:noh<CR></td>
+</tr>
+<tr class="even">
+<td>CtrlSpace</td>
+<td></td>
+<td><Cmd>CtrlSpace<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>q</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).toggle_play_macro()<CR></td>
+</tr>
+<tr class="even">
+<td>FzfLua buffers</td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FzfLua marks</td>
+<td>m</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>FzfLua search</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FzfLua files</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mini files</td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>[Hydra] HYDRA KEYS</td>
+<td>;;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] VIMTEX</td>
+<td>;v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] TERMINAL</td>
+<td>;m</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] NEOTEST</td>
+<td>;’</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] LOCATION</td>
+<td>;o</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] QUICKFIX</td>
+<td>;q</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] TELESCOPE</td>
+<td>;t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] SPECTRE</td>
+<td>;r</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] NAVIGATION</td>
+<td>;n</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] LVIM</td>
+<td>;l</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] LINGUISTICS</td>
+<td>;u</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] GLANCE</td>
+<td>;s</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] GIT</td>
+<td>;g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] FZF</td>
+<td>;z</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] EXPLORER</td>
+<td>;e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] LSP</td>
+<td>;d</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] DAP</td>
+<td>;p</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] COMMON</td>
+<td>;a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] COMMENT, ANNOTATION, FOLD</td>
+<td>;c</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).toggle_record()<CR></td>
+</tr>
+<tr class="even">
+<td>NeoTree filesystem</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td>LocPrev</td>
+<td>[l[</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LocClose</td>
+<td>[l]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>QfPrev</td>
+<td>[[</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>QfClose</td>
+<td>[]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td>LocNext</td>
+<td>]l]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LocOpen</td>
+<td>]l[</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LocMenuDelete</td>
+<td>]ld</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LocMenuChoice</td>
+<td>]lm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>QfNext</td>
+<td>]]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>QfOpen</td>
+<td>][</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>QfMenuDelete</td>
+<td>]d</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>QfMenuChoice</td>
+<td>]m</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td>cS</td>
+<td><Plug>(nvim-surround-change-line)</td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair</td>
+<td>cs</td>
+<td><Plug>(nvim-surround-change)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cq</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).halt_macro()<CR></td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td>ds</td>
+<td><Plug>(nvim-surround-delete)</td>
+</tr>
+<tr class="even">
+<td>LspShowDiagnosticInLocList</td>
+<td>dl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LspShowDiagnosticPrev</td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LspShowDiagnosticNext</td>
+<td>dn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LspShowDiagnosticCurrent</td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td>WindowPicker</td>
+<td>gw</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>gj</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>gk</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>q</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td>ySS</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td>yS</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td>yss</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td>ys</td>
+<td><Plug>(nvim-surround-normal)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yq</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).yank_macro()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Nul></td>
+<td>:CtrlSpace<CR></td>
+</tr>
+<tr class="odd">
+<td>GitSignsToggleLineBlame</td>
+<td><C-C>b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GitSignsPreviewHunk</td>
+<td>&lt;M-;&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GitSignsPrevHunk</td>
+<td>&lt;M-[&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GitSignsNextHunk</td>
+<td>&lt;M-]&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Navbuddy</td>
+<td><C-C>v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><Plug>(nvim-surround-change-line)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair</td>
+<td><Plug>(nvim-surround-change)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete a surrounding pair</td>
+<td><Plug>(nvim-surround-delete)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><Plug>(nvim-surround-normal)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Vifm</td>
+<td><C-C>fv</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Ranger</td>
+<td><C-C>fr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td>LvimLinguisticsTOGGLESpelling</td>
+<td><C-C>k</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LvimLinguisticsTOGGLEInsertModeLanguage</td>
+<td><C-C>l</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(fzf-normal)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-insert)</td>
+<td>i</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-q></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).toggle_macro_menu()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-p></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).cycle_prev()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-n></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).cycle_next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LvimHelper</td>
+<td><C-C>h</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LvimHelper</td>
+<td><F11></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LspDiagnostic QF</td>
+<td><C-C><C-H></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Float</td>
+<td><F4></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Three</td>
+<td><F3></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Two</td>
+<td><F2></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal One</td>
+<td><F1></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DAPLocal</td>
+<td><C-C><C-L></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Telescope tmux session</td>
+<td><C-C>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Telescope buffers</td>
+<td><M-b></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Telescope file browser</td>
+<td><M-/></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Telescope live grep</td>
+<td>&lt;M-.&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Telescope find files</td>
+<td>&lt;M-,&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Undotree</td>
+<td><F5></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WinShift</td>
+<td><C-C>w</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree diagnostics</td>
+<td><M-e></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NeoTree diagnostics</td>
+<td><C-C><C-D></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree git status</td>
+<td><C-C><C-G></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NeoTree buffers</td>
+<td><C-C><C-B></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree filesystem</td>
+<td><C-C><C-F></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>c</td>
+<td>:Inspect<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>ff</td>
+<td>:CloseFloatWindows<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>p</td>
+<td>:tabp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>n</td>
+<td>:tabn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><Cmd>NavigatorUp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-J></td>
+<td><Cmd>NavigatorDown<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td><Cmd>NavigatorLeft<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>=</td>
+<td>:wincmd=<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>d</td>
+<td>:bdelete<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>o</td>
+<td><C-W>o</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>x</td>
+<td><C-W>c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>e</td>
+<td>:Quit<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>a</td>
+<td>:wa<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C>s</td>
+<td>:Save<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C>N</td>
+<td>:enew<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-B></td>
+<td><C-B>zz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-F></td>
+<td><C-F>zz</td>
+</tr>
+<tr class="even">
+<td>Scroll Up</td>
+<td><C-U></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Scroll Down</td>
+<td><C-D></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td><Cmd>NavigatorRight<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>q</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).toggle_play_macro()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>#</td>
+<td><Esc>?%V</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*</td>
+<td><Esc>/%V</td>
+</tr>
+<tr class="even">
+<td>[Hydra] HYDRA KEYS</td>
+<td>;;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] VIMTEX</td>
+<td>;v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] TERMINAL</td>
+<td>;m</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] NEOTEST</td>
+<td>;’</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] LOCATION</td>
+<td>;o</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] QUICKFIX</td>
+<td>;q</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] TELESCOPE</td>
+<td>;t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] SPECTRE</td>
+<td>;r</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] NAVIGATION</td>
+<td>;n</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] LVIM</td>
+<td>;l</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] LINGUISTICS</td>
+<td>;u</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] GLANCE</td>
+<td>;s</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] GIT</td>
+<td>;g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] FZF</td>
+<td>;z</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] EXPLORER</td>
+<td>;e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] LSP</td>
+<td>;d</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] DAP</td>
+<td>;p</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Hydra] COMMON</td>
+<td>;a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Hydra] COMMENT, ANNOTATION, FOLD</td>
+<td>;c</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td>S</td>
+<td><Plug>(nvim-surround-visual)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td>gS</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>gj</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>gk</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

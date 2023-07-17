@@ -34,10 +34,8 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
-- [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
 - [olexsmir/gopher.nvim](https://github.com/olexsmir/gopher.nvim.git)
 - [sainnhe/gruvbox-material](https://github.com/sainnhe/gruvbox-material)
-- [ray-x/guihua.lua](https://github.com/ray-x/guihua.lua)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
@@ -87,3 +85,143 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### Adib Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | <CR> | ciw |
+| Run Nearest |  tr |  |
+| Run All Test Files |  tT |  |
+| Run File |  tt |  |
+| Stop |  tS |  |
+| Toggle Output Panel |  tO |  |
+| Show Output |  to |  |
+| Toggle Summary |  ts |  |
+| File Explorer |  e |  |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+|  | + | :vertical resize +5<CR> |
+|  | - | :resize -5<CR> |
+|  | ; | <Cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_dropdown({}))<CR> |
+|  | = | :resize +5<CR> |
+| F | F |  |
+|  | H | ^ |
+|  | L | $ |
+| Leap backward to | S |  |
+| T | T |  |
+|  | YY | va{Vy |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
+|  | \q | :q!<CR> |
+|  | \w | :write!<CR> |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
+|  | _ | :vertical resize -5<CR> |
+| f | f |  |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Glance definitions | gD |  |
+| Glance implementations | gM |  |
+| Glance type_definitions | gY |  |
+| Glance references | gR |  |
+| Leap from windows | gs |  |
+| Join the object under cursor | gJ |  |
+| Split the object under cursor | gS |  |
+|  | j | gj |
+|  | k | gk |
+| Leap forward to | s |  |
+| t | t |  |
+|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+| Move to previous reference | <M-p> |  |
+| Move to next reference | <M-n> |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+| Toggle Terminal | <C-T> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Fuzzily search in current buffer | <C-S> |  |
+|  | <BS> | ci |
+|  | <Left> | :bprevious<CR> |
+|  | <Right> | :bnext<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | <lt> | <lt>gv |
+|  | > | >gv |
+| F | F |  |
+|  | H | ^ |
+|  | J | :m '>+1<CR>gv=gv |
+|  | K | :m '<lt>-2<CR>gv=gv |
+|  | L | $ |
+|  | P | "_dP |
+| Leap backward to | S |  |
+| T | T |  |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+| f | f |  |
+|  | g% | <Plug>(MatchitVisualBackward) |
+| Leap from windows | gs |  |
+|  | p | "_dp |
+| Leap forward to | s |  |
+| t | t |  |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
+|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <M-i> |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| F | F |  |
+|  | H | ^ |
+|  | L | $ |
+| Leap backward to | S |  |
+| T | T |  |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+| f | f |  |
+|  | g% | <Plug>(MatchitOperationBackward) |
+| Leap from windows | gs |  |
+| Leap forward to | s |  |
+| t | t |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | <M-i> |  |
+|  | <Plug>luasnip-expand-repeat |  |

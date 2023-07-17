@@ -80,3 +80,125 @@ Preconfigured Neovim as an IDE
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - [szw/vim-maximizer](https://github.com/szw/vim-maximizer)
+
+### Abstract Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  R | <Cmd>lua require("renamer").rename()<CR> |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+|  | ;9 | :BufferLineGoToBuffer 9<CR> |
+|  | ;8 | :BufferLineGoToBuffer 8<CR> |
+|  | ;7 | :BufferLineGoToBuffer 7<CR> |
+|  | ;6 | :BufferLineGoToBuffer 6<CR> |
+|  | ;5 | :BufferLineGoToBuffer 5<CR> |
+|  | ;4 | :BufferLineGoToBuffer 4<CR> |
+|  | ;3 | :BufferLineGoToBuffer 3<CR> |
+|  | ;2 | :BufferLineGoToBuffer 2<CR> |
+|  | ;1 | :BufferLineGoToBuffer 1<CR> |
+|  | ;<lt>\> | :BufferLinePick<CR> |
+|  | ;, | :BufferLineMovePrev<CR> |
+|  | ;. | :BufferLineMoveNext<CR> |
+|  | ;f | :Neotree toggle<CR> |
+|  | ;O | :w | :FloatermNew time python ~/.local/share/nvim-Abstract/custom_tools/lazy-builder/build.py -o ~/.cache/build_files -br 1  <CR> |
+|  | ;o | :w | :FloatermNew time python ~/.local/share/nvim-Abstract/custom_tools/lazy-builder/build.py -o ~/.cache/build_files -b 1  <CR> |
+|  | ;r | :w | :FloatermNew python ~/.local/share/nvim-Abstract/custom_tools/lazy-builder/build.py -o ~/.cache/build_files -r 1  <CR> |
+|  | ;m | :MaximizerToggle <CR> |
+|  | ;h | :vertical resize -3 <CR> |
+|  | ;l | :vertical resize +3 <CR> |
+|  | ;j | :resize -3 <CR> |
+|  | ;k | :resize +3 <CR> |
+|  | ;n | :set rnu! <CR> |
+|  | <lt>C> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | ?? | :noh <CR> |
+|  | F | <Cmd>lua require'hop'.hint_words()<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | \ | :BufferLineCycleNext<CR> |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | cc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | c | <Cmd>lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR> |
+|  | dd |  |
+|  | gc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gp | <Cmd>lua require("packer.load")({'goto-preview'}, { keys = "gp", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gb | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+|  | t | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<CR> |
+|  | tq | :FloatermKill<CR> |
+|  | tn | :FloatermNew<CR> |
+|  | tj | :FloatermNext<CR> |
+|  | tk | :FloatermPrev<CR> |
+|  | | | :BufferLineCyclePrev<CR> |
+|  | <C-Z> |  |
+|  | <C-T> | :FloatermToggle<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-F> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-f>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-P> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-p>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <M-q> | :only<CR> |
+|  | <C-H> | zh |
+|  | <C-S> | <Esc>ma<Esc>:update <CR>`a |
+|  | <C-L> | zl |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  R | <Cmd>lua require("renamer").rename()<CR> |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | <lt>C> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <lt> | <lt>gv |
+|  | > | >gv |
+|  | J | :m '>+1<CR>gv=gv |
+|  | K | :m '<lt>-2<CR>gv=gv |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | cc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | c | <Cmd>lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gp | <Cmd>lua require("packer.load")({'goto-preview'}, { keys = "gp", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gb | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | t | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-F> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-f>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-P> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-p>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | <lt>C> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | cc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | c | <Cmd>lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gc | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gp | <Cmd>lua require("packer.load")({'goto-preview'}, { keys = "gp", prefix = "" }, _G.packer_plugins)<CR> |
+|  | gb | <Cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<CR> |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | t | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "t", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-F> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-f>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-P> | <Cmd>lua require("packer.load")({'telescope.nvim'}, { keys = "<lt>C-p>", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

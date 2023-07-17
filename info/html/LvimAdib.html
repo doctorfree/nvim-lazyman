@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>LvimAdib</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">LvimAdib</h1>
+</header>
 <h2 id="lvimadib-neovim-configuration-information">LvimAdib Neovim
 Configuration Information</h2>
 <ul>
@@ -12,6 +42,8 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/adibhanna/lvim-config">https://github.com/adibhanna/lvim-config</a></p>
@@ -135,3 +167,505 @@ href="https://github.com/jose-elias-alvarez/typescript.nvim">jose-elias-alvarez/
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
+<h3 id="lvimadib-keymaps">LvimAdib Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>:Telescope buffers<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>o</td>
+<td><Cmd>SymbolsOutline<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td><Cmd>TroubleToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>H</td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>:BufferLineCycleNext<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[q</td>
+<td>:cprev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]q</td>
+<td>:cnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g<Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g<Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td>Float Terminal</td>
+<td><M-3></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Vertical Terminal</td>
+<td><M-2></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Horizontal Terminal</td>
+<td><M-1></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-T></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-U></td>
+<td><C-U>zz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-D></td>
+<td><C-D>zz</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-X></td>
+<td><Cmd>lua
+require”dial.command”.select_augend_normal(‘mygroup’)<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-A></td>
+<td><Cmd>lua
+require”dial.command”.select_augend_normal(‘mygroup’)<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-Tab></td>
+<td><C-6></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-l></td>
+<td><C-W>l</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-h></td>
+<td><C-W>h</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Space></td>
+<td><Cmd>WhichKey  <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-j></td>
+<td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td><C-W>h</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td><C-W>l</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>J</td>
+<td>:m ’&gt;+1<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>K</td>
+<td>:m ’<lt>-2<CR>gv=gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g<Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_gvisual”<CR>g@gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g<Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_gvisual”<CR>g@gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-X></td>
+<td><Cmd>lua
+require”dial.command”.select_augend_normal(‘visual’)<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-A></td>
+<td><Cmd>lua
+require”dial.command”.select_augend_normal(‘visual’)<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

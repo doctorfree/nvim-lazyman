@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2k</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">2k</h1>
+</header>
 <h2 id="k-neovim-configuration-information">2k Neovim Configuration
 Information</h2>
 <p><a href="https://youtu.be/WfhylGI_F-o">Video walkthrough</a></p>
@@ -175,3 +205,1094 @@ href="https://github.com/gelguy/wilder.nvim.git">gelguy/wilder.nvim</a></li>
 <li><a
 href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </ul>
+<h3 id="k-keymaps">2k Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Escape and clear hlsearch</td>
+<td><Esc></td>
+<td><Cmd>noh<CR><Esc></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ca</td>
+<td><Cmd>Lspsaga code_action<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>lk</td>
+<td><Cmd>Lspsaga diagnostic_jump_prev<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>lj</td>
+<td><Cmd>Lspsaga diagnostic_jump_next<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gy</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>caL</td>
+<td><Plug>CalendarH</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cal</td>
+<td><Plug>CalendarV</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cT</td>
+<td><Cmd>lua require(“onedark”).toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td>Split window right</td>
+<td>\</td>
+<td><C-W>v</td>
+</tr>
+<tr class="even">
+<td>Split window below</td>
+<td>-</td>
+<td><C-W>s</td>
+</tr>
+<tr class="odd">
+<td>Split window right</td>
+<td>w\</td>
+<td><C-W>v</td>
+</tr>
+<tr class="even">
+<td>Split window below</td>
+<td>w-</td>
+<td><C-W>s</td>
+</tr>
+<tr class="odd">
+<td>Delete window</td>
+<td>wd</td>
+<td><C-W>c</td>
+</tr>
+<tr class="even">
+<td>Other window</td>
+<td>w<Tab></td>
+<td><C-W>p</td>
+</tr>
+<tr class="odd">
+<td>Switch to Other Buffer</td>
+<td><code>| &lt;Cmd&gt;e #&lt;CR&gt; | | Switch to Other Buffer |  &lt;Tab&gt; | &lt;Cmd&gt;e #&lt;CR&gt; | |  |  ss | :%s/\&lt;lt&gt;&lt;C-R&gt;&lt;C-W&gt;\&gt;/&lt;C-R&gt;&lt;C-W&gt;/gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt; | |  |   |  | |  | % | &lt;Plug&gt;(MatchitNormalForward) | | Nvim builtin | &amp; | :&amp;&amp;&lt;CR&gt; | |  | + | &lt;C-A&gt; | |  | - | &lt;C-X&gt; | | Prev buffer | H | &lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt; | |  | J | mzJ</code>z</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>K</td>
+<td><Cmd>Lspsaga hover_doc<CR></td>
+</tr>
+<tr class="odd">
+<td>Next buffer</td>
+<td>L</td>
+<td><Cmd>BufferLineCycleNext<CR></td>
+</tr>
+<tr class="even">
+<td>Prev search result</td>
+<td>N</td>
+<td>‘nN’[v:searchforward]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Plug>(leap-backward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td>Prev buffer</td>
+<td>[b</td>
+<td><Cmd>BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td>Next buffer</td>
+<td>]b</td>
+<td><Cmd>BufferLineCycleNext<CR></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td>cS</td>
+<td><Plug>(nvim-surround-change-line)</td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair</td>
+<td>cs</td>
+<td><Plug>(nvim-surround-change)</td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td>ds</td>
+<td><Plug>(nvim-surround-delete)</td>
+</tr>
+<tr class="even">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gr</td>
+<td><Cmd>Lspsaga rename<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td><Cmd>Lspsaga preview_definition<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gd</td>
+<td><Cmd>Lspsaga lsp_finder<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td><Cmd>Lspsaga signature_help<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td>Search word under cursor</td>
+<td>gw</td>
+<td>*N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td>:silent execute ‘!$BROWSER’ . shellescape(expand(‘<lt>cfile&gt;’),
+1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>v:count == 0 ? ‘gj’ : ‘j’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>v:count == 0 ? ‘gk’ : ‘k’</td>
+</tr>
+<tr class="even">
+<td>Next search result</td>
+<td>n</td>
+<td>‘Nn’[v:searchforward]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Plug>(leap-forward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tl</td>
+<td><C-W>l</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tj</td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tk</td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>th</td>
+<td><C-W>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tw</td>
+<td><C-W>w</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tv</td>
+<td>:vsplit</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ts</td>
+<td>:split</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>te</td>
+<td>:tabedit</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>x</td>
+<td>“_x</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td>ySS</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td>yS</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td>yss</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td>ys</td>
+<td><Plug>(nvim-surround-normal)</td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><Plug>(nvim-surround-change-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair</td>
+<td><Plug>(nvim-surround-change)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td><Plug>(nvim-surround-delete)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><Plug>(nvim-surround-normal)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SnipClose</td>
+<td>:lua require’sniprun.display’.close_all()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SnipReplMemoryClean</td>
+<td>:lua require’sniprun’.clear_repl()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SnipInfo</td>
+<td>:lua require’sniprun’.info()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SnipReset</td>
+<td>:lua require’sniprun’.reset()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SnipRunOperator</td>
+<td>:set opfunc=SnipRunOperator<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SnipRun</td>
+<td>:lua require’sniprun’.run()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-x)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-x)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-cross-window)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-from-window)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-till)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward-to)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward-till)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-to)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-h></td>
+<td><Cmd>lua require’tmux’.resize_left()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-l></td>
+<td><Cmd>lua require’tmux’.resize_right()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td><Cmd>lua require’tmux’.resize_top()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td><Cmd>lua require’tmux’.resize_bottom()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CalendarT</td>
+<td>:cal calendar#show(2)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CalendarH</td>
+<td>:cal calendar#show(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CalendarV</td>
+<td>:cal calendar#show(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td>Save file</td>
+<td><C-S></td>
+<td><Cmd>w<CR><Esc></td>
+</tr>
+<tr class="odd">
+<td>Increase window width</td>
+<td><C-Right></td>
+<td><Cmd>vertical resize +2<CR></td>
+</tr>
+<tr class="even">
+<td>Decrease window width</td>
+<td><C-Left></td>
+<td><Cmd>vertical resize -2<CR></td>
+</tr>
+<tr class="odd">
+<td>Decrease window height</td>
+<td><C-Down></td>
+<td><Cmd>resize -2<CR></td>
+</tr>
+<tr class="even">
+<td>Increase window height</td>
+<td><C-Up></td>
+<td><Cmd>resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Cmd>lua require’tmux’.move_bottom()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td><Cmd>lua require’tmux’.move_left()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-U></td>
+<td><C-U>zz</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-D></td>
+<td><C-D>zz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><Cmd>lua require’tmux’.move_top()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-q></td>
+<td><Cmd>:q<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-v></td>
+<td><Cmd>vsplit<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-s></td>
+<td><Cmd>split<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-I></td>
+<td><Tab></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-G></td>
+<td><Cmd>lua _LAZYGIT_TOGGLE()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-P></td>
+<td><Cmd>Telescope git_files<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Space></td>
+<td><Cmd>WhichKey  <CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td><Cmd>lua require’tmux’.move_right()<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>ca</td>
+<td><Cmd><C-U>Lspsaga range_code_action<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gy</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>pp</td>
+<td>“_dP</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>J</td>
+<td>:move ’&gt;+1<CR>gv-gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>K</td>
+<td>:move ’<lt>-2<CR>gv-gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td>Prev search result</td>
+<td>N</td>
+<td>‘nN’[v:searchforward]</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection</td>
+<td>S</td>
+<td><Plug>(nvim-surround-visual)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td>gS</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>(leap-cross-window)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="even">
+<td>Search word under cursor</td>
+<td>gw</td>
+<td>*N</td>
+</tr>
+<tr class="odd">
+<td>Next search result</td>
+<td>n</td>
+<td>‘Nn’[v:searchforward]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p</td>
+<td>“_dP</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Plug>(leap-forward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tl</td>
+<td><C-W>l</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tj</td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tk</td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>th</td>
+<td><C-W>h</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SnipRun</td>
+<td>:lua require’sniprun’.run(‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-x)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-x)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-cross-window)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-from-window)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-till)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward-to)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward-till)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-to)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="even">
+<td>Save file</td>
+<td><C-S></td>
+<td><Cmd>w<CR><Esc></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-k></td>
+<td>:move ’<lt>-2<CR>gv-gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-j></td>
+<td>:move ’&gt;+1<CR>gv-gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="even">
+<td>Prev search result</td>
+<td>N</td>
+<td>‘nN’[v:searchforward]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>X</td>
+<td><Plug>(leap-backward-x)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Z</td>
+<td><Plug>(leap-backward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>(leap-cross-window)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td>Next search result</td>
+<td>n</td>
+<td>‘Nn’[v:searchforward]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tl</td>
+<td><C-W>l</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tj</td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tk</td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>th</td>
+<td><C-W>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>x</td>
+<td><Plug>(leap-forward-x)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>z</td>
+<td><Plug>(leap-forward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward-x)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward-x)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-cross-window)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-from-window)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward-till)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-to)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-till)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward-to)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

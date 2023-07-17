@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Adib</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Adib</h1>
+</header>
 <h2 id="adib-neovim-configuration-information">Adib Neovim Configuration
 Information</h2>
 <p>Personal Neovim configuration of Adib Hanna. Tips, distros, and
@@ -50,13 +80,10 @@ href="https://github.com/ggandor/flit.nvim">ggandor/flit.nvim</a></li>
 href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
 <li><a
 href="https://github.com/dnlhc/glance.nvim.git">dnlhc/glance.nvim</a></li>
-<li><a href="https://github.com/ray-x/go.nvim">ray-x/go.nvim</a></li>
 <li><a
 href="https://github.com/olexsmir/gopher.nvim.git">olexsmir/gopher.nvim</a></li>
 <li><a
 href="https://github.com/sainnhe/gruvbox-material">sainnhe/gruvbox-material</a></li>
-<li><a
-href="https://github.com/ray-x/guihua.lua">ray-x/guihua.lua</a></li>
 <li><a
 href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
 <li><a
@@ -156,3 +183,676 @@ href="https://github.com/RRethy/vim-illuminate">RRethy/vim-illuminate</a></li>
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
+<h3 id="adib-keymaps">Adib Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><CR></td>
+<td>ciw</td>
+</tr>
+<tr class="even">
+<td>Run Nearest</td>
+<td>tr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run All Test Files</td>
+<td>tT</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run File</td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Stop</td>
+<td>tS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Output Panel</td>
+<td>tO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Show Output</td>
+<td>to</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Summary</td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>File Explorer</td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>+</td>
+<td>:vertical resize +5<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td>:resize -5<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>;</td>
+<td><Cmd>lua
+require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_dropdown({}))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>=</td>
+<td>:resize +5<CR></td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td>Leap backward to</td>
+<td>S</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>YY</td>
+<td>va{Vy</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td>Prev Reference</td>
+<td>[[</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>:q!<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>:write!<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td>Next Reference</td>
+<td>]]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>_</td>
+<td>:vertical resize -5<CR></td>
+</tr>
+<tr class="even">
+<td>f</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td>Glance definitions</td>
+<td>gD</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Glance implementations</td>
+<td>gM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Glance type_definitions</td>
+<td>gY</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Glance references</td>
+<td>gR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap from windows</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Join the object under cursor</td>
+<td>gJ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Split the object under cursor</td>
+<td>gS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>gj</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>gk</td>
+</tr>
+<tr class="odd">
+<td>Leap forward to</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>zb</td>
+<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zt</td>
+<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-B></td>
+<td><Cmd>lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)<CR></td>
+</tr>
+<tr class="even">
+<td>Move to previous reference</td>
+<td><M-p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to next reference</td>
+<td><M-n></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Terminal</td>
+<td><C-T></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td>Fuzzily search in current buffer</td>
+<td><C-S></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><BS></td>
+<td>ci</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Left></td>
+<td>:bprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Right></td>
+<td>:bnext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>J</td>
+<td>:m ’&gt;+1<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>K</td>
+<td>:m ’<lt>-2<CR>gv=gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>P</td>
+<td>“_dP</td>
+</tr>
+<tr class="even">
+<td>Leap backward to</td>
+<td>S</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td>f</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td>Leap from windows</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p</td>
+<td>“_dp</td>
+</tr>
+<tr class="odd">
+<td>Leap forward to</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zt</td>
+<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zb</td>
+<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-B></td>
+<td><Cmd>lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-i></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td>Leap backward to</td>
+<td>S</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="odd">
+<td>f</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td>Leap from windows</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leap forward to</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-i></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

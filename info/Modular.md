@@ -49,3 +49,103 @@ Same as 'StartMason' but everything is split in modules
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+
+### Modular Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  bc | <Cmd>Bdelete<CR> |
+|  |  e | <Cmd>NvimTreeToggle<CR> |
+|  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
+|  |  fd | <Cmd>Telescope diagnostics<CR> |
+|  |  fg | <Cmd>Telescope live_grep<CR> |
+|  |  ff | <Cmd>Telescope find_files<CR> |
+|  |    | <Cmd>Telescope buffers<CR> |
+|  |  ? | <Cmd>Telescope oldfiles<CR> |
+|  |  bl | <Cmd>buffer #<CR> |
+|  |  bq | <Cmd>bdelete<CR> |
+|  |  w | <Cmd>write<CR> |
+|  |  a | :keepjumps normal! ggVG<CR> |
+|  |  l | g_ |
+|  |  h | ^ |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | cS |  |
+|  | cs |  |
+|  | ds |  |
+|  | gx | <Plug>NetrwBrowseX |
+|  | g% | <Plug>(MatchitNormalBackward) |
+|  | gp | "+p |
+|  | gy | "+y |
+|  | x | "_x |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | ySS |  |
+|  | ySs |  |
+|  | yss |  |
+|  | yS |  |
+|  | ys |  |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <C-G> |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  l | g_ |
+|  |  h | ^ |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | S |  |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+|  | a | targets#e('o', 'a', 'a') |
+|  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(MatchitVisualBackward) |
+|  | gS |  |
+|  | gp | "+p |
+|  | gy | "+y |
+|  | i | targets#e('o', 'i', 'i') |
+|  | x | "_x |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  l | g_ |
+|  |  h | ^ |
+|  | % | <Plug>(MatchitOperationForward) |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+|  | a | targets#e('o', 'a', 'a') |
+|  | g% | <Plug>(MatchitOperationBackward) |
+|  | i | targets#e('o', 'i', 'i') |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

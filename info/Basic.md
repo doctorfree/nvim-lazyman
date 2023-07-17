@@ -40,3 +40,37 @@ Starter config by the author of NvChad with [video tutorial](https://youtube.com
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+
+### Basic Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | <Tab> | <Cmd> BufferLineCycleNext <CR> |
+|  |  / |  |
+|  |  gt | <Cmd> Telescope git_status <CR> |
+|  |  fw | <Cmd> Telescope live_grep <CR> |
+|  |  fo | <Cmd> Telescope oldfiles <CR> |
+|  |  ff | <Cmd> Telescope find_files <CR> |
+| Nvim builtin | & | :&&<CR> |
+| Nvim builtin | Y | y$ |
+|  | <C-Q> | <Cmd> bd <CR> |
+|  | <S-Tab> | <Cmd> BufferLineCyclePrev <CR> |
+|  | <C-H> | <Cmd> NvimTreeFocus <CR> |
+|  | <C-N> | <Cmd> NvimTreeToggle <CR> |
+|  | <C-S> | <Cmd> w <CR> |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |

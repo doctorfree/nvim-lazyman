@@ -10,6 +10,10 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://nvchad.com](https://nvchad.com)
+
 ### Git repository
 
 [https://github.com/doctorfree/NvChad-custom](https://github.com/doctorfree/NvChad-custom)
@@ -60,3 +64,88 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### NvChad Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | " |  |
+| Nvim builtin | & | :&&<CR> |
+|  | ' |  |
+| Open new line above HopLineStart target | ,vO |  |
+| Open new line below HopLineStart target | ,vo |  |
+| Paste above target using HopLineStart | ,vP |  |
+| Paste below target using HopLineStart | ,vp |  |
+| Jump to definition | ,hd |  |
+|  | ,hq] | <Cmd>lua require'hop'.hint_patterns({}, [[}]])<CR> |
+|  | ,hq[ | <Cmd>lua require'hop'.hint_patterns({}, [[{]])<CR> |
+|  | ,hqk | <Cmd>lua require'hop'.hint_patterns({}, [[)]])<CR> |
+|  | ,hqj | <Cmd>lua require'hop'.hint_patterns({}, [[(]])<CR> |
+|  | ,hf/ | <Cmd>lua require'hop'.hint_patterns({}, [[/\|?]])<CR> |
+|  | ,hf; | <Cmd>lua require'hop'.hint_patterns({}, [[;\|:]])<CR> |
+|  | ,hf- | <Cmd>lua require'hop'.hint_patterns({}, [[-\|+]])<CR> |
+|  | ,hf' | <Cmd>lua require'hop'.hint_patterns({}, [["\|']])<CR> |
+|  | ,hH | <Cmd>lua require'hop'.hint_patterns({}, [[\d\+]])<CR> |
+|  | ,hW | <Cmd>HopWordMW<CR> |
+|  | ,hl | <Cmd>HopLineStart<CR> |
+|  | ,hw | <Cmd>HopWord<CR> |
+| Move to end of Treehopper node | ,h] |  |
+| Move to start of Treehopper node | ,h[ |  |
+| Treehopper nodes | ,hm |  |
+|  | , |  |
+|  | ? | / |
+|  | F |  |
+| Trigger LuaSnip snippet | Ls |  |
+|  | T |  |
+| Nvim builtin | Y | y$ |
+|  | ` |  |
+|  | c |  |
+|  | f |  |
+|  | g |  |
+| Comment toggle linewise | gc |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle current line | gcc |  |
+|  | t |  |
+| Treehopper node target insert | vy |  |
+| HopLineStart target in normal mode | vY |  |
+| Open new line above HopLineStart target | vO |  |
+| Open new line below HopLineStart target | vo |  |
+| Paste above target using HopLineStart | vP |  |
+| Paste below target using HopLineStart | vp |  |
+|  | v |  |
+| Yank using Treehopper | ym |  |
+| Yank a Treesitter code block | yc |  |
+| Yank a line with HopLineStart | yl |  |
+| Yank user syntax-tree-surfer | yx |  |
+|  | <M-q> | q |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | ,hl | <Cmd>HopLineStart<CR> |
+|  | ,hw | <Cmd>HopWord<CR> |
+|  | F |  |
+|  | T |  |
+|  | f |  |
+| Comment toggle linewise (visual) | gc |  |
+| Comment toggle blockwise (visual) | gb |  |
+|  | t |  |
+|  | <M-q> | q |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | F |  |
+|  | T |  |
+|  | f |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
+|  | t |  |

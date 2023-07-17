@@ -50,7 +50,6 @@ Neovim configuration of Dr. Ronald Joe Record
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-- [folke/drop.nvim](https://github.com/folke/drop.nvim.git)
 - [neanias/everforest-nvim](https://github.com/neanias/everforest-nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -161,3 +160,179 @@ Neovim configuration of Dr. Ronald Joe Record
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+- [tamton-aquib/zone.nvim](https://github.com/tamton-aquib/zone.nvim.git)
+
+### Lazyman Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitNormalForward) |
+| Nvim builtin | & | :&&<CR> |
+| Mason Menu | ,M | <Cmd>Mason<CR> |
+| Move Float | ,tf |  |
+| Move Bottom Right New | ,tH |  |
+| Move Below Right New | ,th |  |
+| Move Bottom Right | ,tL |  |
+| Move Below Right | ,tl |  |
+| Terminal Prev | ,t[ |  |
+| Terminal Next | ,t] |  |
+| Terminal Kill | ,tk |  |
+| New Terminal Run | ,tR |  |
+| Terminal Run | ,tr |  |
+| New Terminal Toggle | ,tO |  |
+| Terminal Toggle | ,to |  |
+| Toggle Transparency | ,ut |  |
+| Dashboard | ,0 |  |
+| Command History | ,: |  |
+| Find in Files (Grep) | ,/ |  |
+| Switch Buffer | ,, |  |
+| Bufferlist | ,B |  |
+| Telescope | ,mt |  |
+| Run make | ,mm |  |
+| Recent files | ,fr |  |
+| Open file | ,ff |  |
+| Zoxide | ,fz |  |
+| Filebrowser | ,fb |  |
+| Commits | ,gm |  |
+| Status | ,gs |  |
+| Find Files (root dir) | ,  |  |
+| Fuzzy search | ,sf |  |
+| Command history | ,s; |  |
+| Search History | ,s: |  |
+| Goto Symbol (Workspace) | ,sS |  |
+| Goto Symbol | ,ss |  |
+| Resume | ,sR |  |
+| Vim Options | ,sO |  |
+| Key Maps | ,sk |  |
+| Help Pages | ,sh |  |
+| Help | ,s? |  |
+| Command History | ,sc |  |
+| Branches | ,gh |  |
+| Colorscheme with preview | ,uC |  |
+| Word (cwd) | ,sW |  |
+| Word (root dir) | ,sw |  |
+| Options | ,so |  |
+| Jump to Mark | ,sm |  |
+| Man Pages | ,sM |  |
+| Search Highlight Groups | ,sH |  |
+| Grep (cwd) | ,sG |  |
+| Grep (root dir) | ,sg |  |
+| Diagnostics | ,sd |  |
+| Commands | ,sC |  |
+| Buffer | ,sb |  |
+| Auto Commands | ,sa |  |
+| Todo | ,st |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo (Trouble) | ,xt |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Location List (Trouble) | ,xL |  |
+| Workspace Diagnostics (Trouble) | ,xX |  |
+| Document Diagnostics (Trouble) | ,xx |  |
+| Explorer (root dir) | ,e |  |
+| Explorer Float | ,E |  |
+| Terminal Send | ,ts |  |
+| Treesitter Join | ,tj |  |
+| Toggle Treesitter Join | ,tt |  |
+| Close Buffer | ,D |  |
+| generate git message | ,ag |  |
+| summarize text | ,as |  |
+| Noice History | ,snh |  |
+| Noice Last Message | ,snl |  |
+| Noice All | ,sna |  |
+| Delete all Notifications | ,un |  |
+| Eval | ,de |  |
+| Dap UI | ,du |  |
+| Down | ,dj |  |
+| Step Into | ,di |  |
+| Go to line (no execute) | ,dg |  |
+| Run to Cursor | ,dC |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
+| Breakpoint Condition | ,dB |  |
+| Widgets | ,dw |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Toggle REPL | ,dr |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
+| Run Last | ,dl |  |
+| Up | ,dk |  |
+| Toggle zen mode | ,z |  |
+| F | F |  |
+| Leap backward to | S |  |
+| T | T |  |
+| Nvim builtin | Y | y$ |
+|  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
+| Prev Reference | [[ |  |
+|  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
+| Next Reference | ]] |  |
+| f | f |  |
+|  | g% | <Plug>(MatchitNormalBackward) |
+| Leap from windows | gs |  |
+| Leap forward to | s |  |
+| t | t |  |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
+|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
+|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
+|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <F9> | :call NextColor(0)<CR> |
+|  | <F8> | :call NextColor(1)<CR> |
+|  | <F7> | :call NextColor(-1)<CR> |
+| Search in buffer | <C-S> |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+|  | % | <Plug>(MatchitVisualForward) |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Terminal Send | ,ts |  |
+| Eval | ,de |  |
+| F | F |  |
+| Leap backward to | S |  |
+| T | T |  |
+|  | [% | <Plug>(MatchitVisualMultiBackward) |
+|  | ]% | <Plug>(MatchitVisualMultiForward) |
+|  | a% | <Plug>(MatchitVisualTextObject) |
+| f | f |  |
+|  | g% | <Plug>(MatchitVisualBackward) |
+| Leap from windows | gs |  |
+| Leap forward to | s |  |
+| t | t |  |
+|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
+|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
+|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
+|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  | % | <Plug>(MatchitOperationForward) |
+| F | F |  |
+| Leap backward to | S |  |
+| T | T |  |
+|  | [% | <Plug>(MatchitOperationMultiBackward) |
+|  | ]% | <Plug>(MatchitOperationMultiForward) |
+| f | f |  |
+|  | g% | <Plug>(MatchitOperationBackward) |
+| Leap from windows | gs |  |
+| Leap forward to | s |  |
+| t | t |  |
+|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
+|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
+|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
+|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |

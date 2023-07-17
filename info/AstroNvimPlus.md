@@ -10,6 +10,10 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://astronvim.com](https://astronvim.com)
+
 ### Git repository
 
 [https://github.com/doctorfree/astronvim](https://github.com/doctorfree/astronvim)
@@ -112,3 +116,332 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 - [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim.git)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker.git)
+
+### AstroNvimPlus Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
+| Previous buffer |  bp |  |
+| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
+| Close all buffers to the right |  br |  |
+| Toggle wrap |  uw |  |
+| By extension |  bse |  |
+| Toggle CodeLens |  uL |  |
+| By relative path |  bsr |  |
+| Toggle background |  ub |  |
+| By full path |  bsp |  |
+| By buffer number |  bsi |  |
+| ToggleTerm python |  tp |  |
+| By modification |  bsm |  |
+| Select buffer from tabline |  bb |  |
+| Horizontal split buffer from tabline |  b\ |  |
+| Mason Installer |  pm | <Cmd>Mason<CR> |
+| Vertical split buffer from tabline |  b| |  |
+| Home Screen |  h |  |
+| Step Out (S-F11) |  dO |  |
+| Toggle comment line |  / |  |
+| Change indent setting |  ui |  |
+| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
+| View Git blame |  gl |  |
+| View full Git blame |  gL |  |
+| Preview Git hunk |  gp |  |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Reset Git hunk |  gh |  |
+| Toggle spellcheck |  us |  |
+| Reset Git buffer |  gr |  |
+| ToggleTerm lazygit |  gg |  |
+| Stage Git hunk |  gs |  |
+| Toggle paste mode |  up |  |
+| Stage Git buffer |  gS |  |
+| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
+| Unstage Git hunk |  gu |  |
+| Pick to close |  bD |  |
+| View Git diff |  gd |  |
+| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
+| Toggle Explorer Focus |  o |  |
+| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Symbols outline |  lS |  |
+| Git branches |  gb |  |
+| Git commits (repository) |  gc |  |
+| Git commits (current file) |  gC |  |
+| Git status |  gt |  |
+| Resume previous search |  f<CR> |  |
+| Find marks |  f' |  |
+| Find buffers |  fb |  |
+| Find for word under cursor |  fc |  |
+| Find commands |  fC |  |
+| Find files |  ff |  |
+| Find all files |  fF |  |
+| Find help |  fh |  |
+| Find keymaps |  fk |  |
+| Find man |  fm |  |
+| Find notifications |  fn |  |
+| Find history |  fo |  |
+| Find registers |  fr |  |
+| Find words |  fw |  |
+| Find words in all files |  fW |  |
+| Search symbols |  ls |  |
+| ToggleTerm lazygit |  tl |  |
+| ToggleTerm node |  tn |  |
+| ToggleTerm gdu |  tu |  |
+| ToggleTerm btm |  tt |  |
+| Toggle Breakpoint (F9) |  db |  |
+| Clear Breakpoints |  dB |  |
+| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| Start/Continue (F5) |  dc |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Step Into (F11) |  di |  |
+| Step Over (F10) |  do |  |
+| Close Session |  dq |  |
+| Terminate Session (S-F5) |  dQ |  |
+| Pause (F6) |  dp |  |
+| Restart (C-F5) |  dr |  |
+| Toggle REPL |  dR |  |
+| Run To Cursor |  ds |  |
+| Evaluate Input |  dE |  |
+| Toggle Debugger UI |  du |  |
+| Debugger Hover |  dh |  |
+| Quit |  q | <Cmd>confirm q<CR> |
+| New File |  n | <Cmd>enew<CR> |
+| Toggle autocompletion |  uc |  |
+| New tab |  bn | <Cmd>tabnew<CR> |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Plugins Install |  pi |  |
+| Toggle signcolumn |  ug |  |
+| Plugins Status |  ps |  |
+| Plugins Sync |  pS |  |
+| Plugins Check Updates |  pu |  |
+| Toggle statusline |  ul |  |
+| Plugins Update |  pU |  |
+| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
+| Change line numbering |  un |  |
+| Toggle Notifications |  uN |  |
+| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
+| Close buffer |  c |  |
+| Force close buffer |  C |  |
+| Toggle conceal |  uS |  |
+| Close all buffers except current |  bc |  |
+| Close all buffers |  bC |  |
+| Toggle syntax highlight |  uy |  |
+| Close buffer from tabline |  bd |  |
+| Close all buffers to the left |  bl |  |
+| Find AstroNvim config files |  fa |  |
+|  |  ge | <Plug>CamelCaseMotion_ge |
+| Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
+|  |  b | <Plug>CamelCaseMotion_b |
+| Save |  w | <Cmd>w<CR> |
+| Find themes |  ft |  |
+| Toggle diagnostics |  ud |  |
+| Toggle Explorer |  ue |  |
+| Breadcrumb search |  fs |  |
+| Toggle URL highlight |  uu |  |
+| Structural search and replace |  sr |  |
+| Command palette |  P |  |
+| Toggle tabline |  ut |  |
+| Toggle trouble for document |  fd |  |
+| Split/join block recursively |  M |  |
+| Split/join block |  m |  |
+| Go to Harpoon file 2 |  h2 |  |
+| Add file to Harpoon |  ha |  |
+| Go to Harpoon file 4 |  h4 |  |
+| Go to Harpoon file 5 |  h5 |  |
+| Toggle Harpoon |  hh |  |
+| Go to Harpoon file 3 |  h3 |  |
+| Go to Harpoon file 1 |  h1 |  |
+| Toggle foldcolumn |  uh |  |
+| Toggle autopairs |  ua |  |
+| Nvim builtin | & | :&&<CR> |
+| Move buffer tab left | <lt>b |  |
+| Move buffer tab right | >b |  |
+| Nvim builtin | Y | y$ |
+| Previous tab | [t |  |
+| Previous Git hunk | [g |  |
+| Previous buffer | [b |  |
+| Previous Harpoon file | [h |  |
+| Horizontal Split | \ | <Cmd>split<CR> |
+|  | \\gS | <Plug>(VM-Reselect-Last) |
+|  | \\/ | <Plug>(VM-Start-Regex-Search) |
+|  | \\\ | <Plug>(VM-Add-Cursor-At-Pos) |
+|  | \\A | <Plug>(VM-Select-All) |
+| Next tab | ]t |  |
+| Next Git hunk | ]g |  |
+| Next buffer | ]b |  |
+| Next Harpoon file | ]h |  |
+| Open the file under cursor with system app | gx |  |
+| Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
+| [keymap-amend.nvim]  | h |  |
+| Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
+| Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
+| [keymap-amend.nvim]  | l |  |
+| Fold less | zr |  |
+| Fold more | zm |  |
+| Peek fold | zp |  |
+| Close all folds | zM |  |
+| Open all folds | zR |  |
+| [keymap-amend.nvim]  | zc |  |
+| [keymap-amend.nvim]  | zO |  |
+| [keymap-amend.nvim]  | zo |  |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
+|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+| Vertical Split | | | <Cmd>vsplit<CR> |
+| Move to above split | <C-K> |  |
+| Move to below split | <C-J> |  |
+| Resize split left | <C-Left> |  |
+| Move to left split | <C-H> |  |
+| Resize split right | <C-Right> |  |
+| Debugger: Step Out | <F23> |  |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Debugger: Start | <F5> |  |
+| Debugger: Stop | <F17> |  |
+| Debugger: Conditional Breakpoint | <F21> |  |
+| Debugger: Restart | <F29> |  |
+| Debugger: Pause | <F6> |  |
+| Debugger: Toggle Breakpoint | <F9> |  |
+| Debugger: Step Over | <F10> |  |
+| Debugger: Step Into | <F11> |  |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
+| Force quit | <C-Q> | <Cmd>q!<CR> |
+| Force write | <C-S> | <Cmd>w!<CR> |
+| Resize split down | <C-Down> |  |
+| Resize split up | <C-Up> |  |
+|  | <S-Right> | <Plug>(VM-Select-l) |
+|  | <S-Left> | <Plug>(VM-Select-h) |
+|  | <C-N> | <Plug>(VM-Find-Under) |
+|  | <Plug>(VM-Select-BBW) | :<C-U>call vm#commands#motion('BBW', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-gE) | :<C-U>call vm#commands#motion('gE', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-ge) | :<C-U>call vm#commands#motion('ge', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-E) | :<C-U>call vm#commands#motion('E', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-e) | :<C-U>call vm#commands#motion('e', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-B) | :<C-U>call vm#commands#motion('B', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-b) | :<C-U>call vm#commands#motion('b', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-W) | :<C-U>call vm#commands#motion('W', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-w) | :<C-U>call vm#commands#motion('w', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-l) | :<C-U>call vm#commands#motion('l', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-k) | :<C-U>call vm#commands#motion('k', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-j) | :<C-U>call vm#commands#motion('j', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Select-h) | :<C-U>call vm#commands#motion('h', v:count1, 1, 0)<CR> |
+|  | <Plug>(VM-Mouse-Column) | :call vm#commands#mouse_column()<CR> |
+|  | <Plug>(VM-Mouse-Word) | <Plug>(VM-Left-Mouse)<Plug>(VM-Find-Under) |
+|  | <Plug>(VM-Mouse-Cursor) | <Plug>(VM-Left-Mouse)<Plug>(VM-Add-Cursor-At-Pos) |
+|  | <Plug>(VM-Left-Mouse) | <LeftMouse> |
+|  | <Plug>(VM-Slash-Search) | @=vm#commands#find_by_regex(3)<CR> |
+|  | <Plug>(VM-Start-Regex-Search) | @=vm#commands#find_by_regex(1)<CR> |
+|  | <Plug>(VM-Find-Under) | :<C-U>call vm#commands#ctrln(v:count1)<CR> |
+|  | <Plug>(VM-Select-All) | :call vm#commands#find_all(0, 1)<CR> |
+|  | <Plug>(VM-Reselect-Last) | :call vm#commands#reselect_last()<CR> |
+|  | <Plug>(VM-Select-Cursor-Up) | :<C-U>call vm#commands#add_cursor_up(1, v:count1)<CR> |
+|  | <Plug>(VM-Select-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(1, v:count1)<CR> |
+|  | <Plug>(VM-Add-Cursor-Up) | :<C-U>call vm#commands#add_cursor_up(0, v:count1)<CR> |
+|  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
+|  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
+|  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
+|  | <Plug>CamelCaseMotion_ge | :<C-U>call camelcasemotion#Motion('ge',v:count1,'n')<CR> |
+|  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'n')<CR> |
+|  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'n')<CR> |
+|  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'n')<CR> |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+| Move to right split | <C-L> |  |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Indent line | <Tab> | >gv |
+| Evaluate Input |  dE |  |
+| Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
+|  |  ge | <Plug>CamelCaseMotion_ge |
+|  |  e | <Plug>CamelCaseMotion_e |
+|  |  b | <Plug>CamelCaseMotion_b |
+|  |  w | <Plug>CamelCaseMotion_w |
+| Structural search and replace |  sr |  |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | \\c | <Plug>(VM-Visual-Cursors) |
+|  | \\a | <Plug>(VM-Visual-Add) |
+|  | \\f | <Plug>(VM-Visual-Find) |
+|  | \\/ | <Plug>(VM-Visual-Regex) |
+|  | \\A | <Plug>(VM-Visual-All) |
+|  | a | targets#e('o', 'a', 'a') |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
+|  | i ge | <Plug>CamelCaseMotion_ige |
+|  | i e | <Plug>CamelCaseMotion_ie |
+|  | i b | <Plug>CamelCaseMotion_ib |
+|  | i w | <Plug>CamelCaseMotion_iw |
+|  | i | targets#e('o', 'i', 'i') |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
+|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
+| Unindent line | <S-Tab> | <lt>gv |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
+|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>21_Visual('under') |
+|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
+|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
+|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
+|  | <Plug>(VM-Visual-All) | <SNR>21_Visual('all') |
+|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
+|  | <C-X> | :lua require('luasnip.util.util').store_selection()<CR>gv"_s |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
+|  | <Plug>CamelCaseMotion_ige | :<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ie | :<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ib | :<C-U>call camelcasemotion#InnerMotion('b',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_iw | :<C-U>call camelcasemotion#InnerMotion('w',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ge | :<C-U>call camelcasemotion#Motion('ge',v:count1,'v')<CR> |
+|  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'v')<CR> |
+|  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'v')<CR> |
+|  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'v')<CR> |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |  ge | <Plug>CamelCaseMotion_ge |
+|  |  e | <Plug>CamelCaseMotion_e |
+|  |  b | <Plug>CamelCaseMotion_b |
+|  |  w | <Plug>CamelCaseMotion_w |
+|  | @(targets) | :<C-U>call targets#do()<CR> |
+|  | A | targets#e('o', 'A', 'A') |
+|  | I | targets#e('o', 'I', 'I') |
+|  | a | targets#e('o', 'a', 'a') |
+|  | i | targets#e('o', 'i', 'i') |
+|  | i ge | <Plug>CamelCaseMotion_ige |
+|  | i e | <Plug>CamelCaseMotion_ie |
+|  | i b | <Plug>CamelCaseMotion_ib |
+|  | i w | <Plug>CamelCaseMotion_iw |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
+|  | <Plug>CamelCaseMotion_ige | :<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ie | :<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ib | :<C-U>call camelcasemotion#InnerMotion('b',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_iw | :<C-U>call camelcasemotion#InnerMotion('w',v:count1)<CR> |
+|  | <Plug>CamelCaseMotion_ge | :<C-U>call camelcasemotion#Motion('ge',v:count1,'o')<CR> |
+|  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'o')<CR> |
+|  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'o')<CR> |
+|  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'o')<CR> |

@@ -11,8 +11,11 @@ cd "${INFODIR}"
 for i in *.md                                                                                          ─╯
 do
   [ "$i" == "*.md" ] && continue
-  j=`echo $i | sed -e "s/.md/.html/"`
+  j=`echo $i | sed -e "s/.md//"`
   echo "Generating HTML from $i"
-  pandoc -t html -o html/$j $i
+  pandoc -t html --standalone \
+         --metadata title="$j" \
+         --css="${HOME}"/.config/nvim-Lazyman/scripts/table.css \
+         -o html/${j}.html $i
 done
 exit 0

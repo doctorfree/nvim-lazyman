@@ -10,6 +10,10 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Website
+
+[https://nvchad.com](https://nvchad.com)
+
 ### Git repository
 
 [https://github.com/dreamsofcode-io/neovim-go-config](https://github.com/dreamsofcode-io/neovim-go-config)
@@ -46,3 +50,40 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### Go Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+|  |   |  |
+|  | " |  |
+| Nvim builtin | & | :&&<CR> |
+|  | ' |  |
+| Nvim builtin | Y | y$ |
+|  | ` |  |
+|  | c |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle current line | gcc |  |
+|  | g |  |
+|  | v |  |
+| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Comment toggle blockwise (visual) | gb |  |
+| Comment toggle linewise (visual) | gc |  |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |

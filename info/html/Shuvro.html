@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Shuvro</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Shuvro</h1>
+</header>
 <h2 id="shuvro-neovim-configuration-information">Shuvro Neovim
 Configuration Information</h2>
 <p>Significantly improved fork of <a
@@ -16,6 +46,8 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/shuvro/lvim">https://github.com/shuvro/lvim</a></p>
@@ -170,3 +202,324 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <li><a
 href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </ul>
+<h3 id="shuvro-keymaps">Shuvro Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><CR></td>
+<td><Cmd>lua require(‘user.neovim’).maximize_current_split()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Esc><Esc></td>
+<td><Cmd>nohlsearch<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td><Cmd>BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td><Cmd>BufferLineCycleNext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>X</td>
+<td><Cmd>lua require(‘user.bufferline’).delete_buffer()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[b</td>
+<td><Cmd>BufferLineMoveNext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[d</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[q</td>
+<td>:cprev<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]b</td>
+<td><Cmd>BufferLineMovePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]d</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]q</td>
+<td>:cnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ce</td>
+<td><Cmd>lua require(‘harpoon.term’).sendCommand(1, 2)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cu</td>
+<td><Cmd>lua require(‘harpoon.term’).sendCommand(1, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gv</td>
+<td><Cmd>vsplit</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Cmd>lua os.execute(“xdg-open” .. vim.fn.shellescape(vim.fn.expand
+“<lt>cWORD&gt;”)); vim.cmd “redraw!”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>te</td>
+<td><Cmd>lua require(‘harpoon.term’).gotoTerminal(2)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tu</td>
+<td><Cmd>lua require(‘harpoon.term’).gotoTerminal(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Bslash></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-a></td>
+<td><C-A></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-N>i</td>
+<td><Tab></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Space></td>
+<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-x></td>
+<td><C-X></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&lt;C-,&gt;</td>
+<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-j></td>
+<td>:m .+1<CR>==</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:m .-2<CR>==</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-J></td>
+<td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td><C-W>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td><C-W>l</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>st</td>
+<td><Cmd>lua require(‘user.telescope’).grep_string_visual()<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ga</td>
+<td><Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>p</td>
+<td>“_dP</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-x></td>
+<td><C-X></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-a></td>
+<td><C-A></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</body>
+</html>

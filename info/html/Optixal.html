@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Optixal</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Optixal</h1>
+</header>
 <h2 id="optixal-neovim-configuration-information">Optixal Neovim
 Configuration Information</h2>
 <p>Hybrid Neovim config for developers with a functional yet aesthetic
@@ -101,3 +131,941 @@ href="https://github.com/tpope/vim-surround.git">tpope/vim-surround</a></li>
 href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
 <li><a href="https://github.com/zaki/zazen.git">zaki/zazen</a></li>
 </ul>
+<h3 id="optixal-keymaps">Optixal Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><Tab></td>
+<td>:bnext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>q</td>
+<td><Cmd>lua vim.diagnostic.setloclist()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td><Cmd>lua vim.diagnostic.open_float()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,ca</td>
+<td><Plug>NERDCommenterAltDelims</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cu</td>
+<td><Plug>NERDCommenterUncomment</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cb</td>
+<td><Plug>NERDCommenterAlignBoth</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cl</td>
+<td><Plug>NERDCommenterAlignLeft</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cA</td>
+<td><Plug>NERDCommenterAppend</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cy</td>
+<td><Plug>NERDCommenterYank</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cs</td>
+<td><Plug>NERDCommenterSexy</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,ci</td>
+<td><Plug>NERDCommenterInvert</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,c$</td>
+<td><Plug>NERDCommenterToEOL</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cn</td>
+<td><Plug>NERDCommenterNested</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cm</td>
+<td><Plug>NERDCommenterMinimal</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,c</td>
+<td><Plug>NERDCommenterToggle</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cc</td>
+<td><Plug>NERDCommenterComment</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,f/</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,fc</td>
+<td><Cmd>Telescope colorscheme<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,fh</td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,fb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,fg</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,ff</td>
+<td><Cmd>Telescope find_files<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,<span
+class="math inline"><em>v</em>|&lt;<em>C</em>−<em>W</em>&gt;<em>v</em>&lt;<em>C</em>−<em>W</em>&gt;<em>l</em>:<em>t</em><em>e</em><em>r</em><em>m</em><em>i</em><em>n</em><em>a</em><em>l</em>&lt;<em>C</em><em>R</em>&gt;:<em>s</em><em>e</em><em>t</em><em>n</em><em>o</em><em>n</em><em>u</em><em>m</em><em>b</em><em>e</em><em>r</em>&lt;<em>C</em><em>R</em>&gt;<em>A</em>|||,</span>s</td>
+<td><C-W>s<C-W>j:terminal<CR>:set nonumber<CR>A</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,,</td>
+<td>:noh<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,l</td>
+<td>:Limelight!!<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,k</td>
+<td>:ColorToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,j</td>
+<td>:set filetype=journal<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,h</td>
+<td>:RainbowParentheses!!<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,a</td>
+<td>gaip*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,t</td>
+<td>:call TrimWhitespace()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,r</td>
+<td>:so ~/.config/nvim-Optixal/init.vim<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,q</td>
+<td>:NvimTreeFindFileToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>context#util#map_H()</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[C</td>
+<td>9999[c</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[c</td>
+<td><Plug>(signify-prev-hunk)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[d</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>\</td>
+<td>,q</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]C</td>
+<td>9999]c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]c</td>
+<td><Plug>(signify-next-hunk)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]d</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cr</td>
+<td><Plug>(abolish-coerce-word)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cS</td>
+<td><Plug>CSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cs</td>
+<td><Plug>Csurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ds</td>
+<td><Plug>Dsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ySS</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ySs</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yss</td>
+<td><Plug>Yssurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yS</td>
+<td><Plug>YSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ys</td>
+<td><Plug>Ysurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>zt</td>
+<td>context#util#map_zt()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Limelight)</td>
+<td>:set opfunc=limelight#operator<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(bullets-promote)</td>
+<td>:BulletPromote<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(bullets-demote)</td>
+<td>:BulletDemote<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(bullets-toggle-checkbox)</td>
+<td>:ToggleCheckbox<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(bullets-renumber)</td>
+<td>:RenumberList<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(bullets-newline)</td>
+<td>:call <SNR>39_insert_new_bullet()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-w></td>
+<td>:silent VCoolIns ra<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-v></td>
+<td>:silent VCoolIns h<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-r></td>
+<td>:VCoolIns r<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-c></td>
+<td>:VCoolor<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ColorFgBg</td>
+<td>:<C-U>ColorSwapFgBg<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ColorContrast</td>
+<td>:<C-U>ColorContrast<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Colorizer</td>
+<td>:<C-U>ColorToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterAltDelims</td>
+<td>:call nerdcommenter#SwitchToAlternativeDelimiters(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterUncomment</td>
+<td>:call nerdcommenter#Comment(“n”, “Uncomment”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterAlignBoth</td>
+<td>:call nerdcommenter#Comment(“n”, “AlignBoth”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterAlignLeft</td>
+<td>:call nerdcommenter#Comment(“n”, “AlignLeft”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterAppend</td>
+<td>:call nerdcommenter#Comment(“n”, “Append”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterYank</td>
+<td>:call nerdcommenter#Comment(“n”, “Yank”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterSexy</td>
+<td>:call nerdcommenter#Comment(“n”, “Sexy”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterInvert</td>
+<td>:call nerdcommenter#Comment(“n”, “Invert”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterToEOL</td>
+<td>:call nerdcommenter#Comment(“n”, “ToEOL”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterNested</td>
+<td>:call nerdcommenter#Comment(“n”, “Nested”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterMinimal</td>
+<td>:call nerdcommenter#Comment(“n”, “Minimal”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterToggle</td>
+<td>:call nerdcommenter#Comment(“n”, “Toggle”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterComment</td>
+<td>:call nerdcommenter#Comment(“n”, “Comment”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlignOperator)</td>
+<td>:set opfunc=<SNR>34_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:call <SNR>34_easy_align_repeat()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:set opfunc=<SNR>34_live_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:set opfunc=<SNR>34_easy_align_op<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(abolish-coerce-word)</td>
+<td><SNR>33_coerce(nr2char(getchar())).’iw’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(abolish-coerce)</td>
+<td><SNR>33_coerce(nr2char(getchar()))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(signify-prev-hunk)</td>
+<td>&amp;diff ? ‘[c’ : “:&lt;C-U&gt;call
+sy#jump#prev_hunk(v:count1)&lt;CR&gt;”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(signify-next-hunk)</td>
+<td>&amp;diff ? ‘]c’ : “:&lt;C-U&gt;call
+sy#jump#next_hunk(v:count1)&lt;CR&gt;”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>29_opfunc2(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>29_opfunc(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>29_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>29_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>29_changesurround(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>29_changesurround()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>29_dosurround(<SNR>29_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:set operatorfunc=<SNR>13_vsnip_cut_text_normal<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:set operatorfunc=<SNR>13_vsnip_select_text_normal<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><S-Tab></td>
+<td>:bprevious<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cu</td>
+<td><Plug>NERDCommenterUncomment</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cb</td>
+<td><Plug>NERDCommenterAlignBoth</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cl</td>
+<td><Plug>NERDCommenterAlignLeft</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cy</td>
+<td><Plug>NERDCommenterYank</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cs</td>
+<td><Plug>NERDCommenterSexy</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,ci</td>
+<td><Plug>NERDCommenterInvert</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,cn</td>
+<td><Plug>NERDCommenterNested</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cm</td>
+<td><Plug>NERDCommenterMinimal</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,c</td>
+<td><Plug>NERDCommenterToggle</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,cc</td>
+<td><Plug>NERDCommenterComment</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,l</td>
+<td>:Limelight!!<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,a</td>
+<td>gaip*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>S</td>
+<td><Plug>VSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gS</td>
+<td><Plug>VgSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Limelight)</td>
+<td>:Limelight<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(bullets-promote)</td>
+<td>:BulletPromoteVisual<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(bullets-demote)</td>
+<td>:BulletDemoteVisual<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(bullets-renumber)</td>
+<td>:RenumberSelection<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ColorFgBg</td>
+<td>:<C-U>ColorSwapFgBg<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ColorContrast</td>
+<td>:<C-U>ColorContrast<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Colorizer</td>
+<td>:ColorHighlight<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterUncomment</td>
+<td>:call nerdcommenter#Comment(“x”, “Uncomment”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterAlignBoth</td>
+<td>:call nerdcommenter#Comment(“x”, “AlignBoth”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterAlignLeft</td>
+<td>:call nerdcommenter#Comment(“x”, “AlignLeft”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterYank</td>
+<td>:call nerdcommenter#Comment(“x”, “Yank”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterSexy</td>
+<td>:call nerdcommenter#Comment(“x”, “Sexy”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterInvert</td>
+<td>:call nerdcommenter#Comment(“x”, “Invert”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterNested</td>
+<td>:call nerdcommenter#Comment(“x”, “Nested”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterMinimal</td>
+<td>:call nerdcommenter#Comment(“x”, “Minimal”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NERDCommenterToggle</td>
+<td>:call nerdcommenter#Comment(“x”, “Toggle”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NERDCommenterComment</td>
+<td>:call nerdcommenter#Comment(“x”, “Comment”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:<C-U>call <SNR>34_repeat_in_visual()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:<C-U>call <SNR>34_live_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:<C-U>call <SNR>34_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(abolish-coerce)</td>
+<td><SNR>33_coerce(nr2char(getchar()))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(signify-motion-outer-visual)</td>
+<td>:<C-U>call sy#util#hunk_text_object(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(signify-motion-inner-visual)</td>
+<td>:<C-U>call sy#util#hunk_text_object(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:<C-U>call <SNR>13_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:<C-U>call <SNR>13_vsnip_visual_text(visualmode())<CR>gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(signify-motion-outer-pending)</td>
+<td>:<C-U>call sy#util#hunk_text_object(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(signify-motion-inner-pending)</td>
+<td>:<C-U>call sy#util#hunk_text_object(0)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

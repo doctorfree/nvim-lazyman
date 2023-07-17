@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Heiker</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Heiker</h1>
+</header>
 <h2 id="heiker-neovim-configuration-information">Heiker Neovim
 Configuration Information</h2>
 <p>Neovim config of Heiker Curiel, author of <a
@@ -113,3 +143,1054 @@ href="https://github.com/tpope/vim-repeat">tpope/vim-repeat</a></li>
 <li><a
 href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </ul>
+<h3 id="heiker-keymaps">Heiker Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><CR></td>
+<td><Cmd>FineCmdline<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fh</td>
+<td><Cmd>Telescope oldfiles<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fb</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fs</td>
+<td><Cmd>Telescope treesitter<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ff</td>
+<td><Cmd>Telescope find_files<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>?</td>
+<td><Cmd>Telescope keymaps<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fg</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>uf</td>
+<td><Cmd>CtrlSFToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fw</td>
+<td><Esc><Cmd>exe ‘Find’ expand(‘<lt>cword&gt;’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>F</td>
+<td><Cmd>FineCmdline Find <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ui</td>
+<td><Cmd>IndentBlanklineToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cc</td>
+<td><Plug>(qf_qf_toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>da</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s</td>
+<td><Cmd>SearchBoxClear<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>uz</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td><Cmd>let
+@/=‘&lt;lt&gt;’.expand(‘<lt>cword&gt;’).’&gt;’<CR>“_ciw</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ur</td>
+<td><Cmd>set invrelativenumber<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>un</td>
+<td><Cmd>set invnumber<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>uc</td>
+<td><Cmd>set invcursorline<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ul</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ut</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>uh</td>
+<td><Cmd>set invhlsearch<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cd</td>
+<td><Cmd>lcd %:p:h<CR><Cmd>pwd<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><Cmd>echo ’’<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tn</td>
+<td><Cmd>tabnew<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bl</td>
+<td><Cmd>buffer #<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bq</td>
+<td><Cmd>bdelete<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q</td>
+<td><Cmd>quitall!<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>qq</td>
+<td><Cmd>quitall<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>w</td>
+<td><Cmd>write<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>l</td>
+<td>g_</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>h</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>e</td>
+<td>%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a</td>
+<td><Cmd>keepjumps normal! ggVG<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>#</td>
+<td>#zz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*</td>
+<td>*zz</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to line above cursor</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>C</td>
+<td>“_C</td>
+</tr>
+<tr class="odd">
+<td>Jump to line below cursor</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>b</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>e</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>N</td>
+<td>Nzzzv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>R</td>
+<td><Cmd>exe ‘SearchBoxReplace –’ expand(‘<lt>cword&gt;’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Cmd>SearchBoxMatchAll title=’ Match ’<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>U</td>
+<td><C-R></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>X</td>
+<td>“_d</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[q</td>
+<td><Plug>(qf_qf_previous)zz</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[t</td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[b</td>
+<td><Cmd>bprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]q</td>
+<td><Plug>(qf_qf_next)zz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]g</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]t</td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]b</td>
+<td><Cmd>bnext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>c</td>
+<td>“_c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ds</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td>“+p</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gy</td>
+<td>“+y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td>nzzzv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>r</td>
+<td><Cmd>SearchBoxReplace <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>s</td>
+<td><Cmd>SearchBoxIncSearch<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>x</td>
+<td>“_x</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ys</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_switch)</td>
+<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_loc_toggle_stay)</td>
+<td>:<C-U> call qf#toggle#ToggleLocWindow(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_loc_toggle)</td>
+<td>:<C-U> call qf#toggle#ToggleLocWindow(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_qf_toggle_stay)</td>
+<td>:<C-U> call qf#toggle#ToggleQfWindow(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_toggle)</td>
+<td>:<C-U> call qf#toggle#ToggleQfWindow(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_loc_next)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘l’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_loc_previous)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘l’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_qf_next)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘c’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_previous)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘c’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfSwitch</td>
+<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfLtoggle</td>
+<td><Plug>(qf_loc_toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfCtoggle</td>
+<td><Plug>(qf_qf_toggle)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfLnext</td>
+<td><Plug>(qf_loc_next)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfLprevious</td>
+<td><Plug>(qf_loc_previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfCnext</td>
+<td><Plug>(qf_qf_next)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfCprevious</td>
+<td><Plug>(qf_qf_previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-W>f</td>
+<td><Cmd>ToggleTerm direction=float<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-W>t</td>
+<td><Cmd>ToggleTerm direction=tab<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle terminal</td>
+<td><M-i></td>
+<td><Cmd>Term<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-3></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-2></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-1></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F3></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-4></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F8></td>
+<td>gn@i</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><Cmd>move .-2<CR>==</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Cmd>move .+1<CR>==</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-j></td>
+<td><C-D>M</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-k></td>
+<td><C-U>M</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-b></td>
+<td><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-l></td>
+<td><Esc></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><CR></td>
+<td><Esc><Cmd>FineCmdline ‘<lt>,’&gt;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td><Esc><Cmd>GetSelection<CR><Cmd>exe ‘Find’ getreg(‘/’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>y<Cmd>let @/=substitute(escape(@“, ‘/’), ‘’, ‘\n’,
+‘g’)<CR>”_cgn</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Y</td>
+<td><Esc><Cmd>GetSelection<CR><Cmd>set hlsearch<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y</td>
+<td><Esc><Cmd>GetSelection<CR>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>l</td>
+<td>g_</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>h</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>e</td>
+<td>%</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td>Jump to line above cursor</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>C</td>
+<td>“_c</td>
+</tr>
+<tr class="even">
+<td>Jump to line below cursor</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>H</td>
+<td>b</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>e</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>R</td>
+<td><Esc><Cmd>GetSelection<CR><Cmd>exe ‘SearchBoxReplace –’
+getreg(‘/’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>S</td>
+<td><Esc><Cmd>‘<lt>,’&gt;SearchBoxMatchAll title=’ Match ’
+visual_mode=true<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>X</td>
+<td>“_d</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]g</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cc</td>
+<td>“_c</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>c</td>
+<td>“_c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td>“+p</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gy</td>
+<td>“+y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>qi</td>
+<td>y<Cmd>let @/=substitute(escape(@“, ‘/’), ‘’, ‘\n’, ‘g’)<CR>gvqi</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>r</td>
+<td><Esc><Cmd>SearchBoxReplace visual_mode=true<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Esc><Cmd>‘<lt>,’&gt;SearchBoxIncSearch visual_mode=true<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>x</td>
+<td>“_x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td>Toggle terminal</td>
+<td><M-i></td>
+<td><Cmd>Term<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><Esc><Cmd>‘<lt>,’&gt;move ’<lt>-2<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Esc><Cmd>‘<lt>,’&gt;move ’&gt;+1<CR>gv=gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-l></td>
+<td><Esc></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>l</td>
+<td>g_</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>h</td>
+<td>^</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td>Jump to line above cursor</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to line below cursor</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>b</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>e</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td>“+p</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gy</td>
+<td>“+y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-l></td>
+<td><Esc></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

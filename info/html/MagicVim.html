@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MagicVim</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">MagicVim</h1>
+</header>
 <h2 id="magicvim-neovim-configuration-information">MagicVim Neovim
 Configuration Information</h2>
 <p>Custom Neovim configuration designed to be light and fast. LSP,
@@ -108,3 +138,1693 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <li><a
 href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 </ul>
+<h3 id="magicvim-keymaps">MagicVim Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Take Action</td>
+<td>la</td>
+<td><Cmd>lua vim.lsp.buf.code_action()<CR></td>
+</tr>
+<tr class="even">
+<td>Update Mason(LSP)</td>
+<td>lu</td>
+<td><Cmd>MasonUpdate<CR></td>
+</tr>
+<tr class="odd">
+<td>Open Mason</td>
+<td>lm</td>
+<td><Cmd>Mason<CR></td>
+</tr>
+<tr class="even">
+<td>Previous Diagnostic</td>
+<td>lp</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+</tr>
+<tr class="odd">
+<td>Next Diagnostic</td>
+<td>ln</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+</tr>
+<tr class="even">
+<td>Diagnostics</td>
+<td>lh</td>
+<td><Cmd>lua vim.diagnostic.open_float()<CR></td>
+</tr>
+<tr class="odd">
+<td>Jump to Definition</td>
+<td>ld</td>
+<td><Cmd>lua vim.lsp.buf.definition()<CR></td>
+</tr>
+<tr class="even">
+<td>Rename Buffer</td>
+<td>lr</td>
+<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
+</tr>
+<tr class="odd">
+<td>List Plugins</td>
+<td>Pl</td>
+<td><Cmd>PackerStatus<CR></td>
+</tr>
+<tr class="even">
+<td>Clean Up</td>
+<td>Pc</td>
+<td><Cmd>PackerClean<CR></td>
+</tr>
+<tr class="odd">
+<td>Update Plugins</td>
+<td>Pu</td>
+<td><Cmd>PackerSync<CR></td>
+</tr>
+<tr class="even">
+<td>Install Plugin</td>
+<td>Pi</td>
+<td><Cmd>PackerInstall<CR></td>
+</tr>
+<tr class="odd">
+<td>Search Help Pages</td>
+<td>th</td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="even">
+<td>Clear Yank History</td>
+<td>tY</td>
+<td><Cmd>YankyClearHistory<CR></td>
+</tr>
+<tr class="odd">
+<td>Change Colorscheme</td>
+<td>tc</td>
+<td><Cmd>Telescope colorscheme<CR></td>
+</tr>
+<tr class="even">
+<td>Find Man Pages</td>
+<td>tm</td>
+<td><Cmd>Telescope man_pages<CR></td>
+</tr>
+<tr class="odd">
+<td>Open Buffers</td>
+<td>tb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="even">
+<td>Spelling</td>
+<td>ts</td>
+<td><Cmd>Telescope spell_suggest<CR></td>
+</tr>
+<tr class="odd">
+<td>Diagnostics</td>
+<td>td</td>
+<td><Cmd>Telescope diagnostics<CR></td>
+</tr>
+<tr class="even">
+<td>Live Grep</td>
+<td>tg</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="odd">
+<td>Find File</td>
+<td>tf</td>
+<td><Cmd>Telescope find_files<CR></td>
+</tr>
+<tr class="even">
+<td>Select ALL</td>
+<td>a</td>
+<td>ggVG</td>
+</tr>
+<tr class="odd">
+<td>Close Window</td>
+<td>X</td>
+<td><C-W>c<CR></td>
+</tr>
+<tr class="even">
+<td>Paste</td>
+<td>p</td>
+<td>“+p<CR></td>
+</tr>
+<tr class="odd">
+<td>Copy</td>
+<td>c</td>
+<td>“+y<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g</td>
+<td><Cmd>lua _lazygit_toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment Out THIS Line</td>
+<td>’</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+</tr>
+<tr class="even">
+<td>Yank List</td>
+<td>y</td>
+<td><Cmd>Telescope yank_history<CR></td>
+</tr>
+<tr class="odd">
+<td>Search Key Maps</td>
+<td>k</td>
+<td><Cmd>Legendary<CR></td>
+</tr>
+<tr class="even">
+<td>Hop to a Word</td>
+<td>h</td>
+<td><Cmd>HopWord<CR></td>
+</tr>
+<tr class="odd">
+<td>Write with Sudo</td>
+<td>S</td>
+<td><Cmd>SudaWrite<CR></td>
+</tr>
+<tr class="even">
+<td>Search</td>
+<td>/</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="odd">
+<td>Show Colors in THIS File</td>
+<td>C</td>
+<td><Cmd>ColorizerToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Make THIS File Executable</td>
+<td>E</td>
+<td><Cmd>!chmod +x %<CR></td>
+</tr>
+<tr class="odd">
+<td>Open Nvim-Tree</td>
+<td>F</td>
+<td><Cmd>NvimTreeFindFileToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Floating Terminal</td>
+<td>T</td>
+<td><Cmd>ToggleTerm direction=float<CR></td>
+</tr>
+<tr class="odd">
+<td>Source THIS File</td>
+<td>s</td>
+<td><Cmd>so%<CR></td>
+</tr>
+<tr class="even">
+<td>Open Undo Tree</td>
+<td>u</td>
+<td><Cmd>UndotreeToggle<CR></td>
+</tr>
+<tr class="odd">
+<td>Open Ranger</td>
+<td>f</td>
+<td><Cmd>RnvimrToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Open Recent Files</td>
+<td>r</td>
+<td><Cmd>Telescope oldfiles<CR></td>
+</tr>
+<tr class="odd">
+<td>Save &amp; Quit</td>
+<td>x</td>
+<td><Cmd>wq<CR></td>
+</tr>
+<tr class="even">
+<td>Quit</td>
+<td>q</td>
+<td><Cmd>q!<CR></td>
+</tr>
+<tr class="odd">
+<td>Write</td>
+<td>w</td>
+<td><Cmd>w<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td>Toggle Terminal</td>
+<td><C-Q></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-20)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-20)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-19)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-19)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-18)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-18)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-17)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-17)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-16)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-16)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-15)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-15)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-14)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-14)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-13)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-13)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-12)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-12)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-11)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-11)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-10)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-10)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-9)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-9)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-8)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-8)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-7)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-7)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-6)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-6)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-5)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-5)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-4)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-4)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-3)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-3)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-2)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-2)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-1)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-1)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-pick-close)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-pick-focus)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-focus-next)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-focus-prev)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(cokeline-switch-next)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(cokeline-switch-prev)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBefore)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBefore)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBefore)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfter)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyYank)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyCycleBackward)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyCycleForward)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(fzf-normal)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-insert)</td>
+<td>i</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-o></td>
+<td>:RnvimrToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-D></td>
+<td><Cmd>bdelete<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><S-Left></td>
+<td><Cmd>bp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><S-Right></td>
+<td><Cmd>bn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-Right></td>
+<td>w</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-Left></td>
+<td>b</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Down></td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Up></td>
+<td>gg</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><C-L></td>
+<td><Cmd>nohlsearch</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Copy</td>
+<td>c</td>
+<td>“+y<CR></td>
+</tr>
+<tr class="even">
+<td>Add Text to End of Selected Lines</td>
+<td>a</td>
+<td>:norm A</td>
+</tr>
+<tr class="odd">
+<td>Add Text to Start of Selected Lines</td>
+<td>i</td>
+<td>:norm I</td>
+</tr>
+<tr class="even">
+<td>Comment Out Selected Lines</td>
+<td>’</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutBefore)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutBefore)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentAfter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyGPutAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyGPutAfter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutIndentBeforeJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutIndentBefore)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterShiftLeftJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterShiftLeft)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterFilterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterFilter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterShiftRightJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterShiftRight)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterBlockwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterBlockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterCharwiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterCharwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterLinewiseJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfterLinewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyPutAfterJoined)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(YankyPutAfter)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(YankyYank)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-Down></td>
+<td>:move ’&gt;+1<CR>gv-gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-Up></td>
+<td>:move ’<lt>-2<CR>gv-gv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

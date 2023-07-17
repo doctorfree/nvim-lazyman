@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Josean</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Josean</h1>
+</header>
 <h2 id="josean-neovim-configuration-information">Josean Neovim
 Configuration Information</h2>
 <p>Josean Martinez <a href="https://youtu.be/vdn_pKJUda8">video
@@ -84,3 +114,659 @@ href="https://github.com/tpope/vim-surround">tpope/vim-surround</a></li>
 <li><a
 href="https://github.com/christoomey/vim-tmux-navigator">christoomey/vim-tmux-navigator</a></li>
 </ul>
+<h3 id="josean-keymaps">Josean Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>rs</td>
+<td>:LspRestart<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td><Cmd>Telescope git_status<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gb</td>
+<td><Cmd>Telescope git_branches<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gfc</td>
+<td><Cmd>Telescope git_bcommits<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td><Cmd>Telescope git_commits<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fh</td>
+<td><Cmd>Telescope help_tags<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fc</td>
+<td><Cmd>Telescope grep_string<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fs</td>
+<td><Cmd>Telescope live_grep<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ff</td>
+<td><Cmd>Telescope find_files<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sm</td>
+<td>:MaximizerToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tp</td>
+<td>:tabp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tn</td>
+<td>:tabn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tx</td>
+<td>:tabclose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>to</td>
+<td>:tabnew<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sx</td>
+<td>:close<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>se</td>
+<td><C-W>=</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sh</td>
+<td><C-W>s</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sv</td>
+<td><C-W>v</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td><C-X></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>+</td>
+<td><C-A></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>nh</td>
+<td>:nohl<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>cS</td>
+<td><Plug>CSurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>cs</td>
+<td><Plug>Csurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ds</td>
+<td><Plug>Dsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>grr</td>
+<td><Plug>ReplaceWithRegisterLine</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gr</td>
+<td><Plug>ReplaceWithRegisterOperator</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>x</td>
+<td>“_x</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ySS</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ySs</td>
+<td><Plug>YSsurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yss</td>
+<td><Plug>Yssurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>yS</td>
+<td><Plug>YSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ys</td>
+<td><Plug>Ysurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>39_opfunc2(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>39_opfunc(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>39_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>39_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>39_changesurround(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>39_changesurround()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>39_dosurround(<SNR>39_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F3></td>
+<td>:MaximizerToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterLine</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithRegisterExpressionSpecial</td>
+<td>:<C-U>let g:ReplaceWithRegister#expr = getreg(‘=’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterOperator</td>
+<td>ReplaceWithRegister#OperatorExpression()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>S</td>
+<td><Plug>VSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gS</td>
+<td><Plug>VgSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gr</td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>39_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>39_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F3></td>
+<td>:MaximizerToggle<CR>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Bslash></td>
+<td>:<C-U>TmuxNavigatePrevious<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-L></td>
+<td>:<C-U>TmuxNavigateRight<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
