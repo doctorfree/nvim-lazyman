@@ -30,7 +30,7 @@ LINE=$(tput smul 2>/dev/null)
 USEGUI=
 BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
 LANGUCFGS="AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
-PRSNLCFGS="3rd Adib Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
+PRSNLCFGS="3rd Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
 MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
 STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1357,7 +1357,7 @@ install_config() {
     2k|AstroNvimStart|Basic|Modern|pde|CodeArt|Cosmic|Ember|Fennel|JustinNvim|JustinLvim|Kabin|Lamia|Micah|Normal|NvPak|HardHacker|Rohit|Scratch|SingleFile|StartBase|Opinion|StartLsp|StartMason|Modular|BasicLsp|BasicMason|Extralight|LspCmp|Minimal)
       lazyman ${darg} -x ${confname} -z -y -Q -q
       ;;
-    Adib|ONNO|3rd|Charles|Craftzdog|Dillon|Daniel|Kodo|LvimAdib|Maddison|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|xero|Xiao)
+    Adib|Artur|ONNO|3rd|Charles|Craftzdog|Dillon|Daniel|Kodo|LvimAdib|Maddison|Metis|Roiz|OnMyWay|Optixal|Plug|Heiker|Simple|Brain|Elianiva|Enrique|J4de|Josean|Rafi|Slydragonn|Traap|xero|Xiao)
       lazyman ${darg} -w ${confname} -z -y -Q -q
       ;;
     *)
@@ -3497,6 +3497,12 @@ install_remove() {
         -N nvim-Simple -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Simple"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Artur ] && action="Updating"
+      printf "\n${action} Artur Neovim configuration"
+      lazyman ${darg} -C https://github.com/arturgoms/nvim \
+        -N nvim-Artur ${quietflag} -z ${yesflag}
+      show_alias "nvim-Artur"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Brain ] && action="Updating"
       printf "\n${action} Brain Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/brainfucksec/neovim-lua \
@@ -3570,6 +3576,9 @@ install_remove() {
           ;;
         Adib)
           prsnl_url="https://github.com/adibhanna/nvim"
+          ;;
+        Artur)
+          prsnl_url="https://github.com/arturgoms/nvim"
           ;;
         Brain)
           prsnl_url="https://github.com/brainfucksec/neovim-lua"
