@@ -118,14 +118,20 @@ LazyVim based config for web developers. JavaScript, Typescript, React, and Tail
 | New Terminal Toggle | ,tO |  |
 | Terminal Toggle | ,to |  |
 | Toggle Transparency | ,ut |  |
-| Toggle pin | ,bp |  |
-| Delete non-pinned buffers | ,bP |  |
+| Projects | ,fp |  |
+| Explorer NeoTree (root dir) | ,fe |  |
+| Explorer NeoTree (cwd) | ,E |  |
+| Explorer NeoTree (root dir) | ,e |  |
+| Explorer NeoTree (cwd) | ,fE |  |
+| Grep (root dir) | ,sg |  |
+| Workspace diagnostics | ,sD |  |
+| Document diagnostics | ,sd |  |
 | Commands | ,sC |  |
 | Command History | ,sc |  |
 | Buffer | ,sb |  |
 | Auto Commands | ,sa |  |
 | status | ,gs |  |
-| commits | ,gc |  |
+| Find Files (root dir) | ,  |  |
 | Recent (cwd) | ,fR |  |
 | Recent | ,fr |  |
 | Find Files (cwd) | ,fF |  |
@@ -134,7 +140,7 @@ LazyVim based config for web developers. JavaScript, Typescript, React, and Tail
 | Command History | ,: |  |
 | Grep (root dir) | ,/ |  |
 | Switch Buffer | ,, |  |
-| Workspace diagnostics | ,sD |  |
+| commits | ,gc |  |
 | Goto Symbol (Workspace) | ,sS |  |
 | Goto Symbol | ,ss |  |
 | Colorscheme with preview | ,uC |  |
@@ -148,54 +154,48 @@ LazyVim based config for web developers. JavaScript, Typescript, React, and Tail
 | Search Highlight Groups | ,sH |  |
 | Help Pages | ,sh |  |
 | Grep (cwd) | ,sG |  |
-| Grep (root dir) | ,sg |  |
-| Find Files (root dir) | ,  |  |
-| Document diagnostics | ,sd |  |
-| Explorer NeoTree (root dir) | ,fe |  |
-| Explorer NeoTree (cwd) | ,E |  |
-| Explorer NeoTree (root dir) | ,e |  |
-| Explorer NeoTree (cwd) | ,fE |  |
-| Projects | ,fp |  |
-| Delete Buffer (Force) | ,bD |  |
+| Don't Save Current Session | ,qd |  |
+| Restore Last Session | ,ql |  |
+| Restore Session | ,qs |  |
+| Toggle pin | ,bp |  |
+| Delete non-pinned buffers | ,bP |  |
+| JsDoc | ,d |  |
 | Delete Buffer | ,bd |  |
-| Terminal Send | ,ts |  |
-| Treesitter Join | ,tj |  |
-| Toggle Treesitter Join | ,tt |  |
+| Delete Buffer (Force) | ,bD |  |
 | Dismiss All | ,snd |  |
 | Noice All | ,sna |  |
 | Noice History | ,snh |  |
 | Noice Last Message | ,snl |  |
-| Don't Save Current Session | ,qd |  |
-| Restore Last Session | ,ql |  |
-| Restore Session | ,qs |  |
-| Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo (Trouble) | ,xt |  |
-| Todo/Fix/Fixme | ,sT |  |
+| Terminal Send | ,ts |  |
+| Treesitter Join | ,tj |  |
+| Toggle Treesitter Join | ,tt |  |
 | Todo | ,st |  |
-| Quickfix List (Trouble) | ,xQ |  |
-| Location List (Trouble) | ,xL |  |
+| Todo (Trouble) | ,xt |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo/Fix/Fixme | ,sT |  |
 | Workspace Diagnostics (Trouble) | ,xX |  |
 | Document Diagnostics (Trouble) | ,xx |  |
-| JsDoc | ,d |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Location List (Trouble) | ,xL |  |
 | Toggle zen mode | ,z |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Delete surrounding | gzd |  |
+| Replace surrounding | gzr |  |
+| Find left surrounding | gzF |  |
 | Find right surrounding | gzf |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
+| Delete surrounding | gzd |  |
 | Add surrounding | gza |  |
-| Replace surrounding | gzr |  |
 | Highlight surrounding | gzh |  |
-| Find left surrounding | gzF |  |
 | Flash | s |  |
 |  | zM |  |
 |  | zR |  |
@@ -204,8 +204,8 @@ LazyVim based config for web developers. JavaScript, Typescript, React, and Tail
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 | Increment selection | <C-Space> |  |
-| Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

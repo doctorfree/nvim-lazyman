@@ -71,6 +71,12 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <CR> | <Cmd>FineCmdline<CR> |
+|  |  s | <Cmd>SearchBoxClear<CR> |
+|  |  uf | <Cmd>CtrlSFToggle<CR> |
+|  |  fw | <Esc><Cmd>exe 'Find' expand('<lt>cword>')<CR> |
+|  |  F | <Cmd>FineCmdline Find <CR> |
+|  |  da |  |
+|  |  dd |  |
 |  |  bb | <Cmd>Telescope buffers<CR> |
 |  |  fh | <Cmd>Telescope oldfiles<CR> |
 |  |  fb | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
@@ -78,18 +84,12 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |  ? | <Cmd>Telescope keymaps<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
-|  |  uf | <Cmd>CtrlSFToggle<CR> |
-|  |  fw | <Esc><Cmd>exe 'Find' expand('<lt>cword>')<CR> |
-|  |  F | <Cmd>FineCmdline Find <CR> |
-|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
 |  |  cc | <Plug>(qf_qf_toggle) |
-|  |  da |  |
-|  |  dd |  |
-|  |  s | <Cmd>SearchBoxClear<CR> |
+|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
 |  |  m |  |
-|  |  uz |  |
 |  |  bc |  |
 |  |  g |  |
+|  |  uz |  |
 |  |  j | <Cmd>let @/='\<lt>'.expand('<lt>cword>').'\>'<CR>"_ciw |
 |  |  ur | <Cmd>set invrelativenumber<CR> |
 |  |  un | <Cmd>set invnumber<CR> |
@@ -138,15 +138,15 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | ]t | <Cmd>tabnext<CR> |
 |  | ]b | <Cmd>bnext<CR> |
 |  | b |  |
-|  | cr |  |
 |  | cs |  |
+|  | cr |  |
 |  | c | "_c |
 |  | ds |  |
 |  | e |  |
 |  | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-|  | gc |  |
 |  | gcc |  |
+|  | gc |  |
 |  | gp | "+p |
 |  | gy | "+y |
 |  | n | nzzzv |
@@ -159,7 +159,6 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <Plug>(qf_qf_switch) | &filetype ==# 'qf' ? '<C-W>p' : '<C-W>b' |
 |  | <Plug>(qf_loc_toggle_stay) | :<C-U> call qf#toggle#ToggleLocWindow(1)<CR> |
 |  | <Plug>(qf_loc_toggle) | :<C-U> call qf#toggle#ToggleLocWindow(0)<CR> |
@@ -176,6 +175,7 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | <Plug>QfLprevious | <Plug>(qf_loc_previous) |
 |  | <Plug>QfCnext | <Plug>(qf_qf_next) |
 |  | <Plug>QfCprevious | <Plug>(qf_qf_previous) |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-W>f | <Cmd>ToggleTerm direction=float<CR> |
 |  | <C-W>t | <Cmd>ToggleTerm direction=tab<CR> |
 | Toggle terminal | <M-i> | <Cmd>Term<CR> |

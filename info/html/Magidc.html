@@ -210,13 +210,13 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Toggle Terminal</td>
-<td>vt</td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
-</tr>
-<tr class="even">
 <td>[Hydra] DAP</td>
 <td>x</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>zc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -226,22 +226,12 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>ze</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>zc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>zj</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>zC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ze</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -256,17 +246,7 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>w<Up></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>w<Right></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>w<Left></td>
+<td>zj</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -281,12 +261,12 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>wj</td>
+<td>wl</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>wl</td>
+<td>wj</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -298,6 +278,26 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 <td>w<Down></td>
 <td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>w<Up></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w<Right></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>w<Left></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Terminal</td>
+<td>vt</td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -365,6 +365,34 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="even">
+<td></td>
+<td>g<C-X></td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g<C-A></td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g<Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g<Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
 <td>Comment insert end of line</td>
 <td>gcA</td>
 <td></td>
@@ -378,34 +406,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td>Comment insert below</td>
 <td>gco</td>
 <td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>g<C-X></td>
-<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>g<C-A></td>
-<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>g<Plug>(dial-decrement)</td>
-<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>g<Plug>(dial-increment)</td>
-<td><Cmd>lua require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
 </tr>
 <tr class="odd">
 <td>Flash</td>
@@ -476,19 +476,179 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="even">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><Plug>(nvim-surround-change-line)</td>
 <td></td>
-<td><C-K></td>
-<td><Cmd>lua require’tmux’.move_top()<CR></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair</td>
+<td><Plug>(nvim-surround-change)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete a surrounding pair</td>
+<td><Plug>(nvim-surround-delete)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-cur-line)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><Plug>(nvim-surround-normal-line)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><Plug>(nvim-surround-normal-cur)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><Plug>(nvim-surround-normal)</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-H></td>
-<td><Cmd>lua require’tmux’.move_left()<CR></td>
+<td><Plug>(Hydra2_wait)<Esc></td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td><Cmd>lua require’tmux’.move_bottom()<CR></td>
+<td><Plug>(Hydra2_wait)c</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra2_wait)k</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra2_wait)C</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra2_wait)e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra2_wait)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra2_wait)E</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra2_wait)j</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra2_wait)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)=</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra1_wait)<Esc></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)k</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra1_wait)l</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)j</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra1_wait)h</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)<Down></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra1_wait)<Up></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)<Right></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Hydra1_wait)<Left></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Hydra1_wait)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to previous reference</td>
+<td><M-p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move to next reference</td>
+<td><M-n></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-X></td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-A></td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
+require(“dial.command”).textobj()<CR></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle current block</td>
@@ -532,88 +692,31 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(expand_region_expand)</td>
-<td>:<C-U>call expand_region#next(‘n’, ‘+’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-X></td>
-<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-A></td>
-<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(dial-decrement)</td>
-<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(dial-increment)</td>
-<td><Cmd>lua require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR></td>
-</tr>
-<tr class="even">
-<td>Move to previous reference</td>
-<td><M-p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to next reference</td>
-<td><M-n></td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Change a surrounding pair, putting replacements on new lines</td>
-<td><Plug>(nvim-surround-change-line)</td>
 <td></td>
-</tr>
-<tr class="odd">
-<td>Change a surrounding pair</td>
-<td><Plug>(nvim-surround-change)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Delete a surrounding pair</td>
-<td><Plug>(nvim-surround-delete)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around the current line, on new lines (normal
-mode)</td>
-<td><Plug>(nvim-surround-normal-cur-line)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a motion, on new lines (normal
-mode)</td>
-<td><Plug>(nvim-surround-normal-line)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around the current line (normal mode)</td>
-<td><Plug>(nvim-surround-normal-cur)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a motion (normal mode)</td>
-<td><Plug>(nvim-surround-normal)</td>
+<td><Plug>luasnip-delete-check</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(startify-open-buffers)</td>
-<td>:<C-U>call startify#open_buffers()<CR></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-B></td>
+<td><Cmd>lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -629,26 +732,23 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><C-E></td>
 <td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-B></td>
-<td><Cmd>lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR></td>
+<td><C-H></td>
+<td><Cmd>lua require’tmux’.move_left()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><Cmd>lua require’tmux’.move_top()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Cmd>lua require’tmux’.move_bottom()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -658,113 +758,13 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
+<td><Plug>(startify-open-buffers)</td>
+<td>:<C-U>call startify#open_buffers()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra2_wait)k</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra2_wait)e</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra2_wait)c</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra2_wait)j</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra2_wait)C</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra2_wait)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra2_wait)<Esc></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra2_wait)E</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra2_wait)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)<Up></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra1_wait)<Esc></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)<Right></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra1_wait)<Left></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)=</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra1_wait)k</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)j</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra1_wait)l</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)h</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Hydra1_wait)<Down></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(Hydra1_wait)</td>
-<td></td>
+<td><Plug>(expand_region_expand)</td>
+<td>:<C-U>call expand_region#next(‘n’, ‘+’)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -866,19 +866,9 @@ false)<CR></td>
 true)<CR></td>
 </tr>
 <tr class="even">
-<td>outer value textobj</td>
-<td>av</td>
-<td><Cmd>lua require(‘various-textobjs’).value(false)<CR></td>
-</tr>
-<tr class="odd">
-<td>outer number textobj</td>
-<td>an</td>
-<td><Cmd>lua require(‘various-textobjs’).number(false)<CR></td>
-</tr>
-<tr class="even">
-<td>outer key textobj</td>
-<td>ak</td>
-<td><Cmd>lua require(‘various-textobjs’).key(false)<CR></td>
+<td>outer closedFold textobj</td>
+<td>az</td>
+<td><Cmd>lua require(‘various-textobjs’).closedFold(false)<CR></td>
 </tr>
 <tr class="odd">
 <td>outer lineCharacterwise textobj</td>
@@ -887,9 +877,9 @@ true)<CR></td>
 require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 </tr>
 <tr class="even">
-<td>outer closedFold textobj</td>
-<td>az</td>
-<td><Cmd>lua require(‘various-textobjs’).closedFold(false)<CR></td>
+<td>outer key textobj</td>
+<td>ak</td>
+<td><Cmd>lua require(‘various-textobjs’).key(false)<CR></td>
 </tr>
 <tr class="odd">
 <td>outer subword textobj</td>
@@ -902,6 +892,16 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).chainMember(false)<CR></td>
 </tr>
 <tr class="odd">
+<td>outer value textobj</td>
+<td>av</td>
+<td><Cmd>lua require(‘various-textobjs’).value(false)<CR></td>
+</tr>
+<tr class="even">
+<td>outer number textobj</td>
+<td>an</td>
+<td><Cmd>lua require(‘various-textobjs’).number(false)<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseXVis</td>
@@ -912,9 +912,9 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
 <tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td>gS</td>
-<td><Plug>(nvim-surround-visual-line)</td>
+<td>entireBuffer textobj</td>
+<td>gG</td>
+<td><Cmd>lua require(‘various-textobjs’).entireBuffer()<CR></td>
 </tr>
 <tr class="even">
 <td>restOfWindow textobj</td>
@@ -927,33 +927,33 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).visibleInWindow()<CR></td>
 </tr>
 <tr class="even">
-<td>entireBuffer textobj</td>
-<td>gG</td>
-<td><Cmd>lua require(‘various-textobjs’).entireBuffer()<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>g<C-X></td>
 <td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
 &amp;opfunc=“dial#operator#decrement_gvisual”<CR>g@gv</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g<C-A></td>
 <td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
 &amp;opfunc=“dial#operator#increment_gvisual”<CR>g@gv</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>g<Plug>(dial-decrement)</td>
 <td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
 &amp;opfunc=“dial#operator#decrement_gvisual”<CR>g@gv</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g<Plug>(dial-increment)</td>
 <td><Cmd>lua require”dial.command”.select_augend_gvisual()<CR><Cmd>let
 &amp;opfunc=“dial#operator#increment_gvisual”<CR>g@gv</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td>gS</td>
+<td><Plug>(nvim-surround-visual-line)</td>
 </tr>
 <tr class="odd">
 <td>inner-inner indentation textobj</td>
@@ -968,19 +968,9 @@ true)<CR></td>
 true)<CR></td>
 </tr>
 <tr class="odd">
-<td>inner value textobj</td>
-<td>iv</td>
-<td><Cmd>lua require(‘various-textobjs’).value(true)<CR></td>
-</tr>
-<tr class="even">
-<td>inner number textobj</td>
-<td>in</td>
-<td><Cmd>lua require(‘various-textobjs’).number(true)<CR></td>
-</tr>
-<tr class="odd">
-<td>inner key textobj</td>
-<td>ik</td>
-<td><Cmd>lua require(‘various-textobjs’).key(true)<CR></td>
+<td>inner closedFold textobj</td>
+<td>iz</td>
+<td><Cmd>lua require(‘various-textobjs’).closedFold(true)<CR></td>
 </tr>
 <tr class="even">
 <td>inner lineCharacterwise textobj</td>
@@ -989,9 +979,9 @@ true)<CR></td>
 require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 </tr>
 <tr class="odd">
-<td>inner closedFold textobj</td>
-<td>iz</td>
-<td><Cmd>lua require(‘various-textobjs’).closedFold(true)<CR></td>
+<td>inner key textobj</td>
+<td>ik</td>
+<td><Cmd>lua require(‘various-textobjs’).key(true)<CR></td>
 </tr>
 <tr class="even">
 <td>inner subword textobj</td>
@@ -1002,6 +992,16 @@ require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 <td>inner chainMember textobj</td>
 <td>im</td>
 <td><Cmd>lua require(‘various-textobjs’).chainMember(true)<CR></td>
+</tr>
+<tr class="even">
+<td>inner value textobj</td>
+<td>iv</td>
+<td><Cmd>lua require(‘various-textobjs’).value(true)<CR></td>
+</tr>
+<tr class="odd">
+<td>inner number textobj</td>
+<td>in</td>
+<td><Cmd>lua require(‘various-textobjs’).number(true)<CR></td>
 </tr>
 <tr class="even">
 <td>nearEoL textobj</td>
@@ -1020,13 +1020,13 @@ require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zb</td>
-<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+<td>zt</td>
+<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>zt</td>
-<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+<td>zb</td>
+<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1061,63 +1061,6 @@ require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-B></td>
-<td><Cmd>lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><Plug>(nvim-surround-visual-line)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-true })<CR></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection</td>
-<td><Plug>(nvim-surround-visual)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-false })<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(expand_region_shrink)</td>
-<td>:<C-U>call expand_region#next(‘v’, ‘-’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(expand_region_expand)</td>
-<td>:<C-U>call expand_region#next(‘v’, ‘+’)<CR></td>
-</tr>
-<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><C-N></td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
@@ -1141,37 +1084,94 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-X></td>
-<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-A></td>
-<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(dial-decrement)</td>
-<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(dial-increment)</td>
-<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><M-i></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><C-X></td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-A></td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(dial-decrement)</td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dial-increment)</td>
+<td><Cmd>lua require”dial.command”.select_augend_visual()<CR><Cmd>let
+&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-B></td>
+<td><Cmd>lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>luasnip-expand-repeat</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(expand_region_shrink)</td>
+<td>:<C-U>call expand_region#next(‘v’, ‘-’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(expand_region_expand)</td>
+<td>:<C-U>call expand_region#next(‘v’, ‘+’)<CR></td>
 </tr>
 </tbody>
 </table>
@@ -1238,17 +1238,6 @@ false)<CR></td>
 true)<CR></td>
 </tr>
 <tr class="even">
-<td>outer lineCharacterwise textobj</td>
-<td>a_</td>
-<td><Cmd>lua
-require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
-</tr>
-<tr class="odd">
-<td>outer key textobj</td>
-<td>ak</td>
-<td><Cmd>lua require(‘various-textobjs’).key(false)<CR></td>
-</tr>
-<tr class="even">
 <td>outer closedFold textobj</td>
 <td>az</td>
 <td><Cmd>lua require(‘various-textobjs’).closedFold(false)<CR></td>
@@ -1259,9 +1248,20 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).number(false)<CR></td>
 </tr>
 <tr class="even">
-<td>outer chainMember textobj</td>
-<td>am</td>
-<td><Cmd>lua require(‘various-textobjs’).chainMember(false)<CR></td>
+<td>outer value textobj</td>
+<td>av</td>
+<td><Cmd>lua require(‘various-textobjs’).value(false)<CR></td>
+</tr>
+<tr class="odd">
+<td>outer lineCharacterwise textobj</td>
+<td>a_</td>
+<td><Cmd>lua
+require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
+</tr>
+<tr class="even">
+<td>outer key textobj</td>
+<td>ak</td>
+<td><Cmd>lua require(‘various-textobjs’).key(false)<CR></td>
 </tr>
 <tr class="odd">
 <td>outer subword textobj</td>
@@ -1269,9 +1269,9 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).subword(false)<CR></td>
 </tr>
 <tr class="even">
-<td>outer value textobj</td>
-<td>av</td>
-<td><Cmd>lua require(‘various-textobjs’).value(false)<CR></td>
+<td>outer chainMember textobj</td>
+<td>am</td>
+<td><Cmd>lua require(‘various-textobjs’).chainMember(false)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1279,9 +1279,9 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Plug>(MatchitOperationBackward)</td>
 </tr>
 <tr class="even">
-<td>entireBuffer textobj</td>
-<td>gG</td>
-<td><Cmd>lua require(‘various-textobjs’).entireBuffer()<CR></td>
+<td>visibleInWindow textobj</td>
+<td>gw</td>
+<td><Cmd>lua require(‘various-textobjs’).visibleInWindow()<CR></td>
 </tr>
 <tr class="odd">
 <td>restOfWindow textobj</td>
@@ -1289,9 +1289,9 @@ require(‘various-textobjs’).lineCharacterwise(false)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).restOfWindow()<CR></td>
 </tr>
 <tr class="even">
-<td>visibleInWindow textobj</td>
-<td>gw</td>
-<td><Cmd>lua require(‘various-textobjs’).visibleInWindow()<CR></td>
+<td>entireBuffer textobj</td>
+<td>gG</td>
+<td><Cmd>lua require(‘various-textobjs’).entireBuffer()<CR></td>
 </tr>
 <tr class="odd">
 <td>inner-inner indentation textobj</td>
@@ -1306,17 +1306,6 @@ true)<CR></td>
 true)<CR></td>
 </tr>
 <tr class="odd">
-<td>inner lineCharacterwise textobj</td>
-<td>i_</td>
-<td><Cmd>lua
-require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
-</tr>
-<tr class="even">
-<td>inner key textobj</td>
-<td>ik</td>
-<td><Cmd>lua require(‘various-textobjs’).key(true)<CR></td>
-</tr>
-<tr class="odd">
 <td>inner closedFold textobj</td>
 <td>iz</td>
 <td><Cmd>lua require(‘various-textobjs’).closedFold(true)<CR></td>
@@ -1327,9 +1316,20 @@ require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).number(true)<CR></td>
 </tr>
 <tr class="odd">
-<td>inner chainMember textobj</td>
-<td>im</td>
-<td><Cmd>lua require(‘various-textobjs’).chainMember(true)<CR></td>
+<td>inner value textobj</td>
+<td>iv</td>
+<td><Cmd>lua require(‘various-textobjs’).value(true)<CR></td>
+</tr>
+<tr class="even">
+<td>inner lineCharacterwise textobj</td>
+<td>i_</td>
+<td><Cmd>lua
+require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
+</tr>
+<tr class="odd">
+<td>inner key textobj</td>
+<td>ik</td>
+<td><Cmd>lua require(‘various-textobjs’).key(true)<CR></td>
 </tr>
 <tr class="even">
 <td>inner subword textobj</td>
@@ -1337,9 +1337,9 @@ require(‘various-textobjs’).lineCharacterwise(true)<CR></td>
 <td><Cmd>lua require(‘various-textobjs’).subword(true)<CR></td>
 </tr>
 <tr class="odd">
-<td>inner value textobj</td>
-<td>iv</td>
-<td><Cmd>lua require(‘various-textobjs’).value(true)<CR></td>
+<td>inner chainMember textobj</td>
+<td>im</td>
+<td><Cmd>lua require(‘various-textobjs’).chainMember(true)<CR></td>
 </tr>
 <tr class="even">
 <td>nearEoL textobj</td>

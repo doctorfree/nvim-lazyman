@@ -94,21 +94,21 @@ Includes a combination of popular plugins
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <Plug>YSurround | <SNR>13_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>13_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>13_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>13_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>13_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>13_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>13_dosurround(<SNR>13_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>YSurround | <SNR>7_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>7_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>7_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>7_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>7_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>7_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>7_dosurround(<SNR>7_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -145,8 +145,8 @@ Includes a combination of popular plugins
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 
 #### operator mode keymaps
 

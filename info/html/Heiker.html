@@ -166,6 +166,36 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td>s</td>
+<td><Cmd>SearchBoxClear<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>uf</td>
+<td><Cmd>CtrlSFToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fw</td>
+<td><Esc><Cmd>exe ‘Find’ expand(‘<lt>cword&gt;’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>F</td>
+<td><Cmd>FineCmdline Find <CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>da</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>bb</td>
 <td><Cmd>Telescope buffers<CR></td>
 </tr>
@@ -201,18 +231,8 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>uf</td>
-<td><Cmd>CtrlSFToggle<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fw</td>
-<td><Esc><Cmd>exe ‘Find’ expand(‘<lt>cword&gt;’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>F</td>
-<td><Cmd>FineCmdline Find <CR></td>
+<td>cc</td>
+<td><Plug>(qf_qf_toggle)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -221,42 +241,22 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>cc</td>
-<td><Plug>(qf_qf_toggle)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>da</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>s</td>
-<td><Cmd>SearchBoxClear<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>m</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>uz</td>
+<td>bc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>bc</td>
+<td>g</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g</td>
+<td>uz</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -502,12 +502,12 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>cr</td>
+<td>cs</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>cs</td>
+<td>cr</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -537,12 +537,12 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
+<td>gcc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gcc</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -607,89 +607,89 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>(qf_qf_switch)</td>
 <td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(qf_loc_toggle_stay)</td>
 <td>:<C-U> call qf#toggle#ToggleLocWindow(1)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(qf_loc_toggle)</td>
 <td>:<C-U> call qf#toggle#ToggleLocWindow(0)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(qf_qf_toggle_stay)</td>
 <td>:<C-U> call qf#toggle#ToggleQfWindow(1)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(qf_qf_toggle)</td>
 <td>:<C-U> call qf#toggle#ToggleQfWindow(0)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(qf_loc_next)</td>
 <td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘l’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(qf_loc_previous)</td>
 <td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘l’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(qf_qf_next)</td>
 <td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘c’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(qf_qf_previous)</td>
 <td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘c’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>QfSwitch</td>
 <td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>QfLtoggle</td>
 <td><Plug>(qf_loc_toggle)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>QfCtoggle</td>
 <td><Plug>(qf_qf_toggle)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>QfLnext</td>
 <td><Plug>(qf_loc_next)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>QfLprevious</td>
 <td><Plug>(qf_loc_previous)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>QfCnext</td>
 <td><Plug>(qf_qf_next)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>QfCprevious</td>
 <td><Plug>(qf_qf_previous)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -115,51 +115,54 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
-| Find left surrounding | sF |  |
-| Delete surrounding | sd |  |
-| Highlight surrounding | sh |  |
-| Replace surrounding | sr |  |
-| Add surrounding | sa |  |
-| Update `MiniSurround.config.n_lines` | sn |  |
 | Find right surrounding | sf |  |
+| Add surrounding | sa |  |
+| Replace surrounding | sr |  |
+| Find left surrounding | sF |  |
+| Update `MiniSurround.config.n_lines` | sn |  |
+| Highlight surrounding | sh |  |
+| Delete surrounding | sd |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>SendLine |  |
+|  | <Plug>Send |  |
 |  | <M-l> |  |
 |  | <M-j> |  |
 |  | <M-k> |  |
 |  | <M-h> |  |
-|  | <Plug>Send |  |
-|  | <Plug>SendLine |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Indent line | <Tab> | >gv |
+| Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
+| Send to REPL |  r | <Plug>Send |
+| Evaluate Input |  dE |  |
+| Spectre |  s |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Increment number | + | g<C-A> |
-| Descrement number | - | g<C-X> |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
-| Easy Align | ga | <Plug>(EasyAlign) |
 |  | g% | <Plug>(MatchitVisualBackward) |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 | Add surrounding | sa |  |
+| Unindent line | <S-Tab> | <lt>gv |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
 |  | <M-j> |  |
-|  | <M-l> |  |
-|  | <M-h> |  |
 |  | <M-k> |  |
+|  | <M-h> |  |
+|  | <M-l> |  |
 
 #### operator mode keymaps
 
@@ -168,7 +171,9 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 |  | % | <Plug>(MatchitOperationForward) |
 |  | [% | <Plug>(MatchitOperationMultiBackward) |
 |  | ]% | <Plug>(MatchitOperationMultiForward) |
+| Around line text object | al | :normal val<CR> |
 |  | g% | <Plug>(MatchitOperationBackward) |
+| Inside line text object | il | :normal vil<CR> |
 |  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |

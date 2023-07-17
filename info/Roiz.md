@@ -73,29 +73,29 @@ Just a random Neovim config found on Github, works well
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Move line right | <Tab> | <Cmd>lua MiniMove.move_line('right')<CR> |
-| Where am I |  wai | :echo expand('%:p')<CR> |
+| Search current word with Spectre |  sw | :lua require('spectre').open_visual({select_word=true})<CR> |
 | Open Spectre |  ss | :lua require('spectre').open()<CR> |
 | Search on current file with Spectre |  sf | :lua require('spectre').open_file_search({select_word=true})<CR> |
-| Search current word with Spectre |  sw | :lua require('spectre').open_visual({select_word=true})<CR> |
-| Show git log |  glo | :Telescope git_commits initial_mode=normal<CR> |
+| Close diffview |  dcc | :DiffviewClose<CR> |
+| Open diffview |  dv | :DiffviewOpen<CR> |
+| Show current file history |  dch | :DiffviewFileHistory %<CR> |
+| Show Commit history with changes |  dh | :DiffviewFileHistory<CR> |
 | Open Telescope live_grep |  fg | :Telescope live_grep<CR> |
 | Open Telescope |  ff | :Telescope find_files<CR> |
 | Show git status |  gst | :Telescope git_status initial_mode=normal<CR> |
 | Open Telescope Keymaps |  k | :Telescope keymaps<CR> |
 | Show git branches |  gb | :Telescope git_branches initial_mode=normal<CR> |
-| Open a floating term |  tt | :ToggleTerm direction=float<CR> |
-| Show Commit history with changes |  dh | :DiffviewFileHistory<CR> |
-| Show current file history |  dch | :DiffviewFileHistory %<CR> |
-| Open diffview |  dv | :DiffviewOpen<CR> |
-| Close diffview |  dcc | :DiffviewClose<CR> |
-| Select all |  a | ggvG<S-End> |
+| Show git log |  glo | :Telescope git_commits initial_mode=normal<CR> |
+| Where am I |  wai | :echo expand('%:p')<CR> |
 | Test keymap |  test | :echo 'This is a test keymap!'<CR> |
-| Start PR review |  ors | :Octo review start<CR> |
+| Select all |  a | ggvG<S-End> |
 | Close current review |  orc | :Octo review close<CR> |
 | Resume PR review |  orr | :Octo review resume<CR> |
 | Reload current PR |  opr | :Octo pr reload<CR> |
 | List PR's |  opl | :Octo pr list initial_mode=normal<CR> |
 | Submit PR review |  orss | :Octo review submit<CR> |
+| Start PR review |  ors | :Octo review start<CR> |
+| Open a floating term |  tt | :ToggleTerm direction=float<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | go to the beggining of the line | B | ^ |
@@ -109,6 +109,11 @@ Just a random Neovim config found on Github, works well
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Clear search highlight | _ | :noh<CR> |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| Close preview windows | gP |  |
+| Preview references | gpr |  |
+| Preview implementation | gpi |  |
+| Preview type definition | gpt |  |
+| Preview definition | gpd |  |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
 | Comment insert below | gco |  |
@@ -116,23 +121,18 @@ Just a random Neovim config found on Github, works well
 | Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
-| Close preview windows | gP |  |
-| Preview references | gpr |  |
-| Preview implementation | gpi |  |
-| Preview type definition | gpt |  |
-| Preview definition | gpd |  |
-| Close all folds | zM |  |
 | Open all folds | zR |  |
+| Close all folds | zM |  |
+| Close current buffer | <M-w> | :bd<CR> |
+| Move to the previous buffer | <M-h> | :BufferLineCyclePrev<CR> |
+| Move to the next buffer | <M-l> | :BufferLineCycleNext<CR> |
 | Update buffer | <F5> | :bufdo e!<CR> |
-| Format file | <M-F> | :lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR> |
 | Save current file | <C-S> | :w<CR> |
 | Open Nvimtree | <C-B> | :NvimTreeFindFileToggle<CR> |
 | Move up faster | <C-K> | 10k |
 | Quit Nvim | <C-Q> | :q<CR> |
 | Move down faster | <C-J> | 10j |
-| Close current buffer | <M-w> | :bd<CR> |
-| Move to the previous buffer | <M-h> | :BufferLineCyclePrev<CR> |
-| Move to the next buffer | <M-l> | :BufferLineCycleNext<CR> |
+| Format file | <M-F> | :lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
@@ -140,12 +140,6 @@ Just a random Neovim config found on Github, works well
 | Move line up | <M-k> | <Cmd>lua MiniMove.move_line('up')<CR> |
 | Move line down | <M-j> | <Cmd>lua MiniMove.move_line('down')<CR> |
 | Move line left | <S-Tab> | <Cmd>lua MiniMove.move_line('left')<CR> |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <C-Down> | <Plug>(VM-Add-Cursor-Down) |
 |  | <C-Up> | <Plug>(VM-Add-Cursor-Up) |
 |  | <S-Right> | <Plug>(VM-Select-l) |
@@ -179,6 +173,12 @@ Just a random Neovim config found on Github, works well
 |  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 | Close current buffer | æ | :bd<CR> |
@@ -212,16 +212,16 @@ Just a random Neovim config found on Github, works well
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <C-N> | <Plug>(VM-Find-Subword-Under) |
 |  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>20_Visual('under') |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>19_Visual('under') |
 |  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
 |  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
 |  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>20_Visual('all') |
+|  | <Plug>(VM-Visual-All) | <SNR>19_Visual('all') |
 |  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 | Move up | <M-k> | <Cmd>lua MiniMove.move_selection('up')<CR> |
 | Move down | <M-j> | <Cmd>lua MiniMove.move_selection('down')<CR> |
 | Move left | <S-Tab> | <Cmd>lua MiniMove.move_selection('left')<CR> |

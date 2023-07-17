@@ -100,18 +100,14 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-|  | <Plug>YSurround | <SNR>17_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>17_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>17_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>17_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>17_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>17_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>17_dosurround(<SNR>17_inputtarget())<CR> |
+|  | <Plug>YSurround | <SNR>20_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>20_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>20_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>20_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>20_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>20_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>20_dosurround(<SNR>20_inputtarget())<CR> |
 |  | <Plug>SurroundRepeat | . |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
@@ -119,6 +115,10 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -153,11 +153,11 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>VgSurround | :<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>13_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>13_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
 
 #### operator mode keymaps
 

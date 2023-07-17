@@ -574,6 +574,16 @@ require’telescope’.extensions.live_grep_args.live_grep_args()<CR></td>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv</td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
@@ -604,16 +614,6 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <td></td>
 <td><C-H></td>
 <td>:<C-U>TmuxNavigateLeft<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(vsnip-cut-text)</td>
-<td>:<C-U>call <SNR>8_vsnip_visual_text(visualmode())<CR>gv”_c</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(vsnip-select-text)</td>
-<td>:<C-U>call <SNR>8_vsnip_visual_text(visualmode())<CR>gv</td>
 </tr>
 <tr class="odd">
 <td></td>

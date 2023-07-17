@@ -96,16 +96,6 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 <td></td>
 </tr>
 <tr class="even">
-<td>Autocommands</td>
-<td>fa</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search</td>
-<td>/</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Buffers</td>
 <td></td>
 <td></td>
@@ -138,6 +128,16 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 <tr class="even">
 <td>Commands</td>
 <td>fc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Autocommands</td>
+<td>fa</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search</td>
+<td>/</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -566,6 +566,16 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 <td><Plug>NetrwBrowseX</td>
 </tr>
 <tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>(leap-cross-window)</td>
+</tr>
+<tr class="even">
 <td>Comment line</td>
 <td>gcc</td>
 <td>v:lua.MiniComment.operator() . “_”</td>
@@ -587,16 +597,6 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(matchup-g%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gs</td>
-<td><Plug>(leap-cross-window)</td>
-</tr>
-<tr class="even">
-<td></td>
 <td>s</td>
 <td><Plug>(leap-forward-to)</td>
 </tr>
@@ -604,16 +604,6 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 <td></td>
 <td>t</td>
 <td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>yo<Esc></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>yo</td>
-<td><Plug>(unimpaired-toggle)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -647,6 +637,16 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 </tr>
 <tr class="even">
 <td></td>
+<td>yo<Esc></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>yo</td>
+<td><Plug>(unimpaired-toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
 <td>z%</td>
 <td><Plug>(matchup-z%)</td>
 </tr>
@@ -655,982 +655,6 @@ href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></l
 <td><Plug>NetrwBrowseX</td>
 <td>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(dirvish_vsplit_up)</td>
-<td>:<C-U>vsplit</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(dirvish_split_up)</td>
-<td>:<C-U>split</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(dirvish_up)</td>
-<td>:<C-U>exe ‘Dirvish’ fnameescape(fnamemodify(@%,
-‘:p’.(@%[-1:]=~‘[\/]’?‘:h’:’‘).repeat(’:h’,v:count1)))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>&lt;2-LeftMouse&gt;</td>
-<td><Plug>(matchup-double-click)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-reload)</td>
-<td>:<C-U>MatchupReload<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-double-click)</td>
-<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-Z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-[%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-]%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-g%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><SNR>28_(wise)</td>
-<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-hi-surround)</td>
-<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-xml-decode-line)</td>
-<td><SNR>20_TransformSetup(“xml_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-xml-decode)</td>
-<td><SNR>20_TransformSetup(“xml_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_xml_decode</td>
-<td><SNR>20_TransformSetup(“xml_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_xml_decode</td>
-<td><SNR>20_TransformSetup(“xml_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-xml-encode-line)</td>
-<td><SNR>20_TransformSetup(“xml_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-xml-encode)</td>
-<td><SNR>20_TransformSetup(“xml_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_xml_encode</td>
-<td><SNR>20_TransformSetup(“xml_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_xml_encode</td>
-<td><SNR>20_TransformSetup(“xml_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-url-decode-line)</td>
-<td><SNR>20_TransformSetup(“url_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-url-decode)</td>
-<td><SNR>20_TransformSetup(“url_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_url_decode</td>
-<td><SNR>20_TransformSetup(“url_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_url_decode</td>
-<td><SNR>20_TransformSetup(“url_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-url-encode-line)</td>
-<td><SNR>20_TransformSetup(“url_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-url-encode)</td>
-<td><SNR>20_TransformSetup(“url_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_url_encode</td>
-<td><SNR>20_TransformSetup(“url_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_url_encode</td>
-<td><SNR>20_TransformSetup(“url_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-string-decode-line)</td>
-<td><SNR>20_TransformSetup(“string_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-string-decode)</td>
-<td><SNR>20_TransformSetup(“string_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_string_decode</td>
-<td><SNR>20_TransformSetup(“string_decode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_string_decode</td>
-<td><SNR>20_TransformSetup(“string_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-string-encode-line)</td>
-<td><SNR>20_TransformSetup(“string_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-string-encode)</td>
-<td><SNR>20_TransformSetup(“string_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_line_string_encode</td>
-<td><SNR>20_TransformSetup(“string_encode”).”_”</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpaired_string_encode</td>
-<td><SNR>20_TransformSetup(“string_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedPutBelow</td>
-<td>:call <SNR>20_putline(‘]p’, ‘below’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedPutAbove</td>
-<td>:call <SNR>20_putline(‘[p’, ‘above’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-put-below-reformat)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ‘]p’, ‘Below’)<CR>=’]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-put-above-reformat)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ’[p’, ‘Above’)<CR>=’]</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-put-below-leftward)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ‘]p’, ‘Below’)<CR><lt>’]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-put-above-leftward)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ’[p’, ‘Above’)<CR><lt>’]</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-put-below-rightward)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ‘]p’, ‘Below’)<CR>&gt;’]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-put-above-rightward)</td>
-<td>:<C-U>call <SNR>20_putline(v:count1 . ’[p’, ‘Above’)<CR>&gt;’]</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-put-below)</td>
-<td>:call <SNR>20_putline(‘]p’, ‘below’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-put-above)</td>
-<td>:call <SNR>20_putline(‘[p’, ‘above’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)p</td>
-<td>:<C-U>call <SNR>20_SetupPaste()<CR>0C</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)p</td>
-<td>:<C-U>call <SNR>20_SetupPaste()<CR>o</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)p</td>
-<td>:<C-U>call <SNR>20_SetupPaste()<CR>O</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-paste)</td>
-<td>:<C-U>call <SNR>20_SetupPaste()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedPaste</td>
-<td>:call <SNR>20_SetupPaste()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)t</td>
-<td>:<C-U>set
-colorcolumn=<C-R>=<SNR>20_ColorColumn(!empty(&amp;cc))<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)t</td>
-<td>:<C-U>set colorcolumn=<C-R>=<SNR>20_ColorColumn(1)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)t</td>
-<td>:<C-U>set colorcolumn=<C-R>=<SNR>20_ColorColumn(0)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)+</td>
-<td>:<C-U>set <C-R>=<SNR>20_CursorOptions()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)+</td>
-<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)+</td>
-<td>:<C-U>set cursorline cursorcolumn<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)x</td>
-<td>:<C-U>set <C-R>=<SNR>20_CursorOptions()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)x</td>
-<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)x</td>
-<td>:<C-U>set cursorline cursorcolumn<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)v</td>
-<td>:<C-U>set <C-R>=(&amp;virtualedit =~# “all”) ? “virtualedit-=all” :
-“virtualedit+=all”<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)v</td>
-<td>:<C-U>set virtualedit-=all<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)v</td>
-<td>:<C-U>set virtualedit+=all<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)z</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“spell”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)z</td>
-<td>:<C-U>setlocal nospell<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)z</td>
-<td>:<C-U>setlocal spell<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)w</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“wrap”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)w</td>
-<td>:<C-U>setlocal nowrap<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)w</td>
-<td>:<C-U>setlocal wrap<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)s</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“spell”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)s</td>
-<td>:<C-U>setlocal nospell<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)s</td>
-<td>:<C-U>setlocal spell<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)r</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“relativenumber”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)r</td>
-<td>:<C-U>setlocal
-norelativenumber<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)r</td>
-<td>:<C-U>setlocal
-relativenumber<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)n</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“number”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)n</td>
-<td>:<C-U>setlocal
-nonumber<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)n</td>
-<td>:<C-U>setlocal number<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)l</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“list”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)l</td>
-<td>:<C-U>setlocal nolist<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)l</td>
-<td>:<C-U>setlocal list<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)i</td>
-<td>:<C-U>set <C-R>=<SNR>20_Toggle(“ignorecase”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)i</td>
-<td>:<C-U>set noignorecase<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)i</td>
-<td>:<C-U>set ignorecase<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)h</td>
-<td>:<C-U>set <C-R>=<SNR>20_Toggle(“hlsearch”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)h</td>
-<td>:<C-U>set nohlsearch<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)h</td>
-<td>:<C-U>set hlsearch<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)d</td>
-<td>:<C-U><C-R>=&amp;diff ? “diffoff” : “diffthis”<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)d</td>
-<td>:<C-U>diffoff<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)d</td>
-<td>:<C-U>diffthis<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)u</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“cursorcolumn”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)u</td>
-<td>:<C-U>setlocal
-nocursorcolumn<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)u</td>
-<td>:<C-U>setlocal
-cursorcolumn<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)_</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“cursorline”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)_</td>
-<td>:<C-U>setlocal
-nocursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)_</td>
-<td>:<C-U>setlocal
-cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)-</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“cursorline”)<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)-</td>
-<td>:<C-U>setlocal
-nocursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)-</td>
-<td>:<C-U>setlocal
-cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-toggle)c</td>
-<td>:<C-U>setlocal <C-R>=<SNR>20_Toggle(“cursorline”)<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-disable)c</td>
-<td>:<C-U>setlocal
-nocursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-enable)c</td>
-<td>:<C-U>setlocal
-cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-toggle)b</td>
-<td>:<C-U>set background=<C-R>=&amp;background == “dark” ? “light” :
-“dark”<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-disable)b</td>
-<td>:<C-U>set background=dark<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-enable)b</td>
-<td>:<C-U>set background=light<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedMoveSelectionDown</td>
-<td>:<C-U>call <SNR>20_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedMoveSelectionUp</td>
-<td>:<C-U>call <SNR>20_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedMoveDown</td>
-<td>:<C-U>call <SNR>20_Move(‘+’,v:count1,‘down’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedMoveUp</td>
-<td>:<C-U>call <SNR>20_Move(‘–’,v:count1,‘up’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-move-selection-down)</td>
-<td>:<C-U>call <SNR>20_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-move-selection-up)</td>
-<td>:<C-U>call <SNR>20_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-move-down)</td>
-<td>:<C-U>call <SNR>20_Move(‘+’,v:count1,‘down’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-move-up)</td>
-<td>:<C-U>call <SNR>20_Move(‘–’,v:count1,‘up’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedBlankDown</td>
-<td>:<C-U>exe <SNR>20_BlankDown()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedBlankUp</td>
-<td>:<C-U>exe <SNR>20_BlankUp()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-blank-down)</td>
-<td>:<C-U>exe <SNR>20_BlankDown()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-blank-up)</td>
-<td>:<C-U>exe <SNR>20_BlankUp()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedContextNext</td>
-<td>:<C-U>call <SNR>20_Context(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedContextPrevious</td>
-<td>:<C-U>call <SNR>20_Context(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-context-next)</td>
-<td>:<C-U>call <SNR>20_Context(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-context-previous)</td>
-<td>:<C-U>call <SNR>20_Context(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedDirectoryPrevious</td>
-<td>:<C-U>execute <SNR>20_PreviousFileEntry(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedDirectoryNext</td>
-<td>:<C-U>execute <SNR>20_NextFileEntry(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-directory-previous)</td>
-<td>:<C-U>execute <SNR>20_PreviousFileEntry(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-directory-next)</td>
-<td>:<C-U>execute <SNR>20_NextFileEntry(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedTPNext</td>
-<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedTPPrevious</td>
-<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-ptnext)</td>
-<td>:<C-U>exe v:count1 . “ptnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-ptprevious)</td>
-<td>:<C-U>exe v:count1 . “ptprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedTLast</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tlast”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedTFirst</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tfirst”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedTNext</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedTPrevious</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-tlast)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tlast”<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-tfirst)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tfirst”<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-tnext)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-tprevious)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedQNFile</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedQPFile</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-cnfile)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-cpfile)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedQLast</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”clast”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedQFirst</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cfirst”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedQNext</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedQPrevious</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-clast)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “cc” : “clast”<CR><CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-cfirst)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “cc” : “cfirst”<CR><CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-cnext)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-cprevious)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedLNFile</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedLPFile</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-lnfile)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-lpfile)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedLLast</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”llast”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedLFirst</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lfirst”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedLNext</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedLPrevious</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-llast)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “ll” : “llast”<CR><CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-lfirst)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “ll” : “lfirst”<CR><CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-lnext)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-lprevious)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedBLast</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”blast”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedBFirst</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”bfirst”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedBNext</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedBPrevious</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-blast)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “blast”<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-bfirst)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “bfirst”<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-bnext)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-bprevious)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedALast</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”last”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedAFirst</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”first”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedANext</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedAPrevious</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-last)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “argument” : “last”<CR><CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-first)</td>
-<td>:<C-U><C-R>=v:count ? v:count . “argument” : “first”<CR><CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-next)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-previous)</td>
-<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(leap-backward-x)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(leap-forward-x)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(leap-backward)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(leap-forward)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(leap-cross-window)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(leap-backward-till)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(leap-backward-to)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(leap-forward-till)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(leap-forward-to)</td>
-<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1654,43 +678,1018 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>YSurround</td>
-<td><SNR>5_opfunc2(‘setup’)</td>
+<td>&lt;2-LeftMouse&gt;</td>
+<td><Plug>(matchup-double-click)</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>(matchup-reload)</td>
+<td>:<C-U>MatchupReload<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-double-click)</td>
+<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>25_(wise)</td>
+<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-hi-surround)</td>
+<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dirvish_vsplit_up)</td>
+<td>:<C-U>vsplit</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(dirvish_split_up)</td>
+<td>:<C-U>split</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(dirvish_up)</td>
+<td>:<C-U>exe ‘Dirvish’ fnameescape(fnamemodify(@%,
+‘:p’.(@%[-1:]=~‘[\/]’?‘:h’:’‘).repeat(’:h’,v:count1)))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-x)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-x)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-cross-window)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-backward-till)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-backward-to)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(leap-forward-till)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(leap-forward-to)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>18_opfunc2(‘setup’)</td>
+</tr>
+<tr class="even">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>5_opfunc(‘setup’)</td>
+<td><SNR>18_opfunc(‘setup’)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>5_opfunc2(‘setup’).’_’</td>
+<td><SNR>18_opfunc2(‘setup’).’_’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>5_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>18_opfunc(‘setup’).’g_’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>5_changesurround(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>5_changesurround()<CR></td>
+<td>:<C-U>call <SNR>18_changesurround(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>18_changesurround()<CR></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>18_dosurround(<SNR>18_inputtarget())<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><Plug>SurroundRepeat</td>
 <td>.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-xml-decode-line)</td>
+<td><SNR>7_TransformSetup(“xml_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-decode)</td>
+<td><SNR>7_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_xml_decode</td>
+<td><SNR>7_TransformSetup(“xml_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_xml_decode</td>
+<td><SNR>7_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-xml-encode-line)</td>
+<td><SNR>7_TransformSetup(“xml_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-encode)</td>
+<td><SNR>7_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_xml_encode</td>
+<td><SNR>7_TransformSetup(“xml_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_xml_encode</td>
+<td><SNR>7_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-url-decode-line)</td>
+<td><SNR>7_TransformSetup(“url_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-decode)</td>
+<td><SNR>7_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_url_decode</td>
+<td><SNR>7_TransformSetup(“url_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_url_decode</td>
+<td><SNR>7_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-url-encode-line)</td>
+<td><SNR>7_TransformSetup(“url_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-encode)</td>
+<td><SNR>7_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_url_encode</td>
+<td><SNR>7_TransformSetup(“url_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_url_encode</td>
+<td><SNR>7_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-string-decode-line)</td>
+<td><SNR>7_TransformSetup(“string_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-decode)</td>
+<td><SNR>7_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_string_decode</td>
+<td><SNR>7_TransformSetup(“string_decode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_string_decode</td>
+<td><SNR>7_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-string-encode-line)</td>
+<td><SNR>7_TransformSetup(“string_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-encode)</td>
+<td><SNR>7_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_line_string_encode</td>
+<td><SNR>7_TransformSetup(“string_encode”).”_”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpaired_string_encode</td>
+<td><SNR>7_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedPutBelow</td>
+<td>:call <SNR>7_putline(‘]p’, ‘below’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedPutAbove</td>
+<td>:call <SNR>7_putline(‘[p’, ‘above’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-reformat)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ‘]p’, ‘Below’)<CR>=’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-reformat)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ’[p’, ‘Above’)<CR>=’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-leftward)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ‘]p’, ‘Below’)<CR><lt>’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-leftward)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ’[p’, ‘Above’)<CR><lt>’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below-rightward)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ‘]p’, ‘Below’)<CR>&gt;’]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above-rightward)</td>
+<td>:<C-U>call <SNR>7_putline(v:count1 . ’[p’, ‘Above’)<CR>&gt;’]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-put-below)</td>
+<td>:call <SNR>7_putline(‘]p’, ‘below’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-put-above)</td>
+<td>:call <SNR>7_putline(‘[p’, ‘above’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)p</td>
+<td>:<C-U>call <SNR>7_SetupPaste()<CR>0C</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)p</td>
+<td>:<C-U>call <SNR>7_SetupPaste()<CR>o</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)p</td>
+<td>:<C-U>call <SNR>7_SetupPaste()<CR>O</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-paste)</td>
+<td>:<C-U>call <SNR>7_SetupPaste()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedPaste</td>
+<td>:call <SNR>7_SetupPaste()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)t</td>
+<td>:<C-U>set
+colorcolumn=<C-R>=<SNR>7_ColorColumn(!empty(&amp;cc))<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)t</td>
+<td>:<C-U>set colorcolumn=<C-R>=<SNR>7_ColorColumn(1)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)t</td>
+<td>:<C-U>set colorcolumn=<C-R>=<SNR>7_ColorColumn(0)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)+</td>
+<td>:<C-U>set <C-R>=<SNR>7_CursorOptions()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)+</td>
+<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)+</td>
+<td>:<C-U>set cursorline cursorcolumn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)x</td>
+<td>:<C-U>set <C-R>=<SNR>7_CursorOptions()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)x</td>
+<td>:<C-U>set nocursorline nocursorcolumn<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)x</td>
+<td>:<C-U>set cursorline cursorcolumn<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)v</td>
+<td>:<C-U>set <C-R>=(&amp;virtualedit =~# “all”) ? “virtualedit-=all” :
+“virtualedit+=all”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)v</td>
+<td>:<C-U>set virtualedit-=all<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)v</td>
+<td>:<C-U>set virtualedit+=all<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)z</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“spell”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)z</td>
+<td>:<C-U>setlocal nospell<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)z</td>
+<td>:<C-U>setlocal spell<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)w</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“wrap”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)w</td>
+<td>:<C-U>setlocal nowrap<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)w</td>
+<td>:<C-U>setlocal wrap<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)s</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“spell”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)s</td>
+<td>:<C-U>setlocal nospell<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)s</td>
+<td>:<C-U>setlocal spell<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)r</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“relativenumber”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)r</td>
+<td>:<C-U>setlocal
+norelativenumber<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)r</td>
+<td>:<C-U>setlocal
+relativenumber<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)n</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“number”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)n</td>
+<td>:<C-U>setlocal nonumber<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)n</td>
+<td>:<C-U>setlocal number<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)l</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“list”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)l</td>
+<td>:<C-U>setlocal nolist<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)l</td>
+<td>:<C-U>setlocal list<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)i</td>
+<td>:<C-U>set <C-R>=<SNR>7_Toggle(“ignorecase”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)i</td>
+<td>:<C-U>set noignorecase<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)i</td>
+<td>:<C-U>set ignorecase<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)h</td>
+<td>:<C-U>set <C-R>=<SNR>7_Toggle(“hlsearch”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)h</td>
+<td>:<C-U>set nohlsearch<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)h</td>
+<td>:<C-U>set hlsearch<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)d</td>
+<td>:<C-U><C-R>=&amp;diff ? “diffoff” : “diffthis”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)d</td>
+<td>:<C-U>diffoff<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)d</td>
+<td>:<C-U>diffthis<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)u</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“cursorcolumn”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)u</td>
+<td>:<C-U>setlocal
+nocursorcolumn<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)u</td>
+<td>:<C-U>setlocal
+cursorcolumn<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)_</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)_</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)_</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)-</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)-</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)-</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-toggle)c</td>
+<td>:<C-U>setlocal <C-R>=<SNR>7_Toggle(“cursorline”)<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-disable)c</td>
+<td>:<C-U>setlocal
+nocursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-enable)c</td>
+<td>:<C-U>setlocal
+cursorline<C-R>=<SNR>7_StatuslineRefresh()<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-toggle)b</td>
+<td>:<C-U>set background=<C-R>=&amp;background == “dark” ? “light” :
+“dark”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-disable)b</td>
+<td>:<C-U>set background=dark<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-enable)b</td>
+<td>:<C-U>set background=light<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>7_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>7_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveDown</td>
+<td>:<C-U>call <SNR>7_Move(‘+’,v:count1,‘down’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveUp</td>
+<td>:<C-U>call <SNR>7_Move(‘–’,v:count1,‘up’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>7_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>7_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-down)</td>
+<td>:<C-U>call <SNR>7_Move(‘+’,v:count1,‘down’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-up)</td>
+<td>:<C-U>call <SNR>7_Move(‘–’,v:count1,‘up’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBlankDown</td>
+<td>:<C-U>exe <SNR>7_BlankDown()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBlankUp</td>
+<td>:<C-U>exe <SNR>7_BlankUp()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-blank-down)</td>
+<td>:<C-U>exe <SNR>7_BlankDown()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-blank-up)</td>
+<td>:<C-U>exe <SNR>7_BlankUp()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>call <SNR>7_Context(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>call <SNR>7_Context(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>call <SNR>7_Context(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>call <SNR>7_Context(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedDirectoryPrevious</td>
+<td>:<C-U>execute <SNR>7_PreviousFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedDirectoryNext</td>
+<td>:<C-U>execute <SNR>7_NextFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-directory-previous)</td>
+<td>:<C-U>execute <SNR>7_PreviousFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-directory-next)</td>
+<td>:<C-U>execute <SNR>7_NextFileEntry(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTPNext</td>
+<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTPPrevious</td>
+<td>:<C-U>exe “p”.(v:count ? v:count : ““).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-ptnext)</td>
+<td>:<C-U>exe v:count1 . “ptnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-ptprevious)</td>
+<td>:<C-U>exe v:count1 . “ptprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tlast”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tfirst”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedTNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedTPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-tlast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tlast”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-tfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “trewind” : “tfirst”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-tnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-tprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”tprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQNFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQPFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-cnfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cpfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”clast”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cfirst”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedQNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedQPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-clast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “cc” : “clast”<CR><CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “cc” : “cfirst”<CR><CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-cnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-cprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”cprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLNFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLPFile</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-lnfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnfile”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lpfile)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lpfile”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”llast”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lfirst”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedLNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedLPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-llast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “ll” : “llast”<CR><CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “ll” : “lfirst”<CR><CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-lnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lnext”<CR>zv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-lprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”lprevious”<CR>zv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBLast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”blast”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bfirst”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedBNext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedBPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-blast)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “blast”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-bfirst)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “buffer” : “bfirst”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-bnext)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bnext”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-bprevious)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”bprevious”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedALast</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”last”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedAFirst</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”first”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedANext</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedAPrevious</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-last)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “argument” : “last”<CR><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-first)</td>
+<td>:<C-U><C-R>=v:count ? v:count . “argument” : “first”<CR><CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-next)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”next”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-previous)</td>
+<td>:<C-U>exe ““.(v:count ? v:count :”“).”previous”<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1855,16 +1854,6 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <td><Plug>NetrwBrowseXVis</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>gS</td>
-<td><Plug>VgSurround</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gs</td>
-<td><Plug>(leap-cross-window)</td>
-</tr>
-<tr class="odd">
 <td>Comment selection</td>
 <td>gc</td>
 <td>:<C-U>lua MiniComment.operator(‘visual’)<CR></td>
@@ -1878,6 +1867,16 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <td>Align</td>
 <td>ga</td>
 <td><Cmd>lua MiniAlign.action_visual(false)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gS</td>
+<td><Plug>VgSurround</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>(leap-cross-window)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1916,15 +1915,125 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><Plug>(unimpaired-xml-decode)</td>
+<td><SNR>35_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_xml_decode</td>
+<td><SNR>35_TransformSetup(“xml_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-xml-encode)</td>
+<td><SNR>35_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_xml_encode</td>
+<td><SNR>35_TransformSetup(“xml_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-decode)</td>
+<td><SNR>35_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_url_decode</td>
+<td><SNR>35_TransformSetup(“url_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-url-encode)</td>
+<td><SNR>35_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_url_encode</td>
+<td><SNR>35_TransformSetup(“url_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-decode)</td>
+<td><SNR>35_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_string_decode</td>
+<td><SNR>35_TransformSetup(“string_decode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-string-encode)</td>
+<td><SNR>35_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpaired_string_encode</td>
+<td><SNR>35_TransformSetup(“string_encode”)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>exe ‘normal! gv’</td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>27_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>18_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>27_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1973,116 +2082,6 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(unimpaired-xml-decode)</td>
-<td><SNR>15_TransformSetup(“xml_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_xml_decode</td>
-<td><SNR>15_TransformSetup(“xml_decode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-xml-encode)</td>
-<td><SNR>15_TransformSetup(“xml_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_xml_encode</td>
-<td><SNR>15_TransformSetup(“xml_encode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-url-decode)</td>
-<td><SNR>15_TransformSetup(“url_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_url_decode</td>
-<td><SNR>15_TransformSetup(“url_decode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-url-encode)</td>
-<td><SNR>15_TransformSetup(“url_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_url_encode</td>
-<td><SNR>15_TransformSetup(“url_encode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-string-decode)</td>
-<td><SNR>15_TransformSetup(“string_decode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_string_decode</td>
-<td><SNR>15_TransformSetup(“string_decode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-string-encode)</td>
-<td><SNR>15_TransformSetup(“string_encode”)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpaired_string_encode</td>
-<td><SNR>15_TransformSetup(“string_encode”)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedMoveSelectionDown</td>
-<td>:<C-U>call <SNR>15_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedMoveSelectionUp</td>
-<td>:<C-U>call <SNR>15_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-move-selection-down)</td>
-<td>:<C-U>call <SNR>15_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-move-selection-up)</td>
-<td>:<C-U>call <SNR>15_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedContextNext</td>
-<td>:<C-U>exe ‘normal! gv’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedContextPrevious</td>
-<td>:<C-U>exe ‘normal! gv’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-context-next)</td>
-<td>:<C-U>exe ‘normal! gv’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-context-previous)</td>
-<td>:<C-U>exe ‘normal! gv’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>(matchup-a%)</td>
 <td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
 </tr>
@@ -2094,61 +2093,61 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-Z%)</td>
-<td><SNR>7_(matchup-Z%)</td>
+<td><SNR>10_(matchup-Z%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>7_(matchup-Z%)</td>
+<td><SNR>10_(matchup-Z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-z%)</td>
-<td><SNR>7_(matchup-z%)</td>
+<td><SNR>10_(matchup-z%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>7_(matchup-z%)</td>
+<td><SNR>10_(matchup-z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-[%)</td>
-<td><SNR>7_(matchup-[%)</td>
+<td><SNR>10_(matchup-[%)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-]%)</td>
-<td><SNR>7_(matchup-]%)</td>
+<td><SNR>10_(matchup-]%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>7_(matchup-[%)</td>
+<td><SNR>10_(matchup-[%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>7_(matchup-]%)</td>
+<td><SNR>10_(matchup-]%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-g%)</td>
-<td><SNR>7_(matchup-g%)</td>
+<td><SNR>10_(matchup-g%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>7_(matchup-g%)</td>
+<td><SNR>10_(matchup-g%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-%)</td>
-<td><SNR>7_(matchup-%)</td>
+<td><SNR>10_(matchup-%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>7_(matchup-%)</td>
+<td><SNR>10_(matchup-%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
 </tr>
 </tbody>
@@ -2195,23 +2194,23 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(matchup-[%)</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>[n</td>
 <td><Plug>(unimpaired-context-previous)</td>
 </tr>
-<tr class="even">
-<td></td>
-<td>]%</td>
-<td><Plug>(matchup-]%)</td>
-</tr>
 <tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(matchup-[%)</td>
+</tr>
+<tr class="even">
 <td></td>
 <td>]n</td>
 <td><Plug>(unimpaired-context-next)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(matchup-]%)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2229,14 +2228,14 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <td><Plug>(leap-cross-window)</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>g%</td>
-<td><Ignore><Plug>(matchup-g%)</td>
-</tr>
-<tr class="even">
 <td>Comment textobject</td>
 <td>gc</td>
 <td><Cmd>lua MiniComment.textobject()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Ignore><Plug>(matchup-g%)</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2262,16 +2261,6 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <td></td>
 <td>z%</td>
 <td><Plug>(matchup-z%)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2320,6 +2309,56 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><Plug>unimpairedMoveSelectionDown</td>
+<td>:<C-U>call <SNR>22_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedMoveSelectionUp</td>
+<td>:<C-U>call <SNR>22_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-move-selection-down)</td>
+<td>:<C-U>call <SNR>22_MoveSelectionDown(v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-move-selection-up)</td>
+<td>:<C-U>call <SNR>22_MoveSelectionUp(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>unimpairedContextNext</td>
+<td>:<C-U>call <SNR>22_ContextMotion(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>unimpairedContextPrevious</td>
+<td>:<C-U>call <SNR>22_ContextMotion(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(unimpaired-context-next)</td>
+<td>:<C-U>call <SNR>22_ContextMotion(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(unimpaired-context-previous)</td>
+<td>:<C-U>call <SNR>22_ContextMotion(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><Plug>(matchup-a%)</td>
 <td>:<C-U>call matchup#text_obj#delimited(0, 0, ‘delim_all’)<CR></td>
 </tr>
@@ -2357,46 +2396,6 @@ cursorline<C-R>=<SNR>20_StatuslineRefresh()<CR><CR></td>
 <td></td>
 <td><Plug>(matchup-%)</td>
 <td>:<C-U>call matchup#motion#op(‘%’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedMoveSelectionDown</td>
-<td>:<C-U>call <SNR>8_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedMoveSelectionUp</td>
-<td>:<C-U>call <SNR>8_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-move-selection-down)</td>
-<td>:<C-U>call <SNR>8_MoveSelectionDown(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-move-selection-up)</td>
-<td>:<C-U>call <SNR>8_MoveSelectionUp(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>unimpairedContextNext</td>
-<td>:<C-U>call <SNR>8_ContextMotion(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>unimpairedContextPrevious</td>
-<td>:<C-U>call <SNR>8_ContextMotion(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(unimpaired-context-next)</td>
-<td>:<C-U>call <SNR>8_ContextMotion(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(unimpaired-context-previous)</td>
-<td>:<C-U>call <SNR>8_ContextMotion(1)<CR></td>
 </tr>
 </tbody>
 </table>

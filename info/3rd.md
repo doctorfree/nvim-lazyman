@@ -144,7 +144,7 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>8_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <SNR>9_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
 |  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <C-S-P> |  |
 | Switch to alternate buffer | <BS> |  |
@@ -183,18 +183,18 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>9_(matchup-Z%) |
-|  | <SNR>9_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>9_(matchup-z%) |
-|  | <SNR>9_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>9_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>9_(matchup-]%) |
-|  | <SNR>9_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>9_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>9_(matchup-g%) |
-|  | <SNR>9_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>9_(matchup-%) |
-|  | <SNR>9_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>8_(matchup-Z%) |
+|  | <SNR>8_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>8_(matchup-z%) |
+|  | <SNR>8_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>8_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>8_(matchup-]%) |
+|  | <SNR>8_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>8_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>8_(matchup-g%) |
+|  | <SNR>8_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>8_(matchup-%) |
+|  | <SNR>8_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 |  | <C-S-P> |  |
 | Toggle comment | <C-/> | gc |
 | Toggle comment | <C-_> | gc |

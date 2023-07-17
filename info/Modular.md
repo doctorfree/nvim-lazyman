@@ -56,7 +56,6 @@ Same as 'StartMason' but everything is split in modules
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  bc | <Cmd>Bdelete<CR> |
 |  |  e | <Cmd>NvimTreeToggle<CR> |
 |  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
 |  |  fd | <Cmd>Telescope diagnostics<CR> |
@@ -64,6 +63,7 @@ Same as 'StartMason' but everything is split in modules
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |    | <Cmd>Telescope buffers<CR> |
 |  |  ? | <Cmd>Telescope oldfiles<CR> |
+|  |  bc | <Cmd>Bdelete<CR> |
 |  |  bl | <Cmd>buffer #<CR> |
 |  |  bq | <Cmd>bdelete<CR> |
 |  |  w | <Cmd>write<CR> |
@@ -84,11 +84,11 @@ Same as 'StartMason' but everything is split in modules
 |  | gy | "+y |
 |  | x | "_x |
 |  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | ySS |  |
-|  | ySs |  |
 |  | yss |  |
 |  | yS |  |
 |  | ys |  |
+|  | ySS |  |
+|  | ySs |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |

@@ -117,137 +117,137 @@ Based on AstroNvim with additional features
 | ----------- | --- | --- |
 | FIX: Prevent TAB from behaving like <C-i>, as they share the same internal code | <Tab> | <Tab> |
 |  | <Esc> |  |
-| Nvim Update |  pA | <Cmd>NvimUpdate<CR> |
-| Close all buffers to the left |  bl |  |
-| Close all buffers to the right |  br |  |
-| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
-| Toggle symbols tree |  ls |  |
-| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-| Git branches |  gb |  |
-| Sort by full path (buffers) |  bsp |  |
-| Git commits (repository) |  gc |  |
-| Sort by buffer number (buffers) |  bsi |  |
-| Git commits (current file) |  gC |  |
-| Sort by modification (buffers) |  bsm |  |
-| Git status |  gt |  |
-| Horizontal split buffer from tabline |  b\ |  |
-| Resume previous search |  f<CR> |  |
-| Vertical split buffer from tabline |  b| |  |
-| Find marks |  f' |  |
-| Toggle statusline |  ul |  |
-| Find nvim config files |  fa |  |
-| Find buffers |  fB |  |
-| Find word under cursor in project |  fw |  |
 | Find commands |  fC |  |
-| Zen mode |  bz |  |
 | Find help |  fh |  |
-| Toggle autopairs |  ua |  |
-| Find man |  fm |  |
-| Toggle background |  ub |  |
+| Stage Git hunk |  gs |  |
+| Find keymaps |  fk |  |
+| Reset Git hunk |  gh |  |
 | Find notifications |  fn |  |
-| Toggle autocompletion |  uc |  |
-| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
-| Toggle diagnostics |  ud |  |
+| Find recent |  fo |  |
+| Find vim registers |  fv |  |
+| Plugins Update |  pU |  |
+| Find themes |  ft |  |
+| Find words in project |  ff |  |
 | Find words in project (no hidden) |  fF |  |
-| Change indent setting |  uD |  |
 | Search symbols |  lt |  |
-| Toggle signcolumn |  ug |  |
+| Find man |  fm |  |
+| Find project |  fp |  |
+| Update Plugins and Mason |  pa | <Cmd>NvimUpdatePackages<CR> |
 | Toggle find and replace word in project |  fr |  |
 | Toggle find and replace word in buffer |  fb |  |
-| Toggle CodeLens |  uL |  |
-| Find keymaps |  fk |  |
+| Stage Git buffer |  gS |  |
+| Find snippets |  fs |  |
+| Toggle animations |  uA |  |
 | Find recorded macros |  fc |  |
-| Change line numbering |  un |  |
-| Ask chatgpt |  a |  |
+| Find recorded macros |  fq |  |
+| Reset Git buffer |  gr |  |
 | Find in undo tree |  fu |  |
-| Toggle UI notifications |  uN |  |
+| Mason Installer |  pm | <Cmd>Mason<CR> |
 | Open compiler |  lc |  |
 | Toggle compiler results |  lC |  |
-| Toggle paste mode |  up |  |
-| Toggle spellcheck |  us |  |
-| Sort by extension (buffers) |  bse |  |
-| Toggle conceal |  uS |  |
-| Sort by relative path (buffers) |  bsr |  |
-| Toggle tabline |  ut |  |
-| Find snippets |  fs |  |
-| View Git diff |  gd |  |
-| Toggle URL highlight |  uu |  |
-| Find recorded macros |  fq |  |
-| Find recent |  fo |  |
-| Toggle wrap |  uw |  |
-| Find vim registers |  fv |  |
-| Toggle syntax highlight |  uy |  |
-| Find words in project |  ff |  |
-| Toggle foldcolumn |  uh |  |
-| Find project |  fp |  |
 | ToggleTerm float |  tt | <Cmd>ToggleTerm direction=float<CR> |
-| Toggle animations |  uA |  |
 | Toggleterm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
-| Find themes |  ft |  |
-| Home screen |  h |  |
-| Comment line |  / |  |
 | Toggleterm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
-| View Git blame |  gl |  |
-| View full Git blame |  gL |  |
 | Toggle Breakpoint (F9) |  db |  |
-| Preview Git hunk |  gp |  |
+| Close all buffers except current |  bc |  |
 | Clear Breakpoints |  dB |  |
-| Reset Git hunk |  gh |  |
+| Close all buffers |  bC |  |
 | Start/Continue (F5) |  dc |  |
-| Reset Git buffer |  gr |  |
-| Conditional Breakpoint (S-F9) |  dC |  |
-| Stage Git hunk |  gs |  |
-| Step Into (F11) |  di |  |
-| Stage Git buffer |  gS |  |
-| Step Over (F10) |  do |  |
-| Unstage Git hunk |  gu |  |
+| Select buffer from tabline |  bb |  |
 | Step Out (S-F11) |  dO |  |
-| Open in github  |  gP |  |
-| Close Session |  dq |  |
-| ToggleTerm lazygit |  gg |  |
+| Delete buffer from tabline |  bd |  |
 | Terminate Session (S-F5) |  dQ |  |
-| Restart (C-F5) |  dr |  |
-| Pause (F6) |  dp |  |
-| Ranger |  r | <Cmd>RnvimrToggle<CR> |
+| Close all buffers to the left |  bl |  |
 | Toggle REPL |  dR |  |
+| Close all buffers to the right |  br |  |
 | Run To Cursor |  ds |  |
-| Toggle neotree |  e | <Cmd>Neotree toggle<CR> |
+| Sort by extension (buffers) |  bse |  |
+| Sort by relative path (buffers) |  bsr |  |
+| Sort by full path (buffers) |  bsp |  |
+| Sort by buffer number (buffers) |  bsi |  |
+| Sort by modification (buffers) |  bsm |  |
+| Horizontal split buffer from tabline |  b\ |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Vertical split buffer from tabline |  b| |  |
+| Step Into (F11) |  di |  |
 | Evaluate Input |  dE |  |
+| Step Over (F10) |  do |  |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
 | Toggle Debugger UI |  du |  |
-| Toggle Neotree Focus |  o |  |
-| Debugger Hover |  dh |  |
-| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
-| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Zen mode |  bz |  |
 | Stop unit |  Ts |  |
-| Unit |  Tu |  |
-| File |  Tf |  |
+| Nvim Update |  pA | <Cmd>NvimUpdate<CR> |
+| Toggle autopairs |  ua |  |
 | Unit in debugger |  Td |  |
+| Nvim Version |  pv | <Cmd>NvimVersion<CR> |
+| Toggle background |  ub |  |
+| Nvim Changelog |  pl | <Cmd>NvimChangelog<CR> |
+| Toggle autocompletion |  uc |  |
+| Markdown preview |  Dp |  |
+| Wipe buffer |  c |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Close buffer |  C |  |
+| Markmap |  Dm |  |
+| Toggle diagnostics |  ud |  |
+| Ask chatgpt |  a |  |
+| Change indent setting |  uD |  |
+| Toggle signcolumn |  ug |  |
+| Toggle statusline |  ul |  |
+| Toggle CodeLens |  uL |  |
+| Change line numbering |  un |  |
+| Toggle UI notifications |  uN |  |
+| Close Session |  dq |  |
+| Toggle paste mode |  up |  |
+| Pause (F6) |  dp |  |
+| Toggle spellcheck |  us |  |
+| Restart (C-F5) |  dr |  |
+| Save |  w | <Cmd>w<CR> |
+| Toggle conceal |  uS |  |
+| Save as sudo |  W |  |
+| Toggle tabline |  ut |  |
+| New file |  n | <Cmd>enew<CR> |
+| Toggle URL highlight |  uu |  |
+| Debugger Hover |  dh |  |
+| Toggle wrap |  uw |  |
+| Unit |  Tu |  |
+| Toggle syntax highlight |  uy |  |
+| File |  Tf |  |
+| Toggle foldcolumn |  uh |  |
 | Toggle Coverage |  Tc |  |
 | Quit |  q |  |
 | All |  Ta |  |
-| Markdown preview |  Dp |  |
 | E2e |  Te |  |
-| Markmap |  Dm |  |
-| Save |  w | <Cmd>w<CR> |
-| Save as sudo |  W |  |
-| New file |  n | <Cmd>enew<CR> |
+| Home screen |  h |  |
+| Comment line |  / |  |
+| View Git blame |  gl |  |
+| View full Git blame |  gL |  |
+| Preview Git hunk |  gp |  |
 | Plugins Install |  pi |  |
 | Plugins Status |  ps |  |
 | Plugins Sync |  pS |  |
 | Plugins Check Updates |  pu |  |
-| Plugins Update |  pU |  |
-| Mason Installer |  pm | <Cmd>Mason<CR> |
-| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Update Plugins and Mason |  pa | <Cmd>NvimUpdatePackages<CR> |
-| Nvim Version |  pv | <Cmd>NvimVersion<CR> |
-| Nvim Changelog |  pl | <Cmd>NvimChangelog<CR> |
-| Wipe buffer |  c |  |
-| Close buffer |  C |  |
-| Close all buffers except current |  bc |  |
-| Close all buffers |  bC |  |
-| Select buffer from tabline |  bb |  |
-| Delete buffer from tabline |  bd |  |
+| Unstage Git hunk |  gu |  |
+| View Git diff |  gd |  |
+| Open in github  |  gP |  |
+| ToggleTerm lazygit |  gg |  |
+| Ranger |  r | <Cmd>RnvimrToggle<CR> |
+| Toggle neotree |  e | <Cmd>Neotree toggle<CR> |
+| Toggle Neotree Focus |  o |  |
+| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
+| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Toggle symbols tree |  ls |  |
+| Git branches |  gb |  |
+| Git commits (repository) |  gc |  |
+| Git commits (current file) |  gC |  |
+| Git status |  gt |  |
+| Resume previous search |  f<CR> |  |
+| Find marks |  f' |  |
+| Find nvim config files |  fa |  |
+| Find buffers |  fB |  |
+| Find word under cursor in project |  fw |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Go to the fist character of the line (aliases 0 to ^) | 0 | ^ |
@@ -255,59 +255,59 @@ Based on AstroNvim with additional features
 | Move buffer tab right | >b |  |
 | G and go to the last position | G |  |
 | Nvim builtin | Y | y$ |
-| Previous tab | [t |  |
 | Previous Git hunk | [g |  |
 | Previous buffer | [b |  |
+| Previous tab | [t |  |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Horizontal Split | \ | <Cmd>split<CR> |
+| Next buffer | ]b |  |
 | Next tab | ]t |  |
 | Next Git hunk | ]g |  |
-| Next buffer | ]b |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| gg and go to the first position | gg |  |
 | Open the file under cursor with system app | gx |  |
+| gg and go to the first position | gg |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 | Delete character without yanking it. | x |  |
-| Peek fold | zp |  |
 | Open all folds | zR |  |
 | Close all folds | zM |  |
 | Fold less | zr |  |
 | Fold more | zm |  |
+| Peek fold | zp |  |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Resize split down | <C-Down> |  |
-| Fast move down | <S-Down> |  |
-| Fast move up | <S-Up> |  |
-| Paste from cliboard | <C-P> | "+p<Esc> |
-| Move to below split | <C-J> |  |
+| Resize split left | <C-Left> |  |
+| Page down exactly a 20% of the total size of the buffer | <S-PageDown> |  |
 | Force write | <C-S> | <Cmd>w!<CR> |
 | Open compiler | <F6> |  |
-| Visually select all | <C-A> |  |
-| Resize split right | <C-Right> |  |
-| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
 | Toggle compiler resume | <S-F6> |  |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Copy to clipboard and delete line | <C-D> | "+y<Esc>dd |
 | Debugger: Start | <F5> |  |
 | Debugger: Stop | <F17> |  |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
 | Debugger: Conditional Breakpoint | <F21> |  |
+| Paste from cliboard | <C-P> | "+p<Esc> |
 | Debugger: Restart | <F29> |  |
+| Move to below split | <C-J> |  |
+| Page up exactly 20% of the total size of the buffer | <S-PageUp> |  |
+| Move to above split | <C-K> |  |
 | Debugger: Pause | <F4> |  |
 | Debugger: Toggle Breakpoint | <F9> |  |
 | Debugger: Step Over | <F10> |  |
+| Copy to cliboard | <C-Y> | "+y<Esc> |
 | Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Move to above split | <C-K> |  |
+| Fast move down | <S-Down> |  |
+| Fast move up | <S-Up> |  |
 | Hop to word | <C-M> |  |
-| Copy to clipboard and delete line | <C-D> | "+y<Esc>dd |
-| Page up exactly 20% of the total size of the buffer | <S-PageUp> |  |
-| Page down exactly a 20% of the total size of the buffer | <S-PageDown> |  |
-| Copy to cliboard | <C-Y> | "+y<Esc> |
+| Visually select all | <C-A> |  |
 | Move to left split | <C-H> |  |
 | Resize split up | <C-Up> |  |
-| Resize split left | <C-Left> |  |
+| Resize split down | <C-Down> |  |
+| Resize split right | <C-Right> |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
@@ -338,8 +338,8 @@ Based on AstroNvim with additional features
 | Paste content you've previourly yanked | p | P |
 | Delete character without yanking it. | x | "_x |
 | Copy to cliboard | <C-Y> | "+y<Esc> |
-| unindent line | <S-Tab> | <lt>gv |
 | Copy to clipboard and delete line | <C-D> | "+y<Esc>dd |
+| unindent line | <S-Tab> | <lt>gv |
 | Hop to word | <C-M> |  |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |

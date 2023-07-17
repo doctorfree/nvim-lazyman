@@ -84,35 +84,37 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Replace in files (Spectre) |  sr |  |
-| Close Buffer (Force) |  bC |  |
-| Close Buffer |  bc |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Todo (Trouble) |  dt |  |
+| Todo/Fix/Fixme |  sT |  |
 | Todo |  st |  |
 | Todo/Fix/Fixme (Trouble) |  xT |  |
 | Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
 | Todo/Fix/Fixme (Trouble) |  dT |  |
-| Todo (Trouble) |  dt |  |
-| Dismiss all Notifications |  un |  |
-| Document Diagnostics (Trouble) |  dx |  |
 | Quickfix List (Trouble) |  dQ |  |
 | Location List (Trouble) |  dL |  |
 | Workspace Diagnostics (Trouble) |  dX |  |
+| Document Diagnostics (Trouble) |  dx |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
-| Dismiss All |  snd |  |
+| Mason |  cm |  |
+| Replace in files (Spectre) |  sr |  |
+| Close Buffer (Force) |  bC |  |
+| Close Buffer |  bc |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Explorer |  e |  |
+| Dismiss all Notifications |  un |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Mason |  cm |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Explorer |  e |  |
+| Dismiss All |  snd |  |
+| Find Plugin File |  fp |  |
+| Word (cwd) |  fW |  |
 | Word (root dir) |  fw |  |
 | All Buffers |  fB |  |
 | Text |  ft |  |
@@ -144,8 +146,6 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Find Files (cwd) |  fF |  |
 | Find Files (root dir) |  ff |  |
 | Buffers |  fb |  |
-| Find Plugin File |  fp |  |
-| Word (cwd) |  fW |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -155,14 +155,14 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
 | Close Buffer | \c |  |
-| Delete surrounding | \sd |  |
-| Add surrounding | \sa |  |
+| Toggle TreeSJ | \j |  |
 | Update `MiniSurround.config.n_lines` | \sn |  |
+| Add surrounding | \sa |  |
 | Replace surrounding | \sr |  |
 | Highlight surrounding | \sh |  |
 | Find left surrounding | \sF |  |
 | Find right surrounding | \sf |  |
-| Toggle TreeSJ | \j |  |
+| Delete surrounding | \sd |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
@@ -175,9 +175,9 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| Increment selection | <C-Space> |  |
 | Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
-| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

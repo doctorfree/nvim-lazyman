@@ -473,39 +473,69 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><Plug>YSurround</td>
-<td><SNR>28_opfunc2(‘setup’)</td>
+<td><SNR>26_opfunc2(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>28_opfunc(‘setup’)</td>
+<td><SNR>26_opfunc(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>28_opfunc2(‘setup’).’_’</td>
+<td><SNR>26_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>28_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>26_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>28_changesurround(1)<CR></td>
+<td>:<C-U>call <SNR>26_changesurround(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>28_changesurround()<CR></td>
+<td>:<C-U>call <SNR>26_changesurround()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>28_dosurround(<SNR>28_inputtarget())<CR></td>
+<td>:<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -514,48 +544,18 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
 <td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
+<td><Plug>luasnip-delete-check</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -592,6 +592,18 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 class="math inline">′, 0, 1) &lt; <em>C</em><em>R</em> &gt; |||</span>“)</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
@@ -607,18 +619,6 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <td></td>
 <td><Plug>luasnip-expand-repeat</td>
 <td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>9_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>9_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR></td>
 </tr>
 </tbody>
 </table>

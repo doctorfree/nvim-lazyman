@@ -302,13 +302,43 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle pin</td>
-<td>,bp</td>
+<td>Projects</td>
+<td>,fp</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Delete non-pinned buffers</td>
-<td>,bP</td>
+<td>Explorer NeoTree (root dir)</td>
+<td>,fe</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Explorer NeoTree (cwd)</td>
+<td>,E</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Explorer NeoTree (root dir)</td>
+<td>,e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Explorer NeoTree (cwd)</td>
+<td>,fE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Grep (root dir)</td>
+<td>,sg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Workspace diagnostics</td>
+<td>,sD</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Document diagnostics</td>
+<td>,sd</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -337,8 +367,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>commits</td>
-<td>,gc</td>
+<td>Find Files (root dir)</td>
+<td>,</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -382,8 +412,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Workspace diagnostics</td>
-<td>,sD</td>
+<td>commits</td>
+<td>,gc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -452,53 +482,63 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Grep (root dir)</td>
-<td>,sg</td>
+<td>Don’t Save Current Session</td>
+<td>,qd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find Files (root dir)</td>
-<td>,</td>
+<td>Restore Last Session</td>
+<td>,ql</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Document diagnostics</td>
-<td>,sd</td>
+<td>Restore Session</td>
+<td>,qs</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Explorer NeoTree (root dir)</td>
-<td>,fe</td>
+<td>Toggle pin</td>
+<td>,bp</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Explorer NeoTree (cwd)</td>
-<td>,E</td>
+<td>Delete non-pinned buffers</td>
+<td>,bP</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Explorer NeoTree (root dir)</td>
-<td>,e</td>
+<td>JsDoc</td>
+<td>,d</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Explorer NeoTree (cwd)</td>
-<td>,fE</td>
+<td>Delete Buffer</td>
+<td>,bd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Projects</td>
-<td>,fp</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Delete Buffer (Force)</td>
 <td>,bD</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Dismiss All</td>
+<td>,snd</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Delete Buffer</td>
-<td>,bd</td>
+<td>Noice All</td>
+<td>,sna</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Noice History</td>
+<td>,snh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Noice Last Message</td>
+<td>,snl</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -517,48 +557,18 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Dismiss All</td>
-<td>,snd</td>
+<td>Todo</td>
+<td>,st</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Noice All</td>
-<td>,sna</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Noice History</td>
-<td>,snh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Noice Last Message</td>
-<td>,snl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Don’t Save Current Session</td>
-<td>,qd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Restore Last Session</td>
-<td>,ql</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Restore Session</td>
-<td>,qs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Todo/Fix/Fixme (Trouble)</td>
-<td>,xT</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Todo (Trouble)</td>
 <td>,xt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Todo/Fix/Fixme (Trouble)</td>
+<td>,xT</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -567,33 +577,23 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Todo</td>
-<td>,st</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Quickfix List (Trouble)</td>
-<td>,xQ</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Location List (Trouble)</td>
-<td>,xL</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Workspace Diagnostics (Trouble)</td>
 <td>,xX</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Document Diagnostics (Trouble)</td>
 <td>,xx</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Quickfix List (Trouble)</td>
+<td>,xQ</td>
+<td></td>
+</tr>
 <tr class="even">
-<td>JsDoc</td>
-<td>,d</td>
+<td>Location List (Trouble)</td>
+<td>,xL</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -617,18 +617,18 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 </tr>
 <tr class="odd">
+<td>Prev Reference</td>
+<td>[[</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Previous todo comment</td>
 <td>[t</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Previous trouble/quickfix item</td>
 <td>[q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Prev Reference</td>
-<td>[[</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -637,18 +637,18 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitNormalMultiForward)</td>
 </tr>
 <tr class="odd">
+<td>Next Reference</td>
+<td>]]</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Next todo comment</td>
 <td>]t</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Next trouble/quickfix item</td>
 <td>]q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Next Reference</td>
-<td>]]</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -657,18 +657,28 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="odd">
-<td>Delete surrounding</td>
-<td>gzd</td>
+<td>Replace surrounding</td>
+<td>gzr</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Find left surrounding</td>
+<td>gzF</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Find right surrounding</td>
 <td>gzf</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Update <code>MiniSurround.config.n_lines</code></td>
 <td>gzn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete surrounding</td>
+<td>gzd</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -677,18 +687,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Replace surrounding</td>
-<td>gzr</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Highlight surrounding</td>
 <td>gzh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find left surrounding</td>
-<td>gzF</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -732,13 +732,13 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Scroll forward</td>
-<td><C-F></td>
+<td>Scroll backward</td>
+<td><C-B></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Scroll backward</td>
-<td><C-B></td>
+<td>Scroll forward</td>
+<td><C-F></td>
 <td></td>
 </tr>
 <tr class="even">

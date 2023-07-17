@@ -117,29 +117,29 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | ]q | :cnext<CR> |
 |  | ce | <Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR> |
 |  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
-|  | gb |  |
 |  | gc |  |
+|  | gb |  |
 |  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
 |  | gx | <Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR> |
 |  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
 |  | tu | <Cmd>lua require('harpoon.term').gotoTerminal(1)<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-Bslash> |  |
-|  | <M-a> | <C-A> |
-|  | <C-N>i | <Tab> |
-|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
-|  | <M-x> | <C-X> |
 |  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
+|  | <M-x> | <C-X> |
+|  | <C-N>i | <Tab> |
+|  | <M-a> | <C-A> |
+|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
+|  | <C-Right> | :vertical resize +2<CR> |
 |  | <M-j> | :m .+1<CR>== |
-|  | <C-Down> | :resize +2<CR> |
+|  | <C-Left> | :vertical resize -2<CR> |
 |  | <M-k> | :m .-2<CR>== |
+|  | <C-Down> | :resize +2<CR> |
 |  | <C-Up> | :resize -2<CR> |
-|  | <C-K> | <C-W>k |
 |  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-K> | <C-W>k |
 |  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
-|  | <C-Right> | :vertical resize +2<CR> |
-|  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -152,8 +152,8 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | <lt> | <lt>gv |
 |  | > | >gv |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | ga | <Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR> |
 |  | p | "_dP |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |

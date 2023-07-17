@@ -64,10 +64,10 @@
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle current line | gcc |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle current line | gcc |  |
 | Comment toggle current block | gbc |  |
+| Comment toggle blockwise | gb |  |
 |  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
@@ -78,8 +78,8 @@
 | ----------- | --- | --- |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Comment toggle linewise (visual) | gc |  |
 | Comment toggle blockwise (visual) | gb |  |
+| Comment toggle linewise (visual) | gc |  |
 
 #### operator mode keymaps
 

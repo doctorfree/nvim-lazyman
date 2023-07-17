@@ -64,10 +64,10 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-| Comment toggle current block | gbc |  |
-| Comment toggle linewise | gc |  |
-| Comment toggle blockwise | gb |  |
 | Comment toggle current line | gcc |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 |  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |

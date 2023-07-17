@@ -130,20 +130,33 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Oil buffer |  no |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
+|  |  cm |  |
 | Dismiss all Notifications |  un |  |
-| Command History |  : |  |
+| Oil buffer |  no |  |
+| Up |  dk |  |
+| Down |  dj |  |
+| Breakpoint Condition |  dB |  |
+| Step Over |  dO |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+|  |  Tm |  |
+|  |  Tl |  |
+|  |  Tb |  |
+|  |  Tr |  |
 | Grep (root dir) |  / |  |
 | Switch Buffer |  , |  |
-| Colorscheme with preview |  uC |  |
+| Word (root dir) |  sw |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
-| Find Files (root dir) |    |  |
+| Colorscheme with preview |  uC |  |
 | Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
+| Find Files (root dir) |    |  |
 | Resume |  sR |  |
 | Options |  so |  |
 | Jump to Mark |  sm |  |
@@ -160,28 +173,15 @@
 | Buffer |  sb |  |
 | Auto Commands |  sa |  |
 | Recent |  fr |  |
-| Eval |  de |  |
-| Dap UI |  du |  |
+| Command History |  : |  |
 | Replace in files (Spectre) |  sr |  |
-| Step Over |  dO |  |
-| Up |  dk |  |
-| Down |  dj |  |
-| Breakpoint Condition |  dB |  |
-|  |  Tl |  |
-|  |  Tb |  |
-|  |  Tr |  |
-|  |  Tm |  |
-| Delete Buffer |  bd |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
 | Delete Buffer (Force) |  bD |  |
-|  |  cm |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
+| Delete Buffer |  bd |  |
 |  |  oz | <Cmd>lua require("zen-mode").toggle()<CR> |
 |  |  lx | <Plug>(vimtex-reload) |
 |  |  lv | <Plug>(vimtex-view) |
@@ -280,13 +280,13 @@
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Next Reference | ]] |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 |  | ga | <Plug>(EasyAlign) |
 | Flash | s |  |
@@ -298,15 +298,15 @@
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Increment selection | <C-Space> |  |
-|  | <M-3> |  |
-|  | <M-2> |  |
 |  | <M-1> |  |
 |  | <M-8> |  |
 |  | <M-7> |  |
 |  | <M-6> |  |
 |  | <M-5> |  |
 |  | <M-4> |  |
+|  | <M-3> |  |
+|  | <M-2> |  |
+| Increment selection | <C-Space> |  |
 |  | <C-N> | <Cmd>Neotree toggle<CR> |
 |  | <F12> | <Cmd>lua require("dap").step_out()<CR> |
 |  | <F11> | <Cmd>lua require("dap").step_into()<CR> |

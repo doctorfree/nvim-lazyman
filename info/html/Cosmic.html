@@ -148,5 +148,270 @@ href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a></li>
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
+<h3 id="cosmic-keymaps">Cosmic Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Find project file</td>
+<td>ff</td>
+<td><Cmd>lua
+require(“cosmic.plugins.telescope.utils”).project_files()<CR></td>
+</tr>
+<tr class="even">
+<td>Refresh Tree</td>
+<td>nr</td>
+<td>:NvimTreeRefresh<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle Tree</td>
+<td>nt</td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Git status</td>
+<td>vg</td>
+<td>:Telescope git_status<CR></td>
+</tr>
+<tr class="odd">
+<td>Git commits</td>
+<td>vc</td>
+<td>:Telescope git_commits<CR></td>
+</tr>
+<tr class="even">
+<td>Grep current word</td>
+<td>fw</td>
+<td>:Telescope grep_string<CR></td>
+</tr>
+<tr class="odd">
+<td>Grep string</td>
+<td>fs</td>
+<td>:Telescope live_grep<CR></td>
+</tr>
+<tr class="even">
+<td>Find buffer</td>
+<td>fk</td>
+<td>:Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td>Find project file</td>
+<td>fp</td>
+<td>:Telescope find_files<CR></td>
+</tr>
+<tr class="even">
+<td>Print session</td>
+<td>si</td>
+<td><Cmd>lua require(“cosmic.utils.logger”):log(“Session name:” ..
+require(“auto-session-library”).current_session_name())<CR></td>
+</tr>
+<tr class="odd">
+<td>Save session</td>
+<td>ss</td>
+<td><Cmd>SaveSession<CR></td>
+</tr>
+<tr class="even">
+<td>Restore session</td>
+<td>sl</td>
+<td><Cmd>silent RestoreSession<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle LSP Lines</td>
+<td>ltl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td>Restore plugins from lockfile</td>
+<td>,pr</td>
+<td>:Lazy restore<CR></td>
+</tr>
+<tr class="even">
+<td>Clear uninstalled plugins</td>
+<td>,px</td>
+<td>:Lazy clear<CR></td>
+</tr>
+<tr class="odd">
+<td>Logs</td>
+<td>,pl</td>
+<td>:Lazy logs<CR></td>
+</tr>
+<tr class="even">
+<td>Profile</td>
+<td>,pp</td>
+<td>:Lazy profile<CR></td>
+</tr>
+<tr class="odd">
+<td>Help</td>
+<td>,ph</td>
+<td>:Lazy help<CR></td>
+</tr>
+<tr class="even">
+<td>Show plugins</td>
+<td>,ps</td>
+<td>:Lazy show<CR></td>
+</tr>
+<tr class="odd">
+<td>Update plugins</td>
+<td>,pu</td>
+<td>:Lazy update<CR></td>
+</tr>
+<tr class="even">
+<td>Check plugins</td>
+<td>,pc</td>
+<td>:Lazy check<CR></td>
+</tr>
+<tr class="odd">
+<td>Close tab</td>
+<td>,td</td>
+<td>:tabclose<CR></td>
+</tr>
+<tr class="even">
+<td>Next tab</td>
+<td>,tn</td>
+<td>:tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td>Prev tab</td>
+<td>,tp</td>
+<td>:tabprevious<CR></td>
+</tr>
+<tr class="even">
+<td>Delete buffer</td>
+<td>,bd</td>
+<td>:bdelete<CR></td>
+</tr>
+<tr class="odd">
+<td>Next buffer</td>
+<td>,bn</td>
+<td>:bnext<CR></td>
+</tr>
+<tr class="even">
+<td>Prev buffer</td>
+<td>,bp</td>
+<td>:bprev<CR></td>
+</tr>
+<tr class="odd">
+<td>Next Item</td>
+<td>,cn</td>
+<td>:cnext<CR>zz</td>
+</tr>
+<tr class="even">
+<td>Prev Item</td>
+<td>,cp</td>
+<td>:cprev<CR>zz</td>
+</tr>
+<tr class="odd">
+<td>Search &amp; Replace</td>
+<td>,cf</td>
+<td>:cfdo %s/</td>
+</tr>
+<tr class="even">
+<td>Open list</td>
+<td>,co</td>
+<td>:copen <CR></td>
+</tr>
+<tr class="odd">
+<td>Close list</td>
+<td>,cc</td>
+<td>:cclose <CR></td>
+</tr>
+<tr class="even">
+<td>Clear list</td>
+<td>,ck</td>
+<td>:cexpr []<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td>Vertical Resize +2</td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td>Vertical Resize -2</td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="even">
+<td>Resize +2</td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td>Resize -2</td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle Tree</td>
+<td><C-N></td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Floating Terminal</td>
+<td><C-L></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 </body>
 </html>

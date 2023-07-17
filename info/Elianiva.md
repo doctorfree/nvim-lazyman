@@ -60,8 +60,8 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  |  gy | <Cmd>lua require'gitlinker'.get_buf_range_url('n')<CR> |
-|  |  w |  |
 |  |  c |  |
+|  |  w |  |
 |  | % | <Plug>(matchup-%) |
 | Nvim builtin | & | :&&<CR> |
 | Keeps jumplist after forward searching | / | ms/ |
@@ -76,8 +76,8 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 | Run file using Node | \rn | <Cmd>!node %<CR> |
 | Run Lua file | \rl | <Cmd>luafile %<CR> |
 |  | ]% | <Plug>(matchup-]%) |
-|  | gS | :<C-U>call <SNR>30_Mapping(g:splitjoin_split_mapping, "sj#Split")<CR> |
-|  | gJ | :<C-U>call <SNR>30_Mapping(g:splitjoin_join_mapping, "sj#Join")<CR> |
+|  | gS | :<C-U>call <SNR>21_Mapping(g:splitjoin_split_mapping, "sj#Split")<CR> |
+|  | gJ | :<C-U>call <SNR>21_Mapping(g:splitjoin_join_mapping, "sj#Join")<CR> |
 |  | g% | <Plug>(matchup-g%) |
 | Move down by visual line on wrapped lines | j | gj |
 | Move up by visual line on wrapped lines | k | gk |
@@ -91,23 +91,6 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 |  | z% | <Plug>(matchup-z%) |
 |  | <M-k> | <Cmd>Sayonara<CR> |
 |  | <M-j> | <Cmd>Sayonara!<CR> |
-|  | <Plug>SplitjoinJoin | :<C-U>call sj#Join()<CR> |
-|  | <Plug>SplitjoinSplit | :<C-U>call sj#Split()<CR> |
-|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>28_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlignRepeat) | :call <SNR>28_easy_align_repeat()<CR> |
-|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>28_live_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlign) | :set opfunc=<SNR>28_easy_align_op<CR>g@ |
-|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
-|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
-|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
-|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
-|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
-|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
-|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
-|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
-|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>24_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
-|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <Plug>(textobj-sandwich-literal-query-a) | textobj#sandwich#query('n', 'a', {}, []) |
 |  | <Plug>(textobj-sandwich-literal-query-i) | textobj#sandwich#query('n', 'i', {}, []) |
 |  | <Plug>(textobj-sandwich-query-a) | textobj#sandwich#query('n', 'a') |
@@ -134,7 +117,24 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 |  | <Plug>(operator-sandwich-replace) | <Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-g@) |
 |  | <Plug>(operator-sandwich-delete) | <Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-g@) |
 |  | <Plug>(operator-sandwich-add) | <Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@) |
+|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>22_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlignRepeat) | :call <SNR>22_easy_align_repeat()<CR> |
+|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>22_live_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlign) | :set opfunc=<SNR>22_easy_align_op<CR>g@ |
+|  | <Plug>SplitjoinJoin | :<C-U>call sj#Join()<CR> |
+|  | <Plug>SplitjoinSplit | :<C-U>call sj#Split()<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
+|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
+|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
+|  | <SNR>11_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 | Toggle whitespace stripping | <F2> |  |
 | Go to next buffer | <M-l> | <Cmd>bn<CR> |
 | Go to previous buffer | <M-h> | <Cmd>bp<CR> |
@@ -160,32 +160,18 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 | Indent current selection | > | >gv |
 |  | [% | <Plug>(matchup-[%) |
 |  | ]% | <Plug>(matchup-]%) |
-|  | a% | <Plug>(matchup-a%) |
 |  | as | <Plug>(textobj-sandwich-query-a) |
 |  | ab | <Plug>(textobj-sandwich-auto-a) |
+|  | a% | <Plug>(matchup-a%) |
 |  | ga | <Plug>(EasyAlign) |
 |  | g% | <Plug>(matchup-g%) |
-|  | i% | <Plug>(matchup-i%) |
 |  | is | <Plug>(textobj-sandwich-query-i) |
 |  | ib | <Plug>(textobj-sandwich-auto-i) |
+|  | i% | <Plug>(matchup-i%) |
 |  | sr | <Plug>(sandwich-replace) |
 |  | sd | <Plug>(sandwich-delete) |
 |  | sa | <Plug>(sandwich-add) |
 |  | z% | <Plug>(matchup-z%) |
-|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>23_(matchup-Z%) |
-|  | <SNR>23_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>23_(matchup-z%) |
-|  | <SNR>23_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>23_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>23_(matchup-]%) |
-|  | <SNR>23_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>23_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>23_(matchup-g%) |
-|  | <SNR>23_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>23_(matchup-%) |
-|  | <SNR>23_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 |  | <Plug>(textobj-sandwich-literal-query-a) | textobj#sandwich#query('x', 'a', {}, []) |
 |  | <Plug>(textobj-sandwich-literal-query-i) | textobj#sandwich#query('x', 'i', {}, []) |
 |  | <Plug>(textobj-sandwich-query-a) | textobj#sandwich#query('x', 'a') |
@@ -215,9 +201,23 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 |  | <Plug>(operator-sandwich-replace) | <Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@) |
 |  | <Plug>(operator-sandwich-delete) | <Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@) |
 |  | <Plug>(operator-sandwich-add) | <Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@) |
-|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>9_repeat_in_visual()<CR> |
-|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>9_live_easy_align_op(visualmode(), 1)<CR> |
-|  | <Plug>(EasyAlign) | :<C-U>call <SNR>9_easy_align_op(visualmode(), 1)<CR> |
+|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>26_repeat_in_visual()<CR> |
+|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>26_live_easy_align_op(visualmode(), 1)<CR> |
+|  | <Plug>(EasyAlign) | :<C-U>call <SNR>26_easy_align_op(visualmode(), 1)<CR> |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>12_(matchup-Z%) |
+|  | <SNR>12_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>12_(matchup-z%) |
+|  | <SNR>12_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>12_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>12_(matchup-]%) |
+|  | <SNR>12_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>12_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>12_(matchup-g%) |
+|  | <SNR>12_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>12_(matchup-%) |
+|  | <SNR>12_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 | Yank selection to clipboard | <M-y> | "+y |
 
 #### operator mode keymaps

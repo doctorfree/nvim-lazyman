@@ -170,7 +170,6 @@ Neovim configuration of Dr. Ronald Joe Record
 | ----------- | --- | --- |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
-| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Move Float | ,tf |  |
 | Move Bottom Right New | ,tH |  |
 | Move Below Right New | ,th |  |
@@ -183,8 +182,32 @@ Neovim configuration of Dr. Ronald Joe Record
 | Terminal Run | ,tr |  |
 | New Terminal Toggle | ,tO |  |
 | Terminal Toggle | ,to |  |
+| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Toggle Transparency | ,ut |  |
-| Dashboard | ,0 |  |
+| Dap UI | ,du |  |
+| Eval | ,de |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Toggle REPL | ,dr |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
+| Run Last | ,dl |  |
+| Up | ,dk |  |
+| Down | ,dj |  |
+| Step Into | ,di |  |
+| Go to line (no execute) | ,dg |  |
+| Run to Cursor | ,dC |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
+| Breakpoint Condition | ,dB |  |
+| Widgets | ,dw |  |
+| Grep (cwd) | ,sG |  |
+| Grep (root dir) | ,sg |  |
+| Diagnostics | ,sd |  |
+| Commands | ,sC |  |
+| Buffer | ,sb |  |
+| Auto Commands | ,sa |  |
 | Command History | ,: |  |
 | Find in Files (Grep) | ,/ |  |
 | Switch Buffer | ,, |  |
@@ -197,7 +220,7 @@ Neovim configuration of Dr. Ronald Joe Record
 | Filebrowser | ,fb |  |
 | Commits | ,gm |  |
 | Status | ,gs |  |
-| Find Files (root dir) | ,  |  |
+| Branches | ,gh |  |
 | Fuzzy search | ,sf |  |
 | Command history | ,s; |  |
 | Search History | ,s: |  |
@@ -209,7 +232,7 @@ Neovim configuration of Dr. Ronald Joe Record
 | Help Pages | ,sh |  |
 | Help | ,s? |  |
 | Command History | ,sc |  |
-| Branches | ,gh |  |
+| Find Files (root dir) | ,  |  |
 | Colorscheme with preview | ,uC |  |
 | Word (cwd) | ,sW |  |
 | Word (root dir) | ,sw |  |
@@ -217,12 +240,12 @@ Neovim configuration of Dr. Ronald Joe Record
 | Jump to Mark | ,sm |  |
 | Man Pages | ,sM |  |
 | Search Highlight Groups | ,sH |  |
-| Grep (cwd) | ,sG |  |
-| Grep (root dir) | ,sg |  |
-| Diagnostics | ,sd |  |
-| Commands | ,sC |  |
-| Buffer | ,sb |  |
-| Auto Commands | ,sa |  |
+| Explorer Float | ,E |  |
+| Explorer (root dir) | ,e |  |
+| Noice History | ,snh |  |
+| Noice Last Message | ,snl |  |
+| Noice All | ,sna |  |
+| Delete all Notifications | ,un |  |
 | Todo | ,st |  |
 | Todo/Fix/Fixme (Trouble) | ,xT |  |
 | Todo (Trouble) | ,xt |  |
@@ -230,49 +253,26 @@ Neovim configuration of Dr. Ronald Joe Record
 | Location List (Trouble) | ,xL |  |
 | Workspace Diagnostics (Trouble) | ,xX |  |
 | Document Diagnostics (Trouble) | ,xx |  |
-| Explorer (root dir) | ,e |  |
-| Explorer Float | ,E |  |
-| Terminal Send | ,ts |  |
+| Dashboard | ,0 |  |
 | Treesitter Join | ,tj |  |
 | Toggle Treesitter Join | ,tt |  |
-| Close Buffer | ,D |  |
+| Terminal Send | ,ts |  |
 | generate git message | ,ag |  |
 | summarize text | ,as |  |
-| Noice History | ,snh |  |
-| Noice Last Message | ,snl |  |
-| Noice All | ,sna |  |
-| Delete all Notifications | ,un |  |
-| Eval | ,de |  |
-| Dap UI | ,du |  |
-| Down | ,dj |  |
-| Step Into | ,di |  |
-| Go to line (no execute) | ,dg |  |
-| Run to Cursor | ,dC |  |
-| Continue | ,dc |  |
-| Toggle Breakpoint | ,db |  |
-| Breakpoint Condition | ,dB |  |
-| Widgets | ,dw |  |
-| Terminate | ,dt |  |
-| Session | ,ds |  |
-| Toggle REPL | ,dr |  |
-| Pause | ,dp |  |
-| Step Over | ,dO |  |
-| Step Out | ,do |  |
-| Run Last | ,dl |  |
-| Up | ,dk |  |
+| Close Buffer | ,D |  |
 | Toggle zen mode | ,z |  |
 | F | F |  |
 | Leap backward to | S |  |
 | T | T |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Leap from windows | gs |  |

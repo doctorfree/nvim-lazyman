@@ -149,23 +149,23 @@ Dan is a computer science student at Arizona State University
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>YSurround | <SNR>28_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>28_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>28_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>28_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>28_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>28_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>28_dosurround(<SNR>28_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>YSurround | <SNR>26_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>26_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>26_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>26_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>26_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>26_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -209,11 +209,11 @@ Dan is a computer science student at Arizona State University
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <Plug>VgSurround | :<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>VgSurround | :<C-U>call <SNR>9_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>9_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 
 #### operator mode keymaps
 

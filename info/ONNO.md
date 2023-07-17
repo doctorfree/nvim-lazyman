@@ -94,12 +94,13 @@ One of the primary inspirations for Lazyman
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Select Moonokai pro filter |  c | <Cmd>MonokaiProSelect<CR> |
-| Format and Save |  W |  |
-| Workspace Symbols |  lS |  |
-| Document Symbols |  ls |  |
-| Rename |  lr |  |
-| Quickfix |  lq |  |
-| CodeLens Action |  ll |  |
+| Dashboard |  0 |  |
+| Delete all Notifications |  n |  |
+| Close Buffer |  d |  |
+| Peek (Markdown Preview) |  p |  |
+| Don't Save Current Session |  sd |  |
+| Restore Last Session |  sl |  |
+| Restore Session |  ss |  |
 | Prev Diagnostic |  lk |  |
 | Next Diagnostic |  lj |  |
 | Installer Info |  lI |  |
@@ -107,32 +108,31 @@ One of the primary inspirations for Lazyman
 | Workspace Diagnostics |  lw |  |
 | Document Diagnostics |  ld |  |
 | Code Action |  la |  |
-| Dashboard |  0 |  |
-| Checkout branch |  gb |  |
-| Open changed file |  go |  |
-| Find Text |  F |  |
-| Find files |  f |  |
-| Checkout commit |  gc |  |
+| Format and Save |  W |  |
+| Workspace Symbols |  lS |  |
+| Document Symbols |  ls |  |
+| Rename |  lr |  |
+| Quickfix |  lq |  |
+| CodeLens Action |  ll |  |
+| Open file manager |  r |  |
+| Blame |  gl |  |
+| Prev Hunk |  gk |  |
+| Next Hunk |  gj |  |
+| Lazygit |  gg |  |
 | Diff |  gd |  |
 | Undo Stage Hunk |  gu |  |
 | Stage Hunk |  gs |  |
 | Reset Buffer |  gR |  |
 | Reset Hunk |  gr |  |
 | Preview Hunk |  gp |  |
-| Blame |  gl |  |
-| Prev Hunk |  gk |  |
-| Next Hunk |  gj |  |
-| Lazygit |  gg |  |
-| Explorer (root dir) |  e |  |
-| Explorer Float (root dir) |  E |  |
-| Delete all Notifications |  n |  |
-| Restore Session |  ss |  |
-| Don't Save Current Session |  sd |  |
-| Restore Last Session |  sl |  |
-| Close Buffer |  d |  |
-| Peek (Markdown Preview) |  p |  |
-| Open file manager |  r |  |
+| Open changed file |  go |  |
+| Find Text |  F |  |
+| Find files |  f |  |
+| Checkout commit |  gc |  |
+| Checkout branch |  gb |  |
 | Zoom window |  m |  |
+| Explorer Float (root dir) |  E |  |
+| Explorer (root dir) |  e |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
@@ -140,41 +140,41 @@ One of the primary inspirations for Lazyman
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next Reference | ]] |  |
-| Open fold under cursor | fo |  |
-| Close all folds under cursor | fc |  |
-| Delete fold under cursor | fd |  |
-| Fold less | fr |  |
-| Toggle fold under cursor | fa |  |
 | Top this line | ft |  |
-| Mark word as bad/misspelling | fw |  |
 | Toggle all folds under cursor | fA |  |
-| Right this line | fe |  |
-| Delete all folds in current buffer | fE |  |
+| Bottom this line | fb |  |
+| Mark word as bad/misspelling | fw |  |
 | Show cursor line | fv |  |
-| Left this line | fs |  |
+| Right this line | fe |  |
 | Close all folds | fM |  |
+| Delete all folds in current buffer | fE |  |
 | Open all folds | fR |  |
 | Half screen to the left | fH |  |
 | Fold more | fm |  |
 | Half screen to the right | fL |  |
-| Add word to spell list | fg |  |
+| Fold less | fr |  |
+| Left this line | fs |  |
 | Update folds | fx |  |
+| Delete fold under cursor | fd |  |
 | Center this line | fz |  |
+| Open fold under cursor | fo |  |
 | Open all folds under cursor | fO |  |
-| Bottom this line | fb |  |
+| Add word to spell list | fg |  |
+| Close all folds under cursor | fc |  |
+| Toggle fold under cursor | fa |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Go to definition | gd |  |
 | Go to references | gr |  |
 | Go to implementations | gi |  |
-| Open Recent File | sr |  |
-| Man Pages | sM |  |
-| Registers | sR |  |
-| Keymaps | sk |  |
-| Commands | sC |  |
 | Highlight Groups | sH |  |
+| Keymaps | sk |  |
 | Checkout branch | sb |  |
 | Colorscheme | sc |  |
 | Find Help | sh |  |
+| Man Pages | sM |  |
+| Open Recent File | sr |  |
+| Registers | sR |  |
+| Commands | sC |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |

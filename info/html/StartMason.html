@@ -304,33 +304,33 @@ href="https://github.com/kylechui/nvim-surround">kylechui/nvim-surround</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>ySS</td>
 <td><Plug>YSsurround</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>ySs</td>
 <td><Plug>YSsurround</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>yss</td>
 <td><Plug>Yssurround</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>yS</td>
 <td><Plug>YSurround</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ys</td>
 <td><Plug>Ysurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle Terminal</td>
@@ -365,16 +365,6 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>fugitive:</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
@@ -392,42 +382,52 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><Plug>YSurround</td>
-<td><SNR>8_opfunc2(‘setup’)</td>
+<td><SNR>11_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>8_opfunc(‘setup’)</td>
+<td><SNR>11_opfunc(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>8_opfunc2(‘setup’).’_’</td>
+<td><SNR>11_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>8_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>11_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>8_changesurround(1)<CR></td>
+<td>:<C-U>call <SNR>11_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>8_changesurround()<CR></td>
+<td>:<C-U>call <SNR>11_changesurround()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>8_dosurround(<SNR>8_inputtarget())<CR></td>
+<td>:<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>SurroundRepeat</td>
 <td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise with count</td>
@@ -614,32 +614,32 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>6_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>6_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 </tbody>

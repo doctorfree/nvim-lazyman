@@ -296,12 +296,12 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -377,49 +377,49 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td><Plug>YSurround</td>
+<td><SNR>12_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>YSurround</td>
-<td><SNR>8_opfunc2(‘setup’)</td>
-</tr>
-<tr class="even">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>8_opfunc(‘setup’)</td>
+<td><SNR>12_opfunc(‘setup’)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>8_opfunc2(‘setup’).’_’</td>
+<td><SNR>12_opfunc2(‘setup’).’_’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>8_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>12_opfunc(‘setup’).’g_’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>8_changesurround(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>8_changesurround()<CR></td>
+<td>:<C-U>call <SNR>12_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>8_dosurround(<SNR>8_inputtarget())<CR></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>12_changesurround()<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><Plug>SurroundRepeat</td>
 <td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td>Float Terminal</td>
@@ -463,8 +463,8 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
+<td><C-K></td>
+<td>:<C-U>TmuxNavigateUp<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -473,28 +473,28 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><C-Down></td>
-<td>:resize +2<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><C-Q></td>
 <td>:call QuickFixToggle()<CR></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td>:<C-U>TmuxNavigateUp<CR></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-H></td>
-<td>:<C-U>TmuxNavigateLeft<CR></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -613,13 +613,13 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="odd">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>8_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>8_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 <tr class="odd">
@@ -746,13 +746,13 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-J></td>
-<td>:<C-U>TmuxNavigateDown<CR></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-H></td>
-<td>:<C-U>TmuxNavigateLeft<CR></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

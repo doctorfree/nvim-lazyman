@@ -156,76 +156,37 @@ LazyVim IDE config for Neovim
 | Terminal Kill | ,tk |  |
 | New Terminal Run | ,tR |  |
 | Toggle Transparency | ,ut |  |
-| Pause | ,dp |  |
-| Step Over | ,dO |  |
-| Step Out | ,do |  |
-| Run Last | ,dl |  |
-| Up | ,dk |  |
-| Down | ,dj |  |
-| Step Into | ,di |  |
-| Go to line (no execute) | ,dg |  |
-| Run to Cursor | ,dC |  |
-| Continue | ,dc |  |
-| Toggle Breakpoint | ,db |  |
-| Breakpoint Condition | ,dB |  |
-| Debug Nearest | ,td |  |
-| Widgets | ,dw |  |
-| Terminate | ,dt |  |
-| Session | ,ds |  |
-| Toggle REPL | ,dr |  |
-| Explorer NeoTree (root dir) | ,e |  |
-| Explorer NeoTree (cwd) | ,fE |  |
-| Explorer NeoTree (root dir) | ,fe |  |
-| Explorer NeoTree (cwd) | ,E |  |
-| Terminal Run | ,tr |  |
-| Run All Test Files | ,tT |  |
-| Run File | ,tt |  |
-| Stop | ,tS |  |
-| New Terminal Toggle | ,tO |  |
-| Terminal Toggle | ,to |  |
-| Terminal Send | ,ts |  |
-| Run Test File | ,cT |  |
-| Run Test Nearest | ,ct |  |
-| Run Test Suite | ,cS |  |
+| AerialToggle | ,a |  |
+| Telescope Aerial | ,fi |  |
 | Dismiss All | ,snd |  |
 | Noice All | ,sna |  |
 | Noice History | ,snh |  |
 | Noice Last Message | ,snl |  |
-| JsDoc | ,d |  |
-| Delete non-pinned buffers | ,bP |  |
-| Toggle pin | ,bp |  |
-| Markdown preview | ,m |  |
-| Open note | ,n |  |
-| Open note | ,ng |  |
-| Dap UI | ,du |  |
-| Eval | ,de |  |
-| Delete Buffer | ,bd |  |
-| Delete Buffer (Force) | ,bD |  |
-| Telescope persisted | ,fs |  |
-| Sarch and replace | ,sr |  |
-| Toggle hardtime.nvim | ,ht |  |
-| Restore Session | ,qs |  |
 | Don't Save Current Session | ,qd |  |
 | Restore Last Session | ,ql |  |
-| Todo/Fix/Fixme | ,sT |  |
-| Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo (Trouble) | ,xt |  |
-| Quickfix List (Trouble) | ,xQ |  |
+| Restore Session | ,qs |  |
+| Toggle hardtime.nvim | ,ht |  |
+| LSP Len Toggle | ,uL |  |
 | Location List (Trouble) | ,xL |  |
 | Workspace Diagnostics (Trouble) | ,xX |  |
 | Document Diagnostics (Trouble) | ,xx |  |
-| NullLs Info | ,cn |  |
-| Undo Tree Toggle | ,r |  |
-| LSP Len Toggle | ,uL |  |
-| Telescope Harpoon Marks | ,fm |  |
-| AerialToggle | ,a |  |
-| Telescope Aerial | ,fi |  |
-| Edgy Select Window | ,uE |  |
-| Edgy Toggle | ,ue |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Run Test Suite | ,cS |  |
+| Run Test File | ,cT |  |
+| Run Test Nearest | ,ct |  |
+| Open note | ,n |  |
+| Open note | ,ng |  |
+| Eval | ,de |  |
+| Dap UI | ,du |  |
 | Projects | ,fp |  |
+| Find Files (cwd) | ,fF |  |
+| Open file | ,ff |  |
+| Filebrowser | ,fb |  |
+| Command History | ,: |  |
+| Find in Files (Grep) | ,/ |  |
 | Switch Buffer | ,, |  |
-| Bufferlist | ,B |  |
 | Find Files (root dir) | ,  |  |
+| Bufferlist | ,B |  |
 | Telescope | ,mt |  |
 | Run make | ,mm |  |
 | Zoxide | ,fz |  |
@@ -236,7 +197,6 @@ LazyVim IDE config for Neovim
 | Search History | ,s: |  |
 | Vim Options | ,sO |  |
 | Help | ,s? |  |
-| Strings | ,st |  |
 | Goto Symbol (Workspace) | ,sS |  |
 | Goto Symbol | ,ss |  |
 | Colorscheme with preview | ,uC |  |
@@ -261,30 +221,70 @@ LazyVim IDE config for Neovim
 | commits | ,gc |  |
 | Recent (cwd) | ,fR |  |
 | Recent files | ,fr |  |
-| Find Files (cwd) | ,fF |  |
-| Open file | ,ff |  |
-| Filebrowser | ,fb |  |
-| Command History | ,: |  |
-| Find in Files (Grep) | ,/ |  |
+| Edgy Select Window | ,uE |  |
+| Edgy Toggle | ,ue |  |
+| NullLs Info | ,cn |  |
+| Telescope persisted | ,fs |  |
+| Telescope Harpoon Marks | ,fm |  |
+| Explorer NeoTree (cwd) | ,fE |  |
+| Explorer NeoTree (root dir) | ,fe |  |
+| Explorer NeoTree (cwd) | ,E |  |
+| Explorer NeoTree (root dir) | ,e |  |
+| Go to line (no execute) | ,dg |  |
+| Step Into | ,di |  |
+| Up | ,dk |  |
+| Down | ,dj |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Run to Cursor | ,dC |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
+| Breakpoint Condition | ,dB |  |
+| Debug Nearest | ,td |  |
+| Toggle REPL | ,dr |  |
+| Run Last | ,dl |  |
+| Widgets | ,dw |  |
+| Run All Test Files | ,tT |  |
+| Run File | ,tt |  |
+| Stop | ,tS |  |
+| New Terminal Toggle | ,tO |  |
+| Terminal Toggle | ,to |  |
+| Terminal Send | ,ts |  |
+| Terminal Run | ,tr |  |
+| Undo Tree Toggle | ,r |  |
+| Markdown preview | ,m |  |
+| JsDoc | ,d |  |
+| Delete Buffer (Force) | ,bD |  |
+| Delete Buffer | ,bd |  |
+| Toggle pin | ,bp |  |
+| Delete non-pinned buffers | ,bP |  |
+| Sarch and replace | ,sr |  |
+| Todo | ,st |  |
+| Todo/Fix/Fixme | ,sT |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo (Trouble) | ,xt |  |
 | Toggle zen mode | ,z |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous todo comment | [t |  |
-| Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
+| Previous trouble/quickfix item | [q |  |
+| Previous todo comment | [t |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next todo comment | ]t |  |
-| Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
+| Next trouble/quickfix item | ]q |  |
+| Next todo comment | ]t |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| Add surrounding | gza |  |
+| Delete surrounding | gzd |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
 | Find left surrounding | gzF |  |
 | Highlight surrounding | gzh |  |
 | Find right surrounding | gzf |  |
 | Replace surrounding | gzr |  |
-| Add surrounding | gza |  |
-| Delete surrounding | gzd |  |
 | Flash | s |  |
 |  | zM |  |
 |  | zR |  |
@@ -292,10 +292,10 @@ LazyVim IDE config for Neovim
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Increment selection | <C-Space> |  |
-| Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
 | Search in buffer | <C-S> |  |
+| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

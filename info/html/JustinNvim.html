@@ -187,18 +187,28 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Replace in files (Spectre)</td>
-<td>sr</td>
+<td>Restore Last Session</td>
+<td>ql</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Close Buffer (Force)</td>
-<td>bC</td>
+<td>Restore Session</td>
+<td>qs</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close Buffer</td>
-<td>bc</td>
+<td>Don’t Save Current Session</td>
+<td>qd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Todo (Trouble)</td>
+<td>dt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Todo/Fix/Fixme</td>
+<td>sT</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -217,28 +227,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Todo/Fix/Fixme</td>
-<td>sT</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Todo/Fix/Fixme (Trouble)</td>
 <td>dT</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Todo (Trouble)</td>
-<td>dt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dismiss all Notifications</td>
-<td>un</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Document Diagnostics (Trouble)</td>
-<td>dx</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -257,28 +247,68 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Document Diagnostics (Trouble)</td>
+<td>dx</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Quickfix List (Trouble)</td>
 <td>xQ</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Location List (Trouble)</td>
 <td>xL</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Workspace Diagnostics (Trouble)</td>
 <td>xX</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Document Diagnostics (Trouble)</td>
 <td>xx</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Mason</td>
+<td>cm</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Dismiss All</td>
-<td>snd</td>
+<td>Replace in files (Spectre)</td>
+<td>sr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close Buffer (Force)</td>
+<td>bC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Buffer</td>
+<td>bc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete non-pinned buffers</td>
+<td>bP</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle pin</td>
+<td>bp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Explorer</td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dismiss all Notifications</td>
+<td>un</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -297,38 +327,18 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Restore Session</td>
-<td>qs</td>
+<td>Dismiss All</td>
+<td>snd</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Don’t Save Current Session</td>
-<td>qd</td>
+<td>Find Plugin File</td>
+<td>fp</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Restore Last Session</td>
-<td>ql</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mason</td>
-<td>cm</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle pin</td>
-<td>bp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Delete non-pinned buffers</td>
-<td>bP</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Explorer</td>
-<td>e</td>
+<td>Word (cwd)</td>
+<td>fW</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -487,16 +497,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find Plugin File</td>
-<td>fp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Word (cwd)</td>
-<td>fW</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>%</td>
 <td><Plug>(MatchitNormalForward)</td>
@@ -542,17 +542,17 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Delete surrounding</td>
+<td>Toggle TreeSJ</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Add surrounding</td>
+<td>Update <code>MiniSurround.config.n_lines</code></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Update <code>MiniSurround.config.n_lines</code></td>
+<td>Add surrounding</td>
 <td></td>
 <td></td>
 </tr>
@@ -577,7 +577,7 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Toggle TreeSJ</td>
+<td>Delete surrounding</td>
 <td></td>
 <td></td>
 </tr>
@@ -643,18 +643,18 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="even">
+<td>Increment selection</td>
+<td><C-Space></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Scroll forward</td>
 <td><C-F></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Scroll backward</td>
 <td><C-B></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Increment selection</td>
-<td><C-Space></td>
 <td></td>
 </tr>
 <tr class="odd">

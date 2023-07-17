@@ -130,23 +130,23 @@
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>(bullets-promote) | :BulletPromote<CR> |
-|  | <Plug>(bullets-demote) | :BulletDemote<CR> |
-|  | <Plug>(bullets-toggle-checkbox) | :ToggleCheckbox<CR> |
-|  | <Plug>(bullets-renumber) | :RenumberList<CR> |
-|  | <Plug>(bullets-newline) | :call <SNR>27_insert_new_bullet()<CR> |
+|  | <Plug>YSurround | <SNR>22_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>22_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>22_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>22_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>22_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>22_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>22_dosurround(<SNR>22_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
 |  | <Plug>(openbrowser-smart-search) | :<C-U>call openbrowser#_keymap_smart_search('n')<CR> |
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('n')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR> |
 |  | <Plug>(openbrowser-open) | :<C-U>call openbrowser#_keymap_open('n')<CR> |
-|  | <Plug>YSurround | <SNR>14_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>14_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>14_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>14_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>14_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>14_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>14_dosurround(<SNR>14_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
+|  | <Plug>(bullets-promote) | :BulletPromote<CR> |
+|  | <Plug>(bullets-demote) | :BulletDemote<CR> |
+|  | <Plug>(bullets-toggle-checkbox) | :ToggleCheckbox<CR> |
+|  | <Plug>(bullets-renumber) | :RenumberList<CR> |
+|  | <Plug>(bullets-newline) | :call <SNR>13_insert_new_bullet()<CR> |
 | Float Terminal | <M-3> |  |
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
@@ -160,15 +160,15 @@
 |  | <F7> | :set spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add spell<CR> |
 |  | <F6> | :set nospell<CR> |
 |  | <M-j> | :m .+1<CR>== |
-|  | <C-Up> | :resize +2<CR> |
-|  | <M-k> | :m .-2<CR>== |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-H> | <C-W>h |
+|  | <M-k> | :m .-2<CR>== |
 |  | <C-Right> | :vertical resize +2<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize -2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-Up> | :resize +2<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -199,16 +199,16 @@
 |  | <Plug>(bullets-promote) | :BulletPromoteVisual<CR> |
 |  | <Plug>(bullets-demote) | :BulletDemoteVisual<CR> |
 |  | <Plug>(bullets-renumber) | :RenumberSelection<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>28_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>28_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>(openbrowser-smart-search) | :<C-U>call openbrowser#_keymap_smart_search('v')<CR> |
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('v')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR> |
 |  | <Plug>(openbrowser-open) | :<C-U>call openbrowser#_keymap_open('v')<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>19_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>19_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <D-v> | <C-R>+ |
 |  | <F5> | :lua require('persistence').load()<CR> |
-|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 |  | <M-j> | :m '>+1<CR>gv-gv |
+|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 
 #### operator mode keymaps
 

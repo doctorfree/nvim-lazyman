@@ -83,9 +83,9 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  t | <Cmd>TroubleToggle<CR> |
 |  |    | :Telescope buffers<CR> |
 |  |  o | <Cmd>SymbolsOutline<CR> |
-|  |  t | <Cmd>TroubleToggle<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 |  | H | :BufferLineCyclePrev<CR> |
@@ -113,8 +113,8 @@
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
 |  | <C-T> |  |
-|  | <C-S> | :w<CR> |
 |  | <C-U> | <C-U>zz |
+|  | <C-S> | :w<CR> |
 |  | <C-D> | <C-D>zz |
 |  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
@@ -122,11 +122,11 @@
 |  | <M-l> | <C-W>l |
 |  | <M-h> | <C-W>h |
 |  | <C-Space> | <Cmd>WhichKey \ <CR> |
-|  | <M-k> | <C-W>k |
-|  | <C-K> | <C-W>k |
-|  | <M-j> | <C-W>j |
-|  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
+|  | <M-j> | <C-W>j |
+|  | <C-K> | <C-W>k |
+|  | <M-k> | <C-W>k |
+|  | <C-J> | <C-W>j |
 |  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Right> | :vertical resize +2<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |

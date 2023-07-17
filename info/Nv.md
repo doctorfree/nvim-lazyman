@@ -120,24 +120,7 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Options |  so |  |
-| Jump to Mark |  sm |  |
-| Man Pages |  sM |  |
-| Key Maps |  sk |  |
-| Search Highlight Groups |  sH |  |
-| Help Pages |  sh |  |
-| Grep (cwd) |  sG |  |
+| Replace in files (Spectre) |  sr |  |
 | Grep (root dir) |  sg |  |
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
@@ -154,26 +137,39 @@
 | Buffers |  fb |  |
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
+| Find Files (root dir) |    |  |
 | Switch Buffer |  , |  |
-| Colorscheme with preview |  uC |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
-| Find Files (root dir) |    |  |
+| Colorscheme with preview |  uC |  |
 | Word (cwd) |  sW |  |
 | Word (root dir) |  sw |  |
 | Resume |  sR |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Mason |  cm |  |
+| Options |  so |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
+| Key Maps |  sk |  |
+| Search Highlight Groups |  sH |  |
+| Help Pages |  sh |  |
+| Grep (cwd) |  sG |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
 | Open Yank History |  p |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Pause |  dp |  |
-| Step Over |  dO |  |
-| Step Out |  do |  |
-| Run Last |  dl |  |
-| Up |  dk |  |
-| Down |  dj |  |
+| Toggle Output Panel |  tO |  |
+| Show Output |  to |  |
+| Toggle Summary |  ts |  |
+| Run Nearest |  tr |  |
+| Run All Test Files |  tT |  |
+| Run File |  tt |  |
+| Stop |  tS |  |
+| Symbols Outline |  cs |  |
+| Zen Mode |  z |  |
 | Step Into |  di |  |
 | Go to line (no execute) |  dg |  |
 | Run to Cursor |  dC |  |
@@ -189,35 +185,39 @@
 | Terminate |  dt |  |
 | Session |  ds |  |
 | Toggle REPL |  dr |  |
-| Symbols Outline |  cs |  |
-| Zen Mode |  z |  |
-| Dismiss all Notifications |  un |  |
-| Replace in files (Spectre) |  sr |  |
-| Test Request |  ct |  |
-| Preview Request |  cp |  |
-| Select VirtualEnv |  cv |  |
+| Pause |  dp |  |
+| Step Over |  dO |  |
+| Step Out |  do |  |
+| Run Last |  dl |  |
+| Up |  dk |  |
+| Down |  dj |  |
 | Debug Method |  dPt |  |
 | Debug Class |  dPc |  |
+| Select VirtualEnv |  cv |  |
+| Preview Request |  cp |  |
+| Test Request |  ct |  |
 | Projects |  fp |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Dismiss all Notifications |  un |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
 | Edgy Select Window |  uE |  |
 | Edgy Toggle |  ue |  |
-| Adapter Lua Server |  daL |  |
 | Adapter Lua |  dal |  |
-| Run File |  tt |  |
-| Stop |  tS |  |
-| Toggle Output Panel |  tO |  |
-| Show Output |  to |  |
-| Toggle Summary |  ts |  |
-| Run Nearest |  tr |  |
-| Run All Test Files |  tT |  |
+| Adapter Lua Server |  daL |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Mason |  cm |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Put before and indent left | <lt>P |  |
@@ -230,30 +230,30 @@
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Put indented before cursor (linewise) | [P |  |
-| Cycle forward through yank history | [y |  |
-| Put indented before cursor (linewise) | [p |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Put indented before cursor (linewise) | [p |  |
+| Cycle forward through yank history | [y |  |
+| Put indented before cursor (linewise) | [P |  |
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Cycle backward through yank history | ]y |  |
-| Put indented after cursor (linewise) | ]p |  |
-| Put indented after cursor (linewise) | ]P |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Put indented after cursor (linewise) | ]p |  |
+| Cycle backward through yank history | ]y |  |
+| Put indented after cursor (linewise) | ]P |  |
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-| Highlight surrounding | gzh |  |
 | Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Replace surrounding | gzr |  |
-| Add surrounding | gza |  |
+| Highlight surrounding | gzh |  |
 | Delete surrounding | gzd |  |
 | Find right surrounding | gzf |  |
+| Add surrounding | gza |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
+| Replace surrounding | gzr |  |
+| Put yanked text before selection | gP |  |
+| Put yanked text after selection | gp |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |
@@ -262,9 +262,9 @@
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| Increment selection | <C-Space> |  |
 | Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
-| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

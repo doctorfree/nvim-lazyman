@@ -67,6 +67,7 @@ scripts/nvims
 scripts/patches/*
 !scripts/patches/nvim-3rd.patch
 !scripts/patches/nvim-Allaman.patch
+!scripts/patches/nvim-Cosmic.patch
 !scripts/patches/nvim-Daniel.patch
 !scripts/patches/nvim-Enrique.patch
 !scripts/patches/nvim-JustinLvim.patch

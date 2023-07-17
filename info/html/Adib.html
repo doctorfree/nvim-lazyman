@@ -205,6 +205,36 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td>ciw</td>
 </tr>
 <tr class="even">
+<td>File Explorer</td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run File</td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Stop</td>
+<td>tS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Output Panel</td>
+<td>tO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Show Output</td>
+<td>to</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Summary</td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Run Nearest</td>
 <td>tr</td>
 <td></td>
@@ -212,36 +242,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td>Run All Test Files</td>
 <td>tT</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run File</td>
-<td>tt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Stop</td>
-<td>tS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Output Panel</td>
-<td>tO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Show Output</td>
-<td>to</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Summary</td>
-<td>ts</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File Explorer</td>
-<td>e</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -356,28 +356,28 @@ require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_drop
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="even">
-<td>Glance definitions</td>
-<td>gD</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Glance implementations</td>
-<td>gM</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Glance type_definitions</td>
-<td>gY</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Glance references</td>
 <td>gR</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Glance definitions</td>
+<td>gD</td>
+<td></td>
+</tr>
 <tr class="even">
-<td>Leap from windows</td>
-<td>gs</td>
+<td>Glance implementations</td>
+<td>gM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Glance type_definitions</td>
+<td>gY</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Split the object under cursor</td>
+<td>gS</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -386,8 +386,8 @@ require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_drop
 <td></td>
 </tr>
 <tr class="even">
-<td>Split the object under cursor</td>
-<td>gS</td>
+<td>Leap from windows</td>
+<td>gs</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -412,18 +412,18 @@ require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_drop
 </tr>
 <tr class="odd">
 <td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>zb</td>
 <td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>zt</td>
 <td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -447,36 +447,26 @@ require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_drop
 </tr>
 <tr class="even">
 <td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-B></td>
 <td><Cmd>lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 450)<CR></td>
 </tr>
-<tr class="even">
-<td>Move to previous reference</td>
-<td><M-p></td>
+<tr class="odd">
 <td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
 </tr>
 <tr class="odd">
-<td>Move to next reference</td>
-<td><M-n></td>
 <td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -489,15 +479,25 @@ require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle Terminal</td>
-<td><C-T></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle Terminal</td>
+<td><C-T></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="even">
+<td>Move to previous reference</td>
+<td><M-p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to next reference</td>
+<td><M-n></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Fuzzily search in current buffer</td>
@@ -665,18 +665,18 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zt</td>
-<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+<td>zb</td>
+<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+<td>zt</td>
+<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zb</td>
-<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -697,43 +697,43 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><C-B></td>
 <td><Cmd>lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 450)<CR></td>
 </tr>
-<tr class="even">
-<td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
 <tr class="odd">
-<td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><C-F></td>
 <td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
 true, 450)<CR></td>
 </tr>
+<tr class="even">
+<td></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
+</tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
 <td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -844,12 +844,12 @@ true, 450)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-i></td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
+<td><M-i></td>
 <td></td>
 </tr>
 </tbody>

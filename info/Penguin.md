@@ -76,17 +76,38 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
 | Replace in files (Spectre) |  sr |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
 | Explorer NeoTree (cwd) |  fE |  |
 | Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Dismiss all Notifications |  un |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Mason |  cm |  |
+| Delete Buffer (Force) |  bD |  |
+| Delete Buffer |  bd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
 | Switch Buffer |  , |  |
-| Grep (cwd) |  sG |  |
+| Find Files (cwd) |  fF |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
@@ -99,7 +120,7 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Key Maps |  sk |  |
 | Search Highlight Groups |  sH |  |
 | Help Pages |  sh |  |
-| Find Files (root dir) |    |  |
+| Grep (cwd) |  sG |  |
 | Grep (root dir) |  sg |  |
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
@@ -111,49 +132,28 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
 | Recent |  fr |  |
-| Find Files (cwd) |  fF |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
-| Mason |  cm |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Dismiss all Notifications |  un |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo |  st |  |
-| Todo (Trouble) |  xt |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
+| Find Files (root dir) |    |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous trouble/quickfix item | [q |  |
 | Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next trouble/quickfix item | ]q |  |
 | Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Add surrounding | gza |  |
-| Delete surrounding | gzd |  |
 | Find right surrounding | gzf |  |
 | Find left surrounding | gzF |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
 | Highlight surrounding | gzh |  |
+| Delete surrounding | gzd |  |
 | Replace surrounding | gzr |  |
+| Add surrounding | gza |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |

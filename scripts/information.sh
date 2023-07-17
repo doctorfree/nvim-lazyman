@@ -931,9 +931,7 @@ make_info() {
   }
   get_plugins "${nvimconf}" "${OUTF}" "${PL_MAN}"
   [ -x "${KEYMAP}" ] && {
-    [ "${nvimconf}" == "Cosmic" ] || {
-      "${KEYMAP}" ${debug} "${nvimconf}" "${OUTF}"
-    }
+    "${KEYMAP}" ${debug} "${nvimconf}" "${OUTF}"
   }
   [ "${have_pandoc}" ] && {
     pandoc -t html \

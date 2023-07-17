@@ -75,28 +75,15 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
 | Delete Buffer |  bd |  |
 | Delete Buffer (Force) |  bD |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
 | Mason |  cm |  |
 | Dismiss all Notifications |  un |  |
-| Replace in files (Spectre) |  sr |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Switch Buffer |  , |  |
+| Workspace diagnostics |  sD |  |
+| Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
 | Word (cwd) |  sW |  |
@@ -125,34 +112,47 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 | Buffers |  fb |  |
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Workspace diagnostics |  sD |  |
-| Goto Symbol (Workspace) |  sS |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Replace in files (Spectre) |  sr |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Dismiss All |  snd |  |
+| Explorer NeoTree (cwd) |  fE |  |
 | Explorer NeoTree (root dir) |  fe |  |
 | Explorer NeoTree (cwd) |  E |  |
 | Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| Replace surrounding | gzr |  |
 | Find left surrounding | gzF |  |
 | Find right surrounding | gzf |  |
-| Add surrounding | gza |  |
 | Highlight surrounding | gzh |  |
+| Add surrounding | gza |  |
 | Delete surrounding | gzd |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
-| Replace surrounding | gzr |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |

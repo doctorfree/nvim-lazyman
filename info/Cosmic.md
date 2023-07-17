@@ -73,3 +73,64 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 - [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
+### Cosmic Keymaps
+
+#### normal mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Find project file |  ff | <Cmd>lua require("cosmic.plugins.telescope.utils").project_files()<CR> |
+| Refresh Tree |  nr | :NvimTreeRefresh<CR> |
+| Toggle Tree |  nt | :NvimTreeToggle<CR> |
+| Git status |  vg | :Telescope git_status<CR> |
+| Git commits |  vc | :Telescope git_commits<CR> |
+| Grep current word |  fw | :Telescope grep_string<CR> |
+| Grep string |  fs | :Telescope live_grep<CR> |
+| Find buffer |  fk | :Telescope buffers<CR> |
+| Find project file |  fp | :Telescope find_files<CR> |
+| Print session |  si | <Cmd>lua require("cosmic.utils.logger"):log("Session name: " .. require("auto-session-library").current_session_name())<CR> |
+| Save session |  ss | <Cmd>SaveSession<CR> |
+| Restore session |  sl | <Cmd>silent RestoreSession<CR> |
+| Toggle LSP Lines |  ltl |  |
+| Nvim builtin | & | :&&<CR> |
+| Restore plugins from lockfile | ,pr | :Lazy restore<CR> |
+| Clear uninstalled plugins | ,px | :Lazy clear<CR> |
+| Logs | ,pl | :Lazy logs<CR> |
+| Profile | ,pp | :Lazy profile<CR> |
+| Help | ,ph | :Lazy help<CR> |
+| Show plugins | ,ps | :Lazy show<CR> |
+| Update plugins | ,pu | :Lazy update<CR> |
+| Check plugins | ,pc | :Lazy check<CR> |
+| Close tab | ,td | :tabclose<CR> |
+| Next tab | ,tn | :tabnext<CR> |
+| Prev tab | ,tp | :tabprevious<CR> |
+| Delete buffer | ,bd | :bdelete<CR> |
+| Next buffer | ,bn | :bnext<CR> |
+| Prev buffer | ,bp | :bprev<CR> |
+| Next Item | ,cn | :cnext<CR>zz |
+| Prev Item | ,cp | :cprev<CR>zz |
+| Search & Replace | ,cf | :cfdo %s/ |
+| Open list | ,co | :copen <CR> |
+| Close list | ,cc | :cclose <CR> |
+| Clear list | ,ck | :cexpr []<CR> |
+| Nvim builtin | Y | y$ |
+| Vertical Resize +2 | <C-Right> | :vertical resize +2<CR> |
+| Vertical Resize -2 | <C-Left> | :vertical resize -2<CR> |
+| Resize +2 | <C-Down> | :resize +2<CR> |
+| Resize -2 | <C-Up> | :resize -2<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Toggle Tree | <C-N> | :NvimTreeToggle<CR> |
+| Floating Terminal | <C-L> |  |
+
+#### visual mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |
+| Nvim builtin | # | y?\V<C-R>"<CR> |
+| Nvim builtin | * | y/\V<C-R>"<CR> |
+
+#### operator mode keymaps
+
+| Description | LHS | RHS |
+| ----------- | --- | --- |

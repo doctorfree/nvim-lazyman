@@ -56,12 +56,12 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  |  pi |  |
 |  |  ph |  |
 |  |  d |  |
-|  |  b |  |
 |  |  e |  |
+|  |  b |  |
+|  |  fr |  |
 |  |  fw |  |
 |  |  F |  |
 |  |  ft |  |
-|  |  fr |  |
 | Nvim builtin | & | :&&<CR> |
 |  | J | jzz |
 |  | K | kzz |
@@ -73,9 +73,9 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  | <C-K> | <C-W>k |
 |  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
-|  | <S-Tab> |  |
-|  | <M-h> |  |
 |  | <M-t> |  |
+|  | <M-h> |  |
+|  | <S-Tab> |  |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps

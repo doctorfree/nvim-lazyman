@@ -269,38 +269,38 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find left surrounding</td>
-<td>sF</td>
+<td>Find right surrounding</td>
+<td>sf</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Delete surrounding</td>
-<td>sd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Highlight surrounding</td>
-<td>sh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Replace surrounding</td>
-<td>sr</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Add surrounding</td>
 <td>sa</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Replace surrounding</td>
+<td>sr</td>
+<td></td>
+</tr>
 <tr class="even">
+<td>Find left surrounding</td>
+<td>sF</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Update <code>MiniSurround.config.n_lines</code></td>
 <td>sn</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Highlight surrounding</td>
+<td>sh</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Find right surrounding</td>
-<td>sf</td>
+<td>Delete surrounding</td>
+<td>sd</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -325,6 +325,16 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>SendLine</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Send</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><M-l></td>
 <td></td>
 </tr>
@@ -341,16 +351,6 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><M-h></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Send</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SendLine</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -376,49 +376,60 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
+<td>Indent line</td>
+<td><Tab></td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td>Toggle comment for selection</td>
+<td>/</td>
+<td><Esc><Cmd>lua
+require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Send to REPL</td>
+<td>r</td>
+<td><Plug>Send</td>
+</tr>
+<tr class="even">
+<td>Evaluate Input</td>
+<td>dE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Spectre</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Nvim builtin</td>
 <td>#</td>
 <td>y?“<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>%</td>
 <td><Plug>(MatchitVisualForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Nvim builtin</td>
 <td>*</td>
 <td>y/“<CR></td>
 </tr>
-<tr class="even">
-<td>Increment number</td>
-<td>+</td>
-<td>g<C-A></td>
-</tr>
 <tr class="odd">
-<td>Descrement number</td>
-<td>-</td>
-<td>g<C-X></td>
-</tr>
-<tr class="even">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitVisualMultiBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>a%</td>
 <td><Plug>(MatchitVisualTextObject)</td>
-</tr>
-<tr class="odd">
-<td>Easy Align</td>
-<td>ga</td>
-<td><Plug>(EasyAlign)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -426,13 +437,13 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -441,40 +452,45 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Unindent line</td>
+<td><S-Tab></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitVisualTextObject)</td>
 <td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”,
 “n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitVisualBackward)</td>
 <td>:<C-U>call
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-j></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><M-l></td>
+<td><M-k></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-h></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><M-k></td>
+<td><M-l></td>
 <td></td>
 </tr>
 </tbody>
@@ -510,9 +526,19 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td><Plug>(MatchitOperationMultiForward)</td>
 </tr>
 <tr class="even">
+<td>Around line text object</td>
+<td>al</td>
+<td>:normal val<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="even">
+<td>Inside line text object</td>
+<td>il</td>
+<td>:normal vil<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

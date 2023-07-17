@@ -1,0 +1,11 @@
+--- lua/cosmic/config/config.lua.00	2023-07-17 06:35:03.818424707 -0700
++++ lua/cosmic/config/config.lua	2023-07-17 06:35:40.050873812 -0700
+@@ -129,7 +129,7 @@
+     'ggandor/lightspeed.nvim',
+     {
+       'romgrk/barbar.nvim',
+-      dependencies = { 'kyazdani42/nvim-web-devicons' },
++      dependencies = { 'nvim-tree/nvim-web-devicons' },
+     },
+   },
+ }

@@ -300,12 +300,12 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -342,18 +342,8 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-a></td>
-<td><C-A></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-N>i</td>
-<td><Tab></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Space></td>
-<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
+<td>&lt;C-,&gt;</td>
+<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -362,23 +352,43 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&lt;C-,&gt;</td>
-<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
+<td><C-N>i</td>
+<td><Tab></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><M-a></td>
+<td><C-A></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Space></td>
+<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><M-j></td>
 <td>:m .+1<CR>==</td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><C-Down></td>
-<td>:resize +2<CR></td>
-</tr>
 <tr class="even">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><M-k></td>
 <td>:m .-2<CR>==</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -387,13 +397,13 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
+<td><C-K></td>
+<td><C-W>k</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -404,16 +414,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 <td><C-H></td>
 <td><C-W>h</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -464,12 +464,12 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">

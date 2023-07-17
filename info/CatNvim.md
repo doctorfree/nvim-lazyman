@@ -80,12 +80,30 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Mason |  cm |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
 | Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
 | Todo/Fix/Fixme (Trouble) |  xT |  |
 | Todo (Trouble) |  xt |  |
-| Find Files (root dir) |    |  |
+| Todo |  st |  |
+| Replace in files (Spectre) |  sr |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Buffers |  fb |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
@@ -112,31 +130,13 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | Recent |  fr |  |
 | Find Files (cwd) |  fF |  |
 | Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
+| Find Files (root dir) |    |  |
 | Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Replace in files (Spectre) |  sr |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dismiss all Notifications |  un |  |
+| Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
 | Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
+| Dismiss all Notifications |  un |  |
+| Mason |  cm |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -151,22 +151,22 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| Find left surrounding | gzF |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
 | Highlight surrounding | gzh |  |
-| Add surrounding | gza |  |
+| Replace surrounding | gzr |  |
 | Find right surrounding | gzf |  |
 | Delete surrounding | gzd |  |
-| Replace surrounding | gzr |  |
-| Find left surrounding | gzF |  |
+| Add surrounding | gza |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Increment selection | <C-Space> |  |
-| Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
+| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
