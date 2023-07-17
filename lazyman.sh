@@ -1485,7 +1485,7 @@ select_search() {
   choices=()
   while read cfg
   do
-    match=$(grep "^- " "${cfg}" | grep -v ":" | grep "${plug_name}" "${cfg}" | grep "/")
+    match=$(grep "^- " "${cfg}" | grep -v ":" | grep -i "${plug_name}" "${cfg}" | grep "/")
     [ "${match}" ] && {
       matched=
       while read matchline
@@ -1493,11 +1493,19 @@ select_search() {
         if [ "${matched}" ]
         then
           newmatch=$(echo "${matchline}" | awk -F '[' ' { print $2 } ' | awk -F ']' ' { print $1 } ')
-          matched="${matched}, ${newmatch}"
+          echo "${newmatch}" | grep '/' > /dev/null && {
+            newmatch=$(echo "${newmatch}" | awk -F '/' ' { print $2 } ')
+            matched="${matched} ${newmatch}"
+          }
         else
-          matched=$(echo "${matchline}" | awk -F '[' ' { print $2 } ' | awk -F ']' ' { print $1 } ')
+          first=$(echo "${matchline}" | awk -F '[' ' { print $2 } ' | awk -F ']' ' { print $1 } ')
+          echo "${first}" | grep '/' > /dev/null && {
+            matched=$(echo "${first}" | awk -F '/' ' { print $2 } ')
+          }
         fi
       done < <(echo "${match}")
+      # Sort and remove duplicates
+      matched=$(echo $(printf '%s\n' ${matched} | sort -u))
       neocfg=$(echo "${cfg}" | sed -e "s%${LMANDIR}/info/%%" -e "s/\.md//")
       if [ -d "${HOME}/.config/nvim-${neocfg}" ]
       then
@@ -1506,7 +1514,7 @@ select_search() {
         choices+=("${neocfg}  (Uninstalled, Matches: ${matched})")
       fi
     }
-  done < <(grep -l "${plug_name}" "${LMANDIR}"/info/*.md)
+  done < <(grep -i -l "${plug_name}" "${LMANDIR}"/info/*.md)
   IFS=$'\n' choices=($(sort <<<"${choices[*]}"))
   unset IFS
   choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config matching ${plug_name} for Information Display  " --layout=reverse --border --exit-0)
