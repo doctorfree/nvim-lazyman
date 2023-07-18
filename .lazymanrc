@@ -44,14 +44,7 @@ command -v nvim > /dev/null && {
   # Uncomment this line to use Neovim even when you type vim
   # Leave commented to use vim as a backup editor if nvim not found
   # alias vim='nvim'
-  items=()
-  ndirs=()
-  [ -d ${HOME}/.config/nvim ] && {
-    alias nvim-default="NVIM_APPNAME=nvim nvim"
-  }
-  # Add all previously installed Neovim configurations
-  if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
-  then
+  function set_items() {
     while IFS= read -r ndir
     do
       [ -d ${HOME}/.config/${ndir} ] && {
@@ -61,6 +54,16 @@ command -v nvim > /dev/null && {
         ndirs+=("${ndir}")
       }
     done < "${HOME}/.config/nvim-Lazyman/.nvimdirs"
+  }
+  items=()
+  ndirs=()
+  [ -d ${HOME}/.config/nvim ] && {
+    alias nvim-default="NVIM_APPNAME=nvim nvim"
+  }
+  # Add all previously installed Neovim configurations
+  if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
+  then
+    set_items
   else
     # Add any supported config we find
     [ -d ${HOME}/.config/nvim-Lazyman ] && {
@@ -182,6 +185,12 @@ command -v nvim > /dev/null && {
       esac
     done
     shift $((OPTIND-1))
+    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
+    then
+      items=()
+      ndirs=()
+      set_items
+    fi
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -247,6 +256,12 @@ command -v nvim > /dev/null && {
       esac
     done
     shift $((OPTIND-1))
+    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
+    then
+      items=()
+      ndirs=()
+      set_items
+    fi
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then

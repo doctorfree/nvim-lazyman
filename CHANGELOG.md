@@ -4,9 +4,22 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.8r5
+
+### ⚡️ Added
+
 - Install `nvims` and `lazyman-keymaps` man pages in `~/.local/share/man/`
 
 ### 🐞 Fixed
+
+- Fix `AstroNvim` user installs when using a repository subdirectory
+- Fix `Penguin` website url
+- Change arguments to `nvims` and `neovides` shell functions to uppercase
+- Fix refs to `nvims` and `neovides` in `lazyman`
+- Update doc and man pages
+- Use `getopts` in `.lazymanrc`
 
 ## v2.1.8r4
 
