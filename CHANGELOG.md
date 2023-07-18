@@ -10,8 +10,11 @@
 
 ### ⚡️ Added
 
+- Add `,hn` keymap shortcut for `Nvims` vimdoc help
 - Add `-c filter` args to `nvims` and `neovides` functions to filter configs
 - Add `nvims` man page describing usage of Lazyman functions and aliases
+- Add workflow to generate `nvims` vimdoc from markdown
+- Add setting of `vi` and `nvim` alias when `nvims` is used
 
 ### 🐞 Fixed
 
