@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Daniel</title>
+  <title>Lazyman config: Daniel</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,20 +26,22 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Daniel</h1>
+<h1 class="title">Lazyman config: Daniel</h1>
 </header>
 <h2 id="daniel-neovim-configuration-information">Daniel Neovim
 Configuration Information</h2>
 <p>‘LunarVim’ based config of Daniel Vera Gilliard</p>
 <ul>
-<li>Install and initialize: <code>lazyman -w Daniel</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -w Daniel</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
 <li>Base configuration: <a
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Daniel</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Daniel</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -355,62 +357,42 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="odd">
 <td></td>
 <td><Plug>YSurround</td>
-<td><SNR>22_opfunc2(‘setup’)</td>
+<td><SNR>29_opfunc2(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>22_opfunc(‘setup’)</td>
+<td><SNR>29_opfunc(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>22_opfunc2(‘setup’).’_’</td>
+<td><SNR>29_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>22_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>29_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>22_changesurround(1)<CR></td>
+<td>:<C-U>call <SNR>29_changesurround(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>22_changesurround()<CR></td>
+<td>:<C-U>call <SNR>29_changesurround()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>22_dosurround(<SNR>22_inputtarget())<CR></td>
+<td>:<C-U>call <SNR>29_dosurround(<SNR>29_inputtarget())<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>SurroundRepeat</td>
 <td>.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(openbrowser-smart-search)</td>
-<td>:<C-U>call openbrowser#_keymap_smart_search(‘n’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(openbrowser-search)</td>
-<td>:<C-U>call openbrowser#_keymap_search(‘n’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(openbrowser-open-incognito)</td>
-<td>:<C-U>call openbrowser#_keymap_open(‘n’, 0, [‘–incognito’])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(openbrowser-open)</td>
-<td>:<C-U>call openbrowser#_keymap_open(‘n’)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -435,7 +417,27 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="odd">
 <td></td>
 <td><Plug>(bullets-newline)</td>
-<td>:call <SNR>13_insert_new_bullet()<CR></td>
+<td>:call <SNR>23_insert_new_bullet()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-smart-search)</td>
+<td>:<C-U>call openbrowser#_keymap_smart_search(‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-search)</td>
+<td>:<C-U>call openbrowser#_keymap_search(‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-open-incognito)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘n’, 0, [‘–incognito’])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-open)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘n’)<CR></td>
 </tr>
 <tr class="even">
 <td>Float Terminal</td>
@@ -501,23 +503,13 @@ spell<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-j></td>
-<td>:m .+1<CR>==</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-H></td>
-<td><C-W>h</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-k></td>
-<td>:m .-2<CR>==</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-Right></td>
 <td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td>:m .+1<CR>==</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -526,13 +518,13 @@ spell<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Down></td>
-<td>:resize -2<CR></td>
+<td><M-k></td>
+<td>:m .-2<CR>==</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
+<td><C-Down></td>
+<td>:resize -2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -541,13 +533,23 @@ spell<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="even">
+<td></td>
 <td><C-J></td>
 <td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td><C-W>h</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -670,6 +672,26 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>(openbrowser-smart-search)</td>
+<td>:<C-U>call openbrowser#_keymap_smart_search(‘v’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-search)</td>
+<td>:<C-U>call openbrowser#_keymap_search(‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-open-incognito)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘v’, 0, [‘–incognito’])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-open)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>(bullets-promote)</td>
 <td>:BulletPromoteVisual<CR></td>
 </tr>
@@ -685,34 +707,14 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(openbrowser-smart-search)</td>
-<td>:<C-U>call openbrowser#_keymap_smart_search(‘v’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(openbrowser-search)</td>
-<td>:<C-U>call openbrowser#_keymap_search(‘v’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(openbrowser-open-incognito)</td>
-<td>:<C-U>call openbrowser#_keymap_open(‘v’, 0, [‘–incognito’])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(openbrowser-open)</td>
-<td>:<C-U>call openbrowser#_keymap_open(‘v’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>19_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>19_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 <tr class="odd">

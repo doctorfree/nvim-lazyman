@@ -2,11 +2,11 @@
 
 Example lua configuration showing one way to setup LSP servers without plugins
 
-- Install and initialize: `lazyman -x BasicLsp`
+- Install and initialize: **`lazyman -x BasicLsp`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-BasicLsp`
+- Installation location:  **`~/.config/nvim-BasicLsp`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

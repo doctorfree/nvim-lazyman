@@ -2,11 +2,11 @@
 
 Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
 
-- Install and initialize: `lazyman -c`
+- Install and initialize: **`lazyman -c`**
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-NvChad`
+- Installation location:  **`~/.config/nvim-NvChad`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -74,6 +74,9 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | " |  |
 | Nvim builtin | & | :&&<CR> |
 |  | ' |  |
+| Move to end of Treehopper node | ,h] |  |
+| Move to start of Treehopper node | ,h[ |  |
+| Treehopper nodes | ,hm |  |
 | Open new line above HopLineStart target | ,vO |  |
 | Open new line below HopLineStart target | ,vo |  |
 | Paste above target using HopLineStart | ,vP |  |
@@ -91,9 +94,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | ,hW | <Cmd>HopWordMW<CR> |
 |  | ,hl | <Cmd>HopLineStart<CR> |
 |  | ,hw | <Cmd>HopWord<CR> |
-| Move to end of Treehopper node | ,h] |  |
-| Move to start of Treehopper node | ,h[ |  |
-| Treehopper nodes | ,hm |  |
 |  | , |  |
 |  | ? | / |
 |  | F |  |
@@ -104,8 +104,8 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | c |  |
 |  | f |  |
 |  | g |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle current block | gbc |  |
+| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
 | Comment toggle current line | gcc |  |
 |  | t |  |

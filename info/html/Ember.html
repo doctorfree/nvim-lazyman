@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Ember</title>
+  <title>Lazyman config: Ember</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,19 +26,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Ember</h1>
+<h1 class="title">Lazyman config: Ember</h1>
 </header>
 <h2 id="ember-neovim-configuration-information">Ember Neovim
 Configuration Information</h2>
 <p>Dan is a computer science student at Arizona State University</p>
 <ul>
-<li>Install and initialize: <code>lazyman -x Ember</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -x Ember</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Ember</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Ember</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -473,6 +475,16 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise with count</td>
 <td><Plug>(comment_toggle_blockwise_count)</td>
 <td></td>
@@ -504,59 +516,49 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>YSurround</td>
-<td><SNR>26_opfunc2(‘setup’)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Ysurround</td>
-<td><SNR>26_opfunc(‘setup’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>YSsurround</td>
-<td><SNR>26_opfunc2(‘setup’).’_’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>26_opfunc(‘setup’).’g_’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>26_changesurround(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>26_changesurround()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SurroundRepeat</td>
-<td>.</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>7_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
+<td><Plug>Ysurround</td>
+<td><SNR>7_opfunc(‘setup’)</td>
+</tr>
+<tr class="even">
 <td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>7_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>7_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>7_changesurround(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>7_changesurround()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>7_dosurround(<SNR>7_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
@@ -592,18 +594,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 class="math inline">′, 0, 1) &lt; <em>C</em><em>R</em> &gt; |||</span>“)</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>31_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR></td>
-</tr>
-<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
@@ -614,6 +604,18 @@ require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<C
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -2,11 +2,11 @@
 
 Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
 
-- Install and initialize: `lazyman -w Adib`
+- Install and initialize: **`lazyman -w Adib`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Adib`
+- Installation location:  **`~/.config/nvim-Adib`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -94,13 +94,13 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | ----------- | --- | --- |
 |  | <CR> | ciw |
 | File Explorer |  e |  |
+| Run All Test Files |  tT |  |
 | Run File |  tt |  |
-| Stop |  tS |  |
-| Toggle Output Panel |  tO |  |
 | Show Output |  to |  |
+| Toggle Output Panel |  tO |  |
+| Stop |  tS |  |
 | Toggle Summary |  ts |  |
 | Run Nearest |  tr |  |
-| Run All Test Files |  tT |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 |  | + | :vertical resize +5<CR> |
@@ -123,32 +123,32 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 |  | _ | :vertical resize -5<CR> |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Glance references | gR |  |
-| Glance definitions | gD |  |
+| Join the object under cursor | gJ |  |
+| Split the object under cursor | gS |  |
 | Glance implementations | gM |  |
 | Glance type_definitions | gY |  |
-| Split the object under cursor | gS |  |
-| Join the object under cursor | gJ |  |
+| Glance references | gR |  |
+| Glance definitions | gD |  |
 | Leap from windows | gs |  |
 |  | j | gj |
 |  | k | gk |
 | Leap forward to | s |  |
 | t | t |  |
 |  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
-|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
 |  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+| Toggle Terminal | <C-T> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-| Toggle Terminal | <C-T> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 | Move to previous reference | <M-p> |  |
 | Move to next reference | <M-n> |  |
 | Fuzzily search in current buffer | <C-S> |  |
@@ -186,20 +186,20 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | Leap forward to | s |  |
 | t | t |  |
 |  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
-|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
 |  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
 |  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
 |  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
 |  | <M-i> |  |
 
 #### operator mode keymaps

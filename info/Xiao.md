@@ -2,11 +2,11 @@
 
 Personal Neovim configuration of XiaoZhang
 
-- Install and initialize: `lazyman -w Xiao`
+- Install and initialize: **`lazyman -w Xiao`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Xiao`
+- Installation location:  **`~/.config/nvim-Xiao`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -114,8 +114,8 @@ Personal Neovim configuration of XiaoZhang
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv"_c |
-|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv |
+|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv"_c |
+|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv |
 
 #### operator mode keymaps
 

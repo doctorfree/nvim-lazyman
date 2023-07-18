@@ -2,11 +2,11 @@
 
 Aims to provide a base configuration with beautiful UI and fast startup time
 
-- Install and initialize: `lazyman -o`
+- Install and initialize: **`lazyman -o`**
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Penguin`
+- Installation location:  **`~/.config/nvim-Penguin`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -76,44 +76,28 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Replace in files (Spectre) |  sr |  |
 | Explorer NeoTree (cwd) |  fE |  |
 | Explorer NeoTree (root dir) |  fe |  |
 | Explorer NeoTree (cwd) |  E |  |
 | Explorer NeoTree (root dir) |  e |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
-| Dismiss all Notifications |  un |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
 | Dismiss All |  snd |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Mason |  cm |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Don't Save Current Session |  qd |  |
 | Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Find Files (cwd) |  fF |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Dismiss all Notifications |  un |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 | Options |  so |  |
 | Jump to Mark |  sm |  |
 | Man Pages |  sM |  |
@@ -127,12 +111,28 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Commands |  sC |  |
 | Command History |  sc |  |
 | Buffer |  sb |  |
-| Auto Commands |  sa |  |
+| Find Files (root dir) |    |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
 | Recent |  fr |  |
-| Find Files (root dir) |    |  |
+| Find Files (cwd) |  fF |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Auto Commands |  sa |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Goto Symbol |  ss |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Replace in files (Spectre) |  sr |  |
+| Mason |  cm |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -147,22 +147,22 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Find right surrounding | gzf |  |
-| Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
 | Highlight surrounding | gzh |  |
-| Delete surrounding | gzd |  |
 | Replace surrounding | gzr |  |
+| Find left surrounding | gzF |  |
+| Delete surrounding | gzd |  |
+| Find right surrounding | gzf |  |
 | Add surrounding | gza |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Increment selection | <C-Space> |  |
-| Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
+| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

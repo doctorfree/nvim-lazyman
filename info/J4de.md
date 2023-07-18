@@ -2,11 +2,11 @@
 
 Personal Neovim configuration of Jade Fox
 
-- Install and initialize: `lazyman -w J4de`
+- Install and initialize: **`lazyman -w J4de`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-J4de`
+- Installation location:  **`~/.config/nvim-J4de`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -97,11 +97,9 @@ Personal Neovim configuration of Jade Fox
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Go to next buffer | <Tab> |  |
-| Find words |  fw |  |
-| Find files |  ff |  |
-| Seach through changed files |  go |  |
-| Search through git branches |  gb |  |
 | Search and checkout git commits |  gc |  |
+| Search through git branches |  gb |  |
+| Seach through changed files |  go |  |
 | Search through todo comments |  ft |  |
 | Search commands |  fc |  |
 | Search keymaps |  fk |  |
@@ -110,52 +108,48 @@ Personal Neovim configuration of Jade Fox
 | Search man pages |  fm |  |
 | Search help |  fh |  |
 | Search buffers |  fb |  |
-| Open document diagnostics |  xd |  |
-| Open workspace diagnostics |  xw |  |
-| Toggle trouble.nvim |  xx |  |
+| Find words |  fw |  |
+| Find files |  ff |  |
 | Open lsp references |  xr |  |
 | Open location list |  xl |  |
 | Open quickfix |  xq |  |
-| Toggle twilight.nvim |  t |  |
-| Restore the last session |  ql |  |
-| Restore the session for the current directory |  qs |  |
-| Stop persistence |  qd |  |
-| Neogit |  gg |  |
-| Dap UI |  du |  |
-| Eval |  de |  |
+| Open document diagnostics |  xd |  |
+| Open workspace diagnostics |  xw |  |
+| Toggle trouble.nvim |  xx |  |
+| Jump to fourth buffer |  b4 |  |
+| Jump to third buffer |  b3 |  |
+| Jump to second buffer |  b2 |  |
+| Jump to first buffer |  b1 |  |
+| Jump to fifth buffer |  b5 |  |
+| Jump to sixth buffer |  b6 |  |
+| Jump to seventh buffer |  b7 |  |
+| Jump to ninth buffer |  b9 |  |
+| Jump to last buffer |  b$ |  |
+| Jump to eighth buffer |  b8 |  |
+| Down |  dj |  |
+| Step Into |  di |  |
+| Go to line (no execute) |  dg |  |
+| Run to Cursor |  dC |  |
+| Widgets |  dw |  |
+| Continue |  dc |  |
+| Toggle Breakpoint |  db |  |
+| Breakpoint Condition |  dB |  |
+| Terminate |  dt |  |
+| Session |  ds |  |
 | Toggle REPL |  dr |  |
 | Pause |  dp |  |
 | Step Over |  dO |  |
 | Step Out |  do |  |
 | Run Last |  dl |  |
 | Up |  dk |  |
-| Down |  dj |  |
-| Step Into |  di |  |
-| Go to line (no execute) |  dg |  |
-| Run to Cursor |  dC |  |
-| Continue |  dc |  |
-| Toggle Breakpoint |  db |  |
-| Breakpoint Condition |  dB |  |
-| Widgets |  dw |  |
-| Terminate |  dt |  |
-| Session |  ds |  |
-| Open symbols-outline |  o |  |
-| Jump to fifth buffer |  b5 |  |
-| Jump to last buffer |  b$ |  |
-| Jump to ninth buffer |  b9 |  |
-| Jump to eighth buffer |  b8 |  |
-| Jump to seventh buffer |  b7 |  |
-| Jump to sixth buffer |  b6 |  |
-| Jump to fourth buffer |  b4 |  |
-| Jump to third buffer |  b3 |  |
-| Jump to second buffer |  b2 |  |
-| Jump to first buffer |  b1 |  |
-| Delete the current buffer forcefully |  bK |  |
+|  |   |  |
 | Delete the current buffer |  bk |  |
+| Delete the current buffer forcefully |  bK |  |
+| Toggle twilight.nvim |  t |  |
 | Toggle zen mode |  z |  |
-| Open a diff |  gd |  |
-| Unstage the hunk |  gu |  |
-| Stage the buffer |  gS |  |
+| Split node under cursor |  s |  |
+| Join node under cursor |  j |  |
+| Toggle node under cursor |  m |  |
 | Stage the hunk |  gs |  |
 | Reset the buffer |  gR |  |
 | Reset the hunk |  gr |  |
@@ -163,11 +157,17 @@ Personal Neovim configuration of Jade Fox
 | Open git blame |  gl |  |
 | Previous hunk |  gk |  |
 | Next hunk |  gj |  |
+| Open a diff |  gd |  |
+| Unstage the hunk |  gu |  |
+| Stage the buffer |  gS |  |
+| Neogit |  gg |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
 | Open neo-tree.nvim |  e |  |
-|  |   |  |
-| Toggle node under cursor |  m |  |
-| Split node under cursor |  s |  |
-| Join node under cursor |  j |  |
+| Restore the session for the current directory |  qs |  |
+| Stop persistence |  qd |  |
+| Restore the last session |  ql |  |
+| Open symbols-outline |  o |  |
 |  |  l |  |
 |  |  w | <Cmd>w<CR> |
 |  |  qq | <Cmd>q<CR> |
@@ -194,42 +194,42 @@ Personal Neovim configuration of Jade Fox
 | Go to previous buffer | ]b |  |
 | Next hunk | ]g |  |
 |  | ` |  |
-| Change surroundings | cs |  |
 |  | c |  |
-| Delete surroundings | ds |  |
+| Change surroundings | cs |  |
 |  | d |  |
+| Delete surroundings | ds |  |
 | f | f |  |
 | Toggle block comments (normal mode) | gb |  |
 | Toggle comments (normal mode) | gc |  |
-| Signature Help | gK |  |
-| Goto Declaration | gD |  |
 | Goto Implementation | gI |  |
 | Goto Definition | gd |  |
 | Goto T[y]pe Definition | gy |  |
 | References | gr |  |
+| Goto Declaration | gD |  |
+| Signature Help | gK |  |
 | Leap from windows | gs |  |
 |  | g* |  |
 |  | g# |  |
 |  | n |  |
 | Leap forward to | s |  |
 | t | t |  |
-| Add surroundings | ys |  |
 |  | y |  |
-| Open all folds | zR |  |
-| Close all folds | zM |  |
+| Add surroundings | ys |  |
 |  | z |  |
+| Close all folds | zM |  |
+| Open all folds | zR |  |
+| Go to previous buffer | <S-Tab> |  |
+|  | <C-Bslash> |  |
+| Increment | <C-A> |  |
+| Decrement | <C-X> |  |
+|  | <C-W>| |  |
 |  | <C-W>_ |  |
 |  | <C-W>z |  |
 |  | <C-W>= |  |
-|  | <C-W>| |  |
-| Decrement | <C-X> |  |
-| Increment | <C-A> |  |
 | Block up | <M-k> |  |
 | Block down | <M-j> |  |
 | Block right | <M-l> |  |
 | Block left | <M-h> |  |
-| Go to previous buffer | <S-Tab> |  |
-|  | <C-Bslash> |  |
 |  | <C-Right> | <Cmd>vertical resize +2<CR> |
 |  | <C-Left> | <Cmd>vertical resize -2<CR> |
 |  | <C-Down> | <Cmd>resize -2<CR> |
@@ -260,9 +260,9 @@ Personal Neovim configuration of Jade Fox
 |  | n | 'Nn'[v:searchforward] |
 | Leap forward to | s |  |
 | t | t |  |
-| Block down | <M-j> |  |
-| Block up | <M-k> |  |
 | Block left | <M-h> |  |
+| Block up | <M-k> |  |
+| Block down | <M-j> |  |
 | Block right | <M-l> |  |
 
 #### operator mode keymaps

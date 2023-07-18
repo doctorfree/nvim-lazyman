@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Lamia</title>
+  <title>Lazyman config: Lamia</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,20 +26,22 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Lamia</h1>
+<h1 class="title">Lazyman config: Lamia</h1>
 </header>
 <h2 id="lamia-neovim-configuration-information">Lamia Neovim
 Configuration Information</h2>
 <p>One of the AstroNvim ‘Black Belt’ example advanced configurations</p>
 <ul>
-<li>Install and initialize: <code>lazyman -x Lamia</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -x Lamia</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: <a
 href="https://astronvim.com">AstroNvim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Lamia</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Lamia</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -248,14 +250,124 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Force close buffer</td>
-<td>C</td>
+<td>Mason Installer</td>
+<td>pm</td>
+<td><Cmd>Mason<CR></td>
+</tr>
+<tr class="odd">
+<td>Conditional Breakpoint (S-F9)</td>
+<td>dC</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mason Update</td>
+<td>pM</td>
+<td><Cmd>MasonUpdateAll<CR></td>
+</tr>
+<tr class="odd">
+<td>Step Into (F11)</td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Out (S-F11)</td>
+<td>dO</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>AstroNvim Changelog</td>
-<td>pl</td>
-<td><Cmd>AstroChangelog<CR></td>
+<td>Close Session</td>
+<td>dq</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminate Session (S-F5)</td>
+<td>dQ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Update</td>
+<td>pU</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pause (F6)</td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find words in all files</td>
+<td>fW</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Restart (C-F5)</td>
+<td>dr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle REPL</td>
+<td>dR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run To Cursor</td>
+<td>ds</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Evaluate Input</td>
+<td>dE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Debugger UI</td>
+<td>du</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm btm</td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger Hover</td>
+<td>dh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search symbols</td>
+<td>ls</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Symbols outline</td>
+<td>lS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git branches</td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Git commits (repository)</td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git commits (current file)</td>
+<td>gC</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find notifications</td>
+<td>fn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find registers</td>
+<td>fr</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Find words</td>
@@ -263,8 +375,198 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Run To Cursor</td>
-<td>ds</td>
+<td>Toggle autopairs</td>
+<td>ua</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Over (F10)</td>
+<td>do</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Clear Breakpoints</td>
+<td>dB</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find themes</td>
+<td>ft</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle background</td>
+<td>ub</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find man</td>
+<td>fm</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle autocompletion</td>
+<td>uc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find history</td>
+<td>fo</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Start/Continue (F5)</td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle color highlight</td>
+<td>uC</td>
+<td><Cmd>ColorizerToggle<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle diagnostics</td>
+<td>ud</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Aerial</td>
+<td>u1</td>
+<td><Cmd>AerialToggle<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle signcolumn</td>
+<td>ug</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm float</td>
+<td>tf</td>
+<td><Cmd>ToggleTerm direction=float<CR></td>
+</tr>
+<tr class="odd">
+<td>Change indent setting</td>
+<td>ui</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle statusline</td>
+<td>ul</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle CodeLens</td>
+<td>uL</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change line numbering</td>
+<td>un</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Notifications</td>
+<td>uN</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle paste mode</td>
+<td>up</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle spellcheck</td>
+<td>us</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle conceal</td>
+<td>uS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle tabline</td>
+<td>ut</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle URL highlight</td>
+<td>uu</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle wrap</td>
+<td>uw</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle syntax highlight</td>
+<td>uy</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle foldcolumn</td>
+<td>uh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save</td>
+<td>w</td>
+<td><Cmd>w<CR></td>
+</tr>
+<tr class="odd">
+<td>Quit</td>
+<td>q</td>
+<td><Cmd>confirm q<CR></td>
+</tr>
+<tr class="even">
+<td>Plugins Install</td>
+<td>pi</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Status</td>
+<td>ps</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Plugins Sync</td>
+<td>pS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Check Updates</td>
+<td>pu</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Update Plugins and Mason Packages</td>
+<td>pa</td>
+<td><Cmd>AstroUpdatePackages<CR></td>
+</tr>
+<tr class="odd">
+<td>AstroNvim Update</td>
+<td>pA</td>
+<td><Cmd>AstroUpdate<CR></td>
+</tr>
+<tr class="even">
+<td>AstroNvim Version</td>
+<td>pv</td>
+<td><Cmd>AstroVersion<CR></td>
+</tr>
+<tr class="odd">
+<td>AstroNvim Changelog</td>
+<td>pl</td>
+<td><Cmd>AstroChangelog<CR></td>
+</tr>
+<tr class="even">
+<td>Close buffer</td>
+<td>c</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Force close buffer</td>
+<td>C</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -293,18 +595,8 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Symbols outline</td>
-<td>lS</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Previous buffer</td>
 <td>bp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find all files</td>
-<td>fF</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -313,18 +605,8 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find help</td>
-<td>fh</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>By extension</td>
 <td>bse</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find keymaps</td>
-<td>fk</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -333,23 +615,23 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find man</td>
-<td>fm</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>By full path</td>
 <td>bsp</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Git status</td>
+<td>gt</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Find notifications</td>
-<td>fn</td>
+<td>By buffer number</td>
+<td>bsi</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>By buffer number</td>
-<td>bsi</td>
+<td>Resume previous search</td>
+<td>f<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -358,8 +640,8 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Find history</td>
-<td>fo</td>
+<td>Find marks</td>
+<td>f’</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -368,29 +650,109 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Find AstroNvim config files</td>
+<td>fa</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Vertical split buffer from tabline</td>
 <td>b</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Find buffers</td>
+<td>fb</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>View Git blame</td>
-<td>gl</td>
+<td>Find for word under cursor</td>
+<td>fc</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Search sessions</td>
-<td>Sf</td>
-<td><Cmd>SessionManager! load_session<CR></td>
+<td>Find commands</td>
+<td>fC</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Find files</td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Toggle comment line</td>
 <td>/</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Find all files</td>
+<td>fF</td>
+<td></td>
+</tr>
 <tr class="even">
-<td>ToggleTerm float</td>
-<td>tf</td>
-<td><Cmd>ToggleTerm direction=float<CR></td>
+<td>Find help</td>
+<td>fh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find keymaps</td>
+<td>fk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>View Git blame</td>
+<td>gl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>View full Git blame</td>
+<td>gL</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Preview Git hunk</td>
+<td>gp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Reset Git hunk</td>
+<td>gh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Reset Git buffer</td>
+<td>gr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Stage Git hunk</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Stage Git buffer</td>
+<td>gS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Unstage Git hunk</td>
+<td>gu</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>View Git diff</td>
+<td>gd</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm lazygit</td>
+<td>gg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Explorer</td>
+<td>e</td>
+<td><Cmd>Neotree toggle<CR></td>
 </tr>
 <tr class="odd">
 <td>ToggleTerm lazygit</td>
@@ -403,9 +765,19 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>ToggleTerm horizontal split</td>
-<td>th</td>
-<td><Cmd>ToggleTerm size=10 direction=horizontal<CR></td>
+<td>Toggle Explorer Focus</td>
+<td>o</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm gdu</td>
+<td>tu</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Load last session</td>
+<td>Sl</td>
+<td><Cmd>SessionManager! load_last_session<CR></td>
 </tr>
 <tr class="even">
 <td>Save this session</td>
@@ -413,28 +785,8 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Cmd>SessionManager! save_current_session<CR></td>
 </tr>
 <tr class="odd">
-<td>View full Git blame</td>
-<td>gL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ToggleTerm vertical split</td>
-<td>tv</td>
-<td><Cmd>ToggleTerm size=80 direction=vertical<CR></td>
-</tr>
-<tr class="odd">
-<td>Preview Git hunk</td>
-<td>gp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Reset Git hunk</td>
-<td>gh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ToggleTerm lazygit</td>
-<td>gg</td>
+<td>ToggleTerm python</td>
+<td>tp</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -443,194 +795,14 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Cmd>SessionManager! delete_session<CR></td>
 </tr>
 <tr class="odd">
-<td>Git branches</td>
-<td>gb</td>
-<td></td>
+<td>Search sessions</td>
+<td>Sf</td>
+<td><Cmd>SessionManager! load_session<CR></td>
 </tr>
 <tr class="even">
-<td>Git commits (repository)</td>
-<td>gc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Git commits (current file)</td>
-<td>gC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Git status</td>
-<td>gt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Resume previous search</td>
-<td>f<CR></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find marks</td>
-<td>f’</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Breakpoint (F9)</td>
-<td>db</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find AstroNvim config files</td>
-<td>fa</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Clear Breakpoints</td>
-<td>dB</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find buffers</td>
-<td>fb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Start/Continue (F5)</td>
-<td>dc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find for word under cursor</td>
-<td>fc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Conditional Breakpoint (S-F9)</td>
-<td>dC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find commands</td>
-<td>fC</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Into (F11)</td>
-<td>di</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find files</td>
-<td>ff</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Over (F10)</td>
-<td>do</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Reset Git buffer</td>
-<td>gr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Out (S-F11)</td>
-<td>dO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Stage Git hunk</td>
-<td>gs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Close Session</td>
-<td>dq</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Stage Git buffer</td>
-<td>gS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminate Session (S-F5)</td>
-<td>dQ</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Unstage Git hunk</td>
-<td>gu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Pause (F6)</td>
-<td>dp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>View Git diff</td>
-<td>gd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Restart (C-F5)</td>
-<td>dr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Explorer</td>
-<td>e</td>
-<td><Cmd>Neotree toggle<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle REPL</td>
-<td>dR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find registers</td>
-<td>fr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Explorer Focus</td>
-<td>o</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find themes</td>
-<td>ft</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Evaluate Input</td>
-<td>dE</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Load last session</td>
-<td>Sl</td>
-<td><Cmd>SessionManager! load_last_session<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle Debugger UI</td>
-<td>du</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find words in all files</td>
-<td>fW</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger Hover</td>
-<td>dh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search symbols</td>
-<td>ls</td>
-<td></td>
+<td>ToggleTerm horizontal split</td>
+<td>th</td>
+<td><Cmd>ToggleTerm size=10 direction=horizontal<CR></td>
 </tr>
 <tr class="odd">
 <td>Load current directory session</td>
@@ -638,199 +810,29 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Cmd>SessionManager! load_current_dir_session<CR></td>
 </tr>
 <tr class="even">
-<td>ToggleTerm gdu</td>
-<td>tu</td>
-<td></td>
+<td>ToggleTerm vertical split</td>
+<td>tv</td>
+<td><Cmd>ToggleTerm size=80 direction=vertical<CR></td>
 </tr>
 <tr class="odd">
-<td>ToggleTerm btm</td>
-<td>tt</td>
+<td>Toggle Breakpoint (F9)</td>
+<td>db</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>ToggleTerm python</td>
-<td>tp</td>
+<td></td>
+<td>r</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Mason Installer</td>
-<td>pm</td>
-<td><Cmd>Mason<CR></td>
-</tr>
-<tr class="even">
-<td>Mason Update</td>
-<td>pM</td>
-<td><Cmd>MasonUpdateAll<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle autopairs</td>
-<td>ua</td>
 <td></td>
-</tr>
-<tr class="even">
-<td>Toggle Aerial</td>
-<td>u1</td>
-<td><Cmd>AerialToggle<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle background</td>
-<td>ub</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle autocompletion</td>
-<td>uc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle color highlight</td>
-<td>uC</td>
-<td><Cmd>ColorizerToggle<CR></td>
-</tr>
-<tr class="even">
-<td>Toggle diagnostics</td>
-<td>ud</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle signcolumn</td>
-<td>ug</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Change indent setting</td>
-<td>ui</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle statusline</td>
-<td>ul</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle CodeLens</td>
-<td>uL</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Change line numbering</td>
-<td>un</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Notifications</td>
-<td>uN</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle paste mode</td>
-<td>up</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle spellcheck</td>
-<td>us</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle conceal</td>
-<td>uS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle tabline</td>
-<td>ut</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle URL highlight</td>
-<td>uu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle wrap</td>
-<td>uw</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle syntax highlight</td>
-<td>uy</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle foldcolumn</td>
-<td>uh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Save</td>
-<td>w</td>
-<td><Cmd>w<CR></td>
-</tr>
-<tr class="even">
-<td>Quit</td>
-<td>q</td>
-<td><Cmd>confirm q<CR></td>
-</tr>
-<tr class="odd">
-<td>Plugins Install</td>
-<td>pi</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Status</td>
-<td>ps</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Sync</td>
-<td>pS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Check Updates</td>
-<td>pu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Update</td>
-<td>pU</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Update Plugins and Mason Packages</td>
-<td>pa</td>
-<td><Cmd>AstroUpdatePackages<CR></td>
-</tr>
-<tr class="odd">
-<td>AstroNvim Update</td>
-<td>pA</td>
-<td><Cmd>AstroUpdate<CR></td>
-</tr>
-<tr class="even">
-<td>AstroNvim Version</td>
-<td>pv</td>
-<td><Cmd>AstroVersion<CR></td>
-</tr>
-<tr class="odd">
-<td>Close buffer</td>
-<td>c</td>
+<td>a</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>New File</td>
 <td>n</td>
 <td><Cmd>enew<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>r</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>a</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -883,18 +885,18 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td>y$</td>
 </tr>
 <tr class="odd">
+<td>Previous Git hunk</td>
+<td>[g</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Previous buffer</td>
 <td>[b</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Previous tab</td>
 <td>[t</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Previous Git hunk</td>
-<td>[g</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -908,18 +910,18 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Cmd>split<CR></td>
 </tr>
 <tr class="even">
+<td>Next Git hunk</td>
+<td>]g</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Next buffer</td>
 <td>]b</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Next tab</td>
 <td>]t</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Next Git hunk</td>
-<td>]g</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -943,19 +945,19 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>gF</td>
+<td>:<C-U>call fetch#cfile(v:count1)<CR></td>
+</tr>
+<tr class="even">
 <td>Grapple tag popup menu</td>
 <td>gp</td>
 <td>:GrapplePopup tags<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Tags current buffer</td>
 <td>gt</td>
 <td>:GrappleToggle<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gF</td>
-<td>:<C-U>call fetch#cfile(v:count1)<CR></td>
 </tr>
 <tr class="even">
 <td>Comment toggle linewise</td>
@@ -984,7 +986,7 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>sj</td>
+<td>sl</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -994,7 +996,7 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>sl</td>
+<td>sj</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1004,18 +1006,18 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>yrw</td>
-<td>yiw:s/&lt;lt&gt;<C-R>0&gt;/</td>
+<td>yre</td>
+<td>yie:s/&lt;lt&gt;<C-R>0&gt;/</td>
 </tr>
 <tr class="even">
 <td></td>
-<td>yrE</td>
-<td>yiE:s/&lt;lt&gt;<C-R>0&gt;/</td>
+<td>yrw</td>
+<td>yiw:s/&lt;lt&gt;<C-R>0&gt;/</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>yre</td>
-<td>yie:s/&lt;lt&gt;<C-R>0&gt;/</td>
+<td>yrE</td>
+<td>yiE:s/&lt;lt&gt;<C-R>0&gt;/</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1053,8 +1055,8 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Resize split right</td>
-<td><C-Right></td>
+<td>Debugger: Stop</td>
+<td><F17></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1063,63 +1065,33 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Resize split up</td>
-<td><C-Up></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Resize split down</td>
 <td><C-Down></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Resize split left</td>
-<td><C-Left></td>
+<tr class="even">
+<td>Resize split right</td>
+<td><C-Right></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td><F2></td>
+<td>y:%s/<C-R>0/</td>
+</tr>
 <tr class="even">
-<td>Toggle terminal</td>
-<td>&lt;C-’&gt;</td>
-<td><Cmd>ToggleTerm<CR></td>
+<td></td>
+<td><F2><F2></td>
+<td>y:%s/<C-R>0/</td>
 </tr>
 <tr class="odd">
-<td>Debugger: Start</td>
-<td><F5></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Toggle terminal</td>
 <td><F7></td>
 <td><Cmd>ToggleTerm<CR></td>
 </tr>
-<tr class="odd">
-<td>Debugger: Stop</td>
-<td><F17></td>
-<td></td>
-</tr>
 <tr class="even">
-<td>Debugger: Conditional Breakpoint</td>
-<td><F21></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Restart</td>
-<td><F29></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Pause</td>
-<td><F6></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Toggle Breakpoint</td>
-<td><F9></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Step Over</td>
-<td><F10></td>
+<td>Move to above split</td>
+<td><C-K></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1128,48 +1100,28 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Debugger: Step Out</td>
-<td><F23></td>
+<td>Resize split left</td>
+<td><C-Left></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Resize split up</td>
+<td><C-Up></td>
 <td></td>
-<td><M-O></td>
-<td>O<Esc></td>
 </tr>
 <tr class="even">
+<td>Debugger: Toggle Breakpoint</td>
+<td><F9></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><M-o></td>
 <td>o<Esc></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><F2><F2></td>
-<td>y:%s/<C-R>0/</td>
-</tr>
 <tr class="even">
-<td></td>
-<td><F2></td>
-<td>y:%s/<C-R>0/</td>
-</tr>
-<tr class="odd">
-<td>Previous buffer</td>
-<td><M-h></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Next buffer</td>
-<td><M-l></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to above split</td>
-<td><C-K></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move to below split</td>
-<td><C-J></td>
+<td>Debugger: Restart</td>
+<td><F29></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1178,9 +1130,29 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><C-U>zz</td>
 </tr>
 <tr class="even">
+<td>Move to below split</td>
+<td><C-J></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Previous buffer</td>
+<td><M-h></td>
+<td></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><C-D></td>
 <td><C-D>zz</td>
+</tr>
+<tr class="odd">
+<td>Next buffer</td>
+<td><M-l></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-O></td>
+<td>O<Esc></td>
 </tr>
 <tr class="odd">
 <td>Force quit</td>
@@ -1191,6 +1163,36 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td>Force write</td>
 <td><C-S></td>
 <td><Cmd>w!<CR></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Conditional Breakpoint</td>
+<td><F21></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Pause</td>
+<td><F6></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Step Over</td>
+<td><F10></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Step Out</td>
+<td><F23></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle terminal</td>
+<td>&lt;C-’&gt;</td>
+<td><Cmd>ToggleTerm<CR></td>
+</tr>
+<tr class="even">
+<td>Debugger: Start</td>
+<td><F5></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1220,12 +1222,12 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><F3><F3></td>
+<td><F3></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><F3></td>
+<td><F3><F3></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1337,13 +1339,13 @@ require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
 <td>:<C-U>call fetch#visual(v:count1)<CR></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">

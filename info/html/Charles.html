@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Charles</title>
+  <title>Lazyman config: Charles</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,19 +26,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Charles</h1>
+<h1 class="title">Lazyman config: Charles</h1>
 </header>
 <h2 id="charles-neovim-configuration-information">Charles Neovim
 Configuration Information</h2>
 <p>Well structured lazy config with several setup scripts and a Wiki</p>
 <ul>
-<li>Install and initialize: <code>lazyman -w Charles</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -w Charles</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Charles</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Charles</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -246,14 +248,14 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:noh<CR></td>
 </tr>
 <tr class="odd">
-<td>edit: Join code block</td>
-<td>j</td>
-<td>:<C-U>TSJJoin<CR></td>
-</tr>
-<tr class="even">
 <td>edit: Split code block</td>
 <td>s</td>
 <td>:<C-U>TSJSplit<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Join code block</td>
+<td>j</td>
+<td>:<C-U>TSJJoin<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -271,29 +273,59 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td><C-A></td>
 </tr>
 <tr class="even">
-<td>buffer: Sort by extension</td>
-<td>,be</td>
-<td>:BufferLineSortByExtension<CR></td>
-</tr>
-<tr class="odd">
 <td>buffer: Sort by direrctory</td>
 <td>,bd</td>
 <td>:BufferLineSortByDirectory<CR></td>
 </tr>
+<tr class="odd">
+<td>buffer: Sort by extension</td>
+<td>,be</td>
+<td>:BufferLineSortByExtension<CR></td>
+</tr>
 <tr class="even">
-<td>find: Buffer opened</td>
-<td>,fb</td>
-<td>:<C-U>Telescope buffers<CR></td>
+<td>lsp: Show loclist</td>
+<td>,tl</td>
+<td>:TroubleToggle loclist<CR></td>
 </tr>
 <tr class="odd">
-<td>filetree: Refresh</td>
-<td>,nr</td>
-<td>:NvimTreeRefresh<CR></td>
+<td>lsp: Show lsp references</td>
+<td>,tr</td>
+<td>:TroubleToggle lsp_references<CR></td>
 </tr>
 <tr class="even">
-<td>find: file in git project</td>
-<td>,fg</td>
-<td>:<C-U>Telescope git_files<CR></td>
+<td>tool: Run code by file</td>
+<td>,R</td>
+<td>:<C-U>%SnipRun<CR></td>
+</tr>
+<tr class="odd">
+<td>lsp: Toggle trouble list</td>
+<td>,tt</td>
+<td>:TroubleToggle<CR></td>
+</tr>
+<tr class="even">
+<td>debug: Open REPL</td>
+<td>,do</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Run last</td>
+<td>,dl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>debug: Run to cursor</td>
+<td>,dc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Set breakpoint with condition</td>
+<td>,db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>find: Session</td>
+<td>,fd</td>
+<td>:<C-U>Telescope persisted<CR></td>
 </tr>
 <tr class="odd">
 <td>find: Current word</td>
@@ -301,24 +333,24 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:<C-U>Telescope grep_string<CR></td>
 </tr>
 <tr class="even">
+<td>find: Buffer opened</td>
+<td>,fb</td>
+<td>:<C-U>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td>find: file in git project</td>
+<td>,fg</td>
+<td>:<C-U>Telescope git_files<CR></td>
+</tr>
+<tr class="even">
 <td>buffer: New</td>
 <td>,fn</td>
 <td>:<C-U>:enew<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,-</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>ui: Change colorscheme for current session</td>
 <td>,fc</td>
 <td>:<C-U>Telescope colorscheme<CR></td>
-</tr>
-<tr class="odd">
-<td>tool: Run code by file</td>
-<td>,R</td>
-<td>:<C-U>%SnipRun<CR></td>
 </tr>
 <tr class="even">
 <td>find: File in project</td>
@@ -331,79 +363,29 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:<C-U>Telescope oldfiles<CR></td>
 </tr>
 <tr class="even">
-<td>debug: Open REPL</td>
-<td>,do</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>find: Word in project</td>
 <td>,fw</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>find: File by frecency</td>
 <td>,fr</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>find: Project</td>
 <td>,fp</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>edit: Show undo history</td>
 <td>,u</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>lsp: Show loclist</td>
-<td>,tl</td>
-<td>:TroubleToggle loclist<CR></td>
-</tr>
 <tr class="even">
-<td>lsp: Show quickfix list</td>
-<td>,tq</td>
-<td>:TroubleToggle quickfix<CR></td>
-</tr>
-<tr class="odd">
-<td>lsp: Show workspace diagnostics</td>
-<td>,tw</td>
-<td>:TroubleToggle workspace_diagnostics<CR></td>
-</tr>
-<tr class="even">
-<td>lsp: Show document diagnostics</td>
-<td>,td</td>
-<td>:TroubleToggle document_diagnostics<CR></td>
-</tr>
-<tr class="odd">
-<td>lsp: Show lsp references</td>
-<td>,tr</td>
-<td>:TroubleToggle lsp_references<CR></td>
-</tr>
-<tr class="even">
-<td>lsp: Toggle trouble list</td>
-<td>,tt</td>
-<td>:TroubleToggle<CR></td>
-</tr>
-<tr class="odd">
-<td>git: Toggle lazygit</td>
-<td>,lg</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>debug: Run last</td>
-<td>,dl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>debug: Run to cursor</td>
-<td>,dc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>debug: Set breakpoint with condition</td>
-<td>,db</td>
-<td></td>
+<td>filetree: Refresh</td>
+<td>,nr</td>
+<td>:NvimTreeRefresh<CR></td>
 </tr>
 <tr class="odd">
 <td>filetree: Find file</td>
@@ -411,89 +393,49 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:NvimTreeFindFile<CR></td>
 </tr>
 <tr class="even">
+<td>lsp: Show quickfix list</td>
+<td>,tq</td>
+<td>:TroubleToggle quickfix<CR></td>
+</tr>
+<tr class="odd">
 <td>git: Open git-fugitive</td>
 <td>,G</td>
 <td>:<C-U>Git<CR></td>
 </tr>
+<tr class="even">
+<td>lsp: Show workspace diagnostics</td>
+<td>,tw</td>
+<td>:TroubleToggle workspace_diagnostics<CR></td>
+</tr>
 <tr class="odd">
-<td>find: Session</td>
-<td>,fd</td>
-<td>:<C-U>Telescope persisted<CR></td>
+<td>lsp: Show document diagnostics</td>
+<td>,td</td>
+<td>:TroubleToggle document_diagnostics<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td>,-</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td>,=</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>edit: Search-repacle multi buffers CWORD</td>
-<td>,rbW</td>
-<td>:<C-U>SearchReplaceMultiBufferCWORD<CR></td>
-</tr>
 <tr class="even">
-<td>session: Delete</td>
-<td>,sd</td>
-<td>:<C-U>SessionDelete<CR></td>
-</tr>
-<tr class="odd">
-<td>edit: Search-repacle multi buffers CWord</td>
-<td>,rbw</td>
-<td>:<C-U>SearchReplaceMultiBufferCWord<CR></td>
-</tr>
-<tr class="even">
-<td>edit: Add comment box around the texts</td>
-<td>,cf</td>
+<td>git: Toggle lazygit</td>
+<td>,lg</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>edit: Search-repacle in multi buffers</td>
-<td>,rbo</td>
-<td>:<C-U>SearchReplaceMultiBufferOpen<CR></td>
-</tr>
-<tr class="even">
-<td>git: Show diff</td>
-<td>,dv</td>
-<td>:DiffviewOpen<CR></td>
-</tr>
-<tr class="odd">
-<td>edit: Show search-repacle menu for multi buffer</td>
-<td>,rbs</td>
-<td>:<C-U>SearchReplaceMultiBufferSelections<CR></td>
-</tr>
-<tr class="even">
-<td>edit: Search-repacle current buffer CFile</td>
-<td>,rf</td>
-<td>:<C-U>SearchReplaceSingleBufferCFile<CR></td>
-</tr>
-<tr class="odd">
-<td>edit: Search-repacle current buffer CExpr</td>
-<td>,re</td>
-<td>:<C-U>SearchReplaceSingleBufferCExpr<CR></td>
-</tr>
-<tr class="even">
-<td>edit: Search-repacle current buffer CWORD</td>
-<td>,rW</td>
-<td>:<C-U>SearchReplaceSingleBufferCWORD<CR></td>
-</tr>
-<tr class="odd">
-<td>edit: Search-repacle current buffer CWord</td>
-<td>,rw</td>
-<td>:<C-U>SearchReplaceSingleBufferCWord<CR></td>
-</tr>
-<tr class="even">
 <td>edit: Search-repacle in current buffer</td>
 <td>,ro</td>
 <td>:<C-U>SearchReplaceSingleBufferOpen<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>edit: Show search-repacle menu in current buffer</td>
 <td>,rs</td>
 <td>:<C-U>SearchReplaceSingleBufferSelections<CR></td>
-</tr>
-<tr class="even">
-<td>edit: Add comment box around multi lines of texts</td>
-<td>,cF</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>git: Close diff</td>
@@ -501,9 +443,79 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:DiffviewClose<CR></td>
 </tr>
 <tr class="even">
+<td>git: Show diff</td>
+<td>,dv</td>
+<td>:DiffviewOpen<CR></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle multi buffers CFile</td>
+<td>,rbf</td>
+<td>:<C-U>SearchReplaceMultiBufferCFile<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle multi buffers CExpr</td>
+<td>,rbe</td>
+<td>:<C-U>SearchReplaceMultiBufferCExpr<CR></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle multi buffers CWORD</td>
+<td>,rbW</td>
+<td>:<C-U>SearchReplaceMultiBufferCWORD<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle multi buffers CWord</td>
+<td>,rbw</td>
+<td>:<C-U>SearchReplaceMultiBufferCWord<CR></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle in multi buffers</td>
+<td>,rbo</td>
+<td>:<C-U>SearchReplaceMultiBufferOpen<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Add comment box around multi lines of texts</td>
+<td>,cF</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Show search-repacle menu for multi buffer</td>
+<td>,rbs</td>
+<td>:<C-U>SearchReplaceMultiBufferSelections<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Add comment box around the texts</td>
+<td>,cf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle current buffer CFile</td>
+<td>,rf</td>
+<td>:<C-U>SearchReplaceSingleBufferCFile<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle current buffer CExpr</td>
+<td>,re</td>
+<td>:<C-U>SearchReplaceSingleBufferCExpr<CR></td>
+</tr>
+<tr class="odd">
+<td>session: Delete</td>
+<td>,sd</td>
+<td>:<C-U>SessionDelete<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle current buffer CWORD</td>
+<td>,rW</td>
+<td>:<C-U>SearchReplaceSingleBufferCWORD<CR></td>
+</tr>
+<tr class="odd">
 <td>session: Load current</td>
 <td>,sl</td>
 <td>:<C-U>SessionLoad<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle current buffer CWord</td>
+<td>,rw</td>
+<td>:<C-U>SearchReplaceSingleBufferCWord<CR></td>
 </tr>
 <tr class="odd">
 <td>session: Save</td>
@@ -511,64 +523,54 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:<C-U>SessionSave<CR></td>
 </tr>
 <tr class="even">
-<td>edit: Search-repacle multi buffers CFile</td>
-<td>,rbf</td>
-<td>:<C-U>SearchReplaceMultiBufferCFile<CR></td>
-</tr>
-<tr class="odd">
-<td>edit: Search-repacle multi buffers CExpr</td>
-<td>,rbe</td>
-<td>:<C-U>SearchReplaceMultiBufferCExpr<CR></td>
-</tr>
-<tr class="even">
-<td>package: Check</td>
-<td>,pc</td>
-<td>:Lazy check<CR></td>
-</tr>
-<tr class="odd">
-<td>package: Log</td>
-<td>,pl</td>
-<td>:Lazy log<CR></td>
-</tr>
-<tr class="even">
-<td>package: Clean</td>
-<td>,px</td>
-<td>:Lazy clean<CR></td>
-</tr>
-<tr class="odd">
-<td>package: Install</td>
-<td>,pi</td>
-<td>:Lazy install<CR></td>
-</tr>
-<tr class="even">
-<td>package: Restore</td>
-<td>,pr</td>
-<td>:Lazy restore<CR></td>
-</tr>
-<tr class="odd">
 <td>package: Update</td>
 <td>,pu</td>
 <td>:Lazy update<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>package: Profile</td>
 <td>,pp</td>
 <td>:Lazy profile<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>package: Sync</td>
 <td>,ps</td>
 <td>:Lazy sync<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>package: Debug</td>
 <td>,pd</td>
 <td>:Lazy debug<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>package: Show</td>
 <td>,ph</td>
 <td>:Lazy<CR></td>
+</tr>
+<tr class="odd">
+<td>package: Check</td>
+<td>,pc</td>
+<td>:Lazy check<CR></td>
+</tr>
+<tr class="even">
+<td>package: Log</td>
+<td>,pl</td>
+<td>:Lazy log<CR></td>
+</tr>
+<tr class="odd">
+<td>package: Clean</td>
+<td>,px</td>
+<td>:Lazy clean<CR></td>
+</tr>
+<tr class="even">
+<td>package: Install</td>
+<td>,pi</td>
+<td>:Lazy install<CR></td>
+</tr>
+<tr class="odd">
+<td>package: Restore</td>
+<td>,pr</td>
+<td>:Lazy restore<CR></td>
 </tr>
 <tr class="even">
 <td>edit: Start replacment mode of current word</td>
@@ -656,28 +658,8 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:G push<CR></td>
 </tr>
 <tr class="odd">
-<td>edit: Toggle comment for block with operator</td>
-<td>gb</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-</tr>
-<tr class="even">
 <td>leapn: Jump to character across windows</td>
 <td>gt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>edit: Toggle comment for line with operator</td>
-<td>gc</td>
-<td><Plug>(comment_toggle_linewise)</td>
-</tr>
-<tr class="even">
-<td>edit: Toggle comment for block</td>
-<td>gbc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>edit: Toggle comment for line</td>
-<td>gcc</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -686,13 +668,23 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td>:EasyAlign<CR></td>
 </tr>
 <tr class="odd">
-<td>jump: Jump to functions</td>
-<td>jif</td>
+<td>edit: Toggle comment for block with operator</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="even">
+<td>edit: Toggle comment for line with operator</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td>edit: Toggle comment for block</td>
+<td>gbc</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>jump: Jump to functions</td>
-<td>jfu</td>
+<td>edit: Toggle comment for line</td>
+<td>gcc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -703,6 +695,16 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <tr class="even">
 <td></td>
 <td>j</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>jump: Jump to functions</td>
+<td>jif</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>jump: Jump to functions</td>
+<td>jfu</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -731,34 +733,34 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>tab: Move to previous tab</td>
-<td>tj</td>
-<td><Cmd>tabprevious<CR></td>
-</tr>
-<tr class="odd">
-<td>tab: Move to next tab</td>
-<td>tk</td>
-<td><Cmd>tabnext<CR></td>
-</tr>
-<tr class="even">
-<td>tab: Create a new tab</td>
-<td>tn</td>
-<td><Cmd>tabnew<CR></td>
-</tr>
-<tr class="odd">
 <td>tab: Only keep current tab</td>
 <td>to</td>
 <td><Cmd>tabonly<CR></td>
 </tr>
+<tr class="odd">
+<td>tab: Move to previous tab</td>
+<td>tj</td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
 <tr class="even">
-<td>edit: Visual select current node</td>
-<td>vn</td>
-<td>:<C-U>STSSelectCurrentNode<CR></td>
+<td>tab: Move to next tab</td>
+<td>tk</td>
+<td><Cmd>tabnext<CR></td>
 </tr>
 <tr class="odd">
+<td>tab: Create a new tab</td>
+<td>tn</td>
+<td><Cmd>tabnew<CR></td>
+</tr>
+<tr class="even">
 <td>edit: Visual select master node</td>
 <td>vx</td>
 <td>:<C-U>STSSelectMasterNode<CR></td>
+</tr>
+<tr class="odd">
+<td>edit: Visual select current node</td>
+<td>vn</td>
+<td>:<C-U>STSSelectCurrentNode<CR></td>
 </tr>
 <tr class="even">
 <td>edit: Add a surrounding pair around the current line, on new
@@ -782,19 +784,39 @@ lines</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>debug: Run/Continue</td>
+<td><F6></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tmux: Resize tmux/nvim pane rightward</td>
+<td><M-l></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>debug: Step over</td>
+<td><F11></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Step out</td>
+<td><F10></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>debug: Step into</td>
 <td><F9></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>debug: Run/Continue</td>
-<td><F6></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>terminal: Toggle float</td>
 <td><M-d></td>
 <td>:execute v:count . “ToggleTerm direction=float”<CR></td>
+</tr>
+<tr class="even">
+<td>debug: Toggle breakpoint</td>
+<td><F8></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>terminal: Toggle vertical</td>
@@ -802,19 +824,19 @@ lines</td>
 <td>:execute v:count . “ToggleTerm direction=vertical”<CR></td>
 </tr>
 <tr class="even">
+<td>debug: Stop</td>
+<td><F7></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>terminal: Toggle vertical</td>
 <td><M-Bslash></td>
 <td>:execute v:count . “ToggleTerm direction=vertical”<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>terminal: Toggle horizontal</td>
 <td><C-Bslash></td>
 <td>:execute v:count . “ToggleTerm direction=horizontal”<CR></td>
-</tr>
-<tr class="even">
-<td>tmux: Resize tmux/nvim pane rightward</td>
-<td><M-l></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>tmux: Resize to tmux/nvim pane leftward</td>
@@ -832,39 +854,19 @@ lines</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>debug: Step over</td>
-<td><F11></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>debug: Step out</td>
-<td><F10></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>debug: Toggle breakpoint</td>
-<td><F8></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>debug: Stop</td>
-<td><F7></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>tool: Preview markdown</td>
 <td><F12></td>
 <td>:MarkdownPreviewToggle<CR></td>
 </tr>
 <tr class="odd">
-<td>buffer: Close current</td>
-<td><F4></td>
-<td>:BufDel<CR></td>
-</tr>
-<tr class="even">
 <td>editn: Save file using sudo</td>
 <td><M-s></td>
 <td>:<C-U>SudaWrite<CR></td>
+</tr>
+<tr class="even">
+<td>buffer: Close current</td>
+<td><F4></td>
+<td>:BufDel<CR></td>
 </tr>
 <tr class="odd">
 <td>Formater: Toggle format on save</td>
@@ -872,9 +874,29 @@ lines</td>
 <td><Cmd>FormatToggle<CR></td>
 </tr>
 <tr class="even">
-<td>buffer: Switch to prev</td>
-<td><S-Tab></td>
-<td>:BufferLineCyclePrev<CR></td>
+<td>edit: Force quit</td>
+<td><M-Q></td>
+<td>:q!<CR></td>
+</tr>
+<tr class="odd">
+<td>window: Resize -2 horizontally</td>
+<td>&lt;M-;&gt;</td>
+<td>:resize -2<CR></td>
+</tr>
+<tr class="even">
+<td>edit: Save file</td>
+<td><C-S></td>
+<td>:<C-U>write<CR></td>
+</tr>
+<tr class="odd">
+<td>window: Resize +5 vertically</td>
+<td>&lt;M-]&gt;</td>
+<td>:vertical resize +5<CR></td>
+</tr>
+<tr class="even">
+<td>window: Resize -5 vertically</td>
+<td>&lt;M-[&gt;</td>
+<td>:vertical resize -5<CR></td>
 </tr>
 <tr class="odd">
 <td>tmux: Move to tmux/nvim top window</td>
@@ -897,49 +919,29 @@ lines</td>
 <td>gg0vG$</td>
 </tr>
 <tr class="odd">
-<td>edit: Save file</td>
-<td><C-S></td>
-<td>:<C-U>write<CR></td>
+<td>buffer: Switch to prev</td>
+<td><S-Tab></td>
+<td>:BufferLineCyclePrev<CR></td>
 </tr>
 <tr class="even">
-<td>edit: Force quit</td>
-<td><M-Q></td>
-<td>:q!<CR></td>
-</tr>
-<tr class="odd">
 <td>filetree: Toggle</td>
 <td><C-N></td>
 <td>:NvimTreeToggle<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tool: Toggle command panel</td>
 <td><C-P></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>edit: Save file and quit</td>
 <td><C-Q></td>
 <td>:wq<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>window: Resize +2 horizontally</td>
 <td>&lt;M-’&gt;</td>
 <td>:resize +2<CR></td>
-</tr>
-<tr class="odd">
-<td>window: Resize -2 horizontally</td>
-<td>&lt;M-;&gt;</td>
-<td>:resize -2<CR></td>
-</tr>
-<tr class="even">
-<td>window: Resize +5 vertically</td>
-<td>&lt;M-]&gt;</td>
-<td>:vertical resize +5<CR></td>
-</tr>
-<tr class="odd">
-<td>window: Resize -5 vertically</td>
-<td>&lt;M-[&gt;</td>
-<td>:vertical resize -5<CR></td>
 </tr>
 <tr class="even">
 <td>tmux: Move tmux/nvim right window</td>
@@ -979,19 +981,19 @@ lines</td>
 <td>y/“<CR></td>
 </tr>
 <tr class="even">
-<td>tool: Run code by range</td>
-<td>,R</td>
-<td>:SnipRun<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>,-</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,=</td>
 <td></td>
+</tr>
+<tr class="even">
+<td>tool: Run code by range</td>
+<td>,R</td>
+<td>:SnipRun<CR></td>
 </tr>
 <tr class="odd">
 <td>move: Change selection region to child node</td>

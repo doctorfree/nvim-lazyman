@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>NV-IDE</title>
+  <title>Lazyman config: NV-IDE</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,20 +26,22 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">NV-IDE</h1>
+<h1 class="title">Lazyman config: NV-IDE</h1>
 </header>
 <h2 id="nv-ide-neovim-configuration-information">NV-IDE Neovim
 Configuration Information</h2>
 <p>Configuration oriented for web developers (rails, ruby, php, html,
 css, SCSS, javascript)</p>
 <ul>
-<li>Install and initialize: <code>lazyman -L NV-IDE</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L NV-IDE</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-NV-IDE</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-NV-IDE</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -576,24 +578,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="odd">
 <td></td>
 <td><Plug>(vsnip-cut-text)</td>
-<td>:<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+<td>:<C-U>call <SNR>28_vsnip_visual_text(visualmode())<CR>gv”_c</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(vsnip-select-text)</td>
-<td>:<C-U>call <SNR>12_vsnip_visual_text(visualmode())<CR>gv</td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+<td>:<C-U>call <SNR>28_vsnip_visual_text(visualmode())<CR>gv</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -614,6 +604,18 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <td></td>
 <td><C-H></td>
 <td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

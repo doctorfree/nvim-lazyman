@@ -2,11 +2,11 @@
 
 Configure Neovim as a Personalized Development Environment (PDE)
 
-- Install and initialize: `lazyman -x pde`
+- Install and initialize: **`lazyman -x pde`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-pde`
+- Installation location:  **`~/.config/nvim-pde`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -99,32 +99,7 @@ Configure Neovim as a Personalized Development Environment (PDE)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Pick |  zCp |  |
-| Toggle Highlighter |  zCh |  |
-| Convert |  zCc |  |
-| Build |  ttb |  |
-| Task Action |  tta |  |
-| Run Command |  ttR |  |
-| Toggle |  ttt |  |
-| Save Bundle |  tts |  |
-| Run |  ttr |  |
-| Quick Action |  ttq |  |
-| Open |  tto |  |
-| Load Bundle |  ttl |  |
-| Delete Bundle |  ttd |  |
-| Close |  ttc |  |
-| Select VirtualEnv |  lv |  |
-| Git Files |  fg |  |
-| Find Files |  ff |  |
-| Help |  fh |  |
-| Buffers |  fb |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
 | Status |  gs |  |
-| All Files |  tF |  |
-| File |  tf |  |
-| Attach |  ta |  |
 | Debug Last |  tL |  |
 | Debug File |  td |  |
 | Summary |  tS |  |
@@ -133,6 +108,18 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Debug Nearest |  tN |  |
 | Nearest |  tn |  |
 | Last |  tl |  |
+| All Files |  tF |  |
+| File |  tf |  |
+| Attach |  ta |  |
+| Pause |  dp |  |
+| Step Over |  do |  |
+| Step Into |  di |  |
+| Scopes |  dS |  |
+| Hover Variables |  dh |  |
+| Get Session |  dg |  |
+| Evaluate |  de |  |
+| Disconnect |  dd |  |
+| Continue |  dc |  |
 | Step Back |  db |  |
 | Toggle UI |  dU |  |
 | Conditional Breakpoint |  dC |  |
@@ -144,17 +131,9 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Start |  ds |  |
 | Toggle REPL |  dr |  |
 | Quit |  dq |  |
-| Pause |  dp |  |
-| Step Over |  do |  |
-| Step Into |  di |  |
-| Scopes |  dS |  |
-| Hover Variables |  dh |  |
-| Get Session |  dg |  |
-| Evaluate |  de |  |
-| Disconnect |  dd |  |
-| Continue |  dc |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
+| Convert |  zCc |  |
+| Pick |  zCp |  |
+| Toggle Highlighter |  zCh |  |
 | Focus |  xF |  |
 | Restart |  xS |  |
 | REPL |  xR |  |
@@ -170,16 +149,37 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Send Line |  xl |  |
 | Send Motion |  xs |  |
 | +Mark |  xm |  |
+| +REPL |  x |  |
+| Hide |  xH |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Find Files |  ff |  |
+| Help |  fh |  |
+| Buffers |  fb |  |
+| Git Files |  fg |  |
+| Run Command |  ttR |  |
+| Toggle |  ttt |  |
+| Save Bundle |  tts |  |
+| Run |  ttr |  |
+| Quick Action |  ttq |  |
+| Open |  tto |  |
+| Load Bundle |  ttl |  |
+| Delete Bundle |  ttd |  |
+| Close |  ttc |  |
+| Build |  ttb |  |
+| Task Action |  tta |  |
+| Select VirtualEnv |  lv |  |
 |  |   |  |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
 |  | gx | <Plug>NetrwBrowseX |
-|  | gcc |  |
 |  | gc |  |
 |  | gbc |  |
+|  | gcc |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-| Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
 | Previous Cell | <M-k> |  |
 | Next Cell | <M-j> |  |
 | Delete Cell | <M-x> |  |
@@ -198,9 +198,9 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | gc |  |
 |  | gbc |  |
 |  | gcc |  |
+|  | gc |  |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 
 #### operator mode keymaps

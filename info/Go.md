@@ -2,11 +2,11 @@
 
 NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
 
-- Install and initialize: `lazyman -L Go`
+- Install and initialize: **`lazyman -L Go`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Go`
+- Installation location:  **`~/.config/nvim-Go`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -64,10 +64,10 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-| Comment toggle current line | gcc |  |
+| Comment toggle linewise | gc |  |
 | Comment toggle current block | gbc |  |
 | Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
+| Comment toggle current line | gcc |  |
 |  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
@@ -85,5 +85,5 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |

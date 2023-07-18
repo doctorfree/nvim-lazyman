@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Go2one</title>
+  <title>Lazyman config: Go2one</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,20 +26,22 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Go2one</h1>
+<h1 class="title">Lazyman config: Go2one</h1>
 </header>
 <h2 id="go2one-neovim-configuration-information">Go2one Neovim
 Configuration Information</h2>
 <p>Neovim Go development environment that does not touch standard Neovim
 configuration folders</p>
 <ul>
-<li>Install and initialize: <code>lazyman -L Go2one</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L Go2one</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/wbthomason/packer.nvim">Packer</a></li>
-<li>Installation location: <code>~/.config/nvim-Go2one</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Go2one</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -376,23 +378,13 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
-<td>dm=</td>
-<td><Cmd>lua require’marks’.delete_bookmark()<CR></td>
+<td>dm-</td>
+<td><Cmd>lua require’marks’.delete_line()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>dm5</td>
-<td><Cmd>lua require’marks’.delete_bookmark5()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>dm2</td>
-<td><Cmd>lua require’marks’.delete_bookmark2()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm4</td>
-<td><Cmd>lua require’marks’.delete_bookmark4()<CR></td>
+<td>dm</td>
+<td><Cmd>lua require’marks’.delete_buf()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -406,43 +398,53 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
+<td>dm5</td>
+<td><Cmd>lua require’marks’.delete_bookmark5()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>dm6</td>
 <td><Cmd>lua require’marks’.delete_bookmark6()<CR></td>
 </tr>
+<tr class="even">
+<td></td>
+<td>dm4</td>
+<td><Cmd>lua require’marks’.delete_bookmark4()<CR></td>
+</tr>
 <tr class="odd">
+<td></td>
+<td>dm=</td>
+<td><Cmd>lua require’marks’.delete_bookmark()<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td>dm7</td>
 <td><Cmd>lua require’marks’.delete_bookmark7()<CR></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td>dm8</td>
+<td><Cmd>lua require’marks’.delete_bookmark8()<CR></td>
+</tr>
 <tr class="even">
 <td></td>
-<td>dm</td>
-<td><Cmd>lua require’marks’.delete()<CR></td>
+<td>dm2</td>
+<td><Cmd>lua require’marks’.delete_bookmark2()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>dm</td>
-<td><Cmd>lua require’marks’.delete_buf()<CR></td>
+<td><Cmd>lua require’marks’.delete()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>dm-</td>
-<td><Cmd>lua require’marks’.delete_line()<CR></td>
+<td>dm9</td>
+<td><Cmd>lua require’marks’.delete_bookmark9()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>dm1</td>
 <td><Cmd>lua require’marks’.delete_bookmark1()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>dm8</td>
-<td><Cmd>lua require’marks’.delete_bookmark8()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm9</td>
-<td><Cmd>lua require’marks’.delete_bookmark9()<CR></td>
 </tr>
 <tr class="even">
 <td>Comment insert end of line</td>
@@ -506,8 +508,38 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
+<td>m7</td>
+<td><Cmd>lua require’marks’.set_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m3</td>
+<td><Cmd>lua require’marks’.set_bookmark3()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>m0</td>
 <td><Cmd>lua require’marks’.set_bookmark0()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td><Cmd>lua require’marks’.set()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m6</td>
+<td><Cmd>lua require’marks’.set_bookmark6()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m]</td>
+<td><Cmd>lua require’marks’.next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m5</td>
+<td><Cmd>lua require’marks’.set_bookmark5()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -518,6 +550,16 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 <td></td>
 <td>m}</td>
 <td><Cmd>lua require’marks’.next_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m4</td>
+<td><Cmd>lua require’marks’.set_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m[</td>
+<td><Cmd>lua require’marks’.prev()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -536,58 +578,18 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
-<td>m</td>
-<td><Cmd>lua require’marks’.set()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m5</td>
-<td><Cmd>lua require’marks’.set_bookmark5()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m4</td>
-<td><Cmd>lua require’marks’.set_bookmark4()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m6</td>
-<td><Cmd>lua require’marks’.set_bookmark6()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m3</td>
-<td><Cmd>lua require’marks’.set_bookmark3()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>m9</td>
 <td><Cmd>lua require’marks’.set_bookmark9()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>m2</td>
 <td><Cmd>lua require’marks’.set_bookmark2()<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>m8</td>
 <td><Cmd>lua require’marks’.set_bookmark8()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m[</td>
-<td><Cmd>lua require’marks’.prev()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m7</td>
-<td><Cmd>lua require’marks’.set_bookmark7()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m]</td>
-<td><Cmd>lua require’marks’.next()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

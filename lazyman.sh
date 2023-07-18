@@ -13,6 +13,7 @@ LZYMANRC="${LMANDIR}/.lazymanrc"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 SCRIPTSD="${LMANDIR}/scripts"
+CONFIGRC="${SCRIPTSD}/configrc"
 HEALTHSC="${SCRIPTSD}/healthcheck.sh"
 INFOSCPT="${SCRIPTSD}/information.sh"
 INSTNVIM="${SCRIPTSD}/install_neovim.sh"
@@ -28,19 +29,15 @@ NORM=$(tput sgr0 2>/dev/null)
 LINE=$(tput smul 2>/dev/null)
 
 USEGUI=
-BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-LANGUCFGS="AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
-PRSNLCFGS="3rd Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
-MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
+if [ -f "${CONFIGRC}" ]
+then
+  source "${CONFIGRC}"
+else
+  printf "\n\nERROR: Missing ${CONFIGRC}"
+  printf "\n\nReinstall Lazyman\n\n"
+  exit 1
+fi
 SPDIR="${HOME}/.SpaceVim.d"
-LAZYVIMCFGS="CatNvim JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
-NVCHADCFGS="Go NvChad Python Rust"
-ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Spider"
-KICKSTARTCFGS="Kickstart"
-LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
-PLUGCFGS="Optixal Plug"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names

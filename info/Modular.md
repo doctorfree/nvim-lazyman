@@ -2,11 +2,11 @@
 
 Same as 'StartMason' but everything is split in modules
 
-- Install and initialize: `lazyman -x Modular`
+- Install and initialize: **`lazyman -x Modular`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Modular`
+- Installation location:  **`~/.config/nvim-Modular`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -56,7 +56,6 @@ Same as 'StartMason' but everything is split in modules
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  e | <Cmd>NvimTreeToggle<CR> |
 |  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
 |  |  fd | <Cmd>Telescope diagnostics<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
@@ -64,6 +63,7 @@ Same as 'StartMason' but everything is split in modules
 |  |    | <Cmd>Telescope buffers<CR> |
 |  |  ? | <Cmd>Telescope oldfiles<CR> |
 |  |  bc | <Cmd>Bdelete<CR> |
+|  |  e | <Cmd>NvimTreeToggle<CR> |
 |  |  bl | <Cmd>buffer #<CR> |
 |  |  bq | <Cmd>bdelete<CR> |
 |  |  w | <Cmd>write<CR> |
@@ -84,11 +84,11 @@ Same as 'StartMason' but everything is split in modules
 |  | gy | "+y |
 |  | x | "_x |
 |  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | ySS |  |
+|  | ySs |  |
 |  | yss |  |
 |  | yS |  |
 |  | ys |  |
-|  | ySS |  |
-|  | ySs |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |

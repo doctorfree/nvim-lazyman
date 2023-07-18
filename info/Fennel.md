@@ -2,11 +2,11 @@
 
 An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
 
-- Install and initialize: `lazyman -x Fennel`
+- Install and initialize: **`lazyman -x Fennel`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  `~/.config/nvim-Fennel`
+- Installation location:  **`~/.config/nvim-Fennel`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

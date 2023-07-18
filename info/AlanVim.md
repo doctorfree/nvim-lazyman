@@ -2,11 +2,11 @@
 
 Oriented toward Python development
 
-- Install and initialize: `lazyman -L AlanVim`
+- Install and initialize: **`lazyman -L AlanVim`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  `~/.config/nvim-AlanVim`
+- Installation location:  **`~/.config/nvim-AlanVim`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -138,8 +138,8 @@ Oriented toward Python development
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <C-H> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<CR> |
 |  | <C-J> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<CR> |
+|  | <C-H> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<CR> |
 |  | <C-Space> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<CR> |
 |  | <C-Bslash> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<CR> |
 |  | <C-K> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<CR> |

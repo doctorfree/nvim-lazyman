@@ -2,11 +2,11 @@
 
 One of the primary inspirations for Lazyman
 
-- Install and initialize: `lazyman -w ONNO`
+- Install and initialize: **`lazyman -w ONNO`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-ONNO`
+- Installation location:  **`~/.config/nvim-ONNO`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -94,13 +94,22 @@ One of the primary inspirations for Lazyman
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Select Moonokai pro filter |  c | <Cmd>MonokaiProSelect<CR> |
-| Dashboard |  0 |  |
 | Delete all Notifications |  n |  |
-| Close Buffer |  d |  |
-| Peek (Markdown Preview) |  p |  |
-| Don't Save Current Session |  sd |  |
+| Find Text |  F |  |
+| Find files |  f |  |
+| Checkout commit |  gc |  |
+| Open changed file |  go |  |
+| Checkout branch |  gb |  |
 | Restore Last Session |  sl |  |
 | Restore Session |  ss |  |
+| Don't Save Current Session |  sd |  |
+| Close Buffer |  d |  |
+| Peek (Markdown Preview) |  p |  |
+| Workspace Symbols |  lS |  |
+| Document Symbols |  ls |  |
+| Rename |  lr |  |
+| Quickfix |  lq |  |
+| CodeLens Action |  ll |  |
 | Prev Diagnostic |  lk |  |
 | Next Diagnostic |  lj |  |
 | Installer Info |  lI |  |
@@ -109,30 +118,21 @@ One of the primary inspirations for Lazyman
 | Document Diagnostics |  ld |  |
 | Code Action |  la |  |
 | Format and Save |  W |  |
-| Workspace Symbols |  lS |  |
-| Document Symbols |  ls |  |
-| Rename |  lr |  |
-| Quickfix |  lq |  |
-| CodeLens Action |  ll |  |
-| Open file manager |  r |  |
-| Blame |  gl |  |
-| Prev Hunk |  gk |  |
-| Next Hunk |  gj |  |
-| Lazygit |  gg |  |
 | Diff |  gd |  |
 | Undo Stage Hunk |  gu |  |
 | Stage Hunk |  gs |  |
 | Reset Buffer |  gR |  |
 | Reset Hunk |  gr |  |
 | Preview Hunk |  gp |  |
-| Open changed file |  go |  |
-| Find Text |  F |  |
-| Find files |  f |  |
-| Checkout commit |  gc |  |
-| Checkout branch |  gb |  |
-| Zoom window |  m |  |
-| Explorer Float (root dir) |  E |  |
+| Blame |  gl |  |
+| Prev Hunk |  gk |  |
+| Next Hunk |  gj |  |
+| Lazygit |  gg |  |
+| Open file manager |  r |  |
 | Explorer (root dir) |  e |  |
+| Explorer Float (root dir) |  E |  |
+| Zoom window |  m |  |
+| Dashboard |  0 |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
@@ -140,41 +140,41 @@ One of the primary inspirations for Lazyman
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next Reference | ]] |  |
-| Top this line | ft |  |
-| Toggle all folds under cursor | fA |  |
-| Bottom this line | fb |  |
-| Mark word as bad/misspelling | fw |  |
-| Show cursor line | fv |  |
-| Right this line | fe |  |
+| Toggle fold under cursor | fa |  |
 | Close all folds | fM |  |
-| Delete all folds in current buffer | fE |  |
+| Open all folds under cursor | fO |  |
 | Open all folds | fR |  |
 | Half screen to the left | fH |  |
+| Right this line | fe |  |
 | Fold more | fm |  |
 | Half screen to the right | fL |  |
-| Fold less | fr |  |
 | Left this line | fs |  |
+| Fold less | fr |  |
+| Mark word as bad/misspelling | fw |  |
+| Delete all folds in current buffer | fE |  |
 | Update folds | fx |  |
 | Delete fold under cursor | fd |  |
 | Center this line | fz |  |
 | Open fold under cursor | fo |  |
-| Open all folds under cursor | fO |  |
-| Add word to spell list | fg |  |
+| Top this line | ft |  |
+| Bottom this line | fb |  |
 | Close all folds under cursor | fc |  |
-| Toggle fold under cursor | fa |  |
+| Add word to spell list | fg |  |
+| Toggle all folds under cursor | fA |  |
+| Show cursor line | fv |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Go to definition | gd |  |
 | Go to references | gr |  |
 | Go to implementations | gi |  |
-| Highlight Groups | sH |  |
-| Keymaps | sk |  |
-| Checkout branch | sb |  |
-| Colorscheme | sc |  |
 | Find Help | sh |  |
-| Man Pages | sM |  |
-| Open Recent File | sr |  |
 | Registers | sR |  |
+| Keymaps | sk |  |
 | Commands | sC |  |
+| Highlight Groups | sH |  |
+| Checkout branch | sb |  |
+| Man Pages | sM |  |
+| Colorscheme | sc |  |
+| Open Recent File | sr |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>LvimAdib</title>
+  <title>Lazyman config: LvimAdib</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">LvimAdib</h1>
+<h1 class="title">Lazyman config: LvimAdib</h1>
 </header>
 <h2 id="lvimadib-neovim-configuration-information">LvimAdib Neovim
 Configuration Information</h2>
@@ -37,7 +37,8 @@ href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Person
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-LvimAdib</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-LvimAdib</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -269,12 +270,12 @@ require(“dial.command”).textobj()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -396,38 +397,38 @@ require(“dial.command”).textobj()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><M-j></td>
+<td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
 <td><C-H></td>
 <td><C-W>h</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td><C-W>j</td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><C-K></td>
-<td><C-W>k</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-k></td>
-<td><C-W>k</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-J></td>
-<td><C-W>j</td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><C-Q></td>
 <td>:call QuickFixToggle()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -600,13 +601,13 @@ require(“dial.command”).textobj()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 </tbody>
 </table>

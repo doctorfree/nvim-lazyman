@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>JustinLvim</title>
+  <title>Lazyman config: JustinLvim</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,20 +26,22 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">JustinLvim</h1>
+<h1 class="title">Lazyman config: JustinLvim</h1>
 </header>
 <h2 id="justinlvim-neovim-configuration-information">JustinLvim Neovim
 Configuration Information</h2>
 <p>LunarVim based Neovim configuration by Justin Angeles</p>
 <ul>
-<li>Install and initialize: <code>lazyman -x JustinLvim</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -x JustinLvim</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: <a
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-JustinLvim</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-JustinLvim</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -409,37 +411,37 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="even">
 <td></td>
 <td><Plug>YSurround</td>
-<td><SNR>10_opfunc2(‘setup’)</td>
+<td><SNR>9_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>10_opfunc(‘setup’)</td>
+<td><SNR>9_opfunc(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>10_opfunc2(‘setup’).’_’</td>
+<td><SNR>9_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>10_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>9_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>10_changesurround(1)<CR></td>
+<td>:<C-U>call <SNR>9_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>10_changesurround()<CR></td>
+<td>:<C-U>call <SNR>9_changesurround()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>10_dosurround(<SNR>10_inputtarget())<CR></td>
+<td>:<C-U>call <SNR>9_dosurround(<SNR>9_inputtarget())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -473,13 +475,13 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-k></td>
-<td>:m .-2<CR>==</td>
+<td><C-K></td>
+<td><C-W>k</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><M-k></td>
+<td>:m .-2<CR>==</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -493,13 +495,13 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -653,24 +655,24 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="odd">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 </tbody>
 </table>

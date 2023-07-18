@@ -37,8 +37,6 @@ command -v nvim > /dev/null && {
   # Uncomment this line to use Neovim even when you type vim
   # Leave commented to use vim as a backup editor if nvim not found
   # alias vim='nvim'
-  alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
-  alias neovides='source ~/.config/nvim-Lazyman/.lazymanrc; neovselect'
   items=()
   ndirs=()
   [ -d ${HOME}/.config/nvim ] && {
@@ -107,14 +105,13 @@ command -v nvim > /dev/null && {
 
   function runconfig() {
     cfg="$1"
-    neo="$2"
     shift
     comm="nvim"
-    [ "${neo}" ] && [ "${neo}" == "neovide" ] && {
-      comm='neovide --'
-      shift
+    dash=
+    [ "${USE_NEOVIDE}" ] && {
+      comm="neovide"
+      dash='--'
     }
-
     [ -d "${HOME}/.config/${cfg}" ] || {
       [ -d "${HOME}/.config/nvim-${cfg}" ] && cfg="nvim-${cfg}"
     }
@@ -122,19 +119,19 @@ command -v nvim > /dev/null && {
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
       nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'Lexplore' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'Lexplore' $@
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'Neotree' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'Neotree' $@
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeOpen' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'NvimTreeOpen' $@
         ;;
       nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeToggle' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'NvimTreeToggle' $@
         ;;
       nvim-3rd)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
         ;;
       *)
         NVIM_APPNAME="${cfg}" ${comm} $@
@@ -142,9 +139,15 @@ command -v nvim > /dev/null && {
     esac
   }
 
-  function nvimselect() {
+  function nvims() {
     action="Open"
+    filter=
     remove=
+    if [[ "$1" == "-c" ]]
+    then
+      filter="$2"
+      shift 2
+    fi
     if [[ "$1" == "-r" ]]
     then
       action="Remove"
@@ -161,7 +164,11 @@ command -v nvim > /dev/null && {
       unset new_items
       shift
     fi
-    filter="$1"
+    if [[ "$1" == "-c" ]]
+    then
+      filter="$2"
+      shift 2
+    fi
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -184,6 +191,7 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
+        alias vi="NVIM_APPNAME=${config} nvim"
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -195,20 +203,31 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-        runconfig "${config}" $@
+      export USE_NEOVIDE=
+      runconfig "${config}" $@
     fi
   }
 
-  function neovselect() {
+  function neovides() {
     action="Open"
+    filter=
     remove=
+    if [[ "$1" == "-c" ]]
+    then
+      filter="$2"
+      shift 2
+    fi
     if [[ "$1" == "-r" ]]
     then
       action="Remove"
       remove=1
       shift
     fi
-    filter="$1"
+    if [[ "$1" == "-c" ]]
+    then
+      filter="$2"
+      shift 2
+    fi
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -231,6 +250,7 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
+        alias neovide="NVIM_APPNAME=${config} neovide"
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -242,7 +262,8 @@ command -v nvim > /dev/null && {
     then
       lazyman -R -N ${config}
     else
-      runconfig "${config}" "neovide" $@
+      export USE_NEOVIDE=1
+      runconfig "${config}" $@
     fi
   }
 }

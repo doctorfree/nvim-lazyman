@@ -2,11 +2,11 @@
 
 Install 'Node.js', 'prettierd', and 'eslint_d'
 
-- Install and initialize: `lazyman -x Cosmic`
+- Install and initialize: **`lazyman -x Cosmic`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Cosmic`
+- Installation location:  **`~/.config/nvim-Cosmic`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -81,8 +81,6 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Find project file |  ff | <Cmd>lua require("cosmic.plugins.telescope.utils").project_files()<CR> |
-| Refresh Tree |  nr | :NvimTreeRefresh<CR> |
-| Toggle Tree |  nt | :NvimTreeToggle<CR> |
 | Git status |  vg | :Telescope git_status<CR> |
 | Git commits |  vc | :Telescope git_commits<CR> |
 | Grep current word |  fw | :Telescope grep_string<CR> |
@@ -92,6 +90,8 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 | Print session |  si | <Cmd>lua require("cosmic.utils.logger"):log("Session name: " .. require("auto-session-library").current_session_name())<CR> |
 | Save session |  ss | <Cmd>SaveSession<CR> |
 | Restore session |  sl | <Cmd>silent RestoreSession<CR> |
+| Refresh Tree |  nr | :NvimTreeRefresh<CR> |
+| Toggle Tree |  nt | :NvimTreeToggle<CR> |
 | Toggle LSP Lines |  ltl |  |
 | Nvim builtin | & | :&&<CR> |
 | Restore plugins from lockfile | ,pr | :Lazy restore<CR> |

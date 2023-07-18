@@ -2,11 +2,11 @@
 
 A theme-driven modern Neovim configuration
 
-- Install and initialize: `lazyman -x HardHacker`
+- Install and initialize: **`lazyman -x HardHacker`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-HardHacker`
+- Installation location:  **`~/.config/nvim-HardHacker`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -100,11 +100,11 @@ A theme-driven modern Neovim configuration
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <M-C-L> |  |
 |  | <M-C-K> |  |
 |  | <M-C-J> |  |
 |  | <M-C-H> |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps

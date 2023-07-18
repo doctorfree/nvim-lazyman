@@ -2,11 +2,11 @@
 
 Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fine example, as are many here, of the Unix Greybeard
 
-- Install and initialize: `lazyman -w xero`
+- Install and initialize: **`lazyman -w xero`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-xero`
+- Installation location:  **`~/.config/nvim-xero`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -85,7 +85,6 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | toggle colorizer | ,c |  |
-| Search commands | ,/c |  |
 | Resume FZF | ,// |  |
 | Search git buffer commits | ,bc |  |
 | Search git buffer commits | ,/gC |  |
@@ -99,6 +98,7 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | Find files | ,/o |  |
 | Find files | ,/f |  |
 | Search command history | ,/C |  |
+| Search commands | ,/c |  |
 | toggle spell check | ,s | :Sp<CR> |
 | jq format | ,j | :%!jq .<CR> |
 | Nvim builtin | Y | y$ |

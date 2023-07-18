@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HardHacker</title>
+  <title>Lazyman config: HardHacker</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,19 +26,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">HardHacker</h1>
+<h1 class="title">Lazyman config: HardHacker</h1>
 </header>
 <h2 id="hardhacker-neovim-configuration-information">HardHacker Neovim
 Configuration Information</h2>
 <p>A theme-driven modern Neovim configuration</p>
 <ul>
-<li>Install and initialize: <code>lazyman -x HardHacker</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -x HardHacker</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-HardHacker</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-HardHacker</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -323,29 +325,29 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><M-C-L></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-C-K></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-C-J></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-C-H></td>
 <td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -2,11 +2,11 @@
 
 Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/lvim) advanced 'LunarVim' config
 
-- Install and initialize: `lazyman -L Shuvro`
+- Install and initialize: **`lazyman -L Shuvro`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Shuvro`
+- Installation location:  **`~/.config/nvim-Shuvro`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -109,37 +109,37 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | L | <Cmd>BufferLineCycleNext<CR> |
 |  | X | <Cmd>lua require('user.bufferline').delete_buffer()<CR> |
 |  | Y | y$ |
-|  | [b | <Cmd>BufferLineMoveNext<CR> |
 |  | [d | <Cmd>lua vim.diagnostic.goto_prev()<CR> |
+|  | [b | <Cmd>BufferLineMoveNext<CR> |
 |  | [q | :cprev<CR> |
-|  | ]b | <Cmd>BufferLineMovePrev<CR> |
 |  | ]d | <Cmd>lua vim.diagnostic.goto_next()<CR> |
+|  | ]b | <Cmd>BufferLineMovePrev<CR> |
 |  | ]q | :cnext<CR> |
 |  | ce | <Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR> |
 |  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
-|  | gc |  |
 |  | gb |  |
-|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
+|  | gc |  |
 |  | gx | <Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR> |
+|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
 |  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
 |  | tu | <Cmd>lua require('harpoon.term').gotoTerminal(1)<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-Bslash> |  |
-|  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
+|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
 |  | <M-x> | <C-X> |
 |  | <C-N>i | <Tab> |
+|  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
 |  | <M-a> | <C-A> |
-|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
-|  | <C-Right> | :vertical resize +2<CR> |
 |  | <M-j> | :m .+1<CR>== |
-|  | <C-Left> | :vertical resize -2<CR> |
-|  | <M-k> | :m .-2<CR>== |
 |  | <C-Down> | :resize +2<CR> |
+|  | <M-k> | :m .-2<CR>== |
 |  | <C-Up> | :resize -2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-K> | <C-W>k |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
+|  | <C-Right> | :vertical resize +2<CR> |
+|  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -152,15 +152,15 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | <lt> | <lt>gv |
 |  | > | >gv |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | gb |  |
 |  | gc |  |
+|  | gb |  |
 |  | ga | <Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR> |
 |  | p | "_dP |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <M-x> | <C-X> |
 |  | <M-a> | <C-A> |
-|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 |  | <M-j> | :m '>+1<CR>gv-gv |
+|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 
 #### operator mode keymaps
 

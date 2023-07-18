@@ -2,11 +2,11 @@
 
 Small configuration without third party plugins
 
-- Install and initialize: `lazyman -x Minimal`
+- Install and initialize: **`lazyman -x Minimal`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Minimal`
+- Installation location:  **`~/.config/nvim-Minimal`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

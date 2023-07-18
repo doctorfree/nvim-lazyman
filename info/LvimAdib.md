@@ -3,7 +3,7 @@
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-LvimAdib`
+- Installation location:  **`~/.config/nvim-LvimAdib`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -99,8 +99,8 @@
 |  | g% | <Plug>(MatchitNormalBackward) |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
@@ -122,13 +122,13 @@
 |  | <M-l> | <C-W>l |
 |  | <M-h> | <C-W>h |
 |  | <C-Space> | <Cmd>WhichKey \ <CR> |
-|  | <C-H> | <C-W>h |
 |  | <M-j> | <C-W>j |
 |  | <C-K> | <C-W>k |
 |  | <M-k> | <C-W>k |
 |  | <C-J> | <C-W>j |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-H> | <C-W>h |
 |  | <C-Right> | :vertical resize +2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize +2<CR> |
 |  | <C-Up> | :resize -2<CR> |
@@ -164,8 +164,8 @@
 |  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
 |  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
 |  | <M-k> | :m '<lt>-2<CR>gv-gv |
+|  | <M-j> | :m '>+1<CR>gv-gv |
 
 #### operator mode keymaps
 

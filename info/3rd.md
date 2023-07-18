@@ -2,11 +2,11 @@
 
 Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 
-- Install and initialize: `lazyman -w 3rd`
+- Install and initialize: **`lazyman -w 3rd`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-3rd`
+- Installation location:  **`~/.config/nvim-3rd`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -106,8 +106,8 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 | Resume last fzf-lua command |    | <Cmd>lua require('fzf-lua').resume()<CR> |
 | Find line in project |  L | <Cmd>lua require('fzf-lua').lines()<CR> |
 | Find line in buffer |  l | <Cmd>lua require('fzf-lua').blines()<CR> |
-|  |  M |  |
 |  |  m |  |
+|  |  M |  |
 | Toggle session |  s |  |
 |  |  b | :GitMessenger<CR> |
 | Toggle maximize |  f | <Cmd>lua require('maximize').toggle()<CR> |

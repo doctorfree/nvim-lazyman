@@ -2,11 +2,11 @@
 
 A remarkably effective Neovim configuration in only one small file. The author's [video description of this config](https://youtu.be/AzhSnM0uHvM)
 
-- Install and initialize: `lazyman -w Simple`
+- Install and initialize: **`lazyman -w Simple`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  `~/.config/nvim-Simple`
+- Installation location:  **`~/.config/nvim-Simple`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

@@ -2,11 +2,11 @@
 
 The personal Neovim configuration of Richard Ariza
 
-- Install and initialize: `lazyman -w OnMyWay`
+- Install and initialize: **`lazyman -w OnMyWay`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-OnMyWay`
+- Installation location:  **`~/.config/nvim-OnMyWay`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -109,12 +109,12 @@ The personal Neovim configuration of Richard Ariza
 | Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
 |  | yS | <Plug>YSurround |
 |  | ys | <Plug>Ysurround |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Toggle Terminal | <C-Bslash> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <C-T> | <Cmd>exe v:count1 . "ToggleTerm"<CR> |
 |  | <C-X> | :RunCode<CR> |
@@ -128,28 +128,28 @@ The personal Neovim configuration of Richard Ariza
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>YSurround | <SNR>29_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>29_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>29_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>29_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>29_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>29_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>29_dosurround(<SNR>29_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 | Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
 | Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
 | Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
 | Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
 | Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
 | Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>YSurround | <SNR>19_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>19_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>19_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>19_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>19_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>19_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>19_dosurround(<SNR>19_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
@@ -178,8 +178,8 @@ The personal Neovim configuration of Richard Ariza
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>VgSurround | :<C-U>call <SNR>30_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>30_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |

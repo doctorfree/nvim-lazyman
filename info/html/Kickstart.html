@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Kickstart</title>
+  <title>Lazyman config: Kickstart</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,21 +26,23 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Kickstart</h1>
+<h1 class="title">Lazyman config: Kickstart</h1>
 </header>
 <h2 id="kickstart-neovim-configuration-information">Kickstart Neovim
 Configuration Information</h2>
 <p>Popular starting point, small, single file, well documented,
 modular</p>
 <ul>
-<li>Install and initialize: <code>lazyman -k</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -k</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: <a
 href="https://github.com/nvim-lua/kickstart.nvim">Kickstart</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Kickstart</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Kickstart</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -305,6 +307,16 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise with count</td>
 <td><Plug>(comment_toggle_blockwise_count)</td>
 <td></td>
@@ -336,29 +348,19 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>fugitive:</td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
@@ -460,21 +462,21 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise (visual)</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
 </tr>
 </tbody>
 </table>

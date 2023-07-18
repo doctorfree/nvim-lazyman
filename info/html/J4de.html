@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>J4de</title>
+  <title>Lazyman config: J4de</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,19 +26,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">J4de</h1>
+<h1 class="title">Lazyman config: J4de</h1>
 </header>
 <h2 id="j4de-neovim-configuration-information">J4de Neovim Configuration
 Information</h2>
 <p>Personal Neovim configuration of Jade Fox</p>
 <ul>
-<li>Install and initialize: <code>lazyman -w J4de</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -w J4de</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-J4de</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-J4de</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -211,18 +213,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Find words</td>
-<td>fw</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find files</td>
-<td>ff</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Seach through changed files</td>
-<td>go</td>
+<td>Search and checkout git commits</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -231,8 +223,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Search and checkout git commits</td>
-<td>gc</td>
+<td>Seach through changed files</td>
+<td>go</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -276,183 +268,43 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Open document diagnostics</td>
-<td>xd</td>
+<td>Find words</td>
+<td>fw</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Open workspace diagnostics</td>
-<td>xw</td>
+<td>Find files</td>
+<td>ff</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Toggle trouble.nvim</td>
-<td>xx</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Open lsp references</td>
 <td>xr</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Open location list</td>
 <td>xl</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open quickfix</td>
 <td>xq</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Toggle twilight.nvim</td>
-<td>t</td>
-<td></td>
-</tr>
 <tr class="even">
-<td>Restore the last session</td>
-<td>ql</td>
+<td>Open document diagnostics</td>
+<td>xd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Restore the session for the current directory</td>
-<td>qs</td>
+<td>Open workspace diagnostics</td>
+<td>xw</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Stop persistence</td>
-<td>qd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Neogit</td>
-<td>gg</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dap UI</td>
-<td>du</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Eval</td>
-<td>de</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle REPL</td>
-<td>dr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Pause</td>
-<td>dp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Over</td>
-<td>dO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Out</td>
-<td>do</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run Last</td>
-<td>dl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Up</td>
-<td>dk</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Down</td>
-<td>dj</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Into</td>
-<td>di</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to line (no execute)</td>
-<td>dg</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run to Cursor</td>
-<td>dC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Continue</td>
-<td>dc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Breakpoint</td>
-<td>db</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Breakpoint Condition</td>
-<td>dB</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Widgets</td>
-<td>dw</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminate</td>
-<td>dt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Session</td>
-<td>ds</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Open symbols-outline</td>
-<td>o</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Jump to fifth buffer</td>
-<td>b5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Jump to last buffer</td>
-<td>b$</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Jump to ninth buffer</td>
-<td>b9</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Jump to eighth buffer</td>
-<td>b8</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Jump to seventh buffer</td>
-<td>b7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Jump to sixth buffer</td>
-<td>b6</td>
+<td>Toggle trouble.nvim</td>
+<td>xx</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -476,8 +328,118 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Delete the current buffer forcefully</td>
-<td>bK</td>
+<td>Jump to fifth buffer</td>
+<td>b5</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Jump to sixth buffer</td>
+<td>b6</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to seventh buffer</td>
+<td>b7</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Jump to ninth buffer</td>
+<td>b9</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to last buffer</td>
+<td>b$</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Jump to eighth buffer</td>
+<td>b8</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Down</td>
+<td>dj</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Into</td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to line (no execute)</td>
+<td>dg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run to Cursor</td>
+<td>dC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Widgets</td>
+<td>dw</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Continue</td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Breakpoint</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Breakpoint Condition</td>
+<td>dB</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminate</td>
+<td>dt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Session</td>
+<td>ds</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle REPL</td>
+<td>dr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pause</td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Over</td>
+<td>dO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Out</td>
+<td>do</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run Last</td>
+<td>dl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Up</td>
+<td>dk</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -486,23 +448,33 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Delete the current buffer forcefully</td>
+<td>bK</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle twilight.nvim</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Toggle zen mode</td>
 <td>z</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Open a diff</td>
-<td>gd</td>
+<td>Split node under cursor</td>
+<td>s</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Unstage the hunk</td>
-<td>gu</td>
+<td>Join node under cursor</td>
+<td>j</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Stage the buffer</td>
-<td>gS</td>
+<td>Toggle node under cursor</td>
+<td>m</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -541,28 +513,58 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Open a diff</td>
+<td>gd</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Unstage the hunk</td>
+<td>gu</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Stage the buffer</td>
+<td>gS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Neogit</td>
+<td>gg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Dap UI</td>
+<td>du</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Eval</td>
+<td>de</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Open neo-tree.nvim</td>
 <td>e</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
+<td>Restore the session for the current directory</td>
+<td>qs</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle node under cursor</td>
-<td>m</td>
+<td>Stop persistence</td>
+<td>qd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Split node under cursor</td>
-<td>s</td>
+<td>Restore the last session</td>
+<td>ql</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Join node under cursor</td>
-<td>j</td>
+<td>Open symbols-outline</td>
+<td>o</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -696,23 +698,23 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Change surroundings</td>
-<td>cs</td>
-<td></td>
-</tr>
-<tr class="even">
 <td></td>
 <td>c</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Change surroundings</td>
+<td>cs</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Delete surroundings</td>
-<td>ds</td>
+<td></td>
+<td>d</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>d</td>
+<td>Delete surroundings</td>
+<td>ds</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -728,16 +730,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td>Toggle comments (normal mode)</td>
 <td>gc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Signature Help</td>
-<td>gK</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Goto Declaration</td>
-<td>gD</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -758,6 +750,16 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td>References</td>
 <td>gr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Goto Declaration</td>
+<td>gD</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Signature Help</td>
+<td>gK</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -791,23 +793,13 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Add surroundings</td>
-<td>ys</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>y</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Open all folds</td>
-<td>zR</td>
-<td></td>
-</tr>
 <tr class="odd">
-<td>Close all folds</td>
-<td>zM</td>
+<td>Add surroundings</td>
+<td>ys</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -816,33 +808,53 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Close all folds</td>
+<td>zM</td>
 <td></td>
-<td><C-W>_</td>
+</tr>
+<tr class="even">
+<td>Open all folds</td>
+<td>zR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to previous buffer</td>
+<td><S-Tab></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-W>z</td>
+<td><C-Bslash></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><C-W>=</td>
+<td>Increment</td>
+<td><C-A></td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><C-W></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Decrement</td>
 <td><C-X></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td><C-W></td>
+<td></td>
+</tr>
 <tr class="even">
-<td>Increment</td>
-<td><C-A></td>
+<td></td>
+<td><C-W>_</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-W>z</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-W>=</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -863,16 +875,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="even">
 <td>Block left</td>
 <td><M-h></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to previous buffer</td>
-<td><S-Tab></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Bslash></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1013,8 +1015,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Block down</td>
-<td><M-j></td>
+<td>Block left</td>
+<td><M-h></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1023,8 +1025,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Block left</td>
-<td><M-h></td>
+<td>Block down</td>
+<td><M-j></td>
 <td></td>
 </tr>
 <tr class="odd">

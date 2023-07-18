@@ -2,11 +2,11 @@
 
 One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust, YAML, and more
 
-- Install and initialize: `lazyman -L Allaman`
+- Install and initialize: **`lazyman -L Allaman`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Allaman`
+- Installation location:  **`~/.config/nvim-Allaman`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -126,11 +126,10 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | Toggle signcolumn |  tl |  |
 | Toggle hidden chars |  th |  |
 | Buffer search and replace |  sr | :%s/ |
-| Advanced Git Search |  ga |  |
-|  |  w |  |
-|  |  d |  |
 |  |  gM |  |
 |  |  z |  |
+|  |  w |  |
+|  |  d |  |
 | Toggle Filetree |  fp |  |
 | Open file |  ff |  |
 | Zoxide |  fz |  |
@@ -156,6 +155,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | Run make |  mm |  |
 | Recent files |  fr |  |
 | Open file (ignore git) |  fF |  |
+| Advanced Git Search |  ga |  |
 |  |   |  |
 |  | # | :lua require'starlite'.hash()<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
@@ -181,19 +181,19 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <C-J> | <Cmd>lua require('Navigator').down()<CR> |
+|  | <C-K> | <Cmd>lua require('Navigator').up()<CR> |
+|  | <C-H> | <Cmd>lua require('Navigator').left()<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
 | Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
 | Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
 | Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
 | Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
 | Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
-|  | <C-J> | <Cmd>lua require('Navigator').down()<CR> |
-|  | <C-K> | <Cmd>lua require('Navigator').up()<CR> |
-|  | <C-H> | <Cmd>lua require('Navigator').left()<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Toggle Terminal | <C-N> | <Cmd>execute v:count . "ToggleTerm"<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Search in buffer | <C-F> |  |
 |  | <C-L> | <Cmd>lua require('Navigator').right()<CR> |
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>NvChad</title>
+  <title>Lazyman config: NvChad</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">NvChad</h1>
+<h1 class="title">Lazyman config: NvChad</h1>
 </header>
 <h2 id="nvchad-neovim-configuration-information">NvChad Neovim
 Configuration Information</h2>
@@ -35,13 +35,15 @@ href="https://github.com/doctorfree/NvChad-custom">customization of
 NvChad</a>. Good <a href="https://youtu.be/Mtgo-nP_r8Y">introductory
 video</a> to NvChad</p>
 <ul>
-<li>Install and initialize: <code>lazyman -c</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -c</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#base-configurations">Base</a></li>
 <li>Base configuration: <a href="https://nvchad.com">NvChad</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-NvChad</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-NvChad</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -169,104 +171,104 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Open new line above HopLineStart target</td>
-<td>,vO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open new line below HopLineStart target</td>
-<td>,vo</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Paste above target using HopLineStart</td>
-<td>,vP</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Paste below target using HopLineStart</td>
-<td>,vp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Jump to definition</td>
-<td>,hd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hq]</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[}]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hq[</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[{]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hqk</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[)]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hqj</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[(]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hf/</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[/|?]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hf;</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[;|:]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hf-</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[-|+]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hf’</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[“|’]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hH</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hW</td>
-<td><Cmd>HopWordMW<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hl</td>
-<td><Cmd>HopLineStart<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hw</td>
-<td><Cmd>HopWord<CR></td>
-</tr>
-<tr class="odd">
 <td>Move to end of Treehopper node</td>
 <td>,h]</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Move to start of Treehopper node</td>
 <td>,h[</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Treehopper nodes</td>
 <td>,hm</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td>Open new line above HopLineStart target</td>
+<td>,vO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open new line below HopLineStart target</td>
+<td>,vo</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Paste above target using HopLineStart</td>
+<td>,vP</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Paste below target using HopLineStart</td>
+<td>,vp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to definition</td>
+<td>,hd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hq]</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[}]])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hq[</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[{]])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hqk</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[)]])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hqj</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[(]])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hf/</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[/|?]])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hf;</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[;|:]])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hf-</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[-|+]])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hf’</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[“|’]])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hH</td>
+<td><Cmd>lua require’hop’.hint_patterns({}, [[]])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hW</td>
+<td><Cmd>HopWordMW<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hl</td>
+<td><Cmd>HopLineStart<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,hw</td>
+<td><Cmd>HopWord<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -319,13 +321,13 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle current block</td>
+<td>gbc</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle current block</td>
-<td>gbc</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">

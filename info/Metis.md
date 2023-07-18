@@ -2,11 +2,11 @@
 
 Neovim config by the creator of 'MetisLinux' and 'Ewm'
 
-- Install and initialize: `lazyman -w Metis`
+- Install and initialize: **`lazyman -w Metis`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Metis`
+- Installation location:  **`~/.config/nvim-Metis`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -56,12 +56,12 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  |  pi |  |
 |  |  ph |  |
 |  |  d |  |
-|  |  e |  |
 |  |  b |  |
+|  |  e |  |
+|  |  ft |  |
 |  |  fr |  |
 |  |  fw |  |
 |  |  F |  |
-|  |  ft |  |
 | Nvim builtin | & | :&&<CR> |
 |  | J | jzz |
 |  | K | kzz |
@@ -73,8 +73,8 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  | <C-K> | <C-W>k |
 |  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
-|  | <M-t> |  |
 |  | <M-h> |  |
+|  | <M-t> |  |
 |  | <S-Tab> |  |
 |  | <C-L> | <C-W>l |
 

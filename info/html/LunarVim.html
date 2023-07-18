@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>LunarVim</title>
+  <title>Lazyman config: LunarVim</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">LunarVim</h1>
+<h1 class="title">Lazyman config: LunarVim</h1>
 </header>
 <h2 id="lunarvim-neovim-configuration-information">LunarVim Neovim
 Configuration Information</h2>
@@ -34,14 +34,16 @@ Configuration Information</h2>
 href="https://youtu.be/Qf9gfx7gWEY">IfCodingWereNatural custom user
 config</a></p>
 <ul>
-<li>Install and initialize: <code>lazyman -v</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -v</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#base-configurations">Base</a></li>
 <li>Base configuration: <a
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-LunarVim</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-LunarVim</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -377,49 +379,49 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>YSurround</td>
-<td><SNR>12_opfunc2(‘setup’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Ysurround</td>
-<td><SNR>12_opfunc(‘setup’)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>YSsurround</td>
-<td><SNR>12_opfunc2(‘setup’).’_’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>12_opfunc(‘setup’).’g_’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>12_changesurround(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>12_changesurround()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SurroundRepeat</td>
-<td>.</td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>5_opfunc2(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>5_opfunc(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>5_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>5_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>5_changesurround(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>5_changesurround()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
 </tr>
 <tr class="odd">
 <td>Float Terminal</td>
@@ -448,8 +450,8 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Up></td>
-<td>:resize -2<CR></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -458,43 +460,43 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><M-k></td>
 <td>:m .-2<CR>==</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><C-K></td>
 <td>:<C-U>TmuxNavigateUp<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-J></td>
-<td>:<C-U>TmuxNavigateDown<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-H></td>
-<td>:<C-U>TmuxNavigateLeft<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Down></td>
-<td>:resize +2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -629,13 +631,13 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="even">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -746,13 +748,13 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-H></td>
-<td>:<C-U>TmuxNavigateLeft<CR></td>
+<td><C-J></td>
+<td>:<C-U>TmuxNavigateDown<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td>:<C-U>TmuxNavigateDown<CR></td>
+<td><C-H></td>
+<td>:<C-U>TmuxNavigateLeft<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -2,11 +2,11 @@
 
 An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) plugins configuration
 
-- Install and initialize: `lazyman -a`
+- Install and initialize: **`lazyman -a`**
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-AstroNvimPlus`
+- Installation location:  **`~/.config/nvim-AstroNvimPlus`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -123,139 +123,139 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| ToggleTerm python |  tp |  |
-| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
-| Change line numbering |  un |  |
-| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
+| Preview Git hunk |  gp |  |
+| Find history |  fo |  |
+| Pick to close |  bD |  |
 | Plugins Check Updates |  pu |  |
-| Find marks |  f' |  |
-| Symbols outline |  lS |  |
-| Git commits (repository) |  gc |  |
-| Git commits (current file) |  gC |  |
-| Git status |  gt |  |
-| Git branches |  gb |  |
+| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
 | Toggle Breakpoint (F9) |  db |  |
-| Resume previous search |  f<CR> |  |
 | Clear Breakpoints |  dB |  |
-| Find keymaps |  fk |  |
+| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
 | Start/Continue (F5) |  dc |  |
-| Find man |  fm |  |
 | Conditional Breakpoint (S-F9) |  dC |  |
-| Find registers |  fr |  |
+| Git commits (repository) |  gc |  |
 | Step Into (F11) |  di |  |
+| Git commits (current file) |  gC |  |
 | Step Over (F10) |  do |  |
 | Step Out (S-F11) |  dO |  |
-| ToggleTerm node |  tn |  |
 | Close Session |  dq |  |
-| ToggleTerm gdu |  tu |  |
+| By extension |  bse |  |
 | Terminate Session (S-F5) |  dQ |  |
+| Plugins Install |  pi |  |
 | Pause (F6) |  dp |  |
-| ToggleTerm btm |  tt |  |
 | Restart (C-F5) |  dr |  |
-| Toggle REPL |  dR |  |
-| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
 | Run To Cursor |  ds |  |
-| Find help |  fh |  |
+| Git status |  gt |  |
 | Evaluate Input |  dE |  |
-| ToggleTerm lazygit |  tl |  |
 | Toggle Debugger UI |  du |  |
-| Pick to close |  bD |  |
+| Resume previous search |  f<CR> |  |
 | Debugger Hover |  dh |  |
+| Toggle wrap |  uw |  |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Find help |  fh |  |
+| Toggle REPL |  dR |  |
+| Toggle comment line |  / |  |
+| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
 | New tab |  bn | <Cmd>tabnew<CR> |
+| Toggle syntax highlight |  uy |  |
 | Toggle background |  ub |  |
+| Quit |  q | <Cmd>confirm q<CR> |
 | Toggle autocompletion |  uc |  |
+| New File |  n | <Cmd>enew<CR> |
 | Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
 | Toggle signcolumn |  ug |  |
 | Change indent setting |  ui |  |
 | Toggle statusline |  ul |  |
 | Toggle CodeLens |  uL |  |
-| Quit |  q | <Cmd>confirm q<CR> |
-| New File |  n | <Cmd>enew<CR> |
-| Toggle Notifications |  uN |  |
-| Toggle paste mode |  up |  |
-| Toggle spellcheck |  us |  |
-| Toggle conceal |  uS |  |
-| Plugins Install |  pi |  |
 | Plugins Status |  ps |  |
-| Toggle wrap |  uw |  |
+| Change line numbering |  un |  |
 | Plugins Sync |  pS |  |
-| Toggle syntax highlight |  uy |  |
+| Toggle Notifications |  uN |  |
 | Plugins Update |  pU |  |
+| Toggle paste mode |  up |  |
 | Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
-| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
-| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
+| Toggle spellcheck |  us |  |
+| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
+| Toggle conceal |  uS |  |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
 | AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
 | Close buffer |  c |  |
 | Force close buffer |  C |  |
-| Close all buffers except current |  bc |  |
-| Close all buffers |  bC |  |
-| Select buffer from tabline |  bb |  |
-| Close buffer from tabline |  bd |  |
-| Close all buffers to the left |  bl |  |
+| Mason Installer |  pm | <Cmd>Mason<CR> |
 | Previous buffer |  bp |  |
 | Close all buffers to the right |  br |  |
-| By extension |  bse |  |
+| Close all buffers except current |  bc |  |
+| Close all buffers |  bC |  |
 | By relative path |  bsr |  |
+| Select buffer from tabline |  bb |  |
 | By full path |  bsp |  |
+| Close buffer from tabline |  bd |  |
 | By buffer number |  bsi |  |
+| Close all buffers to the left |  bl |  |
 | By modification |  bsm |  |
 | Horizontal split buffer from tabline |  b\ |  |
 | Vertical split buffer from tabline |  b| |  |
 | Home Screen |  h |  |
-| Toggle comment line |  / |  |
+| Symbols outline |  lS |  |
+| Git branches |  gb |  |
 | View Git blame |  gl |  |
 | View full Git blame |  gL |  |
-| Preview Git hunk |  gp |  |
+| Find marks |  f' |  |
 | Reset Git hunk |  gh |  |
-| Reset Git buffer |  gr |  |
-| Stage Git hunk |  gs |  |
-| Stage Git buffer |  gS |  |
 | Find buffers |  fb |  |
-| Unstage Git hunk |  gu |  |
+| Reset Git buffer |  gr |  |
 | Find for word under cursor |  fc |  |
-| View Git diff |  gd |  |
+| Stage Git hunk |  gs |  |
 | Find commands |  fC |  |
+| Stage Git buffer |  gS |  |
 | Find files |  ff |  |
-| Toggle Explorer Focus |  o |  |
+| Unstage Git hunk |  gu |  |
 | Find all files |  fF |  |
-| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
-| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
-| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
+| View Git diff |  gd |  |
+| Find keymaps |  fk |  |
+| Toggle Explorer Focus |  o |  |
+| Find man |  fm |  |
 | Find notifications |  fn |  |
-| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-| Find history |  fo |  |
-| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Find registers |  fr |  |
 | Find words |  fw |  |
 | Find words in all files |  fW |  |
 | Search symbols |  ls |  |
-| Mason Installer |  pm | <Cmd>Mason<CR> |
 | ToggleTerm lazygit |  gg |  |
-| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Find AstroNvim config files |  fa |  |
-| Find themes |  ft |  |
+| ToggleTerm lazygit |  tl |  |
+| ToggleTerm node |  tn |  |
+| ToggleTerm gdu |  tu |  |
+| ToggleTerm btm |  tt |  |
+| ToggleTerm python |  tp |  |
+| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
+| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
 |  |  ge | <Plug>CamelCaseMotion_ge |
 | Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
 |  |  b | <Plug>CamelCaseMotion_b |
 | Save |  w | <Cmd>w<CR> |
-| Split/join block recursively |  M |  |
+| Find themes |  ft |  |
+| Find AstroNvim config files |  fa |  |
 | Split/join block |  m |  |
-| Toggle URL highlight |  uu |  |
+| Split/join block recursively |  M |  |
 | Structural search and replace |  sr |  |
-| Command palette |  P |  |
 | Breadcrumb search |  fs |  |
-| Toggle foldcolumn |  uh |  |
-| Toggle Harpoon |  hh |  |
-| Go to Harpoon file 5 |  h5 |  |
+| Toggle autopairs |  ua |  |
+| Toggle URL highlight |  uu |  |
+| Toggle trouble for document |  fd |  |
+| Toggle tabline |  ut |  |
+| Toggle Explorer |  ue |  |
+| Toggle diagnostics |  ud |  |
+| Command palette |  P |  |
 | Go to Harpoon file 4 |  h4 |  |
+| Go to Harpoon file 5 |  h5 |  |
 | Go to Harpoon file 3 |  h3 |  |
 | Go to Harpoon file 2 |  h2 |  |
 | Go to Harpoon file 1 |  h1 |  |
 | Add file to Harpoon |  ha |  |
-| Toggle autopairs |  ua |  |
-| Toggle trouble for document |  fd |  |
-| Toggle tabline |  ut |  |
-| Toggle diagnostics |  ud |  |
-| Toggle Explorer |  ue |  |
+| Toggle foldcolumn |  uh |  |
+| Toggle Harpoon |  hh |  |
 | Nvim builtin | & | :&&<CR> |
 | Move buffer tab left | <lt>b |  |
 | Move buffer tab right | >b |  |
@@ -283,41 +283,33 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 | Fold less | zr |  |
 | Fold more | zm |  |
 | Peek fold | zp |  |
-|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
-|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
-|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 | Close all folds | zM |  |
 | Open all folds | zR |  |
 | [keymap-amend.nvim]  | zc |  |
 | [keymap-amend.nvim]  | zO |  |
 | [keymap-amend.nvim]  | zo |  |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
+|  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Force write | <C-S> | <Cmd>w!<CR> |
-| Move to above split | <C-K> |  |
-| Move to below split | <C-J> |  |
-| Force quit | <C-Q> | <Cmd>q!<CR> |
 | Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
 | Debugger: Start | <F5> |  |
+| Debugger: Stop | <F17> |  |
+| Debugger: Conditional Breakpoint | <F21> |  |
 | Debugger: Restart | <F29> |  |
 | Debugger: Pause | <F6> |  |
 | Debugger: Toggle Breakpoint | <F9> |  |
 | Debugger: Step Over | <F10> |  |
-| Debugger: Stop | <F17> |  |
 | Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Debugger: Conditional Breakpoint | <F21> |  |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
-| Move to left split | <C-H> |  |
 | Resize split left | <C-Left> |  |
 | Resize split right | <C-Right> |  |
-|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
-|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
-|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+| Move to above split | <C-K> |  |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
+| Move to below split | <C-J> |  |
+| Force write | <C-S> | <Cmd>w!<CR> |
+| Force quit | <C-Q> | <Cmd>q!<CR> |
+| Move to left split | <C-H> |  |
 | Resize split down | <C-Down> |  |
 | Resize split up | <C-Up> |  |
 |  | <S-Right> | <Plug>(VM-Select-l) |
@@ -351,11 +343,19 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 |  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <Plug>CamelCaseMotion_ge | :<C-U>call camelcasemotion#Motion('ge',v:count1,'n')<CR> |
 |  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'n')<CR> |
 |  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'n')<CR> |
 |  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'n')<CR> |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
 | Move to right split | <C-L> |  |
 
 #### visual mode keymaps
@@ -363,8 +363,8 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Indent line | <Tab> | >gv |
-| Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
 | Evaluate Input |  dE |  |
+| Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
 |  |  ge | <Plug>CamelCaseMotion_ge |
 |  |  e | <Plug>CamelCaseMotion_e |
 |  |  b | <Plug>CamelCaseMotion_b |
@@ -381,16 +381,16 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 |  | \\/ | <Plug>(VM-Visual-Regex) |
 |  | \\A | <Plug>(VM-Visual-All) |
 |  | a | targets#e('o', 'a', 'a') |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
 |  | i ge | <Plug>CamelCaseMotion_ige |
 |  | i e | <Plug>CamelCaseMotion_ie |
 |  | i b | <Plug>CamelCaseMotion_ib |
 |  | i w | <Plug>CamelCaseMotion_iw |
 |  | i | targets#e('o', 'i', 'i') |
+|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
 |  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
-|  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 | Unindent line | <S-Tab> | <lt>gv |
 |  | <Plug>CamelCaseMotion_ige | :<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR> |
 |  | <Plug>CamelCaseMotion_ie | :<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR> |
@@ -400,22 +400,22 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 |  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'v')<CR> |
 |  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'v')<CR> |
 |  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'v')<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-X> | :lua require('luasnip.util.util').store_selection()<CR>gv"_s |
 |  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
 |  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
-|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
 |  | <C-N> | <Plug>(VM-Find-Subword-Under) |
 |  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>6_Visual('under') |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>9_Visual('under') |
 |  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
 |  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
 |  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>6_Visual('all') |
+|  | <Plug>(VM-Visual-All) | <SNR>9_Visual('all') |
 |  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
 
 #### operator mode keymaps
@@ -435,8 +435,6 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 |  | i b | <Plug>CamelCaseMotion_ib |
 |  | i w | <Plug>CamelCaseMotion_iw |
 |  | i | targets#e('o', 'i', 'i') |
-|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
-|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
 |  | <Plug>CamelCaseMotion_ige | :<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR> |
 |  | <Plug>CamelCaseMotion_ie | :<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR> |
 |  | <Plug>CamelCaseMotion_ib | :<C-U>call camelcasemotion#InnerMotion('b',v:count1)<CR> |
@@ -445,3 +443,5 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 |  | <Plug>CamelCaseMotion_e | :<C-U>call camelcasemotion#Motion('e',v:count1,'o')<CR> |
 |  | <Plug>CamelCaseMotion_b | :<C-U>call camelcasemotion#Motion('b',v:count1,'o')<CR> |
 |  | <Plug>CamelCaseMotion_w | :<C-U>call camelcasemotion#Motion('w',v:count1,'o')<CR> |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |

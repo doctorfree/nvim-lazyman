@@ -2,11 +2,11 @@
 
 Hybrid Neovim config for developers with a functional yet aesthetic experience. Uses a combination of vimscript and lua with the 'vim-plug' plugin manager
 
-- Install and initialize: `lazyman -w Optixal`
+- Install and initialize: **`lazyman -w Optixal`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Plug](https://github.com/junegunn/vim-plug)
-- Installation location:  `~/.config/nvim-Optixal`
+- Installation location:  **`~/.config/nvim-Optixal`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

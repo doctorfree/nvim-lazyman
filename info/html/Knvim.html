@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Knvim</title>
+  <title>Lazyman config: Knvim</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Knvim</h1>
+<h1 class="title">Lazyman config: Knvim</h1>
 </header>
 <h2 id="knvim-neovim-configuration-information">Knvim Neovim
 Configuration Information</h2>
@@ -34,13 +34,15 @@ Configuration Information</h2>
 href="https://github.com/knmac/knvim/blob/main/res/cheatsheet.md">Knvim
 Config Cheat Sheet</a></p>
 <ul>
-<li>Install and initialize: <code>lazyman -L Knvim</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L Knvim</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Knvim</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Knvim</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -469,34 +471,24 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
 <td></td>
+<td><Plug>(EasyAlignOperator)</td>
+<td>:set opfunc=<SNR>28_easy_align_op<CR>g@</td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
 <td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:call <SNR>28_easy_align_repeat()<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
 <td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:set opfunc=<SNR>28_live_easy_align_op<CR>g@</td>
 </tr>
 <tr class="odd">
-<td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
 <td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
-<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:set opfunc=<SNR>28_easy_align_op<CR>g@</td>
 </tr>
 <tr class="even">
 <td>Move to previous reference</td>
@@ -510,29 +502,39 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(EasyAlignOperator)</td>
-<td>:set opfunc=<SNR>21_easy_align_op<CR>g@</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(EasyAlignRepeat)</td>
-<td>:call <SNR>21_easy_align_repeat()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(LiveEasyAlign)</td>
-<td>:set opfunc=<SNR>21_live_easy_align_op<CR>g@</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(EasyAlign)</td>
-<td>:set opfunc=<SNR>21_easy_align_op<CR>g@</td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -581,7 +583,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>8_(wise)</td>
+<td><SNR>7_(wise)</td>
 <td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
 </tr>
 <tr class="odd">
@@ -872,19 +874,19 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Plug>NetrwBrowseXVis</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>g%</td>
-<td><Plug>(matchup-g%)</td>
-</tr>
-<tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise (visual)</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -908,93 +910,23 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(matchup-a%)</td>
-<td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:<C-U>call <SNR>31_repeat_in_visual()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(matchup-i%)</td>
-<td>:<C-U>call matchup#text_obj#delimited(1, 1, ‘delim_all’)<CR></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:<C-U>call <SNR>31_live_easy_align_op(visualmode(), 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(matchup-Z%)</td>
-<td><SNR>29_(matchup-Z%)</td>
+<td><Plug>(EasyAlign)</td>
+<td>:<C-U>call <SNR>31_easy_align_op(visualmode(), 1)<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><SNR>29_(matchup-Z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-z%)</td>
-<td><SNR>29_(matchup-z%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>29_(matchup-z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-[%)</td>
-<td><SNR>29_(matchup-[%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-]%)</td>
-<td><SNR>29_(matchup-]%)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><SNR>29_(matchup-[%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>29_(matchup-]%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-g%)</td>
-<td><SNR>29_(matchup-g%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>29_(matchup-g%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-%)</td>
-<td><SNR>29_(matchup-%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>29_(matchup-%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><M-i></td>
 <td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(EasyAlignRepeat)</td>
-<td>:<C-U>call <SNR>11_repeat_in_visual()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(LiveEasyAlign)</td>
-<td>:<C-U>call <SNR>11_live_easy_align_op(visualmode(), 1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(EasyAlign)</td>
-<td>:<C-U>call <SNR>11_easy_align_op(visualmode(), 1)<CR></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise (visual)</td>
@@ -1007,6 +939,76 @@ require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<C
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-a%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-i%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(1, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td><SNR>15_(matchup-Z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>15_(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td><SNR>15_(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>15_(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td><SNR>15_(matchup-[%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td><SNR>15_(matchup-]%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>15_(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>15_(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td><SNR>15_(matchup-g%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>15_(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td><SNR>15_(matchup-%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>15_(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
 </tr>
 </tbody>
 </table>

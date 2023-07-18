@@ -2,11 +2,11 @@
 
 Minimal setup with 'mason.nvim'
 
-- Install and initialize: `lazyman -x BasicMason`
+- Install and initialize: **`lazyman -x BasicMason`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-BasicMason`
+- Installation location:  **`~/.config/nvim-BasicMason`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

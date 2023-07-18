@@ -2,11 +2,11 @@
 
 LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChiarulli/lvim). Java, Python, Lua, Go, JavaScript, Typescript, React, and Rust IDE
 
-- Install and initialize: `lazyman -L LunarIde`
+- Install and initialize: **`lazyman -L LunarIde`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-LunarIde`
+- Installation location:  **`~/.config/nvim-LunarIde`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -148,11 +148,11 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 | Change a surrounding pair | cs | <Plug>(nvim-surround-change) |
 | Delete a surrounding pair | ds | <Plug>(nvim-surround-delete) |
 |  | f |  |
+|  | g% | <Plug>(matchup-g%) |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | g% | <Plug>(matchup-g%) |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | gx | :silent execute '!$BROWSER ' . shellescape(expand('<lt>cfile>'), 1)<CR> |
 |  | g# | g#zz |
 |  | g* | g*zz |
@@ -160,6 +160,7 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 | Add a surrounding pair around the current line (normal mode) | ss | <Plug>(nvim-surround-normal-cur) |
 | Add a surrounding pair around a motion (normal mode) | s | <Plug>(nvim-surround-normal) |
 |  | t |  |
+|  | z% | <Plug>(matchup-z%) |
 |  | zb | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")<CR> |
 |  | z- | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")<CR> |
 |  | zz | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")<CR> |
@@ -168,9 +169,19 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | zt | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")<CR> |
 |  | z^ | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")<CR> |
 |  | z+ | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")<CR> |
-|  | z% | <Plug>(matchup-z%) |
 |  | { | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")<CR> |
 |  | } | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")<CR> |
+|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
+|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
+|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
+|  | <SNR>42_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
@@ -188,17 +199,6 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | <C-F> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-F>")<CR> |
 |  | <C-U> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-U>")<CR> |
 |  | <C-D> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-D>")<CR> |
-|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
-|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
-|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
-|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
-|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
-|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
-|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
-|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
-|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>20_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
-|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 | Float Terminal | <M-3> |  |
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
@@ -231,16 +231,16 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | <M-h> | <C-W>h |
 |  | <C-I> | <Tab> |
 |  | <C-Space> | <Cmd>WhichKey \ <CR> |
-|  | <C-Left> | :vertical resize -2<CR> |
-|  | <C-Down> | :resize +2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
-|  | <C-Up> | :resize -2<CR> |
-|  | <M-k> | <C-W>k |
+|  | <C-Right> | :vertical resize +2<CR> |
 |  | <M-j> | <C-W>j |
+|  | <C-Left> | :vertical resize -2<CR> |
+|  | <M-k> | <C-W>k |
+|  | <C-Down> | :resize +2<CR> |
+|  | <C-Up> | :resize -2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-K> | <Cmd>call smoothie#do("\<C-U>") <CR> |
 |  | <C-J> | <Cmd>call smoothie#do("\<C-D>") <CR> |
 |  | <C-H> | <C-W>h |
-|  | <C-Right> | :vertical resize +2<CR> |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -261,9 +261,9 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | a% | <Plug>(matchup-a%) |
 |  | f |  |
 |  | gx | <Plug>NetrwBrowseXVis |
+|  | g% | <Plug>(matchup-g%) |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
-|  | g% | <Plug>(matchup-g%) |
 |  | gb |  |
 |  | gc |  |
 | Add a surrounding pair around a visual selection, on new lines | gS | <Plug>(nvim-surround-visual-line) |
@@ -271,7 +271,6 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | p | "_dP |
 | Add a surrounding pair around a visual selection | s | <Plug>(nvim-surround-visual) |
 |  | t |  |
-|  | z% | <Plug>(matchup-z%) |
 |  | zb | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")<CR> |
 |  | z- | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")<CR> |
 |  | zz | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")<CR> |
@@ -280,25 +279,10 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | zt | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")<CR> |
 |  | z^ | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")<CR> |
 |  | z+ | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")<CR> |
+|  | z% | <Plug>(matchup-z%) |
 |  | { | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")<CR> |
 |  | } | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")<CR> |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
-|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>25_(matchup-Z%) |
-|  | <SNR>25_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>25_(matchup-z%) |
-|  | <SNR>25_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>25_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>25_(matchup-]%) |
-|  | <SNR>25_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>25_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>25_(matchup-g%) |
-|  | <SNR>25_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>25_(matchup-%) |
-|  | <SNR>25_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 |  | <Plug>(SmoothieBackwards) | <Cmd>call smoothie#backwards() <CR> |
 |  | <Plug>(SmoothieForwards) | <Cmd>call smoothie#forwards()  <CR> |
 |  | <Plug>(SmoothieUpwards) | <Cmd>call smoothie#upwards()   <CR> |
@@ -313,6 +297,22 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | <C-F> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-F>")<CR> |
 |  | <C-U> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-U>")<CR> |
 |  | <C-D> | <Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-D>")<CR> |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>23_(matchup-Z%) |
+|  | <SNR>23_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>23_(matchup-z%) |
+|  | <SNR>23_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>23_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>23_(matchup-]%) |
+|  | <SNR>23_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>23_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>23_(matchup-g%) |
+|  | <SNR>23_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>23_(matchup-%) |
+|  | <SNR>23_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
+|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
 |  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 | Add a surrounding pair around a visual selection, on new lines | <Plug>(nvim-surround-visual-line) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR> |
@@ -320,8 +320,8 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | <C-K> | <Cmd>call smoothie#do("\<C-U>") <CR> |
 |  | <C-J> | <Cmd>call smoothie#do("\<C-D>") <CR> |
 |  | <M-/> | <Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
 |  | <M-k> | :m '<lt>-2<CR>gv-gv |
+|  | <M-j> | :m '>+1<CR>gv-gv |
 
 #### operator mode keymaps
 
@@ -338,10 +338,6 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | i% | <Plug>(matchup-i%) |
 |  | t |  |
 |  | z% | <Plug>(matchup-z%) |
-|  | <Plug>(SmoothieBackwards) | <Cmd>call smoothie#backwards() <CR> |
-|  | <Plug>(SmoothieForwards) | <Cmd>call smoothie#forwards()  <CR> |
-|  | <Plug>(SmoothieUpwards) | <Cmd>call smoothie#upwards()   <CR> |
-|  | <Plug>(SmoothieDownwards) | <Cmd>call smoothie#downwards() <CR> |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
@@ -350,3 +346,7 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |
+|  | <Plug>(SmoothieBackwards) | <Cmd>call smoothie#backwards() <CR> |
+|  | <Plug>(SmoothieForwards) | <Cmd>call smoothie#forwards()  <CR> |
+|  | <Plug>(SmoothieUpwards) | <Cmd>call smoothie#upwards()   <CR> |
+|  | <Plug>(SmoothieDownwards) | <Cmd>call smoothie#downwards() <CR> |

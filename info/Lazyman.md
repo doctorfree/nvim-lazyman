@@ -2,11 +2,11 @@
 
 Neovim configuration of Dr. Ronald Joe Record
 
-- Install and initialize: `Installed and initialized by default`
+- Install and initialize: **`Installed and initialized by default`**
 - Configuration category: [Default](https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Lazyman`
+- Installation location:  **`~/.config/nvim-Lazyman`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -170,6 +170,7 @@ Neovim configuration of Dr. Ronald Joe Record
 | ----------- | --- | --- |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
+| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Move Float | ,tf |  |
 | Move Bottom Right New | ,tH |  |
 | Move Below Right New | ,th |  |
@@ -182,15 +183,9 @@ Neovim configuration of Dr. Ronald Joe Record
 | Terminal Run | ,tr |  |
 | New Terminal Toggle | ,tO |  |
 | Terminal Toggle | ,to |  |
-| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Toggle Transparency | ,ut |  |
-| Dap UI | ,du |  |
-| Eval | ,de |  |
-| Terminate | ,dt |  |
-| Session | ,ds |  |
-| Toggle REPL | ,dr |  |
-| Pause | ,dp |  |
-| Step Over | ,dO |  |
+| Close Buffer | ,D |  |
+| Dashboard | ,0 |  |
 | Step Out | ,do |  |
 | Run Last | ,dl |  |
 | Up | ,dk |  |
@@ -202,19 +197,30 @@ Neovim configuration of Dr. Ronald Joe Record
 | Toggle Breakpoint | ,db |  |
 | Breakpoint Condition | ,dB |  |
 | Widgets | ,dw |  |
-| Grep (cwd) | ,sG |  |
-| Grep (root dir) | ,sg |  |
-| Diagnostics | ,sd |  |
-| Commands | ,sC |  |
-| Buffer | ,sb |  |
-| Auto Commands | ,sa |  |
-| Command History | ,: |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Toggle REPL | ,dr |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Dap UI | ,du |  |
+| Eval | ,de |  |
+| summarize text | ,as |  |
+| generate git message | ,ag |  |
+| Delete all Notifications | ,un |  |
+| Explorer (root dir) | ,e |  |
+| Explorer Float | ,E |  |
 | Find in Files (Grep) | ,/ |  |
-| Switch Buffer | ,, |  |
+| Find Files (root dir) | ,  |  |
 | Bufferlist | ,B |  |
 | Telescope | ,mt |  |
 | Run make | ,mm |  |
 | Recent files | ,fr |  |
+| Switch Buffer | ,, |  |
+| Jump to Mark | ,sm |  |
+| Options | ,so |  |
+| Word (root dir) | ,sw |  |
+| Word (cwd) | ,sW |  |
+| Colorscheme with preview | ,uC |  |
 | Open file | ,ff |  |
 | Zoxide | ,fz |  |
 | Filebrowser | ,fb |  |
@@ -232,47 +238,41 @@ Neovim configuration of Dr. Ronald Joe Record
 | Help Pages | ,sh |  |
 | Help | ,s? |  |
 | Command History | ,sc |  |
-| Find Files (root dir) | ,  |  |
-| Colorscheme with preview | ,uC |  |
-| Word (cwd) | ,sW |  |
-| Word (root dir) | ,sw |  |
-| Options | ,so |  |
-| Jump to Mark | ,sm |  |
 | Man Pages | ,sM |  |
 | Search Highlight Groups | ,sH |  |
-| Explorer Float | ,E |  |
-| Explorer (root dir) | ,e |  |
-| Noice History | ,snh |  |
-| Noice Last Message | ,snl |  |
-| Noice All | ,sna |  |
-| Delete all Notifications | ,un |  |
-| Todo | ,st |  |
-| Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo (Trouble) | ,xt |  |
-| Quickfix List (Trouble) | ,xQ |  |
-| Location List (Trouble) | ,xL |  |
-| Workspace Diagnostics (Trouble) | ,xX |  |
-| Document Diagnostics (Trouble) | ,xx |  |
-| Dashboard | ,0 |  |
+| Grep (cwd) | ,sG |  |
+| Grep (root dir) | ,sg |  |
+| Diagnostics | ,sd |  |
+| Commands | ,sC |  |
+| Buffer | ,sb |  |
+| Auto Commands | ,sa |  |
+| Command History | ,: |  |
+| Terminal Send | ,ts |  |
 | Treesitter Join | ,tj |  |
 | Toggle Treesitter Join | ,tt |  |
-| Terminal Send | ,ts |  |
-| generate git message | ,ag |  |
-| summarize text | ,as |  |
-| Close Buffer | ,D |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo (Trouble) | ,xt |  |
+| Todo | ,st |  |
+| Document Diagnostics (Trouble) | ,xx |  |
+| Location List (Trouble) | ,xL |  |
+| Workspace Diagnostics (Trouble) | ,xX |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Noice All | ,sna |  |
+| Noice History | ,snh |  |
+| Noice Last Message | ,snl |  |
 | Toggle zen mode | ,z |  |
 | F | F |  |
 | Leap backward to | S |  |
 | T | T |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Next Reference | ]] |  |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Leap from windows | gs |  |

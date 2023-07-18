@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>LvimIde</title>
+  <title>Lazyman config: LvimIde</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">LvimIde</h1>
+<h1 class="title">Lazyman config: LvimIde</h1>
 </header>
 <h2 id="lvimide-neovim-configuration-information">LvimIde Neovim
 Configuration Information</h2>
@@ -35,13 +35,15 @@ configuration. Modular configuration with LSP support for 60+ languages.
 Debug support for c, cpp, dart, elixir, go, haskell, java,
 javascript/typescript, lua, php, python, ruby, rust</p>
 <ul>
-<li>Install and initialize: <code>lazyman -L LvimIde</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L LvimIde</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-LvimIde</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-LvimIde</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -336,6 +338,16 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Cmd>lua require(‘NeoComposer.macro’).toggle_play_macro()<CR></td>
 </tr>
 <tr class="even">
+<td>Mini files</td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FzfLua files</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>FzfLua buffers</td>
 <td>b</td>
 <td></td>
@@ -348,16 +360,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="even">
 <td>FzfLua search</td>
 <td>s</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>FzfLua files</td>
-<td>f</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mini files</td>
-<td>i</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -679,75 +681,65 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="even">
-<td>Navbuddy</td>
-<td><C-C>v</td>
+<td>LvimHelper</td>
+<td><C-C>h</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>LvimHelper</td>
+<td><F11></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Change a surrounding pair, putting replacements on new lines</td>
 <td><Plug>(nvim-surround-change-line)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Change a surrounding pair</td>
 <td><Plug>(nvim-surround-change)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Delete a surrounding pair</td>
 <td><Plug>(nvim-surround-delete)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode)</td>
 <td><Plug>(nvim-surround-normal-cur-line)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion, on new lines (normal
 mode)</td>
 <td><Plug>(nvim-surround-normal-line)</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around the current line (normal mode)</td>
 <td><Plug>(nvim-surround-normal-cur)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion (normal mode)</td>
 <td><Plug>(nvim-surround-normal)</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>LspDiagnostic QF</td>
-<td><C-C><C-H></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>LvimHelper</td>
-<td><C-C>h</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LvimHelper</td>
-<td><F11></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(fzf-normal)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(fzf-insert)</td>
-<td>i</td>
-</tr>
 <tr class="odd">
 <td>DAPLocal</td>
 <td><C-C><C-L></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Vifm</td>
+<td><C-C>fv</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ranger</td>
+<td><C-C>fr</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -776,16 +768,6 @@ mode)</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>LvimLinguisticsTOGGLESpelling</td>
-<td><C-C>k</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LvimLinguisticsTOGGLEInsertModeLanguage</td>
-<td><C-C>l</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><M-q></td>
 <td><Cmd>lua require(‘NeoComposer.ui’).toggle_macro_menu()<CR></td>
@@ -799,16 +781,6 @@ mode)</td>
 <td></td>
 <td><M-n></td>
 <td><Cmd>lua require(‘NeoComposer.ui’).cycle_next()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Terminal Float</td>
@@ -831,60 +803,50 @@ mode)</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Vifm</td>
-<td><C-C>fv</td>
+<td>LspDiagnostic QF</td>
+<td><C-C><C-H></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Ranger</td>
-<td><C-C>fr</td>
-<td></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
-<tr class="odd">
-<td>NeoTree filesystem</td>
-<td><C-C><C-F></td>
-<td></td>
-</tr>
 <tr class="even">
-<td>NeoTree buffers</td>
-<td><C-C><C-B></td>
+<td>Navbuddy</td>
+<td><C-C>v</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>NeoTree diagnostics</td>
-<td><M-e></td>
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>NeoTree diagnostics</td>
-<td><C-C><C-D></td>
+<td></td>
+<td><Plug>luasnip-delete-check</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>NeoTree git status</td>
-<td><C-C><C-G></td>
+<td>LvimLinguisticsTOGGLESpelling</td>
+<td><C-C>k</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Undotree</td>
-<td><F5></td>
+<td>LvimLinguisticsTOGGLEInsertModeLanguage</td>
+<td><C-C>l</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>WinShift</td>
-<td><C-C>w</td>
+<td></td>
+<td><Plug>(fzf-normal)</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Telescope find files</td>
-<td>&lt;M-,&gt;</td>
 <td></td>
+<td><Plug>(fzf-insert)</td>
+<td>i</td>
 </tr>
 <tr class="odd">
 <td>Telescope tmux session</td>
@@ -904,6 +866,46 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td>Telescope live grep</td>
 <td>&lt;M-.&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Telescope find files</td>
+<td>&lt;M-,&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree buffers</td>
+<td><C-C><C-B></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NeoTree filesystem</td>
+<td><C-C><C-F></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree diagnostics</td>
+<td><C-C><C-D></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NeoTree git status</td>
+<td><C-C><C-G></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree diagnostics</td>
+<td><M-e></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WinShift</td>
+<td><C-C>w</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Undotree</td>
+<td><F5></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1231,21 +1233,21 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Add a surrounding pair around a visual selection, on new lines</td>
 <td><Plug>(nvim-surround-visual-line)</td>
 <td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
 true })<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a visual selection</td>
 <td><Plug>(nvim-surround-visual)</td>
 <td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
 false })<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
 </tr>
 </tbody>
 </table>

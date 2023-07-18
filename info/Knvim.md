@@ -2,11 +2,11 @@
 
 Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
 
-- Install and initialize: `lazyman -L Knvim`
+- Install and initialize: **`lazyman -L Knvim`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Knvim`
+- Installation location:  **`~/.config/nvim-Knvim`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -143,19 +143,19 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | s | <Cmd>Pounce<CR> |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>28_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlignRepeat) | :call <SNR>28_easy_align_repeat()<CR> |
+|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>28_live_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlign) | :set opfunc=<SNR>28_easy_align_op<CR>g@ |
+| Move to previous reference | <M-p> |  |
+| Move to next reference | <M-n> |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-| Move to previous reference | <M-p> |  |
-| Move to next reference | <M-n> |  |
-|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>21_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlignRepeat) | :call <SNR>21_easy_align_repeat()<CR> |
-|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>21_live_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlign) | :set opfunc=<SNR>21_easy_align_op<CR>g@ |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <2-LeftMouse> | <Plug>(matchup-double-click) |
 |  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
 |  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
@@ -165,7 +165,7 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>8_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <SNR>7_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
 |  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <F24> | <Cmd>Alpha<CR> |
 |  | <F12> | <Cmd>set nu rnu!<CR> |
@@ -225,33 +225,33 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | ]% | <Plug>(matchup-]%) |
 |  | a% | <Plug>(matchup-a%) |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | g% | <Plug>(matchup-g%) |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
+|  | g% | <Plug>(matchup-g%) |
 |  | i% | <Plug>(matchup-i%) |
 |  | s | <Cmd>Pounce<CR> |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>29_(matchup-Z%) |
-|  | <SNR>29_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>29_(matchup-z%) |
-|  | <SNR>29_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>29_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>29_(matchup-]%) |
-|  | <SNR>29_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>29_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>29_(matchup-g%) |
-|  | <SNR>29_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>29_(matchup-%) |
-|  | <SNR>29_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>31_repeat_in_visual()<CR> |
+|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>31_live_easy_align_op(visualmode(), 1)<CR> |
+|  | <Plug>(EasyAlign) | :<C-U>call <SNR>31_easy_align_op(visualmode(), 1)<CR> |
 |  | <M-i> |  |
-|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>11_repeat_in_visual()<CR> |
-|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>11_live_easy_align_op(visualmode(), 1)<CR> |
-|  | <Plug>(EasyAlign) | :<C-U>call <SNR>11_easy_align_op(visualmode(), 1)<CR> |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>15_(matchup-Z%) |
+|  | <SNR>15_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>15_(matchup-z%) |
+|  | <SNR>15_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>15_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>15_(matchup-]%) |
+|  | <SNR>15_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>15_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>15_(matchup-g%) |
+|  | <SNR>15_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>15_(matchup-%) |
+|  | <SNR>15_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 
 #### operator mode keymaps
 

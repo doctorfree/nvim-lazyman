@@ -2,11 +2,11 @@
 
 LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
 
-- Install and initialize: `lazyman -x JustinNvim`
+- Install and initialize: **`lazyman -x JustinNvim`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-JustinNvim`
+- Installation location:  **`~/.config/nvim-JustinNvim`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -84,36 +84,18 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Todo (Trouble) |  dt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme (Trouble) |  dT |  |
-| Quickfix List (Trouble) |  dQ |  |
-| Location List (Trouble) |  dL |  |
-| Workspace Diagnostics (Trouble) |  dX |  |
 | Document Diagnostics (Trouble) |  dx |  |
+| Location List (Trouble) |  dL |  |
+| Quickfix List (Trouble) |  dQ |  |
+| Workspace Diagnostics (Trouble) |  dX |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
 | Mason |  cm |  |
-| Replace in files (Spectre) |  sr |  |
-| Close Buffer (Force) |  bC |  |
-| Close Buffer |  bc |  |
+| Dismiss all Notifications |  un |  |
 | Delete non-pinned buffers |  bP |  |
 | Toggle pin |  bp |  |
-| Explorer |  e |  |
-| Dismiss all Notifications |  un |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
-| Find Plugin File |  fp |  |
 | Word (cwd) |  fW |  |
 | Word (root dir) |  fw |  |
 | All Buffers |  fB |  |
@@ -146,27 +128,45 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Find Files (cwd) |  fF |  |
 | Find Files (root dir) |  ff |  |
 | Buffers |  fb |  |
+| Noice Last Message |  snl |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Replace in files (Spectre) |  sr |  |
+| Projects |  fp |  |
+| Close Buffer (Force) |  bC |  |
+| Close Buffer |  bc |  |
+| Todo (Trouble) |  dt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo/Fix/Fixme (Trouble) |  dT |  |
+| Explorer |  e |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
-| Close Buffer | \c |  |
-| Toggle TreeSJ | \j |  |
+| Previous todo comment | [t |  |
 | Update `MiniSurround.config.n_lines` | \sn |  |
-| Add surrounding | \sa |  |
 | Replace surrounding | \sr |  |
 | Highlight surrounding | \sh |  |
 | Find left surrounding | \sF |  |
 | Find right surrounding | \sf |  |
 | Delete surrounding | \sd |  |
+| Add surrounding | \sa |  |
+| Toggle TreeSJ | \j |  |
+| Close Buffer | \c |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
+| Next todo comment | ]t |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Flash | s |  |

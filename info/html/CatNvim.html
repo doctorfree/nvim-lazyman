@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>CatNvim</title>
+  <title>Lazyman config: CatNvim</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">CatNvim</h1>
+<h1 class="title">Lazyman config: CatNvim</h1>
 </header>
 <h2 id="catnvim-neovim-configuration-information">CatNvim Neovim
 Configuration Information</h2>
@@ -34,14 +34,16 @@ Configuration Information</h2>
 href="https://en.wikipedia.org/wiki/C_(programming_language)">C
 programming language</a></p>
 <ul>
-<li>Install and initialize: <code>lazyman -L CatNvim</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L CatNvim</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: <a
 href="https://lazyvim.github.io">LazyVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-CatNvim</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-CatNvim</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -172,78 +174,28 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Dismiss All</td>
-<td>snd</td>
+<td>Mason</td>
+<td>cm</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Noice All</td>
-<td>sna</td>
+<td>Delete Buffer (Force)</td>
+<td>bD</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Noice History</td>
-<td>snh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Noice Last Message</td>
-<td>snl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Todo/Fix/Fixme</td>
-<td>sT</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Todo/Fix/Fixme (Trouble)</td>
-<td>xT</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Todo (Trouble)</td>
-<td>xt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Todo</td>
-<td>st</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Replace in files (Spectre)</td>
-<td>sr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Quickfix List (Trouble)</td>
-<td>xQ</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Location List (Trouble)</td>
-<td>xL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Workspace Diagnostics (Trouble)</td>
-<td>xX</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Document Diagnostics (Trouble)</td>
-<td>xx</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Delete Buffer</td>
 <td>bd</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Delete non-pinned buffers</td>
+<td>bP</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Delete Buffer (Force)</td>
-<td>bD</td>
+<td>Toggle pin</td>
+<td>bp</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -267,138 +219,28 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle pin</td>
-<td>bp</td>
+<td>Dismiss all Notifications</td>
+<td>un</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Delete non-pinned buffers</td>
-<td>bP</td>
+<td>Dismiss All</td>
+<td>snd</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Grep (root dir)</td>
-<td>/</td>
+<td>Noice All</td>
+<td>sna</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Switch Buffer</td>
-<td>,</td>
+<td>Noice History</td>
+<td>snh</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Buffers</td>
-<td>fb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Goto Symbol (Workspace)</td>
-<td>sS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Goto Symbol</td>
-<td>ss</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Colorscheme with preview</td>
-<td>uC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Word (cwd)</td>
-<td>sW</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Word (root dir)</td>
-<td>sw</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Resume</td>
-<td>sR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Options</td>
-<td>so</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Jump to Mark</td>
-<td>sm</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Man Pages</td>
-<td>sM</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Key Maps</td>
-<td>sk</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search Highlight Groups</td>
-<td>sH</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Help Pages</td>
-<td>sh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Grep (cwd)</td>
-<td>sG</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Grep (root dir)</td>
-<td>sg</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Workspace diagnostics</td>
-<td>sD</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Document diagnostics</td>
-<td>sd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Commands</td>
-<td>sC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Command History</td>
-<td>sc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Buffer</td>
-<td>sb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Auto Commands</td>
-<td>sa</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>status</td>
-<td>gs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>commits</td>
-<td>gc</td>
+<td>Noice Last Message</td>
+<td>snl</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -422,8 +264,8 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find Files (root dir)</td>
-<td></td>
+<td>Buffers</td>
+<td>fb</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -432,13 +274,133 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Restore Last Session</td>
-<td>ql</td>
+<td>Grep (root dir)</td>
+<td>/</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Restore Session</td>
-<td>qs</td>
+<td>Switch Buffer</td>
+<td>,</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Word (root dir)</td>
+<td>sw</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Goto Symbol (Workspace)</td>
+<td>sS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Goto Symbol</td>
+<td>ss</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Colorscheme with preview</td>
+<td>uC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Word (cwd)</td>
+<td>sW</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Files (root dir)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resume</td>
+<td>sR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Options</td>
+<td>so</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jump to Mark</td>
+<td>sm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Man Pages</td>
+<td>sM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Key Maps</td>
+<td>sk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search Highlight Groups</td>
+<td>sH</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Help Pages</td>
+<td>sh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Grep (cwd)</td>
+<td>sG</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Grep (root dir)</td>
+<td>sg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Workspace diagnostics</td>
+<td>sD</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Document diagnostics</td>
+<td>sd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Commands</td>
+<td>sC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Command History</td>
+<td>sc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Buffer</td>
+<td>sb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Auto Commands</td>
+<td>sa</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>status</td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>commits</td>
+<td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Replace in files (Spectre)</td>
+<td>sr</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -447,13 +409,53 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Dismiss all Notifications</td>
-<td>un</td>
+<td>Restore Last Session</td>
+<td>ql</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Mason</td>
-<td>cm</td>
+<td>Restore Session</td>
+<td>qs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Todo/Fix/Fixme</td>
+<td>sT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Todo</td>
+<td>st</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Todo/Fix/Fixme (Trouble)</td>
+<td>xT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Todo (Trouble)</td>
+<td>xt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quickfix List (Trouble)</td>
+<td>xQ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Location List (Trouble)</td>
+<td>xL</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Workspace Diagnostics (Trouble)</td>
+<td>xX</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Document Diagnostics (Trouble)</td>
+<td>xx</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -482,18 +484,18 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 </tr>
 <tr class="odd">
+<td>Prev Reference</td>
+<td>[[</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Previous todo comment</td>
 <td>[t</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Previous trouble/quickfix item</td>
 <td>[q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Prev Reference</td>
-<td>[[</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -502,18 +504,18 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td><Plug>(MatchitNormalMultiForward)</td>
 </tr>
 <tr class="odd">
+<td>Next Reference</td>
+<td>]]</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Next todo comment</td>
 <td>]t</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Next trouble/quickfix item</td>
 <td>]q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Next Reference</td>
-<td>]]</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -527,26 +529,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="even">
-<td>Find left surrounding</td>
-<td>gzF</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Update <code>MiniSurround.config.n_lines</code></td>
-<td>gzn</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Highlight surrounding</td>
-<td>gzh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Replace surrounding</td>
-<td>gzr</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Find right surrounding</td>
 <td>gzf</td>
 <td></td>
@@ -557,8 +539,28 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Update <code>MiniSurround.config.n_lines</code></td>
+<td>gzn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find left surrounding</td>
+<td>gzF</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Add surrounding</td>
 <td>gza</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Highlight surrounding</td>
+<td>gzh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Replace surrounding</td>
+<td>gzr</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -593,8 +595,8 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
-<td>Scroll forward</td>
-<td><C-F></td>
+<td>Increment selection</td>
+<td><C-Space></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -603,8 +605,8 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Increment selection</td>
-<td><C-Space></td>
+<td>Scroll forward</td>
+<td><C-F></td>
 <td></td>
 </tr>
 <tr class="even">

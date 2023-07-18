@@ -2,11 +2,11 @@
 
 Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)
 
-- Install and initialize: `lazyman -v`
+- Install and initialize: **`lazyman -v`**
 - Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-LunarVim`
+- Installation location:  **`~/.config/nvim-LunarVim`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -127,30 +127,30 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>YSurround | <SNR>12_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>12_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>12_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>12_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>12_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>12_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>YSurround | <SNR>5_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>5_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>5_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>5_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>5_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>5_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
 | Float Terminal | <M-3> |  |
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
 |  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
 |  | <C-S> | :w<CR> |
-|  | <C-Up> | :resize -2<CR> |
-|  | <M-j> | :m .+1<CR>== |
-|  | <M-k> | :m .-2<CR>== |
-|  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
+|  | <M-j> | :m .+1<CR>== |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <M-k> | :m .-2<CR>== |
 |  | <C-Right> | :vertical resize +2<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize +2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
+|  | <C-Up> | :resize -2<CR> |
+|  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
 
 #### visual mode keymaps
@@ -180,8 +180,8 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | <Plug>VgSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
 |  | <Plug>VSurround | :<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
 |  | <M-k> | :m '<lt>-2<CR>gv-gv |
+|  | <M-j> | :m '>+1<CR>gv-gv |
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
@@ -205,6 +205,6 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
 |  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
-|  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
+|  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |

@@ -2,11 +2,11 @@
 
 'NvChad' based Neovim config with Rust formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)
 
-- Install and initialize: `lazyman -L Rust`
+- Install and initialize: **`lazyman -L Rust`**
 - Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Rust`
+- Installation location:  **`~/.config/nvim-Rust`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -65,11 +65,11 @@
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-|  | g |  |
+| Comment toggle current block | gbc |  |
+| Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
-| Comment toggle current line | gcc |  |
-| Comment toggle current block | gbc |  |
+|  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 

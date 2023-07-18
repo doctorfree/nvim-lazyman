@@ -2,11 +2,11 @@
 
 Well structured lazy config with several setup scripts and a Wiki
 
-- Install and initialize: `lazyman -w Charles`
+- Install and initialize: **`lazyman -w Charles`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Charles`
+- Installation location:  **`~/.config/nvim-Charles`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -130,71 +130,71 @@ Well structured lazy config with several setup scripts and a Wiki
 | ----------- | --- | --- |
 | buffer: Switch to next | <Tab> | :BufferLineCycleNext<CR> |
 | edit: Clear search highlight | <Esc> | :noh<CR> |
-| edit: Join code block |  j | :<C-U>TSJJoin<CR> |
 | edit: Split code block |  s | :<C-U>TSJSplit<CR> |
+| edit: Join code block |  j | :<C-U>TSJJoin<CR> |
 |  |   |  |
 | Nvim builtin | & | :&&<CR> |
 | edit: Increment | + | <C-A> |
-| buffer: Sort by extension | ,be | :BufferLineSortByExtension<CR> |
 | buffer: Sort by direrctory | ,bd | :BufferLineSortByDirectory<CR> |
-| find: Buffer opened | ,fb | :<C-U>Telescope buffers<CR> |
-| filetree: Refresh | ,nr | :NvimTreeRefresh<CR> |
-| find: file in git project | ,fg | :<C-U>Telescope git_files<CR> |
-| find: Current word | ,fs | :<C-U>Telescope grep_string<CR> |
-| buffer: New | ,fn | :<C-U>:enew<CR> |
-|  | ,- |  |
-| ui: Change colorscheme for current session | ,fc | :<C-U>Telescope colorscheme<CR> |
+| buffer: Sort by extension | ,be | :BufferLineSortByExtension<CR> |
+| lsp: Show loclist | ,tl | :TroubleToggle loclist<CR> |
+| lsp: Show lsp references | ,tr | :TroubleToggle lsp_references<CR> |
 | tool: Run code by file | ,R | :<C-U>%SnipRun<CR> |
+| lsp: Toggle trouble list | ,tt | :TroubleToggle<CR> |
+| debug: Open REPL | ,do |  |
+| debug: Run last | ,dl |  |
+| debug: Run to cursor | ,dc |  |
+| debug: Set breakpoint with condition | ,db |  |
+| find: Session | ,fd | :<C-U>Telescope persisted<CR> |
+| find: Current word | ,fs | :<C-U>Telescope grep_string<CR> |
+| find: Buffer opened | ,fb | :<C-U>Telescope buffers<CR> |
+| find: file in git project | ,fg | :<C-U>Telescope git_files<CR> |
+| buffer: New | ,fn | :<C-U>:enew<CR> |
+| ui: Change colorscheme for current session | ,fc | :<C-U>Telescope colorscheme<CR> |
 | find: File in project | ,ff | :<C-U>Telescope find_files<CR> |
 | find: File by history | ,fe | :<C-U>Telescope oldfiles<CR> |
-| debug: Open REPL | ,do |  |
 | find: Word in project | ,fw |  |
 | find: File by frecency | ,fr |  |
 | find: Project | ,fp |  |
 | edit: Show undo history | ,u |  |
-| lsp: Show loclist | ,tl | :TroubleToggle loclist<CR> |
+| filetree: Refresh | ,nr | :NvimTreeRefresh<CR> |
+| filetree: Find file | ,nf | :NvimTreeFindFile<CR> |
 | lsp: Show quickfix list | ,tq | :TroubleToggle quickfix<CR> |
+| git: Open git-fugitive | ,G | :<C-U>Git<CR> |
 | lsp: Show workspace diagnostics | ,tw | :TroubleToggle workspace_diagnostics<CR> |
 | lsp: Show document diagnostics | ,td | :TroubleToggle document_diagnostics<CR> |
-| lsp: Show lsp references | ,tr | :TroubleToggle lsp_references<CR> |
-| lsp: Toggle trouble list | ,tt | :TroubleToggle<CR> |
-| git: Toggle lazygit | ,lg |  |
-| debug: Run last | ,dl |  |
-| debug: Run to cursor | ,dc |  |
-| debug: Set breakpoint with condition | ,db |  |
-| filetree: Find file | ,nf | :NvimTreeFindFile<CR> |
-| git: Open git-fugitive | ,G | :<C-U>Git<CR> |
-| find: Session | ,fd | :<C-U>Telescope persisted<CR> |
+|  | ,- |  |
 |  | ,= |  |
-| edit: Search-repacle multi buffers CWORD | ,rbW | :<C-U>SearchReplaceMultiBufferCWORD<CR> |
-| session: Delete | ,sd | :<C-U>SessionDelete<CR> |
-| edit: Search-repacle multi buffers CWord | ,rbw | :<C-U>SearchReplaceMultiBufferCWord<CR> |
-| edit: Add comment box around the texts | ,cf |  |
-| edit: Search-repacle in multi buffers | ,rbo | :<C-U>SearchReplaceMultiBufferOpen<CR> |
-| git: Show diff | ,dv | :DiffviewOpen<CR> |
-| edit: Show search-repacle menu for multi buffer | ,rbs | :<C-U>SearchReplaceMultiBufferSelections<CR> |
-| edit: Search-repacle current buffer CFile | ,rf | :<C-U>SearchReplaceSingleBufferCFile<CR> |
-| edit: Search-repacle current buffer CExpr | ,re | :<C-U>SearchReplaceSingleBufferCExpr<CR> |
-| edit: Search-repacle current buffer CWORD | ,rW | :<C-U>SearchReplaceSingleBufferCWORD<CR> |
-| edit: Search-repacle current buffer CWord | ,rw | :<C-U>SearchReplaceSingleBufferCWord<CR> |
+| git: Toggle lazygit | ,lg |  |
 | edit: Search-repacle in current buffer | ,ro | :<C-U>SearchReplaceSingleBufferOpen<CR> |
 | edit: Show search-repacle menu in current buffer | ,rs | :<C-U>SearchReplaceSingleBufferSelections<CR> |
-| edit: Add comment box around multi lines of texts | ,cF |  |
 | git: Close diff | ,,dv | :DiffviewClose<CR> |
-| session: Load current | ,sl | :<C-U>SessionLoad<CR> |
-| session: Save | ,ss | :<C-U>SessionSave<CR> |
+| git: Show diff | ,dv | :DiffviewOpen<CR> |
 | edit: Search-repacle multi buffers CFile | ,rbf | :<C-U>SearchReplaceMultiBufferCFile<CR> |
 | edit: Search-repacle multi buffers CExpr | ,rbe | :<C-U>SearchReplaceMultiBufferCExpr<CR> |
-| package: Check | ,pc | :Lazy check<CR> |
-| package: Log | ,pl | :Lazy log<CR> |
-| package: Clean | ,px | :Lazy clean<CR> |
-| package: Install | ,pi | :Lazy install<CR> |
-| package: Restore | ,pr | :Lazy restore<CR> |
+| edit: Search-repacle multi buffers CWORD | ,rbW | :<C-U>SearchReplaceMultiBufferCWORD<CR> |
+| edit: Search-repacle multi buffers CWord | ,rbw | :<C-U>SearchReplaceMultiBufferCWord<CR> |
+| edit: Search-repacle in multi buffers | ,rbo | :<C-U>SearchReplaceMultiBufferOpen<CR> |
+| edit: Add comment box around multi lines of texts | ,cF |  |
+| edit: Show search-repacle menu for multi buffer | ,rbs | :<C-U>SearchReplaceMultiBufferSelections<CR> |
+| edit: Add comment box around the texts | ,cf |  |
+| edit: Search-repacle current buffer CFile | ,rf | :<C-U>SearchReplaceSingleBufferCFile<CR> |
+| edit: Search-repacle current buffer CExpr | ,re | :<C-U>SearchReplaceSingleBufferCExpr<CR> |
+| session: Delete | ,sd | :<C-U>SessionDelete<CR> |
+| edit: Search-repacle current buffer CWORD | ,rW | :<C-U>SearchReplaceSingleBufferCWORD<CR> |
+| session: Load current | ,sl | :<C-U>SessionLoad<CR> |
+| edit: Search-repacle current buffer CWord | ,rw | :<C-U>SearchReplaceSingleBufferCWord<CR> |
+| session: Save | ,ss | :<C-U>SessionSave<CR> |
 | package: Update | ,pu | :Lazy update<CR> |
 | package: Profile | ,pp | :Lazy profile<CR> |
 | package: Sync | ,ps | :Lazy sync<CR> |
 | package: Debug | ,pd | :Lazy debug<CR> |
 | package: Show | ,ph | :Lazy<CR> |
+| package: Check | ,pc | :Lazy check<CR> |
+| package: Log | ,pl | :Lazy log<CR> |
+| package: Clean | ,px | :Lazy clean<CR> |
+| package: Install | ,pi | :Lazy install<CR> |
+| package: Restore | ,pr | :Lazy restore<CR> |
 | edit: Start replacment mode of current word | ,,s | <Cmd>%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left> |
 | file: chmod +x current file | ,,x | <Cmd>!chmod +x %<CR> |
 | filetree: Open Oil | ,o |  |
@@ -212,63 +212,63 @@ Well structured lazy config with several setup scripts and a Wiki
 | leapn: Jump to character | f |  |
 | git: Pull | gpl | :G pull<CR> |
 | git: Push | gps | :G push<CR> |
-| edit: Toggle comment for block with operator | gb | <Plug>(comment_toggle_blockwise) |
 | leapn: Jump to character across windows | gt |  |
+| edit: Align with delimiter | gea | :EasyAlign<CR> |
+| edit: Toggle comment for block with operator | gb | <Plug>(comment_toggle_blockwise) |
 | edit: Toggle comment for line with operator | gc | <Plug>(comment_toggle_linewise) |
 | edit: Toggle comment for block | gbc |  |
 | edit: Toggle comment for line | gcc |  |
-| edit: Align with delimiter | gea | :EasyAlign<CR> |
-| jump: Jump to functions | jif |  |
-| jump: Jump to functions | jfu |  |
 | jump: Jump to visible variable_declarations | jv |  |
 |  | j |  |
+| jump: Jump to functions | jif |  |
+| jump: Jump to functions | jfu |  |
 |  | k |  |
 | Jumpx: Jump across syntax tree | m |  |
 | edit: Next search result | n | nzzzv |
 | edit: Split or Join code block with autodetect | sj | :<C-U>TSJToggle<CR> |
 | leapn: Jump till character | t |  |
+| tab: Only keep current tab | to | <Cmd>tabonly<CR> |
 | tab: Move to previous tab | tj | <Cmd>tabprevious<CR> |
 | tab: Move to next tab | tk | <Cmd>tabnext<CR> |
 | tab: Create a new tab | tn | <Cmd>tabnew<CR> |
-| tab: Only keep current tab | to | <Cmd>tabonly<CR> |
-| edit: Visual select current node | vn | :<C-U>STSSelectCurrentNode<CR> |
 | edit: Visual select master node | vx | :<C-U>STSSelectMasterNode<CR> |
+| edit: Visual select current node | vn | :<C-U>STSSelectCurrentNode<CR> |
 | edit: Add a surrounding pair around the current line, on new lines | ySS |  |
 | edit: Add a surrounding pair around a motion, on new lines | yS |  |
 | edit: Add a surrounding pair around current line | yss |  |
 | edit: Add a surrounding pair around a motion | ys |  |
-| debug: Step into | <F9> |  |
 | debug: Run/Continue | <F6> |  |
+| tmux: Resize tmux/nvim pane rightward | <M-l> |  |
+| debug: Step over | <F11> |  |
+| debug: Step out | <F10> |  |
+| debug: Step into | <F9> |  |
 | terminal: Toggle float | <M-d> | :execute v:count . "ToggleTerm direction=float"<CR> |
+| debug: Toggle breakpoint | <F8> |  |
 | terminal: Toggle vertical | <F5> | :execute v:count . "ToggleTerm direction=vertical"<CR> |
+| debug: Stop | <F7> |  |
 | terminal: Toggle vertical | <M-Bslash> | :execute v:count . "ToggleTerm direction=vertical"<CR> |
 | terminal: Toggle horizontal | <C-Bslash> | :execute v:count . "ToggleTerm direction=horizontal"<CR> |
-| tmux: Resize tmux/nvim pane rightward | <M-l> |  |
 | tmux: Resize to tmux/nvim pane leftward | <M-h> |  |
 | tmux: Resize to tmux/nvim pane upward | <M-k> |  |
 | tmux: Resize tmux/nvim pane downward | <M-j> |  |
-| debug: Step over | <F11> |  |
-| debug: Step out | <F10> |  |
-| debug: Toggle breakpoint | <F8> |  |
-| debug: Stop | <F7> |  |
 | tool: Preview markdown | <F12> | :MarkdownPreviewToggle<CR> |
-| buffer: Close current | <F4> | :BufDel<CR> |
 | editn: Save file using sudo | <M-s> | :<C-U>SudaWrite<CR> |
+| buffer: Close current | <F4> | :BufDel<CR> |
 | Formater: Toggle format on save | <M-f> | <Cmd>FormatToggle<CR> |
-| buffer: Switch to prev | <S-Tab> | :BufferLineCyclePrev<CR> |
+| edit: Force quit | <M-Q> | :q!<CR> |
+| window: Resize -2 horizontally | <M-;> | :resize -2<CR> |
+| edit: Save file | <C-S> | :<C-U>write<CR> |
+| window: Resize +5 vertically | <M-]> | :vertical resize +5<CR> |
+| window: Resize -5 vertically | <M-[> | :vertical resize -5<CR> |
 | tmux: Move to tmux/nvim top window | <C-K> |  |
 | tmux: Move to tmux/nvim bottom window | <C-J> |  |
 | tmux: Move to tmux/nvim left window | <C-H> |  |
 | edit: Select all | <C-A> | gg0vG$ |
-| edit: Save file | <C-S> | :<C-U>write<CR> |
-| edit: Force quit | <M-Q> | :q!<CR> |
+| buffer: Switch to prev | <S-Tab> | :BufferLineCyclePrev<CR> |
 | filetree: Toggle | <C-N> | :NvimTreeToggle<CR> |
 | tool: Toggle command panel | <C-P> |  |
 | edit: Save file and quit | <C-Q> | :wq<CR> |
 | window: Resize +2 horizontally | <M-'> | :resize +2<CR> |
-| window: Resize -2 horizontally | <M-;> | :resize -2<CR> |
-| window: Resize +5 vertically | <M-]> | :vertical resize +5<CR> |
-| window: Resize -5 vertically | <M-[> | :vertical resize -5<CR> |
 | tmux: Move tmux/nvim right window | <C-L> |  |
 
 #### visual mode keymaps
@@ -278,9 +278,9 @@ Well structured lazy config with several setup scripts and a Wiki
 |  |   |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| tool: Run code by range | ,R | :SnipRun<CR> |
 |  | ,- |  |
 |  | ,= |  |
+| tool: Run code by range | ,R | :SnipRun<CR> |
 | move: Change selection region to child node | - | :<C-U>STSSelectChildNode<CR> |
 | edit: Decrease indent | <lt> | <lt>gv |
 | move: Change selection region to parent node | = | :<C-U>STSSelectParentNode<CR> |

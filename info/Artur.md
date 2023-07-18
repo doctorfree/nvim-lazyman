@@ -2,11 +2,11 @@
 
 Personal Neovim config of Artur Gomes
 
-- Install and initialize: `lazyman -w Artur`
+- Install and initialize: **`lazyman -w Artur`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Artur`
+- Installation location:  **`~/.config/nvim-Artur`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
@@ -140,8 +140,8 @@ Personal Neovim config of Artur Gomes
 |  | `] | :<C-U>call signature#mark#Goto("next", "spot", "alpha")<CR> |
 | Change a surrounding pair, putting replacements on new lines | cS | <Plug>(nvim-surround-change-line) |
 | Change a surrounding pair | cs | <Plug>(nvim-surround-change) |
-| Delete a surrounding pair | ds | <Plug>(nvim-surround-delete) |
 |  | dm | :<C-U>call signature#utils#Remove(v:count)<CR> |
+| Delete a surrounding pair | ds | <Plug>(nvim-surround-delete) |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(matchup-g%) |
 | Comment insert end of line | gcA |  |
@@ -190,10 +190,9 @@ Personal Neovim config of Artur Gomes
 |  | <SNR>36_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
 |  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <M-j> | <Cmd>lua require'tmux'.resize_bottom()<CR> |
-|  | <M-h> | <Cmd>lua require'tmux'.resize_left()<CR> |
-|  | <M-l> | <Cmd>lua require'tmux'.resize_right()<CR> |
 |  | <M-k> | <Cmd>lua require'tmux'.resize_top()<CR> |
-|  | <F3> | :MaximizerToggle<CR> |
+|  | <M-l> | <Cmd>lua require'tmux'.resize_right()<CR> |
+|  | <M-h> | <Cmd>lua require'tmux'.resize_left()<CR> |
 |  | <Plug>BookmarkMoveToLine | :<C-U>BookmarkMoveToLine v:count<CR> |
 |  | <Plug>BookmarkMoveDown | :<C-U>BookmarkMoveDown v:count<CR> |
 |  | <Plug>BookmarkMoveUp | :<C-U>BookmarkMoveUp v:count<CR> |
@@ -204,6 +203,18 @@ Personal Neovim config of Artur Gomes
 |  | <Plug>BookmarkAnnotate | :BookmarkAnnotate<CR> |
 |  | <Plug>BookmarkToggle | :BookmarkToggle<CR> |
 |  | <Plug>BookmarkShowAll | :BookmarkShowAll<CR> |
+|  | <M-3> | <Cmd>lua _HORIZONTAL_TERM()<CR> |
+|  | <M-2> | <Cmd>lua _VERTICAL_TERM()<CR> |
+|  | <M-1> | <Cmd>lua _FLOAT_TERM()<CR> |
+| Toggle Terminal | <C-Bslash> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
 | Change a surrounding pair, putting replacements on new lines | <Plug>(nvim-surround-change-line) |  |
 | Change a surrounding pair | <Plug>(nvim-surround-change) |  |
 | Delete a surrounding pair | <Plug>(nvim-surround-delete) |  |
@@ -211,25 +222,14 @@ Personal Neovim config of Artur Gomes
 | Add a surrounding pair around a motion, on new lines (normal mode) | <Plug>(nvim-surround-normal-line) |  |
 | Add a surrounding pair around the current line (normal mode) | <Plug>(nvim-surround-normal-cur) |  |
 | Add a surrounding pair around a motion (normal mode) | <Plug>(nvim-surround-normal) |  |
+|  | <F3> | :MaximizerToggle<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <M-3> | <Cmd>lua _HORIZONTAL_TERM()<CR> |
-|  | <M-2> | <Cmd>lua _VERTICAL_TERM()<CR> |
-|  | <M-1> | <Cmd>lua _FLOAT_TERM()<CR> |
-| Toggle Terminal | <C-Bslash> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
-|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
 |  | <C-N> | :e ~/Notes/<CR> |
 |  | <C-Z> | <Cmd>ZenMode<CR> |
 |  | <C-S> | <Cmd>vsplit<CR> |
@@ -266,10 +266,10 @@ Personal Neovim config of Artur Gomes
 |  | ]% | <Plug>(matchup-]%) |
 |  | a% | <Plug>(matchup-a%) |
 |  | gx | <Plug>NetrwBrowseXVis |
-| Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
-| Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
 |  | g% | <Plug>(matchup-g%) |
 | Add a surrounding pair around a visual selection, on new lines | gS | <Plug>(nvim-surround-visual-line) |
+| Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
+| Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
 |  | i% | <Plug>(matchup-i%) |
 |  | p | "_dP |
 |  | z% | <Plug>(matchup-z%) |
@@ -277,32 +277,32 @@ Personal Neovim config of Artur Gomes
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
 |  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <F3> | :MaximizerToggle<CR>gv |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>15_(matchup-Z%) |
-|  | <SNR>15_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>15_(matchup-z%) |
-|  | <SNR>15_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>15_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>15_(matchup-]%) |
-|  | <SNR>15_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>15_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>15_(matchup-g%) |
-|  | <SNR>15_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>15_(matchup-%) |
-|  | <SNR>15_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>25_(matchup-Z%) |
+|  | <SNR>25_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>25_(matchup-z%) |
+|  | <SNR>25_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>25_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>25_(matchup-]%) |
+|  | <SNR>25_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>25_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>25_(matchup-g%) |
+|  | <SNR>25_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>25_(matchup-%) |
+|  | <SNR>25_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+| Add a surrounding pair around a visual selection, on new lines | <Plug>(nvim-surround-visual-line) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR> |
+| Add a surrounding pair around a visual selection | <Plug>(nvim-surround-visual) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
 |  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
 |  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
-|  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-| Add a surrounding pair around a visual selection, on new lines | <Plug>(nvim-surround-visual-line) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR> |
-| Add a surrounding pair around a visual selection | <Plug>(nvim-surround-visual) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR> |
 |  | <M-k> | :m .-2<CR>== |
 |  | <M-j> | :m .+1<CR>== |
 
@@ -318,6 +318,7 @@ Personal Neovim config of Artur Gomes
 |  | g% | <Ignore><Plug>(matchup-g%) |
 |  | i% | <Plug>(matchup-i%) |
 |  | z% | <Plug>(matchup-z%) |
+|  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
@@ -326,4 +327,3 @@ Personal Neovim config of Artur Gomes
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |

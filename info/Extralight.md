@@ -2,11 +2,11 @@
 
 Single file lightweight configuration focused on providing basic features
 
-- Install and initialize: `lazyman -x Extralight`
+- Install and initialize: **`lazyman -x Extralight`**
 - Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Extralight`
+- Installation location:  **`~/.config/nvim-Extralight`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

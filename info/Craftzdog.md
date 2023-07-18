@@ -2,11 +2,11 @@
 
 Takuya Matsuyama's Neovim configuration
 
-- Install and initialize: `lazyman -w Craftzdog`
+- Install and initialize: **`lazyman -w Craftzdog`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  `~/.config/nvim-Craftzdog`
+- Installation location:  **`~/.config/nvim-Craftzdog`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

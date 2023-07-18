@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Shuvro</title>
+  <title>Lazyman config: Shuvro</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Shuvro</h1>
+<h1 class="title">Lazyman config: Shuvro</h1>
 </header>
 <h2 id="shuvro-neovim-configuration-information">Shuvro Neovim
 Configuration Information</h2>
@@ -34,14 +34,16 @@ Configuration Information</h2>
 href="https://github.com/abzcoding/lvim">Abouzar Parvan’s</a> advanced
 ‘LunarVim’ config</p>
 <ul>
-<li>Install and initialize: <code>lazyman -L Shuvro</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -L Shuvro</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
 <li>Base configuration: <a
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Shuvro</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Shuvro</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -260,13 +262,13 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[b</td>
-<td><Cmd>BufferLineMoveNext<CR></td>
+<td>[d</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[d</td>
-<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+<td>[b</td>
+<td><Cmd>BufferLineMoveNext<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -275,13 +277,13 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>]b</td>
-<td><Cmd>BufferLineMovePrev<CR></td>
+<td>]d</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]d</td>
-<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+<td>]b</td>
+<td><Cmd>BufferLineMovePrev<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -300,24 +302,24 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gv</td>
-<td><Cmd>vsplit</td>
-</tr>
-<tr class="even">
-<td></td>
 <td>gx</td>
 <td><Cmd>lua os.execute(“xdg-open” .. vim.fn.shellescape(vim.fn.expand
 “<lt>cWORD&gt;”)); vim.cmd “redraw!”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gv</td>
+<td><Cmd>vsplit</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -342,8 +344,8 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&lt;C-,&gt;</td>
-<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
+<td><C-Space></td>
+<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -357,38 +359,28 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
+<td>&lt;C-,&gt;</td>
+<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><M-a></td>
 <td><C-A></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><C-Space></td>
-<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
-</tr>
 <tr class="even">
-<td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><M-j></td>
 <td>:m .+1<CR>==</td>
 </tr>
-<tr class="even">
-<td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
-</tr>
 <tr class="odd">
-<td></td>
-<td><M-k></td>
-<td>:m .-2<CR>==</td>
-</tr>
-<tr class="even">
 <td></td>
 <td><C-Down></td>
 <td>:resize +2<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:m .-2<CR>==</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -397,13 +389,13 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
+<td><C-K></td>
+<td><C-W>k</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><C-Q></td>
+<td>:call QuickFixToggle()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -414,6 +406,16 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 <td><C-H></td>
 <td><C-W>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -464,12 +466,12 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -499,13 +501,13 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 </tbody>
 </table>

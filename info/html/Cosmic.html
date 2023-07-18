@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Cosmic</title>
+  <title>Lazyman config: Cosmic</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -26,19 +26,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Cosmic</h1>
+<h1 class="title">Lazyman config: Cosmic</h1>
 </header>
 <h2 id="cosmic-neovim-configuration-information">Cosmic Neovim
 Configuration Information</h2>
 <p>Install ‘Node.js’, ‘prettierd’, and ‘eslint_d’</p>
 <ul>
-<li>Install and initialize: <code>lazyman -x Cosmic</code></li>
+<li>Install and initialize:
+<strong><code>lazyman -x Cosmic</code></strong></li>
 <li>Configuration category: <a
 href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
-<li>Installation location: <code>~/.config/nvim-Cosmic</code></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Cosmic</code></strong></li>
 </ul>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
@@ -171,16 +173,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 require(“cosmic.plugins.telescope.utils”).project_files()<CR></td>
 </tr>
 <tr class="even">
-<td>Refresh Tree</td>
-<td>nr</td>
-<td>:NvimTreeRefresh<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle Tree</td>
-<td>nt</td>
-<td>:NvimTreeToggle<CR></td>
-</tr>
-<tr class="even">
 <td>Git status</td>
 <td>vg</td>
 <td>:Telescope git_status<CR></td>
@@ -225,6 +217,16 @@ require(“auto-session-library”).current_session_name())<CR></td>
 <td>Restore session</td>
 <td>sl</td>
 <td><Cmd>silent RestoreSession<CR></td>
+</tr>
+<tr class="odd">
+<td>Refresh Tree</td>
+<td>nr</td>
+<td>:NvimTreeRefresh<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle Tree</td>
+<td>nt</td>
+<td>:NvimTreeToggle<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle LSP Lines</td>
