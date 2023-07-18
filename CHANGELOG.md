@@ -10,10 +10,12 @@
 
 ### ⚡️ Added
 
+- Add `Orhun` config to `Personals`
 - Install `nvims` and `lazyman-keymaps` man pages in `~/.local/share/man/`
 
 ### 🐞 Fixed
 
+- Read `nvimdirs` in `nvims` and `neovides` functions to pickup any newly installed
 - Fix `AstroNvim` user installs when using a repository subdirectory
 - Fix `Penguin` website url
 - Change arguments to `nvims` and `neovides` shell functions to uppercase
