@@ -3413,6 +3413,12 @@ install_remove() {
         -N nvim-Metis ${quietflag} -z ${yesflag}
       show_alias "nvim-Metis"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Orhun ] && action="Updating"
+      printf "\n${action} Orhun Neovim configuration"
+      lazyman ${darg} -C https://github.com/orhun/dotfiles -J \
+        -D nvim/.config/nvim/lua/user -N nvim-Orhun ${quietflag} -z ${yesflag}
+      show_alias "nvim-Orhun"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Spider ] && action="Updating"
       printf "\n${action} Spider Neovim configuration"
       lazyman ${darg} -C https://github.com/fearless-spider/FSAstroNvim \
@@ -3614,6 +3620,11 @@ install_remove() {
         ;;
       Mini)
         prsnl_url="https://github.com/echasnovski/nvim"
+        ;;
+      Orhun)
+        prsnl_url="https://github.com/orhun/dotfiles"
+        prsnl_opt="-J"
+        prsnl_dir="-D nvim/.config/nvim/lua/user"
         ;;
       Spider)
         prsnl_url="https://github.com/fearless-spider/FSAstroNvim"

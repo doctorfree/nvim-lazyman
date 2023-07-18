@@ -544,6 +544,14 @@ make_info() {
       C_DESC="Hybrid Neovim config for developers with a functional yet aesthetic experience. Uses a combination of vimscript and lua with the 'vim-plug' plugin manager"
       C_INST="lazyman -w Optixal"
       ;;
+    Orhun)
+      GH_URL="https://github.com/orhun/dotfiles"
+      WS_URL="https://blog.orhun.dev"
+      CF_CAT="Personal"
+      CF_TYP="[AstroNvim](https://astronvim.com)"
+      C_DESC="AstroNvim based configuration of open source developer Orhun Parmaksiz"
+      C_INST="lazyman -w Orhun"
+      ;;
     Rafi)
       GH_URL="https://github.com/rafi/vim-config"
       DF_URL="https://dotfyle.com/rafi/vim-config"
