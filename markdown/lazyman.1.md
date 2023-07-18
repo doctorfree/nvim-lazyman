@@ -30,7 +30,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
 - Over 80 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
-  - `nvims` and `neovides` aliases to fuzzy search, select, and open Neovim configs
+  - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
   - enhanced `less` command alias
   - enhanced `ls` command alias
   - `tree` alias to display a tree view of files and folders
@@ -81,23 +81,29 @@ configuration run `nvim-lazy filename.py` and to invoke Neovim with the LunarVim
 config run `nvim-lunar proposal.md`.
 
 The `lazyman` installation and configuration automatically configures
-convenience aliases for Lazyman installed Neovim configurations. It also
-creates an `nvims` alias which dynamically creates a fuzzy searchable
-menu of installed Neovim configurations and launches Neovim with the
-selected Lazyman Neovim configuration. See `~/.config/nvim-Lazyman/.lazymanrc`.
-With this `nvims` alias it is no longer necessary to logout/login or
-source a shell initialization file to update the menu of installed
-Neovim configurations - the `nvims` alias dynamically generates the menu.
+convenience aliases and shell functions for Lazyman installed Neovim
+configurations. It also creates an `nvims` shell function which dynamically
+creates a fuzzy searchable menu of installed Neovim configurations and launches
+Neovim with the selected Lazyman Neovim configuration.
 
-Similarly, a `neovides` alias can be used to select a Neovim configuration
-for use with the Neovim GUI `neovide`.
+See `~/.config/nvim-Lazyman/.lazymanrc`.
 
-Both the `nvims` alias and `neovides` alias accept a `-r` flag which indicates
-removal of the selected Neovim configuration.
+With this `nvims` shell function it is no longer necessary to logout/login or
+source a shell initialization file to update the menu of installed Neovim
+configurations - the `nvims` shell function dynamically generates the menu.
+
+Similarly, a `neovides` shell function can be used to select a Neovim
+configuration for use with the Neovim GUI `neovide`.
+
+Both the `nvims` shell function and `neovides` shell function accept a
+`-r` flag which indicates removal of the selected Neovim configuration.
+Also supported is the `-c filter` option to `nvims` and `neovides` which
+specifies a filter string to match when generating the list of Neovim
+configurations to search and select.
 
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command `lazyman -S`. Note also that both the `nvims`
-alias and the `lazyman -S` command can accept additional filename arguments
+shell function and the `lazyman -S` command can accept additional filename arguments
 which are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
 a Neovim configuration selected from the `nvims` menu:
 
@@ -109,7 +115,7 @@ Execute `nvims` directly at the shell prompt or by using the convenience
 key binding `ctrl-n`.
 
 Similarly, if `neovide` is found in the execution PATH then a fuzzy
-selectable menu is provided with the `neovides` alias and convenience
+selectable menu is provided with the `neovides` shell function and convenience
 key binding of `ctrl-N` to bring up that menu.
 
 The `.lazymanrc` file also creates aliases for `ls`, `less`, and others

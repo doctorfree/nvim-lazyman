@@ -181,7 +181,10 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
-        [[ -z ${remove} ]] && alias vi="NVIM_APPNAME=${config} nvim"
+        [[ -z ${remove} ]] && {
+          alias vi="NVIM_APPNAME=${config} nvim"
+          alias nvim="NVIM_APPNAME=${config} nvim"
+        }
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"

@@ -6,6 +6,18 @@
 
 ### 🐞 Fixed
 
+## v2.1.8r4
+
+### ⚡️ Added
+
+- Add `-c filter` args to `nvims` and `neovides` functions to filter configs
+- Add `nvims` man page describing usage of Lazyman functions and aliases
+
+### 🐞 Fixed
+
+- Fix removal with `nvims` and `neovides` aliases
+- Fix `nvims` and `neovides` function argument processing
+
 ## v2.1.8r3
 
 ### ⚡️ Added
