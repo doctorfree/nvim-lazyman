@@ -33,6 +33,13 @@ command -v batcat > /dev/null && \
 command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
 command -v nvim > /dev/null && {
+  # For compatibility with earlier versions of .lazymanrc
+  if alias nvims >/dev/null 2>&1; then
+    unalias nvims
+  fi
+  if alias neovides >/dev/null 2>&1; then
+    unalias neovides
+  fi
   alias vi='nvim'
   # Uncomment this line to use Neovim even when you type vim
   # Leave commented to use vim as a backup editor if nvim not found
@@ -139,26 +146,42 @@ command -v nvim > /dev/null && {
     esac
   }
 
+  function nvims_usage() {
+    printf "\n\nUsage: $1 [-C filter] [-R] [-U] [nvim args] [file1 [file2] ...]"
+    printf "\nWhere:"
+    printf "\n\t'-C filter' : specifies a filter to use when generating the list to select from"
+    printf "\n\t'-R' : indicates removal of the selected Neovim configurations"
+    printf "\n\t'-U' : displays a usage message and exits"
+    printf "\n\nWithout arguments 'nvims' and 'neovides' generate a fuzzy search and selectable"
+    printf "\nmenu of all Lazyman installed Neovim configurations. Neovim or neovide will be"
+    printf "\nopened using the selected configuration.\n\n"
+    return
+  }
+
   function nvims() {
     action="Open"
     filter=
     remove=
-    if [[ "$1" == "-c" ]]
-    then
-      filter="$2"
-      shift 2
-    fi
-    if [[ "$1" == "-r" ]]
-    then
-      action="Remove"
-      remove=1
-      shift
-    fi
-    if [[ "$1" == "-c" ]]
-    then
-      filter="$2"
-      shift 2
-    fi
+    local OPTIND o a
+    while getopts "C:RU" o; do
+      case "${o}" in
+        C)
+          filter="${OPTARG}"
+          ;;
+        R)
+          remove=1
+          action="Remove"
+          ;;
+        U)
+          nvims_usage nvims
+          return
+          ;;
+        *)
+          true
+          ;;
+      esac
+    done
+    shift $((OPTIND-1))
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -204,22 +227,26 @@ command -v nvim > /dev/null && {
     action="Open"
     filter=
     remove=
-    if [[ "$1" == "-c" ]]
-    then
-      filter="$2"
-      shift 2
-    fi
-    if [[ "$1" == "-r" ]]
-    then
-      action="Remove"
-      remove=1
-      shift
-    fi
-    if [[ "$1" == "-c" ]]
-    then
-      filter="$2"
-      shift 2
-    fi
+    local OPTIND o a
+    while getopts "C:RU" o; do
+      case "${o}" in
+        C)
+          filter="${OPTARG}"
+          ;;
+        R)
+          remove=1
+          action="Remove"
+          ;;
+        U)
+          nvims_usage neovides
+          return
+          ;;
+        *)
+          true
+          ;;
+      esac
+    done
+    shift $((OPTIND-1))
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then

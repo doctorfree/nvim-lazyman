@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Install `nvims` and `lazyman-keymaps` man pages in `~/.local/share/man/`
+
 ### 🐞 Fixed
 
 ## v2.1.8r4

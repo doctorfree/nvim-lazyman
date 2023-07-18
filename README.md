@@ -780,7 +780,7 @@ will produce a cleanly initialized Neovim configuration.
 - Over 80 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
-  - `nvims` and `neovides` aliases to fuzzy search, select, and open Neovim configs
+  - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
   - enhanced `less` command alias
   - enhanced `ls` command alias
   - `tree` alias to display a tree view of files and folders
@@ -1746,29 +1746,60 @@ Neovim configuration and aliases to override that for other configurations.
 ### The nvims fuzzy selector
 
 The `lazyman` installation and configuration automatically configures
-convenience aliases for Lazyman installed Neovim configurations. It also
-creates an `nvims` alias which dynamically creates a fuzzy searchable
-menu of installed Neovim configurations and launches Neovim with the
-selected Lazyman Neovim configuration. See `~/.config/nvim-Lazyman/.lazymanrc`.
-With this `nvims` alias it is no longer necessary to logout/login or
-source a shell initialization file to update the menu of installed
-Neovim configurations - the `nvims` alias dynamically generates the menu.
+convenience aliases and shell functions for Lazyman installed Neovim
+configurations. One of these is the `nvims` shell function which dynamically
+creates a fuzzy searchable menu of installed Neovim configurations and launches
+Neovim with the selected Lazyman Neovim configuration.
 
-Similarly, a `neovides` alias can be used to select a Neovim configuration
-for use with the Neovim GUI `neovide`.
+See `~/.config/nvim-Lazyman/.lazymanrc`.
+
+Similarly, a `neovides` shell function can be used to select a Neovim
+configuration for use with the Neovim GUI `neovide`.
+
+Both the `nvims` shell function and `neovides` shell function accept a
+`-R` flag which indicates removal of the selected Neovim configuration.
+Also supported is the `-C filter` option to `nvims` and `neovides` which
+specifies a filter string to match when generating the list of Neovim
+configurations to search and select.
 
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command `lazyman -S`. Note also that both the `nvims`
-alias and the `lazyman -S` command can accept additional filename arguments
-which are then passed to Neovim. For example, to edit `/tmp/foo.lua` with
-a Neovim configuration selected from the `nvims` menu:
+shell function and the `lazyman -S` command can accept additional filename
+arguments which are then passed to Neovim. For example, to edit
+`/tmp/foo.lua` with a Neovim configuration selected from the `nvims` menu:
 
 ```bash
 nvims /tmp/foo.lua
 ```
 
-Both the `nvims` alias and `neovides` alias accept a `-r` flag which indicates
-removal of the selected Neovim configuration.
+Execute `nvims` directly at the shell prompt or by using the convenience
+key binding `ctrl-n`.
+
+Similarly, if `neovide` is found in the execution PATH then a fuzzy
+selectable menu is provided with the `neovides` shell function and
+convenience key binding of `ctrl-N` to bring up that menu.
+
+The following command line options are available with `nvims` and `neovides`:
+
+`-C filter` : specifies a filter to use when generating the list of configurations to select from
+
+`-R` : indicates removal of the selected Neovim configurations
+
+`-U` : displays a usage message and exits
+
+Without arguments `nvims` and `neovides` generate a fuzzy search and selectable
+menu of all Lazyman installed Neovim configurations. Neovim or neovide will be
+opened using the selected configuration.
+
+#### Example nvims and neovides usage
+
+`nvims` : presents a fuzzy searchable and selectable menu of Neovim configurations and opens Neovim using the selected configuration
+
+`neovides` : presents a fuzzy searchable and selectable menu of Neovim configurations and opens Neovide using the selected configuration
+
+`nvims -R` : presents a fuzzy searchable and selectable menu of Neovim configurations and removes the selected Neovim configuration
+
+`nvims -C astro foo.lua` : presents a fuzzy searchable and selectable menu of Neovim configurations with names containing the case insensitive string 'astro' and opens the file `foo.lua` with Neovim using the selected configuration
 
 <details><summary>View the .lazymanrc shell aliases and function</summary>
 
@@ -1808,12 +1839,17 @@ command -v batcat > /dev/null && \
 command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
 command -v nvim > /dev/null && {
+  # For compatibility with earlier versions of .lazymanrc
+  if alias nvims >/dev/null 2>&1; then
+    unalias nvims
+  fi
+  if alias neovides >/dev/null 2>&1; then
+    unalias neovides
+  fi
   alias vi='nvim'
   # Uncomment this line to use Neovim even when you type vim
   # Leave commented to use vim as a backup editor if nvim not found
   # alias vim='nvim'
-  alias nvims='source ~/.config/nvim-Lazyman/.lazymanrc; nvimselect'
-  alias neovides='source ~/.config/nvim-Lazyman/.lazymanrc; neovselect'
   items=()
   ndirs=()
   [ -d ${HOME}/.config/nvim ] && {
@@ -1882,14 +1918,13 @@ command -v nvim > /dev/null && {
 
   function runconfig() {
     cfg="$1"
-    neo="$2"
     shift
     comm="nvim"
-    [ "${neo}" ] && [ "${neo}" == "neovide" ] && {
-      comm='neovide --'
-      shift
+    dash=
+    [ "${USE_NEOVIDE}" ] && {
+      comm="neovide"
+      dash='--'
     }
-
     [ -d "${HOME}/.config/${cfg}" ] || {
       [ -d "${HOME}/.config/nvim-${cfg}" ] && cfg="nvim-${cfg}"
     }
@@ -1897,19 +1932,19 @@ command -v nvim > /dev/null && {
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
       nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'Lexplore' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'Lexplore' $@
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'Neotree' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'Neotree' $@
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeOpen' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'NvimTreeOpen' $@
         ;;
       nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'NvimTreeToggle' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'NvimTreeToggle' $@
         ;;
       nvim-3rd)
-        NVIM_APPNAME="${cfg}" ${comm} -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)' $@
         ;;
       *)
         NVIM_APPNAME="${cfg}" ${comm} $@
@@ -1917,26 +1952,42 @@ command -v nvim > /dev/null && {
     esac
   }
 
-  function nvimselect() {
+  function nvims_usage() {
+    printf "\n\nUsage: $1 [-C filter] [-R] [-U] [nvim args] [file1 [file2] ...]"
+    printf "\nWhere:"
+    printf "\n\t'-C filter' : specifies a filter to use when generating the list to select from"
+    printf "\n\t'-R' : indicates removal of the selected Neovim configurations"
+    printf "\n\t'-U' : displays a usage message and exits"
+    printf "\n\nWithout arguments 'nvims' and 'neovides' generate a fuzzy search and selectable"
+    printf "\nmenu of all Lazyman installed Neovim configurations. Neovim or neovide will be"
+    printf "\nopened using the selected configuration.\n\n"
+    return
+  }
+
+  function nvims() {
     action="Open"
+    filter=
     remove=
-    if [[ "$1" == "-r" ]]
-    then
-      action="Remove"
-      remove=1
-      for i in "${!items[@]}"; do
-        if [[ ${items[i]} = "Lazyman" ]]; then
-          unset 'items[i]'
-        fi
-      done
-      for i in "${!items[@]}"; do
-        new_items+=( "${items[i]}" )
-      done
-      items=("${new_items[@]}")
-      unset new_items
-      shift
-    fi
-    filter="$1"
+    local OPTIND o a
+    while getopts "C:RU" o; do
+      case "${o}" in
+        C)
+          filter="${OPTARG}"
+          ;;
+        R)
+          remove=1
+          action="Remove"
+          ;;
+        U)
+          nvims_usage nvims
+          return
+          ;;
+        *)
+          true
+          ;;
+      esac
+    done
+    shift $((OPTIND-1))
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -1959,6 +2010,10 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
+        [[ -z ${remove} ]] && {
+          alias vi="NVIM_APPNAME=${config} nvim"
+          alias nvim="NVIM_APPNAME=${config} nvim"
+        }
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -1966,24 +2021,38 @@ command -v nvim > /dev/null && {
         }
       fi
     fi
-    if [ "${remove}" ]
-    then
-      lazyman -R -N ${config}
+    if [[ -z ${remove} ]]; then
+      export USE_NEOVIDE=
+      runconfig "${config}" $@
     else
-        runconfig "${config}" $@
+      [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
   }
 
-  function neovselect() {
+  function neovides() {
     action="Open"
+    filter=
     remove=
-    if [[ "$1" == "-r" ]]
-    then
-      action="Remove"
-      remove=1
-      shift
-    fi
-    filter="$1"
+    local OPTIND o a
+    while getopts "C:RU" o; do
+      case "${o}" in
+        C)
+          filter="${OPTARG}"
+          ;;
+        R)
+          remove=1
+          action="Remove"
+          ;;
+        U)
+          nvims_usage neovides
+          return
+          ;;
+        *)
+          true
+          ;;
+      esac
+    done
+    shift $((OPTIND-1))
     numitems=${#items[@]}
     if [ ${numitems} -eq 1 ]
     then
@@ -2006,6 +2075,7 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
+        [[ -z ${remove} ]] && alias neovide="NVIM_APPNAME=${config} neovide"
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -2013,11 +2083,11 @@ command -v nvim > /dev/null && {
         }
       fi
     fi
-    if [ "${remove}" ]
-    then
-      lazyman -R -N ${config}
+    if [[ -z ${remove} ]]; then
+      export USE_NEOVIDE=1
+      runconfig "${config}" $@
     else
-      runconfig "${config}" "neovide" $@
+      [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
   }
 }
@@ -2055,8 +2125,8 @@ Note also that a convenience key binding has been created to launch
 `nvims` with `ctrl-n`.
 
 Similarly, if `neovide` is found in the execution PATH then a fuzzy
-selectable menu is provided with the `neovides` alias and convenience
-key binding of `ctrl-N` to bring up that menu.
+selectable menu is provided with the `neovides` shell function and
+convenience key binding of `ctrl-N` to bring up that menu.
 
 <details><summary>View the .nvimsbind shell key binding file</summary>
 
@@ -2104,7 +2174,7 @@ The idea for the `tldrf` alias came from another
 
 ### Using aliases
 
-In addition to exporting NVIM_APPNAME in your shell initialization file, you
+In addition to exporting `NVIM_APPNAME` in your shell initialization file, you
 may wish to create aliases to execute with the various Neovim configurations
 you have installed. For example, aliases could be created to use Neovim
 configurations installed in `~/.config/nvim-LazyVim` and `~/.config/nvim-LunarVim`

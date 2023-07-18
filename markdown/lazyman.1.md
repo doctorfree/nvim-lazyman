@@ -88,16 +88,12 @@ Neovim with the selected Lazyman Neovim configuration.
 
 See `~/.config/nvim-Lazyman/.lazymanrc`.
 
-With this `nvims` shell function it is no longer necessary to logout/login or
-source a shell initialization file to update the menu of installed Neovim
-configurations - the `nvims` shell function dynamically generates the menu.
-
 Similarly, a `neovides` shell function can be used to select a Neovim
 configuration for use with the Neovim GUI `neovide`.
 
 Both the `nvims` shell function and `neovides` shell function accept a
-`-r` flag which indicates removal of the selected Neovim configuration.
-Also supported is the `-c filter` option to `nvims` and `neovides` which
+`-R` flag which indicates removal of the selected Neovim configuration.
+Also supported is the `-C filter` option to `nvims` and `neovides` which
 specifies a filter string to match when generating the list of Neovim
 configurations to search and select.
 

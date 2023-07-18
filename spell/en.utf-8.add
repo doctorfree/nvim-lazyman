@@ -15,6 +15,9 @@ vim
 doctorfree
 folke
 nvim
+nvims
+neovide
+neovides
 WhichKey
 TodoQuickFix
 TodoTrouble
@@ -98,7 +101,5 @@ bashrc
 zshrc
 ronaldrecord
 shellcheck
-nvimselect
-neovselect
 APPNAME
 dein

@@ -1106,23 +1106,19 @@ show_status() {
   }
   readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
   numitems=${#sorted[@]}
-  if alias nvims >/dev/null 2>&1; then
-    printf "\nThe 'nvims' alias exists:"
-    nvims_alias=$(alias nvims)
-    printf "\n\t${nvims_alias}"
+  if typeset -f nvims >/dev/null 2>&1; then
+    printf "\nThe 'nvims' shell function exists:"
   else
-    printf "\nThe 'nvims' alias does not exist"
+    printf "\nThe 'nvims' shell function does not exist"
     printf "\nSource ~/.config/${LAZYMAN}/.lazymanrc in your shell initialization,"
     printf "\nlogout and login"
   fi
   if [ "${have_neovide}" ]; then
     printf "\n\nThe neovide Neovim GUI is installed"
-    if alias neovides >/dev/null 2>&1; then
-      printf "\n\nThe 'neovides' alias exists:"
-      neovides_alias=$(alias neovides)
-      printf "\n\t${neovides_alias}"
+    if typeset -f neovides >/dev/null 2>&1; then
+      printf "\n\nThe 'neovides' shell function exists:"
     else
-      printf "\n\nThe 'neovides' alias does not exist"
+      printf "\n\nThe 'neovides' shell function does not exist"
     fi
   else
     printf "\n\nThe neovide Neovim GUI is not installed"
@@ -1420,16 +1416,16 @@ select_open() {
   fi
   if [ "${USEGUI}" ]; then
     if [ "${have_neovide}" ]; then
-      if alias neovides >/dev/null 2>&1; then
-        neovselect
+      if typeset -f neovides >/dev/null 2>&1; then
+        neovides
         exit 0
       fi
     fi
   fi
-  if alias nvims >/dev/null 2>&1; then
-    nvimselect
+  if typeset -f nvims >/dev/null 2>&1; then
+    nvims
   else
-    printf "\nLazyman nvims aliases incorrectly configured."
+    printf "\nLazyman nvims shell function incorrectly configured."
     printf "\nUnable to display selection menu. Exiting.\n"
     exit 1
   fi
@@ -1448,16 +1444,16 @@ select_remove() {
   fi
   if [ "${USEGUI}" ]; then
     if [ "${have_neovide}" ]; then
-      if alias neovides >/dev/null 2>&1; then
-        neovselect -r
+      if typeset -f neovides >/dev/null 2>&1; then
+        neovides -R
         exit 0
       fi
     fi
   fi
-  if alias nvims >/dev/null 2>&1; then
-    nvimselect -r
+  if typeset -f nvims >/dev/null 2>&1; then
+    nvims -R
   else
-    printf "\nLazyman nvims aliases incorrectly configured."
+    printf "\nLazyman nvims shell function incorrectly configured."
     printf "\nUnable to display selection menu. Exiting.\n"
     exit 1
   fi
@@ -1840,11 +1836,11 @@ show_main_menu() {
     [ "${nvchd_installed}" ] || options+=("Select/Inst NvChads")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
-        if alias neovides >/dev/null 2>&1; then
+        if typeset -f neovides >/dev/null 2>&1; then
           [ ${numitems} -gt 1 ] && options+=("Select and Open")
         else
           options+=("Open Neovide")
-          if alias nvims >/dev/null 2>&1; then
+          if typeset -f nvims >/dev/null 2>&1; then
             USEGUI=
             use_gui="neovim"
             [ ${numitems} -gt 1 ] && options+=("Select and Open")
@@ -1854,7 +1850,7 @@ show_main_menu() {
         USEGUI=
         use_gui="neovim"
         options+=("Install Neovide")
-        if alias nvims >/dev/null 2>&1; then
+        if typeset -f nvims >/dev/null 2>&1; then
           [ ${numitems} -gt 1 ] && options+=("Select and Open")
         fi
       fi
@@ -1864,7 +1860,7 @@ show_main_menu() {
         use_gui="neovim"
         options+=("Install Neovide")
       }
-      if alias nvims >/dev/null 2>&1; then
+      if typeset -f nvims >/dev/null 2>&1; then
         [ ${numitems} -gt 1 ] && options+=("Select and Open")
       fi
     fi
@@ -2243,17 +2239,17 @@ show_main_menu() {
           ;;
         "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
           if [ "${USEGUI}" ]; then
-            neovselect
+            neovides
           else
-            nvimselect
+            nvims
           fi
           break
           ;;
         "Select and Remove"*,* | *,"Select and Remove"* | "remove",* | *,"remove" | "Remove",* | *,"Remove")
           if [ "${USEGUI}" ]; then
-            neovselect -r
+            neovides -R
           else
-            nvimselect -r
+            nvims -R
           fi
           break
           ;;
@@ -3068,8 +3064,8 @@ set_haves
     printf "\n\tlazyman -R -N ${LAZYMAN}"
     printf "\n\tlazyman\n"
   fi
-  if alias nvims >/dev/null 2>&1; then
-    nvimselect "$@"
+  if typeset -f nvims >/dev/null 2>&1; then
+    nvims "$@"
   fi
   exit 0
 }
@@ -4747,7 +4743,7 @@ fi
   printf "\nTo easily switch between lazyman installed Neovim configurations,"
   printf "\nshell aliases and the 'nvims' and 'neovides' commands have been created."
   [ -f "${LZYMANRC}" ] && source "${LZYMANRC}"
-  if ! alias nvims >/dev/null 2>&1; then
+  if ! typeset -f nvims >/dev/null 2>&1; then
     printf "\nTo activate these aliases and the 'nvims' Neovim config switcher,"
     printf "\nlogout and login or issue the following command:"
     printf "\n\tsource ~/.config/${LAZYMAN}/.lazymanrc"
