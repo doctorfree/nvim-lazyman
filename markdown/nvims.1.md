@@ -102,7 +102,7 @@ opened using the selected configuration.
 The Lazyman Neovim configuration provides `vimdoc` help for the `nvims` and
 `neovides` shell functions. While in Neovim using the `nvim-Lazyman`
 configuration, view the `vimdoc` help for the `nvims` shell function with the
-command `:help nvims`. A shortcut key binding for this help command has been
+command `:help Nvims-nvims`. A shortcut key binding for this help command has been
 configured. Use `,hn` to quickly access the `vimdoc` help for `nvims`.
 
 ## AUTHORS

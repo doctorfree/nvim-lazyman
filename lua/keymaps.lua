@@ -20,26 +20,8 @@ map("n", "<leader>o", "<cmd>options<cr>", { desc = "Options" })
 
 -- Lazyman help
 map("n", "<leader>hl", "<cmd>help Lazyman-lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hn", "<cmd>help Nvims-nvims<cr>", { desc = "Nvims Help" })
 map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps-lazymankeys<cr>", { desc = "Lazyman Keymaps" })
--- Keymaps for Exafunction/codeium.vim, not jcdickinson/codeium.nvim
--- if settings.enable_codeium then
---   vim.g.codeium_disable_bindings = 1
---   map("i", "<Tab>", function()
---     return vim.fn["codeium#Accept"]()
---   end, { desc = "Codeium Accept", expr = true })
---   map("i", "<A-n>", function()
---     return vim.fn["codeium#CycleCompletions"](1)
---   end, { desc = "Codeium Cycle Next", expr = true })
---   map("i", "<A-p>", function()
---     return vim.fn["codeium#CycleCompletions"](-1)
---   end, { desc = "Codeium Cycle Prev", expr = true })
---   map("i", "<A-x>", function()
---     return vim.fn["codeium#Clear"]()
---   end, { desc = "Codeium Clear", expr = true })
---   map("i", "<A-s>", function()
---     return vim.fn["codeium#Complete"]()
---   end, { desc = "Codeium Complete", expr = true })
--- end
 
 -- Terminal commands
 if settings.enable_terminal then
