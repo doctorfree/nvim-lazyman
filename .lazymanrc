@@ -152,16 +152,6 @@ command -v nvim > /dev/null && {
     then
       action="Remove"
       remove=1
-      for i in "${!items[@]}"; do
-        if [[ ${items[i]} = "Lazyman" ]]; then
-          unset 'items[i]'
-        fi
-      done
-      for i in "${!items[@]}"; do
-        new_items+=( "${items[i]}" )
-      done
-      items=("${new_items[@]}")
-      unset new_items
       shift
     fi
     if [[ "$1" == "-c" ]]
@@ -191,7 +181,7 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
-        alias vi="NVIM_APPNAME=${config} nvim"
+        [[ -z ${remove} ]] && alias vi="NVIM_APPNAME=${config} nvim"
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -199,12 +189,11 @@ command -v nvim > /dev/null && {
         }
       fi
     fi
-    if [ "${remove}" ]
-    then
-      lazyman -R -N ${config}
-    else
+    if [[ -z ${remove} ]]; then
       export USE_NEOVIDE=
       runconfig "${config}" $@
+    else
+      [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
   }
 
@@ -250,7 +239,7 @@ command -v nvim > /dev/null && {
       if [ -d ${HOME}/.config/nvim-${config} ]
       then
         config="nvim-${config}"
-        alias neovide="NVIM_APPNAME=${config} neovide"
+        [[ -z ${remove} ]] && alias neovide="NVIM_APPNAME=${config} neovide"
       else
         [ -d ${HOME}/.config/${config} ] || {
           echo "Cannot locate ${config} Neovim configuration directory"
@@ -258,12 +247,11 @@ command -v nvim > /dev/null && {
         }
       fi
     fi
-    if [ "${remove}" ]
-    then
-      lazyman -R -N ${config}
-    else
+    if [[ -z ${remove} ]]; then
       export USE_NEOVIDE=1
       runconfig "${config}" $@
+    else
+      [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
   }
 }
