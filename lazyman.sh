@@ -4794,9 +4794,18 @@ fi
   [ "$tellme" ] || {
     [ -d "$HOME"/.local/share/man ] || mkdir -p "$HOME"/.local/share/man
     [ -d "$HOME"/.local/share/man/man1 ] || mkdir -p "$HOME"/.local/share/man/man1
+    [ -d "$HOME"/.local/share/man/man5 ] || mkdir -p "$HOME"/.local/share/man/man5
     [ -f "${LMANDIR}"/man/man1/lazyman.1 ] && {
       cp "${LMANDIR}"/man/man1/lazyman.1 "$HOME"/.local/share/man/man1/lazyman.1
       chmod 644 "$HOME"/.local/share/man/man1/lazyman.1
+    }
+    [ -f "${LMANDIR}"/man/man1/nvims.1 ] && {
+      cp "${LMANDIR}"/man/man1/nvims.1 "$HOME"/.local/share/man/man1/nvims.1
+      chmod 644 "$HOME"/.local/share/man/man1/nvims.1
+    }
+    [ -f "${LMANDIR}"/man/man5/lazyman-keymaps.5 ] && {
+      cp "${LMANDIR}"/man/man5/lazyman-keymaps.5 "$HOME"/.local/share/man/man5/lazyman-keymaps.5
+      chmod 644 "$HOME"/.local/share/man/man5/lazyman-keymaps.5
     }
   }
 }
