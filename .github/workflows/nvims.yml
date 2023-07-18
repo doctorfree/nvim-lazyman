@@ -1,10 +1,10 @@
-name: lazyman
+name: nvims
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - "**man.1.md"
+      - "**vims.1.md"
 
 jobs:
   docs:
@@ -16,15 +16,15 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-      - name: lazyman
+      - name: Nvims
         uses: kdheepak/panvimdoc@v3.0.6
         with:
-          vimdoc: Lazyman # Output vimdoc project name (required)
+          vimdoc: Nvims # Output vimdoc project name (required)
           # The following are all optional
-          pandoc: "markdown/lazyman.1.md" # Input pandoc file
+          pandoc: "markdown/nvims.1.md" # Input pandoc file
           version: "NVIM v0.9.0" # Vim version number
           toc: false # Table of contents
-          description: "Install, initialize, manage, and explore multiple Neovim configurations"
+          description: "Fuzzy search and select from multiple Neovim configurations"
           demojify: false # Strip emojis from the vimdoc
           dedupsubheadings: true # Add heading to subheading anchor links to ensure that subheadings are unique
           treesitter: true # Use treesitter for highlighting codeblocks
