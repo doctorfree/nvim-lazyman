@@ -12,7 +12,9 @@ configuration
 
 SYNOPSIS                                                *Nvims-nvims-synopsis*
 
-nvims [-r] [-c filter] [nvim args] [file1 [file2] …]
+nvims [-C filter] [-R] [-U] [nvim args] [file1 [file2] …]
+
+Where:
 
 
 DESCRIPTION                                          *Nvims-nvims-description*
@@ -28,9 +30,9 @@ See `~/.config/nvim-Lazyman/.lazymanrc`.
 Similarly, a `neovides` shell function can be used to select a Neovim
 configuration for use with the Neovim GUI `neovide`.
 
-Both the `nvims` shell function and `neovides` shell function accept a `-r`
+Both the `nvims` shell function and `neovides` shell function accept a `-R`
 flag which indicates removal of the selected Neovim configuration. Also
-supported is the `-c filter` option to `nvims` and `neovides` which specifies a
+supported is the `-C filter` option to `nvims` and `neovides` which specifies a
 filter string to match when generating the list of Neovim configurations to
 search and select.
 
@@ -79,10 +81,12 @@ OPTIONS                                                  *Nvims-nvims-options*
 
 The following command line options are available with `nvims` and `neovides`:
 
-`-r` : indicates removal of the selected Neovim configurations
-
-`-c filter` : specifies a filter to use when generating the list of
+`-C filter` : specifies a filter to use when generating the list of
 configurations to select from
+
+`-R` : indicates removal of the selected Neovim configurations
+
+`-U` : displays a usage message and exits
 
 Without arguments `nvims` and `neovides` generate a fuzzy search and selectable
 menu of all Lazyman installed Neovim configurations. Neovim or neovide will be
@@ -97,10 +101,10 @@ configurations and opens Neovim using the selected configuration
 `neovides` : presents a fuzzy searchable and selectable menu of Neovim
 configurations and opens Neovide using the selected configuration
 
-`nvims -r` : presents a fuzzy searchable and selectable menu of Neovim
+`nvims -R` : presents a fuzzy searchable and selectable menu of Neovim
 configurations and removes the selected Neovim configuration
 
-`nvims -c astro foo.lua` : presents a fuzzy searchable and selectable menu of
+`nvims -C astro foo.lua` : presents a fuzzy searchable and selectable menu of
 Neovim configurations with names containing the case insensitive string 'astro'
 and opens the file `foo.lua` with Neovim using the selected configuration
 
