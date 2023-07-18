@@ -249,7 +249,7 @@ make_info() {
       ;;
     Penguin)
       GH_URL="https://github.com/p3nguin-kun/penguinVim"
-      WS_URL="https://www.lazyvim.org"
+      WS_URL="https://p3nguin-kun.github.io/penguinVim"
       CF_CAT="Base"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="Aims to provide a base configuration with beautiful UI and fast startup time"
