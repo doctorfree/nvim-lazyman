@@ -10,13 +10,17 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/justinsgithub/dotfiles](https://github.com/justinsgithub/dotfiles)
+
 ### Website
 
 [https://www.lazyvim.org](https://www.lazyvim.org)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/justinsgithub/dotfiles](https://github.com/justinsgithub/dotfiles)
+[https://www.youtube.com/@justindevelops](https://www.youtube.com/@justindevelops)
 
 ### Lazy managed plugins
 
@@ -84,31 +88,12 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Document Diagnostics (Trouble) |  dx |  |
-| Location List (Trouble) |  dL |  |
-| Quickfix List (Trouble) |  dQ |  |
-| Workspace Diagnostics (Trouble) |  dX |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Mason |  cm |  |
-| Dismiss all Notifications |  un |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Word (cwd) |  fW |  |
-| Word (root dir) |  fw |  |
-| All Buffers |  fB |  |
-| Text |  ft |  |
-| Command History |  fc |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
-| Options |  so |  |
-| Jump to Mark |  sm |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo/Fix/Fixme (Trouble) |  dT |  |
+| Todo (Trouble) |  dt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo (Trouble) |  xt |  |
 | Man Pages |  sM |  |
 | Key Maps |  sk |  |
 | Search Highlight Groups |  sH |  |
@@ -128,32 +113,51 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Find Files (cwd) |  fF |  |
 | Find Files (root dir) |  ff |  |
 | Buffers |  fb |  |
-| Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
+| Options |  so |  |
+| Goto Symbol |  ss |  |
+| Resume |  sR |  |
+| Word (root dir) |  sw |  |
+| Word (cwd) |  sW |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  fW |  |
+| Word (root dir) |  fw |  |
+| All Buffers |  fB |  |
+| Text |  ft |  |
+| Command History |  fc |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Jump to Mark |  sm |  |
 | Replace in files (Spectre) |  sr |  |
-| Projects |  fp |  |
-| Close Buffer (Force) |  bC |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
 | Close Buffer |  bc |  |
-| Todo (Trouble) |  dt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo/Fix/Fixme (Trouble) |  dT |  |
-| Explorer |  e |  |
+| Close Buffer (Force) |  bC |  |
 | Don't Save Current Session |  qd |  |
 | Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
+| Projects |  fp |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Location List (Trouble) |  xL |  |
+| Quickfix List (Trouble) |  dQ |  |
+| Location List (Trouble) |  dL |  |
+| Workspace Diagnostics (Trouble) |  dX |  |
+| Document Diagnostics (Trouble) |  dx |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Dismiss All |  snd |  |
+| Explorer |  e |  |
+| Mason |  cm |  |
+| Dismiss all Notifications |  un |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
-| Previous todo comment | [t |  |
 | Update `MiniSurround.config.n_lines` | \sn |  |
 | Replace surrounding | \sr |  |
 | Highlight surrounding | \sh |  |
@@ -161,12 +165,12 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Find right surrounding | \sf |  |
 | Delete surrounding | \sd |  |
 | Add surrounding | \sa |  |
-| Toggle TreeSJ | \j |  |
 | Close Buffer | \c |  |
+| Toggle TreeSJ | \j |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
-| Next todo comment | ]t |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Flash | s |  |

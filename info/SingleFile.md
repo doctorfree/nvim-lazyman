@@ -122,9 +122,9 @@ A clean, organized pre-configured Neovim configuration guide in a single 'init.l
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
-| Add a surrounding pair around a visual selection, on new lines. | gS | <Esc><Cmd>lua require'nvim-surround'.visual_surround(true)<CR> |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
+| Add a surrounding pair around a visual selection, on new lines. | gS | <Esc><Cmd>lua require'nvim-surround'.visual_surround(true)<CR> |
 |  | gx | <Plug>NetrwBrowseXVis |
 |  | g% | <Plug>(MatchitVisualBackward) |
 | Paste from yanked contents only | p | "_dP |

@@ -10,13 +10,17 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/doctorfree/NvChad-custom](https://github.com/doctorfree/NvChad-custom)
+
 ### Website
 
 [https://nvchad.com](https://nvchad.com)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/doctorfree/NvChad-custom](https://github.com/doctorfree/NvChad-custom)
+[https://www.youtube.com/@siduck_og](https://www.youtube.com/@siduck_og)
 
 ### Lazy managed plugins
 
@@ -74,9 +78,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | " |  |
 | Nvim builtin | & | :&&<CR> |
 |  | ' |  |
-| Move to end of Treehopper node | ,h] |  |
-| Move to start of Treehopper node | ,h[ |  |
-| Treehopper nodes | ,hm |  |
 | Open new line above HopLineStart target | ,vO |  |
 | Open new line below HopLineStart target | ,vo |  |
 | Paste above target using HopLineStart | ,vP |  |
@@ -94,6 +95,9 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | ,hW | <Cmd>HopWordMW<CR> |
 |  | ,hl | <Cmd>HopLineStart<CR> |
 |  | ,hw | <Cmd>HopWord<CR> |
+| Move to end of Treehopper node | ,h] |  |
+| Move to start of Treehopper node | ,h[ |  |
+| Treehopper nodes | ,hm |  |
 |  | , |  |
 |  | ? | / |
 |  | F |  |
@@ -104,10 +108,10 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | c |  |
 |  | f |  |
 |  | g |  |
-| Comment toggle current block | gbc |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 | Comment toggle current line | gcc |  |
+| Comment toggle current block | gbc |  |
 |  | t |  |
 | Treehopper node target insert | vy |  |
 | HopLineStart target in normal mode | vY |  |
@@ -134,8 +138,8 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | F |  |
 |  | T |  |
 |  | f |  |
-| Comment toggle linewise (visual) | gc |  |
 | Comment toggle blockwise (visual) | gb |  |
+| Comment toggle linewise (visual) | gc |  |
 |  | t |  |
 |  | <M-q> | q |
 
@@ -146,6 +150,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | F |  |
 |  | T |  |
 |  | f |  |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
 |  | t |  |

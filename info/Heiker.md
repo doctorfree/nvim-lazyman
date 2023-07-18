@@ -71,11 +71,9 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <CR> | <Cmd>FineCmdline<CR> |
-|  |  cc | <Plug>(qf_qf_toggle) |
+|  |  s | <Cmd>SearchBoxClear<CR> |
 |  |  da |  |
 |  |  dd |  |
-|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
-|  |  s | <Cmd>SearchBoxClear<CR> |
 |  |  bb | <Cmd>Telescope buffers<CR> |
 |  |  fh | <Cmd>Telescope oldfiles<CR> |
 |  |  fb | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
@@ -83,13 +81,15 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |  ? | <Cmd>Telescope keymaps<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
+|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
+|  |  cc | <Plug>(qf_qf_toggle) |
 |  |  uf | <Cmd>CtrlSFToggle<CR> |
 |  |  fw | <Esc><Cmd>exe 'Find' expand('<lt>cword>')<CR> |
 |  |  F | <Cmd>FineCmdline Find <CR> |
 |  |  g |  |
-|  |  bc |  |
 |  |  uz |  |
 |  |  m |  |
+|  |  bc |  |
 |  |  j | <Cmd>let @/='\<lt>'.expand('<lt>cword>').'\>'<CR>"_ciw |
 |  |  ur | <Cmd>set invrelativenumber<CR> |
 |  |  un | <Cmd>set invnumber<CR> |
@@ -133,8 +133,8 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | [t | <Cmd>tabprevious<CR> |
 |  | [b | <Cmd>bprevious<CR> |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-|  | ]q | <Plug>(qf_qf_next)zz |
 |  | ]g |  |
+|  | ]q | <Plug>(qf_qf_next)zz |
 |  | ]t | <Cmd>tabnext<CR> |
 |  | ]b | <Cmd>bnext<CR> |
 |  | b |  |
@@ -145,8 +145,8 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | e |  |
 |  | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-|  | gc |  |
 |  | gcc |  |
+|  | gc |  |
 |  | gp | "+p |
 |  | gy | "+y |
 |  | n | nzzzv |
@@ -180,10 +180,10 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | <C-W>t | <Cmd>ToggleTerm direction=tab<CR> |
 | Toggle terminal | <M-i> | <Cmd>Term<CR> |
 |  | <M-3> |  |
-|  | <M-4> |  |
 |  | <M-2> |  |
 |  | <M-1> |  |
 |  | <F3> |  |
+|  | <M-4> |  |
 |  | <F8> | gn@i |
 |  | <C-K> | <Cmd>move .-2<CR>== |
 |  | <C-J> | <Cmd>move .+1<CR>== |

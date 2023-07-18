@@ -14,6 +14,10 @@
 
 [https://github.com/slydragonn/dotfiles](https://github.com/slydragonn/dotfiles)
 
+### YouTube channel
+
+[https://www.youtube.com/@slydragonn](https://www.youtube.com/@slydragonn)
+
 ### Packer managed plugins
 
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)

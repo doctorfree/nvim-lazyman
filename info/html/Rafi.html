@@ -395,18 +395,38 @@ href="https://github.com/mickael-menu/zk-nvim.git">mickael-menu/zk-nvim</a></li>
 <tr class="even">
 <td>Duplicate line</td>
 <td>d</td>
-<td>m<code>""Y""P`` | | Move line down |  j | &lt;Cmd&gt;move+&lt;CR&gt;== | | Move line up |  k | &lt;Cmd&gt;move-2&lt;CR&gt;== | | Yank absolute path |  Y |  | | Yank relative path |  y |  | | Visual Mode |    | V | | Open Lazy UI |  l | &lt;Cmd&gt;Lazy&lt;CR&gt; | | Zk New |  zn |  | | Zk Links |  zl |  | | Zk Backlinks |  zb |  | | Zk Search |  zf |  | | Zk Tags |  zt |  | | Zk Notes |  zo |  | | Spectre |  sp |  | | Symbols Outline |  o |  | | Diff View |  gv |  | | Git stashes |  gh |  | | Git buffer commits |  gL |  | | Git commits |  gl |  | | Git branches |  gr |  | | Git status |  gs |  | | Goto Symbol (Workspace) |  sS |  | | Goto Symbol |  ss |  | | Colorscheme |  uC |  | | Colorscheme |  sc |  | | Word |  sw |  | | Man Pages |  sm |  | | Key Maps |  sk |  | | Help Pages |  sh |  | | Workspace diagnostics |  sD |  | | Document diagnostics |  sd |  | | Buffer find |  / |  | | Grep cursor word |  gg |  | | Find file |  gf |  | | Find symbol |  gt |  | | Neogen Comment |  cc |  | | Execute HTTP request |  mh |  | | Undo Tree |  gu |  | | Git open in browser |  go |  | | Mason |  mm |  | | Highlight word |  mt |  | | Line diff reset |  mdr |  | | Line diff show |  mds |  | |  |  ue |  | | Select VirtualEnv |  cv |  | | Delete Buffer |  bd |  | | Dismiss all Notifications |  un |  | | Git diff |  gd |  | | Git blame |  gb |  | | Noice All |  sna |  | | Noice History |  snh |  | | Noice Last Message |  snl |  | | Neogit |  mg |  | | Toggle structure panel |  tf |  | |  |  v |  | | Duplicate Paragraph |  cp | yap&lt;S-}&gt;p | | Location List (Trouble) |  xL |  | | Quickfix List (Trouble) |  xQ |  | | Workspace Diagnostics (Trouble) |  xX |  | | Document Diagnostics (Trouble) |  xx |  | | Workspace Diagnostics |  r |  | | Document Diagnostics |  e |  | | Todo/Fix/Fixme |  sT |  | | Todo/Fix/Fixme (Trouble) |  xT |  | | Todo (Trouble) |  xt |  | | Todo |  st |  | | Zen Mode |  zz |  | | Execute Shell Command | ! | :! | | Reveal registers | " |  | |  | # | g# | | Nvim builtin | &amp; | :&amp;&amp;&lt;CR&gt; | |  | * | g* | | Pick window | - |  | | Content-aware menu | ;c |  | | Thesaurus | ;k |  | | Plugins | ;n |  | | Code actions | ;da |  | | References | ;dr |  | | Implementations | ;di |  | | Definitions | ;dd |  | | Search history | ;/ |  | | Commands | ;: |  | | Command history | ;; |  | | Old files | ;x |  | | Sessions | ;s |  | | Spell suggest | ;u |  | | Registers | ;v |  | | Workspace symbols | ;t |  | | Neovim options | ;o |  | | Marks | ;m |  | | Jump list | ;j |  | | Highlights | ;h |  | | Buffers | ;b |  | | Grep | ;g |  | | Find files | ;f |  | | Pickers | ;R |  | | Resume last | ;r |  | | Zoxide (MRU) | ;z |  | | Zk notes | ;w |  | | Explorer NeoTree Reveal | ;a |  | | Explorer NeoTree Toggle | ;e |  | | todo | ;dt |  | | F | F |  | | Leap from windows | SS |  | | T | T |  | | Nvim builtin | Y | y$ | | Previous Whitespace | [s |  | | Previous Loclist Item | [a | &lt;Cmd&gt;lprev&lt;CR&gt; | | Previous trouble/quickfix item | [q |  | | Prev Reference | [[ |  | | Previous todo comment | [t |  | | Next Whitespace | ]s |  | | Next Loclist Item | ]a | &lt;Cmd&gt;lnext&lt;CR&gt; | | Next trouble/quickfix item | ]q |  | | Next Reference | ]] |  | | Next todo comment | ]t |  | | Change Surrounding Function | csf |  | | Replace surrounding | cs |  | | Delete Surrounding Function | dsf |  | | Delete surrounding | ds |  | | f | f |  | | Jump to older buffer | g&lt;C-O&gt; |  | | Jump to newer buffer | g&lt;C-I&gt; |  | | Paste Command | g! | :put=execute('')&lt;Left&gt;&lt;Left&gt; | | Select Paste | gpp | '</code>[‘.strpart(getregtype(),
+<td>m<code>""Y""P`` | | Move line down |  j | &lt;Cmd&gt;move+&lt;CR&gt;== | | Move line up |  k | &lt;Cmd&gt;move-2&lt;CR&gt;== | | Yank absolute path |  Y |  | | Yank relative path |  y |  | | Visual Mode |    | V | | Open Lazy UI |  l | &lt;Cmd&gt;Lazy&lt;CR&gt; | | Location List (Trouble) |  xL |  | | Quickfix List (Trouble) |  xQ |  | | Workspace Diagnostics (Trouble) |  xX |  | | Document Diagnostics (Trouble) |  xx |  | | Workspace Diagnostics |  r |  | | Document Diagnostics |  e |  | | Delete Buffer |  bd |  | | Find symbol |  gt |  | | Find file |  gf |  | | Grep cursor word |  gg |  | | Git stashes |  gh |  | | Git buffer commits |  gL |  | | Git commits |  gl |  | | Git branches |  gr |  | | Git status |  gs |  | | Goto Symbol (Workspace) |  sS |  | | Goto Symbol |  ss |  | | Colorscheme |  uC |  | | Colorscheme |  sc |  | | Word |  sw |  | | Man Pages |  sm |  | | Key Maps |  sk |  | | Help Pages |  sh |  | | Workspace diagnostics |  sD |  | | Document diagnostics |  sd |  | | Buffer find |  / |  | | Todo/Fix/Fixme (Trouble) |  xT |  | | Todo |  st |  | | Todo (Trouble) |  xt |  | | Todo/Fix/Fixme |  sT |  | | Line diff reset |  mdr |  | | Line diff show |  mds |  | | Git blame |  gb |  | | Git diff |  gd |  | | Neogen Comment |  cc |  | | Git open in browser |  go |  | | Neogit |  mg |  | | Mason |  mm |  | | Zen Mode |  zz |  | |  |  v |  | |  |  ue |  | | Noice All |  sna |  | | Noice History |  snh |  | | Noice Last Message |  snl |  | | Toggle structure panel |  tf |  | | Highlight word |  mt |  | | Duplicate Paragraph |  cp | yap&lt;S-}&gt;p | | Dismiss all Notifications |  un |  | | Undo Tree |  gu |  | | Spectre |  sp |  | | Zk Backlinks |  zb |  | | Zk Search |  zf |  | | Zk Tags |  zt |  | | Zk Notes |  zo |  | | Zk New |  zn |  | | Zk Links |  zl |  | | Execute HTTP request |  mh |  | | Select VirtualEnv |  cv |  | | Symbols Outline |  o |  | | Diff View |  gv |  | | Execute Shell Command | ! | :! | | Reveal registers | " |  | |  | # | g# | | Nvim builtin | &amp; | :&amp;&amp;&lt;CR&gt; | |  | * | g* | | Pick window | - |  | | Content-aware menu | ;c |  | | Zoxide (MRU) | ;z |  | | Zk notes | ;w |  | | Thesaurus | ;k |  | | Plugins | ;n |  | | Code actions | ;da |  | | References | ;dr |  | | Implementations | ;di |  | | Definitions | ;dd |  | | Search history | ;/ |  | | Commands | ;: |  | | Command history | ;; |  | | Old files | ;x |  | | Sessions | ;s |  | | Spell suggest | ;u |  | | Registers | ;v |  | | Workspace symbols | ;t |  | | Neovim options | ;o |  | | Marks | ;m |  | | Jump list | ;j |  | | Highlights | ;h |  | | Buffers | ;b |  | | Grep | ;g |  | | Find files | ;f |  | | Pickers | ;R |  | | Resume last | ;r |  | | todo | ;dt |  | | Explorer NeoTree Reveal | ;a |  | | Explorer NeoTree Toggle | ;e |  | | F | F |  | | Leap from windows | SS |  | | T | T |  | | Nvim builtin | Y | y$ | | Previous Whitespace | [s |  | | Previous Loclist Item | [a | &lt;Cmd&gt;lprev&lt;CR&gt; | | Previous trouble/quickfix item | [q |  | | Previous todo comment | [t |  | | Prev Reference | [[ |  | | Next Whitespace | ]s |  | | Next Loclist Item | ]a | &lt;Cmd&gt;lnext&lt;CR&gt; | | Next trouble/quickfix item | ]q |  | | Next todo comment | ]t |  | | Next Reference | ]] |  | | Replace surrounding | cs |  | | Change Surrounding Function | csf |  | | Delete surrounding | ds |  | | Delete Surrounding Function | dsf |  | | f | f |  | | Jump to older buffer | g&lt;C-O&gt; |  | | Jump to newer buffer | g&lt;C-I&gt; |  | | Paste Command | g! | :put=execute('')&lt;Left&gt;&lt;Left&gt; | | Select Paste | gpp | '</code>[‘.strpart(getregtype(),
 0,
-1).’<code>]' | |  | g# | # | |  | g* | * | |  | gl | g$ | |  | gh | g^ | |  | gpr |  | |  | gpd |  | |  | gpi |  | |  | gpy |  | | Move to bottom edge | gj |  | | Move to top edge | gk |  | | Highlight surrounding | gzh |  | | Update</code>MiniSurround.config.n_lines`</td>
+1).’<code>]' | |  | g# | # | |  | g* | * | |  | gl | g$ | |  | gh | g^ | | Find left surrounding | gzF |  | | Highlight surrounding | gzh |  | | Find right surrounding | gzf |  | | Update</code>MiniSurround.config.n_lines`</td>
 </tr>
 <tr class="odd">
-<td>Find right surrounding</td>
-<td>gzf</td>
+<td>Move to top edge</td>
+<td>gk</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Find left surrounding</td>
-<td>gzF</td>
+<td>Move to bottom edge</td>
+<td>gj</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gpd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gpi</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gpy</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gpr</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -480,18 +500,28 @@ href="https://github.com/mickael-menu/zk-nvim.git">mickael-menu/zk-nvim</a></li>
 <td><Cmd>buffer#<CR></td>
 </tr>
 <tr class="odd">
+<td>Add surrounding</td>
+<td>sa</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Split arguments</td>
+<td>sk</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Join arguments</td>
+<td>sj</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Leap backward to</td>
 <td>sS</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Leap forward to</td>
 <td>ss</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Swap picked window</td>
-<td>sw</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -500,18 +530,8 @@ href="https://github.com/mickael-menu/zk-nvim.git">mickael-menu/zk-nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Split arguments</td>
-<td>sk</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Join arguments</td>
-<td>sj</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add surrounding</td>
-<td>sa</td>
+<td>Swap picked window</td>
+<td>sw</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -621,18 +641,18 @@ href="https://github.com/mickael-menu/zk-nvim.git">mickael-menu/zk-nvim</a></li>
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
+<td>Toggle terminal</td>
+<td><C-_></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Scroll backward</td>
 <td><C-B></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scroll forward</td>
 <td><C-F></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle terminal</td>
-<td><C-_></td>
 <td></td>
 </tr>
 </tbody>
@@ -678,13 +698,33 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Esc></td>
 </tr>
 <tr class="even">
-<td>Git open in browser</td>
-<td>go</td>
+<td></td>
+<td>v</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Grep cursor word</td>
+<td>gg</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Spectre Word</td>
 <td>sp</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Highlight word</td>
+<td>mt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Zk Match</td>
+<td>zf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git open in browser</td>
+<td>go</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -695,26 +735,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="odd">
 <td>Line diff add</td>
 <td>mda</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Highlight word</td>
-<td>mt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Zk Match</td>
-<td>zf</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>v</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Grep cursor word</td>
-<td>gg</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -790,8 +810,8 @@ data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Blockwise Insert</td>
-<td>gI</td>
+<td>Move to top edge</td>
+<td>gk</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -800,8 +820,8 @@ data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Move to top edge</td>
-<td>gk</td>
+<td>Blockwise Insert</td>
+<td>gI</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -827,6 +847,16 @@ data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
 <td>:s//gc<Left><Left><Left></td>
 </tr>
 <tr class="odd">
+<td>Join arguments</td>
+<td>sj</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Split arguments</td>
+<td>sk</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Leap backward to</td>
 <td>sS</td>
 <td></td>
@@ -834,16 +864,6 @@ data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
 <tr class="even">
 <td>Leap forward to</td>
 <td>ss</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Split arguments</td>
-<td>sk</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Join arguments</td>
-<td>sj</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -914,13 +934,13 @@ data-cites="0&lt;CR">@0&lt;CR</span>&gt;</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Leap backward to</td>
-<td>sS</td>
+<td>Leap forward to</td>
+<td>ss</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Leap forward to</td>
-<td>ss</td>
+<td>Leap backward to</td>
+<td>sS</td>
 <td></td>
 </tr>
 <tr class="odd">

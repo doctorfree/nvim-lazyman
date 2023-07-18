@@ -299,19 +299,19 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:set operatorfunc=<SNR>13_vsnip_cut_text_normal<CR>g@</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(vsnip-cut-text)</td>
-<td>:set operatorfunc=<SNR>5_vsnip_cut_text_normal<CR>g@</td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:set operatorfunc=<SNR>13_vsnip_select_text_normal<CR>g@</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(vsnip-select-text)</td>
-<td>:set operatorfunc=<SNR>5_vsnip_select_text_normal<CR>g@</td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
@@ -405,12 +405,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="even">
 <td></td>
 <td><Plug>(vsnip-cut-text)</td>
-<td>:<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv”_c</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(vsnip-select-text)</td>
-<td>:<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv</td>
+<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv</td>
 </tr>
 </tbody>
 </table>

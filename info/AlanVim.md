@@ -139,9 +139,9 @@ Oriented toward Python development
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <C-J> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<CR> |
-|  | <C-H> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<CR> |
 |  | <C-Space> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<CR> |
 |  | <C-Bslash> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<CR> |
+|  | <C-H> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<CR> |
 |  | <C-K> | :lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<CR> |
 |  | <C-N> | :NvimTreeToggle<CR> |
 |  | <M-l> | :vertical resize +2<CR> |

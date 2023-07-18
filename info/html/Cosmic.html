@@ -45,9 +45,6 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
-<h3 id="website">Website</h3>
-<p><a
-href="https://cosmicnvim.vercel.app">https://cosmicnvim.vercel.app</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/CosmicNvim/CosmicNvim">https://github.com/CosmicNvim/CosmicNvim</a></p>
@@ -57,6 +54,9 @@ href="http://neovimcraft.com/plugin/CosmicNvim/CosmicNvim">http://neovimcraft.co
 <h3 id="dotfyle-entry">Dotfyle entry</h3>
 <p><a
 href="https://dotfyle.com/plugins/CosmicNvim/CosmicNvim">https://dotfyle.com/plugins/CosmicNvim/CosmicNvim</a></p>
+<h3 id="website">Website</h3>
+<p><a
+href="https://cosmicnvim.vercel.app">https://cosmicnvim.vercel.app</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -173,36 +173,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 require(“cosmic.plugins.telescope.utils”).project_files()<CR></td>
 </tr>
 <tr class="even">
-<td>Git status</td>
-<td>vg</td>
-<td>:Telescope git_status<CR></td>
-</tr>
-<tr class="odd">
-<td>Git commits</td>
-<td>vc</td>
-<td>:Telescope git_commits<CR></td>
-</tr>
-<tr class="even">
-<td>Grep current word</td>
-<td>fw</td>
-<td>:Telescope grep_string<CR></td>
-</tr>
-<tr class="odd">
-<td>Grep string</td>
-<td>fs</td>
-<td>:Telescope live_grep<CR></td>
-</tr>
-<tr class="even">
-<td>Find buffer</td>
-<td>fk</td>
-<td>:Telescope buffers<CR></td>
-</tr>
-<tr class="odd">
-<td>Find project file</td>
-<td>fp</td>
-<td>:Telescope find_files<CR></td>
-</tr>
-<tr class="even">
 <td>Print session</td>
 <td>si</td>
 <td><Cmd>lua require(“cosmic.utils.logger”):log(“Session name:” ..
@@ -227,6 +197,36 @@ require(“auto-session-library”).current_session_name())<CR></td>
 <td>Toggle Tree</td>
 <td>nt</td>
 <td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="odd">
+<td>Git status</td>
+<td>vg</td>
+<td>:Telescope git_status<CR></td>
+</tr>
+<tr class="even">
+<td>Git commits</td>
+<td>vc</td>
+<td>:Telescope git_commits<CR></td>
+</tr>
+<tr class="odd">
+<td>Grep current word</td>
+<td>fw</td>
+<td>:Telescope grep_string<CR></td>
+</tr>
+<tr class="even">
+<td>Grep string</td>
+<td>fs</td>
+<td>:Telescope live_grep<CR></td>
+</tr>
+<tr class="odd">
+<td>Find buffer</td>
+<td>fk</td>
+<td>:Telescope buffers<CR></td>
+</tr>
+<tr class="even">
+<td>Find project file</td>
+<td>fp</td>
+<td>:Telescope find_files<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle LSP Lines</td>

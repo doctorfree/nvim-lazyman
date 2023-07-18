@@ -10,13 +10,13 @@ AstroNvim based configuration of open source developer Orhun Parmaksiz
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://blog.orhun.dev](https://blog.orhun.dev)
-
 ### Git repository
 
 [https://github.com/orhun/dotfiles](https://github.com/orhun/dotfiles)
+
+### Website
+
+[https://blog.orhun.dev](https://blog.orhun.dev)
 
 ### Lazy managed plugins
 
@@ -93,133 +93,133 @@ AstroNvim based configuration of open source developer Orhun Parmaksiz
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | No highlight | <Esc> | :nohl<CR> |
-| Open Git |  gg | :Git<CR> |
-| Toggle conceal |  uS |  |
-| ToggleTerm lazygit |  tl |  |
-| ToggleTerm node |  tn |  |
-| By extension |  bse |  |
-| ToggleTerm gdu |  tu |  |
-| ToggleTerm btm |  tt |  |
-| Horizontal split buffer from tabline |  b\ |  |
-| ToggleTerm python |  tp |  |
-| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
-| Restart (C-F5) |  dr |  |
-| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
-| View full Git blame |  gL |  |
-| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
-| Git commits (repository) |  gc |  |
-| Unstage Git hunk |  gu |  |
-| Run To Cursor |  ds |  |
-| Toggle Explorer Focus |  o |  |
-| By full path |  bsp |  |
-| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
-| Toggle Breakpoint (F9) |  db |  |
-| Find commands |  fC |  |
-| Clear Breakpoints |  dB |  |
-| Start/Continue (F5) |  dc |  |
-| Toggle syntax highlight |  uy |  |
-| Conditional Breakpoint (S-F9) |  dC |  |
-| Plugins Install |  pi |  |
-| Step Into (F11) |  di |  |
-| Plugins Status |  ps |  |
-| Step Over (F10) |  do |  |
-| Plugins Sync |  pS |  |
-| Step Out (S-F11) |  dO |  |
-| Plugins Check Updates |  pu |  |
-| Close Session |  dq |  |
-| Plugins Update |  pU |  |
-| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
-| Pause (F6) |  dp |  |
-| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
-| Save |  w | <Cmd>w<CR> |
-| Toggle REPL |  dR |  |
-| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
-| Quit |  q | <Cmd>confirm q<CR> |
-| Toggle URL highlight |  uu |  |
-| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
-| New File |  n | <Cmd>enew<CR> |
-| Toggle Debugger UI |  du |  |
-| Close buffer |  c |  |
-| Debugger Hover |  dh |  |
-| Force close buffer |  C |  |
-| Evaluate Input |  dE |  |
-| Pick to close |  bD |  |
-| Close all buffers except current |  bc |  |
-| Close all buffers |  bC |  |
-| Game of life |  uG | :CellularAutomaton game_of_life<CR> |
-| Select buffer from tabline |  bb |  |
-| Make it rain |  uR | :CellularAutomaton make_it_rain<CR> |
-| Close buffer from tabline |  bd |  |
-| Close all buffers to the left |  bl |  |
-| Save image |  fs | :Silicon<CR> |
-| Previous buffer |  bp |  |
-| Close all buffers to the right |  br |  |
-| Terminate Session (S-F5) |  dQ |  |
-| Toggle autopairs |  ua |  |
-| By relative path |  bsr |  |
-| Toggle background |  ub |  |
-| By buffer number |  bsi |  |
-| Toggle autocompletion |  uc |  |
-| By modification |  bsm |  |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Find help |  fh |  |
 | Vertical split buffer from tabline |  b| |  |
-| Toggle diagnostics |  ud |  |
-| Toggle signcolumn |  ug |  |
+| Find keymaps |  fk |  |
+| Find man |  fm |  |
+| Find notifications |  fn |  |
 | Home Screen |  h |  |
+| Find history |  fo |  |
 | Toggle comment line |  / |  |
-| View Git blame |  gl |  |
+| Find registers |  fr |  |
+| Find themes |  ft |  |
+| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
+| Search symbols |  ls |  |
+| ToggleTerm gdu |  tu |  |
+| Open Git |  gg | :Git<CR> |
 | Preview Git hunk |  gp |  |
+| ToggleTerm lazygit |  tl |  |
 | Reset Git hunk |  gh |  |
+| ToggleTerm node |  tn |  |
 | Reset Git buffer |  gr |  |
-| Stage Git hunk |  gs |  |
 | Stage Git buffer |  gS |  |
+| ToggleTerm python |  tp |  |
+| Unstage Git hunk |  gu |  |
 | View Git diff |  gd |  |
 | Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
-| Change indent setting |  ui |  |
-| Toggle statusline |  ul |  |
-| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
-| Toggle CodeLens |  uL |  |
-| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
-| New tab |  bn | <Cmd>tabnew<CR> |
-| Change line numbering |  un |  |
+| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
+| Find words in all files |  fW |  |
+| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| View full Git blame |  gL |  |
+| Find words |  fw |  |
 | Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-| Toggle Notifications |  uN |  |
-| Reload AstroNvim |  r | :AstroReload<CR> |
-| Toggle paste mode |  up |  |
-| Open terminal with tab |  ; | :2ToggleTerm size=30 direction=horizontal<CR> |
-| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
-| Toggle undo history |  U | :UndotreeToggle<CR> |
-| Mason Installer |  pm | <Cmd>Mason<CR> |
-| Show markdown preview |  m | :MarkdownPreview<CR> |
-| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Toggle foldcolumn |  uh |  |
+| Stage Git hunk |  gs |  |
 | Toggle Zen mode |  z | :ZenMode<CR> |
+| Evaluate Input |  dE |  |
+| Mason Installer |  pm | <Cmd>Mason<CR> |
+| Game of life |  uG | :CellularAutomaton game_of_life<CR> |
+| Toggle Breakpoint (F9) |  db |  |
+| Save image |  fs | :Silicon<CR> |
+| Clear Breakpoints |  dB |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Step Into (F11) |  di |  |
+| Find word under cursor |  fc |  |
+| Step Over (F10) |  do |  |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Step Out (S-F11) |  dO |  |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Close Session |  dq |  |
+| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Terminate Session (S-F5) |  dQ |  |
+| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
+| Toggle Explorer Focus |  o |  |
+| Restart (C-F5) |  dr |  |
+| Start/Continue (F5) |  dc |  |
+| Toggle REPL |  dR |  |
+| Open terminal with tab |  ; | :2ToggleTerm size=30 direction=horizontal<CR> |
+| Run To Cursor |  ds |  |
+| Symbols outline |  lS |  |
+| Find media files |  fM | :Telescope media_files<CR> |
+| Toggle Debugger UI |  du |  |
 | Git branches |  gb |  |
-| Toggle spellcheck |  us |  |
+| Debugger Hover |  dh |  |
+| Git commits (repository) |  gc |  |
 | Git commits (current file) |  gC |  |
 | Git status |  gt |  |
-| Find media files |  fM | :Telescope media_files<CR> |
 | Resume previous search |  f<CR> |  |
-| Toggle tabline |  ut |  |
 | Find marks |  f' |  |
 | Find words in current buffer |  f/ |  |
 | Find AstroNvim config files |  fa |  |
 | Find buffers |  fb |  |
-| Find word under cursor |  fc |  |
-| Symbols outline |  lS |  |
-| Find files |  ff |  |
-| Find all files |  fF |  |
-| Find help |  fh |  |
-| Find keymaps |  fk |  |
-| Find man |  fm |  |
-| Find notifications |  fn |  |
-| Find history |  fo |  |
-| Find registers |  fr |  |
+| Pause (F6) |  dp |  |
+| Show markdown preview |  m | :MarkdownPreview<CR> |
+| Make it rain |  uR | :CellularAutomaton make_it_rain<CR> |
+| ToggleTerm btm |  tt |  |
+| Toggle autopairs |  ua |  |
+| Toggle undo history |  U | :UndotreeToggle<CR> |
+| Toggle background |  ub |  |
+| Toggle URL highlight |  uu |  |
+| Toggle autocompletion |  uc |  |
+| View Git blame |  gl |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Toggle diagnostics |  ud |  |
+| Toggle signcolumn |  ug |  |
+| Change indent setting |  ui |  |
+| Toggle statusline |  ul |  |
+| New tab |  bn | <Cmd>tabnew<CR> |
+| Pick to close |  bD |  |
+| Reload AstroNvim |  r | :AstroReload<CR> |
+| Toggle CodeLens |  uL |  |
+| Change line numbering |  un |  |
+| Toggle Notifications |  uN |  |
+| Toggle paste mode |  up |  |
+| Save |  w | <Cmd>w<CR> |
+| Toggle spellcheck |  us |  |
+| Quit |  q | <Cmd>confirm q<CR> |
+| Toggle conceal |  uS |  |
+| New File |  n | <Cmd>enew<CR> |
+| Toggle tabline |  ut |  |
 | Toggle wrap |  uw |  |
-| Find themes |  ft |  |
-| Find words |  fw |  |
-| Find words in all files |  fW |  |
-| Toggle foldcolumn |  uh |  |
-| Search symbols |  ls |  |
+| Toggle syntax highlight |  uy |  |
+| Plugins Install |  pi |  |
+| Plugins Status |  ps |  |
+| Plugins Sync |  pS |  |
+| Plugins Check Updates |  pu |  |
+| Plugins Update |  pU |  |
+| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
+| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
+| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
+| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
+| Close buffer |  c |  |
+| Force close buffer |  C |  |
+| Close all buffers except current |  bc |  |
+| Close all buffers |  bC |  |
+| Select buffer from tabline |  bb |  |
+| Close buffer from tabline |  bd |  |
+| Close all buffers to the left |  bl |  |
+| Previous buffer |  bp |  |
+| Close all buffers to the right |  br |  |
+| By extension |  bse |  |
+| By relative path |  bsr |  |
+| By full path |  bsp |  |
+| Find commands |  fC |  |
+| By buffer number |  bsi |  |
+| Find files |  ff |  |
+| By modification |  bsm |  |
+| Find all files |  fF |  |
+| Horizontal split buffer from tabline |  b\ |  |
 | Nvim builtin | & | :&&<CR> |
 | Move buffer tab left | <lt>b |  |
 | Move buffer tab right | >b |  |
@@ -227,64 +227,64 @@ AstroNvim based configuration of open source developer Orhun Parmaksiz
 | Next buffer | L |  |
 | Nvim builtin | Y | y$ |
 | Previous tab | [t |  |
-| Previous Git conflict | [x | :GitConflictPrevConflict<CR> |
 | Previous Git hunk | [g |  |
 | Previous buffer | [b |  |
+| Previous Git conflict | [x | :GitConflictPrevConflict<CR> |
 | Horizontal Split | \ | <Cmd>split<CR> |
-| Next Git conflict | ]x | :GitConflictNextConflict<CR> |
 | Next tab | ]t |  |
 | Next Git hunk | ]g |  |
 | Next buffer | ]b |  |
-|  | c0 | :GitConflictChooseNone<CR> |
-|  | co | :GitConflictChooseOurs<CR> |
-| List Git conflicts | cx | :GitConflictListQf<CR> |
+| Next Git conflict | ]x | :GitConflictNextConflict<CR> |
 |  | cb | :GitConflictChooseBoth<CR> |
+| List Git conflicts | cx | :GitConflictListQf<CR> |
+|  | co | :GitConflictChooseOurs<CR> |
 |  | ct | :GitConflictChooseTheirs<CR> |
+|  | c0 | :GitConflictChooseNone<CR> |
 | Open the file under cursor with system app | gx |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 |  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Close all folds | zM |  |
 | Open all folds | zR |  |
+| Close all folds | zM |  |
 | Fold less | zr |  |
 | Fold more | zm |  |
 | Peek fold | zp |  |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Save file | <C-S> | :w!<CR> |
+| Toggle word wrap | <M-z> | :set wrap!<CR> |
+| Resize split down | <C-Down> |  |
+| Toggle terminal | <C-J> | :ToggleTerm size=30 direction=horizontal<CR> |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
 | Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
 | Debugger: Start | <F5> |  |
 | Debugger: Stop | <F17> |  |
 | Debugger: Conditional Breakpoint | <F21> |  |
 | Debugger: Restart | <F29> |  |
 | Debugger: Pause | <F6> |  |
-| Find words | <C-K> |  |
 | Debugger: Toggle Breakpoint | <F9> |  |
-| Resize split down | <C-Down> |  |
 | Debugger: Step Over | <F10> |  |
 | Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Exit | <C-Q> | :qa!<CR> |
-| Find files | <C-F> |  |
-| Scroll down | <C-D> | <C-D>zz |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
-| Open Mason installer | <C-M> | :Mason<CR> |
-| Toggle word wrap | <M-z> | :set wrap!<CR> |
 | Move to left split | <C-H> |  |
 | Resize split up | <C-Up> |  |
 | Resize split left | <C-Left> |  |
 | Resize split right | <C-Right> |  |
-| Toggle terminal | <C-J> | :ToggleTerm size=30 direction=horizontal<CR> |
+| Find words | <C-K> |  |
+| Find files | <C-F> |  |
+| Open Mason installer | <C-M> | :Mason<CR> |
+| Scroll down | <C-D> | <C-D>zz |
 | Scroll up | <C-U> | <C-U>zz |
+| Exit | <C-Q> | :qa!<CR> |
+| Save file | <C-S> | :w!<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
 | Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
 | Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
 | Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
 | Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
 | Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Move to right split | <C-L> |  |
 
 #### visual mode keymaps
@@ -292,16 +292,16 @@ AstroNvim based configuration of open source developer Orhun Parmaksiz
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Indent line | <Tab> | >gv |
-| Evaluate Input |  dE |  |
-| Save image |  s | :'<lt>,'>Silicon<CR> |
 | Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
+| Save image |  s | :'<lt>,'>Silicon<CR> |
+| Evaluate Input |  dE |  |
 | Paste without replacing the buffer |  p | "0p |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
-| Replace | <C-R> | "hy:%s/<C-R>h//gc<Left><Left><Left> |
+| Comment toggle blockwise | gb |  |
 | Unindent line | <S-Tab> | <lt>gv |
+| Replace | <C-R> | "hy:%s/<C-R>h//gc<Left><Left><Left> |
 
 #### operator mode keymaps
 

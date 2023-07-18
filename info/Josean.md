@@ -14,6 +14,10 @@ Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
 
 [https://github.com/josean-dev/dev-environment-files](https://github.com/josean-dev/dev-environment-files)
 
+### YouTube channel
+
+[https://www.youtube.com/@joseanmartinez](https://www.youtube.com/@joseanmartinez)
+
 ### Packer managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)

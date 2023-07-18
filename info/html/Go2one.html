@@ -155,73 +155,93 @@ href="https://github.com/tpope/vim-surround">tpope/vim-surround</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>gs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>b</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>f;</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fk</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fg</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ff</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>y</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>gp</td>
 <td>:Git push<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>gc</td>
 <td>:Git commit -s<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gg</td>
 <td>:Git<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gd</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fg</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fm</td>
+<td>:DashboardJumpMarks<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fn</td>
+<td>:DashboardNewFile<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>fl</td>
+<td>:SessionLoad<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>fr</td>
+<td>:DashboardFindHistory<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>y</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -306,26 +326,6 @@ condition:’))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>fm</td>
-<td>:DashboardJumpMarks<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fn</td>
-<td>:DashboardNewFile<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fl</td>
-<td>:SessionLoad<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fr</td>
-<td>:DashboardFindHistory<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>t</td>
 <td>:lua require’go2one.gotest’.test_nearest({layout_strategy =
 ‘vertical’, layout_config = {preview_cutoff = 1}})<CR></td>
@@ -383,6 +383,46 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="odd">
 <td></td>
+<td>dm4</td>
+<td><Cmd>lua require’marks’.delete_bookmark4()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm</td>
+<td><Cmd>lua require’marks’.delete()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm3</td>
+<td><Cmd>lua require’marks’.delete_bookmark3()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm6</td>
+<td><Cmd>lua require’marks’.delete_bookmark6()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm7</td>
+<td><Cmd>lua require’marks’.delete_bookmark7()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm2</td>
+<td><Cmd>lua require’marks’.delete_bookmark2()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm8</td>
+<td><Cmd>lua require’marks’.delete_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dm1</td>
+<td><Cmd>lua require’marks’.delete_bookmark1()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>dm</td>
 <td><Cmd>lua require’marks’.delete_buf()<CR></td>
 </tr>
@@ -393,8 +433,8 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="odd">
 <td></td>
-<td>dm3</td>
-<td><Cmd>lua require’marks’.delete_bookmark3()<CR></td>
+<td>dm=</td>
+<td><Cmd>lua require’marks’.delete_bookmark()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -403,48 +443,8 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="odd">
 <td></td>
-<td>dm6</td>
-<td><Cmd>lua require’marks’.delete_bookmark6()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>dm4</td>
-<td><Cmd>lua require’marks’.delete_bookmark4()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm=</td>
-<td><Cmd>lua require’marks’.delete_bookmark()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>dm7</td>
-<td><Cmd>lua require’marks’.delete_bookmark7()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm8</td>
-<td><Cmd>lua require’marks’.delete_bookmark8()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>dm2</td>
-<td><Cmd>lua require’marks’.delete_bookmark2()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm</td>
-<td><Cmd>lua require’marks’.delete()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>dm9</td>
 <td><Cmd>lua require’marks’.delete_bookmark9()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>dm1</td>
-<td><Cmd>lua require’marks’.delete_bookmark1()<CR></td>
 </tr>
 <tr class="even">
 <td>Comment insert end of line</td>
@@ -503,53 +503,13 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="odd">
 <td></td>
-<td>m1</td>
-<td><Cmd>lua require’marks’.set_bookmark1()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m7</td>
-<td><Cmd>lua require’marks’.set_bookmark7()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m3</td>
-<td><Cmd>lua require’marks’.set_bookmark3()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m0</td>
-<td><Cmd>lua require’marks’.set_bookmark0()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m</td>
-<td><Cmd>lua require’marks’.set()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m6</td>
-<td><Cmd>lua require’marks’.set_bookmark6()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m]</td>
-<td><Cmd>lua require’marks’.next()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m5</td>
-<td><Cmd>lua require’marks’.set_bookmark5()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>m{</td>
 <td><Cmd>lua require’marks’.prev_bookmark()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>m}</td>
-<td><Cmd>lua require’marks’.next_bookmark()<CR></td>
+<td>m3</td>
+<td><Cmd>lua require’marks’.set_bookmark3()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -558,23 +518,13 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
-<td>m[</td>
-<td><Cmd>lua require’marks’.prev()<CR></td>
+<td>m6</td>
+<td><Cmd>lua require’marks’.set_bookmark6()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>m:</td>
-<td><Cmd>lua require’marks’.preview()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m,</td>
-<td><Cmd>lua require’marks’.set_next()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m;</td>
-<td><Cmd>lua require’marks’.toggle()<CR></td>
+<td>m</td>
+<td><Cmd>lua require’marks’.set()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -588,8 +538,58 @@ class="math inline"><em>M</em><em>Y</em><em>V</em><em>I</em><em>M</em><em>R</em>
 </tr>
 <tr class="even">
 <td></td>
+<td>m[</td>
+<td><Cmd>lua require’marks’.prev()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>m8</td>
 <td><Cmd>lua require’marks’.set_bookmark8()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m:</td>
+<td><Cmd>lua require’marks’.preview()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m1</td>
+<td><Cmd>lua require’marks’.set_bookmark1()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m7</td>
+<td><Cmd>lua require’marks’.set_bookmark7()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m]</td>
+<td><Cmd>lua require’marks’.next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m0</td>
+<td><Cmd>lua require’marks’.set_bookmark0()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m;</td>
+<td><Cmd>lua require’marks’.toggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m}</td>
+<td><Cmd>lua require’marks’.next_bookmark()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m,</td>
+<td><Cmd>lua require’marks’.set_next()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m5</td>
+<td><Cmd>lua require’marks’.set_bookmark5()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -22,38 +22,38 @@ Neovim configuration of Dr. Ronald Joe Record
 
 [https://dotfyle.com/doctorfree/nvim-lazyman](https://dotfyle.com/doctorfree/nvim-lazyman)
 
+### Website
+
+[https://ronrecord.com](https://ronrecord.com)
+
+### YouTube channel
+
+[https://www.youtube.com/@doctorfree](https://www.youtube.com/@doctorfree)
+
 ### Lazy managed plugins
 
-- [jackMort/ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [numToStr/Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - [doctorfree/SetColorSchemes.vim](https://github.com/doctorfree/SetColorSchemes.vim)
-- [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)
-- [doctorfree/asciiart.nvim](https://github.com/doctorfree/asciiart.nvim.git)
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [alanfortlink/blackjack.nvim](https://github.com/alanfortlink/blackjack.nvim)
-- [crusj/bookmarks.nvim](https://github.com/crusj/bookmarks.nvim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [eandrju/cellular-automaton.nvim](https://github.com/eandrju/cellular-automaton.nvim)
 - [doctorfree/cheatsheet.nvim](https://github.com/doctorfree/cheatsheet.nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
+- [David-Kunz/cmp-npm](https://github.com/David-Kunz/cmp-npm)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [jcdickinson/codeium.nvim](https://github.com/jcdickinson/codeium.nvim)
-- [loctvl842/compile-nvim](https://github.com/loctvl842/compile-nvim.git)
-- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
-- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
-- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [neanias/everforest-nvim](https://github.com/neanias/everforest-nvim)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- [romgrk/fzy-lua-native](https://github.com/romgrk/fzy-lua-native.git)
 - [wintermute-cell/gitignore.nvim](https://github.com/wintermute-cell/gitignore.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
@@ -69,7 +69,6 @@ Neovim configuration of Dr. Ronald Joe Record
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - [arkav/lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress)
-- [meuter/lualine-so-fancy.nvim](https://github.com/meuter/lualine-so-fancy.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -79,10 +78,8 @@ Neovim configuration of Dr. Ronald Joe Record
 - [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
 - [loctvl842/monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- [Bryley/neoai.nvim](https://github.com/Bryley/neoai.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
-- [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)
 - [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
 - [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
@@ -94,7 +91,6 @@ Neovim configuration of Dr. Ronald Joe Record
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- [ldelossa/nvim-ide](https://github.com/ldelossa/nvim-ide.git)
 - [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [jose-elias-alvarez/nvim-lsp-ts-utils](https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -111,10 +107,8 @@ Neovim configuration of Dr. Ronald Joe Record
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
-- [epwalsh/obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
 - [pwntester/octo.nvim](https://github.com/pwntester/octo.nvim)
 - [olimorris/onedarkpro.nvim](https://github.com/olimorris/onedarkpro.nvim)
-- [toppair/peek.nvim](https://github.com/toppair/peek.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [jedrzejboczar/possession.nvim](https://github.com/jedrzejboczar/possession.nvim)
@@ -123,14 +117,11 @@ Neovim configuration of Dr. Ronald Joe Record
 - [filipdutescu/renamer.nvim](https://github.com/filipdutescu/renamer.nvim)
 - [kevinhwang91/rnvimr](https://github.com/kevinhwang91/rnvimr)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
-- [GeekMasher/securitree.nvim](https://github.com/GeekMasher/securitree.nvim.git)
 - [sunjon/shade.nvim](https://github.com/sunjon/shade.nvim)
 - [m4xshen/smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 - [jim-fx/sudoku.nvim](https://github.com/jim-fx/sudoku.nvim)
-- [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [kdheepak/tabline.nvim](https://github.com/kdheepak/tabline.nvim)
-- [godlygeek/tabular](https://github.com/godlygeek/tabular)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [crispgm/telescope-heading.nvim](https://github.com/crispgm/telescope-heading.nvim)
@@ -151,16 +142,11 @@ Neovim configuration of Dr. Ronald Joe Record
 - [ThePrimeagen/vim-be-good](https://github.com/ThePrimeagen/vim-be-good)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- [preservim/vim-markdown](https://github.com/preservim/vim-markdown)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [dstein64/vim-startuptime](https://github.com/dstein64/vim-startuptime)
-- [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi.git)
-- [wakatime/vim-wakatime](https://github.com/wakatime/vim-wakatime.git)
 - [lukas-reineke/virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-- [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-- [tamton-aquib/zone.nvim](https://github.com/tamton-aquib/zone.nvim.git)
 
 ### Lazyman Keymaps
 
@@ -185,42 +171,36 @@ Neovim configuration of Dr. Ronald Joe Record
 | Terminal Toggle | ,to |  |
 | Toggle Transparency | ,ut |  |
 | Close Buffer | ,D |  |
-| Dashboard | ,0 |  |
-| Step Out | ,do |  |
-| Run Last | ,dl |  |
-| Up | ,dk |  |
-| Down | ,dj |  |
-| Step Into | ,di |  |
-| Go to line (no execute) | ,dg |  |
-| Run to Cursor | ,dC |  |
-| Continue | ,dc |  |
-| Toggle Breakpoint | ,db |  |
-| Breakpoint Condition | ,dB |  |
-| Widgets | ,dw |  |
-| Terminate | ,dt |  |
-| Session | ,ds |  |
-| Toggle REPL | ,dr |  |
-| Pause | ,dp |  |
-| Step Over | ,dO |  |
-| Dap UI | ,du |  |
-| Eval | ,de |  |
-| summarize text | ,as |  |
-| generate git message | ,ag |  |
-| Delete all Notifications | ,un |  |
+|  | ,A |  |
 | Explorer (root dir) | ,e |  |
 | Explorer Float | ,E |  |
+| Terminal Send | ,ts |  |
+| Treesitter Join | ,tj |  |
+| Toggle Treesitter Join | ,tt |  |
+| Delete all Notifications | ,un |  |
+| Noice Last Message | ,snl |  |
+| Noice All | ,sna |  |
+| Noice History | ,snh |  |
+| Colorscheme with preview | ,uC |  |
+| Word (cwd) | ,sW |  |
+| Word (root dir) | ,sw |  |
+| Options | ,so |  |
+| Jump to Mark | ,sm |  |
+| Man Pages | ,sM |  |
+| Search Highlight Groups | ,sH |  |
+| Grep (cwd) | ,sG |  |
+| Grep (root dir) | ,sg |  |
+| Diagnostics | ,sd |  |
+| Commands | ,sC |  |
+| Buffer | ,sb |  |
+| Auto Commands | ,sa |  |
+| Command History | ,: |  |
 | Find in Files (Grep) | ,/ |  |
-| Find Files (root dir) | ,  |  |
+| Switch Buffer | ,, |  |
 | Bufferlist | ,B |  |
 | Telescope | ,mt |  |
 | Run make | ,mm |  |
 | Recent files | ,fr |  |
-| Switch Buffer | ,, |  |
-| Jump to Mark | ,sm |  |
-| Options | ,so |  |
-| Word (root dir) | ,sw |  |
-| Word (cwd) | ,sW |  |
-| Colorscheme with preview | ,uC |  |
 | Open file | ,ff |  |
 | Zoxide | ,fz |  |
 | Filebrowser | ,fb |  |
@@ -238,41 +218,45 @@ Neovim configuration of Dr. Ronald Joe Record
 | Help Pages | ,sh |  |
 | Help | ,s? |  |
 | Command History | ,sc |  |
-| Man Pages | ,sM |  |
-| Search Highlight Groups | ,sH |  |
-| Grep (cwd) | ,sG |  |
-| Grep (root dir) | ,sg |  |
-| Diagnostics | ,sd |  |
-| Commands | ,sC |  |
-| Buffer | ,sb |  |
-| Auto Commands | ,sa |  |
-| Command History | ,: |  |
-| Terminal Send | ,ts |  |
-| Treesitter Join | ,tj |  |
-| Toggle Treesitter Join | ,tt |  |
+| Find Files (root dir) | ,  |  |
+| Eval | ,de |  |
+| Dap UI | ,du |  |
+| Todo | ,st |  |
 | Todo/Fix/Fixme (Trouble) | ,xT |  |
 | Todo (Trouble) | ,xt |  |
-| Todo | ,st |  |
-| Document Diagnostics (Trouble) | ,xx |  |
-| Location List (Trouble) | ,xL |  |
+| Step Out | ,do |  |
+| Step Over | ,dO |  |
+| Pause | ,dp |  |
+| Toggle REPL | ,dr |  |
+| Widgets | ,dw |  |
+| Terminate | ,dt |  |
+| Go to line (no execute) | ,dg |  |
+| Run to Cursor | ,dC |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
+| Breakpoint Condition | ,dB |  |
+| Run Last | ,dl |  |
+| Up | ,dk |  |
+| Down | ,dj |  |
+| Step Into | ,di |  |
+| Session | ,ds |  |
 | Workspace Diagnostics (Trouble) | ,xX |  |
+| Document Diagnostics (Trouble) | ,xx |  |
 | Quickfix List (Trouble) | ,xQ |  |
-| Noice All | ,sna |  |
-| Noice History | ,snh |  |
-| Noice Last Message | ,snl |  |
+| Location List (Trouble) | ,xL |  |
 | Toggle zen mode | ,z |  |
 | F | F |  |
 | Leap backward to | S |  |
 | T | T |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Leap from windows | gs |  |

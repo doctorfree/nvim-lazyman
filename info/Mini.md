@@ -48,100 +48,102 @@ Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  mf | <Cmd>lua MiniMap.toggle_focus()<CR> |
+|  |  rk | <Cmd>T rmarkdown::render("%")<CR> |
+|  |  rd | <Cmd>T devtools::document()<CR> |
+|  |  rl | <Cmd>T devtools::load_all()<CR> |
+|  |  rt | <Cmd>T devtools::test()<CR> |
+|  |  ri | <Cmd>T devtools::install(keep_source=TRUE)<CR> |
+|  |  rC | <Cmd>T devtools::test_coverage()<CR> |
+|  |  rT | <Cmd>T testthat::test_file("%")<CR> |
+|  |  rc | <Cmd>T devtools::check()<CR> |
 |  |  mr | <Cmd>lua MiniMap.refresh()<CR> |
+|  |  mf | <Cmd>lua MiniMap.toggle_focus()<CR> |
+|  |  mo | <Cmd>lua MiniMap.open()<CR> |
 |  |  ms | <Cmd>lua MiniMap.toggle_side()<CR> |
 |  |  mt | <Cmd>lua MiniMap.toggle()<CR> |
 |  |  mc | <Cmd>lua MiniMap.close()<CR> |
-|  |  mo | <Cmd>lua MiniMap.open()<CR> |
-|  |  Lx | <Cmd>lua EC.execute_lua_line()<CR> |
-|  |  Lf | <Cmd>luafile %<CR> |
-|  |  gX | <Cmd>lua require("gitsigns").reset_buffer()<CR> |
-|  |  gq | <Cmd>lua require("gitsigns").setqflist()<CR>:copen<CR> |
-|  |  gg | <Cmd>lua EC.open_lazygit()<CR> |
-|  |  ga | <Cmd>lua require("gitsigns").stage_hunk()<CR> |
-|  |  gA | <Cmd>lua require("gitsigns").stage_buffer()<CR> |
-|  |  gu | <Cmd>lua require("gitsigns").undo_stage_hunk()<CR> |
-|  |  gb | <Cmd>lua require("gitsigns").blame_line()<CR> |
-|  |  gp | <Cmd>lua require("gitsigns").preview_hunk()<CR> |
-|  |  gx | <Cmd>lua require("gitsigns").reset_hunk()<CR> |
-|  |  em | <Cmd>lua MiniFiles.open('~/.config/nvim-Mini/pack/plugins/opt/mini')<CR> |
-|  |  eq | <Cmd>lua EC.toggle_quickfix()<CR> |
-|  |  ed | <Cmd>lua MiniFiles.open()<CR> |
-|  |  ef | <Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR> |
-|  |  ts | <Cmd>lua EC.minitest_screenshots.browse()<CR> |
-|  |  tt | <Cmd>vertical Tnew<CR> |
-|  |  tl | <Cmd>lua MiniTest.run_at_location()<CR> |
-|  |  ta | <Cmd>lua MiniTest.run()<CR> |
-|  |  tf | <Cmd>lua MiniTest.run_file()<CR> |
-|  |  tT | <Cmd>belowright Tnew<CR> |
-|  |  s | <Cmd>TREPLSendLine<CR>j |
-|  |  od | <Cmd>Neogen<CR> |
-|  |  oH | <Cmd>TSBufToggle highlight<CR> |
-|  |  og | <Cmd>lua MiniDoc.generate()<CR> |
-|  |  ot | <Cmd>lua MiniTrailspace.trim()<CR> |
-|  |  oz | <Cmd>lua MiniMisc.zoom()<CR> |
-|  |  oC | <Cmd>lua MiniCursorword.toggle()<CR> |
-|  |  oT | <Cmd>lua vim.b.minitrailspace_disable = not vim.b.minitrailspace_disable<CR> |
-|  |  oh | <Cmd>lua EC.move_arg('left')<CR> |
-|  |  or | <Cmd>lua MiniMisc.resize_window()<CR> |
-|  |  ol | <Cmd>lua EC.move_arg('right')<CR> |
-|  |  os | <Cmd>lua MiniSessions.select()<CR> |
-|  |  oS | <Cmd>lua EC.insert_section()<CR> |
-|  |  TS | <Cmd>TestSuite -strategy=make | copen<CR> |
-|  |  Tl | <Cmd>TestLast<CR> |
-|  |  Ts | <Cmd>TestSuite<CR> |
-|  |  TF | <Cmd>TestFile -strategy=make | copen<CR> |
-|  |  TN | <Cmd>TestNearest -strategy=make | copen<CR> |
-|  |  TL | <Cmd>TestLast -strategy=make | copen<CR> |
-|  |  Tf | <Cmd>TestFile<CR> |
-|  |  Tn | <Cmd>TestNearest<CR> |
-|  |  rd | <Cmd>T devtools::document()<CR> |
-|  |  ri | <Cmd>T devtools::install(keep_source=TRUE)<CR> |
-|  |  rk | <Cmd>T rmarkdown::render("%")<CR> |
-|  |  rt | <Cmd>T devtools::test()<CR> |
-|  |  rT | <Cmd>T testthat::test_file("%")<CR> |
-|  |  rC | <Cmd>T devtools::test_coverage()<CR> |
-|  |  rl | <Cmd>T devtools::load_all()<CR> |
-|  |  rc | <Cmd>T devtools::check()<CR> |
+|  |  lr | <Cmd>lua vim.lsp.buf.rename()<CR> |
+|  |  lj | <Cmd>lua vim.diagnostic.goto_next()<CR> |
 |  |  ld | <Cmd>lua vim.diagnostic.open_float()<CR> |
+|  |  ls | <Cmd>lua vim.lsp.buf.definition()<CR> |
+|  |  li | <Cmd>lua vim.lsp.buf.hover()<CR> |
 |  |  lR | <Cmd>lua vim.lsp.buf.references()<CR> |
 |  |  lk | <Cmd>lua vim.diagnostic.goto_prev()<CR> |
-|  |  lj | <Cmd>lua vim.diagnostic.goto_next()<CR> |
 |  |  la | <Cmd>lua vim.lsp.buf.signature_help()<CR> |
-|  |  ls | <Cmd>lua vim.lsp.buf.definition()<CR> |
-|  |  lr | <Cmd>lua vim.lsp.buf.rename()<CR> |
-|  |  li | <Cmd>lua vim.lsp.buf.hover()<CR> |
 |  |  lf | <Cmd>lua vim.lsp.buf.format({ async = true })<CR> |
-|  |  bd | <Cmd>lua MiniBufremove.delete()<CR> |
-|  |  bw | <Cmd>lua MiniBufremove.wipeout()<CR> |
-|  |  bs | <Cmd>lua EC.new_scratch_buffer()<CR> |
+|  |  Lx | <Cmd>lua EC.execute_lua_line()<CR> |
+|  |  Lf | <Cmd>luafile %<CR> |
+|  |  s | <Cmd>TREPLSendLine<CR>j |
+|  |  em | <Cmd>lua MiniFiles.open('~/.config/nvim-Mini/pack/plugins/opt/mini')<CR> |
+|  |  ef | <Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR> |
+|  |  eq | <Cmd>lua EC.toggle_quickfix()<CR> |
+|  |  ed | <Cmd>lua MiniFiles.open()<CR> |
+|  |  ta | <Cmd>lua MiniTest.run()<CR> |
+|  |  tl | <Cmd>lua MiniTest.run_at_location()<CR> |
+|  |  tT | <Cmd>belowright Tnew<CR> |
+|  |  ts | <Cmd>lua EC.minitest_screenshots.browse()<CR> |
+|  |  tt | <Cmd>vertical Tnew<CR> |
+|  |  tf | <Cmd>lua MiniTest.run_file()<CR> |
+|  |  or | <Cmd>lua MiniMisc.resize_window()<CR> |
+|  |  os | <Cmd>lua MiniSessions.select()<CR> |
+|  |  ol | <Cmd>lua EC.move_arg('right')<CR> |
+|  |  ot | <Cmd>lua MiniTrailspace.trim()<CR> |
+|  |  oH | <Cmd>TSBufToggle highlight<CR> |
+|  |  oS | <Cmd>lua EC.insert_section()<CR> |
+|  |  oh | <Cmd>lua EC.move_arg('left')<CR> |
+|  |  oT | <Cmd>lua vim.b.minitrailspace_disable = not vim.b.minitrailspace_disable<CR> |
+|  |  oC | <Cmd>lua MiniCursorword.toggle()<CR> |
+|  |  oz | <Cmd>lua MiniMisc.zoom()<CR> |
+|  |  og | <Cmd>lua MiniDoc.generate()<CR> |
+|  |  od | <Cmd>Neogen<CR> |
+|  |  Tn | <Cmd>TestNearest<CR> |
+|  |  Tf | <Cmd>TestFile<CR> |
+|  |  Tl | <Cmd>TestLast<CR> |
+|  |  TL | <Cmd>TestLast -strategy=make | copen<CR> |
+|  |  Ts | <Cmd>TestSuite<CR> |
+|  |  TS | <Cmd>TestSuite -strategy=make | copen<CR> |
+|  |  TN | <Cmd>TestNearest -strategy=make | copen<CR> |
+|  |  TF | <Cmd>TestFile -strategy=make | copen<CR> |
+|  |  gA | <Cmd>lua require("gitsigns").stage_buffer()<CR> |
+|  |  gx | <Cmd>lua require("gitsigns").reset_hunk()<CR> |
+|  |  gu | <Cmd>lua require("gitsigns").undo_stage_hunk()<CR> |
+|  |  gq | <Cmd>lua require("gitsigns").setqflist()<CR>:copen<CR> |
+|  |  gX | <Cmd>lua require("gitsigns").reset_buffer()<CR> |
+|  |  gp | <Cmd>lua require("gitsigns").preview_hunk()<CR> |
+|  |  gg | <Cmd>lua EC.open_lazygit()<CR> |
+|  |  ga | <Cmd>lua require("gitsigns").stage_hunk()<CR> |
+|  |  gb | <Cmd>lua require("gitsigns").blame_line()<CR> |
 |  |  ba | <Cmd>b#<CR> |
-|  |  bW | <Cmd>lua MiniBufremove.wipeout(0, true)<CR> |
 |  |  bD | <Cmd>lua MiniBufremove.delete(0, true)<CR> |
-|  |  fd | <Cmd>Telescope diagnostics<CR> |
-|  |  fc | <Cmd>Telescope git_commits<CR> |
-|  |  fg | <Cmd>Telescope live_grep<CR> |
-|  |  fr | <Cmd>Telescope resume<CR> |
-|  |  fB | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
-|  |  fo | <Cmd>Telescope oldfiles<CR> |
-|  |  fs | <Cmd>Telescope spell_suggest<CR> |
-|  |  fS | <Cmd>Telescope treesitter<CR> |
-|  |  fb | <Cmd>Telescope buffers<CR> |
-|  |  ff | <Cmd>lua EC.telescope_project_files()<CR> |
-|  |  fD | <Cmd>Telescope diagnostics bufnr=0<CR> |
-|  |  fH | <Cmd>Telescope highlights<CR> |
-|  |  fR | <Cmd>Telescope lsp_references<CR> |
-|  |  fj | <Cmd>Telescope jumplist<CR> |
-|  |  ft | <Cmd>Telescope file_browser<CR> |
-|  |  f/ | <Cmd>Telescope search_history<CR> |
-|  |  fO | <Cmd>Telescope vim_options<CR> |
-|  |  fh | <Cmd>Telescope help_tags<CR> |
-|  |  fC | <Cmd>Telescope git_bcommits<CR> |
-|  |  f: | <Cmd>Telescope command_history<CR> |
+|  |  bw | <Cmd>lua MiniBufremove.wipeout()<CR> |
+|  |  bW | <Cmd>lua MiniBufremove.wipeout(0, true)<CR> |
+|  |  bs | <Cmd>lua EC.new_scratch_buffer()<CR> |
+|  |  bd | <Cmd>lua MiniBufremove.delete()<CR> |
 |  |  fn | <Cmd>TodoTelescope<CR> |
+|  |  fD | <Cmd>Telescope diagnostics bufnr=0<CR> |
+|  |  ff | <Cmd>lua EC.telescope_project_files()<CR> |
+|  |  f: | <Cmd>Telescope command_history<CR> |
+|  |  fB | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
+|  |  fO | <Cmd>Telescope vim_options<CR> |
+|  |  fo | <Cmd>Telescope oldfiles<CR> |
+|  |  fR | <Cmd>Telescope lsp_references<CR> |
+|  |  fh | <Cmd>Telescope help_tags<CR> |
+|  |  fs | <Cmd>Telescope spell_suggest<CR> |
+|  |  ft | <Cmd>Telescope file_browser<CR> |
+|  |  fb | <Cmd>Telescope buffers<CR> |
+|  |  fc | <Cmd>Telescope git_commits<CR> |
+|  |  fr | <Cmd>Telescope resume<CR> |
+|  |  fj | <Cmd>Telescope jumplist<CR> |
+|  |  fH | <Cmd>Telescope highlights<CR> |
+|  |  fS | <Cmd>Telescope treesitter<CR> |
+|  |  f/ | <Cmd>Telescope search_history<CR> |
+|  |  fC | <Cmd>Telescope git_bcommits<CR> |
+|  |  fg | <Cmd>Telescope live_grep<CR> |
+|  |  fd | <Cmd>Telescope diagnostics<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
+| Execute macro without 'mini.clue' triggers | @ |  |
+| Execute macro without 'mini.clue' triggers | Q |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Paste Above | [p | <Cmd>exe "put! " . v:register<CR> |
@@ -163,9 +165,9 @@ Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  rx | "+y :T reprex::reprex()<CR> |
-|  |  s | mode() ==# "v" ? ":TREPLSendSelection<CR>`>l" : ":TREPLSendSelection<CR>'>j" |
 |  |  lf | :lua vim.lsp.buf.range_formatting()<CR> |
+|  |  s | mode() ==# "v" ? ":TREPLSendSelection<CR>`>l" : ":TREPLSendSelection<CR>'>j" |
+|  |  rx | "+y :T reprex::reprex()<CR> |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |

@@ -144,7 +144,7 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>9_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <SNR>8_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
 |  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 |  | <C-S-P> |  |
 | Switch to alternate buffer | <BS> |  |

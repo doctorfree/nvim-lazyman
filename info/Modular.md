@@ -62,8 +62,8 @@ Same as 'StartMason' but everything is split in modules
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |    | <Cmd>Telescope buffers<CR> |
 |  |  ? | <Cmd>Telescope oldfiles<CR> |
-|  |  bc | <Cmd>Bdelete<CR> |
 |  |  e | <Cmd>NvimTreeToggle<CR> |
+|  |  bc | <Cmd>Bdelete<CR> |
 |  |  bl | <Cmd>buffer #<CR> |
 |  |  bq | <Cmd>bdelete<CR> |
 |  |  w | <Cmd>write<CR> |

@@ -171,6 +171,7 @@ make_info() {
   NC_URL=
   DF_URL=
   WS_URL=
+  YT_URL=
   CF_CAT="Unknown"
   CF_TYP="Custom"
   PL_MAN="Lazy"
@@ -181,6 +182,8 @@ make_info() {
       GH_URL="https://github.com/doctorfree/nvim-lazyman"
       NC_URL="http://neovimcraft.com/plugin/doctorfree/nvim-lazyman"
       DF_URL="https://dotfyle.com/doctorfree/nvim-lazyman"
+      WS_URL="https://ronrecord.com"
+      YT_URL="https://www.youtube.com/@doctorfree"
       CF_CAT="Default"
       C_DESC="Neovim configuration of Dr. Ronald Joe Record"
       C_INST="Installed and initialized by default"
@@ -242,6 +245,7 @@ make_info() {
     NvChad)
       GH_URL="https://github.com/doctorfree/NvChad-custom"
       WS_URL="https://nvchad.com"
+      YT_URL="https://www.youtube.com/@siduck_og"
       CF_CAT="Base"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad"
@@ -297,6 +301,7 @@ make_info() {
     Go)
       GH_URL="https://github.com/dreamsofcode-io/neovim-go-config"
       WS_URL="https://nvchad.com"
+      YT_URL="https://www.youtube.com/@dreamsofcode"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)"
@@ -319,6 +324,7 @@ make_info() {
     LaTeX)
       GH_URL="https://github.com/benbrastmckie/.config"
       NC_URL="http://neovimcraft.com/plugin/benbrastmckie/.config"
+      YT_URL="https://www.youtube.com/@benbrastmckie"
       CF_CAT="Language"
       PL_MAN="Packer"
       C_DESC="Neovim configuration optimized for writing in LaTeX. Personal Neovim configuration of [Benjamin Brast-McKie](http://www.benbrastmckie.com). Keymaps and more described in the configuration [Cheatsheet](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md). Blog article by the author detailing [tools used by his configuration](http://www.benbrastmckie.com/tools#access). [Video playlist](https://www.youtube.com/watch?v=_Ct2S65kpjQ&list=PLBYZ1xfnKeDRhCoaM4bTFrjCl3NKDBvqk) of tutorials on using this config for writing LaTeX in Neovim"
@@ -343,6 +349,7 @@ make_info() {
     LvimIde)
       GH_URL="https://github.com/lvim-tech/lvim"
       NC_URL="http://neovimcraft.com/plugin/lvim-tech/lvim"
+      YT_URL="https://www.youtube.com/@lvimtech5651"
       CF_CAT="Language"
       C_DESC="Not to be confused with 'LunarVim', this is a standalone Neovim configuration. Modular configuration with LSP support for 60+ languages. Debug support for c, cpp, dart, elixir, go, haskell, java, javascript/typescript, lua, php, python, ruby, rust"
       C_INST="lazyman -L LvimIde"
@@ -374,6 +381,7 @@ make_info() {
     Python)
       GH_URL="https://github.com/dreamsofcode-io/neovim-python"
       WS_URL="https://nvchad.com"
+      YT_URL="https://www.youtube.com/@dreamsofcode"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="'NvChad' based Neovim config with Python formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc). These features are included in the Base 'NvChad' custom add-on (lazyman -c)"
@@ -382,6 +390,7 @@ make_info() {
     Rust)
       GH_URL="https://github.com/dreamsofcode-io/neovim-rust"
       WS_URL="https://nvchad.com"
+      YT_URL="https://www.youtube.com/@dreamsofcode"
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="'NvChad' based Neovim config with Rust formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)"
@@ -420,6 +429,7 @@ make_info() {
     Adib)
       GH_URL="https://github.com/adibhanna/nvim"
       NC_URL="http://neovimcraft.com/plugin/adibhanna/nvim"
+      YT_URL="https://www.youtube.com/@adibhanna"
       CF_CAT="Personal"
       C_DESC="Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)"
       C_INST="lazyman -w Adib"
@@ -476,6 +486,7 @@ make_info() {
       ;;
     Josean)
       GH_URL="https://github.com/josean-dev/dev-environment-files"
+      YT_URL="https://www.youtube.com/@joseanmartinez"
       CF_CAT="Personal"
       PL_MAN="Packer"
       C_DESC="Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)"
@@ -499,6 +510,7 @@ make_info() {
     LvimAdib)
       GH_URL="https://github.com/adibhanna/lvim-config"
       WS_URL="https://www.lunarvim.org"
+      YT_URL="https://www.youtube.com/@adibhanna"
       CF_CAT="Personal"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       ;;
@@ -567,6 +579,7 @@ make_info() {
       ;;
     Simple)
       GH_URL="https://github.com/anthdm/.nvim"
+      YT_URL="https://www.youtube.com/@anthonygg_"
       CF_CAT="Personal"
       PL_MAN="Packer"
       C_DESC="A remarkably effective Neovim configuration in only one small file. The author's [video description of this config](https://youtu.be/AzhSnM0uHvM)"
@@ -574,6 +587,7 @@ make_info() {
       ;;
     Slydragonn)
       GH_URL="https://github.com/slydragonn/dotfiles"
+      YT_URL="https://www.youtube.com/@slydragonn"
       CF_CAT="Personal"
       PL_MAN="Packer"
       C_DESC="[Introductory video](https://youtu.be/vkCnPdaRBE0)"
@@ -582,6 +596,7 @@ make_info() {
     Spider)
       GH_URL="https://github.com/fearless-spider/FSAstroNvim"
       WS_URL="https://astronvim.com"
+      YT_URL="https://www.youtube.com/@fearlessspider"
       CF_CAT="Personal"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="AstroNvim based configuration with animated status bar and smooth scroll. [Introductory video](https://youtu.be/Lj6MZsKl9MU)"
@@ -590,6 +605,7 @@ make_info() {
     Traap)
       GH_URL="https://github.com/Traap/nvim"
       WS_URL="https://www.lazyvim.org"
+      YT_URL="https://www.youtube.com/@traap."
       CF_CAT="Personal"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="[Introductory video](https://youtu.be/aD9j6d9pgtc)"
@@ -685,6 +701,7 @@ make_info() {
       ;;
     Basic)
       GH_URL="https://github.com/NvChad/basic-config"
+      YT_URL="https://www.youtube.com/@siduck_og"
       CF_CAT="Starter"
       C_DESC="Starter config by the author of NvChad with [video tutorial](https://youtube.com/playlist?list=PLYVQrj2EVSUL1NqYn3jsIVXG3U9eWaMcq)"
       C_INST="lazyman -x Basic"
@@ -730,6 +747,7 @@ make_info() {
     JustinLvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lunarvim.org"
+      YT_URL="https://www.youtube.com/@justindevelops"
       CF_CAT="Starter"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="LunarVim based Neovim configuration by Justin Angeles"
@@ -738,6 +756,7 @@ make_info() {
     JustinNvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lazyvim.org"
+      YT_URL="https://www.youtube.com/@justindevelops"
       CF_CAT="Starter"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)"
@@ -942,12 +961,6 @@ make_info() {
   echo "" >> "${OUTF}"
   echo "[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)" >> "${OUTF}"
   echo "" >> "${OUTF}"
-  [ "${WS_URL}" ] && {
-    echo "### Website" >> "${OUTF}"
-    echo "" >> "${OUTF}"
-    echo "[${WS_URL}](${WS_URL})" >> "${OUTF}"
-    echo "" >> "${OUTF}"
-  }
   [ "${GH_URL}" ] && {
     echo "### Git repository" >> "${OUTF}"
     echo "" >> "${OUTF}"
@@ -964,6 +977,18 @@ make_info() {
     echo "### Dotfyle entry" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${DF_URL}](${DF_URL})" >> "${OUTF}"
+    echo "" >> "${OUTF}"
+  }
+  [ "${WS_URL}" ] && {
+    echo "### Website" >> "${OUTF}"
+    echo "" >> "${OUTF}"
+    echo "[${WS_URL}](${WS_URL})" >> "${OUTF}"
+    echo "" >> "${OUTF}"
+  }
+  [ "${YT_URL}" ] && {
+    echo "### YouTube channel" >> "${OUTF}"
+    echo "" >> "${OUTF}"
+    echo "[${YT_URL}](${YT_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
   get_plugins "${nvimconf}" "${OUTF}" "${PL_MAN}"

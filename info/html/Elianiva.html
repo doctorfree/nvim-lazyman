@@ -146,12 +146,12 @@ href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>w</td>
+<td>c</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>c</td>
+<td>w</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -226,20 +226,20 @@ href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(matchup-g%)</td>
+<td>gS</td>
+<td>:<C-U>call <SNR>19_Mapping(g:splitjoin_split_mapping,
+“sj#Split”)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gS</td>
-<td>:<C-U>call <SNR>15_Mapping(g:splitjoin_split_mapping,
-“sj#Split”)<CR></td>
+<td>gJ</td>
+<td>:<C-U>call <SNR>19_Mapping(g:splitjoin_join_mapping,
+“sj#Join”)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gJ</td>
-<td>:<C-U>call <SNR>15_Mapping(g:splitjoin_join_mapping,
-“sj#Join”)<CR></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
 </tr>
 <tr class="odd">
 <td>Move down by visual line on wrapped lines</td>
@@ -303,208 +303,159 @@ href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(EasyAlignOperator)</td>
+<td>:set opfunc=<SNR>25_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:call <SNR>25_easy_align_repeat()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:set opfunc=<SNR>25_live_easy_align_op<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:set opfunc=<SNR>25_easy_align_op<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>(textobj-sandwich-literal-query-a)</td>
 <td>textobj#sandwich#query(‘n’, ‘a’, {}, [])</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(textobj-sandwich-literal-query-i)</td>
 <td>textobj#sandwich#query(‘n’, ‘i’, {}, [])</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(textobj-sandwich-query-a)</td>
 <td>textobj#sandwich#query(‘n’, ‘a’)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(textobj-sandwich-query-i)</td>
 <td>textobj#sandwich#query(‘n’, ‘i’)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(textobj-sandwich-auto-a)</td>
 <td>textobj#sandwich#auto(‘n’, ‘a’)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(textobj-sandwich-auto-i)</td>
 <td>textobj#sandwich#auto(‘n’, ‘i’)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(sandwich-replace-auto)</td>
 <td><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(sandwich-delete-auto)</td>
 <td><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(sandwich-replace)</td>
 <td><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(sandwich-delete)</td>
 <td><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(sandwich-add)</td>
 <td><Plug>(operator-sandwich-add)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-gv)</td>
 <td>gv</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-g@)</td>
 <td>g@</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-replace-visualrepeat)</td>
 <td>:<C-U>call operator#sandwich#visualrepeat(‘replace’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-delete-visualrepeat)</td>
 <td>:<C-U>call operator#sandwich#visualrepeat(‘delete’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-add-visualrepeat)</td>
 <td>:<C-U>call operator#sandwich#visualrepeat(‘add’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-dot)</td>
 <td>operator#sandwich#dot()</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-predot)</td>
 <td>operator#sandwich#predot()</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-replace-query1st)</td>
 <td>:<C-U>call operator#sandwich#query1st(‘replace’, ‘n’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-add-query1st)</td>
 <td>:<C-U>call operator#sandwich#query1st(‘add’, ‘n’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-replace-pre)</td>
 <td>:<C-U>call operator#sandwich#prerequisite(‘replace’, ‘n’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-delete-pre)</td>
 <td>:<C-U>call operator#sandwich#prerequisite(‘delete’, ‘n’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-add-pre)</td>
 <td>:<C-U>call operator#sandwich#prerequisite(‘add’, ‘n’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-replace)</td>
 <td><Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-g@)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(operator-sandwich-delete)</td>
 <td><Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-g@)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(operator-sandwich-add)</td>
 <td><Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(EasyAlignOperator)</td>
-<td>:set opfunc=<SNR>26_easy_align_op<CR>g@</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(EasyAlignRepeat)</td>
-<td>:call <SNR>26_easy_align_repeat()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(LiveEasyAlign)</td>
-<td>:set opfunc=<SNR>26_live_easy_align_op<CR>g@</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(EasyAlign)</td>
-<td>:set opfunc=<SNR>26_easy_align_op<CR>g@</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>&lt;2-LeftMouse&gt;</td>
-<td><Plug>(matchup-double-click)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-reload)</td>
-<td>:<C-U>MatchupReload<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-double-click)</td>
-<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-Z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-[%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-]%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-g%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><SNR>21_(wise)</td>
-<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-hi-surround)</td>
-<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -518,9 +469,58 @@ href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td>&lt;2-LeftMouse&gt;</td>
+<td><Plug>(matchup-double-click)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-reload)</td>
+<td>:<C-U>MatchupReload<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-double-click)</td>
+<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>14_(wise)</td>
+<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-hi-surround)</td>
+<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle whitespace stripping</td>
@@ -641,18 +641,18 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a%</td>
-<td><Plug>(matchup-a%)</td>
-</tr>
-<tr class="even">
-<td></td>
 <td>as</td>
 <td><Plug>(textobj-sandwich-query-a)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>ab</td>
 <td><Plug>(textobj-sandwich-auto-a)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a%</td>
+<td><Plug>(matchup-a%)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -666,18 +666,18 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td>i%</td>
-<td><Plug>(matchup-i%)</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td>is</td>
 <td><Plug>(textobj-sandwich-query-i)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ib</td>
 <td><Plug>(textobj-sandwich-auto-i)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i%</td>
+<td><Plug>(matchup-i%)</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -702,87 +702,17 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="odd">
 <td></td>
 <td><Plug>(EasyAlignRepeat)</td>
-<td>:<C-U>call <SNR>28_repeat_in_visual()<CR></td>
+<td>:<C-U>call <SNR>27_repeat_in_visual()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(LiveEasyAlign)</td>
-<td>:<C-U>call <SNR>28_live_easy_align_op(visualmode(), 1)<CR></td>
+<td>:<C-U>call <SNR>27_live_easy_align_op(visualmode(), 1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(EasyAlign)</td>
-<td>:<C-U>call <SNR>28_easy_align_op(visualmode(), 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-a%)</td>
-<td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-i%)</td>
-<td>:<C-U>call matchup#text_obj#delimited(1, 1, ‘delim_all’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-Z%)</td>
-<td><SNR>21_(matchup-Z%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>21_(matchup-Z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-z%)</td>
-<td><SNR>21_(matchup-z%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>21_(matchup-z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-[%)</td>
-<td><SNR>21_(matchup-[%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-]%)</td>
-<td><SNR>21_(matchup-]%)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><SNR>21_(matchup-[%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>21_(matchup-]%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-g%)</td>
-<td><SNR>21_(matchup-g%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>21_(matchup-g%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-%)</td>
-<td><SNR>21_(matchup-%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><SNR>21_(matchup-%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
+<td>:<C-U>call <SNR>27_easy_align_op(visualmode(), 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -928,6 +858,76 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 <td><Plug>(operator-sandwich-add)</td>
 <td><Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-a%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-i%)</td>
+<td>:<C-U>call matchup#text_obj#delimited(1, 1, ‘delim_all’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td><SNR>12_(matchup-Z%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>12_(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td><SNR>12_(matchup-z%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>12_(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td><SNR>12_(matchup-[%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td><SNR>12_(matchup-]%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>12_(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>12_(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td><SNR>12_(matchup-g%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>12_(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td><SNR>12_(matchup-%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><SNR>12_(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
 </tr>
 <tr class="odd">
 <td>Yank selection to clipboard</td>

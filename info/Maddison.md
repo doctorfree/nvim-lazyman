@@ -141,10 +141,8 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | " | <Cmd>lua require'mapx'.mapper:func(2, vim.v.count)<CR> |
 |  | % | <Plug>(matchup-%) |
 | Nvim builtin | & | :&&<CR> |
-|  | ' | <Cmd>lua require'mapx'.mapper:func(1, vim.v.count)<CR> |
 |  | Q |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(matchup-[%) |
@@ -154,24 +152,24 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | \\A | <Plug>(VM-Select-All) |
 |  | ]% | <Plug>(matchup-]%) |
 |  | b | <Plug>WordMotion_b |
+|  | cr | <Plug>(abolish-coerce-word) |
 |  | cS | <Plug>CSurround |
 |  | cs | <Plug>Csurround |
-|  | cr | <Plug>(abolish-coerce-word) |
 |  | ds | <Plug>Dsurround |
+|  | dm- | <Cmd>lua require'marks'.delete_line()<CR> |
 |  | dm1 | <Cmd>lua require'marks'.delete_bookmark1()<CR> |
+|  | dm  | <Cmd>lua require'marks'.delete_buf()<CR> |
 |  | dm0 | <Cmd>lua require'marks'.delete_bookmark0()<CR> |
-|  | dm4 | <Cmd>lua require'marks'.delete_bookmark4()<CR> |
-|  | dm5 | <Cmd>lua require'marks'.delete_bookmark5()<CR> |
+|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
 |  | dm3 | <Cmd>lua require'marks'.delete_bookmark3()<CR> |
-|  | dm= | <Cmd>lua require'marks'.delete_bookmark()<CR> |
+|  | dm5 | <Cmd>lua require'marks'.delete_bookmark5()<CR> |
+|  | dm6 | <Cmd>lua require'marks'.delete_bookmark6()<CR> |
+|  | dm4 | <Cmd>lua require'marks'.delete_bookmark4()<CR> |
 |  | dm7 | <Cmd>lua require'marks'.delete_bookmark7()<CR> |
 |  | dm8 | <Cmd>lua require'marks'.delete_bookmark8()<CR> |
-|  | dm  | <Cmd>lua require'marks'.delete_buf()<CR> |
-|  | dm- | <Cmd>lua require'marks'.delete_line()<CR> |
-|  | dm | <Cmd>lua require'marks'.delete()<CR> |
 |  | dm9 | <Cmd>lua require'marks'.delete_bookmark9()<CR> |
-|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
-|  | dm6 | <Cmd>lua require'marks'.delete_bookmark6()<CR> |
+|  | dm | <Cmd>lua require'marks'.delete()<CR> |
+|  | dm= | <Cmd>lua require'marks'.delete_bookmark()<CR> |
 |  | e | <Plug>WordMotion_e |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(matchup-g%) |
@@ -185,24 +183,24 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
-|  | m{ | <Cmd>lua require'marks'.prev_bookmark()<CR> |
-|  | m: | <Cmd>lua require'marks'.preview()<CR> |
-|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
-|  | m5 | <Cmd>lua require'marks'.set_bookmark5()<CR> |
-|  | m] | <Cmd>lua require'marks'.next()<CR> |
-|  | m0 | <Cmd>lua require'marks'.set_bookmark0()<CR> |
-|  | m4 | <Cmd>lua require'marks'.set_bookmark4()<CR> |
-|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
-|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
-|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
-|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
-|  | m8 | <Cmd>lua require'marks'.set_bookmark8()<CR> |
-|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
 |  | m | <Cmd>lua require'marks'.set()<CR> |
-|  | m9 | <Cmd>lua require'marks'.set_bookmark9()<CR> |
+|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
+|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
+|  | m{ | <Cmd>lua require'marks'.prev_bookmark()<CR> |
+|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
+|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
+|  | m0 | <Cmd>lua require'marks'.set_bookmark0()<CR> |
+|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
 |  | m; | <Cmd>lua require'marks'.toggle()<CR> |
+|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
+|  | m] | <Cmd>lua require'marks'.next()<CR> |
+|  | m5 | <Cmd>lua require'marks'.set_bookmark5()<CR> |
 |  | m2 | <Cmd>lua require'marks'.set_bookmark2()<CR> |
+|  | m4 | <Cmd>lua require'marks'.set_bookmark4()<CR> |
+|  | m8 | <Cmd>lua require'marks'.set_bookmark8()<CR> |
+|  | m: | <Cmd>lua require'marks'.preview()<CR> |
+|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
+|  | m9 | <Cmd>lua require'marks'.set_bookmark9()<CR> |
 |  | q? |  |
 |  | q/ |  |
 |  | q: |  |
@@ -214,19 +212,25 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | ys | <Plug>Ysurround |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-|  | <Plug>YSurround | <SNR>60_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>60_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>60_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>60_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>60_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>60_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>60_dosurround(<SNR>60_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
-|  | <M-/> | <Cmd>lua require'mapx'.mapper:func(62, vim.v.count)<CR> |
-|  | <F24> | :if @l != "" | let @k=@l | end<CR>"KgP:let @l=@k<CR>:let @k=""<CR> |
-|  | <F30> | "ldd:let @k=@k.@l | let @l=@k<CR> |
-|  | <C-Y> | pumvisible() ? "\<C-Y>" : '"+yy' |
-|  | <C-Z> |  |
+|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
+|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
+|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
+|  | <SNR>44_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
+|  | <Plug>WordMotion_ge | :<C-U>call wordmotion#motion(v:count1, 'n', 'be', 0, [])<CR> |
+|  | <Plug>WordMotion_b | :<C-U>call wordmotion#motion(v:count1, 'n', 'b', 0, [])<CR> |
+|  | <Plug>WordMotion_e | :<C-U>call wordmotion#motion(v:count1, 'n', 'e', 0, [])<CR> |
+|  | <Plug>WordMotion_w | :<C-U>call wordmotion#motion(v:count1, 'n', '', 0, [])<CR> |
+|  | <Plug>(abolish-coerce-word) | <SNR>29_coerce(nr2char(getchar())).'iw' |
+|  | <Plug>(abolish-coerce) | <SNR>29_coerce(nr2char(getchar())) |
+|  | <SNR>27_ | <SNR>27_ |
+|  | <SNR>27_(save-cursor-pos) | <SNR>27_save_cursor_pos() |
 |  | <C-Down> | <Plug>(VM-Add-Cursor-Down) |
 |  | <C-Up> | <Plug>(VM-Add-Cursor-Up) |
 |  | <S-Right> | <Plug>(VM-Select-l) |
@@ -260,20 +264,22 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-|  | <Plug>(abolish-coerce-word) | <SNR>46_coerce(nr2char(getchar())).'iw' |
-|  | <Plug>(abolish-coerce) | <SNR>46_coerce(nr2char(getchar())) |
-|  | <C-H> | <Plug>MoveCharLeft |
-|  | <C-K> | <Plug>MoveLineUp |
-|  | <C-J> | <Plug>MoveLineDown |
-|  | <Plug>MoveCharLeft | :<C-U> silent call <SNR>41_MoveCharHorizontally(-v:count1)<CR> |
-|  | <Plug>MoveCharRight | :<C-U> silent call <SNR>41_MoveCharHorizontally( v:count1)<CR> |
-|  | <Plug>MoveLineHalfPageUp | :<C-U> silent call <SNR>41_MoveLineVertically(-v:count1 * <SNR>41_HalfPageSize())<CR> |
-|  | <Plug>MoveLineHalfPageDown | :<C-U> silent call <SNR>41_MoveLineVertically( v:count1 * <SNR>41_HalfPageSize())<CR> |
-|  | <Plug>MoveLineUp | :<C-U> silent call <SNR>41_MoveLineVertically(-v:count1)<CR> |
-|  | <Plug>MoveLineDown | :<C-U> silent call <SNR>41_MoveLineVertically( v:count1)<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>YSurround | <SNR>14_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>14_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>14_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>14_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>14_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>14_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>14_dosurround(<SNR>14_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
+|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(Marks-prev-bookmark9) | <Cmd> lua require'marks'.prev_bookmark9()<CR> |
 |  | <Plug>(Marks-next-bookmark9) | <Cmd> lua require'marks'.next_bookmark9()<CR> |
 |  | <Plug>(Marks-toggle-bookmark9) | <Cmd> lua require'marks'.toggle_bookmark9()<CR> |
@@ -336,31 +342,23 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | <Plug>(Marks-toggle) | <Cmd> lua require'marks'.toggle()<CR> |
 |  | <Plug>(Marks-setnext) | <Cmd> lua require'marks'.set_next()<CR> |
 |  | <Plug>(Marks-set) | <Cmd> lua require'marks'.set()<CR> |
-|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
-|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
-|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
-|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
-|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
-|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
-|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
-|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
-|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>19_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
-|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
-|  | <Plug>WordMotion_ge | :<C-U>call wordmotion#motion(v:count1, 'n', 'be', 0, [])<CR> |
-|  | <Plug>WordMotion_b | :<C-U>call wordmotion#motion(v:count1, 'n', 'b', 0, [])<CR> |
-|  | <Plug>WordMotion_e | :<C-U>call wordmotion#motion(v:count1, 'n', 'e', 0, [])<CR> |
-|  | <Plug>WordMotion_w | :<C-U>call wordmotion#motion(v:count1, 'n', '', 0, [])<CR> |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <SNR>9_ | <SNR>9_ |
-|  | <SNR>9_(save-cursor-pos) | <SNR>9_save_cursor_pos() |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
+|  | <M-/> | <Cmd>lua require'mapx'.mapper:func(60, vim.v.count)<CR> |
+|  | <F24> | :if @l != "" | let @k=@l | end<CR>"KgP:let @l=@k<CR>:let @k=""<CR> |
+|  | <F30> | "ldd:let @k=@k.@l | let @l=@k<CR> |
+|  | <C-Y> | pumvisible() ? "\<C-Y>" : '"+yy' |
+|  | <C-Z> |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <C-H> | <Plug>MoveCharLeft |
+|  | <C-K> | <Plug>MoveLineUp |
+|  | <C-J> | <Plug>MoveLineDown |
+|  | <Plug>MoveCharLeft | :<C-U> silent call <SNR>6_MoveCharHorizontally(-v:count1)<CR> |
+|  | <Plug>MoveCharRight | :<C-U> silent call <SNR>6_MoveCharHorizontally( v:count1)<CR> |
+|  | <Plug>MoveLineHalfPageUp | :<C-U> silent call <SNR>6_MoveLineVertically(-v:count1 * <SNR>6_HalfPageSize())<CR> |
+|  | <Plug>MoveLineHalfPageDown | :<C-U> silent call <SNR>6_MoveLineVertically( v:count1 * <SNR>6_HalfPageSize())<CR> |
+|  | <Plug>MoveLineUp | :<C-U> silent call <SNR>6_MoveLineVertically(-v:count1)<CR> |
+|  | <Plug>MoveLineDown | :<C-U> silent call <SNR>6_MoveLineVertically( v:count1)<CR> |
 |  | <C-L> | <Plug>MoveCharRight |
 | Toggle Terminal | Ö | <Cmd>execute v:count . "ToggleTerm"<CR> |
 
@@ -379,96 +377,96 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | \\/ | <Plug>(VM-Visual-Regex) |
 |  | \\A | <Plug>(VM-Visual-All) |
 |  | ]% | <Plug>(matchup-]%) |
-|  | aw | <Plug>WordMotion_aw |
+|  | a% | <Plug>(matchup-a%) |
 |  | ai | <Plug>(textobj-indent-a) |
 |  | aI | <Plug>(textobj-indent-same-a) |
-|  | az | <Plug>(textobj-fold-a) |
-|  | a% | <Plug>(matchup-a%) |
-|  | a, | <Plug>(textobj-parameter-a) |
 |  | al | <Plug>(textobj-line-a) |
+|  | az | <Plug>(textobj-fold-a) |
+|  | a, | <Plug>(textobj-parameter-a) |
+|  | aw | <Plug>WordMotion_aw |
 |  | b | <Plug>WordMotion_b |
 |  | e | <Plug>WordMotion_e |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | gS | <Plug>VgSurround |
-|  | ge | <Plug>WordMotion_ge |
-|  | g% | <Plug>(matchup-g%) |
-|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
-|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
-|  | iw | <Plug>WordMotion_iw |
+|  | gS | <Plug>VgSurround |
+|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
+|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
+|  | g% | <Plug>(matchup-g%) |
+|  | ge | <Plug>WordMotion_ge |
+|  | i% | <Plug>(matchup-i%) |
 |  | ii | <Plug>(textobj-indent-i) |
 |  | iI | <Plug>(textobj-indent-same-i) |
+|  | il | <Plug>(textobj-line-i) |
 |  | iz | <Plug>(textobj-fold-i) |
-|  | i% | <Plug>(matchup-i%) |
 |  | i, | <Plug>(textobj-parameter-i) |
 |  | i2, | <Plug>(textobj-parameter-greedy-i) |
-|  | il | <Plug>(textobj-line-i) |
+|  | iw | <Plug>WordMotion_iw |
 |  | p | user#fn#pasteRestore() |
 |  | w | <Plug>WordMotion_w |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>63_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>63_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <C-L> | <Plug>MoveBlockRight |
+|  | <C-H> | <Plug>MoveBlockLeft |
+|  | <C-K> | <Plug>MoveBlockUp |
+|  | <C-J> | <Plug>MoveBlockDown |
+|  | <Plug>MoveBlockLeft | :<C-U> silent call <SNR>58_MoveBlockHorizontally(-v:count1)<CR> |
+|  | <Plug>MoveBlockRight | :<C-U> silent call <SNR>58_MoveBlockHorizontally( v:count1)<CR> |
+|  | <Plug>MoveBlockHalfPageUp | :<C-U> silent call <SNR>58_MoveBlockVertically(-v:count1 * <SNR>58_HalfPageSize())<CR> |
+|  | <Plug>MoveBlockHalfPageDown | :<C-U> silent call <SNR>58_MoveBlockVertically( v:count1 * <SNR>58_HalfPageSize())<CR> |
+|  | <Plug>MoveBlockUp | :<C-U> silent call <SNR>58_MoveBlockVertically(-v:count1)<CR> |
+|  | <Plug>MoveBlockDown | :<C-U> silent call <SNR>58_MoveBlockVertically( v:count1)<CR> |
+|  | <Plug>(abolish-coerce) | <SNR>51_coerce(nr2char(getchar())) |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
+|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
+|  | <M-/> | <Cmd>lua require'mapx'.mapper:func(63, vim.v.count)<CR> |
+|  | <C-Y> | pumvisible() ? "\<C-Y>" : '"+y' |
+|  | <C-Z> |  |
+|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>34_(matchup-Z%) |
+|  | <SNR>34_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>34_(matchup-z%) |
+|  | <SNR>34_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>34_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>34_(matchup-]%) |
+|  | <SNR>34_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>34_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>34_(matchup-g%) |
+|  | <SNR>34_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>34_(matchup-%) |
+|  | <SNR>34_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(textobj-indent-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","-","v")<CR> |
+|  | <Plug>(textobj-indent-a) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","-","v")<CR> |
+|  | <Plug>(textobj-indent-same-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","same","v")<CR> |
+|  | <Plug>(textobj-indent-same-a) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","same","v")<CR> |
+|  | <Plug>(textobj-line-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-i","-","v")<CR> |
+|  | <Plug>(textobj-line-a) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-a","-","v")<CR> |
+|  | <Plug>(textobj-fold-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-i","-","v")<CR> |
+|  | <Plug>(textobj-fold-a) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-a","-","v")<CR> |
+|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
+|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>22_Visual('under') |
+|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
+|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
+|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
+|  | <Plug>(VM-Visual-All) | <SNR>22_Visual('all') |
+|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
+|  | <Plug>(textobj-parameter-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","-","v")<CR> |
+|  | <Plug>(textobj-parameter-a) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-a","-","v")<CR> |
+|  | <Plug>(textobj-parameter-greedy-i) | <SNR>19_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","greedy","v")<CR> |
+|  | <SNR>19_(save-cursor-pos) | <SNR>19_save_cursor_pos() |
+|  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>WordMotion_iw | :<C-U>call wordmotion#object(v:count1, 'x', 1, 0)<CR> |
 |  | <Plug>WordMotion_aw | :<C-U>call wordmotion#object(v:count1, 'x', 0, 0)<CR> |
 |  | <Plug>WordMotion_ge | :<C-U>call wordmotion#motion(v:count1, 'x', 'be', 0, [])<CR> |
 |  | <Plug>WordMotion_b | :<C-U>call wordmotion#motion(v:count1, 'x', 'b', 0, [])<CR> |
 |  | <Plug>WordMotion_e | :<C-U>call wordmotion#motion(v:count1, 'x', 'e', 0, [])<CR> |
 |  | <Plug>WordMotion_w | :<C-U>call wordmotion#motion(v:count1, 'x', '', 0, [])<CR> |
-|  | <Plug>(textobj-indent-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","-","v")<CR> |
-|  | <Plug>(textobj-indent-a) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","-","v")<CR> |
-|  | <Plug>(textobj-indent-same-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","same","v")<CR> |
-|  | <Plug>(textobj-indent-same-a) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","same","v")<CR> |
-|  | <Plug>(textobj-fold-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-i","-","v")<CR> |
-|  | <Plug>(textobj-fold-a) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-a","-","v")<CR> |
-|  | <M-/> | <Cmd>lua require'mapx'.mapper:func(61, vim.v.count)<CR> |
-|  | <C-Y> | pumvisible() ? "\<C-Y>" : '"+y' |
-|  | <C-Z> |  |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>(abolish-coerce) | <SNR>45_coerce(nr2char(getchar())) |
-|  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>41_(matchup-Z%) |
-|  | <SNR>41_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>41_(matchup-z%) |
-|  | <SNR>41_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>41_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>41_(matchup-]%) |
-|  | <SNR>41_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>41_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>41_(matchup-g%) |
-|  | <SNR>41_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>41_(matchup-%) |
-|  | <SNR>41_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
-|  | <C-L> | <Plug>MoveBlockRight |
-|  | <C-H> | <Plug>MoveBlockLeft |
-|  | <C-K> | <Plug>MoveBlockUp |
-|  | <C-J> | <Plug>MoveBlockDown |
-|  | <Plug>MoveBlockLeft | :<C-U> silent call <SNR>35_MoveBlockHorizontally(-v:count1)<CR> |
-|  | <Plug>MoveBlockRight | :<C-U> silent call <SNR>35_MoveBlockHorizontally( v:count1)<CR> |
-|  | <Plug>MoveBlockHalfPageUp | :<C-U> silent call <SNR>35_MoveBlockVertically(-v:count1 * <SNR>35_HalfPageSize())<CR> |
-|  | <Plug>MoveBlockHalfPageDown | :<C-U> silent call <SNR>35_MoveBlockVertically( v:count1 * <SNR>35_HalfPageSize())<CR> |
-|  | <Plug>MoveBlockUp | :<C-U> silent call <SNR>35_MoveBlockVertically(-v:count1)<CR> |
-|  | <Plug>MoveBlockDown | :<C-U> silent call <SNR>35_MoveBlockVertically( v:count1)<CR> |
-|  | <Plug>(textobj-parameter-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","-","v")<CR> |
-|  | <Plug>(textobj-parameter-a) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-a","-","v")<CR> |
-|  | <Plug>(textobj-parameter-greedy-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","greedy","v")<CR> |
-|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
-|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>28_Visual('under') |
-|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
-|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
-|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>28_Visual('all') |
-|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>(textobj-line-i) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-i","-","v")<CR> |
-|  | <Plug>(textobj-line-a) | <SNR>12_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-a","-","v")<CR> |
-|  | <SNR>12_(save-cursor-pos) | <SNR>12_save_cursor_pos() |
 
 #### operator mode keymaps
 
@@ -477,40 +475,28 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | % | <Ignore><Plug>(matchup-%) |
 |  | [% | <Plug>(matchup-[%) |
 |  | ]% | <Plug>(matchup-]%) |
+|  | a% | <Plug>(matchup-a%) |
+|  | a, | <Plug>(textobj-parameter-a) |
 |  | al | <Plug>(textobj-line-a) |
+|  | aw | <Plug>WordMotion_aw |
 |  | ai | <Plug>(textobj-indent-a) |
 |  | aI | <Plug>(textobj-indent-same-a) |
-|  | a, | <Plug>(textobj-parameter-a) |
 |  | az | <Plug>(textobj-fold-a) |
-|  | a% | <Plug>(matchup-a%) |
-|  | aw | <Plug>WordMotion_aw |
 |  | b | <Plug>WordMotion_b |
 |  | e | <Plug>WordMotion_e |
 |  | g% | <Ignore><Plug>(matchup-g%) |
 |  | ge | <Plug>WordMotion_ge |
-|  | il | <Plug>(textobj-line-i) |
-|  | ii | <Plug>(textobj-indent-i) |
-|  | iI | <Plug>(textobj-indent-same-i) |
+|  | i% | <Plug>(matchup-i%) |
 |  | i, | <Plug>(textobj-parameter-i) |
 |  | i2, | <Plug>(textobj-parameter-greedy-i) |
-|  | iz | <Plug>(textobj-fold-i) |
-|  | i% | <Plug>(matchup-i%) |
+|  | il | <Plug>(textobj-line-i) |
 |  | iw | <Plug>WordMotion_iw |
+|  | ii | <Plug>(textobj-indent-i) |
+|  | iI | <Plug>(textobj-indent-same-i) |
+|  | iz | <Plug>(textobj-fold-i) |
 |  | w | <Plug>WordMotion_w |
 |  | z% | <Plug>(matchup-z%) |
-|  | <Plug>(textobj-line-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-i","-","o")<CR> |
-|  | <Plug>(textobj-line-a) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-a","-","o")<CR> |
-|  | <Plug>(textobj-indent-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","-","o")<CR> |
-|  | <Plug>(textobj-indent-a) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","-","o")<CR> |
-|  | <Plug>(textobj-indent-same-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","same","o")<CR> |
-|  | <Plug>(textobj-indent-same-a) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","same","o")<CR> |
-|  | <Plug>(textobj-parameter-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","-","o")<CR> |
-|  | <Plug>(textobj-parameter-a) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-a","-","o")<CR> |
-|  | <Plug>(textobj-parameter-greedy-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","greedy","o")<CR> |
-|  | <C-Z> |  |
-|  | <Plug>(textobj-fold-i) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-i","-","o")<CR> |
-|  | <Plug>(textobj-fold-a) | <SNR>29_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-a","-","o")<CR> |
-|  | <SNR>29_(save-cursor-pos) | <SNR>29_save_cursor_pos() |
+|  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
@@ -519,10 +505,22 @@ Personal Neovim configuration of Maddison Hellstrom, author of 'incline.nvim' fl
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>(textobj-parameter-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","-","o")<CR> |
+|  | <Plug>(textobj-parameter-a) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-a","-","o")<CR> |
+|  | <Plug>(textobj-parameter-greedy-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_parameter.do_by_function("select-i","greedy","o")<CR> |
+|  | <C-Z> |  |
+|  | <Plug>(textobj-line-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-i","-","o")<CR> |
+|  | <Plug>(textobj-line-a) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_line.do_by_function("select-a","-","o")<CR> |
 |  | <Plug>WordMotion_iw | :<C-U>call wordmotion#object(v:count1, 'o', 1, 0)<CR> |
 |  | <Plug>WordMotion_aw | :<C-U>call wordmotion#object(v:count1, 'o', 0, 0)<CR> |
 |  | <Plug>WordMotion_ge | :<C-U>call wordmotion#motion(v:count1, 'o', 'be', 0, [])<CR> |
 |  | <Plug>WordMotion_b | :<C-U>call wordmotion#motion(v:count1, 'o', 'b', 0, [])<CR> |
 |  | <Plug>WordMotion_e | :<C-U>call wordmotion#motion(v:count1, 'o', 'e', 0, [])<CR> |
 |  | <Plug>WordMotion_w | :<C-U>call wordmotion#motion(v:count1, 'o', '', 0, [])<CR> |
+|  | <Plug>(textobj-indent-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","-","o")<CR> |
+|  | <Plug>(textobj-indent-a) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","-","o")<CR> |
+|  | <Plug>(textobj-indent-same-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-i","same","o")<CR> |
+|  | <Plug>(textobj-indent-same-a) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_indent.do_by_function("select-a","same","o")<CR> |
+|  | <Plug>(textobj-fold-i) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-i","-","o")<CR> |
+|  | <Plug>(textobj-fold-a) | <SNR>10_(save-cursor-pos):<C-U>call g:__textobj_fold.do_by_function("select-a","-","o")<CR> |
+|  | <SNR>10_(save-cursor-pos) | <SNR>10_save_cursor_pos() |

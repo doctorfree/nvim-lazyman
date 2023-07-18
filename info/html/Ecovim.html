@@ -374,60 +374,40 @@ vim.fn.expand(‘<lt>cword&gt;’), initial_mode = ‘normal’ })<CR></td>
 <td><Cmd>:Lazy<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>gwc</td>
-<td><Cmd>lua
-require(‘telescope’).extensions.git_worktree.create_git_worktree()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gww</td>
-<td><Cmd>lua
-require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
-</tr>
-<tr class="even">
 <td>Mason</td>
 <td>cm</td>
 <td><Cmd>Mason<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>do</td>
-<td></td>
+<td>gwc</td>
+<td><Cmd>lua
+require(‘telescope’).extensions.git_worktree.create_git_worktree()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>di</td>
-<td></td>
+<td>gww</td>
+<td><Cmd>lua
+require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>dh</td>
+<td>dt</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>dd</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>dc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>db</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td>da</td>
-<td></td>
-</tr>
 <tr class="even">
 <td></td>
-<td>dt</td>
+<td>da</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -436,13 +416,33 @@ require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>summarize text</td>
-<td>as</td>
+<td></td>
+<td>do</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dd</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>generate git message</td>
 <td>ag</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>summarize text</td>
+<td>as</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -600,56 +600,6 @@ shellescape(‘<lt>cWORD&gt;’)<CR></td>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>gs</td>
-<td><Plug>(Switch)</td>
-</tr>
-<tr class="odd">
-<td>Align with preview</td>
-<td>gA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Align</td>
-<td>ga</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment insert end of line</td>
-<td>gcA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment insert above</td>
-<td>gcO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment insert below</td>
-<td>gco</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle current block</td>
-<td>gbc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current line</td>
-<td>gcc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
-<td><Plug>(comment_toggle_linewise)</td>
-</tr>
-<tr class="even">
 <td>Move to right “around”</td>
 <td>g]</td>
 <td></td>
@@ -660,28 +610,78 @@ shellescape(‘<lt>cWORD&gt;’)<CR></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>(Switch)</td>
+</tr>
+<tr class="even">
+<td>Align with preview</td>
+<td>gA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Align</td>
+<td>ga</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Toggle Split/Join</td>
 <td>gJ</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>LSP Definition</td>
+<td>gd</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>LSP Type Definitions</td>
 <td>gy</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LSP Implementations</td>
 <td>gm</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LSP References</td>
 <td>gr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LSP Definition</td>
-<td>gd</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -857,55 +857,34 @@ mode)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(SwitchReverse)</td>
-<td>:set opfunc=switch#OpfuncReverse<CR>g@l</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Switch)</td>
-<td>:set opfunc=switch#OpfuncForward<CR>g@l</td>
-</tr>
-<tr class="even">
 <td>Git Conflict: Previous Conflict</td>
 <td><Plug>(git-conflict-prev-conflict)</td>
 <td><Cmd>GitConflictPrevConflict<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Git Conflict: Next Conflict</td>
 <td><Plug>(git-conflict-next-conflict)</td>
 <td><Cmd>GitConflictNextConflict<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Git Conflict: Choose Theirs</td>
 <td><Plug>(git-conflict-theirs)</td>
 <td><Cmd>GitConflictChooseTheirs<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Git Conflict: Choose None</td>
 <td><Plug>(git-conflict-none)</td>
 <td><Cmd>GitConflictChooseNone<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Git Conflict: Choose Both</td>
 <td><Plug>(git-conflict-both)</td>
 <td><Cmd>GitConflictChooseBoth<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Git Conflict: Choose Ours</td>
 <td><Plug>(git-conflict-ours)</td>
 <td><Cmd>GitConflictChooseOurs<CR></td>
-</tr>
-<tr class="even">
-<td>Toggle Terminal</td>
-<td><F12></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
 </tr>
 <tr class="odd">
 <td>Change a surrounding pair, putting replacements on new lines</td>
@@ -945,36 +924,6 @@ mode)</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><Plug>SpeedDatingFallbackDown</td>
-<td><C-X></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingFallbackUp</td>
-<td><C-A></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingNowUTC</td>
-<td>:<C-U>call speeddating#timestamp(1,v:count)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingNowLocal</td>
-<td>:<C-U>call speeddating#timestamp(0,v:count)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingDown</td>
-<td>:<C-U>call speeddating#increment(-v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingUp</td>
-<td>:<C-U>call speeddating#increment(v:count1)<CR></td>
-</tr>
-<tr class="even">
 <td>Comment toggle blockwise with count</td>
 <td><Plug>(comment_toggle_blockwise_count)</td>
 <td></td>
@@ -1006,6 +955,77 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingFallbackDown</td>
+<td><C-X></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingFallbackUp</td>
+<td><C-A></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingNowUTC</td>
+<td>:<C-U>call speeddating#timestamp(1,v:count)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingNowLocal</td>
+<td>:<C-U>call speeddating#timestamp(0,v:count)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingDown</td>
+<td>:<C-U>call speeddating#increment(-v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingUp</td>
+<td>:<C-U>call speeddating#increment(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(SwitchReverse)</td>
+<td>:set opfunc=switch#OpfuncReverse<CR>g@l</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(Switch)</td>
+<td>:set opfunc=switch#OpfuncForward<CR>g@l</td>
+</tr>
+<tr class="odd">
+<td>Toggle Terminal</td>
+<td><F12></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-N></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><S-Right></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><S-Left></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><S-Down></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><S-Up></td>
 <td></td>
 </tr>
@@ -1017,26 +1037,6 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><C-Up></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-N></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><S-Right></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><S-Left></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><S-Down></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1148,7 +1148,7 @@ mode)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>| u | |  | a% | &lt;Plug&gt;(MatchitVisualTextObject) | | Around last textobject | al |  | | Around next textobject | an |  | | Around textobject | a |  | | Operator keymap for printer.nvim | gp |  | |  | g% | &lt;Plug&gt;(MatchitVisualBackward) | | Add a surrounding pair around a visual selection, on new lines | gS | &lt;Plug&gt;(nvim-surround-visual-line) | | Align with preview | gA |  | | Align | ga |  | | Move to right "around" | g] |  | | Move to left "around" | g[ |  | | Comment toggle blockwise (visual) | gb | &lt;Plug&gt;(comment_toggle_blockwise_visual) | | Comment toggle linewise (visual) | gc | &lt;Plug&gt;(comment_toggle_linewise_visual) | | Inside last textobject | il |  | | Inside next textobject | in |  | | Inside textobject | i |  | |  | p | "_dP | |  | s |  | |  | x | "_x | |  | &lt;Plug&gt;luasnip-expand-repeat |  | |  | &lt;M-</code>&gt;</td>
+<td><code>| u | |  | a% | &lt;Plug&gt;(MatchitVisualTextObject) | | Around last textobject | al |  | | Around next textobject | an |  | | Around textobject | a |  | | Operator keymap for printer.nvim | gp |  | |  | g% | &lt;Plug&gt;(MatchitVisualBackward) | | Comment toggle blockwise (visual) | gb | &lt;Plug&gt;(comment_toggle_blockwise_visual) | | Comment toggle linewise (visual) | gc | &lt;Plug&gt;(comment_toggle_linewise_visual) | | Move to right "around" | g] |  | | Move to left "around" | g[ |  | | Add a surrounding pair around a visual selection, on new lines | gS | &lt;Plug&gt;(nvim-surround-visual-line) | | Align with preview | gA |  | | Align | ga |  | | Inside last textobject | il |  | | Inside next textobject | in |  | | Inside textobject | i |  | |  | p | "_dP | |  | s |  | |  | x | "_x | |  | &lt;Plug&gt;luasnip-expand-repeat |  | |  | &lt;M-</code>&gt;</td>
 <td>U</td>
 </tr>
 <tr class="even">
@@ -1167,18 +1167,6 @@ mode)</td>
 <td><Plug>(MatchitVisualBackward)</td>
 <td>:<C-U>call
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><Plug>(nvim-surround-visual-line)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-true })<CR></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection</td>
-<td><Plug>(nvim-surround-visual)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-false })<CR></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
@@ -1201,6 +1189,18 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <td></td>
 <td><Plug>SpeedDatingUp</td>
 <td>:<C-U>call speeddating#incrementvisual(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
 </tr>
 </tbody>
 </table>

@@ -85,11 +85,6 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | toggle colorizer | ,c |  |
-| Resume FZF | ,// |  |
-| Search git buffer commits | ,bc |  |
-| Search git buffer commits | ,/gC |  |
-| Search git commits | ,/gc |  |
-| Search git branches | ,/gb |  |
 | Find git files | ,/gf |  |
 | Search treesitter | ,/t |  |
 | Search keymaps | ,/k |  |
@@ -99,6 +94,11 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | Find files | ,/f |  |
 | Search command history | ,/C |  |
 | Search commands | ,/c |  |
+| Resume FZF | ,// |  |
+| Search git buffer commits | ,bc |  |
+| Search git buffer commits | ,/gC |  |
+| Search git commits | ,/gc |  |
+| Search git branches | ,/gb |  |
 | toggle spell check | ,s | :Sp<CR> |
 | jq format | ,j | :%!jq .<CR> |
 | Nvim builtin | Y | y$ |

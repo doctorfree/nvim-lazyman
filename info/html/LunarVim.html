@@ -48,11 +48,11 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
-<h3 id="website">Website</h3>
-<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/IfCodingWereNatural/minimal-nvim">https://github.com/IfCodingWereNatural/minimal-nvim</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -379,49 +379,49 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td><Plug>YSurround</td>
+<td><SNR>12_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>YSurround</td>
-<td><SNR>5_opfunc2(‘setup’)</td>
-</tr>
-<tr class="even">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>5_opfunc(‘setup’)</td>
+<td><SNR>12_opfunc(‘setup’)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>5_opfunc2(‘setup’).’_’</td>
+<td><SNR>12_opfunc2(‘setup’).’_’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>5_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>12_opfunc(‘setup’).’g_’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>5_changesurround(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>5_changesurround()<CR></td>
+<td>:<C-U>call <SNR>12_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>12_changesurround()<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><Plug>SurroundRepeat</td>
 <td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td>Float Terminal</td>
@@ -615,29 +615,19 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="odd">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>7_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><C-Bslash></td>
 <td>:<C-U>TmuxNavigatePrevious<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -653,6 +643,16 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td></td>
 <td><C-H></td>
 <td>:<C-U>TmuxNavigateLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 <tr class="odd">
 <td></td>

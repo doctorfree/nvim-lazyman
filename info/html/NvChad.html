@@ -48,11 +48,15 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
-<h3 id="website">Website</h3>
-<p><a href="https://nvchad.com">https://nvchad.com</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/doctorfree/NvChad-custom">https://github.com/doctorfree/NvChad-custom</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://nvchad.com">https://nvchad.com</a></p>
+<h3 id="youtube-channel">YouTube channel</h3>
+<p><a
+href="https://www.youtube.com/@siduck_og">https://www.youtube.com/<span
+class="citation" data-cites="siduck_og">@siduck_og</span></a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -171,104 +175,104 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Move to end of Treehopper node</td>
-<td>,h]</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to start of Treehopper node</td>
-<td>,h[</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Treehopper nodes</td>
-<td>,hm</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Open new line above HopLineStart target</td>
 <td>,vO</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open new line below HopLineStart target</td>
 <td>,vo</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Paste above target using HopLineStart</td>
 <td>,vP</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Paste below target using HopLineStart</td>
 <td>,vp</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Jump to definition</td>
 <td>,hd</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hq]</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[}]])<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hq[</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[{]])<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hqk</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[)]])<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hqj</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[(]])<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hf/</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[/|?]])<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hf;</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[;|:]])<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hf-</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[-|+]])<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hf’</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[“|’]])<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hH</td>
 <td><Cmd>lua require’hop’.hint_patterns({}, [[]])<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hW</td>
 <td><Cmd>HopWordMW<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,hl</td>
 <td><Cmd>HopLineStart<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,hw</td>
 <td><Cmd>HopWord<CR></td>
+</tr>
+<tr class="odd">
+<td>Move to end of Treehopper node</td>
+<td>,h]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move to start of Treehopper node</td>
+<td>,h[</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Treehopper nodes</td>
+<td>,hm</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -321,8 +325,8 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle current block</td>
-<td>gbc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -331,13 +335,13 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle current line</td>
+<td>gcc</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle current line</td>
-<td>gcc</td>
+<td>Comment toggle current block</td>
+<td>gbc</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -458,13 +462,13 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td>gc</td>
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td>gb</td>
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -505,13 +509,13 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">

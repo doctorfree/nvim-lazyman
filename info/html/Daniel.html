@@ -46,11 +46,11 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
 all Lazyman supported configuration documents</a></p>
-<h3 id="website">Website</h3>
-<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/daniel-vera-g/lvim">https://github.com/daniel-vera-g/lvim</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://www.lunarvim.org">https://www.lunarvim.org</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -356,46 +356,6 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>YSurround</td>
-<td><SNR>29_opfunc2(‘setup’)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Ysurround</td>
-<td><SNR>29_opfunc(‘setup’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>YSsurround</td>
-<td><SNR>29_opfunc2(‘setup’).’_’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>29_opfunc(‘setup’).’g_’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>29_changesurround(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>29_changesurround()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>29_dosurround(<SNR>29_inputtarget())<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SurroundRepeat</td>
-<td>.</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>(bullets-promote)</td>
 <td>:BulletPromote<CR></td>
 </tr>
@@ -417,7 +377,47 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="odd">
 <td></td>
 <td><Plug>(bullets-newline)</td>
-<td>:call <SNR>23_insert_new_bullet()<CR></td>
+<td>:call <SNR>29_insert_new_bullet()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>26_opfunc2(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>26_opfunc(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>26_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>26_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>26_changesurround(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>26_changesurround()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -503,23 +503,23 @@ spell<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><M-j></td>
 <td>:m .+1<CR>==</td>
 </tr>
-<tr class="even">
-<td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
-</tr>
 <tr class="odd">
+<td></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><M-k></td>
 <td>:m .-2<CR>==</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -635,12 +635,12 @@ spell<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gb</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -692,6 +692,18 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>(bullets-promote)</td>
 <td>:BulletPromoteVisual<CR></td>
 </tr>
@@ -707,18 +719,6 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><D-v></td>
 <td><C-R>+</td>
 </tr>
@@ -729,13 +729,13 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 </tbody>
 </table>

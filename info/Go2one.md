@@ -64,6 +64,9 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  |  q | :NvimTreeToggle<CR> |
+|  |  gp | :Git push<CR> |
+|  |  gc | :Git commit -s<CR> |
+|  |  gg | :Git<CR> |
 |  |  gs |  |
 |  |  gb |  |
 |  |  gl |  |
@@ -74,10 +77,11 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  |  fg |  |
 |  |  fh |  |
 |  |  ff |  |
+|  |  fm | :DashboardJumpMarks<CR> |
+|  |  fn | :DashboardNewFile<CR> |
+|  |  fl | :SessionLoad<CR> |
+|  |  fr | :DashboardFindHistory<CR> |
 |  |  y |  |
-|  |  gp | :Git push<CR> |
-|  |  gc | :Git commit -s<CR> |
-|  |  gg | :Git<CR> |
 |  |  db | :lua require'dap'.toggle_breakpoint()<CR> |
 |  |  dd | :lua require'dap'.continue()<CR> |
 |  |  do | :lua require'dap'.step_over()<CR> |
@@ -94,10 +98,6 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  |  3 | <Cmd>BufferLineGoToBuffer 3<CR> |
 |  |  2 | <Cmd>BufferLineGoToBuffer 2<CR> |
 |  |  1 | <Cmd>BufferLineGoToBuffer 1<CR> |
-|  |  fm | :DashboardJumpMarks<CR> |
-|  |  fn | :DashboardNewFile<CR> |
-|  |  fl | :SessionLoad<CR> |
-|  |  fr | :DashboardFindHistory<CR> |
 |  |  t | :lua require'go2one.gotest'.test_nearest({layout_strategy = 'vertical', layout_config = {preview_cutoff = 1}})<CR> |
 |  |  s | :lua require'utils'.reload('go2one')<CR> |
 |  |  a | ggVG$ |
@@ -123,19 +123,19 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  | cs | <Plug>Csurround |
 |  | ds | <Plug>Dsurround |
 |  | dm- | <Cmd>lua require'marks'.delete_line()<CR> |
+|  | dm4 | <Cmd>lua require'marks'.delete_bookmark4()<CR> |
+|  | dm | <Cmd>lua require'marks'.delete()<CR> |
+|  | dm3 | <Cmd>lua require'marks'.delete_bookmark3()<CR> |
+|  | dm6 | <Cmd>lua require'marks'.delete_bookmark6()<CR> |
+|  | dm7 | <Cmd>lua require'marks'.delete_bookmark7()<CR> |
+|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
+|  | dm8 | <Cmd>lua require'marks'.delete_bookmark8()<CR> |
+|  | dm1 | <Cmd>lua require'marks'.delete_bookmark1()<CR> |
 |  | dm  | <Cmd>lua require'marks'.delete_buf()<CR> |
 |  | dm0 | <Cmd>lua require'marks'.delete_bookmark0()<CR> |
-|  | dm3 | <Cmd>lua require'marks'.delete_bookmark3()<CR> |
-|  | dm5 | <Cmd>lua require'marks'.delete_bookmark5()<CR> |
-|  | dm6 | <Cmd>lua require'marks'.delete_bookmark6()<CR> |
-|  | dm4 | <Cmd>lua require'marks'.delete_bookmark4()<CR> |
 |  | dm= | <Cmd>lua require'marks'.delete_bookmark()<CR> |
-|  | dm7 | <Cmd>lua require'marks'.delete_bookmark7()<CR> |
-|  | dm8 | <Cmd>lua require'marks'.delete_bookmark8()<CR> |
-|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
-|  | dm | <Cmd>lua require'marks'.delete()<CR> |
+|  | dm5 | <Cmd>lua require'marks'.delete_bookmark5()<CR> |
 |  | dm9 | <Cmd>lua require'marks'.delete_bookmark9()<CR> |
-|  | dm1 | <Cmd>lua require'marks'.delete_bookmark1()<CR> |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
 | Comment insert below | gco |  |
@@ -147,24 +147,24 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 |  | j | (v:count == 0 ? 'gj' : 'j') |
 |  | k | (v:count == 0 ? 'gk' : 'k') |
-|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
-|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
-|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
-|  | m0 | <Cmd>lua require'marks'.set_bookmark0()<CR> |
-|  | m | <Cmd>lua require'marks'.set()<CR> |
-|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
-|  | m] | <Cmd>lua require'marks'.next()<CR> |
-|  | m5 | <Cmd>lua require'marks'.set_bookmark5()<CR> |
 |  | m{ | <Cmd>lua require'marks'.prev_bookmark()<CR> |
-|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
+|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
 |  | m4 | <Cmd>lua require'marks'.set_bookmark4()<CR> |
-|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
-|  | m: | <Cmd>lua require'marks'.preview()<CR> |
-|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
-|  | m; | <Cmd>lua require'marks'.toggle()<CR> |
+|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
+|  | m | <Cmd>lua require'marks'.set()<CR> |
 |  | m9 | <Cmd>lua require'marks'.set_bookmark9()<CR> |
 |  | m2 | <Cmd>lua require'marks'.set_bookmark2()<CR> |
+|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
 |  | m8 | <Cmd>lua require'marks'.set_bookmark8()<CR> |
+|  | m: | <Cmd>lua require'marks'.preview()<CR> |
+|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
+|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
+|  | m] | <Cmd>lua require'marks'.next()<CR> |
+|  | m0 | <Cmd>lua require'marks'.set_bookmark0()<CR> |
+|  | m; | <Cmd>lua require'marks'.toggle()<CR> |
+|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
+|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
+|  | m5 | <Cmd>lua require'marks'.set_bookmark5()<CR> |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |

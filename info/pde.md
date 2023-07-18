@@ -99,11 +99,42 @@ Configure Neovim as a Personalized Development Environment (PDE)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Toggle Highlighter |  zCh |  |
+| Convert |  zCc |  |
+| Pick |  zCp |  |
+| Mark Motion |  xmm |  |
+| Send Mark |  xms |  |
+| Clear |  xc |  |
+| Close REPL |  xC |  |
+| Interrupt |  xI |  |
+| ENTER |  x<CR> |  |
+| Send File |  xf |  |
+| Send Until Cursor |  xt |  |
+| Send Line |  xl |  |
+| Send Motion |  xs |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
+| Hide |  xH |  |
+| Focus |  xF |  |
+| Restart |  xS |  |
+| REPL |  xR |  |
+| Remove Mark |  xmr |  |
+| Select VirtualEnv |  lv |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Open |  tto |  |
+| Load Bundle |  ttl |  |
+| Delete Bundle |  ttd |  |
+| Close |  ttc |  |
+| Build |  ttb |  |
+| Task Action |  tta |  |
+| Run Command |  ttR |  |
+| Toggle |  ttt |  |
+| Save Bundle |  tts |  |
+| Run |  ttr |  |
+| Quick Action |  ttq |  |
 | Status |  gs |  |
-| Debug Last |  tL |  |
-| Debug File |  td |  |
-| Summary |  tS |  |
-| Stop |  ts |  |
 | Output |  to |  |
 | Debug Nearest |  tN |  |
 | Nearest |  tn |  |
@@ -111,6 +142,16 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | All Files |  tF |  |
 | File |  tf |  |
 | Attach |  ta |  |
+| Debug Last |  tL |  |
+| Debug File |  td |  |
+| Summary |  tS |  |
+| Stop |  ts |  |
+| Step Out |  du |  |
+| Terminate |  dx |  |
+| Toggle Breakpoint |  dt |  |
+| Start |  ds |  |
+| Toggle REPL |  dr |  |
+| Quit |  dq |  |
 | Pause |  dp |  |
 | Step Over |  do |  |
 | Step Into |  di |  |
@@ -125,58 +166,17 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Conditional Breakpoint |  dC |  |
 | Evaluate Input |  dE |  |
 | Run to Cursor |  dR |  |
-| Step Out |  du |  |
-| Terminate |  dx |  |
-| Toggle Breakpoint |  dt |  |
-| Start |  ds |  |
-| Toggle REPL |  dr |  |
-| Quit |  dq |  |
-| Convert |  zCc |  |
-| Pick |  zCp |  |
-| Toggle Highlighter |  zCh |  |
-| Focus |  xF |  |
-| Restart |  xS |  |
-| REPL |  xR |  |
-| Remove Mark |  xmr |  |
-| Mark Motion |  xmm |  |
-| Send Mark |  xms |  |
-| Clear |  xc |  |
-| Close REPL |  xC |  |
-| Interrupt |  xI |  |
-| ENTER |  x<CR> |  |
-| Send File |  xf |  |
-| Send Until Cursor |  xt |  |
-| Send Line |  xl |  |
-| Send Motion |  xs |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
 | Find Files |  ff |  |
 | Help |  fh |  |
 | Buffers |  fb |  |
 | Git Files |  fg |  |
-| Run Command |  ttR |  |
-| Toggle |  ttt |  |
-| Save Bundle |  tts |  |
-| Run |  ttr |  |
-| Quick Action |  ttq |  |
-| Open |  tto |  |
-| Load Bundle |  ttl |  |
-| Delete Bundle |  ttd |  |
-| Close |  ttc |  |
-| Build |  ttb |  |
-| Task Action |  tta |  |
-| Select VirtualEnv |  lv |  |
 |  |   |  |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
 |  | gx | <Plug>NetrwBrowseX |
+|  | gcc |  |
 |  | gc |  |
 |  | gbc |  |
-|  | gcc |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 | Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
@@ -190,9 +190,9 @@ Configure Neovim as a Personalized Development Environment (PDE)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Send |  xs |  |
 | Mark Visual |  xmv |  |
 | Clear Highlight |  xL |  |
+| Send |  xs |  |
 | Evaluate |  de |  |
 |  |   |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |

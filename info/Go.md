@@ -10,13 +10,17 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/dreamsofcode-io/neovim-go-config](https://github.com/dreamsofcode-io/neovim-go-config)
+
 ### Website
 
 [https://nvchad.com](https://nvchad.com)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/dreamsofcode-io/neovim-go-config](https://github.com/dreamsofcode-io/neovim-go-config)
+[https://www.youtube.com/@dreamsofcode](https://www.youtube.com/@dreamsofcode)
 
 ### Lazy managed plugins
 
@@ -64,11 +68,11 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
+|  | g |  |
 | Comment toggle linewise | gc |  |
-| Comment toggle current block | gbc |  |
 | Comment toggle blockwise | gb |  |
 | Comment toggle current line | gcc |  |
-|  | g |  |
+| Comment toggle current block | gbc |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
@@ -78,12 +82,12 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | ----------- | --- | --- |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Comment toggle blockwise (visual) | gb |  |
 | Comment toggle linewise (visual) | gc |  |
+| Comment toggle blockwise (visual) | gb |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |

@@ -24,6 +24,7 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -43,8 +44,11 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Tab> |  |
+|  |  ls | :LspStart<CR> |
+|  |  lr | :LspRestart<CR> |
 |  |  lp | :LspInfo<CR> |
 |  |  x | <C-W>c |
+|  |  h | :nohlsearch<CR> |
 |  |  pd |  |
 |  |  pp |  |
 |  |  pr |  |
@@ -56,12 +60,12 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  |  pi |  |
 |  |  ph |  |
 |  |  d |  |
-|  |  b |  |
-|  |  e |  |
+|  |  ff |  |
 |  |  ft |  |
 |  |  fr |  |
 |  |  fw |  |
-|  |  F |  |
+|  |  e |  |
+|  |  b |  |
 | Nvim builtin | & | :&&<CR> |
 |  | J | jzz |
 |  | K | kzz |
@@ -75,6 +79,7 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  | <C-H> | <C-W>h |
 |  | <M-h> |  |
 |  | <M-t> |  |
+|  | <M-H> |  |
 |  | <S-Tab> |  |
 |  | <C-L> | <C-W>l |
 
@@ -86,6 +91,7 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 |  | J | :m '>+1<CR>gv=gv |
 |  | K | :m '<lt>-2<CR>gv=gv |
+|  | p | _dP |
 
 #### operator mode keymaps
 

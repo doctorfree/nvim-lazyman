@@ -90,9 +90,9 @@ Personal Neovim configuration of XiaoZhang
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>(vsnip-cut-text) | :set operatorfunc=<SNR>13_vsnip_cut_text_normal<CR>g@ |
+|  | <Plug>(vsnip-select-text) | :set operatorfunc=<SNR>13_vsnip_select_text_normal<CR>g@ |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>(vsnip-cut-text) | :set operatorfunc=<SNR>5_vsnip_cut_text_normal<CR>g@ |
-|  | <Plug>(vsnip-select-text) | :set operatorfunc=<SNR>5_vsnip_select_text_normal<CR>g@ |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -114,8 +114,8 @@ Personal Neovim configuration of XiaoZhang
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv"_c |
-|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>22_vsnip_visual_text(visualmode())<CR>gv |
+|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv"_c |
+|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv |
 
 #### operator mode keymaps
 

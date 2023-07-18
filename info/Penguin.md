@@ -10,13 +10,13 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://www.lazyvim.org](https://www.lazyvim.org)
-
 ### Git repository
 
 [https://github.com/p3nguin-kun/penguinVim](https://github.com/p3nguin-kun/penguinVim)
+
+### Website
+
+[https://p3nguin-kun.github.io/penguinVim](https://p3nguin-kun.github.io/penguinVim)
 
 ### Lazy managed plugins
 
@@ -76,28 +76,33 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Replace in files (Spectre) |  sr |  |
 | Explorer NeoTree (cwd) |  fE |  |
 | Explorer NeoTree (root dir) |  fe |  |
 | Explorer NeoTree (cwd) |  E |  |
 | Explorer NeoTree (root dir) |  e |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Mason |  cm |  |
+| Dismiss all Notifications |  un |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo |  st |  |
 | Dismiss All |  snd |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
-| Dismiss all Notifications |  un |  |
-| Delete Buffer |  bd |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
 | Delete Buffer (Force) |  bD |  |
+| Delete Buffer |  bd |  |
+| Resume |  sR |  |
 | Options |  so |  |
 | Jump to Mark |  sm |  |
 | Man Pages |  sM |  |
@@ -109,9 +114,9 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
 | Commands |  sC |  |
-| Command History |  sc |  |
-| Buffer |  sb |  |
 | Find Files (root dir) |    |  |
+| Buffer |  sb |  |
+| Auto Commands |  sa |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
@@ -122,17 +127,12 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
 | Switch Buffer |  , |  |
-| Auto Commands |  sa |  |
+| Command History |  sc |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
 | Word (cwd) |  sW |  |
 | Word (root dir) |  sw |  |
-| Resume |  sR |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Replace in files (Spectre) |  sr |  |
-| Mason |  cm |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -148,20 +148,20 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Highlight surrounding | gzh |  |
-| Replace surrounding | gzr |  |
-| Find left surrounding | gzF |  |
 | Delete surrounding | gzd |  |
-| Find right surrounding | gzf |  |
-| Add surrounding | gza |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
+| Add surrounding | gza |  |
+| Find right surrounding | gzf |  |
+| Find left surrounding | gzF |  |
+| Replace surrounding | gzr |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
 | Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 

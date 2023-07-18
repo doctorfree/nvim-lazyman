@@ -54,6 +54,10 @@ href="https://github.com/lvim-tech/lvim">https://github.com/lvim-tech/lvim</a></
 <h3 id="neovimcraft-entry">Neovimcraft entry</h3>
 <p><a
 href="http://neovimcraft.com/plugin/lvim-tech/lvim">http://neovimcraft.com/plugin/lvim-tech/lvim</a></p>
+<h3 id="youtube-channel">YouTube channel</h3>
+<p><a
+href="https://www.youtube.com/@lvimtech5651">https://www.youtube.com/<span
+class="citation" data-cites="lvimtech5651">@lvimtech5651</span></a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -186,8 +190,6 @@ href="https://github.com/prichrd/netrw.nvim.git">prichrd/netrw.nvim</a></li>
 href="https://github.com/folke/noice.nvim">folke/noice.nvim</a></li>
 <li><a
 href="https://github.com/MunifTanjim/nui.nvim">MunifTanjim/nui.nvim</a></li>
-<li><a
-href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
 <li><a
 href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
 <li><a
@@ -338,16 +340,6 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td><Cmd>lua require(‘NeoComposer.macro’).toggle_play_macro()<CR></td>
 </tr>
 <tr class="even">
-<td>Mini files</td>
-<td>i</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>FzfLua files</td>
-<td>f</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>FzfLua buffers</td>
 <td>b</td>
 <td></td>
@@ -360,6 +352,16 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="even">
 <td>FzfLua search</td>
 <td>s</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FzfLua files</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mini files</td>
+<td>i</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -558,44 +560,44 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Change a surrounding pair, putting replacements on new lines</td>
-<td>cS</td>
-<td><Plug>(nvim-surround-change-line)</td>
-</tr>
-<tr class="odd">
-<td>Change a surrounding pair</td>
-<td>cs</td>
-<td><Plug>(nvim-surround-change)</td>
-</tr>
-<tr class="even">
 <td></td>
 <td>cq</td>
 <td><Cmd>lua require(‘NeoComposer.macro’).halt_macro()<CR></td>
 </tr>
 <tr class="odd">
-<td>Delete a surrounding pair</td>
-<td>ds</td>
-<td><Plug>(nvim-surround-delete)</td>
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td>cS</td>
+<td><Plug>(nvim-surround-change-line)</td>
 </tr>
 <tr class="even">
+<td>Change a surrounding pair</td>
+<td>cs</td>
+<td><Plug>(nvim-surround-change)</td>
+</tr>
+<tr class="odd">
 <td>LspShowDiagnosticInLocList</td>
 <td>dl</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LspShowDiagnosticPrev</td>
 <td>dp</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LspShowDiagnosticNext</td>
 <td>dn</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LspShowDiagnosticCurrent</td>
 <td>dc</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td>Delete a surrounding pair</td>
+<td>ds</td>
+<td><Plug>(nvim-surround-delete)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -628,31 +630,31 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td>yq</td>
+<td><Cmd>lua require(‘NeoComposer.macro’).yank_macro()<CR></td>
+</tr>
+<tr class="odd">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode)</td>
 <td>ySS</td>
 <td><Plug>(nvim-surround-normal-cur-line)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion, on new lines (normal
 mode)</td>
 <td>yS</td>
 <td><Plug>(nvim-surround-normal-line)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around the current line (normal mode)</td>
 <td>yss</td>
 <td><Plug>(nvim-surround-normal-cur)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion (normal mode)</td>
 <td>ys</td>
 <td><Plug>(nvim-surround-normal)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>yq</td>
-<td><Cmd>lua require(‘NeoComposer.macro’).yank_macro()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -679,6 +681,117 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td></td>
 <td><Plug>(MatchitNormalForward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td>Terminal Float</td>
+<td><F4></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Three</td>
+<td><F3></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Two</td>
+<td><F2></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal One</td>
+<td><F1></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LspDiagnostic QF</td>
+<td><C-C><C-H></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Navbuddy</td>
+<td><C-C>v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Vifm</td>
+<td><C-C>fv</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ranger</td>
+<td><C-C>fr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(fzf-normal)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-insert)</td>
+<td>i</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Nul></td>
+<td>:CtrlSpace<CR></td>
+</tr>
+<tr class="odd">
+<td>GitSignsToggleLineBlame</td>
+<td><C-C>b</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GitSignsPreviewHunk</td>
+<td>&lt;M-;&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GitSignsPrevHunk</td>
+<td>&lt;M-[&gt;</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GitSignsNextHunk</td>
+<td>&lt;M-]&gt;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-q></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).toggle_macro_menu()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-p></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).cycle_prev()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-n></td>
+<td><Cmd>lua require(‘NeoComposer.ui’).cycle_next()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DAPLocal</td>
+<td><C-C><C-L></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>LvimHelper</td>
@@ -728,107 +841,6 @@ mode)</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>DAPLocal</td>
-<td><C-C><C-L></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Vifm</td>
-<td><C-C>fv</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Ranger</td>
-<td><C-C>fr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Nul></td>
-<td>:CtrlSpace<CR></td>
-</tr>
-<tr class="odd">
-<td>GitSignsToggleLineBlame</td>
-<td><C-C>b</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>GitSignsPreviewHunk</td>
-<td>&lt;M-;&gt;</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>GitSignsPrevHunk</td>
-<td>&lt;M-[&gt;</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>GitSignsNextHunk</td>
-<td>&lt;M-]&gt;</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-q></td>
-<td><Cmd>lua require(‘NeoComposer.ui’).toggle_macro_menu()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-p></td>
-<td><Cmd>lua require(‘NeoComposer.ui’).cycle_prev()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-n></td>
-<td><Cmd>lua require(‘NeoComposer.ui’).cycle_next()<CR></td>
-</tr>
-<tr class="even">
-<td>Terminal Float</td>
-<td><F4></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Three</td>
-<td><F3></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Two</td>
-<td><F2></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal One</td>
-<td><F1></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LspDiagnostic QF</td>
-<td><C-C><C-H></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
-<td>Navbuddy</td>
-<td><C-C>v</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>LvimLinguisticsTOGGLESpelling</td>
 <td><C-C>k</td>
 <td></td>
@@ -839,58 +851,28 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>(fzf-normal)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(fzf-insert)</td>
-<td>i</td>
-</tr>
-<tr class="odd">
-<td>Telescope tmux session</td>
-<td><C-C>t</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Telescope buffers</td>
 <td><M-b></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Telescope file browser</td>
 <td><M-/></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Telescope live grep</td>
 <td>&lt;M-.&gt;</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Telescope find files</td>
 <td>&lt;M-,&gt;</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>NeoTree buffers</td>
-<td><C-C><C-B></td>
-<td></td>
-</tr>
 <tr class="odd">
-<td>NeoTree filesystem</td>
-<td><C-C><C-F></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>NeoTree diagnostics</td>
-<td><C-C><C-D></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>NeoTree git status</td>
-<td><C-C><C-G></td>
+<td>Telescope tmux session</td>
+<td><C-C>t</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -899,13 +881,33 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 </tr>
 <tr class="odd">
-<td>WinShift</td>
-<td><C-C>w</td>
+<td>NeoTree diagnostics</td>
+<td><C-C><C-D></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>NeoTree git status</td>
+<td><C-C><C-G></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NeoTree buffers</td>
+<td><C-C><C-B></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NeoTree filesystem</td>
+<td><C-C><C-F></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Undotree</td>
 <td><F5></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WinShift</td>
+<td><C-C>w</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1233,21 +1235,21 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Add a surrounding pair around a visual selection, on new lines</td>
 <td><Plug>(nvim-surround-visual-line)</td>
 <td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
 true })<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around a visual selection</td>
 <td><Plug>(nvim-surround-visual)</td>
 <td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
 false })<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
 </tr>
 </tbody>
 </table>

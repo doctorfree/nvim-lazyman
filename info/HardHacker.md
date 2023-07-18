@@ -72,12 +72,12 @@ A theme-driven modern Neovim configuration
 |  |  dc | :DiffviewClose<CR> |
 |  |  df | :DiffviewOpen<CR> |
 |  |  b | :BufferLinePick<CR> |
+|  |  q |  |
+|  |  e |  |
 |  |  bb |  |
 |  |  cc |  |
 |  |  gg |  |
 |  |  ff |  |
-|  |  q |  |
-|  |  e |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
@@ -100,11 +100,11 @@ A theme-driven modern Neovim configuration
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <M-C-L> |  |
 |  | <M-C-K> |  |
 |  | <M-C-J> |  |
 |  | <M-C-H> |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps

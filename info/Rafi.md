@@ -163,15 +163,16 @@
 | Yank relative path |  y |  |
 | Visual Mode |    | V |
 | Open Lazy UI |  l | <Cmd>Lazy<CR> |
-| Zk New |  zn |  |
-| Zk Links |  zl |  |
-| Zk Backlinks |  zb |  |
-| Zk Search |  zf |  |
-| Zk Tags |  zt |  |
-| Zk Notes |  zo |  |
-| Spectre |  sp |  |
-| Symbols Outline |  o |  |
-| Diff View |  gv |  |
+| Location List (Trouble) |  xL |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Workspace Diagnostics |  r |  |
+| Document Diagnostics |  e |  |
+| Delete Buffer |  bd |  |
+| Find symbol |  gt |  |
+| Find file |  gf |  |
+| Grep cursor word |  gg |  |
 | Git stashes |  gh |  |
 | Git buffer commits |  gL |  |
 | Git commits |  gl |  |
@@ -188,41 +189,40 @@
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
 | Buffer find |  / |  |
-| Grep cursor word |  gg |  |
-| Find file |  gf |  |
-| Find symbol |  gt |  |
-| Neogen Comment |  cc |  |
-| Execute HTTP request |  mh |  |
-| Undo Tree |  gu |  |
-| Git open in browser |  go |  |
-| Mason |  mm |  |
-| Highlight word |  mt |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo |  st |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
 | Line diff reset |  mdr |  |
 | Line diff show |  mds |  |
-|  |  ue |  |
-| Select VirtualEnv |  cv |  |
-| Delete Buffer |  bd |  |
-| Dismiss all Notifications |  un |  |
-| Git diff |  gd |  |
 | Git blame |  gb |  |
+| Git diff |  gd |  |
+| Neogen Comment |  cc |  |
+| Git open in browser |  go |  |
+| Neogit |  mg |  |
+| Mason |  mm |  |
+| Zen Mode |  zz |  |
+|  |  v |  |
+|  |  ue |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Neogit |  mg |  |
 | Toggle structure panel |  tf |  |
-|  |  v |  |
+| Highlight word |  mt |  |
 | Duplicate Paragraph |  cp | yap<S-}>p |
-| Location List (Trouble) |  xL |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Workspace Diagnostics |  r |  |
-| Document Diagnostics |  e |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Zen Mode |  zz |  |
+| Dismiss all Notifications |  un |  |
+| Undo Tree |  gu |  |
+| Spectre |  sp |  |
+| Zk Backlinks |  zb |  |
+| Zk Search |  zf |  |
+| Zk Tags |  zt |  |
+| Zk Notes |  zo |  |
+| Zk New |  zn |  |
+| Zk Links |  zl |  |
+| Execute HTTP request |  mh |  |
+| Select VirtualEnv |  cv |  |
+| Symbols Outline |  o |  |
+| Diff View |  gv |  |
 | Execute Shell Command | ! | :! |
 | Reveal registers | " |  |
 |  | # | g# |
@@ -230,6 +230,8 @@
 |  | * | g* |
 | Pick window | - |  |
 | Content-aware menu | ;c |  |
+| Zoxide (MRU) | ;z |  |
+| Zk notes | ;w |  |
 | Thesaurus | ;k |  |
 | Plugins | ;n |  |
 | Code actions | ;da |  |
@@ -253,11 +255,9 @@
 | Find files | ;f |  |
 | Pickers | ;R |  |
 | Resume last | ;r |  |
-| Zoxide (MRU) | ;z |  |
-| Zk notes | ;w |  |
+| todo | ;dt |  |
 | Explorer NeoTree Reveal | ;a |  |
 | Explorer NeoTree Toggle | ;e |  |
-| todo | ;dt |  |
 | F | F |  |
 | Leap from windows | SS |  |
 | T | T |  |
@@ -265,17 +265,17 @@
 | Previous Whitespace | [s |  |
 | Previous Loclist Item | [a | <Cmd>lprev<CR> |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
+| Prev Reference | [[ |  |
 | Next Whitespace | ]s |  |
 | Next Loclist Item | ]a | <Cmd>lnext<CR> |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
-| Change Surrounding Function | csf |  |
+| Next Reference | ]] |  |
 | Replace surrounding | cs |  |
-| Delete Surrounding Function | dsf |  |
+| Change Surrounding Function | csf |  |
 | Delete surrounding | ds |  |
+| Delete Surrounding Function | dsf |  |
 | f | f |  |
 | Jump to older buffer | g<C-O> |  |
 | Jump to newer buffer | g<C-I> |  |
@@ -285,16 +285,16 @@
 |  | g* | * |
 |  | gl | g$ |
 |  | gh | g^ |
-|  | gpr |  |
+| Find left surrounding | gzF |  |
+| Highlight surrounding | gzh |  |
+| Find right surrounding | gzf |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
+| Move to top edge | gk |  |
+| Move to bottom edge | gj |  |
 |  | gpd |  |
 |  | gpi |  |
 |  | gpy |  |
-| Move to bottom edge | gj |  |
-| Move to top edge | gk |  |
-| Highlight surrounding | gzh |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Find right surrounding | gzf |  |
-| Find left surrounding | gzF |  |
+|  | gpr |  |
 |  | j | v:count == 0 ? 'gj' : 'j' |
 |  | k | v:count == 0 ? 'gk' : 'k' |
 | Marks from all opened buffers | m/ |  |
@@ -309,13 +309,13 @@
 | Buffer delete | sd | <Cmd>bdelete<CR> |
 | Close window | sc | <Cmd>close<CR> |
 | Alternate buffer | sb | <Cmd>buffer#<CR> |
-| Leap backward to | sS |  |
-| Leap forward to | ss |  |
-| Swap picked window | sw |  |
-| Pick window | sp |  |
+| Add surrounding | sa |  |
 | Split arguments | sk |  |
 | Join arguments | sj |  |
-| Add surrounding | sa |  |
+| Leap backward to | sS |  |
+| Leap forward to | ss |  |
+| Pick window | sp |  |
+| Swap picked window | sw |  |
 | t | t |  |
 |  | zh | z4h |
 |  | zl | z4l |
@@ -337,9 +337,9 @@
 | Jump to lower pane | <C-J> | <Cmd>TmuxNavigateDown<CR> |
 | Jump to left pane | <C-H> | <Cmd>TmuxNavigateLeft<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Toggle terminal | <C-_> |  |
 | Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
-| Toggle terminal | <C-_> |  |
 
 #### visual mode keymaps
 
@@ -350,14 +350,14 @@
 | Move selection down |  j | :move'>+<CR>gv=gv |
 | Move selection up |  k | :move'<lt>-2<CR>gv=gv |
 | Exit Visual Mode |    | <Esc> |
-| Git open in browser |  go |  |
-| Spectre Word |  sp |  |
-| Line diff |  mdf |  |
-| Line diff add |  mda |  |
-| Highlight word |  mt |  |
-| Zk Match |  zf |  |
 |  |  v |  |
 | Grep cursor word |  gg |  |
+| Spectre Word |  sp |  |
+| Highlight word |  mt |  |
+| Zk Match |  zf |  |
+| Git open in browser |  go |  |
+| Line diff |  mdf |  |
+| Line diff add |  mda |  |
 | Reveal registers | " |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
@@ -372,17 +372,17 @@
 | T | T |  |
 | Shrink selection | V |  |
 | f | f |  |
-| Blockwise Insert | gI |  |
-| Move to bottom edge | gj |  |
 | Move to top edge | gk |  |
+| Move to bottom edge | gj |  |
+| Blockwise Insert | gI |  |
 |  | j | v:count == 0 ? 'gj' : 'j' |
 |  | k | v:count == 0 ? 'gk' : 'k' |
 | Paste | p | p:let @+=@0<CR>:let @"=@0<CR> |
 | Substitute Within Selection | sg | :s//gc<Left><Left><Left> |
+| Join arguments | sj |  |
+| Split arguments | sk |  |
 | Leap backward to | sS |  |
 | Leap forward to | ss |  |
-| Split arguments | sk |  |
-| Join arguments | sj |  |
 | Add surrounding | sa |  |
 | t | t |  |
 | Increment selection | v |  |
@@ -399,6 +399,6 @@
 | Leap from windows | SS |  |
 | T | T |  |
 | f | f |  |
-| Leap backward to | sS |  |
 | Leap forward to | ss |  |
+| Leap backward to | sS |  |
 | t | t |  |

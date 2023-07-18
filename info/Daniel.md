@@ -10,13 +10,13 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://www.lunarvim.org](https://www.lunarvim.org)
-
 ### Git repository
 
 [https://github.com/daniel-vera-g/lvim](https://github.com/daniel-vera-g/lvim)
+
+### Website
+
+[https://www.lunarvim.org](https://www.lunarvim.org)
 
 ### Lazy managed plugins
 
@@ -130,19 +130,19 @@
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>YSurround | <SNR>29_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>29_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>29_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>29_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>29_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>29_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>29_dosurround(<SNR>29_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
 |  | <Plug>(bullets-promote) | :BulletPromote<CR> |
 |  | <Plug>(bullets-demote) | :BulletDemote<CR> |
 |  | <Plug>(bullets-toggle-checkbox) | :ToggleCheckbox<CR> |
 |  | <Plug>(bullets-renumber) | :RenumberList<CR> |
-|  | <Plug>(bullets-newline) | :call <SNR>23_insert_new_bullet()<CR> |
+|  | <Plug>(bullets-newline) | :call <SNR>29_insert_new_bullet()<CR> |
+|  | <Plug>YSurround | <SNR>26_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>26_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>26_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>26_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>26_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>26_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
 |  | <Plug>(openbrowser-smart-search) | :<C-U>call openbrowser#_keymap_smart_search('n')<CR> |
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('n')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR> |
@@ -159,10 +159,10 @@
 |  | <F8> | :set spelllang=en spellfile=~/.config/nvim-Daniel/spell/en.utf-8.add spell<CR> |
 |  | <F7> | :set spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add spell<CR> |
 |  | <F6> | :set nospell<CR> |
-|  | <C-Right> | :vertical resize +2<CR> |
 |  | <M-j> | :m .+1<CR>== |
-|  | <C-Left> | :vertical resize -2<CR> |
+|  | <C-Right> | :vertical resize +2<CR> |
 |  | <M-k> | :m .-2<CR>== |
+|  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize -2<CR> |
 |  | <C-Up> | :resize +2<CR> |
 |  | <C-Q> | :call QuickFixToggle()<CR> |
@@ -187,8 +187,8 @@
 |  | gx | <Plug>NetrwBrowseXVis |
 |  | g% | <Plug>(MatchitVisualBackward) |
 |  | gS | <Plug>VgSurround |
-|  | gb |  |
 |  | gc |  |
+|  | gb |  |
 |  | p | "_dP |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
@@ -200,15 +200,15 @@
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('v')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR> |
 |  | <Plug>(openbrowser-open) | :<C-U>call openbrowser#_keymap_open('v')<CR> |
+|  | <Plug>VgSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>(bullets-promote) | :BulletPromoteVisual<CR> |
 |  | <Plug>(bullets-demote) | :BulletDemoteVisual<CR> |
 |  | <Plug>(bullets-renumber) | :RenumberSelection<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <D-v> | <C-R>+ |
 |  | <F5> | :lua require('persistence').load()<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
 |  | <M-k> | :m '<lt>-2<CR>gv-gv |
+|  | <M-j> | :m '>+1<CR>gv-gv |
 
 #### operator mode keymaps
 

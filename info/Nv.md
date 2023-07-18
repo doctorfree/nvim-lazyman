@@ -10,10 +10,6 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://www.lazyvim.org](https://www.lazyvim.org)
-
 ### Git repository
 
 [https://github.com/appelgriebsch/Nv](https://github.com/appelgriebsch/Nv)
@@ -25,6 +21,10 @@
 ### Dotfyle entry
 
 [https://dotfyle.com/appelgriebsch/nv](https://dotfyle.com/appelgriebsch/nv)
+
+### Website
+
+[https://www.lazyvim.org](https://www.lazyvim.org)
 
 ### Lazy managed plugins
 
@@ -120,27 +120,18 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
+| Replace in files (Spectre) |  sr |  |
 | Open Yank History |  p |  |
+| Dismiss all Notifications |  un |  |
+| Projects |  fp |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Replace in files (Spectre) |  sr |  |
-| Adapter Lua Server |  daL |  |
-| Adapter Lua |  dal |  |
-| Debug Class |  dPc |  |
-| Debug Method |  dPt |  |
-| Select VirtualEnv |  cv |  |
+| Delete Buffer (Force) |  bD |  |
+| Delete Buffer |  bd |  |
+| Toggle Breakpoint |  db |  |
+| Breakpoint Condition |  dB |  |
 | Threads |  dwt |  |
 | Scopes |  dws |  |
 | Frames |  dwf |  |
@@ -160,35 +151,52 @@
 | Go to line (no execute) |  dg |  |
 | Run to Cursor |  dC |  |
 | Continue |  dc |  |
-| Toggle Breakpoint |  db |  |
-| Breakpoint Condition |  dB |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Zen Mode |  z |  |
-| Test Request |  ct |  |
-| Preview Request |  cp |  |
-| Mason |  cm |  |
 | Symbols Outline |  cs |  |
-| Dismiss all Notifications |  un |  |
-| Edgy Toggle |  ue |  |
-| Edgy Select Window |  uE |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
+| Select VirtualEnv |  cv |  |
+| Dismiss All |  snd |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
-| Toggle Output Panel |  tO |  |
+| Edgy Select Window |  uE |  |
+| Edgy Toggle |  ue |  |
+| Debug Method |  dPt |  |
+| Debug Class |  dPc |  |
+| Test Request |  ct |  |
+| Preview Request |  cp |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Zen Mode |  z |  |
 | Show Output |  to |  |
 | Toggle Summary |  ts |  |
 | Run Nearest |  tr |  |
 | Run All Test Files |  tT |  |
 | Run File |  tt |  |
 | Stop |  tS |  |
+| Toggle Output Panel |  tO |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Auto Commands |  sa |  |
 | Man Pages |  sM |  |
+| Jump to Mark |  sm |  |
+| Options |  so |  |
+| Resume |  sR |  |
+| Word (root dir) |  sw |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Goto Symbol |  ss |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  sW |  |
 | Key Maps |  sk |  |
-| Find Files (root dir) |    |  |
+| Search Highlight Groups |  sH |  |
 | Help Pages |  sh |  |
 | Grep (cwd) |  sG |  |
 | Grep (root dir) |  sg |  |
@@ -197,51 +205,43 @@
 | Commands |  sC |  |
 | Command History |  sc |  |
 | Buffer |  sb |  |
-| Auto Commands |  sa |  |
+| Find Files (root dir) |    |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
 | Recent |  fr |  |
 | Find Files (cwd) |  fF |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Search Highlight Groups |  sH |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
-| Options |  so |  |
-| Jump to Mark |  sm |  |
-| Projects |  fp |  |
+| Adapter Lua Server |  daL |  |
+| Adapter Lua |  dal |  |
+| Mason |  cm |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
-| Put before and indent left | <lt>P |  |
 | Put and indent left | <lt>p |  |
+| Put before and indent left | <lt>P |  |
 | Put after applying a filter | =p |  |
 | Put before applying a filter | =P |  |
-| Put before and indent right | >P |  |
 | Put and indent right | >p |  |
+| Put before and indent right | >P |  |
 | Put yanked text before cursor | P |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous todo comment | [t |  |
 | Cycle forward through yank history | [y |  |
 | Put indented before cursor (linewise) | [p |  |
 | Put indented before cursor (linewise) | [P |  |
 | Previous trouble/quickfix item | [q |  |
+| Previous todo comment | [t |  |
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next todo comment | ]t |  |
+| Put indented after cursor (linewise) | ]P |  |
 | Cycle backward through yank history | ]y |  |
 | Put indented after cursor (linewise) | ]p |  |
-| Put indented after cursor (linewise) | ]P |  |
 | Next trouble/quickfix item | ]q |  |
+| Next todo comment | ]t |  |
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
@@ -249,11 +249,11 @@
 | Put yanked text after selection | gp |  |
 | Add surrounding | gza |  |
 | Replace surrounding | gzr |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Highlight surrounding | gzh |  |
 | Delete surrounding | gzd |  |
 | Find right surrounding | gzf |  |
+| Highlight surrounding | gzh |  |
 | Find left surrounding | gzF |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |

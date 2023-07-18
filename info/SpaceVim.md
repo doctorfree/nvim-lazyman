@@ -10,13 +10,13 @@ SpaceVim started in December 2016, it is a mature and well supported Neovim conf
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://spacevim.org](https://spacevim.org)
-
 ### Git repository
 
 [https://github.com/doctorfree/spacevim](https://github.com/doctorfree/spacevim)
+
+### Website
+
+[https://spacevim.org](https://spacevim.org)
 
 ### SP (dein) managed plugins
 

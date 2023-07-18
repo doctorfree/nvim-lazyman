@@ -79,12 +79,12 @@ PaK in Farsi means pure, something that is in its purest form
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Tab> | :bn<CR> |
-|  |  n | :NvimTreeFindFile<CR> |
-|  |  r | :NvimTreeRefresh<CR> |
 |  |  bw | <Cmd>BufferOrderByWindowNumber<CR> |
 |  |  bl | <Cmd>BufferOrderByLanguage<CR> |
 |  |  bd | <Cmd>BufferOrderByDirectory<CR> |
 |  |  bb | <Cmd>BufferOrderByBufferNumber<CR> |
+|  |  n | :NvimTreeFindFile<CR> |
+|  |  r | :NvimTreeRefresh<CR> |
 |  |  / | <Cmd>noh<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
@@ -98,7 +98,6 @@ PaK in Farsi means pure, something that is in its purest form
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <C-N> | :NvimTreeToggle<CR> |
 |  | <C-P> | <Cmd>BufferPick<CR> |
 |  | <M-c> | <Cmd>BufferClose<CR> |
 |  | <M-p> | <Cmd>BufferPin<CR> |
@@ -116,6 +115,7 @@ PaK in Farsi means pure, something that is in its purest form
 |  | <M-lt> | <Cmd>BufferMovePrevious<CR> |
 |  | <M-.> | <Cmd>BufferNext<CR> |
 |  | <M-,> | <Cmd>BufferPrevious<CR> |
+|  | <C-N> | :NvimTreeToggle<CR> |
 |  | <C-F> | :lua vim.lsp.buf.format({ async = true})<CR> |
 |  | <C-S> | :w<CR> |
 |  | <C-B> | :bd<CR> |

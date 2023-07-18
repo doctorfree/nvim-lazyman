@@ -10,13 +10,17 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/Traap/nvim](https://github.com/Traap/nvim)
+
 ### Website
 
 [https://www.lazyvim.org](https://www.lazyvim.org)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/Traap/nvim](https://github.com/Traap/nvim)
+[https://www.youtube.com/@traap.](https://www.youtube.com/@traap.)
 
 ### Lazy managed plugins
 
@@ -130,20 +134,18 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Eval |  de |  |
-| Dap UI |  du |  |
+| Breakpoint Condition |  dB |  |
+| Step Over |  dO |  |
+| Up |  dk |  |
+| Down |  dj |  |
 | Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
 | Don't Save Current Session |  qd |  |
-| Replace in files (Spectre) |  sr |  |
-| Up |  dk |  |
-| Down |  dj |  |
-| Breakpoint Condition |  dB |  |
-| Step Over |  dO |  |
-| Dismiss all Notifications |  un |  |
-| Find Files (root dir) |    |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Oil buffer |  no |  |
 | Options |  so |  |
 | Jump to Mark |  sm |  |
 | Man Pages |  sM |  |
@@ -162,26 +164,28 @@
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
 | Switch Buffer |  , |  |
-| Word (cwd) |  sW |  |
+| Find Files (root dir) |    |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Oil buffer |  no |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Delete Buffer (Force) |  bD |  |
+| Delete Buffer |  bd |  |
+| Replace in files (Spectre) |  sr |  |
 |  |  Tm |  |
 |  |  Tl |  |
 |  |  Tb |  |
 |  |  Tr |  |
+| Dismiss all Notifications |  un |  |
 |  |  cm |  |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
 |  |  oz | <Cmd>lua require("zen-mode").toggle()<CR> |
 |  |  lx | <Plug>(vimtex-reload) |
 |  |  lv | <Plug>(vimtex-view) |
@@ -281,12 +285,12 @@
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Prev Reference | [[ |  |
-| Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Previous todo comment | [t |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next Reference | ]] |  |
-| Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Next todo comment | ]t |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 |  | ga | <Plug>(EasyAlign) |
 | Flash | s |  |
@@ -298,15 +302,15 @@
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Increment selection | <C-Space> |  |
+|  | <M-6> |  |
+|  | <M-5> |  |
 |  | <M-4> |  |
 |  | <M-3> |  |
 |  | <M-2> |  |
 |  | <M-1> |  |
 |  | <M-8> |  |
 |  | <M-7> |  |
-|  | <M-6> |  |
-|  | <M-5> |  |
+| Increment selection | <C-Space> |  |
 |  | <C-N> | <Cmd>Neotree toggle<CR> |
 |  | <F12> | <Cmd>lua require("dap").step_out()<CR> |
 |  | <F11> | <Cmd>lua require("dap").step_into()<CR> |

@@ -7,13 +7,17 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/adibhanna/lvim-config](https://github.com/adibhanna/lvim-config)
+
 ### Website
 
 [https://www.lunarvim.org](https://www.lunarvim.org)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/adibhanna/lvim-config](https://github.com/adibhanna/lvim-config)
+[https://www.youtube.com/@adibhanna](https://www.youtube.com/@adibhanna)
 
 ### Lazy managed plugins
 
@@ -113,9 +117,9 @@
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
 |  | <C-T> |  |
-|  | <C-U> | <C-U>zz |
-|  | <C-S> | :w<CR> |
 |  | <C-D> | <C-D>zz |
+|  | <C-S> | :w<CR> |
+|  | <C-U> | <C-U>zz |
 |  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <M-Tab> | <C-6> |
@@ -123,15 +127,15 @@
 |  | <M-h> | <C-W>h |
 |  | <C-Space> | <Cmd>WhichKey \ <CR> |
 |  | <M-j> | <C-W>j |
-|  | <C-K> | <C-W>k |
-|  | <M-k> | <C-W>k |
-|  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
+|  | <M-k> | <C-W>k |
 |  | <C-Right> | :vertical resize +2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize +2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Up> | :resize -2<CR> |
+|  | <C-K> | <C-W>k |
+|  | <C-J> | <C-W>j |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -152,8 +156,8 @@
 |  | g% | <Plug>(MatchitVisualBackward) |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |

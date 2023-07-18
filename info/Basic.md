@@ -14,6 +14,10 @@ Starter config by the author of NvChad with [video tutorial](https://youtube.com
 
 [https://github.com/NvChad/basic-config](https://github.com/NvChad/basic-config)
 
+### YouTube channel
+
+[https://www.youtube.com/@siduck_og](https://www.youtube.com/@siduck_og)
+
 ### Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)

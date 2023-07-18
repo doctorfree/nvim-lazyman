@@ -305,48 +305,28 @@ require(‘core.utils.functions’).toggle_colorcolumn()<CR></td>
 <td>:%s/</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>gM</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>z</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>w</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>d</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Toggle Filetree</td>
 <td>fp</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Open file</td>
-<td>ff</td>
+<td></td>
+<td>w</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Zoxide</td>
-<td>fz</td>
+<td></td>
+<td>d</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Filebrowser</td>
-<td>fb</td>
+<td></td>
+<td>gM</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Commits</td>
-<td>gm</td>
+<td></td>
+<td>z</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -447,6 +427,26 @@ require(‘core.utils.functions’).toggle_colorcolumn()<CR></td>
 <tr class="odd">
 <td>Open file (ignore git)</td>
 <td>fF</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open file</td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Zoxide</td>
+<td>fz</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Filebrowser</td>
+<td>fb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Commits</td>
+<td>gm</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -581,37 +581,6 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><Plug>fugitive:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-J></td>
-<td><Cmd>lua require(‘Navigator’).down()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-K></td>
-<td><Cmd>lua require(‘Navigator’).up()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-H></td>
-<td><Cmd>lua require(‘Navigator’).left()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
 <td>Git Conflict: Previous Conflict</td>
 <td><Plug>(git-conflict-prev-conflict)</td>
 <td><Cmd>GitConflictPrevConflict<CR></td>
@@ -642,9 +611,40 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Cmd>GitConflictChooseOurs<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><C-J></td>
+<td><Cmd>lua require(‘Navigator’).down()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><Cmd>lua require(‘Navigator’).up()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td><Cmd>lua require(‘Navigator’).left()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
 <td>Toggle Terminal</td>
 <td><C-N></td>
 <td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td>Search in buffer</td>

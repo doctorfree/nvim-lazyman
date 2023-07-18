@@ -10,13 +10,13 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
-### Website
-
-[https://astronvim.com](https://astronvim.com)
-
 ### Git repository
 
 [https://github.com/A-Lamia/AstroNvim-conf](https://github.com/A-Lamia/AstroNvim-conf)
+
+### Website
+
+[https://astronvim.com](https://astronvim.com)
 
 ### Lazy managed plugins
 
@@ -115,72 +115,93 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Tab> |  |
+| Toggle wrap |  uw |  |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Toggle spellcheck |  us |  |
+| Toggle CodeLens |  uL |  |
+| Toggle statusline |  ul |  |
+| Change indent setting |  ui |  |
+| Toggle diagnostics |  ud |  |
+| Toggle autocompletion |  uc |  |
 | Mason Installer |  pm | <Cmd>Mason<CR> |
-| Conditional Breakpoint (S-F9) |  dC |  |
-| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Step Into (F11) |  di |  |
-| Step Out (S-F11) |  dO |  |
-| Close Session |  dq |  |
-| Terminate Session (S-F5) |  dQ |  |
-| Plugins Update |  pU |  |
-| Pause (F6) |  dp |  |
-| Find words in all files |  fW |  |
-| Restart (C-F5) |  dr |  |
 | Toggle REPL |  dR |  |
-| Run To Cursor |  ds |  |
-| Evaluate Input |  dE |  |
-| Toggle Debugger UI |  du |  |
-| ToggleTerm btm |  tt |  |
-| Debugger Hover |  dh |  |
-| Search symbols |  ls |  |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Plugins Install |  pi |  |
+| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
+| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
+| Find marks |  f' |  |
+| Find registers |  fr |  |
+| Close all buffers |  bC |  |
+| ToggleTerm python |  tp |  |
 | Symbols outline |  lS |  |
 | Git branches |  gb |  |
+| Plugins Update |  pU |  |
 | Git commits (repository) |  gc |  |
 | Git commits (current file) |  gC |  |
-| Find notifications |  fn |  |
-| Find registers |  fr |  |
-| Find words |  fw |  |
-| Toggle autopairs |  ua |  |
-| Step Over (F10) |  do |  |
-| Clear Breakpoints |  dB |  |
-| Find themes |  ft |  |
-| Toggle background |  ub |  |
-| Find man |  fm |  |
-| Toggle autocompletion |  uc |  |
-| Find history |  fo |  |
-| Start/Continue (F5) |  dc |  |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
-| Toggle diagnostics |  ud |  |
+| Git status |  gt |  |
+| Resume previous search |  f<CR> |  |
 | Toggle Aerial |  u1 | <Cmd>AerialToggle<CR> |
-| Toggle signcolumn |  ug |  |
+| Find words in current buffer |  f/ |  |
+| Find AstroNvim config files |  fa |  |
+| Find buffers |  fb |  |
+| Find word under cursor |  fc |  |
+| Find commands |  fC |  |
+| Find files |  ff |  |
+| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
+| Find all files |  fF |  |
+| Find help |  fh |  |
+| Find keymaps |  fk |  |
+| Toggle tabline |  ut |  |
+| Find man |  fm |  |
+| Toggle background |  ub |  |
+| Find notifications |  fn |  |
 | ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
-| Change indent setting |  ui |  |
-| Toggle statusline |  ul |  |
-| Toggle CodeLens |  uL |  |
+| Find history |  fo |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Find themes |  ft |  |
+| Find words |  fw |  |
+| Find words in all files |  fW |  |
+| Toggle signcolumn |  ug |  |
+| Search symbols |  ls |  |
+| ToggleTerm lazygit |  gg |  |
+| ToggleTerm lazygit |  tl |  |
+| ToggleTerm node |  tn |  |
+| ToggleTerm gdu |  tu |  |
+| ToggleTerm btm |  tt |  |
 | Change line numbering |  un |  |
 | Toggle Notifications |  uN |  |
 | Toggle paste mode |  up |  |
-| Toggle spellcheck |  us |  |
+| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
 | Toggle conceal |  uS |  |
-| Toggle tabline |  ut |  |
 | Toggle URL highlight |  uu |  |
-| Toggle wrap |  uw |  |
 | Toggle syntax highlight |  uy |  |
+| Toggle autopairs |  ua |  |
 | Toggle foldcolumn |  uh |  |
+| Toggle Breakpoint (F9) |  db |  |
+| Clear Breakpoints |  dB |  |
+| Start/Continue (F5) |  dc |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Step Into (F11) |  di |  |
+| Step Over (F10) |  do |  |
+| Step Out (S-F11) |  dO |  |
+| Close Session |  dq |  |
+| Terminate Session (S-F5) |  dQ |  |
+| Pause (F6) |  dp |  |
+| Restart (C-F5) |  dr |  |
 | Save |  w | <Cmd>w<CR> |
+| Run To Cursor |  ds |  |
 | Quit |  q | <Cmd>confirm q<CR> |
-| Plugins Install |  pi |  |
+| Evaluate Input |  dE |  |
+| Toggle Debugger UI |  du |  |
+| Debugger Hover |  dh |  |
+| Close buffer |  c |  |
+| Force close buffer |  C |  |
 | Plugins Status |  ps |  |
 | Plugins Sync |  pS |  |
 | Plugins Check Updates |  pu |  |
-| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
-| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
-| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
-| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
-| Close buffer |  c |  |
-| Force close buffer |  C |  |
 | Close all buffers except current |  bc |  |
-| Close all buffers |  bC |  |
+| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
 | Select buffer from tabline |  bb |  |
 | Close buffer from tabline |  bd |  |
 | Close all buffers to the left |  bl |  |
@@ -189,22 +210,11 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | By extension |  bse |  |
 | By relative path |  bsr |  |
 | By full path |  bsp |  |
-| Git status |  gt |  |
 | By buffer number |  bsi |  |
-| Resume previous search |  f<CR> |  |
 | By modification |  bsm |  |
-| Find marks |  f' |  |
 | Horizontal split buffer from tabline |  b\ |  |
-| Find AstroNvim config files |  fa |  |
 | Vertical split buffer from tabline |  b| |  |
-| Find buffers |  fb |  |
-| Find for word under cursor |  fc |  |
-| Find commands |  fC |  |
-| Find files |  ff |  |
 | Toggle comment line |  / |  |
-| Find all files |  fF |  |
-| Find help |  fh |  |
-| Find keymaps |  fk |  |
 | View Git blame |  gl |  |
 | View full Git blame |  gL |  |
 | Preview Git hunk |  gp |  |
@@ -214,24 +224,15 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Stage Git buffer |  gS |  |
 | Unstage Git hunk |  gu |  |
 | View Git diff |  gd |  |
-| ToggleTerm lazygit |  gg |  |
 | Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
-| ToggleTerm lazygit |  tl |  |
-| ToggleTerm node |  tn |  |
 | Toggle Explorer Focus |  o |  |
-| ToggleTerm gdu |  tu |  |
 | Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
 | Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
-| ToggleTerm python |  tp |  |
 | Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
 | Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
-| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
-| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
-| Toggle Breakpoint (F9) |  db |  |
 |  |  r |  |
-|  |  a |  |
 | New File |  n | <Cmd>enew<CR> |
+|  |  a |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Move buffer tab left | <lt>b |  |
@@ -257,8 +258,8 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 |  | gF | :<C-U>call fetch#cfile(v:count1)<CR> |
 | Grapple tag popup menu | gp | :GrapplePopup tags<CR> |
 | Tags current buffer | gt | :GrappleToggle<CR> |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 | Next search with center and unfold | n |  |
@@ -266,54 +267,54 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 |  | sh |  |
 |  | sj |  |
 |  | t |  |
-|  | yre | yie:s/\C\<lt><C-R>0\>/ |
 |  | yrw | yiw:s/\C\<lt><C-R>0\>/ |
-|  | yrE | yiE:s/\C\<lt><C-R>0\>/ |
 |  | yrW | yiW:s/\C\<lt><C-R>0\>/ |
+|  | yrE | yiE:s/\C\<lt><C-R>0\>/ |
+|  | yre | yie:s/\C\<lt><C-R>0\>/ |
+| Fold less | zr |  |
 | Open all folds | zR |  |
 | Close all folds | zM |  |
-| Fold less | zr |  |
 | Fold more | zm |  |
 | Peek fold | zp |  |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Debugger: Stop | <F17> |  |
+| Debugger: Toggle Breakpoint | <F9> |  |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
 | Move to left split | <C-H> |  |
+| Resize split up | <C-Up> |  |
 | Resize split down | <C-Down> |  |
+| Resize split left | <C-Left> |  |
 | Resize split right | <C-Right> |  |
+|  | <M-o> | o<Esc> |
+| Move to above split | <C-K> |  |
+| Force write | <C-S> | <Cmd>w!<CR> |
+| Next buffer | <M-l> |  |
+| Previous buffer | <M-h> |  |
+|  | <M-O> | O<Esc> |
 |  | <F2> | y:%s/<C-R>0/ |
 |  | <F2><F2> | y:%s/<C-R>0/ |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
-| Move to above split | <C-K> |  |
-| Debugger: Step Into | <F11> |  |
-| Resize split left | <C-Left> |  |
-| Resize split up | <C-Up> |  |
-| Debugger: Toggle Breakpoint | <F9> |  |
-|  | <M-o> | o<Esc> |
-| Debugger: Restart | <F29> |  |
-|  | <C-U> | <C-U>zz |
-| Move to below split | <C-J> |  |
-| Previous buffer | <M-h> |  |
 |  | <C-D> | <C-D>zz |
-| Next buffer | <M-l> |  |
-|  | <M-O> | O<Esc> |
-| Force quit | <C-Q> | <Cmd>q!<CR> |
-| Force write | <C-S> | <Cmd>w!<CR> |
+| Debugger: Start | <F5> |  |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Debugger: Stop | <F17> |  |
 | Debugger: Conditional Breakpoint | <F21> |  |
+| Debugger: Restart | <F29> |  |
 | Debugger: Pause | <F6> |  |
 | Debugger: Step Over | <F10> |  |
+| Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
-| Debugger: Start | <F5> |  |
+| Force quit | <C-Q> | <Cmd>q!<CR> |
+| Move to below split | <C-J> |  |
+|  | <C-U> | <C-U>zz |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <F3> |  |
 |  | <F3><F3> |  |
-|  | <C-F> |  |
+|  | <F3> |  |
 |  | <C-S-P> |  |
 |  | <C-P> |  |
+|  | <C-F> |  |
 | Move to right split | <C-L> |  |
 
 #### visual mode keymaps
@@ -321,8 +322,8 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Indent line | <Tab> | >gv |
-| Evaluate Input |  dE |  |
 | Toggle comment for selection |  / | <Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR> |
+| Evaluate Input |  dE |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
@@ -338,9 +339,9 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Comment toggle linewise | gc |  |
 |  | r | y:s/\C\<lt><C-R>0\>/ |
 |  | t |  |
-| Unindent line | <S-Tab> | <lt>gv |
 |  | <F2><F2> | '<lt>'>s/\C<C-R>0/ |
 |  | <F2> | '<lt>'>%s/\C<C-R>0/ |
+| Unindent line | <S-Tab> | <lt>gv |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |

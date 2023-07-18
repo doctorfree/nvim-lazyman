@@ -181,6 +181,26 @@ Configure Neovim as a modernized development environment. Details described in [
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Manage Plugins |  zz | <Cmd>:Lazy<CR> |
+| Debug Cleanup |  rc |  |
+| Debug Print Variable |  rp |  |
+| Debug Print |  rP |  |
+| Extract Block to File |  rf |  |
+| Extract Block |  rb |  |
+| Inline Variable |  ri |  |
+| Search and Replace (Spectre) |  sr |  |
+| Rename Buffer |  Dr |  |
+| Find Buffer |  Df |  |
+| Toggle UI |  Dt |  |
+| Last Query Info |  Dq |  |
+| Notation |  nn |  |
+| Terminal #2 |  0 |  |
+| Status |  gs |  |
+| Document Diagnostics |  ld |  |
+| Workspace Diagnostics |  lD |  |
+| Code Outline (navbuddy) |  vO |  |
+| Summary |  tNS |  |
+| Stop |  tNs |  |
+| Output |  tNo |  |
 | Debug Nearest |  tNN |  |
 | Nearest |  tNn |  |
 | Last |  tNl |  |
@@ -188,107 +208,15 @@ Configure Neovim as a modernized development environment. Details described in [
 | Attach |  tNa |  |
 | Debug Last |  tNL |  |
 | Debug File |  tNF |  |
-| Summary |  tNS |  |
-| Stop |  tNs |  |
-| Output |  tNo |  |
-| Quick Action |  toq |  |
-| Open |  too |  |
-| Run |  tor |  |
-| Toggle |  tot |  |
-| Save Bundle |  tos |  |
-| Load Bundle |  tol |  |
-| Delete Bundle |  tod |  |
-| Close |  toc |  |
-| Build |  tob |  |
-| Task Action |  toa |  |
-| Run Command |  toR |  |
-| Debug Cleanup |  rc |  |
-| Debug Print Variable |  rp |  |
-| Debug Print |  rP |  |
-| Extract Block to File |  rf |  |
-| Extract Block |  rb |  |
-| Inline Variable |  ri |  |
-| Code Outline (navbuddy) |  vO |  |
-| Open Yank History |  zp |  |
-| Send Until Cursor |  xt |  |
-| Send Line |  xl |  |
-| Send Motion |  xs |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
-| Focus |  xF |  |
-| Restart |  xS |  |
-| REPL |  xR |  |
-| Remove Mark |  xmr |  |
-| Mark Motion |  xmm |  |
-| Send Mark |  xms |  |
-| Clear |  xc |  |
-| Close REPL |  xC |  |
-| Interrupt |  xI |  |
-| ENTER |  x<CR> |  |
-| Send File |  xf |  |
-| +Color |  zC |  |
-| Toggle Highlighter |  zCh |  |
-| Convert |  zCc |  |
-| Pick |  zCp |  |
-| Status |  gs |  |
-| Command Palette |  hc |  |
-| Command Menu |  jc |  |
-| File Menu |  jm |  |
-| Add File |  ja |  |
-| Command 2 |  6 |  |
-| Command 1 |  5 |  |
-| Terminal 2 |  4 |  |
-| Terminal 1 |  3 |  |
-| File 2 |  2 |  |
-| File 1 |  1 |  |
-| Edit with Instructions |  ae |  |
-| Chat |  aa |  |
-| Complete Code |  ac |  |
-| Generate Git Message |  ag |  |
-| Summarize Text |  as |  |
-| Mason |  lm |  |
-| Select VirtualEnv |  lv |  |
-| Find Buffer |  Df |  |
-| Toggle UI |  Dt |  |
-| Last Query Info |  Dq |  |
-| Rename Buffer |  Dr |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Visit |  tv |  |
-| Suite |  ts |  |
-| Nearest |  tn |  |
-| Last |  tl |  |
-| File |  tf |  |
-| Class |  tc |  |
+| ToDo (Trouble) |  lt |  |
+| ToDo |  lT |  |
+| Function |  lgf |  |
+| Class |  lgc |  |
+| Annotation |  lgd |  |
+| Type |  lgt |  |
 | Explorer (Current Directory) |  fe |  |
 | Explorer (Current File) |  fE |  |
 | Toggle Zoom |  vz |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Close Buffer |  bc |  |
-| Reload Buffer |  br |  |
-| Find Files |  ff |  |
-| Code Outline |  vo |  |
-| Colorscheme |  zc |  |
-| Find Files |    |  |
-| Buffer |  sb |  |
-| Snippets |  ss |  |
-| Workspace |  sw |  |
-| List |  pp |  |
-| Search |  hs |  |
-| Search |  ps |  |
-| Search Plugins |  zs |  |
-| Conventional Commits |  gc |  |
-| Browser |  fr |  |
-| Buffers |  fb |  |
-| Recent |  fo |  |
-| Toggle Split/Join |  lj |  |
-| Node Action |  ln |  |
-| Notation |  nn |  |
-| Search and Replace (Spectre) |  sr |  |
-| Continue |  dc |  |
 | Step Back |  db |  |
 | Toggle UI |  dU |  |
 | Conditional Breakpoint |  dC |  |
@@ -309,23 +237,95 @@ Configure Neovim as a modernized development environment. Details described in [
 | Get Session |  dg |  |
 | Evaluate |  de |  |
 | Disconnect |  dd |  |
-| Edgy Select Window |  zE |  |
-| Edgy Toggle |  ze |  |
-| Toggle Minimap |  vm |  |
-| Terminal #2 |  0 |  |
-| Annotation |  lgd |  |
-| Type |  lgt |  |
-| Function |  lgf |  |
-| Class |  lgc |  |
-| Document Diagnostics |  ld |  |
-| Workspace Diagnostics |  lD |  |
-| Search and Replace (SSR) |  sR |  |
-| ToDo |  lT |  |
-| ToDo (Trouble) |  lt |  |
-| Preview |  np |  |
+| Continue |  dc |  |
+| Close Buffer |  bc |  |
+| Reload Buffer |  br |  |
+| Delete Buffer (Force) |  bD |  |
+| Delete Buffer |  bd |  |
+| Open Yank History |  zp |  |
 | Forward jump |  nj |  |
 | Toggle Preview |  nt |  |
 | Close Preview |  nc |  |
+| Preview |  np |  |
+| Edit with Instructions |  ae |  |
+| Complete Code |  ac |  |
+| Chat |  aa |  |
+| Command Palette |  hc |  |
+| Select VirtualEnv |  lv |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
+| Hide |  xH |  |
+| Focus |  xF |  |
+| Restart |  xS |  |
+| REPL |  xR |  |
+| Remove Mark |  xmr |  |
+| Mark Motion |  xmm |  |
+| Send Mark |  xms |  |
+| Clear |  xc |  |
+| Close REPL |  xC |  |
+| Interrupt |  xI |  |
+| ENTER |  x<CR> |  |
+| Send File |  xf |  |
+| Send Until Cursor |  xt |  |
+| Send Line |  xl |  |
+| Send Motion |  xs |  |
+| Pick |  zCp |  |
+| +Color |  zC |  |
+| Toggle Highlighter |  zCh |  |
+| Convert |  zCc |  |
+| Toggle Minimap |  vm |  |
+| Run |  tor |  |
+| Quick Action |  toq |  |
+| Open |  too |  |
+| Load Bundle |  tol |  |
+| Delete Bundle |  tod |  |
+| Close |  toc |  |
+| Build |  tob |  |
+| Task Action |  toa |  |
+| Run Command |  toR |  |
+| Toggle |  tot |  |
+| Save Bundle |  tos |  |
+| Search and Replace (SSR) |  sR |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Command 2 |  6 |  |
+| Command 1 |  5 |  |
+| Terminal 2 |  4 |  |
+| Terminal 1 |  3 |  |
+| File 2 |  2 |  |
+| File 1 |  1 |  |
+| Command Menu |  jc |  |
+| File Menu |  jm |  |
+| Add File |  ja |  |
+| Mason |  lm |  |
+| Colorscheme |  zc |  |
+| Code Outline |  vo |  |
+| Buffer |  sb |  |
+| Snippets |  ss |  |
+| Workspace |  sw |  |
+| List |  pp |  |
+| Search |  hs |  |
+| Search |  ps |  |
+| Search Plugins |  zs |  |
+| Conventional Commits |  gc |  |
+| Browser |  fr |  |
+| Buffers |  fb |  |
+| Recent |  fo |  |
+| Find Files |  ff |  |
+| Find Files |    |  |
+| Edgy Select Window |  zE |  |
+| Edgy Toggle |  ze |  |
+| Toggle Split/Join |  lj |  |
+| Node Action |  ln |  |
+| Suite |  ts |  |
+| Nearest |  tn |  |
+| Last |  tl |  |
+| File |  tf |  |
+| Class |  tc |  |
+| Visit |  tv |  |
+| Generate Git Message |  ag |  |
+| Summarize Text |  as |  |
 |  |   |  |
 |  | # |  |
 | Nvim builtin | & | :&&<CR> |
@@ -340,28 +340,27 @@ Configure Neovim as a modernized development environment. Details described in [
 | Put yanked text before cursor | P |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
-| Put indented before cursor (linewise) | [P |  |
+| Previous ToDo | [t |  |
 | Cycle forward through yank history | [y |  |
 | Put indented before cursor (linewise) | [p |  |
-| Previous ToDo | [t |  |
-| Put indented after cursor (linewise) | ]P |  |
+| Put indented before cursor (linewise) | [P |  |
+| Next ToDo | ]t |  |
 | Cycle backward through yank history | ]y |  |
 | Put indented after cursor (linewise) | ]p |  |
-| Next ToDo | ]t |  |
+| Put indented after cursor (linewise) | ]P |  |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Put yanked text before selection | gP |  |
 | Put yanked text after selection | gp |  |
+| Put yanked text before selection | gP |  |
+|  | g# |  |
+|  | g* |  |
+|  | gc |  |
 |  | gbc |  |
 |  | gcc |  |
-|  | gc |  |
-|  | g* |  |
-|  | g# |  |
 |  | n |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |
-| Peek Fold | zp |  |
 |  | zc |  |
 |  | zo |  |
 |  | zC |  |
@@ -372,35 +371,36 @@ Configure Neovim as a modernized development environment. Details described in [
 | Open All Folds | zR |  |
 | Close All Folds | zM |  |
 | Close Folds With | zm |  |
+| Peek Fold | zp |  |
 | Decrement | <C-X> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 | Increment | <C-A> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Previous Cell | <M-k> |  |
-| Next Cell | <M-j> |  |
-| Delete Cell | <M-x> |  |
-| Execute Cell | <M-e> |  |
+|  | <C-Bslash> |  |
 | Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
 | Legendary | <C-S-P> |  |
-|  | <C-Bslash> |  |
+| Execute Cell | <M-e> |  |
+| Previous Cell | <M-k> |  |
+| Next Cell | <M-j> |  |
+| Delete Cell | <M-x> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Evaluate |  de |  |
 | Search and Replace (SSR) |  sR |  |
+| Evaluate |  de |  |
 | Clear Highlight |  xL |  |
-| Send |  xs |  |
 | Mark Visual |  xmv |  |
-| Refactor |  rs |  |
+| Send |  xs |  |
 | Debug Print Variable |  rp |  |
 | Extract Variable |  rx |  |
 | Extract Function to File |  rF |  |
 | Extract Function |  rf |  |
 | Inline Variable |  ri |  |
+| Refactor |  rs |  |
 | Complete Code |  ac |  |
 | Edit with Instructions |  ae |  |
 |  |   |  |
@@ -415,9 +415,9 @@ Configure Neovim as a modernized development environment. Details described in [
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
 | Put yanked text before selection | gP |  |
 | Put yanked text after selection | gp |  |
-|  | gcc |  |
 |  | gc |  |
 |  | gbc |  |
+|  | gcc |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |

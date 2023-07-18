@@ -10,13 +10,17 @@
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
+### Git repository
+
+[https://github.com/dreamsofcode-io/neovim-python](https://github.com/dreamsofcode-io/neovim-python)
+
 ### Website
 
 [https://nvchad.com](https://nvchad.com)
 
-### Git repository
+### YouTube channel
 
-[https://github.com/dreamsofcode-io/neovim-python](https://github.com/dreamsofcode-io/neovim-python)
+[https://www.youtube.com/@dreamsofcode](https://www.youtube.com/@dreamsofcode)
 
 ### Lazy managed plugins
 
@@ -65,10 +69,10 @@
 |  | ` |  |
 |  | c |  |
 |  | g |  |
-| Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
 | Comment toggle current block | gbc |  |
+| Comment toggle current line | gcc |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 

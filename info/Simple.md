@@ -14,6 +14,10 @@ A remarkably effective Neovim configuration in only one small file. The author's
 
 [https://github.com/anthdm/.nvim](https://github.com/anthdm/.nvim)
 
+### YouTube channel
+
+[https://www.youtube.com/@anthonygg_](https://www.youtube.com/@anthonygg_)
+
 ### Packer managed plugins
 
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)

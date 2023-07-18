@@ -42,7 +42,6 @@ The personal Neovim configuration of Richard Ariza
 - [adelarsq/image_preview.nvim](https://github.com/adelarsq/image_preview.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- [tamago324/lir.nvim](https://github.com/tamago324/lir.nvim.git)
 - [ldelossa/litee.nvim](https://github.com/ldelossa/litee.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -67,7 +66,6 @@ The personal Neovim configuration of Richard Ariza
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [RchrdAlv/pulpFictionNvim-Theme](https://github.com/RchrdAlv/pulpFictionNvim-Theme.git)
 - [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
@@ -128,22 +126,6 @@ The personal Neovim configuration of Richard Ariza
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
-| Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
-| Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
-| Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
-| Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
-| Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <Plug>YSurround | <SNR>19_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>19_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>19_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>19_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>19_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>19_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>19_dosurround(<SNR>19_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
@@ -152,7 +134,23 @@ The personal Neovim configuration of Richard Ariza
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
+| Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
+| Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
+| Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
+| Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
+| Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
+| Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>YSurround | <SNR>8_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>8_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>8_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>8_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>8_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>8_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>8_dosurround(<SNR>8_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -178,11 +176,11 @@ The personal Neovim configuration of Richard Ariza
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>VgSurround | :<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>11_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>VgSurround | :<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
 
 #### operator mode keymaps
 

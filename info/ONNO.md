@@ -94,17 +94,13 @@ One of the primary inspirations for Lazyman
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Select Moonokai pro filter |  c | <Cmd>MonokaiProSelect<CR> |
-| Delete all Notifications |  n |  |
+| Checkout commit |  gc |  |
 | Find Text |  F |  |
 | Find files |  f |  |
-| Checkout commit |  gc |  |
-| Open changed file |  go |  |
 | Checkout branch |  gb |  |
-| Restore Last Session |  sl |  |
-| Restore Session |  ss |  |
-| Don't Save Current Session |  sd |  |
-| Close Buffer |  d |  |
-| Peek (Markdown Preview) |  p |  |
+| Open changed file |  go |  |
+| Zoom window |  m |  |
+| Format and Save |  W |  |
 | Workspace Symbols |  lS |  |
 | Document Symbols |  ls |  |
 | Rename |  lr |  |
@@ -117,7 +113,11 @@ One of the primary inspirations for Lazyman
 | Workspace Diagnostics |  lw |  |
 | Document Diagnostics |  ld |  |
 | Code Action |  la |  |
-| Format and Save |  W |  |
+| Open file manager |  r |  |
+| Dashboard |  0 |  |
+| Prev Hunk |  gk |  |
+| Next Hunk |  gj |  |
+| Lazygit |  gg |  |
 | Diff |  gd |  |
 | Undo Stage Hunk |  gu |  |
 | Stage Hunk |  gs |  |
@@ -125,14 +125,14 @@ One of the primary inspirations for Lazyman
 | Reset Hunk |  gr |  |
 | Preview Hunk |  gp |  |
 | Blame |  gl |  |
-| Prev Hunk |  gk |  |
-| Next Hunk |  gj |  |
-| Lazygit |  gg |  |
-| Open file manager |  r |  |
-| Explorer (root dir) |  e |  |
+| Delete all Notifications |  n |  |
 | Explorer Float (root dir) |  E |  |
-| Zoom window |  m |  |
-| Dashboard |  0 |  |
+| Explorer (root dir) |  e |  |
+| Restore Session |  ss |  |
+| Don't Save Current Session |  sd |  |
+| Restore Last Session |  sl |  |
+| Close Buffer |  d |  |
+| Peek (Markdown Preview) |  p |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
@@ -140,41 +140,41 @@ One of the primary inspirations for Lazyman
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next Reference | ]] |  |
-| Toggle fold under cursor | fa |  |
-| Close all folds | fM |  |
-| Open all folds under cursor | fO |  |
-| Open all folds | fR |  |
-| Half screen to the left | fH |  |
-| Right this line | fe |  |
-| Fold more | fm |  |
-| Half screen to the right | fL |  |
-| Left this line | fs |  |
-| Fold less | fr |  |
 | Mark word as bad/misspelling | fw |  |
-| Delete all folds in current buffer | fE |  |
 | Update folds | fx |  |
 | Delete fold under cursor | fd |  |
+| Right this line | fe |  |
 | Center this line | fz |  |
 | Open fold under cursor | fo |  |
-| Top this line | ft |  |
+| Delete all folds in current buffer | fE |  |
+| Left this line | fs |  |
+| Open all folds under cursor | fO |  |
 | Bottom this line | fb |  |
 | Close all folds under cursor | fc |  |
-| Add word to spell list | fg |  |
+| Top this line | ft |  |
+| Toggle fold under cursor | fa |  |
 | Toggle all folds under cursor | fA |  |
 | Show cursor line | fv |  |
+| Close all folds | fM |  |
+| Open all folds | fR |  |
+| Half screen to the left | fH |  |
+| Add word to spell list | fg |  |
+| Fold more | fm |  |
+| Half screen to the right | fL |  |
+| Fold less | fr |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Go to definition | gd |  |
 | Go to references | gr |  |
 | Go to implementations | gi |  |
-| Find Help | sh |  |
+| Man Pages | sM |  |
+| Open Recent File | sr |  |
 | Registers | sR |  |
 | Keymaps | sk |  |
 | Commands | sC |  |
 | Highlight Groups | sH |  |
 | Checkout branch | sb |  |
-| Man Pages | sM |  |
 | Colorscheme | sc |  |
-| Open Recent File | sr |  |
+| Find Help | sh |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
