@@ -14,7 +14,7 @@ nvims - Open Neovim using a fuzzy search/selection of a Lazyman installed config
 
 ## SYNOPSIS
 
-nvims [-c command] [-C filter] [-R] [-S file] [-U] [file1 [file2] ...]
+nvims [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] ...]
 
 Where:
 
@@ -31,11 +31,13 @@ See `~/.config/nvim-Lazyman/.lazymanrc`.
 Similarly, a `neovides` shell function can be used to select a Neovim
 configuration for use with the Neovim GUI `neovide`.
 
-Both the `nvims` shell function and `neovides` shell function accept a
-`-R` flag which indicates removal of the selected Neovim configuration.
-Also supported is the `-C filter` option to `nvims` and `neovides` which
+Both the `nvims` shell function and `neovides` shell function accept
+command line arguments. The `-R` flag indicates removal of the selected
+Neovim configuration. The `-C filter` option to `nvims` and `neovides`
 specifies a filter string to match when generating the list of Neovim
-configurations to search and select.
+configurations to search and select. The `-I` flag indicates display
+the selected configuration information document. Additional command
+line arguments are described below.
 
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command `lazyman -S`. Note also that both the `nvims`
@@ -130,6 +132,8 @@ The following command line options are available with `nvims` and `neovides`:
 `-c command` : specifies an `Ex` command to be executed after the first file has been read
 
 `-C filter` : specifies a filter to use when generating the list of configurations to select from
+
+`-I` : indicates display of the selected Neovim configuration information document
 
 `-R` : indicates removal of the selected Neovim configurations
 

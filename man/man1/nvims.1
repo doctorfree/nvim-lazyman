@@ -23,7 +23,8 @@ nvims - Open Neovim using a fuzzy search/selection of a Lazyman
 installed configuration
 .SS SYNOPSIS
 .PP
-nvims [-c command] [-C filter] [-R] [-S file] [-U] [file1 [file2] ...]
+nvims [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2]
+\&...]
 .PP
 Where:
 .SS DESCRIPTION
@@ -41,11 +42,15 @@ Similarly, a \f[V]neovides\f[R] shell function can be used to select a
 Neovim configuration for use with the Neovim GUI \f[V]neovide\f[R].
 .PP
 Both the \f[V]nvims\f[R] shell function and \f[V]neovides\f[R] shell
-function accept a \f[V]-R\f[R] flag which indicates removal of the
-selected Neovim configuration.
-Also supported is the \f[V]-C filter\f[R] option to \f[V]nvims\f[R] and
-\f[V]neovides\f[R] which specifies a filter string to match when
-generating the list of Neovim configurations to search and select.
+function accept command line arguments.
+The \f[V]-R\f[R] flag indicates removal of the selected Neovim
+configuration.
+The \f[V]-C filter\f[R] option to \f[V]nvims\f[R] and \f[V]neovides\f[R]
+specifies a filter string to match when generating the list of Neovim
+configurations to search and select.
+The \f[V]-I\f[R] flag indicates display the selected configuration
+information document.
+Additional command line arguments are described below.
 .PP
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command \f[V]lazyman -S\f[R].
@@ -167,6 +172,9 @@ after the first file has been read
 .PP
 \f[V]-C filter\f[R] : specifies a filter to use when generating the list
 of configurations to select from
+.PP
+\f[V]-I\f[R] : indicates display of the selected Neovim configuration
+information document
 .PP
 \f[V]-R\f[R] : indicates removal of the selected Neovim configurations
 .PP

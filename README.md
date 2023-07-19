@@ -946,7 +946,7 @@ Where:
     -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
-           All AlanVim Allaman CatNvim Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev
+           All AlanVim Allaman CatNvim Cpp Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
@@ -957,7 +957,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All 3rd Adib Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
+           All Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
@@ -1792,6 +1792,8 @@ The following command line options are available with `nvims` and `neovides`:
 
 `-C filter` : specifies a filter to use when generating the list of configurations to select from
 
+`-I` : indicates display of the selected Neovim configuration information document
+
 `-R` : indicates removal of the selected Neovim configurations
 
 `-S file` : Executes `Vimscript` or `Lua` in `file` after the first file has been read. If no `-S` argument is provided then `~/.config/nvim-Lazyman/overrides.lua` is used if not empty.
@@ -1851,6 +1853,9 @@ command -v vim > /dev/null && alias vi='vim'
 # To use Neovim
 command -v nvim > /dev/null && {
   # For compatibility with earlier versions of .lazymanrc
+  if alias nvim >/dev/null 2>&1; then
+    unalias nvim
+  fi
   if alias nvims >/dev/null 2>&1; then
     unalias nvims
   fi
@@ -1878,57 +1883,7 @@ command -v nvim > /dev/null && {
     alias nvim-default="NVIM_APPNAME=nvim nvim"
   }
   # Add all previously installed Neovim configurations
-  if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
-  then
-    set_items
-  else
-    # Add any supported config we find
-    [ -d ${HOME}/.config/nvim-Lazyman ] && {
-      alias nvim-lazy="NVIM_APPNAME=nvim-Lazyman nvim"
-      items+=("Lazyman")
-      ndirs+=("nvim-Lazyman")
-    }
-    [ -d ${HOME}/.config/nvim-LazyVim ] && {
-      alias nvim-lvim="NVIM_APPNAME=nvim-LazyVim nvim"
-      items+=("LazyVim")
-      ndirs+=("nvim-LazyVim")
-    }
-    [ -d ${HOME}/.config/nvim-Kickstart ] && {
-      alias nvim-kick="NVIM_APPNAME=nvim-Kickstart nvim"
-      items+=("Kickstart")
-      ndirs+=("nvim-Kickstart")
-    }
-    [ -d ${HOME}/.config/nvim-NvChad ] && {
-      alias nvim-chad="NVIM_APPNAME=nvim-NvChad nvim"
-      items+=("NvChad")
-      ndirs+=("nvim-NvChad")
-    }
-    [ -d ${HOME}/.config/nvim-AstroNvimPlus ] && {
-      alias nvim-astro="NVIM_APPNAME=nvim-AstroNvimPlus nvim"
-      items+=("AstroNvimPlus")
-      ndirs+=("nvim-AstroNvimPlus")
-    }
-    [ -d ${HOME}/.config/nvim-Ecovim ] && {
-      alias nvim-eco="NVIM_APPNAME=nvim-Ecovim nvim"
-      items+=("Ecovim")
-      ndirs+=("nvim-Ecovim")
-    }
-    [ -d ${HOME}/.config/nvim-LunarVim ] && {
-      alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
-      items+=("LunarVim")
-      ndirs+=("nvim-LunarVim")
-    }
-    [ -d ${HOME}/.config/nvim-MultiVim ] && {
-      alias nvim-multi="NVIM_APPNAME=nvim-MultiVim nvim"
-      items+=("MultiVim")
-      ndirs+=("nvim-MultiVim")
-    }
-    [ -d ${HOME}/.config/nvim-SpaceVim ] && {
-      alias nvim-space="NVIM_APPNAME=nvim-SpaceVim nvim"
-      items+=("SpaceVim")
-      ndirs+=("nvim-SpaceVim")
-    }
-  fi
+  [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ] && set_items
 
   function runconfig() {
     cfg="$1"
@@ -1946,36 +1901,43 @@ command -v nvim > /dev/null && {
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
       nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
-        explore="-c 'Lexplore'"
+        explore="Lexplore"
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
-        explore="-c 'Neotree'"
+        explore="Neotree"
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
-        explore="-c 'NvimTreeOpen'"
+        explore="NvimTreeOpen"
         ;;
-      nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
-        explore="-c 'NvimTreeToggle'"
+      nvim-Basic|nvim-Cpp|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+        explore="NvimTreeToggle"
         ;;
       nvim-3rd)
-        explore="-c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)'"
+        explore='lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)'
         ;;
       *)
         explore=
         ;;
     esac
     if (( ${#@} )); then
-      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${srcopt} ${nvimsrc} ${cmdopt} ${nvimcmd} ${explore} $@
+      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${srcopt} ${nvimsrc} ${cmdopt} ${nvimcmd} $@
     else
-      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${explore}
+      if [[ "${explore}" ]]; then
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c "${explore}"
+      else
+        NVIM_APPNAME="${cfg}" ${comm}
+      fi
     fi
   }
 
   function nvims_usage() {
-    printf "\n\nUsage: $1 [-C filter] [-R] [-U] [nvim args] [file1 [file2] ...]"
+    printf "\n\nUsage: $1 [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] ...]"
     printf "\nWhere:"
+    printf "\n\t'-c command' : specifies an 'Ex' command to be executed after the first file has been read"
     printf "\n\t'-C filter' : specifies a filter to use when generating the list to select from"
+    printf "\n\t'-I' : indicates display of the selected Neovim configuration information document"
     printf "\n\t'-R' : indicates removal of the selected Neovim configurations"
+    printf "\n\t'-S file' : Executes 'Vimscript' or 'Lua' in 'file' after the first file has been read. If no '-S' argument is provided then '~/.config/nvim-Lazyman/overrides.lua' is used if not empty"
     printf "\n\t'-U' : displays a usage message and exits"
     printf "\n\nWithout arguments 'nvims' and 'neovides' generate a fuzzy search and selectable"
     printf "\nmenu of all Lazyman installed Neovim configurations. Neovim or neovide will be"
@@ -1985,6 +1947,7 @@ command -v nvim > /dev/null && {
 
   function nvims() {
     action="Open"
+    info=
     filter=
     remove=
     cmdopt=
@@ -1998,7 +1961,7 @@ command -v nvim > /dev/null && {
       nvimsrc="${overfile}"
     }
     local OPTIND o a
-    while getopts ":c:C:RS:U" o; do
+    while getopts ":c:C:IRS:U" o; do
       case "${o}" in
         c)
           cmdopt="-c"
@@ -2006,6 +1969,10 @@ command -v nvim > /dev/null && {
           ;;
         C)
           filter="${OPTARG}"
+          ;;
+        I)
+          info=1
+          action="View Info for"
           ;;
         R)
           remove=1
@@ -2022,29 +1989,26 @@ command -v nvim > /dev/null && {
           return
           ;;
         \?)
-          echo "Invalid nvims option: $o"
+          printf "\nInvalid nvims option"
           nvims_usage nvims
           return
           ;;
       esac
     done
     shift $((OPTIND-1))
-    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
-    then
+    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]; then
       items=()
       ndirs=()
       set_items
     fi
     numitems=${#items[@]}
-    if [ ${numitems} -eq 1 ]
-    then
+    if [ ${numitems} -eq 1 ]; then
       config="${items[@]:0:1}"
     else
       height=$((numitems * 6))
       [ ${height} -gt 100 ] && height=100
       [ ${height} -lt 20 ] && height=20
-      if [ "${filter}" ]
-      then
+      if [ "${filter}" ]; then
         config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       else
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
@@ -2054,10 +2018,9 @@ command -v nvim > /dev/null && {
       echo "Nothing selected"
       return 0
     else
-      if [ -d ${HOME}/.config/nvim-${config} ]
-      then
+      if [ -d ${HOME}/.config/nvim-${config} ]; then
         config="nvim-${config}"
-        [[ -z ${remove} ]] && {
+        [[ -z ${remove} ]] && [[ -z ${info} ]] && {
           alias vi="NVIM_APPNAME=${NVIM_APPNAME:-${config}} nvim"
         }
       else
@@ -2068,8 +2031,12 @@ command -v nvim > /dev/null && {
       fi
     fi
     if [[ -z ${remove} ]]; then
-      export USE_NEOVIDE=
-      runconfig "${config}" $@
+      if [[ -z ${info} ]]; then
+        export USE_NEOVIDE=
+        runconfig "${config}" $@
+      else
+        lazyman -N "${config}" info
+      fi
     else
       [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
@@ -2077,6 +2044,7 @@ command -v nvim > /dev/null && {
 
   function neovides() {
     action="Open"
+    info=
     filter=
     remove=
     cmdopt=
@@ -2090,7 +2058,7 @@ command -v nvim > /dev/null && {
       nvimsrc="${overfile}"
     }
     local OPTIND o a
-    while getopts ":c:C:RS:U" o; do
+    while getopts ":c:C:IRS:U" o; do
       case "${o}" in
         c)
           cmdopt="-c"
@@ -2098,6 +2066,10 @@ command -v nvim > /dev/null && {
           ;;
         C)
           filter="${OPTARG}"
+          ;;
+        I)
+          info=1
+          action="View Info for"
           ;;
         R)
           remove=1
@@ -2114,29 +2086,26 @@ command -v nvim > /dev/null && {
           return
           ;;
         \?)
-          echo "Invalid neovides option: $o"
+          printf "\nInvalid neovides option"
           nvims_usage neovides
           return
           ;;
       esac
     done
     shift $((OPTIND-1))
-    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]
-    then
+    if [ -f ${HOME}/.config/nvim-Lazyman/.nvimdirs ]; then
       items=()
       ndirs=()
       set_items
     fi
     numitems=${#items[@]}
-    if [ ${numitems} -eq 1 ]
-    then
+    if [ ${numitems} -eq 1 ]; then
       config="${items[@]:0:1}"
     else
       height=$((numitems * 6))
       [ ${height} -gt 100 ] && height=100
       [ ${height} -lt 20 ] && height=20
-      if [ "${filter}" ]
-      then
+      if [ "${filter}" ]; then
         config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
       else
         config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
@@ -2146,10 +2115,9 @@ command -v nvim > /dev/null && {
       echo "Nothing selected"
       return 0
     else
-      if [ -d ${HOME}/.config/nvim-${config} ]
-      then
+      if [ -d ${HOME}/.config/nvim-${config} ]; then
         config="nvim-${config}"
-        [[ -z ${remove} ]] && {
+        [[ -z ${remove} ]] && [[ -z ${info} ]] && {
           alias neovide="NVIM_APPNAME=${NVIM_APPNAME:-${config}} neovide"
         }
       else
@@ -2160,8 +2128,12 @@ command -v nvim > /dev/null && {
       fi
     fi
     if [[ -z ${remove} ]]; then
-      export USE_NEOVIDE=1
-      runconfig "${config}" $@
+      if [[ -z ${info} ]]; then
+        export USE_NEOVIDE=1
+        runconfig "${config}" $@
+      else
+        lazyman -N "${config}" info
+      fi
     else
       [[ "${config}" == "nvim-Lazyman" ]] || lazyman -R -N ${config}
     fi
