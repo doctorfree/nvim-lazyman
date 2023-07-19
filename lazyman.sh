@@ -455,6 +455,7 @@ init_neovim() {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
                   xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >>${LOG} 2>&1
                   [ "${neodir}" == "${nvchaddir}" ] ||
+                    [ "${neodir}" == "nvim-Cpp" ] ||
                     [ "${neodir}" == "nvim-Go" ] ||
                     [ "${neodir}" == "nvim-LazyIde" ] ||
                     [ "${neodir}" == "nvim-Rust" ] ||
@@ -518,6 +519,7 @@ init_neovim() {
                   xtimeout ${timeout} nvim --headless \
                     "+Lazy! sync" +qa >/dev/null 2>&1
                   [ "${neodir}" == "${nvchaddir}" ] ||
+                    [ "${neodir}" == "nvim-Cpp" ] ||
                     [ "${neodir}" == "nvim-Go" ] ||
                     [ "${neodir}" == "nvim-LazyIde" ] ||
                     [ "${neodir}" == "nvim-Rust" ] ||
@@ -799,9 +801,13 @@ update_config() {
         chmod 755 "${HOME}"/.local/bin/lazyman
       }
     }
-    [ "${ndir}" == "${astronvimdir}" ] || [ "${ndir}" == "${nvchaddir}" ] ||
-      [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] ||
-      [ "${ndir}" == "nvim-Python" ] || [ "${customastro}" ] && {
+    [ "${ndir}" == "${astronvimdir}" ] ||
+    [ "${ndir}" == "${nvchaddir}" ] ||
+    [ "${ndir}" == "nvim-Cpp" ] ||
+    [ "${ndir}" == "nvim-Go" ] ||
+    [ "${ndir}" == "nvim-Rust" ] ||
+    [ "${ndir}" == "nvim-Python" ] ||
+    [ "${customastro}" ] && {
       if [ "${ndir}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
         cdir="lua/user"
       else
@@ -1163,9 +1169,13 @@ show_status() {
         printf "\n  %-45s  Custom config folder not found" "${tdir}"
       fi
     }
-    [ "${neovim}" == "${astronvimdir}" ] || [ "${neovim}" == "${nvchaddir}" ] ||
-      [ "${ndir}" == "nvim-Go" ] || [ "${ndir}" == "nvim-Rust" ] ||
-      [ "${neovim}" == "nvim-Python" ] || [ "${customastro}" ] && {
+    [ "${neovim}" == "${astronvimdir}" ] ||
+    [ "${neovim}" == "${nvchaddir}" ] ||
+    [ "${ndir}" == "nvim-Cpp" ] ||
+    [ "${ndir}" == "nvim-Go" ] ||
+    [ "${ndir}" == "nvim-Rust" ] ||
+    [ "${neovim}" == "nvim-Python" ] ||
+    [ "${customastro}" ] && {
       if [ "${neovim}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
         cdir="lua/user"
         tdir="~/.config/${neovim}/lua/user"
@@ -1341,13 +1351,13 @@ install_config() {
   Nyoom)
     lazyman ${darg} -K Nyoom -z -y -Q -q
     ;;
-  AlanVim | Allaman | CatNvim | Go | Go2one | LunarIde | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Python | Rust | SaleVim | Shuvro | Webdev)
+  AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | 3rd | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Heiker | Simple | Brain | Elianiva | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Heiker | Simple | Brain | Elianiva | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3152,6 +3162,12 @@ install_remove() {
         -N nvim-CatNvim ${quietflag} -z ${yesflag}
       show_alias "nvim-CatNvim"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Cpp ] && action="Updating"
+      printf "\n${action} Cpp Neovim configuration"
+      lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-cpp \
+        -b main -N nvim-Cpp ${quietflag} -z ${yesflag}
+      show_alias "nvim-Cpp"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Go ] && action="Updating"
       printf "\n${action} Go Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-go-config \
@@ -3260,6 +3276,10 @@ install_remove() {
       CatNvim)
         lang_url="-C https://github.com/nullchilly/CatNvim"
         ;;
+      Cpp)
+        lang_url="-V https://github.com/dreamsofcode-io/neovim-cpp"
+        lang_opt="-b main"
+        ;;
       Go)
         lang_url="-V https://github.com/dreamsofcode-io/neovim-go-config"
         lang_opt="-b main"
@@ -3351,19 +3371,6 @@ install_remove() {
       printf "\n${action} Mini Neovim configuration"
       lazyman ${darg} -M ${quietflag} -z ${yesflag}
       show_alias "nvim-Mini"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-3rd ] && action="Updating"
-      printf "\n${action} 3rd Neovim configuration"
-      lazyman ${darg} -C https://github.com/3rd/config \
-        -D home/dotfiles/nvim -N nvim-3rd ${quietflag} -z ${yesflag}
-      for symlink in plugins/syslang/queries/syslang linters/eslint; do
-        [ -L ${HOME}/.config/nvim-3rd/${symlink} ] && {
-          [ -e ${HOME}/.config/nvim-3rd/${symlink} ] || {
-            rm -f ${HOME}/.config/nvim-3rd/${symlink}
-          }
-        }
-      done
-      show_alias "nvim-3rd"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Charles ] && action="Updating"
       printf "\n${action} Charles Neovim configuration"
@@ -3540,10 +3547,6 @@ install_remove() {
       runflag=
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
-      3rd)
-        prsnl_url="https://github.com/3rd/config"
-        prsnl_dir="-D home/dotfiles/nvim"
-        ;;
       Adib)
         prsnl_url="https://github.com/adibhanna/nvim"
         ;;

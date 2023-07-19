@@ -298,6 +298,15 @@ make_info() {
       C_DESC="Neovim configuration written in the [C programming language](https://en.wikipedia.org/wiki/C_(programming_language))"
       C_INST="lazyman -L CatNvim"
       ;;
+    Cpp)
+      GH_URL="https://github.com/dreamsofcode-io/neovim-cpp"
+      WS_URL="https://nvchad.com"
+      YT_URL="https://www.youtube.com/@dreamsofcode"
+      CF_CAT="Language"
+      CF_TYP="[NvChad](https://nvchad.com)"
+      C_DESC="'NvChad' based Neovim config with C++ formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/lsFoZIg-oDs)"
+      C_INST="lazyman -L Cpp"
+      ;;
     Go)
       GH_URL="https://github.com/dreamsofcode-io/neovim-go-config"
       WS_URL="https://nvchad.com"

@@ -129,28 +129,32 @@ command -v nvim > /dev/null && {
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
       nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
-        explore="-c 'Lexplore'"
+        explore="Lexplore"
         ;;
       nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
-        explore="-c 'Neotree'"
+        explore="Neotree"
         ;;
       nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
-        explore="-c 'NvimTreeOpen'"
+        explore="NvimTreeOpen"
         ;;
-      nvim-Basic|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
-        explore="-c 'NvimTreeToggle'"
+      nvim-Basic|nvim-Cpp|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+        explore="NvimTreeToggle"
         ;;
       nvim-3rd)
-        explore="-c 'lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)'"
+        explore='lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)'
         ;;
       *)
         explore=
         ;;
     esac
     if (( ${#@} )); then
-      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${srcopt} ${nvimsrc} ${cmdopt} ${nvimcmd} ${explore} $@
+      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${srcopt} ${nvimsrc} ${cmdopt} ${nvimcmd} $@
     else
-      NVIM_APPNAME="${cfg}" ${comm} ${dash} ${explore}
+      if [[ "${explore}" ]]; then
+        NVIM_APPNAME="${cfg}" ${comm} ${dash} -c "${explore}"
+      else
+        NVIM_APPNAME="${cfg}" ${comm}
+      fi
     fi
   }
 
