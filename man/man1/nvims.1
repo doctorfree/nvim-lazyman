@@ -23,7 +23,7 @@ nvims - Open Neovim using a fuzzy search/selection of a Lazyman
 installed configuration
 .SS SYNOPSIS
 .PP
-nvims [-C filter] [-R] [-U] [nvim args] [file1 [file2] ...]
+nvims [-c command] [-C filter] [-R] [-S file] [-U] [file1 [file2] ...]
 .PP
 Where:
 .SS DESCRIPTION
@@ -71,20 +71,22 @@ that menu.
 .SS ALIASES
 .PP
 When a Neovim configuration is selected using the \f[V]nvims\f[R] shell
-function, aliases for \f[V]vi\f[R] and \f[V]nvim\f[R] are automatically
-created.
-Subsequent invocations of \f[V]vi\f[R] or \f[V]nvim\f[R] will use the
-previously selected Neovim configuration.
-These aliases persist throughout the remainder of the current shell
+function, an alias for \f[V]vi\f[R] is automatically created.
+Subsequent invocations of \f[V]vi\f[R] will use the previously selected
+Neovim configuration.
+This alias persists throughout the remainder of the current shell
 session or until another Neovim configuration is selected using
 \f[V]nvims\f[R].
+A similar alias is set for \f[V]neovide\f[R] by the \f[V]neovides\f[R]
+shell function enabling subsequent invocations of \f[V]neovide\f[R] to
+use the previously selected \f[V]neovides\f[R] Neovim configuration.
 .PP
-To use another Neovim configuration while these aliases are active,
-simply set the \f[V]NVIM_APPNAME\f[R] environment variable on the
-command line.
+To use another Neovim configuration while this alias is active, invoke
+\f[V]nvim\f[R] directly using the \f[V]NVIM_APPNAME\f[R] environment
+variable on the command line.
 For example, to use the \f[V]nvim-EcoVim\f[R] Neovim configuration after
-aliases for \f[V]vi\f[R] and \f[V]nvim\f[R] have been set by
-\f[V]nvims\f[R], execute the following command:
+an alias for \f[V]vi\f[R] has been set by \f[V]nvims\f[R], execute the
+following command:
 .IP
 .nf
 \f[C]
@@ -98,15 +100,80 @@ fuzzy searching and selecting from the list of cheatsheets supported by
 \f[V]tldr\f[R].
 Try out the \f[V]tldrf\f[R] command to quickly and easily display
 documentation for thousands of commands.
+.SS OVERRIDES
+.PP
+When using either the \f[V]nvims\f[R] or \f[V]neovides\f[R] shell
+functions, selected Neovim configuration options can be overridden using
+either the \f[V]-S file\f[R] command line argument or entries in the
+file \f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R].
+The \f[V]-S file\f[R] argument is described below in the
+\f[V]OPTIONS\f[R] section.
+.PP
+The default overrides file,
+\f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R], is used in the
+absence of any \f[V]-S file\f[R] argument.
+This file can be used to override options in a Neovim configuration when
+invoking Neovim with \f[V]nvims\f[R] or \f[V]neovides\f[R].
+.PP
+Lua in this file is executed after the first file has been read.
+.PP
+To override an option for all Lazyman Neovim configurations invoked with
+\f[V]nvims\f[R] or \f[V]neovided\f[R], set it in
+\f[V]overrides.lua\f[R].
+For example, to enable line numbers (both absolute and relative) for all
+configurations invoked with these shell functions, add the following
+lines to \f[V]overrides.lua\f[R]:
+.IP
+.nf
+\f[C]
+vim.opt.number = true
+vim.opt.relativenumber = true
+\f[R]
+.fi
+.PP
+See the Neovim documentation for a short
+explanation (https://neovim.io/doc/user/quickref.html#option-list) of
+each available option.
+.PP
+Global option overrides can also be set here and Lua code can be used.
+For example:
+.IP
+.nf
+\f[C]
+vim.g.python3_host_prog = vim.fn.exepath(\[dq]python3\[dq])
+\f[R]
+.fi
+.PP
+Unfortunately, \f[V]mapleader\f[R] must be set before
+\f[V]lazy.nvim\f[R] is loaded so for Lazy based configurations setting
+\f[V]vim.g.mapleader\f[R] here is not supported.
+.PP
+If this file only contains Lua comments then it will not be sourced.
+If it contains anything other than Lua comments then, when using
+\f[V]nvims\f[R] or \f[V]neovides\f[R], Neovim will be invoked with:
+.IP
+.nf
+\f[C]
+nvim -S \[dq]${HOME}/.config/nvim-Lazyman/overrides.lua\[dq] ...
+\f[R]
+.fi
 .SS OPTIONS
 .PP
 The following command line options are available with \f[V]nvims\f[R]
 and \f[V]neovides\f[R]:
 .PP
+\f[V]-c command\f[R] : specifies an \f[V]Ex\f[R] command to be executed
+after the first file has been read
+.PP
 \f[V]-C filter\f[R] : specifies a filter to use when generating the list
 of configurations to select from
 .PP
 \f[V]-R\f[R] : indicates removal of the selected Neovim configurations
+.PP
+\f[V]-S file\f[R] : Executes \f[V]Vimscript\f[R] or \f[V]Lua\f[R] in
+\f[V]file\f[R] after the first file has been read.
+If no \f[V]-S\f[R] argument is provided then
+\f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R] is used if not empty.
 .PP
 \f[V]-U\f[R] : displays a usage message and exits
 .PP

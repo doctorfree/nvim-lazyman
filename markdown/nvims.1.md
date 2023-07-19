@@ -14,7 +14,7 @@ nvims - Open Neovim using a fuzzy search/selection of a Lazyman installed config
 
 ## SYNOPSIS
 
-nvims [-C filter] [-R] [-U] [nvim args] [file1 [file2] ...]
+nvims [-c command] [-C filter] [-R] [-S file] [-U] [file1 [file2] ...]
 
 Where:
 
@@ -57,16 +57,17 @@ convenience key binding of `ctrl-N` to bring up that menu.
 ## ALIASES
 
 When a Neovim configuration is selected using the `nvims` shell function,
-aliases for `vi` and `nvim` are automatically created. Subsequent
-invocations of `vi` or `nvim` will use the previously selected Neovim
-configuration. These aliases persist throughout the remainder of the
-current shell session or until another Neovim configuration is selected
-using `nvims`.
+an alias for `vi` is automatically created. Subsequent invocations of `vi`
+will use the previously selected Neovim configuration. This alias persists
+throughout the remainder of the current shell session or until another Neovim
+configuration is selected using `nvims`. A similar alias is set for `neovide`
+by the `neovides` shell function enabling subsequent invocations of `neovide`
+to use the previously selected `neovides` Neovim configuration.
 
-To use another Neovim configuration while these aliases are active, simply
-set the `NVIM_APPNAME` environment variable on the command line. For example,
-to use the `nvim-EcoVim` Neovim configuration after aliases for `vi` and
-`nvim` have been set by `nvims`, execute the following command:
+To use another Neovim configuration while this alias is active, invoke `nvim`
+directly using the `NVIM_APPNAME` environment variable on the command line.
+For example, to use the `nvim-EcoVim` Neovim configuration after an alias for
+`vi` has been set by `nvims`, execute the following command:
 
 ```bash
 NVIM_APPNAME="nvim-EcoVim" nvim ...
@@ -77,13 +78,62 @@ including a `tldrf` alias that allows fuzzy searching and selecting from
 the list of cheatsheets supported by `tldr`. Try out the `tldrf` command
 to quickly and easily display documentation for thousands of commands.
 
+## OVERRIDES
+
+When using either the `nvims` or `neovides` shell functions, selected Neovim
+configuration options can be overridden using either the `-S file` command
+line argument or entries in the file `~/.config/nvim-Lazyman/overrides.lua`.
+The `-S file` argument is described below in the `OPTIONS` section.
+
+The default overrides file, `~/.config/nvim-Lazyman/overrides.lua`, is used in
+the absence of any `-S file` argument. This file can be used to override options
+in a Neovim configuration when invoking Neovim with `nvims` or `neovides`.
+
+Lua in this file is executed after the first file has been read.
+
+To override an option for all Lazyman Neovim configurations invoked with `nvims`
+or `neovided`, set it in `overrides.lua`. For example, to enable line numbers
+(both absolute and relative) for all configurations invoked with these shell
+functions, add the following lines to `overrides.lua`:
+
+```lua
+vim.opt.number = true
+vim.opt.relativenumber = true
+```
+
+See the Neovim documentation for a
+[short explanation](https://neovim.io/doc/user/quickref.html#option-list)
+of each available option.
+
+Global option overrides can also be set here and Lua code can be used.
+For example:
+
+```lua
+vim.g.python3_host_prog = vim.fn.exepath("python3")
+```
+
+Unfortunately, `mapleader` must be set before `lazy.nvim` is loaded so for
+Lazy based configurations setting `vim.g.mapleader` here is not supported.
+
+If this file only contains Lua comments then it will not be sourced.
+If it contains anything other than Lua comments then, when using `nvims` or
+`neovides`, Neovim will be invoked with:
+
+```bash
+nvim -S "${HOME}/.config/nvim-Lazyman/overrides.lua" ...
+```
+
 ## OPTIONS
 
 The following command line options are available with `nvims` and `neovides`:
 
+`-c command` : specifies an `Ex` command to be executed after the first file has been read
+
 `-C filter` : specifies a filter to use when generating the list of configurations to select from
 
 `-R` : indicates removal of the selected Neovim configurations
+
+`-S file` : Executes `Vimscript` or `Lua` in `file` after the first file has been read. If no `-S` argument is provided then `~/.config/nvim-Lazyman/overrides.lua` is used if not empty.
 
 `-U` : displays a usage message and exits
 
