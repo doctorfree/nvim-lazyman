@@ -112,17 +112,27 @@ command -v nvim > /dev/null && {
   }
 
   function nvims_usage() {
-    printf "\n\nUsage: $1 [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] ...]"
-    printf "\nWhere:"
-    printf "\n\t'-c command' : specifies an 'Ex' command to be executed after the first file has been read"
-    printf "\n\t'-C filter' : specifies a filter to use when generating the list to select from"
-    printf "\n\t'-I' : indicates display of the selected Neovim configuration information document"
-    printf "\n\t'-R' : indicates removal of the selected Neovim configurations"
-    printf "\n\t'-S file' : Executes 'Vimscript' or 'Lua' in 'file' after the first file has been read. If no '-S' argument is provided then '~/.config/nvim-Lazyman/overrides.lua' is used if not empty"
-    printf "\n\t'-U' : displays a usage message and exits"
-    printf "\n\nWithout arguments 'nvims' and 'neovides' generate a fuzzy search and selectable"
-    printf "\nmenu of all Lazyman installed Neovim configurations. Neovim or neovide will be"
-    printf "\nopened using the selected configuration.\n\n"
+    cmd="$1"
+    printf "\nUsage: ${cmd} [-c cmd] [-C fltr] [-I] [-R] [-S file] [-U] [file1 [file2] ...]"
+    printf "\n\t'-c cmd' : 'Ex' command to be executed after first file read"
+    printf "\n\t'-C fltr' : filter to use when generating the list to select from"
+    printf "\n\t'-I' : display the selected configuration information document"
+    printf "\n\t'-R' : indicates removal of the selected Neovim configuration"
+    printf "\n\t'-S file' : Executes 'Vimscript' or 'Lua' in 'file' after file read"
+    printf "\n\t\t'~/.config/nvim-Lazyman/overrides.lua' is used if not empty"
+    printf "\n\t'-U' : displays a usage message and exits\n"
+    printf "\nExamples:"
+    printf "\n\t${cmd}"
+    printf "\n\t\tOpens Neovim using the selected configuration"
+    printf "\n\t${cmd} main.cpp"
+    printf "\n\t\tOpens 'main.cpp' with Neovim using the selected configuration"
+    printf "\n\t${cmd} -C lazy"
+    printf "\n\t\tOpens Neovim using the configuration selected from those"
+    printf "\n\t\twith names containing the case insensitive string 'lazy'"
+    printf "\n\t${cmd} -I"
+    printf "\n\t\tDisplays information for the selected Neovim configuration"
+    printf "\n\t${cmd} -R"
+    printf "\n\t\tRemoves the selected Neovim configuration"
     return
   }
 
