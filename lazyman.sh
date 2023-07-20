@@ -167,6 +167,11 @@ xtimeout() {
       if ps -p $runnerpid >/dev/null; then
         kill -SIGKILL $runnerpid 2>/dev/null
       fi
+      ps -ef | grep nvim | grep headless | grep -v grep | while read l
+      do
+        pid=$(echo "$l" | awk ' { print $2 } ')
+        kill ${pid}
+      done
     ) &
     killerpid=$!
     wait $runnerpid
@@ -855,9 +860,6 @@ update_config() {
       [ "${ndir}" == "nvim-JustinLvim" ] ||
       [ "${ndir}" == "nvim-Daniel" ] && fix_lvim_dir "${ndir}"
     apply_patch "${ndir}"
-    [ "${ndir}" == "${onnovimdir}" ] && {
-      fix_help_file "${HOME}/.config/${ndir}/${fix_onno}"
-    }
     [ "${ndir}" == "${latexvimdir}" ] && {
       fix_help_file "${HOME}/.config/${ndir}/${fix_latex}"
     }
@@ -2744,11 +2746,9 @@ kickstartdir="nvim-Kickstart"
 lazyvimdir="nvim-LazyVim"
 lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
-onnovimdir="nvim-ONNO"
 moderndir="nvim-Modern"
 pdedir="nvim-pde"
 penguinvimdir="nvim-Penguin"
-fix_onno="lua/tvl/core/resources/treesitter.lua"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
@@ -3473,7 +3473,7 @@ install_remove() {
       [ -d ${HOME}/.config/nvim-ONNO ] && action="Updating"
       printf "\n${action} ONNO Neovim configuration"
       lazyman ${darg} -C https://github.com/loctvl842/nvim -N nvim-ONNO \
-        -f "${fix_onno}" ${quietflag} -z ${yesflag}
+        -G ${quietflag} -z ${yesflag}
       show_alias "nvim-ONNO"
       action="Installing"
       [ -d ${HOME}/.config/nvim-OnMyWay ] && action="Updating"
@@ -3678,7 +3678,7 @@ install_remove() {
         ;;
       ONNO)
         prsnl_url="https://github.com/loctvl842/nvim"
-        help_opt="-f ${fix_onno}"
+        prsnl_opt="-G"
         ;;
       OnMyWay)
         prsnl_url="https://github.com/RchrdAlv/NvimOnMy_way"
