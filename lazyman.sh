@@ -33,7 +33,7 @@ if [ -f "${CONFIGRC}" ]; then
   source "${CONFIGRC}"
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
+  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
   PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
@@ -1381,7 +1381,7 @@ install_config() {
   Nyoom)
     lazyman ${darg} -K Nyoom -z -y -Q -q
     ;;
-  AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Python | Rust | SaleVim | Shuvro | Webdev)
+  AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Orange | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
@@ -3247,6 +3247,12 @@ install_remove() {
         -N nvim-NV-IDE ${quietflag} -z ${yesflag}
       show_alias "nvim-NV-IDE"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Orange ] && action="Updating"
+      printf "\n${action} Orange Neovim configuration"
+      lazyman ${darg} -C https://github.com/bitterteasweetorange/nvim \
+        -N nvim-Orange ${quietflag} -z ${yesflag}
+      show_alias "nvim-Orange"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Python ] && action="Updating"
       printf "\n${action} Python Neovim configuration"
       lazyman ${darg} -V https://github.com/dreamsofcode-io/neovim-python \
@@ -3338,6 +3344,9 @@ install_remove() {
         ;;
       NV-IDE)
         lang_url="-C https://github.com/crivotz/nv-ide"
+        ;;
+      Orange)
+        lang_url="-C https://github.com/bitterteasweetorange/nvim"
         ;;
       Python)
         lang_url="-V https://github.com/dreamsofcode-io/neovim-python"

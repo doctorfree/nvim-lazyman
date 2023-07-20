@@ -396,6 +396,13 @@ make_info() {
       C_DESC="Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, javascript)"
       C_INST="lazyman -L NV-IDE"
       ;;
+    Orange)
+      GH_URL="https://github.com/bitterteasweetorange/nvim"
+      NC_URL="http://neovimcraft.com/plugin/bitterteasweetorange/nvim"
+      CF_CAT="Language"
+      C_DESC="Modern Neovim configuration for coding React and TypeScript"
+      C_INST="lazyman -L Orange"
+      ;;
     Python)
       GH_URL="https://github.com/dreamsofcode-io/neovim-python"
       WS_URL="https://nvchad.com"
@@ -403,7 +410,7 @@ make_info() {
       CF_CAT="Language"
       CF_TYP="[NvChad](https://nvchad.com)"
       C_DESC="'NvChad' based Neovim config with Python formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc). These features are included in the Base 'NvChad' custom add-on (lazyman -c)"
-      C_INST="-L Python"
+      C_INST="lazyman -L Python"
       ;;
     Rust)
       GH_URL="https://github.com/dreamsofcode-io/neovim-rust"
