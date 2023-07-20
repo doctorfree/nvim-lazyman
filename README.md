@@ -1,5 +1,7 @@
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
+<h3 align="left">Install</h3>
+
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
 $HOME/.config/nvim-Lazyman/lazyman.sh
@@ -11,6 +13,9 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
     </a>
     <a href="https://github.com/doctorfree/nvim-lazyman/pulse">
       <img src="https://img.shields.io/github/last-commit/doctorfree/nvim-lazyman" alt="Last commit"/>
+    </a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/pulse">
+      <img src="https://img.shields.io/github/commit-activity/t/doctorfree/nvim-lazyman" alt="Github commit activity"/>
     </a>
     <a href="https://github.com/doctorfree/nvim-lazyman/issues">
       <img src="https://img.shields.io/github/issues/doctorfree/nvim-lazyman.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
@@ -39,11 +44,24 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. Over 80 popular Neovim configurations are supported.
+Neovim configurations. Over 90 popular Neovim configurations are supported.
 
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
 Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
+
+The two primary features of the Lazyman project are the `lazyman` command
+and the `nvims` shell function. The `lazyman` command provides a menu
+interface and command line options to install, initialize, and manage
+multiple Neovim configurations. The `nvims` shell function dynamically
+generates a fuzzy searchable menu of Neovim configurations from which
+to select. The selected configurations can be opened in Neovim, removed,
+or a configuration information document can be viewed.
+
+More info on the `nvims` and `neovides` shell functions can be found below
+in the [nvims fuzzy selector section](#the-nvims-fuzzy-selector), in the
+`nvims` man page with `man nvims`, with the command `nvims -U`, or in Neovim
+using the `nvim-Lazyman` configuration with `:h Nvims-nvims`.
 
 The `lazyman` command separates Neovim configurations into 5 categories:
 `Base`, `Language`, `Personal`, `Starter`, and `Custom`. The `Base` category
@@ -267,7 +285,7 @@ presented by invoking `lazyman` without arguments after the initial
 bootstrap process is complete. Lazyman Neovim configurations can
 also be managed with `lazyman` command line operations.
 
-Currently over 80 popular Neovim configurations are supported in the
+Currently over 90 popular Neovim configurations are supported in the
 following configuration categories:
 
 <!-- prettier-ignore -->
@@ -784,7 +802,7 @@ will produce a cleanly initialized Neovim configuration.
 - interactive menu interface for ease of management
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
-- Over 80 supported Neovim configurations out of the box, additional custom configs
+- Over 90 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs

@@ -1059,21 +1059,42 @@ open_info() {
 
 show_info() {
   checkdir="$1"
-  nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
-  if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]; then
-    open_info "${nvimconf}"
+  if [ "${checkdir}" == "select" ]
+  then
+    items=()
+    [ -f "${LZYMANRC}" ] && {
+      source "${LZYMANRC}"
+      # This gets all supported configs plus any installed custom configs
+      readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+      for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+        if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          sorted+=("${neovim}")
+        fi
+      done
+      IFS=$'\n' choices=($(sort <<<"${sorted[*]}"))
+      unset IFS
+      choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Information Display  " --layout=reverse --border --exit-0)
+      if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+        lazyman -N "nvim-${choice}" info
+      fi
+    }
   else
-    if [ -f ${LMANDIR}/info/${nvimconf}.md ]; then
-      NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+    nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+    if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]; then
+      open_info "${nvimconf}"
     else
-      [ -x ${INFOSCPT} ] && ${INFOSCPT} -i ${nvimconf}
-      if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]; then
-        open_info "${nvimconf}"
+      if [ -f ${LMANDIR}/info/${nvimconf}.md ]; then
+        NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
       else
-        if [ -f ${LMANDIR}/info/${nvimconf}.md ]; then
-          NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+        [ -x ${INFOSCPT} ] && ${INFOSCPT} -i ${nvimconf}
+        if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]; then
+          open_info "${nvimconf}"
         else
-          echo "${LMANDIR}/info/html/${nvimconf}.html not found"
+          if [ -f ${LMANDIR}/info/${nvimconf}.md ]; then
+            NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nvimconf}.md
+          else
+            echo "${LMANDIR}/info/html/${nvimconf}.html not found"
+          fi
         fi
       fi
     fi
@@ -2501,23 +2522,7 @@ show_main_menu() {
         break
         ;;
       "Config Info",* | *,"Config Info" | "info",* | *,"info" | "Info",* | *,"Info")
-        items=()
-        [ -f "${LZYMANRC}" ] && {
-          source "${LZYMANRC}"
-          # This gets all supported configs plus any installed custom configs
-          readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
-          for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
-            if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
-              sorted+=("${neovim}")
-            fi
-          done
-          IFS=$'\n' choices=($(sort <<<"${sorted[*]}"))
-          unset IFS
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Information Display  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            lazyman -N "nvim-${choice}" info
-          fi
-        }
+        show_info select
         break
         ;;
       "Plugin Search",* | *,"Plugin Search" | "search"*,* | *,"search"* | "Search"*,* | *,"Search"*)
@@ -3009,9 +3014,8 @@ shift $((OPTIND - 1))
 }
 
 [ "$1" == "info" ] && {
-  checkdir="${LAZYMAN}"
+  checkdir="select"
   [ "$name" ] && checkdir="$name"
-  printf "\nPreparing Lazyman information display for ${checkdir} Neovim configuration\n"
   show_info "${checkdir}"
   exit 0
 }
