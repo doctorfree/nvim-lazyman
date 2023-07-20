@@ -6,6 +6,19 @@
 
 ### 🐞 Fixed
 
+## v2.1.8r7
+
+### ⚡️ Added
+
+- Use new keymaps generation for keymaps man page
+- Reference other man pages in `See Also` sections
+- Expand `nvims/neovides` usage message
+
+### 🐞 Fixed
+
+- Set config lists if `configrc` not present so `lazyman.sh` can be used as standalone bootstrap
+- Update man pages and vimdoc for `lazyman`, `lazyman-keymaps`, and `nvims`
+
 ## v2.1.8r6
 
 ### ⚡️ Added
