@@ -636,6 +636,14 @@ make_info() {
       C_DESC="[Introductory video](https://youtu.be/aD9j6d9pgtc)"
       C_INST="lazyman -w Traap"
       ;;
+    Wuelner)
+      GH_URL="https://github.com/wuelnerdotexe/nvim"
+      NC_URL="http://neovimcraft.com/plugin/wuelnerdotexe/nvim"
+      DF_URL="https://dotfyle.com/wuelnerdotexe/nvim"
+      CF_CAT="Personal"
+      C_DESC="Wuelner's Neovim setup follows a well-defined philosophy governed by coherence and minimalism"
+      C_INST="lazyman -w Wuelner"
+      ;;
     xero)
       GH_URL="https://github.com/xero/dotfiles"
       NC_URL="http://neovimcraft.com/plugin/xero/dotfiles"

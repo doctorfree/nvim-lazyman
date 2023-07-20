@@ -34,7 +34,7 @@ if [ -f "${CONFIGRC}" ]; then
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
   LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
-  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
+  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
   LAZYVIMCFGS="CatNvim JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
@@ -1387,7 +1387,7 @@ install_config() {
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Heiker | Simple | Brain | Elianiva | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Heiker | Simple | Brain | Elianiva | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3560,6 +3560,12 @@ install_remove() {
         -N nvim-Traap ${quietflag} -z ${yesflag}
       show_alias "nvim-Traap"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Wuelner ] && action="Updating"
+      printf "\n${action} Wuelner Neovim configuration"
+      lazyman ${darg} -C https://github.com/wuelnerdotexe/nvim \
+        -N nvim-Wuelner ${quietflag} -z ${yesflag}
+      show_alias "nvim-Wuelner"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-xero ] && action="Updating"
       printf "\n${action} xero Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/xero/dotfiles \
@@ -3616,6 +3622,9 @@ install_remove() {
         ;;
       Traap)
         prsnl_url="https://github.com/Traap/nvim"
+        ;;
+      Wuelner)
+        prsnl_url="https://github.com/wuelnerdotexe/nvim"
         ;;
       xero)
         prsnl_url="https://github.com/xero/dotfiles"
