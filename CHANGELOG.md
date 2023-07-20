@@ -6,6 +6,26 @@
 
 ### 🐞 Fixed
 
+## v2.1.8r6
+
+### ⚡️ Added
+
+- Add notes on `nvims` to readme intro
+- Add `-I` option to `nvims` and `neovides` to display config info document
+- Add `Cpp` config to `Languages`
+- Add `overrides.lua` to enable overriding configuration options when using `nvims` or `neovides`
+- Alias `vi` when using `nvims` to enable persistent use of selected config with `vi`
+- Add YouTube urls to info docs
+
+### 🐞 Fixed
+
+- Remove `3rd` config
+- Don't alias `nvim`
+- Change 'lazyman info' to fuzzy select a config to view
+- Fix lazymanrc file explore option
+- Fix keymaps generation script with sed of error messages
+- Regenerate info docs for all configs
+
 ## v2.1.8r5
 
 ### ⚡️ Added
