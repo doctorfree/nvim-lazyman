@@ -32,9 +32,18 @@ USEGUI=
 if [ -f "${CONFIGRC}" ]; then
   source "${CONFIGRC}"
 else
-  printf "\n\nERROR: Missing ${CONFIGRC}"
-  printf "\n\nReinstall Lazyman\n\n"
-  exit 1
+  BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
+  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
+  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
+  MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
+  STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
+  LAZYVIMCFGS="CatNvim JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
+  NVCHADCFGS="Cpp Go NvChad Python Rust"
+  ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Orhun Spider"
+  KICKSTARTCFGS="Kickstart"
+  LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
+  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
+  PLUGCFGS="Optixal Plug"
 fi
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
