@@ -1,8 +1,7 @@
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
-<h3 align="left">Install</h3>
-
 ```bash
+# Install lazyman with the following two commands:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
 $HOME/.config/nvim-Lazyman/lazyman.sh
 ```
