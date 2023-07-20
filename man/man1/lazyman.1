@@ -14,7 +14,7 @@
 . ftr VB CB
 . ftr VBI CBI
 .\}
-.TH "LAZYMAN" "1" "March 13, 2023" "lazyman 1.0.2" "User Manual"
+.TH "LAZYMAN" "1" "March 13, 2023" "lazyman 2.1.8" "User Manual"
 .hy
 .SH LAZYMAN
 .SS NAME
@@ -57,7 +57,7 @@ manage the \f[V]nvim-Lazyman\f[R], \f[V]nvim-LazyIde\f[R], and
 perform health checks and generate a status report via menus
 .RE
 .IP \[bu] 2
-Over 80 supported Neovim configurations out of the box, additional
+Over 90 supported Neovim configurations out of the box, additional
 custom configs
 .IP \[bu] 2
 vimdoc help for \f[V]nvim-Lazyman\f[R] with \f[V]:h nvim-Lazyman\f[R]
@@ -144,11 +144,15 @@ Similarly, a \f[V]neovides\f[R] shell function can be used to select a
 Neovim configuration for use with the Neovim GUI \f[V]neovide\f[R].
 .PP
 Both the \f[V]nvims\f[R] shell function and \f[V]neovides\f[R] shell
-function accept a \f[V]-R\f[R] flag which indicates removal of the
-selected Neovim configuration.
-Also supported is the \f[V]-C filter\f[R] option to \f[V]nvims\f[R] and
-\f[V]neovides\f[R] which specifies a filter string to match when
-generating the list of Neovim configurations to search and select.
+function accept command line arguments.
+The \f[V]-R\f[R] flag indicates removal of the selected Neovim
+configuration.
+The \f[V]-C filter\f[R] option to \f[V]nvims\f[R] and \f[V]neovides\f[R]
+specifies a filter string to match when generating the list of Neovim
+configurations to search and select.
+The \f[V]-I\f[R] flag indicates display the selected configuration
+information document.
+Additional command line arguments are described below.
 .PP
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command \f[V]lazyman -S\f[R].
@@ -884,16 +888,20 @@ This preconfigured Neovim terminal capability is only available in the
 .PP
 The Lazyman Neovim configuration provides \f[V]vimdoc\f[R] help for the
 \f[V]lazyman\f[R] command, the \f[V]nvim-Lazyman\f[R] Neovim
-configuration, and the configured keymaps.
+configuration, the \f[V]nvims\f[R] shell function, and the configured
+keymaps.
 .PP
 While in Neovim using the \f[V]nvim-Lazyman\f[R] configuration, view the
 \f[V]vimdoc\f[R] help for the \f[V]lazyman\f[R] command and
-configuration with the command \f[V]:help Lazyman-lazyman\f[R] and the
-\f[V]vimdoc\f[R] help for the configured keymaps with the command
+configuration with the command \f[V]:help Lazyman-lazyman\f[R], view
+\f[V]vimdoc\f[R] help for \f[V]nvims\f[R] with
+\f[V]:help Nvims-nvims\f[R], and the \f[V]vimdoc\f[R] help for the
+configured keymaps with the command
 \f[V]:help Lazyman-Keymaps-lazyman\f[R].
 Shortcut key bindings for these help commands have been configured.
-Use \f[V],hl\f[R] and \f[V],hk\f[R] to quickly access the
-\f[V]vimdoc\f[R] help for \f[V]lazyman\f[R] and Lazyman keymaps.
+Use \f[V],hl\f[R], \f[V],hn\f[R], and \f[V],hk\f[R] to quickly access
+the \f[V]vimdoc\f[R] help for \f[V]lazyman\f[R], \f[V]nvims\f[R], and
+Lazyman keymaps.
 .SS AUTHORS
 .PP
 Written by Ronald Record \f[V]github\[at]ronrecord.com\f[R]
@@ -908,6 +916,9 @@ a DISCLAIMER OF ALL WARRANTIES.
 Submit bug reports online at:
 .PP
 <https://github.com/doctorfree/nvim-lazyman/issues>
+.SS SEE ALSO
+.PP
+\f[B]nvims\f[R](1), \f[B]lazyman-keymaps\f[R](5)
 .PP
 Full documentation and sources at:
 .PP

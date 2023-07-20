@@ -2,7 +2,7 @@
 title: LAZYMAN
 section: 1
 header: User Manual
-footer: lazyman 1.0.2
+footer: lazyman 2.1.8
 date: March 13, 2023
 ---
 
@@ -27,7 +27,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
 - interactive menu interface for ease of management
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
-- Over 80 supported Neovim configurations out of the box, additional custom configs
+- Over 90 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
@@ -91,11 +91,13 @@ See `~/.config/nvim-Lazyman/.lazymanrc`.
 Similarly, a `neovides` shell function can be used to select a Neovim
 configuration for use with the Neovim GUI `neovide`.
 
-Both the `nvims` shell function and `neovides` shell function accept a
-`-R` flag which indicates removal of the selected Neovim configuration.
-Also supported is the `-C filter` option to `nvims` and `neovides` which
+Both the `nvims` shell function and `neovides` shell function accept
+command line arguments. The `-R` flag indicates removal of the selected
+Neovim configuration. The `-C filter` option to `nvims` and `neovides`
 specifies a filter string to match when generating the list of Neovim
-configurations to search and select.
+configurations to search and select. The `-I` flag indicates display
+the selected configuration information document. Additional command
+line arguments are described below.
 
 The fuzzy searchable/selectable menu of Neovim configurations can also
 be shown with the command `lazyman -S`. Note also that both the `nvims`
@@ -526,14 +528,16 @@ This preconfigured Neovim terminal capability is only available in the
 ### Help
 
 The Lazyman Neovim configuration provides `vimdoc` help for the `lazyman`
-command, the `nvim-Lazyman` Neovim configuration, and the configured keymaps.
+command, the `nvim-Lazyman` Neovim configuration, the `nvims` shell function,
+and the configured keymaps.
 
 While in Neovim using the `nvim-Lazyman` configuration, view the `vimdoc`
 help for the `lazyman` command and configuration with the command
-`:help Lazyman-lazyman` and the `vimdoc` help for the configured keymaps
+`:help Lazyman-lazyman`, view `vimdoc` help for `nvims` with
+`:help Nvims-nvims`, and the `vimdoc` help for the configured keymaps
 with the command `:help Lazyman-Keymaps-lazyman`. Shortcut key bindings
-for these help commands have been configured. Use `,hl` and `,hk` to
-quickly access the `vimdoc` help for `lazyman` and Lazyman keymaps.
+for these help commands have been configured. Use `,hl`, `,hn`, and `,hk`
+to quickly access the `vimdoc` help for `lazyman`, `nvims`, and Lazyman keymaps.
 
 ## AUTHORS
 
@@ -551,6 +555,10 @@ otherwise using LAZYMAN and for a DISCLAIMER OF ALL WARRANTIES.
 Submit bug reports online at:
 
 <https://github.com/doctorfree/nvim-lazyman/issues>
+
+## SEE ALSO
+
+**nvims**(1), **lazyman-keymaps**(5)
 
 Full documentation and sources at:
 

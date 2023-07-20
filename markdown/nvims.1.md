@@ -180,6 +180,10 @@ Submit bug reports online at:
 
 <https://github.com/doctorfree/nvim-lazyman/issues>
 
+## SEE ALSO
+
+**lazyman**(1), **lazyman-keymaps**(5)
+
 Full documentation and sources at:
 
 <https://github.com/doctorfree/nvim-lazyman>
