@@ -323,6 +323,15 @@ make_info() {
       C_DESC="Neovim Go development environment that does not touch standard Neovim configuration folders"
       C_INST="lazyman -L Go2one"
       ;;
+    Insis)
+      GH_URL="https://github.com/nshen/InsisVim"
+      NC_URL="http://neovimcraft.com/plugin/nshen/InsisVim"
+      DF_URL="https://dotfyle.com/nshen/insisvim"
+      CF_CAT="Language"
+      PL_MAN="Packer"
+      C_DESC="An out-of-the-box Neovim IDE solution with simple development environment setup"
+      C_INST="lazyman -L Insis"
+      ;;
     Knvim)
       GH_URL="https://github.com/knmac/knvim"
       DF_URL="https://dotfyle.com/knmac/knvim"

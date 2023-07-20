@@ -33,7 +33,7 @@ if [ -f "${CONFIGRC}" ]; then
   source "${CONFIGRC}"
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
+  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Python Rust SaleVim Shuvro Webdev"
   PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
@@ -42,7 +42,7 @@ else
   ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Orhun Spider"
   KICKSTARTCFGS="Kickstart"
   LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
+  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Insis Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
   PLUGCFGS="Optixal Plug"
 fi
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1381,7 +1381,7 @@ install_config() {
   Nyoom)
     lazyman ${darg} -K Nyoom -z -y -Q -q
     ;;
-  AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Python | Rust | SaleVim | Shuvro | Webdev)
+  AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
@@ -3205,6 +3205,12 @@ install_remove() {
         -N nvim-LunarIde ${quietflag} -z ${yesflag}
       show_alias "nvim-LunarIde"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Insis ] && action="Updating"
+      printf "\n${action} Insis Neovim configuration"
+      lazyman ${darg} -C https://github.com/nshen/InsisVim \
+        -N nvim-Insis -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Insis"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Knvim ] && action="Updating"
       printf "\n${action} Knvim Neovim configuration"
       lazyman ${darg} -C https://github.com/knmac/knvim \
@@ -3307,6 +3313,10 @@ install_remove() {
         ;;
       LunarIde)
         lang_url="-C https://github.com/doctorfree/lvim-Christian"
+        ;;
+      Insis)
+        lang_url="-C https://github.com/nshen/InsisVim"
+        lang_opt="-P"
         ;;
       Knvim)
         lang_url="-C https://github.com/knmac/knvim"
