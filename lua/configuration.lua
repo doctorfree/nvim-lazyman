@@ -172,6 +172,8 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
+-- Enable the Neotest plugin
+conf.enable_neotest = false
 
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"

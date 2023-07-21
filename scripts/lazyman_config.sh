@@ -727,6 +727,12 @@ show_plugin_menu() {
     else
       use_toggleterm="✗"
     fi
+    enable_neotest=$(get_conf_value enable_neotest)
+    if [ "${enable_neotest}" == "true" ]; then
+      use_neotest=""
+    else
+      use_neotest="✗"
+    fi
     enable_wakatime=$(get_conf_value enable_wakatime)
     if [ "${enable_wakatime}" == "true" ]; then
       use_wakatime=""
@@ -944,6 +950,7 @@ show_plugin_menu() {
     options+=("Surround      [${use_surround}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Toggle Term   [${use_toggleterm}]")
+    options+=("Enable Tests  [${use_neotest}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Wilder Menus  [${use_wilder}]")
     options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
@@ -1270,6 +1277,15 @@ show_plugin_menu() {
             set_conf_value "enable_toggleterm" "false"
           else
             set_conf_value "enable_toggleterm" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Enable Test"*,* | *,"Enable Test"*)
+          if [ "${enable_neotest}" == "true" ]; then
+            set_conf_value "enable_neotest" "false"
+          else
+            set_conf_value "enable_neotest" "true"
           fi
           pluginit=1
           break
@@ -1615,6 +1631,7 @@ show_plugin_menu() {
           set_conf_value "enable_lualine_lsp_progress" "false"
           set_conf_value "enable_terminal" "false"
           set_conf_value "enable_toggleterm" "false"
+          set_conf_value "enable_neotest" "false"
           set_conf_value "enable_wakatime" "false"
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_cheatsheet" "false"
@@ -1667,6 +1684,7 @@ show_plugin_menu() {
           set_conf_value "enable_lualine_lsp_progress" "true"
           set_conf_value "enable_terminal" "true"
           set_conf_value "enable_toggleterm" "true"
+          set_conf_value "enable_neotest" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           set_conf_value "enable_asciiart" "true"
           set_conf_value "enable_cheatsheet" "true"

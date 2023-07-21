@@ -467,7 +467,7 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
-                  xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >>${LOG} 2>&1
+                  xtimeout ${timeout} nvim --headless -c 'set nomore' "+Lazy! sync" +qa >>${LOG} 2>&1
                   [ "${neodir}" == "${nvchaddir}" ] ||
                     [ "${neodir}" == "nvim-Cpp" ] ||
                     [ "${neodir}" == "nvim-Go" ] ||
@@ -530,7 +530,7 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
-                  xtimeout ${timeout} nvim --headless \
+                  xtimeout ${timeout} nvim --headless -c 'set nomore' \
                     "+Lazy! sync" +qa >/dev/null 2>&1
                   [ "${neodir}" == "${nvchaddir}" ] ||
                     [ "${neodir}" == "nvim-Cpp" ] ||
