@@ -9,12 +9,25 @@ then
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-go",
     },
     keys = {
-      { "<leader>tut", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run Test File" },
-      { "<leader>tuT", function() require("neotest").run.run(vim.loop.cwd()) end, desc = "Run All Test Files" },
+      {
+        "<leader>tut",
+        function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end,
+        desc = "Run Test File"
+      },
+      {
+        "<leader>tuT",
+        function()
+          require("neotest").run.run(vim.loop.cwd())
+        end,
+        desc = "Run All Test Files"
+      },
       { "<leader>tul",
         function()
           require("neotest").run.run_last({ enter = true })
@@ -22,11 +35,53 @@ then
         end,
         desc = "Run Last Test"
       },
-      { "<leader>tur", function() require("neotest").run.run() end, desc = "Run Nearest Test" },
-      { "<leader>tus", function() require("neotest").summary.toggle() end, desc = "Toggle Test Summary" },
-      { "<leader>tuo", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Test Output" },
-      { "<leader>tuO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Test Output Panel" },
-      { "<leader>tuS", function() require("neotest").run.stop() end, desc = "Stop Tests" },
+      {
+        "<leader>tur",
+        function(
+          ) require("neotest").run.run()
+        end,
+        desc = "Run Nearest Test"
+      },
+      {
+        "<leader>tus",
+        function()
+          require("neotest").summary.toggle()
+        end,
+        desc = "Toggle Test Summary"
+      },
+      {
+        "<leader>tuo",
+        function()
+          require("neotest").output.open({ enter = true, auto_close = true })
+        end,
+        desc = "Show Test Output"
+      },
+      {
+        "<leader>tuO",
+        function()
+          require("neotest").output_panel.toggle()
+        end,
+        desc = "Toggle Test Output Panel"
+      },
+      {
+        "<leader>tuS",
+        function()
+          require("neotest").run.stop()
+        end,
+        desc = "Stop Tests"
+      },
+      {
+        "<leader>tuL",
+        function()
+          require("neotest").run.run_last({ strategy = "dap" })
+        end,
+        desc = "Debug Last Test",
+      },
+      {
+        "<leader>tuw",
+        "<cmd>lua require('neotest').run.run({ jestCommand = 'jest --watch ' })<cr>",
+        desc = "Run Watch Test",
+      },
     },
     config = function()
       local neotest = require("neotest")
@@ -100,7 +155,15 @@ then
         },
         adapters = {
           require('neotest-vitest'),
-          require('neotest-go')
+          require('neotest-go'),
+          require("neotest-jest")({
+            jestCommand = "npm test --",
+            jestConfigFile = "custom.jest.config.ts",
+            env = { CI = true },
+            cwd = function()
+              return vim.fn.getcwd()
+            end,
+          })
         }
       })
 
