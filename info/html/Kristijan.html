@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lazyman config: Kristijan</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lazyman config: Kristijan</h1>
+</header>
+<h2 id="kristijan-neovim-configuration-information">Kristijan Neovim
+Configuration Information</h2>
+<p>Personal Neovim configuration of Kristijan Husak, author of several
+Neovim plugins including <code>orgmode</code> and
+<code>vim-dadbod-ui</code></p>
+<ul>
+<li>Install and initialize:
+<strong><code>lazyman -w Kristijan</code></strong></li>
+<li>Configuration category: <a
+href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+<li>Base configuration: Custom</li>
+<li>Plugin manager: <a
+href="https://github.com/folke/lazy.nvim">Lazy</a></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Kristijan</code></strong></li>
+</ul>
+<p><a
+href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
+all Lazyman supported configuration documents</a></p>
+<h3 id="git-repository">Git repository</h3>
+<p><a
+href="https://github.com/kristijanhusak/neovim-config">https://github.com/kristijanhusak/neovim-config</a></p>
+<h3 id="dotfyle-entry">Dotfyle entry</h3>
+<p><a
+href="https://dotfyle.com/kristijanhusak/neovim-config-nvim">https://dotfyle.com/kristijanhusak/neovim-config-nvim</a></p>
+<h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<ul>
+<li><a
+href="https://github.com/LunarVim/bigfile.nvim.git">LunarVim/bigfile.nvim</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-buffer.git">hrsh7th/cmp-buffer</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lsp.git">hrsh7th/cmp-nvim-lsp</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-path.git">hrsh7th/cmp-path</a></li>
+<li><a
+href="https://github.com/lukas-reineke/cmp-rg.git">lukas-reineke/cmp-rg</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-vsnip.git">hrsh7th/cmp-vsnip</a></li>
+<li><a
+href="https://github.com/numToStr/Comment.nvim.git">numToStr/Comment.nvim</a></li>
+<li><a
+href="https://github.com/zbirenbaum/copilot.lua.git">zbirenbaum/copilot.lua</a></li>
+<li><a
+href="https://github.com/sindrets/diffview.nvim.git">sindrets/diffview.nvim</a></li>
+<li><a
+href="https://github.com/ruifm/gitlinker.nvim.git">ruifm/gitlinker.nvim</a></li>
+<li><a
+href="https://github.com/lewis6991/gitsigns.nvim.git">lewis6991/gitsigns.nvim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/indent-blankline.nvim.git">lukas-reineke/indent-blankline.nvim</a></li>
+<li><a
+href="https://github.com/folke/lazy.nvim.git">folke/lazy.nvim</a></li>
+<li><a
+href="https://github.com/williamboman/mason-lspconfig.nvim.git">williamboman/mason-lspconfig.nvim</a></li>
+<li><a
+href="https://github.com/williamboman/mason.nvim.git">williamboman/mason.nvim</a></li>
+<li><a
+href="https://github.com/folke/neodev.nvim.git">folke/neodev.nvim</a></li>
+<li><a
+href="https://github.com/jose-elias-alvarez/null-ls.nvim.git">jose-elias-alvarez/null-ls.nvim</a></li>
+<li><a
+href="https://github.com/windwp/nvim-autopairs.git">windwp/nvim-autopairs</a></li>
+<li><a
+href="https://github.com/hrsh7th/nvim-cmp.git">hrsh7th/nvim-cmp</a></li>
+<li><a
+href="https://github.com/neovim/nvim-lspconfig.git">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/SmiteshP/nvim-navic.git">SmiteshP/nvim-navic</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify.git">rcarriga/nvim-notify</a></li>
+<li><a
+href="https://gitlab.com/yorickpeterse/nvim-pqf">yorickpeterse/nvim-pqf</a></li>
+<li><a
+href="https://github.com/nvim-tree/nvim-tree.lua.git">nvim-tree/nvim-tree.lua</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter.git">nvim-treesitter/nvim-treesitter</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-refactor.git">nvim-treesitter/nvim-treesitter-refactor</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git">nvim-treesitter/nvim-treesitter-textobjects</a></li>
+<li><a
+href="https://github.com/windwp/nvim-ts-autotag.git">windwp/nvim-ts-autotag</a></li>
+<li><a
+href="https://github.com/yioneko/nvim-vtsls.git">yioneko/nvim-vtsls</a></li>
+<li><a
+href="https://github.com/nvim-tree/nvim-web-devicons.git">nvim-tree/nvim-web-devicons</a></li>
+<li><a
+href="https://github.com/yioneko/nvim-yati.git">yioneko/nvim-yati</a></li>
+<li><a
+href="https://github.com/rmehri01/onenord.nvim.git">rmehri01/onenord.nvim</a></li>
+<li><a
+href="https://github.com/akinsho/org-bullets.nvim.git">akinsho/org-bullets.nvim</a></li>
+<li><a
+href="https://github.com/nvim-orgmode/orgmode.git">nvim-orgmode/orgmode</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/playground.git">nvim-treesitter/playground</a></li>
+<li><a
+href="https://github.com/nvim-lua/plenary.nvim.git">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/stefandtw/quickfix-reflector.vim.git">stefandtw/quickfix-reflector.vim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-fzf-native.nvim.git">nvim-telescope/telescope-fzf-native.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope.nvim.git">nvim-telescope/telescope.nvim</a></li>
+<li><a
+href="https://github.com/smartpde/telescope-recent-files.git">smartpde/telescope-recent-files</a></li>
+<li><a
+href="https://github.com/axelvc/template-string.nvim.git">axelvc/template-string.nvim</a></li>
+<li><a
+href="https://github.com/Wansmer/treesj.git">Wansmer/treesj</a></li>
+<li><a
+href="https://github.com/tpope/vim-abolish.git">tpope/vim-abolish</a></li>
+<li><a
+href="https://github.com/kristijanhusak/vim-dadbod-completion.git">kristijanhusak/vim-dadbod-completion</a></li>
+<li><a
+href="https://github.com/tpope/vim-dadbod.git">tpope/vim-dadbod</a></li>
+<li><a
+href="https://github.com/kristijanhusak/vim-dadbod-ui.git">kristijanhusak/vim-dadbod-ui</a></li>
+<li><a
+href="https://github.com/tpope/vim-fugitive.git">tpope/vim-fugitive</a></li>
+<li><a
+href="https://github.com/kristijanhusak/vim-js-file-import.git">kristijanhusak/vim-js-file-import</a></li>
+<li><a
+href="https://github.com/andymass/vim-matchup.git">andymass/vim-matchup</a></li>
+<li><a
+href="https://github.com/tpope/vim-repeat.git">tpope/vim-repeat</a></li>
+<li><a
+href="https://github.com/tpope/vim-sleuth.git">tpope/vim-sleuth</a></li>
+<li><a
+href="https://github.com/puremourning/vimspector.git">puremourning/vimspector</a></li>
+<li><a
+href="https://github.com/tpope/vim-surround.git">tpope/vim-surround</a></li>
+<li><a
+href="https://github.com/yioneko/vim-tmindent.git">yioneko/vim-tmindent</a></li>
+<li><a
+href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
+</ul>
+<h3 id="kristijan-keymaps">Kristijan Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>#</td>
+<td>#N</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*</td>
+<td>*N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>+</td>
+<td><C-W>5&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,Q</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,q</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,db</td>
+<td>:silent w</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,]</td>
+<td><C-W>v&lt;C-]&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,<Tab></td>
+<td>&lt;C-^&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,h</td>
+<td>viw”0p</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,p</td>
+<td>“0p</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,</td>
+<td>:noh<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,v</td>
+<td><C-W>v</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,s</td>
+<td>:w<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,F</td>
+<td>:call v:lua.kris.search.run(expand(“<lt>cword&gt;”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,f</td>
+<td>:call v:lua.kris.search.run(““)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,hf</td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,n</td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,G</td>
+<td>:vert G<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,df</td>
+<td>:Git push –force-with-lease<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,dp</td>
+<td>:Git push<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,da</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,dc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,dh</td>
+<td>:DiffviewFileHistory %<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,do</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,lt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,lT</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,g</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,m</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,b</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,yg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,c</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,oc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,oa</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>N</td>
+<td>Nzz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q</td>
+<td><C-Z></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>R</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[B</td>
+<td>:bfirst<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[b</td>
+<td>:bprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[T</td>
+<td>:tfirst<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[t</td>
+<td>:tprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[L</td>
+<td>:lopen</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[e</td>
+<td>:lprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[Q</td>
+<td>:copen<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[q</td>
+<td>:cprevious<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]B</td>
+<td>:blast<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]b</td>
+<td>:bnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]T</td>
+<td>:tlast<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]t</td>
+<td>:tnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]L</td>
+<td>:lclose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]e</td>
+<td>:lnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]Q</td>
+<td>:cclose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]q</td>
+<td>:cnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>_</td>
+<td><C-W>5<lt></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gF</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td>:%s/</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gp</td>
+<td>‘<code>[' . strpart(getregtype(), 0, 1) . '</code>]’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g#</td>
+<td>g#N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g*</td>
+<td>g*N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gJ</td>
+<td>:TSJJoin<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gS</td>
+<td>:TSJSplit<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcip</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>gj</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>gk</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td>nzz</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p</td>
+<td>p`]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-J></td>
+<td><C-W>j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>&lt;C-&gt;<C-N><C-W>h</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-Y></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-P></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F5></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><F1></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td>&lt;C-&gt;<C-N><C-W>l</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><Tab></td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>#</td>
+<td>“yy?=escape(getreg(‘y’), ‘/?’)<CR><CR>N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*</td>
+<td>“yy/=escape(getreg(‘y’), ‘/?’)<CR><CR>N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,p</td>
+<td>“0p</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,F</td>
+<td>:<C-U>call v:lua.kris.search.run(““, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,kS</td>
+<td>:<C-U>call v:lua.kris.calculate_selection(v:true)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,ks</td>
+<td>:<C-U>call v:lua.kris.calculate_selection()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,yg</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,c</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>J</td>
+<td>:m ’&gt;+1<CR>gv=gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>K</td>
+<td>:m ’<lt>-2<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q</td>
+<td><C-Z></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a#</td>
+<td>:<C-U>normal! F#vf#<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a-</td>
+<td>:<C-U>normal! F-vf-<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a+</td>
+<td>:<C-U>normal! F+vf+<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a*</td>
+<td>:<C-U>normal! F<em>vf</em><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a\</td>
+<td>:<C-U>normal! F&lt;CR&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a/</td>
+<td>:<C-U>normal! F/vf/<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a;</td>
+<td>:<C-U>normal! F;vf;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a,</td>
+<td>:<C-U>normal! F,vf,<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a:</td>
+<td>:<C-U>normal! F:vf:<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a.</td>
+<td>:<C-U>normal! F.vf.<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a_</td>
+<td>:<C-U>normal! F_vf_<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td>:s/</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i#</td>
+<td>:<C-U>normal! T#vt#<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i-</td>
+<td>:<C-U>normal! T-vt-<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i+</td>
+<td>:<C-U>normal! T+vt+<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i*</td>
+<td>:<C-U>normal! T<em>vt</em><CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i\</td>
+<td>:<C-U>normal! T&lt;CR&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i/</td>
+<td>:<C-U>normal! T/vt/<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i;</td>
+<td>:<C-U>normal! T;vt;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i,</td>
+<td>:<C-U>normal! T,vt,<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i:</td>
+<td>:<C-U>normal! T:vt:<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i.</td>
+<td>:<C-U>normal! T.vt.<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i_</td>
+<td>:<C-U>normal! T_vt_<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p</td>
+<td>p<code>] | |  | t |  | |  | y | y</code>]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><S-Tab></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-C></td>
+<td>“+y</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Q</td>
+<td><C-Z></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>T</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a#</td>
+<td>:normal va#<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a-</td>
+<td>:normal va-<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a+</td>
+<td>:normal va+<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a*</td>
+<td>:normal va*<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a\</td>
+<td>:normal va&lt;CR&gt;</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a/</td>
+<td>:normal va/<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a;</td>
+<td>:normal va;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a,</td>
+<td>:normal va,<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a:</td>
+<td>:normal va:<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a.</td>
+<td>:normal va.<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a_</td>
+<td>:normal va_<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i#</td>
+<td>:normal vi#<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i-</td>
+<td>:normal vi-<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i+</td>
+<td>:normal vi+<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i*</td>
+<td>:normal vi*<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i\</td>
+<td>:normal vi&lt;CR&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i/</td>
+<td>:normal vi/<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i;</td>
+<td>:normal vi;<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i,</td>
+<td>:normal vi,<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i:</td>
+<td>:normal vi:<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i.</td>
+<td>:normal vi.<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i_</td>
+<td>:normal vi_<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

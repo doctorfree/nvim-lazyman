@@ -307,6 +307,15 @@ make_info() {
       C_DESC="'NvChad' based Neovim config with C++ formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/lsFoZIg-oDs)"
       C_INST="lazyman -L Cpp"
       ;;
+    Folke)
+      GH_URL="https://github.com/folke/dot"
+      WS_URL="https://www.lazyvim.org"
+      DF_URL="https://dotfyle.com/folke/dot-nvim"
+      CF_CAT="Personal"
+      CF_TYP="[LazyVim](https://lazyvim.github.io)"
+      C_DESC="Personal Neovim configuration of the great Folke Lemaitre, author of \`lazy.nvim\`, \`noice.nvim\`, \`LazyVim\`, and more"
+      C_INST="lazyman -w Folke"
+      ;;
     Go)
       GH_URL="https://github.com/dreamsofcode-io/neovim-go-config"
       WS_URL="https://nvchad.com"
@@ -338,6 +347,13 @@ make_info() {
       CF_CAT="Language"
       C_DESC="Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)"
       C_INST="lazyman -L Knvim"
+      ;;
+    Kristijan)
+      GH_URL="https://github.com/kristijanhusak/neovim-config"
+      DF_URL="https://dotfyle.com/kristijanhusak/neovim-config-nvim"
+      CF_CAT="Personal"
+      C_DESC="Personal Neovim configuration of Kristijan Husak, author of several Neovim plugins including \`orgmode\` and \`vim-dadbod-ui\`"
+      C_INST="lazyman -w Kristijan"
       ;;
     LaTeX)
       GH_URL="https://github.com/benbrastmckie/.config"

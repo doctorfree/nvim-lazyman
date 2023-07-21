@@ -1,0 +1,9 @@
+--- lua/partials/plugins.lua.orig	2023-07-20 17:50:47.525533459 -0700
++++ lua/partials/plugins.lua	2023-07-20 17:52:25.355057991 -0700
+@@ -6,6 +6,5 @@
+   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
+   { 'nvim-lua/plenary.nvim', event = 'VeryLazy' },
+   { 'stefandtw/quickfix-reflector.vim', event = 'VeryLazy' },
+-  { 'wakatime/vim-wakatime', event = 'VeryLazy' },
+   { 'LunarVim/bigfile.nvim' },
+ }
