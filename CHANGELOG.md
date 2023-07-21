@@ -4,7 +4,18 @@
 
 ### ⚡️ Added
 
+- Add `OnMyWay` patch
+- Add `check_nvims.sh` script
+- Add `Kristijan` config to `Personals`
+- Add `Wuelner` config to `Personals`
+- Add `Orange` config to `Languages`
+- Add `Insis` config to `Languages`
+
 ### 🐞 Fixed
+
+- No `lazy sync` needed for `ONNO`, just `TSUpdate`
+- Update usage message in `README`
+- Fixes to `check_nvims.sh`
 
 ## v2.1.8r7
 
