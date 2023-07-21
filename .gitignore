@@ -81,6 +81,7 @@ scripts/patches/*
 !scripts/patches/nvim-Magidc.patch
 !scripts/patches/nvim-NV-IDE.patch
 !scripts/patches/nvim-Nyoom.patch
+!scripts/patches/nvim-OnMyWay.patch
 !scripts/patches/nvim-Shuvro.patch
 !scripts/patches/README.md
 

@@ -34,15 +34,23 @@ usage() {
 
 check_info() {
   config="$1"
+  isinst=
   if [ -d ${CONFDIR}/nvim-${config} ]
   then
     printf "\n${config} installed"
+    isinst=1
   else
     printf "\n${config} uninstalled"
   fi
   if [ -f ${INFODIR}/${config}.md ]
   then
     printf "\n${config} info markdown exists"
+    grep ^### ${INFODIR}/${config}.md | grep 'managed plugins' > /dev/null || {
+      printf ", missing managed plugins section"
+    }
+    grep ^### ${INFODIR}/${config}.md | grep 'Keymaps' > /dev/null || {
+      printf ", missing keymaps section"
+    }
   else
     printf "\n${config} info markdown missing"
   fi
@@ -52,13 +60,18 @@ check_info() {
   else
     printf "\n${config} info html missing"
   fi
-  export NVIM_APPNAME="nvim-${config}"
-  status=$(nvim --headless +qa 2>&1)
-  if [ "${status}" ]
+  if [ "${isinst}" ]
   then
-    printf "\n${config} startup unclean"
+    export NVIM_APPNAME="nvim-${config}"
+    status=$(nvim --headless -c 'set nomore' -c 'qa' 2>&1 | grep Error | grep -v 'Error detected while processing command line:')
+    if [ "${status}" ]
+    then
+      printf "\n${config} startup unclean"
+    else
+      printf "\n${config} startup clean"
+    fi
   else
-    printf "\n${config} startup clean"
+    printf "\n${config} startup unknown"
   fi
   printf "\n"
 }
