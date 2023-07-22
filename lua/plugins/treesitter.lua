@@ -19,7 +19,45 @@ local M = {
   {
     "windwp/nvim-ts-autotag",
     event = { "InsertEnter" },
-    opts = { enable = true },
+    ft = {
+      "html",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+      "svelte",
+      "vue",
+      "tsx",
+      "jsx",
+      "rescript",
+      "xml",
+      "php",
+      "markdown",
+      "glimmer",
+      "handlebars",
+      "hbs",
+    },
+    opts = {
+      enable = true,
+      filetypes = {
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "svelte",
+        "vue",
+        "tsx",
+        "jsx",
+        "rescript",
+        "xml",
+        "php",
+        "markdown",
+        "glimmer",
+        "handlebars",
+        "hbs",
+      },
+    },
   },
   {
     "Wansmer/treesj",
@@ -47,10 +85,6 @@ local M = {
         use_default_keymaps = false,
       })
     end,
-  },
-  {
-    "mrjones2014/nvim-ts-rainbow",
-    event = { "BufReadPost" },
   },
 }
 

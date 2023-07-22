@@ -199,6 +199,7 @@ local nvimcmp = {
 }
 local actionmenu = {}
 local minicomment = {}
+local tscomment = {}
 local inlayhints = {}
 local signature = {}
 local lspsaga = {}
@@ -257,21 +258,37 @@ if settings.enable_coding then
       require("config.nvim-cmp")
     end,
   }
+  -- comments
+  tscomment = { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true }
   minicomment = {
     "echasnovski/mini.comment",
-    version = false,
     event = "VeryLazy",
     opts = {
-      mappings = {
-        comment = "mc",
-        comment_line = "ml",
-        textobject = "mt",
+      hooks = {
+        pre = function()
+          require("ts_context_commentstring.internal").update_commentstring({})
+        end,
       },
     },
     config = function(_, opts)
       require("mini.comment").setup(opts)
     end,
   }
+  -- minicomment = {
+  --   "echasnovski/mini.comment",
+  --   version = false,
+  --   event = "VeryLazy",
+  --   opts = {
+  --     mappings = {
+  --       comment = "mc",
+  --       comment_line = "ml",
+  --       textobject = "mt",
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require("mini.comment").setup(opts)
+  --   end,
+  -- }
   inlayhints = {
     "lvimuser/lsp-inlayhints.nvim",
     lazy = true,
@@ -327,6 +344,7 @@ return {
   },
 
   surround,
+  tscomment,
   minicomment,
   inlayhints,
   signature,
