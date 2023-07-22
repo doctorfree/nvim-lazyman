@@ -12,10 +12,10 @@ local defaults = {
   end,
   -- load the default settings
   defaults = {
-    autocmds = true,
-    globals = true,
-    keymaps = true,
-    options = true,
+    free.autocmds = true,
+    free.globals = true,
+    free.keymaps = true,
+    free.options = true,
   },
   -- icons used by other plugins
   icons = require("free.utils.icons")
@@ -44,12 +44,12 @@ function cfg.setup(opts)
       group = vim.api.nvim_create_augroup("LazyMan", { clear = true }),
       pattern = "VeryLazy",
       callback = function()
-        cfg.load("keymaps")
+        cfg.load("free.keymaps")
       end,
     })
   else
     -- load them now so they affect the opened buffers
-    cfg.load("keymaps")
+    cfg.load("free.keymaps")
   end
 
   require("lazy.core.util").try(function()
@@ -109,9 +109,9 @@ function cfg.init()
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
-    cfg.load("options")
-    cfg.load("globals")
-    cfg.load("autocmds")
+    cfg.load("free.options")
+    cfg.load("free.globals")
+    cfg.load("free.autocmds")
   end
 end
 
