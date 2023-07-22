@@ -321,10 +321,10 @@ return {
 
   {
     "jackMort/ChatGPT.nvim",
-    lazy = require("onno.util").apikey == nil,
+    lazy = require("util").apikey == nil,
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = require("onno.util").apikey,
+        api_key_cmd = require("util").apikey,
       })
     end,
   },

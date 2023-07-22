@@ -1,5 +1,5 @@
 local config = require("onno.config.lualine.config").options
-local icons = require("onno.core.icons")
+local icons = require("icons")
 
 local M = {}
 

@@ -1,5 +1,5 @@
-local Util = require("onno.util")
-local Icons = require("onno.core.icons")
+local Util = require("util")
+local Icons = require("icons")
 
 return {
   {
@@ -10,7 +10,7 @@ return {
       {
         "<leader>e",
         function()
-          require("neo-tree.command").execute({ toggle = true, position = "left", dir = require("onno.util").get_root() })
+          require("neo-tree.command").execute({ toggle = true, position = "left", dir = require("util").get_root() })
         end,
         desc = "Explorer (root dir)",
         remap = true,

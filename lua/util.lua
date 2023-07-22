@@ -33,6 +33,32 @@ M.get_highlight_value = function(group)
   return hl_config
 end
 
+--- get os type
+---@return string the os type "osx|linux|other|unknown"
+M.get_os_type = function()
+  local homedir = os.getenv("HOME")
+  local user = os.getenv("USER")
+  local start_i = 0
+  local end_i = 0
+
+  if homedir == nil or user == nil then
+    return "unknown"
+  end
+
+  start_i, end_i = string.find(homedir, "/home/" .. user)
+
+  if start_i ~= nil and end_i ~= nil then
+    return "linux"
+  else
+    start_i, end_i = string.find(homedir, "/Users/" .. user)
+    if start_i ~= nil and end_i ~= nil then
+      return "osx"
+    else
+      return "other"
+    end
+  end
+end
+
 M.get_root = function()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -171,7 +197,7 @@ M.generate_borderchars = function(type, order, opts)
   if order == nil then
     order = "t-r-b-l-tl-tr-br-bl"
   end
-  local border_icons = require("onno.core.icons").borders
+  local border_icons = require("icons").borders
   --- @type BorderIcons
   local border = vim.tbl_deep_extend("force", border_icons[type or "empty"], opts or {})
 

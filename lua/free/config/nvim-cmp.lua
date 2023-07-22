@@ -115,7 +115,7 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
-local icons = require("free.utils.icons")
+local icons = require("icons")
 local source_mapping = {
   codeium = icons.misc.codeium,
   copilot = icons.misc.copilot,

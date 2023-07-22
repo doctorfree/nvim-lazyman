@@ -10,7 +10,7 @@ if settings.enable_coding then
     },
     ft = { "go" },
     config = function()
-      local icons = require("free.utils.icons")
+      local icons = require("icons")
       local import = "goimport"
       local struct = nil
       if table_contains(lsp_servers, "gopls") then

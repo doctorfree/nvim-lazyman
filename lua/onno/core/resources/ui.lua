@@ -1,5 +1,5 @@
-local Util = require("onno.util")
-local Icon = require("onno.core.icons")
+local Util = require("util")
+local Icon = require("icons")
 
 return {
   {

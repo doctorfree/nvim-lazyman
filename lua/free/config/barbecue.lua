@@ -60,7 +60,7 @@ require("barbecue").setup({
     ellipsis = "…",
     separator = "❯",
   },
-  kinds = require("free.utils.icons").kinds
+  kinds = require("icons").kinds
 })
 
 vim.api.nvim_create_autocmd({

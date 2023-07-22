@@ -1,4 +1,4 @@
-local Util = require("onno.util")
+local Util = require("util")
 vim.g.diagnostics_enabled = true
 
 local diagnostics = {

@@ -1,5 +1,5 @@
 local M = {}
-local util = require("onno.util")
+local util = require("util")
 
 local function draw(groups)
   if groups == nil then

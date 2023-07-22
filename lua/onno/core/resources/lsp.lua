@@ -37,7 +37,7 @@ return {
     },
     config = function()
       -- special attach lsp
-      require("onno.util").on_attach(function(client, buffer)
+      require("util").on_attach(function(client, buffer)
         require("onno.config.lsp.navic").attach(client, buffer)
         require("onno.config.lsp.keymaps").attach(client, buffer)
         require("onno.config.lsp.inlayhints").attach(client, buffer)
@@ -46,7 +46,7 @@ return {
       end)
 
       -- diagnostics
-      for name, icon in pairs(require("onno.core.icons").diagnostics) do
+      for name, icon in pairs(require("icons").diagnostics) do
         local function firstUpper(s)
           return s:sub(1, 1):upper() .. s:sub(2)
         end
@@ -57,7 +57,7 @@ return {
 
       local servers = require("onno.config.lsp.servers")
       local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
-      local capabilities = require("onno.util").capabilities(ext_capabilites)
+      local capabilities = require("util").capabilities(ext_capabilites)
 
       local function setup(server)
         if servers[server] and servers[server].disabled then

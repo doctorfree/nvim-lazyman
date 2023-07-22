@@ -68,7 +68,7 @@ require("free.utils.utils").on_attach(function(client, buffer)
 end)
 
 -- diagnostics
-for name, icon in pairs(require("free.utils.icons").diagnostics) do
+for name, icon in pairs(require("icons").diagnostics) do
   name = "DiagnosticSign" .. name
   vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
 end

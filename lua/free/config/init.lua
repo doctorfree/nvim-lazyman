@@ -18,7 +18,7 @@ local defaults = {
     free.options = true,
   },
   -- icons used by other plugins
-  icons = require("free.utils.icons")
+  icons = require("icons")
 }
 
 ---@type LazyManConfig

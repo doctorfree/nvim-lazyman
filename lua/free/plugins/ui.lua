@@ -362,7 +362,7 @@ return {
         highlight = true,
         depth_limit = 0,
         depth_limit_indicator = "..",
-        icons = require("free.utils.icons").kinds,
+        icons = require("icons").kinds,
       }
     end,
   },
