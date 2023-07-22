@@ -12,10 +12,10 @@ local defaults = {
   end,
   -- load the default settings
   defaults = {
-    free.autocmds = true,
-    free.globals = true,
-    free.keymaps = true,
-    free.options = true,
+    autocmds = true,
+    globals = true,
+    keymaps = true,
+    options = true,
   },
   -- icons used by other plugins
   icons = require("icons")
@@ -29,7 +29,7 @@ function cfg.setup(opts)
   options = vim.tbl_deep_extend("force", defaults, opts or {})
   if not cfg.has() then
     require("lazy.core.util").error(
-      "**LazyMan** needs **lazy.nvim** version "
+      "**Lazyman** needs **lazy.nvim** version "
         .. cfg.lazy_version
         .. " to work properly.\n"
         .. "Please upgrade **lazy.nvim**",
@@ -89,9 +89,9 @@ function cfg.load(name)
       end,
     })
   end
-  if cfg.defaults[name] then
-    _load(name)
-  end
+--  if cfg.defaults[name] then
+--    _load(name)
+--  end
   _load(name)
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyMan may have overwritten options of the Lazy ui, so reset this here

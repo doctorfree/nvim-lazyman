@@ -143,7 +143,7 @@ autocmd("FileType", {
 autocmd("UIEnter", {
   once = true,
   callback = function()
-    require("free.ginit")
+    require("ginit")
   end,
 })
 
@@ -207,23 +207,6 @@ if settings.dashboard == "alpha" then
       end
       if not should_skip then
         require("alpha").start(true, require("alpha").default_config)
-      end
-    end,
-  })
-  -- when there is no buffer left show Alpha dashboard
-  -- requires "famiu/bufdelete.nvim" and "goolord/alpha-nvim"
-  autocmd("User", {
-    pattern = "BDeletePost*",
-    group = alpha_group,
-    callback = function(event)
-      local fallback_name = vim.api.nvim_buf_get_name(event.buf)
-      local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
-      local fallback_on_empty = fallback_name == "" and fallback_ft == ""
-
-      if fallback_on_empty then
-        -- require("neo-tree").close_all()
-        vim.api.nvim_command("Alpha")
-        vim.api.nvim_command(event.buf .. "bwipeout")
       end
     end,
   })

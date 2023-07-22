@@ -1,9 +1,10 @@
 local M = {}
+local Util = require("lazy.core.util")
 
 M.root_patterns = { ".git", "lua", "package.json", "mvnw", "gradlew", "pom.xml", "build.gradle", "release", ".project" }
 
 M.augroup = function(name)
-  return vim.api.nvim_create_augroup("onno_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("lazyman_" .. name, { clear = true })
 end
 
 M.has = function(plugin)
@@ -33,6 +34,13 @@ M.get_highlight_value = function(group)
   return hl_config
 end
 
+M.float_term = function(cmd, opts)
+  opts = vim.tbl_deep_extend("force", {
+    size = { width = 0.9, height = 0.9 },
+  }, opts or {})
+  require("lazy.util").float_term(cmd, opts)
+end
+
 --- get os type
 ---@return string the os type "osx|linux|other|unknown"
 M.get_os_type = function()
@@ -59,6 +67,11 @@ M.get_os_type = function()
   end
 end
 
+-- returns the root directory based on:
+-- * lsp workspace folders
+-- * lsp root_dir
+-- * root pattern of filename of the current buffer
+-- * root pattern of cwd
 M.get_root = function()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -68,12 +81,9 @@ M.get_root = function()
   if path then
     for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
       local workspace = client.config.workspace_folders
-      local paths = workspace
-          and vim.tbl_map(function(ws)
-            return vim.uri_to_fname(ws.uri)
-          end, workspace)
-        or client.config.root_dir and { client.config.root_dir }
-        or {}
+      local paths = workspace and vim.tbl_map(function(ws)
+        return vim.uri_to_fname(ws.uri)
+      end, workspace) or client.config.root_dir and { client.config.root_dir } or {}
       for _, p in ipairs(paths) do
         local r = vim.loop.fs_realpath(p)
         if path:find(r, 1, true) then
@@ -99,6 +109,27 @@ end
 
 M.set_root = function(dir)
   vim.api.nvim_set_current_dir(dir)
+end
+
+---@param silent boolean?
+---@param values? {[1]:any, [2]:any}
+M.toggle = function(option, silent, values)
+  if values then
+    if vim.opt_local[option]:get() == values[1] then
+      vim.opt_local[option] = values[2]
+    else
+      vim.opt_local[option] = values[1]
+    end
+    return Util.info("Set " .. option .. " to " .. vim.opt_local[option]:get(), { title = "Option" })
+  end
+  vim.opt_local[option] = not vim.opt_local[option]:get()
+  if not silent then
+    if vim.opt_local[option]:get() then
+      Util.info("Enabled " .. option, { title = "Option" })
+    else
+      Util.warn("Disabled " .. option, { title = "Option" })
+    end
+  end
 end
 
 ---@param type "ivy" | "dropdown" | "cursor" | nil
@@ -138,8 +169,6 @@ end
 
 ---@param name "autocmds" | "options" | "keymaps"
 M.load = function(name)
-  local Util = require("lazy.core.util")
-  -- always load lazyvim, then user file
   local mod = "onno.core." .. name
   Util.try(function()
     require(mod)

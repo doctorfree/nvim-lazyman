@@ -160,21 +160,6 @@ function cfg.telescope(builtin, opts)
   end
 end
 
----@param plugin string
-function cfg.has(plugin)
-  return require("lazy.core.config").plugins[plugin] ~= nil
-end
-
----@param fn fun()
-function cfg.on_very_lazy(fn)
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "VeryLazy",
-    callback = function()
-      fn()
-    end,
-  })
-end
-
 ---@param name string
 function cfg.opts(name)
   local plugin = require("lazy.core.config").plugins[name]
@@ -183,34 +168,6 @@ function cfg.opts(name)
   end
   local Plugin = require("lazy.core.plugin")
   return Plugin.values(plugin, "opts", false)
-end
-
-function cfg.float_term(cmd, opts)
-  opts = vim.tbl_deep_extend("force", {
-    size = { width = 0.9, height = 0.9 },
-  }, opts or {})
-  require("lazy.util").float_term(cmd, opts)
-end
-
----@param silent boolean?
----@param values? {[1]:any, [2]:any}
-function cfg.toggle(option, silent, values)
-  if values then
-    if vim.opt_local[option]:get() == values[1] then
-      vim.opt_local[option] = values[2]
-    else
-      vim.opt_local[option] = values[1]
-    end
-    return Util.info("Set " .. option .. " to " .. vim.opt_local[option]:get(), { title = "Option" })
-  end
-  vim.opt_local[option] = not vim.opt_local[option]:get()
-  if not silent then
-    if vim.opt_local[option]:get() then
-      Util.info("Enabled " .. option, { title = "Option" })
-    else
-      Util.warn("Disabled " .. option, { title = "Option" })
-    end
-  end
 end
 
 -- delay notifications till vim.notify was replaced or after 500ms

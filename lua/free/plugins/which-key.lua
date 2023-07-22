@@ -1,5 +1,3 @@
-local Util = require("free.utils.utils")
-
 return {
   {
     "folke/which-key.nvim",
@@ -115,7 +113,7 @@ return {
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       }
-      if Util.has("noice.nvim") then
+      if require("util").has("noice.nvim") then
         keymaps["<leader>sn"] = { name = "+noice" }
       end
       wk.register(keymaps)

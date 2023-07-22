@@ -30,7 +30,7 @@ function cfg.get()
       { "<leader>cf", format, desc = "Format Document", has = "documentFormatting" },
       { "<leader>cf", format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
     }
-    if require("free.utils.utils").has("inc-rename.nvim") then
+    if require("util").has("inc-rename.nvim") then
       cfg._keys[#cfg._keys + 1] = {
         "<leader>cr",
         function()
