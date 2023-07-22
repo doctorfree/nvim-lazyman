@@ -1,3 +1,196 @@
+local settings = require("configuration")
+local enable_codeium = settings.enable_codeium
+local enable_copilot = settings.enable_copilot
+local enable_neoai = settings.enable_neoai
+if not settings.enable_coding then
+  enable_codeium = false
+  enable_copilot = false
+  enable_neoai = false
+end
+
+local codeium = {}
+local copilot = {}
+local copilot_cmp = {}
+local neoai = {}
+if enable_neoai then
+  neoai = {
+    "Bryley/neoai.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = {
+      "NeoAI",
+      "NeoAIOpen",
+      "NeoAIClose",
+      "NeoAIToggle",
+      "NeoAIContext",
+      "NeoAIContextOpen",
+      "NeoAIContextClose",
+      "NeoAIInject",
+      "NeoAIInjectCode",
+      "NeoAIInjectContext",
+      "NeoAIInjectContextCode",
+    },
+    keys = {
+      { "<leader>as", desc = "summarize text" },
+      { "<leader>ag", desc = "generate git message" },
+    },
+    config = function()
+      require("neoai").setup({
+        ui = {
+          output_popup_text = "NeoAI",
+          input_popup_text = "Prompt",
+          width = 30, -- As percentage eg. 30%
+          output_popup_height = 80, -- As percentage eg. 80%
+          submit = "<Enter>", -- Key binding to submit the prompt
+        },
+        models = {
+          {
+            name = "openai",
+            model = "gpt-3.5-turbo",
+            params = nil,
+          },
+        },
+        register_output = {
+          ["g"] = function(output)
+            return output
+          end,
+          ["c"] = require("neoai.utils").extract_code_snippets,
+        },
+        inject = {
+          cutoff_width = 75,
+        },
+        prompts = {
+          context_prompt = function(context)
+            return "Hey, I'd like to provide some context for future "
+              .. "messages. Here is the code/text that I want to refer "
+              .. "to in our upcoming conversations:\n\n"
+              .. context
+          end,
+        },
+        mappings = {
+          ["select_up"] = "<C-k>",
+          ["select_down"] = "<C-j>",
+        },
+        open_api_key_env = "OPENAI_API_KEY",
+        shortcuts = {
+          {
+            name = "textify",
+            key = "<leader>as",
+            desc = "fix text with AI",
+            use_context = true,
+            prompt = [[
+              Please rewrite the text to make it more readable, clear,
+              concise, and fix any grammatical, punctuation, or spelling
+              errors
+            ]],
+            modes = { "v" },
+            strip_function = nil,
+          },
+          {
+            name = "gitcommit",
+            key = "<leader>ag",
+            desc = "generate git commit message",
+            use_context = false,
+            prompt = function()
+              return [[
+                Using the following git diff generate a consise and
+                clear git commit message, with a short title summary
+                that is 75 characters or less:
+              ]] .. vim.fn.system("git diff --cached")
+            end,
+            modes = { "n" },
+            strip_function = nil,
+          },
+        },
+      })
+    end,
+  }
+end
+
+if enable_codeium then
+  codeium = {
+    "jcdickinson/codeium.nvim",
+    commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
+    cmd = "Codeium",
+    event = "InsertEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = true,
+  }
+end
+
+if enable_copilot then
+  copilot = {
+    "zbirenbaum/copilot.lua",
+    build = ":Copilot auth",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("onno.config.copilot")
+    end,
+  }
+  copilot_cmp = {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
+end
+
+local cmpnpm = {}
+if not settings.enable_copilot then
+  cmpnpm = {
+    "David-Kunz/cmp-npm",
+    ft = "json",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("cmp-npm").setup({
+        ignore = {},
+        only_semantic_versions = true,
+      })
+    end,
+  }
+end
+
+local nvimcmp = {
+  "hrsh7th/nvim-cmp",
+  version = false,
+  event = "VeryLazy",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+  },
+  config = function()
+    require("onno.config.nvim-cmp")
+  end,
+}
+if settings.enable_coding then
+  nvimcmp = {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lua",
+      "mfussenegger/nvim-jdtls",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-calc",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      copilot_cmp,
+    },
+    config = function()
+      require("onno.config.nvim-cmp")
+    end,
+  }
+end
+
 return {
   {
     "L3MON4D3/LuaSnip",
@@ -78,82 +271,10 @@ return {
     end,
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    version = false,
-    event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = {
-      "mfussenegger/nvim-jdtls",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    opts = function()
-      local cmp = require("cmp")
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = { { name = "buffer" } },
-      })
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-      })
-      cmp.setup.filetype("java", {
-        completion = {
-          keyword_length = 2,
-        },
-      })
-      return {
-        completion = {
-          completeopt = "menu,menuone,noinsert",
-        },
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "i", "c" }),
-          ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "i", "c" }),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<Esc>"] = cmp.mapping(function(fallback)
-            require("luasnip").unlink_current()
-            fallback()
-          end),
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
-        }),
-        formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = function(entry, item)
-            local icons = require("onno.core.icons").kinds
-            item.kind = icons[item.kind]
-            item.menu = ({
-              nvim_lsp = "Lsp",
-              nvim_lua = "Lua",
-              luasnip = "Snippet",
-              buffer = "Buffer",
-              path = "Path",
-            })[entry.source.name]
-            return item
-          end,
-        },
-        experimental = { ghost_text = true },
-      }
-    end,
-  },
+  -- auto completion
+  nvimcmp,
+  cmpnpm,
+  { "onsails/lspkind-nvim" },
 
   {
     "echasnovski/mini.pairs",
@@ -207,4 +328,9 @@ return {
       })
     end,
   },
+  -- AI
+  codeium,
+  copilot,
+  copilot_cmp,
+  neoai,
 }
