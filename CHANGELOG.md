@@ -4,6 +4,15 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v2.1.9r1
+
+### ⚡️ Added
+
+- Add `treesitter` support for `tsx` filetype
+- Add `neotest-jest` to `neotest` configuration
+- Add support for `neotest`
 - Add `OnMyWay` patch
 - Add `check_nvims.sh` script
 - Add `Kristijan` config to `Personals`
@@ -13,6 +22,8 @@
 
 ### 🐞 Fixed
 
+- Remove rainbow treesitter plugin
+- Revise `mini.comment` configuration
 - No `lazy sync` needed for `ONNO`, just `TSUpdate`
 - Update usage message in `README`
 - Fixes to `check_nvims.sh`
