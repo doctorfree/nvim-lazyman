@@ -15,7 +15,7 @@ local settings = require("configuration")
 
 require("lazy").setup({
   spec = {
-    { import = "plugins" },
+    { import = "free.plugins" },
   },
   defaults = {
     lazy = true,
