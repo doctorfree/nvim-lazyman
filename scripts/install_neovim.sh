@@ -1197,9 +1197,6 @@ main() {
               ;;
           esac
         done
-      else
-        printf "\nPress <Enter> to continue ... "
-        read -r yn
       fi
     }
   }
