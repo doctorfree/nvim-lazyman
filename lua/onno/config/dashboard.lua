@@ -1,6 +1,6 @@
 local settings = require("configuration")
 local dashboard = require("dashboard")
-local Logo = require("onno.core.logo")
+local Logo = require("onno.logo")
 local header = Logo.time_of_day.generate()
 
 if settings.enable_dashboard_header then

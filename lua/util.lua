@@ -179,7 +179,7 @@ end
 
 ---@param name "autocmds" | "options" | "keymaps"
 M.load = function(name)
-  local mod = "onno.core." .. name
+  local mod = "onno." .. name
   Util.try(function()
     require(mod)
   end, {

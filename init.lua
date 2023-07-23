@@ -39,7 +39,7 @@ vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
 
 if settings.namespace == "onno" then
-  require("onno.core.lazy")
+  require("onno.lazy")
 else
   require("free.config.lazy")
 end

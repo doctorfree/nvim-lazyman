@@ -15,7 +15,7 @@ local settings = require("configuration")
 
 -- load lazy
 require("lazy").setup({
-  spec = "onno.core.resources",
+  spec = "onno.plugins",
   defaults = {
     lazy = false,
     -- version = false, -- always use the latest git commit
