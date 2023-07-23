@@ -272,6 +272,16 @@ M.notify = function(msg, level, opts)
   end)
 end
 
+M.table_contains = function(tbl, x)
+  local found = false
+  for _, v in pairs(tbl) do
+    if v == x then
+      found = true
+    end
+  end
+  return found
+end
+
 --- @param type "thin" | "thick" | "empty" | nil
 --- @param order "t-r-b-l-tl-tr-br-bl" | "tl-t-tr-r-bl-b-br-l" | nil
 --- @param opts BorderIcons | nil

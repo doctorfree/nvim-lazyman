@@ -2,7 +2,7 @@ local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
 local formatters_linters = settings.formatters_linters
 local showdiag = settings.show_diagnostics
-local table_contains = require("free.utils.functions").table_contains
+local table_contains = require("util").table_contains
 
 local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
 if not showdiag == "popup" then

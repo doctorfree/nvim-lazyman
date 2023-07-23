@@ -1,7 +1,7 @@
 local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
 local external_formatters = settings.external_formatters
-local table_contains = require("free.utils.functions").table_contains
+local table_contains = require("util").table_contains
 
 vim.filetype.add({
   extension = {

@@ -1,5 +1,5 @@
 local settings = require("configuration")
-local Util = require("free.utils.utils")
+local Util = require("util")
 
 local dependencies = {
   "nvim-lua/plenary.nvim",
@@ -82,7 +82,7 @@ return {
     { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
     { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-    { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+    { "<leader>sG", Util.telescope("live_grep", "dropdown", { cwd = false }), desc = "Grep (cwd)" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
     {
       "<leader>sH",
@@ -95,15 +95,15 @@ return {
     { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
     { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
     { "<leader>sw", Util.telescope("grep_string"), desc = "Word (root dir)" },
-    { "<leader>sW", Util.telescope("grep_string", { cwd = false }), desc = "Word (cwd)" },
+    { "<leader>sW", Util.telescope("grep_string", "dropdown", { cwd = false }), desc = "Word (cwd)" },
     {
       "<leader>uC",
-      Util.telescope("colorscheme", { enable_preview = true }),
+      Util.telescope("colorscheme", "dropdown", { enable_preview = true }),
       desc = "Colorscheme with preview",
     },
     {
       "<leader>ss",
-      Util.telescope("lsp_document_symbols", {
+      Util.telescope("lsp_document_symbols", "dropdown", {
         symbols = {
           "Class",
           "Function",
@@ -121,7 +121,7 @@ return {
     },
     {
       "<leader>sS",
-      Util.telescope("lsp_workspace_symbols", {
+      Util.telescope("lsp_workspace_symbols", "dropdown", {
         symbols = {
           "Class",
           "Function",

@@ -1,5 +1,5 @@
 local settings = require("configuration")
-local table_contains = require("free.utils.functions").table_contains
+local table_contains = require("util").table_contains
 
 local screensaver = {}
 local use_drop = true

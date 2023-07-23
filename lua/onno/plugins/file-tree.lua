@@ -22,7 +22,7 @@ if settings.file_tree == "nvim-tree" then
       },
     },
     config = function()
-      require("free.config.nvim-tree")
+      require("onno.config.nvim-tree")
     end,
   }
 elseif settings.file_tree == "neo-tree" then
@@ -33,23 +33,42 @@ elseif settings.file_tree == "neo-tree" then
     cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "mrbjarksen/neo-tree-diagnostics.nvim",
     },
     keys = {
       {
         "<leader>e",
         function()
-          require("neo-tree.command").execute({ toggle = true, dir = require("util").get_root() })
+          require("neo-tree.command").execute({ toggle = true, position = "left", dir = Util.get_root() })
         end,
         desc = "Explorer (root dir)",
         remap = true,
       },
-      { "<leader>E", "<cmd>Neotree toggle position=float<cr>", desc = "Explorer Float" },
+      {
+        "<leader>E",
+        function()
+          require("neo-tree.command").execute({
+            toggle = true,
+            position = "float",
+            dir = Util.get_root(),
+          })
+        end,
+        desc = "Explorer Float (root dir)",
+      },
     },
-    config = function()
-      require("free.config.neo-tree")
-    end,
+    opts = require("onno.config.neo-tree"),
+    init = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+      if vim.fn.argc() == 1 then
+        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          require("neo-tree")
+          vim.cmd([[set showtabline=0]])
+        end
+      end
+    end
   }
 end
 

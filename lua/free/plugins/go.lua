@@ -1,6 +1,6 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
-local table_contains = require("free.utils.functions").table_contains
+local table_contains = require("util").table_contains
 
 if settings.enable_coding then
   return {

@@ -11,27 +11,6 @@ cfg.notify = function(message, level, title)
   vim.api.nvim_notify(message, level, notify_options)
 end
 
--- this will return a function that calls telescope.
--- cwd will default to lazyvim.util.get_root
--- for `files`, git_files or find_files will be chosen depending on .git
-function cfg.telescope(builtin, opts)
-  local params = { builtin = builtin, opts = opts }
-  return function()
-    builtin = params.builtin
-    opts = params.opts
-    opts = vim.tbl_deep_extend("force", { cwd = cfg.get_root() }, opts or {})
-    if builtin == "files" then
-      if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
-        opts.show_untracked = true
-        builtin = "git_files"
-      else
-        builtin = "find_files"
-      end
-    end
-    require("telescope.builtin")[builtin](opts)
-  end
-end
-
 -- toggle colorcolumn
 cfg.toggle_colorcolumn = function()
   local value = vim.api.nvim_get_option_value("colorcolumn", {})
@@ -81,37 +60,5 @@ function cfg.get_listed_buffers()
 
   return buffers
 end
-
-function cfg.table_contains(tbl, x)
-  local found = false
-  for _, v in pairs(tbl) do
-    if v == x then
-      found = true
-    end
-  end
-  return found
-end
-
--- returns the require for use in `config` parameter of packer's `use`
--- expects the name of the config file
--- prefixes with `config.`
-cfg.get_config = function(name)
-  return string.format('require("free.config.%s")', name)
-end
-
--- Reload all plugins (not yet working)
--- function cfg.ReloadPlugins()
---   local hls_status = vim.v.hlsearch
---   for name, _ in pairs(package.loaded) do
---     if name:match("^plugins") then
---       package.loaded[name] = nil
---     end
---   end
---
---   dofile(vim.env.MYVIMRC)
---   if hls_status == 0 then
---     vim.opt.hlsearch = false
---   end
--- end
 
 return cfg
