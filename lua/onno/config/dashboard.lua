@@ -6,8 +6,12 @@ local header = Logo.time_of_day.generate()
 if settings.enable_dashboard_header then
   header = Logo.headers.generate("neovim")
 end
+local session_restore = 'lua require("persistence").load({last = true})'
+if settings.session_manager == "possession" then
+  session_restore = "Telescope possession list"
+end
 
-local config_entry =  {
+local config_entry = {
   icon = "   ",
   icon_hl = "DashboardConfiguration",
   desc = "Configuration                                   ",
@@ -86,7 +90,7 @@ vim.api.nvim_create_autocmd("User", {
             desc_hl = "String",
             key = "s",
             key_hl = "DashboardSession",
-            action = "lua require('persistence').load({last = true})",
+            action = session_restore,
           },
           lazyman_entry,
           config_entry,

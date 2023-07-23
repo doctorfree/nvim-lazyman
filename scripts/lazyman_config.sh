@@ -2634,6 +2634,36 @@ set_haves
     free)
       set_conf_value "$1" "onno"
       ;;
+    neo-tree)
+      set_conf_value "$1" "nvim-tree"
+      ;;
+    nvim-tree)
+      set_conf_value "$1" "neo-tree"
+      ;;
+    hop)
+      set_conf_value "$1" "leap"
+      ;;
+    leap)
+      set_conf_value "$1" "hop"
+      ;;
+    persistence)
+      set_conf_value "$1" "possession"
+      ;;
+    possession)
+      set_conf_value "$1" "persistence"
+      ;;
+    preview)
+      set_conf_value "$1" "peek"
+      ;;
+    peek)
+      set_conf_value "$1" "preview"
+      ;;
+    bubble)
+      set_conf_value "$1" "arrow"
+      ;;
+    arrow)
+      set_conf_value "$1" "bubble"
+      ;;
     *)
       printf "\nUnrecognized configuration toggle: $1\n"
       usage

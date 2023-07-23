@@ -107,7 +107,7 @@ conf.enable_multi_cursor = false
 -- Highlight sections of code which might have security or quality issues
 conf.enable_securitree = false
 -- neovim session manager to use: persistence, possession, or none
-conf.session_manager = "possession"
+conf.session_manager = "persistence"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
