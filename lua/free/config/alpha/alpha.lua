@@ -172,7 +172,7 @@ vim.cmd([[
 local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
 new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
-    dashboard.button("f", "  Find File", ":" .. require("free.utils.functions").project_files() .. "<CR>")
+    dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
 local file_tree_btn = dashboard.button("e", "  File Browser", filetree)
 file_tree_btn.opts.hl = "AlphaShortcut"

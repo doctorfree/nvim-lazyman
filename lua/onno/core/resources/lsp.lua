@@ -91,7 +91,17 @@ return {
     "williamboman/mason.nvim",
     cmd = "Mason",
     config = function()
-      require("mason").setup()
+      local opts = {
+        ui = {
+          border = "rounded",
+          icons = {
+            package_pending = " ",
+            package_installed = " ",
+            package_uninstalled = " ﮊ",
+          },
+        },
+      }
+      require("mason").setup(opts)
     end,
   },
 

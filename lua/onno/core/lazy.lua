@@ -21,6 +21,10 @@ require("lazy").setup({
   },
   install = { colorscheme = { "monokai-pro", "habamax" } },
   checker = { enabled = false, notify = false },
+  ui = {
+    size = { width = 0.8, height = 0.6 },
+    border = "rounded",
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins

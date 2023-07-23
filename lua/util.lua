@@ -202,6 +202,49 @@ M.capabilities = function(ext)
   )
 end
 
+-- check if a variable is not empty nor nil
+M.isNotEmpty = function(s)
+  return s ~= nil and s ~= ""
+end
+
+-- check if a variable is empty or nil
+M.isEmpty = function(s)
+  return s == nil or s == ""
+end
+
+--- Check if path exists
+M.path_exists = function(path)
+  return vim.loop.fs_stat(path)
+end
+
+-- Return telescope files command
+M.project_files = function()
+  local path = vim.loop.cwd() .. "/.git"
+  if M.path_exists(path) then
+    return "Telescope git_files"
+  else
+    return "Telescope find_files"
+  end
+end
+
+--- Check if a file or directory exists in this path
+M.file_or_dir_exists = function(file)
+  local ok, err, code = os.rename(file, file)
+  if not ok then
+    if code == 13 then
+      -- Permission denied, but it exists
+      return true
+    end
+  end
+  return ok, err
+end
+
+--- Check if a directory exists in this path
+M.isdir = function(path)
+  -- "/" works on both Unix and Windows
+  return M.file_or_dir_exists(path .. "/")
+end
+
 M.notify = function(msg, level, opts)
   opts = opts or {}
   level = vim.log.levels[level:upper()]

@@ -1,5 +1,5 @@
 local settings = require("configuration")
-local utils = require("free.utils.functions")
+local utils = require("util")
 local o = vim.opt
 
 if settings.enable_statusline then
@@ -105,4 +105,4 @@ end
 vim.g.markdown_recommended_style = 0
 
 -- Ignore some deprecation warnings
-require("free.utils.deprecation-warnings")
+require("deprecation-warnings")

@@ -190,7 +190,9 @@ conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
+  "cpp",
   "go",
+  "graphql",
   "html",
   "java",
   "javascript",
@@ -199,9 +201,11 @@ conf.treesitter_ensure_installed = {
   "markdown",
   "markdown_inline",
   "query",
+  "php",
   "python",
   "regex",
   "rust",
+  "scss",
   "toml",
   "tsx",
   "typescript",

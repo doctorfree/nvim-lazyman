@@ -5,7 +5,7 @@
 
 local lualine = require("lualine")
 local settings = require("configuration")
-local utils = require("free.utils.functions")
+local utils = require("util")
 
 local status_in_tab = false
 if settings.enable_statusline then

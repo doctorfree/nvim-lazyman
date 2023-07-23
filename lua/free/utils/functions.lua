@@ -3,55 +3,12 @@ local fn = vim.fn
 
 local cfg = {}
 
---- Check if a file or directory exists in this path
-cfg.file_or_dir_exists = function(file)
-  local ok, err, code = os.rename(file, file)
-  if not ok then
-    if code == 13 then
-      -- Permission denied, but it exists
-      return true
-    end
-  end
-  return ok, err
-end
-
---- Check if a directory exists in this path
-cfg.isdir = function(path)
-  -- "/" works on both Unix and Windows
-  return cfg.file_or_dir_exists(path .. "/")
-end
-
 cfg.notify = function(message, level, title)
   local notify_options = {
     title = title,
     timeout = 3000,
   }
   vim.api.nvim_notify(message, level, notify_options)
-end
-
--- check if a variable is not empty nor nil
-cfg.isNotEmpty = function(s)
-  return s ~= nil and s ~= ""
-end
-
--- check if a variable is empty or nil
-cfg.isEmpty = function(s)
-  return s == nil or s == ""
-end
-
---- Check if path exists
-cfg.path_exists = function(path)
-  return vim.loop.fs_stat(path)
-end
-
--- Return telescope files command
-cfg.project_files = function()
-  local path = vim.loop.cwd() .. "/.git"
-  if cfg.path_exists(path) then
-    return "Telescope git_files"
-  else
-    return "Telescope find_files"
-  end
 end
 
 -- this will return a function that calls telescope.
@@ -72,24 +29,6 @@ function cfg.telescope(builtin, opts)
       end
     end
     require("telescope.builtin")[builtin](opts)
-  end
-end
-
--- toggle quickfixlist
-cfg.toggle_qf = function()
-  local windows = fn.getwininfo()
-  local qf_exists = false
-  for _, win in pairs(windows) do
-    if win["quickfix"] == 1 then
-      qf_exists = true
-    end
-  end
-  if qf_exists == true then
-    cmd("cclose")
-    return
-  end
-  if cfg.isNotEmpty(fn.getqflist()) then
-    cmd("copen")
   end
 end
 

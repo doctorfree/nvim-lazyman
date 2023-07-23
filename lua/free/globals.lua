@@ -1,4 +1,4 @@
-local utils = require("free.utils.functions")
+local utils = require("util")
 
 vim.g.pymode = 1
 vim.g.pymode_warnings = 1
