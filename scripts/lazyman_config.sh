@@ -462,7 +462,7 @@ select_theme_style() {
             mainmenu=1
             break 2
             ;;
-          "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3

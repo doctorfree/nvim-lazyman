@@ -1634,7 +1634,7 @@ show_vers_menu() {
     "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
       break
       ;;
-    "Quit",* | *,"Quit" | "quit",* | *,"quit")
+    "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
       printf "\nExiting Lazyman\n"
       exit 0
       ;;
@@ -2592,7 +2592,7 @@ show_main_menu() {
         printf " done"
         break
         ;;
-      "Quit",* | *,"Quit" | "quit",* | *,"quit")
+      "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
         printf "\nExiting Lazyman\n"
         exit 0
         ;;
