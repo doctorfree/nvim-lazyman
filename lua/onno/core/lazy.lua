@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local settings = require("configuration")
+
 -- load lazy
 require("lazy").setup({
   spec = "onno.core.resources",
@@ -19,7 +21,7 @@ require("lazy").setup({
     -- version = false, -- always use the latest git commit
     version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "monokai-pro", "habamax" } },
+  install = { colorscheme = { settings.theme, "habamax" } },
   checker = { enabled = false, notify = false },
   ui = {
     size = { width = 0.8, height = 0.6 },

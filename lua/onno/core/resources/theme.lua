@@ -16,7 +16,7 @@ return {
     lazy = false,
     branch = "master",
     priority = 1000,
-    keys = { { "<leader>mc", "<cmd>MonokaiProSelect<cr>", desc = "Select Moonokai pro filter" } },
+    keys = { { "<leader>c", "<cmd>MonokaiProSelect<cr>", desc = "Select Moonokai pro filter" } },
     config = function()
       require("themes.monokai-pro")
     end,

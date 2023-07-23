@@ -13,29 +13,29 @@ local function set_colorscheme(sty)
 end
 
 -- Default options:
-require('kanagawa').setup({
-    compile = true,              -- enable compiling the colorscheme
-    undercurl = true,            -- enable undercurls
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true},
-    statementStyle = { bold = true },
-    typeStyle = {},
-    transparent = settings.enable_transparent,
-    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-    colors = {                   -- add/modify theme and palette colors
-        palette = {},
-        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-    },
-    overrides = function(colors) -- add/modify highlights
-        return {}
-    end,
-    theme = "wave",              -- Load "wave" theme when 'background' option is not set
-    background = {               -- map the value of 'background' option to a theme
-        dark = "wave",           -- try "dragon" !
-        light = "lotus"
-    },
+require("kanagawa").setup({
+  compile = true, -- enable compiling the colorscheme
+  undercurl = true, -- enable undercurls
+  commentStyle = { italic = true },
+  functionStyle = {},
+  keywordStyle = { italic = true },
+  statementStyle = { bold = true },
+  typeStyle = {},
+  transparent = settings.enable_transparent,
+  dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+  terminalColors = true, -- define vim.g.terminal_color_{0,17}
+  colors = { -- add/modify theme and palette colors
+    palette = {},
+    theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+  },
+  overrides = function(colors) -- add/modify highlights
+    return {}
+  end,
+  theme = "wave", -- Load "wave" theme when 'background' option is not set
+  background = { -- map the value of 'background' option to a theme
+    dark = "wave", -- try "dragon" !
+    light = "lotus",
+  },
 })
 
 if settings.theme == "kanagawa" then
@@ -63,17 +63,4 @@ if settings.theme == "kanagawa" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "NvimTreeSymlink" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "NvimTreeSpecialFile" })
   end
-  -- Not yet working, may need to clear and/or update cache
-  -- local kopts = require("kanagawa").config
-  -- vim.g.kanagawa_transparent = kopts.transparent
-  -- local utils = require("utils.functions")
-  -- utils.map("n", "<leader>ut", function()
-  --  vim.g.kanagawa_transparent = not vim.g.kanagawa_transparent
-  --  kopts.transparent = vim.g.kanagawa_transparent
-  --  require("kanagawa").setup( kopts )
-  --  vim.cmd.KanagawaCompile()
-  --  local sett = require("configuration")
-  --  local styl = sett.theme_style
-  --  set_colorscheme(styl)
-  -- end, { desc = "Toggle Transparency" })
 end

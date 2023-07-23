@@ -7,7 +7,7 @@ local function set_colorscheme(sty)
   elseif sty == "onedark_dark" then
     vim.cmd([[colorscheme onedark_dark]])
   elseif sty == "onelight" then
-    vim.opt.background = 'light'
+    vim.opt.background = "light"
     vim.cmd([[colorscheme onelight]])
   else
     vim.cmd([[colorscheme onedark]])
@@ -89,11 +89,11 @@ require("onedarkpro").setup({
     transparency = settings.enable_transparent, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
     highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
-  }
+  },
 })
 
 if theme == "onedarkpro" then
-  vim.opt.background = 'dark'
+  vim.opt.background = "dark"
   local style = settings.theme_style
   set_colorscheme(style)
   if settings.dashboard == "alpha" then
@@ -103,19 +103,4 @@ if theme == "onedarkpro" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "StartifyFile" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "StartifyFooter" })
   end
-  -- Not yet working, may need to clear and/or update cache
-  -- local config = require("onedarkpro.config").config
-  -- local opts = config.options
-  -- vim.g.onedarkpro_transparent = opts.transparency
-  -- local utils = require("utils.functions")
-  -- utils.map("n", "<leader>ut", function()
-  --   vim.g.onedarkpro_transparent = not vim.g.onedarkpro_transparent
-  --   opts.transparency = vim.g.onedarkpro_transparent
-  --   vim.cmd.OnedarkproClean()
-  --   require("onedarkpro").setup({ options = opts })
-  --   vim.cmd.OnedarkproCache()
-  --   local sett = require("configuration")
-  --   local styl = sett.theme_style
-  --   set_colorscheme(styl)
-  -- end, { desc = "Toggle Transparency" })
 end
