@@ -2908,12 +2908,16 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZ
       onno|Onno|ONNO)
         ${SUBMENUS} -s namespace onno
         ;;
+      toggle|Toggle)
+        ${SUBMENUS} -t namespace
+        ;;
       *)
         printf "\nUnsupported namespace: ${namespace}"
         printf "\nSupported namespaces: free onno\n"
         brief_usage
         ;;
     esac
+    exit 0
     ;;
   o)
     penguinvim=1

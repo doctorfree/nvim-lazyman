@@ -2536,7 +2536,8 @@ initplugs=
 menu="conf"
 pluginit=
 setconf=
-while getopts "dim:su" flag; do
+toggle=
+while getopts "dim:stu" flag; do
   case $flag in
     d)
       debug=1
@@ -2572,6 +2573,9 @@ while getopts "dim:su" flag; do
     s)
       setconf=1
       ;;
+    t)
+      toggle=1
+      ;;
     u)
       usage
       ;;
@@ -2584,6 +2588,33 @@ done
 shift $((OPTIND - 1))
 
 set_haves
+
+[ "${toggle}" ] && {
+  [ "$1" ] || {
+    printf "\nThe -t option requires a configuration name argument."
+    usage
+  }
+  curval=$(get_conf_value "$1")
+  case ${curval} in
+    true)
+      set_conf_value "$1" "false"
+      ;;
+    false)
+      set_conf_value "$1" "true"
+      ;;
+    onno)
+      set_conf_value "$1" "free"
+      ;;
+    free)
+      set_conf_value "$1" "onno"
+      ;;
+    *)
+      printf "\nUnrecognized configuration toggle: $1\n"
+      usage
+      ;;
+  esac
+  [ "${initplugs}" ] || exit 0
+}
 
 [ "${setconf}" ] && {
   [ "$1" ] || {
@@ -2601,16 +2632,14 @@ set_haves
   else
     set_conf_value "$1" "$2"
   fi
-  [ "${initplugs}" ] || {
-    [ "${menu}" ] || exit 0
-  }
+  [ "${initplugs}" ] || exit 0
 }
 
 [ "${initplugs}" ] && {
   set_code_explain
   set_ranger_float
   set_waka_opt
-  [ "${menu}" ] || exit 0
+  exit 0
 }
 
 # Source the Lazyman shell initialization for aliases and nvims selector
