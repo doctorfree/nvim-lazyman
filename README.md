@@ -927,9 +927,9 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]
-   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]
-   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]
-   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]
+   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]
+   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]
+   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]
    [health] [info] [init] [install] [open] [remove] [search] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
@@ -958,6 +958,7 @@ Where:
     -m indicates install and initialize MagicVim Neovim configuration
     -M indicates install and initialize Mini Neovim configuration
     -o indicates install and initialize penguinVim Neovim configuration
+    -O 'name' indicates set Lazyman configuration to namespace 'name'
     -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -S indicates show Neovim configuration fuzzy selector menu
@@ -994,6 +995,9 @@ Where:
            All 2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
+    -Y indicates use the following arguments as 'name'/'value' to set Lazyman config
+       For example: lazyman -Y theme kanagawa
+       If the 'name' argument is 'get' then the current value is returned
     -z indicates do not run nvim after initialization
     -Z indicates do not install Homebrew, Neovim, or any other tools
     -K 'conf' indicates install 'conf' in development unsupported config

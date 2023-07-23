@@ -57,9 +57,9 @@ showinstalled=1
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
   printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
-  printf "\n   [-S] [-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang]"
-  printf "\n   [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url]"
-  printf "\n   [-w conf] [-W] [-x conf] [-X] [-y] [-z] [-Z] [-K conf] [-u]"
+  printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
+  printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
+  printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
   printf "\n   [health] [info] [init] [install] [open] [remove] [search] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
@@ -93,6 +93,7 @@ usage() {
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
   printf "\n    -M indicates install and initialize Mini Neovim configuration"
   printf "\n    -o indicates install and initialize penguinVim Neovim configuration"
+  printf "\n    -O 'name' indicates set Lazyman configuration to namespace 'name'"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -S indicates show Neovim configuration fuzzy selector menu"
@@ -129,6 +130,9 @@ usage() {
   printf "\n           All ${STARTCFGS}"
   printf "\n    -X indicates install and initialize all 'Starter' configs"
   printf "\n    -y indicates do not prompt, answer 'yes' to any prompt"
+  printf "\n    -Y indicates use the following arguments as 'name'/'value' to set Lazyman config"
+  printf "\n       For example: lazyman -Y theme kanagawa"
+  printf "\n       If the 'name' argument is 'get' then the current value is returned"
   printf "\n    -z indicates do not run nvim after initialization"
   printf "\n    -Z indicates do not install Homebrew, Neovim, or any other tools"
   printf "\n    -K 'conf' indicates install 'conf' in development unsupported config"
@@ -2752,6 +2756,7 @@ penguinvimdir="nvim-Penguin"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
+setconf=
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
@@ -2761,7 +2766,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
-while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" flag; do
+while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
   case $flag in
   a)
     astronvim=1
@@ -2894,6 +2899,22 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" 
   n)
     tellme=1
     ;;
+  O)
+    namespace="$OPTARG"
+    case ${namespace} in
+      free|Free|FREE)
+        ${SUBMENUS} -s namespace free
+        ;;
+      onno|Onno|ONNO)
+        ${SUBMENUS} -s namespace onno
+        ;;
+      *)
+        printf "\nUnsupported namespace: ${namespace}"
+        printf "\nSupported namespaces: free onno\n"
+        brief_usage
+        ;;
+    esac
+    ;;
   o)
     penguinvim=1
     neovimdir=("$penguinvimdir")
@@ -2975,6 +2996,9 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" 
     proceed=1
     yes="-y"
     ;;
+  Y)
+    setconf=1
+    ;;
   z)
     runvim=
     ;;
@@ -2991,6 +3015,11 @@ while getopts "aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:opPqQrRsStTUvV:w:Wx:XyzZu" 
   esac
 done
 shift $((OPTIND - 1))
+
+[ "${setconf}" ] && {
+  ${SUBMENUS} -s "$1" "$2"
+  exit 0
+}
 
 [ "$1" == "init" ] && {
   initdir="${LAZYMAN}"

@@ -53,11 +53,12 @@ for_enabled_table=()
 neorg_notes_table=()
 
 usage() {
-  printf "\nUsage: lazyman_config [-d] [-i] [-m menu] [-u]"
+  printf "\nUsage: lazyman_config [-d] [-i] [-m menu] [-s name value] [-u]"
   printf "\nWhere:"
   printf "\n    -d specifies debug mode"
   printf "\n    -i indicates initialize conditional plugin configurations and exit"
   printf "\n    -m 'menu' specifies the menu to display (conf, form, lsp, plugins)"
+  printf "\n    -s 'name value' indicates set the value of configuration 'name' to 'value'"
   printf "\n    -u displays this usage message and exits"
   exit 1
 }
@@ -2534,8 +2535,8 @@ confmenu=
 initplugs=
 menu="conf"
 pluginit=
-# TODO: configure options
-while getopts "dim:u" flag; do
+setconf=
+while getopts "dim:su" flag; do
   case $flag in
     d)
       debug=1
@@ -2568,6 +2569,9 @@ while getopts "dim:u" flag; do
         menu="confmenu"
       fi
       ;;
+    s)
+      setconf=1
+      ;;
     u)
       usage
       ;;
@@ -2581,11 +2585,32 @@ shift $((OPTIND - 1))
 
 set_haves
 
+[ "${setconf}" ] && {
+  [ "$1" ] || {
+    printf "\nThe -s option requires configuration name and value arguments."
+    usage
+  }
+  [ "$2" ] || {
+    printf "\nThe -s option requires configuration name and value arguments."
+    usage
+  }
+  if [ "$1" == "get" ]
+  then
+    get_conf_value "$2"
+    exit 0
+  else
+    set_conf_value "$1" "$2"
+  fi
+  [ "${initplugs}" ] || {
+    [ "${menu}" ] || exit 0
+  }
+}
+
 [ "${initplugs}" ] && {
   set_code_explain
   set_ranger_float
   set_waka_opt
-  exit 0
+  [ "${menu}" ] || exit 0
 }
 
 # Source the Lazyman shell initialization for aliases and nvims selector
