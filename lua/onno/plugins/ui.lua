@@ -98,7 +98,7 @@ if settings.enable_tabline then
     "kdheepak/tabline.nvim",
     event = "VeryLazy",
     config = function()
-      require("free.config.tabline")
+      require("onno.config.tabline")
     end,
   }
 end
@@ -107,7 +107,7 @@ local indentline_cfg = {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    require("free.config.indent-blankline")
+    require("onno.config.indent-blankline")
   end,
 }
 
@@ -179,7 +179,7 @@ if settings.enable_smooth_scrolling then
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
     config = function()
-      require("free.config.neoscroll")
+      require("onno.config.neoscroll")
     end,
   }
 end
@@ -346,7 +346,7 @@ if settings.enable_wilder then
       end,
       event = { "CmdwinEnter", "CmdlineEnter" },
       config = function()
-        require("free.config.wilder")
+        require("onno.config.wilder")
       end,
     },
   }
@@ -473,7 +473,7 @@ return {
     lazy = true,
     init = function()
       vim.g.navic_silence = true
-      require("free.utils.utils").on_attach(function(client, buffer)
+      require("util").on_attach(function(client, buffer)
         if client.server_capabilities.documentSymbolProvider then
           require("nvim-navic").attach(client, buffer)
         end

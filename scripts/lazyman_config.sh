@@ -2204,9 +2204,11 @@ show_conf_menu() {
     else
       options+=("Winbar [${use_winbar}]")
     fi
-    options+=("Semantic HL   [${use_semantic_highlighting}]")
-    options+=("Convert SemHL [${convert_semantic_highlighting}]")
-    options+=("Zen Mode      [${use_zenmode}]")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Semantic HL   [${use_semantic_highlighting}]")
+      options+=("Convert SemHL [${convert_semantic_highlighting}]")
+      options+=("Zen Mode      [${use_zenmode}]")
+    }
     options+=("Disable All")
     options+=("Enable All")
     options+=("Minimal Config")
