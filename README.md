@@ -1380,10 +1380,17 @@ conf.enable_smartcolumn = true
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease
 conf.enable_surround = true
--- Enable fancy lualine components
-conf.enable_fancy = false
 -- Enable the wilder plugin
 conf.enable_wilder = false
+--
+-- Lualine, Tabline, and Winbar configuration
+--
+-- The Lualine style can be "orig" or "test"
+conf.lualine_style = "orig"
+-- Experimental separator for lualine components, can be "bubble" or "arrow"
+conf.lualine_separator = "bubble"
+-- Enable fancy lualine components
+conf.enable_fancy = false
 -- The statusline (lualine), tabline, and winbar can each be enabled or disabled
 -- Enable statusline (lualine)
 conf.enable_statusline = true
@@ -1396,6 +1403,7 @@ conf.enable_winbar = "standard"
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim
+--
 conf.enable_terminal = true
 -- Enable toggleterm plugin
 conf.enable_toggleterm = true
