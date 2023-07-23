@@ -2070,6 +2070,8 @@ show_conf_menu() {
       [ "${have_figlet}" ] && show_figlet "Config"
     fi
     printf '\n'
+    namespace=$(get_conf_value namespace)
+    use_namespace="${namespace}"
     theme=$(get_conf_value theme)
     use_theme="${theme}"
     theme_style=$(get_conf_value theme_style)
@@ -2152,6 +2154,7 @@ show_conf_menu() {
     fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
+    options+=("Namespace   [${use_namespace}]")
     options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("Theme [${use_theme}]")
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
@@ -2264,6 +2267,15 @@ show_conf_menu() {
           else
             set_conf_value "enable_transparent" "true"
           fi
+          break
+          ;;
+        "Namespace"*,* | *,"Namespace"*)
+          if [ "${use_namespace}" == "onno" ]; then
+            set_conf_value "namespace" "free"
+          else
+            set_conf_value "namespace" "onno"
+          fi
+          pluginit=1
           break
           ;;
         "Leader"*,* | *,"Leader"*)

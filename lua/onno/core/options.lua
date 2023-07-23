@@ -103,19 +103,19 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   o.shortmess:append({ C = true })
 end
 
-o.backup = false, -- creates a backup file
-o.swapfile = false, -- creates a swapfile
-o.writebackup = false,
-o.numberwidth = 4, -- set number column width to 2 {default 4}
-o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
-o.background = "dark",
-o.selection = "exclusive",
-o.virtualedit = "onemore",
-o.title = true,
-o.titlestring = "%<%F%=%l/%L - nvim",
-o.linespace = 8,
-o.mousemoveevent = true,
-o.syntax = "off",
+o.backup = false
+o.swapfile = false
+o.writebackup = false
+o.numberwidth = 4
+o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+o.background = "dark"
+o.selection = "exclusive"
+o.virtualedit = "onemore"
+o.title = true
+o.titlestring = "%<%F%=%l/%L - nvim"
+o.linespace = 8
+o.mousemoveevent = true
+o.syntax = "off"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
