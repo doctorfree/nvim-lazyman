@@ -833,7 +833,8 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 #### General ⚙️
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
-- Easily configure theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
+- Easily configure namespace, theme, active plugins, and their configuration via [configuration.lua](lua/configuration.lua)
+- Two supported namespaces, `free` and `onno`, to easily switch between two completely different configurations
 - Preconfigured themes: [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), [tundra](https://github.com/sam4llis/nvim-tundra), [dracula](https://github.com/Mofiqul/dracula.nvim), [kanagawa](https://github.com/rebelot/kanagawa.nvim), [onedarkpro](https://github.com/olimorris/onedarkpro.nvim), [everforest](https://github.com/neanias/everforest-nvim), [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
   - Keymap to toggle transparency for several color schemes (`,ut`)
 - AI developer assistants:
@@ -1073,6 +1074,31 @@ dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and more.
 The `lua/configuration.lua` configuration file contains the following sections
 with settings briefly described here:
 
+##### Namespace selection
+
+The `Lazyman` Neovim configuration contains two separate and distinct
+configurations. The setting `conf.namespace` in `lua/configuration.lua`
+controls which configuration is active. The supported values for
+`conf.namespace` are `free` and `onno`. The `free` namespace is the same
+configuration used in previous releases of `Lazyman`. The `onno` namespace
+is based on the [ONNO](info/ONNO.md) configuration with modifications and
+enhancements to integrate this config with `lazyman`.
+
+To use the `free` namespace, set:
+
+```
+conf.namespace = "free"
+```
+
+To use the `onno` namespace, set:
+
+```
+conf.namespace = "onno"
+```
+
+This setting is configurable via the `lazyman` menu system, as are most
+of the `Lazyman` configuration settings.
+
 ##### Theme configuration
 
 The `nvim-Lazyman` Neovim configuration includes pre-configured support for several
@@ -1231,6 +1257,12 @@ Additional plugin configuration and options are available in `configuration.lua`
 ```lua
 local conf = {}
 
+-- Namespace to use, currently available namespaces are "free" and "onno"
+-- Switching namespace changes to a completely different configuration
+-- This is an example of how to incorporate multiple Neovim configurations
+-- into a single configuration.
+conf.namespace = "free"
+--
 -- THEME CONFIGURATION
 -- Available themes:
 --   nightfox, tokyonight, dracula, kanagawa, catppuccin,
@@ -1403,6 +1435,8 @@ conf.enable_project = true
 conf.enable_picker = true
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
+-- Enable the Neotest plugin
+conf.enable_neotest = false
 
 -- PLUGINS CONFIGURATION
 -- media backend, one of "ueberzug"|"viu"|"chafa"|"jp2a"|"catimg"|"none"
@@ -1413,18 +1447,25 @@ conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
+  "cpp",
   "go",
+  "graphql",
   "html",
   "java",
+  "javascript",
   "json",
   "lua",
   "markdown",
   "markdown_inline",
   "query",
+  "php",
   "python",
   "regex",
   "rust",
+  "scss",
   "toml",
+  "tsx",
+  "typescript",
   "vim",
   "vimdoc",
   "yaml",

@@ -344,6 +344,31 @@ can still dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and mor
 The `lua/configuration.lua` configuration file contains the following sections
 with settings briefly described here:
 
+#### Namespace selection
+
+The `Lazyman` Neovim configuration contains two separate and distinct
+configurations. The setting `conf.namespace` in `lua/configuration.lua`
+controls which configuration is active. The supported values for
+`conf.namespace` are `free` and `onno`. The `free` namespace is the same
+configuration used in previous releases of `Lazyman`. The `onno` namespace
+is based on the `ONNO` configuration with modifications and
+enhancements to integrate this config with `lazyman`.
+
+To use the `free` namespace, set:
+
+```lua
+conf.namespace = "free"
+```
+
+To use the `onno` namespace, set:
+
+```lua
+conf.namespace = "onno"
+```
+
+This setting is configurable via the `lazyman` menu system, as are most
+of the `Lazyman` configuration settings.
+
 #### Theme configuration
 
 The `nvim-Lazyman` Neovim configuration includes pre-configured support for several
