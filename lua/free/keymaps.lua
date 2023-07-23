@@ -1,16 +1,7 @@
 local Util = require("util")
 local Info = require("lazy.core.util").info
 local settings = require("configuration")
-
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+local map = Util.map
 
 -- Plugin Management
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })

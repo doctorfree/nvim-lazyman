@@ -82,8 +82,7 @@ if settings.theme == "monokai-pro" then
   end
   local mopts = require("monokai-pro.config").options
   vim.g.monokaipro_transparent = mopts.transparent_background
-  local utils = require("free.utils.functions")
-  utils.map("n", "<leader>ut", function()
+  require("util").map("n", "<leader>ut", function()
     vim.g.monokaipro_transparent = not vim.g.monokaipro_transparent
     mopts.transparent_background = vim.g.monokaipro_transparent
     require("monokai-pro").setup( mopts )

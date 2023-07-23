@@ -8,7 +8,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.nightfox")
+      require("themes.nightfox")
     end,
   },
   {
@@ -17,7 +17,7 @@ return {
     branch = "master",
     priority = 1000,
     config = function()
-      require("free.themes.monokai-pro")
+      require("themes.monokai-pro")
     end,
   },
   {
@@ -25,7 +25,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.onedarkpro")
+      require("themes.onedarkpro")
     end,
   },
   {
@@ -33,7 +33,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.tundra")
+      require("themes.tundra")
     end,
   },
   {
@@ -42,7 +42,7 @@ return {
     priority = 1000,
     branch = "main",
     config = function()
-      require("free.themes.tokyonight")
+      require("themes.tokyonight")
     end,
   },
   {
@@ -50,7 +50,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.dracula")
+      require("themes.dracula")
     end,
   },
   {
@@ -58,7 +58,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.kanagawa")
+      require("themes.kanagawa")
     end,
   },
   {
@@ -68,7 +68,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.everforest")
+      require("themes.everforest")
     end,
   },
   {
@@ -77,7 +77,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("free.themes.catppuccin")
+      require("themes.catppuccin")
     end,
   },
 }

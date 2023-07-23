@@ -34,15 +34,15 @@ end
 
 local theme = settings.theme
 local style = settings.theme_style
-local config_root = vim.fn.stdpath("config") .. "/lua/free/themes/lualine/"
+local config_root = vim.fn.stdpath("config") .. "/lua/themes/lualine/"
 local theme_path = config_root .. style .. ".lua"
 
 if utils.file_or_dir_exists(theme_path) then
-  theme = require("free.themes.lualine." .. style)
+  theme = require("themes.lualine." .. style)
 else
   theme_path = config_root .. theme .. ".lua"
   if utils.file_or_dir_exists(theme_path) then
-    theme = require("free.themes.lualine." .. theme)
+    theme = require("themes.lualine." .. theme)
   else
     theme = "auto"
   end

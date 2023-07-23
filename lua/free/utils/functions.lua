@@ -82,16 +82,6 @@ function cfg.get_listed_buffers()
   return buffers
 end
 
-function cfg.map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
-
 function cfg.table_contains(tbl, x)
   local found = false
   for _, v in pairs(tbl) do

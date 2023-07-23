@@ -35,8 +35,7 @@ if settings.theme == "everforest" then
   end
   local opts = require("everforest").config
   vim.g.everforest_transparent = opts.transparent_background_level
-  local utils = require("free.utils.functions")
-  utils.map("n", "<leader>ut", function()
+  require("util").map("n", "<leader>ut", function()
     if vim.g.everforest_transparent == 1 then
       vim.g.everforest_transparent = 0
     else
