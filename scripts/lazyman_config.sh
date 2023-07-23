@@ -698,6 +698,10 @@ show_plugin_menu() {
     else
       use_surround="✗"
     fi
+    lualine_style=$(get_conf_value lualine_style)
+    use_lualine_style="${lualine_style}"
+    lualine_separator=$(get_conf_value lualine_separator)
+    use_lualine_separator="${lualine_separator}"
     enable_fancy=$(get_conf_value enable_fancy)
     if [ "${enable_fancy}" == "true" ]; then
       use_fancy=""
@@ -915,11 +919,15 @@ show_plugin_menu() {
       options+=(" Quick Links  [${use_dashboard_quick_links}]")
     fi
     options+=("Dressing UI   [${use_dressing}]")
-    options+=("Fancy Icons   [${use_fancy}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Indentline [${use_indentline}]")
+    options+=("Lualine Style [${use_lualine_style}]")
+    if [ "${use_lualine_style}" == "test" ]; then
+      options+=(" Separator    [${use_lualine_separator}]")
+    fi
+    options+=(" Fancy Icons  [${use_fancy}]")
     options+=("Enable Motion [${use_motion}]")
     options+=("Enable Notes  [${use_notes}]")
     if [ "${enable_notes}" == "true" ]; then
@@ -1237,7 +1245,25 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
-        "Fancy"*,* | *,"Fancy"*)
+        "Lualine Style"*,* | *,"Lualine Style"*)
+          if [ "${use_lualine_style}" == "orig" ]; then
+            set_conf_value "lualine_style" "test"
+          else
+            set_conf_value "lualine_style" "orig"
+          fi
+          pluginit=1
+          break
+          ;;
+        " Separator"*,* | *," Separator"*)
+          if [ "${use_lualine_separator}" == "bubble" ]; then
+            set_conf_value "lualine_separator" "arrow"
+          else
+            set_conf_value "lualine_separator" "bubble"
+          fi
+          pluginit=1
+          break
+          ;;
+        " Fancy"*,* | *," Fancy"*)
           if [ "${enable_fancy}" == "true" ]; then
             set_conf_value "enable_fancy" "false"
           else

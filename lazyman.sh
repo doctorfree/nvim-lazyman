@@ -94,6 +94,7 @@ usage() {
   printf "\n    -M indicates install and initialize Mini Neovim configuration"
   printf "\n    -o indicates install and initialize penguinVim Neovim configuration"
   printf "\n    -O 'name' indicates set Lazyman configuration to namespace 'name'"
+  printf "\n       'name' can be one of: free onno toggle"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -S indicates show Neovim configuration fuzzy selector menu"

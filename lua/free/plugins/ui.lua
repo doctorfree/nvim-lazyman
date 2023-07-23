@@ -1,4 +1,5 @@
 local settings = require("configuration")
+local util = require("util")
 
 local barbecue = {}
 if settings.enable_winbar == "barbecue" then
@@ -45,6 +46,10 @@ if settings.enable_lualine_lsp_progress then
 end
 
 local lualine_cfg = {}
+local separator_type = settings.lualine_separator
+if util.isEmpty(separator_type) then
+  separator_type = "bubble"
+end
 if settings.enable_statusline then
   if settings.enable_fancy then
     lualine_cfg = {
@@ -54,16 +59,40 @@ if settings.enable_statusline then
         "meuter/lualine-so-fancy.nvim",
       },
       event = "VeryLazy",
-      config = function()
-        require("free.config.lualine")
+      opts = {
+        float = true,
+        separator = separator_type, -- bubble | arrow
+        ---@type any
+        colorful = true,
+      },
+      config = function(_, opts)
+        if settings.lualine_style == "test" then
+          local lualine_config = require("free.config.lualine")
+          lualine_config.setup(opts)
+          lualine_config.load()
+        else
+          require("free.config.lualine.original")
+        end
       end,
     }
   else
     lualine_cfg = {
       "nvim-lualine/lualine.nvim",
       event = "VeryLazy",
-      config = function()
-        require("free.config.lualine")
+      opts = {
+        float = true,
+        separator = separator_type, -- bubble | arrow
+        ---@type any
+        colorful = true,
+      },
+      config = function(_, opts)
+        if settings.lualine_style == "test" then
+          local lualine_config = require("free.config.lualine")
+          lualine_config.setup(opts)
+          lualine_config.load()
+        else
+          require("free.config.lualine.original")
+        end
       end,
     }
   end

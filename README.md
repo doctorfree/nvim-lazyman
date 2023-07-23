@@ -959,6 +959,7 @@ Where:
     -M indicates install and initialize Mini Neovim configuration
     -o indicates install and initialize penguinVim Neovim configuration
     -O 'name' indicates set Lazyman configuration to namespace 'name'
+       'name' can be one of: free onno toggle
     -s indicates install and initialize SpaceVim Neovim configuration
     -v indicates install and initialize LunarVim Neovim configuration
     -S indicates show Neovim configuration fuzzy selector menu

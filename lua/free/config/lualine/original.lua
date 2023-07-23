@@ -3,9 +3,9 @@
 -- nvim-lualine/lualine.nvim
 -------------------------------------------------------------------------------
 
-local lualine = require("lualine")
 local settings = require("configuration")
 local utils = require("util")
+local lualine = require("lualine")
 
 local status_in_tab = false
 if settings.enable_statusline then
