@@ -12,7 +12,7 @@ if settings.enable_winbar == "barbecue" then
     },
     event = { "BufReadPost", "BufNewFile" },
     config = function()
-      require("onno.config.barbecue")
+      require("config.barbecue")
     end,
   }
 end
@@ -98,7 +98,7 @@ if settings.enable_tabline then
     "kdheepak/tabline.nvim",
     event = "VeryLazy",
     config = function()
-      require("onno.config.tabline")
+      require("config.tabline")
     end,
   }
 end
@@ -107,7 +107,7 @@ local indentline_cfg = {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    require("onno.config.indent-blankline")
+    require("config.indent-blankline")
   end,
 }
 
@@ -179,7 +179,7 @@ if settings.enable_smooth_scrolling then
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
     config = function()
-      require("onno.config.neoscroll")
+      require("config.neoscroll")
     end,
   }
 end
@@ -326,7 +326,7 @@ if settings.enable_terminal then
     },
     lazy = false,
     config = function()
-      require("onno.config.terminal_nvim")
+      require("config.terminal_nvim")
     end,
   }
 end
@@ -346,7 +346,7 @@ if settings.enable_wilder then
       end,
       event = { "CmdwinEnter", "CmdlineEnter" },
       config = function()
-        require("onno.config.wilder")
+        require("config.wilder")
       end,
     },
   }

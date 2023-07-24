@@ -22,7 +22,7 @@ if settings.file_tree == "nvim-tree" then
       },
     },
     config = function()
-      require("free.config.nvim-tree")
+      require("config.nvim-tree")
     end,
   }
 elseif settings.file_tree == "neo-tree" then

@@ -58,7 +58,7 @@ if settings.session_manager == "possession" then
       },
     },
     config = function()
-      require("onno.config.possession")
+      require("config.possession")
     end,
   }
 elseif settings.session_manager == "persistence" then
@@ -126,7 +126,7 @@ if settings.enable_compile then
     "loctvl842/compile-nvim",
     lazy = true,
     config = function()
-      require("onno.config.compile")
+      require("config.compile")
     end,
   }
 end
@@ -138,7 +138,7 @@ if settings.enable_renamer then
     lazy = true,
     branch = "master",
     config = function()
-      require("onno.config.renamer")
+      require("config.renamer")
     end,
   }
 end

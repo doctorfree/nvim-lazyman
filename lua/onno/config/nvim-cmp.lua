@@ -34,14 +34,16 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Command Line                                             │
 -- ╰──────────────────────────────────────────────────────────╯
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = { { name = "buffer" } },
-})
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-})
+if not settings.enable_wilder then
+  cmp.setup.cmdline("/", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = { { name = "buffer" } },
+  })
+  cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+  })
+end
 cmp.setup.filetype("java", {
   completion = {
     keyword_length = 2,

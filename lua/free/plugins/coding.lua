@@ -129,7 +129,7 @@ if enable_copilot then
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("free.config.copilot")
+      require("config.copilot")
     end,
   }
   copilot_cmp = {
