@@ -1223,9 +1223,8 @@ below along with their default settings:
   - `conf.enable_chatgpt = false`
 - Enable the wilder plugin
   - `conf.enable_wilder = false`
-- The statusline (lualine) and tabline can each be enabled or disabled
+- The statusline (lualine) can be enabled or disabled
   - `conf.enable_statusline = true`
-  - `conf.enable_tabline = true`
 - The winbar with navic location can be one of barbecue, standard, or none
   - `conf.enable_winbar = "standard"`
 - Enable LSP progress in winbar
@@ -1300,7 +1299,6 @@ conf.mouse = "nv"
 -- set relative numbered lines
 conf.relative_number = true
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
--- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
@@ -1369,7 +1367,7 @@ conf.enable_multi_cursor = false
 -- Highlight sections of code which might have security or quality issues
 conf.enable_securitree = false
 -- neovim session manager to use: persistence, possession, or none
-conf.session_manager = "possession"
+conf.session_manager = "persistence"
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
@@ -1385,17 +1383,17 @@ conf.enable_wilder = false
 --
 -- Lualine, Tabline, and Winbar configuration
 --
--- The Lualine style can be "orig" or "test"
-conf.lualine_style = "orig"
--- Experimental separator for lualine components, can be "bubble" or "arrow"
+-- The Lualine style can be "free" or "onno"
+conf.lualine_style = "free"
+-- Separator for 'onno' style lualine components, can be "bubble" or "arrow"
 conf.lualine_separator = "bubble"
 -- Enable fancy lualine components
 conf.enable_fancy = false
 -- The statusline (lualine), tabline, and winbar can each be enabled or disabled
 -- Enable statusline (lualine)
 conf.enable_statusline = true
--- Enable tabline
-conf.enable_tabline = true
+-- Enable status in tabline
+conf.enable_status_in_tab = false
 -- Enable winbar with navic location
 -- Can be one of "barbecue", "standard", or "none"
 -- Barbecue provides a clickable navic location, standard has more info
