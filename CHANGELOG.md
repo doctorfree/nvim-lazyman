@@ -4,7 +4,46 @@
 
 ### ⚡️ Added
 
+- Create separate namespaces for `free` and `onno` with `namespace` entry to switch between them
+- Move `lualine` configuration up to common
+- Remove `tabline.nvim` and replace `enable_tabline` with `enable_status_in_tab`
+- Set `lualine` theme in `init.lua` rather than `highlights.lua` in `onno` lualine style
+- Enable use of either `lualine` style in both namespaces
+- Add keymaps for toggling `lualine/statusline/tabline/winbar`
+- Use `vim.api` to retrieve options values in keymaps
+- Add keymap to toggle mouse
+- Add `nvim-cmp` to common configs
+- Create lua/config with plugin configurations common to both namespaces
+- Add `wilder`, `tabline`, `neoscroll`, and `indent-blankline` configs to `onno`
+- Add `nvim-tree` to `onno` and configure file tree for `onno`
+- Session manager configuration control in `onno` namespace
+- Add cases to toggle switch in `lazyman_config.sh`
+- Restructure `onno` namespace
+- Make `onno` namespace obey theme setting
+- Move themes up to `lua` for use in both namespaces
+- Move map function up to `util.lua`
+- Add wildcard to quit menu options
+- Add `lualine_style` to `configuration.lua`
+- Add support for two `lualine` styles
+- Add toggle of configuration values from command line
+- Add `-O` and `-Y` arguments to `lazyman` to get/set configuration values from the command line
+- Add section on namespace configuration to readme and doc
+- Add namespace configuration to `lazyman` config menu
+- Further integration of `onno` namespace with `configuration.lua`
+- Move functions and `ginit` config up to common
+- Merge icons and some utils to `lua/icons.lua` and `lua/util.lua` for both namespaces
+- Add `configuration.lua` enabling of AI and `nvim-cmp` from `free` namespace to `onno` namespace
+- Add namespace to loading of `options`, `globals`, `autocmds`
+
 ### 🐞 Fixed
+
+- Don't prompt for `sudo` privilege notice during install
+- Fix `lualine` session component
+- Fix `lualine` toggle keymaps
+- Fix `onno` options
+- Update `configuration.lua` listing in readme
+- Cleanup autocmds and keymaps
+- Fix references to old namespace
 
 ## v2.1.9r1
 
