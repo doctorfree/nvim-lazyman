@@ -172,21 +172,22 @@ vim.cmd([[
 local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
 new_file_btn.opts.hl = "AlphaShortcut"
 local find_file_btn =
-    dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
+  dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
 find_file_btn.opts.hl = "AlphaShortcut"
 local file_tree_btn = dashboard.button("e", "  File Browser", filetree)
 file_tree_btn.opts.hl = "AlphaShortcut"
 local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
 find_text_btn.opts.hl = "AlphaShortcut"
-local session_btn = dashboard.button("b", "  Restore A Session", "<leader>ps<CR>")
+local session_btn =
+  dashboard.button("R", "  Restore A Session", ":lua require('persistence').load({ last = true })<CR>")
 if settings.session_manager == "possession" then
-  session_btn = dashboard.button("b", "  Restore A Session", ":Telescope possession list<CR>")
+  session_btn = dashboard.button("R", "  Restore A Session", ":Telescope possession list<CR>")
 end
 session_btn.opts.hl = "AlphaShortcut"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
 search_zoxide_btn.opts.hl = "AlphaShortcut"
 local recent_files_btn =
-    dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
+  dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
 recent_files_btn.opts.hl = "AlphaShortcut"
 local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
 git_commit_btn.opts.hl = "AlphaShortcut"
