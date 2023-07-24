@@ -4,7 +4,7 @@
 -------------------------------------------------------------------------------
 local settings = require("configuration")
 
-if settings.lualine_style == "test" then
+if settings.lualine_style == "onno" then
   local config = require("free.config.lualine.config")
   local lualine = require("lualine")
   local utils = require("util")
@@ -250,7 +250,7 @@ if settings.lualine_style == "test" then
 
   local function setup()
     local cpn = require("free.config.lualine.components")
-    local theme = require("free.config.lualine.highlights").custom(config.options)
+    require("free.config.lualine.highlights").custom(config.options)
 
     require("lualine").setup({
       options = {

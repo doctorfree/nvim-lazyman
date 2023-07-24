@@ -250,7 +250,7 @@ if settings.lualine_style == "onno" then
 
   local function setup()
     local cpn = require("onno.config.lualine.components")
-    local theme = require("onno.config.lualine.highlights").custom(config.options)
+    require("onno.config.lualine.highlights").custom(config.options)
 
     require("lualine").setup({
       options = {

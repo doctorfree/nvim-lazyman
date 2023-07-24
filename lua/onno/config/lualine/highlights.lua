@@ -103,9 +103,10 @@ M.custom = function(config)
   local groups = generate(config, palette)
 
   draw(groups)
+  -- theme is now set in init.lua
   -- clear theme if float ortherwhise, make it auto
-  local theme = config.float and { normal = { c = { bg = palette.editor_bg } } } or "auto"
-  return theme
+  -- local theme = config.float and { normal = { c = { bg = palette.editor_bg } } } or "auto"
+  -- return theme
 end
 
 return M

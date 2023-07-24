@@ -322,16 +322,18 @@ end, { desc = "Toggle statusline" })
 map("n", "<leader>uL", function()
   if lualine_enabled then
     require('lualine').hide({
-      place = {'statusline', 'winbar'},
+      place = {'statusline', 'tabline', 'winbar'},
       unhide = false,
     })
+    vim.opt.showtabline = 0
     lualine_enabled = false
     Info("Disable statusline, tabline, and winbar", { title = "Option" })
   else
     require('lualine').hide({
-      place = {'statusline', 'winbar'},
+      place = {'statusline', 'tabline', 'winbar'},
       unhide = true,
     })
+    vim.opt.showtabline = 2
     lualine_enabled = true
     Info("Enable statusline, tabline, and winbar", { title = "Option" })
   end
