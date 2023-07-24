@@ -293,6 +293,17 @@ map("n", "<leader>uL", function()
   Info("Set laststatus to " .. vim.opt.laststatus, { title = "Option" })
 end, { desc = "Toggle statusline" })
 
+map("n", "<leader>um", function()
+  local mouse = vim.opt.mouse:get()
+  if mouse == "" then
+    vim.opt.mouse = "nv"
+    Info("Enabled mouse", { title = "Option" })
+  else
+    vim.opt.mouse = ""
+    Info("Disabled mouse", { title = "Option" })
+  end
+end, { desc = "Toggle mouse" })
+
 map("n", "<leader>uN", function()
   local number = vim.wo.number                 -- local to window
   local relativenumber = vim.wo.relativenumber -- local to window
