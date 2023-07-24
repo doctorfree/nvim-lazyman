@@ -17,11 +17,7 @@ else
   o.showcmd = false
   o.laststatus = 0
 end
-if settings.enable_tabline then
-  o.showtabline = settings.showtabline
-else
-  o.showtabline = 0
-end
+o.showtabline = settings.showtabline
 
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg

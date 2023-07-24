@@ -5,15 +5,13 @@
 local settings = require("configuration")
 
 if settings.lualine_style == "onno" then
-  local config = require("onno.config.lualine.config")
+  local config = require("config.lualine.config")
   local lualine = require("lualine")
   local utils = require("util")
 
   local status_in_tab = false
-  if settings.enable_statusline then
-    if not settings.enable_tabline then
-      status_in_tab = true
-    end
+  if settings.enable_status_in_tab then
+    status_in_tab = true
   end
   local fancy = settings.enable_fancy
   local mode = { "mode" }
@@ -71,23 +69,13 @@ if settings.lualine_style == "onno" then
     navic_winbar = navic_loc
   end
   local tabline_cfg = {
-    lualine_a = {},
+    lualine_a = {'buffers'},
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
+    lualine_c = navic_tabline,
+    lualine_x = { lsp_servers },
     lualine_y = {},
     lualine_z = {},
   }
-  if settings.enable_tabline then
-    tabline_cfg = {
-      lualine_a = { require("tabline").tabline_buffers },
-      lualine_b = {},
-      lualine_c = navic_tabline,
-      lualine_x = { lsp_servers },
-      lualine_y = {},
-      lualine_z = {},
-    }
-  end
 
   local winbar_cfg = {}
   local inactive_winbar_cfg = {}
@@ -185,21 +173,6 @@ if settings.lualine_style == "onno" then
     return stat
   end
 
-  local line_c = {
-    { "filename", path = 1 }
-  }
-  if settings.enable_tabline then
-    line_c = {
-      {
-        -- show session name
-        session_name,
-        icon = { "", align = "left" },
-        padding = { left = 0, right = 1 },
-        separator = "|",
-      }
-    }
-  end
-
   local sections = {
     lualine_a = { mode },
     lualine_b = {
@@ -211,7 +184,13 @@ if settings.lualine_style == "onno" then
         cond = require("lazy.status").has_updates,
       },
     },
-    lualine_c = line_c,
+    lualine_c = {
+      -- show session name
+      session_name,
+      icon = { "", align = "left" },
+      padding = { left = 0, right = 1 },
+      separator = "|",
+    },
     lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
     lualine_y = { "progress" },
     lualine_z = { "location" },
@@ -237,20 +216,18 @@ if settings.lualine_style == "onno" then
     })
   end
   -- Hide tabline if showtabline = 0
-  if settings.enable_tabline then
-    if vim.o.showtabline == 0 then
-      require("lualine").hide({
-        place = { "tabline" },
-        unhide = false,
-      })
-    end
+  if vim.o.showtabline == 0 then
+    require("lualine").hide({
+      place = { "tabline" },
+      unhide = false,
+    })
   end
 
   local M = {}
 
   local function setup()
-    local cpn = require("onno.config.lualine.components")
-    require("onno.config.lualine.highlights").custom(config.options)
+    local cpn = require("config.lualine.components")
+    require("config.lualine.highlights").custom(config.options)
 
     require("lualine").setup({
       options = {
@@ -312,6 +289,6 @@ if settings.lualine_style == "onno" then
 
   return M
 else
-  require("config.lualine")
+  require("config.lualine.free")
   return
 end

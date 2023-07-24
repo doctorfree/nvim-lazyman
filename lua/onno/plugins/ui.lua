@@ -69,7 +69,7 @@ if settings.enable_statusline then
       },
       config = function(_, opts)
         if settings.lualine_style == "onno" then
-          local lualine_config = require("onno.config.lualine")
+          local lualine_config = require("config.lualine")
           lualine_config.setup(opts)
           lualine_config.load()
         else
@@ -89,7 +89,7 @@ if settings.enable_statusline then
       },
       config = function(_, opts)
         if settings.lualine_style == "onno" then
-          local lualine_config = require("onno.config.lualine")
+          local lualine_config = require("config.lualine")
           lualine_config.setup(opts)
           lualine_config.load()
         else
@@ -98,17 +98,6 @@ if settings.enable_statusline then
       end,
     }
   end
-end
-
-local tabline_cfg = {}
-if settings.enable_tabline then
-  tabline_cfg = {
-    "kdheepak/tabline.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("config.tabline")
-    end,
-  }
 end
 
 local indentline_cfg = {
@@ -463,9 +452,6 @@ return {
 
   -- LSP progress in lualine
   lualine_lsp_progress,
-
-  -- tabline
-  tabline_cfg,
 
   -- indent guides for Neovim
   indentline_cfg,

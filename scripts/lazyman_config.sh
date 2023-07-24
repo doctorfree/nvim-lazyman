@@ -2151,7 +2151,7 @@ show_conf_menu() {
     else
       use_statusline="✗"
     fi
-    enable_tabline=$(get_conf_value enable_tabline)
+    enable_tabline=$(get_conf_value enable_status_in_tab)
     if [ "${enable_tabline}" == "true" ]; then
       use_tabline=""
     else
@@ -2198,8 +2198,8 @@ show_conf_menu() {
     options+=("Smart Column  [${use_smartcolumn}]")
     options+=("Global Status [${use_global_statusline}]")
     options+=("Status Line   [${use_statusline}]")
-    options+=("Tab Line      [${use_tabline}]")
-    options+=(" Showtabline  [${use_showtabline}]")
+    options+=("Status in Tab [${use_tabline}]")
+    options+=("Show Tabline  [${use_showtabline}]")
     if [ "${use_winbar}" == "none" ]
     then
       options+=("Winbar     [${use_winbar}]")
@@ -2255,11 +2255,11 @@ show_conf_menu() {
           pluginit=1
           break
           ;;
-        "Tab Line"*,* | *,"Tab Line"*)
+        "Status in Tab"*,* | *,"Status in Tab"*)
           if [ "${enable_tabline}" == "true" ]; then
-            set_conf_value "enable_tabline" "false"
+            set_conf_value "enable_status_in_tab" "false"
           else
-            set_conf_value "enable_tabline" "true"
+            set_conf_value "enable_status_in_tab" "true"
           fi
           pluginit=1
           break
@@ -2357,7 +2357,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        " Showtabline"*,* | *," Showtabline"*)
+        "Show Tabline"*,* | *,"Show Tabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${showtabline}" ] || {
@@ -2406,7 +2406,7 @@ show_conf_menu() {
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_smartcolumn" "false"
           set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_status_in_tab" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
@@ -2459,7 +2459,7 @@ show_conf_menu() {
           set_conf_value "enable_smartcolumn" "false"
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_status_in_tab" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
@@ -2477,7 +2477,6 @@ show_conf_menu() {
           set_conf_value "enable_smartcolumn" "true"
           set_conf_value "global_statusline" "true"
           set_conf_value "enable_statusline" "true"
-          set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
           set_conf_value "enable_winbar" "barbecue"
           set_conf_value "enable_transparent" "true"

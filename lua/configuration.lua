@@ -38,7 +38,6 @@ conf.mouse = "nv"
 -- set relative numbered lines
 conf.relative_number = true
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
--- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
 -- enable or disable listchars
 conf.list = true
@@ -124,16 +123,16 @@ conf.enable_wilder = false
 -- Lualine, Tabline, and Winbar configuration
 --
 -- The Lualine style can be "free" or "onno"
-conf.lualine_style = "onno"
--- Experimental separator for lualine components, can be "bubble" or "arrow"
+conf.lualine_style = "free"
+-- Separator for 'onno' style lualine components, can be "bubble" or "arrow"
 conf.lualine_separator = "bubble"
 -- Enable fancy lualine components
 conf.enable_fancy = false
 -- The statusline (lualine), tabline, and winbar can each be enabled or disabled
 -- Enable statusline (lualine)
 conf.enable_statusline = true
--- Enable tabline
-conf.enable_tabline = true
+-- Enable status in tabline
+conf.enable_status_in_tab = false
 -- Enable winbar with navic location
 -- Can be one of "barbecue", "standard", or "none"
 -- Barbecue provides a clickable navic location, standard has more info

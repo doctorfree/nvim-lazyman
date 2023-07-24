@@ -1,8 +1,3 @@
-local show_path = true
-if require("configuration").enable_tabline then
-  show_path = false
-end
-
 require("barbecue").setup({
   create_autocmd = false, -- prevent barbecue from updating itself automatically
   attach_navic = false,
@@ -12,8 +7,8 @@ require("barbecue").setup({
     dirname = ":~:.",
     basename = "",
   },
-  show_dirname = show_path,
-  show_basename = show_path,
+  show_dirname = true,
+  show_basename = true,
   show_modified = false,
   modified = function(bufnr) return vim.bo[bufnr].modified end,
   show_navic = true,

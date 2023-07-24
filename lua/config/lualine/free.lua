@@ -7,12 +7,6 @@ local settings = require("configuration")
 local utils = require("util")
 local lualine = require("lualine")
 
-local status_in_tab = false
-if settings.enable_statusline then
-  if not settings.enable_tabline then
-    status_in_tab = true
-  end
-end
 local fancy = settings.enable_fancy
 local mode = { "mode" }
 local branch = "branch"
@@ -69,23 +63,13 @@ if settings.enable_winbar == "standard" then
   navic_winbar = navic_loc
 end
 local tabline_cfg = {
-  lualine_a = {},
+  lualine_a = {'buffers'},
   lualine_b = {},
-  lualine_c = {},
-  lualine_x = {},
+  lualine_c = { navic_tabline },
+  lualine_x = { lsp_servers },
   lualine_y = {},
   lualine_z = {},
 }
-if settings.enable_tabline then
-  tabline_cfg = {
-    lualine_a = { require("tabline").tabline_buffers },
-    lualine_b = {},
-    lualine_c = navic_tabline,
-    lualine_x = { lsp_servers },
-    lualine_y = {},
-    lualine_z = {},
-  }
-end
 
 local winbar_cfg = {}
 local inactive_winbar_cfg = {}
@@ -186,17 +170,6 @@ end
 local line_c = {
   { "filename", path = 1 }
 }
-if settings.enable_tabline then
-  line_c = {
-    {
-      -- show session name
-      session_name,
-      icon = { "", align = "left" },
-      padding = { left = 0, right = 1 },
-      separator = "|",
-    }
-  }
-end
 
 local sections = {
   lualine_a = { mode },
@@ -209,7 +182,14 @@ local sections = {
       cond = require("lazy.status").has_updates,
     },
   },
-  lualine_c = line_c,
+  lualine_c = {
+    -- show session name
+    { session_name,
+      icon = { "", align = "left" },
+      padding = { left = 0, right = 1 },
+      separator = "|",
+    }
+  },
   lualine_x = { fmt_stat, "encoding", "fileformat", filetype },
   lualine_y = { "progress" },
   lualine_z = { "location" },
@@ -222,11 +202,6 @@ local inactive_sections = {
   lualine_y = {},
   lualine_z = {},
 }
-if status_in_tab then
-  tabline_cfg = sections
-  sections = {}
-  inactive_sections = {}
-end
 
 lualine.setup({
   options = {
@@ -278,11 +253,9 @@ if not settings.enable_statusline then
   })
 end
 -- Hide tabline if showtabline = 0
-if settings.enable_tabline then
-  if vim.o.showtabline == 0 then
-    require("lualine").hide({
-      place = { "tabline" },
-      unhide = false,
-    })
-  end
+if vim.o.showtabline == 0 then
+  require("lualine").hide({
+    place = { "tabline" },
+    unhide = false,
+  })
 end
