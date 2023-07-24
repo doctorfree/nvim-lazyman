@@ -312,6 +312,6 @@ if settings.lualine_style == "test" then
 
   return M
 else
-  require("free.config.lualine.original")
+  require("config.lualine")
   return
 end

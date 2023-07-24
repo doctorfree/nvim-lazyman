@@ -9,6 +9,14 @@
 local Util = require("util")
 local Info = require("lazy.core.util").info
 local settings = require("configuration")
+local lualine_enabled = false
+if settings.enable_statusline then
+  lualine_enabled = true
+end
+local winbar_enabled = true
+if settings.enable_winbar == "none" then
+  winbar_enabled = false
+end
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -281,7 +289,25 @@ map("n", "<leader>uT", function()
   Info("Set showtabline to " .. vim.api.nvim_get_option('showtabline'), { title = "Option" })
 end, { desc = "Toggle tabline" })
 
-map("n", "<leader>uL", function()
+map("n", "<leader>uW", function()
+  if winbar_enabled then
+    require('lualine').hide({
+      place = {'winbar'},
+      unhide = false,
+    })
+    winbar_enabled = false
+    Info("Disable winbar", { title = "Option" })
+  else
+    require('lualine').hide({
+      place = {'winbar'},
+      unhide = true,
+    })
+    winbar_enabled = true
+    Info("Enable winbar", { title = "Option" })
+  end
+end, { desc = "Toggle winbar" })
+
+map("n", "<leader>uS", function()
   local laststatus = vim.api.nvim_get_option('laststatus')
   if laststatus == 0 then
     vim.opt.laststatus = 2
@@ -292,6 +318,25 @@ map("n", "<leader>uL", function()
   end
   Info("Set laststatus to " .. vim.api.nvim_get_option('laststatus'), { title = "Option" })
 end, { desc = "Toggle statusline" })
+
+map("n", "<leader>uL", function()
+  if lualine_enabled then
+    require('lualine').hide({
+      place = {'statusline', 'winbar'},
+      unhide = false,
+    })
+    lualine_enabled = false
+    Info("Disable statusline, tabline, and winbar", { title = "Option" })
+  else
+    require('lualine').hide({
+      place = {'statusline', 'winbar'},
+      unhide = true,
+    })
+    lualine_enabled = true
+    Info("Enable statusline, tabline, and winbar", { title = "Option" })
+  end
+  vim.opt.showtabline = vim.api.nvim_get_option('showtabline') == 0 and 2 or 0
+end, { desc = "Toggle statusline, tabline, and winbar" })
 
 map("n", "<leader>um", function()
   local mouse = vim.api.nvim_get_option('mouse')

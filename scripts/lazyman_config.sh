@@ -2182,7 +2182,9 @@ show_conf_menu() {
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Namespace   [${use_namespace}]")
-    options+=("Diagnostics [${use_show_diagnostics}]")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Diagnostics [${use_show_diagnostics}]")
+    }
     options+=("Theme [${use_theme}]")
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=(" Style [${use_theme_style}]")

@@ -68,9 +68,13 @@ if settings.enable_statusline then
         colorful = true,
       },
       config = function(_, opts)
-        local lualine_config = require("onno.config.lualine")
-        lualine_config.setup(opts)
-        lualine_config.load()
+        if settings.lualine_style == "onno" then
+          local lualine_config = require("onno.config.lualine")
+          lualine_config.setup(opts)
+          lualine_config.load()
+        else
+          require("config.lualine")
+        end
       end,
     }
   else
@@ -84,9 +88,13 @@ if settings.enable_statusline then
         colorful = true,
       },
       config = function(_, opts)
-        local lualine_config = require("onno.config.lualine")
-        lualine_config.setup(opts)
-        lualine_config.load()
+        if settings.lualine_style == "onno" then
+          local lualine_config = require("onno.config.lualine")
+          lualine_config.setup(opts)
+          lualine_config.load()
+        else
+          require("config.lualine")
+        end
       end,
     }
   end

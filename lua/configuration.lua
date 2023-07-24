@@ -123,8 +123,8 @@ conf.enable_wilder = false
 --
 -- Lualine, Tabline, and Winbar configuration
 --
--- The Lualine style can be "orig" or "test"
-conf.lualine_style = "orig"
+-- The Lualine style can be "free" or "onno"
+conf.lualine_style = "onno"
 -- Experimental separator for lualine components, can be "bubble" or "arrow"
 conf.lualine_separator = "bubble"
 -- Enable fancy lualine components
