@@ -65,11 +65,11 @@ o.fillchars:append('fold: ');
 o.fillchars:append('foldopen: ');
 o.fillchars:append('foldsep: ');
 o.fillchars:append('foldclose:');
-o.mouse = settings.mouse -- Enable mouse mode
-o.number = settings.number -- Print line number
+o.mouse = settings.mouse
+o.number = settings.number
 o.pumblend = 10 -- Popup blend
 o.pumheight = 10 -- Maximum number of entries in a popup
-o.relativenumber = settings.relative_number -- Relative line numbers
+o.relativenumber = settings.relative_number
 o.scrolloff = 4 -- Lines of context
 o.sidescrolloff = 8 -- Columns of context
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,globals,winsize,winpos,terminal"

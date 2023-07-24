@@ -30,9 +30,9 @@ else
 end
 o.list = settings.list -- Show some invisible characters (tabs...
 o.listchars = settings.listchars
-o.mouse = settings.mouse -- Enable mouse mode
-o.number = settings.number -- Print line number
-o.relativenumber = settings.relative_number -- Relative line numbers
+o.mouse = settings.mouse
+o.number = settings.number
+o.relativenumber = settings.relative_number
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

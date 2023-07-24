@@ -277,12 +277,12 @@ map("n", "<leader>ug", function()
 end, { desc = "Toggle signcolumn" })
 
 map("n", "<leader>uT", function()
-  vim.opt.showtabline = vim.opt.showtabline:get() == 0 and 2 or 0
-  Info("Set showtabline to " .. vim.opt.showtabline, { title = "Option" })
+  vim.opt.showtabline = vim.api.nvim_get_option('showtabline') == 0 and 2 or 0
+  Info("Set showtabline to " .. vim.api.nvim_get_option('showtabline'), { title = "Option" })
 end, { desc = "Toggle tabline" })
 
 map("n", "<leader>uL", function()
-  local laststatus = vim.opt.laststatus:get()
+  local laststatus = vim.api.nvim_get_option('laststatus')
   if laststatus == 0 then
     vim.opt.laststatus = 2
   elseif laststatus == 2 then
@@ -290,17 +290,17 @@ map("n", "<leader>uL", function()
   elseif laststatus == 3 then
     vim.opt.laststatus = 0
   end
-  Info("Set laststatus to " .. vim.opt.laststatus, { title = "Option" })
+  Info("Set laststatus to " .. vim.api.nvim_get_option('laststatus'), { title = "Option" })
 end, { desc = "Toggle statusline" })
 
 map("n", "<leader>um", function()
-  local mouse = vim.opt.mouse:get()
+  local mouse = vim.api.nvim_get_option('mouse')
   if mouse == "" then
     vim.opt.mouse = "nv"
-    Info("Enabled mouse", { title = "Option" })
+    Info("Mouse Enabled: mouse = " .. vim.api.nvim_get_option('mouse'), { title = "Option" })
   else
     vim.opt.mouse = ""
-    Info("Disabled mouse", { title = "Option" })
+    Info("Mouse Disabled", { title = "Option" })
   end
 end, { desc = "Toggle mouse" })
 
