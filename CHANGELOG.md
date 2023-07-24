@@ -4,6 +4,12 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.0.0r1
+
+### ⚡️ Added
+
 - Create separate namespaces for `free` and `onno` with `namespace` entry to switch between them
 - Move `lualine` configuration up to common
 - Remove `tabline.nvim` and replace `enable_tabline` with `enable_status_in_tab`
@@ -37,6 +43,7 @@
 
 ### 🐞 Fixed
 
+- Fix `alpha` dashboard `persistence` session restore
 - Don't prompt for `sudo` privilege notice during install
 - Fix `lualine` session component
 - Fix `lualine` toggle keymaps
