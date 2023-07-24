@@ -166,7 +166,7 @@ local nvimcmp = {
     "hrsh7th/cmp-cmdline",
   },
   config = function()
-    require("onno.config.nvim-cmp")
+    require("config.nvim-cmp")
   end,
 }
 if settings.enable_coding then
@@ -186,7 +186,7 @@ if settings.enable_coding then
       copilot_cmp,
     },
     config = function()
-      require("onno.config.nvim-cmp")
+      require("config.nvim-cmp")
     end,
   }
 end

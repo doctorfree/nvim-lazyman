@@ -194,7 +194,7 @@ local nvimcmp = {
     "hrsh7th/cmp-cmdline",
   },
   config = function()
-    require("free.config.nvim-cmp")
+    require("config.nvim-cmp")
   end,
 }
 local actionmenu = {}
@@ -255,7 +255,7 @@ if settings.enable_coding then
       copilot_cmp,
     },
     config = function()
-      require("free.config.nvim-cmp")
+      require("config.nvim-cmp")
     end,
   }
   -- comments
