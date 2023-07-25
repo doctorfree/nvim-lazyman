@@ -43,6 +43,8 @@
 
 ### 🐞 Fixed
 
+- Only show dashboard settings in plugins menu for `free` namespace
+- Use common config for `possession.nvim`
 - Fix `alpha` dashboard `persistence` session restore
 - Don't prompt for `sudo` privilege notice during install
 - Fix `lualine` session component
