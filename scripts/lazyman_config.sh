@@ -650,6 +650,8 @@ show_plugin_menu() {
       [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
     printf '\n'
+    namespace=$(get_conf_value namespace)
+    use_namespace="${namespace}"
     media_backend=$(get_conf_value media_backend)
     use_media_backend="${media_backend}"
     session_manager=$(get_conf_value session_manager)
@@ -963,7 +965,9 @@ show_plugin_menu() {
     options+=("Toggle Term   [${use_toggleterm}]")
     options+=("Enable Tests  [${use_neotest}]")
     options+=("WakaTime      [${use_wakatime}]")
-    options+=("Wilder Menus  [${use_wilder}]")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Wilder Menus  [${use_wilder}]")
+    }
     options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     options+=("Disable All")
     options+=("Enable All")
