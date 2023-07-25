@@ -70,65 +70,6 @@ show_figlet() {
   fi
 }
 
-check_python_version() {
-  have_python3=$(type -p python3)
-  [ "${have_python3}" ] || {
-    echo "NO"
-    return 3
-  }
-  major=$(python3 -c 'import sys; print(sys.version_info.major)')
-  if [ ${major} -eq 3 ]
-  then
-    minor=$(python3 -c 'import sys; print(sys.version_info.minor)')
-    if [ ${minor} -ge 9 ]
-    then
-      echo "OK"
-      return 0
-    else
-      echo "NO"
-      return 1
-    fi
-  else
-    echo "NO"
-    return 2
-  fi
-}
-
-get_conf_table() {
-  confname="$1"
-  if [ "${confname}" == "lsp_servers" ]; then
-    lsp_enabled_table=()
-    while read -r val; do
-      lsp_enabled_table+=("$val")
-    done < <(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
-    enable_ccls=$(get_conf_value enable_ccls)
-    if [ "${enable_ccls}" == "true" ]; then
-      lsp_enabled_table+=("ccls")
-    fi
-    enable_clangd=$(get_conf_value enable_clangd)
-    if [ "${enable_clangd}" == "true" ]; then
-      lsp_enabled_table+=("clangd")
-    fi
-  else
-    if [ "${confname}" == "formatters_linters" ]; then
-      for_enabled_table=()
-      while read -r val; do
-        for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
-      while read -r val; do
-        for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} "external_formatters" 2>&1)
-    else
-      if [ "${confname}" == "neorg_notes" ]; then
-        neorg_notes_table=()
-        while read -r val; do
-          neorg_notes_table+=("$val")
-        done < <(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
-      fi
-    fi
-  fi
-}
-
 get_conf_value() {
   confname="$1"
   confval=$(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
