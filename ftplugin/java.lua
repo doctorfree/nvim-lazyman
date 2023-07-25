@@ -1,9 +1,12 @@
 local jdtls = require("jdtls")
-local utils = require("utils.functions")
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".classpath" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 local home = os.getenv("HOME")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+-- eclipse.jdt.ls stores project specific data within a folder. If you are working
+-- with multiple different projects, each project must use a dedicated data directory.
+-- This variable is used to configure eclipse to use the directory name of the
+-- current project found using the root_marker as the folder for project specific data.
 local workspace_dir = home .. "/.local/share/eclipse/" .. project_name
 local JDTLS_LOCATION = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 
@@ -22,7 +25,7 @@ local function get_jdk_runtimes()
 
   local runtimes = {}
 
-  local os_name = string.lower(utils.get_os_type())
+  local os_name = string.lower(require("util").get_os_type())
   if os_name == "linux" then
     dir_prefix = "/usr/lib/jvm/"
     dir_affix = ""
@@ -168,6 +171,10 @@ config.cmd = {
   "-data",
   workspace_dir,
 }
+
+config.root_dir = root_dir
+
+config.capabilities = require("util").capabilities()
 
 local jar_patterns = {
   "/dev/microsoft/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",

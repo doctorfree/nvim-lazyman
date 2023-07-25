@@ -237,18 +237,4 @@ if settings.theme == "catppuccin" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
   end
-  -- Not yet working, may need to clear and/or update cache
-  -- local mopts = require("catppuccin").options
-  -- vim.g.catppuccin_transparent = mopts.transparent_background
-  -- local utils = require("utils.functions")
-  -- utils.map("n", "<leader>ut", function()
-  --  local catp = require("catppuccin")
-  --  local opts = catp.options
-  --  local sett = require("configuration")
-  --  local styl = sett.theme_style
-  --  vim.g.catppuccin_transparent = not vim.g.catppuccin_transparent
-  --  opts.transparent_background = vim.g.catppuccin_transparent
-  --  catp.setup( opts )
-  --  set_colorscheme(styl)
-  -- end, { desc = "Toggle Transparency" })
 end

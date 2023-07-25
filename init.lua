@@ -38,4 +38,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = settings.mapleader
 vim.g.maplocalleader = settings.maplocalleader
 
-require("config.lazy")
+if settings.namespace == "onno" then
+  require("onno.lazy")
+else
+  require("free.config.lazy")
+end

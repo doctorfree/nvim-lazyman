@@ -1,6 +1,6 @@
 ## Lazyman Neovim Configuration Information
 
-Neovim configuration of Dr. Ronald Joe Record
+The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides two separate and distinct namespaces ('free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'.
 
 - Install and initialize: **`Installed and initialized by default`**
 - Configuration category: [Default](https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features)
@@ -101,17 +101,17 @@ Neovim configuration of Dr. Ronald Joe Record
 - [RRethy/nvim-treesitter-endwise](https://github.com/RRethy/nvim-treesitter-endwise)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 - [mfussenegger/nvim-ts-hint-textobject](https://github.com/mfussenegger/nvim-ts-hint-textobject)
-- [mrjones2014/nvim-ts-rainbow](https://github.com/mrjones2014/nvim-ts-rainbow)
 - [sam4llis/nvim-tundra](https://github.com/sam4llis/nvim-tundra)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
 - [pwntester/octo.nvim](https://github.com/pwntester/octo.nvim)
 - [olimorris/onedarkpro.nvim](https://github.com/olimorris/onedarkpro.nvim)
+- [folke/persistence.nvim](https://github.com/folke/persistence.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
-- [jedrzejboczar/possession.nvim](https://github.com/jedrzejboczar/possession.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [filipdutescu/renamer.nvim](https://github.com/filipdutescu/renamer.nvim)
@@ -121,7 +121,6 @@ Neovim configuration of Dr. Ronald Joe Record
 - [m4xshen/smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 - [jim-fx/sudoku.nvim](https://github.com/jim-fx/sudoku.nvim)
-- [kdheepak/tabline.nvim](https://github.com/kdheepak/tabline.nvim)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [crispgm/telescope-heading.nvim](https://github.com/crispgm/telescope-heading.nvim)
@@ -156,7 +155,6 @@ Neovim configuration of Dr. Ronald Joe Record
 | ----------- | --- | --- |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
-| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Move Float | ,tf |  |
 | Move Bottom Right New | ,tH |  |
 | Move Below Right New | ,th |  |
@@ -169,18 +167,10 @@ Neovim configuration of Dr. Ronald Joe Record
 | Terminal Run | ,tr |  |
 | New Terminal Toggle | ,tO |  |
 | Terminal Toggle | ,to |  |
+| Mason Menu | ,M | <Cmd>Mason<CR> |
+| Select Moonokai pro filter | ,mc | <Cmd>MonokaiProSelect<CR> |
 | Toggle Transparency | ,ut |  |
-| Close Buffer | ,D |  |
-|  | ,A |  |
-| Explorer (root dir) | ,e |  |
-| Explorer Float | ,E |  |
-| Terminal Send | ,ts |  |
-| Treesitter Join | ,tj |  |
-| Toggle Treesitter Join | ,tt |  |
-| Delete all Notifications | ,un |  |
-| Noice Last Message | ,snl |  |
-| Noice All | ,sna |  |
-| Noice History | ,snh |  |
+| Search History | ,s: |  |
 | Colorscheme with preview | ,uC |  |
 | Word (cwd) | ,sW |  |
 | Word (root dir) | ,sw |  |
@@ -209,7 +199,7 @@ Neovim configuration of Dr. Ronald Joe Record
 | Branches | ,gh |  |
 | Fuzzy search | ,sf |  |
 | Command history | ,s; |  |
-| Search History | ,s: |  |
+| Find Files (root dir) | ,  |  |
 | Goto Symbol (Workspace) | ,sS |  |
 | Goto Symbol | ,ss |  |
 | Resume | ,sR |  |
@@ -218,45 +208,67 @@ Neovim configuration of Dr. Ronald Joe Record
 | Help Pages | ,sh |  |
 | Help | ,s? |  |
 | Command History | ,sc |  |
-| Find Files (root dir) | ,  |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Location List (Trouble) | ,xL |  |
+| Workspace Diagnostics (Trouble) | ,xX |  |
+| Document Diagnostics (Trouble) | ,xx |  |
+| Run Watch Test | ,tuw |  |
+| Debug Last Test | ,tuL |  |
+| Stop Tests | ,tuS |  |
+| Toggle Test Output Panel | ,tuO |  |
+| Show Test Output | ,tuo |  |
+| Toggle Test Summary | ,tus |  |
+| Run Nearest Test | ,tur |  |
+| Run Last Test | ,tul |  |
+| Run All Test Files | ,tuT |  |
+| Run Test File | ,tut |  |
+| summarize text | ,as |  |
+| generate git message | ,ag |  |
+| Noice Last Message | ,snl |  |
+| Noice All | ,sna |  |
+| Noice History | ,snh |  |
+| Terminal Send | ,ts |  |
+| Treesitter Join | ,tj |  |
+| Toggle Treesitter Join | ,tt |  |
+| Close Buffer | ,D |  |
+| Delete all Notifications | ,un |  |
+| Dashboard | ,0 |  |
 | Eval | ,de |  |
 | Dap UI | ,du |  |
-| Todo | ,st |  |
-| Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo (Trouble) | ,xt |  |
-| Step Out | ,do |  |
-| Step Over | ,dO |  |
-| Pause | ,dp |  |
-| Toggle REPL | ,dr |  |
-| Widgets | ,dw |  |
-| Terminate | ,dt |  |
-| Go to line (no execute) | ,dg |  |
 | Run to Cursor | ,dC |  |
 | Continue | ,dc |  |
 | Toggle Breakpoint | ,db |  |
 | Breakpoint Condition | ,dB |  |
+| Widgets | ,dw |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Toggle REPL | ,dr |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
 | Run Last | ,dl |  |
 | Up | ,dk |  |
 | Down | ,dj |  |
 | Step Into | ,di |  |
-| Session | ,ds |  |
-| Workspace Diagnostics (Trouble) | ,xX |  |
-| Document Diagnostics (Trouble) | ,xx |  |
-| Quickfix List (Trouble) | ,xQ |  |
-| Location List (Trouble) | ,xL |  |
+| Go to line (no execute) | ,dg |  |
+| Explorer Float | ,E |  |
+| Explorer (root dir) | ,e |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo (Trouble) | ,xt |  |
+| Todo | ,st |  |
 | Toggle zen mode | ,z |  |
 | F | F |  |
 | Leap backward to | S |  |
 | T | T |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
-| Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Previous todo comment | [t |  |
+| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
-| Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Next todo comment | ]t |  |
+| Next Reference | ]] |  |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Leap from windows | gs |  |

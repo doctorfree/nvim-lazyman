@@ -44,6 +44,11 @@ if not settings.enable_wilder then
     sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
   })
 end
+cmp.setup.filetype("java", {
+  completion = {
+    keyword_length = 2,
+  },
+})
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Highlight Groups                                         │
@@ -115,7 +120,7 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
-local icons = require("utils.icons")
+local icons = require("icons")
 local source_mapping = {
   codeium = icons.misc.codeium,
   copilot = icons.misc.copilot,
@@ -129,19 +134,6 @@ local source_mapping = {
   treesitter = icons.misc.tree,
   zsh = icons.misc.terminal .. "ZSH",
 }
--- if copilot_enabled then
---   source_mapping = {
---     copilot = icons.misc.copilot,
---     nvim_lsp = icons.misc.paragraph .. "LSP",
---     buffer = icons.misc.buffer .. "BUF",
---     nvim_lua = icons.misc.bomb,
---     luasnip = icons.misc.snippet .. "SNP",
---     calc = icons.misc.calculator,
---     path = icons.misc.folderOpen2,
---     treesitter = icons.misc.tree,
---     zsh = icons.misc.terminal .. "ZSH",
---   }
--- end
 for k,v in pairs(icons.kinds) do source_mapping[k] = v end
 
 local buffer_option = {

@@ -13,11 +13,11 @@ configurations
 SYNOPSIS                                            *Lazyman-lazyman-synopsis*
 
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F
-menu] [-g] [-i group] [-j] [-k] [-K config] [-l] [-m] [-M] [-s] [-S] [-v] [-n]
-[-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D
+menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-O
+name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D
 subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X]
-[-y] [-z] [-Z] [-u] [health] [info] [init] [install] [open] [remove] [search]
-[status] [usage]
+[-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install] [open]
+[remove] [search] [status] [usage]
 
 
 FEATURES                                            *Lazyman-lazyman-features*
@@ -241,6 +241,10 @@ LvimIde Magidc Python Rust SaleVim Webdev
 
 `-n` : indicates dry run, don’t actually do anything, just printf’s
 
+`-o` : indicates install and initialize penguinVim Neovim configuration
+
+`-O name` : indicates set Lazyman configuration to namespace 'name'
+
 `-P` : indicates use Packer rather than Lazy to initialize
 
 `-p` : indicates use Plug rather than Lazy to initialize
@@ -277,6 +281,10 @@ Modular
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
 `-y` : indicates do not prompt, answer 'yes' to any prompt
+
+`-Y` : indicates use the following arguments as 'name'/'value' to set Lazyman
+config. For example: `lazyman -Y theme kanagawa`. If the 'name' argument is
+'get' then the current value is returned
 
 `-z` : indicates do not run nvim after initialization
 
@@ -380,6 +388,32 @@ CONFIGURATION SECTIONS ~
 
 The `lua/configuration.lua` configuration file contains the following sections
 with settings briefly described here:
+
+
+NAMESPACE SELECTION
+
+The `Lazyman` Neovim configuration contains two separate and distinct
+configurations. The setting `conf.namespace` in `lua/configuration.lua`
+controls which configuration is active. The supported values for
+`conf.namespace` are `free` and `onno`. The `free` namespace is the same
+configuration used in previous releases of `Lazyman`. The `onno` namespace is
+based on the `ONNO` configuration with modifications and enhancements to
+integrate this config with `lazyman`.
+
+To use the `free` namespace, set:
+
+>lua
+    conf.namespace = "free"
+<
+
+To use the `onno` namespace, set:
+
+>lua
+    conf.namespace = "onno"
+<
+
+This setting is configurable via the `lazyman` menu system, as are most of the
+`Lazyman` configuration settings.
 
 
 THEME CONFIGURATION

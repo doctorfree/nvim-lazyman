@@ -24,11 +24,11 @@ configurations
 .SS SYNOPSIS
 .PP
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path]
-[-F menu] [-g] [-i group] [-j] [-k] [-K config] [-l] [-m] [-M] [-s] [-S]
-[-v] [-n] [-o] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR]
+[-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n]
+[-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR]
 [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf]
-[-W] [-x conf] [-X] [-y] [-z] [-Z] [-u] [health] [info] [init] [install]
-[open] [remove] [search] [status] [usage]
+[-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info]
+[init] [install] [open] [remove] [search] [status] [usage]
 .SS FEATURES
 .IP \[bu] 2
 \f[V]lazyman\f[R] command to easily install, initialize, manage, and
@@ -336,6 +336,12 @@ SaleVim Webdev
 \f[V]-n\f[R] : indicates dry run, don\[aq]t actually do anything, just
 printf\[aq]s
 .PP
+\f[V]-o\f[R] : indicates install and initialize penguinVim Neovim
+configuration
+.PP
+\f[V]-O name\f[R] : indicates set Lazyman configuration to namespace
+\[aq]name\[aq]
+.PP
 \f[V]-P\f[R] : indicates use Packer rather than Lazy to initialize
 .PP
 \f[V]-p\f[R] : indicates use Plug rather than Lazy to initialize
@@ -381,6 +387,12 @@ Neovim configurations
 .PP
 \f[V]-y\f[R] : indicates do not prompt, answer \[aq]yes\[aq] to any
 prompt
+.PP
+\f[V]-Y\f[R] : indicates use the following arguments as
+\[aq]name\[aq]/\[aq]value\[aq] to set Lazyman config.
+For example: \f[V]lazyman -Y theme kanagawa\f[R].
+If the \[aq]name\[aq] argument is \[aq]get\[aq] then the current value
+is returned
 .PP
 \f[V]-z\f[R] : indicates do not run nvim after initialization
 .PP
@@ -498,6 +510,38 @@ but you can still dig down into the \f[V]options.lua\f[R],
 .PP
 The \f[V]lua/configuration.lua\f[R] configuration file contains the
 following sections with settings briefly described here:
+.SS Namespace selection
+.PP
+The \f[V]Lazyman\f[R] Neovim configuration contains two separate and
+distinct configurations.
+The setting \f[V]conf.namespace\f[R] in \f[V]lua/configuration.lua\f[R]
+controls which configuration is active.
+The supported values for \f[V]conf.namespace\f[R] are \f[V]free\f[R] and
+\f[V]onno\f[R].
+The \f[V]free\f[R] namespace is the same configuration used in previous
+releases of \f[V]Lazyman\f[R].
+The \f[V]onno\f[R] namespace is based on the \f[V]ONNO\f[R]
+configuration with modifications and enhancements to integrate this
+config with \f[V]lazyman\f[R].
+.PP
+To use the \f[V]free\f[R] namespace, set:
+.IP
+.nf
+\f[C]
+conf.namespace = \[dq]free\[dq]
+\f[R]
+.fi
+.PP
+To use the \f[V]onno\f[R] namespace, set:
+.IP
+.nf
+\f[C]
+conf.namespace = \[dq]onno\[dq]
+\f[R]
+.fi
+.PP
+This setting is configurable via the \f[V]lazyman\f[R] menu system, as
+are most of the \f[V]Lazyman\f[R] configuration settings.
 .SS Theme configuration
 .PP
 The \f[V]nvim-Lazyman\f[R] Neovim configuration includes pre-configured

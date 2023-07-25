@@ -53,11 +53,12 @@ for_enabled_table=()
 neorg_notes_table=()
 
 usage() {
-  printf "\nUsage: lazyman_config [-d] [-i] [-m menu] [-u]"
+  printf "\nUsage: lazyman_config [-d] [-i] [-m menu] [-s name value] [-u]"
   printf "\nWhere:"
   printf "\n    -d specifies debug mode"
   printf "\n    -i indicates initialize conditional plugin configurations and exit"
   printf "\n    -m 'menu' specifies the menu to display (conf, form, lsp, plugins)"
+  printf "\n    -s 'name value' indicates set the value of configuration 'name' to 'value'"
   printf "\n    -u displays this usage message and exits"
   exit 1
 }
@@ -461,7 +462,7 @@ select_theme_style() {
             mainmenu=1
             break 2
             ;;
-          "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
@@ -697,6 +698,10 @@ show_plugin_menu() {
     else
       use_surround="✗"
     fi
+    lualine_style=$(get_conf_value lualine_style)
+    use_lualine_style="${lualine_style}"
+    lualine_separator=$(get_conf_value lualine_separator)
+    use_lualine_separator="${lualine_separator}"
     enable_fancy=$(get_conf_value enable_fancy)
     if [ "${enable_fancy}" == "true" ]; then
       use_fancy=""
@@ -907,18 +912,24 @@ show_plugin_menu() {
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
-    options+=("Dashboard [${use_dash}]")
-    if [ "${use_dash}" == "alpha" ]; then
-      options+=(" Alpha Header [${use_dashboard_header}]")
-      options+=(" Recent Files [${use_dashboard_recent_files}]")
-      options+=(" Quick Links  [${use_dashboard_quick_links}]")
-    fi
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Dashboard [${use_dash}]")
+      if [ "${use_dash}" == "alpha" ]; then
+        options+=(" Alpha Header [${use_dashboard_header}]")
+        options+=(" Recent Files [${use_dashboard_recent_files}]")
+        options+=(" Quick Links  [${use_dashboard_quick_links}]")
+      fi
+    }
     options+=("Dressing UI   [${use_dressing}]")
-    options+=("Fancy Icons   [${use_fancy}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Enable IDE    [${use_ide}]")
     options+=("Indentline [${use_indentline}]")
+    options+=("Lualine Style [${use_lualine_style}]")
+    if [ "${use_lualine_style}" == "test" ]; then
+      options+=(" Separator    [${use_lualine_separator}]")
+    fi
+    options+=(" Fancy Icons  [${use_fancy}]")
     options+=("Enable Motion [${use_motion}]")
     options+=("Enable Notes  [${use_notes}]")
     if [ "${enable_notes}" == "true" ]; then
@@ -1236,7 +1247,25 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
-        "Fancy"*,* | *,"Fancy"*)
+        "Lualine Style"*,* | *,"Lualine Style"*)
+          if [ "${use_lualine_style}" == "orig" ]; then
+            set_conf_value "lualine_style" "test"
+          else
+            set_conf_value "lualine_style" "orig"
+          fi
+          pluginit=1
+          break
+          ;;
+        " Separator"*,* | *," Separator"*)
+          if [ "${use_lualine_separator}" == "bubble" ]; then
+            set_conf_value "lualine_separator" "arrow"
+          else
+            set_conf_value "lualine_separator" "bubble"
+          fi
+          pluginit=1
+          break
+          ;;
+        " Fancy"*,* | *," Fancy"*)
           if [ "${enable_fancy}" == "true" ]; then
             set_conf_value "enable_fancy" "false"
           else
@@ -2070,6 +2099,8 @@ show_conf_menu() {
       [ "${have_figlet}" ] && show_figlet "Config"
     fi
     printf '\n'
+    namespace=$(get_conf_value namespace)
+    use_namespace="${namespace}"
     theme=$(get_conf_value theme)
     use_theme="${theme}"
     theme_style=$(get_conf_value theme_style)
@@ -2122,7 +2153,7 @@ show_conf_menu() {
     else
       use_statusline="✗"
     fi
-    enable_tabline=$(get_conf_value enable_tabline)
+    enable_tabline=$(get_conf_value enable_status_in_tab)
     if [ "${enable_tabline}" == "true" ]; then
       use_tabline=""
     else
@@ -2152,7 +2183,10 @@ show_conf_menu() {
     fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Diagnostics [${use_show_diagnostics}]")
+    options+=("Namespace   [${use_namespace}]")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Diagnostics [${use_show_diagnostics}]")
+    }
     options+=("Theme [${use_theme}]")
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=(" Style [${use_theme_style}]")
@@ -2166,17 +2200,19 @@ show_conf_menu() {
     options+=("Smart Column  [${use_smartcolumn}]")
     options+=("Global Status [${use_global_statusline}]")
     options+=("Status Line   [${use_statusline}]")
-    options+=("Tab Line      [${use_tabline}]")
-    options+=(" Showtabline  [${use_showtabline}]")
+    options+=("Status in Tab [${use_tabline}]")
+    options+=("Show Tabline  [${use_showtabline}]")
     if [ "${use_winbar}" == "none" ]
     then
       options+=("Winbar     [${use_winbar}]")
     else
       options+=("Winbar [${use_winbar}]")
     fi
-    options+=("Semantic HL   [${use_semantic_highlighting}]")
-    options+=("Convert SemHL [${convert_semantic_highlighting}]")
-    options+=("Zen Mode      [${use_zenmode}]")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Semantic HL   [${use_semantic_highlighting}]")
+      options+=("Convert SemHL [${convert_semantic_highlighting}]")
+      options+=("Zen Mode      [${use_zenmode}]")
+    }
     options+=("Disable All")
     options+=("Enable All")
     options+=("Minimal Config")
@@ -2221,11 +2257,11 @@ show_conf_menu() {
           pluginit=1
           break
           ;;
-        "Tab Line"*,* | *,"Tab Line"*)
+        "Status in Tab"*,* | *,"Status in Tab"*)
           if [ "${enable_tabline}" == "true" ]; then
-            set_conf_value "enable_tabline" "false"
+            set_conf_value "enable_status_in_tab" "false"
           else
-            set_conf_value "enable_tabline" "true"
+            set_conf_value "enable_status_in_tab" "true"
           fi
           pluginit=1
           break
@@ -2264,6 +2300,15 @@ show_conf_menu() {
           else
             set_conf_value "enable_transparent" "true"
           fi
+          break
+          ;;
+        "Namespace"*,* | *,"Namespace"*)
+          if [ "${use_namespace}" == "onno" ]; then
+            set_conf_value "namespace" "free"
+          else
+            set_conf_value "namespace" "onno"
+          fi
+          pluginit=1
           break
           ;;
         "Leader"*,* | *,"Leader"*)
@@ -2314,7 +2359,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        " Showtabline"*,* | *," Showtabline"*)
+        "Show Tabline"*,* | *,"Show Tabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${showtabline}" ] || {
@@ -2363,7 +2408,7 @@ show_conf_menu() {
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_smartcolumn" "false"
           set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_status_in_tab" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
@@ -2416,7 +2461,7 @@ show_conf_menu() {
           set_conf_value "enable_smartcolumn" "false"
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
+          set_conf_value "enable_status_in_tab" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_winbar" "none"
@@ -2434,7 +2479,6 @@ show_conf_menu() {
           set_conf_value "enable_smartcolumn" "true"
           set_conf_value "global_statusline" "true"
           set_conf_value "enable_statusline" "true"
-          set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
           set_conf_value "enable_winbar" "barbecue"
           set_conf_value "enable_transparent" "true"
@@ -2522,8 +2566,9 @@ confmenu=
 initplugs=
 menu="conf"
 pluginit=
-# TODO: configure options
-while getopts "dim:u" flag; do
+setconf=
+toggle=
+while getopts "dim:stu" flag; do
   case $flag in
     d)
       debug=1
@@ -2556,6 +2601,12 @@ while getopts "dim:u" flag; do
         menu="confmenu"
       fi
       ;;
+    s)
+      setconf=1
+      ;;
+    t)
+      toggle=1
+      ;;
     u)
       usage
       ;;
@@ -2568,6 +2619,82 @@ done
 shift $((OPTIND - 1))
 
 set_haves
+
+[ "${toggle}" ] && {
+  [ "$1" ] || {
+    printf "\nThe -t option requires a configuration name argument."
+    usage
+  }
+  curval=$(get_conf_value "$1")
+  case ${curval} in
+    true)
+      set_conf_value "$1" "false"
+      ;;
+    false)
+      set_conf_value "$1" "true"
+      ;;
+    onno)
+      set_conf_value "$1" "free"
+      ;;
+    free)
+      set_conf_value "$1" "onno"
+      ;;
+    neo-tree)
+      set_conf_value "$1" "nvim-tree"
+      ;;
+    nvim-tree)
+      set_conf_value "$1" "neo-tree"
+      ;;
+    hop)
+      set_conf_value "$1" "leap"
+      ;;
+    leap)
+      set_conf_value "$1" "hop"
+      ;;
+    persistence)
+      set_conf_value "$1" "possession"
+      ;;
+    possession)
+      set_conf_value "$1" "persistence"
+      ;;
+    preview)
+      set_conf_value "$1" "peek"
+      ;;
+    peek)
+      set_conf_value "$1" "preview"
+      ;;
+    bubble)
+      set_conf_value "$1" "arrow"
+      ;;
+    arrow)
+      set_conf_value "$1" "bubble"
+      ;;
+    *)
+      printf "\nUnrecognized configuration toggle: $1\n"
+      usage
+      ;;
+  esac
+  [ "${initplugs}" ] || exit 0
+}
+
+[ "${setconf}" ] && {
+  [ "$1" ] || {
+    printf "\nThe -s option requires configuration name and value arguments."
+    usage
+  }
+  [ "$2" ] || {
+    printf "\nThe -s option requires configuration name and value arguments."
+    usage
+  }
+  if [ "$1" == "get" ]
+  then
+    get_conf_value "$2"
+    exit 0
+  else
+    set_conf_value "$1" "$2"
+  fi
+  [ "${initplugs}" ] || exit 0
+}
 
 [ "${initplugs}" ] && {
   set_code_explain

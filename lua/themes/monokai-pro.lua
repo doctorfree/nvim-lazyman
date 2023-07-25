@@ -23,15 +23,18 @@ require("monokai-pro").setup({
   inc_search = "background", -- underline | background
   background_clear = {
     "neo-tree",
+    "nvim-tree",
     "toggleterm",
     "telescope",
     "which-key",
     "renamer",
+    "bufferline",
   },
   plugins = {
     bufferline = {
       underline_selected = true,
       underline_visible = false,
+      underline_fill = true,
       bold = false,
     },
     indent_blankline = {
@@ -62,7 +65,9 @@ require("monokai-pro").setup({
   },
   override = function(c)
     return {
-      ColorColumn = { bg = c.base.dimmed3 },
+      -- TODO: which to use
+      -- ColorColumn = { bg = c.base.dimmed3 },
+      ColorColumn = { bg = c.editor.background },
       -- Mine
       DashboardRecent = { fg = c.base.magenta },
       DashboardProject = { fg = c.base.blue },
@@ -82,8 +87,7 @@ if settings.theme == "monokai-pro" then
   end
   local mopts = require("monokai-pro.config").options
   vim.g.monokaipro_transparent = mopts.transparent_background
-  local utils = require("utils.functions")
-  utils.map("n", "<leader>ut", function()
+  require("util").map("n", "<leader>ut", function()
     vim.g.monokaipro_transparent = not vim.g.monokaipro_transparent
     mopts.transparent_background = vim.g.monokaipro_transparent
     require("monokai-pro").setup( mopts )

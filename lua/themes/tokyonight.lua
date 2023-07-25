@@ -78,8 +78,7 @@ if settings.theme == "tokyonight" then
     vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { link = "NvimTreeSymlink" })
   end
   vim.g.tokyonight_transparent = require("tokyonight.config").options.transparent
-  local utils = require("utils.functions")
-  utils.map("n", "<leader>ut", function()
+  require("util").map("n", "<leader>ut", function()
     vim.g.tokyonight_transparent = not vim.g.tokyonight_transparent
     local sidebar = "dark"
     if vim.g.tokyonight_transparent then

@@ -55,17 +55,4 @@ if settings.theme == "nightfox" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
   end
-  -- Not yet working, may need to clear and/or update cache
-  -- local opts = require("nightfox.config").options
-  -- vim.g.nightfox_transparent = opts.transparent
-  -- local utils = require("utils.functions")
-  -- utils.map("n", "<leader>ut", function()
-  --   vim.g.nightfox_transparent = not vim.g.nightfox_transparent
-  --   opts.transparent = vim.g.nightfox_transparent
-  --   require("nightfox").setup({ options = opts })
-  --   require('nightfox').compile()
-  --   local sett = require("configuration")
-  --   local styl = sett.theme_style
-  --   set_colorscheme(styl)
-  -- end, { desc = "Toggle Transparency" })
 end

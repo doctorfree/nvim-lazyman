@@ -1,32 +1,67 @@
-local opts = {
-  -- session_dir = (Path:new(vim.fn.stdpath("config")) / "possession"):absolute(),
-  session_dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"),
-  -- Disable notification
+require('possession').setup {
+  -- session_dir = (Path:new(vim.fn.stdpath('state')) / 'possession'):absolute(),
+  session_dir = vim.fn.expand(vim.fn.stdpath("state") .. "/possession/"),
   silent = true,
   load_silent = true,
   debug = false,
   logfile = false,
+  prompt_no_cr = false,
   autosave = {
     current = true,
+    tmp = false,
+    tmp_name = 'tmp',
+    on_load = true,
+    on_quit = true,
+  },
+  commands = {
+    save = 'PossessionSave',
+    load = 'PossessionLoad',
+    rename = 'PossessionRename',
+    close = 'PossessionClose',
+    delete = 'PossessionDelete',
+    show = 'PossessionShow',
+    list = 'PossessionList',
+    migrate = 'PossessionMigrate',
   },
   hooks = {
-    before_save = function(_)
-      vim.cmd([[wincmd =]]) -- Turn off full windows
-      return {}
-    end,
+    before_save = function(name) return {} end,
+    after_save = function(name, user_data, aborted) end,
+    before_load = function(name, user_data) return user_data end,
+    after_load = function(name, user_data) end,
   },
   plugins = {
-    delete_hidden_buffers = false,
     close_windows = {
-      hooks = { "before_save" },
-      preserve_layout = false, -- do not preserse empty window
+      hooks = {'before_save', 'before_load'},
+      preserve_layout = true,
       match = {
-        -- buftype = { "help" },
-        filetype = { "neo-tree", "aerial", "NeogitStatus", "NeogitCommitView", "toggleterm", "fugitiveblame" },
+        floating = true,
+        buftype = {},
+        filetype = {},
+        custom = false,
+      },
+    },
+    delete_hidden_buffers = {
+      hooks = {
+        'before_load',
+        vim.o.sessionoptions:match('buffer') and 'before_save',
+      },
+      force = false,
+    },
+    nvim_tree = true,
+    tabby = true,
+    dap = true,
+    delete_buffers = false,
+  },
+  telescope = {
+    list = {
+      default_action = 'load',
+      mappings = {
+        save = { n = '<c-x>', i = '<c-x>' },
+        load = { n = '<c-v>', i = '<c-v>' },
+        delete = { n = '<c-t>', i = '<c-t>' },
+        rename = { n = '<c-r>', i = '<c-r>' },
       },
     },
   },
 }
-
-require("possession").setup(opts)
 require("telescope").load_extension("possession")

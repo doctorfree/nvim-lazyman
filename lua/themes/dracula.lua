@@ -181,8 +181,7 @@ if settings.theme == "dracula" then
   end
   local dopts = dracula.configs()
   vim.g.dracula_transparent = dopts.transparent_bg
-  local utils = require("utils.functions")
-  utils.map("n", "<leader>ut", function()
+  require("util").map("n", "<leader>ut", function()
     vim.g.dracula_transparent = not vim.g.dracula_transparent
     dopts.transparent_bg = vim.g.dracula_transparent
     require("dracula").setup( dopts )
