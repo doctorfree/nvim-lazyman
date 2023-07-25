@@ -912,12 +912,14 @@ show_plugin_menu() {
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
-    options+=("Dashboard [${use_dash}]")
-    if [ "${use_dash}" == "alpha" ]; then
-      options+=(" Alpha Header [${use_dashboard_header}]")
-      options+=(" Recent Files [${use_dashboard_recent_files}]")
-      options+=(" Quick Links  [${use_dashboard_quick_links}]")
-    fi
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Dashboard [${use_dash}]")
+      if [ "${use_dash}" == "alpha" ]; then
+        options+=(" Alpha Header [${use_dashboard_header}]")
+        options+=(" Recent Files [${use_dashboard_recent_files}]")
+        options+=(" Quick Links  [${use_dashboard_quick_links}]")
+      fi
+    }
     options+=("Dressing UI   [${use_dressing}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
