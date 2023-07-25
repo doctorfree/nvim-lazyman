@@ -1278,28 +1278,6 @@ show_alias() {
   }
 }
 
-check_python_version() {
-  have_python3=$(type -p python3)
-  [ "${have_python3}" ] || {
-    echo "NO"
-    return 3
-  }
-  major=$(python3 -c 'import sys; print(sys.version_info.major)')
-  if [ ${major} -eq 3 ]; then
-    minor=$(python3 -c 'import sys; print(sys.version_info.minor)')
-    if [ ${minor} -ge 9 ]; then
-      echo "OK"
-      return 0
-    else
-      echo "NO"
-      return 1
-    fi
-  else
-    echo "NO"
-    return 2
-  fi
-}
-
 install_astronvim() {
   base_dir="$1"
   user_url="$2"
