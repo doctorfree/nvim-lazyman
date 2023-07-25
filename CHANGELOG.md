@@ -10,7 +10,8 @@
 
 ### ⚡️ Added
 
-- Create separate namespaces for `free` and `onno` with `namespace` entry to switch between them
+- Create namespaces for `free` and `onno` with `namespace` entry to switch between them
+- Add `Elijah` config to `Personals`
 - Move `lualine` configuration up to common
 - Remove `tabline.nvim` and replace `enable_tabline` with `enable_status_in_tab`
 - Set `lualine` theme in `init.lua` rather than `highlights.lua` in `onno` lualine style
@@ -43,6 +44,13 @@
 
 ### 🐞 Fixed
 
+- Remove `check_python_version` from `lazyman`, `lzyide`, and `webdev` config scripts, not used
+- Only show `wilder` menu option for `free` namespace
+- Rewrite `get_conf.lua` and add retrieval of options/variables
+- Always use `wilder` plugin in `onno` namespace
+- Only show dashboard settings in plugins menu for `free` namespace
+- Use common config for `possession.nvim`
+- Redo `possession` config
 - Only show dashboard settings in plugins menu for `free` namespace
 - Use common config for `possession.nvim`
 - Fix `alpha` dashboard `persistence` session restore
