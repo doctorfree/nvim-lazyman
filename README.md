@@ -45,6 +45,8 @@ The nvims Neovim configuration fuzzy selector:
 The Lazyman project can be used to install, initialize, and manage multiple
 Neovim configurations. Over 90 popular Neovim configurations are supported.
 
+See [what's new](#whats-new)
+
 Follow the [Installation instructions](#installation) to bootstrap Lazyman.
 Once Lazyman is installed, execute the `lazyman` command to manage
 Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
@@ -106,6 +108,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Features](#features)
   - [Lazyman Command Features](#lazyman-command-features)
   - [Lazyman Neovim Configuration Features](#lazyman-neovim-configuration-features)
+  - [What's New](#whats-new)
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
   - [Updates](#updates)
@@ -896,6 +899,31 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Auto-install and setup of dozens of language servers including: `ansiblels`, `astro`, `awk_ls`, `bashls`, `clangd`, `ccls`, `cmake`, `cssmodules_ls`, `denols`, `dockerls`, `eslint`, `gopls`, `graphql`, `html`, `jdtls`, `jsonls`, `julials`, `lua_ls`, `ltex`, `marksman`, `pylsp`, `pyright`, `rust_analyzer`, `sqlls`, `svelte`, `tailwindcss`, `taplo`, `texlab`, `tflint`, `tsserver`, `vimls`, `yamlls`
+
+### What's New
+
+Recent releases of `lazyman` include several new features, fixes, and improvements:
+
+- Information documents for each supported Neovim configuration which include:
+  - Installation command, install location, brief description
+  - Links to relevant websites including the Github repo, website, YouTube, etc
+  - List of plugins included in each configuration
+  - Table of keymaps defined in each configuration
+- Easy menu navigation and command line usage with keywords
+  - `lazyman` command line now supports `open`, `install`, `info` arguments
+    - `lazyman open` to fuzzy select a config to open
+    - `lazyman install` to fuzzy select a config to install
+    - `lazyman info` to fuzzy select a config to display info
+  - Menu interface also supports keywords to fuzzy select a config for an action
+  - Additional keywords supported: `health`, `init`, `remove`, `search`, `status`
+- Auto-install of [Bob](https://github.com/MordechaiHadad/bob) Neovim version manager (optional)
+- Multiple namespace support in `nvim-Lazyman` default `lazyman` Neovim configuration
+  - Select which namespace to use in `lua/configuration.lua` or via the menu interface
+  - Both namespaces can be configured vi the Lazyman configuration menus (`lazyman -F`)
+- `LazyIde` and `Webdev` configurations now configurable via a menu interface
+- Fuzzy select a configuration for a health check
+- Improved [get_conf.lua](#get-configuration-script) can return option or variable value
+- Search for plugins and get a list of configurations using that plugin
 
 ## Usage
 
