@@ -507,6 +507,15 @@ make_info() {
       C_DESC="Personal Neovim configuration of Dicha Zelianivan Arkana"
       C_INST="lazyman -w Elianiva"
       ;;
+    Elijah)
+      GH_URL="https://github.com/elijahmanor/dotfiles"
+      WS_URL="https://elijahmanor.com"
+      YT_URL="https://www.youtube.com/@ElijahManor"
+      CF_CAT="Personal"
+      CF_TYP="[LazyVim](https://lazyvim.github.io)"
+      C_DESC="Personal Neovim configuration of Elijah Manor"
+      C_INST="lazyman -w Elijah"
+      ;;
     Enrique)
       GH_URL="https://github.com/kiyov09/dotfiles"
       CF_CAT="Personal"

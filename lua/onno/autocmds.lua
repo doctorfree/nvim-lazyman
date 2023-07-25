@@ -253,8 +253,8 @@ autocmd({ "BufReadPre" }, {
   pattern = "*",
 })
 
--- Open the Github URL of the plugin spec or 'user/repo' path under the cursor
-vim.api.nvim_create_user_command("OpenGithubRepo", function(_)
+-- Open the URL of the plugin spec or 'user/repo' path under the cursor
+vim.api.nvim_create_user_command("OpenRepo", function(_)
   local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
   local formatpath = ghpath:sub(2, #ghpath - 1)
   local repourl = "https://www.github.com/" .. formatpath
@@ -271,6 +271,6 @@ vim.api.nvim_create_user_command("OpenGithubRepo", function(_)
     end
   end
 end, {
-  desc = "Open Github Repo",
+  desc = "Open URL",
   force = true,
 })

@@ -328,27 +328,6 @@ if settings.enable_terminal then
   }
 end
 
-local wilder_type = {}
-if settings.enable_wilder then
-  wilder_type = {
-    { "romgrk/fzy-lua-native", lazy = true },
-    {
-      "gelguy/wilder.nvim",
-      dependencies = {
-        { "romgrk/fzy-lua-native" },
-      },
-      lazy = true,
-      build = function()
-        vim.cmd([[silent UpdateRemotePlugins]])
-      end,
-      event = { "CmdwinEnter", "CmdlineEnter" },
-      config = function()
-        require("config.wilder")
-      end,
-    },
-  }
-end
-
 -- Some colorschemes do not yet support the NotifyBackground highlight group
 local notify_bg = "NotifyBackground"
 local ok, _ = pcall(vim.api.nvim_get_hl_id_by_name, notify_bg, true)
@@ -500,7 +479,22 @@ return {
   smart_column,
   virt_column,
   terminal_nvim,
-  wilder_type,
+
+  { "romgrk/fzy-lua-native", lazy = true },
+  {
+    "gelguy/wilder.nvim",
+    dependencies = {
+      { "romgrk/fzy-lua-native" },
+    },
+    lazy = true,
+    build = function()
+      vim.cmd([[silent UpdateRemotePlugins]])
+    end,
+    event = { "CmdwinEnter", "CmdlineEnter" },
+    config = function()
+      require("config.wilder")
+    end,
+  },
 
   {
     "glepnir/dashboard-nvim",

@@ -304,10 +304,11 @@ following configuration categories:
 | **Personal** |       |        |        |        | **Configs** |
 | ------------ | ----- | ------ | ------ | ------ | ----------- |
 | [Adib](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Adib.md) | [Artur](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Artur.md) | [Brain](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Brain.md) | [Charles](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Charles.md) | [Craftzdog](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Craftzdog.md) | [Daniel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Daniel.md) |
-| [Dillon](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Dillon.md) | [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) | [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) |
-| [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Kristijan](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kristijan.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) | [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) |
-| [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) | [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) |
-| [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) |
+| [Dillon](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Dillon.md) | [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Elijah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elijah.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) | [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) |
+| [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Kristijan](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kristijan.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) | [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) |
+| [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) |
+| [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) |
+| [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | | | | | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       |       |        | **Configs** |
@@ -510,6 +511,9 @@ installed with the `-w conf` option.
 - [Elianiva](info/Elianiva.md)
   - Personal Neovim configuration of Dicha Zelianivan Arkana
   - `lazyman -w Elianiva`
+- [Elijah](info/Elijah.md)
+  - Personal Neovim configuration of Elijah Manor
+  - `lazyman -w Elijah`
 - [Enrique](info/Enrique.md)
   - Personal Neovim configuration of Enrique Mejidas
   - `lazyman -w Enrique`
@@ -989,7 +993,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+           All Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
@@ -2581,37 +2585,94 @@ interface uses this new feature to get the current Lazyman Neovim
 configuration with shell commands like:
 
 ```bash
+GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
 confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
 ```
 
-where `GET_CONF` above is the Lua script `~/.config/nvim-Lazyman/scripts/get_conf.lua`.
+The `get_conf.lua` script can also be used to retrieve option or variable
+settings in any Neovim configuration. For example, to retrieve the value of
+the 'mouse' option in the `nvim-Webdev` Neovim configuration:
 
-<details><summary>View the get_conf.lua script</summary>
+```bash
+GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
+NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
+```
+
+<details><summary>View the `get_conf.lua` script</summary>
 
 ```lua
 -- Invoke with 'nvim -l get_conf.lua conf_name'
--- Where 'conf_name' is one of the entries in configuration.lua
+-- Where 'conf_name' is:
+--   - one of the entries in lua/configuration.lua
+--   - the keyword 'config_home' to get configuration location info
+--   - an option/variable name to retrieve its value
 --
--- For example, from a Bash script:
+-- For example, to retrieve the Lazyman configuration 'namespace' setting:
 --
 -- #!/bin/bash
--- export NVIM_APPNAME="nvim-Lazyman"
--- nvim -l ~/.config/nvim-Lazyman/scripts/get_conf.lua enable_winbar
+-- NVIM_APPNAME="nvim-Lazyman" \
+--   nvim -l ~/.config/nvim-Lazyman/scripts/get_conf.lua namespace
+--
+-- or, to retrieve the value of the 'mouse' option in the Webdev config:
+--
+-- #!/bin/bash
+-- NVIM_APPNAME="nvim-Webdev" \
+--   nvim -l ~/.config/nvim-Lazyman/scripts/get_conf.lua mouse
 
-local settings = require("configuration")
 local config = vim.inspect(_G.arg[1])
 local arg = string.gsub(config, '"', "")
-local entry = settings[arg]
-if type (entry) == 'string' then
-  print(entry)
-elseif type (entry) == 'table' then
-  table.sort(entry)
-  for _,val in ipairs(entry) do
-    print(val)
+local app_name = os.getenv("NVIM_APPNAME") or ""
+
+local function get_var(var_name, default_value)
+  local s, v = pcall(function()
+    return vim.api.nvim_get_option(var_name)
+  end)
+  if s then
+    return v
+  else
+    s, v = pcall(function()
+      return vim.api.nvim_get_var(var_name)
+    end)
+    if s then
+      return v
+    else
+      return default_value
+    end
   end
-  print("\n")
+end
+
+local function print_var(entry)
+  if type(entry) == "string" then
+    io.write(entry .. "\n")
+  elseif type(entry) == "table" then
+    table.sort(entry)
+    for _, val in ipairs(entry) do
+      io.write(val .. "\n")
+    end
+  else
+    io.write(tostring(entry) .. "\n")
+  end
+end
+
+if arg == "config_home" then
+  local config_home = vim.fn.stdpath("config")
+  io.write("Neovim configuration location = " .. vim.fn.expand(config_home) .. "\n")
+  io.write("NVIM_APPNAME = " .. app_name .. "\n")
 else
-  print(tostring(entry))
+  local var_val = ""
+  if app_name == "nvim-Lazyman" then
+    local settings = require("configuration")
+    local entry = settings[arg]
+    if entry ~= nil then
+      print_var(entry)
+    else
+      var_val = get_var(arg, "")
+      print_var(var_val)
+    end
+  else
+    var_val = get_var(arg, "")
+    print_var(var_val)
+  end
 end
 ```
 

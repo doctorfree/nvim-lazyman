@@ -34,10 +34,10 @@ if [ -f "${CONFIGRC}" ]; then
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
   LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
-  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
+  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
-  LAZYVIMCFGS="CatNvim JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
+  LAZYVIMCFGS="CatNvim Elijah JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
   NVCHADCFGS="Cpp Go NvChad Python Rust"
   ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Orhun Spider"
   KICKSTARTCFGS="Kickstart"
@@ -1394,7 +1394,7 @@ install_config() {
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Brain | Elianiva | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3564,6 +3564,12 @@ install_remove() {
         -D nvim/.config/nvim -N nvim-Elianiva ${quietflag} -z ${yesflag}
       show_alias "nvim-Elianiva"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Elijah ] && action="Updating"
+      printf "\n${action} Elijah Neovim configuration"
+      lazyman ${darg} -C https://github.com/elijahmanor/dotfiles \
+        -D nvim/.config/nvim -N nvim-Elijah ${quietflag} -z ${yesflag}
+      show_alias "nvim-Elijah"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Enrique ] && action="Updating"
       printf "\n${action} Enrique Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/kiyov09/dotfiles \
@@ -3637,6 +3643,10 @@ install_remove() {
         ;;
       Elianiva)
         prsnl_url="https://github.com/elianiva/dotfiles"
+        prsnl_dir="-D nvim/.config/nvim"
+        ;;
+      Elijah)
+        prsnl_url="https://github.com/elijahmanor/dotfiles"
         prsnl_dir="-D nvim/.config/nvim"
         ;;
       Enrique)
