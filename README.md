@@ -909,6 +909,8 @@ Recent releases of `lazyman` include several new features, fixes, and improvemen
   - Links to relevant websites including the Github repo, website, YouTube, etc
   - List of plugins included in each configuration
   - Table of keymaps defined in each configuration
+- New configuration categories: `LazyVim`, `AstroNvim`, `NvChad`, `LunarVim`
+  - Easily install all supported configurations using one of these frameworks
 - Easy menu navigation and command line usage with keywords
   - `lazyman` command line now supports `open`, `install`, `info` arguments
     - `lazyman open` to fuzzy select a config to open
@@ -923,7 +925,7 @@ Recent releases of `lazyman` include several new features, fixes, and improvemen
 - `LazyIde` and `Webdev` configurations now configurable via a menu interface
 - Fuzzy select a configuration for a health check
 - Improved [get_conf.lua](#get-configuration-script) can return option or variable value
-- Search for plugins and get a list of configurations using that plugin
+- Search for plugins and get a list of supported configurations using that plugin
 
 ## Usage
 
