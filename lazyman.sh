@@ -34,7 +34,7 @@ if [ -f "${CONFIGRC}" ]; then
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
   LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
-  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
+  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
   LAZYVIMCFGS="CatNvim Elijah JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
@@ -42,7 +42,7 @@ else
   ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Orhun Spider"
   KICKSTARTCFGS="Kickstart"
   LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Insis Josean LaTeX MagicVim Nyoom SaleVim Simple SingleFile Slydragonn"
+  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Insis Josean LaTeX MagicVim Nyoom Primeagen SaleVim Simple SingleFile Slydragonn"
   PLUGCFGS="Optixal Plug"
 fi
 SPDIR="${HOME}/.SpaceVim.d"
@@ -1372,7 +1372,7 @@ install_config() {
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Primeagen | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3566,6 +3566,12 @@ install_remove() {
         -b main -D .config/nvim -N nvim-Josean -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Josean"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Primeagen ] && action="Updating"
+      printf "\n${action} Primeagen Neovim configuration"
+      lazyman ${darg} -C https://github.com/ThePrimeagen/init.lua \
+        -N nvim-Primeagen -P ${quietflag} -z ${yesflag}
+      show_alias "nvim-Primeagen"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Rafi ] && action="Updating"
       printf "\n${action} Rafi Neovim configuration"
       lazyman ${darg} -C https://github.com/rafi/vim-config \
@@ -3639,6 +3645,10 @@ install_remove() {
         prsnl_url="https://github.com/josean-dev/dev-environment-files"
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
+        ;;
+      Primeagen)
+        prsnl_url="https://github.com/ThePrimeagen/init.lua"
+        prsnl_opt="-P"
         ;;
       Rafi)
         prsnl_url="https://github.com/rafi/vim-config"

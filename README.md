@@ -309,9 +309,9 @@ following configuration categories:
 | [Adib](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Adib.md) | [Artur](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Artur.md) | [Brain](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Brain.md) | [Charles](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Charles.md) | [Craftzdog](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Craftzdog.md) | [Daniel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Daniel.md) |
 | [Dillon](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Dillon.md) | [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Elijah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elijah.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) | [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) |
 | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Kristijan](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kristijan.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) | [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) |
-| [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) |
-| [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) |
-| [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | | | | | |
+| [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) | [Primeagen](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Primeagen.md) | [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) |
+| [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) |
+| [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | | | | |
 
 <!-- prettier-ignore -->
 | **Starter** |       |       |       |       |        | **Configs** |
@@ -560,6 +560,9 @@ installed with the `-w conf` option.
 - [Orhun](info/Orhun.md)
   - Personal AstroNvim based Neovim configuration of open source developer Orhun Parmaksiz
   - Install and initialize with `lazyman -w Orhun`
+- [Primeagen](info/Primeagen.md)
+  - Packer based [config from scratch](https://youtu.be/w7i4amO_zaE) by ThePrimeagen"
+  - Install and initialize with `lazyman -w Primeagen`
 - [Rafi](info/Rafi.md)
   - [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
   - Install and initialize with `lazyman -w Rafi`
