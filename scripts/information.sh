@@ -475,6 +475,12 @@ make_info() {
       C_DESC="Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)"
       C_INST="lazyman -w Adib"
       ;;
+    Beethoven)
+      GH_URL="https://github.com/Elteoremadebeethoven/nvim-config"
+      CF_CAT="Personal"
+      C_DESC="Personal Neovim configuration of mechanical engineering student Alexander Vazquez"
+      C_INST="lazyman -w Beethoven"
+      ;;
     Brain)
       GH_URL="https://github.com/brainfucksec/neovim-lua"
       NC_URL="http://neovimcraft.com/plugin/brainfucksec/neovim-lua"

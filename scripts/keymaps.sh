@@ -72,7 +72,7 @@ cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
   grep -v "^\.\.\." | grep -v "[[:space:]]\.\.\." | grep -v "^\# stack" | \
   grep -v -- "[[:space:]]- " | grep -v ^Install | grep -v ^Welcome | \
   grep -v "[[:space:]]vim/" | grep -v ^run | grep -v ^plea | \
-  grep -v ^Plugin | grep -v -- ^- > /tmp/${CFNAME}$$.lua
+  grep -v ^Plugin | grep -v ^All | grep -v -- ^- > /tmp/${CFNAME}$$.lua
 for mode in "normal" "visual" "operator"
 do
   cp /tmp/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua
