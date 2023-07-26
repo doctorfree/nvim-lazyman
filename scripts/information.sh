@@ -477,8 +477,9 @@ make_info() {
       ;;
     Beethoven)
       GH_URL="https://github.com/Elteoremadebeethoven/nvim-config"
+      YT_URL="https://www.youtube.com/@TheoremofBeethoven"
       CF_CAT="Personal"
-      C_DESC="Personal Neovim configuration of mechanical engineering student Alexander Vazquez"
+      C_DESC="Personal Neovim configuration of mechanical engineering student Alexander Vazquez. See the videos on [plugin setup](https://youtu.be/f5-XZadSFBc) and [workstation setup](https://youtu.be/adODck89qVk)."
       C_INST="lazyman -w Beethoven"
       ;;
     Brain)

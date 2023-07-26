@@ -1,6 +1,6 @@
 ## Beethoven Neovim Configuration Information
 
-Personal Neovim configuration of mechanical engineering student Alexander Vazquez
+Personal Neovim configuration of mechanical engineering student Alexander Vazquez. See the videos on [plugin setup](https://youtu.be/f5-XZadSFBc) and [workstation setup](https://youtu.be/adODck89qVk).
 
 - Install and initialize: **`lazyman -w Beethoven`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
@@ -13,6 +13,10 @@ Personal Neovim configuration of mechanical engineering student Alexander Vazque
 ### Git repository
 
 [https://github.com/Elteoremadebeethoven/nvim-config](https://github.com/Elteoremadebeethoven/nvim-config)
+
+### YouTube channel
+
+[https://www.youtube.com/@TheoremofBeethoven](https://www.youtube.com/@TheoremofBeethoven)
 
 ### Lazy managed plugins
 
@@ -190,17 +194,17 @@ Personal Neovim configuration of mechanical engineering student Alexander Vazque
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-| Move to previous reference | <M-p> |  |
-| Move to next reference | <M-n> |  |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+| Move to previous reference | <M-p> |  |
+| Move to next reference | <M-n> |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 |  | <M-C-RightMouse> | <Plug>(VM-Mouse-Column) |
 |  | <C-RightMouse> | <Plug>(VM-Mouse-Word) |
 |  | <C-LeftMouse> | <Plug>(VM-Mouse-Cursor) |
@@ -278,17 +282,17 @@ Personal Neovim configuration of mechanical engineering student Alexander Vazque
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <M-i> |  |
+|  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <M-i> |  |
 |  | <C-N> | <Plug>(VM-Find-Subword-Under) |
 |  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>7_Visual('under') |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>11_Visual('under') |
 |  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
 |  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
 |  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>7_Visual('all') |
+|  | <Plug>(VM-Visual-All) | <SNR>11_Visual('all') |
 |  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
 |  | <C-S-C> | "+y |
 |  | <C-L> | <C-W>l |

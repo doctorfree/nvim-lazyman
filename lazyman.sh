@@ -34,7 +34,7 @@ if [ -f "${CONFIGRC}" ]; then
 else
   BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
   LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
-  PRSNLCFGS="Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
+  PRSNLCFGS="Adib Artur Beethoven Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
   MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
   STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
   LAZYVIMCFGS="CatNvim Elijah JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
@@ -1372,7 +1372,7 @@ install_config() {
   2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Primeagen | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Primeagen | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3536,6 +3536,12 @@ install_remove() {
         -N nvim-Artur ${quietflag} -z ${yesflag}
       show_alias "nvim-Artur"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Beethoven ] && action="Updating"
+      printf "\n${action} Beethoven Neovim configuration"
+      lazyman ${darg} -C https://github.com/Elteoremadebeethoven/nvim-config \
+        -N nvim-Beethoven ${quietflag} -z ${yesflag}
+      show_alias "nvim-Beethoven"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Brain ] && action="Updating"
       printf "\n${action} Brain Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/brainfucksec/neovim-lua \
@@ -3626,6 +3632,9 @@ install_remove() {
         ;;
       Artur)
         prsnl_url="https://github.com/arturgoms/nvim"
+        ;;
+      Beethoven)
+        prsnl_url="https://github.com/Elteoremadebeethoven/nvim-config"
         ;;
       Brain)
         prsnl_url="https://github.com/brainfucksec/neovim-lua"
