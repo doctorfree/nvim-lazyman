@@ -1,0 +1,15 @@
+--- lua/lazy-plugins.lua.orig	2023-07-26 11:15:36.271900703 -0700
++++ lua/lazy-plugins.lua	2023-07-26 11:19:43.324174613 -0700
+@@ -16,7 +16,11 @@
+ 
+       -- Useful status updates for LSP
+       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+-      { 'j-hui/fidget.nvim', opts = {} },
++      {
++        'j-hui/fidget.nvim',
++        tag = "legacy",
++        opts = {}
++      },
+ 
+       -- Additional lua configuration, makes nvim stuff amazing!
+       'folke/neodev.nvim',
