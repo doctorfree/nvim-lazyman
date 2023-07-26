@@ -557,6 +557,13 @@ make_info() {
       C_DESC="Personal Neovim configuration of chadcat, a high school student with no life. Kodo is a Neovim configuration that looks good and is fast (startuptime < 0.035s)."
       C_INST="lazyman -w Kodo"
       ;;
+    Lukas)
+      GH_URL="https://github.com/lukas-reineke/dotfiles"
+      CF_CAT="Personal"
+      PL_MAN="Packer"
+      C_DESC="Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim plugins. Requires an externally installed \`lua-language-server\` and \`efm-langserver\`"
+      C_INST="lazyman -w Lukas"
+      ;;
     LvimAdib)
       GH_URL="https://github.com/adibhanna/lvim-config"
       WS_URL="https://www.lunarvim.org"

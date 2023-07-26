@@ -1,0 +1,3631 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lazyman config: Lukas</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lazyman config: Lukas</h1>
+</header>
+<h2 id="lukas-neovim-configuration-information">Lukas Neovim
+Configuration Information</h2>
+<p>Personal Neovim configuration of Lukas Reineke, author of many
+excellent Neovim plugins. Requires an externally installed
+<code>lua-language-server</code> and <code>efm-langserver</code></p>
+<ul>
+<li>Install and initialize:
+<strong><code>lazyman -w Lukas</code></strong></li>
+<li>Configuration category: <a
+href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+<li>Base configuration: Custom</li>
+<li>Plugin manager: <a
+href="https://github.com/wbthomason/packer.nvim">Packer</a></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Lukas</code></strong></li>
+</ul>
+<p><a
+href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
+all Lazyman supported configuration documents</a></p>
+<h3 id="git-repository">Git repository</h3>
+<p><a
+href="https://github.com/lukas-reineke/dotfiles">https://github.com/lukas-reineke/dotfiles</a></p>
+<h3 id="packer-managed-plugins">Packer managed plugins</h3>
+<ul>
+<li><a
+href="https://github.com/numToStr/Comment.nvim">numToStr/Comment.nvim</a></li>
+<li><a
+href="https://github.com/antoinemadec/FixCursorHold.nvim">antoinemadec/FixCursorHold.nvim</a></li>
+<li><a
+href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
+<li><a
+href="https://github.com/numToStr/Navigator.nvim">numToStr/Navigator.nvim</a></li>
+<li><a
+href="https://github.com/vim-scripts/ReplaceWithRegister">vim-scripts/ReplaceWithRegister</a></li>
+<li><a
+href="https://github.com/vim-scripts/ReplaceWithSameIndentRegister">vim-scripts/ReplaceWithSameIndentRegister</a></li>
+<li><a
+href="https://github.com/vim-scripts/UnconditionalPaste">vim-scripts/UnconditionalPaste</a></li>
+<li><a
+href="https://github.com/rmagatti/auto-session">rmagatti/auto-session</a></li>
+<li><a
+href="https://github.com/bkad/camelcasemotion">bkad/camelcasemotion</a></li>
+<li><a
+href="https://github.com/rhysd/clever-f.vim">rhysd/clever-f.vim</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-buffer">hrsh7th/cmp-buffer</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-cmdline">hrsh7th/cmp-cmdline</a></li>
+<li><a
+href="https://github.com/dmitmel/cmp-cmdline-history">dmitmel/cmp-cmdline-history</a></li>
+<li><a
+href="https://github.com/rcarriga/cmp-dap">rcarriga/cmp-dap</a></li>
+<li><a
+href="https://github.com/petertriho/cmp-git">petertriho/cmp-git</a></li>
+<li><a href="https://github.com/lttr/cmp-jira">lttr/cmp-jira</a></li>
+<li><a
+href="https://github.com/octaltree/cmp-look">octaltree/cmp-look</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lsp">hrsh7th/cmp-nvim-lsp</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lua">hrsh7th/cmp-nvim-lua</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-path">hrsh7th/cmp-path</a></li>
+<li><a
+href="https://github.com/lukas-reineke/cmp-rg">lukas-reineke/cmp-rg</a></li>
+<li><a
+href="https://github.com/andersevenrud/cmp-tmux">andersevenrud/cmp-tmux</a></li>
+<li><a
+href="https://github.com/lukas-reineke/cmp-under-comparator">lukas-reineke/cmp-under-comparator</a></li>
+<li><a
+href="https://github.com/saadparwaiz1/cmp_luasnip">saadparwaiz1/cmp_luasnip</a></li>
+<li><a
+href="https://github.com/Saecki/crates.nvim">Saecki/crates.nvim</a></li>
+<li><a
+href="https://github.com/spywhere/detect-language.nvim">spywhere/detect-language.nvim</a></li>
+<li><a
+href="https://github.com/sindrets/diffview.nvim">sindrets/diffview.nvim</a></li>
+<li><a
+href="https://github.com/stevearc/dressing.nvim">stevearc/dressing.nvim</a></li>
+<li><a
+href="https://github.com/famiu/feline.nvim">famiu/feline.nvim</a></li>
+<li><a
+href="https://github.com/jghauser/follow-md-links.nvim">jghauser/follow-md-links.nvim</a></li>
+<li><a href="https://github.com/junegunn/fzf">junegunn/fzf</a></li>
+<li><a
+href="https://github.com/junegunn/fzf.vim">junegunn/fzf.vim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/headlines.nvim">lukas-reineke/headlines.nvim</a></li>
+<li><a
+href="https://github.com/m-demare/hlargs.nvim">m-demare/hlargs.nvim</a></li>
+<li><a
+href="https://github.com/smjonas/inc-rename.nvim">smjonas/inc-rename.nvim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+<li><a
+href="https://github.com/haya14busa/is.vim">haya14busa/is.vim</a></li>
+<li><a
+href="https://github.com/cohama/lexima.vim">cohama/lexima.vim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/lsp-format.nvim">lukas-reineke/lsp-format.nvim</a></li>
+<li><a
+href="https://github.com/lvimuser/lsp-inlayhints.nvim">lvimuser/lsp-inlayhints.nvim</a></li>
+<li><a
+href="https://git.sr.ht/~whynothugo/lsp_lines.nvim">~whynothugo/lsp_lines.nvim</a></li>
+<li><a
+href="https://github.com/ray-x/lsp_signature.nvim">ray-x/lsp_signature.nvim</a></li>
+<li><a
+href="https://github.com/mrbjarksen/neo-tree-diagnostics.nvim">mrbjarksen/neo-tree-diagnostics.nvim</a></li>
+<li><a
+href="https://github.com/nvim-neo-tree/neo-tree.nvim">nvim-neo-tree/neo-tree.nvim</a></li>
+<li><a
+href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest">nvim-neotest/neotest</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest-go">nvim-neotest/neotest-go</a></li>
+<li><a
+href="https://github.com/haydenmeade/neotest-jest">haydenmeade/neotest-jest</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest-plenary">nvim-neotest/neotest-plenary</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest-python">nvim-neotest/neotest-python</a></li>
+<li><a
+href="https://github.com/rouge8/neotest-rust">rouge8/neotest-rust</a></li>
+<li><a
+href="https://github.com/MunifTanjim/nui.nvim">MunifTanjim/nui.nvim</a></li>
+<li><a
+href="https://github.com/kevinhwang91/nvim-bqf">kevinhwang91/nvim-bqf</a></li>
+<li><a
+href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
+<li><a
+href="https://github.com/andythigpen/nvim-coverage">andythigpen/nvim-coverage</a></li>
+<li><a
+href="https://github.com/Kasama/nvim-custom-diagnostic-highlight">Kasama/nvim-custom-diagnostic-highlight</a></li>
+<li><a
+href="https://github.com/mfussenegger/nvim-dap">mfussenegger/nvim-dap</a></li>
+<li><a
+href="https://github.com/leoluz/nvim-dap-go">leoluz/nvim-dap-go</a></li>
+<li><a
+href="https://github.com/mfussenegger/nvim-dap-python">mfussenegger/nvim-dap-python</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
+<li><a
+href="https://github.com/theHamsta/nvim-dap-virtual-text">theHamsta/nvim-dap-virtual-text</a></li>
+<li><a
+href="https://github.com/mxsdev/nvim-dap-vscode-js">mxsdev/nvim-dap-vscode-js</a></li>
+<li><a
+href="https://github.com/vijaymarupudi/nvim-fzf">vijaymarupudi/nvim-fzf</a></li>
+<li><a
+href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/milisims/nvim-luaref">milisims/nvim-luaref</a></li>
+<li><a
+href="https://github.com/SmiteshP/nvim-navic">SmiteshP/nvim-navic</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
+<li><a
+href="https://gitlab.com/yorickpeterse/nvim-pqf">yorickpeterse/nvim-pqf</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-refactor">nvim-treesitter/nvim-treesitter-refactor</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects">nvim-treesitter/nvim-treesitter-textobjects</a></li>
+<li><a
+href="https://github.com/RRethy/nvim-treesitter-textsubjects">RRethy/nvim-treesitter-textsubjects</a></li>
+<li><a
+href="https://github.com/windwp/nvim-ts-autotag">windwp/nvim-ts-autotag</a></li>
+<li><a
+href="https://github.com/JoosepAlviste/nvim-ts-context-commentstring">JoosepAlviste/nvim-ts-context-commentstring</a></li>
+<li><a
+href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devicons</a></li>
+<li><a
+href="https://github.com/pwntester/octo.nvim">pwntester/octo.nvim</a></li>
+<li><a
+href="https://github.com/jbyuki/one-small-step-for-vimkind">jbyuki/one-small-step-for-vimkind</a></li>
+<li><a
+href="https://github.com/lukas-reineke/onedark.nvim">lukas-reineke/onedark.nvim</a></li>
+<li><a
+href="https://github.com/tyru/open-browser.vim">tyru/open-browser.vim</a></li>
+<li><a
+href="https://github.com/akinsho/org-bullets.nvim">akinsho/org-bullets.nvim</a></li>
+<li><a
+href="https://github.com/kristijanhusak/orgmode.nvim">kristijanhusak/orgmode.nvim</a></li>
+<li><a
+href="https://github.com/vuki656/package-info.nvim">vuki656/package-info.nvim</a></li>
+<li><a
+href="https://github.com/wbthomason/packer.nvim">wbthomason/packer.nvim</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/playground">nvim-treesitter/playground</a></li>
+<li><a
+href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/bounceme/poppy.vim">bounceme/poppy.vim</a></li>
+<li><a
+href="https://github.com/nvim-lua/popup.nvim">nvim-lua/popup.nvim</a></li>
+<li><a
+href="https://github.com/kepbod/quick-scope">kepbod/quick-scope</a></li>
+<li><a
+href="https://github.com/ThePrimeagen/refactoring.nvim">ThePrimeagen/refactoring.nvim</a></li>
+<li><a
+href="https://github.com/lewis6991/spellsitter.nvim">lewis6991/spellsitter.nvim</a></li>
+<li><a
+href="https://github.com/wellle/targets.vim">wellle/targets.vim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
+<li><a
+href="https://github.com/David-Kunz/treesitter-unit">David-Kunz/treesitter-unit</a></li>
+<li><a href="https://github.com/Wansmer/treesj">Wansmer/treesj</a></li>
+<li><a
+href="https://github.com/arthurxavierx/vim-caser">arthurxavierx/vim-caser</a></li>
+<li><a
+href="https://github.com/tpope/vim-eunuch">tpope/vim-eunuch</a></li>
+<li><a
+href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a></li>
+<li><a
+href="https://github.com/airblade/vim-gitgutter">airblade/vim-gitgutter</a></li>
+<li><a
+href="https://github.com/rrethy/vim-hexokinase">rrethy/vim-hexokinase</a></li>
+<li><a
+href="https://github.com/michaeljsmith/vim-indent-object">michaeljsmith/vim-indent-object</a></li>
+<li><a
+href="https://github.com/kana/vim-niceblock">kana/vim-niceblock</a></li>
+<li><a
+href="https://github.com/tpope/vim-obsession">tpope/vim-obsession</a></li>
+<li><a
+href="https://github.com/krisajenkins/vim-projectlocal">krisajenkins/vim-projectlocal</a></li>
+<li><a href="https://github.com/romainl/vim-qf">romainl/vim-qf</a></li>
+<li><a
+href="https://github.com/tpope/vim-repeat">tpope/vim-repeat</a></li>
+<li><a
+href="https://github.com/tpope/vim-rhubarb">tpope/vim-rhubarb</a></li>
+<li><a
+href="https://github.com/machakann/vim-sandwich">machakann/vim-sandwich</a></li>
+<li><a
+href="https://github.com/kshenoy/vim-signature">kshenoy/vim-signature</a></li>
+<li><a
+href="https://github.com/tpope/vim-sleuth">tpope/vim-sleuth</a></li>
+<li><a
+href="https://github.com/z1mm32m4n/vim-superman">z1mm32m4n/vim-superman</a></li>
+<li><a
+href="https://github.com/dhruvasagar/vim-table-mode">dhruvasagar/vim-table-mode</a></li>
+<li><a
+href="https://github.com/lukas-reineke/virt-column.nvim">lukas-reineke/virt-column.nvim</a></li>
+<li><a
+href="https://github.com/microsoft/vscode-js-debug">microsoft/vscode-js-debug</a></li>
+</ul>
+<h3 id="lukas-keymaps">Lukas Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td><Cmd>lua require’luasnip’.jump(-1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td><Cmd>lua require’luasnip’.jump(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gl</td>
+<td>:diffget //3<CR> :diffupdate<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gh</td>
+<td>:diffget //2<CR> :diffupdate<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gn</td>
+<td>:lua require(‘lists’).change_active(‘Quickfix’)<CR>:Git
+mergetool<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gg</td>
+<td>:lua require(‘lists’).change_active(‘Quickfix’)<CR>:execute ‘Git
+difftool’ .. g:git_base<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gc</td>
+<td>:0Gclog<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ga</td>
+<td><Plug>(GitGutterStageHunk)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gu</td>
+<td><Plug>(GitGutterUndoHunk)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gm</td>
+<td><Plug>(git-messenger)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td>:Git<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td>:Git blame<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gr</td>
+<td>:Gread<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gd</td>
+<td>:set nosplitright<CR>:execute ‘Gvdiff’ .. g:git_base<CR>:set
+splitright<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td>:lua require(‘fuzzy’).symbols()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m</td>
+<td>:Marks<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td>:Helptags<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-P></td>
+<td>:Commands<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p</td>
+<td>:Buffers<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td>:lua require(‘fuzzy’).files(vim.fn.expand(‘%:h’))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gf</td>
+<td>:lua require(‘fuzzy’).git_files()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td>:lua require(‘lists’).change_active(‘Quickfix’)<CR>:silent grep</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>b</td>
+<td>:lua require(‘lists’).toggle_active()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>v</td>
+<td><Plug>(qf_loc_toggle_stay):lua
+require(‘lists’).change_active(‘Location’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>c</td>
+<td><Plug>(qf_qf_toggle_stay):lua
+require(‘lists’).change_active(‘Quickfix’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dj</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>d<CR></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>do</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dB</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>td</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>tf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>to</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ll</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>oa</td>
+<td><Cmd>lua require(‘orgmode’).action(‘agenda.prompt’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>of</td>
+<td><Cmd>lua require(‘orgmode’).action(‘capture.prompt’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>N</td>
+<td>:e %:h/</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>rr</td>
+<td>:%s/)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>z</td>
+<td>1z=</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>w</td>
+<td>:update<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>q</td>
+<td>:lua require ‘buffers’.close()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-O></td>
+<td>:lua require ‘buffers’.close_others()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>:<C-U>exe v:count ? v:count . ‘b’ : ‘b’ . (bufloaded(0) ? ‘#’ :
+‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>#</td>
+<td><Plug>(is-#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>’[</td>
+<td>:<C-U>call signature#mark#Goto(“prev”, “line”, “alpha”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>’]</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “line”, “alpha”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>*</td>
+<td><Plug>(is-*)N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>CLEAR-10&gt;</td>
+<td><Plug>UnconditionalPasteUnjoinAfter</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>CLEAR-9&gt;</td>
+<td><Plug>UnconditionalPasteUnjoinBefore</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>CLEAR-8&gt;</td>
+<td><Plug>VimwikiDecrementListItem</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>CLEAR-7&gt;</td>
+<td><Plug>VimwikiIncrementListItem</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>CLEAR-6&gt;</td>
+<td><Plug>UnconditionalPasteCommaSingleQuoteBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>CLEAR-5&gt;</td>
+<td><Plug>UnconditionalPasteCommaSingleQuoteAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>CLEAR-4&gt;</td>
+<td><Plug>UnconditionalPasteCommaBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>CLEAR-3&gt;</td>
+<td><Plug>UnconditionalPasteCommaAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt>CLEAR-2&gt;</td>
+<td><Plug>UnconditionalPasteLineBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><lt>CLEAR-1&gt;</td>
+<td><Plug>UnconditionalPasteLineAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td><Plug>(clever-f-F)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>J</td>
+<td>5j</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>K</td>
+<td>5k</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>N</td>
+<td><Plug>(is-N)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>T</td>
+<td><Plug>(clever-f-T)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[=</td>
+<td>:<C-U>call signature#marker#Goto(“prev”, “any”, v:count)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[-</td>
+<td>:<C-U>call signature#marker#Goto(“prev”, “same”, v:count)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[<code>| :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt; | |  | [' | :&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt; | |  | [% | &lt;Plug&gt;(MatchitNormalMultiBackward) | |  | \&lt;lt&gt;Space&gt;tt | &lt;Plug&gt;(table-mode-tableize) | |  | \&lt;lt&gt;Space&gt;tm | :&lt;C-U&gt;call tablemode#Toggle()&lt;CR&gt; | |  | ]= | :&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt; | |  | ]- | :&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt; | |  | ]</code></td>
+<td>:<C-U>call signature#mark#Goto(“next”, “spot”, “pos”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]’</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “line”, “pos”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[ | :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "alpha")&lt;CR&gt; | |  |</code>]</td>
+<td>:<C-U>call signature#mark#Goto(“next”, “spot”, “alpha”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td><Plug>CamelCaseMotion_b</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>dm</td>
+<td>:<C-U>call signature#utils#Remove(v:count)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>e</td>
+<td><Plug>CamelCaseMotion_e</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>f</td>
+<td><Plug>(clever-f-f)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs.</td>
+<td><Plug>CaserDotCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsK</td>
+<td><Plug>CaserTitleKebabCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs-</td>
+<td><Plug>CaserKebabCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsk</td>
+<td><Plug>CaserKebabCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs</td>
+<td><Plug>CaserSpaceCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gss</td>
+<td><Plug>CaserSentenceCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gst</td>
+<td><Plug>CaserTitleCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsU</td>
+<td><Plug>CaserUpperCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsu</td>
+<td><Plug>CaserUpperCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs_</td>
+<td><Plug>CaserSnakeCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsc</td>
+<td><Plug>CaserCamelCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsm</td>
+<td><Plug>CaserMixedCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gPP</td>
+<td><Plug>UnconditionalPasteGPlusBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gPp</td>
+<td><Plug>UnconditionalPasteGPlusAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gpP</td>
+<td><Plug>UnconditionalPastePlusBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gpp</td>
+<td><Plug>UnconditionalPastePlusAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gUP</td>
+<td><Plug>UnconditionalPasteRecallUnjoinBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gUp</td>
+<td><Plug>UnconditionalPasteRecallUnjoinAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gQP</td>
+<td><Plug>UnconditionalPasteRecallQueriedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gQp</td>
+<td><Plug>UnconditionalPasteRecallQueriedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gqP</td>
+<td><Plug>UnconditionalPasteQueriedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gqp</td>
+<td><Plug>UnconditionalPasteQueriedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gQBP</td>
+<td><Plug>UnconditionalPasteRecallDelimitedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gQBp</td>
+<td><Plug>UnconditionalPasteRecallDelimitedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gqbP</td>
+<td><Plug>UnconditionalPasteDelimitedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gqbp</td>
+<td><Plug>UnconditionalPasteDelimitedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gBP</td>
+<td><Plug>UnconditionalPasteJaggedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gBp</td>
+<td><Plug>UnconditionalPasteJaggedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsP</td>
+<td><Plug>UnconditionalPasteSpacedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsp</td>
+<td><Plug>CaserMixedCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g#P</td>
+<td><Plug>UnconditionalPasteCommentedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g#p</td>
+<td><Plug>UnconditionalPasteCommentedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g&gt;P</td>
+<td><Plug>UnconditionalPasteShiftedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g&gt;p</td>
+<td><Plug>UnconditionalPasteShiftedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g[[P</td>
+<td><Plug>UnconditionalPasteLessIndentBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g[[p</td>
+<td><Plug>UnconditionalPasteLessIndentAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g]]P</td>
+<td><Plug>UnconditionalPasteMoreIndentBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g]]p</td>
+<td><Plug>UnconditionalPasteMoreIndentAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g[p</td>
+<td><Plug>UnconditionalPasteIndentedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g[P</td>
+<td><Plug>UnconditionalPasteIndentedBefore</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g]P</td>
+<td><Plug>UnconditionalPasteIndentedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g,“P</td>
+<td><Plug>UnconditionalPasteCommaDoubleQuoteBefore</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g,“p</td>
+<td><Plug>UnconditionalPasteCommaDoubleQuoteAfter</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gbP</td>
+<td><Plug>UnconditionalPasteBlockBefore</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gbp</td>
+<td><Plug>UnconditionalPasteBlockAfter</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gcP</td>
+<td><Plug>UnconditionalPasteCharBefore</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gcp</td>
+<td><Plug>UnconditionalPasteCharAfter</td>
+</tr>
+<tr class="odd">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>(openbrowser-smart-search)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gk</td>
+<td><Plug>(GitGutterPrevHunk)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gj</td>
+<td><Plug>(GitGutterNextHunk)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g*</td>
+<td><Plug>(is-g*)N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gck</td>
+<td>m’yypgcc`’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>glP</td>
+<td><Plug>UnconditionalPasteIndentedBefore</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>glp</td>
+<td><Plug>UnconditionalPasteIndentedAfter</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gr</td>
+<td><Plug>ReplaceWithRegisterOperator</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>grR</td>
+<td><Plug>ReplaceWithRegisterLine</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>grr</td>
+<td><Plug>ReplaceWithSameIndentRegisterLine</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g-</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ge</td>
+<td><Plug>CamelCaseMotion_ge</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>j</td>
+<td>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’j’ : ‘gj’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’k’ : ‘gk’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m?</td>
+<td>:<C-U>call signature#marker#List(v:count, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m/</td>
+<td>:<C-U>call signature#mark#List(0, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m<BS></td>
+<td>:<C-U>call signature#marker#Purge()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#mark#Purge(“all”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m-</td>
+<td>:<C-U>call signature#mark#Purge(“line”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m.</td>
+<td>:<C-U>call signature#mark#ToggleAtLine()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m,</td>
+<td>:<C-U>call signature#mark#Toggle(“next”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#utils#Input()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>n</td>
+<td><Plug>(is-n)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>srb</td>
+<td><Plug>(sandwich-replace-auto)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sr</td>
+<td><Plug>(sandwich-replace)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sdb</td>
+<td><Plug>(sandwich-delete-auto)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sd</td>
+<td><Plug>(sandwich-delete)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sa</td>
+<td><Plug>(sandwich-add)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td><Plug>(clever-f-t)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w</td>
+<td><Plug>CamelCaseMotion_w</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>x</td>
+<td>“_x</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-sort)</td>
+<td>:call tablemode#spreadsheet#Sort(’’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-echo-cell)</td>
+<td>:call tablemode#spreadsheet#EchoCell()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-eval-formula)</td>
+<td>:call tablemode#spreadsheet#formula#EvaluateFormulaLine()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-add-formula)</td>
+<td>:call tablemode#spreadsheet#formula#Add()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-insert-column-after)</td>
+<td>:<C-U>call tablemode#spreadsheet#InsertColumn(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-insert-column-before)</td>
+<td>:<C-U>call tablemode#spreadsheet#InsertColumn(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-delete-column)</td>
+<td>:<C-U>call tablemode#spreadsheet#DeleteColumn()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-delete-row)</td>
+<td>:<C-U>call tablemode#spreadsheet#DeleteRow()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-motion-right)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#Motion(‘l’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-motion-left)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#Motion(‘h’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-motion-down)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#Motion(‘j’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-motion-up)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#Motion(‘k’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-realign)</td>
+<td>:call tablemode#table#Realign(‘.’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-tableize)</td>
+<td>:Tableize<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-a)</td>
+<td>textobj#sandwich#query(‘n’, ‘a’, {}, [])</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-i)</td>
+<td>textobj#sandwich#query(‘n’, ‘i’, {}, [])</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-query-a)</td>
+<td>textobj#sandwich#query(‘n’, ‘a’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-query-i)</td>
+<td>textobj#sandwich#query(‘n’, ‘i’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-a)</td>
+<td>textobj#sandwich#auto(‘n’, ‘a’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-i)</td>
+<td>textobj#sandwich#auto(‘n’, ‘i’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(sandwich-replace-auto)</td>
+<td><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(sandwich-delete-auto)</td>
+<td><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(sandwich-replace)</td>
+<td><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(sandwich-delete)</td>
+<td><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(sandwich-add)</td>
+<td><Plug>(operator-sandwich-add)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-gv)</td>
+<td>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-g@)</td>
+<td>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-replace-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘replace’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-delete-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘delete’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘add’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-dot)</td>
+<td>operator#sandwich#dot()</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-predot)</td>
+<td>operator#sandwich#predot()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace-query1st)</td>
+<td>:<C-U>call operator#sandwich#query1st(‘replace’, ‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add-query1st)</td>
+<td>:<C-U>call operator#sandwich#query1st(‘add’, ‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace-pre)</td>
+<td>:<C-U>call operator#sandwich#prerequisite(‘replace’, ‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-delete-pre)</td>
+<td>:<C-U>call operator#sandwich#prerequisite(‘delete’, ‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-add-pre)</td>
+<td>:<C-U>call operator#sandwich#prerequisite(‘add’, ‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-replace)</td>
+<td><Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-delete)</td>
+<td><Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add)</td>
+<td><Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_switch)</td>
+<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_loc_toggle_stay)</td>
+<td>:<C-U> call qf#toggle#ToggleLocWindow(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_loc_toggle)</td>
+<td>:<C-U> call qf#toggle#ToggleLocWindow(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_qf_toggle_stay)</td>
+<td>:<C-U> call qf#toggle#ToggleQfWindow(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_toggle)</td>
+<td>:<C-U> call qf#toggle#ToggleQfWindow(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_loc_next)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘l’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_loc_previous)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘l’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(qf_qf_next)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘c’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(qf_qf_previous)</td>
+<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘c’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfSwitch</td>
+<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfLtoggle</td>
+<td><Plug>(qf_loc_toggle)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfCtoggle</td>
+<td><Plug>(qf_qf_toggle)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfLnext</td>
+<td><Plug>(qf_loc_next)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfLprevious</td>
+<td><Plug>(qf_loc_previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>QfCnext</td>
+<td><Plug>(qf_qf_next)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>QfCprevious</td>
+<td><Plug>(qf_qf_previous)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>GitGutterPreviewHunk</td>
+<td>:call gitgutter#utility#warn(‘Please change your map
+<lt>Plug&gt;GitGutterPreviewHunk to
+<lt>Plug&gt;(GitGutterPreviewHunk)’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterPreviewHunk)</td>
+<td>:GitGutterPreviewHunk<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>GitGutterUndoHunk</td>
+<td>:call gitgutter#utility#warn(‘Please change your map
+<lt>Plug&gt;GitGutterUndoHunk to
+<lt>Plug&gt;(GitGutterUndoHunk)’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterUndoHunk)</td>
+<td>:GitGutterUndoHunk<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>GitGutterStageHunk</td>
+<td>:call gitgutter#utility#warn(‘Please change your map
+<lt>Plug&gt;GitGutterStageHunk to
+<lt>Plug&gt;(GitGutterStageHunk)’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterStageHunk)</td>
+<td>:GitGutterStageHunk<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>GitGutterPrevHunk</td>
+<td>&amp;diff ? ‘[c’ : “:&lt;C-U&gt;call gitgutter#utility#warn(‘Please
+change your map &lt;lt&gt;Plug&gt;GitGutterPrevHunk to
+&lt;lt&gt;Plug&gt;(GitGutterPrevHunk)’)&lt;CR&gt;”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterPrevHunk)</td>
+<td>&amp;diff ? ‘[c’ : “:&lt;C-U&gt;execute v:count1 .
+‘GitGutterPrevHunk’&lt;CR&gt;”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>GitGutterNextHunk</td>
+<td>&amp;diff ? ‘]c’ : “:&lt;C-U&gt;call gitgutter#utility#warn(‘Please
+change your map &lt;lt&gt;Plug&gt;GitGutterNextHunk to
+&lt;lt&gt;Plug&gt;(GitGutterNextHunk)’)&lt;CR&gt;”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterNextHunk)</td>
+<td>&amp;diff ? ‘]c’ : “:&lt;C-U&gt;execute v:count1 .
+‘GitGutterNextHunk’&lt;CR&gt;”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserDotCase</td>
+<td>:<C-U>call caser#ActionSetup(“DotCase”)<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserTitleKebabCase</td>
+<td>:<C-U>call caser#ActionSetup(“TitleKebabCase”)<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserKebabCase</td>
+<td>:<C-U>call caser#ActionSetup(“KebabCase”)<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserSpaceCase</td>
+<td>:<C-U>call caser#ActionSetup(“SpaceCase”)<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserSentenceCase</td>
+<td>:<C-U>call caser#ActionSetup(“SentenceCase”)<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserTitleCase</td>
+<td>:<C-U>call caser#ActionSetup(“TitleCase”)<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserUpperCase</td>
+<td>:<C-U>call caser#ActionSetup(“UpperCase”)<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserSnakeCase</td>
+<td>:<C-U>call caser#ActionSetup(“SnakeCase”)<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserCamelCase</td>
+<td>:<C-U>call caser#ActionSetup(“CamelCase”)<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserMixedCase</td>
+<td>:<C-U>call caser#ActionSetup(“MixedCase”)<CR>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(QuickScopeToggle)</td>
+<td>:call <SNR>82_toggle()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-smart-search)</td>
+<td>:<C-U>call openbrowser#_keymap_smart_search(‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-search)</td>
+<td>:<C-U>call openbrowser#_keymap_search(‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-open-incognito)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘n’, 0, [‘–incognito’])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-open)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-g#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-g*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g*)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-*)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-N)</td>
+<td><Plug>(is-nohl)<Plug>(_is-N)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-n)</td>
+<td><Plug>(is-nohl)<Plug>(_is-n)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-g#)</td>
+<td>g#</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-g*)</td>
+<td>g*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-#)</td>
+<td>#</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-*)</td>
+<td>*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-N)</td>
+<td>N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-n)</td>
+<td>n</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl)</td>
+<td><Plug>(is-nohl-2)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl-3)</td>
+<td>is#auto_nohlsearch(3)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl-2)</td>
+<td>is#auto_nohlsearch(2)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl-1)</td>
+<td>is#auto_nohlsearch(1)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-scroll-b)</td>
+<td>is#scroll_count(0, @/) . ‘Nzz’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-scroll-f)</td>
+<td>is#scroll_count(1, @/) . ‘nzz’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-maps-n)</td>
+<td>:<C-U>call fzf#vim#maps(‘n’, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(fzf-normal)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-insert)</td>
+<td>i</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-repeat-back)</td>
+<td>clever_f#repeat(1)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-repeat-forward)</td>
+<td>clever_f#repeat(0)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-reset)</td>
+<td>clever_f#reset()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-T)</td>
+<td>clever_f#find_with(‘T’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-t)</td>
+<td>clever_f#find_with(‘t’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-F)</td>
+<td>clever_f#find_with(‘F’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-f)</td>
+<td>clever_f#find_with(‘f’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_ge</td>
+<td>:<C-U>call camelcasemotion#Motion(‘ge’,v:count1,‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_e</td>
+<td>:<C-U>call camelcasemotion#Motion(‘e’,v:count1,‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_b</td>
+<td>:<C-U>call camelcasemotion#Motion(‘b’,v:count1,‘n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_w</td>
+<td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteGPlusRepeatBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteGPlusRepeatAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteGPlusBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteGPlusAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPastePlusRepeatBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPastePlusRepeatAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPastePlusBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPastePlusAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteRecallUnjoinBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteRecallUnjoinAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteUnjoinBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteUnjoinAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteRecallQueriedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteRecallQueriedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteQueriedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteQueriedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteRecallDelimitedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteRecallDelimitedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteDelimitedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteDelimitedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteJaggedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteJaggedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteSpacedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteSpacedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteCommentedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteCommentedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteShiftedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteShiftedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteLessIndentBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteLessIndentAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteMoreIndentBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteMoreIndentAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteIndentedBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteIndentedAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteCommaDoubleQuoteBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteCommaDoubleQuoteAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteCommaSingleQuoteBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteCommaSingleQuoteAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteCommaBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteCommaAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCommaAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteBlockBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteBlockBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteBlockAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteBlockAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteLineBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteLineBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteLineAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteLineAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>UnconditionalPasteCharBefore</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCharBefore”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>UnconditionalPasteCharAfter</td>
+<td>:<C-U>execute ‘silent! call
+repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteCharAfter”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithSameIndentRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithSameIndentRegisterLine</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterLine</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithRegisterExpressionSpecial</td>
+<td>:<C-U>let g:ReplaceWithRegister_expr = getreg(‘=’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterOperator</td>
+<td>ReplaceWithRegister#OperatorExpression()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-P></td>
+<td>:lua require(‘fuzzy’).files(’’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-W>j</td>
+<td><C-W>5-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-W>k</td>
+<td><C-W>5+</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-W>h</td>
+<td><C-W>5<lt></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-W>l</td>
+<td><C-W>5&gt;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><Cmd>lua require(‘Navigator’).up()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Cmd>lua require(‘Navigator’).down()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td><Cmd>lua require(‘Navigator’).left()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Right></td>
+<td>:lua require(‘lists’).move(‘right’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Left></td>
+<td>:lua require(‘lists’).move(‘left’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Down></td>
+<td>:lua require(‘lists’).move(‘down’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Up></td>
+<td>:lua require(‘lists’).move(‘up’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td><Cmd>lua require(‘Navigator’).right()<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>rr</td>
+<td>:s/ Nvim builtin</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>@(targets)</td>
+<td>:<C-U>call targets#do()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>A</td>
+<td><Plug>(niceblock-A)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td><Plug>(clever-f-F)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>I</td>
+<td><Plug>(niceblock-I)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>J</td>
+<td>5j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>K</td>
+<td>5k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>N</td>
+<td><Plug>(is-N)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>P</td>
+<td>’“_d”‘.v:register.’P’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>T</td>
+<td><Plug>(clever-f-T)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>&lt;lt&gt;Space&gt;T</td>
+<td><Plug>(table-mode-tableize-delimiter)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&lt;lt&gt;Space&gt;tt</td>
+<td><Plug>(table-mode-tableize)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>as</td>
+<td><Plug>(textobj-sandwich-query-a)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ab</td>
+<td><Plug>(textobj-sandwich-auto-a)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>aI</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(0, 1, 1, [line(“‘<lt>“),
+line(”’&gt;”), col(“‘<lt>“), col(”’&gt;”)])<CR><Esc>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ai</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(0, 0, 1, [line(“‘<lt>“),
+line(”’&gt;”), col(“‘<lt>“), col(”’&gt;”)])<CR><Esc>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>a</td>
+<td>targets#e(‘o’, ‘a’, ‘a’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>au</td>
+<td>:lua require”treesitter-unit”.select(true)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td><Plug>CamelCaseMotion_b</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td><Plug>CamelCaseMotion_e</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td><Plug>(clever-f-f)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs.</td>
+<td><Plug>CaserVDotCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsK</td>
+<td><Plug>CaserVTitleKebabCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs-</td>
+<td><Plug>CaserVKebabCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsk</td>
+<td><Plug>CaserVKebabCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gs</td>
+<td><Plug>CaserVSpaceCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gss</td>
+<td><Plug>CaserVSentenceCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gst</td>
+<td><Plug>CaserVTitleCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsU</td>
+<td><Plug>CaserVUpperCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsu</td>
+<td><Plug>CaserVUpperCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gs_</td>
+<td><Plug>CaserVSnakeCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsc</td>
+<td><Plug>CaserVCamelCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gsp</td>
+<td><Plug>CaserVMixedCase</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gsm</td>
+<td><Plug>CaserVMixedCase</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g#</td>
+<td><Plug>(is-g#)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g*</td>
+<td><Plug>(is-g*)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gR</td>
+<td><Plug>ReplaceWithSameIndentRegisterVisual</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gr</td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gI</td>
+<td><Plug>(niceblock-gI)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gx</td>
+<td><Plug>(openbrowser-smart-search)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ge</td>
+<td><Plug>CamelCaseMotion_ge</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>is</td>
+<td><Plug>(textobj-sandwich-query-i)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ib</td>
+<td><Plug>(textobj-sandwich-auto-i)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>iI</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(1, 1, 1, [line(“‘<lt>“),
+line(”’&gt;”), col(“‘<lt>“), col(”’&gt;”)])<CR><Esc>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ii</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(1, 0, 1, [line(“‘<lt>“),
+line(”’&gt;”), col(“‘<lt>“), col(”’&gt;”)])<CR><Esc>gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>i</td>
+<td>targets#e(‘o’, ‘i’, ‘i’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>iu</td>
+<td>:lua require”treesitter-unit”.select()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>j</td>
+<td>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’j’ : ‘gj’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>k</td>
+<td>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’k’ : ‘gk’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td><Plug>(is-n)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sr</td>
+<td><Plug>(sandwich-replace)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sd</td>
+<td><Plug>(sandwich-delete)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>sa</td>
+<td><Plug>(sandwich-add)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>t</td>
+<td><Plug>(clever-f-t)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>w</td>
+<td><Plug>CamelCaseMotion_w</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-cell-text-object-i)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#TextObject(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-cell-text-object-a)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#TextObject(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-tableize-delimiter)</td>
+<td>:<C-U>call tablemode#TableizeByDelimiter()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-tableize)</td>
+<td>:Tableize<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-a)</td>
+<td>textobj#sandwich#query(‘x’, ‘a’, {}, [])</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-i)</td>
+<td>textobj#sandwich#query(‘x’, ‘i’, {}, [])</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-query-a)</td>
+<td>textobj#sandwich#query(‘x’, ‘a’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-query-i)</td>
+<td>textobj#sandwich#query(‘x’, ‘i’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-a)</td>
+<td>textobj#sandwich#auto(‘x’, ‘a’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-i)</td>
+<td>textobj#sandwich#auto(‘x’, ‘i’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(sandwich-replace)</td>
+<td><Plug>(operator-sandwich-replace)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(sandwich-delete)</td>
+<td><Plug>(operator-sandwich-delete)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(sandwich-add)</td>
+<td><Plug>(operator-sandwich-add)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-tag-a)</td>
+<td>:<C-U>call sandwich#magicchar#t#at()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-tag-i)</td>
+<td>:<C-U>call sandwich#magicchar#t#it()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-tagname-a)</td>
+<td>:<C-U>call sandwich#magicchar#t#a()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-tagname-i)</td>
+<td>:<C-U>call sandwich#magicchar#t#i()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-function-a)</td>
+<td>:<C-U>call sandwich#magicchar#f#a(‘x’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-function-ap)</td>
+<td>:<C-U>call sandwich#magicchar#f#ap(‘x’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-function-i)</td>
+<td>:<C-U>call sandwich#magicchar#f#i(‘x’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-function-ip)</td>
+<td>:<C-U>call sandwich#magicchar#f#ip(‘x’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-g@)</td>
+<td>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-replace-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘replace’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-delete-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘delete’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘add’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace-query1st)</td>
+<td><Esc>:call operator#sandwich#query1st(‘replace’, ‘x’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add-query1st)</td>
+<td><Esc>:call operator#sandwich#query1st(‘add’, ‘x’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace-pre)</td>
+<td><Esc>:call operator#sandwich#prerequisite(‘replace’, ‘x’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-delete-pre)</td>
+<td><Esc>:call operator#sandwich#prerequisite(‘delete’, ‘x’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-add-pre)</td>
+<td><Esc>:call operator#sandwich#prerequisite(‘add’, ‘x’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-replace)</td>
+<td><Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-delete)</td>
+<td><Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-add)</td>
+<td><Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(niceblock-A)</td>
+<td>niceblock#force_blockwise(‘A’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(niceblock-gI)</td>
+<td>niceblock#force_blockwise(‘gI’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(niceblock-I)</td>
+<td>niceblock#force_blockwise(‘I’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>GitGutterStageHunk</td>
+<td>:call gitgutter#utility#warn(‘Please change your map
+<lt>Plug&gt;GitGutterStageHunk to
+<lt>Plug&gt;(GitGutterStageHunk)’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(GitGutterStageHunk)</td>
+<td>:GitGutterStageHunk<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterTextObjectOuterVisual)</td>
+<td>:<C-U>call gitgutter#hunk#text_object(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(GitGutterTextObjectInnerVisual)</td>
+<td>:<C-U>call gitgutter#hunk#text_object(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserVDotCase</td>
+<td>:<C-U>call caser#DoAction(“DotCase”,visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserVTitleKebabCase</td>
+<td>:<C-U>call caser#DoAction(“TitleKebabCase”,visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserVKebabCase</td>
+<td>:<C-U>call caser#DoAction(“KebabCase”,visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserVSpaceCase</td>
+<td>:<C-U>call caser#DoAction(“SpaceCase”,visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserVSentenceCase</td>
+<td>:<C-U>call caser#DoAction(“SentenceCase”,visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserVTitleCase</td>
+<td>:<C-U>call caser#DoAction(“TitleCase”,visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserVUpperCase</td>
+<td>:<C-U>call caser#DoAction(“UpperCase”,visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserVSnakeCase</td>
+<td>:<C-U>call caser#DoAction(“SnakeCase”,visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CaserVCamelCase</td>
+<td>:<C-U>call caser#DoAction(“CamelCase”,visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CaserVMixedCase</td>
+<td>:<C-U>call caser#DoAction(“MixedCase”,visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(QuickScopeToggle)</td>
+<td>:<C-U>call <SNR>82_toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-smart-search)</td>
+<td>:<C-U>call openbrowser#_keymap_smart_search(‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-search)</td>
+<td>:<C-U>call openbrowser#_keymap_search(‘v’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(openbrowser-open-incognito)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘v’, 0, [‘–incognito’])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(openbrowser-open)</td>
+<td>:<C-U>call openbrowser#_keymap_open(‘v’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-g#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-g*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g*)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-*)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-N)</td>
+<td><Plug>(is-nohl)<Plug>(_is-N)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-n)</td>
+<td><Plug>(is-nohl)<Plug>(_is-n)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-g#)</td>
+<td>g#</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-g*)</td>
+<td>g*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-#)</td>
+<td>#</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-*)</td>
+<td>*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-N)</td>
+<td>N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-n)</td>
+<td>n</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl)</td>
+<td><Plug>(is-nohl-2)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl-3)</td>
+<td>is#auto_nohlsearch(3)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl-2)</td>
+<td>is#auto_nohlsearch(2)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl-1)</td>
+<td>is#auto_nohlsearch(1)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-scroll-b)</td>
+<td>is#scroll_count(0, @/) . ‘Nzz’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-scroll-f)</td>
+<td>is#scroll_count(1, @/) . ‘nzz’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(fzf-maps-x)</td>
+<td>:<C-U>call fzf#vim#maps(‘x’, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-repeat-back)</td>
+<td>clever_f#repeat(1)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-repeat-forward)</td>
+<td>clever_f#repeat(0)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-reset)</td>
+<td>clever_f#reset()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-T)</td>
+<td>clever_f#find_with(‘T’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-t)</td>
+<td>clever_f#find_with(‘t’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-F)</td>
+<td>clever_f#find_with(‘F’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-f)</td>
+<td>clever_f#find_with(‘f’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_ige</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘ge’,v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_ie</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘e’,v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_ib</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘b’,v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_iw</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘w’,v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_ge</td>
+<td>:<C-U>call camelcasemotion#Motion(‘ge’,v:count1,‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_e</td>
+<td>:<C-U>call camelcasemotion#Motion(‘e’,v:count1,‘v’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_b</td>
+<td>:<C-U>call camelcasemotion#Motion(‘b’,v:count1,‘v’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_w</td>
+<td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘v’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>ReplaceWithSameIndentRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>ReplaceWithRegisterVisual</td>
+<td>:<C-U>call setline(‘.’, getline(‘.’))</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>#</td>
+<td><Plug>(is-#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>*</td>
+<td><Plug>(is-*)N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>@(targets)</td>
+<td>:<C-U>call targets#do()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>A</td>
+<td>targets#e(‘o’, ‘A’, ‘A’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>F</td>
+<td><Plug>(clever-f-F)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>^</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>I</td>
+<td>targets#e(‘o’, ‘I’, ‘I’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>L</td>
+<td>$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>N</td>
+<td><Plug>(is-N)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>T</td>
+<td><Plug>(clever-f-T)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>as</td>
+<td><Plug>(textobj-sandwich-query-a)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ab</td>
+<td><Plug>(textobj-sandwich-auto-a)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>aI</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(0, 1, 0, [line(“.”),
+line(“.”), col(“.”), col(“.”)])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ai</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(0, 0, 0, [line(“.”),
+line(“.”), col(“.”), col(“.”)])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a</td>
+<td>targets#e(‘o’, ‘a’, ‘a’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>au</td>
+<td>:<C-U>lua require”treesitter-unit”.select(true)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>b</td>
+<td><Plug>CamelCaseMotion_b</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>e</td>
+<td><Plug>CamelCaseMotion_e</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>f</td>
+<td><Plug>(clever-f-f)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g#</td>
+<td><Plug>(is-g#)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g*</td>
+<td><Plug>(is-g*)N</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ge</td>
+<td><Plug>CamelCaseMotion_ge</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>is</td>
+<td><Plug>(textobj-sandwich-query-i)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ib</td>
+<td><Plug>(textobj-sandwich-auto-i)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>iI</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(1, 1, 0, [line(“.”),
+line(“.”), col(“.”), col(“.”)])<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ii</td>
+<td>:<C-U>cal <SNR>94_HandleTextObjectMapping(1, 0, 0, [line(“.”),
+line(“.”), col(“.”), col(“.”)])<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>i</td>
+<td>targets#e(‘o’, ‘i’, ‘i’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>iu</td>
+<td>:<C-U>lua require”treesitter-unit”.select()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>n</td>
+<td><Plug>(is-n)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>sa</td>
+<td><Plug>(sandwich-add)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>t</td>
+<td><Plug>(clever-f-t)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w</td>
+<td><Plug>CamelCaseMotion_w</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(table-mode-cell-text-object-i)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#TextObject(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(table-mode-cell-text-object-a)</td>
+<td>:<C-U>call tablemode#spreadsheet#cell#TextObject(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-a)</td>
+<td>textobj#sandwich#query(‘o’, ‘a’, {}, [])</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-literal-query-i)</td>
+<td>textobj#sandwich#query(‘o’, ‘i’, {}, [])</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-query-a)</td>
+<td>textobj#sandwich#query(‘o’, ‘a’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-query-i)</td>
+<td>textobj#sandwich#query(‘o’, ‘i’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-a)</td>
+<td>textobj#sandwich#auto(‘o’, ‘a’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-auto-i)</td>
+<td>textobj#sandwich#auto(‘o’, ‘i’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(sandwich-add)</td>
+<td><Plug>(operator-sandwich-add)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-tag-a)</td>
+<td>:<C-U>call sandwich#magicchar#t#at()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-tag-i)</td>
+<td>:<C-U>call sandwich#magicchar#t#it()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-tagname-a)</td>
+<td>:<C-U>call sandwich#magicchar#t#a()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-tagname-i)</td>
+<td>:<C-U>call sandwich#magicchar#t#i()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-function-a)</td>
+<td>:<C-U>call sandwich#magicchar#f#a(‘o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-function-ap)</td>
+<td>:<C-U>call sandwich#magicchar#f#ap(‘o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(textobj-sandwich-function-i)</td>
+<td>:<C-U>call sandwich#magicchar#f#i(‘o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(textobj-sandwich-function-ip)</td>
+<td>:<C-U>call sandwich#magicchar#f#ip(‘o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-g@)</td>
+<td>g@</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘replace’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-delete-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘delete’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-add-visualrepeat)</td>
+<td>:<C-U>call operator#sandwich#visualrepeat(‘add’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-squash-count)</td>
+<td>operator#sandwich#squash_count()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-release-count)</td>
+<td>operator#sandwich#release_count()</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-synchro-count)</td>
+<td>operator#sandwich#synchro_count()</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-replace)</td>
+<td><Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(operator-sandwich-delete)</td>
+<td><Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(operator-sandwich-add)</td>
+<td><Plug>(operator-sandwich-g@)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(GitGutterTextObjectOuterPending)</td>
+<td>:<C-U>call gitgutter#hunk#text_object(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(GitGutterTextObjectInnerPending)</td>
+<td>:<C-U>call gitgutter#hunk#text_object(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-g#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g#)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-g*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-g*)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-#)</td>
+<td><Plug>(is-nohl)<Plug>(_is-#)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-*)</td>
+<td><Plug>(is-nohl)<Plug>(_is-*)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-N)</td>
+<td><Plug>(is-nohl)<Plug>(_is-N)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-n)</td>
+<td><Plug>(is-nohl)<Plug>(_is-n)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-g#)</td>
+<td>g#</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-g*)</td>
+<td>g*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-#)</td>
+<td>#</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-*)</td>
+<td>*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(_is-N)</td>
+<td>N</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(_is-n)</td>
+<td>n</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl)</td>
+<td><Plug>(is-nohl-2)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl-3)</td>
+<td>is#auto_nohlsearch(3)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-nohl-2)</td>
+<td>is#auto_nohlsearch(2)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-nohl-1)</td>
+<td>is#auto_nohlsearch(1)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(is-scroll-b)</td>
+<td>is#scroll_count(0, @/) . ‘Nzz’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(is-scroll-f)</td>
+<td>is#scroll_count(1, @/) . ‘nzz’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(fzf-maps-o)</td>
+<td><C-C>:<C-U>call fzf#vim#maps(‘o’, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-repeat-back)</td>
+<td>clever_f#repeat(1)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-repeat-forward)</td>
+<td>clever_f#repeat(0)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-reset)</td>
+<td>clever_f#reset()</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-T)</td>
+<td>clever_f#find_with(‘T’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-t)</td>
+<td>clever_f#find_with(‘t’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(clever-f-F)</td>
+<td>clever_f#find_with(‘F’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(clever-f-f)</td>
+<td>clever_f#find_with(‘f’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_ige</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘ge’,v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_ie</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘e’,v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_ib</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘b’,v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_iw</td>
+<td>:<C-U>call camelcasemotion#InnerMotion(‘w’,v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_ge</td>
+<td>:<C-U>call camelcasemotion#Motion(‘ge’,v:count1,‘o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_e</td>
+<td>:<C-U>call camelcasemotion#Motion(‘e’,v:count1,‘o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CamelCaseMotion_b</td>
+<td>:<C-U>call camelcasemotion#Motion(‘b’,v:count1,‘o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CamelCaseMotion_w</td>
+<td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,174 @@
+--- lua/plugins/init.lua.orig	2023-07-26 09:39:21.898223590 -0700
++++ lua/plugins/init.lua	2023-07-26 09:44:50.318780164 -0700
+@@ -1,3 +1,25 @@
++local fn = vim.fn
++-- Automatically install packer
++local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
++if fn.empty(fn.glob(install_path)) > 0 then
++	PACKER_BOOTSTRAP = fn.system({
++		"git",
++		"clone",
++		"--depth",
++		"1",
++		"https://github.com/wbthomason/packer.nvim",
++		install_path,
++	})
++	print("Installing packer close and reopen Neovim...")
++	vim.cmd([[packadd packer.nvim]])
++end
++
++-- Use a protected call so we don't error out on first use
++local status_ok, packer = pcall(require, "packer")
++if not status_ok then
++  return
++end
++
+ vim.g.loaded_netrwPlugin = false
+ vim.cmd [[packadd cfilter]]
+
+@@ -117,8 +139,8 @@
+                 { "saadparwaiz1/cmp_luasnip" },
+                 { "hrsh7th/cmp-cmdline" },
+                 { "dmitmel/cmp-cmdline-history" },
+-                { "~/dev/cmp-under-comparator" },
+-                { "~/dev/cmp-rg" },
++                { "lukas-reineke/cmp-under-comparator" },
++                { "lukas-reineke/cmp-rg" },
+                 { "octaltree/cmp-look" },
+                 { "rcarriga/cmp-dap" },
+                 { "petertriho/cmp-git" },
+@@ -164,12 +186,12 @@
+         }
+
+         use {
+-            "~/dev/lsp-format.nvim",
++            "lukas-reineke/lsp-format.nvim",
+             config = "require 'plugins.lsp-format'",
+         }
+
+         use {
+-            "~/dev/orgmode.nvim",
++            "kristijanhusak/orgmode.nvim",
+             config = "require 'plugins.orgmode'",
+         }
+         use {
+@@ -183,20 +205,20 @@
+         }
+
+         use {
+-            "~/dev/onedark.nvim",
++            "lukas-reineke/onedark.nvim",
+             config = "require 'plugins.onedark'",
+         }
+         use {
+-            "~/dev/headlines.nvim",
++            "lukas-reineke/headlines.nvim",
+             config = "require 'plugins.headlines'",
+         }
+         use "jghauser/follow-md-links.nvim"
+         use {
+-            "~/dev/virt-column.nvim",
++            "lukas-reineke/virt-column.nvim",
+             config = "require 'plugins.virt-column'",
+         }
+         use {
+-            "~/dev/indent-blankline.nvim",
++            "lukas-reineke/indent-blankline.nvim",
+             config = "require 'plugins.indent-blankline'",
+         }
+
+--- init.lua.orig	2023-07-26 09:09:36.458775311 -0700
++++ init.lua	2023-07-26 09:16:34.428235188 -0700
+@@ -1,5 +1,32 @@
+-vim.g.python_host_prog = "~/.pyenv/versions/neovim2/bin/python"
+-vim.g.python3_host_prog = "~/.pyenv/versions/neovim3.8.5/bin/python"
++--- Check if a file or directory exists in this path
++local file_or_dir_exists = function(file)
++  local ok, err, code = os.rename(file, file)
++  if not ok then
++    if code == 13 then
++      -- Permission denied, but it exists
++      return true
++    end
++  end
++  return ok, err
++end
++local python_path = "~/.pyenv/versions/neovim2/bin/python"
++if file_or_dir_exists(python_path) then
++  vim.g.python_host_prog = python_path
++else
++  python_path = vim.fn.exepath("python")
++  if file_or_dir_exists(python_path) then
++    vim.g.python_host_prog = python_path
++  end
++end
++local python3_path = "~/.pyenv/versions/neovim3.8.5/bin/python"
++if file_or_dir_exists(python3_path) then
++  vim.g.python3_host_prog = python3_path
++else
++  python3_path = vim.fn.exepath("python3")
++  if file_or_dir_exists(python3_path) then
++    vim.g.python3_host_prog = python3_path
++  end
++end
+
+ require "utils"
+ require "settings"
+--- lua/lsp/handlers.lua.orig	2023-07-26 09:20:23.459128317 -0700
++++ lua/lsp/handlers.lua	2023-07-26 09:21:24.927897503 -0700
+@@ -60,7 +60,7 @@
+ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+     local client_id = ctx.client_id
+     local client = vim.lsp.get_client_by_id(client_id)
+-    if client.name == "sumneko_lua" or client.name == "rust_analyzer" or client.name == "clangd" then
++    if client.name == "lua_ls" or client.name == "rust_analyzer" or client.name == "clangd" then
+         return
+     end
+     local val = result.value
+--- lua/lsp/init.lua.orig	2023-07-26 09:20:14.735018937 -0700
++++ lua/lsp/init.lua	2023-07-26 09:21:10.135712636 -0700
+@@ -266,7 +266,7 @@
+
+ require("neodev").setup()
+
+-lspconfig.sumneko_lua.setup {
++lspconfig.lua_ls.setup {
+     capabilities = capabilities,
+     on_attach = on_attach,
+     cmd = { "lua-language-server" },
+--- lua/plugins/nvim-treesitter.lua.00	2023-07-26 09:53:00.705247316 -0700
++++ lua/plugins/nvim-treesitter.lua	2023-07-26 09:56:13.259730330 -0700
+@@ -1,5 +1,32 @@
+ require("nvim-treesitter.configs").setup {
+-    ensure_installed = "all",
++    ensure_installed = {
++      "bash",
++      "cpp",
++      "go",
++      "graphql",
++      "html",
++      "java",
++      "javascript",
++      "json",
++      "lua",
++      "markdown",
++      "markdown_inline",
++      "query",
++      "php",
++      "python",
++      "regex",
++      "rust",
++      "scss",
++      "toml",
++      "tsx",
++      "typescript",
++      "vim",
++      "vimdoc",
++      "yaml",
++    },
++    sync_install = true,
++    auto_install = true,
++    ignore_install = {},
+     highlight = {
+         enable = true,
+         language_tree = true,

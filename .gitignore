@@ -74,6 +74,7 @@ scripts/patches/*
 !scripts/patches/nvim-JustinNvim.patch
 !scripts/patches/nvim-Kristijan.patch
 !scripts/patches/nvim-LaTeX.patch
+!scripts/patches/nvim-Lukas.patch
 !scripts/patches/nvim-LunarVim.patch
 !scripts/patches/nvim-LvimAdib.patch
 !scripts/patches/nvim-LvimIde.patch
