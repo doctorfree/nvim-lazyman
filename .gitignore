@@ -65,7 +65,6 @@ logs/*
 # Users can add configuration patches, we ship some
 scripts/nvims
 scripts/patches/*
-!scripts/patches/nvim-3rd.patch
 !scripts/patches/nvim-Allaman.patch
 !scripts/patches/nvim-Beethoven.patch
 !scripts/patches/nvim-Cosmic.patch
