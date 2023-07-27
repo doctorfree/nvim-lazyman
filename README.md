@@ -329,7 +329,13 @@ following configuration categories:
 
 ### Base configurations
 
-Currently the following "Base" Neovim configurations are supported:
+The Lazyman "Base" Neovim configurations are well tested, full featured Neovim
+configurations that provide an excellent base starting point for exploring
+the features of `lazyman` and the wealth of Neovim configuration possibilities.
+
+All "Base" Neovim configurations can be installed and initialized with `lazyman -B`.
+
+<details><summary>View descriptions of the Lazyman "Base" Neovim configurations</summary>
 
 - [nvim-Lazyman](info/Lazyman.md)
   - See the [Installation section](#installation) above
@@ -373,6 +379,8 @@ Currently the following "Base" Neovim configurations are supported:
   - Lazyman custom SpaceVim configuration installed in `~/.SpaceVim.d/`
   - Install and initialize using Lazyman with `lazyman -s`
 
+</details>
+
 ### Language configurations
 
 In addition to the base Neovim configurations listed above, `lazyman` can
@@ -386,9 +394,11 @@ configurations with programming language support. In fact, most Neovim
 configurations support several programming languages. The `Language` category
 simply serves as a convenience to get started exploring language support.
 
-All of the 'Language' configurations can be installed and initialized with
-the command `lazyman -L all`. Individual 'Language' configurations can be
+All of the "Language" configurations can be installed and initialized with
+the command `lazyman -L all`. Individual "Language" configurations can be
 installed with the `-L lang` option.
+
+<details><summary>View descriptions of the Lazyman "Language" Neovim configurations</summary>
 
 - [AlanVim](info/AlanVim.md)
   - Oriented toward Python development
@@ -473,6 +483,8 @@ installed with the `-L lang` option.
   - JavaScript, Typescript, React, and Tailwind CSS support
   - Install and initialize with `lazyman -L Webdev`
 
+</details>
+
 ### Personal configurations
 
 In addition to the base and language Neovim configurations listed above,
@@ -485,6 +497,8 @@ of study, exploration, and possible use in tailoring your own configuration.
 All of the 'Personal' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
+
+<details><summary>View descriptions of the Lazyman "Personal" Neovim configurations</summary>
 
 - [3rd](info/3rd.md)
   - `lazyman -w 3rd`
@@ -613,15 +627,19 @@ installed with the `-w conf` option.
   - Personal Neovim configuration of XiaoZhang
   - Install and initialize with `lazyman -w Xiao`
 
+</details>
+
 ### Starter configurations
 
-The 'Starter' Neovim configurations include `Basic`, `Kickstart`, `NvPak`,
+The "Starter" Neovim configurations include `Basic`, `Kickstart`, `NvPak`,
 `Modern`, `PDE`, and those provided by [VonHeikemen](https://github.com/VonHeikemen),
 the author of [LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim).
 
-All of the 'Starter' configurations can be installed and initialized with
-the command `lazyman -X`. Individual 'Starter' configurations can be
+All of the "Starter" configurations can be installed and initialized with
+the command `lazyman -X`. Individual "Starter" configurations can be
 installed with the `-x conf` option.
+
+<details><summary>View descriptions of the Lazyman "Starter" Neovim configurations</summary>
 
 - [AstroNvimStart](info/AstroNvimStart.md)
   - Default AstroNvim example configuration
@@ -718,6 +736,8 @@ installed with the `-x conf` option.
 - [StartMason](info/StartMason.md)
   - Same as `StartLsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
   - Install and initialize with `lazyman -x StartMason`
+
+</details>
 
 ### Custom configurations
 
@@ -1027,7 +1047,7 @@ Where:
     -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
-           All AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev
+           All
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
@@ -1038,11 +1058,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All Adib Artur Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+           All
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All 2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates use the following arguments as 'name'/'value' to set Lazyman config
