@@ -337,6 +337,7 @@ All "Base" Neovim configurations can be installed and initialized with `lazyman 
 
 <details>
   <summary>
+
     **View descriptions of the Lazyman "Base" Neovim configurations**
   </summary>
 
