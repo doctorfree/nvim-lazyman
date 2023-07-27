@@ -4,7 +4,18 @@
 
 ### ⚡️ Added
 
+- Add `JustinOhMy` to `Starters`
+- Add `Beethoven` to `Personals`
+- Add `Lukas` to `Personals`
+- Add `Primeagen` to `Personals`
+- Add `What's New` section to README
+
 ### 🐞 Fixed
+
+- Add patch for `Beethoven` config
+- Move `JustinLvim` and `JustinNvim` to `Personals`
+- Fold list of configuration descriptions in README
+- Remove `nvim-3rd` patch
 
 ## v3.0.0r1
 
