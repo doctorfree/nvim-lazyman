@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lazyman config: Folke</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lazyman config: Folke</h1>
+</header>
+<h2 id="folke-neovim-configuration-information">Folke Neovim
+Configuration Information</h2>
+<p>Personal Neovim configuration of the great Folke Lemaitre, author of
+<code>lazy.nvim</code>, <code>noice.nvim</code>, <code>LazyVim</code>,
+and more</p>
+<ul>
+<li>Install and initialize:
+<strong><code>lazyman -w Folke</code></strong></li>
+<li>Configuration category: <a
+href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+<li>Base configuration: <a
+href="https://lazyvim.github.io">LazyVim</a></li>
+<li>Plugin manager: <a
+href="https://github.com/folke/lazy.nvim">Lazy</a></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Folke</code></strong></li>
+</ul>
+<p><a
+href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
+all Lazyman supported configuration documents</a></p>
+<h3 id="git-repository">Git repository</h3>
+<p><a
+href="https://github.com/doctorfree/nvim-Folke">https://github.com/doctorfree/nvim-Folke</a></p>
+<h3 id="dotfyle-entry">Dotfyle entry</h3>
+<p><a
+href="https://dotfyle.com/folke/dot-nvim">https://dotfyle.com/folke/dot-nvim</a></p>
+<h3 id="website">Website</h3>
+<p><a href="https://www.lazyvim.org">https://www.lazyvim.org</a></p>
+<h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<ul>
+<li><a
+href="https://github.com/jackMort/ChatGPT.nvim.git">jackMort/ChatGPT.nvim</a></li>
+<li><a
+href="https://github.com/LazyVim/LazyVim.git">LazyVim/LazyVim</a></li>
+<li><a
+href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
+<li><a
+href="https://github.com/b0o/SchemaStore.nvim">b0o/SchemaStore.nvim</a></li>
+<li><a
+href="https://github.com/goolord/alpha-nvim">goolord/alpha-nvim</a></li>
+<li><a
+href="https://github.com/akinsho/bufferline.nvim">akinsho/bufferline.nvim</a></li>
+<li><a
+href="https://github.com/catppuccin/nvim">catppuccin/nvim</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-buffer">hrsh7th/cmp-buffer</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-emoji.git">hrsh7th/cmp-emoji</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lsp">hrsh7th/cmp-nvim-lsp</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-path">hrsh7th/cmp-path</a></li>
+<li><a
+href="https://github.com/saadparwaiz1/cmp_luasnip">saadparwaiz1/cmp_luasnip</a></li>
+<li><a
+href="https://github.com/zbirenbaum/copilot-cmp.git">zbirenbaum/copilot-cmp</a></li>
+<li><a
+href="https://github.com/zbirenbaum/copilot.lua.git">zbirenbaum/copilot.lua</a></li>
+<li><a
+href="https://github.com/Saecki/crates.nvim.git">Saecki/crates.nvim</a></li>
+<li><a
+href="https://github.com/monaqa/dial.nvim.git">monaqa/dial.nvim</a></li>
+<li><a
+href="https://github.com/sindrets/diffview.nvim.git">sindrets/diffview.nvim</a></li>
+<li><a
+href="https://github.com/stevearc/dressing.nvim">stevearc/dressing.nvim</a></li>
+<li><a
+href="https://github.com/folke/edgy.nvim.git">folke/edgy.nvim</a></li>
+<li><a
+href="https://github.com/folke/flash.nvim.git">folke/flash.nvim</a></li>
+<li><a
+href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
+<li><a
+href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
+<li><a
+href="https://github.com/ellisonleao/gruvbox.nvim">ellisonleao/gruvbox.nvim</a></li>
+<li><a
+href="https://github.com/huggingface/hfcc.nvim.git">huggingface/hfcc.nvim</a></li>
+<li><a
+href="https://github.com/smjonas/inc-rename.nvim.git">smjonas/inc-rename.nvim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+<li><a
+href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
+<li><a
+href="https://github.com/nvim-lualine/lualine.nvim">nvim-lualine/lualine.nvim</a></li>
+<li><a
+href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-lspconfig.nvim</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/anuvyklack/middleclass.git">anuvyklack/middleclass</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.ai.git">echasnovski/mini.ai</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.animate.git">echasnovski/mini.animate</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.bracketed.git">echasnovski/mini.bracketed</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.bufremove.git">echasnovski/mini.bufremove</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.comment">echasnovski/mini.comment</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.files.git">echasnovski/mini.files</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.hipatterns.git">echasnovski/mini.hipatterns</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.indentscope">echasnovski/mini.indentscope</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.pairs.git">echasnovski/mini.pairs</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.surround.git">echasnovski/mini.surround</a></li>
+<li><a
+href="https://github.com/AckslD/muren.nvim.git">AckslD/muren.nvim</a></li>
+<li><a
+href="https://github.com/nvim-neo-tree/neo-tree.nvim">nvim-neo-tree/neo-tree.nvim</a></li>
+<li><a
+href="https://github.com/folke/neoconf.nvim.git">folke/neoconf.nvim</a></li>
+<li><a
+href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a></li>
+<li><a
+href="https://github.com/danymat/neogen.git">danymat/neogen</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest">nvim-neotest/neotest</a></li>
+<li><a
+href="https://github.com/nvim-neotest/neotest-plenary">nvim-neotest/neotest-plenary</a></li>
+<li><a
+href="https://github.com/rouge8/neotest-rust.git">rouge8/neotest-rust</a></li>
+<li><a
+href="https://github.com/marilari88/neotest-vitest.git">marilari88/neotest-vitest</a></li>
+<li><a
+href="https://github.com/folke/noice.nvim">folke/noice.nvim</a></li>
+<li><a
+href="https://github.com/MunifTanjim/nui.nvim">MunifTanjim/nui.nvim</a></li>
+<li><a
+href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+<li><a
+href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
+<li><a
+href="https://github.com/theHamsta/nvim-dap-virtual-text">theHamsta/nvim-dap-virtual-text</a></li>
+<li><a
+href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/SmiteshP/nvim-navic">SmiteshP/nvim-navic</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
+<li><a
+href="https://github.com/nvim-pack/nvim-spectre.git">nvim-pack/nvim-spectre</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-context">nvim-treesitter/nvim-treesitter-context</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects">nvim-treesitter/nvim-treesitter-textobjects</a></li>
+<li><a
+href="https://github.com/windwp/nvim-ts-autotag">windwp/nvim-ts-autotag</a></li>
+<li><a
+href="https://github.com/JoosepAlviste/nvim-ts-context-commentstring">JoosepAlviste/nvim-ts-context-commentstring</a></li>
+<li><a
+href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devicons</a></li>
+<li><a
+href="https://github.com/pwntester/octo.nvim">pwntester/octo.nvim</a></li>
+<li><a
+href="https://github.com/jbyuki/one-small-step-for-vimkind.git">jbyuki/one-small-step-for-vimkind</a></li>
+<li><a
+href="https://github.com/shaunsingh/oxocarbon.nvim.git">shaunsingh/oxocarbon.nvim</a></li>
+<li><a
+href="https://github.com/toppair/peek.nvim.git">toppair/peek.nvim</a></li>
+<li><a
+href="https://github.com/folke/persistence.nvim.git">folke/persistence.nvim</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/playground">nvim-treesitter/playground</a></li>
+<li><a
+href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/ThePrimeagen/refactoring.nvim.git">ThePrimeagen/refactoring.nvim</a></li>
+<li><a
+href="https://github.com/rose-pine/neovim.git">rose-pine/neovim</a></li>
+<li><a
+href="https://github.com/simrat39/rust-tools.nvim">simrat39/rust-tools.nvim</a></li>
+<li><a
+href="https://github.com/tami5/sqlite.lua">tami5/sqlite.lua</a></li>
+<li><a
+href="https://github.com/cshuaimin/ssr.nvim">cshuaimin/ssr.nvim</a></li>
+<li><a
+href="https://github.com/folke/styler.nvim.git">folke/styler.nvim</a></li>
+<li><a
+href="https://github.com/simrat39/symbols-outline.nvim">simrat39/symbols-outline.nvim</a></li>
+<li><a
+href="https://github.com/roobert/tailwindcss-colorizer-cmp.nvim.git">roobert/tailwindcss-colorizer-cmp.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">nvim-telescope/telescope-fzf-native.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
+<li><a
+href="https://github.com/folke/todo-comments.nvim">folke/todo-comments.nvim</a></li>
+<li><a
+href="https://github.com/folke/tokyonight.nvim">folke/tokyonight.nvim</a></li>
+<li><a href="https://github.com/Wansmer/treesj">Wansmer/treesj</a></li>
+<li><a
+href="https://github.com/folke/trouble.nvim">folke/trouble.nvim</a></li>
+<li><a
+href="https://github.com/folke/twilight.nvim">folke/twilight.nvim</a></li>
+<li><a
+href="https://github.com/jose-elias-alvarez/typescript.nvim">jose-elias-alvarez/typescript.nvim</a></li>
+<li><a
+href="https://github.com/RRethy/vim-illuminate">RRethy/vim-illuminate</a></li>
+<li><a
+href="https://github.com/dstein64/vim-startuptime">dstein64/vim-startuptime</a></li>
+<li><a
+href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
+<li><a
+href="https://github.com/anuvyklack/windows.nvim.git">anuvyklack/windows.nvim</a></li>
+<li><a
+href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
+<li><a
+href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
+</ul>
+<h3 id="folke-keymaps">Folke Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</body>
+</html>

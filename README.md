@@ -304,21 +304,22 @@ following configuration categories:
 | [NV-IDE](https://github.com/doctorfree/nvim-lazyman/blob/main/info/NV-IDE.md) | [Orange](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orange.md) | [Python](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Python.md) | [Rust](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rust.md) | [SaleVim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/SaleVim.md) | [Shuvro](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Shuvro.md) | [Webdev](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Webdev.md) |
 
 <!-- prettier-ignore -->
-| **Personal** |       |        |        |        | **Configs** |
-| ------------ | ----- | ------ | ------ | ------ | ----------- |
+| **Personal** |        |        |        |        | **Configs** |
+| ------------ | ------ | ------ | ------ | ------ | ----------- |
 | [Adib](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Adib.md) | [Artur](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Artur.md) | [Beethoven](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Beethoven.md) | [Brain](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Brain.md) | [Charles](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Charles.md) | [Craftzdog](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Craftzdog.md) |
 | [Daniel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Daniel.md) | [Dillon](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Dillon.md) | [Elianiva](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elianiva.md) | [Elijah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Elijah.md) | [Enrique](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Enrique.md) | [Heiker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Heiker.md) |
-| [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Kristijan](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kristijan.md) | [Lukas](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lukas.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) |
-| [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) | [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) |
-| [Primeagen](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Primeagen.md) | [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) |
-| [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) | | |
+| [J4de](https://github.com/doctorfree/nvim-lazyman/blob/main/info/J4de.md) | [Josean](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Josean.md) | [JustinLvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinLvim.md) | [JustinNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinNvim.md) | [Kodo](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kodo.md) | [Kristijan](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kristijan.md) |
+| [Lukas](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lukas.md) | [Maddison](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Maddison.md) | [Metis](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Metis.md) | [Mini](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Mini.md) | [OnMyWay](https://github.com/doctorfree/nvim-lazyman/blob/main/info/OnMyWay.md) | [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md) |
+| [Optixal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Optixal.md) | [Orhun](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Orhun.md) | [Primeagen](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Primeagen.md) | [Rafi](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rafi.md) | [Roiz](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Roiz.md) | [Simple](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Simple.md) |
+| [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       |       |       |        | **Configs** |
-| ----------- | ----- | ----- | ----- | ----- | ------ | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/AstroNvimStart.md) | [Basic](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Basic.md) | [CodeArt](https://github.com/doctorfree/nvim-lazyman/blob/main/info/CodeArt.md) | [CosmicNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Cosmic.md) | [Ember](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Ember.md) | [Fennel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Fennel.md) | [HardHacker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/HardHacker.md) |
-| [JustinLvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinLvim.md) | [JustinNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinNvim.md) | [Kickstart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kickstart.md) | [Kabin](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kabin.md) | [Lamia](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lamia.md) | [Micah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Micah.md) | [Modern](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Modern.md) |
-| [Normal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Normal.md) | [nvim2k](https://github.com/doctorfree/nvim-lazyman/blob/main/info/2k.md) | [NvPak](https://github.com/doctorfree/nvim-lazyman/blob/main/info/NvPak.md) | [PDE](https://github.com/doctorfree/nvim-lazyman/blob/main/info/pde.md) | [Rohit](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rohit.md) | [Scratch](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Scratch.md) | [SingleFile](https://github.com/doctorfree/nvim-lazyman/blob/main/info/SingleFile.md) |
+| **Starter** |       |       |        | **Configs** |
+| ----------- | ----- | ----- | ------ | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/AstroNvimStart.md) | [Basic](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Basic.md) | [CodeArt](https://github.com/doctorfree/nvim-lazyman/blob/main/info/CodeArt.md) | [CosmicNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Cosmic.md) | [Ember](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Ember.md) |
+| [Fennel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Fennel.md) | [HardHacker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/HardHacker.md) | [JustinOhMy](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinOhMy.md) | [Kickstart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kickstart.md) | [Kabin](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kabin.md) |
+| [Lamia](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lamia.md) | [Micah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Micah.md) | [Modern](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Modern.md) | [Normal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Normal.md) | [nvim2k](https://github.com/doctorfree/nvim-lazyman/blob/main/info/2k.md) |
+| [NvPak](https://github.com/doctorfree/nvim-lazyman/blob/main/info/NvPak.md) | [PDE](https://github.com/doctorfree/nvim-lazyman/blob/main/info/pde.md) | [Rohit](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rohit.md) | [Scratch](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Scratch.md) | [SingleFile](https://github.com/doctorfree/nvim-lazyman/blob/main/info/SingleFile.md) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
@@ -535,6 +536,17 @@ installed with the `-w conf` option.
 - [Josean](info/Josean.md)
   - Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
   - `lazyman -w Josean`
+- [JustinLvim](info/JustinLvim.md)
+  - LunarVim based Neovim configuration by Justin Angeles
+  - Install and initialize with `lazyman -w JustinLvim`
+- [JustinNvim](info/JustinNvim.md)
+  - LazyVim based Neovim configuration by Justin Angeles
+  - Justin has created a series of YouTube videos on configuring LazyVim
+    - [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8)
+    - [Part 2 - Options](https://youtu.be/I4flypojhUk)
+    - [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k)
+    - [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
+  - Install and initialize with `lazyman -w JustinNvim`
 - [Kodo](info/Kodo.md)
   - Personal Neovim configuration of chadcat, a high school student with no life
   - `Kodo` is a Neovim configuration that looks good and is fast (startuptime < 0.035s)
@@ -641,17 +653,10 @@ installed with the `-x conf` option.
 - [HardHacker](info/HardHacker.md)
   - A theme-driven modern Neovim configuration
   - Install and initialize with `lazyman -x HardHacker`
-- [JustinLvim](info/JustinLvim.md)
-  - LunarVim based Neovim configuration by Justin Angeles
-  - Install and initialize with `lazyman -x JustinLvim`
-- [JustinNvim](info/JustinNvim.md)
-  - LazyVim based Neovim configuration by Justin Angeles
-  - Justin has created a series of YouTube videos on configuring LazyVim
-    - [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8)
-    - [Part 2 - Options](https://youtu.be/I4flypojhUk)
-    - [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k)
-    - [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
-  - Install and initialize with `lazyman -x JustinNvim`
+- [JustinOhMy](info/JustinOhMy.md)
+  - Full featured starter LazyVim based Neovim configuration by Justin Angeles
+  - Justin has created a [YouTube video](https://youtu.be/mpSuIfBKP-s) describing this config
+  - Install and initialize with `lazyman -x JustinOhMy`
 - [Modern](info/Modern.md)
   - Configure Neovim as a modernized development environment
   - Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)

@@ -308,7 +308,7 @@ make_info() {
       C_INST="lazyman -L Cpp"
       ;;
     Folke)
-      GH_URL="https://github.com/folke/dot"
+      GH_URL="https://github.com/doctorfree/nvim-Folke"
       WS_URL="https://www.lazyvim.org"
       DF_URL="https://dotfyle.com/folke/dot-nvim"
       CF_CAT="Personal"
@@ -828,19 +828,28 @@ make_info() {
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lunarvim.org"
       YT_URL="https://www.youtube.com/@justindevelops"
-      CF_CAT="Starter"
+      CF_CAT="Personal"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="LunarVim based Neovim configuration by Justin Angeles"
-      C_INST="lazyman -x JustinLvim"
+      C_INST="lazyman -w JustinLvim"
       ;;
     JustinNvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lazyvim.org"
       YT_URL="https://www.youtube.com/@justindevelops"
-      CF_CAT="Starter"
+      CF_CAT="Personal"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)"
-      C_INST="lazyman -x JustinNvim"
+      C_INST="lazyman -w JustinNvim"
+      ;;
+    JustinOhMy)
+      GH_URL="https://github.com/justinsgithub/Oh-My-LazyVim"
+      WS_URL="https://www.lazyvim.org"
+      YT_URL="https://www.youtube.com/@justindevelops"
+      CF_CAT="Starter"
+      CF_TYP="[LazyVim](https://lazyvim.github.io)"
+      C_DESC="Full featured starter LazyVim based Neovim configuration by Justin Angeles. Justin has a [YouTube video](https://youtu.be/mpSuIfBKP-s) describing this config"
+      C_INST="lazyman -x JustinOhMy"
       ;;
     Kabin)
       GH_URL="https://github.com/kabinspace/AstroNvim_user"

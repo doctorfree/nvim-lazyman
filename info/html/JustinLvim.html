@@ -33,9 +33,9 @@ Configuration Information</h2>
 <p>LunarVim based Neovim configuration by Justin Angeles</p>
 <ul>
 <li>Install and initialize:
-<strong><code>lazyman -x JustinLvim</code></strong></li>
+<strong><code>lazyman -w JustinLvim</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
 <li>Base configuration: <a
 href="https://www.lunarvim.org">LunarVim</a></li>
 <li>Plugin manager: <a
@@ -416,37 +416,37 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="even">
 <td></td>
 <td><Plug>YSurround</td>
-<td><SNR>12_opfunc2(‘setup’)</td>
+<td><SNR>13_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Ysurround</td>
-<td><SNR>12_opfunc(‘setup’)</td>
+<td><SNR>13_opfunc(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>YSsurround</td>
-<td><SNR>12_opfunc2(‘setup’).’_’</td>
+<td><SNR>13_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>12_opfunc(‘setup’).’g_’</td>
+<td>‘^’.v:count1.<SNR>13_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>12_changesurround(1)<CR></td>
+<td>:<C-U>call <SNR>13_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>12_changesurround()<CR></td>
+<td>:<C-U>call <SNR>13_changesurround()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR></td>
+<td>:<C-U>call <SNR>13_dosurround(<SNR>13_inputtarget())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -475,8 +475,8 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Up></td>
-<td>:resize -2<CR></td>
+<td><C-Left></td>
+<td>:vertical resize -2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -485,8 +485,18 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><C-Down></td>
+<td>:resize +2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><M-k></td>
 <td>:m .-2<CR>==</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Up></td>
+<td>:resize -2<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -495,33 +505,23 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td><C-W>j</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-H></td>
-<td><C-W>h</td>
-</tr>
-<tr class="even">
-<td></td>
 <td><C-Q></td>
 <td>:call QuickFixToggle()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
+<td><C-J></td>
+<td><C-W>j</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
+<td><C-H></td>
+<td><C-W>h</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Down></td>
-<td>:resize +2<CR></td>
+<td><C-Right></td>
+<td>:vertical resize +2<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -660,24 +660,24 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="odd">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><M-k></td>
+<td>:m ’<lt>-2<CR>gv-gv</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><M-j></td>
+<td>:m ’&gt;+1<CR>gv-gv</td>
 </tr>
 </tbody>
 </table>

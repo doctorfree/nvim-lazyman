@@ -28,22 +28,20 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 LINE=$(tput smul 2>/dev/null)
 
+prompt_continue() {
+  printf "\nPress <Enter> to continue ... "
+  read -r yn
+}
+
 USEGUI=
 if [ -f "${CONFIGRC}" ]; then
   source "${CONFIGRC}"
 else
-  BASECFGS="Abstract AstroNvimPlus BasicIde Ecovim LazyVim LunarVim NvChad Penguin SpaceVim MagicVim"
-  LANGUCFGS="AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev"
-  PRSNLCFGS="Adib Artur Beethoven Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean Kodo Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao"
-  MINIMCFGS="BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular"
-  STARTCFGS="2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinLvim JustinNvim Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile ${MINIMCFGS}"
-  LAZYVIMCFGS="CatNvim Elijah JustinNvim LazyIde LazyVim Nv Penguin Traap Webdev"
-  NVCHADCFGS="Cpp Go NvChad Python Rust"
-  ASTROCFGS="AstroNvimStart AstroNvimPlus Normal Micah Kabin Lamia Orhun Spider"
-  KICKSTARTCFGS="Kickstart"
-  LUNARVIMCFGS="JustinLvim LunarIde LunarVim Daniel LvimAdib Shuvro"
-  PACKERCFGS="Abstract AlanVim CodeArt Fennel Go2one Insis Josean LaTeX Lukas MagicVim Nyoom Primeagen SaleVim Simple SingleFile Slydragonn"
-  PLUGCFGS="Optixal Plug"
+  [ -f "${LMANDIR}/.initialized" ] && {
+    printf "\n\nERROR: Missing ${CONFIGRC}"
+    printf "\n\tReinstall Lazyman\n"
+    prompt_continue
+  }
 fi
 SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
@@ -151,11 +149,6 @@ usage() {
   printf "\nWithout arguments lazyman installs and initializes ${LAZYMAN}"
   printf "\nor, if initialized, an interactive menu system is displayed.\n"
   exit 1
-}
-
-prompt_continue() {
-  printf "\nPress <Enter> to continue ... "
-  read -r yn
 }
 
 # Use a timeout function in case the headless nvim hangs waiting for input
@@ -385,46 +378,48 @@ init_neovim() {
     }
   fi
   [ "${custom_url}" ] && {
-    # Check for wakatime plugin and use debug mode if found
-    havewaka=
-    find "${HOME}"/.config/"${neodir}" -type f \
-      -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) -print0 |
-      xargs -0 grep wakatime/vim-wakatime >/dev/null && {
-      [ -f "${HOME}"/.wakatime.cfg ] && havewaka=1
-      wakafile=$(find "${HOME}"/.config/"${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
-      printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
-      printf "\nand cannot be automatically initialized as it requires user interaction."
-      if [ "${havewaka}" ]; then
-        printf "\nHowever, it appears you may have previously configured WakaTime."
-        printf "\nWould you like to proceed with the Neovim ${neodir} initialization?\n"
-        while true; do
-          read -r -p "Initialze ${neodir} (may hang if API key not configured) ? (y/n) " yn
-          case $yn in
-          [Yy]*)
-            printf "\nProceeding with initialization of ${neodir}"
-            printf "\nIf the initialization process hangs, 'Ctrl-c' to exit and manually initialize\n"
-            break
-            ;;
-          [Nn]*)
-            printf "\nSkipping initialization of ${neodir}\n"
-            skipthis=1
-            break
-            ;;
-          *)
-            printf "\nPlease answer yes or no.\n"
-            ;;
-          esac
-        done
-      else
-        skipthis=1
-      fi
-      [ "${skipthis}" ] && {
-        printf "\nTo initialize this configuration, either comment out the WakaTime plugin in:"
-        printf "\n\t${wakafile}"
-        printf "\nor get a WakaTime API key and manually initialize this configuration with:"
-        printf "\n\tNVIM_APPNAME=${neodir} nvim"
-        printf "\n\nSkipping auto-initialization, press <Enter> to continue ... "
-        read -r yn
+    [ "${neodir}" == "nvim-JustinOhMy" ] || {
+      # Check for wakatime plugin and use debug mode if found
+      havewaka=
+      find "${HOME}"/.config/"${neodir}" -type f \
+        -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) -print0 |
+        xargs -0 grep wakatime/vim-wakatime >/dev/null && {
+        [ -f "${HOME}"/.wakatime.cfg ] && havewaka=1
+        wakafile=$(find "${HOME}"/.config/"${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
+        printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
+        printf "\nand cannot be automatically initialized as it requires user interaction."
+        if [ "${havewaka}" ]; then
+          printf "\nHowever, it appears you may have previously configured WakaTime."
+          printf "\nWould you like to proceed with the Neovim ${neodir} initialization?\n"
+          while true; do
+            read -r -p "Initialze ${neodir} (may hang if API key not configured) ? (y/n) " yn
+            case $yn in
+            [Yy]*)
+              printf "\nProceeding with initialization of ${neodir}"
+              printf "\nIf the initialization process hangs, 'Ctrl-c' to exit and manually initialize\n"
+              break
+              ;;
+            [Nn]*)
+              printf "\nSkipping initialization of ${neodir}\n"
+              skipthis=1
+              break
+              ;;
+            *)
+              printf "\nPlease answer yes or no.\n"
+              ;;
+            esac
+          done
+        else
+          skipthis=1
+        fi
+        [ "${skipthis}" ] && {
+          printf "\nTo initialize this configuration, either comment out the WakaTime plugin in:"
+          printf "\n\t${wakafile}"
+          printf "\nor get a WakaTime API key and manually initialize this configuration with:"
+          printf "\n\tNVIM_APPNAME=${neodir} nvim"
+          printf "\n\nSkipping auto-initialization, press <Enter> to continue ... "
+          read -r yn
+        }
       }
     }
   }
@@ -1369,10 +1364,10 @@ install_config() {
   AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Orange | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
-  2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinNvim | JustinLvim | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
+  2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Primeagen | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Primeagen | Rafi | Slydragonn | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3440,6 +3435,18 @@ install_remove() {
         -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Dillon"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-JustinLvim ] && action="Updating"
+      printf "\n${action} JustinLvim Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
+        -D lunarvim/.config/lvim -N nvim-JustinLvim ${quietflag} -z ${yesflag}
+      show_alias "nvim-JustinLvim"
+      action="Installing"
+      [ -d ${HOME}/.config/nvim-JustinNvim ] && action="Updating"
+      printf "\n${action} JustinNvim Neovim configuration"
+      lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
+        -D neovim/.config/nvim -N nvim-JustinNvim ${quietflag} -z ${yesflag}
+      show_alias "nvim-JustinNvim"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Kodo ] && action="Updating"
       printf "\n${action} Kodo Neovim configuration"
       lazyman ${darg} -C https://github.com/chadcat7/kodo \
@@ -3703,6 +3710,16 @@ install_remove() {
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
         ;;
+      JustinLvim)
+        prsnl_url="https://github.com/justinsgithub/dotfiles"
+        prsnl_opt="-b main"
+        prsnl_dir="-D lunarvim/.config/lvim"
+        ;;
+      JustinNvim)
+        prsnl_url="https://github.com/justinsgithub/dotfiles"
+        prsnl_opt="-b main"
+        prsnl_dir="-D neovim/.config/nvim"
+        ;;
       Kodo)
         prsnl_url="https://github.com/chadcat7/kodo"
         ;;
@@ -3867,23 +3884,17 @@ install_remove() {
         -N nvim-Fennel -P ${quietflag} -z ${yesflag}
       show_alias "nvim-Fennel"
       action="Installing"
+      [ -d ${HOME}/.config/nvim-JustinOhMy ] && action="Updating"
+      printf "\n${action} JustinOhMy Neovim configuration"
+      lazyman ${darg} -C https://github.com/justinsgithub/Oh-My-LazyVim \
+        -N nvim-JustinOhMy ${quietflag} -z ${yesflag}
+      show_alias "nvim-JustinOhMy"
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
       printf "\n${action} Micah Neovim configuration"
       lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
         -J -N nvim-Micah ${quietflag} -z ${yesflag}
       show_alias "nvim-Micah"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-JustinLvim ] && action="Updating"
-      printf "\n${action} JustinLvim Neovim configuration"
-      lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
-        -D lunarvim/.config/lvim -N nvim-JustinLvim ${quietflag} -z ${yesflag}
-      show_alias "nvim-JustinLvim"
-      action="Installing"
-      [ -d ${HOME}/.config/nvim-JustinNvim ] && action="Updating"
-      printf "\n${action} JustinNvim Neovim configuration"
-      lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
-        -D neovim/.config/nvim -N nvim-JustinNvim ${quietflag} -z ${yesflag}
-      show_alias "nvim-JustinNvim"
       action="Installing"
       [ -d ${HOME}/.config/nvim-Kabin ] && action="Updating"
       printf "\n${action} Kabin Neovim configuration"
@@ -4028,21 +4039,13 @@ install_remove() {
           -N nvim-Fennel -P ${quietflag} -z ${yesflag}
         show_alias "nvim-Fennel"
         ;;
-      JustinLvim)
+      JustinOhMy)
         action="Installing"
-        [ -d ${HOME}/.config/nvim-JustinLvim ] && action="Updating"
-        printf "\n${action} JustinLvim Neovim configuration"
-        lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
-          -D lunarvim/.config/lvim -N nvim-JustinLvim ${quietflag} -z ${yesflag}
-        show_alias "nvim-JustinLvim"
-        ;;
-      JustinNvim)
-        action="Installing"
-        [ -d ${HOME}/.config/nvim-JustinNvim ] && action="Updating"
-        printf "\n${action} JustinNvim Neovim configuration"
-        lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
-          -D neovim/.config/nvim -N nvim-JustinNvim ${quietflag} -z ${yesflag}
-        show_alias "nvim-JustinNvim"
+        [ -d ${HOME}/.config/nvim-JustinOhMy ] && action="Updating"
+        printf "\n${action} JustinOhMy Neovim configuration"
+        lazyman ${darg} -C https://github.com/justinsgithub/Oh-My-LazyVim \
+          -N nvim-JustinOhMy ${quietflag} -z ${yesflag}
+        show_alias "nvim-JustinOhMy"
         ;;
       Kabin)
         action="Installing"
