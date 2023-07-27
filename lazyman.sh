@@ -58,7 +58,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
-  printf "\n   [health] [info] [init] [install] [open] [remove] [search] [status] [usage]"
+  printf "\n   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -140,6 +140,7 @@ usage() {
   printf "\n    'info' open an information page for a configuration in the default browser"
   printf "\n    'init' initialize specified Neovim configuration and exit"
   printf "\n    'install' fuzzy search and select configuration to install"
+  printf "\n    'install bob' install the Bob Neovim version manager"
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
   printf "\n    'search' fuzzy search and select configurations for a plugin"
@@ -1314,6 +1315,35 @@ install_astronvim() {
   [ "$quiet" ] || printf "done"
 }
 
+install_bob() {
+  if [ -x "${LMANDIR}/scripts/install_bob.sh" ]; then
+    "${LMANDIR}"/scripts/install_bob.sh
+  else
+    if command -v "cargo" >/dev/null 2>&1; then
+      printf "\n\tInstalling bob with cargo ..."
+      cargo install bob >/dev/null 2>&1
+      printf " done\n"
+    else
+      printf "\n\tCannot locate cargo. Skipping installation of bob.\n"
+    fi
+  fi
+  if [ -x ${HOME}/.cargo/bin/bob ]; then
+    have_bob="${HOME}/.cargo/bin/bob"
+    export PATH=$PATH:${HOME}/.cargo/bin
+  else
+    have_bob=$(type -p bob)
+  fi
+  if [ "${have_bob}" ]; then
+    printf "\n\tThe 'bob' neovim version manager is installed as:"
+    printf "\n\t\t${have_bob}"
+    export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
+  else
+    printf "\n\tThe 'bob' neovim version manager cannot be located."
+    printf "\n\tCheck your execution PATH or reinstall bob."
+    printf "\n\tSee https://github.com/MordechaiHadad/bob"
+  fi
+}
+
 install_config() {
   confname="$1"
   dodone=1
@@ -2350,39 +2380,11 @@ show_main_menu() {
         break
         ;;
       "Install Bob"*,* | *,"Install Bob"*)
-        if [ -x "${LMANDIR}/scripts/install_bob.sh" ]; then
-          "${LMANDIR}"/scripts/install_bob.sh
-        else
-          if command -v "cargo" >/dev/null 2>&1; then
-            printf "\n\tInstalling bob with cargo ..."
-            cargo install bob >/dev/null 2>&1
-            printf " done\n"
-          else
-            printf "\n\tCannot locate cargo. Skipping installation of bob.\n"
-            prompt_continue
-            break
-          fi
-        fi
-        if [ -x ${HOME}/.cargo/bin/bob ]; then
-          have_bob="${HOME}/.cargo/bin/bob"
-          export PATH=$PATH:${HOME}/.cargo/bin
-        else
-          have_bob=$(type -p bob)
-        fi
-        if [ "${have_bob}" ]; then
-          printf "\n\tThe 'bob' neovim version manager is installed as:"
-          printf "\n\t\t${have_bob}"
-          export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
-        else
-          printf "\n\tThe 'bob' neovim version manager cannot be located."
-          printf "\n\tCheck your execution PATH or reinstall bob."
-          printf "\n\tSee https://github.com/MordechaiHadad/bob"
-        fi
+        install_bob
         prompt_continue
         break
         ;;
       "Initialize Lazyman"*,* | *,"Initialize Lazyman"*)
-        install_neovim ${darg} -I
         [ -x "${INSTNVIM}" ] && {
           "${INSTNVIM}" $darg $head $brew $yes
         }
@@ -3007,7 +3009,12 @@ shift $((OPTIND - 1))
 }
 
 [ "$1" == "install" ] && {
-  select_install
+  if [ "$2" == "bob" ]
+  then
+    install_bob
+  else
+    select_install
+  fi
   exit 0
 }
 

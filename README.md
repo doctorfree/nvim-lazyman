@@ -1014,7 +1014,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]
    [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]
    [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]
-   [health] [info] [init] [install] [open] [remove] [search] [status] [usage]
+   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvimPlus Neovim configuration
@@ -1091,6 +1091,7 @@ Where:
     'info' open an information page for a configuration in the default browser
     'init' initialize specified Neovim configuration and exit
     'install' fuzzy search and select configuration to install
+    'install bob' install the Bob Neovim version manager
     'open' fuzzy search and select configuration to open
     'remove' fuzzy search and select configuration to remove
     'search' fuzzy search and select configurations for a plugin
