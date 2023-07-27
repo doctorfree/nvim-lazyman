@@ -335,9 +335,9 @@ the features of `lazyman` and the wealth of Neovim configuration possibilities.
 
 All "Base" Neovim configurations can be installed and initialized with `lazyman -B`.
 
-<details><summary>Click here
+<details><summary>Click here to view descriptions of the
 
-to **view descriptions of the Lazyman "Base" Neovim configurations**
+**Lazyman "Base" Neovim configurations**
 </summary>
 
 - [nvim-Lazyman](info/Lazyman.md)
@@ -401,7 +401,10 @@ All of the "Language" configurations can be installed and initialized with
 the command `lazyman -L all`. Individual "Language" configurations can be
 installed with the `-L lang` option.
 
-<details><summary>View descriptions of the Lazyman "Language" Neovim configurations</summary>
+<details><summary>Click here to view descriptions of the
+
+**Lazyman "Language" Neovim configurations**
+</summary>
 
 - [AlanVim](info/AlanVim.md)
   - Oriented toward Python development
@@ -501,7 +504,10 @@ All of the 'Personal' configurations can be installed and initialized with
 the command `lazyman -W`. Individual 'Personal' configurations can be
 installed with the `-w conf` option.
 
-<details><summary>View descriptions of the Lazyman "Personal" Neovim configurations</summary>
+<details><summary>Click here to view descriptions of the
+
+**Lazyman "Personal" Neovim configurations**
+</summary>
 
 - [3rd](info/3rd.md)
   - `lazyman -w 3rd`
@@ -642,7 +648,10 @@ All of the "Starter" configurations can be installed and initialized with
 the command `lazyman -X`. Individual "Starter" configurations can be
 installed with the `-x conf` option.
 
-<details><summary>View descriptions of the Lazyman "Starter" Neovim configurations</summary>
+<details><summary>Click here to view descriptions of the
+
+**Lazyman "Starter" Neovim configurations**
+</summary>
 
 - [AstroNvimStart](info/AstroNvimStart.md)
   - Default AstroNvim example configuration
@@ -994,7 +1003,10 @@ To remove the configuration and all its backups, `lazyman -R -N <nvimdir>`.
 To remove all installed Lazyman Neovim configurations and their backups
 without being prompted to proceed, execute `lazyman -A -R -y`.
 
-<details><summary>View the lazyman usage message</summary>
+<details><summary>Click here to view the
+
+**Lazyman usage message**
+</summary>
 
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
@@ -1328,7 +1340,10 @@ below along with their default settings:
 
 Additional plugin configuration and options are available in `configuration.lua`.
 
-<details><summary>View the default configuration.lua</summary>
+<details><summary>Click here to view the
+
+**Lazyman default `configuration.lua`**
+</summary>
 
 ```lua
 local conf = {}
@@ -1967,7 +1982,10 @@ opened using the selected configuration.
 
 `nvims -C astro foo.lua` : presents a fuzzy searchable and selectable menu of Neovim configurations with names containing the case insensitive string 'astro' and opens the file `foo.lua` with Neovim using the selected configuration
 
-<details><summary>View the .lazymanrc shell aliases and function</summary>
+<details><summary>Click here to view the
+
+**Lazyman `.lazymanrc` shell aliases and functions**
+</summary>
 
 ```bash
 # $HOME/.config/nvim-Lazyman/.lazymanrc
@@ -2329,7 +2347,10 @@ Similarly, if `neovide` is found in the execution PATH then a fuzzy
 selectable menu is provided with the `neovides` shell function and
 convenience key binding of `ctrl-N` to bring up that menu.
 
-<details><summary>View the .nvimsbind shell key binding file</summary>
+<details><summary>Click here to view the
+
+**Lazyman `.nvimsbind` shell key binding file**
+</summary>
 
 ```bash
 # $HOME/.config/nvim-Lazyman/.nvimsbind
@@ -2666,7 +2687,10 @@ GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
 NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
 ```
 
-<details><summary>View the `get_conf.lua` script</summary>
+<details><summary>Click here to view the
+
+**Lazyman `get_conf.lua` script**
+</summary>
 
 ```lua
 -- Invoke with 'nvim -l get_conf.lua conf_name'
