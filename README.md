@@ -335,7 +335,7 @@ the features of `lazyman` and the wealth of Neovim configuration possibilities.
 
 All "Base" Neovim configurations can be installed and initialized with `lazyman -B`.
 
-<details><summary>View descriptions of the Lazyman "Base" Neovim configurations</summary>
+<details><summary>**View descriptions of the Lazyman "Base" Neovim configurations**</summary>
 
 - [nvim-Lazyman](info/Lazyman.md)
   - See the [Installation section](#installation) above
