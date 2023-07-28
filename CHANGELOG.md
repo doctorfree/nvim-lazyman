@@ -4,17 +4,22 @@
 
 ### ⚡️ Added
 
+- Add Dotfyle badges to Lazyman README
+- Add categories and `All` to install fuzzy selection menus
+- Add `install bob` argument to `lazyman`
 - Add `JustinOhMy` to `Starters`
 - Add `Beethoven` to `Personals`
 - Add `Lukas` to `Personals`
 - Add `Primeagen` to `Personals`
 - Add `What's New` section to README
+- Add collapsed sections for plugins and language server support to README
 
 ### 🐞 Fixed
 
 - Add patch for `Beethoven` config
 - Move `JustinLvim` and `JustinNvim` to `Personals`
 - Fold list of configuration descriptions in README
+- Use blankline after summary tag throughout README to provide emphasis with markdown
 - Remove `nvim-3rd` patch
 
 ## v3.0.0r1
