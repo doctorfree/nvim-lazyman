@@ -1344,11 +1344,51 @@ install_bob() {
   fi
 }
 
+install_all() {
+  printf "\n\nInstalling all Lazyman Neovim configurations\n"
+  printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
+  lazyman ${darg} -B -y -z -Q -q
+  lazyman ${darg} -L all -y -z -Q -q
+  lazyman ${darg} -W -y -z -Q -q
+  lazyman ${darg} -X -y -z -Q -q
+}
+
 install_config() {
   confname="$1"
   dodone=1
-  printf "\nInstalling and initializing ${confname} Neovim configuration ... "
+  echo "${confname}" | grep All | grep Configs > /dev/null && dodone=
+  [ "${dodone}" ] && {
+    printf "\nInstalling and initializing ${confname} Neovim configuration ... "
+  }
+
   case ${confname} in
+  "All Supported Configs")
+    install_all
+    ;;
+  "All Base Configs")
+    lazyman ${darg} -B -y -z -Q -q
+    ;;
+  "All Language Configs")
+    lazyman ${darg} -L all -y -z -Q -q
+    ;;
+  "All Personal Configs")
+    lazyman ${darg} -W -y -z -Q -q
+    ;;
+  "All Starter Configs")
+    lazyman ${darg} -X -y -z -Q -q
+    ;;
+  "All AstroNvim Configs")
+    lazyman ${darg} -i astronvim -y -z -Q -q
+    ;;
+  "All LazyVim Configs")
+    lazyman ${darg} -i lazyvim -y -z -Q -q
+    ;;
+  "All NvChad Configs")
+    lazyman ${darg} -i nvchad -y -z -Q -q
+    ;;
+  "All LunarVim Configs")
+    lazyman ${darg} -i lunarvim -y -z -Q -q
+    ;;
   Abstract)
     lazyman ${darg} -g -z -y -Q -q
     ;;
@@ -1428,14 +1468,53 @@ select_install() {
   fi
   readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
   uninstalled=()
-  for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+  allbase=
+  numinst=0
+  for neovim in ${BASECFGS}; do
     basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
     if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
       uninstalled+=("${basenvdir}")
+      ((numinst++))
     fi
   done
+  [ ${numinst} -gt 1 ] && allbase=1
+  alllang=
+  numinst=0
+  for neovim in ${LANGUCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && alllang=1
+  allpers=
+  numinst=0
+  for neovim in ${PRSNLCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && allpers=1
+  allstar=
+  numinst=0
+  for neovim in ${STARTCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && allstar=1
   numunins=${#uninstalled[@]}
   if [ ${numunins} -gt 0 ]; then
+    [ "${allbase}" ] && uninstalled+=("All Base Configs")
+    [ "${alllang}" ] && uninstalled+=("All Language Configs")
+    [ "${allpers}" ] && uninstalled+=("All Personal Configs")
+    [ "${allstar}" ] && uninstalled+=("All Starter Configs")
+    [ ${numunins} -gt 2 ] && uninstalled+=("All Supported Configs")
     choice=$(printf "%s\n" "${uninstalled[@]}" |
       fzf --prompt=" Install Neovim Config  " --layout=reverse --border --exit-0)
     [ "${choice}" ] && {
@@ -1843,14 +1922,53 @@ show_main_menu() {
     fi
     uninstalled=()
     if [ "${have_fzf}" ]; then
-      for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+      allbase=
+      numinst=0
+      for neovim in ${BASECFGS}; do
         basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
         if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
           uninstalled+=("${basenvdir}")
+          ((numinst++))
         fi
       done
+      [ ${numinst} -gt 1 ] && allbase=1
+      alllang=
+      numinst=0
+      for neovim in ${LANGUCFGS}; do
+        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+          uninstalled+=("${basenvdir}")
+          ((numinst++))
+        fi
+      done
+      [ ${numinst} -gt 1 ] && alllang=1
+      allpers=
+      numinst=0
+      for neovim in ${PRSNLCFGS}; do
+        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+          uninstalled+=("${basenvdir}")
+          ((numinst++))
+        fi
+      done
+      [ ${numinst} -gt 1 ] && allpers=1
+      allstar=
+      numinst=0
+      for neovim in ${STARTCFGS}; do
+        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+          uninstalled+=("${basenvdir}")
+          ((numinst++))
+        fi
+      done
+      [ ${numinst} -gt 1 ] && allstar=1
       numunins=${#uninstalled[@]}
       [ ${numunins} -gt 0 ] && options+=("Select and Install")
+      [ "${allbase}" ] && uninstalled+=("All Base Configs")
+      [ "${alllang}" ] && uninstalled+=("All Language Configs")
+      [ "${allpers}" ] && uninstalled+=("All Personal Configs")
+      [ "${allstar}" ] && uninstalled+=("All Starter Configs")
+      [ ${numunins} -gt 2 ] && uninstalled+=("All Supported Configs")
     else
       printf "\n\nConfiguration selection requires fzf but fzf is not found."
       printf "\nInstall fzf with 'lazyman -I' and verify fzf is in your PATH."
@@ -1997,7 +2115,7 @@ show_main_menu() {
         break
         ;;
       "Select/Install Base"*,* | *,"Select/Install Base"*)
-        choices=()
+        choices=("All Base Configs")
         for neovim in ${BASECFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2011,7 +2129,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst Language"*,* | *,"Select/Inst Language"*)
-        choices=()
+        choices=("All Language Configs")
         for neovim in ${LANGUCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2025,7 +2143,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst Personal"*,* | *,"Select/Inst Personal"*)
-        choices=()
+        choices=("All Personal Configs")
         for neovim in ${PRSNLCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2039,7 +2157,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst Starter"*,* | *,"Select/Inst Starter"*)
-        choices=()
+        choices=("All Starter Configs")
         for neovim in ${STARTCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2053,7 +2171,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst Astros"*,* | *,"Select/Inst Astros"*)
-        choices=()
+        choices=("All AstroNvim Configs")
         for neovim in ${ASTROCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2067,7 +2185,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst NvChad"*,* | *,"Select/Inst NvChad"*)
-        choices=()
+        choices=("All NvChad Configs")
         for neovim in ${NVCHADCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2081,7 +2199,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst LazyVim"*,* | *,"Select/Inst LazyVim"*)
-        choices=()
+        choices=("All LazyVim Configs")
         for neovim in ${LAZYVIMCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2095,7 +2213,7 @@ show_main_menu() {
         break
         ;;
       "Select/Inst LunarVim"*,* | *,"Select/Inst LunarVim"*)
-        choices=()
+        choices=("All LunarVim Configs")
         for neovim in ${LUNARVIMCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
           if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
@@ -2312,12 +2430,7 @@ show_main_menu() {
         break
         ;;
       "Install All"*,* | *,"Install All"*)
-        printf "\n\nInstalling all Lazyman Neovim configurations\n"
-        printf "\nInstalling all Lazyman 'Base' Neovim configurations\n"
-        lazyman ${darg} -B -y -z -Q -q
-        lazyman ${darg} -L all -y -z -Q -q
-        lazyman ${darg} -W -y -z -Q -q
-        lazyman ${darg} -X -y -z -Q -q
+        install_all
         break
         ;;
       "Update Base"*,* | *,"Update Base"*)
@@ -4651,7 +4764,7 @@ set_brew
 }
 [ "$custom_url" ] && {
   if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
-    update=1
+    #update=1
     [ "$quiet" ] || {
       printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists."
     }
@@ -4728,7 +4841,7 @@ set_brew
 # -V
 [ "$nvchadcustom" ] && {
   if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
-    update=1
+    #update=1
     [ "$quiet" ] || {
       printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists."
     }
