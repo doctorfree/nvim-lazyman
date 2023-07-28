@@ -974,6 +974,49 @@ list_installed() {
   printf "\n"
 }
 
+set_uninstalled() {
+  allbase=
+  numinst=0
+  for neovim in ${BASECFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && allbase=1
+  alllang=
+  numinst=0
+  for neovim in ${LANGUCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && alllang=1
+  allpers=
+  numinst=0
+  for neovim in ${PRSNLCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && allpers=1
+  allstar=
+  numinst=0
+  for neovim in ${STARTCFGS}; do
+    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
+    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
+      uninstalled+=("${basenvdir}")
+      ((numinst++))
+    fi
+  done
+  [ ${numinst} -gt 1 ] && allstar=1
+}
+
 list_uninstalled() {
   items=()
   [ -f "${LZYMANRC}" ] && {
@@ -1468,46 +1511,7 @@ select_install() {
   fi
   readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
   uninstalled=()
-  allbase=
-  numinst=0
-  for neovim in ${BASECFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
-      ((numinst++))
-    fi
-  done
-  [ ${numinst} -gt 1 ] && allbase=1
-  alllang=
-  numinst=0
-  for neovim in ${LANGUCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
-      ((numinst++))
-    fi
-  done
-  [ ${numinst} -gt 1 ] && alllang=1
-  allpers=
-  numinst=0
-  for neovim in ${PRSNLCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
-      ((numinst++))
-    fi
-  done
-  [ ${numinst} -gt 1 ] && allpers=1
-  allstar=
-  numinst=0
-  for neovim in ${STARTCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
-      ((numinst++))
-    fi
-  done
-  [ ${numinst} -gt 1 ] && allstar=1
+  set_uninstalled
   numunins=${#uninstalled[@]}
   if [ ${numunins} -gt 0 ]; then
     [ "${allbase}" ] && uninstalled+=("All Base Configs")
@@ -1922,46 +1926,7 @@ show_main_menu() {
     fi
     uninstalled=()
     if [ "${have_fzf}" ]; then
-      allbase=
-      numinst=0
-      for neovim in ${BASECFGS}; do
-        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-          uninstalled+=("${basenvdir}")
-          ((numinst++))
-        fi
-      done
-      [ ${numinst} -gt 1 ] && allbase=1
-      alllang=
-      numinst=0
-      for neovim in ${LANGUCFGS}; do
-        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-          uninstalled+=("${basenvdir}")
-          ((numinst++))
-        fi
-      done
-      [ ${numinst} -gt 1 ] && alllang=1
-      allpers=
-      numinst=0
-      for neovim in ${PRSNLCFGS}; do
-        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-          uninstalled+=("${basenvdir}")
-          ((numinst++))
-        fi
-      done
-      [ ${numinst} -gt 1 ] && allpers=1
-      allstar=
-      numinst=0
-      for neovim in ${STARTCFGS}; do
-        basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-        if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-          uninstalled+=("${basenvdir}")
-          ((numinst++))
-        fi
-      done
-      [ ${numinst} -gt 1 ] && allstar=1
+      set_uninstalled
       numunins=${#uninstalled[@]}
       [ ${numunins} -gt 0 ] && options+=("Select and Install")
       [ "${allbase}" ] && uninstalled+=("All Base Configs")
