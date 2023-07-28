@@ -7,24 +7,16 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 ```
 
 <div align="center"><p>
-    <a href="https://github.com/neovim/neovim">
-      <img src="https://img.shields.io/badge/Neovim-0.9.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/>
-    </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/pulse">
-      <img src="https://img.shields.io/github/last-commit/doctorfree/nvim-lazyman" alt="Last commit"/>
-    </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/pulse">
-      <img src="https://img.shields.io/github/commit-activity/t/doctorfree/nvim-lazyman" alt="Github commit activity"/>
-    </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/issues">
-      <img src="https://img.shields.io/github/issues/doctorfree/nvim-lazyman.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/>
-    </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml">
-      <img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml/badge.svg" alt="CI Status"/>
-    </a>
-    <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/>
-    </a>
+    <a href="https://github.com/neovim/neovim"><img src="https://img.shields.io/badge/Neovim-0.9.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/></a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/pulse"><img src="https://img.shields.io/github/last-commit/doctorfree/nvim-lazyman" alt="Last commit"/></a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/pulse"><img src="https://img.shields.io/github/commit-activity/t/doctorfree/nvim-lazyman" alt="Github commit activity"/></a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/issues"><img src="https://img.shields.io/github/issues/doctorfree/nvim-lazyman.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/></a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml"><img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml/badge.svg" alt="CI Status"/></a>
+    <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/></a>
+</p><p>
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugins?style=flat" alt="Plugins"/></a>
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/leaderkey?style=flat" alt="Leader"/></a>
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugin-manager?style=flat" alt="Manager"/></a>
 </p>
 
 The Lazyman Neovim configuration management menu:
