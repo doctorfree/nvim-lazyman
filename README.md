@@ -13,21 +13,17 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
     <a href="https://github.com/doctorfree/nvim-lazyman/issues"><img src="https://img.shields.io/github/issues/doctorfree/nvim-lazyman.svg?style=flat-square&label=Issues&color=F05F40" alt="Github issues"/></a>
     <a href="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml"><img src="https://github.com/doctorfree/nvim-lazyman/actions/workflows/docker.yml/badge.svg" alt="CI Status"/></a>
     <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/></a>
-</p><p>
-    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugins?style=flat" alt="Plugins"/></a>
-    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/leaderkey?style=flat" alt="Leader"/></a>
-    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugin-manager?style=flat" alt="Manager"/></a>
 </p>
 
 The Lazyman Neovim configuration management menu:
 
-<p float="left">
+<p float="center">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazymenu.png" style="width:800px;height:600px;">
 </p>
 
 The nvims Neovim configuration fuzzy selector:
 
-<p float="left">
+<p float="center">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims.png" style="width:250px;height:400px;">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/nvims2.png" style="width:250px;height:400px;">
 </p>
@@ -872,7 +868,12 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### Lazyman Neovim Configuration Features
 
-<p float="left">
+<p float="center">
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugins?style=flat" alt="Plugins"/></a>
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/leaderkey?style=flat" alt="Leader"/></a>
+    <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugin-manager?style=flat" alt="Manager"/></a>
+</p>
+<p float="center">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazyman-plugins.png" style="width:800px;height:600px;">
 </p>
 
@@ -911,7 +912,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Navigation 🧭
 
-<p float="left">
+<p float="center">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png" style="width:800px;height:800px;">
 </p>
 
@@ -923,7 +924,7 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Coding 🖥️
 
-<p float="left">
+<p float="center">
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png" style="width:800px;height:600px;">
 </p>
 
