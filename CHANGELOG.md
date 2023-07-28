@@ -4,6 +4,12 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.0.0r2
+
+### ⚡️ Added
+
 - Add Dotfyle badges to Lazyman README
 - Add categories and `All` to install fuzzy selection menus
 - Add `install bob` argument to `lazyman`
@@ -21,6 +27,7 @@
 - Fold list of configuration descriptions in README
 - Use blankline after summary tag throughout README to provide emphasis with markdown
 - Remove `nvim-3rd` patch
+- Combine setting list of uninstalled configs into a single function
 
 ## v3.0.0r1
 

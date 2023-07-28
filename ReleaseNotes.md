@@ -2,7 +2,7 @@
 
 This major new release of `lazyman` supports over 80 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.0r1/lazyman.sh) script. Download and execute to get started:
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.0r2/lazyman.sh) script. Download and execute to get started:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -94,7 +94,7 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman instal
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.0r1/lazyman.sh).
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.0r2/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 
