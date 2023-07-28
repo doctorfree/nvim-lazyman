@@ -868,14 +868,13 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 ### Lazyman Neovim Configuration Features
 
-<p float="center">
+<div align="center"><p>
     <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugins?style=flat" alt="Plugins"/></a>
     <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/leaderkey?style=flat" alt="Leader"/></a>
     <a href="https://dotfyle.com/doctorfree/nvim-lazyman"><img src="https://dotfyle.com/doctorfree/nvim-lazyman/badges/plugin-manager?style=flat" alt="Manager"/></a>
-</p>
-<p float="center">
+</p><p>
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/lazyman-plugins.png" style="width:800px;height:600px;">
-</p>
+</p></div>
 
 #### General ⚙️
 
@@ -912,9 +911,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Navigation 🧭
 
-<p float="center">
+<div align="center"><p>
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/alpha.png" style="width:800px;height:800px;">
-</p>
+</p></div>
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
@@ -924,9 +923,9 @@ See the [Usage](#usage) section below for details on `lazyman` command usage.
 
 #### Coding 🖥️
 
-<p float="center">
+<div align="center"><p>
   <img src="https://raw.githubusercontent.com/wiki/doctorfree/nvim-lazyman/screenshots/diagnostics.png" style="width:800px;height:600px;">
-</p>
+</p></div>
 
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
