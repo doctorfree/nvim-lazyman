@@ -6,6 +6,17 @@
 
 ### 🐞 Fixed
 
+## v3.0.0r3
+
+### ⚡️ Added
+
+- Only install, do not update, configs that are not already installed
+
+### 🐞 Fixed
+
+- Comment out `flash` in `JustinNvim`, it is now the default
+- Simplify categories install/update case statements
+
 ## v3.0.0r2
 
 ### ⚡️ Added

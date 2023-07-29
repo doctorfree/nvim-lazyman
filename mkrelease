@@ -27,7 +27,7 @@ while getopts "du" flag; do
 done
 shift $(( OPTIND - 1 ))
 
-ANNO="Lazyman Version ${VERSION} Release ${RELEASE}"
+ANNO="Lazyman Version ${VERSION}r${RELEASE}"
 gittag v${VERSION}r${RELEASE} ${ANNO}
 
 echo "Creating release for version ${VERSION} release ${RELEASE}"
