@@ -50,7 +50,7 @@ or a configuration information document can be viewed.
 More info on the `nvims` and `neovides` shell functions can be found below
 in the [nvims fuzzy selector section](#the-nvims-fuzzy-selector), in the
 `nvims` man page with `man nvims`, with the command `nvims -U`, or in Neovim
-using the `nvim-Lazyman` configuration with `:h Nvims-nvims`.
+using the `nvim-Lazyman` configuration with `:h Nvims`.
 
 The `lazyman` command separates Neovim configurations into 5 categories:
 `Base`, `Language`, `Personal`, `Starter`, and `Custom`. The `Base` category
@@ -855,14 +855,16 @@ will produce a cleanly initialized Neovim configuration.
 - interactive menu interface for ease of management
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
-- 99 supported Neovim configurations out of the box, additional custom configs
-- vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
   - enhanced `less` command alias
   - enhanced `ls` command alias
   - `tree` alias to display a tree view of files and folders
   - `tldrf` alias to fuzzy search, select, and preview cheat sheets
+- vimdoc help for `Lazyman` with `:h Lazyman` or `,hl`
+- vimdoc help for `nvims` with `:h Nvims` or `,hn`
+- vimdoc help for `Lazyman` keymaps with `:h Lazyman-Keymaps` or `,hk`
+- 99 supported Neovim configurations out of the box, additional custom configs
 
 See the [Usage](#usage) section below for details on `lazyman` command usage.
 
@@ -1230,7 +1232,7 @@ The [lazyman.sh](lazyman.sh) script is located in `~/.config/nvim-Lazyman`.
 It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is
 in your execution `PATH` then `lazyman` can be executed from the command
 line as simply `lazyman`. The manual page can be viewed with `man lazyman`.
-Within Neovim the `nvim-Lazyman` help doc can be viewed with `:h nvim-Lazyman`.
+Within Neovim the `Lazyman` help doc can be viewed with `:h Lazyman`.
 
 The `lazyman` command can be used to install and initialize multiple Neovim
 configurations. For example, to install and initialize the LazyVim starter
@@ -1396,7 +1398,7 @@ a description of each command line option, and several example invocations.
 
 The `lazyman` manual page can be viewed with `man lazyman`.
 
-Lazyman Neovim help can be viewed inside Neovim with `:h nvim-Lazyman`.
+Lazyman Neovim help can be viewed inside Neovim with `:h Lazyman`.
 
 ### Lazyman configuration
 

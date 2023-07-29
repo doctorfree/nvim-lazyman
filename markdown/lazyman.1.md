@@ -28,7 +28,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
 - 99 supported Neovim configurations out of the box, additional custom configs
-- vimdoc help for `nvim-Lazyman` with `:h nvim-Lazyman`
+- vimdoc help for `Lazyman` with `:h Lazyman` or `,hl`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
   - enhanced `less` command alias
@@ -566,9 +566,9 @@ and the configured keymaps.
 
 While in Neovim using the `nvim-Lazyman` configuration, view the `vimdoc`
 help for the `lazyman` command and configuration with the command
-`:help Lazyman-lazyman`, view `vimdoc` help for `nvims` with
-`:help Nvims-nvims`, and the `vimdoc` help for the configured keymaps
-with the command `:help Lazyman-Keymaps-lazyman`. Shortcut key bindings
+`:help Lazyman`, view `vimdoc` help for `nvims` with
+`:help Nvims`, and the `vimdoc` help for the configured keymaps
+with the command `:help Lazyman-Keymaps`. Shortcut key bindings
 for these help commands have been configured. Use `,hl`, `,hn`, and `,hk`
 to quickly access the `vimdoc` help for `lazyman`, `nvims`, and Lazyman keymaps.
 

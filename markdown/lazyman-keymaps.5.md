@@ -18,6 +18,8 @@ Extended information on the `Lazyman` Neovim configuration can be viewed with
 the command `lazyman -N nvim-Lazyman info` which opens a browser to display
 [this information document](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lazyman.md).
 
+Vimdoc help for `Lazyman keymaps` can be viewed with `:h Lazyman-Keymaps` or `,hk`
+
 The Lazyman Neovim configuration includes a custom cheatsheet for
 easy reference using the `:Cheatsheet` command. The Lazyman
 cheatsheet includes the following key mappings.
