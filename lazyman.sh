@@ -3498,7 +3498,7 @@ install_remove() {
         ;;
       esac
       [ "$(getok nvim-${nvimlang})" == "ok" ] && {
-        printf "\n${action} ${nvimlang} Language Neovim configuration."
+        printf "\n${action} ${nvimlang} Language Neovim configuration"
         lazyman ${darg} ${lang_url} -N nvim-${nvimlang} ${lang_dir} \
           ${lang_opt} ${help_opt} ${quietflag} ${runflag} ${yesflag}
       }
