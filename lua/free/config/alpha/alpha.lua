@@ -170,72 +170,71 @@ vim.cmd([[
 --
 -- Quick Links
 local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
-new_file_btn.opts.hl = "AlphaShortcut"
-local find_file_btn =
-  dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
-find_file_btn.opts.hl = "AlphaShortcut"
+new_file_btn.opts.hl = "AlphaFooter"
+local find_file_btn = dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
+find_file_btn.opts.hl = "AlphaFooter"
 local file_tree_btn = dashboard.button("e", "  File Browser", filetree)
-file_tree_btn.opts.hl = "AlphaShortcut"
+file_tree_btn.opts.hl = "AlphaFooter"
 local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
-find_text_btn.opts.hl = "AlphaShortcut"
+find_text_btn.opts.hl = "AlphaFooter"
 local session_btn =
   dashboard.button("R", "  Restore A Session", ":lua require('persistence').load({ last = true })<CR>")
 if settings.session_manager == "possession" then
   session_btn = dashboard.button("R", "  Restore A Session", ":Telescope possession list<CR>")
 end
-session_btn.opts.hl = "AlphaShortcut"
+session_btn.opts.hl = "AlphaFooter"
 local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
-search_zoxide_btn.opts.hl = "AlphaShortcut"
+search_zoxide_btn.opts.hl = "AlphaFooter"
 local recent_files_btn =
   dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
-recent_files_btn.opts.hl = "AlphaShortcut"
+recent_files_btn.opts.hl = "AlphaFooter"
 local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
-git_commit_btn.opts.hl = "AlphaShortcut"
+git_commit_btn.opts.hl = "AlphaFooter"
 local neogit_btn = dashboard.button("G", "  NeoGit", ":Neogit<CR>")
-neogit_btn.opts.hl = "AlphaShortcut"
+neogit_btn.opts.hl = "AlphaFooter"
 local quit_btn = dashboard.button("q", "  Quit", ":qa<CR>")
-quit_btn.opts.hl = "AlphaShortcut"
+quit_btn.opts.hl = "AlphaFooter"
 
 -- Neovim Configuration
 local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>")
-health_btn.opts.hl = "AlphaShortcut"
+health_btn.opts.hl = "AlphaHeader"
 local settings_btn = dashboard.button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>")
 local lazyman_btn = dashboard.button("l", "  Lazyman Help", ":h nvim-Lazyman<CR>")
 if settings.enable_terminal then
   settings_btn = dashboard.button("c", "  Lazyman Configuration", ":Lazyconf<CR>")
   lazyman_btn = dashboard.button("l", "  Lazyman Main Menu", ":Lazyman<CR>")
 end
-settings_btn.opts.hl = "AlphaShortcut"
-lazyman_btn.opts.hl = "AlphaShortcut"
+settings_btn.opts.hl = "AlphaHeader"
+lazyman_btn.opts.hl = "AlphaHeader"
 local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
-options_btn.opts.hl = "AlphaShortcut"
+options_btn.opts.hl = "AlphaHeader"
 local mappings_btn = dashboard.button("C", "  Lazyman Cheatsheet", ":Cheatsheet<CR>")
-mappings_btn.opts.hl = "AlphaShortcut"
+mappings_btn.opts.hl = "AlphaHeader"
 
 -- Plugin Management
 local update_btn = dashboard.button("U", "  Update Plugins", ":Lazy update<CR>")
-update_btn.opts.hl = "AlphaHeader"
+update_btn.opts.hl = "AlphaShortcut"
 local install_btn = dashboard.button("L", "  Manage Plugins  (Lazy)", ":Lazy<CR>")
-install_btn.opts.hl = "AlphaHeader"
+install_btn.opts.hl = "AlphaShortcut"
 local status_btn = dashboard.button("M", "  Manage Packages (Mason)", ":Mason<CR>")
-status_btn.opts.hl = "AlphaHeader"
+status_btn.opts.hl = "AlphaShortcut"
 
 local buttons = {
   type = "group",
   val = {
-    { type = "text",    val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
     health_btn,
     lazyman_btn,
     settings_btn,
     options_btn,
     mappings_btn,
     { type = "padding", val = 1 },
-    { type = "text",    val = "Plugin Management",    opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text", val = "Plugin Management", opts = { hl = "AlphaFooter", position = "center" } },
     install_btn,
     status_btn,
     update_btn,
     { type = "padding", val = 1 },
-    { type = "text",    val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text", val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
     new_file_btn,
     find_file_btn,
     file_tree_btn,
