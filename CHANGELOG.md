@@ -8,6 +8,7 @@
 
 ### 🐞 Fixed
 
+- Fix plugins menu setting of `lualine_style`
 - Simplify and clarify `vimdoc` help commands
 - Adjust highlights in `alpha` dashboard
 

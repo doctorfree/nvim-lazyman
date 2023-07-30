@@ -928,7 +928,7 @@ show_plugin_menu() {
     options+=("Enable IDE    [${use_ide}]")
     options+=("Indentline [${use_indentline}]")
     options+=("Lualine Style [${use_lualine_style}]")
-    if [ "${use_lualine_style}" == "test" ]; then
+    if [ "${use_lualine_style}" == "onno" ]; then
       options+=(" Separator    [${use_lualine_separator}]")
     fi
     options+=(" Fancy Icons  [${use_fancy}]")
@@ -1252,10 +1252,10 @@ show_plugin_menu() {
           break
           ;;
         "Lualine Style"*,* | *,"Lualine Style"*)
-          if [ "${use_lualine_style}" == "orig" ]; then
-            set_conf_value "lualine_style" "test"
+          if [ "${use_lualine_style}" == "free" ]; then
+            set_conf_value "lualine_style" "onno"
           else
-            set_conf_value "lualine_style" "orig"
+            set_conf_value "lualine_style" "free"
           fi
           pluginit=1
           break
