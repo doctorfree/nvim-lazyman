@@ -4,7 +4,12 @@
 
 ### ⚡️ Added
 
+- Currently 99 configs supported
+
 ### 🐞 Fixed
+
+- Simplify and clarify `vimdoc` help commands
+- Adjust highlights in `alpha` dashboard
 
 ## v3.0.0r3
 
