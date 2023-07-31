@@ -48,7 +48,7 @@ SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names
-fonts=("3-D" "3d" "Epic" "Fire Font-k" "Graceful" "Lean" "Script" "Shadow" "Slant" "Small" "Speed" "Standard")
+fonts=("Epic" "Fire Font-k" "Graceful" "Lean" "Script" "Shadow" "Slant" "Small" "Speed" "Standard")
 cfginst=1
 cfgpart=
 cfginstalled=0
@@ -2505,6 +2505,7 @@ show_main_menu() {
         break
         ;;
       "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
+        tput reset
         if [ "${USEGUI}" ]; then
           neovides
         else
