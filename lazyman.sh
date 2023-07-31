@@ -50,6 +50,7 @@ timeout=120
 fonts=("slant" "shadow" "small" "script" "standard")
 cfginst=1
 cfgpart=
+cfginstalled=0
 showinstalled=1
 
 brief_usage() {
@@ -917,7 +918,18 @@ show_figlet() {
   fi
 }
 
+# git_status [-q] config_dir
+#   -q indicates return short status string, one of:
+#     "Up-to-date"
+#     "Updates available"
+#     "Local changes"
+#     "Diverged"
 git_status() {
+  query=
+  [ "$1" == "-q" ] && {
+    query=1
+    shift
+  }
   gpath="$1"
   tpath=$(echo "${gpath}" | sed -e "s%${HOME}%~%")
   git -C "${gpath}" remote update >/dev/null 2>&1
@@ -927,16 +939,32 @@ git_status() {
   BASE=$(git -C "${gpath}" merge-base @ "$UPSTREAM")
 
   if [ $LOCAL = $REMOTE ]; then
-    printf "\n  %-45s  Up-to-date " "${tpath}"
+    if [ "${query}" ]; then
+      echo "Up-to-date"
+    else
+      printf "\n  %-45s  Up-to-date " "${tpath}"
+    fi
   elif [ $LOCAL = $BASE ]; then
-    printf "\n  %-45s  Updates available" "${tpath}"
-    printf "\n    Update with: lazyman -U -N ${neovim}"
+    if [ "${query}" ]; then
+      echo "Updates available"
+    else
+      printf "\n  %-45s  Updates available" "${tpath}"
+      printf "\n    Update with: lazyman -U -N ${neovim}"
+    fi
   elif [ $REMOTE = $BASE ]; then
-    printf "\n  %-45s  Local changes to tracked files" "${tpath}"
-    printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+    if [ "${query}" ]; then
+      echo "Local changes"
+    else
+      printf "\n  %-45s  Local changes to tracked files" "${tpath}"
+      printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+    fi
   else
-    printf "\n  %-45s  Appears to have diverged" "${tpath}"
-    printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+    if [ "${query}" ]; then
+      echo "Diverged"
+    else
+      printf "\n  %-45s  Appears to have diverged" "${tpath}"
+      printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+    fi
   fi
 }
 
@@ -1754,116 +1782,70 @@ show_main_menu() {
     }
     confword="configurations"
     [ ${numitems} -eq 1 ] && confword="configuration"
-    if [ "${have_rich}" ]; then
-      rich "[b magenta]${numitems} Lazyman[/] [b green]Neovim ${confword}[/] [b magenta]installed[/]" -p -c
-    else
-      printf "\n${numitems} Lazyman Neovim configurations installed:\n"
-    fi
-    if [ ${showinstalled} -gt 0 ]; then
-      linelen=0
-      if [ "${have_rich}" ]; then
-        neovims=""
-        leader="[b green]"
-        for neovim in "${sorted[@]}"; do
-          neovims="${neovims} ${leader}${neovim}[/]"
-          if [ "${leader}" == "[b green]" ]; then
-            leader="[b magenta]"
-          else
-            leader="[b green]"
-          fi
-        done
-        rich "${neovims}" -p -a rounded -c -C -w 78
-      else
-        printf "\t"
-        for neovim in "${sorted[@]}"; do
-          printf "${neovim}  "
-          nvsz=${#neovim}
-          linelen=$((linelen + nvsz + 2))
-          [ ${linelen} -gt 50 ] && {
-            printf "\n\t"
-            linelen=0
-          }
-        done
-        printf "\n\n"
-      fi
-    else
-      printf "\n"
-    fi
-
-    PS3="${BOLD}Enter a choice (number, shortcut, or text, 'h' help): ${NORM}"
     options=()
-    get_config_str "${BASECFGS}"
-    base_partial=${cfgpart}
-    base_installed=${cfginst}
-    if [ "${base_installed}" ]; then
-      options+=("Update Base       ${configstr}")
-    else
-      options+=("Install Base      ${configstr}")
-    fi
-    get_config_str "${LANGUCFGS}"
-    lang_partial=${cfgpart}
-    lang_installed=${cfginst}
-    if [ "${lang_installed}" ]; then
-      options+=("Update Languages  ${configstr}")
-    else
-      options+=("Install Languages ${configstr}")
-    fi
-    get_config_str "${PRSNLCFGS}"
-    prsnl_partial=${cfgpart}
-    prsnl_installed=${cfginst}
-    if [ "${prsnl_installed}" ]; then
-      options+=("Update Personals  ${configstr}")
-    else
-      options+=("Install Personals ${configstr}")
-    fi
-    get_config_str "${STARTCFGS}"
-    start_partial=${cfgpart}
-    start_installed=${cfginst}
-    if [ "${start_installed}" ]; then
-      options+=("Update Starters   ${configstr}")
-    else
-      options+=("Install Starters  ${configstr}")
-    fi
-    get_config_str "${ASTROCFGS}"
-    astro_partial=${cfgpart}
-    astro_installed=${cfginst}
-    if [ "${astro_installed}" ]; then
-      options+=("Update Astros     ${configstr}")
-    else
-      options+=("Install Astros    ${configstr}")
-    fi
-    get_config_str "${LAZYVIMCFGS}"
-    lzyvm_partial=${cfgpart}
-    lzyvm_installed=${cfginst}
-    if [ "${lzyvm_installed}" ]; then
-      options+=("Update LazyVims   ${configstr}")
-    else
-      options+=("Install LazyVims  ${configstr}")
-    fi
-    get_config_str "${LUNARVIMCFGS}"
-    lunar_partial=${cfgpart}
-    lunar_installed=${cfginst}
-    if [ "${lunar_installed}" ]; then
-      options+=("Update LunarVims  ${configstr}")
-    else
-      options+=("Install LunarVims ${configstr}")
-    fi
-    get_config_str "${NVCHADCFGS}"
-    nvchd_partial=${cfgpart}
-    nvchd_installed=${cfginst}
-    if [ "${nvchd_installed}" ]; then
-      options+=("Update NvChads    ${configstr}")
-    else
-      options+=("Install NvChads   ${configstr}")
-    fi
     get_config_str "${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}"
+    totalitems=${totalcfg}
     if [ "${cfginst}" ]; then
-      options+=("Update All        ${configstr}")
       iushort="update"
     else
       options+=("Install All       ${configstr}")
       iushort="install"
     fi
+    if [ "${have_rich}" ]; then
+      rich "[b magenta]${numitems}/${totalitems}[/] [b green]Lazyman Neovim ${confword}[/] [b magenta]installed[/]" -p -c
+    else
+      printf "\n${numitems}/${totalitems} Lazyman Neovim configurations installed:\n"
+    fi
+
+    PS3="${BOLD}Enter a choice (number, shortcut, or text, 'h' help): ${NORM}"
+    get_config_str "${BASECFGS}"
+    base_partial=${cfgpart}
+    base_installed=${cfginst}
+    base_num_installed=${cfginstalled}
+    total_base_cfg=${totalcfg}
+    [ "${base_installed}" ] || options+=("Install Base      ${configstr}")
+    get_config_str "${LANGUCFGS}"
+    lang_partial=${cfgpart}
+    lang_installed=${cfginst}
+    lang_num_installed=${cfginstalled}
+    total_lang_cfg=${totalcfg}
+    [ "${lang_installed}" ] || options+=("Install Languages ${configstr}")
+    get_config_str "${PRSNLCFGS}"
+    prsnl_partial=${cfgpart}
+    prsnl_installed=${cfginst}
+    prsnl_num_installed=${cfginstalled}
+    total_prsnl_cfg=${totalcfg}
+    [ "${prsnl_installed}" ] || options+=("Install Personals ${configstr}")
+    get_config_str "${STARTCFGS}"
+    start_partial=${cfgpart}
+    start_installed=${cfginst}
+    start_num_installed=${cfginstalled}
+    total_start_cfg=${totalcfg}
+    [ "${start_installed}" ] || options+=("Install Starters  ${configstr}")
+    get_config_str "${ASTROCFGS}"
+    astro_partial=${cfgpart}
+    astro_installed=${cfginst}
+    astro_num_installed=${cfginstalled}
+    total_astro_cfg=${totalcfg}
+    [ "${astro_installed}" ] || options+=("Install AstroNvims${configstr}")
+    get_config_str "${LAZYVIMCFGS}"
+    lzyvm_partial=${cfgpart}
+    lzyvm_installed=${cfginst}
+    lzyvm_num_installed=${cfginstalled}
+    total_lzyvm_cfg=${totalcfg}
+    [ "${lzyvm_installed}" ] || options+=("Install LazyVims  ${configstr}")
+    get_config_str "${LUNARVIMCFGS}"
+    lunar_partial=${cfgpart}
+    lunar_installed=${cfginst}
+    lunar_num_installed=${cfginstalled}
+    total_lunar_cfg=${totalcfg}
+    [ "${lunar_installed}" ] || options+=("Install LunarVims ${configstr}")
+    get_config_str "${NVCHADCFGS}"
+    nvchd_partial=${cfgpart}
+    nvchd_installed=${cfginst}
+    nvchd_num_installed=${cfginstalled}
+    total_nvchd_cfg=${totalcfg}
+    [ "${nvchd_installed}" ] || options+=("Install NvChads   ${configstr}")
     uninstalled=()
     if [ "${have_fzf}" ]; then
       set_uninstalled
@@ -1883,20 +1865,32 @@ show_main_menu() {
     [ "${lang_installed}" ] || options+=("Select/Inst Language")
     [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
     [ "${start_installed}" ] || options+=("Select/Inst Starter")
-    [ "${astro_installed}" ] || options+=("Select/Inst Astros")
+    [ "${astro_installed}" ] || options+=("Select/Inst AstroNvim")
     [ "${lzyvm_installed}" ] || options+=("Select/Inst LazyVims")
     [ "${lunar_installed}" ] || options+=("Select/Inst LunarVims")
     [ "${nvchd_installed}" ] || options+=("Select/Inst NvChads")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if typeset -f neovides >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && options+=("Select and Open")
+          [ ${numitems} -gt 0 ] && {
+            if [ ${numitems} -gt 1 ]; then
+              options+=("Select and Open")
+            else
+              options+=("Open Lazyman Config")
+            fi
+          }
         else
           options+=("Open Neovide")
           if typeset -f nvims >/dev/null 2>&1; then
             USEGUI=
             use_gui="neovim"
-            [ ${numitems} -gt 1 ] && options+=("Select and Open")
+            [ ${numitems} -gt 0 ] && {
+              if [ ${numitems} -gt 1 ]; then
+                options+=("Select and Open")
+              else
+                options+=("Open Lazyman Config")
+              fi
+            }
           fi
         fi
       else
@@ -1904,7 +1898,13 @@ show_main_menu() {
         use_gui="neovim"
         options+=("Install Neovide")
         if typeset -f nvims >/dev/null 2>&1; then
-          [ ${numitems} -gt 1 ] && options+=("Select and Open")
+          [ ${numitems} -gt 0 ] && {
+            if [ ${numitems} -gt 1 ]; then
+              options+=("Select and Open")
+            else
+              options+=("Open Lazyman Config")
+            fi
+          }
         fi
       fi
     else
@@ -1914,7 +1914,13 @@ show_main_menu() {
         options+=("Install Neovide")
       }
       if typeset -f nvims >/dev/null 2>&1; then
-        [ ${numitems} -gt 1 ] && options+=("Select and Open")
+        [ ${numitems} -gt 0 ] && {
+          if [ ${numitems} -gt 1 ]; then
+            options+=("Select and Open")
+          else
+            options+=("Open Lazyman Config")
+          fi
+        }
       fi
     fi
 
@@ -1922,7 +1928,7 @@ show_main_menu() {
     [ "${lang_partial}" ] && options+=("Select/Open Language")
     [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
     [ "${start_partial}" ] && options+=("Select/Open Starter")
-    [ "${astro_partial}" ] && options+=("Select/Open Astros")
+    [ "${astro_partial}" ] && options+=("Select/Open AstroNvim")
     [ "${lzyvm_partial}" ] && options+=("Select/Open LazyVims")
     [ "${lunar_partial}" ] && options+=("Select/Open LunarVims")
     [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
@@ -1935,24 +1941,112 @@ show_main_menu() {
     fi
     [ ${numitems} -gt 1 ] && {
       options+=("Select and Remove")
+      options+=("Remove Category/Type")
       if [ "${iushort}" == "update" ]; then
         shortcuts="help info open remove search update"
       else
         shortcuts="help info install open remove search"
       fi
     }
-    [ "${base_partial}" ] && options+=("Remove Base")
-    [ "${lang_partial}" ] && options+=("Remove Languages")
-    [ "${prsnl_partial}" ] && options+=("Remove Personals")
-    [ "${start_partial}" ] && options+=("Remove Starters")
-    [ "${astro_partial}" ] && options+=("Remove Astros")
-    [ "${lunar_partial}" ] && options+=("Remove LunarVims")
-    [ "${lzyvm_partial}" ] && options+=("Remove LazyVims")
-    [ "${nvchd_partial}" ] && options+=("Remove NvChads")
-    numndirs=${#ndirs[@]}
-    [ ${numndirs} -gt 1 ] && {
-      options+=("Remove All")
+    instcats=
+    instcons=
+    configstr="🌝"
+    color="yellow"
+    mark="✗"
+    [ "${base_installed}" ] && {
+      options+=("Update Base       ${configstr}")
+      color="green"
+      mark=""
     }
+    if [ "${have_rich}" ]; then
+      instcats="[b magenta]${base_num_installed}/${total_base_cfg}[/] [b ${color}]Base ${mark} [/]"
+    else
+      instcats="${base_num_installed}/${total_base_cfg} Base ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${lang_installed}" ] && {
+      options+=("Update Languages  ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcats="${instcats}[b magenta]${lang_num_installed}/${total_lang_cfg}[/] [b ${color}]Languages ${mark} [/]"
+    else
+      instcats="${instcats}${lang_num_installed}/${total_lang_cfg} Languages ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${prsnl_installed}" ] && {
+      options+=("Update Personals  ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcats="${instcats}[b magenta]${prsnl_num_installed}/${total_prsnl_cfg}[/] [b ${color}]Personals ${mark} [/]"
+    else
+      instcats="${instcats}${prsnl_num_installed}/${total_prsnl_cfg} Personals ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${start_installed}" ] && {
+      options+=("Update Starters   ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcats="${instcats}[b magenta]${start_num_installed}/${total_start_cfg}[/] [b ${color}]Starters ${mark} [/]"
+    else
+      instcats="${instcats}${start_num_installed}/${total_start_cfg} Starters ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${astro_installed}" ] && {
+      options+=("Update AstroNvims ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcons="[b magenta]${astro_num_installed}/${total_astro_cfg}[/] [b ${color}]AstroNvims ${mark} [/]"
+    else
+      instcons="${astro_num_installed}/${total_astro_cfg} AstroNvims ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${lzyvm_installed}" ] && {
+      options+=("Update LazyVims   ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcons="${instcons}[b magenta]${lzyvm_num_installed}/${total_lzyvm_cfg}[/] [b ${color}]LazyVims ${mark} [/]"
+    else
+      instcons="${instcons}${lzyvm_num_installed}/${total_lzyvm_cfg} LazyVims ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${lunar_installed}" ] && {
+      options+=("Update LunarVims  ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcons="${instcons}[b magenta]${lunar_num_installed}/${total_nvchd_cfg}[/] [b ${color}]LunarVims ${mark} [/]"
+    else
+      instcons="${instcons}${lunar_num_installed}/${total_lunar_cfg} LunarVims ${mark} "
+    fi
+    color="yellow"
+    mark="✗"
+    [ "${nvchd_installed}" ] && {
+      options+=("Update NvChads    ${configstr}")
+      color="green"
+      mark=""
+    }
+    if [ "${have_rich}" ]; then
+      instcons="${instcons}[b magenta]${nvchd_num_installed}/${total_nvchd_cfg}[/] [b ${color}]NvChads ${mark} [/]"
+    else
+      instcons="${instcons}${nvchd_num_installed}/${total_nvchd_cfg} NvChads ${mark} "
+    fi
     if [ ${showinstalled} -gt 1 ]; then
       options+=("Hide List")
     else
@@ -1999,10 +2093,54 @@ show_main_menu() {
       options+=("Homebrew Upgrade")
     }
     options+=("Quit")
-    if [ "${have_rich}" ]; then
-      rich "[b cyan]Selection shortcuts:[/] [b yellow]${shortcuts}[/]" -p
+    [ "${instcats}" ] && {
+      if [ "${have_rich}" ]; then
+        rich "[b green]${instcats}[/]" -p -c
+      else
+        printf "\nInstalled categories: ${BOLD}${instcats}${NORM} 🌝\n"
+      fi
+    }
+    [ "${instcons}" ] && {
+      if [ "${have_rich}" ]; then
+        rich "[b green]${instcons}[/]" -p -c
+      else
+        printf "\nInstalled types:      ${BOLD}${instcons}${NORM} 🌝\n"
+      fi
+    }
+    if [ ${showinstalled} -gt 0 ]; then
+      linelen=0
+      if [ "${have_rich}" ]; then
+        neovims=""
+        leader="[b green]"
+        for neovim in "${sorted[@]}"; do
+          neovims="${neovims} ${leader}${neovim}[/]"
+          if [ "${leader}" == "[b green]" ]; then
+            leader="[b magenta]"
+          else
+            leader="[b green]"
+          fi
+        done
+        rich "${neovims}" -p -a rounded -c -C -w 78
+      else
+        printf "\t"
+        for neovim in "${sorted[@]}"; do
+          printf "${neovim}  "
+          nvsz=${#neovim}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n\t"
+            linelen=0
+          }
+        done
+        printf "\n\n"
+      fi
     else
-      printf "\nSelection shortcuts: ${BOLD}${shortcuts}${NORM}\n"
+      printf "\n"
+    fi
+    if [ "${have_rich}" ]; then
+      rich "[b cyan]Selection shortcuts: [/] [b yellow]${shortcuts}[/]" -p
+    else
+      printf "\nSelection shortcuts:  ${BOLD}${shortcuts}${NORM}\n"
     fi
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -2075,7 +2213,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select/Inst Astros"*,* | *,"Select/Inst Astros"*)
+      "Select/Inst Astro"*,* | *,"Select/Inst Astro"*)
         choices=("All AstroNvim Configs")
         for neovim in ${ASTROCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -2213,7 +2351,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select/Open Astros"*,* | *,"Select/Open Astros"* | "open a"*,* | *,"open a"* | "Open A"*,* | *,"Open A"*)
+      "Select/Open Astro"*,* | *,"Select/Open Astro"* | "open a"*,* | *,"open a"* | "Open A"*,* | *,"Open A"*)
         choices=()
         for neovim in ${ASTROCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -2249,7 +2387,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"* | "open laz"*,* | *,"open laz"* | "Open Laz"*,* | *,"Open Laz"*)
+      "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"* | "open lazyvim"*,* | *,"open lazyvim"* | "Open Lazyvim"*,* | *,"Open Lazyvim"*)
         choices=()
         for neovim in ${LAZYVIMCFGS}; do
           basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
@@ -2285,6 +2423,14 @@ show_main_menu() {
         fi
         break
         ;;
+      "Open Lazyman"*,* | *,"Open Lazyman"*)
+        if [ "${USEGUI}" ]; then
+          NVIM_APPNAME="nvim-Lazyman" neovide
+        else
+          NVIM_APPNAME="nvim-Lazyman" nvim
+        fi
+        break
+        ;;
       "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
         if [ "${USEGUI}" ]; then
           neovides
@@ -2298,6 +2444,67 @@ show_main_menu() {
           neovides -R
         else
           nvims -R
+        fi
+        break
+        ;;
+      "Remove Category"*,* | *,"Remove Category"*)
+        choices=()
+        [ "${base_partial}" ] && choices+=("Remove Base")
+        [ "${lang_partial}" ] && choices+=("Remove Languages")
+        [ "${prsnl_partial}" ] && choices+=("Remove Personals")
+        [ "${start_partial}" ] && choices+=("Remove Starters")
+        [ "${astro_partial}" ] && choices+=("Remove AstroNvims")
+        [ "${lunar_partial}" ] && choices+=("Remove LunarVims")
+        [ "${lzyvm_partial}" ] && choices+=("Remove LazyVims")
+        [ "${nvchd_partial}" ] && choices+=("Remove NvChads")
+        numndirs=${#ndirs[@]}
+        [ ${numndirs} -gt 1 ] && {
+          choices+=("Remove All")
+        }
+        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category or type to remove  " --layout=reverse --border --exit-0)
+        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+          case "${choice}" in
+            "Remove Base")
+              printf "\nRemoving all Lazyman 'Base' Neovim configurations\n"
+              lazyman -R -B -y
+              ;;
+            "Remove Languages")
+              printf "\nRemoving all Lazyman 'Language' Neovim configurations\n"
+              lazyman -R -L all -y
+              ;;
+            "Remove Personals")
+              printf "\nRemoving all Lazyman 'Personal' Neovim configurations\n"
+              lazyman -R -W -y
+              ;;
+            "Remove Starters")
+              printf "\nRemoving all Lazyman 'Starter' Neovim configurations\n"
+              lazyman -R -X -y
+              ;;
+            "Remove AstroNvims")
+              printf "\nRemoving all Lazyman 'AstroNvim' Neovim configurations\n"
+              lazyman -R -i astronvim -y
+              ;;
+            "Remove NvChads")
+              printf "\nRemoving all Lazyman 'NvChad' Neovim configurations\n"
+              lazyman -R -i nvchad -y
+              ;;
+            "Remove LazyVims")
+              printf "\nRemoving all Lazyman 'LazyVim' Neovim configurations\n"
+              lazyman -R -i lazyvim -y
+              ;;
+            "Remove LunarVims")
+              printf "\nRemoving all Lazyman 'LunarVim' Neovim configurations\n"
+              lazyman -R -i lunarvim -y
+              ;;
+            "Remove All")
+              printf "\nRemoving all Lazyman Neovim configurations\n"
+              for ndirm in "${ndirs[@]}"; do
+                [ "${ndirm}" == "${LAZYMAN}" ] && continue
+                [ "${ndirm}" == "nvim" ] && continue
+                lazyman -R -N ${ndirm} -y
+              done
+              ;;
+          esac
         fi
         break
         ;;
@@ -2318,7 +2525,7 @@ show_main_menu() {
         lazyman ${darg} -X -y -z -Q -q
         break
         ;;
-      "Install Astros"*,* | *,"Install Astros"*)
+      "Install AstroNvims"*,* | *,"Install AstroNvims"*)
         lazyman ${darg} -i astronvim -y -z -Q -q
         break
         ;;
@@ -2355,7 +2562,7 @@ show_main_menu() {
         lazyman ${darg} -X -y -z -Q -q -U
         break
         ;;
-      "Update Astros"*,* | *,"Update Astros"*)
+      "Update Astro"*,* | *,"Update Astro"*)
         lazyman ${darg} -i astronvim -y -z -Q -q -U
         break
         ;;
@@ -2453,55 +2660,6 @@ show_main_menu() {
             prompt_continue
           fi
         fi
-        break
-        ;;
-      "Remove Base"*,* | *,"Remove Base"*)
-        printf "\nRemoving all Lazyman 'Base' Neovim configurations\n"
-        lazyman -R -B -y
-        break
-        ;;
-      "Remove Language"*,* | *,"Remove Language"*)
-        printf "\nRemoving all Lazyman 'Language' Neovim configurations\n"
-        lazyman -R -L all -y
-        break
-        ;;
-      "Remove Personal"*,* | *,"Remove Personal"*)
-        printf "\nRemoving all Lazyman 'Personal' Neovim configurations\n"
-        lazyman -R -W -y
-        break
-        ;;
-      "Remove Starter"*,* | *,"Remove Starter"*)
-        printf "\nRemoving all Lazyman 'Starter' Neovim configurations\n"
-        lazyman -R -X -y
-        break
-        ;;
-      "Remove Astros"*,* | *,"Remove Astros"*)
-        printf "\nRemoving all Lazyman 'AstroNvim' Neovim configurations\n"
-        lazyman -R -i astronvim -y
-        break
-        ;;
-      "Remove NvChad"*,* | *,"Remove NvChad"*)
-        printf "\nRemoving all Lazyman 'NvChad' Neovim configurations\n"
-        lazyman -R -i nvchad -y
-        break
-        ;;
-      "Remove LazyVim"*,* | *,"Remove LazyVim"*)
-        printf "\nRemoving all Lazyman 'LazyVim' Neovim configurations\n"
-        lazyman -R -i lazyvim -y
-        break
-        ;;
-      "Remove LunarVim"*,* | *,"Remove LunarVim"*)
-        printf "\nRemoving all Lazyman 'LunarVim' Neovim configurations\n"
-        lazyman -R -i lunarvim -y
-        break
-        ;;
-      "Remove All"*,* | *,"Remove All"*)
-        printf "\nRemoving all Lazyman Neovim configurations\n"
-        for ndirm in "${ndirs[@]}"; do
-          [ "${ndirm}" == "${LAZYMAN}" ] && continue
-          [ "${ndirm}" == "nvim" ] && continue
-          lazyman -R -N ${ndirm} -y
-        done
         break
         ;;
       "Hide List"*,* | *,"Hide List"*)
@@ -2618,10 +2776,14 @@ get_config_str() {
   CFGS="$1"
   cfginst=1
   cfgpart=
+  cfginstalled=0
+  totalcfg=0
   for cfg in ${CFGS}; do
+    ((totalcfg++))
     inst=
     for bdir in "${sorted[@]}"; do
       [[ $cfg == "$bdir" ]] && {
+        ((cfginstalled++))
         cfgpart=1
         inst=1
         break
