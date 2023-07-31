@@ -48,7 +48,7 @@ SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names
-fonts=("Epic" "Fire Font-k" "Graceful" "Lean" "Script" "Shadow" "Slant" "Small" "Speed" "Standard")
+fonts=("Epic" "Fire Font-k" "Graceful" "Script" "Shadow" "Slant" "Small" "Speed" "Standard")
 cfginst=1
 cfgpart=
 cfginstalled=0
