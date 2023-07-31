@@ -4,10 +4,24 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.0.1r1
+
+### ⚡️ Added
+
 - Currently 99 configs supported
+- Show count of custom installed configs in main menu heading
+- Add `figlet` fonts to scripts folder
+- Select from category menu entries, replace `Select/...` menu entries
+- Combine update menu options into `Update Category` option
+- Display number of installed configs in each category, simplify remove menu entries
 
 ### 🐞 Fixed
 
+- Fix plugins menu setting of `lualine_style`
+- Remove `3D` fonts, remove `Lean` font
+- Adjust `alpha` dashboard highlights
 - Fix plugins menu setting of `lualine_style`
 - Simplify and clarify `vimdoc` help commands
 - Adjust highlights in `alpha` dashboard
