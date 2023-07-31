@@ -1993,10 +1993,28 @@ show_main_menu() {
       mark=""
     }
     if [ "${have_rich}" ]; then
-      instcats="${instcats}[b magenta]${start_num_installed}/${total_start_cfg}[/] [b ${color}]Starters ${mark} [/]"
+      instcats="${instcats}[b magenta]${start_num_installed}/${total_start_cfg}[/] [b ${color}]Starters ${mark}[/]"
     else
-      instcats="${instcats}${start_num_installed}/${total_start_cfg} Starters ${mark} "
+      instcats="${instcats}${start_num_installed}/${total_start_cfg} Starters ${mark}"
     fi
+    custom_configs=("${sorted[@]}")
+    for nvim_name in Lazyman ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
+      # remove all the supported configs from the installed configs array
+      for i in "${!custom_configs[@]}"; do
+        if [[ ${custom_configs[i]} = $nvim_name ]]; then
+          unset 'custom_configs[i]'
+        fi
+      done
+    done
+    numcustom=${#custom_configs[@]}
+    [ ${numcustom} -gt 0 ] && {
+      mark=""
+      if [ "${have_rich}" ]; then
+        instcats="${instcats} [b magenta]${numcustom}[/] [b green]Custom ${mark}[/]"
+      else
+        instcats="${instcats} ${numcustom} Custom ${mark}"
+      fi
+    }
     color="yellow"
     mark="✗"
     [ "${astro_partial}" ] && {
