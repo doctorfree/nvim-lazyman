@@ -140,7 +140,7 @@ local section_mru = {
       type = "text",
       val = "Recent files",
       opts = {
-        hl = "AlphaFooter",
+        hl = "AlphaButtons",
         shrink_margin = false,
         position = "center",
       },
@@ -222,14 +222,14 @@ status_btn.opts.hl = "AlphaShortcut"
 local buttons = {
   type = "group",
   val = {
-    { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaHeader", position = "center" } },
     health_btn,
     lazyman_btn,
     settings_btn,
     options_btn,
     mappings_btn,
     { type = "padding", val = 1 },
-    { type = "text", val = "Plugin Management", opts = { hl = "AlphaFooter", position = "center" } },
+    { type = "text", val = "Plugin Management", opts = { hl = "AlphaShortcut", position = "center" } },
     install_btn,
     status_btn,
     update_btn,
