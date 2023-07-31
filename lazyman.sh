@@ -2056,7 +2056,7 @@ show_main_menu() {
       mark=""
     }
     if [ "${have_rich}" ]; then
-      instcons="${instcons}[b magenta]${lunar_num_installed}/${total_nvchd_cfg}[/] [b ${color}]LunarVims ${mark} [/]"
+      instcons="${instcons}[b magenta]${lunar_num_installed}/${total_lunar_cfg}[/] [b ${color}]LunarVims ${mark} [/]"
     else
       instcons="${instcons}${lunar_num_installed}/${total_lunar_cfg} LunarVims ${mark} "
     fi
@@ -2088,22 +2088,11 @@ show_main_menu() {
       options+=("Initialize Lazyman")
       options+=("Install Tools")
     fi
-    if [ "${debug}" ]; then
-      options+=("Debug Mode [on]")
-    else
-      options+=("Debug Mode [off]")
-    fi
     have_bob=$(type -p bob)
-    if [ "${have_bob}" ]; then
-      used=$(bob list | grep Used | awk ' { print $2 } ')
-      options+=("Neovim Ver [${used}]")
-    else
+    [ "${have_bob}" ] || {
       options+=("Install Bob")
       options+=(" What is Bob?")
-    fi
-    if [ "${have_neovide}" ]; then
-      options+=("Toggle UI [${use_gui}]")
-    fi
+    }
     options+=("Config Info" "Health Check" "Plugin Search")
     numnvim=$(ps -ef | grep ' nvim ' | grep -v grep | wc -l)
     [ ${numnvim} -gt 0 ] && {
@@ -2120,6 +2109,18 @@ show_main_menu() {
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
+    if [ "${debug}" ]; then
+      options+=("Debug Mode [on]")
+    else
+      options+=("Debug Mode [off]")
+    fi
+    [ "${have_bob}" ] && {
+      used=$(bob list | grep Used | awk ' { print $2 } ')
+      options+=("Neovim Ver [${used}]")
+    }
+    if [ "${have_neovide}" ]; then
+      options+=("Toggle UI [${use_gui}]")
+    fi
     options+=("Quit")
     # Checking for updates takes too long, comment out for now
     # updates_available=
