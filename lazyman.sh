@@ -975,9 +975,8 @@ list_installed() {
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     installed=()
     for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
-      basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-      if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-        installed+=("${basenvdir}")
+      if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+        installed+=("${neovim}")
       fi
     done
     numins=${#installed[@]}
@@ -997,9 +996,8 @@ set_uninstalled() {
   allbase=
   numinst=0
   for neovim in ${BASECFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
+    if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+      uninstalled+=("${neovim}")
       ((numinst++))
     fi
   done
@@ -1007,9 +1005,8 @@ set_uninstalled() {
   alllang=
   numinst=0
   for neovim in ${LANGUCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
+    if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+      uninstalled+=("${neovim}")
       ((numinst++))
     fi
   done
@@ -1017,9 +1014,8 @@ set_uninstalled() {
   allpers=
   numinst=0
   for neovim in ${PRSNLCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
+    if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+      uninstalled+=("${neovim}")
       ((numinst++))
     fi
   done
@@ -1027,9 +1023,8 @@ set_uninstalled() {
   allstar=
   numinst=0
   for neovim in ${STARTCFGS}; do
-    basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-    if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-      uninstalled+=("${basenvdir}")
+    if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+      uninstalled+=("${neovim}")
       ((numinst++))
     fi
   done
@@ -1043,9 +1038,8 @@ list_uninstalled() {
     readarray -t sorted < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
     uninstalled=()
     for neovim in ${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}; do
-      basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-      if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-        uninstalled+=("${basenvdir}")
+      if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+        uninstalled+=("${neovim}")
       fi
     done
     numunins=${#uninstalled[@]}
@@ -1785,6 +1779,7 @@ show_main_menu() {
     options=()
     get_config_str "${BASECFGS} ${LANGUCFGS} ${PRSNLCFGS} ${STARTCFGS}"
     totalitems=${totalcfg}
+    ((totalitems++))
     if [ "${cfginst}" ]; then
       iushort="update"
     else
@@ -1850,7 +1845,10 @@ show_main_menu() {
     if [ "${have_fzf}" ]; then
       set_uninstalled
       numunins=${#uninstalled[@]}
-      [ ${numunins} -gt 0 ] && options+=("Select and Install")
+      [ ${numunins} -gt 0 ] && {
+        options+=("Select and Install")
+        options+=("Install from Category")
+      }
       [ "${allbase}" ] && uninstalled+=("All Base Configs")
       [ "${alllang}" ] && uninstalled+=("All Language Configs")
       [ "${allpers}" ] && uninstalled+=("All Personal Configs")
@@ -1861,20 +1859,13 @@ show_main_menu() {
       printf "\nInstall fzf with 'lazyman -I' and verify fzf is in your PATH."
       prompt_continue
     fi
-    [ "${base_installed}" ] || options+=("Select/Install Base")
-    [ "${lang_installed}" ] || options+=("Select/Inst Language")
-    [ "${prsnl_installed}" ] || options+=("Select/Inst Personal")
-    [ "${start_installed}" ] || options+=("Select/Inst Starter")
-    [ "${astro_installed}" ] || options+=("Select/Inst AstroNvim")
-    [ "${lzyvm_installed}" ] || options+=("Select/Inst LazyVims")
-    [ "${lunar_installed}" ] || options+=("Select/Inst LunarVims")
-    [ "${nvchd_installed}" ] || options+=("Select/Inst NvChads")
     if [ "${USEGUI}" ]; then
       if [ "${have_neovide}" ]; then
         if typeset -f neovides >/dev/null 2>&1; then
           [ ${numitems} -gt 0 ] && {
             if [ ${numitems} -gt 1 ]; then
               options+=("Select and Open")
+              options+=("Open from Category")
             else
               options+=("Open Lazyman Config")
             fi
@@ -1887,6 +1878,7 @@ show_main_menu() {
             [ ${numitems} -gt 0 ] && {
               if [ ${numitems} -gt 1 ]; then
                 options+=("Select and Open")
+                options+=("Open from Category")
               else
                 options+=("Open Lazyman Config")
               fi
@@ -1901,6 +1893,7 @@ show_main_menu() {
           [ ${numitems} -gt 0 ] && {
             if [ ${numitems} -gt 1 ]; then
               options+=("Select and Open")
+              options+=("Open from Category")
             else
               options+=("Open Lazyman Config")
             fi
@@ -1917,6 +1910,7 @@ show_main_menu() {
         [ ${numitems} -gt 0 ] && {
           if [ ${numitems} -gt 1 ]; then
             options+=("Select and Open")
+            options+=("Open from Category")
           else
             options+=("Open Lazyman Config")
           fi
@@ -1924,35 +1918,30 @@ show_main_menu() {
       fi
     fi
 
-    [ "${base_partial}" ] && options+=("Select/Open Base")
-    [ "${lang_partial}" ] && options+=("Select/Open Language")
-    [ "${prsnl_partial}" ] && options+=("Select/Open Personal")
-    [ "${start_partial}" ] && options+=("Select/Open Starter")
-    [ "${astro_partial}" ] && options+=("Select/Open AstroNvim")
-    [ "${lzyvm_partial}" ] && options+=("Select/Open LazyVims")
-    [ "${lunar_partial}" ] && options+=("Select/Open LunarVims")
-    [ "${nvchd_partial}" ] && options+=("Select/Open NvChads")
-
     if [ "${iushort}" == "update" ]; then
       shortcuts="help info open search update"
     else
-      shortcuts="help info install open search"
+      shortcuts="help info install open search update"
     fi
     [ ${numitems} -gt 1 ] && {
       options+=("Select and Remove")
-      options+=("Remove Category/Type")
+      options+=("Remove Category")
       options+=("Select and Update")
-      options+=("Update Category/Type")
+      options+=("Update Category")
       if [ "${iushort}" == "update" ]; then
         shortcuts="help info open remove search update"
       else
-        shortcuts="help info install open remove search"
+        shortcuts="help info install open remove search update"
       fi
     }
     instcats=
     instcons=
     color="yellow"
     mark="✗"
+    [ "${base_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${base_installed}" ] && {
       color="green"
       mark=""
@@ -1964,6 +1953,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${lang_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${lang_installed}" ] && {
       color="green"
       mark=""
@@ -1975,6 +1968,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${prsnl_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${prsnl_installed}" ] && {
       color="green"
       mark=""
@@ -1986,6 +1983,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${start_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${start_installed}" ] && {
       color="green"
       mark=""
@@ -1997,6 +1998,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${astro_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${astro_installed}" ] && {
       color="green"
       mark=""
@@ -2008,6 +2013,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${lzyvm_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${lzyvm_installed}" ] && {
       color="green"
       mark=""
@@ -2019,6 +2028,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${lunar_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${lunar_installed}" ] && {
       color="green"
       mark=""
@@ -2030,6 +2043,10 @@ show_main_menu() {
     fi
     color="yellow"
     mark="✗"
+    [ "${nvchd_partial}" ] && {
+      color="cyan"
+      mark="÷"
+    }
     [ "${nvchd_installed}" ] && {
       color="green"
       mark=""
@@ -2085,55 +2102,102 @@ show_main_menu() {
       options+=("Homebrew Upgrade")
     }
     options+=("Quit")
+    # Checking for updates takes too long, comment out for now
+    # updates_available=
+    # for neovim in "${sorted[@]}"; do
+      # updavail=
+      # configdir="nvim-${neovim}"
+      # configpath="${HOME}/.config/${configdir}"
+      # if [ -d "${configdir}/.git" ]; then
+      #   updavail=$(git_status -q ${configdir})
+      # fi
+      # [ "${updavail}" == "Updates available" ] || {
+      #   updavail=
+      #   [ "${configdir}" == "${spacevimdir}" ] && {
+      #     if [ -d "${SPDIR}" ]; then
+      #       if [ -d "${SPDIR}/.git" ]; then
+      #         updavail=$(git_status -q ${SPDIR})
+      #       fi
+      #     fi
+      #   }
+      # }
+      # [ "${updavail}" == "Updates available" ] || {
+      #   updavail=
+      #   [ "${configdir}" == "${astronvimdir}" ] ||
+      #   [ "${configdir}" == "${nvchaddir}" ] ||
+      #   [ "${configdir}" == "nvim-Cpp" ] ||
+      #   [ "${configdir}" == "nvim-Go" ] ||
+      #   [ "${configdir}" == "nvim-Rust" ] ||
+      #   [ "${configdir}" == "nvim-Python" ] ||
+      #   [ "${customastro}" ] && {
+      #     if [ "${configdir}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
+      #       cdir="lua/user"
+      #       tdir="~/.config/${configdir}/lua/user"
+      #     else
+      #       cdir="lua/custom"
+      #       tdir="~/.config/${configdir}/lua/custom"
+      #     fi
+      #     if [ -d "${configpath}/${cdir}" ]; then
+      #       if [ -d "${configpath}/${cdir}/.git" ]; then
+      #         updavail=$(git_status -q "${configpath}/${cdir}")
+      #       fi
+      #     fi
+      #   }
+      # }
+      # if [ "${updavail}" == "Updates available" ]; then
+      #   updates_available=1
+      #   updavail=" ✗"
+      # else
+      #   updavail=
+      # fi
     if [ ${showinstalled} -gt 0 ]; then
+      neovims=""
+      leader="[b green]"
       linelen=0
-      if [ "${have_rich}" ]; then
-        neovims=""
-        leader="[b green]"
-        for neovim in "${sorted[@]}"; do
+      for neovim in "${sorted[@]}"; do
+        if [ "${have_rich}" ]; then
           neovims="${neovims} ${leader}${neovim}[/]"
           if [ "${leader}" == "[b green]" ]; then
             leader="[b magenta]"
           else
             leader="[b green]"
           fi
-        done
-        rich "${neovims}" -p -a rounded -c -C -w 78
-      else
-        printf "\t"
-        for neovim in "${sorted[@]}"; do
-          printf "${neovim}  "
+        else
+          printf "\t"
+          printf "${neovim} "
           nvsz=${#neovim}
           linelen=$((linelen + nvsz + 2))
           [ ${linelen} -gt 50 ] && {
             printf "\n\t"
             linelen=0
           }
-        done
-        printf "\n\n"
+        fi
+      done
+      if [ "${have_rich}" ]; then
+        rich "${neovims}" -p -a rounded -c -C -w 78
+      else
+        printf "\n"
       fi
-    else
-      printf "\n"
     fi
     [ "${instcats}" ] && {
       if [ "${have_rich}" ]; then
         rich "[b green]${instcats}[/]" -p -c
       else
-        printf "\nInstalled categories: ${BOLD}${instcats}${NORM} 🌝\n"
+        printf "\nInstalled categories: ${BOLD}${instcats}${NORM} 🌝"
       fi
     }
     [ "${instcons}" ] && {
       if [ "${have_rich}" ]; then
         rich "[b green]${instcons}[/]" -p -c
       else
-        printf "\nInstalled types:      ${BOLD}${instcons}${NORM} 🌝\n"
+        printf "\nInstalled types:      ${BOLD}${instcons}${NORM} 🌝"
       fi
     }
     printf "\n"
     if [ "${have_rich}" ]; then
       rich "[b cyan]Selection shortcuts: [/] [b yellow]${shortcuts}[/]" -p
     else
-      printf "Selection shortcuts:  ${BOLD}${shortcuts}${NORM}\n"
+      printf "\nSelection shortcuts:  ${BOLD}${shortcuts}${NORM}\n"
     fi
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -2150,115 +2214,121 @@ show_main_menu() {
         man lazyman
         break
         ;;
-      "Select/Install Base"*,* | *,"Select/Install Base"*)
-        choices=("All Base Configs")
-        for neovim in ${BASECFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Install  " --layout=reverse --border --exit-0)
+      "Install from Category",* | *,"Install from Category")
+        choices=()
+        [ "${base_installed}" ] || choices+=("Select/Install from Base")
+        [ "${lang_installed}" ] || choices+=("Select/Install from Languages")
+        [ "${prsnl_installed}" ] || choices+=("Select/Install from Personals")
+        [ "${start_installed}" ] || choices+=("Select/Install from Starters")
+        [ "${astro_installed}" ] || choices+=("Select/Install from AstroNvims")
+        [ "${lzyvm_installed}" ] || choices+=("Select/Install from LazyVims")
+        [ "${lunar_installed}" ] || choices+=("Select/Install from LunarVims")
+        [ "${nvchd_installed}" ] || choices+=("Select/Install from NvChads")
+        [ "${iushort}" == "update" ] || choices+=("Select/Install from All")
+        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category to install from  " --layout=reverse --border --exit-0)
         if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst Language"*,* | *,"Select/Inst Language"*)
-        choices=("All Language Configs")
-        for neovim in ${LANGUCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst Personal"*,* | *,"Select/Inst Personal"*)
-        choices=("All Personal Configs")
-        for neovim in ${PRSNLCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Personal Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst Starter"*,* | *,"Select/Inst Starter"*)
-        choices=("All Starter Configs")
-        for neovim in ${STARTCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Starter Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst Astro"*,* | *,"Select/Inst Astro"*)
-        choices=("All AstroNvim Configs")
-        for neovim in ${ASTROCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select AstroNvim Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst NvChad"*,* | *,"Select/Inst NvChad"*)
-        choices=("All NvChad Configs")
-        for neovim in ${NVCHADCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst LazyVim"*,* | *,"Select/Inst LazyVim"*)
-        choices=("All LazyVim Configs")
-        for neovim in ${LAZYVIMCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
-        fi
-        break
-        ;;
-      "Select/Inst LunarVim"*,* | *,"Select/Inst LunarVim"*)
-        choices=("All LunarVim Configs")
-        for neovim in ${LUNARVIMCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ ! " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Install  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          install_config "${choice}"
+          case "${choice}" in
+            "Select/Install from Base")
+              bchoices=("All Base Configs")
+              for neovim in ${BASECFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  bchoices+=("${neovim}")
+                fi
+              done
+              bchoice=$(printf "%s\n" "${bchoices[@]}" | fzf --prompt=" Select Base Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${bchoices[*]} " =~ " ${bchoice} " ]]; then
+                install_config "${bchoice}"
+              fi
+              ;;
+            "Select/Install from Languages")
+              lchoices=("All Language Configs")
+              for neovim in ${LANGUCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  lchoices+=("${neovim}")
+                fi
+              done
+              lchoice=$(printf "%s\n" "${lchoices[@]}" | fzf --prompt=" Select Language Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${lchoices[*]} " =~ " ${lchoice} " ]]; then
+                install_config "${lchoice}"
+              fi
+              ;;
+            "Select/Install from Personals")
+              pchoices=("All Personal Configs")
+              for neovim in ${PRSNLCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  pchoices+=("${neovim}")
+                fi
+              done
+              pchoice=$(printf "%s\n" "${pchoices[@]}" | fzf --prompt=" Select Personal Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${pchoices[*]} " =~ " ${pchoice} " ]]; then
+                install_config "${pchoice}"
+              fi
+              ;;
+            "Select/Install from Starters")
+              schoices=("All Starter Configs")
+              for neovim in ${STARTCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  schoices+=("${neovim}")
+                fi
+              done
+              schoice=$(printf "%s\n" "${schoices[@]}" | fzf --prompt=" Select Starter Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${schoices[*]} " =~ " ${schoice} " ]]; then
+                install_config "${schoice}"
+              fi
+              ;;
+            "Select/Install from AstroNvims")
+              achoices=("All AstroNvim Configs")
+              for neovim in ${ASTROCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  achoices+=("${neovim}")
+                fi
+              done
+              achoice=$(printf "%s\n" "${achoices[@]}" | fzf --prompt=" Select AstroNvim Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${achoices[*]} " =~ " ${achoice} " ]]; then
+                install_config "${achoice}"
+              fi
+              ;;
+            "Select/Install from NvChads")
+              nchoices=("All NvChad Configs")
+              for neovim in ${NVCHADCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  nchoices+=("${neovim}")
+                fi
+              done
+              nchoice=$(printf "%s\n" "${nchoices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${nchoices[*]} " =~ " ${nchoice} " ]]; then
+                install_config "${nchoice}"
+              fi
+              ;;
+            "Select/Install from LazyVims")
+              zchoices=("All LazyVim Configs")
+              for neovim in ${LAZYVIMCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  zchoices+=("${neovim}")
+                fi
+              done
+              zchoice=$(printf "%s\n" "${zchoices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${zchoices[*]} " =~ " ${zchoice} " ]]; then
+                install_config "${zchoice}"
+              fi
+              ;;
+            "Select/Install from LunarVims")
+              vchoices=("All LunarVim Configs")
+              for neovim in ${LUNARVIMCFGS}; do
+                if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  vchoices+=("${neovim}")
+                fi
+              done
+              vchoice=$(printf "%s\n" "${vchoices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Install  " --layout=reverse --border --exit-0)
+              if [[ " ${vchoices[*]} " =~ " ${vchoice} " ]]; then
+                install_config "${vchoice}"
+              fi
+              ;;
+            "Select/Install from All")
+              allchoice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
+              [ "${allchoice}" ] && install_config "${allchoice}"
+              ;;
+          esac
         fi
         break
         ;;
@@ -2272,150 +2342,159 @@ show_main_menu() {
         [ "${choice}" ] && update_config "${choice}"
         break
         ;;
-      "Select/Open Base"*,* | *,"Select/Open Base"* | "open b"*,* | *,"open b"* | "Open B"*,* | *,"Open B"*)
+      "Open from Category",* | *,"Open from Category")
         choices=()
-        for neovim in ${BASECFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Open  " --layout=reverse --border --exit-0)
+        [ "${base_partial}" ] && choices+=("Select and Open from Base")
+        [ "${lang_partial}" ] && choices+=("Select and Open from Languages")
+        [ "${prsnl_partial}" ] && choices+=("Select and Open from Personals")
+        [ "${start_partial}" ] && choices+=("Select and Open from Starters")
+        [ "${astro_partial}" ] && choices+=("Select and Open from AstroNvims")
+        [ "${lzyvm_partial}" ] && choices+=("Select and Open from LazyVims")
+        [ "${lunar_partial}" ] && choices+=("Select and Open from LunarVims")
+        [ "${nvchd_partial}" ] && choices+=("Select and Open from NvChads")
+        [ "${iushort}" == "update" ] || choices+=("Select and Open from All")
+        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category to open from  " --layout=reverse --border --exit-0)
         if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open Language"*,* | *,"Select/Open Language"* | "open lan"*,* | *,"open lan"* | "Open Lan"*,* | *,"Open Lan"*)
-        choices=()
-        for neovim in ${LANGUCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open Personal"*,* | *,"Select/Open Personal"* | "open p"*,* | *,"open p"* | "Open P"*,* | *,"Open P"*)
-        choices=()
-        for neovim in ${PRSNLCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Personal Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open Starter"*,* | *,"Select/Open Starter"* | "open s"*,* | *,"open s"* | "Open S"*,* | *,"Open S"*)
-        choices=()
-        for neovim in ${STARTCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Starter Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open Astro"*,* | *,"Select/Open Astro"* | "open a"*,* | *,"open a"* | "Open A"*,* | *,"Open A"*)
-        choices=()
-        for neovim in ${ASTROCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select AstroNvim Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open NvChad"*,* | *,"Select/Open NvChad"* | "open n"*,* | *,"open n"* | "Open N"*,* | *,"Open N"*)
-        choices=()
-        for neovim in ${NVCHADCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open LazyVim"*,* | *,"Select/Open LazyVim"* | "open lazyvim"*,* | *,"open lazyvim"* | "Open Lazyvim"*,* | *,"Open Lazyvim"*)
-        choices=()
-        for neovim in ${LAZYVIMCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
-      "Select/Open LunarVim"*,* | *,"Select/Open LunarVim"* | "open lun"*,* | *,"open lun"* | "Open Lun"*,* | *,"Open Lun"*)
-        choices=()
-        for neovim in ${LUNARVIMCFGS}; do
-          basenvdir=$(echo "${neovim}" | sed -e "s/nvim-//")
-          if [[ " ${sorted[*]} " =~ " ${basenvdir} " ]]; then
-            choices+=("${basenvdir}")
-          fi
-        done
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Open  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          if [ "${USEGUI}" ]; then
-            runconfig "nvim-${choice}" "neovide"
-          else
-            runconfig "nvim-${choice}"
-          fi
-        fi
-        break
-        ;;
+          case "${choice}" in
+            "Select and Open from Base")
+              choices=()
+              for neovim in ${BASECFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Base Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from Languages")
+              choices=()
+              for neovim in ${LANGUCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Language Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from Personals")
+              choices=()
+              for neovim in ${PRSNLCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Personal Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from Starters")
+              choices=()
+              for neovim in ${STARTCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Starter Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from AstroNvims")
+              choices=()
+              for neovim in ${ASTROCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select AstroNvim Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from NvChads")
+              choices=()
+              for neovim in ${NVCHADCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select NvChad Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from LazyVims")
+              choices=()
+              for neovim in ${LAZYVIMCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LazyVim Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from LunarVims")
+              choices=()
+              for neovim in ${LUNARVIMCFGS}; do
+                if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+                  choices+=("${neovim}")
+                fi
+              done
+              choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select LunarVim Neovim Config to Open  " --layout=reverse --border --exit-0)
+              if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+                if [ "${USEGUI}" ]; then
+                  runconfig "nvim-${choice}" "neovide"
+                else
+                  runconfig "nvim-${choice}"
+                fi
+              fi
+              ;;
+            "Select and Open from All")
+              if [ "${USEGUI}" ]; then
+                neovides
+              else
+                nvims
+              fi
+              ;;
+	  esac
+	fi
+	break
+	;;
       "Open Lazyman"*,* | *,"Open Lazyman"*)
         if [ "${USEGUI}" ]; then
           NVIM_APPNAME="nvim-Lazyman" neovide
@@ -2454,7 +2533,7 @@ show_main_menu() {
         [ ${numndirs} -gt 1 ] && {
           choices+=("Remove All")
         }
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category or type to remove  " --layout=reverse --border --exit-0)
+        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category to remove  " --layout=reverse --border --exit-0)
         if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
           case "${choice}" in
             "Remove Base")
@@ -2515,7 +2594,7 @@ show_main_menu() {
         [ ${numndirs} -gt 1 ] && {
           choices+=("Update All")
         }
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category or type to update  " --layout=reverse --border --exit-0)
+        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration category to update  " --layout=reverse --border --exit-0)
         if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
           case "${choice}" in
             "Update Base")

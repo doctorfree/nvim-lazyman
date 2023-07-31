@@ -200,9 +200,17 @@ command -v nvim > /dev/null && {
       [ ${height} -gt 100 ] && height=100
       [ ${height} -lt 20 ] && height=20
       if [ "${filter}" ]; then
-        config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        if [[ -z ${remove} ]]; then
+          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        else
+          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        fi
       else
-        config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        if [[ -z ${remove} ]]; then
+          config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        else
+          config=$(printf "%s\n" "${items[@]}" | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        fi
       fi
     fi
     if [[ -z ${config} ]]; then
