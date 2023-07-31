@@ -13,6 +13,7 @@ CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
 WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
+FONTDIR="${LMANDIR}/scripts/figlet-fonts"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
@@ -20,7 +21,7 @@ NORM=$(tput sgr0 2>/dev/null)
 PLEASE="Please enter your choice"
 USEGUI=
 # Array with font names
-fonts=("slant" "shadow" "small" "script" "standard")
+fonts=("Slant" "Shadow" "Small" "Script" "Standard")
 # Supported themes
 themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra"
         "onedarkpro" "everforest" "monokai-pro")
@@ -86,9 +87,9 @@ show_figlet() {
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
   [ "${USE_FONT}" ] || USE_FONT="standard"
   if [ "${have_lolcat}" ]; then
-    figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
   else
-    figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
   fi
 }
 

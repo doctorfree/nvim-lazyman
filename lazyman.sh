@@ -22,6 +22,7 @@ KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
 SUBMENUS="${SCRIPTSD}/lazyman_config.sh"
 WEBDEV="${SCRIPTSD}/webdev_config.sh"
 LZYIDE="${SCRIPTSD}/lzyide_config.sh"
+FONTDIR="${SCRIPTSD}/figlet-fonts"
 # LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
@@ -47,7 +48,7 @@ SPDIR="${HOME}/.SpaceVim.d"
 # Timeout length for nvim headless execution
 timeout=120
 # Array with font names
-fonts=("slant" "shadow" "small" "script" "standard")
+fonts=("3-D" "3d" "Epic" "Fire Font-k" "Graceful" "Lean" "Script" "Shadow" "Slant" "Small" "Speed" "Standard")
 cfginst=1
 cfgpart=
 cfginstalled=0
@@ -910,11 +911,11 @@ show_figlet() {
   # Seed random generator
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
-  [ "${USE_FONT}" ] || USE_FONT="standard"
+  [ "${USE_FONT}" ] || USE_FONT="Standard"
   if [ "${have_lolcat}" ]; then
-    figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
   else
-    figlet -c -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
   fi
 }
 
