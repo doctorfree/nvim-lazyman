@@ -919,16 +919,22 @@ show_figlet() {
   fi
 }
 
-# git_status [-q] config_dir
+# git_status [-q] [-r] config_dir
 #   -q indicates return short status string, one of:
 #     "Up-to-date"
 #     "Updates available"
 #     "Local changes"
 #     "Diverged"
+#   -r indicates rich-cli rather than echo/printf (only if no -q)
 git_status() {
   query=
+  rich=
   [ "$1" == "-q" ] && {
     query=1
+    shift
+  }
+  [ "$1" == "-r" ] && {
+    rich=1
     shift
   }
   gpath="$1"
@@ -943,28 +949,60 @@ git_status() {
     if [ "${query}" ]; then
       echo "Up-to-date"
     else
-      printf "\n  %-45s  Up-to-date " "${tpath}"
+      if [ "${rich}" ]; then
+        printf "  %-45s" "${tpath}"
+        rich "  [b green]Up-to-date [/]" -p
+      else
+        printf "\n  %-45s  Up-to-date " "${tpath}"
+      fi
     fi
   elif [ $LOCAL = $BASE ]; then
     if [ "${query}" ]; then
       echo "Updates available"
     else
-      printf "\n  %-45s  Updates available" "${tpath}"
-      printf "\n    Update with: lazyman -U -N ${neovim}"
+      if [ "${rich}" ]; then
+        printf "  %-45s" "${tpath}"
+        rich "  [b yellow]Updates available[/]" -p
+      else
+        printf "\n  %-45s  Updates available" "${tpath}"
+      fi
+      if [ "${rich}" ]; then
+        rich "    Update with: [b cyan]lazyman -U -N ${neovim}[/]" -p
+      else
+        printf "\n    Update with: lazyman -U -N ${neovim}"
+      fi
     fi
   elif [ $REMOTE = $BASE ]; then
     if [ "${query}" ]; then
       echo "Local changes"
     else
-      printf "\n  %-45s  Local changes to tracked files" "${tpath}"
-      printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      if [ "${rich}" ]; then
+        printf "  %-45s" "${tpath}"
+        rich "  [b orange]Local changes to tracked files[/]" -p
+      else
+        printf "\n  %-45s  Local changes to tracked files" "${tpath}"
+      fi
+      if [ "${rich}" ]; then
+        rich "    Backup any local changes prior to running [b cyan]lazyman -U -N ${neovim}[/]" -p
+      else
+        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      fi
     fi
   else
     if [ "${query}" ]; then
       echo "Diverged"
     else
-      printf "\n  %-45s  Appears to have diverged" "${tpath}"
-      printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      if [ "${rich}" ]; then
+        printf "  %-45s" "${tpath}"
+        rich "  [b red]Appears to have diverged[/]" -p
+      else
+        printf "\n  %-45s  Appears to have diverged" "${tpath}"
+      fi
+      if [ "${rich}" ]; then
+        rich "    Backup any local changes prior to running [b cyan]lazyman -U -N ${neovim}[/]" -p
+      else
+        printf "\n    Backup any local changes prior to running 'lazyman -U -N ${neovim}'"
+      fi
     fi
   fi
 }
@@ -982,10 +1020,91 @@ list_installed() {
     done
     numins=${#installed[@]}
     if [ ${numins} -gt 0 ]; then
-      printf "\n\n${numins} installed Lazyman Neovim configurations:\n"
-      for conf in "${installed[@]}"; do
-        printf "\n\t${conf}"
+      printf "\n\n${numins} installed Lazyman Neovim configurations\n"
+      installed=()
+      for neovim in ${BASECFGS}; do
+        if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          installed+=("${neovim}")
+        fi
       done
+      numins=${#installed[@]}
+      [ ${numins} -gt 0 ] && {
+        printf "\n  ${numins} installed Base Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${installed[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      installed=()
+      for neovim in ${LANGUCFGS}; do
+        if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          installed+=("${neovim}")
+        fi
+      done
+      numins=${#installed[@]}
+      [ ${numins} -gt 0 ] && {
+        printf "\n  ${numins} installed Language Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${installed[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      installed=()
+      for neovim in ${PRSNLCFGS}; do
+        if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          installed+=("${neovim}")
+        fi
+      done
+      numins=${#installed[@]}
+      [ ${numins} -gt 0 ] && {
+        printf "\n  ${numins} installed Personal Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${installed[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      installed=()
+      for neovim in ${STARTCFGS}; do
+        if [[ " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          installed+=("${neovim}")
+        fi
+      done
+      numins=${#installed[@]}
+      [ ${numins} -gt 0 ] && {
+        printf "\n  ${numins} installed Starter Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${installed[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
     else
       printf "\n\nNo supported Lazyman Neovim configurations are installed."
     fi
@@ -1045,10 +1164,91 @@ list_uninstalled() {
     done
     numunins=${#uninstalled[@]}
     if [ ${numunins} -gt 0 ]; then
-      printf "\n\n${numunins} uninstalled Lazyman Neovim configurations:\n"
-      for conf in "${uninstalled[@]}"; do
-        printf "\n\t${conf}"
+      printf "\n\n${numunins} uninstalled Lazyman Neovim configurations\n"
+      uninstalled=()
+      for neovim in ${BASECFGS}; do
+        if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          uninstalled+=("${neovim}")
+        fi
       done
+      numunins=${#uninstalled[@]}
+      [ ${numunins} -gt 0 ] && {
+        printf "\n  ${numunins} uninstalled Base Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${uninstalled[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      uninstalled=()
+      for neovim in ${LANGUCFGS}; do
+        if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          uninstalled+=("${neovim}")
+        fi
+      done
+      numunins=${#uninstalled[@]}
+      [ ${numunins} -gt 0 ] && {
+        printf "\n  ${numunins} uninstalled Language Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${uninstalled[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      uninstalled=()
+      for neovim in ${PRSNLCFGS}; do
+        if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          uninstalled+=("${neovim}")
+        fi
+      done
+      numunins=${#uninstalled[@]}
+      [ ${numunins} -gt 0 ] && {
+        printf "\n  ${numunins} uninstalled Personal Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${uninstalled[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
+      uninstalled=()
+      for neovim in ${STARTCFGS}; do
+        if [[ ! " ${sorted[*]} " =~ " ${neovim} " ]]; then
+          uninstalled+=("${neovim}")
+        fi
+      done
+      numunins=${#uninstalled[@]}
+      [ ${numunins} -gt 0 ] && {
+        printf "\n  ${numunins} uninstalled Starter Neovim configurations:\n\n  "
+        linelen=0
+        for conf in "${uninstalled[@]}"; do
+          printf "${conf}  "
+          nvsz=${#conf}
+          linelen=$((linelen + nvsz + 2))
+          [ ${linelen} -gt 50 ] && {
+            printf "\n  "
+            linelen=0
+          }
+        done
+        printf "\n"
+      }
     else
       printf "\n\nAll supported Lazyman Neovim configurations are installed."
     fi
@@ -1170,6 +1370,109 @@ show_info() {
   fi
 }
 
+check_updates() {
+  use_rich=
+  [ "$1" == "rich" ] && use_rich=1
+  [ -f "${LZYMANRC}" ] && {
+    source "${LZYMANRC}"
+  }
+  readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
+  for neovim in "${sorted[@]}"; do
+    configpath="${HOME}/.config/${neovim}"
+    twiddlpath="~/.config/${neovim}"
+    if [ -d "${configpath}/.git" ]; then
+      # Check if updates are available
+      if [ "${use_rich}" ]; then
+        git_status -r "${configpath}"
+      else
+        git_status "${configpath}"
+      fi
+    else
+      if [ -d "${configpath}" ]; then
+        if [ "${use_rich}" ]; then
+          printf "  %-45s" "${twiddlpath}"
+          rich "  [b yellow]Not a git repository[/]" -p
+        else
+          printf "\n  %-45s  Not a git repository" "${twiddlpath}"
+        fi
+      else
+        if [ "${use_rich}" ]; then
+          printf "  %-45s" "${twiddlpath}"
+          rich "  [b red]Config folder not found![/]" -p
+        else
+          printf "\n  %-45s  Config folder not found!" "${twiddlpath}"
+        fi
+      fi
+    fi
+    [ "${neovim}" == "${spacevimdir}" ] && {
+      tdir="~/.SpaceVim.d"
+      if [ -d "${SPDIR}" ]; then
+        if [ -d "${SPDIR}/.git" ]; then
+          # Check if updates are available
+          if [ "${use_rich}" ]; then
+            git_status -r "${SPDIR}"
+          else
+            git_status "${SPDIR}"
+          fi
+        else
+          if [ "${use_rich}" ]; then
+            printf "  %-45s" "${tdir}"
+            rich "  [b yellow]Not a git repository[/]" -p
+          else
+            printf "\n  %-45s  Not a git repository" "${tdir}"
+          fi
+        fi
+      else
+        if [ "${use_rich}" ]; then
+          printf "  %-45s" "${tdir}"
+          rich "  [b red]Custom config folder not found[/]" -p
+        else
+          printf "\n  %-45s  Custom config folder not found" "${tdir}"
+        fi
+      fi
+    }
+    [ "${neovim}" == "${astronvimdir}" ] ||
+    [ "${neovim}" == "${nvchaddir}" ] ||
+    [ "${ndir}" == "nvim-Cpp" ] ||
+    [ "${ndir}" == "nvim-Go" ] ||
+    [ "${ndir}" == "nvim-Rust" ] ||
+    [ "${neovim}" == "nvim-Python" ] ||
+    [ "${customastro}" ] && {
+      if [ "${neovim}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
+        cdir="lua/user"
+        tdir="~/.config/${neovim}/lua/user"
+      else
+        cdir="lua/custom"
+        tdir="~/.config/${neovim}/lua/custom"
+      fi
+      if [ -d "${configpath}/${cdir}" ]; then
+        if [ -d "${configpath}/${cdir}/.git" ]; then
+          # Check if updates are available
+          if [ "${use_rich}" ]; then
+            git_status -r "${configpath}/${cdir}"
+          else
+            git_status "${configpath}/${cdir}"
+          fi
+        else
+          if [ "${use_rich}" ]; then
+            printf "  %-45s" "${tdir}"
+            rich "  [b yellow]Not a git repository[/]" -p
+          else
+            printf "\n  %-45s  Not a git repository" "${tdir}"
+          fi
+        fi
+      else
+        if [ "${use_rich}" ]; then
+          printf "  %-45s" "${tdir}"
+          rich "  [b red]Custom config folder not found[/]" -p
+        else
+          printf "\n  %-45s  Custom config folder not found" "${tdir}"
+        fi
+      fi
+    }
+  done
+}
+
 show_status() {
   nvim_version=$(nvim --version | head -2)
   printf "\nInstalled Neovim version info:\n\n${nvim_version}\n"
@@ -1232,59 +1535,44 @@ show_status() {
   printf "\n  %-8s  Base Neovim configurations installed" "${binst}/${btots}"
   printf "\n  %-8s  Language Neovim configurations installed" "${linst}/${ltots}"
   printf "\n  %-8s  Personal Neovim configurations installed" "${pinst}/${ptots}"
-  printf "\n  %-8s  Starter Neovim configurations installed\n" "${sinst}/${stots}"
-  for neovim in "${sorted[@]}"; do
-    configpath="${HOME}/.config/${neovim}"
-    twiddlpath="~/.config/${neovim}"
-    if [ -d "${configpath}/.git" ]; then
-      # Check if updates are available
-      git_status "${configpath}"
-    else
-      if [ -d "${configpath}" ]; then
-        printf "\n  %-45s  Not a git repository" "${twiddlpath}"
-      else
-        printf "\n  %-45s  Config folder not found!" "${twiddlpath}"
-      fi
+  printf "\n  %-8s  Starter Neovim configurations installed\n" "${sinst}/${stots}\n"
+  ainst=0
+  atots=0
+  for neovim in ${ASTROCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((ainst++))
     fi
-    [ "${neovim}" == "${spacevimdir}" ] && {
-      tdir="~/.SpaceVim.d"
-      if [ -d "${SPDIR}" ]; then
-        if [ -d "${SPDIR}/.git" ]; then
-          # Check if updates are available
-          git_status "${SPDIR}"
-        else
-          printf "\n  %-45s  Not a git repository" "${tdir}"
-        fi
-      else
-        printf "\n  %-45s  Custom config folder not found" "${tdir}"
-      fi
-    }
-    [ "${neovim}" == "${astronvimdir}" ] ||
-    [ "${neovim}" == "${nvchaddir}" ] ||
-    [ "${ndir}" == "nvim-Cpp" ] ||
-    [ "${ndir}" == "nvim-Go" ] ||
-    [ "${ndir}" == "nvim-Rust" ] ||
-    [ "${neovim}" == "nvim-Python" ] ||
-    [ "${customastro}" ] && {
-      if [ "${neovim}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
-        cdir="lua/user"
-        tdir="~/.config/${neovim}/lua/user"
-      else
-        cdir="lua/custom"
-        tdir="~/.config/${neovim}/lua/custom"
-      fi
-      if [ -d "${configpath}/${cdir}" ]; then
-        if [ -d "${configpath}/${cdir}/.git" ]; then
-          # Check if updates are available
-          git_status "${configpath}/${cdir}"
-        else
-          printf "\n  %-45s  Not a git repository" "${tdir}"
-        fi
-      else
-        printf "\n  %-45s  Custom config folder not found" "${tdir}"
-      fi
-    }
+    ((atots++))
   done
+  vinst=0
+  vtots=0
+  for neovim in ${LAZYVIMCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((vinst++))
+    fi
+    ((vtots++))
+  done
+  uinst=0
+  utots=0
+  for neovim in ${LUNARVIMCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((uinst++))
+    fi
+    ((utots++))
+  done
+  ninst=0
+  ntots=0
+  for neovim in ${NVCHADCFGS}; do
+    if [[ " ${sorted[*]} " =~ " nvim-${neovim} " ]]; then
+      ((ninst++))
+    fi
+    ((ntots++))
+  done
+  printf "\n  %-8s  AstroNvim Neovim configurations installed" "${ainst}/${atots}"
+  printf "\n  %-8s  LazyVim Neovim configurations installed" "${vinst}/${vtots}"
+  printf "\n  %-8s  LunarVim Neovim configurations installed" "${uinst}/${utots}"
+  printf "\n  %-8s  NvChad Neovim configurations installed\n" "${ninst}/${ntots}"
+  check_updates
   list_uninstalled
 }
 
@@ -2105,7 +2393,7 @@ show_main_menu() {
     [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
       options+=("Webdev Config")
     }
-    options+=("Lazyman Manual" "Lazyman Status")
+    options+=("Lazyman Manual" "Status Report" "Check for Updates")
     [ "${have_brew}" ] && {
       options+=("Homebrew Upgrade")
     }
@@ -2122,58 +2410,12 @@ show_main_menu() {
       options+=("Toggle UI [${use_gui}]")
     fi
     options+=("Quit")
-    # Checking for updates takes too long, comment out for now
-    # updates_available=
-    # for neovim in "${sorted[@]}"; do
-      # updavail=
-      # configdir="nvim-${neovim}"
-      # configpath="${HOME}/.config/${configdir}"
-      # if [ -d "${configdir}/.git" ]; then
-      #   updavail=$(git_status -q ${configdir})
-      # fi
-      # [ "${updavail}" == "Updates available" ] || {
-      #   updavail=
-      #   [ "${configdir}" == "${spacevimdir}" ] && {
-      #     if [ -d "${SPDIR}" ]; then
-      #       if [ -d "${SPDIR}/.git" ]; then
-      #         updavail=$(git_status -q ${SPDIR})
-      #       fi
-      #     fi
-      #   }
-      # }
-      # [ "${updavail}" == "Updates available" ] || {
-      #   updavail=
-      #   [ "${configdir}" == "${astronvimdir}" ] ||
-      #   [ "${configdir}" == "${nvchaddir}" ] ||
-      #   [ "${configdir}" == "nvim-Cpp" ] ||
-      #   [ "${configdir}" == "nvim-Go" ] ||
-      #   [ "${configdir}" == "nvim-Rust" ] ||
-      #   [ "${configdir}" == "nvim-Python" ] ||
-      #   [ "${customastro}" ] && {
-      #     if [ "${configdir}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
-      #       cdir="lua/user"
-      #       tdir="~/.config/${configdir}/lua/user"
-      #     else
-      #       cdir="lua/custom"
-      #       tdir="~/.config/${configdir}/lua/custom"
-      #     fi
-      #     if [ -d "${configpath}/${cdir}" ]; then
-      #       if [ -d "${configpath}/${cdir}/.git" ]; then
-      #         updavail=$(git_status -q "${configpath}/${cdir}")
-      #       fi
-      #     fi
-      #   }
-      # }
-      # if [ "${updavail}" == "Updates available" ]; then
-      #   updates_available=1
-      #   updavail=" ✗"
-      # else
-      #   updavail=
-      # fi
+
     if [ ${showinstalled} -gt 0 ]; then
       neovims=""
       leader="[b green]"
       linelen=0
+     [ "${have_rich}" ] || printf "  "
       for neovim in "${sorted[@]}"; do
         if [ "${have_rich}" ]; then
           neovims="${neovims} ${leader}${neovim}[/]"
@@ -2183,21 +2425,16 @@ show_main_menu() {
             leader="[b green]"
           fi
         else
-          printf "\t"
-          printf "${neovim} "
+          printf "${neovim}  "
           nvsz=${#neovim}
           linelen=$((linelen + nvsz + 2))
-          [ ${linelen} -gt 50 ] && {
-            printf "\n\t"
+          [ ${linelen} -gt 74 ] && {
+            printf "\n  "
             linelen=0
           }
         fi
       done
-      if [ "${have_rich}" ]; then
-        rich "${neovims}" -p -a rounded -c -C -w 78
-      else
-        printf "\n"
-      fi
+      [ "${have_rich}" ] && rich "${neovims}" -p -a rounded -c -C -w 78
     fi
     [ "${instcats}" ] && {
       if [ "${have_rich}" ]; then
@@ -2834,7 +3071,18 @@ show_main_menu() {
         wdevmenu=1
         break
         ;;
-      "Lazyman Status",* | *,"Lazyman Status")
+      "Check for Updates",* | *,"Check for Updates")
+        printf "\nChecking for available updates to Lazyman installed configs\n\n"
+        if [ "${have_rich}" ]; then
+          check_updates rich
+        else
+          check_updates
+          printf "\n"
+        fi
+        prompt_continue
+        break
+        ;;
+      "Status Report",* | *,"Status Report")
         printf "\nPreparing Lazyman status report\n"
         show_status >/tmp/lminfo$$
         if [ "${USEGUI}" ]; then
