@@ -4,7 +4,15 @@
 
 ### ⚡️ Added
 
+- Format `git status` and config listings
+- Initial Jekyll `_config.yml` for Github Pages
+
 ### 🐞 Fixed
+
+- Move `debug/neovim version/ui toggle` to bottom of lazyman menu
+- Check if uninstalled array is empty before selection to install
+- Change `Lazyman Status` menu entry to `Status Report`
+- Fix `LunarVim` config total
 
 ## v3.0.1r1
 
