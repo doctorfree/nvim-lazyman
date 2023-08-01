@@ -2345,16 +2345,20 @@ show_main_menu() {
               fi
               ;;
             "Select/Install from All")
-              allchoice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
-              [ "${allchoice}" ] && install_config "${allchoice}"
+              [ ${numunins} -gt 0 ] && {
+                allchoice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
+                [ "${allchoice}" ] && install_config "${allchoice}"
+              }
               ;;
           esac
         fi
         break
         ;;
       "Select and Install"*,* | *,"Select and Install"* | "install",* | *,"install" | "Install",* | *,"Install")
-        choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
-        [ "${choice}" ] && install_config "${choice}"
+        [ ${numunins} -gt 0 ] && {
+          choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
+          [ "${choice}" ] && install_config "${choice}"
+        }
         break
         ;;
       "Select and Update"*,* | *,"Select and Update"* | "update",* | *,"update" | "Update",* | *,"Update")
