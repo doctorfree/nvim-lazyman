@@ -1,3 +1,16 @@
-remote_theme: pages-themes/midnight@v0.2.0
+remote_theme: doctorfree/jekyll-theme-neoman
 plugins:
   - jekyll-remote-theme
+
+title: Lazyman Neovim Configuration Manager
+email: ronaldrecord@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  The Lazyman project can be used to install, initialize, and manage multiple
+  Neovim configurations. 99 popular Neovim configurations are supported.
+baseurl: ""
+url: "https://lazyman.neoman.dev"
+twitter_username: ronrecord
+github_username: doctorfree
+
+show_downloads: false
+# google_analytics:
