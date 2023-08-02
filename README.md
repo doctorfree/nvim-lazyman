@@ -15,6 +15,13 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
     <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/></a>
 </p>
 
+Lazyman is one of the [Neoman](https://neoman.dev) managed projects:
+
+| **Neoman** | **Managed** | **Projects** |
+| ---------- | ----------- | ------------ |
+| [Asciiville](https://asciiville.dev) | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
+| [MusicPlayerPlus](https://musicplayerplus.dev) | [Neoman](https://neoman.dev) | [RoonCommandLine](https://rooncommand.dev) |
+
 The Lazyman Neovim configuration management menu:
 
 <p float="center">
