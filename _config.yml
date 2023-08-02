@@ -8,7 +8,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   The Lazyman project can be used to install, initialize, and manage multiple
   Neovim configurations. 99 popular Neovim configurations are supported.
 baseurl: ""
-url: "https://lazyman.neoman.dev"
+url: "https://lazyman.dev"
 twitter_username: ronrecord
 github_username: doctorfree
 
