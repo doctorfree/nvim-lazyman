@@ -289,6 +289,14 @@ make_info() {
       C_DESC="One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust, YAML, and more"
       C_INST="lazyman -L Allaman"
       ;;
+    Barebones)
+      GH_URL="https://github.com/Traap/barebones"
+      YT_URL="https://www.youtube.com/@traap."
+      CF_CAT="Starter"
+      CF_TYP="[LazyVim](https://lazyvim.github.io)"
+      C_DESC="Bare bones LazyVim configuration by Traap with a [video introduction](https://youtu.be/xpBoiTIiepc)"
+      C_INST="lazyman -x Barebones"
+      ;;
     CatNvim)
       GH_URL="https://github.com/nullchilly/CatNvim"
       WS_URL="https://www.lazyvim.org"

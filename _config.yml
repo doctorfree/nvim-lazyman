@@ -6,7 +6,7 @@ title: Lazyman Neovim Configuration Manager
 email: ronaldrecord@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   The Lazyman project can be used to install, initialize, and manage multiple
-  Neovim configurations. 99 popular Neovim configurations are supported.
+  Neovim configurations. 100 popular Neovim configurations are supported.
 baseurl: ""
 url: "https://lazyman.dev"
 twitter_username: ronrecord

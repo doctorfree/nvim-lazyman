@@ -1730,7 +1730,7 @@ install_config() {
   AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Orange | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
-  2k | AstroNvimStart | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
+  2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
   Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
@@ -4435,6 +4435,11 @@ install_remove() {
       lazyman ${darg} -C https://github.com/doctorfree/AstroNvimStart \
         -J -N nvim-AstroNvimStart ${quietflag} -z ${yesflag}
       action="Installing"
+      [ -d ${HOME}/.config/nvim-Barebones ] && action="Updating"
+      printf "\n${action} Barebones Neovim configuration"
+      lazyman ${darg} -C https://github.com/Traap/barebones \
+        -N nvim-Barebones ${quietflag} -z ${yesflag}
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
       printf "\n${action} Basic Neovim configuration"
       lazyman ${darg} -C https://github.com/NvChad/basic-config \
@@ -4554,6 +4559,9 @@ install_remove() {
       AstroNvimStart)
         start_url="https://github.com/doctorfree/AstroNvimStart"
         start_opt="-J"
+        ;;
+      Barebones)
+        start_url="https://github.com/Traap/barebones"
         ;;
       Basic)
         start_url="https://github.com/NvChad/basic-config"

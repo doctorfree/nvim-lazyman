@@ -27,7 +27,7 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
 - interactive menu interface for ease of management
   - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
   - perform health checks and generate a status report via menus
-- 99 supported Neovim configurations out of the box, additional custom configs
+- 100 supported Neovim configurations out of the box, additional custom configs
 - vimdoc help for `Lazyman` with `:h Lazyman` or `,hl`
 - convenience shell functions and aliases with fuzzy search and selection
   - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs

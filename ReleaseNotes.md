@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-This major new release of `lazyman` supports 99 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
+This major new release of `lazyman` supports 100 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
 All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.1r1/lazyman.sh) script. Download and execute to get started:
 
@@ -11,7 +11,7 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 
 See below for detailed [Installation instructions](#installation) to bootstrap Lazyman. Once Lazyman is installed, execute the `lazyman` command to manage Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
-The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently 99 popular Neovim configurations are supported in the following configuration categories:
+The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently 100 popular Neovim configurations are supported in the following configuration categories:
 
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
@@ -37,12 +37,11 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [Slydragonn](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Slydragonn.md) | [Spider](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Spider.md) | [Traap](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Traap.md) | [Wuelner](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Wuelner.md) | [xero](https://github.com/doctorfree/nvim-lazyman/blob/main/info/xero.md) | [Xiao](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Xiao.md) |
 
 <!-- prettier-ignore -->
-| **Starter** |       |       |        | **Configs** |
-| ----------- | ----- | ----- | ------ | ----------- |
-| [AstroNvimStart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/AstroNvimStart.md) | [Basic](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Basic.md) | [CodeArt](https://github.com/doctorfree/nvim-lazyman/blob/main/info/CodeArt.md) | [CosmicNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Cosmic.md) | [Ember](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Ember.md) |
-| [Fennel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Fennel.md) | [HardHacker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/HardHacker.md) | [JustinOhMy](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinOhMy.md) | [Kickstart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kickstart.md) | [Kabin](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kabin.md) |
-| [Lamia](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lamia.md) | [Micah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Micah.md) | [Modern](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Modern.md) | [Normal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Normal.md) | [nvim2k](https://github.com/doctorfree/nvim-lazyman/blob/main/info/2k.md) |
-| [NvPak](https://github.com/doctorfree/nvim-lazyman/blob/main/info/NvPak.md) | [PDE](https://github.com/doctorfree/nvim-lazyman/blob/main/info/pde.md) | [Rohit](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rohit.md) | [Scratch](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Scratch.md) | [SingleFile](https://github.com/doctorfree/nvim-lazyman/blob/main/info/SingleFile.md) |
+| **Starter** |       |       |       |       |        | **Configs** |
+| ----------- | ----- | ----- | ----- | ----- | ------ | ----------- |
+| [AstroNvimStart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/AstroNvimStart.md) | [Barebones](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Barebones.md) | [Basic](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Basic.md) | [CodeArt](https://github.com/doctorfree/nvim-lazyman/blob/main/info/CodeArt.md) | [CosmicNvim](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Cosmic.md) | [Ember](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Ember.md) | [Fennel](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Fennel.md) |
+| [HardHacker](https://github.com/doctorfree/nvim-lazyman/blob/main/info/HardHacker.md) | [JustinOhMy](https://github.com/doctorfree/nvim-lazyman/blob/main/info/JustinOhMy.md) | [Kickstart](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kickstart.md) | [Kabin](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Kabin.md) | [Lamia](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lamia.md) | [Micah](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Micah.md) | [Modern](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Modern.md) |
+| [Normal](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Normal.md) | [nvim2k](https://github.com/doctorfree/nvim-lazyman/blob/main/info/2k.md) | [NvPak](https://github.com/doctorfree/nvim-lazyman/blob/main/info/NvPak.md) | [PDE](https://github.com/doctorfree/nvim-lazyman/blob/main/info/pde.md) | [Rohit](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Rohit.md) | [Scratch](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Scratch.md) | [SingleFile](https://github.com/doctorfree/nvim-lazyman/blob/main/info/SingleFile.md) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |       | **Starter** |       | **Configs** |
