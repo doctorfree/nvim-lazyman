@@ -4,11 +4,20 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.0.1r2
+
+### ⚡️ Added
+
 - Format `git status` and config listings
 - Initial Jekyll `_config.yml` for Github Pages
+- Add `Barebones` config to `Starters`
+- Add table of Neoman managed projects
 
 ### 🐞 Fixed
 
+- Update Jekyll theme config
 - Move `debug/neovim version/ui toggle` to bottom of lazyman menu
 - Check if uninstalled array is empty before selection to install
 - Change `Lazyman Status` menu entry to `Status Report`
