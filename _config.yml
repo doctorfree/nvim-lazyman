@@ -16,7 +16,7 @@ timezone: America/Los_Angeles
 
 title: Lazyman
 
-tagline: Manage Multiple Neovim Configurations # it will display as the sub-title
+tagline: Manage Neovim Configurations # it will display as the sub-title
 
 description: >- # this means to ignore newlines until "baseurl:"
   The Lazyman project can be used to install, initialize, and manage multiple
