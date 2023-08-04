@@ -1,0 +1,29 @@
+#  The contact options.
+
+- type: github
+  icon: "fab fa-github"
+
+- type: twitter
+  icon: "fab fa-twitter"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true # open link in current tab
+
+- type: mastodon
+  icon: "fab fa-mastodon"
+  url: "https://fosstodon.org/@doctorfree"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/ronrecord" # Fill with your Linkedin homepage
+
+# Uncomment and complete the url below to enable more contact options
+#
+# - type: rss
+#   icon: "fas fa-rss"
+#   noblank: true
+#
+# - type: stack-overflow
+#   icon: 'fab fa-stack-overflow'
+#   url:  ''                  # Fill with your stackoverflow homepage

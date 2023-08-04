@@ -88,6 +88,32 @@ scripts/patches/*
 !scripts/patches/nvim-Shuvro.patch
 !scripts/patches/README.md
 
+#do not ignore .github directory
+!.github
+
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+_site
+
+# RubyGems
+*.gem
+
+# NPM dependencies
+node_modules
+package-lock.json
+
+# IDE configurations
+.idea
+.vscode
+
+# Misc
+assets/js/dist
+
 # vim files
 .*.sw[a-z]
 *.un~
