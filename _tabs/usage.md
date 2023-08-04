@@ -126,3 +126,271 @@ Commands act on NVIM_APPNAME, override with '-N nvimdir' or '-A'
 Without arguments lazyman installs and initializes nvim-Lazyman
 or, if initialized, an interactive menu system is displayed.
 ```
+
+### Supported plugin managers
+
+Lazyman currently supports the following Neovim plugin managers:
+
+- [Lazy](https://github.com/folke/lazy.nvim) (lazy.nvim)
+- [Packer](https://github.com/wbthomason/packer.nvim) (packer.nvim)
+- [Plug](https://github.com/junegunn/vim-plug) (vim-plug)
+
+The SpaceVim bundled plugin manager, **dein**, is supported only for the
+SpaceVim install and initialization but Neovim configurations preconfigured
+to use the **dein** plugin manager may install and initialize successfully.
+
+Neovim configurations using other plugin managers will likely fail to cleanly
+install and initialize using `lazyman`. Support for additional plugin managers
+is not currently planned but if you have a need for this feature open an issue.
+
+To install and initialize a Neovim configuration that uses the **Packer** plugin
+manager invoke `lazyman` with the `-P` flag.
+
+To install and initialize a Neovim configuration that uses the **Plug** plugin
+manager invoke `lazyman` with the `-p` flag.
+
+### Updates
+
+To update a previously installed Lazyman Neovim configuration execute
+`lazyman -U -N <nvimdir>` to update the Neovim configuration in
+`~/.config/<nvimdir>`, `lazyman -U -A` to update all configurations,
+or `lazyman -U` to update the `nvim-Lazyman` configuration. Updates
+retrieve any newly modified files from the respective Github repository
+while preserving local modifications. Note, if a file has been modified
+both locally and in the repository then it will not be updated and retain
+only local modifications.
+
+### Lazyman manual
+
+The `lazyman` bootstrap process installs a `lazyman` manual page in
+`~/.local/share/man/man1/lazyman.1`. This man page includes a synopsis
+of the `lazyman` command line options, a brief description of its use,
+a description of each command line option, and several example invocations.
+
+The `lazyman` manual page can be viewed with `man lazyman`.
+
+Lazyman Neovim help can be viewed inside Neovim with `:h Lazyman`.
+
+### Lazyman configuration
+
+The `nvim-Lazyman` Neovim configuration includes a top-level configuration file,
+`~/.config/nvim-Lazyman/lua/configuration.lua`. This file can be use to enable,
+disable, and configure `nvim-Lazyman` components. For example, here is where you
+would configure whether `neo-tree` or `nvim-tree` is enabled as a file explorer.
+Or, disable the tabline, disable the statusline, set the colorscheme, theme, and
+theme style. The `configuration.lua` file is intended to serve as a quick and
+easy way to re-configure the `nvim-Lazyman` Neovim configuration but you can still
+dig down into the `options.lua`, `keymaps.lua`, `autocmds.lua` and more.
+
+#### Configuration sections
+
+The `lua/configuration.lua` configuration file contains the following sections
+with settings briefly described here:
+
+##### Namespace selection
+
+The `Lazyman` Neovim configuration contains two separate and distinct
+configurations. The setting `conf.namespace` in `lua/configuration.lua`
+controls which configuration is active. The supported values for
+`conf.namespace` are `free` and `onno`. The `free` namespace is the same
+configuration used in previous releases of `Lazyman`. The `onno` namespace
+is based on the [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/html/ONNO.html)
+configuration with modifications and enhancements to integrate this config with `lazyman`.
+
+To use the `free` namespace, set:
+
+```
+conf.namespace = "free"
+```
+
+To use the `onno` namespace, set:
+
+```
+conf.namespace = "onno"
+```
+
+This setting is configurable via the `lazyman` menu system, as are most
+of the `Lazyman` configuration settings.
+
+##### Theme configuration
+
+The `nvim-Lazyman` Neovim configuration includes pre-configured support for several
+themes including support for statusline and tabline theme coordination. The active
+theme and colorscheme is selected in `configuration.lua` by setting `conf.theme`.
+For themes that support different styles, the theme style is selected by setting
+`conf.theme_style`. Theme transparency can be enabled with `conf.enable_transparent`.
+For example, to use the `kanagawa` theme with `dragon` style and transparency
+disabled, set:
+
+```
+conf.theme = "kanagawa"
+conf.theme_style = "dragon"
+conf.enable_transparent = false
+```
+
+###### Supported themes
+
+- [catppuccin](https://github.com/catppuccin/nvim.git)
+- [dracula](https://github.com/Mofiqul/dracula.nvim)
+- [everforest](https://github.com/neanias/everforest-nvim.git)
+- [kanagawa](https://github.com/rebelot/kanagawa.nvim.git)
+- [nightfox](https://github.com/EdenEast/nightfox.nvim.git)
+- [monokai-pro](https://github.com/loctvl842/monokai-pro.nvim)
+- [onedarkpro](https://github.com/olimorris/onedarkpro.nvim.git)
+- [tokyonight](https://github.com/folke/tokyonight.nvim.git)
+- [tundra](https://github.com/sam4llis/nvim-tundra.git)
+
+A configuration file for each theme is in `lua/themes/` and lualine theme
+configuration for each theme and its styles in `lua/themes/lualine`.
+
+Use `<F8>` to step through themes.
+
+Available styles are:
+
+- kanagawa
+  - wave
+  - dragon
+  - lotus
+- tokyonight
+  - night
+  - storm
+  - day
+  - moon
+- onedarkpro
+  - onedark
+  - onelight
+  - onedark_vivid
+  - onedark_dark
+- catppuccin
+  - latte
+  - frappe
+  - macchiato
+  - mocha
+  - custom
+- dracula
+  - blood
+  - magic
+  - soft
+  - default
+- nightfox
+  - carbonfox
+  - dawnfox
+  - dayfox
+  - duskfox
+  - nightfox
+  - nordfox
+  - terafox
+- monokai-pro
+  - classic
+  - octagon
+  - pro
+  - machine
+  - ristretto
+  - spectrum
+
+##### Plugin configuration
+
+Several Neovim plugins in the `nvim-Lazyman` configuration can be optionally
+installed or replaced by another plugin with similar functionality. The plugins
+that are configurable in this way in `configuration.lua` are briefly described
+below along with their default settings:
+
+- Neovim session manager to use, either persistence or possession
+  - `conf.session_manager = "possession"`
+- Enable display of ascii art
+  - `conf.enable_asciiart = false`
+- Delete buffers and close files without closing your windows
+  - `conf.enable_bbye = true`
+- Enable display of custom cheatsheets
+  - `conf.enable_cheatsheet = true`
+- Enable coding plugins for diagnostics, debugging, and language sservers
+  - `conf.enable_coding = true`
+- Enable compile plugin to compile and run current file
+  - `conf.enable_compile = false`
+- If coding is enabled, enable Github Copilot
+  - `conf.enable_copilot = false`
+- If coding is enabled, enable Neoai, <https://github.com/Bryley/neoai.nvim>
+  - `conf.enable_neoai = false`
+- Enable dressing plugin for improved default vim.ui interfaces
+  - `conf.enable_dressing = true`
+- Enable easy motions, can be one of "hop", "leap", or "none"
+  - `conf.enable_motion = "leap"`
+- Enable note making using Markdown preview and Obsidian plugins
+  - `conf.enable_notes = true`
+- Enable renamer plugin for VS Code-like renaming UI
+  - `conf.enable_renamer = true`
+- Enable ranger in a floating window
+  - `conf.enable_ranger_float = true`
+- Enable multiple cursors
+  - `conf.enable_multi_cursor = true`
+- Neo-tree or nvim-tree, false will enable nvim-tree
+  - `conf.enable_neotree = true`
+- Replace the UI for messages, cmdline and the popup menu
+  - `conf.enable_noice = true`
+- Enable ChatGPT (set `OPENAI_API_KEY` environment variable)
+  - `conf.enable_chatgpt = false`
+- Enable the wilder plugin
+  - `conf.enable_wilder = false`
+- The statusline (lualine) can be enabled or disabled
+  - `conf.enable_statusline = true`
+- The winbar with navic location can be one of barbecue, standard, or none
+  - `conf.enable_winbar = "standard"`
+- Enable LSP progress in winbar
+  - `conf.enable_lualine_lsp_progress = true`
+- Enable the rebelot/terminal.nvim terminal plugin
+  - `conf.enable_terminal = true`
+- Enable playing games inside Neovim!
+  - `conf.enable_games = true`
+- Enable the Alpha dashboard
+  - `conf.dashboard = "alpha"`
+- Enable the Neovim bookmarks plugin (<https://github.com/ldelossa/nvim-ide>)
+  - `conf.enable_bookmarks = false`
+- Enable the Neovim IDE plugin (<https://github.com/ldelossa/nvim-ide>)
+  - `conf.enable_ide = false`
+- Enable Navigator
+  - `conf.enable_navigator = true`
+- Enable Project manager
+  - `conf.enable_project = true`
+- Enable smooth scrolling with the `neoscroll` plugin
+  - `conf.enable_smooth_scrolling = true`
+- Enable window picker
+  - `conf.enable_picker = true`
+- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
+  - `conf.show_diagnostics = "icons"`
+- Enable semantic highlighting
+  - `conf.enable_semantic_highlighting = true`
+- Convert semantic highlights to treesitter highlights
+  - `conf.convert_semantic_highlighting = true`
+
+Additional plugin configuration and options are available in `configuration.lua`.
+
+### Lazyman Neovim Terminal
+
+The `Lazyman` Neovim configuration includes Neovim Terminal management via
+[terminal.nvim](https://github.com/rebelot/terminal.nvim). This Neovim terminal
+is preconfigured for execution of the `lazyman` command. Shortcut key
+bindings to execute `lazyman` in a Neovim terminal have been provided:
+`<leader>lm` to bring up the main Lazyman menu, and `<leader>lc` to bring up
+the Lazyman configuration menu. While in Neovim with the default
+`nvim-Lazyman` configuration, pressing `,lm` will execute the `lazyman`
+command in a Neovim floating terminal window and pressing `,lc` will
+execute `lazyman -F` in a terminal window. Alternately, executing the
+Neovim command `:Lazyman` will also bring up the `lazyman` command
+in a Neovim terminal.
+
+The Lazyman Neovim configuration includes an autocmd to automatically
+enter insert mode when opening the Neovim Terminal. This allows
+immediate input to the `lazyman` prompt. While in the Neovim Terminal
+the normal Neovim mode, motion, and command key bindings are in effect.
+For example, to leave insert mode press `<ESC>`, to re-enter insert
+mode press `i` or `a`.
+
+If [Asciiville](https://asciiville.dev) is installed,
+pressing `,A` or executing the `:Asciiville` Neovim command will execute
+the `asciiville` command in a Neovim floating terminal window.
+
+If the `htop` command is available, `:Htop` will execute the `htop` system
+monitor in a floating Neovim terminal window.
+
+This preconfigured Neovim terminal capability is only available in the
+`Lazyman` Neovim configuration and not in the other configs.
