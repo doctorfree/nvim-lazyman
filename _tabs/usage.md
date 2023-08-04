@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-user-circle
-order: 2
+order: 3
 ---
 
 ## Usage
