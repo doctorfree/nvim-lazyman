@@ -4,8 +4,11 @@ layout: page
 
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 <div align="center">
-  <img src="https://github.com/doctorfree/nvim-lazyman/wiki/screenshots/lazymenu-transparent.png" alt="Lazyman"
-    style="width: 800px; height: 600px" />
+  <img
+    src="https://github.com/doctorfree/nvim-lazyman/wiki/screenshots/lazymenu-transparent.png"
+    alt="Lazyman"
+    style="width: 800px; height: 600px"
+  />
 </div>
 <p>
   The Lazyman project can be used to install, initialize, and manage multiple
@@ -32,9 +35,8 @@ layout: page
   More info on the <code>nvims</code> and <code>neovides</code> shell functions
   can be found below in the
   <a href="#the-nvims-fuzzy-selector">nvims fuzzy selector section</a>, in the
-  <b>nvims</b> man page with <b>man nvims</b>, with the command
-  <b>nvims -U</b>, or in Neovim using the
-  <b>nvim-Lazyman</b> configuration with <b>:h Nvims</b>.
+  <b>nvims</b> man page with <b>man nvims</b>, with the command <b>nvims -U</b>,
+  or in Neovim using the <b>nvim-Lazyman</b> configuration with <b>:h Nvims</b>.
 </p>
 <p>
   The <code>lazyman</code> command separates Neovim configurations into 5
@@ -53,8 +55,8 @@ layout: page
   include the popular Neovim <code>Kickstart</code> configuration, a
   <code>Modern</code> Neovim config, the <code>PDE</code> personal development
   environment config, and the Neovim configurations provided by the
-  <a href="https://github.com/VonHeikemen/nvim-starter">nvim-starter project</a>. The <code>Custom</code> category
-  includes any additional Neovim
+  <a href="https://github.com/VonHeikemen/nvim-starter">nvim-starter project</a
+  >. The <code>Custom</code> category includes any additional Neovim
   configurations installed and initialized with <code>lazyman</code> by the
   end-user using the <code>-C url</code> and <code>-N nvimdir</code> options.
 </p>
@@ -95,7 +97,9 @@ layout: page
         <a href="#custom-configurations">Custom configurations</a>
         <ul>
           <li>
-            <a href="#custom-configuration-patches">Custom configuration patches</a>
+            <a href="#custom-configuration-patches"
+              >Custom configuration patches</a
+            >
           </li>
         </ul>
       </li>
@@ -140,7 +144,9 @@ layout: page
       <li><a href="#using-aliases">Using aliases</a></li>
       <li><a href="#open-url-command">Open URL command</a></li>
       <li>
-        <a href="#using-lazyman-to-explore-configurations">Using lazyman to explore configurations</a>
+        <a href="#using-lazyman-to-explore-configurations"
+          >Using lazyman to explore configurations</a
+        >
       </li>
     </ul>
   </li>
@@ -323,7 +329,9 @@ layout: page
   If you do not wish to use the automated installation and initialization
   provided by the <code>lazyman.sh</code> script, manual installation and
   initialization can be performed. See the Lazyman Wiki article on
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Manual_Installation">Manual Installation</a>
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Manual_Installation"
+    >Manual Installation</a
+  >
   to manually install rather than use the automated installation feature of the
   <code>lazyman</code> command.
 </p>
@@ -690,7 +698,9 @@ layout: page
 <p>
   For example, to install and initialize the Packer based Neovim configuration
   hosted at
-  <a href="https://github.com/VapourNvim/VapourNvim" class="uri">https://github.com/VapourNvim/VapourNvim</a>
+  <a href="https://github.com/VapourNvim/VapourNvim" class="uri"
+    >https://github.com/VapourNvim/VapourNvim</a
+  >
   and place it in <code>~/.config/VapourNvim</code>, execute the command:
 </p>
 <pre>
@@ -709,7 +719,9 @@ layout: page
   <code>-N nvimdir</code>. If no <code>-b branch</code> is provided then the
   default git branch is assumed to be <code>master</code>. For example, to
   install and initialize the Neovim configuration hosted at
-  <a href="https://github.com/alanRizzo/dot-files" class="uri">https://github.com/alanRizzo/dot-files</a>
+  <a href="https://github.com/alanRizzo/dot-files" class="uri"
+    >https://github.com/alanRizzo/dot-files</a
+  >
   in the subdirectory <code>nvim</code> with default branch <code>main</code>,
   place it in <code>~/.config/nvim-AlanVim</code>, and initialize it with
   Packer:
@@ -744,14 +756,17 @@ layout: page
 </p>
 <p>
   An excellent list of preconfigured Neovim configurations is available at the
-  <a href="https://github.com/rockerBOO/awesome-neovim#preconfigured-configuration">Awesome Neovim Repository</a>. Many
-  of these can be easily installed and initialized using
+  <a
+    href="https://github.com/rockerBOO/awesome-neovim#preconfigured-configuration"
+    >Awesome Neovim Repository</a
+  >. Many of these can be easily installed and initialized using
   <code>lazyman -b &lt;branch&gt; -C &lt;url&gt; -N &lt;nvimdir&gt; ...</code>.
 </p>
 <p>
   Feel free to open an issue at
-  <a href="https://github.com/doctorfree/nvim-lazyman/issues"
-    class="uri">https://github.com/doctorfree/nvim-lazyman/issues</a>
+  <a href="https://github.com/doctorfree/nvim-lazyman/issues" class="uri"
+    >https://github.com/doctorfree/nvim-lazyman/issues</a
+  >
   to help tackle any problems installing or initializing Neovim configurations
   with Lazyman.
 </p>
@@ -854,16 +869,26 @@ layout: page
   <a href="https://github.com/folke/lazy.nvim">Lazy plugin manager</a>. The
   <a href="https://github.com/doctorfree/nvim-lazyman/wiki">Lazyman Wiki</a>
   includes a list of the
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile">Lazy loaded plugins</a>
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile"
+    >Lazy loaded plugins</a
+  >
   in the <code>nvim-Lazyman</code> Neovim configuration sorted by
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-load-order">load order</a>
+  <a
+    href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-load-order"
+    >load order</a
+  >
   and
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-loading-time">load time</a>.
+  <a
+    href="https://github.com/doctorfree/nvim-lazyman/wiki/Lazy-Profile#sorted-by-loading-time"
+    >load time</a
+  >.
 </p>
 <h3 id="mason">Mason</h3>
 <p>
   The <code>nvim-Lazyman</code> Neovim configuration uses the
-  <a href="https://github.com/williamboman/mason.nvim">Mason portable package manager</a>
+  <a href="https://github.com/williamboman/mason.nvim"
+    >Mason portable package manager</a
+  >
   to easily install and manage LSP servers, DAP servers, linters, and
   formatters.
 </p>
@@ -877,7 +902,9 @@ layout: page
   The
   <a href="https://github.com/doctorfree/nvim-lazyman/wiki">Lazyman Wiki</a>
   includes a list of the
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Mason-Installed">Mason installed packages</a>
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/Mason-Installed"
+    >Mason installed packages</a
+  >
   in the <code>nvim-Lazyman</code> Neovim configuration.
 </p>
 <h3 id="packer">Packer</h3>
@@ -890,7 +917,9 @@ layout: page
 <p>
   For example, to install and initialize the <code>Abstract</code> Neovim
   configuration at
-  <a href="https://github.com/Abstract-IDE/Abstract" class="uri">https://github.com/Abstract-IDE/Abstract</a>
+  <a href="https://github.com/Abstract-IDE/Abstract" class="uri"
+    >https://github.com/Abstract-IDE/Abstract</a
+  >
   invoke <code>lazyman</code> as follows:
 </p>
 <pre>
@@ -954,7 +983,9 @@ layout: page
 <p>
   For example, to install and initialize the <code>Optixal</code> Neovim
   configuration at
-  <a href="https://github.com/Optixal/neovim-init.vim" class="uri">https://github.com/Optixal/neovim-init.vim</a>
+  <a href="https://github.com/Optixal/neovim-init.vim" class="uri"
+    >https://github.com/Optixal/neovim-init.vim</a
+  >
   invoke <code>lazyman</code> as follows:
 </p>
 <pre>
@@ -1467,8 +1498,10 @@ layout: page
     Locate the module paths the Homebrew python is using. For example:
     <ul>
       <li>
-        <code>/home/linuxbrew/.linuxbrew/bin/python3 -c 'import site;
-          print(site.getsitepackages())' | tr -d '[],'</code>
+        <code
+          >/home/linuxbrew/.linuxbrew/bin/python3 -c 'import site;
+          print(site.getsitepackages())' | tr -d '[],'</code
+        >
       </li>
     </ul>
   </li>
@@ -1476,8 +1509,10 @@ layout: page
     Locate the module paths the system python is using. For example:
     <ul>
       <li>
-        <code>/usr/bin/python3 -c 'import site; print(site.getsitepackages())' | tr
-          -d '[],'</code>
+        <code
+          >/usr/bin/python3 -c 'import site; print(site.getsitepackages())' | tr
+          -d '[],'</code
+        >
       </li>
     </ul>
   </li>
@@ -1565,11 +1600,15 @@ layout: page
 </p>
 <p>
   See the
-  <a href="https://github.com/neovim/neovim/releases/tag/v0.9.0">Neovim 0.9 release notes</a>
+  <a href="https://github.com/neovim/neovim/releases/tag/v0.9.0"
+    >Neovim 0.9 release notes</a
+  >
   for an overview of changes. In particular, many of these types of issues are
   detailed in the
-  <a href="https://github.com/neovim/neovim/blob/040f1459849ab05b04f6bb1e77b3def16b4c2f2b/runtime/doc/news.txt">news.txt
-    for Neovim 0.9</a>
+  <a
+    href="https://github.com/neovim/neovim/blob/040f1459849ab05b04f6bb1e77b3def16b4c2f2b/runtime/doc/news.txt"
+    >news.txt for Neovim 0.9</a
+  >
   (<code>:help news</code> within nvim).
 </p>
 <p>
@@ -1612,18 +1651,19 @@ layout: page
     confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2&gt;&amp;1)
   </code>
 </pre>
-<p>
-  The <code>get_conf.lua</code> script can also be used to retrieve option or
-  variable settings in any Neovim configuration. For example, to retrieve the
-  value of the ‘mouse’ option in the <code>nvim-Webdev</code> Neovim
-  configuration:
+
+The <code>get_conf.lua</code> script can also be used to retrieve option or
+variable settings in any Neovim configuration. For example, to retrieve the
+value of the ‘mouse’ option in the <code>nvim-Webdev</code> Neovim
+configuration:
+
 <pre>
   <code>
     GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
     NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
   </code>
 </pre>
-</p>
+
 <h3 id="lazyman-source-code">Lazyman source code</h3>
 <p>
   The convenience script to install and initialize <code>nvim-Lazyman</code> is
@@ -1633,7 +1673,9 @@ layout: page
 </p>
 <p>
   View the lazyman.sh script in the
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/lazyman">Lazyman Wiki</a>
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/lazyman"
+    >Lazyman Wiki</a
+  >
 </p>
 <h3 id="install-neovim-and-tools">Install neovim and tools</h3>
 <p>
@@ -1650,7 +1692,10 @@ layout: page
 </p>
 <p>
   The automated Neovim installation is performed by
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/install_neovim">install_neovim.sh</a>. View the
-  <code>install_neovim.sh</code> script in the
-  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/install_neovim">Lazyman Wiki</a>.
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/install_neovim"
+    >install_neovim.sh</a
+  >. View the <code>install_neovim.sh</code> script in the
+  <a href="https://github.com/doctorfree/nvim-lazyman/wiki/install_neovim"
+    >Lazyman Wiki</a
+  >.
 </p>
