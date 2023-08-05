@@ -1,10 +1,10 @@
 ---
 # the default layout is 'page'
 icon: fas fa-user-circle
-order: 4
+order: 5
 ---
 
-## Usage
+## Lazyman Neovim Configuration Manager Usage
 
 The `lazyman.sh` script is located in `~/.config/nvim-Lazyman`.
 It installs itself as `$HOME/.local/bin/lazyman`. If `$HOME/.local/bin` is

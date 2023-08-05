@@ -1,12 +1,10 @@
 ---
 # the default layout is 'page'
 icon: fas fa-plus-circle
-order: 3
+order: 4
 ---
 
-<h1 align="center">Lazyman Neovim Configuration Manager</h1>
-
-## What's New
+## Lazyman Neovim Configuration Manager News
 
 Recent releases of `lazyman` include several new features, fixes, and improvements:
 

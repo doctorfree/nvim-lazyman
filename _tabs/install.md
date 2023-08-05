@@ -4,8 +4,6 @@ icon: fas fa-arrow-circle-down
 order: 1
 ---
 
-<h1 align="center">Lazyman Neovim Configuration Manager</h1>
-
 ```bash
 # Install lazyman with the following two commands:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
