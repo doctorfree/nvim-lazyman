@@ -174,14 +174,14 @@ layout: page
 <h2 id="installation">Installation</h2>
 <p>The Lazyman installation process consists of two steps.</p>
 <p>Step 1, clone the Lazyman repository:</p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     git clone https://github.com/doctorfree/nvim-lazyman ~/.config/nvim-Lazyman
   </code>
 </pre>
 <p>Step 2, initialize the Lazyman Neovim configuration:</p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     $HOME/.config/nvim-Lazyman/lazyman.sh
   </code>
 </pre>
@@ -231,8 +231,8 @@ layout: page
   native package manger, invoke <code>lazyman</code> with the
   <code>-h</code> option when initializing:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
     $HOME/.config/nvim-Lazyman/lazyman.sh -h
   </code>
@@ -241,8 +241,8 @@ layout: page
   To compile and install the nightly build of Neovim, use the
   <code>-H</code> option:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
     $HOME/.config/nvim-Lazyman/lazyman.sh -H
   </code>
@@ -252,8 +252,8 @@ layout: page
   runtime environment. To avoid the installation of Homebrew, Neovim, language
   servers, and tools altogether, execute <code>lazyman -Z</code>:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
     $HOME/.config/nvim-Lazyman/lazyman.sh -Z
   </code>
@@ -292,8 +292,8 @@ layout: page
   Clone the repository with <code>git</code> and execute
   <code>lazyman.sh</code>:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
     $HOME/.config/nvim-Lazyman/lazyman.sh
   </code>
@@ -302,8 +302,8 @@ layout: page
   Alternatively, download the <code>lazyman.sh</code> script and execute it. For
   example, with <code>curl</code>:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh &gt; /tmp/lazyman.sh
     chmod 755 /tmp/lazyman.sh
     /tmp/lazyman.sh
@@ -680,8 +680,8 @@ layout: page
   the <code>NVIM_APPNAME</code> environment variable to use the newly created
   Neovim configuration:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     export NVIM_APPNAME="<nvimdir>"
   </code>
 </pre>
@@ -695,8 +695,8 @@ layout: page
   <a href="https://github.com/VapourNvim/VapourNvim" class="uri">https://github.com/VapourNvim/VapourNvim</a>
   and place it in <code>~/.config/VapourNvim</code>, execute the command:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -C https://github.com/VapourNvim/VapourNvim -N VapourNvim -P
     export NVIM_APPNAME="VapourNvim"
     nvim
@@ -716,8 +716,8 @@ layout: page
   place it in <code>~/.config/nvim-AlanVim</code>, and initialize it with
   Packer:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
   </code>
 </pre>
@@ -735,8 +735,8 @@ layout: page
   <code>~/.config/nvim/init.lua</code>. References like this can be fixed so the
   configuration is relocatable by doing something like the following in Lua:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     local config_path = vim.fn.stdpath("config") .. "/init.lua"
   </code>
 </pre>
@@ -792,16 +792,16 @@ layout: page
   <code>lazyman</code>. After commenting out these references a patch can be
   created for this config with:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     diff -Naur lua/modules/language-support/tree-sitter.lua.orig \
     lua/modules/language-support/tree-sitter.lua \
     &gt; ~/.config/nvim-Lazyman/scripts/patches/nvim-3rd.patch
   </code>
 </pre>
 <p>Subsequently, running:</p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -C https://github.com/3rd/config -D home/dotfiles/nvim -N nvim-3rd
   </code>
 </pre>
@@ -895,8 +895,8 @@ layout: page
   <a href="https://github.com/Abstract-IDE/Abstract" class="uri">https://github.com/Abstract-IDE/Abstract</a>
   invoke <code>lazyman</code> as follows:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract -P
   </code>
 </pre>
@@ -904,8 +904,8 @@ layout: page
   This will clone the indicated repository into
   <code>$HOME/.config/nvim-Abstract</code> and initialize it using Packer with:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   </code>
 </pre>
@@ -919,14 +919,14 @@ layout: page
   Another Packer based Neovim configuration, this one using Fennel, is included
   as a Lazyman supported “Personal” config:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -w Fennel
   </code>
 </pre>
 <p>To begin exploring this Neovim configuration:</p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     NVIM_APPNAME="nvim-Fennel" nvim ~/.config/nvim-Fennel/fnl/conf/init.fnl
   </code>
 </pre>
@@ -935,14 +935,14 @@ layout: page
   <code>MagicVim</code> config, a fully supported Lazyman Neovim config. To
   install and initialize <code>MagicVim</code>:
 </p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     lazyman -m
   </code>
 </pre>
 <p>To begin exploring the <code>MagicVim</code> configuration:</p>
-<pre class="sourceCode bash">
-  <code class="sourceCode bash">
+<pre>
+  <code>
     NVIM_APPNAME="nvim-MagicVim" nvim
   </code>
 </pre>
