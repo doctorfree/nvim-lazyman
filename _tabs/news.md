@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-plus-circle
-order: 2
+order: 3
 ---
 
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>

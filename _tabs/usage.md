@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-user-circle
-order: 3
+order: 4
 ---
 
 ## Usage
@@ -194,7 +194,7 @@ configurations. The setting `conf.namespace` in `lua/configuration.lua`
 controls which configuration is active. The supported values for
 `conf.namespace` are `free` and `onno`. The `free` namespace is the same
 configuration used in previous releases of `Lazyman`. The `onno` namespace
-is based on the [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/html/ONNO.html)
+is based on the [ONNO](https://github.com/doctorfree/nvim-lazyman/blob/main/info/ONNO.md)
 configuration with modifications and enhancements to integrate this config with `lazyman`.
 
 To use the `free` namespace, set:
