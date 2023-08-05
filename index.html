@@ -18,7 +18,7 @@ layout: page
   Follow the <a href="#installation">Installation instructions</a> to bootstrap
   Lazyman. Once Lazyman is installed, execute the <code>lazyman</code> command
   to manage Neovim configurations. The <code>lazyman</code> command is located
-  in <code>~/.local/bin/lazyman</code>.
+  in <b>$HOME/.local/bin/lazyman</b>.
 </p>
 <p>
   The two primary features of the Lazyman project are the
@@ -682,7 +682,7 @@ layout: page
 </p>
 <pre>
   <code>
-    export NVIM_APPNAME="<nvimdir>"
+    export NVIM_APPNAME="&lt;nvimdir&gt;
   </code>
 </pre>
 <p>
@@ -959,12 +959,11 @@ layout: page
   <a href="https://github.com/Optixal/neovim-init.vim" class="uri">https://github.com/Optixal/neovim-init.vim</a>
   invoke <code>lazyman</code> as follows:
 </p>
-<div class="sourceCode" id="cb26">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">lazyman</span> <span class="at">-C</span>
-        https://github.com/Optixal/neovim-init.vim <span class="at">-N</span> nvim-Optixal <span
-          class="at">-p</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    lazyman -C https://github.com/Optixal/neovim-init.vim -N nvim-Optixal -p
+  </code>
+</pre>
 <p>
   After <code>export NVIM_APPNAME="nvim-Optixal"</code>, invoking
   <code>nvim</code> will bring up the Optixal Neovim configuration. Note, the
@@ -972,31 +971,28 @@ layout: page
   can be installed with <code>lazyman -w Optixal</code>.
 </p>
 <p>Another Plug based Neovim configuration serves as a second example:</p>
-<div class="sourceCode" id="cb27">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">lazyman</span> <span class="at">-C</span>
-        https://github.com/offa/nvim-config <span class="at">-N</span> nvim-Offa <span
-          class="at">-p</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    lazyman -C https://github.com/offa/nvim-config -N nvim-Offa -p
+  </code>
+</pre>
 <p>To begin exploring this Neovim configuration:</p>
-<div class="sourceCode" id="cb28">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">NVIM_APPNAME</span><span class="op">=</span><span
-          class="st">&quot;nvim-Offa&quot;</span> <span class="ex">nvim</span>
-        ~/.config/nvim-Offa/init.lua</span></code></pre>
-</div>
+<pre>
+  <code>
+    NVIM_APPNAME="nvim-Offa" nvim ~/.config/nvim-Offa/init.lua
+  </code>
+</pre>
 <p>
   Also included as a supported Lazyman config is the previous Neovim
   configuration of the author which uses <code>vim-plug</code> and a vimscript
   initialization file. Install the Lazyman <code>Plug</code> config with the
   command <code>lazyman -w Plug</code> and start exploring with:
 </p>
-<div class="sourceCode" id="cb29">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">NVIM_APPNAME</span><span class="op">=</span><span
-          class="st">&quot;nvim-Plug&quot;</span> <span class="ex">nvim</span>
-        ~/.config/nvim-Plug/init.vim</span></code></pre>
-</div>
+<pre>
+  <code>
+    NVIM_APPNAME="nvim-Plug" nvim ~/.config/nvim-Plug/init.vim
+  </code>
+</pre>
 <h4 id="plug-with-vim-runtimepath-manager">
   Plug with Vim runtimepath manager
 </h4>
@@ -1007,29 +1003,24 @@ layout: page
   <code>pathogen.vim</code> to manage the runtimepath. Installing this Neovim
   configuration with <code>lazyman</code> requires several command line options:
 </p>
-<div class="sourceCode" id="cb30">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">lazyman</span> <span class="at">-b</span> vps <span class="at">-C</span>
-        https://github.com/xero/dotfiles <span class="dt">\</span></span>
-      <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a> <span class="at">-D</span>
-        vim/.config/nvim <span class="at">-N</span> nvim-Xero <span class="at">-p</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    lazyman -b vps -C https://github.com/xero/dotfiles \
+    -D vim/.config/nvim -N nvim-Xero -p
+  </code>
+</pre>
 <p>
   This installs and initializes the configuration in
   <code>~/.config/nvim-Xero/</code> but fails to install <code>pathogen</code>.
   The <code>pathogen.vim</code> runtimepath manager can be installed with:
 </p>
-<div class="sourceCode" id="cb31">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">cfgdir</span><span class="op">=</span><span class="st">&quot;</span><span
-          class="va">${HOME}</span><span class="st">/.config/nvim-Xero&quot;</span></span>
-      <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span
-          class="at">-p</span> <span class="va">${cfgdir}</span>/autoload <span
-          class="va">${cfgdir}</span>/bundle</span>
-      <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span
-          class="at">-LSso</span> <span class="va">${cfgdir}</span>/autoload/pathogen.vim
-        https://tpo.pe/pathogen.vim</span></code></pre>
-</div>
+<pre>
+  <code>
+    cfgdir="${HOME}/.config/nvim-Xero"
+    mkdir -p ${cfgdir}/autoload ${cfgdir}/bundle
+    curl -LSso ${cfgdir}/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+  </code>
+</pre>
 <p>
   Open the configuration with <code>NVIM_APPNAME="nvim-Xero" nvim</code> and
   issue the command <code>:PlugInstall</code>. Now the configuration is properly
@@ -1049,16 +1040,13 @@ layout: page
   <code>~/.config/nvim-Lazyman/Makefile</code>.
 </p>
 <p>To create startup and loading profiles for a Neovim configuration:</p>
-<div class="sourceCode" id="cb32">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"
-          tabindex="-1"></a><span class="bu">cd</span> ~/.config/nvim-<span class="op">&lt;</span>Name<span
-          class="op">&gt;</span> # e.g. <span class="st">&#39;cd ~/.config/nvim-AstroNvim&#39;</span></span>
-      <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span
-          class="va">NVIM_APPNAME</span><span class="op">=</span><span class="st">&quot;nvim-&lt;Name&gt;&quot;</span>
-        <span class="co"># e.g. &#39;export NVIM_APPNAME=&quot;nvim-AstroNvim&quot;</span></span>
-      <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span
-          class="at">-f</span> ~/.config/nvim-Lazyman/Makefile profile</span></code></pre>
-</div>
+<pre>
+  <code>
+    cd ~/.config/nvim-&lt;Name&gt; # e.g. 'cd ~/.config/nvim-AstroNvim'
+    export NVIM_APPNAME="nvim-&lt;Name&gt; # e.g. 'export NVIM_APPNAME="nvim-AstroNvim"
+    make -f ~/.config/nvim-Lazyman/Makefile profile
+  </code>
+</pre>
 <p>
   The files <code>profile-startup.log</code> and
   <code>profile-viml.log</code> will be generated.
@@ -1067,22 +1055,19 @@ layout: page
   Benchmarking a Neovim configuration startup requires <code>hyperfine</code>.
   If not present, install <code>hyperfine</code> with <code>cargo</code>:
 </p>
-<div class="sourceCode" id="cb33">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">cargo</span> install <span class="at">--locked</span>
-        hyperfine</span></code></pre>
-</div>
+<pre>
+  <code>
+    cargo install --locked hyperfine
+  </code>
+</pre>
 <p>To benchmark a Neovim configuration:</p>
-<div class="sourceCode" id="cb34">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"
-          tabindex="-1"></a><span class="bu">cd</span> ~/.config/nvim-<span class="op">&lt;</span>Name<span
-          class="op">&gt;</span> # e.g. <span class="st">&#39;cd ~/.config/nvim-LazyVim&#39;</span></span>
-      <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span
-          class="va">NVIM_APPNAME</span><span class="op">=</span><span class="st">&quot;nvim-&lt;Name&gt;&quot;</span>
-        <span class="co"># e.g. &#39;export NVIM_APPNAME=&quot;nvim-LazyVim&quot;</span></span>
-      <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span
-          class="at">-f</span> ~/.config/nvim-Lazyman/Makefile benchmark</span></code></pre>
-</div>
+<pre>
+  <code>
+    cd ~/.config/nvim-&lt;Name&gt; # e.g. 'cd ~/.config/nvim-LazyVim'
+    export NVIM_APPNAME="nvim-&lt;Name&gt; # e.g. 'export NVIM_APPNAME="nvim-LazyVim"
+    make -f ~/.config/nvim-Lazyman/Makefile benchmark
+  </code>
+</pre>
 <p>
   The files <code>profile-bench-baseline.md</code>,
   <code>profile-bench-startup.md</code>,
@@ -1152,10 +1137,11 @@ layout: page
   example, to edit <code>/tmp/foo.lua</code> with a Neovim configuration
   selected from the <code>nvims</code> menu:
 </p>
-<div class="sourceCode" id="cb35">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">nvims</span> /tmp/foo.lua</span></code></pre>
-</div>
+<pre>
+  <code>
+    nvims /tmp/foo.lua
+  </code>
+</pre>
 <p>
   Execute <code>nvims</code> directly at the shell prompt or by using the
   convenience key binding <code>ctrl-n</code>.
@@ -1268,13 +1254,12 @@ layout: page
   <code>~/.config/nvim-LazyVim</code> and
   <code>~/.config/nvim-LunarVim</code> as follows:
 </p>
-<div class="sourceCode" id="cb38">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"
-          tabindex="-1"></a><span class="bu">alias</span> nvim-lazy=<span class="st">&quot;NVIM_APPNAME=nvim-LazyVim
-          nvim&quot;</span></span>
-      <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span>
-        nvim-lunar=<span class="st">&quot;NVIM_APPNAME=nvim-LunarVim nvim&quot;</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
+    alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+  </code>
+</pre>
 <p>
   After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
   configuration run <code>nvim-lazy filename.py</code> and to invoke Neovim with
@@ -1294,27 +1279,20 @@ layout: page
   override the open URL command and/or set the <code>BROWSER</code> environment
   variable, uncomment and edit the following section of code there:
 </p>
-<div class="sourceCode" id="cb39">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"
-          tabindex="-1"></a><span class="co"># Command to open a URL</span></span>
-      <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set this to override
-          the defaults:</span></span>
-      <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On macOS the default
-          is the &#39;open&#39; command</span></span>
-      <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux default is
-          &#39;python3 -m webbrowser&#39; then &#39;xdg-open&#39; then &#39;gio open&#39;</span></span>
-      <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># export
-          URL_OPEN_COMMAND=&quot;your custom command&quot;</span></span>
-      <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, to use
-          &#39;gio&#39; rather than Python&#39;s webbrowser module on Linux:</span></span>
-      <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># export
-          URL_OPEN_COMMAND=&quot;gio open&quot;</span></span>
-      <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-      <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># To specify the
-          browser, set the BROWSER environment variable. For example:</span></span>
-      <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># export
-          BROWSER=&quot;w3m&quot;</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    # Command to open a URL
+    # Set this to override the defaults:
+    # On macOS the default is the 'open' command
+    # Linux default is 'python3 -m webbrowser' then 'xdg-open' then 'gio open'
+    # export URL_OPEN_COMMAND="your custom command"
+    # For example, to use 'gio' rather than Python's webbrowser module on Linux:
+    # export URL_OPEN_COMMAND="gio open"
+    #
+    # To specify the browser, set the BROWSER environment variable. For example:
+    # export BROWSER="w3m"
+  </code>
+</pre>
 <h3 id="using-lazyman-to-explore-configurations">
   Using lazyman to explore configurations
 </h3>
@@ -1331,11 +1309,11 @@ layout: page
   directory in <code>~/.config</code>. For example, to edit the file
   <code>foo.lua</code> using the LazyVim Neovim configuration:
 </p>
-<div class="sourceCode" id="cb40">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">lazyman</span> <span class="at">-E</span> lazyvim foo.lua</span></code>
-  </pre>
-</div>
+<pre>
+  <code>
+    lazyman -E lazyvim foo.lua
+  </code>
+</pre>
 <p>
   Now you’re using the LazyVim Neovim configuration to edit
   <code>foo.lua</code>, all of the LazyVim key bindings, plugins, options, and
@@ -1344,11 +1322,11 @@ layout: page
 <p>
   To instead use the LunarVim Neovim configuration to edit <code>foo.lua</code>:
 </p>
-<div class="sourceCode" id="cb41">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">lazyman</span> <span class="at">-E</span> lunarvim foo.lua</span></code>
-  </pre>
-</div>
+<pre>
+  <code>
+    lazyman -E lunarvim foo.lua
+  </code>
+</pre>
 <p>
   Before using <code>lazyman -E &lt;config&gt; …</code> to explore a Neovim
   configuration, first install and initialize the
@@ -1369,30 +1347,30 @@ layout: page
   <code>LazyVim</code> configuration, its initialized plugins, state, and cache,
   execute the following command:
 </p>
-<div class="sourceCode" id="cb42">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">$HOME</span><span class="ex">/.config/nvim-Lazyman/lazyman.sh</span> <span
-          class="at">-l</span> <span class="at">-r</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    $HOME/.config/nvim-Lazyman/lazyman.sh -l -r
+  </code>
+</pre>
 <p>
   To remove the <code>nvim-Lazyman</code> configuration and associated plugins,
   state, and cache:
 </p>
-<div class="sourceCode" id="cb43">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">$HOME</span><span class="ex">/.config/nvim-Lazyman/lazyman.sh</span> <span
-          class="at">-r</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    $HOME/.config/nvim-Lazyman/lazyman.sh -r
+  </code>
+</pre>
 <p>
   All <code>lazyman.sh</code> operations can be performed as a dry run with
   <code>-n</code>. For example, to see which <code>LazyVim</code> folders would
   be removed without removing any:
 </p>
-<div class="sourceCode" id="cb44">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">$HOME</span><span class="ex">/.config/nvim-Lazyman/lazyman.sh</span> <span
-          class="at">-n</span> <span class="at">-l</span> <span class="at">-r</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    $HOME/.config/nvim-Lazyman/lazyman.sh -n -l -r
+  </code>
+</pre>
 <h2 id="known-limitations">Known limitations</h2>
 <h3 id="interactive-neovim-configuration-initialization">
   Interactive Neovim Configuration Initialization
@@ -1414,11 +1392,11 @@ layout: page
   terminated with <code>Ctrl-c</code>. After termination the configuration can
   be manually initialized:
 </p>
-<div class="sourceCode" id="cb45">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">NVIM_APPNAME</span><span class="op">=</span><span class="st">&quot;&lt;nvim
-          dir&gt;&quot;</span> <span class="ex">nvim</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    NVIM_APPNAME="&lt;nvim dir&gt; nvim
+  </code>
+</pre>
 <h3 id="external-configuration-dependencies">
   External Configuration Dependencies
 </h3>
@@ -1610,12 +1588,12 @@ layout: page
   To debug a failed Lazyman installation, first run the install script in debug
   mode to try and determine the cause of the failure:
 </p>
-<div class="sourceCode" id="cb47">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true"
-          tabindex="-1"></a><span class="ex">brew</span> update</span>
-      <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="ex">lazyman</span> <span
-          class="at">-d</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    brew update
+    lazyman -d
+  </code>
+</pre>
 <p>
   The <code>lazyman -d</code> command should run the
   <code>install_neovim</code> script in debug mode and any errors will be
@@ -1630,21 +1608,23 @@ layout: page
   menu interface uses this new feature to get the current Lazyman Neovim
   configuration with shell commands like:
 </p>
-<div class="sourceCode" id="cb48">
-  <pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true"
-          tabindex="-1"></a><span class="va">GET_CONF</span><span class="op">=</span><span class="st">&quot;</span><span
-          class="va">${HOME}</span><span class="st">/.config/nvim-Lazyman/scripts/get_conf.lua&quot;</span></span>
-      <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="va">confval</span><span
-          class="op">=</span><span class="va">$(NVIM_APPNAME</span><span class="op">=</span><span
-          class="st">&quot;nvim-Lazyman&quot;</span> <span class="ex">nvim</span> <span class="at">-l</span> <span
-          class="va">${GET_CONF}</span> <span class="va">${confname}</span> <span class="dv">2</span><span
-          class="op">&gt;&amp;</span><span class="dv">1</span><span class="va">)</span></span></code></pre>
-</div>
+<pre>
+  <code>
+    GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
+    confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2&gt;&amp;1)
+  </code>
+</pre>
 <p>
   The <code>get_conf.lua</code> script can also be used to retrieve option or
   variable settings in any Neovim configuration. For example, to retrieve the
   value of the ‘mouse’ option in the <code>nvim-Webdev</code> Neovim
   configuration:
+<pre>
+  <code>
+    GET_CONF="${HOME}/.config/nvim-Lazyman/scripts/get_conf.lua"
+    NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
+  </code>
+</pre>
 </p>
 <h3 id="lazyman-source-code">Lazyman source code</h3>
 <p>
