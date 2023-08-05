@@ -4,9 +4,7 @@ icon: fas fa-info-circle
 order: 2
 ---
 
-<h1 align="center">Lazyman Neovim Configuration Manager</h1>
-
-## Supported configurations
+## Lazyman Supported Configurations
 
 After installing and initializing `lazyman`, additional Neovim configurations
 can be installed and initialized using the `lazyman` command. Additional Neovim
