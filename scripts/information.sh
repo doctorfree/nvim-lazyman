@@ -572,6 +572,13 @@ make_info() {
       C_DESC="Personal Neovim configuration of chadcat, a high school student with no life. Kodo is a Neovim configuration that looks good and is fast (startuptime < 0.035s)."
       C_INST="lazyman -w Kodo"
       ;;
+    LamarVim)
+      GH_URL="https://github.com/Lamarcke/dotfiles"
+      CF_CAT="Personal"
+      DF_URL="https://dotfyle.com/Lamarcke/dotfiles-config-nvim"
+      C_DESC="Personal Neovim configuration of Cassio Lamarck"
+      C_INST="lazyman -w LamarVim"
+      ;;
     Lukas)
       GH_URL="https://github.com/lukas-reineke/dotfiles"
       CF_CAT="Personal"

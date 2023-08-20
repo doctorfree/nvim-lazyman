@@ -1733,7 +1733,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4086,6 +4086,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/chadcat7/kodo \
           -N nvim-Kodo ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-LamarVim)" == "ok" ] && {
+        printf "\n${action} LamarVim Neovim configuration"
+        lazyman ${darg} -C https://github.com/Lamarcke/dotfiles \
+          -D .config/nvim -N nvim-LamarVim -b main ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Lukas)" == "ok" ] && {
         printf "\n${action} Lukas Neovim configuration"
         lazyman ${darg} -C https://github.com/lukas-reineke/dotfiles \
@@ -4327,6 +4332,11 @@ install_remove() {
         ;;
       Kodo)
         prsnl_url="https://github.com/chadcat7/kodo"
+        ;;
+      LamarVim)
+        prsnl_url="https://github.com/Lamarcke/dotfiles"
+        prsnl_opt="-b main"
+        prsnl_dir="-D .config/nvim"
         ;;
       Lukas)
         prsnl_url="https://github.com/lukas-reineke/dotfiles"
