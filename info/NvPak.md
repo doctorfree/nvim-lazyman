@@ -3,12 +3,10 @@
 PaK in Farsi means pure, something that is in its purest form
 
 - Install and initialize: **`lazyman -x NvPak`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-NvPak`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -21,7 +19,6 @@ PaK in Farsi means pure, something that is in its purest form
 ### Lazy managed plugins
 
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- [m4xshen/autoclose.nvim](https://github.com/m4xshen/autoclose.nvim.git)
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim.git)
 - [jayden-chan/base46.nvim](https://github.com/jayden-chan/base46.nvim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
@@ -44,15 +41,13 @@ PaK in Farsi means pure, something that is in its purest form
 - [~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [shaunsingh/nord.nvim](https://github.com/shaunsingh/nord.nvim)
-- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -65,7 +60,6 @@ PaK in Farsi means pure, something that is in its purest form
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
@@ -79,12 +73,12 @@ PaK in Farsi means pure, something that is in its purest form
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Tab> | :bn<CR> |
+|  |  n | :NvimTreeFindFile<CR> |
+|  |  r | :NvimTreeRefresh<CR> |
 |  |  bw | <Cmd>BufferOrderByWindowNumber<CR> |
 |  |  bl | <Cmd>BufferOrderByLanguage<CR> |
 |  |  bd | <Cmd>BufferOrderByDirectory<CR> |
 |  |  bb | <Cmd>BufferOrderByBufferNumber<CR> |
-|  |  n | :NvimTreeFindFile<CR> |
-|  |  r | :NvimTreeRefresh<CR> |
 |  |  / | <Cmd>noh<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
@@ -93,6 +87,7 @@ PaK in Farsi means pure, something that is in its purest form
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
+|  | <C-N> | :NvimTreeToggle<CR> |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
@@ -115,7 +110,6 @@ PaK in Farsi means pure, something that is in its purest form
 |  | <M-lt> | <Cmd>BufferMovePrevious<CR> |
 |  | <M-.> | <Cmd>BufferNext<CR> |
 |  | <M-,> | <Cmd>BufferPrevious<CR> |
-|  | <C-N> | :NvimTreeToggle<CR> |
 |  | <C-F> | :lua vim.lsp.buf.format({ async = true})<CR> |
 |  | <C-S> | :w<CR> |
 |  | <C-B> | :bd<CR> |

@@ -3,12 +3,10 @@
 Single file lightweight configuration focused on providing basic features
 
 - Install and initialize: **`lazyman -x Extralight`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Extralight`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -81,9 +79,9 @@ Single file lightweight configuration focused on providing basic features
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

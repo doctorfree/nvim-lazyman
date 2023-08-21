@@ -35,16 +35,13 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -w Artur</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Artur</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/arturgoms/nvim">https://github.com/arturgoms/nvim</a></p>
@@ -366,28 +363,28 @@ require(‘telescope.builtin’).find_files(require(‘telescope.themes’).get_
 </tr>
 <tr class="odd">
 <td></td>
-<td>[%</td>
-<td><Plug>(matchup-[%)</td>
-</tr>
-<tr class="even">
-<td></td>
 <td>[=</td>
 <td>:<C-U>call signature#marker#Goto(“prev”, “any”, v:count)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>[-</td>
 <td>:<C-U>call signature#marker#Goto(“prev”, “same”, v:count)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td>[<code>| :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt; | |  | [' | :&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt; | |  | ]% | &lt;Plug&gt;(matchup-]%) | |  | ]= | :&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt; | |  | ]- | :&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt; | |  | ]</code></td>
+<td>[<code>| :&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt; | |  | [' | :&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt; | |  | [% | &lt;Plug&gt;(matchup-[%) | |  | ]= | :&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt; | |  | ]- | :&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt; | |  | ]</code></td>
 <td>:<C-U>call signature#mark#Goto(“next”, “spot”, “pos”)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]’</td>
 <td>:<C-U>call signature#mark#Goto(“next”, “line”, “pos”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(matchup-]%)</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -420,44 +417,84 @@ require(‘telescope.builtin’).find_files(require(‘telescope.themes’).get_
 <td><Plug>NetrwBrowseX</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>g%</td>
-<td><Plug>(matchup-g%)</td>
-</tr>
-<tr class="odd">
 <td>Comment insert end of line</td>
 <td>gcA</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert above</td>
 <td>gcO</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert below</td>
 <td>gco</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current block</td>
 <td>gbc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current line</td>
 <td>gcc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>g%</td>
+<td><Plug>(matchup-g%)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m?</td>
+<td>:<C-U>call signature#marker#List(v:count, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m/</td>
+<td>:<C-U>call signature#mark#List(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m<BS></td>
+<td>:<C-U>call signature#marker#Purge()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#mark#Purge(“all”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m-</td>
+<td>:<C-U>call signature#mark#Purge(“line”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m.</td>
+<td>:<C-U>call signature#mark#ToggleAtLine()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>m,</td>
+<td>:<C-U>call signature#mark#Toggle(“next”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>m</td>
+<td>:<C-U>call signature#utils#Input()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -510,46 +547,6 @@ require(‘telescope.builtin’).find_files(require(‘telescope.themes’).get_
 <td><Plug>BookmarkShowAll</td>
 </tr>
 <tr class="even">
-<td></td>
-<td>m?</td>
-<td>:<C-U>call signature#marker#List(v:count, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m/</td>
-<td>:<C-U>call signature#mark#List(0, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m<BS></td>
-<td>:<C-U>call signature#marker#Purge()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m</td>
-<td>:<C-U>call signature#mark#Purge(“all”)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m-</td>
-<td>:<C-U>call signature#mark#Purge(“line”)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m.</td>
-<td>:<C-U>call signature#mark#ToggleAtLine()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>m,</td>
-<td>:<C-U>call signature#mark#Toggle(“next”)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>m</td>
-<td>:<C-U>call signature#utils#Input()<CR></td>
-</tr>
-<tr class="even">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode)</td>
 <td>ySS</td>
@@ -573,16 +570,6 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td>z%</td>
-<td><Plug>(matchup-z%)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>zt</td>
 <td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
 </tr>
@@ -593,169 +580,30 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>z%</td>
+<td><Plug>(matchup-z%)</td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>NetrwBrowseX</td>
 <td>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&lt;2-LeftMouse&gt;</td>
-<td><Plug>(matchup-double-click)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-reload)</td>
-<td>:<C-U>MatchupReload<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-double-click)</td>
-<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-Z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-z%)</td>
-<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-[%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-]%)</td>
-<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(matchup-g%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-%)</td>
-<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><SNR>36_(wise)</td>
-<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(matchup-hi-surround)</td>
-<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>BookmarkMoveToLine</td>
-<td>:<C-U>BookmarkMoveToLine v:count<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>BookmarkMoveDown</td>
-<td>:<C-U>BookmarkMoveDown v:count<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>BookmarkMoveUp</td>
-<td>:<C-U>BookmarkMoveUp v:count<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>BookmarkClearAll</td>
-<td>:BookmarkClearAll<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>BookmarkClear</td>
-<td>:BookmarkClear<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>BookmarkPrev</td>
-<td>:BookmarkPrev<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>BookmarkNext</td>
-<td>:BookmarkNext<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>BookmarkAnnotate</td>
-<td>:BookmarkAnnotate<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>BookmarkToggle</td>
-<td>:BookmarkToggle<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>BookmarkShowAll</td>
-<td>:BookmarkShowAll<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-3></td>
-<td><Cmd>lua _HORIZONTAL_TERM()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-2></td>
-<td><Cmd>lua _VERTICAL_TERM()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-1></td>
-<td><Cmd>lua _FLOAT_TERM()<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle Terminal</td>
-<td><C-Bslash></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-l></td>
-<td><Cmd>lua require’tmux’.resize_right()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-h></td>
-<td><Cmd>lua require’tmux’.resize_left()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-k></td>
-<td><Cmd>lua require’tmux’.resize_top()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-j></td>
-<td><Cmd>lua require’tmux’.resize_bottom()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><C-E></td>
 <td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -771,26 +619,15 @@ require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><C-U></td>
 <td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
 250)<CR></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><F3></td>
-<td>:MaximizerToggle<CR></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise with count</td>
@@ -861,9 +698,169 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
+<td>&lt;2-LeftMouse&gt;</td>
+<td><Plug>(matchup-double-click)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-reload)</td>
+<td>:<C-U>MatchupReload<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-double-click)</td>
+<td>:<C-U>call matchup#text_obj#double_click()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-Z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside_prev(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-z%)</td>
+<td>:<C-U>call matchup#motion#jump_inside(0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-[%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-]%)</td>
+<td>:<C-U>call matchup#motion#find_unmatched(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(matchup-g%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-%)</td>
+<td>:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><SNR>20_(wise)</td>
+<td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(matchup-hi-surround)</td>
+<td>:<C-U>call matchup#matchparen#highlight_surrounding()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-h></td>
+<td><Cmd>lua require’tmux’.resize_left()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-k></td>
+<td><Cmd>lua require’tmux’.resize_top()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-j></td>
+<td><Cmd>lua require’tmux’.resize_bottom()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-l></td>
+<td><Cmd>lua require’tmux’.resize_right()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>BookmarkMoveToLine</td>
+<td>:<C-U>BookmarkMoveToLine v:count<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>BookmarkMoveDown</td>
+<td>:<C-U>BookmarkMoveDown v:count<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>BookmarkMoveUp</td>
+<td>:<C-U>BookmarkMoveUp v:count<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>BookmarkClearAll</td>
+<td>:BookmarkClearAll<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>BookmarkClear</td>
+<td>:BookmarkClear<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>BookmarkPrev</td>
+<td>:BookmarkPrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>BookmarkNext</td>
+<td>:BookmarkNext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>BookmarkAnnotate</td>
+<td>:BookmarkAnnotate<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>BookmarkToggle</td>
+<td>:BookmarkToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>BookmarkShowAll</td>
+<td>:BookmarkShowAll<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><F3></td>
+<td>:MaximizerToggle<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-3></td>
+<td><Cmd>lua _HORIZONTAL_TERM()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-2></td>
+<td><Cmd>lua _VERTICAL_TERM()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-1></td>
+<td><Cmd>lua _FLOAT_TERM()<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle Terminal</td>
+<td><C-Bslash></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1038,19 +1035,19 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Plug>NetrwBrowseXVis</td>
 </tr>
 <tr class="even">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td>gS</td>
-<td><Plug>(nvim-surround-visual-line)</td>
-</tr>
-<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td>gS</td>
+<td><Plug>(nvim-surround-visual-line)</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1069,6 +1066,16 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
+<td>z%</td>
+<td><Plug>(matchup-z%)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>zt</td>
+<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>zb</td>
 <td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
 </tr>
@@ -1079,30 +1086,8 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td>zt</td>
-<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>z%</td>
-<td><Plug>(matchup-z%)</td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>NetrwBrowseXVis</td>
 <td>:<C-U>call netrw#BrowseXVis()<CR></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><Plug>(nvim-surround-visual-line)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-true })<CR></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection</td>
-<td><Plug>(nvim-surround-visual)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-false })<CR></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
@@ -1117,39 +1102,16 @@ require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<C
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><C-B></td>
-<td><Cmd>lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR></td>
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><Plug>(nvim-surround-visual-line)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+true })<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
+<td>Add a surrounding pair around a visual selection</td>
+<td><Plug>(nvim-surround-visual)</td>
+<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
+false })<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1164,62 +1126,97 @@ true, 450)<CR></td>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-Z%)</td>
-<td><SNR>25_(matchup-Z%)</td>
+<td><SNR>26_(matchup-Z%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>25_(matchup-Z%)</td>
+<td><SNR>26_(matchup-Z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-z%)</td>
-<td><SNR>25_(matchup-z%)</td>
+<td><SNR>26_(matchup-z%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>25_(matchup-z%)</td>
+<td><SNR>26_(matchup-z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-[%)</td>
-<td><SNR>25_(matchup-[%)</td>
+<td><SNR>26_(matchup-[%)</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-]%)</td>
-<td><SNR>25_(matchup-]%)</td>
+<td><SNR>26_(matchup-]%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>25_(matchup-[%)</td>
+<td><SNR>26_(matchup-[%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>25_(matchup-]%)</td>
+<td><SNR>26_(matchup-]%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-g%)</td>
-<td><SNR>25_(matchup-g%)</td>
+<td><SNR>26_(matchup-g%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>25_(matchup-g%)</td>
+<td><SNR>26_(matchup-g%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-%)</td>
-<td><SNR>25_(matchup-%)</td>
+<td><SNR>26_(matchup-%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>25_(matchup-%)</td>
+<td><SNR>26_(matchup-%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-B></td>
+<td><Cmd>lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -3,12 +3,10 @@
 Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, javascript)
 
 - Install and initialize: **`lazyman -L NV-IDE`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-NV-IDE`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -37,20 +35,22 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 - [lukas-reineke/cmp-rg](https://github.com/lukas-reineke/cmp-rg.git)
 - [ray-x/cmp-treesitter](https://github.com/ray-x/cmp-treesitter.git)
 - [hrsh7th/cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
-- [rhysd/committia.vim](https://github.com/rhysd/committia.vim.git)
 - [chrisbra/csv.vim](https://github.com/chrisbra/csv.vim.git)
+- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [folke/edgy.nvim](https://github.com/folke/edgy.nvim.git)
 - [feline-nvim/feline.nvim](https://github.com/feline-nvim/feline.nvim)
 - [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [shellRaining/hlchunk.nvim](https://github.com/shellRaining/hlchunk.nvim.git)
+- [smoka7/hydra.nvim](https://github.com/smoka7/hydra.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [echasnovski/mini.animate](https://github.com/echasnovski/mini.animate.git)
+- [smoka7/multicursors.nvim](https://github.com/smoka7/multicursors.nvim.git)
 - [mrbjarksen/neo-tree-diagnostics.nvim](https://github.com/mrbjarksen/neo-tree-diagnostics.nvim.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
@@ -58,7 +58,6 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 - [nacro90/numb.nvim](https://github.com/nacro90/numb.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [weilbith/nvim-code-action-menu](https://github.com/weilbith/nvim-code-action-menu)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
@@ -99,10 +98,8 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 - [tpope/vim-dadbod](https://github.com/tpope/vim-dadbod.git)
 - [tpope/vim-dispatch](https://github.com/tpope/vim-dispatch.git)
 - [tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
-- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
 - [jeffkreeftmeijer/vim-numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle.git)
 - [tpope/vim-rails](https://github.com/tpope/vim-rails.git)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
@@ -181,10 +178,11 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 |  | \bda | :BDelete! all<CR> |
 |  | \bd | :BDelete this<CR> |
 |  | \nm | :Dispatch npm start<CR> |
+| Create a selection for selcted text or word under the cursor | \mc |  |
+| Symbols Outline | \cs |  |
 |  | \ld |  |
 |  | \gg |  |
 |  | \x |  |
-| Symbols Outline | \cs |  |
 |  | ]d |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 |  | g# | g#<Cmd>lua require('hlslens').start()<CR> |
@@ -204,10 +202,9 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 |  | l |  |
 |  | n | <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR> |
 | Flash | s |  |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Close all folds | zM |  |
-| Peed folded lines under cursor | zZ |  |
 | Open all folds | zR |  |
+| Peek folded lines under cursor | zZ |  |
+| Close all folds | zM |  |
 |  | <F8> | :ZenMode<CR> |
 |  | <F7> | :Neotree filesystem reveal left toggle<CR> |
 |  | <F4> | :set list! list?<CR> |
@@ -216,24 +213,22 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>CapsLockDisable | :<C-U>call <SNR>36_disable('i')<CR> |
-|  | <Plug>CapsLockEnable | :<C-U>call <SNR>36_enable('i',1)<CR> |
-|  | <Plug>CapsLockToggle | :<C-U>call <SNR>36_toggle('i',1)<CR> |
+|  | <Plug>(vsnip-cut-text) | :set operatorfunc=<SNR>24_vsnip_cut_text_normal<CR>g@ |
+|  | <Plug>(vsnip-select-text) | :set operatorfunc=<SNR>24_vsnip_select_text_normal<CR>g@ |
 |  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <Plug>(vsnip-cut-text) | :set operatorfunc=<SNR>9_vsnip_cut_text_normal<CR>g@ |
-|  | <Plug>(vsnip-select-text) | :set operatorfunc=<SNR>9_vsnip_select_text_normal<CR>g@ |
+|  | <Plug>CapsLockDisable | :<C-U>call <SNR>19_disable('i')<CR> |
+|  | <Plug>CapsLockEnable | :<C-U>call <SNR>19_enable('i',1)<CR> |
+|  | <Plug>CapsLockToggle | :<C-U>call <SNR>19_toggle('i',1)<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <F5> |  |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
 
@@ -248,6 +243,7 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 | Flash Treesitter | S |  |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | \sp | :lua require('spectre').open_visual()<CR> |
+| Create a selection for selcted text or word under the cursor | \mc |  |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
 |  | g% | <Plug>(MatchitVisualBackward) |
@@ -265,8 +261,8 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv"_c |
-|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv |
+|  | <Plug>(vsnip-cut-text) | :<C-U>call <SNR>15_vsnip_visual_text(visualmode())<CR>gv"_c |
+|  | <Plug>(vsnip-select-text) | :<C-U>call <SNR>15_vsnip_visual_text(visualmode())<CR>gv |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
 
 #### operator mode keymaps

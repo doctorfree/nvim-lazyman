@@ -3,12 +3,10 @@
 Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
 
 - Install and initialize: **`lazyman -x StartMason`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-StartMason`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -90,37 +88,37 @@ Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.n
 |  | gp | "+p |
 |  | gy | "+y |
 |  | x | "_x |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
 |  | yS | <Plug>YSurround |
 |  | ys | <Plug>Ysurround |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Toggle Terminal | <C-G> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>YSurround | <SNR>11_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>11_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>11_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>11_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>11_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>11_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <Plug>YSurround | <SNR>5_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>5_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>5_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>5_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>5_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>5_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -155,11 +153,11 @@ Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.n
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>VgSurround | :<C-U>call <SNR>20_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>20_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>VgSurround | :<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 
 #### operator mode keymaps
 

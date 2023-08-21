@@ -3,12 +3,10 @@
 Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/lvim) advanced 'LunarVim' config
 
 - Install and initialize: **`lazyman -L Shuvro`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Shuvro`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -40,7 +38,6 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 - [phaazon/hop.nvim](https://github.com/phaazon/hop.nvim)
 - [b0o/incline.nvim](https://github.com/b0o/incline.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ray-x/lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
@@ -74,7 +71,6 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
-- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
 - [Tastyep/structlog.nvim](https://github.com/Tastyep/structlog.nvim.git)
@@ -109,20 +105,20 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | L | <Cmd>BufferLineCycleNext<CR> |
 |  | X | <Cmd>lua require('user.bufferline').delete_buffer()<CR> |
 |  | Y | y$ |
-|  | [b | <Cmd>BufferLineMoveNext<CR> |
 |  | [d | <Cmd>lua vim.diagnostic.goto_prev()<CR> |
+|  | [b | <Cmd>BufferLineMoveNext<CR> |
 |  | [q | :cprev<CR> |
-|  | ]b | <Cmd>BufferLineMovePrev<CR> |
 |  | ]d | <Cmd>lua vim.diagnostic.goto_next()<CR> |
+|  | ]b | <Cmd>BufferLineMovePrev<CR> |
 |  | ]q | :cnext<CR> |
-|  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
 |  | ce | <Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR> |
+|  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
 |  | gb |  |
 |  | gc |  |
-|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
 |  | gx | <Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR> |
-|  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
+|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
 |  | tu | <Cmd>lua require('harpoon.term').gotoTerminal(1)<CR> |
+|  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-Bslash> |  |
 |  | <M-x> | <C-X> |
@@ -130,16 +126,16 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | <M-a> | <C-A> |
 |  | <C-N>i | <Tab> |
 |  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
-|  | <C-H> | <C-W>h |
+|  | <C-K> | <C-W>k |
 |  | <M-j> | :m .+1<CR>== |
-|  | <C-Right> | :vertical resize +2<CR> |
+|  | <C-J> | <C-W>j |
 |  | <M-k> | :m .-2<CR>== |
+|  | <C-H> | <C-W>h |
+|  | <C-Right> | :vertical resize +2<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Down> | :resize +2<CR> |
 |  | <C-Up> | :resize -2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -152,13 +148,13 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 |  | <lt> | <lt>gv |
 |  | > | >gv |
 |  | gx | <Plug>NetrwBrowseXVis |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | ga | <Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR> |
 |  | p | "_dP |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <M-a> | <C-A> |
 |  | <M-x> | <C-X> |
+|  | <M-a> | <C-A> |
 |  | <M-k> | :m '<lt>-2<CR>gv-gv |
 |  | <M-j> | :m '>+1<CR>gv-gv |
 

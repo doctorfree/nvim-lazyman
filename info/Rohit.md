@@ -3,12 +3,10 @@
 Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 
 - Install and initialize: **`lazyman -x Rohit`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Rohit`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -38,11 +36,13 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [b0o/incline.nvim](https://github.com/b0o/incline.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [ahmedkhalf/jupyter-nvim](https://github.com/ahmedkhalf/jupyter-nvim.git)
 - [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim.git)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
+- [vigoux/ltex-ls.nvim](https://github.com/vigoux/ltex-ls.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
 - [David-Kunz/markid](https://github.com/David-Kunz/markid.git)
@@ -91,6 +91,7 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - [AhmedAbdulrahman/vim-aylin](https://github.com/AhmedAbdulrahman/vim-aylin.git)
 - [voldikss/vim-floaterm](https://github.com/voldikss/vim-floaterm)
+- [mzlogin/vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc.git)
 - [bluz71/vim-moonfly-colors](https://github.com/bluz71/vim-moonfly-colors)
 - [lervag/vimtex](https://github.com/lervag/vimtex)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)

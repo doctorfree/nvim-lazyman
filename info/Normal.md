@@ -3,12 +3,10 @@
 Based on AstroNvim with additional features
 
 - Install and initialize: **`lazyman -x Normal`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Normal`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -31,6 +29,7 @@ Based on AstroNvim with additional features
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path.git)
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim.git)
 - [Zeioth/compiler.nvim](https://github.com/Zeioth/compiler.nvim.git)
+- [Zeioth/dooku.nvim](https://github.com/Zeioth/dooku.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim.git)
 - [zeioth/friendly-snippets](https://github.com/zeioth/friendly-snippets.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim.git)
@@ -55,17 +54,12 @@ Based on AstroNvim with additional features
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest.git)
 - [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
 - [nvim-neotest/neotest-jest](https://github.com/nvim-neotest/neotest-jest.git)
-- [zidhuss/neotest-minitest](https://github.com/zidhuss/neotest-minitest.git)
-- [theutz/neotest-pest](https://github.com/theutz/neotest-pest.git)
-- [olimorris/neotest-phpunit](https://github.com/olimorris/neotest-phpunit.git)
 - [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python.git)
-- [olimorris/neotest-rspec](https://github.com/olimorris/neotest-rspec.git)
 - [rouge8/neotest-rust](https://github.com/rouge8/neotest-rust.git)
-- [shunsambongi/neotest-testthat](https://github.com/shunsambongi/neotest-testthat.git)
-- [marilari88/neotest-vitest](https://github.com/marilari88/neotest-vitest.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim.git)
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager.git)
 - [dense-analysis/neural](https://github.com/dense-analysis/neural.git)
+- [Zeioth/NormalSnippets](https://github.com/Zeioth/NormalSnippets.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim.git)
 - [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs.git)
@@ -74,6 +68,7 @@ Based on AstroNvim with additional features
 - [andythigpen/nvim-coverage](https://github.com/andythigpen/nvim-coverage.git)
 - [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui.git)
+- [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig.git)
 - [AckslD/nvim-neoclip.lua](https://github.com/AckslD/nvim-neoclip.lua.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify.git)
@@ -86,9 +81,10 @@ Based on AstroNvim with additional features
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo.git)
 - [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker.git)
+- [jbyuki/one-small-step-for-vimkind](https://github.com/jbyuki/one-small-step-for-vimkind.git)
 - [stevearc/overseer.nvim](https://github.com/stevearc/overseer.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
-- [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim.git)
+- [Zeioth/project.nvim](https://github.com/Zeioth/project.nvim.git)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async.git)
 - [kevinhwang91/rnvimr](https://github.com/kevinhwang91/rnvimr.git)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim.git)
@@ -117,200 +113,203 @@ Based on AstroNvim with additional features
 | ----------- | --- | --- |
 | FIX: Prevent TAB from behaving like <C-i>, as they share the same internal code | <Tab> | <Tab> |
 |  | <Esc> |  |
-| Toggle animations |  uA |  |
-| Quit |  q |  |
-| New file |  n | <Cmd>enew<CR> |
-| Save as sudo |  W |  |
-| Change line numbering |  un |  |
-| Toggle wrap |  uw |  |
-| Home screen |  h |  |
-| Comment line |  / |  |
-| Horizontal split buffer from tabline |  b\ |  |
+| Close all buffers to the right |  br |  |
+| Sort by extension (buffers) |  bse |  |
+| Sort by relative path (buffers) |  bsr |  |
 | View Git blame |  gl |  |
-| Save |  w | <Cmd>w<CR> |
+| Sort by full path (buffers) |  bsp |  |
 | View full Git blame |  gL |  |
-| Find commands |  fC |  |
+| Sort by buffer number (buffers) |  bsi |  |
 | Preview Git hunk |  gp |  |
-| Find vim registers |  fv |  |
+| Sort by modification (buffers) |  bsm |  |
 | Reset Git hunk |  gh |  |
-| Find words in project |  ff |  |
+| Horizontal split buffer from tabline |  b\ |  |
 | Reset Git buffer |  gr |  |
+| Vertical split buffer from tabline |  b| |  |
 | Stage Git hunk |  gs |  |
-| Find snippets |  fs |  |
 | Stage Git buffer |  gS |  |
-| Open compiler |  lc |  |
 | Unstage Git hunk |  gu |  |
 | View Git diff |  gd |  |
-| Toggleterm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
 | Open in github  |  gP |  |
+| Zen mode |  bz |  |
 | ToggleTerm lazygit |  gg |  |
 | Ranger |  r | <Cmd>RnvimrToggle<CR> |
+| Toggle background |  ub |  |
 | Toggle neotree |  e | <Cmd>Neotree toggle<CR> |
+| Toggle UI notifications |  uN |  |
+| Start/Continue (F5) |  dc |  |
 | Toggle Neotree Focus |  o |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
 | Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| Toggle animations |  uA |  |
 | Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
 | Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
-| Toggle Breakpoint (F9) |  db |  |
-| Clear Breakpoints |  dB |  |
+| Mason Installer |  pm | <Cmd>Mason<CR> |
+| Close Session |  dq |  |
 | Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-| Step Into (F11) |  di |  |
 | Terminate Session (S-F5) |  dQ |  |
 | Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| Find commands |  fC |  |
+| Restart (C-F5) |  dr |  |
+| Open compiler |  mm |  |
 | Toggle REPL |  dR |  |
 | Run To Cursor |  ds |  |
 | Evaluate Input |  dE |  |
-| Toggle Debugger UI |  du |  |
-| Debugger Hover |  dh |  |
-| Unit |  Tu |  |
+| File |  Tf |  |
 | Unit in debugger |  Td |  |
 | Toggle Coverage |  Tc |  |
+| Toggle autopairs |  ua |  |
 | All |  Ta |  |
+| Clear Breakpoints |  dB |  |
 | E2e |  Te |  |
-| Ask chatgpt |  a |  |
-| Toggle symbols tree |  ls |  |
+| Save |  w | <Cmd>w<CR> |
+| Step Out (S-F11) |  dO |  |
+| Toggle tabline |  ut |  |
+| Toggle symbols tree |  lt |  |
 | Git branches |  gb |  |
+| Find vim registers |  fv |  |
 | Git commits (repository) |  gc |  |
+| Markdown preview |  Dp |  |
 | Git commits (current file) |  gC |  |
 | Git status |  gt |  |
 | Resume previous search |  f<CR> |  |
 | Find marks |  f' |  |
 | Find nvim config files |  fa |  |
+| Toggle Debugger UI |  du |  |
 | Find buffers |  fB |  |
+| Debugger Hover |  dh |  |
 | Find word under cursor in project |  fw |  |
+| Unit |  Tu |  |
 | Find help |  fh |  |
-| ToggleTerm float |  tt | <Cmd>ToggleTerm direction=float<CR> |
+| Stop unit |  Ts |  |
 | Find keymaps |  fk |  |
 | Find man |  fm |  |
 | Find notifications |  fn |  |
-| Toggleterm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
 | Find recent |  fo |  |
 | Find themes |  ft |  |
+| Find words in project |  ff |  |
+| Step Into (F11) |  db |  |
 | Find words in project (no hidden) |  fF |  |
+| Toggle conceal |  uS |  |
 | Find words in current buffer |  f/ |  |
-| Search symbols |  lt |  |
+| Step Back (S-F10) |  do |  |
+| Search symbol in buffer |  ls |  |
+| Pause |  dp |  |
 | Find project |  fp |  |
 | Toggle find and replace word in project |  fr |  |
 | Toggle find and replace word in buffer |  fb |  |
+| Find snippets |  fs |  |
 | Find recorded macros |  fc |  |
 | Find recorded macros |  fq |  |
+| Markmap |  Dm |  |
 | Find in undo tree |  fu |  |
+| Open documentation |  Dd |  |
+| Compiler redo |  mr |  |
+| Toggle compiler results |  mt |  |
+| Ask chatgpt |  a |  |
+| ToggleTerm float |  tt | <Cmd>ToggleTerm direction=float<CR> |
+| Toggleterm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| Toggleterm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
+| Save as sudo |  W |  |
+| New file |  n | <Cmd>enew<CR> |
+| Quit |  q |  |
+| Toggle autocompletion |  uc |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Toggle diagnostics |  ud |  |
+| Change indent setting |  uD |  |
+| Toggle signcolumn |  ug |  |
+| Toggle statusline |  ul |  |
+| Toggle CodeLens |  uL |  |
 | Plugins Install |  pi |  |
-| Toggle compiler results |  lC |  |
+| Change line numbering |  un |  |
 | Plugins Status |  ps |  |
 | Plugins Sync |  pS |  |
 | Plugins Check Updates |  pu |  |
+| Toggle paste mode |  up |  |
 | Plugins Update |  pU |  |
-| Start/Continue (F5) |  dc |  |
-| Mason Installer |  pm | <Cmd>Mason<CR> |
-| Conditional Breakpoint (S-F9) |  dC |  |
+| Toggle spellcheck |  us |  |
 | Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Step Over (F10) |  do |  |
 | Update Plugins and Mason |  pa | <Cmd>NvimUpdatePackages<CR> |
-| Step Out (S-F11) |  dO |  |
 | Nvim Update |  pA | <Cmd>NvimUpdate<CR> |
-| Close Session |  dq |  |
+| Toggle URL highlight |  uu |  |
 | Nvim Version |  pv | <Cmd>NvimVersion<CR> |
-| Pause (F6) |  dp |  |
+| Toggle wrap |  uw |  |
 | Nvim Changelog |  pl | <Cmd>NvimChangelog<CR> |
-| Restart (C-F5) |  dr |  |
+| Toggle syntax highlight (buffer) |  uy |  |
 | Wipe buffer |  c |  |
+| Toggle foldcolumn |  uh |  |
 | Close buffer |  C |  |
 | Close all buffers except current |  bc |  |
 | Close all buffers |  bC |  |
-| Stop unit |  Ts |  |
 | Select buffer from tabline |  bb |  |
-| File |  Tf |  |
+| Home screen |  h |  |
 | Delete buffer from tabline |  bd |  |
+| Comment line |  / |  |
 | Close all buffers to the left |  bl |  |
-| Close all buffers to the right |  br |  |
-| Sort by extension (buffers) |  bse |  |
-| Sort by relative path (buffers) |  bsr |  |
-| Sort by full path (buffers) |  bsp |  |
-| Sort by buffer number (buffers) |  bsi |  |
-| Sort by modification (buffers) |  bsm |  |
-| Vertical split buffer from tabline |  b| |  |
-| Markdown preview |  Dp |  |
-| Markmap |  Dm |  |
-| Toggle CodeLens |  uL |  |
-| Zen mode |  bz |  |
-| Toggle autopairs |  ua |  |
-| Toggle UI notifications |  uN |  |
-| Toggle background |  ub |  |
-| Toggle paste mode |  up |  |
-| Toggle autocompletion |  uc |  |
-| Toggle spellcheck |  us |  |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
-| Toggle conceal |  uS |  |
-| Toggle diagnostics |  ud |  |
-| Toggle tabline |  ut |  |
-| Change indent setting |  uD |  |
-| Toggle URL highlight |  uu |  |
-| Toggle signcolumn |  ug |  |
-| Toggle statusline |  ul |  |
-| Toggle syntax highlight |  uy |  |
-| Toggle foldcolumn |  uh |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Go to the fist character of the line (aliases 0 to ^) | 0 | ^ |
+| Debugger: Step Out | <lt>S-11> |  |
 | Move buffer tab left | <lt>b |  |
 | Move buffer tab right | >b |  |
 | Change without yanking | C | "_C |
 | G and go to the last position | G |  |
 | Nvim builtin | Y | y$ |
 | Previous Git hunk | [g |  |
-| Previous buffer | [b |  |
 | Previous tab | [t |  |
+| Previous buffer | [b |  |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Horizontal Split | \ | <Cmd>split<CR> |
 | Next Git hunk | ]g |  |
-| Next buffer | ]b |  |
 | Next tab | ]t |  |
+| Next buffer | ]b |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Change without yanking | c | "_c |
-| Open the file under cursor with system app | gx |  |
 | gg and go to the first position | gg |  |
+| Search symbol in bufffer | gs |  |
+| Open the file under cursor with system app | gx |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 | Delete character without yanking it | x |  |
-| Fold more | zm |  |
 | Open all folds | zR |  |
 | Close all folds | zM |  |
 | Fold less | zr |  |
+| Fold more | zm |  |
 | Peek fold | zp |  |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Move to above split | <C-K> |  |
-| Page down exactly a 20% of the total size of the buffer | <S-PageDown> |  |
-| Page up exactly 20% of the total size of the buffer | <S-PageUp> |  |
-| Copy to cliboard | <C-Y> | "+y<Esc> |
-| Paste from cliboard | <C-P> | "+p<Esc> |
-| Open compiler | <F6> |  |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
-| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Debugger: Restart | <C-F5> |  |
+| Fast move down | <S-Down> |  |
+| Compiler redo | <S-F6> |  |
 | Debugger: Start | <F5> |  |
-| Debugger: Stop | <F17> |  |
-| Debugger: Conditional Breakpoint | <F21> |  |
-| Debugger: Restart | <F29> |  |
-| Debugger: Pause | <F4> |  |
-| Debugger: Toggle Breakpoint | <F9> |  |
-| Debugger: Step Over | <F10> |  |
-| Debugger: Step Into | <F11> |  |
-| Debugger: Step Out | <F23> |  |
+| Fast move up | <S-Up> |  |
 | Move to left split | <C-H> |  |
 | Resize split up | <C-Up> |  |
 | Resize split down | <C-Down> |  |
 | Resize split left | <C-Left> |  |
 | Resize split right | <C-Right> |  |
+| Debugger: Toggle Breakpoint | <F9> |  |
+| Debugger: Step Back | <S-F10> |  |
+| Page up exactly 20% of the total size of the buffer | <S-PageUp> |  |
+| Page down exactly a 20% of the total size of the buffer | <S-PageDown> |  |
+| Copy to cliboard | <C-Y> | "+y<Esc> |
+| Toggle compiler resume | <S-F7> |  |
+| Debugger: Stop | <S-F5> |  |
+| Debugger: Conditional Breakpoint | <S-F9> |  |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
+| Debugger: Step Over | <F10> |  |
+| Debugger: Step Into | <F11> |  |
+| Open compiler | <F6> |  |
+| Paste from cliboard | <C-P> | "+p<Esc> |
 | Hop to word | <C-M> |  |
+| Move to below split | <C-J> |  |
+| Move to above split | <C-K> |  |
+| Force write | <C-S> | <Cmd>w!<CR> |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
 | Copy to clipboard and delete line | <C-D> | "+y<Esc>dd |
 | Visually select all | <C-A> |  |
-| Toggle compiler resume | <S-F6> |  |
-| Move to below split | <C-J> |  |
-| Fast move down | <S-Down> |  |
-| Fast move up | <S-Up> |  |
-| Force write | <C-S> | <Cmd>w!<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
@@ -329,21 +328,23 @@ Based on AstroNvim with additional features
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 | unindent line | <lt> | <lt>gv |
 | indent line | > | >gv |
+| Change without yanking | C | "_C |
 | G and go to the last position (visual) | G |  |
 | Yank what you are going to override, then paste | P | p |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
+| Change without yanking | c | "_c |
 | gg and go to the first position (visual) | gg |  |
 |  | g% | <Plug>(MatchitVisualBackward) |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
 | Paste content you've previourly yanked | p | P |
 | Delete character without yanking it | x | "_x |
+| Copy to cliboard | <C-Y> | "+y<Esc> |
 | unindent line | <S-Tab> | <lt>gv |
 | Copy to clipboard and delete line | <C-D> | "+y<Esc>dd |
 | Hop to word | <C-M> |  |
-| Copy to cliboard | <C-Y> | "+y<Esc> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |

@@ -3,12 +3,10 @@
 LazyVim based Neovim configuration by Justin Angeles. Justin has created a series of YouTube videos on configuring LazyVim: [Part 1 - Colorschemne](https://youtu.be/LznwxUSZz_8), [Part 2 - Options](https://youtu.be/I4flypojhUk), [Part 3 - Keymaps](https://youtu.be/Vc_5feJ9F5k), [Part 4 - Final Thoughts](https://youtu.be/eRQHWeJ3D7I)
 
 - Install and initialize: **`lazyman -w JustinNvim`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-JustinNvim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -26,6 +24,7 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 - [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
@@ -35,10 +34,12 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
+- [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -75,6 +76,7 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [Wansmer/treesj](https://github.com/Wansmer/treesj)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
 - [panozzaj/vim-autocorrect](https://github.com/panozzaj/vim-autocorrect.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
@@ -88,15 +90,18 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Replace in files (Spectre) |  sr |  |
+| Close Buffer |  bc |  |
+| Close Buffer (Force) |  bC |  |
 | Mason |  cm |  |
+| Colorscheme with preview |  uC |  |
+| commits |  gc |  |
+| Goto Symbol |  ss |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Command History |  fc |  |
+| Text |  ft |  |
+| All Buffers |  fB |  |
+| Word (root dir) |  fw |  |
+| Word (cwd) |  fW |  |
 | Word (cwd) |  sW |  |
 | Word (root dir) |  sw |  |
 | Resume |  sR |  |
@@ -116,41 +121,38 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Auto Commands |  sa |  |
 | Registers |  s" |  |
 | status |  gs |  |
-| commits |  gc |  |
 | Recent (cwd) |  fR |  |
 | Recent |  fr |  |
 | Find Files (cwd) |  fF |  |
 | Find Files (root dir) |  ff |  |
 | Buffers |  fb |  |
-| Word (cwd) |  fW |  |
-| Word (root dir) |  fw |  |
-| All Buffers |  fB |  |
-| Text |  ft |  |
-| Command History |  fc |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Dismiss all Notifications |  un |  |
-| Todo (Trouble) |  dt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
 | Todo/Fix/Fixme (Trouble) |  xT |  |
 | Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
 | Todo/Fix/Fixme (Trouble) |  dT |  |
-| Projects |  fp |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
+| Todo (Trouble) |  dt |  |
+| Todo |  st |  |
 | Document Diagnostics (Trouble) |  xx |  |
 | Quickfix List (Trouble) |  dQ |  |
 | Location List (Trouble) |  dL |  |
 | Workspace Diagnostics (Trouble) |  dX |  |
 | Document Diagnostics (Trouble) |  dx |  |
-| Close Buffer (Force) |  bC |  |
-| Close Buffer |  bc |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Dismiss all Notifications |  un |  |
 | Explorer |  e |  |
+| Projects |  fp |  |
+| Replace in files (Spectre) |  sr |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -159,14 +161,14 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
+| Close Buffer | \c |  |
+| Update `MiniSurround.config.n_lines` | \sn |  |
+| Replace surrounding | \sr |  |
 | Highlight surrounding | \sh |  |
 | Find left surrounding | \sF |  |
 | Find right surrounding | \sf |  |
 | Delete surrounding | \sd |  |
 | Add surrounding | \sa |  |
-| Update `MiniSurround.config.n_lines` | \sn |  |
-| Replace surrounding | \sr |  |
-| Close Buffer | \c |  |
 | Toggle TreeSJ | \j |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next todo comment | ]t |  |
@@ -180,9 +182,9 @@ LazyVim based Neovim configuration by Justin Angeles. Justin has created a serie
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Scroll forward | <C-F> |  |
-| Scroll backward | <C-B> |  |
 | Increment selection | <C-Space> |  |
+| Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

@@ -3,12 +3,10 @@
 Takuya Matsuyama's Neovim configuration
 
 - Install and initialize: **`lazyman -w Craftzdog`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Craftzdog`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -62,7 +60,8 @@ Takuya Matsuyama's Neovim configuration
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
 |  | gr | <Cmd>Lspsaga rename<CR> |
 |  | gp | <Cmd>Lspsaga peek_definition<CR> |
-|  | gd | <Cmd>Lspsaga lsp_finder<CR> |
+|  | gt | <Cmd>Lspsaga goto_type_definition<CR> |
+|  | gd | <Cmd>Lspsaga finder<CR> |
 |  | gl | <Cmd>Lspsaga show_line_diagnostics<CR> |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |

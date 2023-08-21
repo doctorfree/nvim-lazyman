@@ -35,16 +35,13 @@ Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -w Xiao</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Xiao</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/onichandame/nvim-config">https://github.com/onichandame/nvim-config</a></p>
@@ -67,6 +64,8 @@ href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snipp
 <li><a
 href="https://github.com/f-person/git-blame.nvim.git">f-person/git-blame.nvim</a></li>
 <li><a
+href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
+<li><a
 href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
 <li><a
 href="https://github.com/nvim-lua/lsp-status.nvim.git">nvim-lua/lsp-status.nvim</a></li>
@@ -79,6 +78,8 @@ href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-l
 <li><a
 href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
 <li><a
+href="https://github.com/tamago324/nlsp-settings.nvim.git">tamago324/nlsp-settings.nvim</a></li>
+<li><a
 href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
 <li><a
 href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
@@ -88,6 +89,8 @@ href="https://github.com/kevinhwang91/nvim-bqf.git">kevinhwang91/nvim-bqf</a></l
 href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
 <li><a
 href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
 <li><a
 href="https://github.com/ojroques/nvim-osc52.git">ojroques/nvim-osc52</a></li>
 <li><a
@@ -105,11 +108,13 @@ href="https://github.com/simrat39/rust-tools.nvim">simrat39/rust-tools.nvim</a><
 <li><a
 href="https://github.com/b0o/schemastore.nvim">b0o/schemastore.nvim</a></li>
 <li><a
+href="https://github.com/nvim-telescope/telescope-file-browser.nvim">nvim-telescope/telescope-file-browser.nvim</a></li>
+<li><a
+href="https://github.com/natecraddock/telescope-zf-native.nvim.git">natecraddock/telescope-zf-native.nvim</a></li>
+<li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
 <li><a
 href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></li>
-<li><a
-href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a></li>
 <li><a
 href="https://github.com/jparise/vim-graphql.git">jparise/vim-graphql</a></li>
 <li><a
@@ -178,83 +183,83 @@ function(client) return client.name ~= “tsserver” end
 </tr>
 <tr class="even">
 <td></td>
+<td>,fe</td>
+<td>:Telescope file_browser path=%:p:h select_buffer=true<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>,fh</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,fb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,fg</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,ff</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,t</td>
 <td>:ToggleTerm<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,wq</td>
 <td>:wq<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>,q</td>
 <td>:q<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>,w</td>
 <td>:w<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>Y</td>
 <td>y$</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>[g</td>
 <td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]g</td>
 <td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseX</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -289,29 +294,19 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>fugitive:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(vsnip-cut-text)</td>
-<td>:set operatorfunc=<SNR>13_vsnip_cut_text_normal<CR>g@</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(vsnip-select-text)</td>
-<td>:set operatorfunc=<SNR>13_vsnip_select_text_normal<CR>g@</td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:set operatorfunc=<SNR>5_vsnip_cut_text_normal<CR>g@</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:set operatorfunc=<SNR>5_vsnip_select_text_normal<CR>g@</td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
@@ -405,12 +400,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="even">
 <td></td>
 <td><Plug>(vsnip-cut-text)</td>
-<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv”_c</td>
+<td>:<C-U>call <SNR>20_vsnip_visual_text(visualmode())<CR>gv”_c</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(vsnip-select-text)</td>
-<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv</td>
+<td>:<C-U>call <SNR>20_vsnip_visual_text(visualmode())<CR>gv</td>
 </tr>
 </tbody>
 </table>

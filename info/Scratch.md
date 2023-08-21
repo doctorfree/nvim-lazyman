@@ -3,12 +3,10 @@
 Jumping-off point for new Neovim users or those who have declared config bankruptcy
 
 - Install and initialize: **`lazyman -x Scratch`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Scratch`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -31,17 +29,17 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Esc> | <Cmd>nohlsearch<CR> |
-| Autocommands |  fa |  |
-| Search |  / |  |
-| Buffers |    |  |
+| Root (toggle) |  ee |  |
+| File (toggle) |  ef |  |
 | Quickfix list |  fq |  |
 | Location list |  fl |  |
 | Help |  fh |  |
 | Grep |  fg |  |
 | Files |  ff |  |
 | Commands |  fc |  |
-| File (toggle) |  ef |  |
-| Root (toggle) |  ee |  |
+| Autocommands |  fa |  |
+| Search |  / |  |
+| Buffers |    |  |
 | Plugins |  p | <Cmd>Lazy<CR> |
 |  | % | <Plug>(matchup-%) |
 | Nvim builtin | & | :&&<CR> |
@@ -62,7 +60,6 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | S | <Plug>(leap-backward-to) |
 |  | T |  |
 | Nvim builtin | Y | y$ |
-|  | [% | <Plug>(matchup-[%) |
 |  | [xx | <Plug>(unimpaired-xml-encode-line) |
 |  | [x | <Plug>(unimpaired-xml-encode) |
 |  | [uu | <Plug>(unimpaired-url-encode-line) |
@@ -92,7 +89,7 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | [b | <Plug>(unimpaired-bprevious) |
 |  | [A | <Plug>(unimpaired-first) |
 |  | [a | <Plug>(unimpaired-previous) |
-|  | ]% | <Plug>(matchup-]%) |
+|  | [% | <Plug>(matchup-[%) |
 |  | ]xx | <Plug>(unimpaired-xml-decode-line) |
 |  | ]x | <Plug>(unimpaired-xml-decode) |
 |  | ]uu | <Plug>(unimpaired-url-decode-line) |
@@ -122,6 +119,7 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | ]b | <Plug>(unimpaired-bnext) |
 |  | ]A | <Plug>(unimpaired-last) |
 |  | ]a | <Plug>(unimpaired-next) |
+|  | ]% | <Plug>(matchup-]%) |
 |  | cS | <Plug>CSurround |
 |  | cs | <Plug>Csurround |
 |  | ds | <Plug>Dsurround |
@@ -131,164 +129,150 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 | Comment | gc | v:lua.MiniComment.operator() |
 | Align with preview | gA | v:lua.MiniAlign.action_normal(v:true) |
 | Align | ga | v:lua.MiniAlign.action_normal(v:false) |
-|  | gs | <Plug>(leap-cross-window) |
 |  | g% | <Plug>(matchup-g%) |
+|  | gs | <Plug>(leap-cross-window) |
 |  | s | <Plug>(leap-forward-to) |
 |  | t |  |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | yo<Esc> |  |
-|  | yo | <Plug>(unimpaired-toggle) |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
 |  | yS | <Plug>YSurround |
 |  | ys | <Plug>Ysurround |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | yo<Esc> |  |
+|  | yo | <Plug>(unimpaired-toggle) |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
+|  | <Plug>YSurround | <SNR>34_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>34_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>34_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>34_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>34_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>34_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>34_dosurround(<SNR>34_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
-|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
 |  | <Plug>(dirvish_vsplit_up) | :<C-U>vsplit|exe 'Dirvish' fnameescape(fnamemodify(@%, ':p'.(@%[-1:]=~'[\\/]'?':h':'').repeat(':h',v:count1)))<CR> |
 |  | <Plug>(dirvish_split_up) | :<C-U>split|exe 'Dirvish' fnameescape(fnamemodify(@%, ':p'.(@%[-1:]=~'[\\/]'?':h':'').repeat(':h',v:count1)))<CR> |
 |  | <Plug>(dirvish_up) | :<C-U>exe 'Dirvish' fnameescape(fnamemodify(@%, ':p'.(@%[-1:]=~'[\\/]'?':h':'').repeat(':h',v:count1)))<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <Plug>(leap-backward-x) |  |
-|  | <Plug>(leap-forward-x) |  |
-|  | <Plug>(leap-backward) |  |
-|  | <Plug>(leap-forward) |  |
-|  | <Plug>(leap-cross-window) |  |
-|  | <Plug>(leap-backward-till) |  |
-|  | <Plug>(leap-backward-to) |  |
-|  | <Plug>(leap-forward-till) |  |
-|  | <Plug>(leap-forward-to) |  |
-|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
-|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
-|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
-|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
-|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
-|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
-|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
-|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
-|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>12_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
-|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
-|  | <Plug>(unimpaired-xml-decode-line) | <SNR>9_TransformSetup("xml_decode")."_" |
-|  | <Plug>(unimpaired-xml-decode) | <SNR>9_TransformSetup("xml_decode") |
-|  | <Plug>unimpaired_line_xml_decode | <SNR>9_TransformSetup("xml_decode")."_" |
-|  | <Plug>unimpaired_xml_decode | <SNR>9_TransformSetup("xml_decode") |
-|  | <Plug>(unimpaired-xml-encode-line) | <SNR>9_TransformSetup("xml_encode")."_" |
-|  | <Plug>(unimpaired-xml-encode) | <SNR>9_TransformSetup("xml_encode") |
-|  | <Plug>unimpaired_line_xml_encode | <SNR>9_TransformSetup("xml_encode")."_" |
-|  | <Plug>unimpaired_xml_encode | <SNR>9_TransformSetup("xml_encode") |
-|  | <Plug>(unimpaired-url-decode-line) | <SNR>9_TransformSetup("url_decode")."_" |
-|  | <Plug>(unimpaired-url-decode) | <SNR>9_TransformSetup("url_decode") |
-|  | <Plug>unimpaired_line_url_decode | <SNR>9_TransformSetup("url_decode")."_" |
-|  | <Plug>unimpaired_url_decode | <SNR>9_TransformSetup("url_decode") |
-|  | <Plug>(unimpaired-url-encode-line) | <SNR>9_TransformSetup("url_encode")."_" |
-|  | <Plug>(unimpaired-url-encode) | <SNR>9_TransformSetup("url_encode") |
-|  | <Plug>unimpaired_line_url_encode | <SNR>9_TransformSetup("url_encode")."_" |
-|  | <Plug>unimpaired_url_encode | <SNR>9_TransformSetup("url_encode") |
-|  | <Plug>(unimpaired-string-decode-line) | <SNR>9_TransformSetup("string_decode")."_" |
-|  | <Plug>(unimpaired-string-decode) | <SNR>9_TransformSetup("string_decode") |
-|  | <Plug>unimpaired_line_string_decode | <SNR>9_TransformSetup("string_decode")."_" |
-|  | <Plug>unimpaired_string_decode | <SNR>9_TransformSetup("string_decode") |
-|  | <Plug>(unimpaired-string-encode-line) | <SNR>9_TransformSetup("string_encode")."_" |
-|  | <Plug>(unimpaired-string-encode) | <SNR>9_TransformSetup("string_encode") |
-|  | <Plug>unimpaired_line_string_encode | <SNR>9_TransformSetup("string_encode")."_" |
-|  | <Plug>unimpaired_string_encode | <SNR>9_TransformSetup("string_encode") |
-|  | <Plug>unimpairedPutBelow | :call <SNR>9_putline(']p', 'below')<CR> |
-|  | <Plug>unimpairedPutAbove | :call <SNR>9_putline('[p', 'above')<CR> |
-|  | <Plug>(unimpaired-put-below-reformat) | :<C-U>call <SNR>9_putline(v:count1 . ']p', 'Below')<CR>='] |
-|  | <Plug>(unimpaired-put-above-reformat) | :<C-U>call <SNR>9_putline(v:count1 . '[p', 'Above')<CR>='] |
-|  | <Plug>(unimpaired-put-below-leftward) | :<C-U>call <SNR>9_putline(v:count1 . ']p', 'Below')<CR><lt>'] |
-|  | <Plug>(unimpaired-put-above-leftward) | :<C-U>call <SNR>9_putline(v:count1 . '[p', 'Above')<CR><lt>'] |
-|  | <Plug>(unimpaired-put-below-rightward) | :<C-U>call <SNR>9_putline(v:count1 . ']p', 'Below')<CR>>'] |
-|  | <Plug>(unimpaired-put-above-rightward) | :<C-U>call <SNR>9_putline(v:count1 . '[p', 'Above')<CR>>'] |
-|  | <Plug>(unimpaired-put-below) | :call <SNR>9_putline(']p', 'below')<CR> |
-|  | <Plug>(unimpaired-put-above) | :call <SNR>9_putline('[p', 'above')<CR> |
-|  | <Plug>(unimpaired-toggle)p | :<C-U>call <SNR>9_SetupPaste()<CR>0C |
-|  | <Plug>(unimpaired-disable)p | :<C-U>call <SNR>9_SetupPaste()<CR>o |
-|  | <Plug>(unimpaired-enable)p | :<C-U>call <SNR>9_SetupPaste()<CR>O |
-|  | <Plug>(unimpaired-paste) | :<C-U>call <SNR>9_SetupPaste()<CR> |
-|  | <Plug>unimpairedPaste | :call <SNR>9_SetupPaste()<CR> |
-|  | <Plug>(unimpaired-toggle)t | :<C-U>set colorcolumn=<C-R>=<SNR>9_ColorColumn(!empty(&cc))<CR><CR> |
-|  | <Plug>(unimpaired-disable)t | :<C-U>set colorcolumn=<C-R>=<SNR>9_ColorColumn(1)<CR><CR> |
-|  | <Plug>(unimpaired-enable)t | :<C-U>set colorcolumn=<C-R>=<SNR>9_ColorColumn(0)<CR><CR> |
-|  | <Plug>(unimpaired-toggle)+ | :<C-U>set <C-R>=<SNR>9_CursorOptions()<CR><CR> |
+|  | <Plug>(unimpaired-xml-decode-line) | <SNR>24_TransformSetup("xml_decode")."_" |
+|  | <Plug>(unimpaired-xml-decode) | <SNR>24_TransformSetup("xml_decode") |
+|  | <Plug>unimpaired_line_xml_decode | <SNR>24_TransformSetup("xml_decode")."_" |
+|  | <Plug>unimpaired_xml_decode | <SNR>24_TransformSetup("xml_decode") |
+|  | <Plug>(unimpaired-xml-encode-line) | <SNR>24_TransformSetup("xml_encode")."_" |
+|  | <Plug>(unimpaired-xml-encode) | <SNR>24_TransformSetup("xml_encode") |
+|  | <Plug>unimpaired_line_xml_encode | <SNR>24_TransformSetup("xml_encode")."_" |
+|  | <Plug>unimpaired_xml_encode | <SNR>24_TransformSetup("xml_encode") |
+|  | <Plug>(unimpaired-url-decode-line) | <SNR>24_TransformSetup("url_decode")."_" |
+|  | <Plug>(unimpaired-url-decode) | <SNR>24_TransformSetup("url_decode") |
+|  | <Plug>unimpaired_line_url_decode | <SNR>24_TransformSetup("url_decode")."_" |
+|  | <Plug>unimpaired_url_decode | <SNR>24_TransformSetup("url_decode") |
+|  | <Plug>(unimpaired-url-encode-line) | <SNR>24_TransformSetup("url_encode")."_" |
+|  | <Plug>(unimpaired-url-encode) | <SNR>24_TransformSetup("url_encode") |
+|  | <Plug>unimpaired_line_url_encode | <SNR>24_TransformSetup("url_encode")."_" |
+|  | <Plug>unimpaired_url_encode | <SNR>24_TransformSetup("url_encode") |
+|  | <Plug>(unimpaired-string-decode-line) | <SNR>24_TransformSetup("string_decode")."_" |
+|  | <Plug>(unimpaired-string-decode) | <SNR>24_TransformSetup("string_decode") |
+|  | <Plug>unimpaired_line_string_decode | <SNR>24_TransformSetup("string_decode")."_" |
+|  | <Plug>unimpaired_string_decode | <SNR>24_TransformSetup("string_decode") |
+|  | <Plug>(unimpaired-string-encode-line) | <SNR>24_TransformSetup("string_encode")."_" |
+|  | <Plug>(unimpaired-string-encode) | <SNR>24_TransformSetup("string_encode") |
+|  | <Plug>unimpaired_line_string_encode | <SNR>24_TransformSetup("string_encode")."_" |
+|  | <Plug>unimpaired_string_encode | <SNR>24_TransformSetup("string_encode") |
+|  | <Plug>unimpairedPutBelow | :call <SNR>24_putline(']p', 'below')<CR> |
+|  | <Plug>unimpairedPutAbove | :call <SNR>24_putline('[p', 'above')<CR> |
+|  | <Plug>(unimpaired-put-below-reformat) | :<C-U>call <SNR>24_putline(v:count1 . ']p', 'Below')<CR>='] |
+|  | <Plug>(unimpaired-put-above-reformat) | :<C-U>call <SNR>24_putline(v:count1 . '[p', 'Above')<CR>='] |
+|  | <Plug>(unimpaired-put-below-leftward) | :<C-U>call <SNR>24_putline(v:count1 . ']p', 'Below')<CR><lt>'] |
+|  | <Plug>(unimpaired-put-above-leftward) | :<C-U>call <SNR>24_putline(v:count1 . '[p', 'Above')<CR><lt>'] |
+|  | <Plug>(unimpaired-put-below-rightward) | :<C-U>call <SNR>24_putline(v:count1 . ']p', 'Below')<CR>>'] |
+|  | <Plug>(unimpaired-put-above-rightward) | :<C-U>call <SNR>24_putline(v:count1 . '[p', 'Above')<CR>>'] |
+|  | <Plug>(unimpaired-put-below) | :call <SNR>24_putline(']p', 'below')<CR> |
+|  | <Plug>(unimpaired-put-above) | :call <SNR>24_putline('[p', 'above')<CR> |
+|  | <Plug>(unimpaired-toggle)p | :<C-U>call <SNR>24_SetupPaste()<CR>0C |
+|  | <Plug>(unimpaired-disable)p | :<C-U>call <SNR>24_SetupPaste()<CR>o |
+|  | <Plug>(unimpaired-enable)p | :<C-U>call <SNR>24_SetupPaste()<CR>O |
+|  | <Plug>(unimpaired-paste) | :<C-U>call <SNR>24_SetupPaste()<CR> |
+|  | <Plug>unimpairedPaste | :call <SNR>24_SetupPaste()<CR> |
+|  | <Plug>(unimpaired-toggle)t | :<C-U>set colorcolumn=<C-R>=<SNR>24_ColorColumn(!empty(&cc))<CR><CR> |
+|  | <Plug>(unimpaired-disable)t | :<C-U>set colorcolumn=<C-R>=<SNR>24_ColorColumn(1)<CR><CR> |
+|  | <Plug>(unimpaired-enable)t | :<C-U>set colorcolumn=<C-R>=<SNR>24_ColorColumn(0)<CR><CR> |
+|  | <Plug>(unimpaired-toggle)+ | :<C-U>set <C-R>=<SNR>24_CursorOptions()<CR><CR> |
 |  | <Plug>(unimpaired-disable)+ | :<C-U>set nocursorline nocursorcolumn<CR> |
 |  | <Plug>(unimpaired-enable)+ | :<C-U>set cursorline cursorcolumn<CR> |
-|  | <Plug>(unimpaired-toggle)x | :<C-U>set <C-R>=<SNR>9_CursorOptions()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)x | :<C-U>set <C-R>=<SNR>24_CursorOptions()<CR><CR> |
 |  | <Plug>(unimpaired-disable)x | :<C-U>set nocursorline nocursorcolumn<CR> |
 |  | <Plug>(unimpaired-enable)x | :<C-U>set cursorline cursorcolumn<CR> |
 |  | <Plug>(unimpaired-toggle)v | :<C-U>set <C-R>=(&virtualedit =~# "all") ? "virtualedit-=all" : "virtualedit+=all"<CR><CR> |
 |  | <Plug>(unimpaired-disable)v | :<C-U>set virtualedit-=all<CR> |
 |  | <Plug>(unimpaired-enable)v | :<C-U>set virtualedit+=all<CR> |
-|  | <Plug>(unimpaired-toggle)z | :<C-U>setlocal <C-R>=<SNR>9_Toggle("spell")<CR><CR> |
-|  | <Plug>(unimpaired-disable)z | :<C-U>setlocal nospell<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)z | :<C-U>setlocal spell<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)w | :<C-U>setlocal <C-R>=<SNR>9_Toggle("wrap")<CR><CR> |
-|  | <Plug>(unimpaired-disable)w | :<C-U>setlocal nowrap<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)w | :<C-U>setlocal wrap<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)s | :<C-U>setlocal <C-R>=<SNR>9_Toggle("spell")<CR><CR> |
-|  | <Plug>(unimpaired-disable)s | :<C-U>setlocal nospell<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)s | :<C-U>setlocal spell<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)r | :<C-U>setlocal <C-R>=<SNR>9_Toggle("relativenumber")<CR><CR> |
-|  | <Plug>(unimpaired-disable)r | :<C-U>setlocal norelativenumber<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)r | :<C-U>setlocal relativenumber<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)n | :<C-U>setlocal <C-R>=<SNR>9_Toggle("number")<CR><CR> |
-|  | <Plug>(unimpaired-disable)n | :<C-U>setlocal nonumber<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)n | :<C-U>setlocal number<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)l | :<C-U>setlocal <C-R>=<SNR>9_Toggle("list")<CR><CR> |
-|  | <Plug>(unimpaired-disable)l | :<C-U>setlocal nolist<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)l | :<C-U>setlocal list<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)i | :<C-U>set <C-R>=<SNR>9_Toggle("ignorecase")<CR><CR> |
-|  | <Plug>(unimpaired-disable)i | :<C-U>set noignorecase<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)i | :<C-U>set ignorecase<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)h | :<C-U>set <C-R>=<SNR>9_Toggle("hlsearch")<CR><CR> |
-|  | <Plug>(unimpaired-disable)h | :<C-U>set nohlsearch<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)h | :<C-U>set hlsearch<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)z | :<C-U>setlocal <C-R>=<SNR>24_Toggle("spell")<CR><CR> |
+|  | <Plug>(unimpaired-disable)z | :<C-U>setlocal nospell<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)z | :<C-U>setlocal spell<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)w | :<C-U>setlocal <C-R>=<SNR>24_Toggle("wrap")<CR><CR> |
+|  | <Plug>(unimpaired-disable)w | :<C-U>setlocal nowrap<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)w | :<C-U>setlocal wrap<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)s | :<C-U>setlocal <C-R>=<SNR>24_Toggle("spell")<CR><CR> |
+|  | <Plug>(unimpaired-disable)s | :<C-U>setlocal nospell<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)s | :<C-U>setlocal spell<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)r | :<C-U>setlocal <C-R>=<SNR>24_Toggle("relativenumber")<CR><CR> |
+|  | <Plug>(unimpaired-disable)r | :<C-U>setlocal norelativenumber<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)r | :<C-U>setlocal relativenumber<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)n | :<C-U>setlocal <C-R>=<SNR>24_Toggle("number")<CR><CR> |
+|  | <Plug>(unimpaired-disable)n | :<C-U>setlocal nonumber<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)n | :<C-U>setlocal number<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)l | :<C-U>setlocal <C-R>=<SNR>24_Toggle("list")<CR><CR> |
+|  | <Plug>(unimpaired-disable)l | :<C-U>setlocal nolist<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)l | :<C-U>setlocal list<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)i | :<C-U>set <C-R>=<SNR>24_Toggle("ignorecase")<CR><CR> |
+|  | <Plug>(unimpaired-disable)i | :<C-U>set noignorecase<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)i | :<C-U>set ignorecase<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)h | :<C-U>set <C-R>=<SNR>24_Toggle("hlsearch")<CR><CR> |
+|  | <Plug>(unimpaired-disable)h | :<C-U>set nohlsearch<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)h | :<C-U>set hlsearch<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
 |  | <Plug>(unimpaired-toggle)d | :<C-U><C-R>=&diff ? "diffoff" : "diffthis"<CR><CR> |
 |  | <Plug>(unimpaired-disable)d | :<C-U>diffoff<CR> |
 |  | <Plug>(unimpaired-enable)d | :<C-U>diffthis<CR> |
-|  | <Plug>(unimpaired-toggle)| | :<C-U>setlocal <C-R>=<SNR>9_Toggle("cursorcolumn")<CR><CR> |
-|  | <Plug>(unimpaired-disable)| | :<C-U>setlocal nocursorcolumn<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)| | :<C-U>setlocal cursorcolumn<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)u | :<C-U>setlocal <C-R>=<SNR>9_Toggle("cursorcolumn")<CR><CR> |
-|  | <Plug>(unimpaired-disable)u | :<C-U>setlocal nocursorcolumn<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)u | :<C-U>setlocal cursorcolumn<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)_ | :<C-U>setlocal <C-R>=<SNR>9_Toggle("cursorline")<CR><CR> |
-|  | <Plug>(unimpaired-disable)_ | :<C-U>setlocal nocursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)_ | :<C-U>setlocal cursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)- | :<C-U>setlocal <C-R>=<SNR>9_Toggle("cursorline")<CR><CR> |
-|  | <Plug>(unimpaired-disable)- | :<C-U>setlocal nocursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)- | :<C-U>setlocal cursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-toggle)c | :<C-U>setlocal <C-R>=<SNR>9_Toggle("cursorline")<CR><CR> |
-|  | <Plug>(unimpaired-disable)c | :<C-U>setlocal nocursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
-|  | <Plug>(unimpaired-enable)c | :<C-U>setlocal cursorline<C-R>=<SNR>9_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)| | :<C-U>setlocal <C-R>=<SNR>24_Toggle("cursorcolumn")<CR><CR> |
+|  | <Plug>(unimpaired-disable)| | :<C-U>setlocal nocursorcolumn<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)| | :<C-U>setlocal cursorcolumn<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)u | :<C-U>setlocal <C-R>=<SNR>24_Toggle("cursorcolumn")<CR><CR> |
+|  | <Plug>(unimpaired-disable)u | :<C-U>setlocal nocursorcolumn<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)u | :<C-U>setlocal cursorcolumn<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)_ | :<C-U>setlocal <C-R>=<SNR>24_Toggle("cursorline")<CR><CR> |
+|  | <Plug>(unimpaired-disable)_ | :<C-U>setlocal nocursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)_ | :<C-U>setlocal cursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)- | :<C-U>setlocal <C-R>=<SNR>24_Toggle("cursorline")<CR><CR> |
+|  | <Plug>(unimpaired-disable)- | :<C-U>setlocal nocursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)- | :<C-U>setlocal cursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-toggle)c | :<C-U>setlocal <C-R>=<SNR>24_Toggle("cursorline")<CR><CR> |
+|  | <Plug>(unimpaired-disable)c | :<C-U>setlocal nocursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
+|  | <Plug>(unimpaired-enable)c | :<C-U>setlocal cursorline<C-R>=<SNR>24_StatuslineRefresh()<CR><CR> |
 |  | <Plug>(unimpaired-toggle)b | :<C-U>set background=<C-R>=&background == "dark" ? "light" : "dark"<CR><CR> |
 |  | <Plug>(unimpaired-disable)b | :<C-U>set background=dark<CR> |
 |  | <Plug>(unimpaired-enable)b | :<C-U>set background=light<CR> |
-|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>9_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>9_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>unimpairedMoveDown | :<C-U>call <SNR>9_Move('+',v:count1,'down')<CR> |
-|  | <Plug>unimpairedMoveUp | :<C-U>call <SNR>9_Move('--',v:count1,'up')<CR> |
-|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>9_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>9_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-down) | :<C-U>call <SNR>9_Move('+',v:count1,'down')<CR> |
-|  | <Plug>(unimpaired-move-up) | :<C-U>call <SNR>9_Move('--',v:count1,'up')<CR> |
-|  | <Plug>unimpairedBlankDown | :<C-U>exe <SNR>9_BlankDown()<CR> |
-|  | <Plug>unimpairedBlankUp | :<C-U>exe <SNR>9_BlankUp()<CR> |
-|  | <Plug>(unimpaired-blank-down) | :<C-U>exe <SNR>9_BlankDown()<CR> |
-|  | <Plug>(unimpaired-blank-up) | :<C-U>exe <SNR>9_BlankUp()<CR> |
-|  | <Plug>unimpairedContextNext | :<C-U>call <SNR>9_Context(0)<CR> |
-|  | <Plug>unimpairedContextPrevious | :<C-U>call <SNR>9_Context(1)<CR> |
-|  | <Plug>(unimpaired-context-next) | :<C-U>call <SNR>9_Context(0)<CR> |
-|  | <Plug>(unimpaired-context-previous) | :<C-U>call <SNR>9_Context(1)<CR> |
-|  | <Plug>unimpairedDirectoryPrevious | :<C-U>execute <SNR>9_PreviousFileEntry(v:count1)<CR> |
-|  | <Plug>unimpairedDirectoryNext | :<C-U>execute <SNR>9_NextFileEntry(v:count1)<CR> |
-|  | <Plug>(unimpaired-directory-previous) | :<C-U>execute <SNR>9_PreviousFileEntry(v:count1)<CR> |
-|  | <Plug>(unimpaired-directory-next) | :<C-U>execute <SNR>9_NextFileEntry(v:count1)<CR> |
+|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>24_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>24_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>unimpairedMoveDown | :<C-U>call <SNR>24_Move('+',v:count1,'down')<CR> |
+|  | <Plug>unimpairedMoveUp | :<C-U>call <SNR>24_Move('--',v:count1,'up')<CR> |
+|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>24_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>24_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-down) | :<C-U>call <SNR>24_Move('+',v:count1,'down')<CR> |
+|  | <Plug>(unimpaired-move-up) | :<C-U>call <SNR>24_Move('--',v:count1,'up')<CR> |
+|  | <Plug>unimpairedBlankDown | :<C-U>exe <SNR>24_BlankDown()<CR> |
+|  | <Plug>unimpairedBlankUp | :<C-U>exe <SNR>24_BlankUp()<CR> |
+|  | <Plug>(unimpaired-blank-down) | :<C-U>exe <SNR>24_BlankDown()<CR> |
+|  | <Plug>(unimpaired-blank-up) | :<C-U>exe <SNR>24_BlankUp()<CR> |
+|  | <Plug>unimpairedContextNext | :<C-U>call <SNR>24_Context(0)<CR> |
+|  | <Plug>unimpairedContextPrevious | :<C-U>call <SNR>24_Context(1)<CR> |
+|  | <Plug>(unimpaired-context-next) | :<C-U>call <SNR>24_Context(0)<CR> |
+|  | <Plug>(unimpaired-context-previous) | :<C-U>call <SNR>24_Context(1)<CR> |
+|  | <Plug>unimpairedDirectoryPrevious | :<C-U>execute <SNR>24_PreviousFileEntry(v:count1)<CR> |
+|  | <Plug>unimpairedDirectoryNext | :<C-U>execute <SNR>24_NextFileEntry(v:count1)<CR> |
+|  | <Plug>(unimpaired-directory-previous) | :<C-U>execute <SNR>24_PreviousFileEntry(v:count1)<CR> |
+|  | <Plug>(unimpaired-directory-next) | :<C-U>execute <SNR>24_NextFileEntry(v:count1)<CR> |
 |  | <Plug>unimpairedTPNext | :<C-U>exe "p".(v:count ? v:count : "")."tnext"<CR> |
 |  | <Plug>unimpairedTPPrevious | :<C-U>exe "p".(v:count ? v:count : "")."tprevious"<CR> |
 |  | <Plug>(unimpaired-ptnext) | :<C-U>exe v:count1 . "ptnext"<CR> |
@@ -341,14 +325,28 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | <Plug>(unimpaired-first) | :<C-U><C-R>=v:count ? v:count . "argument" : "first"<CR><CR> |
 |  | <Plug>(unimpaired-next) | :<C-U>exe "".(v:count ? v:count : "")."next"<CR> |
 |  | <Plug>(unimpaired-previous) | :<C-U>exe "".(v:count ? v:count : "")."previous"<CR> |
-|  | <Plug>YSurround | <SNR>8_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>8_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>8_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>8_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>8_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>8_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>8_dosurround(<SNR>8_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
+|  | <2-LeftMouse> | <Plug>(matchup-double-click) |
+|  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
+|  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
+|  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(0)<CR> |
+|  | <Plug>(matchup-z%) | :<C-U>call matchup#motion#jump_inside(0)<CR> |
+|  | <Plug>(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(0, 0)<CR> |
+|  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
+|  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
+|  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
+|  | <SNR>13_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
+|  | <Plug>(leap-backward-x) |  |
+|  | <Plug>(leap-forward-x) |  |
+|  | <Plug>(leap-backward) |  |
+|  | <Plug>(leap-forward) |  |
+|  | <Plug>(leap-cross-window) |  |
+|  | <Plug>(leap-backward-till) |  |
+|  | <Plug>(leap-backward-to) |  |
+|  | <Plug>(leap-forward-till) |  |
+|  | <Plug>(leap-forward-to) |  |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
 |  | <Right> | <C-W>l |
 |  | <Up> | <C-W>k |
 |  | <Down> | <C-W>j |
@@ -383,40 +381,18 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | a% | <Plug>(matchup-a%) |
 |  | f |  |
 |  | gx | <Plug>NetrwBrowseXVis |
+|  | gs | <Plug>(leap-cross-window) |
 |  | gS | <Plug>VgSurround |
+|  | g% | <Plug>(matchup-g%) |
 | Comment selection | gc | :<C-U>lua MiniComment.operator('visual')<CR> |
 | Align with preview | gA | <Cmd>lua MiniAlign.action_visual(true)<CR> |
 | Align | ga | <Cmd>lua MiniAlign.action_visual(false)<CR> |
-|  | gs | <Plug>(leap-cross-window) |
-|  | g% | <Plug>(matchup-g%) |
 |  | i% | <Plug>(matchup-i%) |
 |  | s | <Plug>(leap-forward-to) |
 |  | t |  |
 |  | x | <Plug>(leap-forward-till) |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(unimpaired-xml-decode) | <SNR>35_TransformSetup("xml_decode") |
-|  | <Plug>unimpaired_xml_decode | <SNR>35_TransformSetup("xml_decode") |
-|  | <Plug>(unimpaired-xml-encode) | <SNR>35_TransformSetup("xml_encode") |
-|  | <Plug>unimpaired_xml_encode | <SNR>35_TransformSetup("xml_encode") |
-|  | <Plug>(unimpaired-url-decode) | <SNR>35_TransformSetup("url_decode") |
-|  | <Plug>unimpaired_url_decode | <SNR>35_TransformSetup("url_decode") |
-|  | <Plug>(unimpaired-url-encode) | <SNR>35_TransformSetup("url_encode") |
-|  | <Plug>unimpaired_url_encode | <SNR>35_TransformSetup("url_encode") |
-|  | <Plug>(unimpaired-string-decode) | <SNR>35_TransformSetup("string_decode") |
-|  | <Plug>unimpaired_string_decode | <SNR>35_TransformSetup("string_decode") |
-|  | <Plug>(unimpaired-string-encode) | <SNR>35_TransformSetup("string_encode") |
-|  | <Plug>unimpaired_string_encode | <SNR>35_TransformSetup("string_encode") |
-|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>unimpairedContextNext | :<C-U>exe 'normal! gv'|call <SNR>35_Context(0)<CR> |
-|  | <Plug>unimpairedContextPrevious | :<C-U>exe 'normal! gv'|call <SNR>35_Context(1)<CR> |
-|  | <Plug>(unimpaired-context-next) | :<C-U>exe 'normal! gv'|call <SNR>35_Context(0)<CR> |
-|  | <Plug>(unimpaired-context-previous) | :<C-U>exe 'normal! gv'|call <SNR>35_Context(1)<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>22_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>22_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>(leap-backward-x) |  |
 |  | <Plug>(leap-forward-x) |  |
 |  | <Plug>(leap-backward) |  |
@@ -426,20 +402,42 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | <Plug>(leap-backward-to) |  |
 |  | <Plug>(leap-forward-till) |  |
 |  | <Plug>(leap-forward-to) |  |
+|  | <Plug>VgSurround | :<C-U>call <SNR>34_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>34_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
+|  | <Plug>(unimpaired-xml-decode) | <SNR>33_TransformSetup("xml_decode") |
+|  | <Plug>unimpaired_xml_decode | <SNR>33_TransformSetup("xml_decode") |
+|  | <Plug>(unimpaired-xml-encode) | <SNR>33_TransformSetup("xml_encode") |
+|  | <Plug>unimpaired_xml_encode | <SNR>33_TransformSetup("xml_encode") |
+|  | <Plug>(unimpaired-url-decode) | <SNR>33_TransformSetup("url_decode") |
+|  | <Plug>unimpaired_url_decode | <SNR>33_TransformSetup("url_decode") |
+|  | <Plug>(unimpaired-url-encode) | <SNR>33_TransformSetup("url_encode") |
+|  | <Plug>unimpaired_url_encode | <SNR>33_TransformSetup("url_encode") |
+|  | <Plug>(unimpaired-string-decode) | <SNR>33_TransformSetup("string_decode") |
+|  | <Plug>unimpaired_string_decode | <SNR>33_TransformSetup("string_decode") |
+|  | <Plug>(unimpaired-string-encode) | <SNR>33_TransformSetup("string_encode") |
+|  | <Plug>unimpaired_string_encode | <SNR>33_TransformSetup("string_encode") |
+|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>33_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>33_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>33_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>33_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>unimpairedContextNext | :<C-U>exe 'normal! gv'|call <SNR>33_Context(0)<CR> |
+|  | <Plug>unimpairedContextPrevious | :<C-U>exe 'normal! gv'|call <SNR>33_Context(1)<CR> |
+|  | <Plug>(unimpaired-context-next) | :<C-U>exe 'normal! gv'|call <SNR>33_Context(0)<CR> |
+|  | <Plug>(unimpaired-context-previous) | :<C-U>exe 'normal! gv'|call <SNR>33_Context(1)<CR> |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>12_(matchup-Z%) |
-|  | <SNR>12_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>12_(matchup-z%) |
-|  | <SNR>12_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>12_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>12_(matchup-]%) |
-|  | <SNR>12_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>12_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>12_(matchup-g%) |
-|  | <SNR>12_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>12_(matchup-%) |
-|  | <SNR>12_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>23_(matchup-Z%) |
+|  | <SNR>23_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>23_(matchup-z%) |
+|  | <SNR>23_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>23_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>23_(matchup-]%) |
+|  | <SNR>23_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>23_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>23_(matchup-g%) |
+|  | <SNR>23_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>23_(matchup-%) |
+|  | <SNR>23_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 |  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
 |  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
 
@@ -452,10 +450,10 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | S | <Plug>(leap-backward-to) |
 |  | T |  |
 |  | X | <Plug>(leap-backward-till) |
-|  | [n | <Plug>(unimpaired-context-previous) |
 |  | [% | <Plug>(matchup-[%) |
-|  | ]n | <Plug>(unimpaired-context-next) |
+|  | [n | <Plug>(unimpaired-context-previous) |
 |  | ]% | <Plug>(matchup-]%) |
+|  | ]n | <Plug>(unimpaired-context-next) |
 |  | a% | <Plug>(matchup-a%) |
 |  | f |  |
 | Comment textobject | gc | <Cmd>lua MiniComment.textobject()<CR> |
@@ -466,14 +464,6 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | t |  |
 |  | x | <Plug>(leap-forward-till) |
 |  | z% | <Plug>(matchup-z%) |
-|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>35_MoveSelectionDown(v:count1)<CR> |
-|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>35_MoveSelectionUp(v:count1)<CR> |
-|  | <Plug>unimpairedContextNext | :<C-U>call <SNR>35_ContextMotion(0)<CR> |
-|  | <Plug>unimpairedContextPrevious | :<C-U>call <SNR>35_ContextMotion(1)<CR> |
-|  | <Plug>(unimpaired-context-next) | :<C-U>call <SNR>35_ContextMotion(0)<CR> |
-|  | <Plug>(unimpaired-context-previous) | :<C-U>call <SNR>35_ContextMotion(1)<CR> |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
@@ -482,6 +472,8 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |
+|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
+|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
 |  | <Plug>(leap-backward-x) |  |
 |  | <Plug>(leap-forward-x) |  |
 |  | <Plug>(leap-backward) |  |
@@ -491,5 +483,11 @@ Jumping-off point for new Neovim users or those who have declared config bankrup
 |  | <Plug>(leap-backward-to) |  |
 |  | <Plug>(leap-forward-till) |  |
 |  | <Plug>(leap-forward-to) |  |
-|  | <Plug>luasnip-expand-repeat | <Cmd>lua require'luasnip'.expand_repeat()<CR> |
-|  | <Plug>luasnip-delete-check | <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR> |
+|  | <Plug>unimpairedMoveSelectionDown | :<C-U>call <SNR>11_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>unimpairedMoveSelectionUp | :<C-U>call <SNR>11_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-selection-down) | :<C-U>call <SNR>11_MoveSelectionDown(v:count1)<CR> |
+|  | <Plug>(unimpaired-move-selection-up) | :<C-U>call <SNR>11_MoveSelectionUp(v:count1)<CR> |
+|  | <Plug>unimpairedContextNext | :<C-U>call <SNR>11_ContextMotion(0)<CR> |
+|  | <Plug>unimpairedContextPrevious | :<C-U>call <SNR>11_ContextMotion(1)<CR> |
+|  | <Plug>(unimpaired-context-next) | :<C-U>call <SNR>11_ContextMotion(0)<CR> |
+|  | <Plug>(unimpaired-context-previous) | :<C-U>call <SNR>11_ContextMotion(1)<CR> |

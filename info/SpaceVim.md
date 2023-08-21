@@ -3,12 +3,10 @@
 SpaceVim started in December 2016, it is a mature and well supported Neovim configuration distribution. Lazyman custom SpaceVim configuration installed in `~/.SpaceVim.d/`
 
 - Install and initialize: **`lazyman -s`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [SpaceVim](https://spacevim.org)
 - Plugin manager:         [SP (dein)](https://github.com/Shougo/dein.vim)
 - Installation location:  **`~/.config/nvim-SpaceVim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 

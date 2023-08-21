@@ -3,12 +3,10 @@
 The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides two separate and distinct namespaces ('free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'.
 
 - Install and initialize: **`Installed and initialized by default`**
-- Configuration category: [Default](https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features)
+- Configuration category: [Default](https://lazyman.dev/features)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Lazyman`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -24,7 +22,7 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 
 ### Website
 
-[https://ronrecord.com](https://ronrecord.com)
+[https://lazyman.dev](https://lazyman.dev)
 
 ### YouTube channel
 
@@ -155,6 +153,7 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | ----------- | --- | --- |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
+| Mason Menu | ,M | <Cmd>Mason<CR> |
 | Move Float | ,tf |  |
 | Move Bottom Right New | ,tH |  |
 | Move Below Right New | ,th |  |
@@ -167,20 +166,12 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Terminal Run | ,tr |  |
 | New Terminal Toggle | ,tO |  |
 | Terminal Toggle | ,to |  |
-| Mason Menu | ,M | <Cmd>Mason<CR> |
-| Select Moonokai pro filter | ,mc | <Cmd>MonokaiProSelect<CR> |
 | Toggle Transparency | ,ut |  |
-| Search History | ,s: |  |
-| Colorscheme with preview | ,uC |  |
-| Word (cwd) | ,sW |  |
-| Word (root dir) | ,sw |  |
-| Options | ,so |  |
-| Jump to Mark | ,sm |  |
+| Select Moonokai pro filter | ,mc | <Cmd>MonokaiProSelect<CR> |
 | Man Pages | ,sM |  |
 | Search Highlight Groups | ,sH |  |
 | Grep (cwd) | ,sG |  |
 | Grep (root dir) | ,sg |  |
-| Diagnostics | ,sd |  |
 | Commands | ,sC |  |
 | Buffer | ,sb |  |
 | Auto Commands | ,sa |  |
@@ -199,7 +190,7 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Branches | ,gh |  |
 | Fuzzy search | ,sf |  |
 | Command history | ,s; |  |
-| Find Files (root dir) | ,  |  |
+| Search History | ,s: |  |
 | Goto Symbol (Workspace) | ,sS |  |
 | Goto Symbol | ,ss |  |
 | Resume | ,sR |  |
@@ -208,66 +199,64 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Help Pages | ,sh |  |
 | Help | ,s? |  |
 | Command History | ,sc |  |
-| Quickfix List (Trouble) | ,xQ |  |
-| Location List (Trouble) | ,xL |  |
-| Workspace Diagnostics (Trouble) | ,xX |  |
-| Document Diagnostics (Trouble) | ,xx |  |
-| Run Watch Test | ,tuw |  |
-| Debug Last Test | ,tuL |  |
-| Stop Tests | ,tuS |  |
-| Toggle Test Output Panel | ,tuO |  |
-| Show Test Output | ,tuo |  |
-| Toggle Test Summary | ,tus |  |
-| Run Nearest Test | ,tur |  |
-| Run Last Test | ,tul |  |
-| Run All Test Files | ,tuT |  |
-| Run Test File | ,tut |  |
-| summarize text | ,as |  |
-| generate git message | ,ag |  |
-| Noice Last Message | ,snl |  |
-| Noice All | ,sna |  |
-| Noice History | ,snh |  |
-| Terminal Send | ,ts |  |
-| Treesitter Join | ,tj |  |
-| Toggle Treesitter Join | ,tt |  |
-| Close Buffer | ,D |  |
-| Delete all Notifications | ,un |  |
-| Dashboard | ,0 |  |
+| Diagnostics | ,sd |  |
+| Find Files (root dir) | ,  |  |
+| Colorscheme with preview | ,uC |  |
+| Word (cwd) | ,sW |  |
+| Word (root dir) | ,sw |  |
+| Options | ,so |  |
+| Jump to Mark | ,sm |  |
+|  | ,A |  |
+| Restore Session | ,ps |  |
+| Don't Save Current Session | ,pd |  |
+| Restore Last Session | ,pl |  |
 | Eval | ,de |  |
 | Dap UI | ,du |  |
-| Run to Cursor | ,dC |  |
-| Continue | ,dc |  |
-| Toggle Breakpoint | ,db |  |
-| Breakpoint Condition | ,dB |  |
 | Widgets | ,dw |  |
 | Terminate | ,dt |  |
 | Session | ,ds |  |
 | Toggle REPL | ,dr |  |
 | Pause | ,dp |  |
-| Step Over | ,dO |  |
-| Step Out | ,do |  |
-| Run Last | ,dl |  |
+| Run to Cursor | ,dC |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
 | Up | ,dk |  |
 | Down | ,dj |  |
 | Step Into | ,di |  |
 | Go to line (no execute) | ,dg |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
+| Run Last | ,dl |  |
+| Breakpoint Condition | ,dB |  |
+| Close Buffer | ,D |  |
+| Terminal Send | ,ts |  |
+| Treesitter Join | ,tj |  |
+| Toggle Treesitter Join | ,tt |  |
+| Delete all Notifications | ,un |  |
 | Explorer Float | ,E |  |
 | Explorer (root dir) | ,e |  |
+| Noice History | ,snh |  |
+| Noice Last Message | ,snl |  |
+| Noice All | ,sna |  |
 | Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo (Trouble) | ,xt |  |
 | Todo | ,st |  |
+| Todo (Trouble) | ,xt |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Location List (Trouble) | ,xL |  |
+| Workspace Diagnostics (Trouble) | ,xX |  |
+| Document Diagnostics (Trouble) | ,xx |  |
 | Toggle zen mode | ,z |  |
 | F | F |  |
 | Leap backward to | S |  |
 | T | T |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous trouble/quickfix item | [q |  |
 | Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next trouble/quickfix item | ]q |  |
 | Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |

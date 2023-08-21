@@ -3,12 +3,10 @@
 Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)
 
 - Install and initialize: **`lazyman -v`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-LunarVim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -16,7 +14,7 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 
 ### Website
 
-[https://www.lunarvim.org](https://www.lunarvim.org)
+[https://lunarvim.lazyman.dev](https://lunarvim.lazyman.dev)
 
 ### Lazy managed plugins
 
@@ -127,13 +125,13 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>YSurround | <SNR>12_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>12_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>12_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>12_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>12_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>12_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>12_dosurround(<SNR>12_inputtarget())<CR> |
+|  | <Plug>YSurround | <SNR>11_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>11_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>11_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>11_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>11_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>11_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR> |
 |  | <Plug>SurroundRepeat | . |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Float Terminal | <M-3> |  |
@@ -169,8 +167,8 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | gx | <Plug>NetrwBrowseXVis |
 |  | g% | <Plug>(MatchitVisualBackward) |
 |  | gS | <Plug>VgSurround |
-|  | gc |  |
 |  | gb |  |
+|  | gc |  |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
@@ -180,11 +178,11 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 |  | <Plug>VgSurround | :<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
 |  | <Plug>VSurround | :<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
+|  | <M-j> | :m '>+1<CR>gv-gv |
+|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
-|  | <M-k> | :m '<lt>-2<CR>gv-gv |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
 
 #### operator mode keymaps

@@ -3,12 +3,10 @@
 One of the primary inspirations for Lazyman
 
 - Install and initialize: **`lazyman -w ONNO`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-ONNO`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -20,7 +18,6 @@ One of the primary inspirations for Lazyman
 
 ### Lazy managed plugins
 
-- [jackMort/ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [anuvyklack/animation.nvim](https://github.com/anuvyklack/animation.nvim.git)
 - [utilyre/barbecue.nvim](https://github.com/utilyre/barbecue.nvim.git)
@@ -30,8 +27,8 @@ One of the primary inspirations for Lazyman
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [jcdickinson/codeium.nvim](https://github.com/jcdickinson/codeium.nvim)
 - [loctvl842/compile-nvim](https://github.com/loctvl842/compile-nvim.git)
-- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
 - [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
@@ -94,12 +91,35 @@ One of the primary inspirations for Lazyman
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Select Moonokai pro filter |  c | <Cmd>MonokaiProSelect<CR> |
-| Checkout commit |  gc |  |
+| Delete all Notifications |  n |  |
+| Zoom window |  m |  |
+| Restore Session |  ss |  |
+| Don't Save Current Session |  sd |  |
+| Restore Last Session |  sl |  |
+| Close Buffer |  d |  |
+| Dashboard |  0 |  |
+| Next Hunk |  gj |  |
+| Lazygit |  gg |  |
+| Diff |  gd |  |
+| Undo Stage Hunk |  gu |  |
+| Stage Hunk |  gs |  |
+| Reset Buffer |  gR |  |
+| Reset Hunk |  gr |  |
+| Preview Hunk |  gp |  |
+| Blame |  gl |  |
+| Prev Hunk |  gk |  |
+| Peek (Markdown Preview) |  p |  |
+| Open changed file |  go |  |
+| Find buffer |  b |  |
 | Find Text |  F |  |
 | Find files |  f |  |
+| Checkout commit |  gc |  |
 | Checkout branch |  gb |  |
-| Open changed file |  go |  |
-| Zoom window |  m |  |
+| Open file manager |  r |  |
+| Explorer (root dir) |  e |  |
+| Explorer Float (root dir) |  E |  |
+| Document Diagnostics |  ld |  |
+| Code Action |  la |  |
 | Format and Save |  W |  |
 | Workspace Symbols |  lS |  |
 | Document Symbols |  ls |  |
@@ -111,28 +131,6 @@ One of the primary inspirations for Lazyman
 | Installer Info |  lI |  |
 | Info |  li |  |
 | Workspace Diagnostics |  lw |  |
-| Document Diagnostics |  ld |  |
-| Code Action |  la |  |
-| Open file manager |  r |  |
-| Dashboard |  0 |  |
-| Prev Hunk |  gk |  |
-| Next Hunk |  gj |  |
-| Lazygit |  gg |  |
-| Diff |  gd |  |
-| Undo Stage Hunk |  gu |  |
-| Stage Hunk |  gs |  |
-| Reset Buffer |  gR |  |
-| Reset Hunk |  gr |  |
-| Preview Hunk |  gp |  |
-| Blame |  gl |  |
-| Delete all Notifications |  n |  |
-| Explorer Float (root dir) |  E |  |
-| Explorer (root dir) |  e |  |
-| Restore Session |  ss |  |
-| Don't Save Current Session |  sd |  |
-| Restore Last Session |  sl |  |
-| Close Buffer |  d |  |
-| Peek (Markdown Preview) |  p |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
@@ -140,41 +138,41 @@ One of the primary inspirations for Lazyman
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next Reference | ]] |  |
+| Half screen to the left | fH |  |
 | Mark word as bad/misspelling | fw |  |
+| Fold more | fm |  |
+| Half screen to the right | fL |  |
+| Delete all folds in current buffer | fE |  |
+| Fold less | fr |  |
+| Top this line | ft |  |
+| Right this line | fe |  |
 | Update folds | fx |  |
 | Delete fold under cursor | fd |  |
-| Right this line | fe |  |
 | Center this line | fz |  |
 | Open fold under cursor | fo |  |
-| Delete all folds in current buffer | fE |  |
-| Left this line | fs |  |
 | Open all folds under cursor | fO |  |
 | Bottom this line | fb |  |
 | Close all folds under cursor | fc |  |
-| Top this line | ft |  |
+| Left this line | fs |  |
 | Toggle fold under cursor | fa |  |
 | Toggle all folds under cursor | fA |  |
+| Add word to spell list | fg |  |
 | Show cursor line | fv |  |
 | Close all folds | fM |  |
 | Open all folds | fR |  |
-| Half screen to the left | fH |  |
-| Add word to spell list | fg |  |
-| Fold more | fm |  |
-| Half screen to the right | fL |  |
-| Fold less | fr |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Go to definition | gd |  |
 | Go to references | gr |  |
 | Go to implementations | gi |  |
+| Find Help | sh |  |
+| Registers | sR |  |
 | Man Pages | sM |  |
 | Open Recent File | sr |  |
-| Registers | sR |  |
 | Keymaps | sk |  |
 | Commands | sC |  |
 | Highlight Groups | sH |  |
 | Checkout branch | sb |  |
 | Colorscheme | sc |  |
-| Find Help | sh |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |

@@ -3,12 +3,10 @@
 Not to be confused with 'LunarVim', this is a standalone Neovim configuration. Modular configuration with LSP support for 60+ languages. Debug support for c, cpp, dart, elixir, go, haskell, java, javascript/typescript, lua, php, python, ruby, rust
 
 - Install and initialize: **`lazyman -L LvimIde`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-LvimIde`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -30,7 +28,6 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 - [ecthelionvi/NeoComposer.nvim](https://github.com/ecthelionvi/NeoComposer.nvim.git)
 - [nyngwang/NeoZoom.lua](https://github.com/nyngwang/NeoZoom.lua.git)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
-- [pechorin/any-jump.vim](https://github.com/pechorin/any-jump.vim.git)
 - [renerocksai/calendar-vim](https://github.com/renerocksai/calendar-vim.git)
 - [uga-rosa/ccc.nvim](https://github.com/uga-rosa/ccc.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
@@ -72,6 +69,7 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 - [lvim-tech/lvim-ui-config](https://github.com/lvim-tech/lvim-ui-config.git)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [echasnovski/mini.clue](https://github.com/echasnovski/mini.clue.git)
 - [echasnovski/mini.files](https://github.com/echasnovski/mini.files.git)
 - [mrbjarksen/neo-tree-diagnostics.nvim](https://github.com/mrbjarksen/neo-tree-diagnostics.nvim.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
@@ -138,14 +136,15 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
+- [pmizio/typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim.git)
 - [mbbill/undotree](https://github.com/mbbill/undotree)
 - [ton/vim-bufsurf](https://github.com/ton/vim-bufsurf.git)
 - [vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace.git)
 - [tpope/vim-dadbod](https://github.com/tpope/vim-dadbod.git)
 - [kristijanhusak/vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion.git)
 - [kristijanhusak/vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui.git)
-- [dhruvasagar/vim-table-mode](https://github.com/dhruvasagar/vim-table-mode.git)
 - [lervag/vimtex](https://github.com/lervag/vimtex)
 - [sindrets/winshift.nvim](https://github.com/sindrets/winshift.nvim.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
@@ -156,19 +155,29 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | <Esc> | <Esc>:noh<CR> |
+| Esc | <Esc> | <Esc>:noh<CR> |
 | CtrlSpace |    | <Cmd>CtrlSpace<CR> |
-|  |  q | <Cmd>lua require('NeoComposer.macro').toggle_play_macro()<CR> |
-| FzfLua buffers |  b |  |
-| FzfLua marks |  m |  |
+| Macro delete all |  qd | <Cmd>lua require('NeoComposer.store').clear_macros()<CR> |
+| Macro delay toggle |  qt | <Cmd>lua require('NeoComposer.macro').toggle_delay()<CR> |
+| Macro edit |  qe | <Cmd>lua require('NeoComposer.ui').edit_macros()<CR> |
+| Macro menu |  qm | <Cmd>lua require('NeoComposer.ui').toggle_macro_menu()<CR> |
+| Macro Play |  qq | <Cmd>lua require('NeoComposer.macro').toggle_play_macro()<CR> |
+| Macro Record Start/Stop |  qr |  |
+| Macro stop |  qs | <Cmd>lua require('NeoComposer.macro').halt_macro()<CR> |
+| Macro yank |  qy | <Cmd>lua require('NeoComposer.macro').yank_macro()<CR> |
+| Macro prev |  qp | <Cmd>lua require('NeoComposer.ui').cycle_prev()<CR> |
+| Macro next |  qn | <Cmd>lua require('NeoComposer.ui').cycle_next()<CR> |
+| Lvim file manager |  = |  |
+| Mini files |  i |  |
 | FzfLua search |  s |  |
 | FzfLua files |  f |  |
-| Mini files |  i |  |
+| FzfLua buffers |  b |  |
+| FzfLua marks |  m |  |
 |  |   |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | [Hydra] HYDRA KEYS | ;; |  |
-| [Hydra] VIMTEX | ;v |  |
+| [Hydra] PLUGINS | ;p |  |
 | [Hydra] TERMINAL | ;m |  |
 | [Hydra] NEOTEST | ;' |  |
 | [Hydra] LOCATION | ;o |  |
@@ -180,33 +189,34 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 | [Hydra] LINGUISTICS | ;u |  |
 | [Hydra] GLANCE | ;s |  |
 | [Hydra] GIT | ;g |  |
-| [Hydra] FZF | ;z |  |
+| [Hydra] FZF | ;f |  |
 | [Hydra] EXPLORER | ;e |  |
 | [Hydra] LSP | ;d |  |
-| [Hydra] DAP | ;p |  |
 | [Hydra] COMMON | ;a |  |
 | [Hydra] COMMENT, ANNOTATION, FOLD | ;c |  |
-|  | Q | <Cmd>lua require('NeoComposer.macro').toggle_record()<CR> |
+| NeoTree close | Q |  |
 | NeoTree filesystem | X |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| LocPrev | [l[ |  |
-| LocClose | [l] |  |
-| QfPrev | [[ |  |
-| QfClose | [] |  |
+| LocMenuSave | [s |  |
+| LocMenuLoad | [l |  |
+| LocMenuDelete | [d |  |
+| LocMenuChoice | [c |  |
+| LocClose | [q |  |
+| LocOpen | [o |  |
+| LocPrev | [[ |  |
+| LocNext | [] |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| LocNext | ]l] |  |
-| LocOpen | ]l[ |  |
-| LocMenuDelete | ]ld |  |
-| LocMenuChoice | ]lm |  |
-| QfNext | ]] |  |
-| QfOpen | ][ |  |
+| QfMenuSave | ]s |  |
+| QfMenuLoad | ]l |  |
 | QfMenuDelete | ]d |  |
-| QfMenuChoice | ]m |  |
-|  | cq | <Cmd>lua require('NeoComposer.macro').halt_macro()<CR> |
+| QfMenuChoice | ]c |  |
+| QfClose | ]q |  |
+| QfOpen | ]o |  |
+| QfPrev | ][ |  |
+| QfNext | ]] |  |
 | Change a surrounding pair, putting replacements on new lines | cS | <Plug>(nvim-surround-change-line) |
 | Change a surrounding pair | cs | <Plug>(nvim-surround-change) |
-| LspShowDiagnosticInLocList | dl |  |
 | LspShowDiagnosticPrev | dp |  |
 | LspShowDiagnosticNext | dn |  |
 | LspShowDiagnosticCurrent | dc |  |
@@ -214,10 +224,9 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | WindowPicker | gw |  |
-|  | j | gj |
-|  | k | gk |
-|  | q |  |
-|  | yq | <Cmd>lua require('NeoComposer.macro').yank_macro()<CR> |
+| j | j | gj |
+| k | k | gk |
+| q | q |  |
 | Add a surrounding pair around the current line, on new lines (normal mode) | ySS | <Plug>(nvim-surround-normal-cur-line) |
 | Add a surrounding pair around a motion, on new lines (normal mode) | yS | <Plug>(nvim-surround-normal-line) |
 | Add a surrounding pair around the current line (normal mode) | yss | <Plug>(nvim-surround-normal-cur) |
@@ -227,30 +236,17 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Terminal Float | <F4> |  |
-| Terminal Three | <F3> |  |
-| Terminal Two | <F2> |  |
-| Terminal One | <F1> |  |
 | LspDiagnostic QF | <C-C><C-H> |  |
 | Navbuddy | <C-C>v |  |
-| Vifm | <C-C>fv |  |
-| Ranger | <C-C>fr |  |
-|  | <Plug>(fzf-normal) |  |
-|  | <Plug>(fzf-insert) | i |
 |  | <Nul> | :CtrlSpace<CR> |
+| GitSignsBlameLine | <C-C>m |  |
 | GitSignsToggleLineBlame | <C-C>b |  |
 | GitSignsPreviewHunk | <M-;> |  |
 | GitSignsPrevHunk | <M-[> |  |
 | GitSignsNextHunk | <M-]> |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <M-q> | <Cmd>lua require('NeoComposer.ui').toggle_macro_menu()<CR> |
-|  | <M-p> | <Cmd>lua require('NeoComposer.ui').cycle_prev()<CR> |
-|  | <M-n> | <Cmd>lua require('NeoComposer.ui').cycle_next()<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
+| LvimLinguisticsTOGGLESpelling | <C-C>k |  |
+| LvimLinguisticsTOGGLEInsertModeLanguage | <C-C>l |  |
 | DAPLocal | <C-C><C-L> |  |
-| LvimHelper | <C-C>h |  |
-| LvimHelper | <F11> |  |
 | Change a surrounding pair, putting replacements on new lines | <Plug>(nvim-surround-change-line) |  |
 | Change a surrounding pair | <Plug>(nvim-surround-change) |  |
 | Delete a surrounding pair | <Plug>(nvim-surround-delete) |  |
@@ -258,41 +254,56 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 | Add a surrounding pair around a motion, on new lines (normal mode) | <Plug>(nvim-surround-normal-line) |  |
 | Add a surrounding pair around the current line (normal mode) | <Plug>(nvim-surround-normal-cur) |  |
 | Add a surrounding pair around a motion (normal mode) | <Plug>(nvim-surround-normal) |  |
-| LvimLinguisticsTOGGLESpelling | <C-C>k |  |
-| LvimLinguisticsTOGGLEInsertModeLanguage | <C-C>l |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
+| Terminal Float | <F4> |  |
+| Terminal Three | <F3> |  |
+| Terminal Two | <F2> |  |
+| Terminal One | <F1> |  |
+| Ranger | <M-f> |  |
+| Ranger | <M-r> |  |
+| Lazydocker | <M-d> |  |
+| Lazygit | <M-g> |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>(fzf-normal) |  |
+|  | <Plug>(fzf-insert) | i |
+| Lvim forgit | <M-t> |  |
+| Neogit | <M-n> |  |
+| LvimHelper | <F11> |  |
+| LvimHelper | <C-C>h |  |
+| Telescope tmux session | <C-C>t |  |
 | Telescope buffers | <M-b> |  |
 | Telescope file browser | <M-/> |  |
 | Telescope live grep | <M-.> |  |
 | Telescope find files | <M-,> |  |
-| Telescope tmux session | <C-C>t |  |
-| NeoTree diagnostics | <M-e> |  |
-| NeoTree diagnostics | <C-C><C-D> |  |
 | NeoTree git status | <C-C><C-G> |  |
 | NeoTree buffers | <C-C><C-B> |  |
 | NeoTree filesystem | <C-C><C-F> |  |
 | Undotree | <F5> |  |
 | WinShift | <C-C>w |  |
-|  | <C-C>c | :Inspect<CR> |
-|  | <C-C>ff | :CloseFloatWindows<CR> |
-|  | <C-C>p | :tabp<CR> |
-|  | <C-C>n | :tabn<CR> |
-|  | <C-Down> | :resize +2<CR> |
-|  | <C-Up> | :resize -2<CR> |
-|  | <C-Right> | :vertical resize +2<CR> |
-|  | <C-Left> | :vertical resize -2<CR> |
+| NeoZoom | <C-C>z |  |
+| Trouble | <C-C><C-V> |  |
+| Inspect | <C-C>c | :Inspect<CR> |
+| Close float windows | <C-C>ff | :CloseFloatWindows<CR> |
+| Tab prev | <C-C>p | :tabp<CR> |
+| Tab next | <C-C>n | :tabn<CR> |
+| Resize height + | <C-Down> | :resize +2<CR> |
+| Resize height - | <C-Up> | :resize -2<CR> |
+| Resize width + | <C-Right> | :vertical resize +2<CR> |
+| Resize width - | <C-Left> | :vertical resize -2<CR> |
 |  | <C-K> | <Cmd>NavigatorUp<CR> |
 |  | <C-J> | <Cmd>NavigatorDown<CR> |
 |  | <C-H> | <Cmd>NavigatorLeft<CR> |
-|  | <C-C>= | :wincmd=<CR> |
-|  | <C-C>d | :bdelete<CR> |
-|  | <C-C>o | <C-W>o |
-|  | <C-C>x | <C-W>c |
-|  | <C-C>e | :Quit<CR> |
-|  | <C-C>a | :wa<CR> |
-|  | <C-C>s | :Save<CR> |
-|  | <C-C>N | :enew<CR> |
-|  | <C-B> | <C-B>zz |
-|  | <C-F> | <C-F>zz |
+| Win resize = | <C-C>= | :wincmd=<CR> |
+| Delete buffer | <C-C>d | :bdelete<CR> |
+| Close other windows | <C-C>o | <C-W>o |
+| Close current window | <C-C>x | <C-W>c |
+| Close LvimIDE | <C-C>e | :Quit<CR> |
+| Save all | <C-C>a | :wa<CR> |
+| Save | <C-C>s | :Save<CR> |
+| Create empty buffer | <C-C>N | :enew<CR> |
+| C-b | <C-B> | <C-B>zz |
+| C-f | <C-F> | <C-F>zz |
 | Scroll Up | <C-U> |  |
 | Scroll Down | <C-D> |  |
 |  | <C-L> | <Cmd>NavigatorRight<CR> |
@@ -301,13 +312,13 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  q | <Cmd>lua require('NeoComposer.macro').toggle_play_macro()<CR> |
+| Macro Play |  qq | <Cmd>lua require('NeoComposer.macro').toggle_play_macro()<CR> |
 |  |   |  |
 |  | # | <Esc>?\%V |
 |  | % | <Plug>(MatchitVisualForward) |
 |  | * | <Esc>/\%V |
 | [Hydra] HYDRA KEYS | ;; |  |
-| [Hydra] VIMTEX | ;v |  |
+| [Hydra] PLUGINS | ;p |  |
 | [Hydra] TERMINAL | ;m |  |
 | [Hydra] NEOTEST | ;' |  |
 | [Hydra] LOCATION | ;o |  |
@@ -319,10 +330,9 @@ Not to be confused with 'LunarVim', this is a standalone Neovim configuration. M
 | [Hydra] LINGUISTICS | ;u |  |
 | [Hydra] GLANCE | ;s |  |
 | [Hydra] GIT | ;g |  |
-| [Hydra] FZF | ;z |  |
+| [Hydra] FZF | ;f |  |
 | [Hydra] EXPLORER | ;e |  |
 | [Hydra] LSP | ;d |  |
-| [Hydra] DAP | ;p |  |
 | [Hydra] COMMON | ;a |  |
 | [Hydra] COMMENT, ANNOTATION, FOLD | ;c |  |
 | Add a surrounding pair around a visual selection | S | <Plug>(nvim-surround-visual) |

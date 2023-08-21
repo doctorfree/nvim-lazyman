@@ -37,16 +37,13 @@ install language servers</p>
 <li>Install and initialize:
 <strong><code>lazyman -x StartMason</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-StartMason</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer">https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer</a></p>
@@ -306,33 +303,33 @@ href="https://github.com/kylechui/nvim-surround">kylechui/nvim-surround</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td>ySS</td>
 <td><Plug>YSsurround</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>ySs</td>
 <td><Plug>YSsurround</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>yss</td>
 <td><Plug>Yssurround</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>yS</td>
 <td><Plug>YSurround</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ys</td>
 <td><Plug>Ysurround</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle Terminal</td>
@@ -367,19 +364,69 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>11_opfunc2(‘setup’)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Ysurround</td>
+<td><SNR>11_opfunc(‘setup’)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>11_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>11_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>11_changesurround(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>11_changesurround()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>fugitive:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise with count</td>
@@ -410,56 +457,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>Comment toggle linewise</td>
 <td><Plug>(comment_toggle_linewise)</td>
 <td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>fugitive:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>YSurround</td>
-<td><SNR>5_opfunc2(‘setup’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Ysurround</td>
-<td><SNR>5_opfunc(‘setup’)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>YSsurround</td>
-<td><SNR>5_opfunc2(‘setup’).’_’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>5_opfunc(‘setup’).’g_’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>5_changesurround(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>5_changesurround()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>5_dosurround(<SNR>5_inputtarget())<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SurroundRepeat</td>
-<td>.</td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
@@ -617,32 +614,32 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>20_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>20_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR></td>
-</tr>
-<tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
+<tr class="even">
+<td></td>
+<td><Plug>VgSurround</td>
+<td>:<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)<CR></td>
+</tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
+<td><Plug>VSurround</td>
+<td>:<C-U>call <SNR>5_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)<CR></td>
 </tr>
 </tbody>
 </table>

@@ -1009,22 +1009,22 @@ make_info() {
   }
   case ${CF_CAT} in
     Base)
-      caturl="https://github.com/doctorfree/nvim-lazyman#base-configurations"
+      caturl="https://lazyman.dev/configurations/#base-configurations"
       ;;
     Custom)
-      caturl="https://github.com/doctorfree/nvim-lazyman#custom-configurations"
+      caturl="https://lazyman.dev/configurations/#custom-configurations"
       ;;
     Default)
-      caturl="https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features"
+      caturl="https://lazyman.dev/features"
       ;;
     Language)
-      caturl="https://github.com/doctorfree/nvim-lazyman#language-configurations"
+      caturl="https://lazyman.dev/configurations/#language-configurations"
       ;;
     Personal)
-      caturl="https://github.com/doctorfree/nvim-lazyman#personal-configurations"
+      caturl="https://lazyman.dev/configurations/#personal-configurations"
       ;;
     Starter)
-      caturl="https://github.com/doctorfree/nvim-lazyman#starter-configurations"
+      caturl="https://lazyman.dev/configurations/#starter-configurations"
       ;;
     *)
       caturl=
@@ -1064,8 +1064,6 @@ make_info() {
     echo "- Plugin manager:         ${PL_MAN}" >> "${OUTF}"
   fi
   echo "- Installation location:  **\`~/.config/nvim-${nvimconf}\`**" >> "${OUTF}"
-  echo "" >> "${OUTF}"
-  echo "[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)" >> "${OUTF}"
   echo "" >> "${OUTF}"
   [ "${GH_URL}" ] && {
     echo "### Git repository" >> "${OUTF}"

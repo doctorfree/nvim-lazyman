@@ -3,12 +3,10 @@
 A theme-driven modern Neovim configuration
 
 - Install and initialize: **`lazyman -x HardHacker`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-HardHacker`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -16,6 +14,7 @@ A theme-driven modern Neovim configuration
 
 ### Lazy managed plugins
 
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [utilyre/barbecue.nvim](https://github.com/utilyre/barbecue.nvim.git)
@@ -53,6 +52,7 @@ A theme-driven modern Neovim configuration
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
+- [rust-lang/rust.vim](https://github.com/rust-lang/rust.vim.git)
 - [mrjones2014/smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
@@ -71,7 +71,7 @@ A theme-driven modern Neovim configuration
 |  |  ss | :SessionManager load_session<CR> |
 |  |  dc | :DiffviewClose<CR> |
 |  |  df | :DiffviewOpen<CR> |
-|  |  b | :BufferLinePick<CR> |
+|  |  tt | :BufferLinePick<CR> |
 |  |  q |  |
 |  |  e |  |
 |  |  bb |  |
@@ -104,6 +104,8 @@ A theme-driven modern Neovim configuration
 |  | <M-C-K> |  |
 |  | <M-C-J> |  |
 |  | <M-C-H> |  |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <C-L> | <C-W>l |
 
@@ -125,6 +127,7 @@ A theme-driven modern Neovim configuration
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <Plug>luasnip-expand-repeat |  |
 
 #### operator mode keymaps
 
@@ -138,3 +141,4 @@ A theme-driven modern Neovim configuration
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
 |  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | <Plug>luasnip-expand-repeat |  |

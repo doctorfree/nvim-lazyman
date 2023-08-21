@@ -3,12 +3,10 @@
 One of the AstroNvim 'Black Belt' example advanced configurations
 
 - Install and initialize: **`lazyman -x Kabin`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Kabin`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -82,145 +80,145 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Plugins Status |  ps |  |
-| ToggleTerm btm |  tt |  |
-| Plugins Sync |  pS |  |
-| Plugins Check Updates |  pu |  |
-| Quit |  q | <Cmd>confirm q<CR> |
-| Plugins Update |  pU |  |
-| Terminate Session (S-F5) |  dQ |  |
-| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
-| Toggle REPL |  dR |  |
-| Find commands |  fC |  |
 | AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
-| Find files |  ff |  |
-| Close Session |  dq |  |
+| New File |  n | <Cmd>enew<CR> |
 | AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
-| Close buffer from tabline |  bd |  |
-| Find help |  fh |  |
+| Toggle paste mode |  up |  |
+| Toggle autopairs |  ua |  |
 | AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
-| Find keymaps |  fk |  |
-| Git commits (repository) |  gc |  |
+| Toggle URL highlight |  uu |  |
+| Toggle syntax highlighting (buffer) |  uy |  |
 | Close buffer |  c |  |
-| Find words |  fw |  |
-| Find notifications |  fn |  |
-| Find history |  fo |  |
-| Find registers |  fr |  |
-| Find themes |  ft |  |
-| Pick to close |  bc | <Cmd>BufferLinePickClose<CR> |
-| Git branches |  gb |  |
-| Find words in all files |  fW |  |
-| Find man |  fm |  |
-| New tab |  bb | <Cmd>tabnew<CR> |
+| Run To Cursor |  ds |  |
 | Force close buffer |  C |  |
-| ToggleTerm lazygit |  gg |  |
-| Close all buffers to the left |  bl |  |
-| ToggleTerm lazygit |  tl |  |
-| ToggleTerm node |  tn |  |
-| Search symbols |  ls |  |
-| ToggleTerm gdu |  tu |  |
 | By extension |  bse |  |
-| Horizontal split buffer from tabline |  b\ |  |
+| Close all buffers to the right |  br |  |
+| Toggle diagnostics |  ud |  |
+| Find words in all files |  fW |  |
+| Toggle signcolumn |  ug |  |
+| Pick to jump |  bj | <Cmd>BufferLinePick<CR> |
+| Change indent setting |  ui |  |
+| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
+| Close all buffers to the left |  bl |  |
+| Toggle statusline |  ul |  |
+| Previous buffer |  bp |  |
+| Run Browser |  r | :exe ':silent !firefox %'<CR> |
+| Toggle CodeLens |  uL |  |
+| Change line numbering |  un |  |
 | By relative path |  bsr |  |
-| ToggleTerm python |  tp |  |
+| Toggle Notifications |  uN |  |
 | By full path |  bsp |  |
 | ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
 | By buffer number |  bsi |  |
-| Close all buffers |  bC |  |
-| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
-| Find all files |  fF |  |
-| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
-| Vertical split buffer from tabline |  b| |  |
-| Toggle foldcolumn |  uh |  |
-| Toggle URL highlight |  uu |  |
-| Previous buffer |  bp |  |
-| Find word under cursor |  fc |  |
-| Close all buffers to the right |  br |  |
-| Find buffers |  fb |  |
-| Symbols outline |  lS |  |
-| Find AstroNvim config files |  fa |  |
-| Toggle Breakpoint (F9) |  db |  |
-| Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Clear Breakpoints |  dB |  |
-| Find words in current buffer |  f/ |  |
-| Start/Continue (F5) |  dc |  |
-| By modification |  bsm |  |
-| Conditional Breakpoint (S-F9) |  dC |  |
-| Find marks |  f' |  |
-| Step Into (F11) |  di |  |
-| Pick to jump |  bj | <Cmd>BufferLinePick<CR> |
-| Step Over (F10) |  do |  |
-| Highlight groups |  sg | <Cmd>Telescope highlights<CR> |
-| Step Out (S-F11) |  dO |  |
-| Plugins Install |  pi |  |
-| Pause (F6) |  dp |  |
-| Restart (C-F5) |  dr |  |
-| Run To Cursor |  ds |  |
-| Evaluate Input |  dE |  |
-| Toggle Debugger UI |  du |  |
-| Debugger Hover |  dh |  |
-| Sort by tabs |  bt | <Cmd>BufferLineSortByTabs<CR> |
-| Run Browser |  r | :exe ':silent !firefox %'<CR> |
-| View Highlight Group |  k | :TSHighlightCapturesUnderCursor<CR> |
-| Toggle autopairs |  ua |  |
 | Zen Mode |  z | <Cmd>ZenMode<CR> |
-| Toggle background |  ub |  |
-| Toggle autocompletion |  uc |  |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
-| Toggle diagnostics |  ud |  |
-| Toggle signcolumn |  ug |  |
-| Change indent setting |  ui |  |
-| Toggle statusline |  ul |  |
-| Toggle CodeLens |  uL |  |
-| Change line numbering |  un |  |
-| Toggle Notifications |  uN |  |
-| Toggle paste mode |  up |  |
+| By modification |  bsm |  |
 | Toggle spellcheck |  us |  |
-| Toggle conceal |  uS |  |
+| New tab |  bb | <Cmd>tabnew<CR> |
+| Close buffer from tabline |  bd |  |
+| Horizontal split buffer from tabline |  b\ |  |
 | Toggle tabline |  ut |  |
+| Vertical split buffer from tabline |  b| |  |
+| Toggle background |  ub |  |
+| ToggleTerm gdu |  tu |  |
+| Toggle autocompletion |  uc |  |
 | Toggle wrap |  uw |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
 | Toggle comment line |  / |  |
-| Toggle syntax highlight |  uy |  |
+| Toggle foldcolumn |  uh |  |
+| ToggleTerm node |  tn |  |
 | View Git blame |  gl |  |
+| ToggleTerm btm |  tt |  |
 | View full Git blame |  gL |  |
+| ToggleTerm python |  tp |  |
 | Preview Git hunk |  gp |  |
 | Reset Git hunk |  gh |  |
+| Find notifications |  fn |  |
 | Reset Git buffer |  gr |  |
 | Stage Git hunk |  gs |  |
+| Toggle conceal |  uS |  |
 | Stage Git buffer |  gS |  |
+| View Highlight Group |  k | :TSHighlightCapturesUnderCursor<CR> |
 | Unstage Git hunk |  gu |  |
+| Close all buffers |  bC |  |
 | View Git diff |  gd |  |
+| Sort by tabs |  bt | <Cmd>BufferLineSortByTabs<CR> |
 | Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
+| Highlight groups |  sg | <Cmd>Telescope highlights<CR> |
 | Toggle Explorer Focus |  o |  |
+| Pick to close |  bc | <Cmd>BufferLinePickClose<CR> |
 | Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
 | Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
 | Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
 | Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
 | Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
-| Save |  w | <Cmd>w<CR> |
 | Mason Installer |  pm | <Cmd>Mason<CR> |
-| New File |  n | <Cmd>enew<CR> |
+| Symbols outline |  lS |  |
+| Git branches |  gb |  |
+| Git commits (repository) |  gc |  |
 | Git commits (current file) |  gC |  |
 | Git status |  gt |  |
 | Resume previous search |  f<CR> |  |
+| Find marks |  f' |  |
+| Find words in current buffer |  f/ |  |
+| Find AstroNvim config files |  fa |  |
+| Find buffers |  fb |  |
+| Find word under cursor |  fc |  |
+| Find commands |  fC |  |
+| Find files |  ff |  |
+| Find all files |  fF |  |
+| Find help |  fh |  |
+| Find keymaps |  fk |  |
+| Find man |  fm |  |
+| ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
+| Find history |  fo |  |
+| ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
+| Find registers |  fr |  |
+| Find themes |  ft |  |
+| Find words |  fw |  |
+| Search symbols |  ls |  |
+| ToggleTerm lazygit |  gg |  |
+| ToggleTerm lazygit |  tl |  |
+| Toggle Breakpoint (F9) |  db |  |
+| Clear Breakpoints |  dB |  |
+| Start/Continue (F5) |  dc |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Step Into (F11) |  di |  |
+| Step Over (F10) |  do |  |
+| Step Out (S-F11) |  dO |  |
+| Close Session |  dq |  |
+| Terminate Session (S-F5) |  dQ |  |
+| Pause (F6) |  dp |  |
+| Restart (C-F5) |  dr |  |
+| Toggle REPL |  dR |  |
+| Save |  w | <Cmd>w<CR> |
+| Evaluate Input |  dE |  |
+| Quit |  q | <Cmd>confirm q<CR> |
+| Toggle Debugger UI |  du |  |
+| Debugger Hover |  dh |  |
+| Plugins Install |  pi |  |
+| Plugins Status |  ps |  |
+| Plugins Sync |  pS |  |
+| Plugins Check Updates |  pu |  |
+| Plugins Update |  pU |  |
+| Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Move buffer tab left | <lt>b |  |
 | Move buffer tab right | >b |  |
 | Nvim builtin | Y | y$ |
-| Previous buffer | [b |  |
 | Previous tab | [t |  |
 | Previous Git hunk | [g |  |
+| Previous buffer | [b |  |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Horizontal split | \ | <Cmd>split<CR> |
-| Next buffer | ]b |  |
 | Next tab | ]t |  |
+| Next buffer | ]b |  |
 | Next Git hunk | ]g |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Open the file under cursor with system app | gx |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 | Open all folds | zR |  |
@@ -229,11 +227,18 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Fold more | zm |  |
 | Peek fold | zp |  |
 | Vertical split | | | <Cmd>vsplit<CR> |
+| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
+| Debugger: Stop | <F17> |  |
+| Move to below split | <C-J> |  |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Force write | <C-S> | <Cmd>w!<CR> |
 | Move to left split | <C-H> |  |
 | Resize split up | <C-Up> |  |
-| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Resize split down | <C-Down> |  |
+| Resize split left | <C-Left> |  |
+| Resize split right | <C-Right> |  |
+| Move to above split | <C-K> |  |
 | Debugger: Start | <F5> |  |
-| Debugger: Stop | <F17> |  |
 | Debugger: Conditional Breakpoint | <F21> |  |
 | Debugger: Restart | <F29> |  |
 | Debugger: Pause | <F6> |  |
@@ -241,14 +246,7 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Debugger: Step Over | <F10> |  |
 | Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Move to above split | <C-K> |  |
-| Move to below split | <C-J> |  |
-| Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
-| Force write | <C-S> | <Cmd>w!<CR> |
-| Force quit | <C-Q> | <Cmd>q!<CR> |
-| Resize split down | <C-Down> |  |
-| Resize split left | <C-Left> |  |
-| Resize split right | <C-Right> |  |
+| Force quit | <C-Q> | <Cmd>qa!<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
@@ -269,8 +267,8 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
 |  | g% | <Plug>(MatchitVisualBackward) |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
 | Unindent line | <S-Tab> | <lt>gv |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |

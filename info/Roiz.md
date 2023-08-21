@@ -3,12 +3,10 @@
 Just a random Neovim config found on Github, works well
 
 - Install and initialize: **`lazyman -w Roiz`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Roiz`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -58,6 +56,7 @@ Just a random Neovim config found on Github, works well
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [pwntester/octo.nvim](https://github.com/pwntester/octo.nvim)
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -73,29 +72,29 @@ Just a random Neovim config found on Github, works well
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Move line right | <Tab> | <Cmd>lua MiniMove.move_line('right')<CR> |
-| Submit PR review |  orss | :Octo review submit<CR> |
-| Start PR review |  ors | :Octo review start<CR> |
-| Close current review |  orc | :Octo review close<CR> |
-| Resume PR review |  orr | :Octo review resume<CR> |
-| Reload current PR |  opr | :Octo pr reload<CR> |
-| List PR's |  opl | :Octo pr list initial_mode=normal<CR> |
-| Open Telescope Keymaps |  k | :Telescope keymaps<CR> |
-| Show git branches |  gb | :Telescope git_branches initial_mode=normal<CR> |
 | Show git log |  glo | :Telescope git_commits initial_mode=normal<CR> |
 | Open Telescope live_grep |  fg | :Telescope live_grep<CR> |
 | Open Telescope |  ff | :Telescope find_files<CR> |
 | Show git status |  gst | :Telescope git_status initial_mode=normal<CR> |
+| Open Telescope Keymaps |  k | :Telescope keymaps<CR> |
+| Show git branches |  gb | :Telescope git_branches initial_mode=normal<CR> |
+| Open a floating term |  tt | :ToggleTerm direction=float<CR> |
+| Select all |  a | ggvG<S-End> |
+| Test keymap |  test | :echo 'This is a test keymap!'<CR> |
+| Resume PR review |  orr | :Octo review resume<CR> |
+| Submit PR review |  orss | :Octo review submit<CR> |
+| Start PR review |  ors | :Octo review start<CR> |
+| Close current review |  orc | :Octo review close<CR> |
+| List PR's |  opl | :Octo pr list initial_mode=normal<CR> |
+| Reload current PR |  opr | :Octo pr reload<CR> |
 | Where am I |  wai | :echo expand('%:p')<CR> |
+| Close diffview |  dcc | :DiffviewClose<CR> |
 | Open diffview |  dv | :DiffviewOpen<CR> |
 | Show current file history |  dch | :DiffviewFileHistory %<CR> |
 | Show Commit history with changes |  dh | :DiffviewFileHistory<CR> |
-| Close diffview |  dcc | :DiffviewClose<CR> |
+| Search current word with Spectre |  sw | :lua require('spectre').open_visual({select_word=true})<CR> |
 | Open Spectre |  ss | :lua require('spectre').open()<CR> |
 | Search on current file with Spectre |  sf | :lua require('spectre').open_file_search({select_word=true})<CR> |
-| Search current word with Spectre |  sw | :lua require('spectre').open_visual({select_word=true})<CR> |
-| Select all |  a | ggvG<S-End> |
-| Test keymap |  test | :echo 'This is a test keymap!'<CR> |
-| Open a floating term |  tt | :ToggleTerm direction=float<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | go to the beggining of the line | B | ^ |
@@ -108,6 +107,7 @@ Just a random Neovim config found on Github, works well
 |  | \\A | <Plug>(VM-Select-All) |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Clear search highlight | _ | :noh<CR> |
+|  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
@@ -121,18 +121,19 @@ Just a random Neovim config found on Github, works well
 | Preview implementation | gpi |  |
 | Preview type definition | gpt |  |
 | Preview definition | gpd |  |
-| Close all folds | zM |  |
 | Open all folds | zR |  |
+| Close all folds | zM |  |
+| Save current file | <C-S> | :w<CR> |
+| Format file | <M-F> | :lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR> |
 | Open Nvimtree | <C-B> | :NvimTreeFindFileToggle<CR> |
+| Move down faster | <C-J> | 10j |
 | Move up faster | <C-K> | 10k |
 | Quit Nvim | <C-Q> | :q<CR> |
-| Move down faster | <C-J> | 10j |
 | Update buffer | <F5> | :bufdo e!<CR> |
-| Format file | <M-F> | :lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR> |
+| Move to the next buffer | <M-l> | :BufferLineCycleNext<CR> |
 | Close current buffer | <M-w> | :bd<CR> |
 | Move to the previous buffer | <M-h> | :BufferLineCyclePrev<CR> |
-| Move to the next buffer | <M-l> | :BufferLineCycleNext<CR> |
-| Save current file | <C-S> | :w<CR> |
+|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
@@ -202,26 +203,28 @@ Just a random Neovim config found on Github, works well
 |  | \\A | <Plug>(VM-Visual-All) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
+|  | gx | <Plug>NetrwBrowseXVis |
 |  | g% | <Plug>(MatchitVisualBackward) |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
-| Move up faster | <C-K> | 10k |
 | Move down faster | <C-J> | 10j |
+| Move up faster | <C-K> | 10k |
+|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <C-N> | <Plug>(VM-Find-Subword-Under) |
 |  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>16_Visual('under') |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>10_Visual('under') |
 |  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
 |  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
 |  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>16_Visual('all') |
+|  | <Plug>(VM-Visual-All) | <SNR>10_Visual('all') |
 |  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 | Move up | <M-k> | <Cmd>lua MiniMove.move_selection('up')<CR> |
 | Move down | <M-j> | <Cmd>lua MiniMove.move_selection('down')<CR> |
 | Move left | <S-Tab> | <Cmd>lua MiniMove.move_selection('left')<CR> |

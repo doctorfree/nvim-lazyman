@@ -64,7 +64,7 @@ echo "" >> "${OUT}"
 echo "### ${CFNAME} Keymaps" >> "${OUT}"
 
 cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
-  grep -v callback | grep -v "^\[" | grep -v ^Error | \
+  grep -v callback | grep -v "^\[" | grep -v ^Dep | grep -v ^Error | \
   grep -v ^Fail | grep -v ^Some | grep -v ^\& | grep -v ^sh | \
   grep -v ^Tele | grep -v ^Lua | grep -v ^Two | grep -i -v ^vim | \
   grep -v ^stack | grep -v "[[:space:]]/home/" | grep -v ^mkdir | \

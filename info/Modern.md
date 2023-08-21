@@ -3,12 +3,10 @@
 Configure Neovim as a modernized development environment. Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)
 
 - Install and initialize: **`lazyman -x Modern`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Modern`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -47,7 +45,9 @@ Configure Neovim as a modernized development environment. Details described in [
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [rawnly/gist.nvim](https://github.com/rawnly/gist.nvim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
 - [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)
+- [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim.git)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [lukas-reineke/headlines.nvim](https://github.com/lukas-reineke/headlines.nvim.git)
 - [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim.git)
@@ -111,6 +111,7 @@ Configure Neovim as a modernized development environment. Details described in [
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre.git)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [xiyaowong/nvim-transparent](https://github.com/xiyaowong/nvim-transparent)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [RRethy/nvim-treesitter-endwise](https://github.com/RRethy/nvim-treesitter-endwise)
@@ -134,9 +135,9 @@ Configure Neovim as a modernized development environment. Details described in [
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 - [folke/styler.nvim](https://github.com/folke/styler.nvim.git)
-- [abecodes/tabout.nvim](https://github.com/abecodes/tabout.nvim.git)
 - [olacin/telescope-cc.nvim](https://github.com/olacin/telescope-cc.nvim.git)
 - [nvim-telescope/telescope-dap.nvim](https://github.com/nvim-telescope/telescope-dap.nvim)
+- [lpoto/telescope-docker.nvim](https://github.com/lpoto/telescope-docker.nvim.git)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [nvim-telescope/telescope-frecency.nvim](https://github.com/nvim-telescope/telescope-frecency.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
@@ -165,7 +166,6 @@ Configure Neovim as a modernized development environment. Details described in [
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [tpope/vim-rhubarb](https://github.com/tpope/vim-rhubarb)
 - [honza/vim-snippets](https://github.com/honza/vim-snippets.git)
-- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [dhruvasagar/vim-table-mode](https://github.com/dhruvasagar/vim-table-mode.git)
 - [nvim-neotest/neotest-vim-test](https://github.com/nvim-neotest/neotest-vim-test)
 - [lervag/vimtex](https://github.com/lervag/vimtex)
@@ -181,23 +181,20 @@ Configure Neovim as a modernized development environment. Details described in [
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Manage Plugins |  zz | <Cmd>:Lazy<CR> |
+| Code Outline (navbuddy) |  vO |  |
+| Summarize Text |  as |  |
+| Generate Git Message |  ag |  |
 | Debug Cleanup |  rc |  |
 | Debug Print Variable |  rp |  |
 | Debug Print |  rP |  |
 | Extract Block to File |  rf |  |
 | Extract Block |  rb |  |
 | Inline Variable |  ri |  |
-| Search and Replace (Spectre) |  sr |  |
 | Rename Buffer |  Dr |  |
 | Find Buffer |  Df |  |
 | Toggle UI |  Dt |  |
 | Last Query Info |  Dq |  |
-| Notation |  nn |  |
-| Terminal #2 |  0 |  |
-| Status |  gs |  |
-| Document Diagnostics |  ld |  |
-| Workspace Diagnostics |  lD |  |
-| Code Outline (navbuddy) |  vO |  |
+| Debug File |  tNF |  |
 | Summary |  tNS |  |
 | Stop |  tNs |  |
 | Output |  tNo |  |
@@ -207,21 +204,83 @@ Configure Neovim as a modernized development environment. Details described in [
 | File |  tNf |  |
 | Attach |  tNa |  |
 | Debug Last |  tNL |  |
-| Debug File |  tNF |  |
-| ToDo (Trouble) |  lt |  |
-| ToDo |  lT |  |
+| Node Action |  ln |  |
+| Status |  gs |  |
+| Select VirtualEnv |  lv |  |
+| Explorer (Current Directory) |  fe |  |
+| Explorer (Current File) |  fE |  |
+| Toggle Zoom |  vz |  |
 | Function |  lgf |  |
 | Class |  lgc |  |
 | Annotation |  lgd |  |
 | Type |  lgt |  |
-| Explorer (Current Directory) |  fe |  |
-| Explorer (Current File) |  fE |  |
-| Toggle Zoom |  vz |  |
-| Step Back |  db |  |
-| Toggle UI |  dU |  |
-| Conditional Breakpoint |  dC |  |
-| Evaluate Input |  dE |  |
-| Run to Cursor |  dR |  |
+| Edgy Select Window |  zE |  |
+| Edgy Toggle |  ze |  |
+| Delete Buffer |  bd |  |
+| Close Buffer |  bc |  |
+| Reload Buffer |  br |  |
+| Delete Buffer (Force) |  bD |  |
+| Command Palette |  hc |  |
+| Toggle Split/Join |  lj |  |
+| Add File |  ja |  |
+| Command 2 |  6 |  |
+| Command 1 |  5 |  |
+| Terminal 2 |  4 |  |
+| Terminal 1 |  3 |  |
+| File 2 |  2 |  |
+| File 1 |  1 |  |
+| Command Menu |  jc |  |
+| File Menu |  jm |  |
+| Search and Replace (SSR) |  sR |  |
+| ToDo (Trouble) |  lt |  |
+| ToDo |  lT |  |
+| Edit with Instructions |  ae |  |
+| Chat |  aa |  |
+| Complete Code |  ac |  |
+| File |  tf |  |
+| Class |  tc |  |
+| Visit |  tv |  |
+| Suite |  ts |  |
+| Nearest |  tn |  |
+| Last |  tl |  |
+| Docker |  fd |  |
+| +Color |  zC |  |
+| Toggle Highlighter |  zCh |  |
+| Convert |  zCc |  |
+| Pick |  zCp |  |
+| Search and Replace (Spectre) |  sr |  |
+| Toggle Minimap |  vm |  |
+| Notation |  nn |  |
+| Send Mark |  xms |  |
+| Clear |  xc |  |
+| Close REPL |  xC |  |
+| Interrupt |  xI |  |
+| ENTER |  x<CR> |  |
+| Send File |  xf |  |
+| Send Until Cursor |  xt |  |
+| Send Line |  xl |  |
+| Send Motion |  xs |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
+| Hide |  xH |  |
+| Focus |  xF |  |
+| Restart |  xS |  |
+| REPL |  xR |  |
+| Remove Mark |  xmr |  |
+| Mark Motion |  xmm |  |
+| Load Bundle |  tol |  |
+| Delete Bundle |  tod |  |
+| Close |  toc |  |
+| Build |  tob |  |
+| Task Action |  toa |  |
+| Run Command |  toR |  |
+| Toggle |  tot |  |
+| Save Bundle |  tos |  |
+| Run |  tor |  |
+| Quick Action |  toq |  |
+| Open |  too |  |
+| Document Diagnostics |  ld |  |
+| Workspace Diagnostics |  lD |  |
 | Step Out |  du |  |
 | Terminate |  dx |  |
 | Toggle Breakpoint |  dt |  |
@@ -238,104 +297,49 @@ Configure Neovim as a modernized development environment. Details described in [
 | Evaluate |  de |  |
 | Disconnect |  dd |  |
 | Continue |  dc |  |
-| Close Buffer |  bc |  |
-| Reload Buffer |  br |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Open Yank History |  zp |  |
+| Step Back |  db |  |
+| Toggle UI |  dU |  |
+| Conditional Breakpoint |  dC |  |
+| Evaluate Input |  dE |  |
+| Run to Cursor |  dR |  |
+| Preview |  np |  |
 | Forward jump |  nj |  |
 | Toggle Preview |  nt |  |
 | Close Preview |  nc |  |
-| Preview |  np |  |
-| Edit with Instructions |  ae |  |
-| Complete Code |  ac |  |
-| Chat |  aa |  |
-| Command Palette |  hc |  |
-| Select VirtualEnv |  lv |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
-| Focus |  xF |  |
-| Restart |  xS |  |
-| REPL |  xR |  |
-| Remove Mark |  xmr |  |
-| Mark Motion |  xmm |  |
-| Send Mark |  xms |  |
-| Clear |  xc |  |
-| Close REPL |  xC |  |
-| Interrupt |  xI |  |
-| ENTER |  x<CR> |  |
-| Send File |  xf |  |
-| Send Until Cursor |  xt |  |
-| Send Line |  xl |  |
-| Send Motion |  xs |  |
-| Pick |  zCp |  |
-| +Color |  zC |  |
-| Toggle Highlighter |  zCh |  |
-| Convert |  zCc |  |
-| Toggle Minimap |  vm |  |
-| Run |  tor |  |
-| Quick Action |  toq |  |
-| Open |  too |  |
-| Load Bundle |  tol |  |
-| Delete Bundle |  tod |  |
-| Close |  toc |  |
-| Build |  tob |  |
-| Task Action |  toa |  |
-| Run Command |  toR |  |
-| Toggle |  tot |  |
-| Save Bundle |  tos |  |
-| Search and Replace (SSR) |  sR |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Command 2 |  6 |  |
-| Command 1 |  5 |  |
-| Terminal 2 |  4 |  |
-| Terminal 1 |  3 |  |
-| File 2 |  2 |  |
-| File 1 |  1 |  |
-| Command Menu |  jc |  |
-| File Menu |  jm |  |
-| Add File |  ja |  |
 | Mason |  lm |  |
+| Open Yank History |  zp |  |
+| Find Files |    |  |
 | Colorscheme |  zc |  |
 | Code Outline |  vo |  |
 | Buffer |  sb |  |
 | Snippets |  ss |  |
-| Workspace |  sw |  |
+| Grep (Cwd) |  sW |  |
+| Grep (Root Dir) |  sw |  |
 | List |  pp |  |
 | Search |  hs |  |
 | Search |  ps |  |
 | Search Plugins |  zs |  |
 | Conventional Commits |  gc |  |
 | Browser |  fr |  |
+| Change WorkDir |  fc |  |
 | Buffers |  fb |  |
 | Recent |  fo |  |
-| Find Files |  ff |  |
-| Find Files |    |  |
-| Edgy Select Window |  zE |  |
-| Edgy Toggle |  ze |  |
-| Toggle Split/Join |  lj |  |
-| Node Action |  ln |  |
-| Suite |  ts |  |
-| Nearest |  tn |  |
-| Last |  tl |  |
-| File |  tf |  |
-| Class |  tc |  |
-| Visit |  tv |  |
-| Generate Git Message |  ag |  |
-| Summarize Text |  as |  |
+| Find Files (Cwd) |  fF |  |
+| Find Files (Root Dir) |  ff |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Terminal #2 |  0 |  |
 |  |   |  |
 |  | # |  |
 | Nvim builtin | & | :&&<CR> |
 |  | * |  |
-| Put and indent left | <lt>p |  |
 | Put before and indent left | <lt>P |  |
+| Put and indent left | <lt>p |  |
 | Put after applying a filter | =p |  |
 | Put before applying a filter | =P |  |
-| Put and indent right | >p |  |
 | Put before and indent right | >P |  |
+| Put and indent right | >p |  |
 |  | N |  |
 | Put yanked text before cursor | P |  |
 | Flash Treesitter | S |  |
@@ -350,19 +354,19 @@ Configure Neovim as a modernized development environment. Details described in [
 | Put indented after cursor (linewise) | ]P |  |
 |  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Put yanked text after selection | gp |  |
-| Put yanked text before selection | gP |  |
-|  | g# |  |
 |  | g* |  |
+|  | g# |  |
+| Put yanked text before selection | gP |  |
+| Put yanked text after selection | gp |  |
+|  | gcc |  |
 |  | gc |  |
 |  | gbc |  |
-|  | gcc |  |
 |  | n |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |
-|  | zc |  |
 |  | zo |  |
+| Peek Fold | zp |  |
 |  | zC |  |
 |  | zO |  |
 |  | za |  |
@@ -371,19 +375,19 @@ Configure Neovim as a modernized development environment. Details described in [
 | Open All Folds | zR |  |
 | Close All Folds | zM |  |
 | Close Folds With | zm |  |
-| Peek Fold | zp |  |
+|  | zc |  |
 | Decrement | <C-X> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 | Increment | <C-A> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
 |  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <C-Bslash> |  |
-| Scroll backward | <C-B> |  |
-| Scroll forward | <C-F> |  |
 | Legendary | <C-S-P> |  |
-| Execute Cell | <M-e> |  |
 | Previous Cell | <M-k> |  |
 | Next Cell | <M-j> |  |
 | Delete Cell | <M-x> |  |
+| Execute Cell | <M-e> |  |
+| Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
+|  | <C-Bslash> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -391,18 +395,20 @@ Configure Neovim as a modernized development environment. Details described in [
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Search and Replace (SSR) |  sR |  |
-| Evaluate |  de |  |
-| Clear Highlight |  xL |  |
-| Mark Visual |  xmv |  |
-| Send |  xs |  |
+| Refactor |  rs |  |
 | Debug Print Variable |  rp |  |
 | Extract Variable |  rx |  |
 | Extract Function to File |  rF |  |
 | Extract Function |  rf |  |
 | Inline Variable |  ri |  |
-| Refactor |  rs |  |
-| Complete Code |  ac |  |
+| Evaluate |  de |  |
+| Clear Highlight |  xL |  |
+| Send |  xs |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
+| Mark Visual |  xmv |  |
 | Edit with Instructions |  ae |  |
+| Complete Code |  ac |  |
 |  |   |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
@@ -415,9 +421,9 @@ Configure Neovim as a modernized development environment. Details described in [
 |  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
 | Put yanked text before selection | gP |  |
 | Put yanked text after selection | gp |  |
-|  | gc |  |
 |  | gbc |  |
 |  | gcc |  |
+|  | gc |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |

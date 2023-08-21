@@ -3,12 +3,10 @@
 Bare bones LazyVim configuration by Traap with a [video introduction](https://youtu.be/xpBoiTIiepc)
 
 - Install and initialize: **`lazyman -x Barebones`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Barebones`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -89,68 +87,69 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
+| Dismiss all Notifications |  un |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Dismiss All |  snd |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Select VirtualEnv |  cv |  |
 | Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo (Trouble) |  xt |  |
+| Debug Method |  dPt |  |
+| Debug Class |  dPc |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
-| Mason |  cm |  |
-| Debug Method |  dPt |  |
-| Debug Class |  dPc |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Dismiss all Notifications |  un |  |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
-| Jump to Mark |  sm |  |
-| Man Pages |  sM |  |
-| Key Maps |  sk |  |
-| Command History |  sc |  |
-| Commands |  sC |  |
-| Find Files (root dir) |  ff |  |
-| Find Files (cwd) |  fF |  |
-| Recent |  fr |  |
-| Recent (cwd) |  fR |  |
-| commits |  gc |  |
-| status |  gs |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
+| Goto Symbol |  ss |  |
+| Goto Symbol (Workspace) |  sS |  |
+| status |  gs |  |
+| commits |  gc |  |
+| Recent (cwd) |  fR |  |
+| Recent |  fr |  |
+| Find Files (cwd) |  fF |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Find Files (root dir) |    |  |
 | Word (cwd) |  sW |  |
 | Word (root dir) |  sw |  |
 | Resume |  sR |  |
 | Options |  so |  |
-| Buffer |  sb |  |
-| Auto Commands |  sa |  |
-| Registers |  s" |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
+| Key Maps |  sk |  |
 | Search Highlight Groups |  sH |  |
 | Help Pages |  sh |  |
 | Grep (cwd) |  sG |  |
 | Grep (root dir) |  sg |  |
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
-| Buffers |  fb |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Find Files (root dir) |    |  |
-| Replace in files (Spectre) |  sr |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
+| Commands |  sC |  |
+| Command History |  sc |  |
+| Buffer |  sb |  |
+| Auto Commands |  sa |  |
+| Registers |  s" |  |
 | Don't Save Current Session |  qd |  |
 | Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dap UI |  du |  |
-| Eval |  de |  |
+| Replace in files (Spectre) |  sr |  |
+| Mason |  cm |  |
 | Run Last |  dl |  |
 | Up |  dk |  |
 | Down |  dj |  |
@@ -167,7 +166,6 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 | Pause |  dp |  |
 | Step Over |  dO |  |
 | Step Out |  do |  |
-| Select VirtualEnv |  cv |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
@@ -181,21 +179,21 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 | Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Delete surrounding | gzd |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
-| Find left surrounding | gzF |  |
 | Highlight surrounding | gzh |  |
-| Find right surrounding | gzf |  |
 | Add surrounding | gza |  |
+| Find left surrounding | gzF |  |
 | Replace surrounding | gzr |  |
+| Find right surrounding | gzf |  |
+| Delete surrounding | gzd |  |
 | Flash | s |  |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 | Increment selection | <C-Space> |  |
-| Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

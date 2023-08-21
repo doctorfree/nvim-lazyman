@@ -3,12 +3,10 @@
 Same as 'StartMason' but everything is split in modules
 
 - Install and initialize: **`lazyman -x Modular`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Modular`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -56,14 +54,14 @@ Same as 'StartMason' but everything is split in modules
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  e | <Cmd>NvimTreeToggle<CR> |
+|  |  bc | <Cmd>Bdelete<CR> |
 |  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
 |  |  fd | <Cmd>Telescope diagnostics<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |    | <Cmd>Telescope buffers<CR> |
 |  |  ? | <Cmd>Telescope oldfiles<CR> |
-|  |  e | <Cmd>NvimTreeToggle<CR> |
-|  |  bc | <Cmd>Bdelete<CR> |
 |  |  bl | <Cmd>buffer #<CR> |
 |  |  bq | <Cmd>bdelete<CR> |
 |  |  w | <Cmd>write<CR> |

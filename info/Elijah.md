@@ -3,12 +3,10 @@
 Personal Neovim configuration of Elijah Manor
 
 - Install and initialize: **`lazyman -w Elijah`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Elijah`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -36,6 +34,7 @@ Personal Neovim configuration of Elijah Manor
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [samjwill/nvim-unception](https://github.com/samjwill/nvim-unception.git)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
@@ -48,6 +47,7 @@ Personal Neovim configuration of Elijah Manor
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [dmmulroy/tsc.nvim](https://github.com/dmmulroy/tsc.nvim)
+- [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 ### Elijah Keymaps
@@ -56,6 +56,7 @@ Personal Neovim configuration of Elijah Manor
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Switch Buffer |  , | <Cmd>Telescope buffers show_all_buffers=true<CR> |
 | Browse Files |  sB | :Telescope file_browser file_browser path=%:p:h=%:p:h<CR> |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
@@ -69,71 +70,59 @@ Personal Neovim configuration of Elijah Manor
 | Key Maps |  sk | <Cmd>Telescope keymaps<CR> |
 | Search Highlight Groups |  sH | <Cmd>Telescope highlights<CR> |
 | Help Pages |  sh | <Cmd>Telescope help_tags<CR> |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb | <Cmd>Telescope buffers<CR> |
-| Command History |  : | <Cmd>Telescope command_history<CR> |
+| Grep (cwd) |  sG |  |
+| Grep (root dir) |  sg |  |
+| Workspace diagnostics |  sD | <Cmd>Telescope diagnostics<CR> |
 | Document diagnostics |  sd | <Cmd>Telescope diagnostics bufnr=0<CR> |
 | Commands |  sC | <Cmd>Telescope commands<CR> |
 | Command History |  sc | <Cmd>Telescope command_history<CR> |
 | Buffer |  sb | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
 | Auto Commands |  sa | <Cmd>Telescope autocommands<CR> |
+| Registers |  s" | <Cmd>Telescope registers<CR> |
 | status |  gs | <Cmd>Telescope git_status<CR> |
 | commits |  gc | <Cmd>Telescope git_commits<CR> |
 | Resume |  fR |  |
-| Find Files (root dir) |    |  |
-| Find Files (cwd) |  fF |  |
-| Grep (cwd) |  sG |  |
-| Grep (root dir) |  sg |  |
-| Workspace diagnostics |  sD | <Cmd>Telescope diagnostics<CR> |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , | <Cmd>Telescope buffers show_all_buffers=true<CR> |
 | Recent |  fr | <Cmd>Telescope oldfiles<CR> |
-| Diffview Open |  gd |  |
-| Toggle LSP output |  uo |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
+| Find Files (cwd) |  fF |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb | <Cmd>Telescope buffers<CR> |
+| Command History |  : | <Cmd>Telescope command_history<CR> |
+| Grep (root dir) |  / |  |
+| Find Files (root dir) |    |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
+| Dap UI |  du |  |
+| Eval |  de |  |
 | Explorer NeoTree (cwd) |  E |  |
 | Explorer NeoTree (root dir) |  e |  |
-| Dismiss all Notifications |  un |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
 | Type-check |  tc |  |
-| Toggle Summary |  ts |  |
-| Run Nearest |  tr |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 | Run All Test Files |  tT |  |
 | Run File |  tt |  |
 | Stop |  tS |  |
 | Toggle Output Panel |  tO |  |
 | Show Output |  to |  |
-| Open Yank History |  p |  |
-| Open mini.files (directory of current file) |  fm |  |
-| Open mini.files (cwd) |  fM |  |
-| Eval |  de |  |
-| Dap UI |  du |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Neogit |  gn |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
+| Toggle Summary |  ts |  |
+| Run Nearest |  tr |  |
 | Quickfix List (Trouble) |  xQ |  |
 | Location List (Trouble) |  xL |  |
 | Workspace Diagnostics (Trouble) |  xX |  |
 | Document Diagnostics (Trouble) |  xx |  |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Replace in files (Spectre) |  sr |  |
-| Mason |  cm |  |
-| Step Into |  di |  |
-| Go to line (no execute) |  dg |  |
-| Run to Cursor |  dC |  |
-| Continue |  dc |  |
-| Toggle Breakpoint |  db |  |
-| Breakpoint Condition |  dB |  |
-| Debug Nearest |  td |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Open Yank History |  p |  |
 | Widgets |  dw |  |
 | Terminate |  dt |  |
 | Session |  ds |  |
@@ -144,46 +133,58 @@ Personal Neovim configuration of Elijah Manor
 | Run Last |  dl |  |
 | Up |  dk |  |
 | Down |  dj |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
+| Step Into |  di |  |
+| Go to line (no execute) |  dg |  |
+| Run to Cursor |  dC |  |
+| Continue |  dc |  |
+| Toggle Breakpoint |  db |  |
+| Breakpoint Condition |  dB |  |
+| Debug Nearest |  td |  |
+| Dismiss all Notifications |  un |  |
+| Replace in files (Spectre) |  sr |  |
+| Mason |  cm |  |
+| Open mini.files (cwd) |  fM |  |
+| Open mini.files (directory of current file) |  fm |  |
+| Toggle LSP output |  uo |  |
+| Diffview Open |  gd |  |
+| Neogit |  gn |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Open parent directory | - |  |
-| Put and indent left | <lt>p |  |
 | Put before and indent left | <lt>P |  |
+| Put and indent left | <lt>p |  |
 | Put after applying a filter | =p |  |
 | Put before applying a filter | =P |  |
-| Put and indent right | >p |  |
 | Put before and indent right | >P |  |
+| Put and indent right | >p |  |
 | Put yanked text before cursor | P |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
+| Previous trouble/quickfix item | [q |  |
+| Previous todo comment | [t |  |
+| Cycle forward through yank history | [y |  |
 | Put indented before cursor (linewise) | [p |  |
 | Put indented before cursor (linewise) | [P |  |
-| Cycle forward through yank history | [y |  |
-| Previous todo comment | [t |  |
-| Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
+| Next trouble/quickfix item | ]q |  |
+| Next todo comment | ]t |  |
+| Cycle backward through yank history | ]y |  |
 | Put indented after cursor (linewise) | ]p |  |
 | Put indented after cursor (linewise) | ]P |  |
-| Cycle backward through yank history | ]y |  |
-| Next todo comment | ]t |  |
-| Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-| Find right surrounding | gzf |  |
-| Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Replace surrounding | gzr |  |
 | Delete surrounding | gzd |  |
 | Highlight surrounding | gzh |  |
 | Add surrounding | gza |  |
+| Find left surrounding | gzF |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
+| Find right surrounding | gzf |  |
+| Replace surrounding | gzr |  |
+| Put yanked text before selection | gP |  |
+| Put yanked text after selection | gp |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
 | Yank text | y |  |
@@ -197,14 +198,16 @@ Personal Neovim configuration of Elijah Manor
 |  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
 |  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
 |  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-| Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
 |  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Selection (cwd) |  sW |  |
+| Selection (root dir) |  sw |  |
 | Eval |  de |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |

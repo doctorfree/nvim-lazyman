@@ -3,12 +3,10 @@
 Personal Neovim configuration of Cassio Lamarck
 
 - Install and initialize: **`lazyman -w LamarVim`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-LamarVim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -121,9 +119,9 @@ Personal Neovim configuration of Cassio Lamarck
 |  | j | v:count == 0 ? 'gj' : 'j' |
 |  | k | v:count == 0 ? 'gk' : 'k' |
 |  | s | <Cmd>HopChar2<CR> |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 |  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
-|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 | Terminal window | <M-F12> | <Cmd>2ToggleTerm size=20 dir=CWD direction=horizontal<CR> |
 | Run window | <M-4> | <Cmd>1ToggleTerm size=20 dir=CWD direction=horizontal<CR> |
 | File navigation | <M-1> | <Cmd>NvimTreeToggle<CR> |
@@ -146,8 +144,12 @@ Personal Neovim configuration of Cassio Lamarck
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Move to previous reference | <M-p> |  |
-| Move to next reference | <M-n> |  |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 | Decrease window height | <C-Down> | <Cmd>resize -2<CR> |
 | Increase window height | <C-Up> | <Cmd>resize +2<CR> |
 |  | <S-Right> | <Plug>(VM-Select-l) |
@@ -181,21 +183,17 @@ Personal Neovim configuration of Cassio Lamarck
 |  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Move to previous reference | <M-p> |  |
+| Move to next reference | <M-n> |  |
 |  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
 |  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
 |  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Go to right window | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -233,24 +231,24 @@ Personal Neovim configuration of Cassio Lamarck
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <M-i> |  |
-|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
-|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>23_Visual('under') |
-|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
-|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
-|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>23_Visual('all') |
-|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
 |  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
 |  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
 |  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <M-i> |  |
+|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
+|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>22_Visual('under') |
+|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
+|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
+|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
+|  | <Plug>(VM-Visual-All) | <SNR>22_Visual('all') |
+|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
+|  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
 
 #### operator mode keymaps
 

@@ -37,7 +37,7 @@ community</a> plugins configuration</p>
 <li>Install and initialize:
 <strong><code>lazyman -a</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#base-configurations">Base</a></li>
+href="https://lazyman.dev/configurations/#base-configurations">Base</a></li>
 <li>Base configuration: <a
 href="https://astronvim.com">AstroNvim</a></li>
 <li>Plugin manager: <a
@@ -45,14 +45,12 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-AstroNvimPlus</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/doctorfree/astronvim">https://github.com/doctorfree/astronvim</a></p>
 <h3 id="website">Website</h3>
-<p><a href="https://astronvim.com">https://astronvim.com</a></p>
+<p><a
+href="https://astronvim.lazyman.dev">https://astronvim.lazyman.dev</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
 <li><a
@@ -263,43 +261,13 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 </thead>
 <tbody>
 <tr class="odd">
-<td>Toggle background</td>
-<td>ub</td>
+<td>Debugger Hover</td>
+<td>dh</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle wrap</td>
-<td>uw</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Install</td>
-<td>pi</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle color highlight</td>
-<td>uC</td>
-<td><Cmd>ColorizerToggle<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle autocompletion</td>
-<td>uc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Sync</td>
-<td>pS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Check Updates</td>
-<td>pu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle signcolumn</td>
-<td>ug</td>
+<td>Toggle syntax highlighting (buffer)</td>
+<td>uy</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -308,18 +276,28 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle REPL</td>
-<td>dR</td>
+<td>Change line numbering</td>
+<td>un</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Change indent setting</td>
-<td>ui</td>
-<td></td>
+<td>AstroNvim Update</td>
+<td>pA</td>
+<td><Cmd>AstroUpdate<CR></td>
 </tr>
 <tr class="even">
-<td>Restart (C-F5)</td>
-<td>dr</td>
+<td>Toggle autocompletion</td>
+<td>uc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AstroNvim Version</td>
+<td>pv</td>
+<td><Cmd>AstroVersion<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle Notifications</td>
+<td>uN</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -328,58 +306,18 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>AstroChangelog<CR></td>
 </tr>
 <tr class="even">
-<td>Toggle statusline</td>
-<td>ul</td>
+<td>Toggle Debugger UI</td>
+<td>du</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Pause (F6)</td>
-<td>dp</td>
+<td>Evaluate Input</td>
+<td>dE</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Terminate Session (S-F5)</td>
-<td>dQ</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle CodeLens</td>
-<td>uL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>AstroNvim Version</td>
-<td>pv</td>
-<td><Cmd>AstroVersion<CR></td>
-</tr>
-<tr class="odd">
-<td>Close Session</td>
-<td>dq</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Change line numbering</td>
-<td>un</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Out (S-F11)</td>
-<td>dO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>AstroNvim Update</td>
-<td>pA</td>
-<td><Cmd>AstroUpdate<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle Notifications</td>
-<td>uN</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Over (F10)</td>
-<td>do</td>
+<td>Close buffer</td>
+<td>c</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -388,24 +326,24 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle paste mode</td>
-<td>up</td>
+<td>Run To Cursor</td>
+<td>ds</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Step Into (F11)</td>
-<td>di</td>
+<td>Restart (C-F5)</td>
+<td>dr</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle spellcheck</td>
-<td>us</td>
+<td>Close Session</td>
+<td>dq</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Update Plugins and Mason Packages</td>
-<td>pa</td>
-<td><Cmd>AstroUpdatePackages<CR></td>
+<td>Terminate Session (S-F5)</td>
+<td>dQ</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Close all buffers except current</td>
@@ -418,43 +356,23 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Close buffer</td>
-<td>c</td>
+<td>Toggle signcolumn</td>
+<td>ug</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Select buffer from tabline</td>
-<td>bb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close buffer from tabline</td>
-<td>bd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run To Cursor</td>
-<td>ds</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Close all buffers to the left</td>
 <td>bl</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Toggle syntax highlight</td>
-<td>uy</td>
+<tr class="even">
+<td>Toggle statusline</td>
+<td>ul</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Previous buffer</td>
 <td>bp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Debugger UI</td>
-<td>du</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -463,28 +381,48 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="odd">
+<td>Update Plugins and Mason Packages</td>
+<td>pa</td>
+<td><Cmd>AstroUpdatePackages<CR></td>
+</tr>
+<tr class="even">
 <td>By extension</td>
 <td>bse</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Save this session</td>
+<td>Ss</td>
+<td><Cmd>SessionManager! save_current_session<CR></td>
+</tr>
 <tr class="even">
+<td>Plugins Check Updates</td>
+<td>pu</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Quit</td>
+<td>q</td>
+<td><Cmd>confirm q<CR></td>
+</tr>
+<tr class="even">
+<td>Pick to close</td>
+<td>bD</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>By relative path</td>
 <td>bsr</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Search sessions</td>
-<td>Sf</td>
-<td><Cmd>SessionManager! load_session<CR></td>
-</tr>
 <tr class="even">
+<td>New tab</td>
+<td>bn</td>
+<td><Cmd>tabnew<CR></td>
+</tr>
+<tr class="odd">
 <td>By full path</td>
 <td>bsp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Status</td>
-<td>ps</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -498,23 +436,23 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Symbols outline</td>
-<td>lS</td>
+<td>Select buffer from tabline</td>
+<td>bb</td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Close buffer from tabline</td>
+<td>bd</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Horizontal split buffer from tabline</td>
 <td>b\</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertical split buffer from tabline</td>
 <td>b</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle conceal</td>
-<td>uS</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -523,43 +461,43 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="odd">
-<td>Evaluate Input</td>
-<td>dE</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Toggle comment line</td>
 <td>/</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Pick to close</td>
-<td>bD</td>
+<tr class="even">
+<td>Toggle background</td>
+<td>ub</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>New tab</td>
-<td>bn</td>
-<td><Cmd>tabnew<CR></td>
-</tr>
 <tr class="odd">
+<td>Toggle color highlight</td>
+<td>uC</td>
+<td><Cmd>ColorizerToggle<CR></td>
+</tr>
+<tr class="even">
 <td>View Git blame</td>
 <td>gl</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>View full Git blame</td>
 <td>gL</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Preview Git hunk</td>
 <td>gp</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Reset Git hunk</td>
 <td>gh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change indent setting</td>
+<td>ui</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -578,18 +516,28 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
+<td>Toggle CodeLens</td>
+<td>uL</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Unstage Git hunk</td>
 <td>gu</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>View Git diff</td>
 <td>gd</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Toggle Explorer Focus</td>
 <td>o</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle paste mode</td>
+<td>up</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -598,9 +546,9 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>SessionManager! load_last_session<CR></td>
 </tr>
 <tr class="even">
-<td>Save this session</td>
-<td>Ss</td>
-<td><Cmd>SessionManager! save_current_session<CR></td>
+<td>Toggle spellcheck</td>
+<td>us</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>Delete session</td>
@@ -608,88 +556,58 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>SessionManager! delete_session<CR></td>
 </tr>
 <tr class="even">
+<td>Toggle conceal</td>
+<td>uS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search sessions</td>
+<td>Sf</td>
+<td><Cmd>SessionManager! load_session<CR></td>
+</tr>
+<tr class="even">
 <td>Load current directory session</td>
 <td>S.</td>
 <td><Cmd>SessionManager! load_current_dir_session<CR></td>
 </tr>
 <tr class="odd">
+<td>Toggle wrap</td>
+<td>uw</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Mason Installer</td>
 <td>pm</td>
 <td><Cmd>Mason<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Mason Update</td>
 <td>pM</td>
 <td><Cmd>MasonUpdateAll<CR></td>
 </tr>
-<tr class="odd">
-<td>ToggleTerm lazygit</td>
-<td>gg</td>
-<td></td>
-</tr>
 <tr class="even">
-<td>ToggleTerm lazygit</td>
-<td>tl</td>
+<td>Symbols outline</td>
+<td>lS</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>ToggleTerm node</td>
-<td>tn</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ToggleTerm gdu</td>
-<td>tu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ToggleTerm btm</td>
-<td>tt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ToggleTerm python</td>
-<td>tp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ToggleTerm float</td>
-<td>tf</td>
-<td><Cmd>ToggleTerm direction=float<CR></td>
-</tr>
-<tr class="even">
-<td>ToggleTerm horizontal split</td>
-<td>th</td>
-<td><Cmd>ToggleTerm size=10 direction=horizontal<CR></td>
-</tr>
-<tr class="odd">
-<td>ToggleTerm vertical split</td>
-<td>tv</td>
-<td><Cmd>ToggleTerm size=80 direction=vertical<CR></td>
-</tr>
-<tr class="even">
 <td>Git branches</td>
 <td>gb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Git commits (repository)</td>
 <td>gc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Git commits (current file)</td>
 <td>gC</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Git status</td>
 <td>gt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Breakpoint (F9)</td>
-<td>db</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -698,18 +616,8 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Clear Breakpoints</td>
-<td>dB</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Find marks</td>
 <td>f’</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Start/Continue (F5)</td>
-<td>dc</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -718,68 +626,58 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Conditional Breakpoint (S-F9)</td>
-<td>dC</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Find buffers</td>
 <td>fb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Find word under cursor</td>
 <td>fc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Find commands</td>
 <td>fC</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Find files</td>
 <td>ff</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Find all files</td>
 <td>fF</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Find help</td>
 <td>fh</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Find keymaps</td>
 <td>fk</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Find man</td>
 <td>fm</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Find notifications</td>
 <td>fn</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Find history</td>
 <td>fo</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Find registers</td>
 <td>fr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger Hover</td>
-<td>dh</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -798,23 +696,113 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Quit</td>
-<td>q</td>
-<td><Cmd>confirm q<CR></td>
+<td>ToggleTerm lazygit</td>
+<td>gg</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>ToggleTerm lazygit</td>
+<td>tl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm node</td>
+<td>tn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm gdu</td>
+<td>tu</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm btm</td>
+<td>tt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm python</td>
+<td>tp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm float</td>
+<td>tf</td>
+<td><Cmd>ToggleTerm direction=float<CR></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm horizontal split</td>
+<td>th</td>
+<td><Cmd>ToggleTerm size=10 direction=horizontal<CR></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm vertical split</td>
+<td>tv</td>
+<td><Cmd>ToggleTerm size=80 direction=vertical<CR></td>
+</tr>
+<tr class="odd">
+<td>Toggle Breakpoint (F9)</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear Breakpoints</td>
+<td>dB</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Start/Continue (F5)</td>
+<td>dc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Conditional Breakpoint (S-F9)</td>
+<td>dC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Into (F11)</td>
+<td>di</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>New File</td>
 <td>n</td>
 <td><Cmd>enew<CR></td>
 </tr>
+<tr class="odd">
+<td>Step Over (F10)</td>
+<td>do</td>
+<td></td>
+</tr>
 <tr class="even">
-<td>Find themes</td>
-<td>ft</td>
+<td>Step Out (S-F11)</td>
+<td>dO</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find AstroNvim config files</td>
-<td>fa</td>
+<td>Pause (F6)</td>
+<td>dp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle REPL</td>
+<td>dR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Install</td>
+<td>pi</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Plugins Status</td>
+<td>ps</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Sync</td>
+<td>pS</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -838,73 +826,73 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>w<CR></td>
 </tr>
 <tr class="even">
-<td>Toggle Harpoon</td>
-<td>hh</td>
+<td>Find AstroNvim config files</td>
+<td>fa</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Go to Harpoon file 5</td>
-<td>h5</td>
+<td>Find themes</td>
+<td>ft</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Go to Harpoon file 4</td>
-<td>h4</td>
+<td>Toggle autopairs</td>
+<td>ua</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Go to Harpoon file 3</td>
-<td>h3</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to Harpoon file 2</td>
-<td>h2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to Harpoon file 1</td>
-<td>h1</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add file to Harpoon</td>
-<td>ha</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle foldcolumn</td>
-<td>uh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle URL highlight</td>
-<td>uu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle tabline</td>
-<td>ut</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle trouble for document</td>
-<td>fd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Command palette</td>
-<td>P</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Breadcrumb search</td>
 <td>fs</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Go to Harpoon file 5</td>
+<td>h5</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Split/join block</td>
-<td>m</td>
+<td>Go to Harpoon file 4</td>
+<td>h4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to Harpoon file 3</td>
+<td>h3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to Harpoon file 2</td>
+<td>h2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to Harpoon file 1</td>
+<td>h1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add file to Harpoon</td>
+<td>ha</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle foldcolumn</td>
+<td>uh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Harpoon</td>
+<td>hh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Explorer</td>
+<td>ue</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle diagnostics</td>
+<td>ud</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -913,13 +901,23 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="odd">
-<td>Toggle Explorer</td>
-<td>ue</td>
+<td>Split/join block</td>
+<td>m</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle diagnostics</td>
-<td>ud</td>
+<td>Toggle tabline</td>
+<td>ut</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle trouble for document</td>
+<td>fd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle URL highlight</td>
+<td>uu</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -928,8 +926,8 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle autopairs</td>
-<td>ua</td>
+<td>Command palette</td>
+<td>P</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1023,13 +1021,13 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1068,36 +1066,6 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td></td>
 </tr>
 <tr class="even">
-<td>Close all folds</td>
-<td>zM</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open all folds</td>
-<td>zR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[keymap-amend.nvim]</td>
-<td>zc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[keymap-amend.nvim]</td>
-<td>zO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>[keymap-amend.nvim]</td>
-<td>zo</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
-</tr>
-<tr class="even">
 <td></td>
 <td>zb</td>
 <td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
@@ -1108,88 +1076,38 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td>zz</td>
+<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+</tr>
+<tr class="odd">
+<td>Close all folds</td>
+<td>zM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open all folds</td>
+<td>zR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[keymap-amend.nvim]</td>
+<td>zc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[keymap-amend.nvim]</td>
+<td>zO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[keymap-amend.nvim]</td>
+<td>zo</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Vertical Split</td>
 <td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to below split</td>
-<td><C-J></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move to left split</td>
-<td><C-H></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Resize split left</td>
-<td><C-Left></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Resize split right</td>
-<td><C-Right></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to above split</td>
-<td><C-K></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle terminal</td>
-<td><F7></td>
-<td><Cmd>ToggleTerm<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle terminal</td>
-<td>&lt;C-’&gt;</td>
-<td><Cmd>ToggleTerm<CR></td>
-</tr>
-<tr class="even">
-<td>Debugger: Start</td>
-<td><F5></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Stop</td>
-<td><F17></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Conditional Breakpoint</td>
-<td><F21></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Restart</td>
-<td><F29></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Pause</td>
-<td><F6></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Toggle Breakpoint</td>
-<td><F9></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Step Over</td>
-<td><F10></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Step Into</td>
-<td><F11></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Step Out</td>
-<td><F23></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1198,191 +1116,109 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 <td><Cmd>w!<CR></td>
 </tr>
 <tr class="even">
+<td>Resize split right</td>
+<td><C-Right></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to left split</td>
+<td><C-H></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Resize split left</td>
+<td><C-Left></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle terminal</td>
+<td><F7></td>
+<td><Cmd>ToggleTerm<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle terminal</td>
+<td>&lt;C-’&gt;</td>
+<td><Cmd>ToggleTerm<CR></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Start</td>
+<td><F5></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Stop</td>
+<td><F17></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Conditional Breakpoint</td>
+<td><F21></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Restart</td>
+<td><F29></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Pause</td>
+<td><F6></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Toggle Breakpoint</td>
+<td><F9></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Step Over</td>
+<td><F10></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Step Into</td>
+<td><F11></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Step Out</td>
+<td><F23></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Force quit</td>
 <td><C-Q></td>
-<td><Cmd>q!<CR></td>
+<td><Cmd>qa!<CR></td>
 </tr>
 <tr class="odd">
-<td>Resize split down</td>
-<td><C-Down></td>
+<td>Move to above split</td>
+<td><C-K></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Resize split up</td>
-<td><C-Up></td>
+<td>Move to below split</td>
+<td><C-J></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><S-Right></td>
-<td><Plug>(VM-Select-l)</td>
+<td><Plug>CamelCaseMotion_ge</td>
+<td>:<C-U>call camelcasemotion#Motion(‘ge’,v:count1,‘n’)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><S-Left></td>
-<td><Plug>(VM-Select-h)</td>
+<td><Plug>CamelCaseMotion_e</td>
+<td>:<C-U>call camelcasemotion#Motion(‘e’,v:count1,‘n’)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-N></td>
-<td><Plug>(VM-Find-Under)</td>
+<td><Plug>CamelCaseMotion_b</td>
+<td>:<C-U>call camelcasemotion#Motion(‘b’,v:count1,‘n’)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(VM-Select-BBW)</td>
-<td>:<C-U>call vm#commands#motion(‘BBW’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-gE)</td>
-<td>:<C-U>call vm#commands#motion(‘gE’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-ge)</td>
-<td>:<C-U>call vm#commands#motion(‘ge’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-E)</td>
-<td>:<C-U>call vm#commands#motion(‘E’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-e)</td>
-<td>:<C-U>call vm#commands#motion(‘e’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-B)</td>
-<td>:<C-U>call vm#commands#motion(‘B’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-b)</td>
-<td>:<C-U>call vm#commands#motion(‘b’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-W)</td>
-<td>:<C-U>call vm#commands#motion(‘W’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-w)</td>
-<td>:<C-U>call vm#commands#motion(‘w’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-l)</td>
-<td>:<C-U>call vm#commands#motion(‘l’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-k)</td>
-<td>:<C-U>call vm#commands#motion(‘k’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-j)</td>
-<td>:<C-U>call vm#commands#motion(‘j’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-h)</td>
-<td>:<C-U>call vm#commands#motion(‘h’, v:count1, 1, 0)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Mouse-Column)</td>
-<td>:call vm#commands#mouse_column()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Mouse-Word)</td>
-<td><Plug>(VM-Left-Mouse)<Plug>(VM-Find-Under)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Mouse-Cursor)</td>
-<td><Plug>(VM-Left-Mouse)<Plug>(VM-Add-Cursor-At-Pos)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Left-Mouse)</td>
-<td><LeftMouse></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Slash-Search)</td>
-<td>@=vm#commands#find_by_regex(3)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Start-Regex-Search)</td>
-<td>@=vm#commands#find_by_regex(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Find-Under)</td>
-<td>:<C-U>call vm#commands#ctrln(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-All)</td>
-<td>:call vm#commands#find_all(0, 1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Reselect-Last)</td>
-<td>:call vm#commands#reselect_last()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Select-Cursor-Up)</td>
-<td>:<C-U>call vm#commands#add_cursor_up(1, v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Select-Cursor-Down)</td>
-<td>:<C-U>call vm#commands#add_cursor_down(1, v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Add-Cursor-Up)</td>
-<td>:<C-U>call vm#commands#add_cursor_up(0, v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Add-Cursor-Down)</td>
-<td>:<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Add-Cursor-At-Word)</td>
-<td>:call vm#commands#add_cursor_at_word(1, 1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Add-Cursor-At-Pos)</td>
-<td>:call vm#commands#add_cursor_at_pos(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
+<td><Plug>CamelCaseMotion_w</td>
+<td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘n’)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1391,52 +1227,214 @@ href="https://github.com/s1n7ax/nvim-window-picker.git">s1n7ax/nvim-window-picke
 </tr>
 <tr class="even">
 <td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-B></td>
 <td><Cmd>lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 450)<CR></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
 <tr class="even">
 <td></td>
-<td><Plug>CamelCaseMotion_ge</td>
-<td>:<C-U>call camelcasemotion#Motion(‘ge’,v:count1,‘n’)<CR></td>
+<td><C-U></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>CamelCaseMotion_e</td>
-<td>:<C-U>call camelcasemotion#Motion(‘e’,v:count1,‘n’)<CR></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>CamelCaseMotion_b</td>
-<td>:<C-U>call camelcasemotion#Motion(‘b’,v:count1,‘n’)<CR></td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>CamelCaseMotion_w</td>
-<td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘n’)<CR></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><Plug>luasnip-expand-repeat</td>
-<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
-<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="even">
+<td>Resize split down</td>
+<td><C-Down></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resize split up</td>
+<td><C-Up></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><S-Right></td>
+<td><Plug>(VM-Select-l)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><S-Left></td>
+<td><Plug>(VM-Select-h)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-N></td>
+<td><Plug>(VM-Find-Under)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-BBW)</td>
+<td>:<C-U>call vm#commands#motion(‘BBW’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-gE)</td>
+<td>:<C-U>call vm#commands#motion(‘gE’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-ge)</td>
+<td>:<C-U>call vm#commands#motion(‘ge’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-E)</td>
+<td>:<C-U>call vm#commands#motion(‘E’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-e)</td>
+<td>:<C-U>call vm#commands#motion(‘e’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-B)</td>
+<td>:<C-U>call vm#commands#motion(‘B’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-b)</td>
+<td>:<C-U>call vm#commands#motion(‘b’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-W)</td>
+<td>:<C-U>call vm#commands#motion(‘W’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-w)</td>
+<td>:<C-U>call vm#commands#motion(‘w’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-l)</td>
+<td>:<C-U>call vm#commands#motion(‘l’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-k)</td>
+<td>:<C-U>call vm#commands#motion(‘k’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-j)</td>
+<td>:<C-U>call vm#commands#motion(‘j’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-h)</td>
+<td>:<C-U>call vm#commands#motion(‘h’, v:count1, 1, 0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Mouse-Column)</td>
+<td>:call vm#commands#mouse_column()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Mouse-Word)</td>
+<td><Plug>(VM-Left-Mouse)<Plug>(VM-Find-Under)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Mouse-Cursor)</td>
+<td><Plug>(VM-Left-Mouse)<Plug>(VM-Add-Cursor-At-Pos)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Left-Mouse)</td>
+<td><LeftMouse></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Slash-Search)</td>
+<td>@=vm#commands#find_by_regex(3)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Start-Regex-Search)</td>
+<td>@=vm#commands#find_by_regex(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Find-Under)</td>
+<td>:<C-U>call vm#commands#ctrln(v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-All)</td>
+<td>:call vm#commands#find_all(0, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Reselect-Last)</td>
+<td>:call vm#commands#reselect_last()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Select-Cursor-Up)</td>
+<td>:<C-U>call vm#commands#add_cursor_up(1, v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Select-Cursor-Down)</td>
+<td>:<C-U>call vm#commands#add_cursor_down(1, v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Add-Cursor-Up)</td>
+<td>:<C-U>call vm#commands#add_cursor_up(0, v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Add-Cursor-Down)</td>
+<td>:<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(VM-Add-Cursor-At-Word)</td>
+<td>:call vm#commands#add_cursor_at_word(1, 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(VM-Add-Cursor-At-Pos)</td>
+<td>:call vm#commands#add_cursor_at_pos(0)<CR></td>
 </tr>
 <tr class="odd">
 <td>Move to right split</td>
@@ -1557,13 +1555,13 @@ require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
 <td>targets#e(‘o’, ‘a’, ‘a’)</td>
 </tr>
 <tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>Comment toggle linewise</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>Comment toggle blockwise</td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1613,6 +1611,16 @@ require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><C-X></td>
+<td>:lua require(‘luasnip.util.util’).store_selection()<CR>gv”_s</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><Plug>CamelCaseMotion_ige</td>
 <td>:<C-U>call camelcasemotion#InnerMotion(‘ge’,v:count1)<CR></td>
 </tr>
@@ -1653,94 +1661,79 @@ require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-X></td>
-<td>:lua require(‘luasnip.util.util’).store_selection()<CR>gv”_s</td>
+<td><C-N></td>
+<td><Plug>(VM-Find-Subword-Under)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
+<td><Plug>(VM-Visual-Regex)</td>
+<td>:call vm#commands#find_by_regex(2)<CR>:call feedkeys(‘/’,
+‘n’)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
-<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
+<td><Plug>(VM-Find-Subword-Under)</td>
+<td><SNR>11_Visual(‘under’)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+<td><Plug>(VM-Visual-Reduce)</td>
+<td>:<C-U>call vm#visual#reduce()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+<td><Plug>(VM-Visual-Add)</td>
+<td><Esc>:call vm#commands#visual_add()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
+<td><Plug>(VM-Visual-Cursors)</td>
+<td><Esc>:call vm#commands#visual_cursors()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
+<td><Plug>(VM-Visual-All)</td>
+<td><SNR>11_Visual(‘all’)</td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>(VM-Visual-Find)</td>
+<td>vm#operators#find(1, 1)</td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><C-B></td>
 <td><Cmd>lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 450)<CR></td>
 </tr>
+<tr class="even">
+<td></td>
+<td><C-F></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
+true, 450)<CR></td>
+</tr>
 <tr class="odd">
+<td></td>
+<td><C-D></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><C-U></td>
 <td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
 250)<CR></td>
 </tr>
-<tr class="even">
-<td></td>
-<td><C-N></td>
-<td><Plug>(VM-Find-Subword-Under)</td>
-</tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(VM-Visual-Regex)</td>
-<td>:call vm#commands#find_by_regex(2)<CR>:call feedkeys(‘/’,
-‘n’)<CR></td>
+<td><C-Y></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(VM-Find-Subword-Under)</td>
-<td><SNR>6_Visual(‘under’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Visual-Reduce)</td>
-<td>:<C-U>call vm#visual#reduce()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Visual-Add)</td>
-<td><Esc>:call vm#commands#visual_add()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Visual-Cursors)</td>
-<td><Esc>:call vm#commands#visual_cursors()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(VM-Visual-All)</td>
-<td><SNR>6_Visual(‘all’)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(VM-Visual-Find)</td>
-<td>vm#operators#find(1, 1)</td>
+<td><C-E></td>
+<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
 </tr>
 </tbody>
 </table>
@@ -1826,16 +1819,6 @@ require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td><Cmd>lua require’luasnip’.expand_repeat()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td><Cmd>lua require’luasnip’.unlink_current_if_deleted()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>CamelCaseMotion_ige</td>
 <td>:<C-U>call camelcasemotion#InnerMotion(‘ge’,v:count1)<CR></td>
 </tr>
@@ -1873,6 +1856,11 @@ require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
 <td></td>
 <td><Plug>CamelCaseMotion_w</td>
 <td>:<C-U>call camelcasemotion#Motion(‘w’,v:count1,‘o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
 </tr>
 </tbody>
 </table>

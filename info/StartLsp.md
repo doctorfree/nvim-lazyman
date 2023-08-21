@@ -3,12 +3,10 @@
 Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 
 - Install and initialize: **`lazyman -x StartLsp`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-StartLsp`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -88,37 +86,37 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 |  | gp | "+p |
 |  | gy | "+y |
 |  | x | "_x |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
 |  | yS | <Plug>YSurround |
 |  | ys | <Plug>Ysurround |
+|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Toggle Terminal | <C-G> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 |  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>luasnip-delete-check |  |
-|  | <Plug>YSurround | <SNR>13_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>13_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>13_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>13_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>13_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>13_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>13_dosurround(<SNR>13_inputtarget())<CR> |
+|  | <Plug>YSurround | <SNR>14_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>14_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>14_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>14_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>14_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>14_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>14_dosurround(<SNR>14_inputtarget())<CR> |
 |  | <Plug>SurroundRepeat | . |
+|  | <Plug>fugitive: |  |
+|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -154,10 +152,10 @@ Configures the built-in LSP client with autocompletion, based on 'Opinionated'
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
 |  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>VgSurround | :<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>10_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 
 #### operator mode keymaps
 

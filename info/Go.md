@@ -3,12 +3,10 @@
 NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/i04sSQjd-qo)
 
 - Install and initialize: **`lazyman -L Go`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Go`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -32,7 +30,6 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [NvChad/extensions](https://github.com/NvChad/extensions.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [olexsmir/gopher.nvim](https://github.com/olexsmir/gopher.nvim.git)
@@ -68,11 +65,11 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-|  | g |  |
-| Comment toggle linewise | gc |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle current line | gcc |  |
 | Comment toggle current block | gbc |  |
+| Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
+| Comment toggle current line | gcc |  |
+|  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
@@ -82,12 +79,12 @@ NvChad based Neovim config with Go formatting, debugging, and diagnostics. Dream
 | ----------- | --- | --- |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Comment toggle linewise (visual) | gc |  |
 | Comment toggle blockwise (visual) | gb |  |
+| Comment toggle linewise (visual) | gc |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |

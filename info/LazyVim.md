@@ -3,12 +3,10 @@
 The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 
 - Install and initialize: **`lazyman -l`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-LazyVim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -16,7 +14,7 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 
 ### Website
 
-[https://www.lazyvim.org](https://www.lazyvim.org)
+[https://lazyvim.lazyman.dev](https://lazyvim.lazyman.dev)
 
 ### Lazy managed plugins
 
@@ -75,31 +73,44 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
 | Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
 | Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
 | Todo/Fix/Fixme |  sT |  |
-| Mason |  cm |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Dismiss all Notifications |  un |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Toggle pin |  bp |  |
+| Delete non-pinned buffers |  bP |  |
 | Don't Save Current Session |  qd |  |
 | Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
+| Dismiss all Notifications |  un |  |
+| Find Files (root dir) |    |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Goto Symbol |  ss |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Options |  so |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
+| Key Maps |  sk |  |
+| Search Highlight Groups |  sH |  |
+| Help Pages |  sh |  |
+| Grep (cwd) |  sG |  |
+| Grep (root dir) |  sg |  |
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
 | Commands |  sC |  |
 | Command History |  sc |  |
 | Buffer |  sb |  |
 | Auto Commands |  sa |  |
+| Registers |  s" |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
@@ -110,64 +121,54 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 | Command History |  : |  |
 | Grep (root dir) |  / |  |
 | Switch Buffer |  , |  |
-| Man Pages |  sM |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
-| Options |  so |  |
-| Jump to Mark |  sm |  |
-| Find Files (root dir) |    |  |
-| Key Maps |  sk |  |
-| Search Highlight Groups |  sH |  |
-| Help Pages |  sh |  |
-| Grep (cwd) |  sG |  |
-| Grep (root dir) |  sg |  |
 | Replace in files (Spectre) |  sr |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Quickfix List (Trouble) |  xQ |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Mason |  cm |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Dismiss All |  snd |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
+| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
+| Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| Add surrounding | gza |  |
+| Highlight surrounding | gzh |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
 | Delete surrounding | gzd |  |
-| Highlight surrounding | gzh |  |
-| Add surrounding | gza |  |
-| Find left surrounding | gzF |  |
-| Find right surrounding | gzf |  |
 | Replace surrounding | gzr |  |
+| Find right surrounding | gzf |  |
+| Find left surrounding | gzF |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| Increment selection | <C-Space> |  |
 | Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
-| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Selection (cwd) |  sW |  |
+| Selection (root dir) |  sw |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |

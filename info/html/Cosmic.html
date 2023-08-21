@@ -35,16 +35,13 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -x Cosmic</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Cosmic</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/CosmicNvim/CosmicNvim">https://github.com/CosmicNvim/CosmicNvim</a></p>
@@ -67,8 +64,6 @@ href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
 href="https://github.com/b0o/SchemaStore.nvim">b0o/SchemaStore.nvim</a></li>
 <li><a
 href="https://github.com/rmagatti/auto-session.git">rmagatti/auto-session</a></li>
-<li><a
-href="https://github.com/romgrk/barbar.nvim.git">romgrk/barbar.nvim</a></li>
 <li><a
 href="https://github.com/hrsh7th/cmp-buffer">hrsh7th/cmp-buffer</a></li>
 <li><a
@@ -173,6 +168,36 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 require(“cosmic.plugins.telescope.utils”).project_files()<CR></td>
 </tr>
 <tr class="even">
+<td>Git status</td>
+<td>vg</td>
+<td>:Telescope git_status<CR></td>
+</tr>
+<tr class="odd">
+<td>Git commits</td>
+<td>vc</td>
+<td>:Telescope git_commits<CR></td>
+</tr>
+<tr class="even">
+<td>Grep current word</td>
+<td>fw</td>
+<td>:Telescope grep_string<CR></td>
+</tr>
+<tr class="odd">
+<td>Grep string</td>
+<td>fs</td>
+<td>:Telescope live_grep<CR></td>
+</tr>
+<tr class="even">
+<td>Find buffer</td>
+<td>fk</td>
+<td>:Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td>Find project file</td>
+<td>fp</td>
+<td>:Telescope find_files<CR></td>
+</tr>
+<tr class="even">
 <td>Print session</td>
 <td>si</td>
 <td><Cmd>lua require(“cosmic.utils.logger”):log(“Session name:” ..
@@ -197,36 +222,6 @@ require(“auto-session-library”).current_session_name())<CR></td>
 <td>Toggle Tree</td>
 <td>nt</td>
 <td>:NvimTreeToggle<CR></td>
-</tr>
-<tr class="odd">
-<td>Git status</td>
-<td>vg</td>
-<td>:Telescope git_status<CR></td>
-</tr>
-<tr class="even">
-<td>Git commits</td>
-<td>vc</td>
-<td>:Telescope git_commits<CR></td>
-</tr>
-<tr class="odd">
-<td>Grep current word</td>
-<td>fw</td>
-<td>:Telescope grep_string<CR></td>
-</tr>
-<tr class="even">
-<td>Grep string</td>
-<td>fs</td>
-<td>:Telescope live_grep<CR></td>
-</tr>
-<tr class="odd">
-<td>Find buffer</td>
-<td>fk</td>
-<td>:Telescope buffers<CR></td>
-</tr>
-<tr class="even">
-<td>Find project file</td>
-<td>fp</td>
-<td>:Telescope find_files<CR></td>
 </tr>
 <tr class="odd">
 <td>Toggle LSP Lines</td>

@@ -3,12 +3,10 @@
 One of the AstroNvim 'Black Belt' example advanced configurations
 
 - Install and initialize: **`lazyman -x Lamia`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Lamia`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -21,8 +19,9 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 ### Lazy managed plugins
 
 - [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim.git)
-- [AstroNvim/astrotheme](https://github.com/AstroNvim/astrotheme.git)
 - [max397574/better-escape.nvim](https://github.com/max397574/better-escape.nvim.git)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim.git)
+- [uga-rosa/ccc.nvim](https://github.com/uga-rosa/ccc.nvim.git)
 - [eandrju/cellular-automaton.nvim](https://github.com/eandrju/cellular-automaton.nvim.git)
 - [p00f/clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer.git)
@@ -35,7 +34,7 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim.git)
 - [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim.git)
-- [jinh0/eyeliner.nvim](https://github.com/jinh0/eyeliner.nvim.git)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim.git)
 - [cbochs/grapple.nvim](https://github.com/cbochs/grapple.nvim.git)
@@ -43,7 +42,6 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [rebelot/heirline.nvim](https://github.com/rebelot/heirline.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim.git)
-- [lvimuser/lsp-inlayhints.nvim](https://github.com/lvimuser/lsp-inlayhints.nvim.git)
 - [onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim.git)
 - [Maan2003/lsp_lines.nvim](https://github.com/Maan2003/lsp_lines.nvim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip.git)
@@ -53,9 +51,9 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [kvrohit/mellow.nvim](https://github.com/kvrohit/mellow.nvim.git)
 - [echasnovski/mini.ai](https://github.com/echasnovski/mini.ai.git)
 - [echasnovski/mini.bufremove](https://github.com/echasnovski/mini.bufremove.git)
+- [echasnovski/mini.surround](https://github.com/echasnovski/mini.surround.git)
 - [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim.git)
-- [zbirenbaum/neodim](https://github.com/zbirenbaum/neodim.git)
 - [sbdchd/neoformat](https://github.com/sbdchd/neoformat.git)
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim.git)
 - [Shatur/neovim-session-manager](https://github.com/Shatur/neovim-session-manager.git)
@@ -71,12 +69,10 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify.git)
 - [windwp/nvim-spectre](https://github.com/windwp/nvim-spectre.git)
-- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround.git)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git)
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag.git)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring.git)
-- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2.git)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo.git)
 - [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
 - [nyoom-engineering/oxocarbon.nvim](https://github.com/nyoom-engineering/oxocarbon.nvim.git)
@@ -84,7 +80,7 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
 - [RishabhRD/popfix](https://github.com/RishabhRD/popfix.git)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async.git)
-- [QuickGD/quickgd.nvim](https://github.com/QuickGD/quickgd.nvim.git)
+- [hiphish/rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim.git)
 - [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim.git)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim.git)
@@ -115,206 +111,218 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <Tab> |  |
-| Toggle wrap |  uw |  |
-| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
-| Toggle spellcheck |  us |  |
-| Toggle CodeLens |  uL |  |
-| Toggle statusline |  ul |  |
+| Previous buffer |  bp |  |
+| Conditional Breakpoint (S-F9) |  dC |  |
+| Toggle signcolumn |  ug |  |
+| Toggle paste mode |  up |  |
 | Change indent setting |  ui |  |
-| Toggle diagnostics |  ud |  |
-| Toggle autocompletion |  uc |  |
+| Toggle conceal |  uS |  |
+| By relative path |  bsr |  |
+| Toggle statusline |  ul |  |
+| By full path |  bsp |  |
+| Evaluate Input |  dE |  |
+| Toggle CodeLens |  uL |  |
+| Step Out (S-F11) |  dO |  |
+| By modification |  bsm |  |
+| Select buffer from tabline |  bb |  |
+| View Git diff |  gd |  |
+| Close buffer from tabline |  bd |  |
+| Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
+| Horizontal split buffer from tabline |  b\ |  |
 | Mason Installer |  pm | <Cmd>Mason<CR> |
-| Toggle REPL |  dR |  |
+| Vertical split buffer from tabline |  b| |  |
+| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
+| Step Over (F10) |  do |  |
+| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
+| Toggle comment line |  / |  |
+| By buffer number |  bsi |  |
+| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
+| Toggle Debugger UI |  du |  |
+| Toggle background |  ub |  |
+| Toggle autocompletion |  uc |  |
+| View Git blame |  gl |  |
+| Load current directory session |  S. | <Cmd>SessionManager! load_current_dir_session<CR> |
+| View full Git blame |  gL |  |
+| Toggle Notifications |  uN |  |
+| Preview Git hunk |  gp |  |
+| By extension |  bse |  |
+| Reset Git hunk |  gh |  |
+| Search symbols |  ls |  |
+| Reset Git buffer |  gr |  |
+| Toggle spellcheck |  us |  |
+| Stage Git hunk |  gs |  |
+| Stage Git buffer |  gS |  |
+| Close all buffers to the right |  br |  |
+| Unstage Git hunk |  gu |  |
+| Toggle tabline |  ut |  |
+| Change line numbering |  un |  |
+| Toggle URL highlight |  uu |  |
+| Toggle wrap |  uw |  |
+| Toggle syntax highlighting (buffer) |  uy |  |
+| Toggle foldcolumn |  uh |  |
 | Mason Update |  pM | <Cmd>MasonUpdateAll<CR> |
-| Plugins Install |  pi |  |
-| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
-| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
-| Find marks |  f' |  |
-| Find registers |  fr |  |
-| Close all buffers |  bC |  |
-| ToggleTerm python |  tp |  |
+| Toggle Aerial |  u1 | <Cmd>AerialToggle<CR> |
 | Symbols outline |  lS |  |
 | Git branches |  gb |  |
-| Plugins Update |  pU |  |
 | Git commits (repository) |  gc |  |
 | Git commits (current file) |  gC |  |
 | Git status |  gt |  |
 | Resume previous search |  f<CR> |  |
-| Toggle Aerial |  u1 | <Cmd>AerialToggle<CR> |
+| Find marks |  f' |  |
 | Find words in current buffer |  f/ |  |
 | Find AstroNvim config files |  fa |  |
 | Find buffers |  fb |  |
 | Find word under cursor |  fc |  |
 | Find commands |  fC |  |
 | Find files |  ff |  |
-| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
 | Find all files |  fF |  |
 | Find help |  fh |  |
 | Find keymaps |  fk |  |
-| Toggle tabline |  ut |  |
 | Find man |  fm |  |
-| Toggle background |  ub |  |
 | Find notifications |  fn |  |
-| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
 | Find history |  fo |  |
-| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
+| Find registers |  fr |  |
+| Toggle Explorer Focus |  o |  |
 | Find themes |  ft |  |
 | Find words |  fw |  |
 | Find words in all files |  fW |  |
-| Toggle signcolumn |  ug |  |
-| Search symbols |  ls |  |
+| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
 | ToggleTerm lazygit |  gg |  |
 | ToggleTerm lazygit |  tl |  |
 | ToggleTerm node |  tn |  |
 | ToggleTerm gdu |  tu |  |
 | ToggleTerm btm |  tt |  |
-| Change line numbering |  un |  |
-| Toggle Notifications |  uN |  |
-| Toggle paste mode |  up |  |
+| ToggleTerm python |  tp |  |
+| ToggleTerm float |  tf | <Cmd>ToggleTerm direction=float<CR> |
 | ToggleTerm horizontal split |  th | <Cmd>ToggleTerm size=10 direction=horizontal<CR> |
 | ToggleTerm vertical split |  tv | <Cmd>ToggleTerm size=80 direction=vertical<CR> |
-| Toggle conceal |  uS |  |
-| Toggle URL highlight |  uu |  |
-| Toggle syntax highlight |  uy |  |
-| Toggle autopairs |  ua |  |
-| Toggle foldcolumn |  uh |  |
 | Toggle Breakpoint (F9) |  db |  |
 | Clear Breakpoints |  dB |  |
 | Start/Continue (F5) |  dc |  |
-| Conditional Breakpoint (S-F9) |  dC |  |
 | Step Into (F11) |  di |  |
-| Step Over (F10) |  do |  |
-| Step Out (S-F11) |  dO |  |
+| Save |  w | <Cmd>w<CR> |
+| Quit |  q | <Cmd>confirm q<CR> |
 | Close Session |  dq |  |
+| New File |  n | <Cmd>enew<CR> |
 | Terminate Session (S-F5) |  dQ |  |
 | Pause (F6) |  dp |  |
 | Restart (C-F5) |  dr |  |
-| Save |  w | <Cmd>w<CR> |
+| Toggle REPL |  dR |  |
 | Run To Cursor |  ds |  |
-| Quit |  q | <Cmd>confirm q<CR> |
-| Evaluate Input |  dE |  |
-| Toggle Debugger UI |  du |  |
+| Plugins Install |  pi |  |
 | Debugger Hover |  dh |  |
-| Close buffer |  c |  |
-| Force close buffer |  C |  |
 | Plugins Status |  ps |  |
 | Plugins Sync |  pS |  |
 | Plugins Check Updates |  pu |  |
-| Close all buffers except current |  bc |  |
+| Plugins Update |  pU |  |
 | Update Plugins and Mason Packages |  pa | <Cmd>AstroUpdatePackages<CR> |
-| Select buffer from tabline |  bb |  |
-| Close buffer from tabline |  bd |  |
+| AstroNvim Update |  pA | <Cmd>AstroUpdate<CR> |
+| AstroNvim Version |  pv | <Cmd>AstroVersion<CR> |
+| AstroNvim Changelog |  pl | <Cmd>AstroChangelog<CR> |
+| Close buffer |  c |  |
+| Force close buffer |  C |  |
+| Toggle autopairs |  ua |  |
+| Close all buffers except current |  bc |  |
+| Close all buffers |  bC |  |
 | Close all buffers to the left |  bl |  |
-| Previous buffer |  bp |  |
-| Close all buffers to the right |  br |  |
-| By extension |  bse |  |
-| By relative path |  bsr |  |
-| By full path |  bsp |  |
-| By buffer number |  bsi |  |
-| By modification |  bsm |  |
-| Horizontal split buffer from tabline |  b\ |  |
-| Vertical split buffer from tabline |  b| |  |
-| Toggle comment line |  / |  |
-| View Git blame |  gl |  |
-| View full Git blame |  gL |  |
-| Preview Git hunk |  gp |  |
-| Reset Git hunk |  gh |  |
-| Reset Git buffer |  gr |  |
-| Stage Git hunk |  gs |  |
-| Stage Git buffer |  gS |  |
-| Unstage Git hunk |  gu |  |
-| View Git diff |  gd |  |
-| Toggle Explorer |  e | <Cmd>Neotree toggle<CR> |
-| Toggle Explorer Focus |  o |  |
-| Load last session |  Sl | <Cmd>SessionManager! load_last_session<CR> |
-| Save this session |  Ss | <Cmd>SessionManager! save_current_session<CR> |
-| Delete session |  Sd | <Cmd>SessionManager! delete_session<CR> |
-| Search sessions |  Sf | <Cmd>SessionManager! load_session<CR> |
-|  |  r |  |
-| New File |  n | <Cmd>enew<CR> |
-|  |  a |  |
+| Toggle diagnostics |  ud |  |
+|  |  . |  |
+|  |  , |  |
+| Make It Rain |  u4 |  |
+| Run Code |  a |  |
+| Structual Search And Replace |  r |  |
+| ZenMode |  z |  |
+| Toggle color highlight |  uC | <Cmd>ColorizerToggle<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Move buffer tab left | <lt>b |  |
 | Move buffer tab right | >b |  |
-|  | F |  |
 | Previous buffer | H |  |
 | Next buffer | L |  |
 | previous search with center and unfold | N |  |
-|  | T |  |
+| Flash Treesitter | S |  |
+| Redo | U | <Cmd>redo<CR> |
 | Nvim builtin | Y | y$ |
+| Previous tab | [t |  |
 | Previous Git hunk | [g |  |
 | Previous buffer | [b |  |
-| Previous tab | [t |  |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Horizontal Split | \ | <Cmd>split<CR> |
+| Next tab | ]t |  |
 | Next Git hunk | ]g |  |
 | Next buffer | ]b |  |
-| Next tab | ]t |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-|  | f |  |
+| Delete extra space | d. | viwhd |
 | Open the file under cursor with system app | gx |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 |  | gF | :<C-U>call fetch#cfile(v:count1)<CR> |
-| Grapple tag popup menu | gp | :GrapplePopup tags<CR> |
 | Tags current buffer | gt | :GrappleToggle<CR> |
-| Comment toggle blockwise | gb |  |
+| Grapple tag popup menu | gp | :GrapplePopup tags<CR> |
 | Comment toggle linewise | gc |  |
+| Comment toggle blockwise | gb |  |
 | Move cursor down | j | v:count == 0 ? 'gj' : 'j' |
 | Move cursor up | k | v:count == 0 ? 'gk' : 'k' |
 | Next search with center and unfold | n |  |
 |  | sl |  |
 |  | sh |  |
-|  | sj |  |
-|  | t |  |
+| Split Join Blocks Toggle | sj |  |
+| Add Surrounding | sa |  |
+| Find Surrounding Right | sf |  |
+| Update N Lines | sn |  |
+| Replace Surrounding | sr |  |
+| Highlight Surrounding | sv |  |
+| Delete Surrounding | sd |  |
+| Find Surrounding Left | sF |  |
+| Flash | s; |  |
 |  | yrw | yiw:s/\C\<lt><C-R>0\>/ |
+|  | yrb | yt(:s/\C\<lt><C-R>0\>/ |
 |  | yrW | yiW:s/\C\<lt><C-R>0\>/ |
-|  | yrE | yiE:s/\C\<lt><C-R>0\>/ |
-|  | yre | yie:s/\C\<lt><C-R>0\>/ |
-| Fold less | zr |  |
+|  | yrE | yE:s/\C\<lt><C-R>0\>/ |
+|  | yre | ye:s/\C\<lt><C-R>0\>/ |
 | Open all folds | zR |  |
 | Close all folds | zM |  |
+| Fold less | zr |  |
 | Fold more | zm |  |
 | Peek fold | zp |  |
 | Vertical Split | | | <Cmd>vsplit<CR> |
-| Debugger: Toggle Breakpoint | <F9> |  |
+| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
+| Move to above split | <C-K> |  |
 | Toggle terminal | <F7> | <Cmd>ToggleTerm<CR> |
+| Next buffer | <M-l> |  |
+|  | <M-o> | o<Esc> |
+|  | <C-D> | <C-D>zz |
+| Previous buffer | <M-h> |  |
+| Force quit | <C-Q> | <Cmd>qa!<CR> |
 | Move to left split | <C-H> |  |
 | Resize split up | <C-Up> |  |
 | Resize split down | <C-Down> |  |
 | Resize split left | <C-Left> |  |
 | Resize split right | <C-Right> |  |
-|  | <M-o> | o<Esc> |
-| Move to above split | <C-K> |  |
-| Force write | <C-S> | <Cmd>w!<CR> |
-| Next buffer | <M-l> |  |
-| Previous buffer | <M-h> |  |
 |  | <M-O> | O<Esc> |
 |  | <F2> | y:%s/<C-R>0/ |
 |  | <F2><F2> | y:%s/<C-R>0/ |
-|  | <C-D> | <C-D>zz |
+| Move to below split | <C-J> |  |
+|  | <C-U> | <C-U>zz |
 | Debugger: Start | <F5> |  |
-| Toggle terminal | <C-'> | <Cmd>ToggleTerm<CR> |
 | Debugger: Stop | <F17> |  |
 | Debugger: Conditional Breakpoint | <F21> |  |
 | Debugger: Restart | <F29> |  |
 | Debugger: Pause | <F6> |  |
+| Debugger: Toggle Breakpoint | <F9> |  |
 | Debugger: Step Over | <F10> |  |
 | Debugger: Step Into | <F11> |  |
 | Debugger: Step Out | <F23> |  |
-| Force quit | <C-Q> | <Cmd>q!<CR> |
-| Move to below split | <C-J> |  |
-|  | <C-U> | <C-U>zz |
+| Force write | <C-S> | <Cmd>w!<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <F3><F3> |  |
-|  | <F3> |  |
+|  | <C-.> |  |
+|  | <C-,> |  |
+| Toggle Spectre | <F3> |  |
+|  | <C-F> |  |
 |  | <C-S-P> |  |
 |  | <C-P> |  |
-|  | <C-F> |  |
 | Move to right split | <C-L> |  |
 
 #### visual mode keymaps
@@ -327,21 +335,20 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | F |  |
-|  | T |  |
+| Flash Treesitter Search | R |  |
+| Flash Treesitter | S |  |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
-|  | f |  |
 |  | g% | <Plug>(MatchitVisualBackward) |
 |  | gF | :<C-U>call fetch#visual(v:count1)<CR> |
 | Comment toggle blockwise | gb |  |
 | Comment toggle linewise | gc |  |
 |  | r | y:s/\C\<lt><C-R>0\>/ |
-|  | t |  |
-|  | <F2><F2> | '<lt>'>s/\C<C-R>0/ |
+| Flash | s; |  |
 |  | <F2> | '<lt>'>%s/\C<C-R>0/ |
 | Unindent line | <S-Tab> | <lt>gv |
+|  | <F2><F2> | '<lt>'>s/\C<C-R>0/ |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
 |  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
@@ -353,13 +360,13 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | % | <Plug>(MatchitOperationForward) |
-|  | F |  |
-|  | T |  |
+| Flash Treesitter Search | R |  |
+| Flash Treesitter | S |  |
 |  | [% | <Plug>(MatchitOperationMultiBackward) |
 |  | ]% | <Plug>(MatchitOperationMultiForward) |
-|  | f |  |
 |  | g% | <Plug>(MatchitOperationBackward) |
-|  | t |  |
+| Remote Flash | r |  |
+| Flash | s; |  |
 |  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |

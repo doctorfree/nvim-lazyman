@@ -3,12 +3,10 @@
 Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [demo video](https://youtu.be/8SVPOKZVaMU)
 
 - Install and initialize: **`lazyman -w Adib`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Adib`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -43,7 +41,6 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
-- [lvimuser/lsp-inlayhints.nvim](https://github.com/lvimuser/lsp-inlayhints.nvim)
 - [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
@@ -72,7 +69,6 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [ThePrimeagen/refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim.git)
-- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [bennypowers/splitjoin.nvim](https://github.com/bennypowers/splitjoin.nvim.git)
@@ -85,9 +81,10 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [mbbill/undotree](https://github.com/mbbill/undotree)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [tpope/vim-sleuth](https://github.com/tpope/vim-sleuth.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ### Adib Keymaps
@@ -97,14 +94,15 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <CR> | ciw |
+| Left File Explorer |  <Tab> |  |
+| Float File Explorer |  e |  |
+| Stop |  tS |  |
+| Toggle Output Panel |  tO |  |
 | Show Output |  to |  |
 | Toggle Summary |  ts |  |
 | Run Nearest |  tr |  |
 | Run All Test Files |  tT |  |
 | Run File |  tt |  |
-| Stop |  tS |  |
-| Toggle Output Panel |  tO |  |
-| File Explorer |  e |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 |  | + | :vertical resize +5<CR> |
@@ -116,6 +114,7 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 |  | L | $ |
 | Leap backward to | S |  |
 | T | T |  |
+|  | X | :keeppatterns substitute/\s*\%#\s*/\r/e | normal! ==^<CR> |
 |  | YY | va{Vy |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
@@ -127,35 +126,33 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 |  | _ | :vertical resize -5<CR> |
 | f | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Glance references | gR |  |
-| Glance definitions | gD |  |
+| Join the object under cursor | gJ |  |
+| Split the object under cursor | gS |  |
+| Leap from windows | gs |  |
 | Glance implementations | gM |  |
 | Glance type_definitions | gY |  |
-| Leap from windows | gs |  |
-| Split the object under cursor | gS |  |
-| Join the object under cursor | gJ |  |
+| Glance references | gR |  |
+| Glance definitions | gD |  |
 |  | j | gj |
 |  | k | gk |
 | Leap forward to | s |  |
 | t | t |  |
+|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 |  | zt | <Cmd>lua require('neoscroll').zt(250)<CR> |
 |  | zz | <Cmd>lua require('neoscroll').zz(250)<CR> |
-|  | zb | <Cmd>lua require('neoscroll').zb(250)<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
 | Move to previous reference | <M-p> |  |
 | Move to next reference | <M-n> |  |
+|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
+|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
+|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
 | Toggle Terminal | <C-T> | <Cmd>execute v:count . "ToggleTerm"<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
-|  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
-|  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-| Fuzzily search in current buffer | <C-S> |  |
+|  | <C-S> | :Telescope current_buffer_fuzzy_find<CR> |
 |  | <BS> | ci |
 |  | <Left> | :bprevious<CR> |
 |  | <Right> | :bnext<CR> |
@@ -197,14 +194,13 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <M-i> |  |
 |  | <C-Y> | <Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR> |
 |  | <C-E> | <Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR> |
 |  | <C-U> | <Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR> |
 |  | <C-B> | <Cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)<CR> |
-|  | <M-i> |  |
+|  | <C-D> | <Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR> |
+|  | <C-F> | <Cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)<CR> |
 
 #### operator mode keymaps
 
@@ -227,5 +223,4 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
 |  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
 |  | <M-i> |  |

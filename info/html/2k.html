@@ -35,16 +35,13 @@ Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -x 2k</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-2k</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/2KAbhishek/nvim2k">https://github.com/2KAbhishek/nvim2k</a></p>
@@ -81,6 +78,8 @@ href="https://github.com/sindrets/diffview.nvim.git">sindrets/diffview.nvim</a><
 <li><a
 href="https://github.com/stevearc/dressing.nvim.git">stevearc/dressing.nvim</a></li>
 <li><a
+href="https://github.com/creativenull/efmls-configs-nvim.git">creativenull/efmls-configs-nvim</a></li>
+<li><a
 href="https://github.com/antoinemadec/FixCursorHold.nvim.git">antoinemadec/FixCursorHold.nvim</a></li>
 <li><a
 href="https://github.com/rafamadriz/friendly-snippets.git">rafamadriz/friendly-snippets</a></li>
@@ -115,6 +114,8 @@ href="https://github.com/williamboman/mason-lspconfig.nvim.git">williamboman/mas
 <li><a
 href="https://github.com/williamboman/mason.nvim.git">williamboman/mason.nvim</a></li>
 <li><a
+href="https://github.com/folke/neodev.nvim.git">folke/neodev.nvim</a></li>
+<li><a
 href="https://github.com/NeogitOrg/neogit.git">NeogitOrg/neogit</a></li>
 <li><a
 href="https://github.com/nvim-neotest/neotest.git">nvim-neotest/neotest</a></li>
@@ -122,8 +123,6 @@ href="https://github.com/nvim-neotest/neotest.git">nvim-neotest/neotest</a></li>
 href="https://github.com/haydenmeade/neotest-jest.git">haydenmeade/neotest-jest</a></li>
 <li><a
 href="https://github.com/olimorris/neotest-rspec.git">olimorris/neotest-rspec</a></li>
-<li><a
-href="https://github.com/jose-elias-alvarez/null-ls.nvim.git">jose-elias-alvarez/null-ls.nvim</a></li>
 <li><a
 href="https://github.com/windwp/nvim-autopairs.git">windwp/nvim-autopairs</a></li>
 <li><a
@@ -140,6 +139,8 @@ href="https://github.com/neovim/nvim-lspconfig.git">neovim/nvim-lspconfig</a></l
 href="https://github.com/rcarriga/nvim-notify.git">rcarriga/nvim-notify</a></li>
 <li><a
 href="https://github.com/windwp/nvim-spectre.git">windwp/nvim-spectre</a></li>
+<li><a
+href="https://github.com/chrisgrieser/nvim-spider.git">chrisgrieser/nvim-spider</a></li>
 <li><a
 href="https://github.com/kylechui/nvim-surround.git">kylechui/nvim-surround</a></li>
 <li><a
@@ -159,8 +160,6 @@ href="https://github.com/RRethy/nvim-treesitter-textsubjects.git">RRethy/nvim-tr
 <li><a
 href="https://github.com/windwp/nvim-ts-autotag.git">windwp/nvim-ts-autotag</a></li>
 <li><a
-href="https://github.com/HiPhish/nvim-ts-rainbow2.git">HiPhish/nvim-ts-rainbow2</a></li>
-<li><a
 href="https://github.com/nvim-tree/nvim-web-devicons.git">nvim-tree/nvim-web-devicons</a></li>
 <li><a
 href="https://github.com/pwntester/octo.nvim.git">pwntester/octo.nvim</a></li>
@@ -170,6 +169,8 @@ href="https://github.com/stevearc/oil.nvim.git">stevearc/oil.nvim</a></li>
 href="https://github.com/navarasu/onedark.nvim.git">navarasu/onedark.nvim</a></li>
 <li><a
 href="https://github.com/nvim-lua/plenary.nvim.git">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/HiPhish/rainbow-delimiters.nvim.git">HiPhish/rainbow-delimiters.nvim</a></li>
 <li><a
 href="https://github.com/ThePrimeagen/refactoring.nvim.git">ThePrimeagen/refactoring.nvim</a></li>
 <li><a
@@ -344,150 +345,170 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <td><Cmd>BufferLineCycleNext<CR></td>
 </tr>
 <tr class="odd">
+<td>Spider-b</td>
+<td>b</td>
+<td><Cmd>lua require(‘spider’).motion(‘b’)<CR></td>
+</tr>
+<tr class="even">
 <td>Change a surrounding pair, putting replacements on new lines</td>
 <td>cS</td>
 <td><Plug>(nvim-surround-change-line)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Change a surrounding pair</td>
 <td>cs</td>
 <td><Plug>(nvim-surround-change)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Delete a surrounding pair</td>
 <td>ds</td>
 <td><Plug>(nvim-surround-delete)</td>
 </tr>
+<tr class="odd">
+<td>Spider-e</td>
+<td>e</td>
+<td><Cmd>lua require(‘spider’).motion(‘e’)<CR></td>
+</tr>
 <tr class="even">
+<td>Spider-ge</td>
+<td>ge</td>
+<td><Cmd>lua require(‘spider’).motion(‘ge’)<CR></td>
+</tr>
+<tr class="odd">
 <td>Comment insert end of line</td>
 <td>gcA</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert above</td>
 <td>gcO</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert below</td>
 <td>gco</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current block</td>
 <td>gbc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current line</td>
 <td>gcc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gr</td>
 <td><Cmd>Lspsaga rename<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>gp</td>
 <td><Cmd>Lspsaga preview_definition<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gd</td>
 <td><Cmd>Lspsaga lsp_finder<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>gs</td>
 <td><Cmd>Lspsaga signature_help<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search word under cursor</td>
 <td>gw</td>
 <td>*N</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gx</td>
 <td>:silent execute ‘!$BROWSER’ . shellescape(expand(‘<lt>cfile&gt;’),
 1)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>j</td>
 <td>v:count == 0 ? ‘gj’ : ‘j’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>k</td>
 <td>v:count == 0 ? ‘gk’ : ‘k’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Next search result</td>
 <td>n</td>
 <td>‘Nn’[v:searchforward]</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>s</td>
 <td><Plug>(leap-forward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tl</td>
 <td><C-W>l</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>tj</td>
 <td><C-W>j</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tk</td>
 <td><C-W>k</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>th</td>
 <td><C-W>h</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tw</td>
 <td><C-W>w</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>tv</td>
 <td>:vsplit</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ts</td>
 <td>:split</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>te</td>
 <td>:tabedit</td>
+</tr>
+<tr class="odd">
+<td>Spider-w</td>
+<td>w</td>
+<td><Cmd>lua require(‘spider’).motion(‘w’)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -675,8 +696,8 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-l></td>
-<td><Cmd>lua require’tmux’.resize_right()<CR></td>
+<td><M-k></td>
+<td><Cmd>lua require’tmux’.resize_top()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -685,13 +706,13 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td><Cmd>lua require’tmux’.resize_top()<CR></td>
+<td><M-h></td>
+<td><Cmd>lua require’tmux’.resize_left()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-h></td>
-<td><Cmd>lua require’tmux’.resize_left()<CR></td>
+<td><M-l></td>
+<td><Cmd>lua require’tmux’.resize_right()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -927,74 +948,94 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Plug>(MatchitVisualTextObject)</td>
 </tr>
 <tr class="even">
+<td>Spider-b</td>
+<td>b</td>
+<td><Cmd>lua require(‘spider’).motion(‘b’)<CR></td>
+</tr>
+<tr class="odd">
+<td>Spider-e</td>
+<td>e</td>
+<td><Cmd>lua require(‘spider’).motion(‘e’)<CR></td>
+</tr>
+<tr class="even">
+<td>Spider-ge</td>
+<td>ge</td>
+<td><Cmd>lua require(‘spider’).motion(‘ge’)<CR></td>
+</tr>
+<tr class="odd">
 <td>Add a surrounding pair around a visual selection, on new lines</td>
 <td>gS</td>
 <td><Plug>(nvim-surround-visual-line)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gs</td>
 <td><Plug>(leap-cross-window)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseXVis</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search word under cursor</td>
 <td>gw</td>
 <td>*N</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Next search result</td>
 <td>n</td>
 <td>‘Nn’[v:searchforward]</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>p</td>
 <td>“_dP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>s</td>
 <td><Plug>(leap-forward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tl</td>
 <td><C-W>l</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>tj</td>
 <td><C-W>j</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tk</td>
 <td><C-W>k</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>th</td>
 <td><C-W>h</td>
+</tr>
+<tr class="odd">
+<td>Spider-w</td>
+<td>w</td>
+<td><Cmd>lua require(‘spider’).motion(‘w’)<CR></td>
 </tr>
 <tr class="even">
 <td>Add a surrounding pair around a visual selection, on new lines</td>
@@ -1175,39 +1216,59 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td><Plug>(MatchitOperationMultiForward)</td>
 </tr>
 <tr class="odd">
+<td>Spider-b</td>
+<td>b</td>
+<td><Cmd>lua require(‘spider’).motion(‘b’)<CR></td>
+</tr>
+<tr class="even">
+<td>Spider-e</td>
+<td>e</td>
+<td><Cmd>lua require(‘spider’).motion(‘e’)<CR></td>
+</tr>
+<tr class="odd">
+<td>Spider-ge</td>
+<td>ge</td>
+<td><Cmd>lua require(‘spider’).motion(‘ge’)<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td>gs</td>
 <td><Plug>(leap-cross-window)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitOperationBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Next search result</td>
 <td>n</td>
 <td>‘Nn’[v:searchforward]</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tl</td>
 <td><C-W>l</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>tj</td>
 <td><C-W>j</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tk</td>
 <td><C-W>k</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>th</td>
 <td><C-W>h</td>
+</tr>
+<tr class="odd">
+<td>Spider-w</td>
+<td>w</td>
+<td><Cmd>lua require(‘spider’).motion(‘w’)<CR></td>
 </tr>
 <tr class="even">
 <td></td>

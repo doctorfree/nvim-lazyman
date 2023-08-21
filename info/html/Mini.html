@@ -37,16 +37,13 @@ Personal configuration of the ‘mini.nvim’ author</p>
 <li>Install and initialize:
 <strong><code>lazyman -M</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/echasnovski/mini.nvim">Mini</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Mini</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/echasnovski/nvim">https://github.com/echasnovski/nvim</a></p>
@@ -54,49 +51,6 @@ href="https://github.com/echasnovski/nvim">https://github.com/echasnovski/nvim</
 <p><a
 href="http://neovimcraft.com/plugin/echasnovski/nvim">http://neovimcraft.com/plugin/echasnovski/nvim</a></p>
 <h3 id="mini.nvim-managed-plugins">Mini.nvim managed plugins</h3>
-<ul>
-<li><a
-href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
-<li><a
-href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
-<li><a
-href="https://github.com/iamcco/markdown-preview.nvim">iamcco/markdown-preview.nvim</a></li>
-<li><a
-href="https://github.com/echasnovski/mini.nvim">echasnovski/mini.nvim</a></li>
-<li><a
-href="https://github.com/danymat/neogen.git">danymat/neogen</a></li>
-<li><a href="https://github.com/kassio/neoterm">kassio/neoterm</a></li>
-<li><a
-href="https://github.com/jose-elias-alvarez/null-ls.nvim">jose-elias-alvarez/null-ls.nvim</a></li>
-<li><a
-href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
-<li><a
-href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
-<li><a
-href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects">nvim-treesitter/nvim-treesitter-textobjects</a></li>
-<li><a
-href="https://github.com/nvim-tree/nvim-web-devicons">nvim-tree/nvim-web-devicons</a></li>
-<li><a
-href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
-<li><a
-href="https://github.com/mechatroner/rainbow_csv">mechatroner/rainbow_csv</a></li>
-<li><a
-href="https://github.com/nvim-telescope/telescope.nvim.git">nvim-telescope/telescope.nvim</a></li>
-<li><a
-href="https://github.com/tpope/vim-dispatch">tpope/vim-dispatch</a></li>
-<li><a
-href="https://github.com/tommcdo/vim-exchange">tommcdo/vim-exchange</a></li>
-<li><a
-href="https://github.com/vim-pandoc/vim-pandoc">vim-pandoc/vim-pandoc</a></li>
-<li><a
-href="https://github.com/vim-pandoc/vim-pandoc-syntax">vim-pandoc/vim-pandoc-syntax</a></li>
-<li><a
-href="https://github.com/vim-pandoc/vim-rmarkdown">vim-pandoc/vim-rmarkdown</a></li>
-<li><a
-href="https://github.com/vim-test/vim-test">vim-test/vim-test</a></li>
-<li><a
-href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
-</ul>
 <h3 id="mini-keymaps">Mini Keymaps</h3>
 <h4 id="normal-mode-keymaps">normal mode keymaps</h4>
 <table>
@@ -114,466 +68,466 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td>rk</td>
-<td><Cmd>T rmarkdown::render(“%”)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>rd</td>
-<td><Cmd>T devtools::document()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>rl</td>
-<td><Cmd>T devtools::load_all()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>rt</td>
-<td><Cmd>T devtools::test()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ri</td>
-<td><Cmd>T devtools::install(keep_source=TRUE)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>rC</td>
-<td><Cmd>T devtools::test_coverage()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>rT</td>
-<td><Cmd>T testthat::test_file(“%”)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>rc</td>
-<td><Cmd>T devtools::check()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>mr</td>
-<td><Cmd>lua MiniMap.refresh()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>mf</td>
-<td><Cmd>lua MiniMap.toggle_focus()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>mo</td>
-<td><Cmd>lua MiniMap.open()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ms</td>
-<td><Cmd>lua MiniMap.toggle_side()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>mt</td>
-<td><Cmd>lua MiniMap.toggle()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>mc</td>
-<td><Cmd>lua MiniMap.close()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>lr</td>
-<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>lj</td>
-<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ld</td>
-<td><Cmd>lua vim.diagnostic.open_float()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ls</td>
-<td><Cmd>lua vim.lsp.buf.definition()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>li</td>
-<td><Cmd>lua vim.lsp.buf.hover()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>lR</td>
-<td><Cmd>lua vim.lsp.buf.references()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>lk</td>
-<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>la</td>
-<td><Cmd>lua vim.lsp.buf.signature_help()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>lf</td>
-<td><Cmd>lua vim.lsp.buf.format({ async = true })<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Lx</td>
-<td><Cmd>lua EC.execute_lua_line()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Lf</td>
-<td><Cmd>luafile %<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>s</td>
-<td><Cmd>TREPLSendLine<CR>j</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>em</td>
-<td><Cmd>lua
-MiniFiles.open(‘~/.config/nvim-Mini/pack/plugins/opt/mini’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ef</td>
-<td><Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>eq</td>
-<td><Cmd>lua EC.toggle_quickfix()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ed</td>
-<td><Cmd>lua MiniFiles.open()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ta</td>
-<td><Cmd>lua MiniTest.run()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>tl</td>
-<td><Cmd>lua MiniTest.run_at_location()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>tT</td>
-<td><Cmd>belowright Tnew<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ts</td>
-<td><Cmd>lua EC.minitest_screenshots.browse()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>tt</td>
-<td><Cmd>vertical Tnew<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>tf</td>
-<td><Cmd>lua MiniTest.run_file()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>or</td>
-<td><Cmd>lua MiniMisc.resize_window()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>os</td>
-<td><Cmd>lua MiniSessions.select()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>ol</td>
-<td><Cmd>lua EC.move_arg(‘right’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ot</td>
-<td><Cmd>lua MiniTrailspace.trim()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>oH</td>
-<td><Cmd>TSBufToggle highlight<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>oS</td>
-<td><Cmd>lua EC.insert_section()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>oh</td>
-<td><Cmd>lua EC.move_arg(‘left’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>oT</td>
-<td><Cmd>lua vim.b.minitrailspace_disable = not
-vim.b.minitrailspace_disable<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>oC</td>
-<td><Cmd>lua MiniCursorword.toggle()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>oz</td>
-<td><Cmd>lua MiniMisc.zoom()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>og</td>
-<td><Cmd>lua MiniDoc.generate()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>od</td>
-<td><Cmd>Neogen<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Tn</td>
-<td><Cmd>TestNearest<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Tf</td>
-<td><Cmd>TestFile<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Tl</td>
-<td><Cmd>TestLast<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>TL</td>
-<td><Cmd>TestLast -strategy=make</td>
-</tr>
-<tr class="odd">
-<td></td>
+<td>Suite</td>
 <td>Ts</td>
 <td><Cmd>TestSuite<CR></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Suite (quickfix)</td>
 <td>TS</td>
 <td><Cmd>TestSuite -strategy=make</td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Nearest</td>
+<td>Tn</td>
+<td><Cmd>TestNearest<CR></td>
+</tr>
+<tr class="even">
+<td>Nearest (quickfix)</td>
 <td>TN</td>
 <td><Cmd>TestNearest -strategy=make</td>
 </tr>
+<tr class="odd">
+<td>Last</td>
+<td>Tl</td>
+<td><Cmd>TestLast<CR></td>
+</tr>
 <tr class="even">
-<td></td>
+<td>Last (quickfix)</td>
+<td>TL</td>
+<td><Cmd>TestLast -strategy=make</td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td>Tf</td>
+<td><Cmd>TestFile<CR></td>
+</tr>
+<tr class="even">
+<td>File (quickfix)</td>
 <td>TF</td>
 <td><Cmd>TestFile -strategy=make</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>gA</td>
-<td><Cmd>lua require(“gitsigns”).stage_buffer()<CR></td>
+<td>Terminal (vertical)</td>
+<td>tt</td>
+<td><Cmd>vertical Tnew<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>gx</td>
-<td><Cmd>lua require(“gitsigns”).reset_hunk()<CR></td>
+<td>Terminal (horizontal)</td>
+<td>tT</td>
+<td><Cmd>belowright Tnew<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>gu</td>
-<td><Cmd>lua require(“gitsigns”).undo_stage_hunk()<CR></td>
+<td>Test show screenshot</td>
+<td>ts</td>
+<td><Cmd>lua EC.minitest_screenshots.browse()<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>gq</td>
-<td><Cmd>lua require(“gitsigns”).setqflist()<CR>:copen<CR></td>
+<td>Test run location</td>
+<td>tl</td>
+<td><Cmd>lua MiniTest.run_at_location()<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Test run file</td>
+<td>tf</td>
+<td><Cmd>lua MiniTest.run_file()<CR></td>
+</tr>
+<tr class="even">
+<td>Test run all</td>
+<td>ta</td>
+<td><Cmd>lua MiniTest.run()<CR></td>
+</tr>
+<tr class="odd">
+<td>Send to terminal</td>
+<td>s</td>
+<td><Cmd>TREPLSendLine<CR>j</td>
+</tr>
+<tr class="even">
+<td>Test</td>
+<td>rt</td>
+<td><Cmd>T devtools::test()<CR></td>
+</tr>
+<tr class="odd">
+<td>Test file</td>
+<td>rT</td>
+<td><Cmd>T testthat::test_file(“%”)<CR></td>
+</tr>
+<tr class="even">
+<td>Load all</td>
+<td>rl</td>
+<td><Cmd>T devtools::load_all()<CR></td>
+</tr>
+<tr class="odd">
+<td>Knit file</td>
+<td>rk</td>
+<td><Cmd>T rmarkdown::render(“%”)<CR></td>
+</tr>
+<tr class="even">
+<td>Install</td>
+<td>ri</td>
+<td><Cmd>T devtools::install(keep_source=TRUE)<CR></td>
+</tr>
+<tr class="odd">
+<td>Document</td>
+<td>rd</td>
+<td><Cmd>T devtools::document()<CR></td>
+</tr>
+<tr class="even">
+<td>Coverage</td>
+<td>rC</td>
+<td><Cmd>T devtools::test_coverage()<CR></td>
+</tr>
+<tr class="odd">
+<td>Check</td>
+<td>rc</td>
+<td><Cmd>T devtools::check()<CR></td>
+</tr>
+<tr class="even">
+<td>Zoom toggle</td>
+<td>oz</td>
+<td><Cmd>lua MiniMisc.zoom()<CR></td>
+</tr>
+<tr class="odd">
+<td>Trailspace hl toggle</td>
+<td>oT</td>
+<td><Cmd>lua vim.b.minitrailspace_disable = not
+vim.b.minitrailspace_disable<CR></td>
+</tr>
+<tr class="even">
+<td>Trim trailspace</td>
+<td>ot</td>
+<td><Cmd>lua MiniTrailspace.trim()<CR></td>
+</tr>
+<tr class="odd">
+<td>Section insert</td>
+<td>oS</td>
+<td><Cmd>lua EC.insert_section()<CR></td>
+</tr>
+<tr class="even">
+<td>Session select</td>
+<td>os</td>
+<td><Cmd>lua MiniSessions.select()<CR></td>
+</tr>
+<tr class="odd">
+<td>Resize to default width</td>
+<td>or</td>
+<td><Cmd>lua MiniMisc.resize_window()<CR></td>
+</tr>
+<tr class="even">
+<td>Move arg right</td>
+<td>ol</td>
+<td><Cmd>normal gxiagxina<CR></td>
+</tr>
+<tr class="odd">
+<td>Generate plugin doc</td>
+<td>og</td>
+<td><Cmd>lua MiniDoc.generate()<CR></td>
+</tr>
+<tr class="even">
+<td>Highlight toggle</td>
+<td>oH</td>
+<td><Cmd>TSBufToggle highlight<CR></td>
+</tr>
+<tr class="odd">
+<td>Move arg left</td>
+<td>oh</td>
+<td><Cmd>normal gxiagxila<CR></td>
+</tr>
+<tr class="even">
+<td>Document</td>
+<td>od</td>
+<td><Cmd>Neogen<CR></td>
+</tr>
+<tr class="odd">
+<td>Cursor word hl toggle</td>
+<td>oC</td>
+<td><Cmd>lua MiniCursorword.toggle()<CR></td>
+</tr>
+<tr class="even">
+<td>Toggle</td>
+<td>mt</td>
+<td><Cmd>lua MiniMap.toggle()<CR></td>
+</tr>
+<tr class="odd">
+<td>Side (toggle)</td>
+<td>ms</td>
+<td><Cmd>lua MiniMap.toggle_side()<CR></td>
+</tr>
+<tr class="even">
+<td>Refresh</td>
+<td>mr</td>
+<td><Cmd>lua MiniMap.refresh()<CR></td>
+</tr>
+<tr class="odd">
+<td>Open</td>
+<td>mo</td>
+<td><Cmd>lua MiniMap.open()<CR></td>
+</tr>
+<tr class="even">
+<td>Focus (toggle)</td>
+<td>mf</td>
+<td><Cmd>lua MiniMap.toggle_focus()<CR></td>
+</tr>
+<tr class="odd">
+<td>Close</td>
+<td>mc</td>
+<td><Cmd>lua MiniMap.close()<CR></td>
+</tr>
+<tr class="even">
+<td>Execute <code>lua</code> line</td>
+<td>Lx</td>
+<td><Cmd>lua EC.execute_lua_line()<CR></td>
+</tr>
+<tr class="odd">
+<td><code>luafile</code> buffer</td>
+<td>Lf</td>
+<td><Cmd>luafile %<CR></td>
+</tr>
+<tr class="even">
+<td>Source definition</td>
+<td>ls</td>
+<td><Cmd>lua vim.lsp.buf.definition()<CR></td>
+</tr>
+<tr class="odd">
+<td>Rename</td>
+<td>lr</td>
+<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
+</tr>
+<tr class="even">
+<td>References</td>
+<td>lR</td>
+<td><Cmd>lua vim.lsp.buf.references()<CR></td>
+</tr>
+<tr class="odd">
+<td>Prev diagnostic</td>
+<td>lk</td>
+<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+</tr>
+<tr class="even">
+<td>Next diagnostic</td>
+<td>lj</td>
+<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+</tr>
+<tr class="odd">
+<td>Information</td>
+<td>li</td>
+<td><Cmd>lua vim.lsp.buf.hover()<CR></td>
+</tr>
+<tr class="even">
+<td>Format</td>
+<td>lf</td>
+<td><Cmd>lua vim.lsp.buf.format({ async = true })<CR></td>
+</tr>
+<tr class="odd">
+<td>Diagnostics popup</td>
+<td>ld</td>
+<td><Cmd>lua vim.diagnostic.open_float()<CR></td>
+</tr>
+<tr class="even">
+<td>Arguments popup</td>
+<td>la</td>
+<td><Cmd>lua vim.lsp.buf.signature_help()<CR></td>
+</tr>
+<tr class="odd">
+<td>Discard (reset) buffer</td>
 <td>gX</td>
 <td><Cmd>lua require(“gitsigns”).reset_buffer()<CR></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Discard (reset) hunk</td>
+<td>gx</td>
+<td><Cmd>lua require(“gitsigns”).reset_hunk()<CR></td>
+</tr>
+<tr class="odd">
+<td>Undo stage hunk</td>
+<td>gu</td>
+<td><Cmd>lua require(“gitsigns”).undo_stage_hunk()<CR></td>
+</tr>
+<tr class="even">
+<td>Quickfix hunks</td>
+<td>gq</td>
+<td><Cmd>lua require(“gitsigns”).setqflist()<CR>:copen<CR></td>
+</tr>
+<tr class="odd">
+<td>Preview hunk</td>
 <td>gp</td>
 <td><Cmd>lua require(“gitsigns”).preview_hunk()<CR></td>
 </tr>
-<tr class="odd">
-<td></td>
+<tr class="even">
+<td>Git tab</td>
 <td>gg</td>
 <td><Cmd>lua EC.open_lazygit()<CR></td>
 </tr>
-<tr class="even">
-<td></td>
-<td>ga</td>
-<td><Cmd>lua require(“gitsigns”).stage_hunk()<CR></td>
-</tr>
 <tr class="odd">
-<td></td>
+<td>Blame line</td>
 <td>gb</td>
 <td><Cmd>lua require(“gitsigns”).blame_line()<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>ba</td>
-<td><Cmd>b#<CR></td>
+<td>Add (stage) hunk</td>
+<td>ga</td>
+<td><Cmd>lua require(“gitsigns”).stage_hunk()<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>bD</td>
-<td><Cmd>lua MiniBufremove.delete(0, true)<CR></td>
+<td>Add buffer</td>
+<td>gA</td>
+<td><Cmd>lua require(“gitsigns”).stage_buffer()<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>bw</td>
-<td><Cmd>lua MiniBufremove.wipeout()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>bW</td>
-<td><Cmd>lua MiniBufremove.wipeout(0, true)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>bs</td>
-<td><Cmd>lua EC.new_scratch_buffer()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>bd</td>
-<td><Cmd>lua MiniBufremove.delete()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fn</td>
-<td><Cmd>TodoTelescope<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fD</td>
-<td><Cmd>Telescope diagnostics bufnr=0<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ff</td>
-<td><Cmd>lua EC.telescope_project_files()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>f:</td>
-<td><Cmd>Telescope command_history<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fB</td>
-<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fO</td>
-<td><Cmd>Telescope vim_options<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fo</td>
-<td><Cmd>Telescope oldfiles<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fR</td>
-<td><Cmd>Telescope lsp_references<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fh</td>
-<td><Cmd>Telescope help_tags<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>fs</td>
-<td><Cmd>Telescope spell_suggest<CR></td>
-</tr>
-<tr class="even">
-<td></td>
+<td>File browser</td>
 <td>ft</td>
 <td><Cmd>Telescope file_browser<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>fb</td>
-<td><Cmd>Telescope buffers<CR></td>
+<td>Symbols (treesitter)</td>
+<td>fS</td>
+<td><Cmd>Telescope treesitter<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>fc</td>
-<td><Cmd>Telescope git_commits<CR></td>
+<td>Spell suggestions</td>
+<td>fs</td>
+<td><Cmd>Telescope spell_suggest<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>References (LSP)</td>
+<td>fR</td>
+<td><Cmd>Telescope lsp_references<CR></td>
+</tr>
+<tr class="even">
+<td>Resume</td>
 <td>fr</td>
 <td><Cmd>Telescope resume<CR></td>
 </tr>
+<tr class="odd">
+<td>Options</td>
+<td>fO</td>
+<td><Cmd>Telescope vim_options<CR></td>
+</tr>
 <tr class="even">
-<td></td>
+<td>Old files</td>
+<td>fo</td>
+<td><Cmd>Telescope oldfiles<CR></td>
+</tr>
+<tr class="odd">
+<td>Notes</td>
+<td>fn</td>
+<td><Cmd>TodoTelescope<CR></td>
+</tr>
+<tr class="even">
+<td>Jumplist</td>
 <td>fj</td>
 <td><Cmd>Telescope jumplist<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Highlight groups</td>
 <td>fH</td>
 <td><Cmd>Telescope highlights<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>fS</td>
-<td><Cmd>Telescope treesitter<CR></td>
+<td>Help tags</td>
+<td>fh</td>
+<td><Cmd>Telescope help_tags<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>f/</td>
-<td><Cmd>Telescope search_history<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>fC</td>
-<td><Cmd>Telescope git_bcommits<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
+<td>Grep search</td>
 <td>fg</td>
 <td><Cmd>Telescope live_grep<CR></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Files</td>
+<td>ff</td>
+<td><Cmd>lua EC.telescope_project_files()<CR></td>
+</tr>
+<tr class="odd">
+<td>Diagnostic buffer</td>
+<td>fD</td>
+<td><Cmd>Telescope diagnostics bufnr=0<CR></td>
+</tr>
+<tr class="even">
+<td>Diagnostic workspace</td>
 <td>fd</td>
 <td><Cmd>Telescope diagnostics<CR></td>
+</tr>
+<tr class="odd">
+<td>Buffer commits</td>
+<td>fC</td>
+<td><Cmd>Telescope git_bcommits<CR></td>
+</tr>
+<tr class="even">
+<td>Commits</td>
+<td>fc</td>
+<td><Cmd>Telescope git_commits<CR></td>
+</tr>
+<tr class="odd">
+<td>Open buffers</td>
+<td>fB</td>
+<td><Cmd>Telescope current_buffer_fuzzy_find<CR></td>
+</tr>
+<tr class="even">
+<td>Open buffers</td>
+<td>fb</td>
+<td><Cmd>Telescope buffers<CR></td>
+</tr>
+<tr class="odd">
+<td>Commands</td>
+<td>f:</td>
+<td><Cmd>Telescope command_history<CR></td>
+</tr>
+<tr class="even">
+<td>“/” history</td>
+<td>f/</td>
+<td><Cmd>Telescope search_history<CR></td>
+</tr>
+<tr class="odd">
+<td>Quickfix</td>
+<td>eq</td>
+<td><Cmd>lua EC.toggle_quickfix()<CR></td>
+</tr>
+<tr class="even">
+<td>Mini.nvim directory</td>
+<td>em</td>
+<td><Cmd>lua
+MiniFiles.open(‘~/.config/nvim-Mini/pack/plugins/opt/mini’)<CR></td>
+</tr>
+<tr class="odd">
+<td>File directory</td>
+<td>ef</td>
+<td><Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR></td>
+</tr>
+<tr class="even">
+<td>Directory</td>
+<td>ed</td>
+<td><Cmd>lua MiniFiles.open()<CR></td>
+</tr>
+<tr class="odd">
+<td>Wipeout!</td>
+<td>bW</td>
+<td><Cmd>lua MiniBufremove.wipeout(0, true)<CR></td>
+</tr>
+<tr class="even">
+<td>Wipeout</td>
+<td>bw</td>
+<td><Cmd>lua MiniBufremove.wipeout()<CR></td>
+</tr>
+<tr class="odd">
+<td>Scratch</td>
+<td>bs</td>
+<td><Cmd>lua EC.new_scratch_buffer()<CR></td>
+</tr>
+<tr class="even">
+<td>Delete!</td>
+<td>bD</td>
+<td><Cmd>lua MiniBufremove.delete(0, true)<CR></td>
+</tr>
+<tr class="odd">
+<td>Delete</td>
+<td>bd</td>
+<td><Cmd>lua MiniBufremove.delete()<CR></td>
+</tr>
+<tr class="even">
+<td>Alternate</td>
+<td>ba</td>
+<td><Cmd>b#<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -584,16 +538,6 @@ vim.b.minitrailspace_disable<CR></td>
 <td>Nvim builtin</td>
 <td>&amp;</td>
 <td>:&amp;&amp;<CR></td>
-</tr>
-<tr class="odd">
-<td>Execute macro without ‘mini.clue’ triggers</td>
-<td>@</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Execute macro without ‘mini.clue’ triggers</td>
-<td>Q</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
@@ -611,7 +555,7 @@ vim.b.minitrailspace_disable<CR></td>
 <td><Cmd>exe “put!” . v:register<CR></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Toggle hlsearch</td>
 <td></td>
 <td></td>
 </tr>
@@ -667,12 +611,6 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
 <td>Nvim builtin</td>
 <td><C-L></td>
 <td><Cmd>nohlsearch</td>
@@ -695,20 +633,20 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td>lf</td>
-<td>:lua vim.lsp.buf.range_formatting()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
+<td>Send to terminal</td>
 <td>s</td>
 <td>mode() ==# “v” ? “:TREPLSendSelection<CR>`&gt;l” :
 “:TREPLSendSelection<CR>’&gt;j”</td>
 </tr>
-<tr class="odd">
-<td></td>
+<tr class="even">
+<td>Reprex selection</td>
 <td>rx</td>
 <td>“+y :T reprex::reprex()<CR></td>
+</tr>
+<tr class="odd">
+<td>Format selection</td>
+<td>lf</td>
+<td><Cmd>lua vim.lsp.buf.format()<CR><Esc></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>

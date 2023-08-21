@@ -3,12 +3,10 @@
 [Introductory video](https://youtu.be/aD9j6d9pgtc)
 
 - Install and initialize: **`lazyman -w Traap`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Traap`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -31,6 +29,7 @@
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [dkarter/bullets.vim](https://github.com/dkarter/bullets.vim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [p00f/clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim.git)
 - [ekickx/clipboard-image.nvim](https://github.com/ekickx/clipboard-image.nvim.git)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
@@ -44,7 +43,6 @@
 - [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
-- [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)
 - [tpope/gem-browse](https://github.com/tpope/gem-browse.git)
@@ -52,7 +50,6 @@
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- [ggandor/leap.nvim](https://github.com/ggandor/leap.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -62,9 +59,6 @@
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
-- [olimorris/neotest-rspec](https://github.com/olimorris/neotest-rspec.git)
-- [rouge8/neotest-rust](https://github.com/rouge8/neotest-rust.git)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
@@ -73,6 +67,8 @@
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
 - [suketa/nvim-dap-ruby](https://github.com/suketa/nvim-dap-ruby.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
@@ -82,6 +78,8 @@
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre.git)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- [nguyenvukhang/nvim-toggler](https://github.com/nguyenvukhang/nvim-toggler.git)
+- [xiyaowong/nvim-transparent](https://github.com/xiyaowong/nvim-transparent)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
@@ -101,6 +99,7 @@
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
+- [linux-cultist/venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim.git)
 - [Traap/vim-bundle-abbreviate](https://github.com/Traap/vim-bundle-abbreviate.git)
 - [Traap/vim-bundle-fzf](https://github.com/Traap/vim-bundle-fzf.git)
 - [Traap/vim-bundle-plantuml](https://github.com/Traap/vim-bundle-plantuml.git)
@@ -112,7 +111,6 @@
 - [tpope/vim-endwise](https://github.com/tpope/vim-endwise.git)
 - [tpope/vim-eunuch](https://github.com/tpope/vim-eunuch.git)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [vim-utils/vim-most-minimal-folds](https://github.com/vim-utils/vim-most-minimal-folds.git)
 - [tpope/vim-projectionist](https://github.com/tpope/vim-projectionist.git)
 - [tpope/vim-rails](https://github.com/tpope/vim-rails.git)
@@ -134,58 +132,37 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  tn |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Don't Save Current Session |  qd |  |
+| Dismiss all Notifications |  un |  |
+| Debug Class |  dPc |  |
+| Debug Method |  dPt |  |
 | Breakpoint Condition |  dB |  |
 | Step Over |  dO |  |
 | Up |  dk |  |
 | Down |  dj |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
 | Oil buffer |  no |  |
-| Options |  so |  |
-| Jump to Mark |  sm |  |
-| Man Pages |  sM |  |
-| Key Maps |  sk |  |
-| Search Highlight Groups |  sH |  |
-| Help Pages |  sh |  |
-| Grep (cwd) |  sG |  |
-| Grep (root dir) |  sg |  |
-| Workspace diagnostics |  sD |  |
-| Document diagnostics |  sd |  |
-| Commands |  sC |  |
-| Command History |  sc |  |
-| Buffer |  sb |  |
-| Auto Commands |  sa |  |
-| Recent |  fr |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Find Files (root dir) |    |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Replace in files (Spectre) |  sr |  |
 |  |  Tm |  |
 |  |  Tl |  |
 |  |  Tb |  |
 |  |  Tr |  |
-| Dismiss all Notifications |  un |  |
-|  |  cm |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Dap UI |  du |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 | Eval |  de |  |
+| Dap UI |  du |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Replace in files (Spectre) |  sr |  |
+|  |  cm |  |
+| Select VirtualEnv |  cv |  |
 |  |  oz | <Cmd>lua require("zen-mode").toggle()<CR> |
 |  |  lx | <Plug>(vimtex-reload) |
 |  |  lv | <Plug>(vimtex-view) |
@@ -208,12 +185,12 @@
 |  |  lI | <Plug>(vimtex-info-full) |
 |  |  lG | <Plug>(vimtex-status-all) |
 |  |  lC | <Plug>(vimtex-clean-full) |
-| status |  gs |  |
+|  |  gs | <Cmd>G<CR> |
 |  |  gp | <Cmd>G push<CR> |
 |  |  gh | <Cmd>vert bo help fugitive<CR> |
 |  |  gl | <Cmd>G log<CR> |
 |  |  gd | <Cmd>G diff<CR> |
-| commits |  gc |  |
+|  |  gc | <Cmd>G commmit<CR> |
 |  |  gP | <Cmd>G pull<CR> |
 |  |  2 | gaip=  |
 |  |  1 | gaip=, |
@@ -248,14 +225,14 @@
 |  |  fi | <Cmd>lua require('telescope').extensions.media_files.media_files()<CR> |
 |  |  fh | <Cmd>Telescope help_tags<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
-| Find Files (root dir) |  ff |  |
+|  |  ff | <Cmd>Telescope find_files<CR> |
 |  |  fd | <Cmd>Telescope diagnostics<CR> |
-| Buffers |  fb |  |
+|  |  fb | <Cmd>Telescope buffers<CR> |
 |  |  fS | <Cmd>Telescope colorscheme<CR> |
-| Recent (cwd) |  fR |  |
+|  |  fR | <Cmd>Telescope registers<CR> |
 |  |  fO | <Cmd>Telescope oldfiles<CR> |
 |  |  fM | <Cmd>Telescope man_pages<CR> |
-| Find Files (cwd) |  fF |  |
+|  |  fF | <Cmd>Telescope media_files<CR> |
 |  |  fC | <Cmd>Telescope commands<CR> |
 |  |  nr | <Cmd>Neotree show<CR> |
 |  |  nf | <Cmd>Neotree focus<CR> |
@@ -284,13 +261,11 @@
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
-| Previous trouble/quickfix item | [q |  |
 | Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
-| Next trouble/quickfix item | ]q |  |
 | Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
 |  | ga | <Plug>(EasyAlign) |
 | Flash | s |  |
@@ -302,7 +277,7 @@
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | <M-6> |  |
+| Increment selection | <C-Space> |  |
 |  | <M-5> |  |
 |  | <M-4> |  |
 |  | <M-3> |  |
@@ -310,7 +285,7 @@
 |  | <M-1> |  |
 |  | <M-8> |  |
 |  | <M-7> |  |
-| Increment selection | <C-Space> |  |
+|  | <M-6> |  |
 |  | <C-N> | <Cmd>Neotree toggle<CR> |
 |  | <F12> | <Cmd>lua require("dap").step_out()<CR> |
 |  | <F11> | <Cmd>lua require("dap").step_into()<CR> |
@@ -322,6 +297,7 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  tn |  |
 | Eval |  de |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |

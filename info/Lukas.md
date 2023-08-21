@@ -3,12 +3,10 @@
 Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim plugins. Requires an externally installed `lua-language-server` and `efm-langserver`
 
 - Install and initialize: **`lazyman -w Lukas`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-Lukas`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -539,8 +537,8 @@ Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim 
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | as | <Plug>(textobj-sandwich-query-a) |
 |  | ab | <Plug>(textobj-sandwich-auto-a) |
-|  | aI | :<C-U>cal <SNR>94_HandleTextObjectMapping(0, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
-|  | ai | :<C-U>cal <SNR>94_HandleTextObjectMapping(0, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
+|  | aI | :<C-U>cal <SNR>95_HandleTextObjectMapping(0, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
+|  | ai | :<C-U>cal <SNR>95_HandleTextObjectMapping(0, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
 |  | a | targets#e('o', 'a', 'a') |
 |  | a% | <Plug>(MatchitVisualTextObject) |
 |  | au | :lua require"treesitter-unit".select(true)<CR> |
@@ -572,8 +570,8 @@ Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim 
 |  | ge | <Plug>CamelCaseMotion_ge |
 |  | is | <Plug>(textobj-sandwich-query-i) |
 |  | ib | <Plug>(textobj-sandwich-auto-i) |
-|  | iI | :<C-U>cal <SNR>94_HandleTextObjectMapping(1, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
-|  | ii | :<C-U>cal <SNR>94_HandleTextObjectMapping(1, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
+|  | iI | :<C-U>cal <SNR>95_HandleTextObjectMapping(1, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
+|  | ii | :<C-U>cal <SNR>95_HandleTextObjectMapping(1, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv |
 |  | i | targets#e('o', 'i', 'i') |
 |  | iu | :lua require"treesitter-unit".select()<CR> |
 |  | j | v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj' |
@@ -703,8 +701,8 @@ Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim 
 |  | ]% | <Plug>(MatchitOperationMultiForward) |
 |  | as | <Plug>(textobj-sandwich-query-a) |
 |  | ab | <Plug>(textobj-sandwich-auto-a) |
-|  | aI | :<C-U>cal <SNR>94_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])<CR> |
-|  | ai | :<C-U>cal <SNR>94_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])<CR> |
+|  | aI | :<C-U>cal <SNR>95_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])<CR> |
+|  | ai | :<C-U>cal <SNR>95_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])<CR> |
 |  | a | targets#e('o', 'a', 'a') |
 |  | au | :<C-U>lua require"treesitter-unit".select(true)<CR> |
 |  | b | <Plug>CamelCaseMotion_b |
@@ -716,8 +714,8 @@ Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim 
 |  | ge | <Plug>CamelCaseMotion_ge |
 |  | is | <Plug>(textobj-sandwich-query-i) |
 |  | ib | <Plug>(textobj-sandwich-auto-i) |
-|  | iI | :<C-U>cal <SNR>94_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])<CR> |
-|  | ii | :<C-U>cal <SNR>94_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])<CR> |
+|  | iI | :<C-U>cal <SNR>95_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])<CR> |
+|  | ii | :<C-U>cal <SNR>95_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])<CR> |
 |  | i | targets#e('o', 'i', 'i') |
 |  | iu | :<C-U>lua require"treesitter-unit".select()<CR> |
 |  | n | <Plug>(is-n) |

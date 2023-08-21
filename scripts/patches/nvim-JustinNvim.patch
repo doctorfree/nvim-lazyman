@@ -25,14 +25,3 @@
      },
    },
    {
---- lua/config/lazy.lua.orig	2023-07-28 14:38:29.794872916 -0700
-+++ lua/config/lazy.lua	2023-07-28 14:38:45.307063518 -0700
-@@ -15,7 +15,7 @@
-     -- { import = "lazyvim.plugins.extras.lang.json" },
-     { import = "lazyvim.plugins.extras.util.project" },
-     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
--    { import = "lazyvim.plugins.extras.editor.flash" },
-+    -- { import = "lazyvim.plugins.extras.editor.flash" },
-     -- import/override with your plugins
-     { import = "plugins" },
-   },

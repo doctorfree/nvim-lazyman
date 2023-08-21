@@ -35,16 +35,13 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -w OnMyWay</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-OnMyWay</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/RchrdAlv/NvimOnMy_way">https://github.com/RchrdAlv/NvimOnMy_way</a></p>
@@ -145,11 +142,15 @@ href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-t
 <li><a
 href="https://github.com/windwp/nvim-ts-autotag">windwp/nvim-ts-autotag</a></li>
 <li><a
+href="https://github.com/kevinhwang91/nvim-ufo">kevinhwang91/nvim-ufo</a></li>
+<li><a
 href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devicons</a></li>
 <li><a
 href="https://github.com/wbthomason/packer.nvim">wbthomason/packer.nvim</a></li>
 <li><a
 href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/kevinhwang91/promise-async">kevinhwang91/promise-async</a></li>
 <li><a
 href="https://github.com/rose-pine/neovim.git">rose-pine/neovim</a></li>
 <li><a
@@ -407,44 +408,54 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+<td><Plug>fugitive:</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
 <td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
-<td></td>
+<td><Plug>fugitive:y<C-G></td>
+<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
+<td><Plug>YSurround</td>
+<td><SNR>22_opfunc2(‘setup’)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-delete-check</td>
+<td><Plug>Ysurround</td>
+<td><SNR>22_opfunc(‘setup’)</td>
+</tr>
+<tr class="odd">
 <td></td>
+<td><Plug>YSsurround</td>
+<td><SNR>22_opfunc2(‘setup’).’_’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Yssurround</td>
+<td>‘^’.v:count1.<SNR>22_opfunc(‘setup’).’g_’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>CSurround</td>
+<td>:<C-U>call <SNR>22_changesurround(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>Csurround</td>
+<td>:<C-U>call <SNR>22_changesurround()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>Dsurround</td>
+<td>:<C-U>call <SNR>22_dosurround(<SNR>22_inputtarget())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SurroundRepeat</td>
+<td>.</td>
 </tr>
 <tr class="odd">
 <td>Git Conflict: Previous Conflict</td>
@@ -484,53 +495,43 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>fugitive:</td>
+<td><Plug>luasnip-expand-repeat</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>fugitive:y<C-G></td>
-<td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
 </tr>
 <tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
 <td></td>
-<td><Plug>YSurround</td>
-<td><SNR>8_opfunc2(‘setup’)</td>
 </tr>
 <tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
 <td></td>
-<td><Plug>Ysurround</td>
-<td><SNR>8_opfunc(‘setup’)</td>
 </tr>
 <tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
 <td></td>
-<td><Plug>YSsurround</td>
-<td><SNR>8_opfunc2(‘setup’).’_’</td>
 </tr>
 <tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
 <td></td>
-<td><Plug>Yssurround</td>
-<td>‘^’.v:count1.<SNR>8_opfunc(‘setup’).’g_’</td>
 </tr>
 <tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
 <td></td>
-<td><Plug>CSurround</td>
-<td>:<C-U>call <SNR>8_changesurround(1)<CR></td>
 </tr>
 <tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
 <td></td>
-<td><Plug>Csurround</td>
-<td>:<C-U>call <SNR>8_changesurround()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>Dsurround</td>
-<td>:<C-U>call <SNR>8_dosurround(<SNR>8_inputtarget())<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SurroundRepeat</td>
-<td>.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -644,31 +645,31 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="even">
 <td></td>
 <td><Plug>VgSurround</td>
-<td>:<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+<td>:<C-U>call <SNR>17_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>VSurround</td>
-<td>:<C-U>call <SNR>29_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+<td>:<C-U>call <SNR>17_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)<CR></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>luasnip-expand-repeat</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
 </tbody>
 </table>

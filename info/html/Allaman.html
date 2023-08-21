@@ -36,16 +36,13 @@ Golang, Rust, YAML, and more</p>
 <li>Install and initialize:
 <strong><code>lazyman -L Allaman</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
+href="https://lazyman.dev/configurations/#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Allaman</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/Allaman/nvim">https://github.com/Allaman/nvim</a></p>
@@ -90,7 +87,6 @@ href="https://github.com/folke/flash.nvim.git">folke/flash.nvim</a></li>
 href="https://github.com/willothy/flatten.nvim.git">willothy/flatten.nvim</a></li>
 <li><a
 href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
-<li><a href="https://github.com/junegunn/fzf">junegunn/fzf</a></li>
 <li><a
 href="https://github.com/akinsho/git-conflict.nvim.git">akinsho/git-conflict.nvim</a></li>
 <li><a
@@ -167,6 +163,8 @@ href="https://github.com/rafcamlet/nvim-luapad.git">rafcamlet/nvim-luapad</a></l
 <li><a
 href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
 <li><a
+href="https://github.com/nvim-pack/nvim-spectre.git">nvim-pack/nvim-spectre</a></li>
+<li><a
 href="https://github.com/akinsho/nvim-toggleterm.lua">akinsho/nvim-toggleterm.lua</a></li>
 <li><a
 href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
@@ -199,8 +197,6 @@ href="https://github.com/simrat39/symbols-outline.nvim">simrat39/symbols-outline
 <li><a
 href="https://github.com/nvim-telescope/telescope-file-browser.nvim">nvim-telescope/telescope-file-browser.nvim</a></li>
 <li><a
-href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">nvim-telescope/telescope-fzf-native.nvim</a></li>
-<li><a
 href="https://github.com/crispgm/telescope-heading.nvim">crispgm/telescope-heading.nvim</a></li>
 <li><a
 href="https://github.com/ptethng/telescope-makefile">ptethng/telescope-makefile</a></li>
@@ -212,8 +208,6 @@ href="https://github.com/nvim-telescope/telescope-ui-select.nvim">nvim-telescope
 href="https://github.com/jvgrootveld/telescope-zoxide">jvgrootveld/telescope-zoxide</a></li>
 <li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
-<li><a
-href="https://github.com/folke/todo-comments.nvim">folke/todo-comments.nvim</a></li>
 <li><a
 href="https://github.com/aaronhallaert/ts-advanced-git-search.nvim.git">aaronhallaert/ts-advanced-git-search.nvim</a></li>
 <li><a
@@ -253,56 +247,116 @@ href="https://github.com/anuvyklack/windows.nvim.git">anuvyklack/windows.nvim</a
 <td><Cmd>noh<CR><Esc></td>
 </tr>
 <tr class="odd">
+<td>List TODOs</td>
+<td>qt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Quickfix</td>
+<td>qq</td>
+<td><Cmd>lua require(‘core.utils.functions’).toggle_qf()<CR></td>
+</tr>
+<tr class="odd">
+<td>Previous entry</td>
+<td>qk</td>
+<td><Cmd>cprevious<CR></td>
+</tr>
+<tr class="even">
+<td>Next entry</td>
+<td>qj</td>
+<td><Cmd>cnext<CR></td>
+</tr>
+<tr class="odd">
+<td>Reload snippets</td>
+<td>ms</td>
+<td><Cmd>source ~/.config/nvim-Allaman/snippets/*<CR></td>
+</tr>
+<tr class="even">
 <td>Toggle Scrollbind</td>
 <td>tS</td>
 <td><Cmd>windo set scb!<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Toggle Virtualtext</td>
 <td>tt</td>
 <td><Cmd>lua
 require(‘core.plugins.lsp.utils’).toggle_virtual_text()<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Toggle colorcolumn</td>
 <td>to</td>
 <td><Cmd>lua
 require(‘core.utils.functions’).toggle_colorcolumn()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Toggle cursorline</td>
 <td>tc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Toggle wrap</td>
 <td>tw</td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Toggle SymbolsOutline</td>
-<td>ts</td>
-<td><Cmd>SymbolsOutline<CR></td>
-</tr>
 <tr class="odd">
+<td>Toggle spell</td>
+<td>ts</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Toggle virtualedit</td>
 <td>tv</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Toggle signcolumn</td>
 <td>tl</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Toggle hidden chars</td>
 <td>th</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Buffer search and replace</td>
 <td>sr</td>
 <td>:%s/</td>
+</tr>
+<tr class="even">
+<td>Save file</td>
+<td>fs</td>
+<td><Cmd>w<CR></td>
+</tr>
+<tr class="odd">
+<td>New file</td>
+<td>fn</td>
+<td><Cmd>enew<CR></td>
+</tr>
+<tr class="even">
+<td>Previous Buffer</td>
+<td><Tab></td>
+<td><Cmd>e#<CR></td>
+</tr>
+<tr class="odd">
+<td>Close buffer</td>
+<td>bd</td>
+<td><Cmd>Bdelete<CR></td>
+</tr>
+<tr class="even">
+<td>Close all but the current buffer</td>
+<td>bD</td>
+<td><Cmd>%bd</td>
+</tr>
+<tr class="odd">
+<td>Advanced Git Search</td>
+<td>ga</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle SymbolsOutline</td>
+<td>tO</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>Toggle Filetree</td>
@@ -310,275 +364,285 @@ require(‘core.utils.functions’).toggle_colorcolumn()<CR></td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>w</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>d</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gM</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>z</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Status</td>
-<td>gg</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Branches</td>
-<td>gh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Fuzzy search</td>
-<td>sf</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Command history</td>
-<td>s;</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search History</td>
-<td>s:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Emoji</td>
-<td>sS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Text under cursor</td>
-<td>ss</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Registers</td>
-<td>sR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Projects</td>
-<td>sp</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Vim Options</td>
 <td>sO</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Keymaps</td>
 <td>sk</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Headings</td>
 <td>sh</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Help</td>
 <td>s?</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Strings</td>
 <td>st</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Commands</td>
 <td>sc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bufferlist</td>
 <td>bb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Telescope</td>
 <td>mt</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Run make</td>
 <td>mm</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Recent files</td>
 <td>fr</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Open file (ignore git)</td>
 <td>fF</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open file</td>
 <td>ff</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Zoxide</td>
 <td>fz</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Filebrowser</td>
 <td>fb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Commits</td>
 <td>gm</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Status</td>
+<td>gg</td>
+<td></td>
+</tr>
 <tr class="even">
-<td>Advanced Git Search</td>
-<td>ga</td>
+<td>Branches</td>
+<td>gh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Word search</td>
+<td>sf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Command history</td>
+<td>s;</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search History</td>
+<td>s:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Emoji</td>
+<td>sS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Word under cursor</td>
+<td>ss</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Registers</td>
+<td>sR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Projects</td>
+<td>sp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle search and replace</td>
+<td>Rr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search on current file</td>
+<td>Rf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search current word</td>
+<td>Rw</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td>ml</td>
+<td><Cmd>Lazy<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>#</td>
 <td>:lua require’starlite’.hash()<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>%</td>
 <td><Plug>(MatchitNormalForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>&amp;</td>
 <td>:&amp;&amp;<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>*</td>
 <td>:lua require’starlite’.star()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open Mini Files</td>
 <td>-</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Flash Treesitter</td>
 <td>S</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>Y</td>
 <td>y$</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseX</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>g#</td>
 <td>:lua require’starlite’.g_hash()<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g*</td>
 <td>:lua require’starlite’.g_star()<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>j</td>
 <td>v:count == 0 ? ‘gj’ : ‘j’</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>k</td>
 <td>v:count == 0 ? ‘gk’ : ‘k’</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Flash</td>
-<td>s</td>
+<td>ss</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>y<C-G></td>
 <td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Save file</td>
 <td><C-S></td>
 <td><Cmd>w<CR><Esc></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Prev buffer</td>
 <td><S-Tab></td>
 <td><Cmd>bprevious<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>NetrwBrowseX</td>
 <td>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 <td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalBackward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalForward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><Cmd>lua require(‘Navigator’).down()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><Cmd>lua require(‘Navigator’).up()<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-H></td>
+<td><Cmd>lua require(‘Navigator’).left()<CR></td>
 </tr>
 <tr class="even">
 <td>Git Conflict: Previous Conflict</td>
@@ -612,18 +676,9 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td><Cmd>lua require(‘Navigator’).down()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-K></td>
-<td><Cmd>lua require(‘Navigator’).up()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-H></td>
-<td><Cmd>lua require(‘Navigator’).left()<CR></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -641,17 +696,11 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <td><Cmd>execute v:count . “ToggleTerm”<CR></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="odd">
 <td>Search in buffer</td>
 <td><C-F></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><C-L></td>
 <td><Cmd>lua require(‘Navigator’).right()<CR></td>
@@ -679,102 +728,107 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>:%s/</td>
 </tr>
 <tr class="even">
+<td>Search current word</td>
+<td>Rw</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Nvim builtin</td>
 <td>#</td>
 <td>y?“<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>%</td>
 <td><Plug>(MatchitVisualForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Nvim builtin</td>
 <td>*</td>
 <td>y/“<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><lt></td>
 <td><lt>gv</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>&gt;</td>
 <td>&gt;gv</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>P</td>
 <td>“_dP</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Flash Treesitter</td>
 <td>S</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitVisualMultiBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>a%</td>
 <td><Plug>(MatchitVisualTextObject)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseXVis</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>p</td>
 <td>“_dp</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Flash</td>
-<td>s</td>
+<td>ss</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Save file</td>
 <td><C-S></td>
 <td><Cmd>w<CR><Esc></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>NetrwBrowseXVis</td>
 <td>:<C-U>call netrw#BrowseXVis()<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitVisualTextObject)</td>
 <td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”,
 “n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitVisualBackward)</td>
 <td>:<C-U>call
@@ -829,7 +883,7 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 </tr>
 <tr class="odd">
 <td>Flash</td>
-<td>s</td>
+<td>ss</td>
 <td></td>
 </tr>
 <tr class="even">

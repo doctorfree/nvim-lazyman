@@ -3,12 +3,10 @@
 Neovim Go development environment that does not touch standard Neovim configuration folders
 
 - Install and initialize: **`lazyman -L Go2one`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-Go2one`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -63,10 +61,7 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  q | :NvimTreeToggle<CR> |
-|  |  gp | :Git push<CR> |
-|  |  gc | :Git commit -s<CR> |
-|  |  gg | :Git<CR> |
+|  |  y |  |
 |  |  gs |  |
 |  |  gb |  |
 |  |  gl |  |
@@ -81,14 +76,6 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  |  fn | :DashboardNewFile<CR> |
 |  |  fl | :SessionLoad<CR> |
 |  |  fr | :DashboardFindHistory<CR> |
-|  |  y |  |
-|  |  db | :lua require'dap'.toggle_breakpoint()<CR> |
-|  |  dd | :lua require'dap'.continue()<CR> |
-|  |  do | :lua require'dap'.step_over()<CR> |
-|  |  di | :lua require'dap'.step_into()<CR> |
-|  |  dc | :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR> |
-|  |  du | :lua require'dapui'.toggle()<CR> |
-|  |  i | :lua require'dapui'.eval()<CR> |
 |  |  9 | <Cmd>BufferLineGoToBuffer 9<CR> |
 |  |  8 | <Cmd>BufferLineGoToBuffer 8<CR> |
 |  |  7 | <Cmd>BufferLineGoToBuffer 7<CR> |
@@ -98,6 +85,17 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  |  3 | <Cmd>BufferLineGoToBuffer 3<CR> |
 |  |  2 | <Cmd>BufferLineGoToBuffer 2<CR> |
 |  |  1 | <Cmd>BufferLineGoToBuffer 1<CR> |
+|  |  q | :NvimTreeToggle<CR> |
+|  |  db | :lua require'dap'.toggle_breakpoint()<CR> |
+|  |  dd | :lua require'dap'.continue()<CR> |
+|  |  do | :lua require'dap'.step_over()<CR> |
+|  |  di | :lua require'dap'.step_into()<CR> |
+|  |  dc | :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR> |
+|  |  du | :lua require'dapui'.toggle()<CR> |
+|  |  i | :lua require'dapui'.eval()<CR> |
+|  |  gp | :Git push<CR> |
+|  |  gc | :Git commit -s<CR> |
+|  |  gg | :Git<CR> |
 |  |  t | :lua require'go2one.gotest'.test_nearest({layout_strategy = 'vertical', layout_config = {preview_cutoff = 1}})<CR> |
 |  |  s | :lua require'utils'.reload('go2one')<CR> |
 |  |  a | ggVG$ |
@@ -122,19 +120,19 @@ Neovim Go development environment that does not touch standard Neovim configurat
 |  | cS | <Plug>CSurround |
 |  | cs | <Plug>Csurround |
 |  | ds | <Plug>Dsurround |
-|  | dm- | <Cmd>lua require'marks'.delete_line()<CR> |
+|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
+|  | dm1 | <Cmd>lua require'marks'.delete_bookmark1()<CR> |
+|  | dm= | <Cmd>lua require'marks'.delete_bookmark()<CR> |
 |  | dm4 | <Cmd>lua require'marks'.delete_bookmark4()<CR> |
-|  | dm | <Cmd>lua require'marks'.delete()<CR> |
-|  | dm3 | <Cmd>lua require'marks'.delete_bookmark3()<CR> |
+|  | dm0 | <Cmd>lua require'marks'.delete_bookmark0()<CR> |
 |  | dm6 | <Cmd>lua require'marks'.delete_bookmark6()<CR> |
 |  | dm7 | <Cmd>lua require'marks'.delete_bookmark7()<CR> |
-|  | dm2 | <Cmd>lua require'marks'.delete_bookmark2()<CR> |
-|  | dm8 | <Cmd>lua require'marks'.delete_bookmark8()<CR> |
-|  | dm1 | <Cmd>lua require'marks'.delete_bookmark1()<CR> |
-|  | dm  | <Cmd>lua require'marks'.delete_buf()<CR> |
-|  | dm0 | <Cmd>lua require'marks'.delete_bookmark0()<CR> |
-|  | dm= | <Cmd>lua require'marks'.delete_bookmark()<CR> |
 |  | dm5 | <Cmd>lua require'marks'.delete_bookmark5()<CR> |
+|  | dm8 | <Cmd>lua require'marks'.delete_bookmark8()<CR> |
+|  | dm | <Cmd>lua require'marks'.delete()<CR> |
+|  | dm  | <Cmd>lua require'marks'.delete_buf()<CR> |
+|  | dm3 | <Cmd>lua require'marks'.delete_bookmark3()<CR> |
+|  | dm- | <Cmd>lua require'marks'.delete_line()<CR> |
 |  | dm9 | <Cmd>lua require'marks'.delete_bookmark9()<CR> |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
@@ -147,24 +145,24 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 |  | j | (v:count == 0 ? 'gj' : 'j') |
 |  | k | (v:count == 0 ? 'gk' : 'k') |
-|  | m{ | <Cmd>lua require'marks'.prev_bookmark()<CR> |
-|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
-|  | m4 | <Cmd>lua require'marks'.set_bookmark4()<CR> |
-|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
-|  | m | <Cmd>lua require'marks'.set()<CR> |
-|  | m9 | <Cmd>lua require'marks'.set_bookmark9()<CR> |
-|  | m2 | <Cmd>lua require'marks'.set_bookmark2()<CR> |
-|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
-|  | m8 | <Cmd>lua require'marks'.set_bookmark8()<CR> |
-|  | m: | <Cmd>lua require'marks'.preview()<CR> |
-|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
-|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
 |  | m] | <Cmd>lua require'marks'.next()<CR> |
+|  | m9 | <Cmd>lua require'marks'.set_bookmark9()<CR> |
+|  | m4 | <Cmd>lua require'marks'.set_bookmark4()<CR> |
+|  | m2 | <Cmd>lua require'marks'.set_bookmark2()<CR> |
+|  | m{ | <Cmd>lua require'marks'.prev_bookmark()<CR> |
+|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
+|  | m1 | <Cmd>lua require'marks'.set_bookmark1()<CR> |
+|  | m | <Cmd>lua require'marks'.set()<CR> |
 |  | m0 | <Cmd>lua require'marks'.set_bookmark0()<CR> |
 |  | m; | <Cmd>lua require'marks'.toggle()<CR> |
-|  | m} | <Cmd>lua require'marks'.next_bookmark()<CR> |
-|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
+|  | m6 | <Cmd>lua require'marks'.set_bookmark6()<CR> |
+|  | m7 | <Cmd>lua require'marks'.set_bookmark7()<CR> |
+|  | m8 | <Cmd>lua require'marks'.set_bookmark8()<CR> |
 |  | m5 | <Cmd>lua require'marks'.set_bookmark5()<CR> |
+|  | m: | <Cmd>lua require'marks'.preview()<CR> |
+|  | m[ | <Cmd>lua require'marks'.prev()<CR> |
+|  | m, | <Cmd>lua require'marks'.set_next()<CR> |
+|  | m3 | <Cmd>lua require'marks'.set_bookmark3()<CR> |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
@@ -252,14 +250,14 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <C-J> | :BufferLineMovePrev<CR> |
+|  | <C-K> | :BufferLineMoveNext<CR> |
+|  | <C-H> | :BufferLineCyclePrev<CR> |
 |  | <F11> | :lua require'dap'.step_out()<CR> |
 |  | <F10> | :lua require'dap'.step_into()<CR> |
 |  | <F9> | :lua require'dap'.step_over()<CR> |
 |  | <F8> | :lua require'dap'.continue()<CR> |
 |  | <F7> | :lua require'dap'.toggle_breakpoint()<CR> |
-|  | <C-J> | :BufferLineMovePrev<CR> |
-|  | <C-K> | :BufferLineMoveNext<CR> |
-|  | <C-H> | :BufferLineCyclePrev<CR> |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |

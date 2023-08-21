@@ -3,12 +3,10 @@
 Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
 
 - Install and initialize: **`lazyman -L Knvim`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Knvim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -24,6 +22,7 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [romgrk/barbar.nvim](https://github.com/romgrk/barbar.nvim.git)
+- [utilyre/barbecue.nvim](https://github.com/utilyre/barbecue.nvim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
@@ -56,16 +55,17 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 - [LiadOz/nvim-dap-repl-highlights](https://github.com/LiadOz/nvim-dap-repl-highlights.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [scalameta/nvim-metals](https://github.com/scalameta/nvim-metals.git)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2.git)
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [rlane/pounce.nvim](https://github.com/rlane/pounce.nvim.git)
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
+- [HiPhish/rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim.git)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 - [AckslD/swenv.nvim](https://github.com/AckslD/swenv.nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
@@ -143,10 +143,10 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | s | <Cmd>Pounce<CR> |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>32_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlignRepeat) | :call <SNR>32_easy_align_repeat()<CR> |
-|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>32_live_easy_align_op<CR>g@ |
-|  | <Plug>(EasyAlign) | :set opfunc=<SNR>32_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlignOperator) | :set opfunc=<SNR>31_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlignRepeat) | :call <SNR>31_easy_align_repeat()<CR> |
+|  | <Plug>(LiveEasyAlign) | :set opfunc=<SNR>31_live_easy_align_op<CR>g@ |
+|  | <Plug>(EasyAlign) | :set opfunc=<SNR>31_easy_align_op<CR>g@ |
 |  | <2-LeftMouse> | <Plug>(matchup-double-click) |
 |  | <Plug>(matchup-reload) | :<C-U>MatchupReload<CR> |
 |  | <Plug>(matchup-double-click) | :<C-U>call matchup#text_obj#double_click()<CR> |
@@ -156,7 +156,7 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(0, 1)<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(0, 0)<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(0, 1)<CR> |
-|  | <SNR>28_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
+|  | <SNR>25_(wise) | empty(g:v_motion_force) ? 'v' : g:v_motion_force |
 |  | <Plug>(matchup-hi-surround) | :<C-U>call matchup#matchparen#highlight_surrounding()<CR> |
 | Move to previous reference | <M-p> |  |
 | Move to next reference | <M-n> |  |
@@ -232,26 +232,26 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | s | <Cmd>Pounce<CR> |
 |  | z% | <Plug>(matchup-z%) |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+|  | <M-i> |  |
+|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>31_repeat_in_visual()<CR> |
+|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>31_live_easy_align_op(visualmode(), 1)<CR> |
+|  | <Plug>(EasyAlign) | :<C-U>call <SNR>31_easy_align_op(visualmode(), 1)<CR> |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR> |
-|  | <Plug>(matchup-Z%) | <SNR>29_(matchup-Z%) |
-|  | <SNR>29_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
-|  | <Plug>(matchup-z%) | <SNR>29_(matchup-z%) |
-|  | <SNR>29_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
-|  | <Plug>(matchup-[%) | <SNR>29_(matchup-[%) |
-|  | <Plug>(matchup-]%) | <SNR>29_(matchup-]%) |
-|  | <SNR>29_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
-|  | <SNR>29_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
-|  | <Plug>(matchup-g%) | <SNR>29_(matchup-g%) |
-|  | <SNR>29_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
-|  | <Plug>(matchup-%) | <SNR>29_(matchup-%) |
-|  | <SNR>29_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
+|  | <Plug>(matchup-Z%) | <SNR>26_(matchup-Z%) |
+|  | <SNR>26_(matchup-Z%) | :<C-U>call matchup#motion#jump_inside_prev(1)<CR> |
+|  | <Plug>(matchup-z%) | <SNR>26_(matchup-z%) |
+|  | <SNR>26_(matchup-z%) | :<C-U>call matchup#motion#jump_inside(1)<CR> |
+|  | <Plug>(matchup-[%) | <SNR>26_(matchup-[%) |
+|  | <Plug>(matchup-]%) | <SNR>26_(matchup-]%) |
+|  | <SNR>26_(matchup-[%) | :<C-U>call matchup#motion#find_unmatched(1, 0)<CR> |
+|  | <SNR>26_(matchup-]%) | :<C-U>call matchup#motion#find_unmatched(1, 1)<CR> |
+|  | <Plug>(matchup-g%) | <SNR>26_(matchup-g%) |
+|  | <SNR>26_(matchup-g%) | :<C-U>call matchup#motion#find_matching_pair(1, 0)<CR> |
+|  | <Plug>(matchup-%) | <SNR>26_(matchup-%) |
+|  | <SNR>26_(matchup-%) | :<C-U>call matchup#motion#find_matching_pair(1, 1)<CR> |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
-|  | <Plug>(EasyAlignRepeat) | :<C-U>call <SNR>19_repeat_in_visual()<CR> |
-|  | <Plug>(LiveEasyAlign) | :<C-U>call <SNR>19_live_easy_align_op(visualmode(), 1)<CR> |
-|  | <Plug>(EasyAlign) | :<C-U>call <SNR>19_easy_align_op(visualmode(), 1)<CR> |
-|  | <M-i> |  |
 
 #### operator mode keymaps
 
@@ -265,7 +265,6 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | gs | <Cmd>Pounce<CR> |
 |  | i% | <Plug>(matchup-i%) |
 |  | z% | <Plug>(matchup-z%) |
-|  | <M-i> |  |
 |  | <Plug>(matchup-a%) | :<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-i%) | :<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR> |
 |  | <Plug>(matchup-Z%) | :<C-U>call matchup#motion#op('Z%')<CR> |
@@ -274,3 +273,4 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 |  | <Plug>(matchup-]%) | :<C-U>call matchup#motion#op(']%')<CR> |
 |  | <Plug>(matchup-g%) | :<C-U>call matchup#motion#op('g%')<CR> |
 |  | <Plug>(matchup-%) | :<C-U>call matchup#motion#op('%')<CR> |
+|  | <M-i> |  |

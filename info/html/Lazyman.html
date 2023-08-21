@@ -40,16 +40,13 @@ between namespaces, set the ‘namespace’ value in
 <li>Install and initialize:
 <strong><code>Installed and initialized by default</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#lazyman-neovim-configuration-features">Default</a></li>
+href="https://lazyman.dev/features">Default</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Lazyman</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/doctorfree/nvim-lazyman">https://github.com/doctorfree/nvim-lazyman</a></p>
@@ -60,7 +57,7 @@ href="http://neovimcraft.com/plugin/doctorfree/nvim-lazyman">http://neovimcraft.
 <p><a
 href="https://dotfyle.com/doctorfree/nvim-lazyman">https://dotfyle.com/doctorfree/nvim-lazyman</a></p>
 <h3 id="website">Website</h3>
-<p><a href="https://ronrecord.com">https://ronrecord.com</a></p>
+<p><a href="https://lazyman.dev">https://lazyman.dev</a></p>
 <h3 id="youtube-channel">YouTube channel</h3>
 <p><a
 href="https://www.youtube.com/@doctorfree">https://www.youtube.com/<span
@@ -320,83 +317,243 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td>:&amp;&amp;<CR></td>
 </tr>
 <tr class="odd">
-<td>Move Float</td>
-<td>,tf</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move Bottom Right New</td>
-<td>,tH</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move Below Right New</td>
-<td>,th</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move Bottom Right</td>
-<td>,tL</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move Below Right</td>
-<td>,tl</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Prev</td>
-<td>,t[</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Next</td>
-<td>,t]</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Kill</td>
-<td>,tk</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>New Terminal Run</td>
-<td>,tR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Run</td>
-<td>,tr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>New Terminal Toggle</td>
-<td>,tO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Toggle</td>
-<td>,to</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Mason Menu</td>
 <td>,M</td>
 <td><Cmd>Mason<CR></td>
 </tr>
 <tr class="even">
+<td>Move Float</td>
+<td>,tf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move Bottom Right New</td>
+<td>,tH</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move Below Right New</td>
+<td>,th</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move Bottom Right</td>
+<td>,tL</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move Below Right</td>
+<td>,tl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Prev</td>
+<td>,t[</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Next</td>
+<td>,t]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Kill</td>
+<td>,tk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>New Terminal Run</td>
+<td>,tR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Run</td>
+<td>,tr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>New Terminal Toggle</td>
+<td>,tO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Toggle</td>
+<td>,to</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Transparency</td>
+<td>,ut</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Select Moonokai pro filter</td>
 <td>,mc</td>
 <td><Cmd>MonokaiProSelect<CR></td>
 </tr>
+<tr class="even">
+<td>Man Pages</td>
+<td>,sM</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>Toggle Transparency</td>
-<td>,ut</td>
+<td>Search Highlight Groups</td>
+<td>,sH</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Grep (cwd)</td>
+<td>,sG</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Grep (root dir)</td>
+<td>,sg</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Commands</td>
+<td>,sC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Buffer</td>
+<td>,sb</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Auto Commands</td>
+<td>,sa</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Command History</td>
+<td>,:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find in Files (Grep)</td>
+<td>,/</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Switch Buffer</td>
+<td>,,</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bufferlist</td>
+<td>,B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Telescope</td>
+<td>,mt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run make</td>
+<td>,mm</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Recent files</td>
+<td>,fr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open file</td>
+<td>,ff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Zoxide</td>
+<td>,fz</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Filebrowser</td>
+<td>,fb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Commits</td>
+<td>,gm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>,gs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Branches</td>
+<td>,gh</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fuzzy search</td>
+<td>,sf</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Command history</td>
+<td>,s;</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Search History</td>
 <td>,s:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Goto Symbol (Workspace)</td>
+<td>,sS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Goto Symbol</td>
+<td>,ss</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resume</td>
+<td>,sR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Vim Options</td>
+<td>,sO</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Key Maps</td>
+<td>,sk</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Help Pages</td>
+<td>,sh</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Help</td>
+<td>,s?</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Command History</td>
+<td>,sc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Diagnostics</td>
+<td>,sd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Files (root dir)</td>
+<td>,</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -425,298 +582,58 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Man Pages</td>
-<td>,sM</td>
+<td></td>
+<td>,A</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Search Highlight Groups</td>
-<td>,sH</td>
+<td>Restore Session</td>
+<td>,ps</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Grep (cwd)</td>
-<td>,sG</td>
+<td>Don’t Save Current Session</td>
+<td>,pd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Grep (root dir)</td>
-<td>,sg</td>
+<td>Restore Last Session</td>
+<td>,pl</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Diagnostics</td>
-<td>,sd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Commands</td>
-<td>,sC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Buffer</td>
-<td>,sb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Auto Commands</td>
-<td>,sa</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Command History</td>
-<td>,:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find in Files (Grep)</td>
-<td>,/</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Switch Buffer</td>
-<td>,,</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Bufferlist</td>
-<td>,B</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Telescope</td>
-<td>,mt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run make</td>
-<td>,mm</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Recent files</td>
-<td>,fr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open file</td>
-<td>,ff</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Zoxide</td>
-<td>,fz</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Filebrowser</td>
-<td>,fb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Commits</td>
-<td>,gm</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Status</td>
-<td>,gs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Branches</td>
-<td>,gh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Fuzzy search</td>
-<td>,sf</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Command history</td>
-<td>,s;</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find Files (root dir)</td>
-<td>,</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Goto Symbol (Workspace)</td>
-<td>,sS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Goto Symbol</td>
-<td>,ss</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Resume</td>
-<td>,sR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Vim Options</td>
-<td>,sO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Key Maps</td>
-<td>,sk</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Help Pages</td>
-<td>,sh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Help</td>
-<td>,s?</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Command History</td>
-<td>,sc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Quickfix List (Trouble)</td>
-<td>,xQ</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Location List (Trouble)</td>
-<td>,xL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Workspace Diagnostics (Trouble)</td>
-<td>,xX</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Document Diagnostics (Trouble)</td>
-<td>,xx</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run Watch Test</td>
-<td>,tuw</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debug Last Test</td>
-<td>,tuL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Stop Tests</td>
-<td>,tuS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Test Output Panel</td>
-<td>,tuO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Show Test Output</td>
-<td>,tuo</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Test Summary</td>
-<td>,tus</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run Nearest Test</td>
-<td>,tur</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run Last Test</td>
-<td>,tul</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run All Test Files</td>
-<td>,tuT</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run Test File</td>
-<td>,tut</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>summarize text</td>
-<td>,as</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>generate git message</td>
-<td>,ag</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Noice Last Message</td>
-<td>,snl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Noice All</td>
-<td>,sna</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Noice History</td>
-<td>,snh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Send</td>
-<td>,ts</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Treesitter Join</td>
-<td>,tj</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Treesitter Join</td>
-<td>,tt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close Buffer</td>
-<td>,D</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Delete all Notifications</td>
-<td>,un</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dashboard</td>
-<td>,0</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Eval</td>
 <td>,de</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Dap UI</td>
 <td>,du</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Widgets</td>
+<td>,dw</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminate</td>
+<td>,dt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Session</td>
+<td>,ds</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle REPL</td>
+<td>,dr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pause</td>
+<td>,dp</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -735,33 +652,23 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Breakpoint Condition</td>
-<td>,dB</td>
+<td>Up</td>
+<td>,dk</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Widgets</td>
-<td>,dw</td>
+<td>Down</td>
+<td>,dj</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Terminate</td>
-<td>,dt</td>
+<td>Step Into</td>
+<td>,di</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Session</td>
-<td>,ds</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle REPL</td>
-<td>,dr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Pause</td>
-<td>,dp</td>
+<td>Go to line (no execute)</td>
+<td>,dg</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -780,23 +687,33 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Up</td>
-<td>,dk</td>
+<td>Breakpoint Condition</td>
+<td>,dB</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Down</td>
-<td>,dj</td>
+<td>Close Buffer</td>
+<td>,D</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Step Into</td>
-<td>,di</td>
+<td>Terminal Send</td>
+<td>,ts</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Go to line (no execute)</td>
-<td>,dg</td>
+<td>Treesitter Join</td>
+<td>,tj</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Treesitter Join</td>
+<td>,tt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete all Notifications</td>
+<td>,un</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -810,13 +727,23 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Todo/Fix/Fixme (Trouble)</td>
-<td>,xT</td>
+<td>Noice History</td>
+<td>,snh</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Todo (Trouble)</td>
-<td>,xt</td>
+<td>Noice Last Message</td>
+<td>,snl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Noice All</td>
+<td>,sna</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Todo/Fix/Fixme (Trouble)</td>
+<td>,xT</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -825,39 +752,59 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Todo (Trouble)</td>
+<td>,xt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Quickfix List (Trouble)</td>
+<td>,xQ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location List (Trouble)</td>
+<td>,xL</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Workspace Diagnostics (Trouble)</td>
+<td>,xX</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Document Diagnostics (Trouble)</td>
+<td>,xx</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Toggle zen mode</td>
 <td>,z</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>F</td>
 <td>F</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Leap backward to</td>
 <td>S</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>T</td>
 <td>T</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>Y</td>
 <td>y$</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
-</tr>
-<tr class="even">
-<td>Previous trouble/quickfix item</td>
-<td>[q</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Previous todo comment</td>
@@ -865,19 +812,19 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Previous trouble/quickfix item</td>
+<td>[q</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Prev Reference</td>
 <td>[[</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitNormalMultiForward)</td>
-</tr>
-<tr class="even">
-<td>Next trouble/quickfix item</td>
-<td>]q</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Next todo comment</td>
@@ -885,91 +832,96 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Next trouble/quickfix item</td>
+<td>]q</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Next Reference</td>
 <td>]]</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>f</td>
 <td>f</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Leap from windows</td>
 <td>gs</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Leap forward to</td>
 <td>s</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>t</td>
 <td>t</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>y<C-G></td>
 <td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 <td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalBackward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalForward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>fugitive:</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>fugitive:y<C-G></td>
 <td>:<C-U>call setreg(v:register, fugitive#Object(@%))<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><F9></td>
 <td>:call NextColor(0)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><F8></td>
 <td>:call NextColor(1)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><F7></td>
 <td>:call NextColor(-1)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search in buffer</td>
 <td><C-S></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Nvim builtin</td>
 <td><C-L></td>
 <td><Cmd>nohlsearch</td>

@@ -3,12 +3,10 @@
 Tailored for frontend development with React and Vue.js
 
 - Install and initialize: **`lazyman -e`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Ecovim`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -37,6 +35,7 @@ Tailored for frontend development with React and Vue.js
 - [LudoPinelli/comment-box.nvim](https://github.com/LudoPinelli/comment-box.nvim.git)
 - [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
 - [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -45,6 +44,7 @@ Tailored for frontend development with React and Vue.js
 - [ThePrimeagen/git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
+- [smoka7/hydra.nvim](https://github.com/smoka7/hydra.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim.git)
@@ -55,6 +55,7 @@ Tailored for frontend development with React and Vue.js
 - [echasnovski/mini.ai](https://github.com/echasnovski/mini.ai.git)
 - [echasnovski/mini.align](https://github.com/echasnovski/mini.align.git)
 - [echasnovski/mini.bufremove](https://github.com/echasnovski/mini.bufremove.git)
+- [smoka7/multicursors.nvim](https://github.com/smoka7/multicursors.nvim.git)
 - [Bryley/neoai.nvim](https://github.com/Bryley/neoai.nvim.git)
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
 - [haydenmeade/neotest-jest](https://github.com/haydenmeade/neotest-jest.git)
@@ -110,7 +111,6 @@ Tailored for frontend development with React and Vue.js
 - [airblade/vim-rooter](https://github.com/airblade/vim-rooter)
 - [tpope/vim-speeddating](https://github.com/tpope/vim-speeddating.git)
 - [dhruvasagar/vim-table-mode](https://github.com/dhruvasagar/vim-table-mode.git)
-- [mg979/vim-visual-multi](https://github.com/mg979/vim-visual-multi.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
@@ -122,41 +122,73 @@ Tailored for frontend development with React and Vue.js
 | ----------- | --- | --- |
 |  | <Tab> | :BufferLineCycleNext<CR> |
 |  | <CR> | :noh<CR><CR> |
-|  |  ac | <Cmd>lua require('comment-box').lbox()<CR> |
 |  |  cl | <Cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR> |
 |  |  cf | <Cmd>lua vim.lsp.buf.format({ async = true })<CR> |
 |  |  cr | <Cmd>lua vim.lsp.buf.rename()<CR> |
 |  |  ca | <Cmd>lua vim.lsp.buf.code_action()<CR> |
-|  |  pr | <Cmd>lua require('spectre').open_visual({select_word=true})<CR> |
 |  |  q | <Cmd>lua require('utils').toggle_quicklist()<CR> |
 |  |  . | :cn<CR> |
 |  |  , | :cp<CR> |
-|  |  9 | :BufferLineGoToBuffer 9<CR> |
-|  |  8 | :BufferLineGoToBuffer 8<CR> |
-|  |  7 | :BufferLineGoToBuffer 7<CR> |
-|  |  6 | :BufferLineGoToBuffer 6<CR> |
-|  |  5 | :BufferLineGoToBuffer 5<CR> |
-|  |  4 | :BufferLineGoToBuffer 4<CR> |
-|  |  3 | :BufferLineGoToBuffer 3<CR> |
-|  |  2 | :BufferLineGoToBuffer 2<CR> |
-|  |  1 | :BufferLineGoToBuffer 1<CR> |
 |  |  pw | <Cmd>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR> |
 |  |  pf | <Cmd>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<lt>cword>'), initial_mode = 'normal' })<CR> |
 |  |  /l | <Cmd>:Lazy<CR> |
-| Mason |  cm | <Cmd>Mason<CR> |
+| terminal float |  at | <Cmd>ToggleTerm direction=float<CR> |
+| comment box |  ac | <Cmd>lua require('comment-box').lbox()<CR> |
 |  |  gwc | <Cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR> |
 |  |  gww | <Cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR> |
-|  |  dt |  |
-|  |  dc |  |
-|  |  db |  |
-|  |  da |  |
-|  |  dO |  |
-|  |  do |  |
+| Mason |  cm | <Cmd>Mason<CR> |
+| choose theirs |  gct | <Cmd>GitConflictChooseTheirs<CR> |
+| move to prev conflict |  gcp | <Cmd>GitConflictPrevConflict<CR> |
+| choose ours |  gco | <Cmd>GitConflictChooseOurs<CR> |
+| move to next conflict |  gcn | <Cmd>GitConflictNextConflict<CR> |
+| choose both |  gcb | <Cmd>GitConflictChooseBoth<CR> |
+| remove session |  /sr | <Cmd>SessionManager delete_session<CR> |
+| choose session |  /sc | <Cmd>SessionManager load_session<CR> |
+| save session |  /ss | <Cmd>SessionManager save_current_session<CR> |
+| load last session |  /sl | <Cmd>SessionManager load_last_session<CR> |
+| load current dir session |  /sd | <Cmd>SessionManager load_current_dir_session<CR> |
+| reset hunk |  ghr |  |
+| reset buffer |  ghR |  |
+| preview |  ghp |  |
+| diff hunk |  ghd |  |
+| undo stage |  ghu |  |
+| toggle deleted |  ght |  |
+| stage buffer |  ghS |  |
+| stage hunk |  ghs |  |
+| multicursor |  m |  |
+| summarize text |  as |  |
+| generate git message |  ag |  |
+| diff file |  gd |  |
+| status |  gs |  |
+| lazygit |  gg |  |
+| refactor |  pr |  |
+|  |  2 |  |
+|  |  1 |  |
+| Sort by relative dir |  bsr |  |
+| Sort by extension |  bse |  |
+| Sort by directory |  bsd |  |
+| Pin/Unpin Buffer |  bP |  |
+| Pick Buffer |  bp |  |
+| Move next |  bn |  |
+| Close Right |  br |  |
+| Close Left |  bl |  |
+| Move back |  bb |  |
+|  |  9 |  |
+|  |  8 |  |
+|  |  7 |  |
+|  |  6 |  |
+|  |  5 |  |
+|  |  4 |  |
+|  |  3 |  |
 |  |  di |  |
 |  |  dh |  |
 |  |  dd |  |
-| generate git message |  ag |  |
-| summarize text |  as |  |
+|  |  dc |  |
+|  |  db |  |
+|  |  da |  |
+|  |  dt |  |
+|  |  dO |  |
+|  |  do |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 |  | <lt><lt> |  |
@@ -187,8 +219,6 @@ Tailored for frontend development with React and Vue.js
 | Operator keymap for printer.nvim | gp |  |
 |  | gn | :bn<CR> |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Move to right "around" | g] |  |
-| Move to left "around" | g[ |  |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
 | Comment insert below | gco |  |
@@ -196,14 +226,16 @@ Tailored for frontend development with React and Vue.js
 | Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
-|  | gs | <Plug>(Switch) |
+| Move to right "around" | g] |  |
+| Move to left "around" | g[ |  |
 | Align with preview | gA |  |
 | Align | ga |  |
+|  | gs | <Plug>(Switch) |
 | Toggle Split/Join | gJ |  |
-| LSP Definition | gd |  |
 | LSP Type Definitions | gy |  |
 | LSP Implementations | gm |  |
 | LSP References | gr |  |
+| LSP Definition | gd |  |
 |  | s |  |
 |  | x | "_x |
 | Add a surrounding pair around the current line, on new lines (normal mode) | ySS | <Plug>(nvim-surround-normal-cur-line) |
@@ -219,15 +251,6 @@ Tailored for frontend development with React and Vue.js
 |  | <C-Space> | <Cmd>lua vim.lsp.buf.code_action()<CR> |
 |  | <C-X> | :if !switch#Switch({'reverse': 1}) | call speeddating#increment(-v:count1) | endif<CR> |
 |  | <C-A> | :if !switch#Switch() | call speeddating#increment(v:count1) | endif<CR> |
-|  | <M-9> | :BufferLineGoToBuffer 9<CR> |
-|  | <M-8> | :BufferLineGoToBuffer 8<CR> |
-|  | <M-7> | :BufferLineGoToBuffer 7<CR> |
-|  | <M-6> | :BufferLineGoToBuffer 6<CR> |
-|  | <M-5> | :BufferLineGoToBuffer 5<CR> |
-|  | <M-4> | :BufferLineGoToBuffer 4<CR> |
-|  | <M-3> | :BufferLineGoToBuffer 3<CR> |
-|  | <M-2> | :BufferLineGoToBuffer 2<CR> |
-|  | <M-1> | :BufferLineGoToBuffer 1<CR> |
 |  | <S-Tab> | :BufferLineCyclePrev<CR> |
 |  | <C-P> | <Cmd>lua require('plugins.telescope').project_files()<CR> |
 |  | <C-S> | :w<CR> |
@@ -238,6 +261,19 @@ Tailored for frontend development with React and Vue.js
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| Toggle Terminal | <F12> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>SpeedDatingFallbackDown | <C-X> |
+|  | <Plug>SpeedDatingFallbackUp | <C-A> |
+|  | <Plug>SpeedDatingNowUTC | :<C-U>call speeddating#timestamp(1,v:count)<CR> |
+|  | <Plug>SpeedDatingNowLocal | :<C-U>call speeddating#timestamp(0,v:count)<CR> |
+|  | <Plug>SpeedDatingDown | :<C-U>call speeddating#increment(-v:count1)<CR> |
+|  | <Plug>SpeedDatingUp | :<C-U>call speeddating#increment(v:count1)<CR> |
 | Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
 | Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
 | Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
@@ -251,40 +287,31 @@ Tailored for frontend development with React and Vue.js
 | Add a surrounding pair around a motion, on new lines (normal mode) | <Plug>(nvim-surround-normal-line) |  |
 | Add a surrounding pair around the current line (normal mode) | <Plug>(nvim-surround-normal-cur) |  |
 | Add a surrounding pair around a motion (normal mode) | <Plug>(nvim-surround-normal) |  |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>SpeedDatingFallbackDown | <C-X> |
-|  | <Plug>SpeedDatingFallbackUp | <C-A> |
-|  | <Plug>SpeedDatingNowUTC | :<C-U>call speeddating#timestamp(1,v:count)<CR> |
-|  | <Plug>SpeedDatingNowLocal | :<C-U>call speeddating#timestamp(0,v:count)<CR> |
-|  | <Plug>SpeedDatingDown | :<C-U>call speeddating#increment(-v:count1)<CR> |
-|  | <Plug>SpeedDatingUp | :<C-U>call speeddating#increment(v:count1)<CR> |
 |  | <Plug>(SwitchReverse) | :set opfunc=switch#OpfuncReverse<CR>g@l |
 |  | <Plug>(Switch) | :set opfunc=switch#OpfuncForward<CR>g@l |
-| Toggle Terminal | <F12> | <Cmd>execute v:count . "ToggleTerm"<CR> |
-|  | <C-N> |  |
-|  | <S-Right> |  |
-|  | <S-Left> |  |
-|  | <S-Down> |  |
-|  | <S-Up> |  |
-|  | <C-Down> |  |
-|  | <C-Up> |  |
+| multicursor down | <C-Down> |  |
 | NvimTree | <C-E> |  |
+|  | <M-9> |  |
+|  | <M-8> |  |
+|  | <M-7> |  |
+|  | <M-6> |  |
+|  | <M-5> |  |
+|  | <M-4> |  |
+|  | <M-3> |  |
+|  | <M-2> |  |
+|  | <M-1> |  |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  ac | <Cmd>lua require('comment-box').lbox()<CR> |
 |  |  cf |  |
 |  |  ca | <Cmd>'<lt>,'>lua vim.lsp.buf.code_action()<CR> |
-|  |  pr | <Cmd>lua require('spectre').open_visual()<CR> |
+| comment box |  ac | <Cmd>lua require('comment-box').lbox()<CR> |
+| refactor |  pr |  |
+| multicursor |  m |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
@@ -306,11 +333,11 @@ Tailored for frontend development with React and Vue.js
 |  | g% | <Plug>(MatchitVisualBackward) |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
-| Move to right "around" | g] |  |
-| Move to left "around" | g[ |  |
 | Add a surrounding pair around a visual selection, on new lines | gS | <Plug>(nvim-surround-visual-line) |
 | Align with preview | gA |  |
 | Align | ga |  |
+| Move to right "around" | g] |  |
+| Move to left "around" | g[ |  |
 | Inside last textobject | il |  |
 | Inside next textobject | in |  |
 | Inside textobject | i |  |
@@ -324,10 +351,10 @@ Tailored for frontend development with React and Vue.js
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <Plug>SpeedDatingDown | :<C-U>call speeddating#incrementvisual(-v:count1)<CR> |
 |  | <Plug>SpeedDatingUp | :<C-U>call speeddating#incrementvisual(v:count1)<CR> |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 | Add a surrounding pair around a visual selection, on new lines | <Plug>(nvim-surround-visual-line) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR> |
 | Add a surrounding pair around a visual selection | <Plug>(nvim-surround-visual) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR> |
 

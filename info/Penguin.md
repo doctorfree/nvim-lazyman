@@ -3,12 +3,10 @@
 Aims to provide a base configuration with beautiful UI and fast startup time
 
 - Install and initialize: **`lazyman -o`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Penguin`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -76,32 +74,19 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Replace in files (Spectre) |  sr |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Mason |  cm |  |
-| Dismiss all Notifications |  un |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo |  st |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Delete non-pinned buffers |  bP |  |
-| Toggle pin |  bp |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
+| Recent |  fr |  |
+| Find Files (cwd) |  fF |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Find Files (root dir) |    |  |
+| Goto Symbol (Workspace) |  sS |  |
+| Goto Symbol |  ss |  |
+| Colorscheme with preview |  uC |  |
+| Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
 | Resume |  sR |  |
 | Options |  so |  |
 | Jump to Mark |  sm |  |
@@ -114,54 +99,68 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
 | Commands |  sC |  |
-| Find Files (root dir) |    |  |
+| Command History |  sc |  |
 | Buffer |  sb |  |
 | Auto Commands |  sa |  |
+| Registers |  s" |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
-| Recent |  fr |  |
-| Find Files (cwd) |  fF |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Command History |  sc |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
+| Todo (Trouble) |  xt |  |
+| Todo |  st |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Replace in files (Spectre) |  sr |  |
+| Delete non-pinned buffers |  bP |  |
+| Toggle pin |  bp |  |
+| Mason |  cm |  |
+| Explorer NeoTree (root dir) |  e |  |
+| Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Dismiss All |  snd |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+| Dismiss all Notifications |  un |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Restore Session |  qs |  |
+| Restore Last Session |  ql |  |
+| Don't Save Current Session |  qd |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 | Previous todo comment | [t |  |
-| Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
+| Previous trouble/quickfix item | [q |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Next todo comment | ]t |  |
-| Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
+| Next trouble/quickfix item | ]q |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Highlight surrounding | gzh |  |
-| Delete surrounding | gzd |  |
+| Find left surrounding | gzF |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
+| Highlight surrounding | gzh |  |
+| Replace surrounding | gzr |  |
 | Add surrounding | gza |  |
 | Find right surrounding | gzf |  |
-| Find left surrounding | gzF |  |
-| Replace surrounding | gzr |  |
+| Delete surrounding | gzd |  |
 | Flash | s |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Scroll forward | <C-F> |  |
 | Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
@@ -169,6 +168,8 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Selection (cwd) |  sW |  |
+| Selection (root dir) |  sw |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |

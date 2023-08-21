@@ -37,16 +37,13 @@ Greybeard</p>
 <li>Install and initialize:
 <strong><code>lazyman -w xero</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-xero</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/xero/dotfiles">https://github.com/xero/dotfiles</a></p>
@@ -91,8 +88,6 @@ href="https://github.com/onsails/lspkind-nvim.git">onsails/lspkind-nvim</a></li>
 <li><a
 href="https://git.sr.ht/~whynothugo/lsp_lines.nvim">~whynothugo/lsp_lines.nvim</a></li>
 <li><a
-href="https://github.com/nvim-lua/lsp-status.nvim.git">nvim-lua/lsp-status.nvim</a></li>
-<li><a
 href="https://github.com/nvim-lualine/lualine.nvim.git">nvim-lualine/lualine.nvim</a></li>
 <li><a
 href="https://github.com/L3MON4D3/LuaSnip.git">L3MON4D3/LuaSnip</a></li>
@@ -113,7 +108,7 @@ href="https://github.com/windwp/nvim-autopairs.git">windwp/nvim-autopairs</a></l
 <li><a
 href="https://github.com/hrsh7th/nvim-cmp.git">hrsh7th/nvim-cmp</a></li>
 <li><a
-href="https://github.com/haringsrob/nvim_context_vt.git">haringsrob/nvim_context_vt</a></li>
+href="https://github.com/terrortylor/nvim-comment.git">terrortylor/nvim-comment</a></li>
 <li><a
 href="https://github.com/brenoprata10/nvim-highlight-colors.git">brenoprata10/nvim-highlight-colors</a></li>
 <li><a
@@ -122,6 +117,8 @@ href="https://github.com/neovim/nvim-lspconfig.git">neovim/nvim-lspconfig</a></l
 href="https://github.com/ojroques/nvim-osc52.git">ojroques/nvim-osc52</a></li>
 <li><a
 href="https://github.com/petertriho/nvim-scrollbar.git">petertriho/nvim-scrollbar</a></li>
+<li><a
+href="https://github.com/kylechui/nvim-surround.git">kylechui/nvim-surround</a></li>
 <li><a
 href="https://github.com/nvim-treesitter/nvim-treesitter.git">nvim-treesitter/nvim-treesitter</a></li>
 <li><a
@@ -148,6 +145,8 @@ href="https://github.com/debugloop/telescope-undo.nvim.git">debugloop/telescope-
 href="https://github.com/levouh/tint.nvim.git">levouh/tint.nvim</a></li>
 <li><a
 href="https://github.com/aserowy/tmux.nvim.git">aserowy/tmux.nvim</a></li>
+<li><a
+href="https://github.com/xero/trouble.nvim.git">xero/trouble.nvim</a></li>
 <li><a
 href="https://github.com/rbong/vim-flog.git">rbong/vim-flog</a></li>
 <li><a
@@ -191,109 +190,159 @@ href="https://github.com/folke/which-key.nvim.git">folke/which-key.nvim</a></li>
 <td>:&amp;&amp;<CR></td>
 </tr>
 <tr class="even">
-<td>toggle colorizer</td>
-<td>,c</td>
+<td></td>
+<td>,</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Find git files</td>
-<td>,/gf</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search treesitter</td>
-<td>,/t</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search keymaps</td>
-<td>,/k</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search marks</td>
-<td>,/M</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search highlights</td>
-<td>,/h</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find files</td>
-<td>,/o</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find files</td>
-<td>,/f</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Search command history</td>
 <td>,/C</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Search commands</td>
 <td>,/c</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Resume FZF</td>
 <td>,//</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Search git buffer commits</td>
 <td>,bc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search git buffer commits</td>
 <td>,/gC</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Search git commits</td>
 <td>,/gc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search git branches</td>
 <td>,/gb</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Find git files</td>
+<td>,/gf</td>
+<td></td>
+</tr>
 <tr class="odd">
+<td>Search treesitter</td>
+<td>,/t</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search keymaps</td>
+<td>,/k</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search marks</td>
+<td>,/M</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search highlights</td>
+<td>,/h</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find files</td>
+<td>,/o</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find files</td>
+<td>,/f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>chmod +x buffer</td>
+<td>,x</td>
+<td>:Chmodx<CR></td>
+</tr>
+<tr class="even">
 <td>toggle spell check</td>
 <td>,s</td>
 <td>:Sp<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>jq format</td>
 <td>,j</td>
 <td>:%!jq .<CR></td>
 </tr>
+<tr class="even">
+<td></td>
+<td>,<Tab>[</td>
+<td><Cmd>tabprevious<CR></td>
+</tr>
 <tr class="odd">
+<td></td>
+<td>,<Tab>d</td>
+<td><Cmd>tabclose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,<Tab>]</td>
+<td><Cmd>tabnext<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,<Tab><Tab></td>
+<td><Cmd>tabnew<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>,<Tab>f</td>
+<td><Cmd>tabfirst<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>,<Tab>l</td>
+<td><Cmd>tablast<CR></td>
+</tr>
+<tr class="even">
+<td>prev match</td>
+<td>N</td>
+<td>Nzzzv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Q</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Nvim builtin</td>
 <td>Y</td>
 <td>y$</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>[%</td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="even">
+<td>next match</td>
+<td>n</td>
+<td>nzzzv</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -316,13 +365,23 @@ href="https://github.com/folke/which-key.nvim.git">folke/which-key.nvim</a></li>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="odd">
+<td>scroll up</td>
+<td><C-U></td>
+<td><C-U>zz</td>
+</tr>
+<tr class="even">
+<td>scroll down</td>
+<td><C-D></td>
+<td><C-D>zz</td>
+</tr>
+<tr class="odd">
 <td>ios home key</td>
 <td><M-Left></td>
 <td>0</td>
 </tr>
 <tr class="even">
 <td>exit buffer</td>
-<td><C-D></td>
+<td><C-X></td>
 <td>:bd<CR></td>
 </tr>
 <tr class="odd">
@@ -371,6 +430,16 @@ href="https://github.com/folke/which-key.nvim.git">folke/which-key.nvim</a></li>
 <td>Nvim builtin</td>
 <td>*</td>
 <td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td>move block up</td>
+<td>J</td>
+<td>:m ’&gt;+1<CR>gv=gv</td>
+</tr>
+<tr class="odd">
+<td>move block down</td>
+<td>K</td>
+<td>:m ’<lt>-2<CR>gv=gv</td>
 </tr>
 <tr class="even">
 <td></td>

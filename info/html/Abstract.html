@@ -35,16 +35,13 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -g</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#base-configurations">Base</a></li>
+href="https://lazyman.dev/configurations/#base-configurations">Base</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/wbthomason/packer.nvim">Packer</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Abstract</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/Abstract-IDE/Abstract">https://github.com/Abstract-IDE/Abstract</a></p>
@@ -257,28 +254,28 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td>;f</td>
+<td>:Neotree toggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>;m</td>
 <td>:MaximizerToggle <CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>;O</td>
 <td>:w</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>;o</td>
 <td>:w</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>;r</td>
 <td>:w</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>;f</td>
-<td>:Neotree toggle<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -360,14 +357,14 @@ prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gp</td>
-<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
+<td>gc</td>
+<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
-<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
+<td>gp</td>
+<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
@@ -435,15 +432,15 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-P></td>
-<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
-“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-F></td>
 <td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
 “<lt>C-f&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-P></td>
+<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
+“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -583,14 +580,14 @@ prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gp</td>
-<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
+<td>gc</td>
+<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
-<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
+<td>gp</td>
+<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
@@ -617,15 +614,15 @@ prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-P></td>
-<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
-“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><C-F></td>
 <td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
 “<lt>C-f&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-P></td>
+<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
+“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -701,14 +698,14 @@ prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gp</td>
-<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
+<td>gc</td>
+<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
-<td><Cmd>lua require(“packer.load”)({‘Comment.nvim’}, { keys = “gc”,
+<td>gp</td>
+<td><Cmd>lua require(“packer.load”)({‘goto-preview’}, { keys = “gp”,
 prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="odd">
@@ -730,15 +727,15 @@ prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-P></td>
-<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
-“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-F></td>
 <td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
 “<lt>C-f&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-P></td>
+<td><Cmd>lua require(“packer.load”)({‘telescope.nvim’}, { keys =
+“<lt>C-p&gt;”, prefix = “” }, _G.packer_plugins)<CR></td>
 </tr>
 <tr class="even">
 <td></td>

@@ -3,12 +3,10 @@
 Personal Neovim configuration of Kristijan Husak, author of several Neovim plugins including `orgmode` and `vim-dadbod-ui`
 
 - Install and initialize: **`lazyman -w Kristijan`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Kristijan`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -101,13 +99,13 @@ Personal Neovim configuration of Kristijan Husak, author of several Neovim plugi
 |  | ,f | :call v:lua.kris.search.run("")<CR> |
 |  | ,hf | :NvimTreeToggle<CR> |
 |  | ,n | :NvimTreeToggle<CR> |
-|  | ,G | :vert G<CR> |
 |  | ,df | :Git push --force-with-lease<CR> |
 |  | ,dp | :Git push<CR> |
 |  | ,da |  |
 |  | ,dc |  |
 |  | ,dh | :DiffviewFileHistory %<CR> |
 |  | ,do |  |
+|  | ,G | :vert G<CR> |
 |  | ,lt |  |
 |  | ,lT |  |
 |  | ,g |  |
@@ -115,9 +113,9 @@ Personal Neovim configuration of Kristijan Husak, author of several Neovim plugi
 |  | ,t |  |
 |  | ,b |  |
 |  | ,yg |  |
-|  | ,c |  |
 |  | ,oc |  |
 |  | ,oa |  |
+|  | ,c |  |
 |  | F |  |
 |  | N | Nzz |
 |  | Q | <C-Z> |
@@ -162,8 +160,8 @@ Personal Neovim configuration of Kristijan Husak, author of several Neovim plugi
 |  | <C-S> | :w<CR> |
 |  | <C-Y> |  |
 |  | <C-P> |  |
-|  | <F5> |  |
 |  | <F1> |  |
+|  | <F5> |  |
 |  | <C-L> | <C-\><C-N><C-W>l |
 
 #### visual mode keymaps

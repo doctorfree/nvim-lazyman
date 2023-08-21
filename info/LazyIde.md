@@ -3,12 +3,10 @@
 LazyVim IDE config for Neovim
 
 - Install and initialize: **`lazyman -L LazyIde`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-LazyIde`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -16,7 +14,7 @@ LazyVim IDE config for Neovim
 
 ### Website
 
-[https://www.lazyvim.org](https://www.lazyvim.org)
+[https://ide.lazyman.dev](https://ide.lazyman.dev)
 
 ### Lazy managed plugins
 
@@ -156,23 +154,60 @@ LazyVim IDE config for Neovim
 | Terminal Kill | ,tk |  |
 | New Terminal Run | ,tR |  |
 | Toggle Transparency | ,ut |  |
-| Delete Buffer (Force) | ,bD |  |
+| Edgy Select Window | ,uE |  |
+| Edgy Toggle | ,ue |  |
+| Delete non-pinned buffers | ,bP |  |
+| Toggle pin | ,bp |  |
+| NullLs Info | ,cn |  |
+| Eval | ,de |  |
+| Dap UI | ,du |  |
+| Widgets | ,dw |  |
+| Terminate | ,dt |  |
+| Session | ,ds |  |
+| Toggle REPL | ,dr |  |
+| Pause | ,dp |  |
+| Step Over | ,dO |  |
+| Step Out | ,do |  |
+| Run Last | ,dl |  |
+| Up | ,dk |  |
+| Down | ,dj |  |
+| Step Into | ,di |  |
+| Go to line (no execute) | ,dg |  |
+| Run to Cursor | ,dC |  |
+| Continue | ,dc |  |
+| Toggle Breakpoint | ,db |  |
+| Breakpoint Condition | ,dB |  |
+| Debug Nearest | ,td |  |
+| Dismiss All | ,snd |  |
+| Noice All | ,sna |  |
+| Noice History | ,snh |  |
+| Noice Last Message | ,snl |  |
+| Telescope Harpoon Marks | ,fm |  |
+| Undo Tree Toggle | ,r |  |
+| Open note | ,n |  |
+| Open note | ,ng |  |
+| Sarch and replace | ,sr |  |
+| Explorer NeoTree (root dir) | ,fe |  |
+| Explorer NeoTree (cwd) | ,E |  |
+| Explorer NeoTree (root dir) | ,e |  |
+| Explorer NeoTree (cwd) | ,fE |  |
+| Projects | ,fp |  |
+| JsDoc | ,d |  |
+| LSP Len Toggle | ,uL |  |
+| Telescope persisted | ,fs |  |
+| Run All Test Files | ,tT |  |
+| Run File | ,tt |  |
+| Stop | ,tS |  |
+| New Terminal Toggle | ,tO |  |
+| Terminal Toggle | ,to |  |
+| Terminal Send | ,ts |  |
+| Terminal Run | ,tr |  |
 | Delete Buffer | ,bd |  |
-| Commands | ,sC |  |
-| Command History | ,sc |  |
-| Buffer | ,sb |  |
-| Auto Commands | ,sa |  |
-| Status | ,gs |  |
-| commits | ,gc |  |
-| Recent (cwd) | ,fR |  |
-| Recent files | ,fr |  |
-| Find Files (cwd) | ,fF |  |
-| Open file | ,ff |  |
-| Filebrowser | ,fb |  |
-| Command History | ,: |  |
-| Find in Files (Grep) | ,/ |  |
-| Switch Buffer | ,, |  |
-| Find Files (root dir) | ,  |  |
+| Delete Buffer (Force) | ,bD |  |
+| Toggle hardtime.nvim | ,ht |  |
+| Markdown preview | ,m |  |
+| Resume | ,sR |  |
+| Help | ,s? |  |
 | Bufferlist | ,B |  |
 | Telescope | ,mt |  |
 | Run make | ,mm |  |
@@ -183,13 +218,12 @@ LazyVim IDE config for Neovim
 | Command history | ,s; |  |
 | Search History | ,s: |  |
 | Vim Options | ,sO |  |
-| Help | ,s? |  |
 | Goto Symbol (Workspace) | ,sS |  |
 | Goto Symbol | ,ss |  |
 | Colorscheme with preview | ,uC |  |
 | Word (cwd) | ,sW |  |
 | Word (root dir) | ,sw |  |
-| Resume | ,sR |  |
+| Find Files (root dir) | ,  |  |
 | Options | ,so |  |
 | Jump to Mark | ,sm |  |
 | Man Pages | ,sM |  |
@@ -200,91 +234,56 @@ LazyVim IDE config for Neovim
 | Grep (root dir) | ,sg |  |
 | Workspace diagnostics | ,sD |  |
 | Diagnostics | ,sd |  |
-| Down | ,dj |  |
-| Step Into | ,di |  |
-| Go to line (no execute) | ,dg |  |
-| Run to Cursor | ,dC |  |
-| Continue | ,dc |  |
-| Toggle Breakpoint | ,db |  |
-| Breakpoint Condition | ,dB |  |
-| Debug Nearest | ,td |  |
-| Widgets | ,dw |  |
-| Terminate | ,dt |  |
-| Session | ,ds |  |
-| Toggle REPL | ,dr |  |
-| Pause | ,dp |  |
-| Step Over | ,dO |  |
-| Step Out | ,do |  |
-| Run Last | ,dl |  |
-| Up | ,dk |  |
-| Telescope Harpoon Marks | ,fm |  |
-| JsDoc | ,d |  |
-| Delete non-pinned buffers | ,bP |  |
-| Toggle pin | ,bp |  |
-| Todo | ,st |  |
-| Todo (Trouble) | ,xt |  |
-| Todo/Fix/Fixme (Trouble) | ,xT |  |
-| Todo/Fix/Fixme | ,sT |  |
-| Location List (Trouble) | ,xL |  |
-| Workspace Diagnostics (Trouble) | ,xX |  |
-| Document Diagnostics (Trouble) | ,xx |  |
-| Quickfix List (Trouble) | ,xQ |  |
-| Telescope Aerial | ,fi |  |
-| AerialToggle | ,a |  |
-| LSP Len Toggle | ,uL |  |
-| Open note | ,ng |  |
-| Open note | ,n |  |
-| NullLs Info | ,cn |  |
-| Edgy Toggle | ,ue |  |
-| Edgy Select Window | ,uE |  |
-| Dap UI | ,du |  |
-| Eval | ,de |  |
-| Markdown preview | ,m |  |
-| Telescope persisted | ,fs |  |
-| Toggle hardtime.nvim | ,ht |  |
-| Sarch and replace | ,sr |  |
-| Explorer NeoTree (root dir) | ,e |  |
-| Explorer NeoTree (cwd) | ,fE |  |
-| Explorer NeoTree (root dir) | ,fe |  |
-| Explorer NeoTree (cwd) | ,E |  |
+| Commands | ,sC |  |
+| Command History | ,sc |  |
+| Buffer | ,sb |  |
+| Auto Commands | ,sa |  |
+| Registers | ,s" |  |
+| Status | ,gs |  |
+| commits | ,gc |  |
+| Recent (cwd) | ,fR |  |
+| Recent files | ,fr |  |
+| Find Files (cwd) | ,fF |  |
+| Open file | ,ff |  |
+| Filebrowser | ,fb |  |
+| Command History | ,: |  |
+| Find in Files (Grep) | ,/ |  |
+| Switch Buffer | ,, |  |
 | Run Test Suite | ,cS |  |
 | Run Test File | ,cT |  |
 | Run Test Nearest | ,ct |  |
-| Run All Test Files | ,tT |  |
-| Run File | ,tt |  |
-| Stop | ,tS |  |
-| New Terminal Toggle | ,tO |  |
-| Terminal Toggle | ,to |  |
-| Terminal Send | ,ts |  |
-| Terminal Run | ,tr |  |
-| Undo Tree Toggle | ,r |  |
-| Projects | ,fp |  |
 | Don't Save Current Session | ,qd |  |
 | Restore Last Session | ,ql |  |
 | Restore Session | ,qs |  |
-| Dismiss All | ,snd |  |
-| Noice All | ,sna |  |
-| Noice History | ,snh |  |
-| Noice Last Message | ,snl |  |
+| Todo | ,st |  |
+| Todo/Fix/Fixme | ,sT |  |
+| Todo/Fix/Fixme (Trouble) | ,xT |  |
+| Todo (Trouble) | ,xt |  |
+| Quickfix List (Trouble) | ,xQ |  |
+| Location List (Trouble) | ,xL |  |
+| Workspace Diagnostics (Trouble) | ,xX |  |
+| Document Diagnostics (Trouble) | ,xx |  |
+| AerialToggle | ,a |  |
+| Telescope Aerial | ,fi |  |
 | Toggle zen mode | ,z |  |
 | Flash Treesitter | S |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+| Prev Reference | [[ |  |
 | Previous todo comment | [t |  |
 | Previous trouble/quickfix item | [q |  |
-| Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+| Next Reference | ]] |  |
 | Next todo comment | ]t |  |
 | Next trouble/quickfix item | ]q |  |
-| Next Reference | ]] |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
-| Add surrounding | gza |  |
-| Highlight surrounding | gzh |  |
-| Replace surrounding | gzr |  |
 | Delete surrounding | gzd |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
 | Find right surrounding | gzf |  |
 | Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
+| Highlight surrounding | gzh |  |
+| Add surrounding | gza |  |
+| Replace surrounding | gzr |  |
 | Flash | s |  |
 |  | zM |  |
 |  | zR |  |
@@ -292,10 +291,10 @@ LazyVim IDE config for Neovim
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Search in buffer | <C-S> |  |
-| Increment selection | <C-Space> |  |
 | Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Increment selection | <C-Space> |  |
+| Search in buffer | <C-S> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -307,6 +306,8 @@ LazyVim IDE config for Neovim
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 | Terminal Send | ,ts |  |
 | Eval | ,de |  |
+| Selection (cwd) | ,sW |  |
+| Selection (root dir) | ,sw |  |
 | Treesitter Search | R |  |
 | Flash Treesitter | S |  |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |

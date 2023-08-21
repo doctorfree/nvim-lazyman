@@ -3,12 +3,10 @@
 'LunarVim' based config of Daniel Vera Gilliard
 
 - Install and initialize: **`lazyman -w Daniel`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Daniel`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -35,7 +33,6 @@
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [lunarvim/colorschemes](https://github.com/lunarvim/colorschemes.git)
-- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
 - [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
 - [embark-theme/vim](https://github.com/embark-theme/vim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
@@ -118,8 +115,8 @@
 |  | ds | <Plug>Dsurround |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
-|  | gb |  |
 |  | gc |  |
+|  | gb |  |
 |  | ySS | <Plug>YSsurround |
 |  | ySs | <Plug>YSsurround |
 |  | yss | <Plug>Yssurround |
@@ -130,23 +127,23 @@
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>(bullets-promote) | :BulletPromote<CR> |
-|  | <Plug>(bullets-demote) | :BulletDemote<CR> |
-|  | <Plug>(bullets-toggle-checkbox) | :ToggleCheckbox<CR> |
-|  | <Plug>(bullets-renumber) | :RenumberList<CR> |
-|  | <Plug>(bullets-newline) | :call <SNR>29_insert_new_bullet()<CR> |
-|  | <Plug>YSurround | <SNR>26_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>26_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>26_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>26_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>26_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>26_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>26_dosurround(<SNR>26_inputtarget())<CR> |
+|  | <Plug>YSurround | <SNR>30_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>30_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>30_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>30_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>30_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>30_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>30_dosurround(<SNR>30_inputtarget())<CR> |
 |  | <Plug>SurroundRepeat | . |
 |  | <Plug>(openbrowser-smart-search) | :<C-U>call openbrowser#_keymap_smart_search('n')<CR> |
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('n')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR> |
 |  | <Plug>(openbrowser-open) | :<C-U>call openbrowser#_keymap_open('n')<CR> |
+|  | <Plug>(bullets-promote) | :BulletPromote<CR> |
+|  | <Plug>(bullets-demote) | :BulletDemote<CR> |
+|  | <Plug>(bullets-toggle-checkbox) | :ToggleCheckbox<CR> |
+|  | <Plug>(bullets-renumber) | :RenumberList<CR> |
+|  | <Plug>(bullets-newline) | :call <SNR>15_insert_new_bullet()<CR> |
 | Float Terminal | <M-3> |  |
 | Vertical Terminal | <M-2> |  |
 | Horizontal Terminal | <M-1> |  |
@@ -159,16 +156,16 @@
 |  | <F8> | :set spelllang=en spellfile=~/.config/nvim-Daniel/spell/en.utf-8.add spell<CR> |
 |  | <F7> | :set spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add spell<CR> |
 |  | <F6> | :set nospell<CR> |
+|  | <C-K> | <C-W>k |
 |  | <M-j> | :m .+1<CR>== |
+|  | <C-J> | <C-W>j |
+|  | <C-H> | <C-W>h |
 |  | <C-Right> | :vertical resize +2<CR> |
-|  | <M-k> | :m .-2<CR>== |
+|  | <C-Q> | :call QuickFixToggle()<CR> |
 |  | <C-Left> | :vertical resize -2<CR> |
 |  | <C-Down> | :resize -2<CR> |
 |  | <C-Up> | :resize +2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
-|  | <C-H> | <C-W>h |
+|  | <M-k> | :m .-2<CR>== |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -196,12 +193,12 @@
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <Plug>VgSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
+|  | <Plug>VSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>(openbrowser-smart-search) | :<C-U>call openbrowser#_keymap_smart_search('v')<CR> |
 |  | <Plug>(openbrowser-search) | :<C-U>call openbrowser#_keymap_search('v')<CR> |
 |  | <Plug>(openbrowser-open-incognito) | :<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR> |
 |  | <Plug>(openbrowser-open) | :<C-U>call openbrowser#_keymap_open('v')<CR> |
-|  | <Plug>VgSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR> |
-|  | <Plug>VSurround | :<C-U>call <SNR>24_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR> |
 |  | <Plug>(bullets-promote) | :BulletPromoteVisual<CR> |
 |  | <Plug>(bullets-demote) | :BulletDemoteVisual<CR> |
 |  | <Plug>(bullets-renumber) | :RenumberSelection<CR> |

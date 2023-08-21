@@ -2,13 +2,11 @@
 
 'NvChad' based Neovim config with Python formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/4BnVeOUeZxc). These features are included in the Base 'NvChad' custom add-on (lazyman -c)
 
-- Install and initialize: **`-L Python`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Install and initialize: **`lazyman -L Python`**
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Python`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -32,7 +30,6 @@
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [NvChad/extensions](https://github.com/NvChad/extensions.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -68,11 +65,11 @@
 | Nvim builtin | Y | y$ |
 |  | ` |  |
 |  | c |  |
-|  | g |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle current block | gbc |  |
+| Comment toggle linewise | gc |  |
 | Comment toggle current line | gcc |  |
+| Comment toggle blockwise | gb |  |
+|  | g |  |
 |  | v |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 

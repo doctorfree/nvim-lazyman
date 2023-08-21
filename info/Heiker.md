@@ -3,12 +3,10 @@
 Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
 
 - Install and initialize: **`lazyman -w Heiker`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Heiker`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -30,7 +28,6 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
 - [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim.git)
 - [NMAC427/guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim.git)
-- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [othree/html5.vim](https://github.com/othree/html5.vim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim.git)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -60,7 +57,6 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tpope/vim-abolish](https://github.com/tpope/vim-abolish.git)
 - [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript.git)
-- [romainl/vim-qf](https://github.com/romainl/vim-qf)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [lumiliet/vim-twig](https://github.com/lumiliet/vim-twig.git)
 
@@ -71,9 +67,11 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 |  | <CR> | <Cmd>FineCmdline<CR> |
-|  |  s | <Cmd>SearchBoxClear<CR> |
+|  |  m | <Cmd>BufferNavMark<CR> |
 |  |  da |  |
 |  |  dd |  |
+|  |  s | <Cmd>SearchBoxClear<CR> |
+|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
 |  |  bb | <Cmd>Telescope buffers<CR> |
 |  |  fh | <Cmd>Telescope oldfiles<CR> |
 |  |  fb | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
@@ -81,15 +79,12 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  |  ff | <Cmd>Telescope find_files<CR> |
 |  |  ? | <Cmd>Telescope keymaps<CR> |
 |  |  fg | <Cmd>Telescope live_grep<CR> |
-|  |  ui | <Cmd>IndentBlanklineToggle<CR> |
-|  |  cc | <Plug>(qf_qf_toggle) |
 |  |  uf | <Cmd>CtrlSFToggle<CR> |
 |  |  fw | <Esc><Cmd>exe 'Find' expand('<lt>cword>')<CR> |
 |  |  F | <Cmd>FineCmdline Find <CR> |
+|  |  bc |  |
 |  |  g |  |
 |  |  uz |  |
-|  |  m |  |
-|  |  bc |  |
 |  |  j | <Cmd>let @/='\<lt>'.expand('<lt>cword>').'\>'<CR>"_ciw |
 |  |  ur | <Cmd>set invrelativenumber<CR> |
 |  |  un | <Cmd>set invnumber<CR> |
@@ -114,12 +109,13 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 | Nvim builtin | & | :&&<CR> |
 |  | * | *zz |
 |  | . |  |
-| Jump to line above cursor | B |  |
+| Jump to line below cursor | B |  |
 |  | C | "_C |
-| Jump to line below cursor | E |  |
+| Jump to word (ignore _) | E |  |
 |  | F |  |
 |  | H | b |
 |  | L | e |
+|  | M | <Cmd>BufferNavMenu<CR> |
 |  | N | Nzzzv |
 |  | R | <Cmd>exe 'SearchBoxReplace  --' expand('<lt>cword>')<CR> |
 |  | S | <Cmd>SearchBoxMatchAll title=' Match '<CR> |
@@ -128,25 +124,29 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | X | "_d |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
+|  | [q |  |
 |  | [g |  |
-|  | [q | <Plug>(qf_qf_previous)zz |
 |  | [t | <Cmd>tabprevious<CR> |
 |  | [b | <Cmd>bprevious<CR> |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
+|  | ]q |  |
 |  | ]g |  |
-|  | ]q | <Plug>(qf_qf_next)zz |
 |  | ]t | <Cmd>tabnext<CR> |
 |  | ]b | <Cmd>bnext<CR> |
-|  | b |  |
-|  | cs |  |
+| Jump to line above cursor | b |  |
 |  | cr |  |
+|  | cs |  |
 |  | c | "_c |
 |  | ds |  |
-|  | e |  |
+| Jump to word | e |  |
 |  | f |  |
 |  | g% | <Plug>(MatchitNormalBackward) |
+|  | gL | E |
+|  | gH | B |
 |  | gcc |  |
 |  | gc |  |
+|  | gB |  |
+|  | gb |  |
 |  | gp | "+p |
 |  | gy | "+y |
 |  | n | nzzzv |
@@ -155,35 +155,18 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | t |  |
 |  | x | "_x |
 |  | ys |  |
+|  | <M-4> | <Cmd>BufferNav 4<CR> |
+|  | <M-3> | <Cmd>BufferNav 3<CR> |
+|  | <M-2> | <Cmd>BufferNav 2<CR> |
+|  | <M-1> | <Cmd>BufferNav 1<CR> |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>(qf_qf_switch) | &filetype ==# 'qf' ? '<C-W>p' : '<C-W>b' |
-|  | <Plug>(qf_loc_toggle_stay) | :<C-U> call qf#toggle#ToggleLocWindow(1)<CR> |
-|  | <Plug>(qf_loc_toggle) | :<C-U> call qf#toggle#ToggleLocWindow(0)<CR> |
-|  | <Plug>(qf_qf_toggle_stay) | :<C-U> call qf#toggle#ToggleQfWindow(1)<CR> |
-|  | <Plug>(qf_qf_toggle) | :<C-U> call qf#toggle#ToggleQfWindow(0)<CR> |
-|  | <Plug>(qf_loc_next) | :<C-U> call qf#wrap#WrapCommand('down', 'l')<CR> |
-|  | <Plug>(qf_loc_previous) | :<C-U> call qf#wrap#WrapCommand('up', 'l')<CR> |
-|  | <Plug>(qf_qf_next) | :<C-U> call qf#wrap#WrapCommand('down', 'c')<CR> |
-|  | <Plug>(qf_qf_previous) | :<C-U> call qf#wrap#WrapCommand('up', 'c')<CR> |
-|  | <Plug>QfSwitch | &filetype ==# 'qf' ? '<C-W>p' : '<C-W>b' |
-|  | <Plug>QfLtoggle | <Plug>(qf_loc_toggle) |
-|  | <Plug>QfCtoggle | <Plug>(qf_qf_toggle) |
-|  | <Plug>QfLnext | <Plug>(qf_loc_next) |
-|  | <Plug>QfLprevious | <Plug>(qf_loc_previous) |
-|  | <Plug>QfCnext | <Plug>(qf_qf_next) |
-|  | <Plug>QfCprevious | <Plug>(qf_qf_previous) |
 |  | <C-W>f | <Cmd>ToggleTerm direction=float<CR> |
 |  | <C-W>t | <Cmd>ToggleTerm direction=tab<CR> |
 | Toggle terminal | <M-i> | <Cmd>Term<CR> |
-|  | <M-3> |  |
-|  | <M-2> |  |
-|  | <M-1> |  |
-|  | <F3> |  |
-|  | <M-4> |  |
 |  | <F8> | gn@i |
 |  | <C-K> | <Cmd>move .-2<CR>== |
 |  | <C-J> | <Cmd>move .+1<CR>== |
@@ -208,9 +191,9 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
-| Jump to line above cursor | B |  |
+| Jump to line below cursor | B |  |
 |  | C | "_c |
-| Jump to line below cursor | E |  |
+| Jump to word (ignore _) | E |  |
 |  | F |  |
 |  | H | b |
 |  | L | e |
@@ -225,12 +208,16 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | ]g |  |
 |  | a% | <Plug>(MatchitVisualTextObject) |
 |  | a |  |
-|  | b |  |
+| Jump to line above cursor | b |  |
 |  | cc | "_c |
 |  | c | "_c |
-|  | e |  |
+| Jump to word | e |  |
 |  | f |  |
 |  | g% | <Plug>(MatchitVisualBackward) |
+|  | gL | E |
+|  | gH | B |
+|  | gB |  |
+|  | gb |  |
 |  | gc |  |
 |  | gp | "+p |
 |  | gy | "+y |
@@ -257,8 +244,8 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  |  l | g_ |
 |  |  h | ^ |
 |  | % | <Plug>(MatchitOperationForward) |
-| Jump to line above cursor | B |  |
-| Jump to line below cursor | E |  |
+| Jump to line below cursor | B |  |
+| Jump to word (ignore _) | E |  |
 |  | F |  |
 |  | H | b |
 |  | L | e |
@@ -266,10 +253,14 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 |  | [% | <Plug>(MatchitOperationMultiBackward) |
 |  | ]% | <Plug>(MatchitOperationMultiForward) |
 |  | a |  |
-|  | b |  |
-|  | e |  |
+| Jump to line above cursor | b |  |
+| Jump to word | e |  |
 |  | f |  |
 |  | g% | <Plug>(MatchitOperationBackward) |
+|  | gL | E |
+|  | gH | B |
+|  | gB |  |
+|  | gb |  |
 |  | gc |  |
 |  | gp | "+p |
 |  | gy | "+y |

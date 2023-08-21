@@ -35,16 +35,13 @@ Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -w Roiz</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Roiz</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/MrRoiz/rnvim">https://github.com/MrRoiz/rnvim</a></p>
@@ -135,6 +132,8 @@ href="https://github.com/kevinhwang91/nvim-ufo">kevinhwang91/nvim-ufo</a></li>
 <li><a
 href="https://github.com/pwntester/octo.nvim">pwntester/octo.nvim</a></li>
 <li><a
+href="https://github.com/navarasu/onedark.nvim">navarasu/onedark.nvim</a></li>
+<li><a
 href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
 <li><a
 href="https://github.com/kevinhwang91/promise-async">kevinhwang91/promise-async</a></li>
@@ -171,46 +170,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td><Cmd>lua MiniMove.move_line(‘right’)<CR></td>
 </tr>
 <tr class="even">
-<td>Submit PR review</td>
-<td>orss</td>
-<td>:Octo review submit<CR></td>
-</tr>
-<tr class="odd">
-<td>Start PR review</td>
-<td>ors</td>
-<td>:Octo review start<CR></td>
-</tr>
-<tr class="even">
-<td>Close current review</td>
-<td>orc</td>
-<td>:Octo review close<CR></td>
-</tr>
-<tr class="odd">
-<td>Resume PR review</td>
-<td>orr</td>
-<td>:Octo review resume<CR></td>
-</tr>
-<tr class="even">
-<td>Reload current PR</td>
-<td>opr</td>
-<td>:Octo pr reload<CR></td>
-</tr>
-<tr class="odd">
-<td>List PR’s</td>
-<td>opl</td>
-<td>:Octo pr list initial_mode=normal<CR></td>
-</tr>
-<tr class="even">
-<td>Open Telescope Keymaps</td>
-<td>k</td>
-<td>:Telescope keymaps<CR></td>
-</tr>
-<tr class="odd">
-<td>Show git branches</td>
-<td>gb</td>
-<td>:Telescope git_branches initial_mode=normal<CR></td>
-</tr>
-<tr class="even">
 <td>Show git log</td>
 <td>glo</td>
 <td>:Telescope git_commits initial_mode=normal<CR></td>
@@ -231,9 +190,69 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td>:Telescope git_status initial_mode=normal<CR></td>
 </tr>
 <tr class="even">
+<td>Open Telescope Keymaps</td>
+<td>k</td>
+<td>:Telescope keymaps<CR></td>
+</tr>
+<tr class="odd">
+<td>Show git branches</td>
+<td>gb</td>
+<td>:Telescope git_branches initial_mode=normal<CR></td>
+</tr>
+<tr class="even">
+<td>Open a floating term</td>
+<td>tt</td>
+<td>:ToggleTerm direction=float<CR></td>
+</tr>
+<tr class="odd">
+<td>Select all</td>
+<td>a</td>
+<td>ggvG<S-End></td>
+</tr>
+<tr class="even">
+<td>Test keymap</td>
+<td>test</td>
+<td>:echo ‘This is a test keymap!’<CR></td>
+</tr>
+<tr class="odd">
+<td>Resume PR review</td>
+<td>orr</td>
+<td>:Octo review resume<CR></td>
+</tr>
+<tr class="even">
+<td>Submit PR review</td>
+<td>orss</td>
+<td>:Octo review submit<CR></td>
+</tr>
+<tr class="odd">
+<td>Start PR review</td>
+<td>ors</td>
+<td>:Octo review start<CR></td>
+</tr>
+<tr class="even">
+<td>Close current review</td>
+<td>orc</td>
+<td>:Octo review close<CR></td>
+</tr>
+<tr class="odd">
+<td>List PR’s</td>
+<td>opl</td>
+<td>:Octo pr list initial_mode=normal<CR></td>
+</tr>
+<tr class="even">
+<td>Reload current PR</td>
+<td>opr</td>
+<td>:Octo pr reload<CR></td>
+</tr>
+<tr class="odd">
 <td>Where am I</td>
 <td>wai</td>
 <td>:echo expand(‘%:p’)<CR></td>
+</tr>
+<tr class="even">
+<td>Close diffview</td>
+<td>dcc</td>
+<td>:DiffviewClose<CR></td>
 </tr>
 <tr class="odd">
 <td>Open diffview</td>
@@ -251,9 +270,9 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td>:DiffviewFileHistory<CR></td>
 </tr>
 <tr class="even">
-<td>Close diffview</td>
-<td>dcc</td>
-<td>:DiffviewClose<CR></td>
+<td>Search current word with Spectre</td>
+<td>sw</td>
+<td>:lua require(‘spectre’).open_visual({select_word=true})<CR></td>
 </tr>
 <tr class="odd">
 <td>Open Spectre</td>
@@ -265,26 +284,6 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td>sf</td>
 <td>:lua
 require(‘spectre’).open_file_search({select_word=true})<CR></td>
-</tr>
-<tr class="odd">
-<td>Search current word with Spectre</td>
-<td>sw</td>
-<td>:lua require(‘spectre’).open_visual({select_word=true})<CR></td>
-</tr>
-<tr class="even">
-<td>Select all</td>
-<td>a</td>
-<td>ggvG<S-End></td>
-</tr>
-<tr class="odd">
-<td>Test keymap</td>
-<td>test</td>
-<td>:echo ‘This is a test keymap!’<CR></td>
-</tr>
-<tr class="even">
-<td>Open a floating term</td>
-<td>tt</td>
-<td>:ToggleTerm direction=float<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -348,72 +347,72 @@ require(‘spectre’).open_file_search({select_word=true})<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
 <td>g%</td>
 <td><Plug>(MatchitNormalBackward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert end of line</td>
 <td>gcA</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert above</td>
 <td>gcO</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert below</td>
 <td>gco</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current block</td>
 <td>gbc</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current line</td>
 <td>gcc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Close preview windows</td>
 <td>gP</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Preview references</td>
 <td>gpr</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Preview implementation</td>
 <td>gpi</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Preview type definition</td>
 <td>gpt</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Preview definition</td>
 <td>gpd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close all folds</td>
-<td>zM</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -422,9 +421,29 @@ require(‘spectre’).open_file_search({select_word=true})<CR></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Close all folds</td>
+<td>zM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Save current file</td>
+<td><C-S></td>
+<td>:w<CR></td>
+</tr>
+<tr class="even">
+<td>Format file</td>
+<td><M-F></td>
+<td>:lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR></td>
+</tr>
+<tr class="odd">
 <td>Open Nvimtree</td>
 <td><C-B></td>
 <td>:NvimTreeFindFileToggle<CR></td>
+</tr>
+<tr class="even">
+<td>Move down faster</td>
+<td><C-J></td>
+<td>10j</td>
 </tr>
 <tr class="odd">
 <td>Move up faster</td>
@@ -437,29 +456,9 @@ require(‘spectre’).open_file_search({select_word=true})<CR></td>
 <td>:q<CR></td>
 </tr>
 <tr class="odd">
-<td>Move down faster</td>
-<td><C-J></td>
-<td>10j</td>
-</tr>
-<tr class="even">
 <td>Update buffer</td>
 <td><F5></td>
 <td>:bufdo e!<CR></td>
-</tr>
-<tr class="odd">
-<td>Format file</td>
-<td><M-F></td>
-<td>:lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR></td>
-</tr>
-<tr class="even">
-<td>Close current buffer</td>
-<td><M-w></td>
-<td>:bd<CR></td>
-</tr>
-<tr class="odd">
-<td>Move to the previous buffer</td>
-<td><M-h></td>
-<td>:BufferLineCyclePrev<CR></td>
 </tr>
 <tr class="even">
 <td>Move to the next buffer</td>
@@ -467,9 +466,20 @@ require(‘spectre’).open_file_search({select_word=true})<CR></td>
 <td>:BufferLineCycleNext<CR></td>
 </tr>
 <tr class="odd">
-<td>Save current file</td>
-<td><C-S></td>
-<td>:w<CR></td>
+<td>Close current buffer</td>
+<td><M-w></td>
+<td>:bd<CR></td>
+</tr>
+<tr class="even">
+<td>Move to the previous buffer</td>
+<td><M-h></td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -811,18 +821,28 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="odd">
+<td></td>
 <td>g%</td>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="even">
+<td>Move down faster</td>
+<td><C-J></td>
+<td>10j</td>
 </tr>
 <tr class="odd">
 <td>Move up faster</td>
@@ -830,9 +850,9 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>10k</td>
 </tr>
 <tr class="even">
-<td>Move down faster</td>
-<td><C-J></td>
-<td>10j</td>
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -852,6 +872,18 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><C-N></td>
 <td><Plug>(VM-Find-Subword-Under)</td>
@@ -865,7 +897,7 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="even">
 <td></td>
 <td><Plug>(VM-Find-Subword-Under)</td>
-<td><SNR>16_Visual(‘under’)</td>
+<td><SNR>10_Visual(‘under’)</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -885,24 +917,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tr class="even">
 <td></td>
 <td><Plug>(VM-Visual-All)</td>
-<td><SNR>16_Visual(‘all’)</td>
+<td><SNR>10_Visual(‘all’)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(VM-Visual-Find)</td>
 <td>vm#operators#find(1, 1)</td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
 <tr class="even">
 <td>Move up</td>

@@ -3,12 +3,10 @@
 Configure Neovim as a Personalized Development Environment (PDE)
 
 - Install and initialize: **`lazyman -x pde`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-pde`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -29,6 +27,7 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 - [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- [folke/edgy.nvim](https://github.com/folke/edgy.nvim.git)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [anuvyklack/hydra.nvim](https://github.com/anuvyklack/hydra.nvim.git)
@@ -61,7 +60,6 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [suketa/nvim-dap-ruby](https://github.com/suketa/nvim-dap-ruby.git)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- [mxsdev/nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [DaikyXendo/nvim-material-icon](https://github.com/DaikyXendo/nvim-material-icon.git)
 - [scalameta/nvim-metals](https://github.com/scalameta/nvim-metals.git)
@@ -78,10 +76,11 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [rust-lang/rust.vim](https://github.com/rust-lang/rust.vim.git)
 - [roobert/tailwindcss-colorizer-cmp.nvim](https://github.com/roobert/tailwindcss-colorizer-cmp.nvim.git)
+- [lpoto/telescope-docker.nvim](https://github.com/lpoto/telescope-docker.nvim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-- [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
+- [pmizio/typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim.git)
 - [linux-cultist/venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim.git)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [andymass/vim-matchup](https://github.com/andymass/vim-matchup)
@@ -90,7 +89,6 @@ Configure Neovim as a Personalized Development Environment (PDE)
 - [tpope/vim-sleuth](https://github.com/tpope/vim-sleuth.git)
 - [nvim-neotest/neotest-vim-test](https://github.com/nvim-neotest/neotest-vim-test)
 - [johnpapa/vscode-angular-snippets](https://github.com/johnpapa/vscode-angular-snippets.git)
-- [microsoft/vscode-js-debug](https://github.com/microsoft/vscode-js-debug.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ### pde Keymaps
@@ -99,30 +97,23 @@ Configure Neovim as a Personalized Development Environment (PDE)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Pick |  zCp |  |
 | Toggle Highlighter |  zCh |  |
 | Convert |  zCc |  |
-| Pick |  zCp |  |
-| Mark Motion |  xmm |  |
-| Send Mark |  xms |  |
-| Clear |  xc |  |
-| Close REPL |  xC |  |
-| Interrupt |  xI |  |
-| ENTER |  x<CR> |  |
-| Send File |  xf |  |
-| Send Until Cursor |  xt |  |
-| Send Line |  xl |  |
-| Send Motion |  xs |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
-| Focus |  xF |  |
-| Restart |  xS |  |
-| REPL |  xR |  |
-| Remove Mark |  xmr |  |
-| Select VirtualEnv |  lv |  |
-| Restore Last Session |  ql |  |
 | Restore Session |  qs |  |
 | Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Output |  to |  |
+| Debug Nearest |  tN |  |
+| Nearest |  tn |  |
+| Last |  tl |  |
+| All Files |  tF |  |
+| File |  tf |  |
+| Attach |  ta |  |
+| Debug Last |  tL |  |
+| Debug File |  td |  |
+| Summary |  tS |  |
+| Stop |  ts |  |
 | Open |  tto |  |
 | Load Bundle |  ttl |  |
 | Delete Bundle |  ttd |  |
@@ -135,17 +126,6 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Run |  ttr |  |
 | Quick Action |  ttq |  |
 | Status |  gs |  |
-| Output |  to |  |
-| Debug Nearest |  tN |  |
-| Nearest |  tn |  |
-| Last |  tl |  |
-| All Files |  tF |  |
-| File |  tf |  |
-| Attach |  ta |  |
-| Debug Last |  tL |  |
-| Debug File |  td |  |
-| Summary |  tS |  |
-| Stop |  ts |  |
 | Step Out |  du |  |
 | Terminate |  dx |  |
 | Toggle Breakpoint |  dt |  |
@@ -166,17 +146,36 @@ Configure Neovim as a Personalized Development Environment (PDE)
 | Conditional Breakpoint |  dC |  |
 | Evaluate Input |  dE |  |
 | Run to Cursor |  dR |  |
-| Find Files |  ff |  |
+| REPL |  xR |  |
+| Focus |  xF |  |
+| Hide |  xH |  |
+| Remove Mark |  xmr |  |
+| Restart |  xS |  |
+| Mark Motion |  xmm |  |
+| Send Mark |  xms |  |
+| Clear |  xc |  |
+| Close REPL |  xC |  |
+| Interrupt |  xI |  |
+| ENTER |  x<CR> |  |
+| Send File |  xf |  |
+| Send Until Cursor |  xt |  |
+| Send Line |  xl |  |
+| Send Motion |  xs |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
 | Help |  fh |  |
 | Buffers |  fb |  |
 | Git Files |  fg |  |
+| Find Files |  ff |  |
+| Select VirtualEnv |  lv |  |
+| Docker |  fd |  |
 |  |   |  |
 | Nvim builtin | & | :&&<CR> |
 | Nvim builtin | Y | y$ |
 |  | gx | <Plug>NetrwBrowseX |
+|  | gbc |  |
 |  | gcc |  |
 |  | gc |  |
-|  | gbc |  |
 |  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
 | Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
@@ -190,17 +189,19 @@ Configure Neovim as a Personalized Development Environment (PDE)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+| Evaluate |  de |  |
+| +Mark |  xm |  |
+| +REPL |  x |  |
 | Mark Visual |  xmv |  |
 | Clear Highlight |  xL |  |
 | Send |  xs |  |
-| Evaluate |  de |  |
 |  |   |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 |  | gx | <Plug>NetrwBrowseXVis |
+|  | gc |  |
 |  | gbc |  |
 |  | gcc |  |
-|  | gc |  |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 
 #### operator mode keymaps

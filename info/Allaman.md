@@ -3,12 +3,10 @@
 One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust, YAML, and more
 
 - Install and initialize: **`lazyman -L Allaman`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Allaman`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -38,7 +36,6 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 - [folke/flash.nvim](https://github.com/folke/flash.nvim.git)
 - [willothy/flatten.nvim](https://github.com/willothy/flatten.nvim.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- [junegunn/fzf](https://github.com/junegunn/fzf)
 - [akinsho/git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ray-x/go.nvim](https://github.com/ray-x/go.nvim)
@@ -77,6 +74,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rafcamlet/nvim-luapad](https://github.com/rafcamlet/nvim-luapad.git)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre.git)
 - [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [RRethy/nvim-treesitter-endwise](https://github.com/RRethy/nvim-treesitter-endwise)
@@ -93,14 +91,12 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 - [ironhouzi/starlite-nvim](https://github.com/ironhouzi/starlite-nvim.git)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
-- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [crispgm/telescope-heading.nvim](https://github.com/crispgm/telescope-heading.nvim)
 - [ptethng/telescope-makefile](https://github.com/ptethng/telescope-makefile)
 - [nvim-telescope/telescope-symbols.nvim](https://github.com/nvim-telescope/telescope-symbols.nvim)
 - [nvim-telescope/telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
 - [jvgrootveld/telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [aaronhallaert/ts-advanced-git-search.nvim](https://github.com/aaronhallaert/ts-advanced-git-search.nvim.git)
 - [axieax/urlview.nvim](https://github.com/axieax/urlview.nvim)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
@@ -116,30 +112,29 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | ----------- | --- | --- |
 | Next buffer | <Tab> | <Cmd>bnext<CR> |
 | Clear hlsearch and ESC | <Esc> | <Cmd>noh<CR><Esc> |
+| List TODOs |  qt |  |
+| Toggle Quickfix |  qq | <Cmd>lua require('core.utils.functions').toggle_qf()<CR> |
+| Previous entry |  qk | <Cmd>cprevious<CR> |
+| Next entry |  qj | <Cmd>cnext<CR> |
+| Reload snippets |  ms | <Cmd>source ~/.config/nvim-Allaman/snippets/*<CR> |
 | Toggle Scrollbind |  tS | <Cmd>windo set scb!<CR> |
 | Toggle Virtualtext |  tt | <Cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<CR> |
 | Toggle colorcolumn |  to | <Cmd>lua require('core.utils.functions').toggle_colorcolumn()<CR> |
 | Toggle cursorline |  tc |  |
 | Toggle wrap |  tw |  |
-| Toggle SymbolsOutline |  ts | <Cmd>SymbolsOutline<CR> |
+| Toggle spell |  ts |  |
 | Toggle virtualedit |  tv |  |
 | Toggle signcolumn |  tl |  |
 | Toggle hidden chars |  th |  |
 | Buffer search and replace |  sr | :%s/ |
+| Save file |  fs | <Cmd>w<CR> |
+| New file |  fn | <Cmd>enew<CR> |
+| Previous Buffer |  <Tab> | <Cmd>e#<CR> |
+| Close buffer |  bd | <Cmd>Bdelete<CR> |
+| Close all but the current buffer |  bD | <Cmd>%bd|e#|bd#<CR> |
+| Advanced Git Search |  ga |  |
+| Toggle SymbolsOutline |  tO |  |
 | Toggle Filetree |  fp |  |
-|  |  w |  |
-|  |  d |  |
-|  |  gM |  |
-|  |  z |  |
-| Status |  gg |  |
-| Branches |  gh |  |
-| Fuzzy search |  sf |  |
-| Command history |  s; |  |
-| Search History |  s: |  |
-| Emoji |  sS |  |
-| Text under cursor |  ss |  |
-| Registers |  sR |  |
-| Projects |  sp |  |
 | Vim Options |  sO |  |
 | Keymaps |  sk |  |
 | Headings |  sh |  |
@@ -155,7 +150,19 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | Zoxide |  fz |  |
 | Filebrowser |  fb |  |
 | Commits |  gm |  |
-| Advanced Git Search |  ga |  |
+| Status |  gg |  |
+| Branches |  gh |  |
+| Word search |  sf |  |
+| Command history |  s; |  |
+| Search History |  s: |  |
+| Emoji |  sS |  |
+| Word under cursor |  ss |  |
+| Registers |  sR |  |
+| Projects |  sp |  |
+| Toggle search and replace |  Rr |  |
+| Search on current file |  Rf |  |
+| Search current word |  Rw |  |
+|  |  ml | <Cmd>Lazy<CR> |
 |  |   |  |
 |  | # | :lua require'starlite'.hash()<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
@@ -172,7 +179,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 |  | g* | :lua require'starlite'.g_star()<CR> |
 |  | j | v:count == 0 ? 'gj' : 'j' |
 |  | k | v:count == 0 ? 'gk' : 'k' |
-| Flash | s |  |
+| Flash | ss |  |
 |  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Save file | <C-S> | <Cmd>w<CR><Esc> |
 | Prev buffer | <S-Tab> | <Cmd>bprevious<CR> |
@@ -181,19 +188,19 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+|  | <C-J> | <Cmd>lua require('Navigator').down()<CR> |
+|  | <C-K> | <Cmd>lua require('Navigator').up()<CR> |
+|  | <C-H> | <Cmd>lua require('Navigator').left()<CR> |
 | Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
 | Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
 | Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
 | Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
 | Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
 | Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
-|  | <C-J> | <Cmd>lua require('Navigator').down()<CR> |
-|  | <C-K> | <Cmd>lua require('Navigator').up()<CR> |
-|  | <C-H> | <Cmd>lua require('Navigator').left()<CR> |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 |  | <Plug>fugitive: |  |
 |  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
 | Toggle Terminal | <C-N> | <Cmd>execute v:count . "ToggleTerm"<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Search in buffer | <C-F> |  |
 |  | <C-L> | <Cmd>lua require('Navigator').right()<CR> |
 
@@ -202,6 +209,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Buffer search and replace |  sr | :%s/ |
+| Search current word |  Rw |  |
 |  |   |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
@@ -216,7 +224,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 |  | gx | <Plug>NetrwBrowseXVis |
 |  | g% | <Plug>(MatchitVisualBackward) |
 |  | p | "_dp |
-| Flash | s |  |
+| Flash | ss |  |
 | Save file | <C-S> | <Cmd>w<CR><Esc> |
 |  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
 |  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
@@ -235,7 +243,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 |  | ]% | <Plug>(MatchitOperationMultiForward) |
 |  | g% | <Plug>(MatchitOperationBackward) |
 | Remote Flash | r |  |
-| Flash | s |  |
+| Flash | ss |  |
 |  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |

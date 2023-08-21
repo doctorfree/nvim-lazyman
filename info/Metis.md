@@ -3,12 +3,10 @@
 Neovim config by the creator of 'MetisLinux' and 'Ewm'
 
 - Install and initialize: **`lazyman -w Metis`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Metis`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -26,9 +24,12 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [echasnovski/mini.comment](https://github.com/echasnovski/mini.comment)
+- [folke/noice.nvim](https://github.com/folke/noice.nvim)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [NvChad/nvterm](https://github.com/NvChad/nvterm)
@@ -60,12 +61,12 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  |  pi |  |
 |  |  ph |  |
 |  |  d |  |
-|  |  ff |  |
-|  |  ft |  |
 |  |  fr |  |
 |  |  fw |  |
-|  |  e |  |
+|  |  ff |  |
+|  |  ft |  |
 |  |  b |  |
+|  |  e |  |
 | Nvim builtin | & | :&&<CR> |
 |  | J | jzz |
 |  | K | kzz |
@@ -77,10 +78,10 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 |  | <C-K> | <C-W>k |
 |  | <C-J> | <C-W>j |
 |  | <C-H> | <C-W>h |
+|  | <S-Tab> |  |
+|  | <M-H> |  |
 |  | <M-h> |  |
 |  | <M-t> |  |
-|  | <M-H> |  |
-|  | <S-Tab> |  |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps

@@ -3,12 +3,10 @@
 An out-of-the-box Neovim IDE solution with simple development environment setup
 
 - Install and initialize: **`lazyman -L Insis`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-Insis`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -97,22 +95,22 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  bp | :BufferLinePickClose<CR> |
+|  |  bo | :BufferLineCloseRight<CR>:BufferLineCloseLeft<CR> |
+|  |  bl | :BufferLineCloseRight<CR> |
+|  |  bh | :BufferLineCloseLeft<CR> |
+|  |  v |  |
 |  |  m | <Cmd>NvimTreeToggle<CR> |
 |  |  tc |  |
 |  |  tb |  |
 |  |  ta |  |
-|  |  z | <Cmd>ZenMode<CR> |
 |  |  gh |  |
 |  |  ns |  |
 |  |  nf |  |
 |  |  nd |  |
 |  |  nr |  |
 |  |  nt |  |
-|  |  v |  |
-|  |  bp | :BufferLinePickClose<CR> |
-|  |  bo | :BufferLineCloseRight<CR>:BufferLineCloseLeft<CR> |
-|  |  bl | :BufferLineCloseRight<CR> |
-|  |  bh | :BufferLineCloseLeft<CR> |
+|  |  z | <Cmd>ZenMode<CR> |
 |  |  de |  |
 |  |  dh |  |
 |  |  dT |  |
@@ -169,11 +167,11 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <M-m> | <Cmd>NvimTreeToggle<CR> |
-|  | <C-F> | :<Cmd>Telescope live_grep<CR> |
-|  | <C-P> | <Cmd>Telescope find_files<CR> |
 |  | <C-W> | :Bdelete!<CR> |
 |  | <C-H> | :BufferLineCyclePrev<CR> |
+|  | <C-F> | :<Cmd>Telescope live_grep<CR> |
+|  | <C-P> | <Cmd>Telescope find_files<CR> |
+|  | <M-m> | <Cmd>NvimTreeToggle<CR> |
 | Change a surrounding pair, putting replacements on new lines | <Plug>(nvim-surround-change-line) |  |
 | Change a surrounding pair | <Plug>(nvim-surround-change) |  |
 | Delete a surrounding pair | <Plug>(nvim-surround-delete) |  |

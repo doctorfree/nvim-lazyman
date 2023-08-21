@@ -3,12 +3,10 @@
 'LazyVim' based Neovim configuration. Andreas Gerlach develops smart farming tech and maintains the 'Sway' edition of 'Manjaro-arm'
 
 - Install and initialize: **`lazyman -L Nv`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Nv`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -65,7 +63,6 @@
 - [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
-- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
 - [nvim-neotest/neotest-python](https://github.com/nvim-neotest/neotest-python)
 - [rouge8/neotest-rust](https://github.com/rouge8/neotest-rust.git)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
@@ -76,7 +73,6 @@
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python.git)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [gennaro-tedesco/nvim-jqx](https://github.com/gennaro-tedesco/nvim-jqx.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
@@ -120,24 +116,22 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Replace in files (Spectre) |  sr |  |
 | Open Yank History |  p |  |
 | Dismiss all Notifications |  un |  |
-| Projects |  fp |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Delete Buffer (Force) |  bD |  |
-| Delete Buffer |  bd |  |
-| Toggle Breakpoint |  db |  |
-| Breakpoint Condition |  dB |  |
-| Threads |  dwt |  |
-| Scopes |  dws |  |
-| Frames |  dwf |  |
-| Eval |  de |  |
-| Debug Nearest |  td |  |
-| Widgets |  dw |  |
+| Don't Save Current Session |  qd |  |
+| Restore Last Session |  ql |  |
+| Restore Session |  qs |  |
+| Run Nearest |  tr |  |
+| Run All Test Files |  tT |  |
+| Run File |  tt |  |
+| Stop |  tS |  |
+| Toggle Output Panel |  tO |  |
+| Show Output |  to |  |
+| Toggle Summary |  ts |  |
+| Edgy Select Window |  uE |  |
+| Edgy Toggle |  ue |  |
+| Replace in files (Spectre) |  sr |  |
+| Symbols Outline |  cs |  |
 | Terminate |  dt |  |
 | Session |  ds |  |
 | Toggle REPL |  dr |  |
@@ -151,50 +145,42 @@
 | Go to line (no execute) |  dg |  |
 | Run to Cursor |  dC |  |
 | Continue |  dc |  |
-| Symbols Outline |  cs |  |
-| Select VirtualEnv |  cv |  |
-| Dismiss All |  snd |  |
+| Toggle Breakpoint |  db |  |
+| Breakpoint Condition |  dB |  |
+| Threads |  dwt |  |
+| Scopes |  dws |  |
+| Frames |  dwf |  |
+| Eval |  de |  |
+| Debug Nearest |  td |  |
+| Widgets |  dw |  |
+| Todo |  st |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Preview Request |  hp |  |
+| Run Request |  hr |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Location List (Trouble) |  xL |  |
+| Zen Mode |  z |  |
 | Noice All |  sna |  |
 | Noice History |  snh |  |
 | Noice Last Message |  snl |  |
-| Edgy Select Window |  uE |  |
-| Edgy Toggle |  ue |  |
-| Debug Method |  dPt |  |
-| Debug Class |  dPc |  |
-| Test Request |  ct |  |
-| Preview Request |  cp |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Zen Mode |  z |  |
-| Show Output |  to |  |
-| Toggle Summary |  ts |  |
-| Run Nearest |  tr |  |
-| Run All Test Files |  tT |  |
-| Run File |  tt |  |
-| Stop |  tS |  |
-| Toggle Output Panel |  tO |  |
-| Toggle pin |  bp |  |
+| Dismiss All |  snd |  |
+| Mason |  cm |  |
 | Delete non-pinned buffers |  bP |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb |  |
-| Command History |  : |  |
-| Grep (root dir) |  / |  |
-| Switch Buffer |  , |  |
-| Auto Commands |  sa |  |
-| Man Pages |  sM |  |
-| Jump to Mark |  sm |  |
-| Options |  so |  |
-| Resume |  sR |  |
-| Word (root dir) |  sw |  |
+| Toggle pin |  bp |  |
+| Find Files (root dir) |    |  |
 | Goto Symbol (Workspace) |  sS |  |
 | Goto Symbol |  ss |  |
 | Colorscheme with preview |  uC |  |
 | Word (cwd) |  sW |  |
+| Word (root dir) |  sw |  |
+| Resume |  sR |  |
+| Options |  so |  |
+| Jump to Mark |  sm |  |
+| Man Pages |  sM |  |
 | Key Maps |  sk |  |
 | Search Highlight Groups |  sH |  |
 | Help Pages |  sh |  |
@@ -205,23 +191,34 @@
 | Commands |  sC |  |
 | Command History |  sc |  |
 | Buffer |  sb |  |
-| Find Files (root dir) |    |  |
+| Auto Commands |  sa |  |
+| Registers |  s" |  |
 | status |  gs |  |
 | commits |  gc |  |
 | Recent (cwd) |  fR |  |
 | Recent |  fr |  |
 | Find Files (cwd) |  fF |  |
-| Adapter Lua Server |  daL |  |
-| Adapter Lua |  dal |  |
-| Mason |  cm |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Explorer NeoTree (cwd) |  E |  |
+| Find Files (root dir) |  ff |  |
+| Buffers |  fb |  |
+| Command History |  : |  |
+| Grep (root dir) |  / |  |
+| Switch Buffer |  , |  |
+| Delete Buffer |  bd |  |
+| Delete Buffer (Force) |  bD |  |
 | Explorer NeoTree (root dir) |  e |  |
 | Explorer NeoTree (cwd) |  fE |  |
+| Explorer NeoTree (root dir) |  fe |  |
+| Explorer NeoTree (cwd) |  E |  |
+| Projects |  fp |  |
+| Adapter Lua Server |  daL |  |
+| Adapter Lua |  dal |  |
+| Select VirtualEnv |  cv |  |
+| Debug Method |  dPt |  |
+| Debug Class |  dPc |  |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
-| Put and indent left | <lt>p |  |
 | Put before and indent left | <lt>P |  |
+| Put and indent left | <lt>p |  |
 | Put after applying a filter | =p |  |
 | Put before applying a filter | =P |  |
 | Put and indent right | >p |  |
@@ -233,26 +230,26 @@
 | Cycle forward through yank history | [y |  |
 | Put indented before cursor (linewise) | [p |  |
 | Put indented before cursor (linewise) | [P |  |
-| Previous trouble/quickfix item | [q |  |
 | Previous todo comment | [t |  |
+| Previous trouble/quickfix item | [q |  |
 | Prev Reference | [[ |  |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 | Put indented after cursor (linewise) | ]P |  |
 | Cycle backward through yank history | ]y |  |
 | Put indented after cursor (linewise) | ]p |  |
-| Next trouble/quickfix item | ]q |  |
 | Next todo comment | ]t |  |
+| Next trouble/quickfix item | ]q |  |
 | Next Reference | ]] |  |
 |  | gx | <Plug>NetrwBrowseX |
 |  | g% | <Plug>(MatchitNormalBackward) |
 | Put yanked text before selection | gP |  |
 | Put yanked text after selection | gp |  |
+| Find left surrounding | gzF |  |
 | Add surrounding | gza |  |
+| Highlight surrounding | gzh |  |
 | Replace surrounding | gzr |  |
 | Delete surrounding | gzd |  |
 | Find right surrounding | gzf |  |
-| Highlight surrounding | gzh |  |
-| Find left surrounding | gzF |  |
 | Update `MiniSurround.config.n_lines` | gzn |  |
 | Put yanked text after cursor | p |  |
 | Flash | s |  |
@@ -262,9 +259,9 @@
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Increment selection | <C-Space> |  |
 | Scroll forward | <C-F> |  |
 | Scroll backward | <C-B> |  |
+| Increment selection | <C-Space> |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -272,6 +269,8 @@
 | Description | LHS | RHS |
 | ----------- | --- | --- |
 | Eval |  de |  |
+| Selection (cwd) |  sW |  |
+| Selection (root dir) |  sw |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |

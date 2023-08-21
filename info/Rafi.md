@@ -3,12 +3,10 @@
 [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
 
 - Install and initialize: **`lazyman -w Rafi`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Rafi`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -23,8 +21,8 @@
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - [ziontee113/SnippetGenie](https://github.com/ziontee113/SnippetGenie.git)
-- [pearofducks/ansible-vim](https://github.com/pearofducks/ansible-vim.git)
 - [rafi/awesome-vim-colorschemes](https://github.com/rafi/awesome-vim-colorschemes.git)
+- [FabijanZulj/blame.nvim](https://github.com/FabijanZulj/blame.nvim.git)
 - [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim.git)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [uga-rosa/ccc.nvim](https://github.com/uga-rosa/ccc.nvim.git)
@@ -40,12 +38,13 @@
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [AndrewRadev/dsf.vim](https://github.com/AndrewRadev/dsf.vim.git)
 - [ggandor/flit.nvim](https://github.com/ggandor/flit.nvim)
+- [mhartington/formatter.nvim](https://github.com/mhartington/formatter.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [rhysd/git-messenger.vim](https://github.com/rhysd/git-messenger.vim.git)
 - [ruifm/gitlinker.nvim](https://github.com/ruifm/gitlinker.nvim)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
 - [nmac427/guess-indent.nvim](https://github.com/nmac427/guess-indent.nvim.git)
-- [junegunn/gv.vim](https://github.com/junegunn/gv.vim)
 - [tweekmonster/helpful.vim](https://github.com/tweekmonster/helpful.vim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [vmchale/just-vim](https://github.com/vmchale/just-vim.git)
@@ -69,14 +68,12 @@
 - [rafi/neoconf-venom.nvim](https://github.com/rafi/neoconf-venom.nvim.git)
 - [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-- [sbdchd/neoformat](https://github.com/sbdchd/neoformat.git)
 - [danymat/neogen](https://github.com/danymat/neogen.git)
 - [TimUntersberger/neogit](https://github.com/TimUntersberger/neogit)
 - [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [folke/noice.nvim](https://github.com/folke/noice.nvim)
 - [AlexvZyl/nordic.nvim](https://github.com/AlexvZyl/nordic.nvim.git)
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
-- [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [kevinhwang91/nvim-bqf](https://github.com/kevinhwang91/nvim-bqf.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
@@ -96,7 +93,6 @@
 - [olimorris/persisted.nvim](https://github.com/olimorris/persisted.nvim.git)
 - [lifepillar/pgsql.vim](https://github.com/lifepillar/pgsql.vim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [tversteeg/registers.nvim](https://github.com/tversteeg/registers.nvim.git)
 - [neanias/everforest-nvim](https://github.com/neanias/everforest-nvim)
 - [lambdalisue/suda.vim](https://github.com/lambdalisue/suda.vim)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
@@ -112,8 +108,6 @@
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [mbbill/undotree](https://github.com/mbbill/undotree)
 - [haya14busa/vim-edgemotion](https://github.com/haya14busa/vim-edgemotion.git)
-- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [towolf/vim-helm](https://github.com/towolf/vim-helm.git)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [MTDL9/vim-log-highlighting](https://github.com/MTDL9/vim-log-highlighting.git)
 - [mzlogin/vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc.git)
@@ -123,7 +117,6 @@
 - [t9md/vim-quickhl](https://github.com/t9md/vim-quickhl.git)
 - [reasonml-editor/vim-reason-plus](https://github.com/reasonml-editor/vim-reason-plus.git)
 - [iloginow/vim-stylus](https://github.com/iloginow/vim-stylus.git)
-- [alexghergh/nvim-tmux-navigation](https://github.com/alexghergh/nvim-tmux-navigation)
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
@@ -163,16 +156,15 @@
 | Yank relative path |  y |  |
 | Visual Mode |    | V |
 | Open Lazy UI |  l | <Cmd>Lazy<CR> |
-| Location List (Trouble) |  xL |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Workspace Diagnostics |  r |  |
-| Document Diagnostics |  e |  |
-| Delete Buffer |  bd |  |
-| Find symbol |  gt |  |
-| Find file |  gf |  |
+| Todo/Fix/Fixme (Trouble) |  xT |  |
+| Todo (Trouble) |  xt |  |
+| Todo/Fix/Fixme |  sT |  |
+| Todo |  st |  |
+| Undo Tree |  gu |  |
 | Grep cursor word |  gg |  |
+| Find file |  gf |  |
+| Find symbol |  gt |  |
+| Git bcommits range |  gc |  |
 | Git stashes |  gh |  |
 | Git buffer commits |  gL |  |
 | Git commits |  gl |  |
@@ -189,47 +181,61 @@
 | Workspace diagnostics |  sD |  |
 | Document diagnostics |  sd |  |
 | Buffer find |  / |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo |  st |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Line diff reset |  mdr |  |
-| Line diff show |  mds |  |
-| Git blame |  gb |  |
-| Git diff |  gd |  |
-| Neogen Comment |  cc |  |
 | Git open in browser |  go |  |
-| Neogit |  mg |  |
 | Mason |  mm |  |
-| Zen Mode |  zz |  |
+| Git messenger |  gm |  |
 |  |  v |  |
-|  |  ue |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Toggle structure panel |  tf |  |
-| Highlight word |  mt |  |
-| Duplicate Paragraph |  cp | yap<S-}>p |
-| Dismiss all Notifications |  un |  |
-| Undo Tree |  gu |  |
-| Spectre |  sp |  |
+| Git blame |  gb |  |
+| Git blame (window) |  gB |  |
+| Zk New |  zn |  |
+| Zk Links |  zl |  |
 | Zk Backlinks |  zb |  |
 | Zk Search |  zf |  |
 | Zk Tags |  zt |  |
 | Zk Notes |  zo |  |
-| Zk New |  zn |  |
-| Zk Links |  zl |  |
+| Neogen Comment |  cc |  |
+| Spectre |  sp |  |
+| Noice All |  sna |  |
+| Noice History |  snh |  |
+| Noice Last Message |  snl |  |
+|  |  ue |  |
+| Duplicate Paragraph |  cp | yap<S-}>p |
 | Execute HTTP request |  mh |  |
 | Select VirtualEnv |  cv |  |
 | Symbols Outline |  o |  |
+| Document Diagnostics (Trouble) |  xx |  |
+| Workspace Diagnostics |  r |  |
+| Document Diagnostics |  e |  |
+| Location List (Trouble) |  xL |  |
+| Quickfix List (Trouble) |  xQ |  |
+| Workspace Diagnostics (Trouble) |  xX |  |
+| Highlight word |  mt |  |
+| Dismiss all Notifications |  un |  |
+| Delete Buffer |  bd |  |
+| Line diff reset |  mdr |  |
+| Line diff show |  mds |  |
 | Diff View |  gv |  |
+| Diff File |  gd |  |
+| Zen Mode |  zz |  |
+| Neogit |  mg |  |
+| Toggle structure panel |  tf |  |
 | Execute Shell Command | ! | :! |
-| Reveal registers | " |  |
 |  | # | g# |
 | Nvim builtin | & | :&&<CR> |
 |  | * | g* |
 | Pick window | - |  |
 | Content-aware menu | ;c |  |
+| todo | ;dt |  |
+| Workspace symbols | ;t |  |
+| Neovim options | ;o |  |
+| Marks | ;m |  |
+| Jump list | ;j |  |
+| Highlights | ;h |  |
+| Buffers | ;b |  |
+| Grep | ;g |  |
+| Find files | ;f |  |
+| Pickers | ;R |  |
+| Resume last | ;r |  |
 | Zoxide (MRU) | ;z |  |
 | Zk notes | ;w |  |
 | Thesaurus | ;k |  |
@@ -245,17 +251,6 @@
 | Sessions | ;s |  |
 | Spell suggest | ;u |  |
 | Registers | ;v |  |
-| Workspace symbols | ;t |  |
-| Neovim options | ;o |  |
-| Marks | ;m |  |
-| Jump list | ;j |  |
-| Highlights | ;h |  |
-| Buffers | ;b |  |
-| Grep | ;g |  |
-| Find files | ;f |  |
-| Pickers | ;R |  |
-| Resume last | ;r |  |
-| todo | ;dt |  |
 | Explorer NeoTree Reveal | ;a |  |
 | Explorer NeoTree Toggle | ;e |  |
 | F | F |  |
@@ -264,18 +259,18 @@
 | Nvim builtin | Y | y$ |
 | Previous Whitespace | [s |  |
 | Previous Loclist Item | [a | <Cmd>lprev<CR> |
-| Previous trouble/quickfix item | [q |  |
 | Previous todo comment | [t |  |
 | Prev Reference | [[ |  |
+| Previous trouble/quickfix item | [q |  |
 | Next Whitespace | ]s |  |
 | Next Loclist Item | ]a | <Cmd>lnext<CR> |
-| Next trouble/quickfix item | ]q |  |
 | Next todo comment | ]t |  |
 | Next Reference | ]] |  |
-| Replace surrounding | cs |  |
+| Next trouble/quickfix item | ]q |  |
 | Change Surrounding Function | csf |  |
-| Delete surrounding | ds |  |
+| Replace surrounding | cs |  |
 | Delete Surrounding Function | dsf |  |
+| Delete surrounding | ds |  |
 | f | f |  |
 | Jump to older buffer | g<C-O> |  |
 | Jump to newer buffer | g<C-I> |  |
@@ -285,16 +280,16 @@
 |  | g* | * |
 |  | gl | g$ |
 |  | gh | g^ |
-| Find left surrounding | gzF |  |
-| Highlight surrounding | gzh |  |
-| Find right surrounding | gzf |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Move to top edge | gk |  |
-| Move to bottom edge | gj |  |
 |  | gpd |  |
-|  | gpi |  |
 |  | gpy |  |
 |  | gpr |  |
+|  | gpi |  |
+| Move to top edge | gk |  |
+| Move to bottom edge | gj |  |
+| Highlight surrounding | gzh |  |
+| Find left surrounding | gzF |  |
+| Update `MiniSurround.config.n_lines` | gzn |  |
+| Find right surrounding | gzf |  |
 |  | j | v:count == 0 ? 'gj' : 'j' |
 |  | k | v:count == 0 ? 'gk' : 'k' |
 | Marks from all opened buffers | m/ |  |
@@ -309,13 +304,13 @@
 | Buffer delete | sd | <Cmd>bdelete<CR> |
 | Close window | sc | <Cmd>close<CR> |
 | Alternate buffer | sb | <Cmd>buffer#<CR> |
-| Add surrounding | sa |  |
-| Split arguments | sk |  |
-| Join arguments | sj |  |
-| Leap backward to | sS |  |
 | Leap forward to | ss |  |
+| Leap backward to | sS |  |
 | Pick window | sp |  |
 | Swap picked window | sw |  |
+| Join arguments | sj |  |
+| Split arguments | sk |  |
+| Add surrounding | sa |  |
 | t | t |  |
 |  | zh | z4h |
 |  | zl | z4l |
@@ -332,14 +327,14 @@
 | Jump to Paren | <BS> | % |
 | Macro Prefix | <C-Q> | q |
 | Focus Fold | <S-CR> | zMzv |
+| Jump to left pane | <C-H> | <Cmd>TmuxNavigateLeft<CR> |
 | Jump to upper pane | <C-K> | <Cmd>TmuxNavigateUp<CR> |
 | Jump to right pane | <C-L> | <Cmd>TmuxNavigateRight<CR> |
 | Jump to lower pane | <C-J> | <Cmd>TmuxNavigateDown<CR> |
-| Jump to left pane | <C-H> | <Cmd>TmuxNavigateLeft<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-| Toggle terminal | <C-_> |  |
-| Scroll backward | <C-B> |  |
 | Scroll forward | <C-F> |  |
+| Scroll backward | <C-B> |  |
+| Toggle terminal | <C-_> |  |
 
 #### visual mode keymaps
 
@@ -350,15 +345,15 @@
 | Move selection down |  j | :move'>+<CR>gv=gv |
 | Move selection up |  k | :move'<lt>-2<CR>gv=gv |
 | Exit Visual Mode |    | <Esc> |
-|  |  v |  |
-| Grep cursor word |  gg |  |
 | Spectre Word |  sp |  |
-| Highlight word |  mt |  |
-| Zk Match |  zf |  |
 | Git open in browser |  go |  |
+| Grep cursor word |  gg |  |
+| Git bcommits range |  gc |  |
+|  |  v |  |
+| Zk Match |  zf |  |
+| Highlight word |  mt |  |
 | Line diff |  mdf |  |
 | Line diff add |  mda |  |
-| Reveal registers | " |  |
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
 | Code actions | ;da |  |
@@ -379,8 +374,8 @@
 |  | k | v:count == 0 ? 'gk' : 'k' |
 | Paste | p | p:let @+=@0<CR>:let @"=@0<CR> |
 | Substitute Within Selection | sg | :s//gc<Left><Left><Left> |
-| Join arguments | sj |  |
 | Split arguments | sk |  |
+| Join arguments | sj |  |
 | Leap backward to | sS |  |
 | Leap forward to | ss |  |
 | Add surrounding | sa |  |
@@ -399,6 +394,6 @@
 | Leap from windows | SS |  |
 | T | T |  |
 | f | f |  |
-| Leap forward to | ss |  |
 | Leap backward to | sS |  |
+| Leap forward to | ss |  |
 | t | t |  |

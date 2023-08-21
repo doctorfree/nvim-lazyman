@@ -37,16 +37,13 @@ Config Cheat Sheet</a></p>
 <li>Install and initialize:
 <strong><code>lazyman -L Knvim</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
+href="https://lazyman.dev/configurations/#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Knvim</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/knmac/knvim">https://github.com/knmac/knvim</a></p>
@@ -63,6 +60,8 @@ href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
 href="https://github.com/goolord/alpha-nvim">goolord/alpha-nvim</a></li>
 <li><a
 href="https://github.com/romgrk/barbar.nvim.git">romgrk/barbar.nvim</a></li>
+<li><a
+href="https://github.com/utilyre/barbecue.nvim.git">utilyre/barbecue.nvim</a></li>
 <li><a
 href="https://github.com/catppuccin/nvim">catppuccin/nvim</a></li>
 <li><a
@@ -128,13 +127,13 @@ href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
 <li><a
 href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
 <li><a
+href="https://github.com/scalameta/nvim-metals.git">scalameta/nvim-metals</a></li>
+<li><a
 href="https://github.com/SmiteshP/nvim-navic">SmiteshP/nvim-navic</a></li>
 <li><a
 href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
 <li><a
 href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
-<li><a
-href="https://github.com/HiPhish/nvim-ts-rainbow2.git">HiPhish/nvim-ts-rainbow2</a></li>
 <li><a
 href="https://github.com/kevinhwang91/nvim-ufo">kevinhwang91/nvim-ufo</a></li>
 <li><a
@@ -147,6 +146,8 @@ href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
 href="https://github.com/rlane/pounce.nvim.git">rlane/pounce.nvim</a></li>
 <li><a
 href="https://github.com/kevinhwang91/promise-async">kevinhwang91/promise-async</a></li>
+<li><a
+href="https://github.com/HiPhish/rainbow-delimiters.nvim.git">HiPhish/rainbow-delimiters.nvim</a></li>
 <li><a
 href="https://github.com/luukvbaal/statuscol.nvim">luukvbaal/statuscol.nvim</a></li>
 <li><a
@@ -473,22 +474,22 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 <tr class="even">
 <td></td>
 <td><Plug>(EasyAlignOperator)</td>
-<td>:set opfunc=<SNR>32_easy_align_op<CR>g@</td>
+<td>:set opfunc=<SNR>31_easy_align_op<CR>g@</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(EasyAlignRepeat)</td>
-<td>:call <SNR>32_easy_align_repeat()<CR></td>
+<td>:call <SNR>31_easy_align_repeat()<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(LiveEasyAlign)</td>
-<td>:set opfunc=<SNR>32_live_easy_align_op<CR>g@</td>
+<td>:set opfunc=<SNR>31_live_easy_align_op<CR>g@</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(EasyAlign)</td>
-<td>:set opfunc=<SNR>32_easy_align_op<CR>g@</td>
+<td>:set opfunc=<SNR>31_easy_align_op<CR>g@</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -537,7 +538,7 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>28_(wise)</td>
+<td><SNR>25_(wise)</td>
 <td>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</td>
 </tr>
 <tr class="even">
@@ -910,6 +911,26 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
+<td><M-i></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlignRepeat)</td>
+<td>:<C-U>call <SNR>31_repeat_in_visual()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(LiveEasyAlign)</td>
+<td>:<C-U>call <SNR>31_live_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(EasyAlign)</td>
+<td>:<C-U>call <SNR>31_easy_align_op(visualmode(), 1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>(matchup-a%)</td>
 <td>:<C-U>call matchup#text_obj#delimited(0, 1, ‘delim_all’)<CR></td>
 </tr>
@@ -921,61 +942,61 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-Z%)</td>
-<td><SNR>29_(matchup-Z%)</td>
+<td><SNR>26_(matchup-Z%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>29_(matchup-Z%)</td>
+<td><SNR>26_(matchup-Z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside_prev(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-z%)</td>
-<td><SNR>29_(matchup-z%)</td>
+<td><SNR>26_(matchup-z%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>29_(matchup-z%)</td>
+<td><SNR>26_(matchup-z%)</td>
 <td>:<C-U>call matchup#motion#jump_inside(1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-[%)</td>
-<td><SNR>29_(matchup-[%)</td>
+<td><SNR>26_(matchup-[%)</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><Plug>(matchup-]%)</td>
-<td><SNR>29_(matchup-]%)</td>
+<td><SNR>26_(matchup-]%)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><SNR>29_(matchup-[%)</td>
+<td><SNR>26_(matchup-[%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 0)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>29_(matchup-]%)</td>
+<td><SNR>26_(matchup-]%)</td>
 <td>:<C-U>call matchup#motion#find_unmatched(1, 1)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-g%)</td>
-<td><SNR>29_(matchup-g%)</td>
+<td><SNR>26_(matchup-g%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>29_(matchup-g%)</td>
+<td><SNR>26_(matchup-g%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><Plug>(matchup-%)</td>
-<td><SNR>29_(matchup-%)</td>
+<td><SNR>26_(matchup-%)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><SNR>29_(matchup-%)</td>
+<td><SNR>26_(matchup-%)</td>
 <td>:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR></td>
 </tr>
 <tr class="even">
@@ -989,26 +1010,6 @@ require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<C
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(EasyAlignRepeat)</td>
-<td>:<C-U>call <SNR>19_repeat_in_visual()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(LiveEasyAlign)</td>
-<td>:<C-U>call <SNR>19_live_easy_align_op(visualmode(), 1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(EasyAlign)</td>
-<td>:<C-U>call <SNR>19_easy_align_op(visualmode(), 1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-i></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1069,48 +1070,48 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-i></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><Plug>(matchup-a%)</td>
 <td>:<C-U>call matchup#text_obj#delimited(0, 0, ‘delim_all’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(matchup-i%)</td>
 <td>:<C-U>call matchup#text_obj#delimited(1, 0, ‘delim_all’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(matchup-Z%)</td>
 <td>:<C-U>call matchup#motion#op(‘Z%’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(matchup-z%)</td>
 <td>:<C-U>call matchup#motion#op(‘z%’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(matchup-[%)</td>
 <td>:<C-U>call matchup#motion#op(‘[%’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(matchup-]%)</td>
 <td>:<C-U>call matchup#motion#op(‘]%’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(matchup-g%)</td>
 <td>:<C-U>call matchup#motion#op(‘g%’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(matchup-%)</td>
 <td>:<C-U>call matchup#motion#op(‘%’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-i></td>
+<td></td>
 </tr>
 </tbody>
 </table>

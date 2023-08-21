@@ -35,21 +35,20 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -x HardHacker</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-HardHacker</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/hardhackerlabs/oh-my-nvim">https://github.com/hardhackerlabs/oh-my-nvim</a></p>
 <h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
 <ul>
+<li><a
+href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
 <li><a
 href="https://github.com/stevearc/aerial.nvim">stevearc/aerial.nvim</a></li>
 <li><a
@@ -125,6 +124,8 @@ href="https://github.com/nvim-lua/popup.nvim">nvim-lua/popup.nvim</a></li>
 <li><a
 href="https://github.com/simrat39/rust-tools.nvim">simrat39/rust-tools.nvim</a></li>
 <li><a
+href="https://github.com/rust-lang/rust.vim.git">rust-lang/rust.vim</a></li>
+<li><a
 href="https://github.com/mrjones2014/smart-splits.nvim">mrjones2014/smart-splits.nvim</a></li>
 <li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
@@ -177,7 +178,7 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>b</td>
+<td>tt</td>
 <td>:BufferLinePick<CR></td>
 </tr>
 <tr class="even">
@@ -345,6 +346,16 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
@@ -433,6 +444,11 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>:<C-U>call
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <h4 id="operator-mode-keymaps">operator mode keymaps</h4>
@@ -489,6 +505,11 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td></td>
 <td><Plug>(MatchitOperationForward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
 </tr>
 </tbody>
 </table>

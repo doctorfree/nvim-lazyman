@@ -36,16 +36,13 @@ css, SCSS, javascript)</p>
 <li>Install and initialize:
 <strong><code>lazyman -L NV-IDE</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
+href="https://lazyman.dev/configurations/#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-NV-IDE</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/crivotz/nv-ide">https://github.com/crivotz/nv-ide</a></p>
@@ -84,9 +81,9 @@ href="https://github.com/ray-x/cmp-treesitter.git">ray-x/cmp-treesitter</a></li>
 <li><a
 href="https://github.com/hrsh7th/cmp-vsnip">hrsh7th/cmp-vsnip</a></li>
 <li><a
-href="https://github.com/rhysd/committia.vim.git">rhysd/committia.vim</a></li>
-<li><a
 href="https://github.com/chrisbra/csv.vim.git">chrisbra/csv.vim</a></li>
+<li><a
+href="https://github.com/stevearc/dressing.nvim">stevearc/dressing.nvim</a></li>
 <li><a
 href="https://github.com/folke/edgy.nvim.git">folke/edgy.nvim</a></li>
 <li><a
@@ -100,7 +97,9 @@ href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snipp
 <li><a
 href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
 <li><a
-href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+href="https://github.com/shellRaining/hlchunk.nvim.git">shellRaining/hlchunk.nvim</a></li>
+<li><a
+href="https://github.com/smoka7/hydra.nvim.git">smoka7/hydra.nvim</a></li>
 <li><a
 href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
 <li><a
@@ -111,6 +110,8 @@ href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-l
 href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
 <li><a
 href="https://github.com/echasnovski/mini.animate.git">echasnovski/mini.animate</a></li>
+<li><a
+href="https://github.com/smoka7/multicursors.nvim.git">smoka7/multicursors.nvim</a></li>
 <li><a
 href="https://github.com/mrbjarksen/neo-tree-diagnostics.nvim.git">mrbjarksen/neo-tree-diagnostics.nvim</a></li>
 <li><a
@@ -125,8 +126,6 @@ href="https://github.com/nacro90/numb.nvim.git">nacro90/numb.nvim</a></li>
 href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
 <li><a
 href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
-<li><a
-href="https://github.com/weilbith/nvim-code-action-menu">weilbith/nvim-code-action-menu</a></li>
 <li><a
 href="https://github.com/norcalli/nvim-colorizer.lua">norcalli/nvim-colorizer.lua</a></li>
 <li><a
@@ -208,13 +207,9 @@ href="https://github.com/tpope/vim-dispatch.git">tpope/vim-dispatch</a></li>
 <li><a
 href="https://github.com/tpope/vim-endwise.git">tpope/vim-endwise</a></li>
 <li><a
-href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a></li>
-<li><a
 href="https://github.com/ludovicchabant/vim-gutentags.git">ludovicchabant/vim-gutentags</a></li>
 <li><a
 href="https://github.com/RRethy/vim-illuminate">RRethy/vim-illuminate</a></li>
-<li><a
-href="https://github.com/andymass/vim-matchup">andymass/vim-matchup</a></li>
 <li><a
 href="https://github.com/jeffkreeftmeijer/vim-numbertoggle.git">jeffkreeftmeijer/vim-numbertoggle</a></li>
 <li><a
@@ -529,95 +524,100 @@ require’telescope’.extensions.live_grep_args.live_grep_args()<CR></td>
 <td>:lua require(‘spectre’).open_visual()<CR></td>
 </tr>
 <tr class="even">
+<td>Create a selection for selcted text or word under the cursor</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td>]%</td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>a%</td>
 <td><Plug>(MatchitVisualTextObject)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitVisualBackward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td>gb</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Flash</td>
 <td>s</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitVisualTextObject)</td>
 <td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitVisualMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”,
 “n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitVisualBackward)</td>
 <td>:<C-U>call
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td><Plug>(comment_toggle_blockwise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td><Plug>(comment_toggle_linewise_visual)</td>
 <td><Esc><Cmd>lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><C-Bslash></td>
 <td>:<C-U>TmuxNavigatePrevious<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><C-K></td>
 <td>:<C-U>TmuxNavigateUp<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><C-J></td>
 <td>:<C-U>TmuxNavigateDown<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><C-H></td>
 <td>:<C-U>TmuxNavigateLeft<CR></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(vsnip-cut-text)</td>
-<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv”_c</td>
-</tr>
 <tr class="even">
 <td></td>
-<td><Plug>(vsnip-select-text)</td>
-<td>:<C-U>call <SNR>7_vsnip_visual_text(visualmode())<CR>gv</td>
+<td><Plug>(vsnip-cut-text)</td>
+<td>:<C-U>call <SNR>15_vsnip_visual_text(visualmode())<CR>gv”_c</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><Plug>(vsnip-select-text)</td>
+<td>:<C-U>call <SNR>15_vsnip_visual_text(visualmode())<CR>gv</td>
+</tr>
+<tr class="even">
 <td></td>
 <td><C-L></td>
 <td>:<C-U>TmuxNavigateRight<CR></td>

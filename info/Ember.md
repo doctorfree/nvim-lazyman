@@ -3,12 +3,10 @@
 Dan is a computer science student at Arizona State University
 
 - Install and initialize: **`lazyman -x Ember`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Ember`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -149,23 +147,23 @@ Dan is a computer science student at Arizona State University
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>YSurround | <SNR>20_opfunc2('setup') |
+|  | <Plug>Ysurround | <SNR>20_opfunc('setup') |
+|  | <Plug>YSsurround | <SNR>20_opfunc2('setup').'_' |
+|  | <Plug>Yssurround | '^'.v:count1.<SNR>20_opfunc('setup').'g_' |
+|  | <Plug>CSurround | :<C-U>call <SNR>20_changesurround(1)<CR> |
+|  | <Plug>Csurround | :<C-U>call <SNR>20_changesurround()<CR> |
+|  | <Plug>Dsurround | :<C-U>call <SNR>20_dosurround(<SNR>20_inputtarget())<CR> |
+|  | <Plug>SurroundRepeat | . |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-|  | <Plug>YSurround | <SNR>7_opfunc2('setup') |
-|  | <Plug>Ysurround | <SNR>7_opfunc('setup') |
-|  | <Plug>YSsurround | <SNR>7_opfunc2('setup').'_' |
-|  | <Plug>Yssurround | '^'.v:count1.<SNR>7_opfunc('setup').'g_' |
-|  | <Plug>CSurround | :<C-U>call <SNR>7_changesurround(1)<CR> |
-|  | <Plug>Csurround | :<C-U>call <SNR>7_changesurround()<CR> |
-|  | <Plug>Dsurround | :<C-U>call <SNR>7_dosurround(<SNR>7_inputtarget())<CR> |
-|  | <Plug>SurroundRepeat | . |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps

@@ -35,16 +35,13 @@ Configuration Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -x NvPak</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-NvPak</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/Pakrohk-DotFiles/NvPak.git">https://github.com/Pakrohk-DotFiles/NvPak.git</a></p>
@@ -55,8 +52,6 @@ href="http://neovimcraft.com/plugin/Pakrohk-DotFiles/NvPak">http://neovimcraft.c
 <ul>
 <li><a
 href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
-<li><a
-href="https://github.com/m4xshen/autoclose.nvim.git">m4xshen/autoclose.nvim</a></li>
 <li><a
 href="https://github.com/romgrk/barbar.nvim.git">romgrk/barbar.nvim</a></li>
 <li><a
@@ -102,11 +97,7 @@ href="https://github.com/onsails/lspkind-nvim">onsails/lspkind-nvim</a></li>
 <li><a
 href="https://github.com/nvim-lualine/lualine.nvim">nvim-lualine/lualine.nvim</a></li>
 <li><a
-href="https://github.com/iamcco/markdown-preview.nvim">iamcco/markdown-preview.nvim</a></li>
-<li><a
 href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-lspconfig.nvim</a></li>
-<li><a
-href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
 <li><a
 href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
 <li><a
@@ -118,7 +109,7 @@ href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a></li>
 <li><a
 href="https://github.com/shaunsingh/nord.nvim">shaunsingh/nord.nvim</a></li>
 <li><a
-href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
 <li><a
 href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
 <li><a
@@ -143,8 +134,6 @@ href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devic
 href="https://github.com/navarasu/onedark.nvim">navarasu/onedark.nvim</a></li>
 <li><a
 href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
-<li><a
-href="https://github.com/ahmedkhalf/project.nvim">ahmedkhalf/project.nvim</a></li>
 <li><a
 href="https://github.com/rose-pine/neovim.git">rose-pine/neovim</a></li>
 <li><a
@@ -179,6 +168,16 @@ href="https://github.com/folke/trouble.nvim">folke/trouble.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td>n</td>
+<td>:NvimTreeFindFile<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>r</td>
+<td>:NvimTreeRefresh<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>bw</td>
 <td><Cmd>BufferOrderByWindowNumber<CR></td>
 </tr>
@@ -196,16 +195,6 @@ href="https://github.com/folke/trouble.nvim">folke/trouble.nvim</a></li>
 <td></td>
 <td>bb</td>
 <td><Cmd>BufferOrderByBufferNumber<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>n</td>
-<td>:NvimTreeFindFile<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>r</td>
-<td>:NvimTreeRefresh<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -249,119 +238,119 @@ href="https://github.com/folke/trouble.nvim">folke/trouble.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td><C-N></td>
+<td>:NvimTreeToggle<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><Plug>NetrwBrowseX</td>
 <td>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalMultiBackward)</td>
 <td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><Plug>(MatchitNormalBackward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><Plug>(MatchitNormalForward)</td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><C-P></td>
 <td><Cmd>BufferPick<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-c></td>
 <td><Cmd>BufferClose<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-p></td>
 <td><Cmd>BufferPin<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-0></td>
 <td><Cmd>BufferLast<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-9></td>
 <td><Cmd>BufferGoto 9<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-8></td>
 <td><Cmd>BufferGoto 8<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-7></td>
 <td><Cmd>BufferGoto 7<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-6></td>
 <td><Cmd>BufferGoto 6<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-5></td>
 <td><Cmd>BufferGoto 5<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-4></td>
 <td><Cmd>BufferGoto 4<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-3></td>
 <td><Cmd>BufferGoto 3<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-2></td>
 <td><Cmd>BufferGoto 2<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-1></td>
 <td><Cmd>BufferGoto 1<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M->&gt;</td>
 <td><Cmd>BufferMoveNext<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-lt></td>
 <td><Cmd>BufferMovePrevious<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>&lt;M-.&gt;</td>
 <td><Cmd>BufferNext<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>&lt;M-,&gt;</td>
 <td><Cmd>BufferPrevious<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-N></td>
-<td>:NvimTreeToggle<CR></td>
 </tr>
 <tr class="odd">
 <td></td>

@@ -3,12 +3,10 @@
 Modern Neovim configuration for coding React and TypeScript
 
 - Install and initialize: **`lazyman -L Orange`**
-- Configuration category: [Language](https://github.com/doctorfree/nvim-lazyman#language-configurations)
+- Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Orange`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -117,12 +115,11 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
-| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
-| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
-| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
-| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
-| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+|  | <Plug>(wildfire-quick-select) | :<C-U>call wildfire#QuickSelect(['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
+|  | <Plug>(wildfire-fuel) | :<C-U>call wildfire#Start(v:count1, ['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
+|  | <Plug>luasnip-delete-check |  |
 |  | <C-Down> | <Plug>(VM-Add-Cursor-Down) |
 |  | <C-Up> | <Plug>(VM-Add-Cursor-Up) |
 |  | <S-Right> | <Plug>(VM-Select-l) |
@@ -156,56 +153,12 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(VM-Add-Cursor-Down) | :<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Word) | :call vm#commands#add_cursor_at_word(1, 1)<CR> |
 |  | <Plug>(VM-Add-Cursor-At-Pos) | :call vm#commands#add_cursor_at_pos(0)<CR> |
-|  | <Plug>(wildfire-quick-select) | :<C-U>call wildfire#QuickSelect(['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
-|  | <Plug>(wildfire-fuel) | :<C-U>call wildfire#Start(v:count1, ['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
-|  | <Plug>(YankyPutIndentAfterShiftLeftJoined) |  |
-|  | <Plug>(YankyPutIndentAfterShiftLeft) |  |
-|  | <Plug>(YankyPutIndentAfterShiftRightJoined) |  |
-|  | <Plug>(YankyPutIndentAfterShiftRight) |  |
-|  | <Plug>(YankyPutIndentAfterFilterJoined) |  |
-|  | <Plug>(YankyPutIndentAfterFilter) |  |
-|  | <Plug>(YankyPutIndentAfterBlockwiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterBlockwise) |  |
-|  | <Plug>(YankyPutIndentAfterCharwiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterCharwise) |  |
-|  | <Plug>(YankyPutIndentAfterLinewiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterLinewise) |  |
-|  | <Plug>(YankyPutIndentAfterJoined) |  |
-|  | <Plug>(YankyPutIndentAfter) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftLeftJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftLeft) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftRightJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftRight) |  |
-|  | <Plug>(YankyPutIndentBeforeFilterJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeFilter) |  |
-|  | <Plug>(YankyPutIndentBeforeBlockwiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeBlockwise) |  |
-|  | <Plug>(YankyPutIndentBeforeCharwiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeCharwise) |  |
-|  | <Plug>(YankyPutIndentBeforeLinewiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeLinewise) |  |
-|  | <Plug>(YankyPutIndentBeforeJoined) |  |
-|  | <Plug>(YankyPutIndentBefore) |  |
-|  | <Plug>(YankyGPutAfterShiftLeftJoined) |  |
-|  | <Plug>(YankyGPutAfterShiftLeft) |  |
-|  | <Plug>(YankyGPutAfterShiftRightJoined) |  |
-|  | <Plug>(YankyGPutAfterShiftRight) |  |
-|  | <Plug>(YankyGPutAfterFilterJoined) |  |
-|  | <Plug>(YankyGPutAfterFilter) |  |
-|  | <Plug>(YankyGPutAfterBlockwiseJoined) |  |
-|  | <Plug>(YankyGPutAfterBlockwise) |  |
-|  | <Plug>(YankyGPutAfterCharwiseJoined) |  |
-|  | <Plug>(YankyGPutAfterCharwise) |  |
-|  | <Plug>(YankyGPutAfterLinewiseJoined) |  |
-|  | <Plug>(YankyGPutAfterLinewise) |  |
-|  | <Plug>(YankyGPutAfterJoined) |  |
-|  | <Plug>(YankyGPutAfter) |  |
-|  | <Plug>(YankyPutAfterShiftLeftJoined) |  |
-|  | <Plug>(YankyPutAfterShiftLeft) |  |
-|  | <Plug>(YankyPutAfterShiftRightJoined) |  |
-|  | <Plug>(YankyPutAfterShiftRight) |  |
 |  | <Plug>(YankyPutAfterFilterJoined) |  |
 |  | <Plug>(YankyPutAfterFilter) |  |
+|  | <Plug>(YankyPutAfterShiftRightJoined) |  |
+|  | <Plug>(YankyPutAfterShiftRight) |  |
+|  | <Plug>(YankyPutAfterShiftLeftJoined) |  |
+|  | <Plug>(YankyPutAfterShiftLeft) |  |
 |  | <Plug>(YankyPutAfterBlockwiseJoined) |  |
 |  | <Plug>(YankyPutAfterBlockwise) |  |
 |  | <Plug>(YankyPutAfterCharwiseJoined) |  |
@@ -214,12 +167,40 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(YankyPutAfterLinewise) |  |
 |  | <Plug>(YankyPutAfterJoined) |  |
 |  | <Plug>(YankyPutAfter) |  |
-|  | <Plug>(YankyPutBeforeShiftLeftJoined) |  |
-|  | <Plug>(YankyPutBeforeShiftLeft) |  |
-|  | <Plug>(YankyPutBeforeShiftRightJoined) |  |
-|  | <Plug>(YankyPutBeforeShiftRight) |  |
+|  | <Plug>(YankyPutIndentBeforeFilterJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeFilter) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftRightJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftRight) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftLeftJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftLeft) |  |
+|  | <Plug>(YankyPutIndentBeforeBlockwiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeBlockwise) |  |
+|  | <Plug>(YankyPutIndentBeforeCharwiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeCharwise) |  |
+|  | <Plug>(YankyPutIndentBeforeLinewiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeLinewise) |  |
+|  | <Plug>(YankyPutIndentBeforeJoined) |  |
+|  | <Plug>(YankyPutIndentBefore) |  |
+|  | <Plug>(YankyPutIndentAfterFilterJoined) |  |
+|  | <Plug>(YankyPutIndentAfterFilter) |  |
+|  | <Plug>(YankyPutIndentAfterShiftRightJoined) |  |
+|  | <Plug>(YankyPutIndentAfterShiftRight) |  |
+|  | <Plug>(YankyPutIndentAfterShiftLeftJoined) |  |
+|  | <Plug>(YankyPutIndentAfterShiftLeft) |  |
+|  | <Plug>(YankyPutIndentAfterBlockwiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterBlockwise) |  |
+|  | <Plug>(YankyPutIndentAfterCharwiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterCharwise) |  |
+|  | <Plug>(YankyPutIndentAfterLinewiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterLinewise) |  |
+|  | <Plug>(YankyPutIndentAfterJoined) |  |
+|  | <Plug>(YankyPutIndentAfter) |  |
 |  | <Plug>(YankyPutBeforeFilterJoined) |  |
 |  | <Plug>(YankyPutBeforeFilter) |  |
+|  | <Plug>(YankyPutBeforeShiftRightJoined) |  |
+|  | <Plug>(YankyPutBeforeShiftRight) |  |
+|  | <Plug>(YankyPutBeforeShiftLeftJoined) |  |
+|  | <Plug>(YankyPutBeforeShiftLeft) |  |
 |  | <Plug>(YankyPutBeforeBlockwiseJoined) |  |
 |  | <Plug>(YankyPutBeforeBlockwise) |  |
 |  | <Plug>(YankyPutBeforeCharwiseJoined) |  |
@@ -228,12 +209,26 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(YankyPutBeforeLinewise) |  |
 |  | <Plug>(YankyPutBeforeJoined) |  |
 |  | <Plug>(YankyPutBefore) |  |
-|  | <Plug>(YankyGPutBeforeShiftLeftJoined) |  |
-|  | <Plug>(YankyGPutBeforeShiftLeft) |  |
-|  | <Plug>(YankyGPutBeforeShiftRightJoined) |  |
-|  | <Plug>(YankyGPutBeforeShiftRight) |  |
+|  | <Plug>(YankyGPutAfterFilterJoined) |  |
+|  | <Plug>(YankyGPutAfterFilter) |  |
+|  | <Plug>(YankyGPutAfterShiftRightJoined) |  |
+|  | <Plug>(YankyGPutAfterShiftRight) |  |
+|  | <Plug>(YankyGPutAfterShiftLeftJoined) |  |
+|  | <Plug>(YankyGPutAfterShiftLeft) |  |
+|  | <Plug>(YankyGPutAfterBlockwiseJoined) |  |
+|  | <Plug>(YankyGPutAfterBlockwise) |  |
+|  | <Plug>(YankyGPutAfterCharwiseJoined) |  |
+|  | <Plug>(YankyGPutAfterCharwise) |  |
+|  | <Plug>(YankyGPutAfterLinewiseJoined) |  |
+|  | <Plug>(YankyGPutAfterLinewise) |  |
+|  | <Plug>(YankyGPutAfterJoined) |  |
+|  | <Plug>(YankyGPutAfter) |  |
 |  | <Plug>(YankyGPutBeforeFilterJoined) |  |
 |  | <Plug>(YankyGPutBeforeFilter) |  |
+|  | <Plug>(YankyGPutBeforeShiftRightJoined) |  |
+|  | <Plug>(YankyGPutBeforeShiftRight) |  |
+|  | <Plug>(YankyGPutBeforeShiftLeftJoined) |  |
+|  | <Plug>(YankyGPutBeforeShiftLeft) |  |
 |  | <Plug>(YankyGPutBeforeBlockwiseJoined) |  |
 |  | <Plug>(YankyGPutBeforeBlockwise) |  |
 |  | <Plug>(YankyGPutBeforeCharwiseJoined) |  |
@@ -245,9 +240,12 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(YankyYank) |  |
 |  | <Plug>(YankyCycleBackward) |  |
 |  | <Plug>(YankyCycleForward) |  |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
+| Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
+| Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
+| Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
+| Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
+| Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
 
 #### visual mode keymaps
@@ -281,31 +279,26 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
 |  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
+|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
+|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
+|  | <Plug>(VM-Find-Subword-Under) | <SNR>24_Visual('under') |
+|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
+|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
+|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
+|  | <Plug>(VM-Visual-All) | <SNR>24_Visual('all') |
+|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
+|  | <Plug>luasnip-expand-repeat |  |
 | Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
 | Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 |  | <BS> | <Plug>(wildfire-water) |
 |  | <Plug>(wildfire-fuel) | :<C-U>call wildfire#Fuel(v:count1)<CR> |
 |  | <Plug>(wildfire-water) | :<C-U>call wildfire#Water(v:count1)<CR> |
-|  | <Plug>(YankyPutBeforeShiftRightJoined) |  |
-|  | <Plug>(YankyPutBeforeShiftRight) |  |
-|  | <Plug>(YankyPutBeforeFilterJoined) |  |
-|  | <Plug>(YankyPutBeforeFilter) |  |
-|  | <Plug>(YankyPutBeforeShiftLeftJoined) |  |
-|  | <Plug>(YankyPutBeforeShiftLeft) |  |
-|  | <Plug>(YankyPutBeforeBlockwiseJoined) |  |
-|  | <Plug>(YankyPutBeforeBlockwise) |  |
-|  | <Plug>(YankyPutBeforeCharwiseJoined) |  |
-|  | <Plug>(YankyPutBeforeCharwise) |  |
-|  | <Plug>(YankyPutBeforeLinewiseJoined) |  |
-|  | <Plug>(YankyPutBeforeLinewise) |  |
-|  | <Plug>(YankyPutBeforeJoined) |  |
-|  | <Plug>(YankyPutBefore) |  |
 |  | <Plug>(YankyGPutBeforeShiftRightJoined) |  |
 |  | <Plug>(YankyGPutBeforeShiftRight) |  |
-|  | <Plug>(YankyGPutBeforeFilterJoined) |  |
-|  | <Plug>(YankyGPutBeforeFilter) |  |
 |  | <Plug>(YankyGPutBeforeShiftLeftJoined) |  |
 |  | <Plug>(YankyGPutBeforeShiftLeft) |  |
+|  | <Plug>(YankyGPutBeforeFilterJoined) |  |
+|  | <Plug>(YankyGPutBeforeFilter) |  |
 |  | <Plug>(YankyGPutBeforeBlockwiseJoined) |  |
 |  | <Plug>(YankyGPutBeforeBlockwise) |  |
 |  | <Plug>(YankyGPutBeforeCharwiseJoined) |  |
@@ -314,54 +307,12 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(YankyGPutBeforeLinewise) |  |
 |  | <Plug>(YankyGPutBeforeJoined) |  |
 |  | <Plug>(YankyGPutBefore) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftRightJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftRight) |  |
-|  | <Plug>(YankyPutIndentBeforeFilterJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeFilter) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftLeftJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeShiftLeft) |  |
-|  | <Plug>(YankyPutIndentBeforeBlockwiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeBlockwise) |  |
-|  | <Plug>(YankyPutIndentBeforeCharwiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeCharwise) |  |
-|  | <Plug>(YankyPutIndentBeforeLinewiseJoined) |  |
-|  | <Plug>(YankyPutIndentBeforeLinewise) |  |
-|  | <Plug>(YankyPutIndentBeforeJoined) |  |
-|  | <Plug>(YankyPutIndentBefore) |  |
-|  | <Plug>(YankyPutIndentAfterShiftRightJoined) |  |
-|  | <Plug>(YankyPutIndentAfterShiftRight) |  |
-|  | <Plug>(YankyPutIndentAfterFilterJoined) |  |
-|  | <Plug>(YankyPutIndentAfterFilter) |  |
-|  | <Plug>(YankyPutIndentAfterShiftLeftJoined) |  |
-|  | <Plug>(YankyPutIndentAfterShiftLeft) |  |
-|  | <Plug>(YankyPutIndentAfterBlockwiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterBlockwise) |  |
-|  | <Plug>(YankyPutIndentAfterCharwiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterCharwise) |  |
-|  | <Plug>(YankyPutIndentAfterLinewiseJoined) |  |
-|  | <Plug>(YankyPutIndentAfterLinewise) |  |
-|  | <Plug>(YankyPutIndentAfterJoined) |  |
-|  | <Plug>(YankyPutIndentAfter) |  |
-|  | <Plug>(YankyPutAfterShiftRightJoined) |  |
-|  | <Plug>(YankyPutAfterShiftRight) |  |
-|  | <Plug>(YankyPutAfterFilterJoined) |  |
-|  | <Plug>(YankyPutAfterFilter) |  |
-|  | <Plug>(YankyPutAfterShiftLeftJoined) |  |
-|  | <Plug>(YankyPutAfterShiftLeft) |  |
-|  | <Plug>(YankyPutAfterBlockwiseJoined) |  |
-|  | <Plug>(YankyPutAfterBlockwise) |  |
-|  | <Plug>(YankyPutAfterCharwiseJoined) |  |
-|  | <Plug>(YankyPutAfterCharwise) |  |
-|  | <Plug>(YankyPutAfterLinewiseJoined) |  |
-|  | <Plug>(YankyPutAfterLinewise) |  |
-|  | <Plug>(YankyPutAfterJoined) |  |
-|  | <Plug>(YankyPutAfter) |  |
 |  | <Plug>(YankyGPutAfterShiftRightJoined) |  |
 |  | <Plug>(YankyGPutAfterShiftRight) |  |
-|  | <Plug>(YankyGPutAfterFilterJoined) |  |
-|  | <Plug>(YankyGPutAfterFilter) |  |
 |  | <Plug>(YankyGPutAfterShiftLeftJoined) |  |
 |  | <Plug>(YankyGPutAfterShiftLeft) |  |
+|  | <Plug>(YankyGPutAfterFilterJoined) |  |
+|  | <Plug>(YankyGPutAfterFilter) |  |
 |  | <Plug>(YankyGPutAfterBlockwiseJoined) |  |
 |  | <Plug>(YankyGPutAfterBlockwise) |  |
 |  | <Plug>(YankyGPutAfterCharwiseJoined) |  |
@@ -370,16 +321,63 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(YankyGPutAfterLinewise) |  |
 |  | <Plug>(YankyGPutAfterJoined) |  |
 |  | <Plug>(YankyGPutAfter) |  |
+|  | <Plug>(YankyPutBeforeShiftRightJoined) |  |
+|  | <Plug>(YankyPutBeforeShiftRight) |  |
+|  | <Plug>(YankyPutBeforeShiftLeftJoined) |  |
+|  | <Plug>(YankyPutBeforeShiftLeft) |  |
+|  | <Plug>(YankyPutBeforeFilterJoined) |  |
+|  | <Plug>(YankyPutBeforeFilter) |  |
+|  | <Plug>(YankyPutBeforeBlockwiseJoined) |  |
+|  | <Plug>(YankyPutBeforeBlockwise) |  |
+|  | <Plug>(YankyPutBeforeCharwiseJoined) |  |
+|  | <Plug>(YankyPutBeforeCharwise) |  |
+|  | <Plug>(YankyPutBeforeLinewiseJoined) |  |
+|  | <Plug>(YankyPutBeforeLinewise) |  |
+|  | <Plug>(YankyPutBeforeJoined) |  |
+|  | <Plug>(YankyPutBefore) |  |
+|  | <Plug>(YankyPutIndentAfterShiftRightJoined) |  |
+|  | <Plug>(YankyPutIndentAfterShiftRight) |  |
+|  | <Plug>(YankyPutIndentAfterShiftLeftJoined) |  |
+|  | <Plug>(YankyPutIndentAfterShiftLeft) |  |
+|  | <Plug>(YankyPutIndentAfterFilterJoined) |  |
+|  | <Plug>(YankyPutIndentAfterFilter) |  |
+|  | <Plug>(YankyPutIndentAfterBlockwiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterBlockwise) |  |
+|  | <Plug>(YankyPutIndentAfterCharwiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterCharwise) |  |
+|  | <Plug>(YankyPutIndentAfterLinewiseJoined) |  |
+|  | <Plug>(YankyPutIndentAfterLinewise) |  |
+|  | <Plug>(YankyPutIndentAfterJoined) |  |
+|  | <Plug>(YankyPutIndentAfter) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftRightJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftRight) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftLeftJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeShiftLeft) |  |
+|  | <Plug>(YankyPutIndentBeforeFilterJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeFilter) |  |
+|  | <Plug>(YankyPutIndentBeforeBlockwiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeBlockwise) |  |
+|  | <Plug>(YankyPutIndentBeforeCharwiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeCharwise) |  |
+|  | <Plug>(YankyPutIndentBeforeLinewiseJoined) |  |
+|  | <Plug>(YankyPutIndentBeforeLinewise) |  |
+|  | <Plug>(YankyPutIndentBeforeJoined) |  |
+|  | <Plug>(YankyPutIndentBefore) |  |
+|  | <Plug>(YankyPutAfterShiftRightJoined) |  |
+|  | <Plug>(YankyPutAfterShiftRight) |  |
+|  | <Plug>(YankyPutAfterShiftLeftJoined) |  |
+|  | <Plug>(YankyPutAfterShiftLeft) |  |
+|  | <Plug>(YankyPutAfterFilterJoined) |  |
+|  | <Plug>(YankyPutAfterFilter) |  |
+|  | <Plug>(YankyPutAfterBlockwiseJoined) |  |
+|  | <Plug>(YankyPutAfterBlockwise) |  |
+|  | <Plug>(YankyPutAfterCharwiseJoined) |  |
+|  | <Plug>(YankyPutAfterCharwise) |  |
+|  | <Plug>(YankyPutAfterLinewiseJoined) |  |
+|  | <Plug>(YankyPutAfterLinewise) |  |
+|  | <Plug>(YankyPutAfterJoined) |  |
+|  | <Plug>(YankyPutAfter) |  |
 |  | <Plug>(YankyYank) |  |
-|  | <C-N> | <Plug>(VM-Find-Subword-Under) |
-|  | <Plug>(VM-Visual-Regex) | :call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR> |
-|  | <Plug>(VM-Find-Subword-Under) | <SNR>15_Visual('under') |
-|  | <Plug>(VM-Visual-Reduce) | :<C-U>call vm#visual#reduce()<CR> |
-|  | <Plug>(VM-Visual-Add) | <Esc>:call vm#commands#visual_add()<CR> |
-|  | <Plug>(VM-Visual-Cursors) | <Esc>:call vm#commands#visual_cursors()<CR> |
-|  | <Plug>(VM-Visual-All) | <SNR>15_Visual('all') |
-|  | <Plug>(VM-Visual-Find) | vm#operators#find(1, 1) |
-|  | <Plug>luasnip-expand-repeat |  |
 
 #### operator mode keymaps
 
@@ -396,6 +394,6 @@ Modern Neovim configuration for coding React and TypeScript
 |  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
 |  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
 |  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | <Plug>luasnip-expand-repeat |  |
 |  | <Plug>(wildfire-quick-select) | :<C-U>call wildfire#QuickSelect(['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
 |  | <Plug>(wildfire-fuel) | :<C-U>call wildfire#Start(v:count1, ['ip', 'i)', 'i]', 'i}', 'i''', 'i"', 'it'])<CR> |
-|  | <Plug>luasnip-expand-repeat |  |

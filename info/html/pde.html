@@ -35,16 +35,13 @@ Information</h2>
 <li>Install and initialize:
 <strong><code>lazyman -x pde</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#starter-configurations">Starter</a></li>
+href="https://lazyman.dev/configurations/#starter-configurations">Starter</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-pde</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/alpha2phi/neovim-pde">https://github.com/alpha2phi/neovim-pde</a></p>
@@ -76,6 +73,8 @@ href="https://github.com/saadparwaiz1/cmp_luasnip">saadparwaiz1/cmp_luasnip</a><
 href="https://github.com/Saecki/crates.nvim.git">Saecki/crates.nvim</a></li>
 <li><a
 href="https://github.com/stevearc/dressing.nvim">stevearc/dressing.nvim</a></li>
+<li><a
+href="https://github.com/folke/edgy.nvim.git">folke/edgy.nvim</a></li>
 <li><a
 href="https://github.com/j-hui/fidget.nvim">j-hui/fidget.nvim</a></li>
 <li><a
@@ -141,8 +140,6 @@ href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
 <li><a
 href="https://github.com/theHamsta/nvim-dap-virtual-text">theHamsta/nvim-dap-virtual-text</a></li>
 <li><a
-href="https://github.com/mxsdev/nvim-dap-vscode-js.git">mxsdev/nvim-dap-vscode-js</a></li>
-<li><a
 href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
 <li><a
 href="https://github.com/DaikyXendo/nvim-material-icon.git">DaikyXendo/nvim-material-icon</a></li>
@@ -175,13 +172,15 @@ href="https://github.com/rust-lang/rust.vim.git">rust-lang/rust.vim</a></li>
 <li><a
 href="https://github.com/roobert/tailwindcss-colorizer-cmp.nvim.git">roobert/tailwindcss-colorizer-cmp.nvim</a></li>
 <li><a
+href="https://github.com/lpoto/telescope-docker.nvim.git">lpoto/telescope-docker.nvim</a></li>
+<li><a
 href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">nvim-telescope/telescope-fzf-native.nvim</a></li>
 <li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
 <li><a
 href="https://github.com/folke/tokyonight.nvim">folke/tokyonight.nvim</a></li>
 <li><a
-href="https://github.com/jose-elias-alvarez/typescript.nvim">jose-elias-alvarez/typescript.nvim</a></li>
+href="https://github.com/pmizio/typescript-tools.nvim.git">pmizio/typescript-tools.nvim</a></li>
 <li><a
 href="https://github.com/linux-cultist/venv-selector.nvim.git">linux-cultist/venv-selector.nvim</a></li>
 <li><a
@@ -198,8 +197,6 @@ href="https://github.com/tpope/vim-sleuth.git">tpope/vim-sleuth</a></li>
 href="https://github.com/nvim-neotest/neotest-vim-test">nvim-neotest/neotest-vim-test</a></li>
 <li><a
 href="https://github.com/johnpapa/vscode-angular-snippets.git">johnpapa/vscode-angular-snippets</a></li>
-<li><a
-href="https://github.com/microsoft/vscode-js-debug.git">microsoft/vscode-js-debug</a></li>
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
@@ -220,183 +217,33 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Toggle Highlighter</td>
-<td>zCh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Convert</td>
-<td>zCc</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Pick</td>
 <td>zCp</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Mark Motion</td>
-<td>xmm</td>
+<td>Toggle Highlighter</td>
+<td>zCh</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Send Mark</td>
-<td>xms</td>
+<td>Convert</td>
+<td>zCc</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Clear</td>
-<td>xc</td>
+<td>Restore Session</td>
+<td>qs</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close REPL</td>
-<td>xC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Interrupt</td>
-<td>xI</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ENTER</td>
-<td>x<CR></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Send File</td>
-<td>xf</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Send Until Cursor</td>
-<td>xt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Send Line</td>
-<td>xl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Send Motion</td>
-<td>xs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>+Mark</td>
-<td>xm</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>+REPL</td>
-<td>x</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Hide</td>
-<td>xH</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Focus</td>
-<td>xF</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Restart</td>
-<td>xS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>REPL</td>
-<td>xR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Remove Mark</td>
-<td>xmr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Select VirtualEnv</td>
-<td>lv</td>
+<td>Don’t Save Current Session</td>
+<td>qd</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Restore Last Session</td>
 <td>ql</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Restore Session</td>
-<td>qs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Don’t Save Current Session</td>
-<td>qd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open</td>
-<td>tto</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Load Bundle</td>
-<td>ttl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Delete Bundle</td>
-<td>ttd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close</td>
-<td>ttc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Build</td>
-<td>ttb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Task Action</td>
-<td>tta</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run Command</td>
-<td>ttR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle</td>
-<td>ttt</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Save Bundle</td>
-<td>tts</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run</td>
-<td>ttr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Quick Action</td>
-<td>ttq</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Status</td>
-<td>gs</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -452,6 +299,66 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td>Stop</td>
 <td>ts</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>tto</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Load Bundle</td>
+<td>ttl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete Bundle</td>
+<td>ttd</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close</td>
+<td>ttc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Build</td>
+<td>ttb</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Task Action</td>
+<td>tta</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run Command</td>
+<td>ttR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle</td>
+<td>ttt</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save Bundle</td>
+<td>tts</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run</td>
+<td>ttr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quick Action</td>
+<td>ttq</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Status</td>
+<td>gs</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -555,8 +462,88 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
-<td>Find Files</td>
-<td>ff</td>
+<td>REPL</td>
+<td>xR</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Focus</td>
+<td>xF</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hide</td>
+<td>xH</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Remove Mark</td>
+<td>xmr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Restart</td>
+<td>xS</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mark Motion</td>
+<td>xmm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Mark</td>
+<td>xms</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Clear</td>
+<td>xc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close REPL</td>
+<td>xC</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Interrupt</td>
+<td>xI</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ENTER</td>
+<td>x<CR></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send File</td>
+<td>xf</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Until Cursor</td>
+<td>xt</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Line</td>
+<td>xl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Motion</td>
+<td>xs</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>+Mark</td>
+<td>xm</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>+REPL</td>
+<td>x</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -575,24 +562,44 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="even">
+<td>Find Files</td>
+<td>ff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Select VirtualEnv</td>
+<td>lv</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Docker</td>
+<td>fd</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Nvim builtin</td>
 <td>&amp;</td>
 <td>:&amp;&amp;<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>Y</td>
 <td>y$</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>gx</td>
 <td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gbc</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -606,46 +613,41 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>gbc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><Plug>NetrwBrowseX</td>
 <td>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Scroll backward</td>
 <td><C-B></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Scroll forward</td>
 <td><C-F></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Previous Cell</td>
 <td><M-k></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Next Cell</td>
 <td><M-j></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Delete Cell</td>
 <td><M-x></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Execute Cell</td>
 <td><M-e></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td><C-L></td>
 <td><Cmd>nohlsearch</td>
@@ -663,23 +665,33 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </thead>
 <tbody>
 <tr class="odd">
+<td>Evaluate</td>
+<td>de</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>+Mark</td>
+<td>xm</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>+REPL</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Mark Visual</td>
 <td>xmv</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Clear Highlight</td>
 <td>xL</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Send</td>
 <td>xs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Evaluate</td>
-<td>de</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -704,17 +716,17 @@ netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gbc</td>
+<td>gc</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gcc</td>
+<td>gbc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gc</td>
+<td>gcc</td>
 <td></td>
 </tr>
 <tr class="even">

@@ -3,12 +3,10 @@
 Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad
 
 - Install and initialize: **`lazyman -c`**
-- Configuration category: [Base](https://github.com/doctorfree/nvim-lazyman#base-configurations)
+- Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-NvChad`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -16,7 +14,7 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 
 ### Website
 
-[https://nvchad.com](https://nvchad.com)
+[https://nvchad.lazyman.dev](https://nvchad.lazyman.dev)
 
 ### YouTube channel
 
@@ -34,7 +32,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [NvChad/extensions](https://github.com/NvChad/extensions.git)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [olexsmir/gopher.nvim](https://github.com/olexsmir/gopher.nvim.git)
@@ -78,6 +75,9 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | " |  |
 | Nvim builtin | & | :&&<CR> |
 |  | ' |  |
+| Move to end of Treehopper node | ,h] |  |
+| Move to start of Treehopper node | ,h[ |  |
+| Treehopper nodes | ,hm |  |
 | Open new line above HopLineStart target | ,vO |  |
 | Open new line below HopLineStart target | ,vo |  |
 | Paste above target using HopLineStart | ,vP |  |
@@ -95,9 +95,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | ,hW | <Cmd>HopWordMW<CR> |
 |  | ,hl | <Cmd>HopLineStart<CR> |
 |  | ,hw | <Cmd>HopWord<CR> |
-| Move to end of Treehopper node | ,h] |  |
-| Move to start of Treehopper node | ,h[ |  |
-| Treehopper nodes | ,hm |  |
 |  | , |  |
 |  | ? | / |
 |  | F |  |
@@ -109,8 +106,8 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | f |  |
 |  | g |  |
 | Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle current line | gcc |  |
+| Comment toggle linewise | gc |  |
 | Comment toggle current block | gbc |  |
 |  | t |  |
 | Treehopper node target insert | vy |  |
@@ -150,6 +147,6 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 |  | F |  |
 |  | T |  |
 |  | f |  |
-| Comment toggle linewise | gc |  |
 | Comment toggle blockwise | gb |  |
+| Comment toggle linewise | gc |  |
 |  | t |  |

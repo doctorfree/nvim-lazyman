@@ -36,16 +36,13 @@ href="https://github.com/VonHeikemen/lsp-zero.nvim">lsp-zero</a></p>
 <li>Install and initialize:
 <strong><code>lazyman -w Heiker</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#personal-configurations">Personal</a></li>
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Heiker</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/VonHeikemen/dotfiles">https://github.com/VonHeikemen/dotfiles</a></p>
@@ -79,8 +76,6 @@ href="https://github.com/ggandor/flit.nvim">ggandor/flit.nvim</a></li>
 href="https://github.com/junegunn/goyo.vim.git">junegunn/goyo.vim</a></li>
 <li><a
 href="https://github.com/NMAC427/guess-indent.nvim.git">NMAC427/guess-indent.nvim</a></li>
-<li><a
-href="https://github.com/ThePrimeagen/harpoon">ThePrimeagen/harpoon</a></li>
 <li><a
 href="https://github.com/othree/html5.vim.git">othree/html5.vim</a></li>
 <li><a
@@ -139,7 +134,6 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 href="https://github.com/tpope/vim-abolish.git">tpope/vim-abolish</a></li>
 <li><a
 href="https://github.com/pangloss/vim-javascript.git">pangloss/vim-javascript</a></li>
-<li><a href="https://github.com/romainl/vim-qf">romainl/vim-qf</a></li>
 <li><a
 href="https://github.com/tpope/vim-repeat">tpope/vim-repeat</a></li>
 <li><a
@@ -168,8 +162,8 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>s</td>
-<td><Cmd>SearchBoxClear<CR></td>
+<td>m</td>
+<td><Cmd>BufferNavMark<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -180,6 +174,16 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 <td></td>
 <td>dd</td>
 <td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>s</td>
+<td><Cmd>SearchBoxClear<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ui</td>
+<td><Cmd>IndentBlanklineToggle<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -218,16 +222,6 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>ui</td>
-<td><Cmd>IndentBlanklineToggle<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>cc</td>
-<td><Plug>(qf_qf_toggle)</td>
-</tr>
-<tr class="even">
-<td></td>
 <td>uf</td>
 <td><Cmd>CtrlSFToggle<CR></td>
 </tr>
@@ -243,174 +237,174 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>g</td>
+<td>bc</td>
 <td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td>g</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td>uz</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td>m</td>
-<td></td>
-</tr>
 <tr class="even">
-<td></td>
-<td>bc</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>j</td>
 <td><Cmd>let
 @/=‘&lt;lt&gt;’.expand(‘<lt>cword&gt;’).’&gt;’<CR>“_ciw</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ur</td>
 <td><Cmd>set invrelativenumber<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>un</td>
 <td><Cmd>set invnumber<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>uc</td>
 <td><Cmd>set invcursorline<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>ul</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ut</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>uh</td>
 <td><Cmd>set invhlsearch<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>cd</td>
 <td><Cmd>lcd %:p:h<CR><Cmd>pwd<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td></td>
 <td><Cmd>echo ’’<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tn</td>
 <td><Cmd>tabnew<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>bl</td>
 <td><Cmd>buffer #<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>bq</td>
 <td><Cmd>bdelete<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Q</td>
 <td><Cmd>quitall!<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>qq</td>
 <td><Cmd>quitall<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>w</td>
 <td><Cmd>write<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>l</td>
 <td>g_</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>h</td>
 <td>^</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>e</td>
 <td>%</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>a</td>
 <td><Cmd>keepjumps normal! ggVG<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>#</td>
 <td>#zz</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>%</td>
 <td><Plug>(MatchitNormalForward)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td>&amp;</td>
 <td>:&amp;&amp;<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>*</td>
 <td>*zz</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>.</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Jump to line above cursor</td>
+<tr class="even">
+<td>Jump to line below cursor</td>
 <td>B</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>C</td>
 <td>“_C</td>
 </tr>
-<tr class="odd">
-<td>Jump to line below cursor</td>
+<tr class="even">
+<td>Jump to word (ignore _)</td>
 <td>E</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>F</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>H</td>
 <td>b</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>L</td>
 <td>e</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>M</td>
+<td><Cmd>BufferNavMenu<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -454,13 +448,13 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[g</td>
+<td>[q</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[q</td>
-<td><Plug>(qf_qf_previous)zz</td>
+<td>[g</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -479,13 +473,13 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>]g</td>
+<td>]q</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]q</td>
-<td><Plug>(qf_qf_next)zz</td>
+<td>]g</td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -498,18 +492,18 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 <td><Cmd>bnext<CR></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Jump to line above cursor</td>
 <td>b</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>cs</td>
+<td>cr</td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>cr</td>
+<td>cs</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -523,7 +517,7 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Jump to word</td>
 <td>e</td>
 <td></td>
 </tr>
@@ -539,12 +533,32 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td>gL</td>
+<td>E</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gH</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td></td>
 <td>gcc</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>gc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gB</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gb</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -589,6 +603,26 @@ href="https://github.com/lumiliet/vim-twig.git">lumiliet/vim-twig</a></li>
 </tr>
 <tr class="even">
 <td></td>
+<td><M-4></td>
+<td><Cmd>BufferNav 4<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-3></td>
+<td><Cmd>BufferNav 3<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-2></td>
+<td><Cmd>BufferNav 2<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-1></td>
+<td><Cmd>BufferNav 1<CR></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><Plug>(MatchitNormalMultiForward)</td>
 <td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
 </tr>
@@ -615,86 +649,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(qf_qf_switch)</td>
-<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(qf_loc_toggle_stay)</td>
-<td>:<C-U> call qf#toggle#ToggleLocWindow(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(qf_loc_toggle)</td>
-<td>:<C-U> call qf#toggle#ToggleLocWindow(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(qf_qf_toggle_stay)</td>
-<td>:<C-U> call qf#toggle#ToggleQfWindow(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(qf_qf_toggle)</td>
-<td>:<C-U> call qf#toggle#ToggleQfWindow(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(qf_loc_next)</td>
-<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘l’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(qf_loc_previous)</td>
-<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘l’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(qf_qf_next)</td>
-<td>:<C-U> call qf#wrap#WrapCommand(‘down’, ‘c’)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(qf_qf_previous)</td>
-<td>:<C-U> call qf#wrap#WrapCommand(‘up’, ‘c’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>QfSwitch</td>
-<td>&amp;filetype ==# ‘qf’ ? ‘<C-W>p’ : ‘<C-W>b’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>QfLtoggle</td>
-<td><Plug>(qf_loc_toggle)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>QfCtoggle</td>
-<td><Plug>(qf_qf_toggle)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>QfLnext</td>
-<td><Plug>(qf_loc_next)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>QfLprevious</td>
-<td><Plug>(qf_loc_previous)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>QfCnext</td>
-<td><Plug>(qf_qf_next)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>QfCprevious</td>
-<td><Plug>(qf_qf_previous)</td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><C-W>f</td>
 <td><Cmd>ToggleTerm direction=float<CR></td>
 </tr>
@@ -710,65 +664,40 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-3></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-2></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-1></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><F3></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-4></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><F8></td>
 <td>gn@i</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><C-K></td>
 <td><Cmd>move .-2<CR>==</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><C-J></td>
 <td><Cmd>move .+1<CR>==</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-j></td>
 <td><C-D>M</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-k></td>
 <td><C-U>M</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><M-b></td>
 <td><CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><M-l></td>
 <td><Esc></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nvim builtin</td>
 <td><C-L></td>
 <td><Cmd>nohlsearch</td>
@@ -847,7 +776,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>y/“<CR></td>
 </tr>
 <tr class="even">
-<td>Jump to line above cursor</td>
+<td>Jump to line below cursor</td>
 <td>B</td>
 <td></td>
 </tr>
@@ -857,7 +786,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td>“_c</td>
 </tr>
 <tr class="even">
-<td>Jump to line below cursor</td>
+<td>Jump to word (ignore _)</td>
 <td>E</td>
 <td></td>
 </tr>
@@ -934,7 +863,7 @@ visual_mode=true<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Jump to line above cursor</td>
 <td>b</td>
 <td></td>
 </tr>
@@ -949,7 +878,7 @@ visual_mode=true<CR></td>
 <td>“_c</td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Jump to word</td>
 <td>e</td>
 <td></td>
 </tr>
@@ -962,6 +891,26 @@ visual_mode=true<CR></td>
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gL</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gH</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gB</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1078,12 +1027,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td><Plug>(MatchitOperationForward)</td>
 </tr>
 <tr class="even">
-<td>Jump to line above cursor</td>
+<td>Jump to line below cursor</td>
 <td>B</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Jump to line below cursor</td>
+<td>Jump to word (ignore _)</td>
 <td>E</td>
 <td></td>
 </tr>
@@ -1123,12 +1072,12 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
+<td>Jump to line above cursor</td>
 <td>b</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
+<td>Jump to word</td>
 <td>e</td>
 <td></td>
 </tr>
@@ -1141,6 +1090,26 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <td></td>
 <td>g%</td>
 <td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gL</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gH</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gB</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>gb</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>

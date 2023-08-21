@@ -3,12 +3,10 @@
 Use Neovim as a general purpose IDE
 
 - Install and initialize: **`lazyman -x CodeArt`**
-- Configuration category: [Starter](https://github.com/doctorfree/nvim-lazyman#starter-configurations)
+- Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-CodeArt`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -103,8 +101,8 @@ Use Neovim as a general purpose IDE
 |  | y | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR> |
 |  | z | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_line_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_visual_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <S-Tab> | :BufferLineCyclePrev<CR> |
 |  | <M-h> | <C-W><C-H> |
@@ -134,8 +132,8 @@ Use Neovim as a general purpose IDE
 |  | v | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)<CR> |
 |  | y | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR> |
 |  | z | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR> |
-|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_line_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_visual_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR> |
 
 #### operator mode keymaps
@@ -154,6 +152,6 @@ Use Neovim as a general purpose IDE
 |  | v | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)<CR> |
 |  | y | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR> |
 |  | z | <Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR> |
-|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_line_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR> |
+|  | <C-T> | <Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR> |
 |  | <Plug>kommentary_visual_default | <Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR> |

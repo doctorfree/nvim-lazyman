@@ -36,16 +36,13 @@ environment setup</p>
 <li>Install and initialize:
 <strong><code>lazyman -L Insis</code></strong></li>
 <li>Configuration category: <a
-href="https://github.com/doctorfree/nvim-lazyman#language-configurations">Language</a></li>
+href="https://lazyman.dev/configurations/#language-configurations">Language</a></li>
 <li>Base configuration: Custom</li>
 <li>Plugin manager: <a
 href="https://github.com/wbthomason/packer.nvim">Packer</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Insis</code></strong></li>
 </ul>
-<p><a
-href="https://github.com/doctorfree/nvim-lazyman/wiki/infodocs">Links to
-all Lazyman supported configuration documents</a></p>
 <h3 id="git-repository">Git repository</h3>
 <p><a
 href="https://github.com/nshen/InsisVim">https://github.com/nshen/InsisVim</a></p>
@@ -207,28 +204,48 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
+<td>bp</td>
+<td>:BufferLinePickClose<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bo</td>
+<td>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>bl</td>
+<td>:BufferLineCloseRight<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>bh</td>
+<td>:BufferLineCloseLeft<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>v</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>m</td>
 <td><Cmd>NvimTreeToggle<CR></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>tc</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>tb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ta</td>
 <td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>z</td>
-<td><Cmd>ZenMode<CR></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -262,28 +279,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td>v</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>bp</td>
-<td>:BufferLinePickClose<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>bo</td>
-<td>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>bl</td>
-<td>:BufferLineCloseRight<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>bh</td>
-<td>:BufferLineCloseLeft<CR></td>
+<td>z</td>
+<td><Cmd>ZenMode<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -569,28 +566,28 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-m></td>
-<td><Cmd>NvimTreeToggle<CR></td>
+<td><C-W></td>
+<td>:Bdelete!<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><C-H></td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><C-F></td>
 <td>:<Cmd>Telescope live_grep<CR></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><C-P></td>
 <td><Cmd>Telescope find_files<CR></td>
 </tr>
-<tr class="even">
-<td></td>
-<td><C-W></td>
-<td>:Bdelete!<CR></td>
-</tr>
 <tr class="odd">
 <td></td>
-<td><C-H></td>
-<td>:BufferLineCyclePrev<CR></td>
+<td><M-m></td>
+<td><Cmd>NvimTreeToggle<CR></td>
 </tr>
 <tr class="even">
 <td>Change a surrounding pair, putting replacements on new lines</td>

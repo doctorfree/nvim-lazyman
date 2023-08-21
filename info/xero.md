@@ -3,12 +3,10 @@
 Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fine example, as are many here, of the Unix Greybeard
 
 - Install and initialize: **`lazyman -w xero`**
-- Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
+- Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-xero`**
-
-[Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 
 ### Git repository
 
@@ -40,7 +38,6 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim.git)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim.git)
 - [~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
-- [nvim-lua/lsp-status.nvim](https://github.com/nvim-lua/lsp-status.nvim.git)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip.git)
 - [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
@@ -51,11 +48,12 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim.git)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs.git)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp.git)
-- [haringsrob/nvim_context_vt](https://github.com/haringsrob/nvim_context_vt.git)
+- [terrortylor/nvim-comment](https://github.com/terrortylor/nvim-comment.git)
 - [brenoprata10/nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors.git)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig.git)
 - [ojroques/nvim-osc52](https://github.com/ojroques/nvim-osc52.git)
 - [petertriho/nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar.git)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround.git)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git)
 - [RRethy/nvim-treesitter-textsubjects](https://github.com/RRethy/nvim-treesitter-textsubjects.git)
@@ -69,6 +67,7 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - [debugloop/telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim.git)
 - [levouh/tint.nvim](https://github.com/levouh/tint.nvim.git)
 - [aserowy/tmux.nvim](https://github.com/aserowy/tmux.nvim.git)
+- [xero/trouble.nvim](https://github.com/xero/trouble.nvim.git)
 - [rbong/vim-flog](https://github.com/rbong/vim-flog.git)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive.git)
 - [ojroques/vim-oscyank](https://github.com/ojroques/vim-oscyank.git)
@@ -84,14 +83,7 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | remove highlighting | <Esc><Esc> | :nohlsearch<CR> |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
-| toggle colorizer | ,c |  |
-| Find git files | ,/gf |  |
-| Search treesitter | ,/t |  |
-| Search keymaps | ,/k |  |
-| Search marks | ,/M |  |
-| Search highlights | ,/h |  |
-| Find files | ,/o |  |
-| Find files | ,/f |  |
+|  | , |  |
 | Search command history | ,/C |  |
 | Search commands | ,/c |  |
 | Resume FZF | ,// |  |
@@ -99,18 +91,37 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | Search git buffer commits | ,/gC |  |
 | Search git commits | ,/gc |  |
 | Search git branches | ,/gb |  |
+| Find git files | ,/gf |  |
+| Search treesitter | ,/t |  |
+| Search keymaps | ,/k |  |
+| Search marks | ,/M |  |
+| Search highlights | ,/h |  |
+| Find files | ,/o |  |
+| Find files | ,/f |  |
+| chmod +x buffer | ,x | :Chmodx<CR> |
 | toggle spell check | ,s | :Sp<CR> |
 | jq format | ,j | :%!jq .<CR> |
+|  | ,<Tab>[ | <Cmd>tabprevious<CR> |
+|  | ,<Tab>d | <Cmd>tabclose<CR> |
+|  | ,<Tab>] | <Cmd>tabnext<CR> |
+|  | ,<Tab><Tab> | <Cmd>tabnew<CR> |
+|  | ,<Tab>f | <Cmd>tabfirst<CR> |
+|  | ,<Tab>l | <Cmd>tablast<CR> |
+| prev match | N | Nzzzv |
+|  | Q |  |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
 |  | ]% | <Plug>(MatchitNormalMultiForward) |
 |  | g% | <Plug>(MatchitNormalBackward) |
+| next match | n | nzzzv |
 |  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
+| scroll up | <C-U> | <C-U>zz |
+| scroll down | <C-D> | <C-D>zz |
 | ios home key | <M-Left> | 0 |
-| exit buffer | <C-D> | :bd<CR> |
+| exit buffer | <C-X> | :bd<CR> |
 | prev buffer | <C-P> | :bp<CR> |
 | next buffer | <C-N> | :bn<CR> |
 | Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
@@ -122,6 +133,8 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | Nvim builtin | # | y?\V<C-R>"<CR> |
 |  | % | <Plug>(MatchitVisualForward) |
 | Nvim builtin | * | y/\V<C-R>"<CR> |
+| move block up | J | :m '>+1<CR>gv=gv |
+| move block down | K | :m '<lt>-2<CR>gv=gv |
 |  | [% | <Plug>(MatchitVisualMultiBackward) |
 |  | ]% | <Plug>(MatchitVisualMultiForward) |
 |  | a% | <Plug>(MatchitVisualTextObject) |
