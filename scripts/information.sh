@@ -512,8 +512,10 @@ make_info() {
       ;;
     Dillon)
       GH_URL="https://github.com/dmmulroy/dotfiles"
+      DF_URL="https://dotfyle.com/dmmulroy/dotfiles-config-nvim"
       CF_CAT="Personal"
       C_DESC="Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScript type-checking"
+      PL_MAN="Packer"
       C_INST="lazyman -w Dillon"
       ;;
     Elianiva)
