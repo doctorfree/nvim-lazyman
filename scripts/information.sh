@@ -182,7 +182,7 @@ make_info() {
       GH_URL="https://github.com/doctorfree/nvim-lazyman"
       NC_URL="http://neovimcraft.com/plugin/doctorfree/nvim-lazyman"
       DF_URL="https://dotfyle.com/doctorfree/nvim-lazyman"
-      WS_URL="https://ronrecord.com"
+      WS_URL="https://lazyman.dev"
       YT_URL="https://www.youtube.com/@doctorfree"
       CF_CAT="Default"
       C_DESC="The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides two separate and distinct namespaces ('free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'."
@@ -207,7 +207,7 @@ make_info() {
       ;;
     AstroNvimPlus)
       GH_URL="https://github.com/doctorfree/astronvim"
-      WS_URL="https://astronvim.com"
+      WS_URL="https://astronvim.lazyman.dev"
       CF_CAT="Base"
       CF_TYP="[AstroNvim](https://astronvim.com)"
       C_DESC="An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) plugins configuration"
@@ -228,7 +228,7 @@ make_info() {
       ;;
     LazyVim)
       GH_URL="https://github.com/LazyVim LazyVim/starter"
-      WS_URL="https://www.lazyvim.org"
+      WS_URL="https://lazyvim.lazyman.dev"
       CF_CAT="Base"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="The [LazyVim starter](https://github.com/LazyVim/starter) configuration"
@@ -236,7 +236,7 @@ make_info() {
       ;;
     LunarVim)
       GH_URL="https://github.com/IfCodingWereNatural/minimal-nvim"
-      WS_URL="https://www.lunarvim.org"
+      WS_URL="https://lunarvim.lazyman.dev"
       CF_CAT="Base"
       CF_TYP="[LunarVim](https://www.lunarvim.org)"
       C_DESC="Installs LunarVim plus the [IfCodingWereNatural custom user config](https://youtu.be/Qf9gfx7gWEY)"
@@ -244,7 +244,7 @@ make_info() {
       ;;
     NvChad)
       GH_URL="https://github.com/doctorfree/NvChad-custom"
-      WS_URL="https://nvchad.com"
+      WS_URL="https://nvchad.lazyman.dev"
       YT_URL="https://www.youtube.com/@siduck_og"
       CF_CAT="Base"
       CF_TYP="[NvChad](https://nvchad.com)"
@@ -374,7 +374,7 @@ make_info() {
       ;;
     LazyIde)
       GH_URL="https://github.com/doctorfree/nvim-LazyIde"
-      WS_URL="https://www.lazyvim.org"
+      WS_URL="https://ide.lazyman.dev"
       CF_CAT="Language"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim IDE config for Neovim"
@@ -462,7 +462,7 @@ make_info() {
       ;;
     Webdev)
       GH_URL="https://github.com/doctorfree/nvim-webdev"
-      WS_URL="https://www.lazyvim.org"
+      WS_URL="https://webdev.lazyman.dev"
       CF_CAT="Language"
       CF_TYP="[LazyVim](https://lazyvim.github.io)"
       C_DESC="LazyVim based config for web developers. JavaScript, Typescript, React, and Tailwind CSS support"
