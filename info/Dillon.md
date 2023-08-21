@@ -5,7 +5,7 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 - Install and initialize: **`lazyman -w Dillon`**
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
-- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
+- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-Dillon`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
@@ -14,8 +14,56 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 [https://github.com/dmmulroy/dotfiles](https://github.com/dmmulroy/dotfiles)
 
-### Lazy managed plugins
+### Dotfyle entry
 
+[https://dotfyle.com/dmmulroy/dotfiles-config-nvim](https://dotfyle.com/dmmulroy/dotfiles-config-nvim)
+
+### Packer managed plugins
+
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+- [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [antosha417/nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
+- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [dmmulroy/tsc.nvim](https://github.com/dmmulroy/tsc.nvim)
+- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [dmmulroy/vim-kitty-navigator](https://github.com/dmmulroy/vim-kitty-navigator)
+- [szw/vim-maximizer](https://github.com/szw/vim-maximizer)
+- [tpope/vim-surround](https://github.com/tpope/vim-surround)
+- [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
 ### Dillon Keymaps
 
@@ -23,6 +71,7 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  |  oc |  |
 | Illuminate: Goto previous reference |  [ |  |
 | Illuminate: Goto next reference |  ] |  |
 |  |  so | :SymbolsOutline<CR> |
@@ -58,11 +107,13 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | Quickfix [L]ist [D]iagnostics |  ld |  |
 |  |  d |  |
 |  |  no | <Cmd>noh<CR> |
-|  |  e | <Cmd>NvimTreeFindFileToggle<CR> |
+|  |  E | <Cmd>Neotree action=focus<CR> |
+|  |  e | <Cmd>Neotree toggle<CR> |
 |  |  z | <Cmd>wq<CR> |
 |  |  q | <Cmd>q<CR> |
 |  |  w | <Cmd>w<CR> |
 |  |   |  |
+|  | # | #zz |
 |  | % | <Plug>(MatchitNormalForward) |
 | Nvim builtin | & | :&&<CR> |
 |  | * | *zz |
@@ -70,7 +121,7 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 |  | H | ^ |
 |  | L | $ |
 |  | N | Nzz |
-|  | S | :%s/<C-R><C-W>//gI<Left><Left><Left> |
+|  | S |  |
 |  | U | <C-R> |
 | Nvim builtin | Y | y$ |
 |  | [% | <Plug>(MatchitNormalMultiBackward) |
