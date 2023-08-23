@@ -6,6 +6,26 @@
 
 ### 🐞 Fixed
 
+## v3.0.1r3
+
+### ⚡️ Added
+
+- Add note about Bash version on macOS
+- Initial support for arm architecture in `install_neovim.sh`
+- Add `scripts/check_patches.sh` to check patches
+- Add `-9` argument to `lazyman` to clone but not patch
+- Add `LamarVim` config
+- Link to new `lazyman.dev` websites
+
+### 🐞 Fixed
+
+- Remove no longer needed patches, redo `LaTeX` patch
+- Regenerate info docs, update `JustinNvim` patch
+- Regenerate info docs for `Dillon`
+- Add `Dillon` to Packer configs, fix `Dillon` info entry
+- Revise screenshot dimensions
+- Remove `lazyman.dev` website files, they are now in a separate repository
+
 ## v3.0.1r2
 
 ### ⚡️ Added
