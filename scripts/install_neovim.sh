@@ -40,11 +40,6 @@ check_prerequisites() {
   if [[ $EUID -eq 0 ]]; then
     abort "Script must not be run as root user"
   fi
-
-  architecture=$(uname -m)
-  if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
-    abort "Only amd64/x86_64 is supported"
-  fi
 }
 
 get_platform() {
@@ -483,6 +478,11 @@ install_neovim_dependencies() {
       # Things are so much easier with Homebrew
       brew_install lazygit
     else
+      if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+        larch="arm64"
+      else
+        larch="x86_64"
+      fi
       OWNER=jesseduffield
       PROJECT=lazygit
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
@@ -490,7 +490,7 @@ install_neovim_dependencies() {
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "Linux_x86_64\.tar\.gz$")
+          | grep "Linux_${larch}\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -851,6 +851,11 @@ install_tools() {
     if [ "${use_homebrew}" ]; then
       brew_install tealdeer
     else
+      if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+        larch="arm-musleabi"
+      else
+        larch="x86_64-musl"
+      fi
       OWNER=dbrgn
       PROJECT=tealdeer
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
@@ -858,7 +863,7 @@ install_tools() {
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "linux-x86_64-musl$")
+          | grep "linux-${larch}$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -1264,6 +1269,7 @@ have_zyp=$(type -p zypper)
 alltools=
 native=1
 proceed=
+architecture=$(uname -m)
 
 while getopts "adhnqy" flag; do
   case $flag in
