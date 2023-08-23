@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-This major new release of `lazyman` supports 101 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
+This major new release of `lazyman` supports over 100 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
 All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.1r2/lazyman.sh) script. Download and execute to get started:
 
@@ -11,7 +11,7 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 
 See below for detailed [Installation instructions](#installation) to bootstrap Lazyman. Once Lazyman is installed, execute the `lazyman` command to manage Neovim configurations. The `lazyman` command is located in `~/.local/bin/lazyman`.
 
-The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently 101 popular Neovim configurations are supported in the following configuration categories:
+The Lazyman project can be used to install, initialize, manage, and explore multiple Neovim configurations. Currently over 100 popular Neovim configurations are supported in the following configuration categories:
 
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
@@ -73,14 +73,14 @@ These steps:
 
 1. Download the Lazyman Neovim configuration
 1. Initialize the Lazyman Neovim configuration which:
-   1. Installs Homebrew if not already installed
+   1. Installs Homebrew if not already installed (macOS only)
    1. Installs the latest release version of Neovim if not already installed
    1. Installs language servers and tools for coding diagnostics
    1. Installs and initializes configured Neovim plugins
 
-Lazyman uses [Homebrew](https://brew.sh) to install Neovim if there is not already Neovim 0.9 or later installed and in the execution path. In addition, Lazyman uses Homebrew to install Neovim dependencies, language servers, and tools.
+Lazyman installs Neovim if there is not already Neovim 0.9 or later installed and in the execution path. In addition, Lazyman installs Neovim dependencies, some language servers, and tools.
 
-The installation of Homebrew, Neovim 0.9, language servers, and tools ensures a proper runtime environment. To avoid the installation of Homebrew, Neovim, language servers, and tools, execute `lazyman -Z`:
+The installation of Neovim 0.9, language servers, and tools ensures a proper runtime environment. To avoid the installation of Neovim, language servers, and tools, execute `lazyman -Z`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman

@@ -38,7 +38,7 @@ The nvims Neovim configuration fuzzy selector:
 </div>
 
 The Lazyman project can be used to install, initialize, and manage multiple
-Neovim configurations. 101 popular Neovim configurations are supported.
+Neovim configurations. Over 100 popular Neovim configurations are supported.
 
 See [what's new](#whats-new)
 
@@ -138,12 +138,24 @@ The `lazyman` Neovim configuration manager requires Neovim 0.9. The `lazyman`
 installation and initialization process checks for Neovim 0.9 and, if not
 found, installs it and required dependencies and tools.
 
-Lazyman requires Linux or macOS, git, and the Bash shell.
+Lazyman requires Linux or macOS, git, and the Bash shell version 4 or later.
 
 - Neovim 0.9 (automatically installed if not found)
 - Unix/Linux/macOS
-- Bash
+- Bash version 4 or later
 - Git
+
+### macOS users
+
+Even the latest versions of macOS ship with Bash 3.2 which dates from 2007.
+Update your system to use a modern Bash with Homebrew:
+
+```bash
+brew install bash
+```
+
+After installing Bash with Homebrew, make sure it is found first in your PATH.
+For example, `export PATH="/usr/local/bin:${PATH}"` or `export PATH="/opt/homebrew/bin:${PATH}"`.
 
 ## Installation
 
@@ -274,8 +286,7 @@ the `lazyman` command.
 View [details of each supported configuration](https://lazyman.dev/configurations)
 at the [Lazyman website](https://lazyman.dev).
 
-Currently 101 popular Neovim configurations are supported in the
-following configuration categories:
+Over 100 popular Neovim configurations are supported in the following configuration categories:
 
 <!-- prettier-ignore -->
 | **Base** |       |       |       | **Configs** |
