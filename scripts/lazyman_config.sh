@@ -463,7 +463,7 @@ select_theme_style() {
             mainmenu=1
             break 2
             ;;
-          "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
+          "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
@@ -600,7 +600,7 @@ select_theme() {
             mainmenu=1
             break 2
             ;;
-          "Quit",* | *,"Quit" | "quit",* | *,"quit")
+          "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
@@ -1785,7 +1785,7 @@ show_plugin_menu() {
           mainmenu=1
           break 2
           ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+        "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
@@ -1913,7 +1913,7 @@ show_lsp_menu() {
           mainmenu=1
           break 2
           ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+        "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
@@ -2048,7 +2048,7 @@ show_formlint_menu() {
           mainmenu=1
           break 2
           ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+        "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
@@ -2537,7 +2537,7 @@ show_conf_menu() {
           mainmenu=1
           break 2
           ;;
-        "Quit",* | *,"Quit" | "quit",* | *,"quit")
+        "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3

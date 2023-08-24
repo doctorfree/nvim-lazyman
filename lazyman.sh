@@ -1973,7 +1973,7 @@ show_vers_menu() {
     "OK"*,* | *,"OK"* | "ok"*,* | *,"ok"* | "Ok"*,* | *,"Ok"*)
       break
       ;;
-    "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
+    "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
       printf "\nExiting Lazyman\n"
       exit 0
       ;;
@@ -2593,7 +2593,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select and Install"*,* | *,"Select and Install"* | "install",* | *,"install" | "Install",* | *,"Install")
+      "Select and Install"*,* | *,"Select and Install"* | "install",* | *,"install" | "Install",* | *,"Install"| "i",* | *,"i")
         [ ${numunins} -gt 0 ] && {
           choice=$(printf "%s\n" "${uninstalled[@]}" | fzf --prompt=" Install Neovim Configuration  " --layout=reverse --border --exit-0)
           [ "${choice}" ] && install_config "${choice}"
@@ -2766,7 +2766,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open")
+      "Select and Open"*,* | *,"Select and Open"* | "open",* | *,"open" | "Open",* | *,"Open" | "o",* | *,"o")
         tput reset
         if [ "${USEGUI}" ]; then
           neovides
@@ -3102,7 +3102,7 @@ show_main_menu() {
         printf " done"
         break
         ;;
-      "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"*)
+      "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
         printf "\nExiting Lazyman\n"
         exit 0
         ;;
