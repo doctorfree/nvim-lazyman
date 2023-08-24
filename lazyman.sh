@@ -1275,7 +1275,28 @@ show_health() {
 
 open_info() {
   nviminfo="$1"
-  infourl="${LMANDIR}/info/html/${nviminfo}.html"
+  use_local=
+  infourl="https://lazyman.dev/info/${nviminfo}.html"
+  have_curl=$(type -p curl)
+  if [ "${have_curl}" ]
+  then
+    curl --head --silent --fail ${infourl} > /dev/null 2>&1 || {
+      infourl="${LMANDIR}/info/html/${nviminfo}.html"
+      use_local=1
+    }
+  else
+    have_wget=$(type -p wget)
+    if [ "${have_wget}" ]
+    then
+      wget --spider ${PAGE} 2>/dev/null || {
+        infourl="${LMANDIR}/info/html/${nviminfo}.html"
+        use_local=1
+      }
+    else
+      infourl="${LMANDIR}/info/html/${nviminfo}.html"
+      use_local=1
+    fi
+  fi
   platform=$(uname -s)
   if [ "${platform}" == "Darwin" ]; then
     if [ "${URL_OPEN_COMMAND}" ]; then
@@ -1297,10 +1318,12 @@ open_info() {
     # https://bugs.launchpad.net/snapd/+bug/1972762
     # It won't open documents in /tmp or hidden folders in $HOME
     # Copy the HTML documents to $HOME/tmp to open
-    [ -d "${HOME}/tmp" ] || mkdir -p "${HOME}/tmp"
-    [ -d "${HOME}/tmp/lazyman_html" ] || mkdir "${HOME}/tmp/lazyman_html"
-    cp "${LMANDIR}/info/html/${nviminfo}.html" "${HOME}/tmp/lazyman_html"
-    infourl="${HOME}/tmp/lazyman_html/${nviminfo}.html"
+    [ "${use_local}" ] && {
+      [ -d "${HOME}/tmp" ] || mkdir -p "${HOME}/tmp"
+      [ -d "${HOME}/tmp/lazyman_html" ] || mkdir "${HOME}/tmp/lazyman_html"
+      cp "${LMANDIR}/info/html/${nviminfo}.html" "${HOME}/tmp/lazyman_html"
+      infourl="${HOME}/tmp/lazyman_html/${nviminfo}.html"
+    }
     if [ "${URL_OPEN_COMMAND}" ]; then
       ${URL_OPEN_COMMAND} "${infourl}"
     else
@@ -3040,7 +3063,7 @@ show_main_menu() {
         show_info select
         break
         ;;
-      "Plugin Search",* | *,"Plugin Search" | "search"*,* | *,"search"* | "Search"*,* | *,"Search"*)
+      "Plugin Search",* | *,"Plugin Search" | "search"*,* | *,"search"* | "Search"*,* | *,"Search"* | "s",* | *,"s")
         select_search noexit
         break
         ;;
