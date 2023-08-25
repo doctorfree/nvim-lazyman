@@ -454,11 +454,11 @@ select_theme_style() {
             set_conf_value "theme_style" "${theme_style}"
             break 2
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"*)
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
-          "Main Menu"*,* | *,"Main Menu"*)
+          "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             mainmenu=1
             break 2
@@ -591,11 +591,11 @@ select_theme() {
             set_default_style "${theme}"
             break 2
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"*)
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
-          "Main Menu"*,* | *,"Main Menu"*)
+          "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
             mainmenu=1
             break 2
@@ -1760,7 +1760,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        "Open Lazyman",* | *,"Open Lazyman")
+        "Open Lazyman",* | *,"Open Lazyman" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="nvim-Lazyman" neovide
           else
@@ -1768,19 +1768,19 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "Config Menu"*,* | *,"Config Menu"*)
+        "Config Menu"*,* | *,"Config Menu"* | "c",* | *,"c")
           confmenu=1
           break 2
           ;;
-        "Formatters"*,* | *,"Formatters"*)
+        "Formatters"*,* | *,"Formatters"* | "f",* | *,"f")
           formenu=1
           break 2
           ;;
-        "LSP Servers"*,* | *,"LSP Servers"*)
+        "LSP Servers"*,* | *,"LSP Servers"* | "l",* | *,"l")
           lspmenu=1
           break 2
           ;;
-        "Main Menu"*,* | *,"Main Menu"*)
+        "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
@@ -1896,19 +1896,19 @@ show_lsp_menu() {
           pluginit=1
           break
           ;;
-        "Formatters Menu"*,* | *,"Formatters Menu"*)
+        "Formatters Menu"*,* | *,"Formatters Menu"* | "f",* | *,"f")
           formmenu=1
           break 2
           ;;
-        "Config Menu"*,* | *,"Config Menu"*)
+        "Config Menu"*,* | *,"Config Menu"* | "c",* | *,"c")
           confmenu=1
           break 2
           ;;
-        "Plugins Menu"*,* | *,"Plugins Menu"*)
+        "Plugins Menu"*,* | *,"Plugins Menu"* | "p",* | *,"p")
           plugmenu=1
           break 2
           ;;
-        "Main Menu"*,* | *,"Main Menu"*)
+        "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
@@ -2031,19 +2031,19 @@ show_formlint_menu() {
           pluginit=1
           break
           ;;
-        "LSP Servers"*,* | *,"LSP Servers"*)
+        "LSP Servers"*,* | *,"LSP Servers"* | "l",* | *,"l")
           lspsmenu=1
           break 2
           ;;
-        "Plugins Menu"*,* | *,"Plugins Menu"*)
+        "Plugins Menu"*,* | *,"Plugins Menu"* | "p",* | *,"p")
           plugmenu=1
           break 2
           ;;
-        "Config Menu"*,* | *,"Config Menu"*)
+        "Config Menu"*,* | *,"Config Menu"* | "c",* | *,"c")
           confmenu=1
           break 2
           ;;
-        "Main Menu"*,* | *,"Main Menu"*)
+        "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2
@@ -2504,7 +2504,7 @@ show_conf_menu() {
           }
           break
           ;;
-        "Open Lazyman",* | *,"Open Lazyman")
+        "Open Lazyman",* | *,"Open Lazyman" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="nvim-Lazyman" neovide
           else
@@ -2512,27 +2512,37 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Formatters"*,* | *,"Formatters"*)
+        "Formatters"*,* | *,"Formatters"* | "f",* | *,"f")
           formenu=1
           break 2
           ;;
-        "LSP Servers"*,* | *,"LSP Servers"*)
+        "LSP Servers"*,* | *,"LSP Servers"* | "l",* | *,"l")
           lspmenu=1
           break 2
           ;;
-        "Plugins Menu"*,* | *,"Plugins Menu"*)
+        "Plugins Menu"*,* | *,"Plugins Menu"* | "p",* | *,"p")
           plugmenu=1
           break 2
           ;;
-        "LazyIde Config",* | *,"LazyIde Config")
-          lidemenu=1
-          break 2
+        "LazyIde Config",* | *,"LazyIde Config" | "L",* | *,"L")
+          if [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ]
+          then
+            lidemenu=1
+            break 2
+          else
+            break
+          fi
           ;;
-        "Webdev Config",* | *,"Webdev Config")
-          wdevmenu=1
-          break 2
+        "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
+          if [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ]
+          then
+            wdevmenu=1
+            break 2
+          else
+            break
+          fi
           ;;
-        "Main Menu"*,* | *,"Main Menu"*)
+        "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
           mainmenu=1
           break 2

@@ -349,11 +349,11 @@ select_theme_style() {
             set_conf_value "theme_style" "${theme_style}"
             break 2
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"*)
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
-          "Main Menu"*,* | *,"Main Menu"*)
+          "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
             mainmenu=1
             break 2
@@ -486,11 +486,11 @@ select_theme() {
             set_default_style "${theme}"
             break 2
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"*)
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
-          "Main Menu"*,* | *,"Main Menu"*)
+          "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
             mainmenu=1
             break 2
@@ -910,7 +910,7 @@ show_conf_menu() {
           }
           break
           ;;
-        "Open LazyIde",* | *,"Open LazyIde")
+        "Open LazyIde",* | *,"Open LazyIde" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
             NVIM_APPNAME="nvim-LazyIde" neovide
           else
@@ -918,7 +918,7 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Main Menu"*,* | *,"Main Menu"*)
+        "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
           mainmenu=1
           break 2

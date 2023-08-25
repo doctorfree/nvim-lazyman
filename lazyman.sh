@@ -3084,16 +3084,16 @@ show_main_menu() {
         ${KILLNVIM}
         break
         ;;
-      "Lazyman Config",* | *,"Lazyman Config")
+      "Lazyman Config",* | *,"Lazyman Config" | "c",* | *,"c")
         confmenu=1
         break
         ;;
-      "LazyIde Config",* | *,"LazyIde Config")
-        lidemenu=1
+      "LazyIde Config",* | *,"LazyIde Config" | "L",* | *,"L")
+        [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && lidemenu=1
         break
         ;;
-      "Webdev Config",* | *,"Webdev Config")
-        wdevmenu=1
+      "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
+        [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && wdevmenu=1
         break
         ;;
       "Check for Updates",* | *,"Check for Updates")
