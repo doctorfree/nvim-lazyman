@@ -1983,7 +1983,7 @@ show_vers_menu() {
     fi
   }
   nveropts+=("OK")
-  nveropts+=("Quit")
+  nveropts+=("Quit (q)")
   select opt in "${nveropts[@]}"; do
     case "$opt,$REPLY" in
     "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
@@ -2233,9 +2233,9 @@ show_main_menu() {
     fi
 
     if [ "${iushort}" == "update" ]; then
-      shortcuts="help info open search update"
+      shortcuts="help/h info/I open/o search/s update/u"
     else
-      shortcuts="help info install open search update"
+      shortcuts="help/h info/I install/i open/o search/s update/u"
     fi
     [ ${numitems} -gt 1 ] && {
       options+=("Select and Remove")
@@ -2243,9 +2243,9 @@ show_main_menu() {
       options+=("Select and Update")
       options+=("Update Category")
       if [ "${iushort}" == "update" ]; then
-        shortcuts="help info open remove search update"
+        shortcuts="help/h info/I open/o remove/r search/s update/u"
       else
-        shortcuts="help info install open remove search update"
+        shortcuts="help/h info/I install/i open/o remove/r search/s update/u"
       fi
     }
     instcats=
@@ -2434,7 +2434,7 @@ show_main_menu() {
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
-    options+=("Quit")
+    options+=("Quit (q)")
 
     if [ ${showinstalled} -gt 0 ]; then
       neovims=""
@@ -2623,7 +2623,7 @@ show_main_menu() {
         }
         break
         ;;
-      "Select and Update"*,* | *,"Select and Update"* | "update",* | *,"update" | "Update",* | *,"Update")
+      "Select and Update"*,* | *,"Select and Update"* | "update",* | *,"update" | "Update",* | *,"Update" | "u",* | *,"u")
         choice=$(printf "%s\n" "${sorted[@]}" | fzf --prompt=" Update Neovim Config  " --layout=reverse --border --exit-0)
         [ "${choice}" ] && update_config "${choice}"
         break
@@ -2798,7 +2798,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Select and Remove"*,* | *,"Select and Remove"* | "remove",* | *,"remove" | "Remove",* | *,"Remove")
+      "Select and Remove"*,* | *,"Select and Remove"* | "remove",* | *,"remove" | "Remove",* | *,"Remove" | "r",* | *,"r")
         if [ "${USEGUI}" ]; then
           neovides -R
         else
@@ -3059,7 +3059,7 @@ show_main_menu() {
         fi
         break
         ;;
-      "Config Info",* | *,"Config Info" | "info",* | *,"info" | "Info",* | *,"Info")
+      "Config Info",* | *,"Config Info" | "info",* | *,"info" | "Info",* | *,"Info" | "I",* | *,"I")
         show_info select
         break
         ;;
