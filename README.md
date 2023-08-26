@@ -84,6 +84,10 @@ highlighting, completion, diagnostics, and more for many programming languages.
 The installation and initialization of Neovim configurations are placed in
 separate directories and managed using the `NVIM_APPNAME` environment variable.
 
+Note that a full installation and initialization of all supported
+Neovim configurations, plugins, language servers, formatters, linters,
+and tools will consume over 20GB of disk space.
+
 The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used
 to install, initialize, remove, and manage multiple Neovim configurations.
 
@@ -140,21 +144,22 @@ found, installs it and required dependencies and tools.
 
 Lazyman requires Linux or macOS, git, and the Bash shell version 4 or later.
 
-- Neovim 0.9 (automatically installed if not found)
 - Unix/Linux/macOS
-- Bash version 4 or later
+- Neovim 0.9 (automatically installed if not found)
+- Bash version 4 or later (automatically installed if not found)
 - Git
 
 ### macOS users
 
 Even the latest versions of macOS ship with Bash 3.2 which dates from 2007.
-Update your system to use a modern Bash with Homebrew:
+The Lazyman initialization process will update your system with a modern
+Bash using Homebrew:
 
 ```bash
 brew install bash
 ```
 
-After installing Bash with Homebrew, make sure it is found first in your PATH.
+The initialization process also makes sure it is found first in your PATH.
 For example, `export PATH="/usr/local/bin:${PATH}"` or `export PATH="/opt/homebrew/bin:${PATH}"`.
 
 ## Installation
@@ -564,11 +569,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All Adib Artur Beethoven Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim JustinNvim Kodo Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+           All Adib Artur Beethoven Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim JustinNvim Kodo LamarVim Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All 2k AstroNvimStart Basic CodeArt Cosmic Ember Fennel HardHacker JustinOhMy Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All 2k AstroNvimStart Barebones Basic CodeArt Cosmic Ember Fennel HardHacker JustinOhMy Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates use the following arguments as 'name'/'value' to set Lazyman config

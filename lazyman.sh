@@ -2025,7 +2025,10 @@ show_main_help() {
   fi
   printf "\nSelect and install/open/remove Neovim configurations managed by Lazyman."
   printf "\nEnter a menu option number or keywords to select an option."
-  printf "\nKeywords include: ${BOLD}help, info, install, open, remove search update${NORM}"
+  printf "\nKeywords include: ${BOLD}help, info, install, open, remove, search, update${NORM}"
+  printf "\nAll shortcuts have single key support:"
+  printf "\n  'h' = help, 'I' = info, 'i' = install, 'o' = open, 'q' = quit"
+  printf "\n  'r' = remove, 's' = search, 'u' = update, 'c' = Lazyman Config menu"
   printf "\nIn the fuzzy selection dialogs, enter a few letters to fuzzy select from the options"
   printf "\nor use the <Up-Arrow> and <Down-Arrow> keys to move through the options."
   printf "\nPress <Enter> to select the highlighted option.\n"
