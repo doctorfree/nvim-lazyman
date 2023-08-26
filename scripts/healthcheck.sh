@@ -3,17 +3,17 @@
 # healthcheck.sh [config name]
 #
 # Generate a Neovim configuration health check from the command line
-# If no configuraton name is given, use 'nvim-Lazyman'
+# If no configuraton name is given, use 'lazyman/Lazyman'
 #
-# Generated health checks are stored in ~/.config/nvim-Lazyman/logs/
+# Generated health checks are stored in ~/.config/lazyman/Lazyman/logs/
 
-LMANDIR="${HOME}/.config/nvim-Lazyman"
+LMANDIR="${HOME}/.config/lazyman/Lazyman"
 LOGDIR="${LMANDIR}/logs"
 [ -d "${LOGDIR}" ] || exit 1
 
-checkdir="nvim-Lazyman"
+checkdir="lazyman/Lazyman"
 [ "$1" ] && checkdir="$1"
-nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+nvimconf=$(echo "${checkdir}" | sed -e "s%lazyman/%%")
 HEALTH="health-${nvimconf}.md"
 
 export NVIM_APPNAME="${checkdir}"

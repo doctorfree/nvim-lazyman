@@ -3,11 +3,11 @@
 # check_nvims.sh [-a] [-u] [config name]
 #
 # Perform several checks of Lazyman Neovim configurations
-# If no configuraton name is given, use 'nvim-Lazyman'
+# If no configuraton name is given, use 'lazyman/Lazyman'
 #
 
 CONFDIR="${HOME}/.config"
-LMANDIR="${CONFDIR}/nvim-Lazyman"
+LMANDIR="${CONFDIR}/lazyman/Lazyman"
 CONFIG="${LMANDIR}/scripts/configrc"
 INFODIR="${LMANDIR}/info"
 HTMLDIR="${INFODIR}/html"
@@ -28,14 +28,14 @@ usage() {
   printf "\nWhere:"
   printf "\n\t-a indicates perform checks for all supported configs"
   printf "\n\t-u displays this usage message and exits"
-  printf "\n\t[conf] is the configuration name without the 'nvim-' prefix (default: Lazyman)\n\n"
+  printf "\n\t[conf] is the configuration name (default: Lazyman)\n\n"
   exit 1
 }
 
 check_info() {
   config="$1"
   isinst=
-  if [ -d ${CONFDIR}/nvim-${config} ]
+  if [ -d ${CONFDIR}/lazyman/${config} ]
   then
     printf "\n${config} installed"
     isinst=1
@@ -62,7 +62,7 @@ check_info() {
   fi
   if [ "${isinst}" ]
   then
-    export NVIM_APPNAME="nvim-${config}"
+    export NVIM_APPNAME="lazyman/${config}"
     status=$(nvim --headless -c 'set nomore' -c 'qa' 2>&1 | grep Error | grep -v 'Error detected while processing command line:')
     if [ "${status}" ]
     then
@@ -101,7 +101,7 @@ shift $(( OPTIND - 1 ))
   exit 0
 }
 
-checkdir="nvim-Lazyman"
+checkdir="lazyman/Lazyman"
 [ "$1" ] && checkdir="$1"
-conf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+conf=$(echo "${checkdir}" | sed -e "s%lazyman/%%")
 check_info "${conf}"
