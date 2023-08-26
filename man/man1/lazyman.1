@@ -82,9 +82,10 @@ enhanced \f[V]ls\f[R] command alias
 The \f[V]lazyman\f[R] command can be used to install, initialize, and
 manage multiple Neovim configurations.
 Neovim configurations are installed and initialized in separate
-subdirectories of \f[V]\[ti]/.config/\f[R] with associated separate
-subdirectories in \f[V]\[ti]/.local/share/\f[R],
-\f[V]\[ti]/.local/state/\f[R], and \f[V]\[ti]/.cache/\f[R].
+subdirectories of \f[V]\[ti]/.config/lazyman/\f[R] with associated
+separate subdirectories in \f[V]\[ti]/.local/share/lazyman/\f[R],
+\f[V]\[ti]/.local/state/lazyman/\f[R], and
+\f[V]\[ti]/.cache/lazyman/\f[R].
 .PP
 Note that a full installation and initialization of all supported Neovim
 configurations, plugins, language servers, formatters, linters, and
@@ -103,12 +104,13 @@ initialization file (typically \f[V]\[ti]/.bashrc\f[R] or
 .IP
 .nf
 \f[C]
-export NVIM_APPNAME=\[dq]<nvimdir>\[dq]
+export NVIM_APPNAME=\[dq]lazyman/<nvimdir>\[dq]
 \f[R]
 .fi
 .PP
 where \f[V]<nvimdir>\f[R] is the subdirectory in
-\f[V]\[ti]/.config/\f[R] that holds the desired Neovim configuration.
+\f[V]\[ti]/.config/lazyman/\f[R] that holds the desired Neovim
+configuration.
 For example, to use the \f[V]LazyVim\f[R] Neovim configuration in
 \f[V]\[ti]/.config/lazyman/LazyVim/\f[R] the export command would be:
 .IP
@@ -197,7 +199,7 @@ the Neovim configuration can be specified by setting \f[V]config\f[R] to
 one of \f[V]astronvim\f[R], \f[V]ecovim\f[R], \f[V]kickstart\f[R],
 \f[V]lazyman\f[R], \f[V]lazyvim\f[R], \f[V]lunarvim\f[R],
 \f[V]nvchad\f[R], \f[V]spacevim\f[R], or any Neovim configuration
-directory in \f[V]\[ti]/.config\f[R].
+directory in \f[V]\[ti]/.config/lazyman/\f[R].
 For example, to edit the file \f[V]foo.lua\f[R] using the LazyVim Neovim
 configuration:
 .IP

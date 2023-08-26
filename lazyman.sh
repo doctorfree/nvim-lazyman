@@ -4916,6 +4916,7 @@ install_remove() {
     ;;
   *)
     ndir="$invoke"
+    echo "$ndir" | grep lazyman/ > /dev/null || ndir="lazyman/$invoke"
     ;;
   esac
   [ -d "${HOME}/.config/${ndir}" ] || {
