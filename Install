@@ -1,10 +1,10 @@
 #!/bin/bash
 
-DESTDIR="${HOME}"/.config/nvim-Lazyman
+DESTDIR="${HOME}"/.config/lazyman/Lazyman
 if [ -d "${DESTDIR}" ]
 then
   echo "Existing ${DESTDIR} detected."
-  echo "Use the command 'lazyman -R -N nvim-Lazyman' to remove existing installation"
+  echo "Use the command 'lazyman -R -N lazyman/Lazyman' to remove existing installation"
   echo "After removing, re-run this command to install Lazyman"
   exit 1
 else

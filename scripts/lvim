@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export NVIM_APPNAME="${NVIM_APPNAME:-nvim-LunarVim}"
+export NVIM_APPNAME="${NVIM_APPNAME:-lazyman/LunarVim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-${HOME}/.local/share/${NVIM_APPNAME}}"
 export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-${HOME}/.config/${NVIM_APPNAME}}"
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-${HOME}/.cache/${NVIM_APPNAME}}"

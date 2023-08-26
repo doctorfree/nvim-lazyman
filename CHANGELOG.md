@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Move all Lazyman installed Neovim configurations into `~/.config/lazyman/` subdir
+
 ### 🐞 Fixed
 
 ## v3.0.1r4
