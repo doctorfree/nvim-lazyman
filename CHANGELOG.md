@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v3.0.1r4
+
+### ⚡️ Added
+
+- Add section on menu system usage, add note about disk space
+- Add single key menu navigation shortcuts for configuration menus
+- Add I, r, and u main menu shortcuts for info, remove, and update
+- Use lazyman.dev info document if it exists, add 's' main menu shortcut
+- Add q menu shortcut, i and o main menu shortcuts
+- Add LamarVim to Personals table, use lazyman.dev/info/ links
+
+### 🐞 Fixed
+
+- Fix nvim-tree view.mappings config
+- Fix table headings for Github Pages conversion
+
 ## v3.0.1r3
 
 ### ⚡️ Added
