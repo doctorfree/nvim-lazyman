@@ -6,7 +6,7 @@ Dan is a computer science student at Arizona State University
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Ember`**
+- Installation location:  **`~/.config/lazyman/Ember`**
 
 ### Git repository
 

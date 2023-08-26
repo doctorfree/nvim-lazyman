@@ -6,7 +6,7 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-NvChad`**
+- Installation location:  **`~/.config/lazyman/NvChad`**
 
 ### Git repository
 

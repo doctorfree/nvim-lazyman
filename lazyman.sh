@@ -3512,6 +3512,7 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYz
     ;;
   N)
     name="$OPTARG"
+    echo "${name}" | grep lazyman/ > /dev/null || name="lazyman/$OPTARG"
     ;;
   U)
     update=1

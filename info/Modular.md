@@ -6,7 +6,7 @@ Same as 'StartMason' but everything is split in modules
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Modular`**
+- Installation location:  **`~/.config/lazyman/Modular`**
 
 ### Git repository
 

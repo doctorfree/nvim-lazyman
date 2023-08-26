@@ -6,7 +6,7 @@
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Traap`**
+- Installation location:  **`~/.config/lazyman/Traap`**
 
 ### Git repository
 

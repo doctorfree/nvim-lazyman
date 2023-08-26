@@ -46,13 +46,13 @@ Neovim 0.9+
 install and manage the \f[V]Bob\f[R] neovim version manager via a menu
 interface
 .IP \[bu] 2
-richly configured \f[V]nvim-Lazyman\f[R] Neovim configuration
+richly configured \f[V]Lazyman\f[R] Neovim configuration
 .IP \[bu] 2
 interactive menu interface for ease of management
 .RS 2
 .IP \[bu] 2
-manage the \f[V]nvim-Lazyman\f[R], \f[V]nvim-LazyIde\f[R], and
-\f[V]nvim-Webdev\f[R] configs via menus
+manage the \f[V]Lazyman\f[R], \f[V]LazyIde\f[R], and \f[V]Webdev\f[R]
+configs via menus
 .IP \[bu] 2
 perform health checks and generate a status report via menus
 .RE
@@ -91,8 +91,8 @@ configurations, plugins, language servers, formatters, linters, and
 tools will consume over 20GB of disk space.
 .PP
 The \f[V]lazyman\f[R] Neovim configuration is installed as
-\f[V]\[ti]/.config/nvim-Lazyman\f[R] and the \f[V]lazyman\f[R] command
-is installed as \f[V]\[ti]/.local/bin/lazyman\f[R].
+\f[V]\[ti]/.config/lazyman/Lazyman\f[R] and the \f[V]lazyman\f[R]
+command is installed as \f[V]\[ti]/.local/bin/lazyman\f[R].
 .PP
 The Neovim configuration used by the \f[V]nvim\f[R] command is
 determined by the \f[V]NVIM_APPNAME\f[R] environment variable (Neovim
@@ -110,11 +110,11 @@ export NVIM_APPNAME=\[dq]<nvimdir>\[dq]
 where \f[V]<nvimdir>\f[R] is the subdirectory in
 \f[V]\[ti]/.config/\f[R] that holds the desired Neovim configuration.
 For example, to use the \f[V]LazyVim\f[R] Neovim configuration in
-\f[V]\[ti]/.config/nvim-LazyVim/\f[R] the export command would be:
+\f[V]\[ti]/.config/lazyman/LazyVim/\f[R] the export command would be:
 .IP
 .nf
 \f[C]
-export NVIM_APPNAME=\[dq]nvim-LazyVim\[dq]
+export NVIM_APPNAME=\[dq]lazyman/LazyVim\[dq]
 \f[R]
 .fi
 .PP
@@ -122,13 +122,13 @@ In addition to exporting NVIM_APPNAME in your shell initialization file,
 you may wish to create aliases to execute with the various Neovim
 configurations you have installed.
 For example, aliases could be created to use Neovim configurations
-installed in \f[V]\[ti]/.config/nvim-LazyVim\f[R] and
-\f[V]\[ti]/.config/nvim-LunarVim\f[R] as follows:
+installed in \f[V]\[ti]/.config/lazyman/LazyVim\f[R] and
+\f[V]\[ti]/.config/lazyman/LunarVim\f[R] as follows:
 .IP
 .nf
 \f[C]
-alias nvim-lazy=\[dq]NVIM_APPNAME=nvim-LazyVim nvim\[dq]
-alias nvim-lunar=\[dq]NVIM_APPNAME=nvim-LunarVim nvim\[dq]
+alias nvim-lazy=\[dq]NVIM_APPNAME=lazyman/LazyVim nvim\[dq]
+alias nvim-lunar=\[dq]NVIM_APPNAME=lazyman/LunarVim nvim\[dq]
 \f[R]
 .fi
 .PP
@@ -143,7 +143,7 @@ It also creates an \f[V]nvims\f[R] shell function which dynamically
 creates a fuzzy searchable menu of installed Neovim configurations and
 launches Neovim with the selected Lazyman Neovim configuration.
 .PP
-See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
+See \f[V]\[ti]/.config/lazyman/Lazyman/.lazymanrc\f[R].
 .PP
 Similarly, a \f[V]neovides\f[R] shell function can be used to select a
 Neovim configuration for use with the Neovim GUI \f[V]neovide\f[R].
@@ -479,13 +479,13 @@ default browser
 Commands act on \f[V]NVIM_APPNAME\f[R], override with \[aq]-N
 nvimdir\[aq] or \[aq]-A\[aq]
 .PP
-Without arguments lazyman installs and initializes nvim-Lazyman or, if
+Without arguments lazyman installs and initializes Lazyman or, if
 initialized presents an interactive menu system.
 .SS EXAMPLES
 .PP
-\f[V]$HOME/.config/nvim-Lazyman/lazyman.sh\f[R] : initializes the
+\f[V]$HOME/.config/lazyman/Lazyman/lazyman.sh\f[R] : initializes the
 \f[V]Lazyman\f[R] Neovim configuration in
-\f[V]$HOME/.config/nvim-Lazyman/\f[R]
+\f[V]$HOME/.config/lazyman/Lazyman/\f[R]
 .PP
 \f[V]lazyman\f[R] : presents an interactive menu interface
 .PP
@@ -497,13 +497,13 @@ configuration to open
 .PP
 \f[V]lazyman -a\f[R] : installs and initializes the
 \f[V]AstroNvimPlus\f[R] Neovim configuration in
-\f[V]$HOME/.config/nvim-AstroNvimPlus/\f[R]
+\f[V]$HOME/.config/lazyman/AstroNvimPlus/\f[R]
 .PP
 \f[V]lazyman -c\f[R] : installs and initializes the \f[V]NvChad\f[R]
-Neovim configuration in \f[V]$HOME/.config/nvim-NvChad/\f[R]
+Neovim configuration in \f[V]$HOME/.config/lazyman/NvChad/\f[R]
 .PP
 \f[V]lazyman -l\f[R] : installs and initializes the \f[V]LazyVim\f[R]
-Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]
+Neovim configuration in \f[V]$HOME/.config/lazyman/LazyVim/\f[R]
 .PP
 \f[V]lazyman -A\f[R] : installs and initializes all supported Neovim
 configurations
@@ -511,18 +511,18 @@ configurations
 \f[V]lazyman -I\f[R] : installs language servers and tools for coding
 diagnostics
 .PP
-\f[V]lazyman -U -N nvim-LazyVim\f[R] : updates the \f[V]LazyVim\f[R]
-Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R]
+\f[V]lazyman -U -N LazyVim\f[R] : updates the \f[V]LazyVim\f[R] Neovim
+configuration in \f[V]$HOME/.config/lazyman/LazyVim/\f[R]
 .PP
 \f[V]lazyman -A -U\f[R] : updates all installed supported Neovim
 configurations
 .PP
-\f[V]lazyman -P -C https://github.com/Abstract-IDE/Abstract -N nvim-Abstract\f[R]
+\f[V]lazyman -P -C https://github.com/Abstract-IDE/Abstract -N Abstract\f[R]
 : installs and initializes the Packer based \[aq]Abstract\[aq] Neovim
-configuration in \f[V]\[ti]/.config/nvim-Abstract\f[R]
+configuration in \f[V]\[ti]/.config/lazyman/Abstract\f[R]
 .PP
-\f[V]lazyman -R -N nvim-LazyVim\f[R] : removes the \f[V]LazyVim\f[R]
-Neovim configuration in \f[V]$HOME/.config/nvim-LazyVim/\f[R], its data
+\f[V]lazyman -R -N LazyVim\f[R] : removes the \f[V]LazyVim\f[R] Neovim
+configuration in \f[V]$HOME/.config/lazyman/LazyVim/\f[R], its data
 files, cache, state, and all backups
 .PP
 Sometimes people place their Neovim configuration in a repository
@@ -537,29 +537,29 @@ assumed to be \f[V]master\f[R].
 For example, to install and initialize the Neovim configuration hosted
 at <https://github.com/alanRizzo/dot-files> in the subdirectory
 \f[V]nvim\f[R] with default branch \f[V]main\f[R], place it in
-\f[V]\[ti]/.config/nvim-AlanVim\f[R], and initialize it with Packer:
+\f[V]\[ti]/.config/lazyman/AlanVim\f[R], and initialize it with Packer:
 .IP
 .nf
 \f[C]
-lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N nvim-AlanVim -P
+lazyman -b main -C https://github.com/alanRizzo/dot-files -D nvim -N AlanVim -P
 \f[R]
 .fi
 .SS CONFIGURATION
 .PP
 In addition to the \f[V]lazyman\f[R] command, the Lazyman distribution
 includes a richly preconfigured Neovim configuration in
-\f[V]\[ti]/.config/nvim-Lazyman\f[R].
+\f[V]\[ti]/.config/lazyman/Lazyman\f[R].
 The Lazyman Neovim configuration includes a top-level configuration
-file, \f[V]\[ti]/.config/nvim-Lazyman/lua/configuration.lua\f[R].
-This file can be use to enable, disable, and configure
-\f[V]nvim-Lazyman\f[R] components.
+file, \f[V]\[ti]/.config/lazyman/Lazyman/lua/configuration.lua\f[R].
+This file can be use to enable, disable, and configure \f[V]Lazyman\f[R]
+components.
 For example, here is where you would configure whether
 \f[V]neo-tree\f[R] or \f[V]nvim-tree\f[R] is enabled as a file explorer.
 Or, disable the \f[V]tabline\f[R], disable the \f[V]statusline\f[R], set
 the \f[V]colorscheme\f[R], \f[V]theme\f[R], and theme style.
 The \f[V]configuration.lua\f[R] file is intended to serve as a quick and
-easy way to re-configure the \f[V]nvim-Lazyman\f[R] Neovim configuration
-but you can still dig down into the \f[V]options.lua\f[R],
+easy way to re-configure the \f[V]Lazyman\f[R] Neovim configuration but
+you can still dig down into the \f[V]options.lua\f[R],
 \f[V]keymaps.lua\f[R], \f[V]autocmds.lua\f[R] and more.
 .SS Configuration sections
 .PP
@@ -599,7 +599,7 @@ This setting is configurable via the \f[V]lazyman\f[R] menu system, as
 are most of the \f[V]Lazyman\f[R] configuration settings.
 .SS Theme configuration
 .PP
-The \f[V]nvim-Lazyman\f[R] Neovim configuration includes pre-configured
+The \f[V]Lazyman\f[R] Neovim configuration includes pre-configured
 support for several themes including support for statusline and tabline
 theme coordination.
 The active theme and colorscheme is selected in
@@ -741,8 +741,8 @@ spectrum
 .RE
 .SS Plugin configuration
 .PP
-Several Neovim plugins in the \f[V]nvim-Lazyman\f[R] configuration can
-be optionally installed or replaced by another plugin with similar
+Several Neovim plugins in the \f[V]Lazyman\f[R] configuration can be
+optionally installed or replaced by another plugin with similar
 functionality.
 The plugins that are configurable in this way in
 \f[V]configuration.lua\f[R] are briefly described below along with their
@@ -959,7 +959,7 @@ This Neovim terminal is preconfigured for execution of the
 \f[V]lazyman\f[R] command.
 A shortcut key binding to execute \f[V]lazyman\f[R] in a Neovim terminal
 has also been provided: (\f[V]<leader>lm\f[R]).
-While in Neovim with the default \f[V]nvim-Lazyman\f[R] configuration,
+While in Neovim with the default \f[V]Lazyman\f[R] configuration,
 pressing \f[V],lm\f[R] will execute the \f[V]lazyman\f[R] command in a
 Neovim floating terminal window.
 Alternately, executing the Neovim command \f[V]:Lazyman\f[R] will also
@@ -986,11 +986,10 @@ This preconfigured Neovim terminal capability is only available in the
 .SS Help
 .PP
 The Lazyman Neovim configuration provides \f[V]vimdoc\f[R] help for the
-\f[V]lazyman\f[R] command, the \f[V]nvim-Lazyman\f[R] Neovim
-configuration, the \f[V]nvims\f[R] shell function, and the configured
-keymaps.
+\f[V]lazyman\f[R] command, the \f[V]Lazyman\f[R] Neovim configuration,
+the \f[V]nvims\f[R] shell function, and the configured keymaps.
 .PP
-While in Neovim using the \f[V]nvim-Lazyman\f[R] configuration, view the
+While in Neovim using the \f[V]Lazyman\f[R] configuration, view the
 \f[V]vimdoc\f[R] help for the \f[V]lazyman\f[R] command and
 configuration with the command \f[V]:help Lazyman\f[R], view
 \f[V]vimdoc\f[R] help for \f[V]nvims\f[R] with \f[V]:help Nvims\f[R],

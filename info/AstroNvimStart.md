@@ -6,7 +6,7 @@ Default AstroNvim example configuration
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-AstroNvimStart`**
+- Installation location:  **`~/.config/lazyman/AstroNvimStart`**
 
 ### Git repository
 
