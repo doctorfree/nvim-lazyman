@@ -2,7 +2,6 @@
 
 ```bash
 # Install lazyman with the following commands:
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```
@@ -170,7 +169,6 @@ The Lazyman installation process consists of two steps.
 Step 1, clone the Lazyman repository:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 ```
 
@@ -210,7 +208,6 @@ To install Neovim, dependencies, and tools using Homebrew rather than the
 native package manger, invoke `lazyman` with the `-h` option when initializing:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh -h
 ```
@@ -218,7 +215,6 @@ $HOME/.config/lazyman/Lazyman/lazyman.sh -h
 To compile and install the nightly build of Neovim, use the `-H` option:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh -H
 ```
@@ -228,7 +224,6 @@ runtime environment. To avoid the installation of Homebrew, Neovim, language
 servers, and tools altogether, execute `lazyman -Z`:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh -Z
 ```
@@ -261,7 +256,6 @@ The recommended bootstrap procedure is with `git`:
 Clone the repository with `git` and execute `lazyman.sh`:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```

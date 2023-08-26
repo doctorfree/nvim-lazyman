@@ -743,6 +743,9 @@ remove_config() {
 apply_patch() {
   patchdir="$1"
   [ "${nopatch}" ] || {
+    [ -f "${LMANDIR}"/scripts/patches/${patchdir}.patch ] || {
+      patchdir=$(echo "${patchdir}" | sed -e "s%lazyman/%%")
+    }
     [ -f "${LMANDIR}"/scripts/patches/${patchdir}.patch ] && {
       [ -x "${LMANDIR}"/scripts/patch_config.sh ] && {
         "${LMANDIR}"/scripts/patch_config.sh "${patchdir}"

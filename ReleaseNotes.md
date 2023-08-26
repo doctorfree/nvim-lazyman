@@ -7,7 +7,6 @@ This major new release of `lazyman` supports over 100 Neovim configurations. The
 All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v4.0.0r1/lazyman.sh) script. Download and execute to get started:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```
@@ -70,7 +69,6 @@ The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used to 
 The Lazyman installation process consists of two steps:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```
@@ -89,7 +87,6 @@ Lazyman installs Neovim if there is not already Neovim 0.9 or later installed an
 The installation of Neovim 0.9, language servers, and tools ensures a proper runtime environment. To avoid the installation of Neovim, language servers, and tools, execute `lazyman -Z`:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh -Z
 ```
@@ -107,7 +104,6 @@ The recommended bootstrap procedure is with `git`:
 Clone the repository with `git` and execute `lazyman.sh`:
 
 ```bash
-mkdir -p $HOME/.config/lazyman
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```

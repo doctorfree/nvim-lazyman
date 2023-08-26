@@ -51,7 +51,8 @@ command -v nvim > /dev/null && {
     while IFS= read -r ndir
     do
       [ -d ${HOME}/.config/${ndir} ] && {
-        alias ${ndir}="NVIM_APPNAME=${ndir} nvim"
+        adir=$(basename $ndir)
+        alias ${adir}="NVIM_APPNAME=${ndir} nvim"
         entry=$(echo ${ndir} | sed -e "s%lazyman/%%")
         items+=("${entry}")
         ndirs+=("${ndir}")
