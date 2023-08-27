@@ -8,7 +8,9 @@
 
 LAZYMAN="lazyman/Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
+OMANDIR="${HOME}/.config/nvim-Lazyman"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
+OVIMDIRS="${OMANDIR}/.nvimdirs"
 LZYMANRC="${LMANDIR}/.lazymanrc"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
@@ -593,6 +595,109 @@ remove_nvimdirs_entry() {
       cp /tmp/nvimdirs$$ "${NVIMDIRS}"
       rm -f /tmp/nvimdirs$$
     }
+  }
+}
+
+move_config() {
+  ndir="$1"
+  [ "${ndir}" == "nvim" ] && return
+  newdir=$(echo "${ndir}" | sed -e "s/nvim-//")
+  newdir="lazyman/${newdir}"
+  [ -d "${HOME}/.config/$ndir" ] && {
+    if [ -d "${HOME}/.config/$newdir" ]
+    then
+      [ "$quiet" ] || {
+        printf "\nRemoving existing ${ndir} config at ${HOME}/.config/${ndir}"
+      }
+      [ "$tellme" ] || {
+        rm -rf "${HOME}/.config/$ndir"
+      }
+    else
+      [ "$quiet" ] || {
+        printf "\nMoving existing ${ndir} config at ${HOME}/.config/${ndir}"
+      }
+      [ "$tellme" ] || {
+        mv "${HOME}/.config/$ndir" "${HOME}/.config/$newdir"
+      }
+    fi
+  }
+  [ "$quiet" ] || {
+    printf "\nRemoving any ${ndir} config backups"
+  }
+  [ "$tellme" ] || {
+    rm -rf "${HOME}/.config/$ndir"-bak*
+    rm -rf "${HOME}/.config/$ndir".old
+  }
+
+  [ -d "${HOME}/.local/share/$ndir" ] && {
+    if [ -d "${HOME}/.local/share/$newdir" ]
+    then
+      [ "$quiet" ] || {
+        printf "\nRemoving existing ${ndir} plugins at ${HOME}/.local/share/${ndir}"
+      }
+      [ "$tellme" ] || {
+        rm -rf "${HOME}/.local/share/$ndir"
+      }
+    else
+      [ "$quiet" ] || {
+        printf "\nMoving existing ${ndir} plugins at ${HOME}/.local/share/${ndir}"
+      }
+      [ "$tellme" ] || {
+        mv "${HOME}/.local/share/$ndir" "${HOME}/.local/share/$newdir"
+      }
+    fi
+  }
+  [ "$quiet" ] || {
+    printf "\nRemoving any ${ndir} plugins backups"
+  }
+  [ "$tellme" ] || {
+    rm -rf "${HOME}/.local/share/$ndir"-bak*
+    rm -rf "${HOME}/.local/share/$ndir".old
+  }
+
+  [ -d "${HOME}/.local/state/$ndir" ] && {
+    if [ -d "${HOME}/.local/state/$newdir" ]
+    then
+      [ "$quiet" ] || {
+        printf "\nRemoving existing ${ndir} state at ${HOME}/.local/state/${ndir}"
+      }
+      [ "$tellme" ] || {
+        rm -rf "${HOME}/.local/state/$ndir"
+      }
+    else
+      [ "$quiet" ] || {
+        printf "\nMoving existing ${ndir} state at ${HOME}/.local/state/${ndir}"
+      }
+      [ "$tellme" ] || {
+        mv "${HOME}/.local/state/$ndir" "${HOME}/.local/state/$newdir"
+      }
+    fi
+  }
+  [ "$quiet" ] || {
+    printf "\nRemoving any ${ndir} state backups"
+  }
+  [ "$tellme" ] || {
+    rm -rf "${HOME}/.local/state/$ndir"-bak*
+    rm -rf "${HOME}/.local/state/$ndir".old
+  }
+
+  [ -d "${HOME}/.cache/$ndir" ] && {
+    [ "$quiet" ] || {
+      printf "\nRemoving existing ${ndir} cache at ${HOME}/.cache/${ndir}"
+    }
+    [ "$tellme" ] || {
+      rm -rf "${HOME}/.cache/$ndir"
+    }
+  }
+  [ "$quiet" ] || {
+    printf "\nRemoving any ${ndir} cache backups"
+  }
+  [ "$tellme" ] || {
+    rm -rf "${HOME}/.cache/$ndir"-bak*
+    rm -rf "${HOME}/.cache/$ndir".old
+  }
+  [ "$tellme" ] || {
+    add_nvimdirs_entry "$newdir"
   }
 }
 
@@ -3232,6 +3337,45 @@ set_starter_branch() {
   esac
 }
 
+migrate_configs() {
+  if [ -f ${OVIMDIRS} ]
+  then
+    numold=$(grep -v nvim-Lazyman ${OVIMDIRS} | grep -v ^$ | wc -l)
+  else
+    numold=0
+  fi
+  [ ${numold} -gt 0 ] && {
+    migrate=
+    printf "\nLazyman version 4 introduced a new Neovim configuration location:"
+    printf "\n\t${HOME}/.config/lazyman/<configuration name>/\n"
+    printf "\n${numold} previously installed configurations detected."
+    printf "\nThese can be migrated to the new configuration location.\n"
+    while true; do
+      read -r -p "Migrate ${numold} configurations ? (y/n) " yn
+      case $yn in
+      [Yy]*)
+        migrate=1
+        break
+        ;;
+      [Nn]*)
+        printf "\nSkipping migration\n"
+        break
+        ;;
+      *)
+        printf "\nPlease answer yes or no.\n"
+        ;;
+      esac
+    done
+    [ "${migrate}" ] && {
+      cat "${OVIMDIRS}" | while read nvimdir; do
+        [ "${nvimdir}" == "nvim-Lazyman" ] && continue
+        move_config "$nvimdir"
+      done
+      migrated=1
+    }
+  }
+}
+
 all=
 branch=
 instnvim=1
@@ -4973,6 +5117,13 @@ have_git=$(type -p git)
 }
 
 interactive=
+migrated=
+[ -f "${LMANDIR}/.initialized" ] || {
+  [ -f "${OMANDIR}/.initialized" ] && {
+    # An initialized earlier Lazyman install has been found. Migrate configs.
+    migrate_configs
+  }
+}
 numvimdirs=${#neovimdir[@]}
 [ ${numvimdirs} -eq 0 ] && {
   neovimdir=("${LAZYMAN}")
