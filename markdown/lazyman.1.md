@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
+lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install [bob]] [migrate] [open] [remove] [search] [status] [usage]
 
 ## FEATURES
 
@@ -315,6 +315,8 @@ The following command line options are available with the `lazyman` command:
 `install` : fuzzy search and select configuration to install
 
 `install bob` : install the Bob Neovim version manager
+
+`migrate` : move v3 or earlier installed configurations to v4 location
 
 `open` : fuzzy search and select configuration to open
 

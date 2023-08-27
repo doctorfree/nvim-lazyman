@@ -62,7 +62,7 @@ brief_usage() {
   printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
-  printf "\n   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]"
+  printf "\n   [health] [info] [init] [install [bob]] [migrate] [open] [remove] [search] [status] [usage]"
   [ "$1" == "noexit" ] || exit 1
 }
 
@@ -145,6 +145,7 @@ usage() {
   printf "\n    'init' initialize specified Neovim configuration and exit"
   printf "\n    'install' fuzzy search and select configuration to install"
   printf "\n    'install bob' install the Bob Neovim version manager"
+  printf "\n    'migrate' move v3 or earlier installed configurations to v4 location"
   printf "\n    'open' fuzzy search and select configuration to open"
   printf "\n    'remove' fuzzy search and select configuration to remove"
   printf "\n    'search' fuzzy search and select configurations for a plugin"
@@ -566,6 +567,11 @@ init_neovim() {
   [ "${neodir}" == "${LAZYMAN}" ] && {
     [ -f "${LMANDIR}/.initialized" ] || {
       touch "${LMANDIR}/.initialized"
+    }
+    [ "${migrated}" ] && {
+      [ -d "${OMANDIR}" ] && {
+        rm -rf "${OMANDIR}"
+      }
     }
   }
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
@@ -3358,7 +3364,9 @@ migrate_configs() {
         break
         ;;
       [Nn]*)
-        printf "\nSkipping migration\n"
+        printf "\nSkipping migration"
+        printf "\nTo migrate these configurations later, run 'lazyman migrate'\n"
+        prompt_continue
         break
         ;;
       *)
@@ -3367,6 +3375,9 @@ migrate_configs() {
       esac
     done
     [ "${migrate}" ] && {
+      [ -d "${HOME}/.config/lazyman" ] || mkdir -p "${HOME}/.config/lazyman"
+      [ -d "${HOME}/.local/share/lazyman" ] || mkdir -p "${HOME}/.local/share/lazyman"
+      [ -d "${HOME}/.local/state/lazyman" ] || mkdir -p "${HOME}/.local/state/lazyman"
       cat "${OVIMDIRS}" | while read nvimdir; do
         [ "${nvimdir}" == "nvim-Lazyman" ] && continue
         move_config "$nvimdir"
@@ -3748,6 +3759,12 @@ fi
   else
     select_install
   fi
+  exit 0
+}
+
+[ "$1" == "migrate" ] && {
+  migrated=
+  migrate_configs
   exit 0
 }
 
