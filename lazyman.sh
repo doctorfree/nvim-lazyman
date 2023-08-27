@@ -427,10 +427,11 @@ init_neovim() {
 
   [ "${skipthis}" ] || {
     if [ "$debug" ]; then
-      LOG="${LMANDIR}/logs/${neodir}"
+      cfgnam=$(basename "${neodir}")
+      LOG="${LMANDIR}/logs/${cfgnam}"
       [ "$quiet" ] || {
         printf "\nInitializing configuration in debug mode."
-        printf "\nLogging output in ${LMANDIR}/logs/${neodir}"
+        printf "\nLogging output in ${LMANDIR}/logs/${cfgnam}"
       }
       [ -d ${LMANDIR}/logs ] || mkdir -p ${LMANDIR}/logs
       START_SECONDS=$(date +%s)
