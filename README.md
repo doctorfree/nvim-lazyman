@@ -510,7 +510,7 @@ Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]
    [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]
    [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]
-   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
+   [health] [info] [init] [install [bob]] [migrate] [open] [remove] [search] [status] [usage]
 Where:
     -A indicates install all supported Neovim configurations
     -a indicates install and initialize AstroNvimPlus Neovim configuration
@@ -558,7 +558,7 @@ Where:
     -J indicates install indicated repo as an AstroNvim custom configuration
     -L 'lang' indicates install the 'lang' Language configuration
        'lang' can be one of:
-           All AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev
+           All
     -r indicates remove the previously installed configuration
     -R indicates remove previously installed configuration and backups
     -C 'url' specifies a URL to a Neovim configuration git repository
@@ -569,11 +569,11 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All Adib Artur Beethoven Brain Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim JustinNvim Kodo LamarVim Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+           All
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All 2k AstroNvimStart Barebones Basic CodeArt Cosmic Ember Fennel HardHacker JustinOhMy Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates use the following arguments as 'name'/'value' to set Lazyman config
@@ -588,6 +588,7 @@ Where:
     'init' initialize specified Neovim configuration and exit
     'install' fuzzy search and select configuration to install
     'install bob' install the Bob Neovim version manager
+    'migrate' move v3 or earlier installed configurations to v4 location
     'open' fuzzy search and select configuration to open
     'remove' fuzzy search and select configuration to remove
     'search' fuzzy search and select configurations for a plugin
@@ -626,7 +627,7 @@ manager invoke `lazyman` with the `-p` flag. See the [Plug](#plug) section below
 
 To update a previously installed Lazyman Neovim configuration execute
 `lazyman -U -N <nvimdir>` to update the Neovim configuration in
-`~/.config/<nvimdir>`, `lazyman -U -A` to update all configurations,
+`~/.config/lazyman/<nvimdir>`, `lazyman -U -A` to update all configurations,
 or `lazyman -U` to update the `lazyman/Lazyman` configuration. Updates
 retrieve any newly modified files from the respective Github repository
 while preserving local modifications. Note, if a file has been modified
@@ -1538,8 +1539,9 @@ command -v nvim > /dev/null && {
     while IFS= read -r ndir
     do
       [ -d ${HOME}/.config/${ndir} ] && {
-        alias ${ndir}="NVIM_APPNAME=${ndir} nvim"
-        entry=$(echo ${ndir} | sed -e "s/nvim-//")
+        adir=$(basename $ndir)
+        alias ${adir}="NVIM_APPNAME=${ndir} nvim"
+        entry=$(echo ${ndir} | sed -e "s%lazyman/%%")
         items+=("${entry}")
         ndirs+=("${ndir}")
       }
@@ -1563,24 +1565,24 @@ command -v nvim > /dev/null && {
       dash='--'
     }
     [ -d "${HOME}/.config/${cfg}" ] || {
-      [ -d "${HOME}/.config/nvim-${cfg}" ] && cfg="nvim-${cfg}"
+      [ -d "${HOME}/.config/lazyman/${cfg}" ] && cfg="lazyman/${cfg}"
     }
 
     # Use a file tree explorer for configurations without a dashboard
     case ${cfg} in
-      nvim-BasicLsp|nvim-BasicMason|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Simple)
+      lazyman/BasicLsp|lazyman/BasicMason|lazyman/Enrique|lazyman/Extralight|lazyman/LspCmp|lazyman/Minimal|lazyman/Primeagen|lazyman/Simple)
         explore="Lexplore"
         ;;
-      nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn)
+      lazyman/Kabin|lazyman/Lamia|lazyman/Kickstart|lazyman/Lukas|lazyman/Maddison|lazyman/Rafi|lazyman/SingleFile|lazyman/Slydragonn|lazyman/Wuelner)
         explore="Neotree"
         ;;
-      nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Xiao)
+      lazyman/Beethoven|lazyman/Cosmic|lazyman/Fennel|lazyman/Opinion|lazyman/Optixal|lazyman/Orange|lazyman/Xiao)
         explore="NvimTreeOpen"
         ;;
-      nvim-Basic|nvim-Cpp|nvim-Go|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+      lazyman/Basic|lazyman/Cpp|lazyman/Go|lazyman/Kristijan|lazyman/Metis|lazyman/Modular|lazyman/Python|lazyman/Rust|lazyman/Scratch|lazyman/StartLsp|lazyman/StartMason)
         explore="NvimTreeToggle"
         ;;
-      nvim-3rd)
+      lazyman/3rd)
         explore='lua local api = require("nvim-tree.api") local tree = require("nvim-tree") api.tree.toggle(true)'
         ;;
       *)
@@ -1599,17 +1601,27 @@ command -v nvim > /dev/null && {
   }
 
   function nvims_usage() {
-    printf "\n\nUsage: $1 [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] ...]"
-    printf "\nWhere:"
-    printf "\n\t'-c command' : specifies an 'Ex' command to be executed after the first file has been read"
-    printf "\n\t'-C filter' : specifies a filter to use when generating the list to select from"
-    printf "\n\t'-I' : indicates display of the selected Neovim configuration information document"
-    printf "\n\t'-R' : indicates removal of the selected Neovim configurations"
-    printf "\n\t'-S file' : Executes 'Vimscript' or 'Lua' in 'file' after the first file has been read. If no '-S' argument is provided then '~/.config/lazyman/Lazyman/overrides.lua' is used if not empty"
-    printf "\n\t'-U' : displays a usage message and exits"
-    printf "\n\nWithout arguments 'nvims' and 'neovides' generate a fuzzy search and selectable"
-    printf "\nmenu of all Lazyman installed Neovim configurations. Neovim or neovide will be"
-    printf "\nopened using the selected configuration.\n\n"
+    cmd="$1"
+    printf "\nUsage: ${cmd} [-c cmd] [-C fltr] [-I] [-R] [-S file] [-U] [file1 [file2] ...]"
+    printf "\n\t'-c cmd' : 'Ex' command to be executed after first file read"
+    printf "\n\t'-C fltr' : filter to use when generating the list to select from"
+    printf "\n\t'-I' : display the selected configuration information document"
+    printf "\n\t'-R' : indicates removal of the selected Neovim configuration"
+    printf "\n\t'-S file' : Executes 'Vimscript' or 'Lua' in 'file' after file read"
+    printf "\n\t\t'~/.config/lazyman/Lazyman/overrides.lua' is used if not empty"
+    printf "\n\t'-U' : displays a usage message and exits\n"
+    printf "\nExamples:"
+    printf "\n\t${cmd}"
+    printf "\n\t\tOpens Neovim using the selected configuration"
+    printf "\n\t${cmd} main.cpp"
+    printf "\n\t\tOpens 'main.cpp' with Neovim using the selected configuration"
+    printf "\n\t${cmd} -C lazy"
+    printf "\n\t\tOpens Neovim using the configuration selected from those"
+    printf "\n\t\twith names containing the case insensitive string 'lazy'"
+    printf "\n\t${cmd} -I"
+    printf "\n\t\tDisplays information for the selected Neovim configuration"
+    printf "\n\t${cmd} -R"
+    printf "\n\t\tRemoves the selected Neovim configuration"
     return
   }
 
@@ -1677,17 +1689,25 @@ command -v nvim > /dev/null && {
       [ ${height} -gt 100 ] && height=100
       [ ${height} -lt 20 ] && height=20
       if [ "${filter}" ]; then
-        config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        if [[ -z ${remove} ]]; then
+          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        else
+          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        fi
       else
-        config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        if [[ -z ${remove} ]]; then
+          config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        else
+          config=$(printf "%s\n" "${items[@]}" | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+        fi
       fi
     fi
     if [[ -z ${config} ]]; then
       echo "Nothing selected"
       return 0
     else
-      if [ -d ${HOME}/.config/nvim-${config} ]; then
-        config="nvim-${config}"
+      if [ -d ${HOME}/.config/lazyman/${config} ]; then
+        config="lazyman/${config}"
         [[ -z ${remove} ]] && [[ -z ${info} ]] && {
           alias vi="NVIM_APPNAME=${NVIM_APPNAME:-${config}} nvim"
         }
@@ -1783,8 +1803,8 @@ command -v nvim > /dev/null && {
       echo "Nothing selected"
       return 0
     else
-      if [ -d ${HOME}/.config/nvim-${config} ]; then
-        config="nvim-${config}"
+      if [ -d ${HOME}/.config/lazyman/${config} ]; then
+        config="lazyman/${config}"
         [[ -z ${remove} ]] && [[ -z ${info} ]] && {
           alias neovide="NVIM_APPNAME=${NVIM_APPNAME:-${config}} neovide"
         }
@@ -1896,12 +1916,12 @@ The idea for the `tldrf` alias came from another
 In addition to exporting `NVIM_APPNAME` in your shell initialization file, you
 may wish to create aliases to execute with the various Neovim configurations
 you have installed. For example, aliases could be created to use Neovim
-configurations installed in `~/.config/nvim-LazyVim` and `~/.config/nvim-LunarVim`
+configurations installed in `~/.config/lazyman/LazyVim` and `~/.config/lazyman/LunarVim`
 as follows:
 
 ```bash
-alias nvim-lazy="NVIM_APPNAME=nvim-LazyVim nvim"
-alias nvim-lunar="NVIM_APPNAME=nvim-LunarVim nvim"
+alias nvim-lazy="NVIM_APPNAME=lazyman/LazyVim nvim"
+alias nvim-lunar="NVIM_APPNAME=lazyman/LunarVim nvim"
 ```
 
 After sourcing these aliases in your shell, to invoke Neovim with the LazyVim
@@ -1942,7 +1962,7 @@ to use with this invocation. This is done using the `-E config` option to
 `lazyman`. When invoking `lazyman` with the `-E config` argument, the Neovim
 configuration can be specified by setting `config` to one of `astronvim`,
 `ecovim`, `kickstart`, `lazyman`, `lazyvim`, `lunarvim`, `nvchad`, or any
-Neovim configuration directory in `~/.config`. For example, to edit the file
+Neovim configuration directory in `~/.config/lazyman/`. For example, to edit the file
 `foo.lua` using the LazyVim Neovim configuration:
 
 ```bash
