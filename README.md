@@ -110,6 +110,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Usage](#usage)
   - [Supported plugin managers](#supported-plugin-managers)
   - [Updates](#updates)
+    - [Migration](#migration)
   - [Lazyman manual](#lazyman-manual)
   - [Lazyman configuration](#lazyman-configuration)
   - [Lazyman Neovim Terminal](#lazyman-neovim-terminal)
@@ -633,6 +634,26 @@ retrieve any newly modified files from the respective Github repository
 while preserving local modifications. Note, if a file has been modified
 both locally and in the repository then it will not be updated and retain
 only local modifications.
+
+#### Migration
+
+Lazyman version 4 introduced a new location for Neovim configurations
+installed using the `lazyman` command: `~/.config/lazyman/<configname>`.
+After updating from a version 3 or earlier Lazyman installation, any
+previously installed Neovim configurations can be migrated.
+
+The first time the version 4 or later `lazyman` command is run it will
+prompt for migration if any older location configurations are found.
+If migration at that time is not selected, it can be performed at a later
+date with the command `lazyman migrate`.
+
+Migration preserves any changes to installed configurations except for the
+Lazyman Neovim configuration which is freshly cloned and initialized.
+Dependencies and tools are installed during initial migration.
+
+**Note:** migration only effects those users who have previously installed
+Lazyman version 3 or earlier, have installed one or more Lazyman supported
+Neovim configuration, and have updated with `lazyman -U`.
 
 ### Lazyman manual
 
