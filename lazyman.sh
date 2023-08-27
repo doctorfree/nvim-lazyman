@@ -247,12 +247,13 @@ add_nvimdirs_entry() {
   ndir="$1"
   nvim_dirs="${NVIMDIRS}"
   [ "$2" ] && nvim_dirs="$2"
+  lman_dir=$(dirname "${nvim_dirs}")
   if [ -f "${nvim_dirs}" ]; then
     grep ^"$ndir"$ "${nvim_dirs}" >/dev/null || {
       echo "$ndir" >>"${nvim_dirs}"
     }
   else
-    [ -d "${LMANDIR}" ] && {
+    [ -d "${lman_dir}" ] && {
       echo "$ndir" >"${nvim_dirs}"
     }
   fi
@@ -306,6 +307,21 @@ init_lvim() {
     fi
     rm -f /tmp/lvim-install$$.sh
     add_nvimdirs_entry "${lvimdir}"
+  }
+}
+
+migrate_nvimdirs() {
+  # Add the migrated configs to .nvimdirs
+  [ -f /tmp/nvdirs$$ ] && {
+    cat /tmp/nvdirs$$ | while read nvimdir; do
+      [ "${nvimdir}" == "lazyman/Lazyman" ] && continue
+      add_nvimdirs_entry "${nvimdir}"
+    done
+    rm -f /tmp/nvdirs$$
+  }
+  # Remove old v3 or earlier Lazyman config dir
+  [ -d "${OMANDIR}" ] && {
+    rm -rf "${OMANDIR}"
   }
 }
 
@@ -594,20 +610,7 @@ init_neovim() {
     [ -f "${LMANDIR}/.initialized" ] || {
       touch "${LMANDIR}/.initialized"
     }
-    [ "${migrated}" ] && {
-      # Add the migrated configs to .nvimdirs
-      [ -f /tmp/nvdirs$$ ] && {
-        cat /tmp/nvdirs$$ | while read nvimdir; do
-          [ "${nvimdir}" == "lazyman/Lazyman" ] && continue
-          add_nvimdirs_entry "${nvimdir}"
-        done
-        rm -f /tmp/nvdirs$$
-      }
-      # Remove old v3 or earlier Lazyman config dir
-      [ -d "${OMANDIR}" ] && {
-        rm -rf "${OMANDIR}"
-      }
-    }
+    [ "${migrated}" ] && migrate_nvimdirs
   }
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     packer=${oldpack}
@@ -3776,6 +3779,7 @@ fi
 [ "$1" == "migrate" ] && {
   migrated=
   migrate_configs
+  [ "${migrated}" ] && migrate_nvimdirs
   exit 0
 }
 
