@@ -243,6 +243,32 @@ calc_elapsed() {
   ELAPSED=$(eval "echo $(date -ud "@$ELAPSECS" +'$((%s/3600/24)) days %H hr %M min %S sec')")
 }
 
+add_nvimdirs_entry() {
+  ndir="$1"
+  nvim_dirs="${NVIMDIRS}"
+  [ "$2" ] && nvim_dirs="$2"
+  if [ -f "${nvim_dirs}" ]; then
+    grep ^"$ndir"$ "${nvim_dirs}" >/dev/null || {
+      echo "$ndir" >>"${nvim_dirs}"
+    }
+  else
+    [ -d "${LMANDIR}" ] && {
+      echo "$ndir" >"${nvim_dirs}"
+    }
+  fi
+}
+
+remove_nvimdirs_entry() {
+  ndir="$1"
+  [ -f "${NVIMDIRS}" ] && {
+    grep ^"$ndir"$ "${NVIMDIRS}" >/dev/null && {
+      grep -v ^"$ndir"$ "${NVIMDIRS}" >/tmp/nvimdirs$$
+      cp /tmp/nvimdirs$$ "${NVIMDIRS}"
+      rm -f /tmp/nvimdirs$$
+    }
+  }
+}
+
 init_lvim() {
   lvimdir="$1"
   export NVIM_APPNAME="${lvimdir}"
@@ -569,6 +595,15 @@ init_neovim() {
       touch "${LMANDIR}/.initialized"
     }
     [ "${migrated}" ] && {
+      # Add the migrated configs to .nvimdirs
+      [ -f /tmp/nvdirs$$ ] && {
+        cat /tmp/nvdirs$$ | while read nvimdir; do
+          [ "${nvimdir}" == "lazyman/Lazyman" ] && continue
+          add_nvimdirs_entry "${nvimdir}"
+        done
+        rm -f /tmp/nvdirs$$
+      }
+      # Remove old v3 or earlier Lazyman config dir
       [ -d "${OMANDIR}" ] && {
         rm -rf "${OMANDIR}"
       }
@@ -577,30 +612,6 @@ init_neovim() {
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     packer=${oldpack}
     plug=${oldplug}
-  }
-}
-
-add_nvimdirs_entry() {
-  ndir="$1"
-  if [ -f "${NVIMDIRS}" ]; then
-    grep ^"$ndir"$ "${NVIMDIRS}" >/dev/null || {
-      echo "$ndir" >>"${NVIMDIRS}"
-    }
-  else
-    [ -d "${LMANDIR}" ] && {
-      echo "$ndir" >"${NVIMDIRS}"
-    }
-  fi
-}
-
-remove_nvimdirs_entry() {
-  ndir="$1"
-  [ -f "${NVIMDIRS}" ] && {
-    grep ^"$ndir"$ "${NVIMDIRS}" >/dev/null && {
-      grep -v ^"$ndir"$ "${NVIMDIRS}" >/tmp/nvimdirs$$
-      cp /tmp/nvimdirs$$ "${NVIMDIRS}"
-      rm -f /tmp/nvimdirs$$
-    }
   }
 }
 
@@ -703,7 +714,7 @@ move_config() {
     rm -rf "${HOME}/.cache/$ndir".old
   }
   [ "$tellme" ] || {
-    add_nvimdirs_entry "$newdir"
+    add_nvimdirs_entry "$newdir" /tmp/nvdirs$$
   }
 }
 
