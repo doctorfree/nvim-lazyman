@@ -6,6 +6,30 @@
 
 ### 🐞 Fixed
 
+## v4.0.0r1
+
+### ⚡️ Added
+
+- Move `Lazyman` install location to `~/.config/lazyman/Lazyman/`
+- Move all `Lazyman` installed Neovim configurations into `~/.config/lazyman/` subdir
+- Remove `lazyman` command and all configs when removing Lazyman
+- Add note about new location in Install section
+- Add subsection on Migration
+- Add migration of `nvimdirs` to `lazyman migrate` command
+- Store migrated nvim dirs in tmp file then add after initializing
+- Add `migrate` command line argument to migrate older configs later
+- Add support for migration of v3 or earlier installed configs
+
+### 🐞 Fixed
+
+- Remove install with `curl`, just use `git`
+- Fix debug logging path
+- Rename patches, fixup patch script and `apply_patch`
+- Fix aliases in `.lazymanrc` with new paths
+- Fixup paths in `scripts/`
+- Fixup `-E` argument processing and examples in `lazyman` man page
+- Fixup info docs and man pages with new `.config/lazyman/` path
+
 ## v3.0.1r4
 
 ### ⚡️ Added

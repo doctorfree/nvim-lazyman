@@ -6,7 +6,7 @@
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [NvChad](https://nvchad.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Python`**
+- Installation location:  **`~/.config/lazyman/Python`**
 
 ### Git repository
 

@@ -3,7 +3,7 @@
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LunarVim](https://www.lunarvim.org)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-LvimAdib`**
+- Installation location:  **`~/.config/lazyman/LvimAdib`**
 
 ### Git repository
 

@@ -6,7 +6,7 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/nvim-Dillon`**
+- Installation location:  **`~/.config/lazyman/Dillon`**
 
 ### Git repository
 

@@ -6,7 +6,7 @@
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Nv`**
+- Installation location:  **`~/.config/lazyman/Nv`**
 
 ### Git repository
 

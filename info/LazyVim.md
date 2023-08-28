@@ -6,7 +6,7 @@ The [LazyVim starter](https://github.com/LazyVim/starter) configuration
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-LazyVim`**
+- Installation location:  **`~/.config/lazyman/LazyVim`**
 
 ### Git repository
 

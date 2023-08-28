@@ -6,7 +6,7 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Barebones`**
+- Installation location:  **`~/.config/lazyman/Barebones`**
 
 ### Git repository
 

@@ -6,7 +6,7 @@
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/nvim-Primeagen`**
+- Installation location:  **`~/.config/lazyman/Primeagen`**
 
 ### Git repository
 
@@ -64,7 +64,7 @@
 |  |  gs |  |
 |  |    |  |
 |  |  mr | <Cmd>CellularAutomaton make_it_rain<CR> |
-|  |  vpp | <Cmd>e ~/.config/nvim-Primeagen/lua/theprimeagen/packer.lua<CR> |
+|  |  vpp | <Cmd>e ~/.config/lazyman/Primeagen/lua/theprimeagen/packer.lua<CR> |
 |  |  x | <Cmd>!chmod +x %<CR> |
 |  |  s | :%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left> |
 |  |  j | <Cmd>lprev<CR>zz |

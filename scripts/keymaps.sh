@@ -19,9 +19,9 @@ debug=
 CFNAME="$1"
 OUT="$2"
 
-if [ -d "${HOME}/.config/nvim-${CFNAME}" ]
+if [ -d "${HOME}/.config/lazyman/${CFNAME}" ]
 then
-  export NVIM_APPNAME="nvim-${CFNAME}"
+  export NVIM_APPNAME="lazyman/${CFNAME}"
 else
   if [ -d "${HOME}/.config/${CFNAME}" ]
   then
@@ -30,7 +30,7 @@ else
     exit 1
   fi
 fi
-KEYTMP="${HOME}/.config/nvim-Lazyman/tmp"
+KEYTMP="${HOME}/.config/lazyman/Lazyman/tmp"
 OUTDIR=$(dirname "${OUT}")
 
 [ -d "${KEYTMP}" ] || mkdir -p "${KEYTMP}"

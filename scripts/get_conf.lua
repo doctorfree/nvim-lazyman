@@ -7,14 +7,14 @@
 -- For example, to retrieve the Lazyman configuration 'namespace' setting:
 --
 -- #!/bin/bash
--- NVIM_APPNAME="nvim-Lazyman" \
---   nvim -l ~/.config/nvim-Lazyman/scripts/get_conf.lua namespace
+-- NVIM_APPNAME="lazyman/Lazyman" \
+--   nvim -l ~/.config/lazyman/Lazyman/scripts/get_conf.lua namespace
 --
 -- or, to retrieve the value of the 'mouse' option in the Webdev config:
 --
 -- #!/bin/bash
--- NVIM_APPNAME="nvim-Webdev" \
---   nvim -l ~/.config/nvim-Lazyman/scripts/get_conf.lua mouse
+-- NVIM_APPNAME="lazyman/Webdev" \
+--   nvim -l ~/.config/lazyman/Lazyman/scripts/get_conf.lua mouse
 
 local config = vim.inspect(_G.arg[1])
 local arg = string.gsub(config, '"', "")
@@ -57,7 +57,7 @@ if arg == "config_home" then
   io.write("NVIM_APPNAME = " .. app_name .. "\n")
 else
   local var_val = ""
-  if app_name == "nvim-Lazyman" then
+  if app_name == "lazyman/Lazyman" then
     local settings = require("configuration")
     local entry = settings[arg]
     if entry ~= nil then

@@ -6,7 +6,7 @@ Oriented toward Python development
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/nvim-AlanVim`**
+- Installation location:  **`~/.config/lazyman/AlanVim`**
 
 ### Git repository
 
@@ -73,8 +73,8 @@ Oriented toward Python development
 |  | 'go | <Cmd>lua require('git.browse').open(false)<CR> |
 |  | 'gb | <Cmd>lua require('git.blame').blame()<CR> |
 |  | 's | :source %<CR> |
-|  | 'p | :vsplit ~/.config/nvim-AlanVim/lua/packages.lua<CR> |
-|  | 'm | :vsplit ~/.config/nvim-AlanVim/lua/general/mappings.lua<CR> |
+|  | 'p | :vsplit ~/.config/lazyman/AlanVim/lua/packages.lua<CR> |
+|  | 'm | :vsplit ~/.config/lazyman/AlanVim/lua/general/mappings.lua<CR> |
 |  | D | :BufDel<CR> |
 |  | H | :BufferLineCyclePrev<CR> |
 |  | L | :BufferLineCycleNext<CR> |

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-patchdir="${HOME}/.config/nvim-Lazyman/scripts/patches"
+patchdir="${HOME}/.config/lazyman/Lazyman/scripts/patches"
 confname="$1"
-confdir="${HOME}/.config/${confname}"
+confdir="${HOME}/.config/lazyman/${confname}"
 have_patch=$(type -p patch)
 
 [ "${have_patch}" ] || {

@@ -6,7 +6,7 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-xero`**
+- Installation location:  **`~/.config/lazyman/xero`**
 
 ### Git repository
 

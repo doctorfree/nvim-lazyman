@@ -15,7 +15,7 @@ lazyman-keymaps - key mappings in the Lazyman Neovim configuration
 ## DESCRIPTION
 
 Extended information on the `Lazyman` Neovim configuration can be viewed with
-the command `lazyman -N nvim-Lazyman info` which opens a browser to display
+the command `lazyman -N Lazyman info` which opens a browser to display
 [this information document](https://github.com/doctorfree/nvim-lazyman/blob/main/info/Lazyman.md).
 
 Vimdoc help for `Lazyman keymaps` can be viewed with `:h Lazyman-Keymaps` or `,hk`
@@ -167,7 +167,7 @@ cheatsheet includes the following key mappings.
 
 ## KEYMAPS
 
-This list of keymaps in `nvim-Lazyman` was generated using the
+This list of keymaps in `Lazyman` was generated using the
 [information.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/scripts/information.sh)
 and [keymaps.sh](https://github.com/doctorfree/nvim-lazyman/blob/main/scripts/keymaps.sh)
 scripts.
