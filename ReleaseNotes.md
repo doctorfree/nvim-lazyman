@@ -1,6 +1,6 @@
 ## Lazyman Release Notes
 
-**[Important Note:]** Starting with Lazyman version 4.0.0 all Lazyman installed Neovim configurations are located in `~/.config/lazyman/<configname>`. Previous versions of Lazyman installed configurations in `~/.config/nvim-<configname>`.
+**[Important Note:]** Previous versions of Lazyman installed configurations in `~/.config/nvim-<configname>`. Starting with Lazyman version 4.0.0 all Lazyman installed Neovim configurations are located in `~/.config/lazyman/<configname>`. See [Lazyman Migration](https://lazyman.dev/posts/Migration) for additional details on this migration.
 
 This major new release of `lazyman` supports over 100 Neovim configurations. The `Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
