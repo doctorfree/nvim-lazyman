@@ -319,10 +319,11 @@ migrate_nvimdirs() {
     done
     rm -f /tmp/nvdirs$$
   }
-  # Remove old v3 or earlier Lazyman config dir
-  [ -d "${OMANDIR}" ] && {
-    rm -rf "${OMANDIR}"
-  }
+  # Remove old v3 or earlier Lazyman config/share/state/cache dirs
+  rm -rf "${OMANDIR}"
+  rm -rf ${HOME}/.local/share/nvim-Lazyman
+  rm -rf ${HOME}/.local/state/nvim-Lazyman
+  rm -rf ${HOME}/.cache/nvim-Lazyman
 }
 
 init_neovim() {
@@ -5228,7 +5229,7 @@ else
   }
   interactive=
 fi
-# Always make sure nvim-Lazyman is in .nvimdirs
+# Always make sure Lazyman is in .nvimdirs
 [ "$tellme" ] || {
   add_nvimdirs_entry "${LAZYMAN}"
 }
@@ -5301,7 +5302,7 @@ fi
 }
 
 # Source the Lazyman shell initialization for aliases and nvims selector
-# shellcheck source=~/.config/nvim-Lazyman/.lazymanrc
+# shellcheck source=~/.config/lazyman/Lazyman/.lazymanrc
 [ -f "${LZYMANRC}" ] && source "${LZYMANRC}"
 BREW_EXE=
 set_brew
