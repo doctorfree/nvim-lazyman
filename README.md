@@ -1,13 +1,6 @@
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
 ```bash
-# Install lazyman with one command:
-curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
-```
-
-OR
-
-```bash
 # Install lazyman with two commands:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
@@ -173,14 +166,7 @@ For example, `export PATH="/usr/local/bin:${PATH}"` or `export PATH="/opt/homebr
 `~/.config/nvim-Lazyman/`. All Neovim configurations installed with version 4
 and later place the configurations in `~/.config/lazyman/<configname>/`.
 
-Install Lazyman with either `curl` or `git`. To install in one step using `curl`:
-
-```bash
-curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
-```
-
-Finer control over the initialization process can be obtained by using two steps.
-To install in two steps using `git`:
+Install Lazyman in two steps:
 
 Step 1, clone the Lazyman repository:
 
@@ -274,13 +260,6 @@ Clone the repository with `git` and execute `lazyman.sh`:
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
-```
-
-Alternatively, download the `lazyman.sh` script and execute it.
-For example, with `curl`:
-
-```bash
-curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
 ```
 
 Once the `lazyman.sh` script has been downloaded and executed, subsequent
@@ -2070,9 +2049,9 @@ Neovim configurations often rely on external commands, utilities, language
 servers, formatters, linters, and tools. The `Lazyman` initialization process
 installs much of what might be required but not all. Some configurations
 may initialize cleanly but subsequent use might provoke an error when an
-external dependency is not available. For example, the `nvim-Shuvro` Neovim
+external dependency is not available. For example, the `Shuvro` Neovim
 configuration relies upon an externally installed `luacheck` facility. If this
-is not available then `nvim-Shuvro` will emit an error message when opening
+is not available then `Shuvro` will emit an error message when opening
 `lua` files. Most commonly used external dependencies are installed by
 `lazyman` but missing dependencies sometimes occur.
 
@@ -2160,7 +2139,7 @@ display errors.
 
 ### LaTeX configuration hangs on macOS
 
-The `nvim-LaTeX` configuration is hanging on my Mac. It appears to work fine
+The `LaTeX` configuration is hanging on my Mac. It appears to work fine
 on Linux platforms. This is currently under investigation.
 
 ## Troubleshooting
@@ -2230,11 +2209,11 @@ confval=$(NVIM_APPNAME="lazyman/Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
 
 The `get_conf.lua` script can also be used to retrieve option or variable
 settings in any Neovim configuration. For example, to retrieve the value of
-the 'mouse' option in the `nvim-Webdev` Neovim configuration:
+the 'mouse' option in the `Webdev` Neovim configuration:
 
 ```bash
 GET_CONF="${HOME}/.config/lazyman/Lazyman/scripts/get_conf.lua"
-NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
+NVIM_APPNAME="lazyman/Webdev" nvim -l ${GET_CONF} mouse
 ```
 
 <details><summary>Click here to view the
@@ -2258,7 +2237,7 @@ NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
 -- or, to retrieve the value of the 'mouse' option in the Webdev config:
 --
 -- #!/bin/bash
--- NVIM_APPNAME="nvim-Webdev" \
+-- NVIM_APPNAME="lazyman/Webdev" \
 --   nvim -l ~/.config/lazyman/Lazyman/scripts/get_conf.lua mouse
 
 local config = vim.inspect(_G.arg[1])
