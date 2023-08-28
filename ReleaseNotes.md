@@ -4,7 +4,15 @@
 
 This major new release of `lazyman` supports over 100 Neovim configurations. The `Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v4.0.0r1/lazyman.sh) script. Download and execute to get started:
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v4.0.0r1/lazyman.sh) script. Download and execute to get started.
+
+Install Lazyman with either `curl` or `git`. To install in one step using `curl`:
+
+```bash
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
+```
+
+Finer control over the initialization process can be obtained by using two steps. To install in two steps using `git`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
@@ -66,7 +74,15 @@ The `lazyman` command is installed as `~/.local/bin/lazyman` and can be used to 
 
 ## Installation
 
-The Lazyman installation process consists of two steps:
+Install Lazyman with either `curl` or `git`.
+
+ To install in one step using `curl`:
+
+```bash
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
+```
+
+To install in two steps using `git`:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
@@ -111,10 +127,7 @@ $HOME/.config/lazyman/Lazyman/lazyman.sh
 Alternatively, download the `lazyman.sh` script and execute it. For example, with `curl`:
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh > /tmp/lazyman.sh
-chmod 755 /tmp/lazyman.sh
-/tmp/lazyman.sh
-rm -f /tmp/lazyman.sh
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
 ```
 
 Once the `lazyman.sh` script has been downloaded and executed, subsequent Lazyman operations can be performed with the `lazyman` command found in `~/.local/bin/lazyman`. The manual page can be viewed with `man lazyman`.

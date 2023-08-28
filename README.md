@@ -1,7 +1,14 @@
 <h1 align="center">Lazyman Neovim Configuration Manager</h1>
 
 ```bash
-# Install lazyman with the following commands:
+# Install lazyman with one command:
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
+```
+
+OR
+
+```bash
+# Install lazyman with two commands:
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/lazyman/Lazyman
 $HOME/.config/lazyman/Lazyman/lazyman.sh
 ```
@@ -166,7 +173,14 @@ For example, `export PATH="/usr/local/bin:${PATH}"` or `export PATH="/opt/homebr
 `~/.config/nvim-Lazyman/`. All Neovim configurations installed with version 4
 and later place the configurations in `~/.config/lazyman/<configname>/`.
 
-The Lazyman installation process consists of two steps.
+Install Lazyman with either `curl` or `git`. To install in one step using `curl`:
+
+```bash
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
+```
+
+Finer control over the initialization process can be obtained by using two steps.
+To install in two steps using `git`:
 
 Step 1, clone the Lazyman repository:
 
@@ -266,10 +280,7 @@ Alternatively, download the `lazyman.sh` script and execute it.
 For example, with `curl`:
 
 ```bash
-curl -fsS https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh > /tmp/lazyman.sh
-chmod 755 /tmp/lazyman.sh
-/tmp/lazyman.sh
-rm -f /tmp/lazyman.sh
+curl -sLf https://raw.githubusercontent.com/doctorfree/nvim-lazyman/main/lazyman.sh | bash
 ```
 
 Once the `lazyman.sh` script has been downloaded and executed, subsequent
