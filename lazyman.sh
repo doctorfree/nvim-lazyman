@@ -321,9 +321,9 @@ migrate_nvimdirs() {
   }
   # Remove old v3 or earlier Lazyman config/share/state/cache dirs
   rm -rf "${OMANDIR}"
-  rm -rf ${HOME}/.local/share/nvim-Lazyman
-  rm -rf ${HOME}/.local/state/nvim-Lazyman
-  rm -rf ${HOME}/.cache/nvim-Lazyman
+  rm -rf "${HOME}/.local/share/nvim-Lazyman"
+  rm -rf "${HOME}/.local/state/nvim-Lazyman"
+  rm -rf "${HOME}/.cache/nvim-Lazyman"
 }
 
 init_neovim() {
@@ -908,7 +908,12 @@ remove_config() {
     }
   }
   [ "$remove_lazyman" ] && {
-    [ "$tellme" ] || rm -f ${HOME}/.local/bin/lazyman
+    [ "$tellme" ] || {
+      rm -f "${HOME}/.local/bin/lazyman"
+      rm -rf "${HOME}/.local/share/lazyman"
+      rm -rf "${HOME}/.local/state/lazyman"
+      rm -rf "${HOME}/.cache/lazyman"
+    }
   }
 }
 
