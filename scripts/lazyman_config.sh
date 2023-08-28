@@ -973,7 +973,9 @@ show_plugin_menu() {
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      [ -f ${NVIMCONF} ] && {
+        diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      }
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")
@@ -2222,7 +2224,9 @@ show_conf_menu() {
     options+=("Enable All")
     options+=("Minimal Config")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      [ -f ${NVIMCONF} ] && {
+        diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      }
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")

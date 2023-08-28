@@ -659,7 +659,9 @@ show_conf_menu() {
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      [ -f ${NVIMCONF} ] && {
+        diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      }
     }
     [ -d "${LIDEDIR}" ] && options+=("Open LazyIde")
     options+=("Main Menu")
