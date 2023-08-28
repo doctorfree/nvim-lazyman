@@ -5213,10 +5213,10 @@ numvimdirs=${#neovimdir[@]}
   [ -f "${LMANDIR}/.initialized" ] && interactive=1
 }
 if [ -d "${LMANDIR}" ]; then
-  git -C "${LMANDIR}" checkout sub >/dev/null 2>&1
-  #[ "$branch" ] && {
-  #  git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
-  #}
+  # git -C "${LMANDIR}" checkout test >/dev/null 2>&1 # Needed for test branch
+  [ "$branch" ] && {
+    git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
+  }
   [ -d "${HOME}/.local/share/${LAZYMAN}" ] || interactive=
   [ -f "${LMANDIR}/.initialized" ] && instnvim=
 else
@@ -5227,10 +5227,10 @@ else
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
       "${LMANDIR}" >/dev/null 2>&1
-    git -C "${LMANDIR}" checkout sub >/dev/null 2>&1
-    #[ "$branch" ] && {
-    #  git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
-    #}
+    # git -C "${LMANDIR}" checkout test >/dev/null 2>&1 # Needed for test branch
+    [ "$branch" ] && {
+      git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
+    }
   }
   interactive=
 fi
