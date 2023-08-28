@@ -154,16 +154,17 @@ Lazyman requires Linux or macOS, git, and the Bash shell version 4 or later.
 
 Even the latest versions of macOS ship with Bash 3.2 which dates from 2007.
 The Lazyman initialization process will update your system with a modern
-Bash using Homebrew:
-
-```bash
-brew install bash
-```
+Bash using Homebrew.
 
 The initialization process also makes sure it is found first in your PATH.
 For example, `export PATH="/usr/local/bin:${PATH}"` or `export PATH="/opt/homebrew/bin:${PATH}"`.
 
 ## Installation
+
+**[Important Note:]** Lazyman version 4 and later is installed in
+`~/.config/lazyman/Lazyman/`. Earlier versions of Lazyman installed in
+`~/.config/nvim-Lazyman/`. All Neovim configurations installed with version 4
+and later place the configurations in `~/.config/lazyman/<configname>/`.
 
 The Lazyman installation process consists of two steps.
 
