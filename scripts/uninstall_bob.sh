@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Update Bob Neovim version manager
+# Uninstall Bob Neovim version manager
 #
 
 export PATH=${HOME}/.local/bin:${PATH}
@@ -41,26 +41,16 @@ if ! command -v "cargo" >/dev/null 2>&1; then
     export PATH="$HOME/.cargo/bin:$PATH"
   }
 fi
-if [ "${have_brew}" ]; then
-  printf "\nUpdating rust, please be patient ..."
-  brew update --quiet >/dev/null 2>&1
-  brew upgrade --quiet "rust" >/dev/null 2>&1
-  printf " done\n"
-else
-  have_rust=$(type -p rustup)
-  [ "${have_rust}" ] && {
-    printf "\nUpdating rustc, please be patient ..."
-    rustup update >/dev/null 2>&1
-    printf " done\n"
-  }
-fi
 
+if command -v "bob" >/dev/null 2>&1; then
+  bob erase >/dev/null 2>&1
+fi
 if command -v "cargo" >/dev/null 2>&1; then
-  printf "\nUpdating bob with cargo, please be patient ..."
-  cargo install bob-nvim >/dev/null 2>&1
+  printf "\n\tUninstalling bob ..."
+  cargo uninstall bob-nvim >/dev/null 2>&1
   printf " done\n"
 else
-  printf "\n\tCannot locate cargo. Skipping update of bob.\n"
+  printf "\n\tCannot locate cargo. Skipping uninstall of bob.\n"
   exit 1
 fi
 
