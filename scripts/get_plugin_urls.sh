@@ -2,7 +2,7 @@
 
 rm -f /tmp/plugin_urls.txt
 touch /tmp/plugin_urls.txt
-for confdir in $HOME/.config/nvim-*
+for confdir in $HOME/.config/lazyman/*
 do
   find "${confdir}" -name packer_compiled.lua -print0 | \
     xargs -0 grep url | grep = | awk -F '=' ' { print $2 } ' | \

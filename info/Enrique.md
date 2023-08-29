@@ -6,7 +6,7 @@ Personal Neovim configuration of Enrique Mejidas
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Enrique`**
+- Installation location:  **`~/.config/lazyman/Enrique`**
 
 ### Git repository
 

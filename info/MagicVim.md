@@ -6,7 +6,7 @@ Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Cod
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/nvim-MagicVim`**
+- Installation location:  **`~/.config/lazyman/MagicVim`**
 
 ### Git repository
 

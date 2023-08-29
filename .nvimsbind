@@ -1,6 +1,6 @@
-# $HOME/.config/nvim-Lazyman/.nvimsbind
+# $HOME/.config/lazyman/Lazyman/.nvimsbind
 # This file should be sourced from the shell initialization file
-# after first sourcing ~/.config/nvim-Lazyman/.lazymanrc
+# after first sourcing ~/.config/lazyman/Lazyman/.lazymanrc
 command -v nvims > /dev/null && {
   if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
    bindkey -s "^n" "nvims\n"

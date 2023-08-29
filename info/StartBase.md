@@ -6,7 +6,7 @@ Small configuration that includes a plugin manager
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-StartBase`**
+- Installation location:  **`~/.config/lazyman/StartBase`**
 
 ### Git repository
 

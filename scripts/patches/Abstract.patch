@@ -1,0 +1,10 @@
+--- lua/packer_nvim.lua.orig	2023-08-26 16:29:02.988099497 -0700
++++ lua/packer_nvim.lua	2023-08-26 16:29:12.068217173 -0700
+@@ -122,6 +122,7 @@
+ 					'j-hui/fidget.nvim',
+ 					commit = commits.fidget_nvim,
+ 					event = 'BufRead',
++          tag = "legacy",
+ 					config = [[ require('plugins/fidget_nivm') ]]
+ 				},
+ 				use { --  Simple winbar/statusline plugin that shows your current code context

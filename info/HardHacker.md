@@ -6,7 +6,7 @@ A theme-driven modern Neovim configuration
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-HardHacker`**
+- Installation location:  **`~/.config/lazyman/HardHacker`**
 
 ### Git repository
 

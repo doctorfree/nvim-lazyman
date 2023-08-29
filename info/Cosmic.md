@@ -6,7 +6,7 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Cosmic`**
+- Installation location:  **`~/.config/lazyman/Cosmic`**
 
 ### Git repository
 

@@ -67,6 +67,8 @@ conf.enable_codeium = false
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
 conf.enable_neoai = false
+-- Enable AI diagnostic debugging, https://github.com/piersolenski/wtf.nvim
+-- conf.enable_wtf = false
 --
 -- Enable display of ascii art
 conf.enable_asciiart = false
@@ -196,12 +198,13 @@ conf.media_backend = "jp2a"
 conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash",
-  "cpp",
+  -- "bash",
+  -- "c",
+  -- "cpp",
   "go",
   "graphql",
   "html",
-  "java",
+  -- "java",
   "javascript",
   "json",
   "lua",
@@ -209,7 +212,7 @@ conf.treesitter_ensure_installed = {
   "markdown_inline",
   "query",
   "php",
-  "python",
+  -- "python",
   "regex",
   "rust",
   "scss",
@@ -259,7 +262,7 @@ conf.formatters_linters = {
   "golangci-lint", -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
   "latexindent", -- FORMATTERS_LINTERS
-  "markdownlint", -- FORMATTERS_LINTERS
+  -- "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
   -- "shellcheck", -- FORMATTERS_LINTERS

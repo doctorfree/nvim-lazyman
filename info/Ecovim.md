@@ -6,7 +6,7 @@ Tailored for frontend development with React and Vue.js
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Ecovim`**
+- Installation location:  **`~/.config/lazyman/Ecovim`**
 
 ### Git repository
 

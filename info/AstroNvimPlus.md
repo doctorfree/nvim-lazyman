@@ -6,7 +6,7 @@ An example [AstroNvim community](https://github.com/AstroNvim/astrocommunity) pl
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-AstroNvimPlus`**
+- Installation location:  **`~/.config/lazyman/AstroNvimPlus`**
 
 ### Git repository
 

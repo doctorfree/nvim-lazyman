@@ -6,7 +6,7 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Wuelner`**
+- Installation location:  **`~/.config/lazyman/Wuelner`**
 
 ### Git repository
 

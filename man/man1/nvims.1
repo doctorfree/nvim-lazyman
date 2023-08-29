@@ -36,7 +36,7 @@ One of these is the \f[V]nvims\f[R] shell function which dynamically
 creates a fuzzy searchable menu of installed Neovim configurations and
 launches Neovim with the selected Lazyman Neovim configuration.
 .PP
-See \f[V]\[ti]/.config/nvim-Lazyman/.lazymanrc\f[R].
+See \f[V]\[ti]/.config/lazyman/Lazyman/.lazymanrc\f[R].
 .PP
 Similarly, a \f[V]neovides\f[R] shell function can be used to select a
 Neovim configuration for use with the Neovim GUI \f[V]neovide\f[R].
@@ -89,13 +89,13 @@ use the previously selected \f[V]neovides\f[R] Neovim configuration.
 To use another Neovim configuration while this alias is active, invoke
 \f[V]nvim\f[R] directly using the \f[V]NVIM_APPNAME\f[R] environment
 variable on the command line.
-For example, to use the \f[V]nvim-EcoVim\f[R] Neovim configuration after
-an alias for \f[V]vi\f[R] has been set by \f[V]nvims\f[R], execute the
-following command:
+For example, to use the \f[V]lazyman/EcoVim\f[R] Neovim configuration
+after an alias for \f[V]vi\f[R] has been set by \f[V]nvims\f[R], execute
+the following command:
 .IP
 .nf
 \f[C]
-NVIM_APPNAME=\[dq]nvim-EcoVim\[dq] nvim ...
+NVIM_APPNAME=\[dq]lazyman/EcoVim\[dq] nvim ...
 \f[R]
 .fi
 .PP
@@ -110,12 +110,12 @@ documentation for thousands of commands.
 When using either the \f[V]nvims\f[R] or \f[V]neovides\f[R] shell
 functions, selected Neovim configuration options can be overridden using
 either the \f[V]-S file\f[R] command line argument or entries in the
-file \f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R].
+file \f[V]\[ti]/.config/lazyman/Lazyman/overrides.lua\f[R].
 The \f[V]-S file\f[R] argument is described below in the
 \f[V]OPTIONS\f[R] section.
 .PP
 The default overrides file,
-\f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R], is used in the
+\f[V]\[ti]/.config/lazyman/Lazyman/overrides.lua\f[R], is used in the
 absence of any \f[V]-S file\f[R] argument.
 This file can be used to override options in a Neovim configuration when
 invoking Neovim with \f[V]nvims\f[R] or \f[V]neovides\f[R].
@@ -159,7 +159,7 @@ If it contains anything other than Lua comments then, when using
 .IP
 .nf
 \f[C]
-nvim -S \[dq]${HOME}/.config/nvim-Lazyman/overrides.lua\[dq] ...
+nvim -S \[dq]${HOME}/.config/lazyman/Lazyman/overrides.lua\[dq] ...
 \f[R]
 .fi
 .SS OPTIONS
@@ -181,7 +181,8 @@ information document
 \f[V]-S file\f[R] : Executes \f[V]Vimscript\f[R] or \f[V]Lua\f[R] in
 \f[V]file\f[R] after the first file has been read.
 If no \f[V]-S\f[R] argument is provided then
-\f[V]\[ti]/.config/nvim-Lazyman/overrides.lua\f[R] is used if not empty.
+\f[V]\[ti]/.config/lazyman/Lazyman/overrides.lua\f[R] is used if not
+empty.
 .PP
 \f[V]-U\f[R] : displays a usage message and exits
 .PP
@@ -208,7 +209,7 @@ with Neovim using the selected configuration
 .PP
 The Lazyman Neovim configuration provides \f[V]vimdoc\f[R] help for the
 \f[V]nvims\f[R] and \f[V]neovides\f[R] shell functions.
-While in Neovim using the \f[V]nvim-Lazyman\f[R] configuration, view the
+While in Neovim using the \f[V]Lazyman\f[R] configuration, view the
 \f[V]vimdoc\f[R] help for the \f[V]nvims\f[R] shell function with the
 command \f[V]:help Nvims\f[R].
 A shortcut key binding for this help command has been configured.

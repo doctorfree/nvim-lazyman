@@ -6,7 +6,7 @@ Modern Neovim configuration for coding React and TypeScript
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/nvim-Orange`**
+- Installation location:  **`~/.config/lazyman/Orange`**
 
 ### Git repository
 
