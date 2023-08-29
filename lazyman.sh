@@ -310,6 +310,17 @@ init_lvim() {
   }
 }
 
+remove_omandir() {
+  [ -d "${OMANDIR}" ] && {
+    if [ -L "${OMANDIR}" ]
+    then
+      rm -f "${OMANDIR}"
+    else
+      rm -rf "${OMANDIR}"
+    fi
+  }
+}
+
 migrate_nvimdirs() {
   # Add the migrated configs to .nvimdirs
   [ -f /tmp/nvdirs$$ ] && {
@@ -320,14 +331,7 @@ migrate_nvimdirs() {
     rm -f /tmp/nvdirs$$
   }
   # Remove old v3 or earlier Lazyman config/share/state/cache dirs
-  [ -d "${OMANDIR}" ] && {
-    if [ -L "${OMANDIR}" ]
-    then
-      rm -f "${OMANDIR}"
-    else
-      rm -rf "${OMANDIR}"
-    fi
-  }
+  remove_omandir
   rm -rf "${HOME}/.local/share/nvim-Lazyman"
   rm -rf "${HOME}/.local/state/nvim-Lazyman"
   rm -rf "${HOME}/.cache/nvim-Lazyman"
@@ -621,14 +625,7 @@ init_neovim() {
     [ "${migrated}" ] && {
       migrate_nvimdirs
       # To ensure backward compatibility
-      [ -d "${OMANDIR}" ] && {
-        if [ -L "${OMANDIR}" ]
-        then
-          rm -f "${OMANDIR}"
-        else
-          rm -rf "${OMANDIR}"
-        fi
-      }
+      remove_omandir
       ln -s "${LMANDIR}" "${OMANDIR}"
     }
   }
@@ -932,6 +929,7 @@ remove_config() {
       rm -rf "${HOME}/.local/share/lazyman"
       rm -rf "${HOME}/.local/state/lazyman"
       rm -rf "${HOME}/.cache/lazyman"
+      remove_omandir
     }
   }
 }
