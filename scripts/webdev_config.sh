@@ -6,9 +6,9 @@
 #
 # shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
-LAZYMAN="lazyman/Lazyman"
+LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
-WEBDEV="lazyman/Webdev"
+WEBDEV="nvim-Webdev"
 WDEVDIR="${HOME}/.config/${WEBDEV}"
 NVIMCONF="${WDEVDIR}/lua/configuration.lua"
 CONFBACK="${WDEVDIR}/lua/configuration-orig.lua"
@@ -73,7 +73,7 @@ show_figlet() {
 
 get_conf_value() {
   confname="$1"
-  confval=$(NVIM_APPNAME="lazyman/Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
+  confval=$(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
   echo "${confval}"
 }
 
@@ -354,12 +354,12 @@ select_theme_style() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
             mainmenu=1
             break 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
             printf "\nExiting Webdev Configuration Menu System\n\n"
             exit 3
             ;;
@@ -491,12 +491,12 @@ select_theme() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
             mainmenu=1
             break 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
             printf "\nExiting Webdev Configuration Menu System\n\n"
             exit 3
             ;;
@@ -524,7 +524,7 @@ show_conf_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[b cyan]Webdev Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/lazyman/Webdev[/]" -p -c
+      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-Webdev[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Config"
     fi
@@ -645,9 +645,7 @@ show_conf_menu() {
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
-      [ -f ${NVIMCONF} ] && {
-        diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
-      }
+      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${WDEVDIR}" ] && options+=("Open Webdev")
     options+=("Main Menu")
@@ -881,19 +879,19 @@ show_conf_menu() {
           ;;
         "Open Webdev",* | *,"Open Webdev" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
-            NVIM_APPNAME="lazyman/Webdev" neovide
+            NVIM_APPNAME="nvim-Webdev" neovide
           else
-            NVIM_APPNAME="lazyman/Webdev" nvim
+            NVIM_APPNAME="nvim-Webdev" nvim
           fi
           break
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N Webdev init
+          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
           mainmenu=1
           break 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N Webdev init
+          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
           printf "\nExiting Webdev Configuration Menu System\n\n"
           exit 3
           ;;
@@ -945,8 +943,8 @@ set_haves
 }
 
 # Source the Lazyman shell initialization for aliases and nvims selector
-# shellcheck source=~/.config/lazyman/Lazyman/.lazymanrc
-[ -f ~/.config/lazyman/Lazyman/.lazymanrc ] && source ~/.config/lazyman/Lazyman/.lazymanrc
+# shellcheck source=~/.config/nvim-Lazyman/.lazymanrc
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
 
 show_conf_menu
 

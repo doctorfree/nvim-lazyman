@@ -6,7 +6,7 @@ Just a random Neovim config found on Github, works well
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Roiz`**
+- Installation location:  **`~/.config/nvim-Roiz`**
 
 ### Git repository
 

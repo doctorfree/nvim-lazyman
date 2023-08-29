@@ -2,7 +2,7 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
-    cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+    cmd = "Mason",
     lazy = false,
     keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
   },

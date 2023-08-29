@@ -6,7 +6,7 @@ Personal Neovim config of Artur Gomes
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Artur`**
+- Installation location:  **`~/.config/nvim-Artur`**
 
 ### Git repository
 

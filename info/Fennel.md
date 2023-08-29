@@ -6,7 +6,7 @@ An opinionated configuration reminiscent of Doom-Emacs, written in Fennel
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/lazyman/Fennel`**
+- Installation location:  **`~/.config/nvim-Fennel`**
 
 ### Git repository
 

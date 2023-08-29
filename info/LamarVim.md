@@ -6,7 +6,7 @@ Personal Neovim configuration of Cassio Lamarck
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/LamarVim`**
+- Installation location:  **`~/.config/nvim-LamarVim`**
 
 ### Git repository
 

@@ -6,7 +6,7 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Metis`**
+- Installation location:  **`~/.config/nvim-Metis`**
 
 ### Git repository
 

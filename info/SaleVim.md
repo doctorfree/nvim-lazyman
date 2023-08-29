@@ -6,7 +6,7 @@
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/lazyman/SaleVim`**
+- Installation location:  **`~/.config/nvim-SaleVim`**
 
 ### Git repository
 

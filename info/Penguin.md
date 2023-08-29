@@ -6,7 +6,7 @@ Aims to provide a base configuration with beautiful UI and fast startup time
 - Configuration category: [Base](https://lazyman.dev/configurations/#base-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Penguin`**
+- Installation location:  **`~/.config/nvim-Penguin`**
 
 ### Git repository
 

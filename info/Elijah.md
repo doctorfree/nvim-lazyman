@@ -6,7 +6,7 @@ Personal Neovim configuration of Elijah Manor
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [LazyVim](https://lazyvim.github.io)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Elijah`**
+- Installation location:  **`~/.config/nvim-Elijah`**
 
 ### Git repository
 

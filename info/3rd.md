@@ -6,7 +6,7 @@ Example [custom tree-sitter grammar](https://github.com/3rd/syslang)
 - Configuration category: [Personal](https://github.com/doctorfree/nvim-lazyman#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/3rd`**
+- Installation location:  **`~/.config/nvim-3rd`**
 
 [Links to all Lazyman supported configuration documents](https://github.com/doctorfree/nvim-lazyman/wiki/infodocs)
 

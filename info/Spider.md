@@ -6,7 +6,7 @@ AstroNvim based configuration with animated status bar and smooth scroll. [Intro
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Spider`**
+- Installation location:  **`~/.config/nvim-Spider`**
 
 ### Git repository
 

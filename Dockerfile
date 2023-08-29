@@ -56,14 +56,13 @@ ENV HOME /home/nvim
 ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin:/home/nvim/.cargo/bin
 ENV GOPATH=/home/nvim/.local/share/go
 ENV PATH=$PATH:$GOPATH/bin
-ENV NVIM_APPNAME="lazyman/Lazyman"
+ENV NVIM_APPNAME="nvim-Lazyman"
 
 # Copy Neovim config into the image
-RUN mkdir -p $HOME/.config/lazyman
-RUN mkdir -p $HOME/.config/lazyman/Lazyman
-COPY --chown=nvim:nvim . $HOME/.config/lazyman/Lazyman
+RUN mkdir -p $HOME/.config/nvim-Lazyman
+COPY --chown=nvim:nvim . $HOME/.config/nvim-Lazyman
 # Initialize Neovim config and install plugins with Lazy
-RUN chmod +x $HOME/.config/lazyman/Lazyman/lazyman.sh \
-&& $HOME/.config/lazyman/Lazyman/lazyman.sh -y -z || true
+RUN chmod +x $HOME/.config/nvim-Lazyman/lazyman.sh \
+&& $HOME/.config/nvim-Lazyman/lazyman.sh -y -z || true
 
-ENTRYPOINT ["NVIM_APPNAME=lazyman/Lazyman", "/bin/bash", "-c", "nvim"]
+ENTRYPOINT ["NVIM_APPNAME=nvim-Lazyman", "/bin/bash", "-c", "nvim"]

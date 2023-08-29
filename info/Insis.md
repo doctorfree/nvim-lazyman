@@ -6,7 +6,7 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/lazyman/Insis`**
+- Installation location:  **`~/.config/nvim-Insis`**
 
 ### Git repository
 

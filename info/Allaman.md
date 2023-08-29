@@ -6,7 +6,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Allaman`**
+- Installation location:  **`~/.config/nvim-Allaman`**
 
 ### Git repository
 
@@ -116,7 +116,7 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | Toggle Quickfix |  qq | <Cmd>lua require('core.utils.functions').toggle_qf()<CR> |
 | Previous entry |  qk | <Cmd>cprevious<CR> |
 | Next entry |  qj | <Cmd>cnext<CR> |
-| Reload snippets |  ms | <Cmd>source ~/.config/lazyman/Allaman/snippets/*<CR> |
+| Reload snippets |  ms | <Cmd>source ~/.config/nvim-Allaman/snippets/*<CR> |
 | Toggle Scrollbind |  tS | <Cmd>windo set scb!<CR> |
 | Toggle Virtualtext |  tt | <Cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<CR> |
 | Toggle colorcolumn |  to | <Cmd>lua require('core.utils.functions').toggle_colorcolumn()<CR> |

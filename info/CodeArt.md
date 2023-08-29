@@ -6,7 +6,7 @@ Use Neovim as a general purpose IDE
 - Configuration category: [Starter](https://lazyman.dev/configurations/#starter-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
-- Installation location:  **`~/.config/lazyman/CodeArt`**
+- Installation location:  **`~/.config/nvim-CodeArt`**
 
 ### Git repository
 

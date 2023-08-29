@@ -6,7 +6,7 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/NV-IDE`**
+- Installation location:  **`~/.config/nvim-NV-IDE`**
 
 ### Git repository
 

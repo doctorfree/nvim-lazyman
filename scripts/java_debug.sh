@@ -5,8 +5,8 @@ NVIMDIR="$1"
   echo "Config dir argument required. Exiting."
   exit 1
 }
-[ -d ${HOME}/.config/lazyman/${NVIMDIR} ] || {
-  echo "${HOME}/.config/lazyman/${NVIMDIR} does not exist. Exiting."
+[ -d ${HOME}/.config/${NVIMDIR} ] || {
+  echo "${HOME}/.config/${NVIMDIR} does not exist. Exiting."
   exit 1
 }
 have_git=$(type -p git)
@@ -21,11 +21,11 @@ have_npm=$(type -p npm)
 }
 [ -d ${HOME}]/workspace ] || mkdir -p ${HOME}/workspace
 git clone https://github.com/microsoft/java-debug \
-  ${HOME}/.config/lazyman/${NVIMDIR}/.java-debug
-cd ${HOME}/.config/lazyman/${NVIMDIR}/.java-debug
+  ${HOME}/.config/${NVIMDIR}/.java-debug
+cd ${HOME}/.config/${NVIMDIR}/.java-debug
 [ -x ./mvnw ] && ./mvnw clean install
 git clone https://github.com/microsoft/vscode-java-test \
-  ${HOME}/.config/lazyman/${NVIMDIR}/.vscode-java-test
-cd ${HOME}/.config/lazyman/${NVIMDIR}/.vscode-java-test
+  ${HOME}/.config/${NVIMDIR}/.vscode-java-test
+cd ${HOME}/.config/${NVIMDIR}/.vscode-java-test
 npm install
 npm run build-plugin

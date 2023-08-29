@@ -6,7 +6,7 @@ Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Mini](https://github.com/echasnovski/mini.nvim)
-- Installation location:  **`~/.config/lazyman/Mini`**
+- Installation location:  **`~/.config/nvim-Mini`**
 
 ### Git repository
 
@@ -108,7 +108,7 @@ Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal
 | Commands |  f: | <Cmd>Telescope command_history<CR> |
 | "/" history |  f/ | <Cmd>Telescope search_history<CR> |
 | Quickfix |  eq | <Cmd>lua EC.toggle_quickfix()<CR> |
-| Mini.nvim directory |  em | <Cmd>lua MiniFiles.open('~/.config/lazyman/Mini/pack/plugins/opt/mini')<CR> |
+| Mini.nvim directory |  em | <Cmd>lua MiniFiles.open('~/.config/nvim-Mini/pack/plugins/opt/mini')<CR> |
 | File directory |  ef | <Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR> |
 | Directory |  ed | <Cmd>lua MiniFiles.open()<CR> |
 | Wipeout! |  bW | <Cmd>lua MiniBufremove.wipeout(0, true)<CR> |

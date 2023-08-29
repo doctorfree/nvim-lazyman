@@ -1,6 +1,6 @@
 #!/bin/bash
 
-patchdir="${HOME}/.config/lazyman/Lazyman/scripts/patches"
+patchdir="${HOME}/.config/nvim-Lazyman/scripts/patches"
 have_patch=$(type -p patch)
 
 [ "${have_patch}" ] || {
@@ -26,7 +26,7 @@ do
   [ "${config}" ] && {
     [ "${config}" == "${confname}" ] || continue
   }
-  confdir="${HOME}/.config/lazyman/${confname}"
+  confdir="${HOME}/.config/${confname}"
   [ -f ${patchdir}/${confname}.patch ] && {
     [ -d ${confdir} ] && {
       # Check if the patch has previously been applied

@@ -3,32 +3,15 @@ local settings = require("configuration")
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    version = false,
     build = ":TSUpdate",
-    -- build = function()
-    --   require("nvim-treesitter.install").update({ with_sync = true })
-    -- end,
-    cmd = {
-      "TSBufDisable",
-      "TSBufEnable",
-      "TSBufToggle",
-      "TSDisable",
-      "TSEnable",
-      "TSToggle",
-      "TSInstall",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSModuleInfo",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync",
-    },
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = settings.treesitter_ensure_installed,
       sync_install = true,
       auto_install = true,
       ignore_install = {},
-      highlight = { enable = true, disable = { "c", "rust" } },
+      highlight = { enable = true },
       indent = { enable = true, disable = { "yaml", "python", "html" } },
       context_commentstring = { enable = true },
     },

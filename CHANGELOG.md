@@ -6,8 +6,6 @@
 
 ### 🐞 Fixed
 
-- Reverting all v4 changes, cannot use config subdir in Neovim nightly
-
 ## v3.0.1r4
 
 ### ⚡️ Added

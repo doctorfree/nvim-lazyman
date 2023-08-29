@@ -6,7 +6,7 @@ AstroNvim based configuration of open source developer Orhun Parmaksiz
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     [AstroNvim](https://astronvim.com)
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Orhun`**
+- Installation location:  **`~/.config/nvim-Orhun`**
 
 ### Git repository
 

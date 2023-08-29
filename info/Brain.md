@@ -6,7 +6,7 @@ Well structured personal config based on the [KISS](https://en.wikipedia.org/wik
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Brain`**
+- Installation location:  **`~/.config/nvim-Brain`**
 
 ### Git repository
 

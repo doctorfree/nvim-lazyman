@@ -6,7 +6,7 @@
 - Configuration category: [Personal](https://lazyman.dev/configurations/#personal-configurations)
 - Base configuration:     Custom
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
-- Installation location:  **`~/.config/lazyman/Rafi`**
+- Installation location:  **`~/.config/nvim-Rafi`**
 
 ### Git repository
 

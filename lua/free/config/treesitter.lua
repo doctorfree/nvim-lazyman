@@ -8,10 +8,9 @@ require("nvim-treesitter.configs").setup({
 
   highlight = {
     enable = true,
-    disable = { "c", "rust" },
-    -- disable = function()
-    --   return vim.b.large_buf
-    -- end,
+    disable = function()
+      return vim.b.large_buf
+    end,
     additional_vim_regex_highlighting = false,
   },
 
