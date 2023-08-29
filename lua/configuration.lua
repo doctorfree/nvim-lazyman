@@ -261,7 +261,7 @@ conf.formatters_linters = {
   "golangci-lint", -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
   "latexindent", -- FORMATTERS_LINTERS
-  "markdownlint", -- FORMATTERS_LINTERS
+  -- "markdownlint", -- FORMATTERS_LINTERS
   "prettier", -- FORMATTERS_LINTERS
   "sql-formatter", -- FORMATTERS_LINTERS
   -- "shellcheck", -- FORMATTERS_LINTERS
