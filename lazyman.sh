@@ -929,6 +929,7 @@ remove_config() {
       rm -rf "${HOME}/.local/share/lazyman"
       rm -rf "${HOME}/.local/state/lazyman"
       rm -rf "${HOME}/.cache/lazyman"
+      rm -rf "${HOME}/.config/lazyman"
       remove_omandir
     }
   }
