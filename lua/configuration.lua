@@ -67,6 +67,8 @@ conf.enable_codeium = false
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
 conf.enable_neoai = false
+-- Enable AI diagnostic debugging, https://github.com/piersolenski/wtf.nvim
+conf.enable_wtf = false
 --
 -- Enable display of ascii art
 conf.enable_asciiart = false
