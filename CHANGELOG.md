@@ -6,6 +6,15 @@
 
 ### 🐞 Fixed
 
+## v4.0.0r2
+
+### ⚡️ Added
+
+### 🐞 Fixed
+
+- Fixed issue with updating from v3 to v4
+- Check if `configurtion.lua` exists before performing a diff
+
 ## v4.0.0r1
 
 ### ⚡️ Added
