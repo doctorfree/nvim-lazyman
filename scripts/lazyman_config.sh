@@ -695,12 +695,12 @@ show_plugin_menu() {
     else
       use_neoai="✗"
     fi
-    enable_wtf=$(get_conf_value enable_wtf)
-    if [ "${enable_wtf}" == "true" ]; then
-      use_wtf=""
-    else
-      use_wtf="✗"
-    fi
+    # enable_wtf=$(get_conf_value enable_wtf)
+    # if [ "${enable_wtf}" == "true" ]; then
+    #   use_wtf=""
+    # else
+    #   use_wtf="✗"
+    # fi
     enable_surround=$(get_conf_value enable_surround)
     if [ "${enable_surround}" == "true" ]; then
       use_surround=""
@@ -918,7 +918,7 @@ show_plugin_menu() {
       options+=(" Remove GPT model")
     }
     options+=("NeoAI   (AI)  [${use_neoai}]")
-    options+=("WTF     (AI)  [${use_wtf}]")
+    # options+=("WTF     (AI)  [${use_wtf}]")
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
@@ -1252,15 +1252,15 @@ show_plugin_menu() {
           fi
           break
           ;;
-        "WTF"*,* | *,"WTF"*)
-          if [ "${enable_wtf}" == "true" ]; then
-            set_conf_value "enable_wtf" "false"
-          else
-            set_conf_value "enable_wtf" "true"
-          fi
-          pluginit=1
-          break
-          ;;
+        # "WTF"*,* | *,"WTF"*)
+        #   if [ "${enable_wtf}" == "true" ]; then
+        #     set_conf_value "enable_wtf" "false"
+        #   else
+        #     set_conf_value "enable_wtf" "true"
+        #   fi
+        #   pluginit=1
+        #   break
+        #   ;;
         "Surround"*,* | *,"Surround"*)
           if [ "${enable_surround}" == "true" ]; then
             set_conf_value "enable_surround" "false"
@@ -1677,7 +1677,7 @@ show_plugin_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
-          set_conf_value "enable_wtf" "false"
+          # set_conf_value "enable_wtf" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -1725,7 +1725,7 @@ show_plugin_menu() {
           set_conf_value "enable_codeium" "true"
           set_conf_value "enable_copilot" "true"
           set_conf_value "enable_neoai" "true"
-          set_conf_value "enable_wtf" "true"
+          # set_conf_value "enable_wtf" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
             pyver=$(check_python_version)
             [ "${pyver}" == "OK" ] && {
@@ -2448,7 +2448,7 @@ show_conf_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
-          set_conf_value "enable_wtf" "false"
+          # set_conf_value "enable_wtf" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"

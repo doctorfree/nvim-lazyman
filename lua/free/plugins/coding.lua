@@ -2,19 +2,19 @@ local settings = require("configuration")
 local enable_codeium = settings.enable_codeium
 local enable_copilot = settings.enable_copilot
 local enable_neoai = settings.enable_neoai
-local enable_wtf = settings.enable_wtf
+-- local enable_wtf = settings.enable_wtf
 if not settings.enable_coding then
   enable_codeium = false
   enable_copilot = false
   enable_neoai = false
-  enable_wtf = false
+  -- enable_wtf = false
 end
 
 local codeium = {}
 local copilot = {}
 local copilot_cmp = {}
 local neoai = {}
-local wtf = {}
+-- local wtf = {}
 if enable_neoai then
   neoai = {
     "Bryley/neoai.nvim",
@@ -125,37 +125,37 @@ if enable_codeium then
   }
 end
 
-if enable_wtf then
-  wtf = {
-    "piersolenski/wtf.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    event = "VeryLazy",
+-- if enable_wtf then
+--   wtf = {
+--     "piersolenski/wtf.nvim",
+--     dependencies = {
+--       "MunifTanjim/nui.nvim",
+--     },
+--     event = "VeryLazy",
     -- opts = {},
-    keys = {
-      {
-        "gW",
-        mode = { "n" },
-        function()
-          require("wtf").ai()
-        end,
-        desc = "Debug diagnostic with AI",
-      },
-      {
-        mode = { "n" },
-        "gw",
-        function()
-          require("wtf").search()
-        end,
-        desc = "Search diagnostic with Google",
-      },
-    },
-    config = function()
-      require("config.wtf")
-    end,
-  }
-end
+--     keys = {
+--       {
+--         "gW",
+--         mode = { "n" },
+--         function()
+--           require("wtf").ai()
+--         end,
+--         desc = "Debug diagnostic with AI",
+--       },
+--       {
+--         mode = { "n" },
+--         "gw",
+--         function()
+--           require("wtf").search()
+--         end,
+--         desc = "Search diagnostic with Google",
+--       },
+--     },
+--     config = function()
+--       require("config.wtf")
+--     end,
+--   }
+-- end
 
 if enable_copilot then
   copilot = {
@@ -382,5 +382,5 @@ return {
   copilot_cmp,
   neoai,
   securitree,
-  wtf,
+  -- wtf,
 }
