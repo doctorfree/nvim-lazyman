@@ -4,6 +4,21 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    cmd = {
+      "TSBufDisable",
+      "TSBufEnable",
+      "TSBufToggle",
+      "TSDisable",
+      "TSEnable",
+      "TSToggle",
+      "TSInstall",
+      "TSInstallInfo",
+      "TSInstallSync",
+      "TSModuleInfo",
+      "TSUninstall",
+      "TSUpdate",
+      "TSUpdateSync",
+    },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = settings.treesitter_ensure_installed,
