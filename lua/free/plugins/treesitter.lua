@@ -1,10 +1,25 @@
 local M = {
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false, -- last release is way too old and doesn't work on Windows
+    -- version = false, -- last release is way too old and doesn't work on Windows
     build = ":TSUpdate",
-    -- event = { "BufReadPost", "BufNewFile" },
-    event = "BufReadPost",
+    cmd = {
+      "TSInstall",
+      "TSInstallSync",
+      "TSInstallInfo",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSUninstall",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSBufToggle",
+      "TSEnable",
+      "TSDisable",
+      "TSToggle",
+      "TSModuleInfo",
+      "TSEditQuery",
+      "TSEditQueryUserAfter" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "RRethy/nvim-treesitter-endwise",
