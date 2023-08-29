@@ -3,9 +3,8 @@ local settings = require("configuration")
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = settings.treesitter_ensure_installed,
       sync_install = true,

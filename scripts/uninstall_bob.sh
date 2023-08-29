@@ -54,4 +54,19 @@ else
   exit 1
 fi
 
+INSTNVIM="${HOME}/.config/lazyman/Lazyman/scripts/install_neovim.sh"
+if [ -x "${INSTNVIM}" ]
+then
+  printf "\n\tInstalling neovim and dependencies ..."
+  ${INSTNVIM} -y -q
+else
+  have_lman=$(type -p lazyman)
+  if [ "${have_lman}" ]; then
+    lazyman -I
+  else
+    printf "\n\tWARNING: Unable to locate ${INSTNVIM}"
+    printf "\n\tInstall Neovim manually, reinstall Lazyman, or run 'lazyman -I'"
+  fi
+fi
+
 exit 0
