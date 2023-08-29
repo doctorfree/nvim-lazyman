@@ -320,7 +320,14 @@ migrate_nvimdirs() {
     rm -f /tmp/nvdirs$$
   }
   # Remove old v3 or earlier Lazyman config/share/state/cache dirs
-  rm -rf "${OMANDIR}"
+  [ -d "${OMANDIR}" ] && {
+    if [ -L "${OMANDIR}" ]
+    then
+      rm -f "${OMANDIR}"
+    else
+      rm -rf "${OMANDIR}"
+    fi
+  }
   rm -rf "${HOME}/.local/share/nvim-Lazyman"
   rm -rf "${HOME}/.local/state/nvim-Lazyman"
   rm -rf "${HOME}/.cache/nvim-Lazyman"
@@ -611,7 +618,19 @@ init_neovim() {
     [ -f "${LMANDIR}/.initialized" ] || {
       touch "${LMANDIR}/.initialized"
     }
-    [ "${migrated}" ] && migrate_nvimdirs
+    [ "${migrated}" ] && {
+      migrate_nvimdirs
+      # To ensure backward compatibility
+      [ -d "${OMANDIR}" ] && {
+        if [ -L "${OMANDIR}" ]
+        then
+          rm -f "${OMANDIR}"
+        else
+          rm -rf "${OMANDIR}"
+        fi
+      }
+      ln -s "${LMANDIR}" "${OMANDIR}"
+    }
   }
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     packer=${oldpack}
@@ -2960,10 +2979,10 @@ show_main_menu() {
                 nvims
               fi
               ;;
-	  esac
-	fi
-	break
-	;;
+          esac
+        fi
+        break
+        ;;
       "Open Lazyman"*,* | *,"Open Lazyman"*)
         if [ "${USEGUI}" ]; then
           NVIM_APPNAME="lazyman/Lazyman" neovide
