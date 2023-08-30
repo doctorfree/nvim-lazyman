@@ -4,22 +4,27 @@
 
 ### ⚡️ Added
 
-- Remove all configs and lazyman command when removing Lazyman
-- Update with rustup before installing Bob
-- Add c to treesitter parsers
-- Disable treesitter highlights for c and rust
-- Fix new treesitter issues with highlights for some parsers, will it ever end?
-- Reverting all v4 subdir changes, cannot use in Neovim nightly
+### 🐞 Fixed
+
+## v3.0.2r1
+
+### ⚡️ Added
+
+- Add `c` to `treesitter` parsers
+- Add script to uninstall `bob` neovim version manager
+- Add script to update `bob` neovim version manager
 - Add all Mason commands to spec
-- Disable treesitter highlights for c and rust
-- Remove c,cpp,java,python from treesitter ensure installed
-- Remove bash from treesitter ensure installed
-- List treesitter commands in lazy spec
-- Add script to uninstall bob neovim version manager
-- Add script to update bob neovim version manager
-- Disable markdownlint by default
+- List `treesitter` commands in `lazy.nvim` spec
 
 ### 🐞 Fixed
+
+- Remove all configs and lazyman command when removing Lazyman
+- Update with rustup before installing Bob
+- Disable `treesitter` highlights for `c` and `rust`
+- Fix new `treesitter` issues with highlights for some parsers, will it ever end?
+- Reverting all v4 subdir changes, cannot use in Neovim nightly
+- Remove `bash`, `cpp`, `java`, `python` from `treesitter` ensure installed
+- Disable `markdownlint` by default
 
 ## v3.0.1r4
 
@@ -27,10 +32,10 @@
 
 - Add section on menu system usage, add note about disk space
 - Add single key menu navigation shortcuts for configuration menus
-- Add I, r, and u main menu shortcuts for info, remove, and update
-- Use lazyman.dev info document if it exists, add 's' main menu shortcut
-- Add q menu shortcut, i and o main menu shortcuts
-- Add LamarVim to Personals table, use lazyman.dev/info/ links
+- Add `I`, `r`, and `u` main menu shortcuts for info, remove, and update
+- Use `lazyman.dev` info document if it exists, add 's' main menu shortcut
+- Add `q` menu shortcut, `i` and `o` main menu shortcuts
+- Add `LamarVim` to Personals table, use `lazyman.dev/info/` links
 
 ### 🐞 Fixed
 
