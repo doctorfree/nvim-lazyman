@@ -196,13 +196,13 @@ conf.media_backend = "jp2a"
 conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash",
-  "c",
-  "cpp",
+  -- "bash",
+  -- "c",
+  -- "cpp",
   "go",
   "graphql",
   "html",
-  "java",
+  -- "java",
   "javascript",
   "json",
   "lua",
@@ -210,7 +210,7 @@ conf.treesitter_ensure_installed = {
   "markdown_inline",
   "query",
   "php",
-  "python",
+  -- "python",
   "regex",
   "rust",
   "scss",
