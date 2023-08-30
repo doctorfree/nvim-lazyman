@@ -1,7 +1,7 @@
 local M = {
   {
     "nvim-treesitter/nvim-treesitter",
-    -- version = false, -- last release is way too old and doesn't work on Windows
+    version = false, -- last release is way too old and doesn't work on Windows
     build = ":TSUpdate",
     cmd = {
       "TSInstall",
@@ -18,7 +18,8 @@ local M = {
       "TSToggle",
       "TSModuleInfo",
       "TSEditQuery",
-      "TSEditQueryUserAfter" },
+      "TSEditQueryUserAfter",
+    },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
