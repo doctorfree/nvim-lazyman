@@ -54,7 +54,7 @@ else
   exit 1
 fi
 
-INSTNVIM="${HOME}/.config/lazyman/Lazyman/scripts/install_neovim.sh"
+INSTNVIM="${HOME}/.config/nvim-Lazyman/scripts/install_neovim.sh"
 if [ -x "${INSTNVIM}" ]
 then
   printf "\n\tInstalling neovim and dependencies ..."
