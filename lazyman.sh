@@ -608,6 +608,44 @@ remove_config() {
   [ -d "${HOME}/.config/${ndir}" ] || {
     [ -d "${HOME}/.config/nvim-${ndir}" ] && ndir="nvim-${ndir}"
   }
+
+  remove_lazyman=
+  if [ "${ndir}" == "${LAZYMAN}" ]; then
+    if [ -f ${NVIMDIRS} ]
+    then
+      numinst=$(grep -v nvim-Lazyman ${NVIMDIRS} | grep -v ^$ | wc -l)
+    else
+      numinst=0
+    fi
+    printf "\nYou have requested removal of the Lazyman Neovim configuration at:"
+    printf "\n\t${HOME}/.config/nvim-Lazyman\n"
+    if [ ${numinst} -gt 0 ]
+    then
+      printf "\nThis will remove Lazyman and ${numinst} Neovim configurations installed with lazyman."
+      printf "\nConfirm removal of Lazyman and ${numinst} Neovim configuratioins\n"
+    else
+      printf "\nThis will remove Lazyman and $HOME/.local/bin/lazyman"
+      printf "\nConfirm removal of Lazyman\n"
+    fi
+    while true; do
+      read -r -p "Remove Lazyman ? (y/n) " yn
+      case $yn in
+      [Yy]*)
+        proceed=1
+        removeall=1
+        remove_lazyman=1
+        break
+        ;;
+      [Nn]*)
+        printf "\nAborting removal of Lazyman and exiting\n"
+        exit 0
+        ;;
+      *)
+        printf "\nPlease answer yes or no.\n"
+        ;;
+      esac
+    done
+  fi
   [ "$proceed" ] || {
     printf "\nYou have requested removal of the Neovim configuration at:"
     printf "\n\t${HOME}/.config/${ndir}\n"
@@ -627,6 +665,10 @@ remove_config() {
         ;;
       esac
     done
+  }
+
+  [ "$remove_lazyman" ] && {
+    [ "$tellme" ] || lazyman -R -A -y -q
   }
 
   if [ "${ndir}" == "${spacevimdir}" ]; then
@@ -737,6 +779,10 @@ remove_config() {
   }
   [ "$tellme" ] || {
     remove_nvimdirs_entry "$ndir"
+  }
+
+  [ "$remove_lazyman" ] && {
+    [ "$tellme" ] || rm -f "${HOME}/.local/bin/lazyman"
   }
 }
 
