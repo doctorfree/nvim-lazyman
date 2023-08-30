@@ -8,13 +8,18 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local session_restore = 'lua require("persistence").load({ last = true })'
 if settings.session_manager == "possession" then
-  session_restore = 'Telescope possession list'
+  session_restore = "Telescope possession list"
+end
+
+local dashboard_depend = { "nvim-tree/nvim-web-devicons" }
+if settings.enable_terminal then
+  dashboard_depend = { "rebelot/terminal.nvim", "nvim-tree/nvim-web-devicons" }
 end
 
 if settings.enable_wakatime then
   wakatime_type = {
     "wakatime/vim-wakatime",
-    lazy = false
+    lazy = false,
   }
 end
 
@@ -22,12 +27,13 @@ if settings.dashboard == "alpha" then
   alpha_disabled = {}
   dashboard_type = {
     "goolord/alpha-nvim",
+    dependencies = dashboard_depend,
     enabled = true,
     event = "VimEnter",
     keys = { { "<leader>A", "<cmd>Alpha<CR>", "Alpha Dashboard" } },
     config = function()
       require("free.config.alpha.alpha")
-    end
+    end,
   }
 elseif settings.dashboard == "dash" then
   dashboard_disabled = {}
@@ -35,7 +41,7 @@ elseif settings.dashboard == "dash" then
     "glepnir/dashboard-nvim",
     enabled = true,
     event = "VimEnter",
-    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+    dependencies = dashboard_depend,
     keys = { { "<leader>0", "<cmd>Dashboard<CR>", desc = "Dashboard" } },
     config = function()
       require("free.config.dashboard")
@@ -46,6 +52,7 @@ elseif settings.dashboard == "mini" then
   dashboard_type = {
     "echasnovski/mini.starter",
     version = "*",
+    dependencies = dashboard_depend,
     enabled = true,
     event = "VimEnter",
     opts = function()
@@ -108,8 +115,7 @@ elseif settings.dashboard == "mini" then
           local version = vim.version()
           local version_info = ""
           if version ~= nil then
-            version_info = "v" .. version.major .. "." ..
-                version.minor .. "." .. version.patch
+            version_info = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
           end
           local stats = require("lazy").stats()
           local vinfo = "Neovim " .. version_info
