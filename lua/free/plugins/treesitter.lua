@@ -2,7 +2,14 @@ local M = {
   {
     "nvim-treesitter/nvim-treesitter",
     version = false, -- last release is way too old and doesn't work on Windows
-    build = ":TSUpdate",
+    build = function()
+      vim.cmd([[TSUpdate]])
+      vim.cmd([[TSUpdate bash]])
+      vim.cmd([[TSUpdate c]])
+      vim.cmd([[TSUpdate cpp]])
+      vim.cmd([[TSUpdate java]])
+      vim.cmd([[TSUpdate python]])
+    end,
     cmd = {
       "TSInstall",
       "TSInstallSync",
@@ -28,11 +35,6 @@ local M = {
     },
     config = function()
       require("free.config.treesitter")
-      vim.cmd([[TSUpdate bash]])
-      vim.cmd([[TSUpdate c]])
-      vim.cmd([[TSUpdate cpp]])
-      vim.cmd([[TSUpdate java]])
-      vim.cmd([[TSUpdate python]])
     end,
   },
   {
