@@ -28,7 +28,11 @@ local M = {
     },
     config = function()
       require("free.config.treesitter")
+      vim.cmd([[TSUpdate bash]])
       vim.cmd([[TSUpdate c]])
+      vim.cmd([[TSUpdate cpp]])
+      vim.cmd([[TSUpdate java]])
+      vim.cmd([[TSUpdate python]])
     end,
   },
   {
