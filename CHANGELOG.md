@@ -4,6 +4,21 @@
 
 ### ⚡️ Added
 
+- Remove all configs and lazyman command when removing Lazyman
+- Update with rustup before installing Bob
+- Add c to treesitter parsers
+- Disable treesitter highlights for c and rust
+- Fix new treesitter issues with highlights for some parsers, will it ever end?
+- Reverting all v4 subdir changes, cannot use in Neovim nightly
+- Add all Mason commands to spec
+- Disable treesitter highlights for c and rust
+- Remove c,cpp,java,python from treesitter ensure installed
+- Remove bash from treesitter ensure installed
+- List treesitter commands in lazy spec
+- Add script to uninstall bob neovim version manager
+- Add script to update bob neovim version manager
+- Disable markdownlint by default
+
 ### 🐞 Fixed
 
 ## v3.0.1r4
