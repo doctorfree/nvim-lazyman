@@ -437,18 +437,18 @@ init_neovim() {
       if [ "${packer}" ]; then
         xtimeout ${timeout} nvim --headless \
           -c 'autocmd User PackerComplete quitall' \
-          -c 'PackerSync' >${LOG} 2>&1
+          -c 'PackerSync' >>${LOG} 2>&1
       else
         if [ "${plug}" ]; then
           xtimeout ${timeout} nvim --headless -c \
-            'set nomore' -c 'PlugInstall!' -c 'qa' >${LOG} 2>&1
+            'set nomore' -c 'PlugInstall!' -c 'qa' >>${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
             'set nomore' -c 'UpdateRemotePlugins' -c 'qa' >>${LOG} 2>&1
           xtimeout ${timeout} nvim --headless -c \
             'set nomore' -c 'GoInstallBinaries' -c 'qa' >>${LOG} 2>&1
         else
           if [ "${neodir}" == "${spacevimdir}" ]; then
-            xtimeout ${timeout} nvim --headless "+SPInstall" +qa >${LOG} 2>&1
+            xtimeout ${timeout} nvim --headless "+SPInstall" +qa >>${LOG} 2>&1
             xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >>${LOG} 2>&1
           else
             [ "${neodir}" == "${lunarvimdir}" ] ||
@@ -464,7 +464,7 @@ init_neovim() {
               export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
             }
             if [ "${treesitter}" ]; then
-              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >${LOG} 2>&1
+              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >>${LOG} 2>&1
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
@@ -483,8 +483,12 @@ init_neovim() {
                 }
               }
               [ "${neodir}" == "${LAZYMAN}" ] && {
-                xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >${LOG} 2>&1
-                xtimeout ${timeout} nvim --headless "+TSUpdate c" "+TSUpdate bash" "+TSUpdate cpp" "+TSUpdate java" "+TSUpdate python" +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate c" +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate bash" +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate cpp" +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate java" +qa >>${LOG} 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate python" +qa >>${LOG} 2>&1
               }
             fi
           fi
@@ -554,7 +558,11 @@ init_neovim() {
               }
               [ "${neodir}" == "${LAZYMAN}" ] && {
                 xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
-                xtimeout ${timeout} nvim --headless "+TSUpdate c" "+TSUpdate bash" "+TSUpdate cpp" "+TSUpdate java" "+TSUpdate python" +qa >/dev/null 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate c" +qa >/dev/null 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate bash" +qa >/dev/null 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate cpp" +qa >/dev/null 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate java" +qa >/dev/null 2>&1
+                xtimeout ${timeout} nvim --headless "+TSUpdate python" +qa >/dev/null 2>&1
               }
             fi
           fi
