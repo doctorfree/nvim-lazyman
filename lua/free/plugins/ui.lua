@@ -266,7 +266,7 @@ if settings.enable_terminal then
       "Lazyconf",
       "Htop",
     },
-    lazy = false,
+    event = "VimEnter",
     config = function()
       require("config.terminal_nvim")
     end,
@@ -339,6 +339,8 @@ return {
     end,
   },
 
+  terminal_nvim,
+
   -- VSCode-like winbar
   barbecue,
 
@@ -397,6 +399,5 @@ return {
 
   smart_column,
   virt_column,
-  terminal_nvim,
   wilder_type,
 }

@@ -321,7 +321,7 @@ if settings.enable_terminal then
       "Lazyconf",
       "Htop",
     },
-    lazy = false,
+    event = "VimEnter",
     config = function()
       require("config.terminal_nvim")
     end,
