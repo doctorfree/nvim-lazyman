@@ -668,7 +668,7 @@ remove_config() {
   }
 
   [ "$remove_lazyman" ] && {
-    [ "$tellme" ] || lazyman -R -A -y -q
+    [ "$tellme" ] || lazyman -R -A -y -q > /dev/null 2>&1
   }
 
   if [ "${ndir}" == "${spacevimdir}" ]; then
