@@ -482,7 +482,8 @@ init_neovim() {
                   }
                 }
               }
-              [ "${neodir}" == "nvim-Lazyman" ] && {
+              [ "${neodir}" == "${LAZYMAN}" ] && {
+                xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >${LOG} 2>&1
                 xtimeout ${timeout} nvim --headless "+TSUpdate c" "+TSUpdate bash" "+TSUpdate cpp" "+TSUpdate java" "+TSUpdate python" +qa >>${LOG} 2>&1
               }
             fi
@@ -551,7 +552,8 @@ init_neovim() {
                   }
                 }
               }
-              [ "${neodir}" == "nvim-Lazyman" ] && {
+              [ "${neodir}" == "${LAZYMAN}" ] && {
+                xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >/dev/null 2>&1
                 xtimeout ${timeout} nvim --headless "+TSUpdate c" "+TSUpdate bash" "+TSUpdate cpp" "+TSUpdate java" "+TSUpdate python" +qa >/dev/null 2>&1
               }
             fi
