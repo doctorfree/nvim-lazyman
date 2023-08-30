@@ -69,6 +69,7 @@ if settings.enable_games then
     {
       "eandrju/cellular-automaton.nvim",
       event = "VeryLazy",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
   }
 else
