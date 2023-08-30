@@ -13,7 +13,19 @@ fi
 have_brew=$(type -p brew)
 have_curl=$(type -p curl)
 if command -v "cargo" >/dev/null 2>&1; then
-  printf "\n\tUsing previously installed cargo"
+  if [ "${have_brew}" ]; then
+    printf "\n\tUpdating rust, please be patient ..."
+    brew update --quiet >/dev/null 2>&1
+    brew upgrade --quiet "rust" >/dev/null 2>&1
+    printf " done\n"
+  else
+    have_rust=$(type -p rustup)
+    [ "${have_rust}" ] && {
+      printf "\n\tUpdating rustc, please be patient ..."
+      rustup update >/dev/null 2>&1
+      printf " done\n"
+    }
+fi
 else
   printf "\n\tInstalling cargo ..."
   if [ "${have_brew}" ]; then
