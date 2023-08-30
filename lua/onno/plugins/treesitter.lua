@@ -28,7 +28,7 @@ return {
       sync_install = true,
       auto_install = true,
       ignore_install = {},
-      highlight = { enable = true },
+      highlight = { enable = true, disable = { "c", "rust" } },
       indent = { enable = true, disable = { "yaml", "python", "html" } },
       context_commentstring = { enable = true },
     },
