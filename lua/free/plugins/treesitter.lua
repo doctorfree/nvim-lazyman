@@ -28,6 +28,19 @@ local M = {
     },
     config = function()
       require("free.config.treesitter")
+      local init_path = vim.fn.stdpath("config") ..  "/.treesitter"
+      if not require("util").file_or_dir_exists(init_path) then
+        vim.cmd([[TSUpdate bash]])
+        vim.cmd([[TSUpdate c]])
+        vim.cmd([[TSUpdate cpp]])
+        vim.cmd([[TSUpdate java]])
+        vim.cmd([[TSUpdate python]])
+        local init_file = io.open(init_path, "w")
+        if init_file ~= nil then
+          init_file:write("")
+          init_file:close()
+        end
+      end
     end,
   },
   {
