@@ -17,10 +17,10 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 
 Lazyman is one of the [Neoman](https://neoman.dev) managed projects:
 
-| **Neoman** | **Managed** | **Projects** |
-| :--------- | :---------: | -----------: |
-| [Asciiville](https://asciiville.dev) | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
-| [MusicPlayerPlus](https://musicplayerplus.dev) | [Neoman](https://neoman.dev) | [RoonCommandLine](https://rooncommand.dev) |
+| **Neoman**                                     |          **Managed**           |                               **Projects** |
+| :--------------------------------------------- | :----------------------------: | -----------------------------------------: |
+| [Asciiville](https://asciiville.dev)           | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
+| [MusicPlayerPlus](https://musicplayerplus.dev) |  [Neoman](https://neoman.dev)  | [RoonCommandLine](https://rooncommand.dev) |
 
 The Lazyman Neovim configuration management menu:
 
@@ -298,7 +298,7 @@ https://lazyman.dev/info/Abstract.html
 | **Base** |        |        |        | **Configs** |
 | :------- | :----: | :----: | :----: | ----------: |
 | [Abstract](https://lazyman.dev/info/Abstract.html) | [AstroNvimPlus](https://lazyman.dev/info/AstroNvimPlus.html) | [Basic IDE](https://lazyman.dev/info/BasicIde.html) | [Ecovim](https://lazyman.dev/info/Ecovim.html) | [LazyVim](https://lazyman.dev/info/LazyVim.html) |
-| [LunarVim](https://lazyman.dev/info/LunarVim.html) | [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | [penguinVim](https://lazyman.dev/info/Penguin.html) | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
+| [LunarVim](https://lazyman.dev/info/LunarVim.html) | [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
 
 <!-- prettier-ignore -->
 | **Language** |        |        |        |        |        | **Configs** |
@@ -502,12 +502,13 @@ without being prompted to proceed, execute `lazyman -A -R -y`.
 <details><summary>Click here to view the
 
 **Lazyman usage message**
+
 </summary>
 
 ```
 Usage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]
    [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]
-   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]
+   [-S] [-v] [-n] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]
    [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]
    [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]
    [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
@@ -537,7 +538,6 @@ Where:
     -l indicates install and initialize LazyVim Neovim configuration
     -m indicates install and initialize MagicVim Neovim configuration
     -M indicates install and initialize Mini Neovim configuration
-    -o indicates install and initialize penguinVim Neovim configuration
     -O 'name' indicates set Lazyman configuration to namespace 'name'
        'name' can be one of: free onno toggle
     -s indicates install and initialize SpaceVim Neovim configuration
@@ -840,6 +840,7 @@ Additional plugin configuration and options are available in `configuration.lua`
 <details><summary>Click here to view the
 
 **Lazyman default `configuration.lua`**
+
 </summary>
 
 ```lua
@@ -1482,6 +1483,7 @@ opened using the selected configuration.
 <details><summary>Click here to view the
 
 **Lazyman `.lazymanrc` shell aliases and functions**
+
 </summary>
 
 ```bash
@@ -1847,6 +1849,7 @@ convenience key binding of `ctrl-N` to bring up that menu.
 <details><summary>Click here to view the
 
 **Lazyman `.nvimsbind` shell key binding file**
+
 </summary>
 
 ```bash
@@ -2187,6 +2190,7 @@ NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} mouse
 <details><summary>Click here to view the
 
 **Lazyman `get_conf.lua` script**
+
 </summary>
 
 ```lua

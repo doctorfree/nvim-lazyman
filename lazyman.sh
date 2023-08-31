@@ -57,7 +57,7 @@ showinstalled=1
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
   printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
-  printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
+  printf "\n   [-S] [-v] [-n] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
   printf "\n   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]"
@@ -92,7 +92,6 @@ usage() {
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
   printf "\n    -M indicates install and initialize Mini Neovim configuration"
-  printf "\n    -o indicates install and initialize penguinVim Neovim configuration"
   printf "\n    -O 'name' indicates set Lazyman configuration to namespace 'name'"
   printf "\n       'name' can be one of: free onno toggle"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
@@ -1786,9 +1785,6 @@ install_config() {
   NvChad)
     lazyman ${darg} -c -z -y -Q -q
     ;;
-  Penguin)
-    lazyman ${darg} -o -z -y -Q -q
-    ;;
   SpaceVim)
     lazyman ${darg} -s -z -y -Q -q
     ;;
@@ -3310,7 +3306,6 @@ nvimstarter=
 nvimsupport=
 modern=
 pde=
-penguinvim=
 spacevim=
 plug=
 packer=
@@ -3339,7 +3334,6 @@ lunarvimdir="nvim-LunarVim"
 minivimdir="nvim-Mini"
 moderndir="nvim-Modern"
 pdedir="nvim-pde"
-penguinvimdir="nvim-Penguin"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
@@ -3348,13 +3342,13 @@ nopatch=
 nvchaddir="nvim-NvChad"
 spacevimdir="nvim-SpaceVim"
 magicvimdir="nvim-MagicVim"
-basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$penguinvimdir" "$basicidedir")
+basenvimdirs=("$lazyvimdir" "$magicvimdir" "$spacevimdir" "$ecovimdir" "$astronvimdir" "$nvchaddir" "$lunarvimdir" "$abstractdir" "$basicidedir")
 neovimdir=()
 [ $# -eq 1 ] && {
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
-while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
+while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:O:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
   case $flag in
   9)
     nopatch=1
@@ -3382,7 +3376,6 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYz
     magicvim=1
     nvchad=1
     spacevim=1
-    penguinvim=1
     ;;
   b)
     branch="$OPTARG"
@@ -3507,10 +3500,6 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYz
         ;;
     esac
     exit 0
-    ;;
-  o)
-    penguinvim=1
-    neovimdir=("$penguinvimdir")
     ;;
   p)
     plug=1
@@ -3754,9 +3743,6 @@ set_haves
           ;;
         ${abstractdir})
           abstract=
-          ;;
-        ${penguinvimdir})
-          penguinvim=
           ;;
         ${basicidedir})
           basicide=
@@ -4857,7 +4843,6 @@ install_remove() {
   [ "$nvchad" ] && numvim=$((numvim + 1))
   [ "$modern" ] && numvim=$((numvim + 1))
   [ "$pde" ] && numvim=$((numvim + 1))
-  [ "$penguinvim" ] && numvim=$((numvim + 1))
   [ "$spacevim" ] && numvim=$((numvim + 1))
   [ "$numvim" -gt 1 ] && {
     printf "\nERROR: multiple Neovim configs cannot be used with '-N nvimdir'\n"
@@ -4876,7 +4861,6 @@ install_remove() {
   [ "$nvchad" ] && nvchaddir="$name"
   [ "$modern" ] && moderndir="$name"
   [ "$pde" ] && pdedir="$name"
-  [ "$penguinvim" ] && penguinvimdir="$name"
   [ "$spacevim" ] && spacevimdir="$name"
   [ "$numvim" -eq 1 ] && {
     [ "$quiet" ] || {
@@ -4952,9 +4936,6 @@ install_remove() {
     ;;
   pde)
     ndir="$pdedir"
-    ;;
-  penguinvim)
-    ndir="$penguinvimdir"
     ;;
   spacevim)
     ndir="$spacevimdir"
@@ -5232,10 +5213,8 @@ set_brew
 [ "$pde" ] && {
   clone_repo pde alpha2phi/neovim-pde "$pdedir"
 }
-[ "$penguinvim" ] && {
-  clone_repo Penguin p3nguin-kun/penguinVim "$penguinvimdir"
-}
 [ "$spacevim" ] && {
+  printf "\nInstalling SpaceVim Neovim configuration"
   clone_repo SpaceVim SpaceVim/SpaceVim "$spacevimdir"
   [ -d "${SPDIR}" ] || {
     [ "$quiet" ] || {

@@ -17,7 +17,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | **Base** |        |        |        | **Configs** |
 | :------- | :----: | :----: | :----: | ----------: |
 | [Abstract](https://lazyman.dev/info/Abstract.html) | [AstroNvimPlus](https://lazyman.dev/info/AstroNvimPlus.html) | [Basic IDE](https://lazyman.dev/info/BasicIde.html) | [Ecovim](https://lazyman.dev/info/Ecovim.html) | [LazyVim](https://lazyman.dev/info/LazyVim.html) |
-| [LunarVim](https://lazyman.dev/info/LunarVim.html) | [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | [penguinVim](https://lazyman.dev/info/Penguin.html) | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
+| [LunarVim](https://lazyman.dev/info/LunarVim.html) | [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
 
 <!-- prettier-ignore -->
 | **Language** |        |        |        |        |        | **Configs** |
