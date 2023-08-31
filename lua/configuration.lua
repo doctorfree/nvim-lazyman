@@ -196,30 +196,13 @@ conf.media_backend = "jp2a"
 conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash",
-  "c",
-  "cpp",
-  "go",
-  "graphql",
-  "html",
-  "java",
-  "javascript",
-  "json",
   "lua",
   "markdown",
   "markdown_inline",
   "query",
-  "php",
-  "python",
   "regex",
-  "rust",
-  "scss",
-  "toml",
-  "tsx",
-  "typescript",
   "vim",
   "vimdoc",
-  "yaml",
 }
 -- Enable clangd or ccls for C/C++ diagnostics
 -- Note: if enabled then the tool must be installed and in the execution path

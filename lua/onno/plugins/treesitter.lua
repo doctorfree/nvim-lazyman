@@ -3,7 +3,6 @@ local settings = require("configuration")
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
     build = ":TSUpdate",
     cmd = {
       "TSInstall",
@@ -28,7 +27,7 @@ return {
       sync_install = true,
       auto_install = true,
       ignore_install = {},
-      highlight = { enable = true, disable = { "c", "rust" } },
+      highlight = { enable = true },
       indent = { enable = true, disable = { "yaml", "python", "html" } },
       context_commentstring = { enable = true },
     },
