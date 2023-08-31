@@ -1,4 +1,4 @@
-local settings = require("configuration")
+-- local settings = require("configuration")
 
 require("nvim-treesitter.configs").setup({
   query_linter = {
@@ -6,7 +6,11 @@ require("nvim-treesitter.configs").setup({
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   },
-  ensure_installed = settings.treesitter_ensure_installed,
+  -- ensure_installed = settings.treesitter_ensure_installed,
+  sync_install = true,
+  auto_install = true,
+  ignore_install = {},
+  indent = { enable = true, disable = { "yaml", "python", "html" } },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -32,9 +36,6 @@ require("nvim-treesitter.configs").setup({
       scope_incremental = "grc",
       node_decremental = "grm",
     },
-  },
-  indent = {
-    enable = true,
   },
   textobjects = {
     select = {
