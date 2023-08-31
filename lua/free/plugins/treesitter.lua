@@ -35,6 +35,11 @@ local M = {
         vim.cmd([[TSInstallSync cpp]])
         vim.cmd([[TSInstallSync java]])
         vim.cmd([[TSInstallSync python]])
+        vim.cmd([[TSUpdateSync bash]])
+        vim.cmd([[TSUpdateSync c]])
+        vim.cmd([[TSUpdateSync cpp]])
+        vim.cmd([[TSUpdateSync java]])
+        vim.cmd([[TSUpdateSync python]])
         local init_file = io.open(init_path, "w")
         if init_file ~= nil then
           init_file:write("")
