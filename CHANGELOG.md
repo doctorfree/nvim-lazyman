@@ -6,6 +6,23 @@
 
 ### 🐞 Fixed
 
+## v3.0.2r2
+
+### ⚡️ Added
+
+- Install `lua-language-server` in `install_neovim.sh`
+- Add treesitter dependency to cellular automota plugin
+- Add dashboard dependency on terminal
+
+### 🐞 Fixed
+
+- Minimal set of parsers for `ensure_installed`, auto install treesitter parsers
+- Redo `nvim-treesitter` configuration
+- Update `Maddison` patch
+- Remove problematic parsers from `ensure_installed`
+- Redirect config removal output during Lazyman removal
+- Remove `autotag` treesitter plugin
+
 ## v3.0.2r1
 
 ### ⚡️ Added
