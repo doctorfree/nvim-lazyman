@@ -7,13 +7,14 @@ export PATH=${HOME}/.local/bin:${PATH}
 
 have_brew=$(type -p brew)
 have_curl=$(type -p curl)
+[ "${have_brew}" ] && brew update --quiet >/dev/null 2>&1
 if command -v "cargo" >/dev/null 2>&1; then
   printf "\n\tUsing previously installed cargo"
 else
   printf "\n\tInstalling cargo ..."
   if [ "${have_brew}" ]; then
     brew install --quiet "rust" >/dev/null 2>&1
-    [ $? -eq 0 ] || brew link --overwrite --quiet "rust" >/dev/null 2>&1
+  # [ $? -eq 0 ] || brew link --overwrite --quiet "rust" >/dev/null 2>&1
   else
     [ "${have_curl}" ] || {
       printf "\n\tCargo installation requires either Homebrew or curl."
@@ -43,7 +44,6 @@ if ! command -v "cargo" >/dev/null 2>&1; then
 fi
 if [ "${have_brew}" ]; then
   printf "\nUpdating rust, please be patient ..."
-  brew update --quiet >/dev/null 2>&1
   brew upgrade --quiet "rust" >/dev/null 2>&1
   printf " done\n"
 else

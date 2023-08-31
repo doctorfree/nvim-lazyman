@@ -5,37 +5,6 @@
 
 export PATH=${HOME}/.local/bin:${PATH}
 
-have_brew=$(type -p brew)
-have_curl=$(type -p curl)
-if command -v "cargo" >/dev/null 2>&1; then
-  printf "\n\tUsing previously installed cargo"
-else
-  printf "\n\tInstalling cargo ..."
-  if [ "${have_brew}" ]; then
-    brew install --quiet "rust" >/dev/null 2>&1
-    [ $? -eq 0 ] || brew link --overwrite --quiet "rust" >/dev/null 2>&1
-  else
-    [ "${have_curl}" ] || {
-      printf "\n\tCargo installation requires either Homebrew or curl."
-      printf "\n\tExiting without installing bob.\n"
-      exit 1
-    }
-    RUST_URL="https://sh.rustup.rs"
-    curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
-    [ $? -eq 0 ] || {
-      rm -f /tmp/rust-$$.sh
-      curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
-      [ -f /tmp/rust-$$.sh ] && {
-        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
-        cp /tmp/ins$$ /tmp/rust-$$.sh
-        rm -f /tmp/ins$$
-      }
-    }
-    [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
-    rm -f /tmp/rust-$$.sh
-  fi
-  printf " done"
-fi
 if ! command -v "cargo" >/dev/null 2>&1; then
   [ -x "${HOME}"/.cargo/bin/cargo ] && {
     export PATH="$HOME/.cargo/bin:$PATH"
@@ -51,7 +20,6 @@ if command -v "cargo" >/dev/null 2>&1; then
   printf " done\n"
 else
   printf "\n\tCannot locate cargo. Skipping uninstall of bob.\n"
-  exit 1
 fi
 
 INSTNVIM="${HOME}/.config/nvim-Lazyman/scripts/install_neovim.sh"
