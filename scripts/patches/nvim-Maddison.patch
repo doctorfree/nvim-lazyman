@@ -1,5 +1,56 @@
---- lua/user/settings.lua.00	2023-07-12 17:27:11.812883426 -0700
-+++ lua/user/settings.lua	2023-07-12 17:32:30.989958946 -0700
+--- lua/user/plugins.lua.00	2023-08-31 07:27:40.645716296 -0700
++++ lua/user/plugins.lua	2023-08-31 07:26:34.984834218 -0700
+@@ -123,9 +123,9 @@
+   },
+ 
+   -- AI
+-  { 'zbirenbaum/copilot.lua', conf = 'copilot' },
+-  { 'dpayne/CodeGPT.nvim', conf = 'codegpt' },
+-  { 'piersolenski/wtf.nvim', conf = 'wtf' },
++  -- { 'zbirenbaum/copilot.lua', conf = 'copilot' },
++  -- { 'dpayne/CodeGPT.nvim', conf = 'codegpt' },
++  -- { 'piersolenski/wtf.nvim', conf = 'wtf' },
+ 
+   -- Quickfix/Loclist
+   { 'kevinhwang91/nvim-bqf', conf = 'bqf', ft = 'qf', event = 'QuickFixCmdPre' },
+--- lua/user/statusline/init.lua.00	2023-08-31 07:28:57.962748471 -0700
++++ lua/user/statusline/init.lua	2023-08-31 07:30:22.771873770 -0700
+@@ -7,8 +7,8 @@
+ 
+ require 'user.statusline.lsp'
+ require 'user.statusline.dap'
+-require 'user.statusline.codegpt'
+-require 'user.statusline.wtf'
++-- require 'user.statusline.codegpt'
++-- require 'user.statusline.wtf'
+ 
+ local fn = require 'user.fn'
+ 
+@@ -188,14 +188,14 @@
+ }
+ 
+ config.components.active[2] = {
+-  {
+-    provider = 'codegpt',
+-    hl = { fg = 'mistyrose', bold = false },
+-  },
+-  {
+-    provider = 'wtf',
+-    hl = { fg = 'mistyrose', bold = false },
+-  },
++  -- {
++  --   provider = 'codegpt',
++  --   hl = { fg = 'mistyrose', bold = false },
++  -- },
++  -- {
++  --   provider = 'wtf',
++  --   hl = { fg = 'mistyrose', bold = false },
++  -- },
+   {
+     provider = 'lsp_progress',
+     hl = { fg = 'mistyrose', bold = false },
+--- lua/user/settings.lua.00	2023-08-31 07:45:08.275384913 -0700
++++ lua/user/settings.lua	2023-08-31 07:45:41.347810417 -0700
 @@ -153,7 +153,8 @@
    end
  end
@@ -8,33 +59,11 @@
 +-- setup_provider('python3', { vim.env.HOME, '/.asdf/shims/python3' })
 +vim.g.python3_host_prog = vim.fn.exepath("python3")
  setup_provider('node', { vim.env.XDG_DATA_HOME, '/yarn/global/node_modules/neovim/bin/cli.js' })
- setup_provider('node', { '/usr/bin/ruby' })
+ setup_provider('ruby', { '/usr/bin/ruby' })
  
---- lua/user/plugin/copilot.lua.00	2023-07-12 17:27:27.177138511 -0700
-+++ lua/user/plugin/copilot.lua	2023-07-12 17:28:41.186349692 -0700
-@@ -46,6 +46,7 @@
-     ['.'] = true,
-   },
-   -- Node.js version must be > 16.x
--  copilot_node_command = vim.env.HOME .. '/.asdf/shims/node',
-+  -- copilot_node_command = vim.env.HOME .. '/.asdf/shims/node',
-+  copilot_node_command = 'node',
-   server_opts_overrides = {},
- }
---- lua/user/plugins.lua.00	2023-07-12 17:44:16.208244857 -0700
-+++ lua/user/plugins.lua	2023-07-12 17:46:34.034186043 -0700
-@@ -117,7 +117,7 @@
- 
-   -- AI
-   { 'zbirenbaum/copilot.lua', conf = 'copilot' },
--  { 'dpayne/CodeGPT.nvim', conf = 'codegpt' },
-+  -- { 'dpayne/CodeGPT.nvim', conf = 'codegpt' },
- 
-   -- Quickfix/Loclist
-   { 'kevinhwang91/nvim-bqf', conf = 'bqf', ft = 'qf', event = 'QuickFixCmdPre' },
---- lua/user/mappings.lua.00	2023-07-12 17:47:20.658840031 -0700
-+++ lua/user/mappings.lua	2023-07-12 17:47:46.643203995 -0700
-@@ -1214,8 +1214,8 @@
+--- lua/user/mappings.lua.00	2023-08-31 07:49:36.746835060 -0700
++++ lua/user/mappings.lua	2023-08-31 07:51:00.895914918 -0700
+@@ -1317,8 +1317,8 @@
  m.tnoremap(xk [[<C-/>]], toggleterm_smart_toggle, "ToggleTerm: Smart Toggle")
  
  ---- dpayne/CodeGPT.nvim
@@ -45,29 +74,3 @@
  
  ---- romgrk/nvim-treesitter-context
  m.nnoremap([[<leader>tsc]], [[<cmd>TSContextToggle<Cr>]], "Treesitter Context: Toggle")
---- lua/user/statusline/init.lua.00	2023-07-12 17:48:20.411676475 -0700
-+++ lua/user/statusline/init.lua	2023-07-12 17:49:11.228386506 -0700
-@@ -7,7 +7,7 @@
- 
- require 'user.statusline.lsp'
- require 'user.statusline.dap'
--require 'user.statusline.codegpt'
-+-- require 'user.statusline.codegpt'
- 
- local fn = require 'user.fn'
- 
-@@ -187,10 +187,10 @@
- }
- 
- config.components.active[2] = {
--  {
--    provider = 'codegpt',
--    hl = { fg = 'mistyrose', bold = false },
--  },
-+  -- {
-+  --   provider = 'codegpt',
-+  --   hl = { fg = 'mistyrose', bold = false },
-+  -- },
-   {
-     provider = 'lsp_progress',
-     hl = { fg = 'mistyrose', bold = false },
