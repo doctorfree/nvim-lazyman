@@ -482,13 +482,13 @@ init_neovim() {
                   }
                 }
               }
-              [ "${neodir}" == "${LAZYMAN}" ] && {
-                xtimeout ${timeout} nvim --headless "+TSInstallSync c" +qa >>${LOG} 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync bash" +qa >>${LOG} 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync cpp" +qa >>${LOG} 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync java" +qa >>${LOG} 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync python" +qa >>${LOG} 2>&1
-              }
+              # [ "${neodir}" == "${LAZYMAN}" ] && {
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync c" +qa >>${LOG} 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync bash" +qa >>${LOG} 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync cpp" +qa >>${LOG} 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync java" +qa >>${LOG} 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync python" +qa >>${LOG} 2>&1
+              # }
             fi
           fi
         fi
@@ -555,13 +555,13 @@ init_neovim() {
                   }
                 }
               }
-              [ "${neodir}" == "${LAZYMAN}" ] && {
-                xtimeout ${timeout} nvim --headless "+TSInstallSync c" +qa >/dev/null 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync bash" +qa >/dev/null 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync cpp" +qa >/dev/null 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync java" +qa >/dev/null 2>&1
-                xtimeout ${timeout} nvim --headless "+TSInstallSync python" +qa >/dev/null 2>&1
-              }
+              # [ "${neodir}" == "${LAZYMAN}" ] && {
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync c" +qa >/dev/null 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync bash" +qa >/dev/null 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync cpp" +qa >/dev/null 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync java" +qa >/dev/null 2>&1
+              #   xtimeout ${timeout} nvim --headless "+TSInstallSync python" +qa >/dev/null 2>&1
+              # }
             fi
           fi
         fi
