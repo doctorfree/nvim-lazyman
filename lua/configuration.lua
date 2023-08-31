@@ -255,6 +255,7 @@ conf.treesitter_ensure_installed = {
   -- 'ocamllex',
   "python",
   "prisma",
+  "query",
   -- 'r',
   "regex",
   -- 'rst',
