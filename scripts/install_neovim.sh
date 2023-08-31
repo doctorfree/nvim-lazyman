@@ -512,6 +512,54 @@ install_neovim_dependencies() {
     fi
   fi
 
+  if command -v lua-language-server >/dev/null 2>&1; then
+    log "Using previously installed lua-language-server"
+  else
+    if [ "${use_homebrew}" ]; then
+      brew_install lua-language-server
+    else
+      if [ -d ${HOME}/.local/share/lua-language-server ]
+      then
+        log "Existing ~/.local/share/lua-language-server. Skipping installation of lua-language-server"
+      else
+        if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+          larch="arm64"
+        else
+          larch="x64"
+        fi
+        OWNER=LuaLS
+        PROJECT=lua-language-server
+        API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+        DL_URL=
+        [ "${have_curl}" ] && [ "${have_jq}" ] && {
+          DL_URL=$(curl --silent "${API_URL}" \
+            | jq --raw-output '.assets | .[]?.browser_download_url' \
+            | grep "linux-${larch}\.tar\.gz$")
+        }
+        [ "${DL_URL}" ] && {
+          [ "${have_wget}" ] && {
+            log "Installing lua-language-server ..."
+            TEMP_TGZ="$(mktemp --suffix=.tgz)"
+            wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+            chmod 644 "${TEMP_TGZ}"
+            mkdir -p /tmp/lual$$
+            tar -C /tmp/lual$$ -xzf "${TEMP_TGZ}"
+            cp -a /tmp/lual$$ ${HOME}/.local/share/lua-language-server
+            chmod 755 ${HOME}/.local/share/lua-language-server/bin/lua-language-server
+	    [ -f "${HOME}/.local/bin/lua-language-server" ] || {
+              echo '#!/usr/bin/env bash' > "${HOME}/.local/bin/lua-language-server"
+              echo 'exec "${HOME}/.local/share/lua-language-server/bin/lua-language-server" "$@"' >> "${HOME}/.local/bin/lua-language-server"
+	      chmod 755 "${HOME}/.local/bin/lua-language-server"
+	    }
+            rm -f "${TEMP_TGZ}"
+            rm -rf /tmp/lual$$
+            [ "$quiet" ] || printf " done"
+          }
+        }
+      fi
+    fi
+  fi
+
   if command -v zoxide >/dev/null 2>&1; then
     log "Using previously installed zoxide"
   else
