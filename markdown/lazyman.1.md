@@ -16,6 +16,8 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
 
+Visit the [Lazyman website](https://lazyman.dev) for more info.
+
 ## FEATURES
 
 - `lazyman` command to easily install, initialize, manage, and explore multiple Neovim configurations
@@ -35,6 +37,9 @@ lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu
   - enhanced `ls` command alias
   - `tree` alias to display a tree view of files and folders
   - `tldrf` alias to fuzzy search, select, and preview cheat sheets
+
+See the [Lazyman website Features section](https://lazyman.dev/features) for
+additional information on Lazyman features.
 
 ## DESCRIPTION
 
@@ -328,6 +333,9 @@ Commands act on `NVIM_APPNAME`, override with '-N nvimdir' or '-A'
 
 Without arguments lazyman installs and initializes nvim-Lazyman
 or, if initialized presents an interactive menu system.
+
+See the [Lazyman website Usage section](https://lazyman.dev/usage) for
+additional information on Lazyman usage.
 
 ### EXAMPLES
 

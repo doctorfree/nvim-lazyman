@@ -2280,8 +2280,8 @@ The convenience script to install and initialize `nvim-Lazyman` is provided at
 [lazyman.sh](lazyman.sh). The automated install and initialization is performed
 by `lazyman` and [install_neovim.sh](scripts/install_neovim.sh).
 
-View the lazyman.sh script in the
-[Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki/lazyman)
+View the lazyman.sh script on the
+[Lazyman website](https://lazyman.dev/info/lazyman_command)
 
 ### Install neovim and tools
 
@@ -2295,5 +2295,5 @@ For example, to provide support for Composer run `brew install composer`.
 
 The automated Neovim installation is performed by
 [install_neovim.sh](scripts/install_neovim.sh). View the `install_neovim.sh`
-script in the
-[Lazyman Wiki](https://github.com/doctorfree/nvim-lazyman/wiki/install_neovim).
+script on the
+[Lazyman website](https://lazyman.dev/info/install_neovim).

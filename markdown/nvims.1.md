@@ -16,7 +16,8 @@ nvims - Open Neovim using a fuzzy search/selection of a Lazyman installed config
 
 nvims [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] ...]
 
-Where:
+See the [Neovim Configuration Fuzzy Selector](https://lazyman.dev/posts/Nvims)
+article for additional information on the Lazyman `nvims` shell function.
 
 ## DESCRIPTION
 
