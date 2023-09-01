@@ -546,11 +546,11 @@ install_neovim_dependencies() {
             tar -C /tmp/lual$$ -xzf "${TEMP_TGZ}"
             cp -a /tmp/lual$$ ${HOME}/.local/share/lua-language-server
             chmod 755 ${HOME}/.local/share/lua-language-server/bin/lua-language-server
-	    [ -f "${HOME}/.local/bin/lua-language-server" ] || {
+            [ -f "${HOME}/.local/bin/lua-language-server" ] || {
               echo '#!/usr/bin/env bash' > "${HOME}/.local/bin/lua-language-server"
               echo 'exec "${HOME}/.local/share/lua-language-server/bin/lua-language-server" "$@"' >> "${HOME}/.local/bin/lua-language-server"
-	      chmod 755 "${HOME}/.local/bin/lua-language-server"
-	    }
+              chmod 755 "${HOME}/.local/bin/lua-language-server"
+            }
             rm -f "${TEMP_TGZ}"
             rm -rf /tmp/lual$$
             [ "$quiet" ] || printf " done"
@@ -811,6 +811,47 @@ install_extra() {
   do
     plat_install ${pkg}
   done
+
+  if command -v lemonade >/dev/null 2>&1; then
+    log "Using previously installed lemonade"
+  else
+    [ "${darwin}" ] || {
+      if [ -x ${HOME}/.local/bin/lemonade ]
+      then
+        log "Existing ~/.local/bin/lemonade. Skipping installation of lemonade."
+      else
+        [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]] || {
+          OWNER=lemonade-command
+          PROJECT=lemonade
+          API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+          DL_URL=
+          [ "${have_curl}" ] && [ "${have_jq}" ] && {
+            DL_URL=$(curl --silent "${API_URL}" \
+              | jq --raw-output '.assets | .[]?.browser_download_url' \
+              | grep "linux_amd64\.tar\.gz$")
+          }
+          [ "${DL_URL}" ] && {
+            [ "${have_wget}" ] && {
+              log "Installing lemonade ..."
+              TEMP_TGZ="$(mktemp --suffix=.tgz)"
+              wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
+              chmod 644 "${TEMP_TGZ}"
+              mkdir -p /tmp/lmnd$$
+              tar -C /tmp/lmnd$$ -xzf "${TEMP_TGZ}"
+              [ -f /tmp/lmnd$$/lemonade ] && {
+                cp /tmp/lmnd$$/lemonade ${HOME}/.local/bin/lemonade
+                chmod 755 ${HOME}/.local/bin/lemonade
+              }
+              rm -f "${TEMP_TGZ}"
+              rm -rf /tmp/lmnd$$
+              [ "$quiet" ] || printf " done"
+            }
+          }
+        }
+      fi
+    }
+  fi
+
   have_check=$(type -p luacheck)
   [ "${have_check}" ] || {
     have_rocks=$(type -p luarocks)
