@@ -324,9 +324,9 @@ Xiao
 
 `-x conf` : indicates install and initialize nvim-starter 'conf' configuration.
 'conf' can be one of: All 2k AstroNvimStart Barebones Basic CodeArt Cosmic
-Ember Fennel HardHacker JustinOhMy Kabin Kickstart Lamia Micah Normal NvPak
-Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp
-Minimal StartBase Opinion StartLsp StartMason Modular
+Ember Fennel HardHacker JustinOhMy Kabin Kickstart Micah Normal NvPak Modern
+pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal
+StartBase Opinion StartLsp StartMason Modular
 
 `-X` : indicates install and initialize all 'Starter' Neovim configurations
 
