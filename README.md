@@ -321,11 +321,12 @@ https://lazyman.dev/info/Abstract.html
 | [xero](https://lazyman.dev/info/xero.html) | [Xiao](https://lazyman.dev/info/Xiao.html) | | | |
 
 <!-- prettier-ignore -->
-| **Starter** |        |        |        |        |        | **Configs** |
-| :---------- | :----: | :----: | :----: | :----: | :----: | ----------: |
-| [AstroNvimStart](https://lazyman.dev/info/AstroNvimStart.html) | [Barebones](https://lazyman.dev/info/Barebones.html) | [Basic](https://lazyman.dev/info/Basic.html) | [CodeArt](https://lazyman.dev/info/CodeArt.html) | [CosmicNvim](https://lazyman.dev/info/Cosmic.html) | [Ember](https://lazyman.dev/info/Ember.html) | [Fennel](https://lazyman.dev/info/Fennel.html) |
-| [HardHacker](https://lazyman.dev/info/HardHacker.html) | [JustinOhMy](https://lazyman.dev/info/JustinOhMy.html) | [Kickstart](https://lazyman.dev/info/Kickstart.html) | [Kabin](https://lazyman.dev/info/Kabin.html) | [Lamia](https://lazyman.dev/info/Lamia.html) | [Micah](https://lazyman.dev/info/Micah.html) | [Modern](https://lazyman.dev/info/Modern.html) |
-| [Normal](https://lazyman.dev/info/Normal.html) | [nvim2k](https://lazyman.dev/info/2k.html) | [NvPak](https://lazyman.dev/info/NvPak.html) | [PDE](https://lazyman.dev/info/pde.html) | [Rohit](https://lazyman.dev/info/Rohit.html) | [Scratch](https://lazyman.dev/info/Scratch.html) | [SingleFile](https://lazyman.dev/info/SingleFile.html) |
+| **Starter** |        |        |        | **Configs** |
+| :---------- | :----: | :----: | :----: | ----------: |
+| [AstroNvimStart](https://lazyman.dev/info/AstroNvimStart.html) | [Barebones](https://lazyman.dev/info/Barebones.html) | [Basic](https://lazyman.dev/info/Basic.html) | [CodeArt](https://lazyman.dev/info/CodeArt.html) | [CosmicNvim](https://lazyman.dev/info/Cosmic.html) |
+| [Ember](https://lazyman.dev/info/Ember.html) | [Fennel](https://lazyman.dev/info/Fennel.html) | [HardHacker](https://lazyman.dev/info/HardHacker.html) | [JustinOhMy](https://lazyman.dev/info/JustinOhMy.html) | [Kickstart](https://lazyman.dev/info/Kickstart.html) |
+| [Kabin](https://lazyman.dev/info/Kabin.html) | [Micah](https://lazyman.dev/info/Micah.html) | [Modern](https://lazyman.dev/info/Modern.html) | [Normal](https://lazyman.dev/info/Normal.html) | [nvim2k](https://lazyman.dev/info/2k.html) |
+| [NvPak](https://lazyman.dev/info/NvPak.html) | [PDE](https://lazyman.dev/info/pde.html) | [Rohit](https://lazyman.dev/info/Rohit.html) | [Scratch](https://lazyman.dev/info/Scratch.html) | [SingleFile](https://lazyman.dev/info/SingleFile.html) |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |        | **Starter** |        | **Configs** |
@@ -574,7 +575,7 @@ Where:
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:
-           All 2k AstroNvimStart Barebones Basic CodeArt Cosmic Ember Fennel HardHacker JustinOhMy Kabin Kickstart Lamia Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
+           All 2k AstroNvimStart Barebones Basic CodeArt Cosmic Ember Fennel HardHacker JustinOhMy Kabin Kickstart Micah Normal NvPak Modern pde Rohit Scratch SingleFile BasicLsp BasicMason Extralight LspCmp Minimal StartBase Opinion StartLsp StartMason Modular
     -X indicates install and initialize all 'Starter' configs
     -y indicates do not prompt, answer 'yes' to any prompt
     -Y indicates use the following arguments as 'name'/'value' to set Lazyman config
