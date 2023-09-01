@@ -1308,10 +1308,10 @@ show_health() {
     checkdir="$1"
     ${HEALTHSC} "${checkdir}"
     nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
-    if [ -f ${LMANDIR}/logs/health-${nvimconf}.md ]; then
-      NVIM_APPNAME="${checkdir}" nvim ${LMANDIR}/logs/health-${nvimconf}.md
+    if [ -f ${LMANDIR}/info/health/${nvimconf}.md ]; then
+      NVIM_APPNAME="${checkdir}" nvim ${LMANDIR}/info/health/${nvimconf}.md
     else
-      echo "${LMANDIR}/logs/health-${nvimconf}.md not found"
+      echo "${LMANDIR}/info/health/${nvimconf}.md not found"
     fi
   else
     echo "${HEALTHSC} not executable or missing"
@@ -1374,15 +1374,15 @@ open_info() {
     else
       have_python=$(type -p python3)
       if [ "${have_python}" ]; then
-        python3 -m webbrowser "${infourl}"
+        python3 -m webbrowser "${infourl}" 2>/dev/null
       else
         have_xdg=$(type -p xdg-open)
         if [ "${have_xdg}" ]; then
-          xdg-open "${infourl}"
+          xdg-open "${infourl}" 2>/dev/null
         else
           have_gio=$(type -p gio)
           if [ "${have_gio}" ]; then
-            gio open "${infourl}"
+            gio open "${infourl}" 2>/dev/null
           else
             if [ -f ${LMANDIR}/info/${nviminfo}.md ]; then
               NVIM_APPNAME="${LAZYMAN}" nvim ${LMANDIR}/info/${nviminfo}.md
@@ -3113,16 +3113,29 @@ show_main_menu() {
         break
         ;;
       "Health Check",* | *,"Health Check")
-        choices=()
         items=()
         [ -f "${LZYMANRC}" ] && {
           source "${LZYMANRC}"
           readarray -t choices < <(printf '%s\0' "${items[@]}" | sort -z | xargs -0n1)
+          hchoices=("All Configs")
+          for idir in "${choices[@]}"; do
+            hchoices+=("${idir}")
+          done
+          choice=$(printf "%s\n" "${hchoices[@]}" | fzf --prompt=" Select Neovim Config for Health Check  " --layout=reverse --border --exit-0)
+          if [[ " ${hchoices[*]} " =~ " ${choice} " ]]; then
+            if [ "${choice}" == "All Configs" ]; then
+              [ -x ${HEALTHSC} ] && {
+                for hdir in "${items[@]}"; do
+                  printf "\nGenerating health check ${LMANDIR}/info/health/${hdir}.md ..."
+                  ${HEALTHSC} "nvim-${hdir}"
+                  printf " done"
+                done
+              }
+            else
+              lazyman -N "nvim-${choice}" health
+            fi
+          fi
         }
-        choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select Neovim Config for Health Check  " --layout=reverse --border --exit-0)
-        if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-          lazyman -N "nvim-${choice}" health
-        fi
         break
         ;;
       "Kill All"*,* | *,"Kill All"*)
