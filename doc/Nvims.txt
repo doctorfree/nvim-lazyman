@@ -14,7 +14,8 @@ SYNOPSIS                                                *Nvims-nvims-synopsis*
 
 nvims [-c command] [-C filter] [-I] [-R] [-S file] [-U] [file1 [file2] …]
 
-Where:
+See the Neovim Configuration Fuzzy Selector <https://lazyman.dev/posts/Nvims>
+article for additional information on the Lazyman `nvims` shell function.
 
 
 DESCRIPTION                                          *Nvims-nvims-description*
