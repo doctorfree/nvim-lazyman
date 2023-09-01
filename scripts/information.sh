@@ -251,13 +251,12 @@ make_info() {
       C_DESC="Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad"
       C_INST="lazyman -c"
       ;;
-    Penguin)
-      GH_URL="https://github.com/p3nguin-kun/penguinVim"
-      WS_URL="https://p3nguin-kun.github.io/penguinVim"
-      CF_CAT="Base"
-      CF_TYP="[LazyVim](https://lazyvim.github.io)"
-      C_DESC="Aims to provide a base configuration with beautiful UI and fast startup time"
-      C_INST="lazyman -o"
+    CandyVim)
+      GH_URL="https://github.com/doctorfree/CandyVim"
+      WS_URL="https://doctorfree.github.io/CandyVim"
+      CF_CAT="Personal"
+      C_DESC="Eye Candy frontend development with React and Vue.js"
+      C_INST="lazyman -w CandyVim"
       ;;
     SpaceVim)
       GH_URL="https://github.com/doctorfree/spacevim"

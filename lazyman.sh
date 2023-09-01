@@ -1800,7 +1800,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
+  Adib | Artur | ONNO | CandyVim | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4144,6 +4144,11 @@ install_remove() {
         printf "\n${action} Mini Neovim configuration"
         lazyman ${darg} -M ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-CandyVim)" == "ok" ] && {
+        printf "\n${action} CandyVim Neovim configuration"
+        lazyman ${darg} -C https://github.com/doctorfree/CandyVim \
+          -N nvim-CandyVim ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Charles)" == "ok" ] && {
         printf "\n${action} Charles Neovim configuration"
         lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
@@ -4396,6 +4401,9 @@ install_remove() {
         ;;
       Xiao)
         prsnl_url="https://github.com/onichandame/nvim-config"
+        ;;
+      CandyVim)
+        prsnl_url="https://github.com/doctorfree/CandyVim"
         ;;
       Charles)
         prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
