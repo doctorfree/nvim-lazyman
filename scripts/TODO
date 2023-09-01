@@ -1,3 +1,7 @@
+- Enable candy on CandyVim dashboard
+- Add CandyVim config to Personals
+lazyman -C https://github.com/doctorfree/CandyVim -N nvim-CandyVim
+
 - Add Chokerman config to Personals
 lazyman -b main -C https://github.com/justchokingaround/dotfiles -D coding/neovim/nvim -N nvim-Chokerman
 
