@@ -295,10 +295,11 @@ Over 100 popular Neovim configurations are supported in the following configurat
 https://lazyman.dev/info/Abstract.html
 
 <!-- prettier-ignore -->
-| **Base** |        |        |        | **Configs** |
-| :------- | :----: | :----: | :----: | ----------: |
-| [Abstract](https://lazyman.dev/info/Abstract.html) | [AstroNvimPlus](https://lazyman.dev/info/AstroNvimPlus.html) | [Basic IDE](https://lazyman.dev/info/BasicIde.html) | [Ecovim](https://lazyman.dev/info/Ecovim.html) | [LazyVim](https://lazyman.dev/info/LazyVim.html) |
-| [LunarVim](https://lazyman.dev/info/LunarVim.html) | [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
+| **Base** |        | **Configs** |
+| :------- | :----: | ----------: |
+| [Abstract](https://lazyman.dev/info/Abstract.html) | [AstroNvimPlus](https://lazyman.dev/info/AstroNvimPlus.html) | [Basic IDE](https://lazyman.dev/info/BasicIde.html) |
+| [Ecovim](https://lazyman.dev/info/Ecovim.html) | [LazyVim](https://lazyman.dev/info/LazyVim.html) | [LunarVim](https://lazyman.dev/info/LunarVim.html) |
+| [MagicVim](https://lazyman.dev/info/MagicVim.html) | [NvChad](https://lazyman.dev/info/NvChad.html) | [SpaceVim](https://lazyman.dev/info/SpaceVim.html) |
 
 <!-- prettier-ignore -->
 | **Language** |        |        |        |        |        | **Configs** |
