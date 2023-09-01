@@ -33,4 +33,7 @@ nvim --headless "+checkhealth" "+w!${HEALTHDIR}/${HEALTH}" +qa \
 
 [ -f "${HEALTHDIR}/${HEALTH}" ] && {
   sed -i "1s;^;# ${checkdir} Neovim health check\n;" "${HEALTHDIR}/${HEALTH}"
+  cat "${HEALTHDIR}/${HEALTH}" | sed -e "s/===.*/--------/" > /tmp/h$$
+  cp /tmp/h$$ "${HEALTHDIR}/${HEALTH}"
+  rm -f /tmp/h$$
 }
