@@ -1,9 +1,22 @@
-- Enable candy on CandyVim dashboard
-- Add CandyVim config to Personals
-lazyman -C https://github.com/doctorfree/CandyVim -N nvim-CandyVim
+DO:
+
+- Check out config of Ahsan Habib
+  -C https://github.com/bibjaw99/workstation
+  -D .config/nvim
+  -N nvim-Ahsan
 
 - Add Chokerman config to Personals
-lazyman -b main -C https://github.com/justchokingaround/dotfiles -D coding/neovim/nvim -N nvim-Chokerman
+  -b main
+  -C https://github.com/justchokingaround/dotfiles
+  -D coding/neovim/nvim
+  -N nvim-Chokerman
 
 - Check for available updates to rustc, rustup, cargo, etc and update bob
-rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
+  rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
+
+DONE:
+
+x Enable candy on CandyVim dashboard
+x Add CandyVim config to Personals
+x lazyman -C https://github.com/doctorfree/CandyVim -N nvim-CandyVim
+
