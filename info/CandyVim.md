@@ -12,9 +12,13 @@ Eye Candy frontend development with React and Vue.js
 
 [https://github.com/doctorfree/CandyVim](https://github.com/doctorfree/CandyVim)
 
+### Dotfyle entry
+
+[https://dotfyle.com/doctorfree/candyvim](https://dotfyle.com/doctorfree/candyvim)
+
 ### Website
 
-[https://doctorfree.github.io/CandyVim](https://doctorfree.github.io/CandyVim)
+[https://candyvim.lazyman.dev](https://candyvim.lazyman.dev)
 
 ### Lazy managed plugins
 
@@ -22,7 +26,9 @@ Eye Candy frontend development with React and Vue.js
 - [antoinemadec/FixCursorHold.nvim](https://github.com/antoinemadec/FixCursorHold.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [alanfortlink/blackjack.nvim](https://github.com/alanfortlink/blackjack.nvim)
 - [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [eandrju/cellular-automaton.nvim](https://github.com/eandrju/cellular-automaton.nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-calc](https://github.com/hrsh7th/cmp-calc)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
@@ -44,6 +50,7 @@ Eye Candy frontend development with React and Vue.js
 - [ThePrimeagen/git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim.git)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [dnlhc/glance.nvim](https://github.com/dnlhc/glance.nvim.git)
+- [letieu/hacker.nvim](https://github.com/letieu/hacker.nvim)
 - [smoka7/hydra.nvim](https://github.com/smoka7/hydra.nvim.git)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -94,6 +101,7 @@ Eye Candy frontend development with React and Vue.js
 - [hiphish/rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim.git)
 - [sunjon/shade.nvim](https://github.com/sunjon/shade.nvim)
 - [gbprod/stay-in-place.nvim](https://github.com/gbprod/stay-in-place.nvim.git)
+- [jim-fx/sudoku.nvim](https://github.com/jim-fx/sudoku.nvim)
 - [AndrewRadev/switch.vim](https://github.com/AndrewRadev/switch.vim.git)
 - [razak17/tailwind-fold.nvim](https://github.com/razak17/tailwind-fold.nvim.git)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
@@ -107,6 +115,7 @@ Eye Candy frontend development with React and Vue.js
 - [dmmulroy/tsc.nvim](https://github.com/dmmulroy/tsc.nvim)
 - [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
 - [pmizio/typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim.git)
+- [ThePrimeagen/vim-be-good](https://github.com/ThePrimeagen/vim-be-good)
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [airblade/vim-rooter](https://github.com/airblade/vim-rooter)
 - [tpope/vim-speeddating](https://github.com/tpope/vim-speeddating.git)
@@ -129,25 +138,67 @@ Eye Candy frontend development with React and Vue.js
 |  | ,cr | <Cmd>lua vim.lsp.buf.rename()<CR> |
 |  | ,ca | <Cmd>lua vim.lsp.buf.code_action()<CR> |
 |  | ,q | <Cmd>lua require('utils').toggle_quicklist()<CR> |
+|  | ,. | :cn<CR> |
+|  | ,, | :cp<CR> |
 |  | ,pw | <Cmd>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR> |
 |  | ,pf | <Cmd>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<lt>cword>'), initial_mode = 'normal' })<CR> |
 |  | ,/l | <Cmd>:Lazy<CR> |
-| move to prev conflict | ,gcp | <Cmd>GitConflictPrevConflict<CR> |
-| choose ours | ,gco | <Cmd>GitConflictChooseOurs<CR> |
-| move to next conflict | ,gcn | <Cmd>GitConflictNextConflict<CR> |
-| choose both | ,gcb | <Cmd>GitConflictChooseBoth<CR> |
-| choose theirs | ,gct | <Cmd>GitConflictChooseTheirs<CR> |
-| Mason | ,cm | <Cmd>Mason<CR> |
 | terminal float | ,at | <Cmd>ToggleTerm direction=float<CR> |
+| Mason | ,cm | <Cmd>Mason<CR> |
+| comment box | ,ac | <Cmd>lua require('comment-box').lbox()<CR> |
+| choose session | ,/sc | <Cmd>SessionManager load_session<CR> |
+| save session | ,/ss | <Cmd>SessionManager save_current_session<CR> |
 | load last session | ,/sl | <Cmd>SessionManager load_last_session<CR> |
 | load current dir session | ,/sd | <Cmd>SessionManager load_current_dir_session<CR> |
 | remove session | ,/sr | <Cmd>SessionManager delete_session<CR> |
-| choose session | ,/sc | <Cmd>SessionManager load_session<CR> |
-| save session | ,/ss | <Cmd>SessionManager save_current_session<CR> |
 |  | ,gwc | <Cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR> |
 |  | ,gww | <Cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR> |
-| comment box | ,ac | <Cmd>lua require('comment-box').lbox()<CR> |
+| move to next conflict | ,gcn | <Cmd>GitConflictNextConflict<CR> |
+| choose both | ,gcb | <Cmd>GitConflictChooseBoth<CR> |
+| choose theirs | ,gct | <Cmd>GitConflictChooseTheirs<CR> |
+| move to prev conflict | ,gcp | <Cmd>GitConflictPrevConflict<CR> |
+| choose ours | ,gco | <Cmd>GitConflictChooseOurs<CR> |
+| refactor | ,pr |  |
+| Go to buffer 3 | ,3 |  |
+| Go to buffer 4 | ,4 |  |
+| Go to buffer 5 | ,5 |  |
+| Go to buffer 6 | ,6 |  |
+| Go to buffer 7 | ,7 |  |
+| Go to buffer 8 | ,8 |  |
+| Go to buffer 9 | ,9 |  |
+| Sort by relative dir | ,bsr |  |
+| Sort by extension | ,bse |  |
+| Sort by directory | ,bsd |  |
+| Pin/Unpin Buffer | ,bP |  |
+| Pick Buffer | ,bp |  |
+| Move next | ,bn |  |
+| Close Right | ,br |  |
+| Close Left | ,bl |  |
+| Move back | ,bb |  |
+| Go to buffer 1 | ,1 |  |
+| Go to buffer 2 | ,2 |  |
+| toggle deleted | ,ght |  |
+| stage buffer | ,ghS |  |
+| stage hunk | ,ghs |  |
+| reset hunk | ,ghr |  |
+| reset buffer | ,ghR |  |
+| preview | ,ghp |  |
+| diff hunk | ,ghd |  |
+| undo stage | ,ghu |  |
+| diff file | ,gd |  |
+| status | ,gs |  |
 | lazygit | ,gg |  |
+|  | ,DA |  |
+|  | ,DK |  |
+|  | ,Dk |  |
+|  | ,Dt |  |
+|  | ,Dh |  |
+|  | ,Dg |  |
+|  | ,Ds |  |
+|  | ,Dd |  |
+|  | ,Dc |  |
+|  | ,Di |  |
+|  | ,Da |  |
 | multicursor | ,m |  |
 |  | ,dt |  |
 |  | ,dO |  |
@@ -158,50 +209,8 @@ Eye Candy frontend development with React and Vue.js
 |  | ,dc |  |
 |  | ,db |  |
 |  | ,da |  |
-| refactor | ,pr |  |
-| diff hunk | ,ghd |  |
-| undo stage | ,ghu |  |
-| toggle deleted | ,ght |  |
-| stage buffer | ,ghS |  |
-| stage hunk | ,ghs |  |
-| reset hunk | ,ghr |  |
-| reset buffer | ,ghR |  |
-| preview | ,ghp |  |
-| diff file | ,gd |  |
-| status | ,gs |  |
-|  | ,Dt |  |
-|  | ,Dh |  |
-|  | ,Dg |  |
-|  | ,Ds |  |
-|  | ,Dd |  |
-|  | ,Dc |  |
-|  | ,Di |  |
-|  | ,Da |  |
-|  | ,DA |  |
-|  | ,DK |  |
-|  | ,Dk |  |
-| Sort by relative dir | ,bsr |  |
-| Sort by extension | ,bse |  |
-| Sort by directory | ,bsd |  |
-| Pin/Unpin Buffer | ,bP |  |
-| Pick Buffer | ,bp |  |
-| Move next | ,bn |  |
-| Close Right | ,br |  |
-| Close Left | ,bl |  |
-| Move back | ,bb |  |
-|  | <lt>Comma>. | :cn<CR> |
-|  | <lt>Comma>, | :cp<CR> |
 |  | <lt><lt> |  |
 |  | <lt> |  |
-|  | <lt>Comma>6 |  |
-|  | <lt>Comma>7 |  |
-|  | <lt>Comma>8 |  |
-|  | <lt>Comma>9 |  |
-|  | <lt>Comma>1 |  |
-|  | <lt>Comma>2 |  |
-|  | <lt>Comma>3 |  |
-|  | <lt>Comma>4 |  |
-|  | <lt>Comma>5 |  |
 |  | == |  |
 |  | = |  |
 |  | >> |  |
@@ -228,11 +237,6 @@ Eye Candy frontend development with React and Vue.js
 | Operator keymap for printer.nvim | gp |  |
 |  | gn | :bn<CR> |
 |  | g% | <Plug>(MatchitNormalBackward) |
-|  | gs | <Plug>(Switch) |
-| Move to right "around" | g] |  |
-| Move to left "around" | g[ |  |
-| Align with preview | gA |  |
-| Align | ga |  |
 | Comment insert end of line | gcA |  |
 | Comment insert above | gcO |  |
 | Comment insert below | gco |  |
@@ -240,11 +244,16 @@ Eye Candy frontend development with React and Vue.js
 | Comment toggle current line | gcc |  |
 | Comment toggle blockwise | gb | <Plug>(comment_toggle_blockwise) |
 | Comment toggle linewise | gc | <Plug>(comment_toggle_linewise) |
-| Toggle Split/Join | gJ |  |
+|  | gs | <Plug>(Switch) |
+| Align with preview | gA |  |
+| Align | ga |  |
+| Move to right "around" | g] |  |
+| Move to left "around" | g[ |  |
+| LSP References | gr |  |
+| LSP Implementations | gm |  |
 | LSP Definition | gd |  |
 | LSP Type Definitions | gy |  |
-| LSP Implementations | gm |  |
-| LSP References | gr |  |
+| Toggle Split/Join | gJ |  |
 |  | s |  |
 |  | x | "_x |
 | Add a surrounding pair around the current line, on new lines (normal mode) | ySS | <Plug>(nvim-surround-normal-cur-line) |
@@ -270,28 +279,21 @@ Eye Candy frontend development with React and Vue.js
 |  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
 |  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
 |  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>(SwitchReverse) | :set opfunc=switch#OpfuncReverse<CR>g@l |
-|  | <Plug>(Switch) | :set opfunc=switch#OpfuncForward<CR>g@l |
-| Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
-| Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
-| Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
-| Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
-| Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
-| Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
-| Toggle Terminal | <F12> | <Cmd>execute v:count . "ToggleTerm"<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>SpeedDatingFallbackDown | <C-X> |
-|  | <Plug>SpeedDatingFallbackUp | <C-A> |
-|  | <Plug>SpeedDatingNowUTC | :<C-U>call speeddating#timestamp(1,v:count)<CR> |
-|  | <Plug>SpeedDatingNowLocal | :<C-U>call speeddating#timestamp(0,v:count)<CR> |
-|  | <Plug>SpeedDatingDown | :<C-U>call speeddating#increment(-v:count1)<CR> |
-|  | <Plug>SpeedDatingUp | :<C-U>call speeddating#increment(v:count1)<CR> |
 | Comment toggle blockwise with count | <Plug>(comment_toggle_blockwise_count) |  |
 | Comment toggle linewise with count | <Plug>(comment_toggle_linewise_count) |  |
 | Comment toggle current block | <Plug>(comment_toggle_blockwise_current) |  |
 | Comment toggle current line | <Plug>(comment_toggle_linewise_current) |  |
 | Comment toggle blockwise | <Plug>(comment_toggle_blockwise) |  |
 | Comment toggle linewise | <Plug>(comment_toggle_linewise) |  |
+|  | <Plug>SpeedDatingFallbackDown | <C-X> |
+|  | <Plug>SpeedDatingFallbackUp | <C-A> |
+|  | <Plug>SpeedDatingNowUTC | :<C-U>call speeddating#timestamp(1,v:count)<CR> |
+|  | <Plug>SpeedDatingNowLocal | :<C-U>call speeddating#timestamp(0,v:count)<CR> |
+|  | <Plug>SpeedDatingDown | :<C-U>call speeddating#increment(-v:count1)<CR> |
+|  | <Plug>SpeedDatingUp | :<C-U>call speeddating#increment(v:count1)<CR> |
+| Toggle Terminal | <F12> | <Cmd>execute v:count . "ToggleTerm"<CR> |
+|  | <Plug>(SwitchReverse) | :set opfunc=switch#OpfuncReverse<CR>g@l |
+|  | <Plug>(Switch) | :set opfunc=switch#OpfuncForward<CR>g@l |
 | Change a surrounding pair, putting replacements on new lines | <Plug>(nvim-surround-change-line) |  |
 | Change a surrounding pair | <Plug>(nvim-surround-change) |  |
 | Delete a surrounding pair | <Plug>(nvim-surround-delete) |  |
@@ -299,17 +301,24 @@ Eye Candy frontend development with React and Vue.js
 | Add a surrounding pair around a motion, on new lines (normal mode) | <Plug>(nvim-surround-normal-line) |  |
 | Add a surrounding pair around the current line (normal mode) | <Plug>(nvim-surround-normal-cur) |  |
 | Add a surrounding pair around a motion (normal mode) | <Plug>(nvim-surround-normal) |  |
-| multicursor down | <C-Down> |  |
+|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
+| Git Conflict: Previous Conflict | <Plug>(git-conflict-prev-conflict) | <Cmd>GitConflictPrevConflict<CR> |
+| Git Conflict: Next Conflict | <Plug>(git-conflict-next-conflict) | <Cmd>GitConflictNextConflict<CR> |
+| Git Conflict: Choose Theirs | <Plug>(git-conflict-theirs) | <Cmd>GitConflictChooseTheirs<CR> |
+| Git Conflict: Choose None | <Plug>(git-conflict-none) | <Cmd>GitConflictChooseNone<CR> |
+| Git Conflict: Choose Both | <Plug>(git-conflict-both) | <Cmd>GitConflictChooseBoth<CR> |
+| Git Conflict: Choose Ours | <Plug>(git-conflict-ours) | <Cmd>GitConflictChooseOurs<CR> |
 | NvimTree | <C-E> |  |
-|  | <M-9> |  |
-|  | <M-8> |  |
-|  | <M-7> |  |
-|  | <M-6> |  |
-|  | <M-5> |  |
-|  | <M-4> |  |
-|  | <M-3> |  |
-|  | <M-2> |  |
-|  | <M-1> |  |
+| Go to buffer 9 | <M-9> |  |
+| Go to buffer 8 | <M-8> |  |
+| Go to buffer 7 | <M-7> |  |
+| Go to buffer 6 | <M-6> |  |
+| Go to buffer 5 | <M-5> |  |
+| Go to buffer 4 | <M-4> |  |
+| Go to buffer 3 | <M-3> |  |
+| Go to buffer 2 | <M-2> |  |
+| Go to buffer 1 | <M-1> |  |
+| multicursor down | <C-Down> |  |
 |  | <C-L> | <C-W>l |
 
 #### visual mode keymaps
@@ -322,8 +331,8 @@ Eye Candy frontend development with React and Vue.js
 |  | ,cf |  |
 |  | ,ca | <Cmd>'<lt>,'>lua vim.lsp.buf.code_action()<CR> |
 | comment box | ,ac | <Cmd>lua require('comment-box').lbox()<CR> |
-| refactor | ,pr |  |
 | multicursor | ,m |  |
+| refactor | ,pr |  |
 |  | <lt> | <lt>gv |
 |  | = |  |
 |  | > | >gv |
@@ -340,13 +349,13 @@ Eye Candy frontend development with React and Vue.js
 | Around textobject | a |  |
 | Operator keymap for printer.nvim | gp |  |
 |  | g% | <Plug>(MatchitVisualBackward) |
-| Align with preview | gA |  |
-| Align | ga |  |
+| Add a surrounding pair around a visual selection, on new lines | gS | <Plug>(nvim-surround-visual-line) |
 | Comment toggle blockwise (visual) | gb | <Plug>(comment_toggle_blockwise_visual) |
 | Comment toggle linewise (visual) | gc | <Plug>(comment_toggle_linewise_visual) |
 | Move to right "around" | g] |  |
 | Move to left "around" | g[ |  |
-| Add a surrounding pair around a visual selection, on new lines | gS | <Plug>(nvim-surround-visual-line) |
+| Align with preview | gA |  |
+| Align | ga |  |
 | Inside last textobject | il |  |
 | Inside next textobject | in |  |
 | Inside textobject | i |  |
@@ -362,10 +371,10 @@ Eye Candy frontend development with React and Vue.js
 |  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
 |  | <Plug>SpeedDatingDown | :<C-U>call speeddating#incrementvisual(-v:count1)<CR> |
 |  | <Plug>SpeedDatingUp | :<C-U>call speeddating#incrementvisual(v:count1)<CR> |
-| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
-| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 | Add a surrounding pair around a visual selection, on new lines | <Plug>(nvim-surround-visual-line) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR> |
 | Add a surrounding pair around a visual selection | <Plug>(nvim-surround-visual) | <Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR> |
+| Comment toggle blockwise (visual) | <Plug>(comment_toggle_blockwise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR> |
+| Comment toggle linewise (visual) | <Plug>(comment_toggle_linewise_visual) | <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR> |
 
 #### operator mode keymaps
 

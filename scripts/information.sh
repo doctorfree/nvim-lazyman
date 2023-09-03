@@ -253,7 +253,8 @@ make_info() {
       ;;
     CandyVim)
       GH_URL="https://github.com/doctorfree/CandyVim"
-      WS_URL="https://doctorfree.github.io/CandyVim"
+      WS_URL="https://candyvim.lazyman.dev"
+      DF_URL="https://dotfyle.com/doctorfree/candyvim"
       CF_CAT="Personal"
       C_DESC="Eye Candy frontend development with React and Vue.js"
       C_INST="lazyman -w CandyVim"
