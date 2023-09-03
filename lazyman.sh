@@ -5071,6 +5071,9 @@ fi
       printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
       brief_usage
     }
+    # Enable gopls on Linux, leave disabled on macOS
+    platform=$(uname -s)
+    [ "${platform}" == "Darwin" ] || ${SUBMENUS} -s lsp_servers gopls enable
   else
     printf "\n${INSTNVIM} not executable"
     printf "\nPlease check the Lazyman installation and retry this install script\n"

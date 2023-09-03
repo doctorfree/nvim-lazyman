@@ -54,13 +54,26 @@ for_enabled_table=()
 neorg_notes_table=()
 
 usage() {
-  printf "\nUsage: lazyman_config [-d] [-i] [-m menu] [-s name value] [-u]"
+  printf "\nUsage: lazyman_config [-a] [-d] [-i] [-m menu] [-s name value] [-u]"
   printf "\nWhere:"
+  printf "\n    -a lists all configuration names and exits"
   printf "\n    -d specifies debug mode"
   printf "\n    -i indicates initialize conditional plugin configurations and exit"
   printf "\n    -m 'menu' specifies the menu to display (conf, form, lsp, plugins)"
   printf "\n    -s 'name value' indicates set the value of configuration 'name' to 'value'"
+  printf "\n      if 'name' is 'get' then 'value' is the configuration name to get"
+  printf "\n      if 'name' is a table then 'value' is the table entry to set"
+  printf "\n      follow 'value' with 'enable' or 'disable'"
   printf "\n    -u displays this usage message and exits"
+  printf "\nExamples:"
+  printf "\n  Display the 'Formatters' menu"
+  printf "\n    lazyman_config -m form"
+  printf "\n  Set the theme to 'kanagawa'"
+  printf "\n    lazyman_config -s theme kanagawa"
+  printf "\n  Get the theme setting"
+  printf "\n    lazyman_config -s get theme"
+  printf "\n  Disable 'gopls' language server"
+  printf "\n    lazyman_config -s lsp_servers gopls disable\n"
   exit 1
 }
 
@@ -2579,12 +2592,16 @@ show_conf_menu() {
 debug=
 confmenu=
 initplugs=
+listnames=
 menu="conf"
 pluginit=
 setconf=
 toggle=
-while getopts "dim:stu" flag; do
+while getopts "adim:stu" flag; do
   case $flag in
+    a)
+      listnames=1
+      ;;
     d)
       debug=1
       ;;
@@ -2692,6 +2709,11 @@ set_haves
   [ "${initplugs}" ] || exit 0
 }
 
+[ "${listnames}" ] && {
+  NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} list_names 2>&1
+  exit 0
+}
+
 [ "${setconf}" ] && {
   [ "$1" ] || {
     printf "\nThe -s option requires configuration name and value arguments."
@@ -2701,12 +2723,20 @@ set_haves
     printf "\nThe -s option requires configuration name and value arguments."
     usage
   }
+  table=
+  [ "$3" ] && table="$3"
   if [ "$1" == "get" ]
   then
     get_conf_value "$2"
     exit 0
   else
-    set_conf_value "$1" "$2"
+    if [ "${table}" == "disable" ] || [ "${table}" == "enable" ]
+    then
+      upper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+      set_conf_table "${upper}" "$2" "$3"
+    else
+      set_conf_value "$1" "$2"
+    fi
   fi
   [ "${initplugs}" ] || exit 0
 }

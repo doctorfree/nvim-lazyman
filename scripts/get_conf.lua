@@ -2,6 +2,7 @@
 -- Where 'conf_name' is:
 --   - one of the entries in lua/configuration.lua
 --   - the keyword 'config_home' to get configuration location info
+--   - the keyword 'list_names' to lists all configuration entry names
 --   - an option/variable name to retrieve its value
 --
 -- For example, to retrieve the Lazyman configuration 'namespace' setting:
@@ -59,12 +60,18 @@ else
   local var_val = ""
   if app_name == "nvim-Lazyman" then
     local settings = require("configuration")
-    local entry = settings[arg]
-    if entry ~= nil then
-      print_var(entry)
+    if arg == "list_names" then
+      for k,_ in pairs(settings) do
+        io.write(k .. "\n")
+      end
     else
-      var_val = get_var(arg, "")
-      print_var(var_val)
+      local entry = settings[arg]
+      if entry ~= nil then
+        print_var(entry)
+      else
+        var_val = get_var(arg, "")
+        print_var(var_val)
+      end
     end
   else
     var_val = get_var(arg, "")
