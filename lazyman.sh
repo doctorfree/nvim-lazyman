@@ -5071,6 +5071,13 @@ fi
       printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
       brief_usage
     }
+    # Disable Go formatters not available
+    export PATH=$PATH:${HOME}/go/bin
+    for matter in goimports gofumpt golines
+    do
+      have_matter=$(type -p ${matter})
+      [ "${have_matter}" ] || ${SUBMENUS} -s formatters_linters ${matter} disable
+    done
     # Enable gopls on Linux, leave disabled on macOS
     platform=$(uname -s)
     [ "${platform}" == "Darwin" ] || ${SUBMENUS} -s lsp_servers gopls enable
