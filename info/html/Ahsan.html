@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lazyman config: Ahsan</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lazyman config: Ahsan</h1>
+</header>
+<h2 id="ahsan-neovim-configuration-information">Ahsan Neovim
+Configuration Information</h2>
+<p>Personal Neovim configuration of Ahsan Habib</p>
+<ul>
+<li>Install and initialize:
+<strong><code>lazyman -w Ahsan</code></strong></li>
+<li>Configuration category: <a
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
+<li>Base configuration: Custom</li>
+<li>Plugin manager: <a
+href="https://github.com/folke/lazy.nvim">Lazy</a></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-Ahsan</code></strong></li>
+</ul>
+<h3 id="git-repository">Git repository</h3>
+<p><a
+href="https://github.com/bibjaw99/workstation">https://github.com/bibjaw99/workstation</a></p>
+<h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<ul>
+<li><a
+href="https://github.com/numToStr/Comment.nvim">numToStr/Comment.nvim</a></li>
+<li><a
+href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
+<li><a
+href="https://github.com/goolord/alpha-nvim">goolord/alpha-nvim</a></li>
+<li><a
+href="https://github.com/akinsho/bufferline.nvim">akinsho/bufferline.nvim</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-buffer">hrsh7th/cmp-buffer</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-cmdline">hrsh7th/cmp-cmdline</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lsp">hrsh7th/cmp-nvim-lsp</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-path">hrsh7th/cmp-path</a></li>
+<li><a
+href="https://github.com/saadparwaiz1/cmp_luasnip">saadparwaiz1/cmp_luasnip</a></li>
+<li><a
+href="https://github.com/mattn/emmet-vim">mattn/emmet-vim</a></li>
+<li><a
+href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
+<li><a
+href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
+<li><a
+href="https://github.com/ellisonleao/gruvbox.nvim">ellisonleao/gruvbox.nvim</a></li>
+<li><a
+href="https://github.com/sainnhe/gruvbox-material">sainnhe/gruvbox-material</a></li>
+<li><a
+href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+<li><a
+href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
+<li><a
+href="https://github.com/kdheepak/lazygit.nvim.git">kdheepak/lazygit.nvim</a></li>
+<li><a
+href="https://github.com/derektata/lorem.nvim.git">derektata/lorem.nvim</a></li>
+<li><a
+href="https://github.com/onsails/lspkind-nvim">onsails/lspkind-nvim</a></li>
+<li><a
+href="https://github.com/glepnir/lspsaga.nvim">glepnir/lspsaga.nvim</a></li>
+<li><a
+href="https://github.com/nvim-lualine/lualine.nvim">nvim-lualine/lualine.nvim</a></li>
+<li><a
+href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-lspconfig.nvim</a></li>
+<li><a
+href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim.git">WhoIsSethDaniel/mason-tool-installer.nvim</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+<li><a
+href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
+<li><a
+href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
+<li><a
+href="https://github.com/norcalli/nvim-colorizer.lua">norcalli/nvim-colorizer.lua</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
+<li><a
+href="https://github.com/kyazdani42/nvim-tree.lua">kyazdani42/nvim-tree.lua</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
+<li><a
+href="https://github.com/windwp/nvim-ts-autotag">windwp/nvim-ts-autotag</a></li>
+<li><a
+href="https://github.com/JoosepAlviste/nvim-ts-context-commentstring">JoosepAlviste/nvim-ts-context-commentstring</a></li>
+<li><a
+href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devicons</a></li>
+<li><a
+href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/hiphish/rainbow-delimiters.nvim.git">hiphish/rainbow-delimiters.nvim</a></li>
+<li><a
+href="https://github.com/mechatroner/rainbow_csv.git">mechatroner/rainbow_csv</a></li>
+<li><a
+href="https://github.com/preservim/tagbar.git">preservim/tagbar</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
+<li><a
+href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></li>
+<li><a
+href="https://github.com/xiyaowong/transparent.nvim.git">xiyaowong/transparent.nvim</a></li>
+<li><a
+href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
+</ul>
+<h3 id="ahsan-keymaps">Ahsan Keymaps</h3>
+<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitNormalForward)</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td>&amp;</td>
+<td>:&amp;&amp;<CR></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>Y</td>
+<td>y$</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+</tr>
+<tr class="even">
+<td>Comment insert end of line</td>
+<td>gcA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert above</td>
+<td>gcO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert below</td>
+<td>gco</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td>gbc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td>gcc</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseX</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitNormalBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>kj</td>
+<td><Esc></td>
+</tr>
+<tr class="even">
+<td>Toggle Terminal</td>
+<td><C-Bslash></td>
+<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-S></td>
+<td>“+P</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><M-p></td>
+<td>:BufferLineCyclePrev<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><M-n></td>
+<td>:BufferLineCycleNext<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-K></td>
+<td><C-W>k</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-J></td>
+<td><C-W>j</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-H></td>
+<td><C-W>h</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseX</td>
+<td>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitNormalBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitNormalForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>m</td>
+<td><Plug>(emmet-merge-lines)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-merge-lines)</td>
+<td>:call emmet#mergeLines()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>A</td>
+<td><Plug>(emmet-anchorize-summary)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-anchorize-summary)</td>
+<td>:call emmet#anchorizeURL(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>a</td>
+<td><Plug>(emmet-anchorize-url)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-anchorize-url)</td>
+<td>:call emmet#anchorizeURL(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>k</td>
+<td><Plug>(emmet-remove-tag)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-remove-tag)</td>
+<td>:call emmet#removeTag()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>j</td>
+<td><Plug>(emmet-split-join-tag)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-split-join-tag)</td>
+<td>:call emmet#splitJoinTag()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>/</td>
+<td><Plug>(emmet-toggle-comment)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-toggle-comment)</td>
+<td>:call emmet#toggleComment()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>I</td>
+<td><Plug>(emmet-image-encode)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-image-encode)</td>
+<td>:call emmet#imageEncode()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>i</td>
+<td><Plug>(emmet-image-size)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-image-size)</td>
+<td>:call emmet#imageSize()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(emmet-move-prev-item)</td>
+<td>:call emmet#moveNextPrevItem(1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-move-next-item)</td>
+<td>:call emmet#moveNextPrevItem(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>N</td>
+<td><Plug>(emmet-move-prev)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-move-prev)</td>
+<td>:call emmet#moveNextPrev(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>n</td>
+<td><Plug>(emmet-move-next)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-move-next)</td>
+<td>:call emmet#moveNextPrev(0)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>D</td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+<td>:call emmet#balanceTag(-1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>d</td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+<td>:call emmet#balanceTag(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>u</td>
+<td><Plug>(emmet-update-tag)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-update-tag)</td>
+<td>:call emmet#updateTag()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>;</td>
+<td><Plug>(emmet-expand-word)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-expand-word)</td>
+<td>:call emmet#expandAbbr(1,““)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>,</td>
+<td><Plug>(emmet-expand-abbr)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-expand-abbr)</td>
+<td>:call emmet#expandAbbr(3,““)<CR></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>PlenaryTestFile</td>
+<td>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>luasnip-delete-check</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><C-L></td>
+<td><C-W>l</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>#</td>
+<td>y?“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitVisualForward)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td>*</td>
+<td>y/“<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><lt></td>
+<td><lt>gv</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>&gt;</td>
+<td>&gt;gv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitVisualMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>a%</td>
+<td><Plug>(MatchitVisualTextObject)</td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td>gb</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td>gc</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>gx</td>
+<td><Plug>NetrwBrowseXVis</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitVisualBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>kj</td>
+<td><Esc></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-C></td>
+<td>“+y</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>NetrwBrowseXVis</td>
+<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualTextObject)</td>
+<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitVisualMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”,
+“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitVisualBackward)</td>
+<td>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>c</td>
+<td><Plug>(emmet-code-pretty)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-code-pretty)</td>
+<td>:call emmet#codePretty()<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>D</td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-balance-tag-outword)</td>
+<td><Esc>:call emmet#balanceTag(-1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>d</td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-balance-tag-inward)</td>
+<td><Esc>:call emmet#balanceTag(1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><C-Y>,</td>
+<td><Plug>(emmet-expand-abbr)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(emmet-expand-abbr)</td>
+<td>:call emmet#expandAbbr(2,““)<CR></td>
+</tr>
+</tbody>
+</table>
+<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>%</td>
+<td><Plug>(MatchitOperationForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>[%</td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>]%</td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>g%</td>
+<td><Plug>(MatchitOperationBackward)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationMultiForward)</td>
+<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationMultiBackward)</td>
+<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(MatchitOperationBackward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>(MatchitOperationForward)</td>
+<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>luasnip-expand-repeat</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

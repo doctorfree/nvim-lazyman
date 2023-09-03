@@ -1800,7 +1800,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Artur | ONNO | CandyVim | Charles | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | CandyVim | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4158,6 +4158,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
           -N nvim-Charles ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-Chokerman)" == "ok" ] && {
+        printf "\n${action} Chokerman Neovim configuration"
+        lazyman ${darg} -C https://github.com/justchokingaround/dotfiles \
+          -b main -D coding/neovim/nvim -N nvim-Chokerman ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Craftzdog)" == "ok" ] && {
         printf "\n${action} Craftzdog Neovim configuration"
         lazyman ${darg} -C https://github.com/craftzdog/dotfiles-public \
@@ -4263,6 +4268,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/anthdm/.nvim \
           -N nvim-Simple -P ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-Ahsan)" == "ok" ] && {
+        printf "\n${action} Ahsan Neovim configuration"
+        lazyman ${darg} -C https://github.com/bibjaw99/workstation \
+          -D .config/nvim -N nvim-Ahsan ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Artur)" == "ok" ] && {
         printf "\n${action} Artur Neovim configuration"
         lazyman ${darg} -C https://github.com/arturgoms/nvim \
@@ -4349,6 +4359,10 @@ install_remove() {
       Adib)
         prsnl_url="https://github.com/adibhanna/nvim"
         ;;
+      Ahsan)
+        prsnl_url="https://github.com/bibjaw99/workstation"
+        prsnl_dir="-D .config/nvim"
+        ;;
       Artur)
         prsnl_url="https://github.com/arturgoms/nvim"
         ;;
@@ -4411,6 +4425,11 @@ install_remove() {
         ;;
       Charles)
         prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
+        ;;
+      Chokerman)
+        prsnl_url="https://github.com/justchokingaround/dotfiles"
+        prsnl_opt="-b main"
+        prsnl_dir="-D coding/neovim/nvim"
         ;;
       Craftzdog)
         prsnl_url="https://github.com/craftzdog/dotfiles-public"
