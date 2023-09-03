@@ -17,10 +17,10 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 
 Lazyman is one of the [Neoman](https://neoman.dev) managed projects:
 
-| **Neoman** | **Managed** | **Projects** |
-| :--------- | :---------: | -----------: |
-| [Asciiville](https://asciiville.dev) | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
-| [MusicPlayerPlus](https://musicplayerplus.dev) | [Neoman](https://neoman.dev) | [RoonCommandLine](https://rooncommand.dev) |
+| **Neoman**                                     |          **Managed**           |                               **Projects** |
+| :--------------------------------------------- | :----------------------------: | -----------------------------------------: |
+| [Asciiville](https://asciiville.dev)           | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
+| [MusicPlayerPlus](https://musicplayerplus.dev) |  [Neoman](https://neoman.dev)  | [RoonCommandLine](https://rooncommand.dev) |
 
 The Lazyman Neovim configuration management menu:
 
@@ -311,14 +311,14 @@ https://lazyman.dev/info/Abstract.html
 <!-- prettier-ignore -->
 | **Personal** |        |        |        | **Configs** |
 | :----------- | :----: | :----: | :----: | ----------: |
-| [Adib](https://lazyman.dev/info/Adib.html) | [Artur](https://lazyman.dev/info/Artur.html) | [Beethoven](https://lazyman.dev/info/Beethoven.html) | [Brain](https://lazyman.dev/info/Brain.html) | [CandyVim](https://lazyman.dev/info/CandyVim.html) |
-| [Charles](https://lazyman.dev/info/Charles.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) | [Dillon](https://lazyman.dev/info/Dillon.html) | [Elianiva](https://lazyman.dev/info/Elianiva.html) |
-| [Elijah](https://lazyman.dev/info/Elijah.html) | [Enrique](https://lazyman.dev/info/Enrique.html) | [Heiker](https://lazyman.dev/info/Heiker.html) | [J4de](https://lazyman.dev/info/J4de.html) | [Josean](https://lazyman.dev/info/Josean.html) |
-| [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) | [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) |
-| [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) | [Mini](https://lazyman.dev/info/Mini.html) | [OnMyWay](https://lazyman.dev/info/OnMyWay.html) |
-| [ONNO](https://lazyman.dev/info/ONNO.html) | [Optixal](https://lazyman.dev/info/Optixal.html) | [Orhun](https://lazyman.dev/info/Orhun.html) | [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) |
-| [Roiz](https://lazyman.dev/info/Roiz.html) | [Simple](https://lazyman.dev/info/Simple.html) | [Slydragonn](https://lazyman.dev/info/Slydragonn.html) | [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) |
-| | [Wuelner](https://lazyman.dev/info/Wuelner.html) | [xero](https://lazyman.dev/info/xero.html) | [Xiao](https://lazyman.dev/info/Xiao.html) | |
+| [Adib](https://lazyman.dev/info/Adib.html) | [Ahsan](https://lazyman.dev/info/Ahsan.html) | [Artur](https://lazyman.dev/info/Artur.html) | [Beethoven](https://lazyman.dev/info/Beethoven.html) | [Brain](https://lazyman.dev/info/Brain.html) |
+| [CandyVim](https://lazyman.dev/info/CandyVim.html) | [Charles](https://lazyman.dev/info/Charles.html) | [Chokerman](https://lazyman.dev/info/Chokerman.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) |
+| [Dillon](https://lazyman.dev/info/Dillon.html) | [Elianiva](https://lazyman.dev/info/Elianiva.html) | [Elijah](https://lazyman.dev/info/Elijah.html) | [Enrique](https://lazyman.dev/info/Enrique.html) | [Heiker](https://lazyman.dev/info/Heiker.html) |
+| [J4de](https://lazyman.dev/info/J4de.html) | [Josean](https://lazyman.dev/info/Josean.html) | [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) |
+| [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) | [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) |
+| [Mini](https://lazyman.dev/info/Mini.html) | [OnMyWay](https://lazyman.dev/info/OnMyWay.html) | [ONNO](https://lazyman.dev/info/ONNO.html) | [Optixal](https://lazyman.dev/info/Optixal.html) | [Orhun](https://lazyman.dev/info/Orhun.html) |
+| [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) | [Roiz](https://lazyman.dev/info/Roiz.html) | [Simple](https://lazyman.dev/info/Simple.html) | [Slydragonn](https://lazyman.dev/info/Slydragonn.html) |
+| [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) | [Wuelner](https://lazyman.dev/info/Wuelner.html) | [xero](https://lazyman.dev/info/xero.html) | [Xiao](https://lazyman.dev/info/Xiao.html) |
 
 <!-- prettier-ignore -->
 | **Starter** |        |        |        | **Configs** |
@@ -571,7 +571,7 @@ Where:
     -V 'url' specifies an NvChad user configuration git repository
     -w 'conf' indicates install and initialize Personal 'conf' config
        'conf' can be one of:
-           All Adib Artur Beethoven Brain CandyVim Charles Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim JustinNvim Kodo LamarVim Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+           All Adib Ahsan Artur Beethoven Brain CandyVim Charles Chokerman Craftzdog Daniel Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim JustinNvim Kodo LamarVim Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
     -W indicates install and initialize all 'Personal' Neovim configurations
     -x 'conf' indicates install and initialize nvim-starter 'conf' config
        'conf' can be one of:

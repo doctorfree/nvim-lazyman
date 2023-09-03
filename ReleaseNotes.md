@@ -2,7 +2,7 @@
 
 This major new release of `lazyman` supports over 100 Neovim configurations. The `nvim-Lazyman` Neovim configuration options and enabled plugins can be managed through the `lazyman` command menus. The Lazyman initialization defaults to using the native package manager rather than Homebrew to install Neovim dependencies and tools. Native package managers are supported on Debian based platforms (e.g. Ubuntu), RPM based platforms (e.g. Fedora), Arch Linux, Alpine Linux, SUSE Linux, and Void Linux. To use Homebrew rather than the native package manager, use `lazyman -h ...` when initializing the system. Homebrew is the default on macOS and used elsewhere if no supported native package manager is found.
 
-All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.2r2/lazyman.sh) script. Download and execute to get started:
+All that is needed to bootstrap `Lazyman` is the [lazyman.sh](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.2r3/lazyman.sh) script. Download and execute to get started:
 
 ```bash
 git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
@@ -30,14 +30,14 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 <!-- prettier-ignore -->
 | **Personal** |        |        |        | **Configs** |
 | :----------- | :----: | :----: | :----: | ----------: |
-| [Adib](https://lazyman.dev/info/Adib.html) | [Artur](https://lazyman.dev/info/Artur.html) | [Beethoven](https://lazyman.dev/info/Beethoven.html) | [Brain](https://lazyman.dev/info/Brain.html) | [CandyVim](https://lazyman.dev/info/CandyVim.html) |
-| [Charles](https://lazyman.dev/info/Charles.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) | [Dillon](https://lazyman.dev/info/Dillon.html) | [Elianiva](https://lazyman.dev/info/Elianiva.html) |
-| [Elijah](https://lazyman.dev/info/Elijah.html) | [Enrique](https://lazyman.dev/info/Enrique.html) | [Heiker](https://lazyman.dev/info/Heiker.html) | [J4de](https://lazyman.dev/info/J4de.html) | [Josean](https://lazyman.dev/info/Josean.html) |
-| [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) | [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) |
-| [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) | [Mini](https://lazyman.dev/info/Mini.html) | [OnMyWay](https://lazyman.dev/info/OnMyWay.html) |
-| [ONNO](https://lazyman.dev/info/ONNO.html) | [Optixal](https://lazyman.dev/info/Optixal.html) | [Orhun](https://lazyman.dev/info/Orhun.html) | [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) |
-| [Roiz](https://lazyman.dev/info/Roiz.html) | [Simple](https://lazyman.dev/info/Simple.html) | [Slydragonn](https://lazyman.dev/info/Slydragonn.html) | [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) |
-| | [Wuelner](https://lazyman.dev/info/Wuelner.html) | [xero](https://lazyman.dev/info/xero.html) | [Xiao](https://lazyman.dev/info/Xiao.html) | |
+| [Adib](https://lazyman.dev/info/Adib.html) | [Ahsan](https://lazyman.dev/info/Ahsan.html) | [Artur](https://lazyman.dev/info/Artur.html) | [Beethoven](https://lazyman.dev/info/Beethoven.html) | [Brain](https://lazyman.dev/info/Brain.html) |
+| [CandyVim](https://lazyman.dev/info/CandyVim.html) | [Charles](https://lazyman.dev/info/Charles.html) | [Chokerman](https://lazyman.dev/info/Chokerman.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) |
+| [Dillon](https://lazyman.dev/info/Dillon.html) | [Elianiva](https://lazyman.dev/info/Elianiva.html) | [Elijah](https://lazyman.dev/info/Elijah.html) | [Enrique](https://lazyman.dev/info/Enrique.html) | [Heiker](https://lazyman.dev/info/Heiker.html) |
+| [J4de](https://lazyman.dev/info/J4de.html) | [Josean](https://lazyman.dev/info/Josean.html) | [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) |
+| [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) | [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) |
+| [Mini](https://lazyman.dev/info/Mini.html) | [OnMyWay](https://lazyman.dev/info/OnMyWay.html) | [ONNO](https://lazyman.dev/info/ONNO.html) | [Optixal](https://lazyman.dev/info/Optixal.html) | [Orhun](https://lazyman.dev/info/Orhun.html) |
+| [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) | [Roiz](https://lazyman.dev/info/Roiz.html) | [Simple](https://lazyman.dev/info/Simple.html) | [Slydragonn](https://lazyman.dev/info/Slydragonn.html) |
+| [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) | [Wuelner](https://lazyman.dev/info/Wuelner.html) | [xero](https://lazyman.dev/info/xero.html) | [Xiao](https://lazyman.dev/info/Xiao.html) |
 
 <!-- prettier-ignore -->
 | **Starter** |        |        |        | **Configs** |
@@ -97,7 +97,7 @@ If, after initializing Lazyman with `lazyman -Z`, you wish to let Lazyman instal
 
 ### Bootstrap
 
-To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.2r2/lazyman.sh).
+To bootstrap the Lazyman Neovim configuration manager, the `lazyman.sh` script must be downloaded and executed. The download can be performed with `git`, `curl`, `wget`, copy/paste, or [download the release artifact](https://github.com/doctorfree/nvim-lazyman/releases/download/v3.0.2r3/lazyman.sh).
 
 The recommended bootstrap procedure is with `git`:
 

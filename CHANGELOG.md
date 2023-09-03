@@ -6,6 +6,36 @@
 
 ### 🐞 Fixed
 
+## v3.0.2r3
+
+### ⚡️ Added
+
+- Add `Ahsan` and `Chokerman` personal configurations
+- Add custom configs to total count
+- Add `list_names` argument to `get_conf.lua`
+- Add `CandyVim` to Personals
+- Add `lemonade` to extra tools installed
+- Add `bash` to treesitter `ensure_installed`
+- Add capability to generate health checks for all installed configs
+- Move health checks to `info/health/`
+- Add `c` to treesitter parsers
+- Add `Dillon` to `Neotree` dashboard
+- Add links to website in man pages and README
+- `Bob` management scripts improvements
+- Add `Craftzdog Lexplore` to `.lazymanrc`
+
+### 🐞 Fixed
+
+- Check if updated before updating parsers in treesitter config
+- Disable unavailable `Go` formatters
+- `gopls` disabled by default, enable `gopls` on Linux
+- Update `CandyVim` info docs
+- Fix horizontal rules in `healthcheck.sh`
+- Remove `Lamia` config from `Starters`
+- Realign Base Configs table
+- Remove `PenguinVim`, no longer maintained
+- Cleanup commented out `TSInstall`, unused
+
 ## v3.0.2r2
 
 ### ⚡️ Added
