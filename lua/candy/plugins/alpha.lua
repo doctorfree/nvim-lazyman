@@ -326,3 +326,26 @@ local opts = {
 }
 
 alpha.setup(opts)
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Hide tabline and statusline on startup screen            │
+-- ╰──────────────────────────────────────────────────────────╯
+vim.api.nvim_create_augroup("alpha_tabline", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "alpha_tabline",
+  pattern = "alpha",
+  command = "set showtabline=0 laststatus=0 noruler",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "alpha_tabline",
+  pattern = "alpha",
+  callback = function()
+    vim.api.nvim_create_autocmd("BufUnload", {
+      group = "alpha_tabline",
+      buffer = 0,
+      command = "set showtabline=2 ruler laststatus=3",
+    })
+  end,
+})
