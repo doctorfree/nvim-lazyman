@@ -3,6 +3,22 @@ if not present then
   return
 end
 
+local settings = require("configuration")
+local games = { name = '' }
+if settings.enable_games then
+  games = {
+    name = 'Games',
+    a = { "<cmd>:HackAuto<CR>",                         "Hack auto typing mode" },
+    b = { "<cmd>BlackJackNewGame<CR>",                  "Blackjack" },
+    h = { "<cmd>:Hack<CR>",                             "Hack" },
+    f = { "<cmd>:HackFollow<CR>",                       "Hack current buffer" },
+    s = { "<cmd>Sudoku<CR>",                            "Sudoku" },
+    v = { "<cmd>VimBeGood<CR>",                         "Vim-Be-Good" },
+    r = { "<cmd>CellularAutomaton make_it_rain<CR>",    "Make it Rain" },
+    g = { "<cmd>CellularAutomaton game_of_life<CR>",    "Game of Life" },
+  }
+end
+
 wk.setup {
   plugins = {
     marks = true,
@@ -289,17 +305,7 @@ local normal_mode_mappings = {
     },
   },
 
-  G = {
-    name = 'Games',
-    a = { "<cmd>:HackAuto<CR>",                         "Hack auto typing mode" },
-    b = { "<cmd>BlackJackNewGame<CR>",                  "Blackjack" },
-    h = { "<cmd>:Hack<CR>",                             "Hack" },
-    f = { "<cmd>:HackFollow<CR>",                       "Hack current buffer" },
-    s = { "<cmd>Sudoku<CR>",                            "Sudoku" },
-    v = { "<cmd>VimBeGood<CR>",                         "Vim-Be-Good" },
-    r = { "<cmd>CellularAutomaton make_it_rain<CR>",    "Make it Rain" },
-    g = { "<cmd>CellularAutomaton game_of_life<CR>",    "Game of Life" },
-  },
+  G = games,
 
   g = {
     name = 'Git',
