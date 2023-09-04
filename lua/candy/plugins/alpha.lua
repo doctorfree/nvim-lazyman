@@ -154,6 +154,9 @@ local function mru(start, cwd, items_number, opts)
   }
 end
 
+local recent_files_btn = dashboard.button("r", candy_icons.fileRecent .. " " .. "Search recents", "<cmd>Telescope oldfiles hidden=true prompt_title=Recent<CR>")
+recent_files_btn.opts.hl = "AlphaButtons"
+
 local section_mru = {
   type = "group",
   val = {
@@ -174,6 +177,7 @@ local section_mru = {
       end,
       opts = { shrink_margin = false },
     },
+    recent_files_btn,
   },
 }
 
@@ -200,15 +204,13 @@ local find_file_btn = dashboard.button("f", candy_icons.fileNoBg .. " " .. "Find
 find_file_btn.opts.hl = "AlphaFooter"
 local find_text_btn = dashboard.button("w", candy_icons.word .. " " .. "Find Word", "<cmd>lua require('candy.plugins.telescope.pickers.multi-rg')()<CR>")
 find_text_btn.opts.hl = "AlphaFooter"
-local recent_files_btn = dashboard.button("r", candy_icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true prompt_title=Recent<CR>")
-recent_files_btn.opts.hl = "AlphaFooter"
 local session_btn = dashboard.button("s", candy_icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>")
 session_btn.opts.hl = "AlphaFooter"
 local quit_btn = dashboard.button("q", candy_icons.exit .. " " .. "Quit", ":qa<CR>")
 quit_btn.opts.hl = "AlphaFooter"
 
 -- Neovim Configuration
-local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>")
+local health_btn = dashboard.button("n", "  Neovim Health", ":checkhealth<CR>")
 health_btn.opts.hl = "AlphaHeader"
 local settings_btn = dashboard.button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>")
 local lazyman_btn = dashboard.button("l", "  Lazyman Help", ":h nvim-Lazyman<CR>")
@@ -233,10 +235,10 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaHeader", position = "center" } },
-    health_btn,
     lazyman_btn,
     settings_btn,
     mappings_btn,
+    health_btn,
     { type = "padding", val = 1 },
     { type = "text", val = "Plugin Management", opts = { hl = "AlphaShortcut", position = "center" } },
     install_btn,
@@ -249,7 +251,6 @@ local buttons = {
     find_file_btn,
     find_text_btn,
     session_btn,
-    recent_files_btn,
     quit_btn,
   },
   position = "center",
