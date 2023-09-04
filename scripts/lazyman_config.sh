@@ -946,7 +946,7 @@ show_plugin_menu() {
       fi
     }
     [ "${use_namespace}" == "candy" ] && {
-      options+=("Dashboard Header [${use_dashboard_header}]")
+      options+=("Alpha Header  [${use_dashboard_header}]")
     }
     options+=("Dressing UI   [${use_dressing}]")
     options+=("File Tree [${use_neotree}]")
@@ -1633,7 +1633,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        " Alpha Header"*,* | *," Alpha Header"* | "Dashboard Header"*,* | *,"Dashboard Header"*)
+        *"Alpha Header"*,* | *,*"Alpha Header"*)
           if [ "${enable_dashboard_header}" == "true" ]; then
             set_conf_value "enable_dashboard_header" "false"
           else
