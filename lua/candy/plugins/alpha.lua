@@ -118,11 +118,11 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 -- Neovim Configuration
-local settings_btn = button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>", {})
-local lazyman_btn = button("l", "  Lazyman Help", ":h Lazyman<CR>", {})
+local settings_btn = button("c", "   Lazyman Configuration", ":e " .. configuration_lua .. "<CR>", {})
+local lazyman_btn = button("l", "   Lazyman Help", ":h Lazyman<CR>", {})
 if settings.enable_terminal then
-  settings_btn = button("c", "  Lazyman Configuration", ":Lazyconf<CR>", {})
-  lazyman_btn = button("l", "  Lazyman Main Menu", ":Lazyman<CR>", {})
+  settings_btn = button("c", "   Lazyman Configuration", ":Lazyconf<CR>", {})
+  lazyman_btn = button("l", "   Lazyman Main Menu", ":Lazyman<CR>", {})
 end
 
 

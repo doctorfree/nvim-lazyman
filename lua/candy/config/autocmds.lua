@@ -1,13 +1,66 @@
+local autocmd = vim.api.nvim_create_autocmd
+
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyman_" .. name, { clear = true })
+end
+
+-- Check if we need to reload the file when it changed
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+  group = augroup("checktime"),
+  command = "checktime",
+})
+
+-- Auto insert mode for Terminal
+autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
+  callback = function(args)
+    if vim.startswith(vim.api.nvim_buf_get_name(args.buf), "term://") then
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = false
+      vim.cmd("startinsert")
+    end
+  end,
+})
+
+autocmd({ "TermOpen" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.opt_local["number"] = false
+    vim.opt_local["signcolumn"] = "no"
+    vim.opt_local["foldcolumn"] = "0"
+  end,
+})
+
+-- resize splits if window got resized
+autocmd({ "VimResized" }, {
+  group = augroup("resize_splits"),
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
+})
+
+-- go to last loc when opening a buffer
+autocmd("BufReadPost", {
+  group = augroup("last_loc"),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "lightgreen" })
+  end,
+})
+
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost",
+autocmd("TextYankPost",
   { callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 100 }) end })
 -- Disable diagnostics in node_modules (0 is current buffer only)
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
+autocmd({ "BufRead", "BufNewFile" }, { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 -- Enable spell checking for certain file types
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
+autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
   command = "setlocal spell" })
 -- Show `` in specific files
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" },
+autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" },
   command = "setlocal conceallevel=0" })
 
 -- Attach specific keybindings in which-key for specific filetypes
@@ -15,13 +68,13 @@ local present, _ = pcall(require, "which-key")
 if not present then return end
 local _, pwk = pcall(require, "candy.plugins.which-key")
 
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md",
+autocmd("BufEnter", { pattern = "*.md",
   callback = function() pwk.attach_markdown(0) end })
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" },
+autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" },
   callback = function() pwk.attach_typescript(0) end })
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" },
+autocmd("BufEnter", { pattern = { "package.json" },
   callback = function() pwk.attach_npm(0) end })
-vim.api.nvim_create_autocmd("FileType",
+autocmd("FileType",
   { pattern = "*",
     callback = function()
       if CandyVim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
@@ -29,9 +82,9 @@ vim.api.nvim_create_autocmd("FileType",
       end
     end
   })
-vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx" },
+autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx" },
   callback = function() pwk.attach_jest(0) end })
-vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
+autocmd("FileType", { pattern = "spectre_panel",
   callback = function() pwk.attach_spectre(0) end })
-vim.api.nvim_create_autocmd("FileType", { pattern = "NvimTree",
+autocmd("FileType", { pattern = "NvimTree",
   callback = function() pwk.attach_nvim_tree(0) end })
