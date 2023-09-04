@@ -154,7 +154,7 @@ local function mru(start, cwd, items_number, opts)
   }
 end
 
-local recent_files_btn = dashboard.button("r", candy_icons.fileRecent .. " " .. "Search recents", "<cmd>Telescope oldfiles hidden=true prompt_title=Recent<CR>")
+local recent_files_btn = dashboard.button("r", " Search recents", "<cmd>Telescope oldfiles hidden=true prompt_title=Recent<CR>")
 recent_files_btn.opts.hl = "AlphaButtons"
 
 local section_mru = {
