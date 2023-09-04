@@ -192,9 +192,9 @@ vim.cmd([[
   -- ╭──────────────────────────────────────────────────────────╮
   -- │ Hatch a pretty fast duck and a mellow cat                │
   -- ╰──────────────────────────────────────────────────────────╯
-local duck_cat_btn = dashboard.button("d", candy_icons.squirrel .. " " .. "Toggle Duck and Cat", "<cmd>lua if HatchDuck then require('duck').hatch('🦆', 7) require('duck').hatch('🐈', 2) HatchDuck = false else require('duck').cook() require('duck').cook() HatchDuck = true end<CR>")
+local duck_cat_btn = dashboard.button("d", candy_icons.squirrel .. " " .. "Duck and Cat", "<cmd>lua if HatchDuck then require('duck').hatch('🦆', 7) require('duck').hatch('🐈', 2) HatchDuck = false else require('duck').cook() require('duck').cook() HatchDuck = true end<CR>")
 duck_cat_btn.opts.hl = "AlphaFooter"
-local hack_btn = dashboard.button("h", candy_icons.hook .. " " .. "Hack", "<cmd>Hack<CR>")
+local hack_btn = dashboard.button("h", candy_icons.hook .. " " .. "Hollywood Hacker", "<cmd>HackAuto<CR>")
 hack_btn.opts.hl = "AlphaFooter"
 local find_file_btn = dashboard.button("f", candy_icons.fileNoBg .. " " .. "Find File", "<cmd>lua require('candy.plugins.telescope').project_files()<CR>")
 find_file_btn.opts.hl = "AlphaFooter"
@@ -284,7 +284,7 @@ local footer = {
   val = datetime .. "  " .. vinfo .. lazystats,
   opts = {
     position = "center",
-    hl = "AlphaFooter",
+    hl = "AlphaHeader",
   },
 }
 
