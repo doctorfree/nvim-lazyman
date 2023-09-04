@@ -2321,11 +2321,13 @@ show_conf_menu() {
           break
           ;;
         "Namespace"*,* | *,"Namespace"*)
-          if [ "${use_namespace}" == "onno" ]; then
-            set_conf_value "namespace" "free"
-          else
-            set_conf_value "namespace" "onno"
-          fi
+          choices=("candy" "free" "onno")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration namespace (current = ${namespace})  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${namespace}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "namespace" "${choice}"
+            fi
+          }
           pluginit=1
           break
           ;;

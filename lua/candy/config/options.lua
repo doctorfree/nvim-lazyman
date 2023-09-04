@@ -1,3 +1,4 @@
+local settings = require("configuration")
 local utils = require('candy.utils')
 
 local options = {
@@ -12,14 +13,16 @@ local options = {
   foldlevel      = 99,                      --- Using ufo provider need a large value
   foldlevelstart = 99,                      --- Expand all folds by default
   ignorecase     = true,                    --- Needed for smartcase
-  laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
-  mouse          = "a",                     --- Enable mouse
-  number         = true,                    --- Shows current line number
+  laststatus     = 3,                       --- Global statusline at the bottom
+  list           = settings.list,
+  listchars      = settings.listchars,
+  mouse          = settings.mouse,                     --- Enable mouse
+  number         = settings.number,                    --- Shows current line number
+  relativenumber = settings.relative_number,                    --- Enables relative number
   pumheight      = 10,                      --- Max num of items in completion menu
-  relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
   shiftwidth     = 2,                       --- Change a number of space characters inserted for indentation
-  showtabline    = 2,                       --- Always show tabs
+  showtabline    = settings.showtabline,                       --- Always show tabs
   signcolumn     = "yes:2",                 --- Add extra sign column next to line number
   smartcase      = true,                    --- Uses case in search
   smartindent    = true,                    --- Makes indenting smart
@@ -51,7 +54,8 @@ local options = {
 }
 
 local globals = {
-  mapleader                   = ',',        --- Map leader key to COMMA
+  mapleader                   = settings.mapleader,      --- Map leader key
+  maplocalleader              = settings.maplocalleader, --- Map local leader key
   speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
 }
 
