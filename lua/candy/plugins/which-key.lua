@@ -138,21 +138,21 @@ local normal_mode_mappings = {
   ['9'] = 'which_key_ignore',
 
   -- single
-  ['='] = { '<cmd>vertical resize +5<CR>',                      'resize +5' },
-  ['-'] = { '<cmd>vertical resize -5<CR>',                      'resize +5' },
-  ['v'] = { '<C-W>v',                                           'split right' },
-  ['V'] = { '<C-W>s',                                           'split below' },
+  ['='] = { '<cmd>vertical resize +5<CR>',                      'Resize +5' },
+  ['-'] = { '<cmd>vertical resize -5<CR>',                      'Resize +5' },
+  ['v'] = { '<C-W>v',                                           'Split right' },
+  ['V'] = { '<C-W>s',                                           'Split below' },
   ['q'] = { 'quicklist' },
 
   ['/'] = {
     name = 'Lazyman',
-    ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
-    c = { '<cmd>Lazyconf<CR>',                                  'configuration menu' },
-    l = { '<cmd>Lazyman<CR>',                                   'lazyman menu' },
-    h = { '<cmd>Cheatsheet<CR>',                                'lazyman cheatsheet' },
-    m = { '<cmd>Mason<CR>',                                     'manage packages' },
-    p = { '<cmd>Lazy<CR>',                                      'manage plugins' },
-    u = { '<cmd>Lazy update<CR>',                               'update plugins' },
+    ['/'] = { '<cmd>Alpha<CR>',                                 'Open dashboard' },
+    c = { '<cmd>Lazyconf<CR>',                                  'Configuration menu' },
+    l = { '<cmd>Lazyman<CR>',                                   'Lazyman menu' },
+    h = { '<cmd>Cheatsheet<CR>',                                'Lazyman cheatsheet' },
+    m = { '<cmd>Mason<CR>',                                     'Manage packages' },
+    p = { '<cmd>Lazy<CR>',                                      'Manage plugins' },
+    u = { '<cmd>Lazy update<CR>',                               'Update plugins' },
     s = {
       name = 'Session',
     },
@@ -160,8 +160,8 @@ local normal_mode_mappings = {
 
   a = {
     name = 'Actions',
-    n = { '<cmd>set nonumber!<CR>',                             'line numbers' },
-    r = { '<cmd>set norelativenumber!<CR>',                     'relative number' },
+    n = { '<cmd>set nonumber!<CR>',                             'Line numbers' },
+    r = { '<cmd>set norelativenumber!<CR>',                     'Relative number' },
   },
 
   b = {
@@ -176,32 +176,32 @@ local normal_mode_mappings = {
   c = {
     name = 'LSP',
     a = { 'code action' },
-    d = { '<cmd>TroubleToggle<CR>',                           'local diagnostics' },
-    D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
+    d = { '<cmd>TroubleToggle<CR>',                           'Local diagnostics' },
+    D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'Workspace diagnostics' },
     f = { 'format' },
     l = { 'line diagnostics' },
     r = { 'rename' },
     R = { 'structural replace' },
-    t = { '<cmd>LspToggleAutoFormat<CR>',                     'toggle format on save' },
+    t = { '<cmd>LspToggleAutoFormat<CR>',                     'Toggle format on save' },
   },
 
   d = {
     name = 'Debug',
-    a = { 'attach' },
-    b = { 'breakpoint' },
-    c = { 'continue' },
-    C = { 'close UI' },
-    d = { 'continue' },
-    h = { 'visual hover' },
-    i = { 'step into' },
-    o = { 'step over' },
-    O = { 'step out' },
-    r = { 'repl' },
-    s = { 'scopes' },
-    t = { 'terminate' },
-    v = { 'log variable' },
-    V = { 'log variable above' },
-    w = { 'watches' },
+    a = { 'Attach' },
+    b = { 'Breakpoint' },
+    c = { 'Continue' },
+    C = { 'Close UI' },
+    d = { 'Continue' },
+    h = { 'Visual hover' },
+    i = { 'Step into' },
+    o = { 'Step over' },
+    O = { 'Step out' },
+    r = { 'Repl' },
+    s = { 'Scopes' },
+    t = { 'Terminate' },
+    v = { 'Log variable' },
+    V = { 'Log variable above' },
+    w = { 'Watches' },
   },
 
   D = {
@@ -290,10 +290,10 @@ local normal_mode_mappings = {
 
   g = {
     name = 'Git',
-    a = { '<cmd>!git add %:p<CR>',                                              'add current' },
-    A = { '<cmd>!git add .<CR>',                                                'add all' },
-    b = { '<cmd>lua require("candy.internal.blame").open()<CR>',                      'blame' },
-    B = { '<cmd>Telescope git_branches<CR>',                                    'branches' },
+    a = { '<cmd>!git add %:p<CR>',                                              'Add current' },
+    A = { '<cmd>!git add .<CR>',                                                'Add all' },
+    b = { '<cmd>lua require("candy.internal.blame").open()<CR>',                'Blame' },
+    B = { '<cmd>Telescope git_branches<CR>',                                    'Branches' },
     c = {
       name = 'Conflict',
     },
@@ -302,49 +302,49 @@ local normal_mode_mappings = {
     },
     l = {
       name = 'Log',
-      A = {'<cmd>lua require("candy.plugins.telescope").my_git_commits()<CR>',  'commits (Telescope)'},
-      a = {'<cmd>LazyGitFilter<CR>',                                      'commits'},
-      C = {'<cmd>lua require("candy.plugins.telescope").my_git_bcommits()<CR>', 'buffer commits (Telescope)'},
-      c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'buffer commits'},
+      A = {'<cmd>lua require("candy.plugins.telescope").my_git_commits()<CR>',  'Commits (Telescope)'},
+      a = {'<cmd>LazyGitFilter<CR>',                                      'Commits'},
+      C = {'<cmd>lua require("candy.plugins.telescope").my_git_bcommits()<CR>', 'Buffer commits (Telescope)'},
+      c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'Buffer commits'},
     },
-    m = { 'blame line' },
-    S = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
+    m = { 'Blame line' },
+    S = { '<cmd>Telescope git_status<CR>',                                'Telescope status' },
     w = {
       name = 'Worktree',
-      w = 'worktrees',
-      c = 'create worktree',
+      w = 'Worktrees',
+      c = 'Create worktree',
     }
   },
 
   p = {
     name = 'Project',
-    f = { 'file' },
-    w = { 'word' },
-    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'list' },
-    r = { 'refactor' },
-    s = { "<cmd>SessionManager save_current_session<CR>",            'save session' },
-    t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
+    f = { 'File' },
+    w = { 'Word' },
+    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'List' },
+    r = { 'Refactor' },
+    s = { "<cmd>SessionManager save_current_session<CR>",            'Save session' },
+    t = { "<cmd>TodoTrouble<CR>",                                    'Todo' },
   },
 
   s = {
     name = 'Search',
-    c = { '<cmd>Telescope colorscheme<CR>',                              'color schemes' },
-    d = { '<cmd>lua require("candy.plugins.telescope").edit_neovim()<CR>',     'dotfiles' },
-    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'file history' },
-    H = { '<cmd>lua require("candy.plugins.telescope").command_history()<CR>', 'command history' },
-    s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'search history' },
+    c = { '<cmd>Telescope colorscheme<CR>',                              'Color schemes' },
+    d = { '<cmd>lua require("candy.plugins.telescope").edit_neovim()<CR>',     'Dotfiles' },
+    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'File history' },
+    H = { '<cmd>lua require("candy.plugins.telescope").command_history()<CR>', 'Command history' },
+    s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'Search history' },
   },
 
   t = {
     name = 'Table Mode',
-    m = { 'toggle' },
-    t = { 'tableize' },
+    m = { 'Toggle' },
+    t = { 'Tableize' },
   },
 }
 
 local visual_mode_mappings = {
   -- single
-  ["s"] = { "<cmd>'<,'>sort<CR>",               'sort' },
+  ["s"] = { "<cmd>'<,'>sort<CR>",               'Sort' },
 
   a = {
     name = "Actions",
@@ -352,27 +352,27 @@ local visual_mode_mappings = {
 
   c = {
     name = "LSP",
-    a = { 'range code action' },
-    f = { 'range format' },
+    a = { 'Range code action' },
+    f = { 'Range format' },
   },
 
   g = {
     name = "Git",
     h = {
       name = "Hunk",
-      r = "reset hunk",
-      s = "stage hunk",
+      r = "Reset hunk",
+      s = "Stage hunk",
     },
   },
 
   p = {
     name = "Project",
-    r = { 'refactor' },
+    r = { 'Refactor' },
   },
 
   t = {
     name = "Table Mode",
-    t = { 'tableize' },
+    t = { 'Tableize' },
   },
 }
 
@@ -403,12 +403,12 @@ local function attach_typescript(bufnr)
   wk.register({
     c = {
       name = "LSP",
-      e = { '<cmd>TSC<CR>',                               'workspace errors (TSC)'},
-      F = { '<cmd>TSToolsFixAll<CR>',                     'fix all' },
-      i = { '<cmd>TSToolsAddMissingImports<CR>',          'import all'},
-      o = { '<cmd>TSToolsOrganizeImports<CR>',            'organize imports'},
-      s = { '<cmd>TSToolsSortImports<CR>',                'sort imports'},
-      u = { '<cmd>TSToolsRemoveUnused<CR>',               'remove unused' },
+      e = { '<cmd>TSC<CR>',                               'Workspace errors (TSC)'},
+      F = { '<cmd>TSToolsFixAll<CR>',                     'Fix all' },
+      i = { '<cmd>TSToolsAddMissingImports<CR>',          'Import all'},
+      o = { '<cmd>TSToolsOrganizeImports<CR>',            'Organize imports'},
+      s = { '<cmd>TSToolsSortImports<CR>',                'Sort imports'},
+      u = { '<cmd>TSToolsRemoveUnused<CR>',               'Remove unused' },
     }
   }, {
     buffer = bufnr ,
@@ -424,13 +424,13 @@ local function attach_npm(bufnr)
   wk.register({
     n = {
       name = "NPM",
-      c = { '<cmd>lua require("package-info").change_version()<CR>', 'change version' },
-      d = { '<cmd>lua require("package-info").delete()<CR>',         'delete package' },
-      h = { "<cmd>lua require('package-info').hide()<CR>",           'hide'},
-      i = { '<cmd>lua require("package-info").install()<CR>',        'install new package' },
-      r = { '<cmd>lua require("package-info").reinstall()<CR>',      'reinstall dependencies' },
-      s = { '<cmd>lua require("package-info").show()<CR>',           'show' },
-      u = { '<cmd>lua require("package-info").update()<CR>',         'update package'},
+      c = { '<cmd>lua require("package-info").change_version()<CR>', 'Change version' },
+      d = { '<cmd>lua require("package-info").delete()<CR>',         'Delete package' },
+      h = { "<cmd>lua require('package-info').hide()<CR>",           'Hide'},
+      i = { '<cmd>lua require("package-info").install()<CR>',        'Install new package' },
+      r = { '<cmd>lua require("package-info").reinstall()<CR>',      'Reinstall dependencies' },
+      s = { '<cmd>lua require("package-info").show()<CR>',           'Show' },
+      u = { '<cmd>lua require("package-info").update()<CR>',         'Update package'},
     }
   }, {
     buffer = bufnr,
@@ -444,7 +444,7 @@ end
 
 local function attach_zen(bufnr)
   wk.register({
-    ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
+    ["z"] = { '<cmd>ZenMode<CR>',               'Zen Mode' },
   }, {
     buffer = bufnr,
     mode = "n", -- NORMAL mode
@@ -459,12 +459,12 @@ local function attach_jest(bufnr)
   wk.register({
     j = {
       name = "Jest",
-      f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', 'run current file' },
-      i = { '<cmd>lua require("neotest").summary.toggle()<CR>', 'toggle info panel' },
-      j = { '<cmd>lua require("neotest").run.run()<CR>', 'run nearest test' },
-      l = { '<cmd>lua require("neotest").run.run_last()<CR>', 'run last test' },
-      o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', 'open test output'},
-      s = { '<cmd>lua require("neotest").run.stop()<CR>', 'stop' },
+      f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', 'Run current file' },
+      i = { '<cmd>lua require("neotest").summary.toggle()<CR>', 'Toggle info panel' },
+      j = { '<cmd>lua require("neotest").run.run()<CR>', 'Run nearest test' },
+      l = { '<cmd>lua require("neotest").run.run_last()<CR>', 'Run last test' },
+      o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', 'Open test output'},
+      s = { '<cmd>lua require("neotest").run.stop()<CR>', 'Stop' },
     }
   }, {
     buffer = bufnr,
@@ -494,8 +494,8 @@ end
 
 local function attach_nvim_tree(bufnr)
   wk.register({
-    ["="] = { "<cmd>NvimTreeResize +5<CR>", "resize +5" },
-    ["-"] = { "<cmd>NvimTreeResize -5<CR>", "resize +5" },
+    ["="] = { "<cmd>NvimTreeResize +5<CR>", "Resize +5" },
+    ["-"] = { "<cmd>NvimTreeResize -5<CR>", "Resize +5" },
   }, {
     buffer = bufnr,
     mode = "n",   -- NORMAL mode

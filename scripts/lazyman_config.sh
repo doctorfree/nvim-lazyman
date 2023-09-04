@@ -1009,8 +1009,10 @@ show_plugin_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    options+=("Formatters")
-    options+=("LSP Servers")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters")
+      options+=("LSP Servers")
+    }
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -1914,7 +1916,9 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    options+=("Formatters Menu")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters Menu")
+    }
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2049,7 +2053,9 @@ show_formlint_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    options+=("LSP Servers Menu")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("LSP Servers Menu")
+    }
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2296,8 +2302,10 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    options+=("Formatters")
-    options+=("LSP Servers")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters")
+      options+=("LSP Servers")
+    }
     options+=("Plugins Menu")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
