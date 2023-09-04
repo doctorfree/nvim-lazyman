@@ -151,7 +151,7 @@ local normal_mode_mappings = {
   ['q'] = { 'quicklist' },
 
   ['/'] = {
-    name = 'Candyvim',
+    name = 'CandyVim',
     ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
     c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
     i = { '<cmd>Lazy<CR>',                                      'manage plugins' },

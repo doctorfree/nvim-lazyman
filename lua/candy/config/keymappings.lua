@@ -1,7 +1,34 @@
+local settings = require("configuration")
+local Util = require("util")
+local map = Util.map
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
-table.unpack = table.unpack or unpack -- 5.1 compatibility
+-- table.unpack = table.unpack or unpack -- 5.1 compatibility
+
+-- Terminal commands
+if settings.enable_terminal then
+  if vim.fn.executable("htop") == 1 then
+    map("n", "<leader>H", "<cmd>Htop<cr>", { desc = "Htop command" })
+  end
+  if vim.fn.executable("lazygit") == 1 then
+    map("n", "<leader>gg", "<cmd>Lazygit<cr>", { desc = "Lazygit command" })
+  end
+  if vim.fn.executable("lazyman") == 1 then
+    map("n", "<leader>lm", "<cmd>Lazyman<cr>", { desc = "Lazyman menu" })
+    map("n", "<leader>lc", "<cmd>Lazyconf<cr>", { desc = "Lazyman configuration" })
+  end
+  if vim.fn.executable("asciiville") == 1 then
+    map("n", "<leader>av", "<cmd>Asciiville<cr>", { desc = "Asciiville" })
+  end
+else
+  map("n", "<leader>gg", function()
+    Util.float_term({ "lazygit" }, { cwd = Util.get_root() })
+  end, { desc = "Lazygit (root dir)" })
+  map("n", "<leader>gG", function()
+    Util.float_term({ "lazygit" })
+  end, { desc = "Lazygit (cwd)" })
+end
 
 -- Better window movement
 keymap("n", "<C-h>", "<C-w>h", silent)

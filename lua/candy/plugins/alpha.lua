@@ -3,6 +3,8 @@ if not present then
   return
 end
 
+local settings = require("configuration")
+local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 local dashboard = require("alpha.themes.dashboard")
 local icons = require("candy.utils.icons")
 local if_nil = vim.F.if_nil
@@ -115,6 +117,15 @@ local function button(sc, txt, keybind, keybind_opts)
   }
 end
 
+-- Neovim Configuration
+local settings_btn = button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>", {})
+local lazyman_btn = button("l", "  Lazyman Help", ":h Lazyman<CR>", {})
+if settings.enable_terminal then
+  settings_btn = button("c", "  Lazyman Configuration", ":Lazyconf<CR>", {})
+  lazyman_btn = button("l", "  Lazyman Main Menu", ":Lazyman<CR>", {})
+end
+
+
 dashboard.section.buttons.val = {
   -- ╭──────────────────────────────────────────────────────────╮
   -- │ Hatch a pretty fast duck and a mellow cat                │
@@ -125,8 +136,10 @@ dashboard.section.buttons.val = {
   button("w", icons.word .. " " .. "Find Word", "<cmd>lua require('candy.plugins.telescope.pickers.multi-rg')()<CR>", {}),
   button("r", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
   button("s", icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>", {}),
-  button("m", icons.package .. " " .. "Manage Plugins", "<cmd>Lazy<CR>", {}),
-  button("c", icons.cog .. " " .. "Settings", "<cmd>e $MYVIMRC<CR>", {}),
+  button("p", icons.package .. " " .. "Manage Plugins (Lazy)", "<cmd>Lazy<CR>", {}),
+  button("m", icons.package .. " " .. "Manage Packages (Mason)", "<cmd>Mason<CR>", {}),
+  settings_btn,
+  lazyman_btn,
   button("q", icons.exit .. " " .. "Exit", "<cmd>exit<CR>", {}),
 }
 

@@ -1,3 +1,26 @@
+local settings = require("configuration")
+local terminal_nvim = {}
+if settings.enable_terminal then
+  terminal_nvim = {
+    "rebelot/terminal.nvim",
+    cmd = {
+      "Asciiville",
+      "TermOpen",
+      "TermToggle",
+      "TermRun",
+      "Lazygit",
+      "IPython",
+      "Lazyman",
+      "Lazyconf",
+      "Htop",
+    },
+    event = "VimEnter",
+    config = function()
+      require("config.terminal_nvim")
+    end,
+  }
+end
+
 return {
   -- Themes
   {
@@ -883,4 +906,6 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
+  -- If terminal is enabled in configuration.lua
+  terminal_nvim
 }
