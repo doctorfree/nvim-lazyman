@@ -164,7 +164,7 @@ conf.dashboard = "alpha"
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 3
 -- Enable the header of the dashboard
-conf.enable_dashboard_header = false
+conf.enable_dashboard_header = true
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
 -- Enable either the Drop screensaver or the Zone screensaver
