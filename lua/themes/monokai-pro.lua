@@ -90,7 +90,10 @@ if settings.theme == "monokai-pro" then
   require("util").map("n", "<leader>ut", function()
     vim.g.monokaipro_transparent = not vim.g.monokaipro_transparent
     mopts.transparent_background = vim.g.monokaipro_transparent
-    require("monokai-pro").setup( mopts )
+    require("monokai-pro").setup(mopts)
     vim.cmd([[colorscheme monokai-pro]])
   end, { desc = "Toggle Transparency" })
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

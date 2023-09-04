@@ -237,4 +237,7 @@ if settings.theme == "catppuccin" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DashboardFooter" })
   end
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

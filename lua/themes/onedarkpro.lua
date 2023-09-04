@@ -103,4 +103,7 @@ if theme == "onedarkpro" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "StartifyFile" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "StartifyFooter" })
   end
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

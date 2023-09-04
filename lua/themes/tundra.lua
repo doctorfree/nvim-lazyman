@@ -1,6 +1,6 @@
 local settings = require("configuration")
 
-require('nvim-tundra').setup({
+require("nvim-tundra").setup({
   transparent_background = settings.enable_transparent,
   dim_inactive_windows = {
     enabled = false,
@@ -53,7 +53,7 @@ require('nvim-tundra').setup({
 })
 
 if settings.theme == "tundra" then
-  vim.opt.background = 'dark'
+  vim.opt.background = "dark"
   vim.cmd([[colorscheme tundra]])
   if settings.file_tree == "neo-tree" then
     vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { link = "NvimTreeNormal" })
@@ -77,6 +77,8 @@ if settings.theme == "tundra" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DiagnosticInfo" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DiagnosticHint" })
   end
-  require("util").map("n", "<leader>ut", ":Tundra toggle_transparency<CR>",
-    { desc = "Toggle Transparency" })
+  require("util").map("n", "<leader>ut", ":Tundra toggle_transparency<CR>", { desc = "Toggle Transparency" })
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

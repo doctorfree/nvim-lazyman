@@ -42,7 +42,10 @@ if settings.theme == "everforest" then
       vim.g.everforest_transparent = 1
     end
     opts.transparent_background_level = vim.g.everforest_transparent
-    require("everforest").setup( opts )
+    require("everforest").setup(opts)
     vim.cmd([[colorscheme everforest]])
   end, { desc = "Toggle Transparency" })
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

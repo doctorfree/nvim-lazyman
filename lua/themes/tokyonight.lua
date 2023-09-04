@@ -16,7 +16,7 @@ local function set_colorscheme(sty)
     vim.cmd([[colorscheme tokyonight-day]])
   else
     vim.cmd([[colorscheme tokyonight]])
-    end
+  end
 end
 
 require("tokyonight").setup({
@@ -84,7 +84,7 @@ if settings.theme == "tokyonight" then
     if vim.g.tokyonight_transparent then
       sidebar = "transparent"
     end
-    require('tokyonight').setup({
+    require("tokyonight").setup({
       transparent = vim.g.tokyonight_transparent,
       styles = {
         comments = { italic = true },
@@ -97,4 +97,7 @@ if settings.theme == "tokyonight" then
     })
     set_colorscheme(style)
   end, { desc = "Toggle Transparency" })
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end
