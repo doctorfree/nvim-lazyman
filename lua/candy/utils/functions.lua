@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('candy.utils')
 
 local async_present, async = pcall(require, "plenary.async")
 if not async_present then

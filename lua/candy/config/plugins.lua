@@ -7,7 +7,7 @@ return {
     config = function()
       -- load the colorscheme here
       vim.cmd([[colorscheme tokyonight]])
-      require("config.colorscheme")
+      require("candy.config.colorscheme")
     end,
   },
   { "nvim-lua/plenary.nvim" },
@@ -21,7 +21,7 @@ return {
     "goolord/alpha-nvim",
     lazy = false,
     config = function()
-      require("plugins.alpha")
+      require("candy.plugins.alpha")
     end,
   },
 
@@ -61,7 +61,7 @@ return {
   {
     "tamton-aquib/flirt.nvim",
     config = function()
-      require("plugins.flirt")
+      require("candy.plugins.flirt")
     end,
   },
 
@@ -70,7 +70,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = "BufReadPre",
     config = function()
-      require("plugins.treesitter")
+      require("candy.plugins.treesitter")
     end,
     dependencies = {
       "hiphish/rainbow-delimiters.nvim",
@@ -102,7 +102,7 @@ return {
     "nvim-telescope/telescope.nvim",
     lazy = false,
     config = function()
-      require("plugins.telescope")
+      require("candy.plugins.telescope")
     end,
     dependencies = {
       { "nvim-lua/popup.nvim" },
@@ -124,7 +124,7 @@ return {
       { "<C-e>", "<cmd>lua require('nvim-tree.api').tree.toggle()<CR>", desc = "NvimTree" },
     },
     config = function()
-      require("plugins.tree")
+      require("candy.plugins.tree")
     end,
   },
   {
@@ -157,7 +157,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     config = function()
-      require("plugins.cmp")
+      require("candy.plugins.cmp")
     end,
     dependencies = {
       "hrsh7th/cmp-nvim-lua",
@@ -176,7 +176,7 @@ return {
       {
         "David-Kunz/cmp-npm",
         config = function()
-          require("plugins.cmp-npm")
+          require("candy.plugins.cmp-npm")
         end,
       },
       {
@@ -195,7 +195,7 @@ return {
     event = "VeryLazy",
     dependencies = "MunifTanjim/nui.nvim",
     config = function()
-      require("plugins.dressing")
+      require("candy.plugins.dressing")
     end,
   },
   { "onsails/lspkind-nvim" },
@@ -203,14 +203,14 @@ return {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
     config = function()
-      require("plugins.trouble")
+      require("candy.plugins.trouble")
     end,
   },
   { "nvim-lua/popup.nvim" },
   {
     "SmiteshP/nvim-navic",
     config = function()
-      require("plugins.navic")
+      require("candy.plugins.navic")
     end,
     dependencies = "neovim/nvim-lspconfig",
   },
@@ -223,7 +223,7 @@ return {
       "neovim/nvim-lspconfig",
     },
     config = function()
-      require("plugins.typescript-tools")
+      require("candy.plugins.typescript-tools")
     end,
   },
   {
@@ -245,7 +245,7 @@ return {
   {
     "dnlhc/glance.nvim",
     config = function()
-      require("plugins.glance")
+      require("candy.plugins.glance")
     end,
     cmd = { "Glance" },
     keys = {
@@ -287,7 +287,7 @@ return {
     lazy = false,
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
     config = function()
-      require("plugins.comment")
+      require("candy.plugins.comment")
     end,
   },
   {
@@ -303,7 +303,7 @@ return {
     lazy = false,
     branch = "main",
     config = function()
-      require("plugins.toggleterm")
+      require("candy.plugins.toggleterm")
     end,
     keys = {
       { "<Leader>at", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float" },
@@ -343,7 +343,7 @@ return {
     "nacro90/numb.nvim",
     lazy = false,
     config = function()
-      require("plugins.numb")
+      require("candy.plugins.numb")
     end,
   },
   {
@@ -351,14 +351,14 @@ return {
     lazy = false,
     event = "BufEnter",
     config = function()
-      require("plugins.todo-comments")
+      require("candy.plugins.todo-comments")
     end,
   },
   {
     "folke/zen-mode.nvim",
     cmd = { "ZenMode" },
     config = function()
-      require("plugins.zen")
+      require("candy.plugins.zen")
     end,
     cond = CandyVim.plugins.zen.enabled,
   },
@@ -385,13 +385,13 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
-      require("plugins.which-key")
+      require("candy.plugins.which-key")
     end,
   },
   {
     "ecosse3/galaxyline.nvim",
     config = function()
-      require("plugins.galaxyline")
+      require("candy.plugins.galaxyline")
     end,
     event = "VeryLazy",
   },
@@ -413,7 +413,7 @@ return {
     },
     version = "*",
     config = function()
-      require("plugins.bufferline")
+      require("candy.plugins.bufferline")
     end,
     keys = {
       { ",1", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
@@ -473,7 +473,7 @@ return {
     "vuki656/package-info.nvim",
     event = "BufEnter package.json",
     config = function()
-      require("plugins.package-info")
+      require("candy.plugins.package-info")
     end,
   },
   {
@@ -482,7 +482,7 @@ return {
     cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
     event = "VeryLazy",
     config = function()
-      require("plugins.markdown-preview")
+      require("candy.plugins.markdown-preview")
       local wk = require("which-key")
       wk.register({
         m = {
@@ -512,7 +512,7 @@ return {
     "Shatur/neovim-session-manager",
     lazy = false,
     config = function()
-      require("plugins.session-manager")
+      require("candy.plugins.session-manager")
     end,
     keys = {
       { "<Leader>/sc", "<cmd>SessionManager load_session<CR>", desc = "choose session" },
@@ -570,14 +570,14 @@ return {
       "typescriptreact",
     },
     config = function()
-      require("plugins.printer")
+      require("candy.plugins.printer")
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = function()
-      require("plugins.indent")
+      require("candy.plugins.indent")
     end,
   },
   {
@@ -585,7 +585,7 @@ return {
     cond = CandyVim.plugins.experimental_noice.enabled,
     lazy = false,
     config = function()
-      require("plugins.noice")
+      require("candy.plugins.noice")
     end,
   },
   {
@@ -607,13 +607,13 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require("plugins.autopairs")
+      require("candy.plugins.autopairs")
     end,
   },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
-      require("plugins.colorizer")
+      require("candy.plugins.colorizer")
     end,
   },
   {
@@ -646,7 +646,7 @@ return {
     cond = CandyVim.plugins.ai.copilot.enabled,
     event = "InsertEnter",
     config = function()
-      require("plugins.copilot")
+      require("candy.plugins.copilot")
     end,
   },
   {
@@ -681,7 +681,7 @@ return {
     event = "BufRead",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("plugins.git.signs")
+      require("candy.plugins.git.signs")
     end,
     keys = {
       { "<Leader>ghd", desc = "diff hunk" },
@@ -700,18 +700,18 @@ return {
     enabled = true,
     event = "BufRead",
     config = function()
-      require("plugins.git.diffview")
+      require("candy.plugins.git.diffview")
     end,
     keys = {
-      { "<Leader>gd", "<cmd>lua require('plugins.git.diffview').toggle_file_history()<CR>", desc = "diff file" },
-      { "<Leader>gs", "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>", desc = "status" },
+      { "<Leader>gd", "<cmd>lua require('candy.plugins.git.diffview').toggle_file_history()<CR>", desc = "diff file" },
+      { "<Leader>gs", "<cmd>lua require('candy.plugins.git.diffview').toggle_status()<CR>", desc = "status" },
     },
   },
   {
     "akinsho/git-conflict.nvim",
     lazy = false,
     config = function()
-      require("plugins.git.conflict")
+      require("candy.plugins.git.conflict")
     end,
     keys = {
       { "<Leader>gcb", "<cmd>GitConflictChooseBoth<CR>", desc = "choose both" },
@@ -725,7 +725,7 @@ return {
     "ThePrimeagen/git-worktree.nvim",
     lazy = false,
     config = function()
-      require("plugins.git.worktree")
+      require("candy.plugins.git.worktree")
     end,
     keys = {
       { "<Leader>gww", desc = "worktrees" },
@@ -758,7 +758,7 @@ return {
       "haydenmeade/neotest-jest",
     },
     config = function()
-      require("plugins.neotest")
+      require("candy.plugins.neotest")
     end,
   },
   {
@@ -782,7 +782,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("plugins.dap")
+      require("candy.plugins.dap")
     end,
     keys = {
       "<Leader>da",

@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('candy.utils')
 
 local options = {
   clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else

@@ -5,7 +5,7 @@ end
 
 local keymap = vim.keymap.set
 local silent = { silent = true }
-local utils = require('utils')
+local utils = require('candy.utils')
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup                                                    │

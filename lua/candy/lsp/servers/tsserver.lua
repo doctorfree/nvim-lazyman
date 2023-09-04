@@ -1,7 +1,7 @@
 local M = {}
 
-local filter = require("lsp.utils.filter").filter
-local filterReactDTS = require("lsp.utils.filterReactDTS").filterReactDTS
+local filter = require("candy.lsp.utils.filter").filter
+local filterReactDTS = require("candy.lsp.utils.filterReactDTS").filterReactDTS
 
 local on_attach = function(client, bufnr)
 	-- Modifying a server's capabilities is not recommended and is no longer

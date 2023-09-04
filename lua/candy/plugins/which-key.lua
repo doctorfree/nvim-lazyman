@@ -169,7 +169,7 @@ local normal_mode_mappings = {
 
   b = {
     name = 'Buffer',
-    c = { '<cmd>lua require("utils").closeOtherBuffers()<CR>',  'Close but current' },
+    c = { '<cmd>lua require("candy.utils").closeOtherBuffers()<CR>',  'Close but current' },
     f = { '<cmd>bfirst<CR>',                                    'First buffer' },
     s = {
       name = 'Sort',
@@ -305,7 +305,7 @@ local normal_mode_mappings = {
     name = 'Git',
     a = { '<cmd>!git add %:p<CR>',                                              'add current' },
     A = { '<cmd>!git add .<CR>',                                                'add all' },
-    b = { '<cmd>lua require("internal.blame").open()<CR>',                      'blame' },
+    b = { '<cmd>lua require("candy.internal.blame").open()<CR>',                      'blame' },
     B = { '<cmd>Telescope git_branches<CR>',                                    'branches' },
     c = {
       name = 'Conflict',
@@ -315,9 +315,9 @@ local normal_mode_mappings = {
     },
     l = {
       name = 'Log',
-      A = {'<cmd>lua require("plugins.telescope").my_git_commits()<CR>',  'commits (Telescope)'},
+      A = {'<cmd>lua require("candy.plugins.telescope").my_git_commits()<CR>',  'commits (Telescope)'},
       a = {'<cmd>LazyGitFilter<CR>',                                      'commits'},
-      C = {'<cmd>lua require("plugins.telescope").my_git_bcommits()<CR>', 'buffer commits (Telescope)'},
+      C = {'<cmd>lua require("candy.plugins.telescope").my_git_bcommits()<CR>', 'buffer commits (Telescope)'},
       c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'buffer commits'},
     },
     m = { 'blame line' },
@@ -342,9 +342,9 @@ local normal_mode_mappings = {
   s = {
     name = 'Search',
     c = { '<cmd>Telescope colorscheme<CR>',                              'color schemes' },
-    d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>',     'dotfiles' },
+    d = { '<cmd>lua require("candy.plugins.telescope").edit_neovim()<CR>',     'dotfiles' },
     h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'file history' },
-    H = { '<cmd>lua require("plugins.telescope").command_history()<CR>', 'command history' },
+    H = { '<cmd>lua require("candy.plugins.telescope").command_history()<CR>', 'command history' },
     s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'search history' },
   },
 

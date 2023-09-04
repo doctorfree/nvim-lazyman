@@ -1,7 +1,7 @@
 -- Setup installer & lsp configs
 local mason_ok, mason = pcall(require, "mason")
 local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
-local ufo_config_handler = require("plugins.nvim-ufo").handler
+local ufo_config_handler = require("candy.plugins.nvim-ufo").handler
 
 if not mason_ok or not mason_lsp_ok then
   return
@@ -65,48 +65,48 @@ capabilities.textDocument.foldingRange = {
 -- Order matters
 
 lspconfig.tailwindcss.setup({
-  capabilities = require("lsp.servers.tailwindcss").capabilities,
-  filetypes = require("lsp.servers.tailwindcss").filetypes,
+  capabilities = require("candy.lsp.servers.tailwindcss").capabilities,
+  filetypes = require("candy.lsp.servers.tailwindcss").filetypes,
   handlers = handlers,
-  init_options = require("lsp.servers.tailwindcss").init_options,
-  on_attach = require("lsp.servers.tailwindcss").on_attach,
-  settings = require("lsp.servers.tailwindcss").settings,
+  init_options = require("candy.lsp.servers.tailwindcss").init_options,
+  on_attach = require("candy.lsp.servers.tailwindcss").on_attach,
+  settings = require("candy.lsp.servers.tailwindcss").settings,
 })
 
 lspconfig.cssls.setup({
   capabilities = capabilities,
   handlers = handlers,
-  on_attach = require("lsp.servers.cssls").on_attach,
-  settings = require("lsp.servers.cssls").settings,
+  on_attach = require("candy.lsp.servers.cssls").on_attach,
+  settings = require("candy.lsp.servers.cssls").settings,
 })
 
 lspconfig.eslint.setup({
   capabilities = capabilities,
   handlers = handlers,
-  on_attach = require("lsp.servers.eslint").on_attach,
-  settings = require("lsp.servers.eslint").settings,
+  on_attach = require("candy.lsp.servers.eslint").on_attach,
+  settings = require("candy.lsp.servers.eslint").settings,
 })
 
 lspconfig.jsonls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-  settings = require("lsp.servers.jsonls").settings,
+  settings = require("candy.lsp.servers.jsonls").settings,
 })
 
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-  settings = require("lsp.servers.lua_ls").settings,
+  settings = require("candy.lsp.servers.lua_ls").settings,
 })
 
 lspconfig.vuels.setup({
-  filetypes = require("lsp.servers.vuels").filetypes,
+  filetypes = require("candy.lsp.servers.vuels").filetypes,
   handlers = handlers,
-  init_options = require("lsp.servers.vuels").init_options,
-  on_attach = require("lsp.servers.vuels").on_attach,
-  settings = require("lsp.servers.vuels").settings,
+  init_options = require("candy.lsp.servers.vuels").init_options,
+  on_attach = require("candy.lsp.servers.vuels").on_attach,
+  settings = require("candy.lsp.servers.vuels").settings,
 })
 
 for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals" }) do

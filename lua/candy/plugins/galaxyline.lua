@@ -3,7 +3,7 @@
 
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
-local utils = require('utils')
+local utils = require('candy.utils')
 local tokyonight_colors = require("tokyonight.colors").setup({})
 local package_info_present, package = pcall(require, 'package-info')
 

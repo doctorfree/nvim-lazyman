@@ -29,15 +29,15 @@ keymap("n", "<C-s>", ":w<CR>", silent)
 keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
 
 -- Telescope
-keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
-keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
+keymap("n", "<C-p>", "<CMD>lua require('candy.plugins.telescope').project_files()<CR>")
+keymap("n", "<S-p>", "<CMD>lua require('candy.plugins.telescope.pickers.multi-rg')()<CR>")
 
 -- Remove highlights
 keymap("n", "<CR>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
 keymap("n", "<Leader>pf",
-  "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
+  "<CMD>lua require('candy.plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
 keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
 
 -- Buffers
@@ -67,7 +67,7 @@ keymap("n", ",,", ":cp<CR>", silent)
 keymap("n", ",.", ":cn<CR>", silent)
 
 -- Toggle quicklist
-keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", silent)
+keymap("n", "<leader>q", "<cmd>lua require('candy.utils').toggle_quicklist()<CR>", silent)
 
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)

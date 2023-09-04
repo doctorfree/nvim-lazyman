@@ -15,7 +15,7 @@ end
 
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Utils                                                    │

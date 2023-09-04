@@ -1,4 +1,4 @@
-local icons = require('utils.icons')
+local icons = require('candy.utils.icons')
 
 -- Set barbar's options
 require("barbar").setup({

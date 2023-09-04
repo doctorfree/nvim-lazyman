@@ -101,25 +101,25 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "dapui_watches" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").watch .. "Watches" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").watch .. "Watches" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_stacks" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").git .. "Stacks" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").git .. "Stacks" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_breakpoints" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").bigCircle .. "Breakpoints" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").bigCircle .. "Breakpoints" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_scopes" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").telescope .. "Scopes" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").telescope .. "Scopes" .. "%*"
       return
     end
 
@@ -129,7 +129,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
           .. "%#"
           .. hl_group
           .. "#"
-          .. require("utils.icons").consoleDebug
+          .. require("candy.utils.icons").consoleDebug
           .. "Debug Console"
           .. "%*"
       return
@@ -137,7 +137,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "dapui_console" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").console .. "Console" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").console .. "Console" .. "%*"
       return
     end
 
@@ -148,11 +148,11 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "GitBlame" then
       local hl_group = "CandyvimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").git .. "Blame" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("candy.utils.icons").git .. "Blame" .. "%*"
       return
     end
 
-    local winbar_present, winbar = pcall(require, "internal.winbar")
+    local winbar_present, winbar = pcall(require, "candy.internal.winbar")
     if not winbar_present or type(winbar) == "boolean" then
       vim.opt_local.winbar = nil
       return

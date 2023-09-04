@@ -4,7 +4,7 @@ if not present then
 end
 
 local dashboard = require("alpha.themes.dashboard")
-local icons = require("utils.icons")
+local icons = require("candy.utils.icons")
 local if_nil = vim.F.if_nil
 local fn = vim.fn
 local config_dir = fn.stdpath("config")
@@ -121,8 +121,8 @@ dashboard.section.buttons.val = {
   -- ╰──────────────────────────────────────────────────────────╯
   button("d", icons.squirrel .. " " .. "Toggle Duck and Cat", "<cmd>lua if HatchDuck then require('duck').hatch('🦆', 7) require('duck').hatch('🐈', 2) HatchDuck = false else require('duck').cook() require('duck').cook() HatchDuck = true end<CR>", {}),
   button("h", icons.hook .. " " .. "Hack", "<cmd>Hack<CR>", {}),
-  button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>lua require('plugins.telescope').project_files()<CR>", {}),
-  button("w", icons.word .. " " .. "Find Word", "<cmd>lua require('plugins.telescope.pickers.multi-rg')()<CR>", {}),
+  button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>lua require('candy.plugins.telescope').project_files()<CR>", {}),
+  button("w", icons.word .. " " .. "Find Word", "<cmd>lua require('candy.plugins.telescope.pickers.multi-rg')()<CR>", {}),
   button("r", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
   button("s", icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>", {}),
   button("m", icons.package .. " " .. "Manage Plugins", "<cmd>Lazy<CR>", {}),
