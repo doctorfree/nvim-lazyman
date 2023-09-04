@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 #
+# enable_chatgpt
+# enable_codeium
+# enable_copilot
+# enable_dashboard_header
+# enable_games
+# enable_tabnine
+# enable_terminal
+# list
+# listchars
+# mapleader
+# maplocalleader
+# mouse
+# number
+# relative_number
+# showtabline
+#
 # lazyman_config - configure the Lazyman Neovim configurations
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2023
@@ -917,84 +933,92 @@ show_plugin_menu() {
     use_indentline="${indentline_style}"
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Ascii Art     [${use_asciiart}]")
-    options+=("Bdelete cmd   [${use_bbye}]")
-    options+=("Bookmarks     [${use_bookmarks}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Ascii Art     [${use_asciiart}]")
+      options+=("Bdelete cmd   [${use_bbye}]")
+      options+=("Bookmarks     [${use_bookmarks}]")
+    }
     options+=("ChatGPT (AI)  [${use_chatgpt}]")
     options+=("Codeium (AI)  [${use_codeium}]")
     options+=("Copilot (AI)  [${use_copilot}]")
-    pyver=$(check_python_version)
-    [ "${pyver}" == "OK" ] && {
-      options+=("GPT4ALL (AI)  [${use_codeexplain}]")
-    }
-    [ -f "${HOME}/.codeexplain/model.bin" ] && {
-      options+=(" Remove GPT model")
+    [ "${use_namespace}" == "candy" ] || {
+      pyver=$(check_python_version)
+      [ "${pyver}" == "OK" ] && {
+        options+=("GPT4ALL (AI)  [${use_codeexplain}]")
+      }
+      [ -f "${HOME}/.codeexplain/model.bin" ] && {
+        options+=(" Remove GPT model")
+      }
     }
     options+=("NeoAI   (AI)  [${use_neoai}]")
     [ "${use_namespace}" == "candy" ] && {
       options+=("Tabnine (AI)  [${use_tabnine}]")
     }
     options+=("Cheatsheets   [${use_cheatsheet}]")
-    options+=("Enable coding [${use_coding}]")
-    options+=("Compile & Run [${use_compile}]")
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Dashboard [${use_dash}]")
-      if [ "${use_dash}" == "alpha" ]; then
-        options+=(" Alpha Header [${use_dashboard_header}]")
-        options+=(" Recent Files [${use_dashboard_recent_files}]")
-        options+=(" Quick Links  [${use_dashboard_quick_links}]")
-      fi
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Enable coding [${use_coding}]")
+      options+=("Compile & Run [${use_compile}]")
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Dashboard [${use_dash}]")
+        if [ "${use_dash}" == "alpha" ]; then
+          options+=(" Alpha Header [${use_dashboard_header}]")
+          options+=(" Recent Files [${use_dashboard_recent_files}]")
+          options+=(" Quick Links  [${use_dashboard_quick_links}]")
+        fi
+      }
     }
     [ "${use_namespace}" == "candy" ] && {
       options+=("Alpha Header  [${use_dashboard_header}]")
     }
-    options+=("Dressing UI   [${use_dressing}]")
-    options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable IDE    [${use_ide}]")
-    options+=("Indentline [${use_indentline}]")
-    options+=("Lualine Style [${use_lualine_style}]")
-    if [ "${use_lualine_style}" == "onno" ]; then
-      options+=(" Separator    [${use_lualine_separator}]")
-    fi
-    options+=(" Fancy Icons  [${use_fancy}]")
-    options+=("Enable Motion [${use_motion}]")
-    options+=("Enable Notes  [${use_notes}]")
-    if [ "${enable_notes}" == "true" ]; then
-      options+=("Enable Obsidian [${use_obsidian}]")
-      options+=(" Preview  [${use_markdown_preview}]")
-      [ "${enable_obsidian}" == "true" ] && {
-        options+=(" Obsidian [${use_obsidian_vault}]")
-      }
-      [ ${num_neorg_notes} -lt 4 ] && {
-        options+=(" Neorg Notes  [add]")
-      }
-    fi
-    options+=("Media Backend [${use_media_backend}]")
-    options+=("Multi Cursor  [${use_multi_cursor}]")
-    options+=("Navigator     [${use_navigator}]")
-    options+=("Noice UI      [${use_noice}]")
-    options+=("Picker        [${use_picker}]")
-    options+=("Project       [${use_project}]")
-    options+=("Enable Ranger [${use_ranger}]")
-    options+=("Enable Rename [${use_renamer}]")
-    options+=("Screensaver [${use_screensaver}]")
-    [ "${use_screensaver}" == "none" ] || {
-      options+=(" Timeout    [${use_timeout}]")
-    }
-    options+=("Securitree    [${use_securitree}]")
-    options+=("Session [${use_session_manager}]")
-    options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("StartupTime   [${use_startuptime}]")
-    options+=("Surround      [${use_surround}]")
     options+=("Terminal      [${use_terminal}]")
-    options+=("Toggle Term   [${use_toggleterm}]")
-    options+=("Enable Tests  [${use_neotest}]")
-    options+=("WakaTime      [${use_wakatime}]")
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Wilder Menus  [${use_wilder}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Dressing UI   [${use_dressing}]")
+      options+=("File Tree [${use_neotree}]")
+      options+=("Enable IDE    [${use_ide}]")
+      options+=("Indentline [${use_indentline}]")
+      options+=("Lualine Style [${use_lualine_style}]")
+      if [ "${use_lualine_style}" == "onno" ]; then
+        options+=(" Separator    [${use_lualine_separator}]")
+      fi
+      options+=(" Fancy Icons  [${use_fancy}]")
+      options+=("Enable Motion [${use_motion}]")
+      options+=("Enable Notes  [${use_notes}]")
+      if [ "${enable_notes}" == "true" ]; then
+        options+=("Enable Obsidian [${use_obsidian}]")
+        options+=(" Preview  [${use_markdown_preview}]")
+        [ "${enable_obsidian}" == "true" ] && {
+          options+=(" Obsidian [${use_obsidian_vault}]")
+        }
+        [ ${num_neorg_notes} -lt 4 ] && {
+          options+=(" Neorg Notes  [add]")
+        }
+      fi
+      options+=("Media Backend [${use_media_backend}]")
+      options+=("Multi Cursor  [${use_multi_cursor}]")
+      options+=("Navigator     [${use_navigator}]")
+      options+=("Noice UI      [${use_noice}]")
+      options+=("Picker        [${use_picker}]")
+      options+=("Project       [${use_project}]")
+      options+=("Enable Ranger [${use_ranger}]")
+      options+=("Enable Rename [${use_renamer}]")
+      options+=("Screensaver [${use_screensaver}]")
+      [ "${use_screensaver}" == "none" ] || {
+        options+=(" Timeout    [${use_timeout}]")
+      }
+      options+=("Securitree    [${use_securitree}]")
+      options+=("Session [${use_session_manager}]")
+      options+=("Smooth Scroll [${use_smooth_scrolling}]")
+      options+=("StartupTime   [${use_startuptime}]")
+      options+=("Surround      [${use_surround}]")
+      options+=("Toggle Term   [${use_toggleterm}]")
+      options+=("Enable Tests  [${use_neotest}]")
+      options+=("WakaTime      [${use_wakatime}]")
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Wilder Menus  [${use_wilder}]")
+      }
+      options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     }
-    options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
