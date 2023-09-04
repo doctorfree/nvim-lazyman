@@ -67,6 +67,8 @@ conf.enable_codeium = false
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
 conf.enable_neoai = false
+-- Enable tabnine, https://github.com/Bryley/neoai.nvim
+conf.enable_tabnine = false
 --
 -- Enable display of ascii art
 conf.enable_asciiart = false

@@ -6,6 +6,7 @@
 --                                            --
 ------------------------------------------------
 
+local settings = require("configuration")
 local icons = require("candy.utils.icons")
 
 CandyVim = {
@@ -18,16 +19,16 @@ CandyVim = {
 	plugins = {
 		ai = {
 			chatgpt = {
-				enabled = false,
+				enabled = settings.enable_chatgpt,
 			},
 			codeium = {
-				enabled = false,
+				enabled = settings.enable_codeium,
 			},
 			copilot = {
-				enabled = false,
+				enabled = settings.enable_copilot,
 			},
 			tabnine = {
-				enabled = false,
+				enabled = settings.enable_tabnine,
 			},
 		},
 		completion = {

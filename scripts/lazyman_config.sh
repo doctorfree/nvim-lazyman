@@ -708,6 +708,12 @@ show_plugin_menu() {
     else
       use_neoai="✗"
     fi
+    enable_tabnine=$(get_conf_value enable_tabnine)
+    if [ "${enable_tabnine}" == "true" ]; then
+      use_tabnine=""
+    else
+      use_tabnine="✗"
+    fi
     enable_surround=$(get_conf_value enable_surround)
     if [ "${enable_surround}" == "true" ]; then
       use_surround=""
@@ -925,6 +931,9 @@ show_plugin_menu() {
       options+=(" Remove GPT model")
     }
     options+=("NeoAI   (AI)  [${use_neoai}]")
+    [ "${use_namespace}" == "candy" ] && {
+      options+=("Tabnine (AI)  [${use_tabnine}]")
+    }
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Enable coding [${use_coding}]")
     options+=("Compile & Run [${use_compile}]")
@@ -1254,6 +1263,15 @@ show_plugin_menu() {
               prompt_continue
             fi
           fi
+          break
+          ;;
+        "Tabnine"*,* | *,"Tabnine"*)
+          if [ "${enable_tabnine}" == "true" ]; then
+            set_conf_value "enable_tabnine" "false"
+          else
+            set_conf_value "enable_tabnine" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Surround"*,* | *,"Surround"*)
@@ -1672,6 +1690,7 @@ show_plugin_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
+          set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -1719,6 +1738,7 @@ show_plugin_menu() {
           set_conf_value "enable_codeium" "true"
           set_conf_value "enable_copilot" "true"
           set_conf_value "enable_neoai" "true"
+          set_conf_value "enable_tabnine" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
             pyver=$(check_python_version)
             [ "${pyver}" == "OK" ] && {
@@ -2326,9 +2346,9 @@ show_conf_menu() {
           [ "${choice}" == "${namespace}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
               set_conf_value "namespace" "${choice}"
+              pluginit=1
             fi
           }
-          pluginit=1
           break
           ;;
         "Leader"*,* | *,"Leader"*)
@@ -2441,6 +2461,7 @@ show_conf_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
+          set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
