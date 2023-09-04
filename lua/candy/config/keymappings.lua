@@ -6,6 +6,11 @@ local silent = { silent = true }
 
 -- table.unpack = table.unpack or unpack -- 5.1 compatibility
 
+-- Lazyman Cheatsheet
+if settings.enable_cheatsheet then
+  map("n", "<leader>C", "<cmd>Cheatsheet<cr>", { desc = "Lazyman Cheatsheet" })
+end
+
 -- Terminal commands
 if settings.enable_terminal then
   if vim.fn.executable("htop") == 1 then

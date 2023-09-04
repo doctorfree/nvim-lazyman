@@ -1,21 +1,5 @@
 #!/usr/bin/env bash
 #
-# enable_chatgpt
-# enable_codeium
-# enable_copilot
-# enable_dashboard_header
-# enable_games
-# enable_tabnine
-# enable_terminal
-# list
-# listchars
-# mapleader
-# maplocalleader
-# mouse
-# number
-# relative_number
-# showtabline
-#
 # lazyman_config - configure the Lazyman Neovim configurations
 #
 # Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2023
@@ -2246,6 +2230,24 @@ show_conf_menu() {
     else
       use_zenmode="✗"
     fi
+    enable_alacritty=$(get_conf_value enable_alacritty)
+    if [ "${enable_alacritty}" == "true" ]; then
+      use_alacritty=""
+    else
+      use_alacritty="✗"
+    fi
+    enable_kitty=$(get_conf_value enable_kitty)
+    if [ "${enable_kitty}" == "true" ]; then
+      use_kitty=""
+    else
+      use_kitty="✗"
+    fi
+    enable_wezterm=$(get_conf_value enable_wezterm)
+    if [ "${enable_wezterm}" == "true" ]; then
+      use_wezterm=""
+    else
+      use_wezterm="✗"
+    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Namespace   [${use_namespace}]")
@@ -2262,21 +2264,30 @@ show_conf_menu() {
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
-    options+=("Smart Column  [${use_smartcolumn}]")
-    options+=("Global Status [${use_global_statusline}]")
-    options+=("Status Line   [${use_statusline}]")
-    options+=("Status in Tab [${use_tabline}]")
     options+=("Show Tabline  [${use_showtabline}]")
-    if [ "${use_winbar}" == "none" ]
-    then
-      options+=("Winbar     [${use_winbar}]")
-    else
-      options+=("Winbar [${use_winbar}]")
-    fi
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Semantic HL   [${use_semantic_highlighting}]")
-      options+=("Convert SemHL [${convert_semantic_highlighting}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Smart Column  [${use_smartcolumn}]")
+      options+=("Global Status [${use_global_statusline}]")
+      options+=("Status Line   [${use_statusline}]")
+      options+=("Status in Tab [${use_tabline}]")
+      if [ "${use_winbar}" == "none" ]
+      then
+        options+=("Winbar     [${use_winbar}]")
+      else
+        options+=("Winbar [${use_winbar}]")
+      fi
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Semantic HL   [${use_semantic_highlighting}]")
+        options+=("Convert SemHL [${convert_semantic_highlighting}]")
+      }
+    }
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Zen Mode      [${use_zenmode}]")
+      [ "${enable_zenmode}" == "true" ] && {
+        options+=("  Alacritty   [${use_alacritty}]")
+        options+=("  Kitty       [${use_kitty}]")
+        options+=("  Wezterm     [${use_wezterm}]")
+      }
     }
     options+=("Disable All")
     options+=("Enable All")
@@ -2467,6 +2478,33 @@ show_conf_menu() {
             set_conf_value "enable_zenmode" "false"
           else
             set_conf_value "enable_zenmode" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Alacritty"*,* | *,"  Alacritty"*)
+          if [ "${enable_alacritty}" == "true" ]; then
+            set_conf_value "enable_alacritty" "false"
+          else
+            set_conf_value "enable_alacritty" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Kitty"*,* | *,"  Kitty"*)
+          if [ "${enable_kitty}" == "true" ]; then
+            set_conf_value "enable_kitty" "false"
+          else
+            set_conf_value "enable_kitty" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Wezterm"*,* | *,"  Wezterm"*)
+          if [ "${enable_wezterm}" == "true" ]; then
+            set_conf_value "enable_wezterm" "false"
+          else
+            set_conf_value "enable_wezterm" "true"
           fi
           pluginit=1
           break

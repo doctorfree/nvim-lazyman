@@ -10,7 +10,7 @@ local settings = require("configuration")
 local icons = require("candy.utils.icons")
 
 CandyVim = {
-	colorscheme = "tokyonight",
+	colorscheme = settings.theme,
 	ui = {
 		float = {
 			border = "rounded",
@@ -49,10 +49,10 @@ CandyVim = {
 		},
 		-- <leader>z
 		zen = {
-			alacritty_enabled = false,
-			kitty_enabled = true,
-			wezterm_enabled = false,
-			enabled = true, -- sync after change
+			alacritty_enabled = settings.enable_alacritty,
+			kitty_enabled = settings.enable_kitty,
+			wezterm_enabled = settings.enable_wezterm,
+			enabled = settings.enable_zenmode, -- sync after change
 		},
 	},
 	-- Please keep it

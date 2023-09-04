@@ -58,12 +58,6 @@ wk.setup {
     scroll_down = "<c-d>",
     scroll_up = "<c-u>",
   },
-  -- window = {
-  --   border = CandyVim.ui.float.border or "rounded", -- none, single, double, shadow, rounded
-  --   position = "bottom", -- bottom, top
-  --   margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-  --   padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-  -- },
   window = {
     border = "rounded",
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
@@ -71,12 +65,6 @@ wk.setup {
     position = "bottom",
     winblend = 0,
   },
-  -- layout = {
-  --   height = { min = 4, max = 25 }, -- min and max height of the columns
-  --   width = { min = 20, max = 50 }, -- min and max width of the columns
-  --   spacing = 4, -- spacing between columns
-  --   align = "left", -- align columns left, center or right
-  -- },
   layout = {
     height = { min = 5, max = 20 }, -- min and max height of the columns
     width = { min = 20, max = 80 }, -- min and max width of the columns
@@ -84,7 +72,6 @@ wk.setup {
     align = "center", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  -- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
   hidden = {
     "<silent>",
     "<cmd>",
@@ -101,15 +88,6 @@ wk.setup {
   }, --
   show_help = true, -- show help message on the command line when the popup is visible
   show_keys = true,
-  -- triggers = "auto", -- automatically setup triggers
-  -- triggers = {"<leader>"}, -- or specify a list manually
-  -- triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
-  --   i = { "j", "k" },
-  --   v = { "j", "k" },
-  -- },
   triggers = "auto",
   triggers_nowait = {
     -- marks
@@ -167,10 +145,13 @@ local normal_mode_mappings = {
   ['q'] = { 'quicklist' },
 
   ['/'] = {
-    name = 'CandyVim',
+    name = 'Lazyman',
     ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
-    c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
-    i = { '<cmd>Lazy<CR>',                                      'manage plugins' },
+    c = { '<cmd>Lazyconf<CR>',                                  'configuration menu' },
+    l = { '<cmd>Lazyman<CR>',                                   'lazyman menu' },
+    h = { '<cmd>Cheatsheet<CR>',                                'lazyman cheatsheet' },
+    m = { '<cmd>Mason<CR>',                                     'manage packages' },
+    p = { '<cmd>Lazy<CR>',                                      'manage plugins' },
     u = { '<cmd>Lazy update<CR>',                               'update plugins' },
     s = {
       name = 'Session',

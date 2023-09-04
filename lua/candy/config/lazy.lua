@@ -11,9 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+local settings = require("configuration")
+
 require("lazy").setup("candy.config.plugins", {
   defaults = { lazy = true },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { settings.theme, "habamax" } },
   checker = { enabled = true },
   performance = {
     rtp = {
