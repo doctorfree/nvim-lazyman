@@ -449,8 +449,8 @@ View the features of the [Lazyman Neovim configuration](https://lazyman.dev/feat
 
 | **Shiny** | **New** | **Lazyman** | **Websites** |
 | :-------- | :-----: | :---------: | -----------: |
-| [Lazyman](https://lazyman.dev) at [lazyman.dev](https://lazyman.dev) | [AstroNvim](https://astronvim.lazyman.dev) at [astronvim.lazyman.dev](https://astronvim.lazyman.dev) | [LazyVim](https://lazyvim.lazyman.dev) at [lazyvim.lazyman.dev](https://lazyvim.lazyman.dev) | [LunarVim](https://lunarvim.lazyman.dev) at [lunarvim.lazyman.dev](https://lunarvim.lazyman.dev) |
-| [NvChad](https://nvchad.lazyman.dev) at [nvchad.lazyman.dev](https://nvchad.lazyman.dev) | [CandyVim](https://candyvim.lazyman.dev) at [candyvim.lazyman.dev](https://candyvim.lazyman.dev) | [LazyIde](https://ide.lazyman.dev) at [ide.lazyman.dev](https://ide.lazyman.dev) | [Webdev](https://webdev.lazyman.dev) at [webdev.lazyman.dev](https://webdev.lazyman.dev) |
+| [Lazyman (lazyman.dev)](https://lazyman.dev) | [AstroNvim (astronvim.lazyman.dev)](https://astronvim.lazyman.dev) | [LazyVim (lazyvim.lazyman.dev)](https://lazyvim.lazyman.dev) | [LunarVim (lunarvim.lazyman.dev)](https://lunarvim.lazyman.dev) |
+| [NvChad (nvchad.lazyman.dev)](https://nvchad.lazyman.dev) | [CandyVim (candyvim.lazyman.dev)](https://candyvim.lazyman.dev) | [LazyIde (ide.lazyman.dev)](https://ide.lazyman.dev) | [Webdev (webdev.lazyman.dev)](https://webdev.lazyman.dev) |
 
 Recent releases of `lazyman` include several new features, fixes, and improvements:
 
