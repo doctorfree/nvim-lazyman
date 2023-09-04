@@ -26,6 +26,9 @@ local header = {
   "| (____/\\| )   ( || )  \\  || (__/  )   | |     \\   /  ___) (___| )   ( |",
   "(_______/|/     \\||/    )_)(______/    \\_/      \\_/   \\_______/|/     \\|",
 }
+if settings.enable_dashboard_header == false then
+  header = {}
+end
 
 dashboard.section.header.type = "text"
 dashboard.section.header.val = header
@@ -196,15 +199,14 @@ local section = {
 
 local opts = {
   layout = {
-    { type = "padding", val = 3 },
+    { type = "padding", val = 1 },
     section.header,
     { type = "padding", val = 1 },
     section.hi_top_section,
     section.hi_middle_section,
     section.hi_bottom_section,
-    { type = "padding", val = 2 },
+    { type = "padding", val = 1 },
     section.buttons,
-    { type = "padding", val = 3 },
     section.footer,
   },
   opts = {

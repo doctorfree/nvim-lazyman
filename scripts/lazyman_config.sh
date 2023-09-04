@@ -945,6 +945,9 @@ show_plugin_menu() {
         options+=(" Quick Links  [${use_dashboard_quick_links}]")
       fi
     }
+    [ "${use_namespace}" == "candy" ] && {
+      options+=("Dashboard Header [${use_dashboard_header}]")
+    }
     options+=("Dressing UI   [${use_dressing}]")
     options+=("File Tree [${use_neotree}]")
     options+=("Enable Games  [${use_games}]")
@@ -1630,7 +1633,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        " Alpha Header"*,* | *," Alpha Header"*)
+        " Alpha Header"*,* | *," Alpha Header"* | "Dashboard Header"*,* | *,"Dashboard Header"*)
           if [ "${enable_dashboard_header}" == "true" ]; then
             set_conf_value "enable_dashboard_header" "false"
           else
