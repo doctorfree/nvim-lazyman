@@ -5,6 +5,7 @@ local hacker = {}
 local sudoku = {}
 local blackjack = {}
 local cellular = {}
+local neoscroll = {}
 local terminal_nvim = {}
 
 if settings.enable_cheatsheet then
@@ -42,6 +43,16 @@ if settings.enable_cheatsheet then
           ["<C-E>"] = ctactions.edit_user_cheatsheet,
         },
       })
+    end,
+  }
+end
+
+if settings.enable_smooth_scrolling then
+  neoscroll = {
+    "karb94/neoscroll.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("config.neoscroll")
     end,
   }
 end
@@ -1037,6 +1048,9 @@ return {
   sudoku,
   blackjack,
   cellular,
+
+  -- Smooth scrolling
+  neoscroll,
 
   -- If terminal is enabled in configuration.lua
   terminal_nvim,
