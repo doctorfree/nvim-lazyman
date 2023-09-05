@@ -1,5 +1,14 @@
 local settings = require("configuration")
 
+local all_config = {}
+if settings.enable_transparent then
+  all_config = {
+    ui = {
+      bg_gutter = "none",
+    },
+  }
+end
+
 local function set_colorscheme(sty)
   if sty == "wave" then
     vim.cmd([[colorscheme kanagawa-wave]])
@@ -26,7 +35,12 @@ require("kanagawa").setup({
   terminalColors = true, -- define vim.g.terminal_color_{0,17}
   colors = { -- add/modify theme and palette colors
     palette = {},
-    theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    theme = {
+      wave = {},
+      lotus = {},
+      dragon = {},
+      all = all_config,
+    },
   },
   overrides = function(colors) -- add/modify highlights
     return {}
