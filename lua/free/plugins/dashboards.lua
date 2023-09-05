@@ -32,7 +32,7 @@ if settings.dashboard == "alpha" then
     event = "VimEnter",
     keys = { { "<leader>A", "<cmd>Alpha<CR>", "Alpha Dashboard" } },
     config = function()
-      require("free.config.alpha.alpha")
+      require("free.config.alpha")
     end,
   }
 elseif settings.dashboard == "dash" then

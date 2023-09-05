@@ -30,18 +30,10 @@ HatchDuck = true
 -- │ Header                                                   │
 -- ╰──────────────────────────────────────────────────────────╯
 
-local candy_header = {
-  " _______  _______  _        ______                    _________ _______ ",
-  "(  ____ \\(  ___  )( (    /|(  __  \\ |\\     /||\\     /|\\__   __/(       )",
-  "| (    \\/| (   ) ||  \\  ( || (  \\  )( \\   / )| )   ( |   ) (   | () () |",
-  "| |      | (___) ||   \\ | || |   ) | \\ (_) / | |   | |   | |   | || || |",
-  "| |      |  ___  || (\\ \\) || |   | |  \\   /  ( (   ) )   | |   | |(_)| |",
-  "| |      | (   ) || | \\   || |   ) |   ) (    \\ \\_/ /    | |   | |   | |",
-  "| (____/\\| )   ( || )  \\  || (__/  )   | |     \\   /  ___) (___| )   ( |",
-  "(_______/|/     \\||/    )_)(______/    \\_/      \\_/   \\_______/|/     \\|",
-}
-if settings.enable_dashboard_header == false then
-  candy_header = {}
+local candy_header = {}
+if settings.enable_dashboard_header == true then
+  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
+  candy_header = require("config.alpha-headers")["random"]
 end
 
 local function get_extension(fn)
