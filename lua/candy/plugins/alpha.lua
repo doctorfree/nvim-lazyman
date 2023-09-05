@@ -9,15 +9,12 @@ if not path_ok then
 end
 
 local settings = require("configuration")
-local options_lua = vim.fn.stdpath("config") .. "/lua/free/options.lua"
-local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
-local filetree = ":Telescope file_browser<CR>"
-if settings.file_tree == "neo-tree" then
-  filetree = ":Neotree<CR>"
-elseif settings.file_tree == "nvim-tree" then
-  filetree = ":NvimTreeOpen<CR>"
+if settings.enable_terminal then
+  require("terminal.mappings")
 end
+
+local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
 local dashboard = require("alpha.themes.dashboard")
 local candy_icons = require("candy.utils.icons")

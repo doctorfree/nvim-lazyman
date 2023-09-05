@@ -1,4 +1,5 @@
 local settings = require("configuration")
+local barbecue = {}
 local cheatsheet = {}
 local vimbegood = {}
 local hacker = {}
@@ -7,6 +8,20 @@ local blackjack = {}
 local cellular = {}
 local neoscroll = {}
 local terminal_nvim = {}
+
+if settings.enable_winbar == "barbecue" then
+  barbecue = {
+    "utilyre/barbecue.nvim",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("config.barbecue")
+    end,
+  }
+end
 
 if settings.enable_cheatsheet then
   cheatsheet = {
@@ -1038,6 +1053,9 @@ return {
       end
     end,
   },
+
+  -- Barbecue winbar
+  barbecue,
 
   -- Lazyman cheatsheet
   cheatsheet,
