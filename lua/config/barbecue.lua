@@ -1,6 +1,9 @@
+
+local icons = require("icons")
+
 require("barbecue").setup({
   create_autocmd = false, -- prevent barbecue from updating itself automatically
-  attach_navic = false,
+  attach_navic = true,
   include_buftypes = { "" },
   exclude_filetypes = { "alpha", "gitcommit", "netrw", "toggleterm", "Trouble" },
   modifiers = {
@@ -13,7 +16,12 @@ require("barbecue").setup({
   modified = function(bufnr) return vim.bo[bufnr].modified end,
   show_navic = true,
   lead_custom_section = function() return " " end,
-  custom_section = function() return " " end,
+  custom_section = function() return {
+    { " " },
+    { icons.misc.vim, "CandyvimPrimaryBold" },
+    { " " },
+  }
+  end,
   theme = {
     normal = { fg = "#c0caf5" },
     ellipsis = { fg = "#737aa2" },
@@ -55,7 +63,7 @@ require("barbecue").setup({
     ellipsis = "…",
     separator = "❯",
   },
-  kinds = require("icons").kinds
+  kinds = icons.kinds
 })
 
 vim.api.nvim_create_autocmd({
