@@ -5,6 +5,11 @@ if not status_navic_ok then
   return
 end
 
+local settings = require("configuration")
+if settings.enable_winbar == "barbecue" then
+  return
+end
+
 local function isempty(s)
   return s == nil or s == ""
 end

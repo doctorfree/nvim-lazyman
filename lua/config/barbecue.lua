@@ -11,17 +11,16 @@ require("barbecue").setup({
     basename = "",
   },
   show_dirname = true,
-  show_basename = true,
+  show_basename = false,
   show_modified = false,
   modified = function(bufnr) return vim.bo[bufnr].modified end,
   show_navic = true,
-  lead_custom_section = function() return " " end,
-  custom_section = function() return {
-    { " " },
+  lead_custom_section = function() return {
     { icons.misc.vim, "CandyvimPrimaryBold" },
     { " " },
   }
   end,
+  custom_section = function() return " " end,
   theme = {
     normal = { fg = "#c0caf5" },
     ellipsis = { fg = "#737aa2" },

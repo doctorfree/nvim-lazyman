@@ -2256,7 +2256,7 @@ show_conf_menu() {
     fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Namespace   [${use_namespace}]")
+    options+=("Namespace [${use_namespace}]")
     [ "${use_namespace}" == "free" ] && {
       options+=("Diagnostics [${use_show_diagnostics}]")
     }
@@ -2276,17 +2276,17 @@ show_conf_menu() {
       options+=("Global Status [${use_global_statusline}]")
       options+=("Status Line   [${use_statusline}]")
       options+=("Status in Tab [${use_tabline}]")
-      if [ "${use_winbar}" == "none" ]
-      then
-        options+=("Winbar     [${use_winbar}]")
-      else
-        options+=("Winbar [${use_winbar}]")
-      fi
       [ "${use_namespace}" == "free" ] && {
         options+=("Semantic HL   [${use_semantic_highlighting}]")
         options+=("Convert SemHL [${convert_semantic_highlighting}]")
       }
     }
+    if [ "${use_winbar}" == "none" ]
+    then
+      options+=("Winbar     [${use_winbar}]")
+    else
+      options+=("Winbar [${use_winbar}]")
+    fi
     [ "${use_namespace}" == "onno" ] || {
       options+=("Zen Mode      [${use_zenmode}]")
       [ "${enable_zenmode}" == "true" ] && {
