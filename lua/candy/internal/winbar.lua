@@ -5,8 +5,8 @@ if not status_navic_ok then
   return
 end
 
-local settings = require("configuration")
-if settings.enable_winbar == "barbecue" then
+local enable_winbar = require("configuration").enable_winbar
+if enable_winbar == "barbecue" or enable_winbar == "none" then
   return
 end
 
