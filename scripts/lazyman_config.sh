@@ -954,10 +954,11 @@ show_plugin_menu() {
     [ "${use_namespace}" == "candy" ] && {
       options+=("Alpha Header  [${use_dashboard_header}]")
     }
+    options+=("Dressing UI   [${use_dressing}]")
+    options+=("Noice UI      [${use_noice}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Terminal      [${use_terminal}]")
     [ "${use_namespace}" == "candy" ] || {
-      options+=("Dressing UI   [${use_dressing}]")
       options+=("File Tree [${use_neotree}]")
       options+=("Enable IDE    [${use_ide}]")
       options+=("Indentline [${use_indentline}]")
@@ -981,7 +982,6 @@ show_plugin_menu() {
       options+=("Media Backend [${use_media_backend}]")
       options+=("Multi Cursor  [${use_multi_cursor}]")
       options+=("Navigator     [${use_navigator}]")
-      options+=("Noice UI      [${use_noice}]")
       options+=("Picker        [${use_picker}]")
       options+=("Project       [${use_project}]")
       options+=("Enable Ranger [${use_ranger}]")

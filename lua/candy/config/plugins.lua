@@ -8,7 +8,7 @@ local cellular = {}
 local terminal_nvim = {}
 
 if settings.enable_cheatsheet then
-  cheatsheet ={
+  cheatsheet = {
     "doctorfree/cheatsheet.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -409,6 +409,7 @@ return {
     config = function()
       require("candy.plugins.dressing")
     end,
+    cond = CandyVim.plugins.dressing.enabled,
   },
   { "onsails/lspkind-nvim" },
   {
@@ -1038,5 +1039,5 @@ return {
   cellular,
 
   -- If terminal is enabled in configuration.lua
-  terminal_nvim
+  terminal_nvim,
 }
