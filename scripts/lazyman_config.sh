@@ -2392,6 +2392,14 @@ show_conf_menu() {
           [ "${choice}" == "${namespace}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
               set_conf_value "namespace" "${choice}"
+              # Namespaces have different defaults
+              if [ "${choice}" == "onno" ]; then
+                set_conf_value "enable_winbar" "barbecue"
+                set_conf_value "lualine_style" "onno"
+              else
+                set_conf_value "enable_winbar" "standard"
+                set_conf_value "lualine_style" "free"
+              fi
               pluginit=1
             fi
           }
