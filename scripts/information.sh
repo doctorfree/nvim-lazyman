@@ -185,7 +185,7 @@ make_info() {
       WS_URL="https://lazyman.dev"
       YT_URL="https://www.youtube.com/@doctorfree"
       CF_CAT="Default"
-      C_DESC="The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides two separate and distinct namespaces ('free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'."
+      C_DESC="The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides three separate and distinct namespaces ('candy', 'free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'."
       C_INST="Installed and initialized by default"
       ;;
     Abstract)

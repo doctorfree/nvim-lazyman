@@ -392,8 +392,8 @@ Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev
 printf\[aq]s
 .PP
 \f[V]-O name\f[R] : indicates set Lazyman configuration to namespace
-\[aq]name\[aq] where \[aq]name\[aq] can be one of \f[V]free\f[R]
-\f[V]onno\f[R] or \f[V]toggle\f[R]
+\[aq]name\[aq] where \[aq]name\[aq] can be one of \f[V]candy\f[R],
+\f[V]free\f[R], or \[ga]onno
 .PP
 \f[V]-P\f[R] : indicates use Packer rather than Lazy to initialize
 .PP
@@ -571,17 +571,28 @@ The \f[V]lua/configuration.lua\f[R] configuration file contains the
 following sections with settings briefly described here:
 .SS Namespace selection
 .PP
-The \f[V]Lazyman\f[R] Neovim configuration contains two separate and
+The \f[V]Lazyman\f[R] Neovim configuration contains three separate and
 distinct configurations.
 The setting \f[V]conf.namespace\f[R] in \f[V]lua/configuration.lua\f[R]
 controls which configuration is active.
-The supported values for \f[V]conf.namespace\f[R] are \f[V]free\f[R] and
-\f[V]onno\f[R].
+The supported values for \f[V]conf.namespace\f[R] are \f[V]candy\f[R],
+\f[V]free\f[R], and \f[V]onno\f[R].
 The \f[V]free\f[R] namespace is the same configuration used in previous
 releases of \f[V]Lazyman\f[R].
 The \f[V]onno\f[R] namespace is based on the \f[V]ONNO\f[R]
 configuration with modifications and enhancements to integrate this
 config with \f[V]lazyman\f[R].
+The \f[V]candy\f[R] namespace is based on the \f[V]Ecovim\f[R]
+configuration with modifications and enhancements to integrate this
+config with \f[V]lazyman\f[R] along with some useless eye candy.
+.PP
+To use the \f[V]candy\f[R] namespace, set:
+.IP
+.nf
+\f[C]
+conf.namespace = \[dq]candy\[dq]
+\f[R]
+.fi
 .PP
 To use the \f[V]free\f[R] namespace, set:
 .IP

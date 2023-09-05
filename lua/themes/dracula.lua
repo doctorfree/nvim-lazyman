@@ -184,7 +184,10 @@ if settings.theme == "dracula" then
   require("util").map("n", "<leader>ut", function()
     vim.g.dracula_transparent = not vim.g.dracula_transparent
     dopts.transparent_bg = vim.g.dracula_transparent
-    require("dracula").setup( dopts )
+    require("dracula").setup(dopts)
     vim.cmd([[colorscheme dracula]])
   end, { desc = "Toggle Transparency" })
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
+  end
 end

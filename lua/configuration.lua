@@ -1,6 +1,6 @@
 local conf = {}
 
--- Namespace to use, currently available namespaces are "free" and "onno"
+-- Namespace to use, available namespaces are "candy", free", and "onno"
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
@@ -67,6 +67,8 @@ conf.enable_codeium = false
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
 conf.enable_neoai = false
+-- Enable tabnine, https://github.com/Bryley/neoai.nvim
+conf.enable_tabnine = false
 --
 -- Enable display of ascii art
 conf.enable_asciiart = false
@@ -162,7 +164,7 @@ conf.dashboard = "alpha"
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 3
 -- Enable the header of the dashboard
-conf.enable_dashboard_header = false
+conf.enable_dashboard_header = true
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
 -- Enable either the Drop screensaver or the Zone screensaver

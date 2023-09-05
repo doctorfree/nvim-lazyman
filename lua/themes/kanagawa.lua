@@ -14,7 +14,7 @@ end
 
 -- Default options:
 require("kanagawa").setup({
-  compile = true, -- enable compiling the colorscheme
+  compile = false, -- enable compiling the colorscheme
   undercurl = true, -- enable undercurls
   commentStyle = { italic = true },
   functionStyle = {},
@@ -62,5 +62,8 @@ if settings.theme == "kanagawa" then
     vim.api.nvim_set_hl(0, "AlphaButtons", { link = "NvimTreeImageFile" })
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "NvimTreeSymlink" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "NvimTreeSpecialFile" })
+  end
+  if settings.namespace == "candy" then
+    require("candy.plugins.highlights")
   end
 end

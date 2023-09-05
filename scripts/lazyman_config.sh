@@ -708,6 +708,12 @@ show_plugin_menu() {
     else
       use_neoai="✗"
     fi
+    enable_tabnine=$(get_conf_value enable_tabnine)
+    if [ "${enable_tabnine}" == "true" ]; then
+      use_tabnine=""
+    else
+      use_tabnine="✗"
+    fi
     enable_surround=$(get_conf_value enable_surround)
     if [ "${enable_surround}" == "true" ]; then
       use_surround=""
@@ -911,86 +917,102 @@ show_plugin_menu() {
     use_indentline="${indentline_style}"
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Ascii Art     [${use_asciiart}]")
-    options+=("Bdelete cmd   [${use_bbye}]")
-    options+=("Bookmarks     [${use_bookmarks}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Ascii Art     [${use_asciiart}]")
+      options+=("Bdelete cmd   [${use_bbye}]")
+      options+=("Bookmarks     [${use_bookmarks}]")
+    }
     options+=("ChatGPT (AI)  [${use_chatgpt}]")
     options+=("Codeium (AI)  [${use_codeium}]")
     options+=("Copilot (AI)  [${use_copilot}]")
-    pyver=$(check_python_version)
-    [ "${pyver}" == "OK" ] && {
-      options+=("GPT4ALL (AI)  [${use_codeexplain}]")
-    }
-    [ -f "${HOME}/.codeexplain/model.bin" ] && {
-      options+=(" Remove GPT model")
+    [ "${use_namespace}" == "candy" ] || {
+      pyver=$(check_python_version)
+      [ "${pyver}" == "OK" ] && {
+        options+=("GPT4ALL (AI)  [${use_codeexplain}]")
+      }
+      [ -f "${HOME}/.codeexplain/model.bin" ] && {
+        options+=(" Remove GPT model")
+      }
     }
     options+=("NeoAI   (AI)  [${use_neoai}]")
+    [ "${use_namespace}" == "candy" ] && {
+      options+=("Tabnine (AI)  [${use_tabnine}]")
+    }
     options+=("Cheatsheets   [${use_cheatsheet}]")
-    options+=("Enable coding [${use_coding}]")
-    options+=("Compile & Run [${use_compile}]")
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Dashboard [${use_dash}]")
-      if [ "${use_dash}" == "alpha" ]; then
-        options+=(" Alpha Header [${use_dashboard_header}]")
-        options+=(" Recent Files [${use_dashboard_recent_files}]")
-        options+=(" Quick Links  [${use_dashboard_quick_links}]")
-      fi
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Enable coding [${use_coding}]")
+      options+=("Compile & Run [${use_compile}]")
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Dashboard [${use_dash}]")
+        if [ "${use_dash}" == "alpha" ]; then
+          options+=(" Alpha Header [${use_dashboard_header}]")
+          options+=(" Recent Files [${use_dashboard_recent_files}]")
+          options+=(" Quick Links  [${use_dashboard_quick_links}]")
+        fi
+      }
     }
-    options+=("Dressing UI   [${use_dressing}]")
-    options+=("File Tree [${use_neotree}]")
+    [ "${use_namespace}" == "candy" ] && {
+      options+=("Alpha Header  [${use_dashboard_header}]")
+    }
     options+=("Enable Games  [${use_games}]")
-    options+=("Enable IDE    [${use_ide}]")
-    options+=("Indentline [${use_indentline}]")
-    options+=("Lualine Style [${use_lualine_style}]")
-    if [ "${use_lualine_style}" == "onno" ]; then
-      options+=(" Separator    [${use_lualine_separator}]")
-    fi
-    options+=(" Fancy Icons  [${use_fancy}]")
-    options+=("Enable Motion [${use_motion}]")
-    options+=("Enable Notes  [${use_notes}]")
-    if [ "${enable_notes}" == "true" ]; then
-      options+=("Enable Obsidian [${use_obsidian}]")
-      options+=(" Preview  [${use_markdown_preview}]")
-      [ "${enable_obsidian}" == "true" ] && {
-        options+=(" Obsidian [${use_obsidian_vault}]")
-      }
-      [ ${num_neorg_notes} -lt 4 ] && {
-        options+=(" Neorg Notes  [add]")
-      }
-    fi
-    options+=("Media Backend [${use_media_backend}]")
-    options+=("Multi Cursor  [${use_multi_cursor}]")
-    options+=("Navigator     [${use_navigator}]")
-    options+=("Noice UI      [${use_noice}]")
-    options+=("Picker        [${use_picker}]")
-    options+=("Project       [${use_project}]")
-    options+=("Enable Ranger [${use_ranger}]")
-    options+=("Enable Rename [${use_renamer}]")
-    options+=("Screensaver [${use_screensaver}]")
-    [ "${use_screensaver}" == "none" ] || {
-      options+=(" Timeout    [${use_timeout}]")
-    }
-    options+=("Securitree    [${use_securitree}]")
-    options+=("Session [${use_session_manager}]")
-    options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("StartupTime   [${use_startuptime}]")
-    options+=("Surround      [${use_surround}]")
     options+=("Terminal      [${use_terminal}]")
-    options+=("Toggle Term   [${use_toggleterm}]")
-    options+=("Enable Tests  [${use_neotest}]")
-    options+=("WakaTime      [${use_wakatime}]")
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Wilder Menus  [${use_wilder}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Dressing UI   [${use_dressing}]")
+      options+=("File Tree [${use_neotree}]")
+      options+=("Enable IDE    [${use_ide}]")
+      options+=("Indentline [${use_indentline}]")
+      options+=("Lualine Style [${use_lualine_style}]")
+      if [ "${use_lualine_style}" == "onno" ]; then
+        options+=(" Separator    [${use_lualine_separator}]")
+      fi
+      options+=(" Fancy Icons  [${use_fancy}]")
+      options+=("Enable Motion [${use_motion}]")
+      options+=("Enable Notes  [${use_notes}]")
+      if [ "${enable_notes}" == "true" ]; then
+        options+=("Enable Obsidian [${use_obsidian}]")
+        options+=(" Preview  [${use_markdown_preview}]")
+        [ "${enable_obsidian}" == "true" ] && {
+          options+=(" Obsidian [${use_obsidian_vault}]")
+        }
+        [ ${num_neorg_notes} -lt 4 ] && {
+          options+=(" Neorg Notes  [add]")
+        }
+      fi
+      options+=("Media Backend [${use_media_backend}]")
+      options+=("Multi Cursor  [${use_multi_cursor}]")
+      options+=("Navigator     [${use_navigator}]")
+      options+=("Noice UI      [${use_noice}]")
+      options+=("Picker        [${use_picker}]")
+      options+=("Project       [${use_project}]")
+      options+=("Enable Ranger [${use_ranger}]")
+      options+=("Enable Rename [${use_renamer}]")
+      options+=("Screensaver [${use_screensaver}]")
+      [ "${use_screensaver}" == "none" ] || {
+        options+=(" Timeout    [${use_timeout}]")
+      }
+      options+=("Securitree    [${use_securitree}]")
+      options+=("Session [${use_session_manager}]")
+      options+=("Smooth Scroll [${use_smooth_scrolling}]")
+      options+=("StartupTime   [${use_startuptime}]")
+      options+=("Surround      [${use_surround}]")
+      options+=("Toggle Term   [${use_toggleterm}]")
+      options+=("Enable Tests  [${use_neotest}]")
+      options+=("WakaTime      [${use_wakatime}]")
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Wilder Menus  [${use_wilder}]")
+      }
+      options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     }
-    options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    options+=("Formatters")
-    options+=("LSP Servers")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters")
+      options+=("LSP Servers")
+    }
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -1254,6 +1276,15 @@ show_plugin_menu() {
               prompt_continue
             fi
           fi
+          break
+          ;;
+        "Tabnine"*,* | *,"Tabnine"*)
+          if [ "${enable_tabnine}" == "true" ]; then
+            set_conf_value "enable_tabnine" "false"
+          else
+            set_conf_value "enable_tabnine" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Surround"*,* | *,"Surround"*)
@@ -1612,7 +1643,7 @@ show_plugin_menu() {
           }
           break
           ;;
-        " Alpha Header"*,* | *," Alpha Header"*)
+        *"Alpha Header"*,* | *,*"Alpha Header"*)
           if [ "${enable_dashboard_header}" == "true" ]; then
             set_conf_value "enable_dashboard_header" "false"
           else
@@ -1672,6 +1703,7 @@ show_plugin_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
+          set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
@@ -1719,6 +1751,7 @@ show_plugin_menu() {
           set_conf_value "enable_codeium" "true"
           set_conf_value "enable_copilot" "true"
           set_conf_value "enable_neoai" "true"
+          set_conf_value "enable_tabnine" "true"
           [ -f "${HOME}/.codeexplain/model.bin" ] && {
             pyver=$(check_python_version)
             [ "${pyver}" == "OK" ] && {
@@ -1883,7 +1916,9 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    options+=("Formatters Menu")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters Menu")
+    }
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2018,7 +2053,9 @@ show_formlint_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    options+=("LSP Servers Menu")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("LSP Servers Menu")
+    }
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2199,6 +2236,24 @@ show_conf_menu() {
     else
       use_zenmode="✗"
     fi
+    enable_alacritty=$(get_conf_value enable_alacritty)
+    if [ "${enable_alacritty}" == "true" ]; then
+      use_alacritty=""
+    else
+      use_alacritty="✗"
+    fi
+    enable_kitty=$(get_conf_value enable_kitty)
+    if [ "${enable_kitty}" == "true" ]; then
+      use_kitty=""
+    else
+      use_kitty="✗"
+    fi
+    enable_wezterm=$(get_conf_value enable_wezterm)
+    if [ "${enable_wezterm}" == "true" ]; then
+      use_wezterm=""
+    else
+      use_wezterm="✗"
+    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Namespace   [${use_namespace}]")
@@ -2215,21 +2270,30 @@ show_conf_menu() {
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
-    options+=("Smart Column  [${use_smartcolumn}]")
-    options+=("Global Status [${use_global_statusline}]")
-    options+=("Status Line   [${use_statusline}]")
-    options+=("Status in Tab [${use_tabline}]")
     options+=("Show Tabline  [${use_showtabline}]")
-    if [ "${use_winbar}" == "none" ]
-    then
-      options+=("Winbar     [${use_winbar}]")
-    else
-      options+=("Winbar [${use_winbar}]")
-    fi
-    [ "${use_namespace}" == "free" ] && {
-      options+=("Semantic HL   [${use_semantic_highlighting}]")
-      options+=("Convert SemHL [${convert_semantic_highlighting}]")
+    [ "${use_namespace}" == "candy" ] || {
+      options+=("Smart Column  [${use_smartcolumn}]")
+      options+=("Global Status [${use_global_statusline}]")
+      options+=("Status Line   [${use_statusline}]")
+      options+=("Status in Tab [${use_tabline}]")
+      if [ "${use_winbar}" == "none" ]
+      then
+        options+=("Winbar     [${use_winbar}]")
+      else
+        options+=("Winbar [${use_winbar}]")
+      fi
+      [ "${use_namespace}" == "free" ] && {
+        options+=("Semantic HL   [${use_semantic_highlighting}]")
+        options+=("Convert SemHL [${convert_semantic_highlighting}]")
+      }
+    }
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Zen Mode      [${use_zenmode}]")
+      [ "${enable_zenmode}" == "true" ] && {
+        options+=("  Alacritty   [${use_alacritty}]")
+        options+=("  Kitty       [${use_kitty}]")
+        options+=("  Wezterm     [${use_wezterm}]")
+      }
     }
     options+=("Disable All")
     options+=("Enable All")
@@ -2238,8 +2302,10 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    options+=("Formatters")
-    options+=("LSP Servers")
+    [ "${use_namespace}" == "free" ] && {
+      options+=("Formatters")
+      options+=("LSP Servers")
+    }
     options+=("Plugins Menu")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
@@ -2321,12 +2387,14 @@ show_conf_menu() {
           break
           ;;
         "Namespace"*,* | *,"Namespace"*)
-          if [ "${use_namespace}" == "onno" ]; then
-            set_conf_value "namespace" "free"
-          else
-            set_conf_value "namespace" "onno"
-          fi
-          pluginit=1
+          choices=("candy" "free" "onno")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration namespace (current = ${namespace})  " --layout=reverse --border --exit-0)
+          [ "${choice}" == "${namespace}" ] || {
+            if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+              set_conf_value "namespace" "${choice}"
+              pluginit=1
+            fi
+          }
           break
           ;;
         "Leader"*,* | *,"Leader"*)
@@ -2422,6 +2490,33 @@ show_conf_menu() {
           pluginit=1
           break
           ;;
+        "  Alacritty"*,* | *,"  Alacritty"*)
+          if [ "${enable_alacritty}" == "true" ]; then
+            set_conf_value "enable_alacritty" "false"
+          else
+            set_conf_value "enable_alacritty" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Kitty"*,* | *,"  Kitty"*)
+          if [ "${enable_kitty}" == "true" ]; then
+            set_conf_value "enable_kitty" "false"
+          else
+            set_conf_value "enable_kitty" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Wezterm"*,* | *,"  Wezterm"*)
+          if [ "${enable_wezterm}" == "true" ]; then
+            set_conf_value "enable_wezterm" "false"
+          else
+            set_conf_value "enable_wezterm" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Minimal Config"*,* | *,"Minimal Config"*)
           set_conf_value "global_statusline" "false"
           set_conf_value "enable_smartcolumn" "false"
@@ -2439,6 +2534,7 @@ show_conf_menu() {
           set_conf_value "enable_copilot" "false"
           set_conf_value "enable_codeexplain" "false"
           set_conf_value "enable_neoai" "false"
+          set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"

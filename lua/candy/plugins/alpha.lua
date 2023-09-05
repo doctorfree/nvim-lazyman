@@ -20,8 +20,21 @@ elseif settings.file_tree == "nvim-tree" then
 end
 
 local dashboard = require("alpha.themes.dashboard")
+local candy_icons = require("candy.utils.icons")
 local nvim_web_devicons = require("nvim-web-devicons")
 local cdir = vim.fn.getcwd()
+
+HatchDuck = true
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Header                                                   │
+-- ╰──────────────────────────────────────────────────────────╯
+
+local candy_header = {}
+if settings.enable_dashboard_header == true then
+  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
+  candy_header = require("config.alpha-headers")["random"]
+end
 
 local function get_extension(fn)
   local match = fn:match("^.+(%..+)$")
@@ -133,6 +146,9 @@ local function mru(start, cwd, items_number, opts)
   }
 end
 
+local recent_files_btn = dashboard.button("r", "  Search recent files", "<cmd>Telescope oldfiles hidden=true prompt_title=Recent<CR>")
+recent_files_btn.opts.hl = "AlphaButtons"
+
 local section_mru = {
   type = "group",
   val = {
@@ -153,6 +169,7 @@ local section_mru = {
       end,
       opts = { shrink_margin = false },
     },
+    recent_files_btn,
   },
 }
 
@@ -168,35 +185,24 @@ vim.cmd([[
 
 -- This wouldn't be necessary if we could pass 'opts' in to dashboard.button()
 --
--- Quick Links
-local new_file_btn = dashboard.button("n", "  New File", ":ene <BAR> startinsert<CR>")
-new_file_btn.opts.hl = "AlphaFooter"
-local find_file_btn = dashboard.button("f", "  Find File", ":" .. require("util").project_files() .. "<CR>")
+  -- ╭──────────────────────────────────────────────────────────╮
+  -- │ Hatch a pretty fast duck and a mellow cat                │
+  -- ╰──────────────────────────────────────────────────────────╯
+local duck_cat_btn = dashboard.button("d", candy_icons.squirrel .. " " .. "Duck and Cat", "<cmd>lua if HatchDuck then require('duck').hatch('🦆', 7) require('duck').hatch('🐈', 2) HatchDuck = false else require('duck').cook() require('duck').cook() HatchDuck = true end<CR>")
+duck_cat_btn.opts.hl = "AlphaFooter"
+local hack_btn = dashboard.button("h", candy_icons.hook .. " " .. "Hollywood Hacker", "<cmd>HackAuto<CR>")
+hack_btn.opts.hl = "AlphaFooter"
+local find_file_btn = dashboard.button("f", candy_icons.fileNoBg .. " " .. "Find File", "<cmd>lua require('candy.plugins.telescope').project_files()<CR>")
 find_file_btn.opts.hl = "AlphaFooter"
-local file_tree_btn = dashboard.button("e", "  File Browser", filetree)
-file_tree_btn.opts.hl = "AlphaFooter"
-local find_text_btn = dashboard.button("t", "  Find Text", ":Telescope live_grep<CR>")
+local find_text_btn = dashboard.button("w", candy_icons.word .. " " .. "Find Word", "<cmd>lua require('candy.plugins.telescope.pickers.multi-rg')()<CR>")
 find_text_btn.opts.hl = "AlphaFooter"
-local session_btn =
-  dashboard.button("R", "  Restore A Session", ":lua require('persistence').load({ last = true })<CR>")
-if settings.session_manager == "possession" then
-  session_btn = dashboard.button("R", "  Restore A Session", ":Telescope possession list<CR>")
-end
+local session_btn = dashboard.button("s", candy_icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>")
 session_btn.opts.hl = "AlphaFooter"
-local search_zoxide_btn = dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>")
-search_zoxide_btn.opts.hl = "AlphaFooter"
-local recent_files_btn =
-  dashboard.button("r", "  Search Recent Files", ":Telescope oldfiles prompt_title=Recent<CR>")
-recent_files_btn.opts.hl = "AlphaFooter"
-local git_commit_btn = dashboard.button("g", "  Git Commit History", ":GV<CR>")
-git_commit_btn.opts.hl = "AlphaFooter"
-local neogit_btn = dashboard.button("G", "  NeoGit", ":Neogit<CR>")
-neogit_btn.opts.hl = "AlphaFooter"
-local quit_btn = dashboard.button("q", "  Quit", ":qa<CR>")
+local quit_btn = dashboard.button("q", candy_icons.exit .. " " .. "Quit", ":qa<CR>")
 quit_btn.opts.hl = "AlphaFooter"
 
 -- Neovim Configuration
-local health_btn = dashboard.button("h", "  Neovim Health", ":checkhealth<CR>")
+local health_btn = dashboard.button("n", "  Neovim Health", ":checkhealth<CR>")
 health_btn.opts.hl = "AlphaHeader"
 local settings_btn = dashboard.button("c", "  Lazyman Configuration", ":e " .. configuration_lua .. "<CR>")
 local lazyman_btn = dashboard.button("l", "  Lazyman Help", ":h nvim-Lazyman<CR>")
@@ -206,8 +212,6 @@ if settings.enable_terminal then
 end
 settings_btn.opts.hl = "AlphaHeader"
 lazyman_btn.opts.hl = "AlphaHeader"
-local options_btn = dashboard.button("o", "  Neovim Options", ":e " .. options_lua .. "<CR>")
-options_btn.opts.hl = "AlphaHeader"
 local mappings_btn = dashboard.button("C", "  Lazyman Cheatsheet", ":Cheatsheet<CR>")
 mappings_btn.opts.hl = "AlphaHeader"
 
@@ -223,11 +227,10 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Neovim Configuration", opts = { hl = "AlphaHeader", position = "center" } },
-    health_btn,
     lazyman_btn,
     settings_btn,
-    options_btn,
     mappings_btn,
+    health_btn,
     { type = "padding", val = 1 },
     { type = "text", val = "Plugin Management", opts = { hl = "AlphaShortcut", position = "center" } },
     install_btn,
@@ -235,15 +238,11 @@ local buttons = {
     update_btn,
     { type = "padding", val = 1 },
     { type = "text", val = "Quick Links", opts = { hl = "AlphaFooter", position = "center" } },
-    new_file_btn,
+    duck_cat_btn,
+    hack_btn,
     find_file_btn,
-    file_tree_btn,
     find_text_btn,
     session_btn,
-    search_zoxide_btn,
-    recent_files_btn,
-    git_commit_btn,
-    neogit_btn,
     quit_btn,
   },
   position = "center",
@@ -251,8 +250,7 @@ local buttons = {
 
 local header = {
   type = "text",
-  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
-  val = require("free.config.alpha.headers")["random"],
+  val = candy_header,
   opts = {
     position = "center",
     hl = "AlphaHeader",
@@ -279,7 +277,7 @@ local footer = {
   val = datetime .. "  " .. vinfo .. lazystats,
   opts = {
     position = "center",
-    hl = "AlphaFooter",
+    hl = "AlphaHeader",
   },
 }
 
@@ -320,3 +318,26 @@ local opts = {
 }
 
 alpha.setup(opts)
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Hide tabline and statusline on startup screen            │
+-- ╰──────────────────────────────────────────────────────────╯
+vim.api.nvim_create_augroup("alpha_tabline", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "alpha_tabline",
+  pattern = "alpha",
+  command = "set showtabline=0 laststatus=0 noruler",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "alpha_tabline",
+  pattern = "alpha",
+  callback = function()
+    vim.api.nvim_create_autocmd("BufUnload", {
+      group = "alpha_tabline",
+      buffer = 0,
+      command = "set showtabline=2 ruler laststatus=3",
+    })
+  end,
+})
