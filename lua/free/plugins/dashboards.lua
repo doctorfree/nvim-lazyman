@@ -27,9 +27,10 @@ if settings.dashboard == "alpha" then
   alpha_disabled = {}
   dashboard_type = {
     "goolord/alpha-nvim",
+    lazy = false,
     dependencies = dashboard_depend,
-    enabled = true,
-    event = "VimEnter",
+    -- enabled = true,
+    -- event = "VimEnter",
     keys = { { "<leader>A", "<cmd>Alpha<CR>", "Alpha Dashboard" } },
     config = function()
       require("free.config.alpha")
