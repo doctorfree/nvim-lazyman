@@ -6,6 +6,43 @@
 
 ### 🐞 Fixed
 
+## v3.1.0r1
+
+### ⚡️ Added
+
+- Add new namespace, `candy`, based on `Ecovim`
+- Enable `alpha` dashboard header by default
+- Add autocmds to `alpha` configuration
+- Add support for new namespace to `lazyman.sh`
+- Use `HackAuto` on dashboard
+- Copy `free` namespace Alpha configuration, adopt for `candy` namespace
+- Set highlight groups in each theme if it is enabled
+- Only show formatters and lsp servers configuration menus for `free` namespace
+- Add support for multiple colorschemes
+- Add zen mode terminal support to config menu
+- Add `cheatsheet` to `candy` namespace
+- Disable plugins config menu options not supported in candy
+- Enable/disable Games in `candy` namespace with configuration.lua
+- Dashboard menu entry for both namespaces is 'Alpha Header'
+- Enable/disable Alpha header in `candy` namespace via config menu
+- Add autocmds for termopen to enter insert mode and resize
+- Add `nvim_terminal` and `Lazyman` commands to `candy` namespace
+- Enable/disable AI plugins in `candy` namespace with configuration.lua
+- Add support for `tabnine` in Lazyman configuration menu
+- Add `candy` to Namespace menu option
+- Use some options settings from `configuration.lua` in `candy` namespace
+- Add new websites to What's New
+- Update README, man page, and info docs with new namespace
+
+### 🐞 Fixed
+
+- Move some alpha headers to unused
+- Move alpha headers up to lua/config, use headers in `candy` namespace
+- Format websites table
+- Align dashboard search recents
+- Move recents up to top section of dashboard
+- Do not compile kanagawa theme
+
 ## v3.0.2r3
 
 ### ⚡️ Added
