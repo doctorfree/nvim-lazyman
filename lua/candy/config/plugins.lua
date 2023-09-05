@@ -628,11 +628,14 @@ return {
     end,
   },
   {
-    "ecosse3/galaxyline.nvim",
+    "nvimdev/galaxyline.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    event = "BufReadPost",
     config = function()
       require("candy.plugins.galaxyline")
     end,
-    event = "VeryLazy",
   },
   {
     "echasnovski/mini.bufremove",

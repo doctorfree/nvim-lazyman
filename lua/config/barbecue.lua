@@ -1,4 +1,3 @@
-
 local icons = require("icons")
 
 require("barbecue").setup({
