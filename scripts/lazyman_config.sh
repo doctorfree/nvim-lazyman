@@ -2397,8 +2397,12 @@ show_conf_menu() {
                 set_conf_value "enable_winbar" "barbecue"
                 set_conf_value "lualine_style" "onno"
               else
-                set_conf_value "enable_winbar" "standard"
                 set_conf_value "lualine_style" "free"
+                if [ "${choice}" == "free" ]; then
+                  set_conf_value "enable_winbar" "standard"
+                else
+                  set_conf_value "enable_winbar" "barbecue"
+                fi
               fi
               pluginit=1
             fi

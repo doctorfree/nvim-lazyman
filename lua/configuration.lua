@@ -138,7 +138,7 @@ conf.enable_status_in_tab = false
 -- Enable winbar with navic location
 -- Can be one of "barbecue", "standard", or "none"
 -- Barbecue provides a clickable navic location, standard has more info
-conf.enable_winbar = "standard"
+conf.enable_winbar = "barbecue"
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim
