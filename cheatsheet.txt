@@ -24,6 +24,8 @@ Lazyman Menu                        | <leader>lm
 Lazyman Menu                        | :Lazyman
 Mason Menu                          | <leader>M
 Mason Menu                          | :Mason
+Open URL                            | gh
+Open URL                            | :OpenRepo
 Options                             | <leader>o
 Options                             | :options
 Toggle Color Column                 | <leader>C
