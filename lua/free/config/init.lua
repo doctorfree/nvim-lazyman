@@ -104,7 +104,7 @@ function cfg.init()
   if not cfg.did_init then
     cfg.did_init = true
     -- delay notifications till vim.notify was replaced or after 500ms
-    require("free.utils.utils").lazy_notify()
+    require("utils.utils").lazy_notify()
 
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied

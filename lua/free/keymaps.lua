@@ -267,7 +267,7 @@ map("n", "<leader>uN", function()
     Info("Set relativenumber to false", { title = "Option" })
   end
 end, { desc = "Toggle number" })
-map("n", "<leader>C", require("free.utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
+map("n", "<leader>C", require("utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
 
 -- gitignore
 local gitignore = require("gitignore")
