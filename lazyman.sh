@@ -667,7 +667,9 @@ remove_config() {
   }
 
   [ "$remove_lazyman" ] && {
+    printf "\nRemoving all Lazyman installed Neovim configurations ..."
     [ "$tellme" ] || lazyman -R -A -y -q > /dev/null 2>&1
+    printf " done"
   }
 
   if [ "${ndir}" == "${spacevimdir}" ]; then
