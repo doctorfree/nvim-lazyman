@@ -39,7 +39,7 @@ if settings.enable_coding then
         lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
         lsp_diag_underline = false,
         lsp_on_attach = function(client, bufnr)
-          local utils = require("free.utils.utils")
+          local utils = require("utils.utils")
           utils.custom_lsp_attach(client, bufnr)
           local wk = require("which-key")
           local default_options = { silent = true }

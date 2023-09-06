@@ -255,4 +255,4 @@ end, {
 })
 
 -- Command to hot reload all plugins (not working yet)
--- vim.cmd('command! ReloadPlugins lua require("free.utils.functions").ReloadPlugins()')
+-- vim.cmd('command! ReloadPlugins lua require("utils.functions").ReloadPlugins()')

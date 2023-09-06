@@ -14,7 +14,7 @@ local function load(name)
   })
 end
 
-require("free.utils.utils").lazy_notify()
+require("utils.utils").lazy_notify()
 
 -- load options here, before lazy init while sourcing plugin modules
 -- this is needed to make sure options will be correctly applied

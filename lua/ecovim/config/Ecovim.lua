@@ -7,7 +7,7 @@
 ------------------------------------------------
 
 local settings = require("configuration")
-local icons = require("ecovim.utils.icons")
+local icons = require("icons").misc
 
 Ecovim = {
   colorscheme = settings.theme,

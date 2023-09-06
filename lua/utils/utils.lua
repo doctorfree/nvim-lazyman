@@ -1,4 +1,4 @@
-local utils = require("free.utils.functions")
+local utils = require("utils.functions")
 
 local cfg = {}
 

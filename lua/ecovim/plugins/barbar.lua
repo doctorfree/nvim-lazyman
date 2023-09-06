@@ -1,4 +1,4 @@
-local icons = require('ecovim.utils.icons')
+local icons = require('icons').misc
 
 -- Set barbar's options
 require("barbar").setup({

@@ -17,7 +17,7 @@ end
 local configuration_lua = vim.fn.stdpath("config") .. "/lua/configuration.lua"
 
 local dashboard = require("alpha.themes.dashboard")
-local ecovim_icons = require("ecovim.utils.icons")
+local ecovim_icons = require("icons").misc
 local nvim_web_devicons = require("nvim-web-devicons")
 local cdir = vim.fn.getcwd()
 
