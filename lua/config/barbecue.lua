@@ -59,3 +59,18 @@ require("barbecue").setup({
   },
   kinds = icons.kinds
 })
+
+vim.api.nvim_create_autocmd({
+  "WinResized",
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+  "BufWritePost",
+  "TextChanged",
+  "TextChangedI",
+}, {
+  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+  callback = function()
+    require("barbecue.ui").update()
+  end,
+})
