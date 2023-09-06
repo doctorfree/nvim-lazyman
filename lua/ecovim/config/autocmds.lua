@@ -63,6 +63,28 @@ autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
 autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" },
   command = "setlocal conceallevel=0" })
 
+-- Open the URL of the plugin spec or 'user/repo' path under the cursor
+vim.api.nvim_create_user_command("OpenRepo", function(_)
+  local ghpath = vim.api.nvim_eval("shellescape(expand('<cfile>'))")
+  local formatpath = ghpath:sub(2, #ghpath - 1)
+  local repourl = "https://www.github.com/" .. formatpath
+  if formatpath:sub(1, 5) == "http:" or formatpath:sub(1, 6) == "https:" then
+    repourl = formatpath
+  end
+  if vim.fn.has("mac") == 1 then
+    vim.fn.system({ "open", repourl })
+  else
+    if vim.fn.executable("gio") then
+      vim.fn.system({ "gio", "open", repourl })
+    else
+      vim.fn.system({ "xdg-open", repourl })
+    end
+  end
+end, {
+  desc = "Open URL",
+  force = true,
+})
+
 -- Attach specific keybindings in which-key for specific filetypes
 local present, _ = pcall(require, "which-key")
 if not present then return end

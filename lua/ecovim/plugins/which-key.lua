@@ -347,6 +347,10 @@ local normal_mode_mappings = {
     m = { 'Toggle' },
     t = { 'Tableize' },
   },
+
+  u = {
+    name = 'Toggles',
+  },
 }
 
 local visual_mode_mappings = {

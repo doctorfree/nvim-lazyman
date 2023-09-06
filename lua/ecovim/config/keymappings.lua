@@ -3,8 +3,18 @@ local Util = require("util")
 local map = Util.map
 local keymap = vim.keymap.set
 local silent = { silent = true }
+local Info = require("lazy.core.util").info
 
--- table.unpack = table.unpack or unpack -- 5.1 compatibility
+-- Plugin Management
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy Menu" })
+map("n", "<leader>U", "<cmd>Lazy update<cr>", { desc = "Lazy Update" })
+-- Options
+map("n", "<leader>o", "<cmd>options<cr>", { desc = "Options" })
+
+-- Lazyman help
+map("n", "<leader>hl", "<cmd>help Lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hn", "<cmd>help Nvims<cr>", { desc = "Nvims Help" })
+map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps<cr>", { desc = "Lazyman Keymaps" })
 
 -- Lazyman Cheatsheet
 if settings.enable_cheatsheet then
@@ -145,3 +155,112 @@ keymap("n", "K", function()
 		vim.lsp.buf.hover()
 	end
 end)
+
+-- Toggle keymaps
+if settings.enable_winbar == "barbecue" then
+  map("n", "<leader>ub", function() require("barbecue.ui").toggle() end, { desc = "Toggle barbecue winbar" })
+end
+map("n", "<leader>uf", require("free.config.lsp.format").toggle, { desc = "Toggle format on Save" })
+map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
+map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
+map("n", "<leader>ul", function()
+  Util.toggle("relativenumber", true)
+  Util.toggle("number")
+end, { desc = "Toggle Line Numbers" })
+local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
+  { desc = "Toggle Conceal" })
+
+map("n", "<leader>ug", function()
+  if vim.wo.signcolumn == "no" then
+    vim.wo.signcolumn = "yes"
+  elseif vim.wo.signcolumn == "yes" then
+    vim.wo.signcolumn = "auto"
+  else
+    vim.wo.signcolumn = "no"
+  end
+  Info("Set signcolumn to " .. vim.wo.signcolumn, { title = "Option" })
+end, { desc = "Toggle signcolumn" })
+
+map("n", "<leader>uT", function()
+  vim.opt.showtabline = vim.api.nvim_get_option('showtabline') == 0 and 2 or 0
+  Info("Set showtabline to " .. vim.api.nvim_get_option('showtabline'), { title = "Option" })
+end, { desc = "Toggle tabline" })
+
+map("n", "<leader>uS", function()
+  local laststatus = vim.api.nvim_get_option('laststatus')
+  if laststatus == 0 then
+    vim.opt.laststatus = 2
+  elseif laststatus == 2 then
+    vim.opt.laststatus = 3
+  elseif laststatus == 3 then
+    vim.opt.laststatus = 0
+  end
+  Info("Set laststatus to " .. vim.api.nvim_get_option('laststatus'), { title = "Option" })
+end, { desc = "Toggle statusline" })
+
+map("n", "<leader>um", function()
+  local mouse = vim.api.nvim_get_option('mouse')
+  if mouse == "" then
+    vim.opt.mouse = "nv"
+    Info("Mouse Enabled: mouse = " .. vim.api.nvim_get_option('mouse'), { title = "Option" })
+  else
+    vim.opt.mouse = ""
+    Info("Mouse Disabled", { title = "Option" })
+  end
+end, { desc = "Toggle mouse" })
+
+map("n", "<leader>uN", function()
+  local number = vim.wo.number                 -- local to window
+  local relativenumber = vim.wo.relativenumber -- local to window
+  if not number and not relativenumber then
+    vim.wo.number = true
+    Info("Set number to true", { title = "Option" })
+  elseif number and not relativenumber then
+    vim.wo.relativenumber = true
+    Info("Set relativenumber to true", { title = "Option" })
+  elseif number and relativenumber then
+    vim.wo.number = false
+    Info("Set number to false", { title = "Option" })
+  else -- not number and relativenumber
+    vim.wo.relativenumber = false
+    Info("Set relativenumber to false", { title = "Option" })
+  end
+end, { desc = "Toggle number" })
+map("n", "<leader>C", require("free.utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
+
+-- gitignore
+local gitignore = require("gitignore")
+map("n", "<leader>gi", gitignore.generate, { desc = "Generate .gitignore" })
+
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+
+-- highlights under cursor
+if vim.fn.has("nvim-0.9.0") == 1 then
+  map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+end
+
+-- floating terminal
+map("n", "<leader>ft", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
+map("n", "<leader>fT", function() Util.float_term() end, { desc = "Terminal (cwd)" })
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+
+-- windows
+map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
+map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
+map("n", "<leader>-", "<C-W>s", { desc = "Split window below" })
+map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
+
+-- tabs
+map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- open url
+map("n", "gh", "<cmd>OpenRepo<CR>", { desc = "Open URL" })

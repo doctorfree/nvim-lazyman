@@ -120,9 +120,9 @@ map("n", "<leader>U", "<cmd>Lazy update<cr>", { desc = "Lazy Update" })
 map("n", "<leader>o", "<cmd>options<cr>", { desc = "Options" })
 
 -- Lazyman help
-map("n", "<leader>hl", "<cmd>help Lazyman-lazyman<cr>", { desc = "Lazyman Help" })
-map("n", "<leader>hn", "<cmd>help Nvims-nvims<cr>", { desc = "Nvims Help" })
-map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps-lazymankeys<cr>", { desc = "Lazyman Keymaps" })
+map("n", "<leader>hl", "<cmd>help Lazyman<cr>", { desc = "Lazyman Help" })
+map("n", "<leader>hn", "<cmd>help Nvims<cr>", { desc = "Nvims Help" })
+map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps<cr>", { desc = "Lazyman Keymaps" })
 
 -- Terminal commands
 if settings.enable_terminal then
