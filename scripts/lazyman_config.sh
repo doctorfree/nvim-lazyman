@@ -997,12 +997,12 @@ show_plugin_menu() {
       options+=("Surround      [${use_surround}]")
       options+=("Toggle Term   [${use_toggleterm}]")
       options+=("Enable Tests  [${use_neotest}]")
-      options+=("WakaTime      [${use_wakatime}]")
       [ "${use_namespace}" == "free" ] && {
         options+=("Wilder Menus  [${use_wilder}]")
       }
       options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     }
+    options+=("WakaTime      [${use_wakatime}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {

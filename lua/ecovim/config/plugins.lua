@@ -8,6 +8,14 @@ local blackjack = {}
 local cellular = {}
 local neoscroll = {}
 local terminal_nvim = {}
+local wakatime_type = {}
+
+if settings.enable_wakatime then
+  wakatime_type = {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  }
+end
 
 if settings.enable_winbar == "barbecue" then
   barbecue = {
@@ -1076,4 +1084,7 @@ return {
 
   -- If terminal is enabled in configuration.lua
   terminal_nvim,
+
+  -- WakaTime Neovim dashboard
+  wakatime_type,
 }
