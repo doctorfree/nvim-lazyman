@@ -229,10 +229,6 @@ map("n", "<leader>uN", function()
 end, { desc = "Toggle number" })
 map("n", "<leader>C", require("free.utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
 
--- gitignore
-local gitignore = require("gitignore")
-map("n", "<leader>gi", gitignore.generate, { desc = "Generate .gitignore" })
-
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 

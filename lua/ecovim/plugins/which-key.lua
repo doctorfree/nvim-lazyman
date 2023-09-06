@@ -144,6 +144,10 @@ local normal_mode_mappings = {
   ['V'] = { '<C-W>s',                                           'Split below' },
   ['q'] = { 'quicklist' },
 
+  ["<Tab>"] = {
+    name = 'Tabs',
+  },
+
   ['/'] = {
     name = 'Lazyman',
     ['/'] = { '<cmd>Alpha<CR>',                                 'Open dashboard' },
@@ -293,6 +297,10 @@ local normal_mode_mappings = {
     },
   },
 
+  f = {
+    name = 'Terminal',
+  },
+
   G = games,
 
   g = {
@@ -323,6 +331,10 @@ local normal_mode_mappings = {
     }
   },
 
+  h = {
+    name = 'Help',
+  },
+
   p = {
     name = 'Project',
     f = { 'File' },
@@ -349,7 +361,11 @@ local normal_mode_mappings = {
   },
 
   u = {
-    name = 'Toggles',
+    name = 'UI',
+  },
+
+  w = {
+    name = 'Windows',
   },
 }
 
