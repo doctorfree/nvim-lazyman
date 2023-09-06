@@ -4,12 +4,39 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.0r2
+
+### ⚡️ Added
+
 - Add `Lazyplug` terminal command and `,lp` keymap to open Lazyman plugins menu
+- Add `OpenRepo` keymap to `cheatsheet`
+- Add `which-key` menu names
+- Add keymaps from `free` namespace for toggles, help, lazyman to `ecovim` namespace
+- Add `Lazyplug` terminal command and `,lp` keymap to open Lazyman plugins menu
+- Use standard `galaxyline` in `ecovim` namespace
+- Add `barbecue` to `ecovim` namespace, require terminal in `ecovim` alpha
+- Set default winbar style to `barbecue`
+- Switch default namespace from `free` to `ecovim`
+- Add smooth scrolling to `ecovim` namespace
+- Add `dressing` and `noice` to managed plugins in `ecovim` namespace
+- When switching namespace also set winbar and lualine style
 
 ### 🐞 Fixed
 
-- Change `candy` namespace to `ecovim` namespace
+- Rename `candy` namespace to `ecovim`
 - Change references in `ecovim` namespace from `CandyVim` to `Ecovim`
+- Disable `ecovim` namespace winbar config if `barbecue` is enabled
+- No need for 'set nomore' in initialization
+- Set `timeoutlen` to 300 in `ecovim` namespace
+- Modify `dirname` highlight in `barbecue`
+- Add printfs when removing all configurations and Lazyman
+- Remove some sections from README and refer to website
+- Set clipboard to `unnamed` in all namespaces
+- Disable `ecovim` namespace winbar config if `enable_winbar` is 'none'
+- Do not lazy load Alpha dashboard if enabled
+- Override background of panels in `kanagawa` depending on transparency
 
 ## v3.1.0r1
 
