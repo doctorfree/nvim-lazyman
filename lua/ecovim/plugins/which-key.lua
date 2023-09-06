@@ -138,8 +138,8 @@ local normal_mode_mappings = {
   ['9'] = 'which_key_ignore',
 
   -- single
-  ['='] = { '<cmd>vertical resize +5<CR>',                      'Resize +5' },
-  ['-'] = { '<cmd>vertical resize -5<CR>',                      'Resize +5' },
+  -- ['='] = { '<cmd>vertical resize +5<CR>',                      'Resize +5' },
+  -- ['-'] = { '<cmd>vertical resize -5<CR>',                      'Resize +5' },
   ['v'] = { '<C-W>v',                                           'Split right' },
   ['V'] = { '<C-W>s',                                           'Split below' },
   ['q'] = { 'quicklist' },

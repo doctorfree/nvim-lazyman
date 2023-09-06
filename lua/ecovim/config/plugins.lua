@@ -183,7 +183,7 @@ return {
     lazy = false,
     branch = "master",
     priority = 1000,
-    keys = { { "<leader>c", "<cmd>MonokaiProSelect<cr>", desc = "Select Moonokai pro filter" } },
+    keys = { { "<leader>up", "<cmd>MonokaiProSelect<cr>", desc = "Select Moonokai pro filter" } },
     config = function()
       require("themes.monokai-pro")
     end,
@@ -562,12 +562,12 @@ return {
     config = true,
     keys = {
       {
-        "<LEADER>m",
+        "<LEADER>M",
         "<CMD>MCstart<CR>",
         desc = "multicursor",
       },
       {
-        "<LEADER>m",
+        "<LEADER>M",
         "<CMD>MCvisual<CR>",
         mode = "v",
         desc = "multicursor",

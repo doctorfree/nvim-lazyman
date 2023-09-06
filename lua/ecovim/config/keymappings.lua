@@ -156,6 +156,12 @@ keymap("n", "K", function()
 	end
 end)
 
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
 -- Toggle keymaps
 if settings.enable_winbar == "barbecue" then
   map("n", "<leader>ub", function() require("barbecue.ui").toggle() end, { desc = "Toggle barbecue winbar" })
@@ -228,9 +234,6 @@ map("n", "<leader>uN", function()
   end
 end, { desc = "Toggle number" })
 map("n", "<leader>C", require("free.utils.functions").toggle_colorcolumn, { desc = "Toggle colorcolumn" })
-
--- quit
-map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- highlights under cursor
 if vim.fn.has("nvim-0.9.0") == 1 then
