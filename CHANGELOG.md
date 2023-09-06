@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Add `Lazyplug` terminal command and `,lp` keymap to open Lazyman plugins menu
+
 ### 🐞 Fixed
 
 - Change `candy` namespace to `ecovim` namespace

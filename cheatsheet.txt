@@ -14,6 +14,8 @@ Lazy Update                         | <leader>U
 Lazy Update                         | :Lazy update
 Lazyman Configuration               | <leader>lc
 Lazyman Configuration               | :Lazyconf
+Lazyman Plugins                     | <leader>lp
+Lazyman Plugins                     | :Lazyplug
 Lazyman Help                        | <leader>hl
 Lazyman Help                        | :help Lazyman
 Lazyman Keymaps                     | <leader>hk

@@ -264,6 +264,7 @@ if settings.enable_terminal then
       "IPython",
       "Lazyman",
       "Lazyconf",
+      "Lazyplug",
       "Htop",
     },
     event = "VimEnter",

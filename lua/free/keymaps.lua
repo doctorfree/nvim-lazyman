@@ -33,6 +33,7 @@ if settings.enable_terminal then
   if vim.fn.executable("lazyman") == 1 then
     map("n", "<leader>lm", "<cmd>Lazyman<cr>", { desc = "Lazyman menu" })
     map("n", "<leader>lc", "<cmd>Lazyconf<cr>", { desc = "Lazyman configuration" })
+    map("n", "<leader>lp", "<cmd>Lazyplug<cr>", { desc = "Lazyman plugins" })
   end
   if vim.fn.executable("asciiville") == 1 then
     map("n", "<leader>av", "<cmd>Asciiville<cr>", { desc = "Asciiville" })

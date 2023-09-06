@@ -158,6 +158,13 @@ local normal_mode_mappings = {
     },
   },
 
+  l = {
+    name = 'Lazyman menus',
+    c = { 'Lazyman configuration menu' },
+    m = { 'Lazyman main menu' },
+    p = { 'Lazyman plugins menu' },
+  },
+
   a = {
     name = 'Actions',
     n = { '<cmd>set nonumber!<CR>',                             'Line numbers' },
