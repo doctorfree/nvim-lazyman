@@ -14,6 +14,8 @@ local function isempty(s)
   return s == nil or s == ""
 end
 
+local icons = require("icons").misc
+
 M.filename = function()
   local filename = vim.fn.expand("%:t")
   local file_path = vim.fn.expand("%:p")
@@ -106,25 +108,25 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "dapui_watches" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").watch .. "Watches" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.watch .. "Watches" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_stacks" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").git .. "Stacks" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.git .. "Stacks" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_breakpoints" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").bigCircle .. "Breakpoints" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.bigCircle .. "Breakpoints" .. "%*"
       return
     end
 
     if vim.bo.filetype == "dapui_scopes" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").telescope .. "Scopes" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.telescope .. "Scopes" .. "%*"
       return
     end
 
@@ -134,7 +136,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
           .. "%#"
           .. hl_group
           .. "#"
-          .. require("ecovim.utils.icons").consoleDebug
+          .. icons.consoleDebug
           .. "Debug Console"
           .. "%*"
       return
@@ -142,7 +144,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "dapui_console" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").console .. "Console" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.console .. "Console" .. "%*"
       return
     end
 
@@ -153,7 +155,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
 
     if vim.bo.filetype == "GitBlame" then
       local hl_group = "EcovimSecondary"
-      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("ecovim.utils.icons").git .. "Blame" .. "%*"
+      vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. icons.git .. "Blame" .. "%*"
       return
     end
 

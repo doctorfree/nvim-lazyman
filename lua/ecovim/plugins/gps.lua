@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local icons = require "ecovim.utils.icons"
+local icons = require("icons").misc
 local hl_group = "LineNr"
 
 gps.setup({
