@@ -1,3 +1,4 @@
+local settings = require("configuration")
 local autocmd = vim.api.nvim_create_autocmd
 
 local function augroup(name)
@@ -37,6 +38,23 @@ autocmd({ "VimResized" }, {
     vim.cmd("tabdo wincmd =")
   end,
 })
+
+if settings.enable_winbar == "barbecue" then
+  autocmd({
+    "WinResized",
+    "BufWinEnter",
+    "CursorHold",
+    "InsertLeave",
+    "BufWritePost",
+    "TextChanged",
+    "TextChangedI",
+  }, {
+    group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+    callback = function()
+      require("barbecue.ui").update()
+    end,
+  })
+end
 
 -- go to last loc when opening a buffer
 autocmd("BufReadPost", {

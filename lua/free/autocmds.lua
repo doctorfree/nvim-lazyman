@@ -147,6 +147,23 @@ autocmd("UIEnter", {
   end,
 })
 
+if settings.enable_winbar == "barbecue" then
+  autocmd({
+    "WinResized",
+    "BufWinEnter",
+    "CursorHold",
+    "InsertLeave",
+    "BufWritePost",
+    "TextChanged",
+    "TextChangedI",
+  }, {
+    group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+    callback = function()
+      require("barbecue.ui").update()
+    end,
+  })
+end
+
 if settings.dashboard == "alpha" then
   local alpha_group = vim.api.nvim_create_augroup("alpha_autocmd", { clear = true })
 
