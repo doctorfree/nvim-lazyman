@@ -1,3 +1,4 @@
+-- no longer used, here for reference only
 local dap = require("dap")
 local jdtls_dap = require("jdtls.dap")
 

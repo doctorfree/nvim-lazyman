@@ -136,7 +136,7 @@ get_conf_table() {
     lsp_enabled_table=()
     while read -r val; do
       lsp_enabled_table+=("$val")
-    done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+    done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
     enable_ccls=$(get_conf_value enable_ccls)
     if [ "${enable_ccls}" == "true" ]; then
       lsp_enabled_table+=("ccls")
@@ -150,16 +150,16 @@ get_conf_table() {
       for_enabled_table=()
       while read -r val; do
         for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+      done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
       while read -r val; do
         for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} "external_formatters" 2>&1)
+      done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} "external_formatters" 2>&1)
     else
       if [ "${confname}" == "neorg_notes" ]; then
         neorg_notes_table=()
         while read -r val; do
           neorg_notes_table+=("$val")
-        done < <(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+        done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
       fi
     fi
   fi
@@ -167,7 +167,7 @@ get_conf_table() {
 
 get_conf_value() {
   confname="$1"
-  confval=$(NVIM_APPNAME="nvim-Lazyman" nvim -l ${GET_CONF} ${confname} 2>&1)
+  confval=$(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
   echo "${confval}"
 }
 
@@ -472,12 +472,12 @@ select_theme_style() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+            [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
             mainmenu=1
             break 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+            [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
             ;;
@@ -609,12 +609,12 @@ select_theme() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+            [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
             mainmenu=1
             break 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+            [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
             printf "\nExiting Lazyman Configuration Menu System\n\n"
             exit 3
             ;;
@@ -1808,9 +1808,9 @@ show_plugin_menu() {
           ;;
         "Open Lazyman",* | *,"Open Lazyman" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
-            NVIM_APPNAME="nvim-Lazyman" neovide
+            NVIM_APPNAME="${LAZYMAN}" neovide
           else
-            NVIM_APPNAME="nvim-Lazyman" nvim
+            NVIM_APPNAME="${LAZYMAN}" nvim
           fi
           break
           ;;
@@ -1827,12 +1827,12 @@ show_plugin_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           mainmenu=1
           break 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
           ;;
@@ -1957,12 +1957,12 @@ show_lsp_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           mainmenu=1
           break 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
           ;;
@@ -2094,12 +2094,12 @@ show_formlint_menu() {
           break 2
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           mainmenu=1
           break 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N nvim-Lazyman init
+          [ "${pluginit}" ] && lazyman -N ${LAZYMAN} init
           printf "\nExiting Lazyman Configuration Menu System\n\n"
           exit 3
           ;;
@@ -2404,6 +2404,7 @@ show_conf_menu() {
                   set_conf_value "enable_winbar" "barbecue"
                 fi
               fi
+              rm -rf "${HOME}/.cache/${LAZYMAN}"
               pluginit=1
             fi
           }
