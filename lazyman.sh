@@ -93,7 +93,7 @@ usage() {
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
   printf "\n    -M indicates install and initialize Mini Neovim configuration"
   printf "\n    -O 'name' indicates set Lazyman configuration to namespace 'name'"
-  printf "\n       'name' can be one of: free onno candy"
+  printf "\n       'name' can be one of: free onno ecovim"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
   printf "\n    -v indicates install and initialize LunarVim Neovim configuration"
   printf "\n    -S indicates show Neovim configuration fuzzy selector menu"
@@ -3509,12 +3509,12 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:O:pPqQrRsStTUvV:w:Wx:XyYzZ
       onno|Onno|ONNO)
         ${SUBMENUS} -s namespace onno
         ;;
-      candy|Candy|CANDY)
-        ${SUBMENUS} -s namespace candy
+      ecovim|Ecovim|ECOVIM)
+        ${SUBMENUS} -s namespace ecovim
         ;;
       *)
         printf "\nUnsupported namespace: ${namespace}"
-        printf "\nSupported namespaces: candy free onno\n"
+        printf "\nSupported namespaces: ecovim free onno\n"
         brief_usage
         ;;
     esac

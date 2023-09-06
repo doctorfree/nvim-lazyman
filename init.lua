@@ -41,8 +41,8 @@ vim.g.maplocalleader = settings.maplocalleader
 if settings.namespace == "onno" then
   require("onno.lazy")
 else
-  if settings.namespace == "candy" then
-    require("candy")
+  if settings.namespace == "ecovim" then
+    require("ecovim")
   else
     require("free.config.lazy")
   end

@@ -269,7 +269,7 @@ The following command line options are available with the `lazyman` command:
 
 `-n` : indicates dry run, don't actually do anything, just printf's
 
-`-O name` : indicates set Lazyman configuration to namespace 'name' where 'name' can be one of `candy`, `free`, or `onno
+`-O name` : indicates set Lazyman configuration to namespace 'name' where 'name' can be one of `ecovim`, `free`, or `onno
 
 `-P` : indicates use Packer rather than Lazy to initialize
 
@@ -402,17 +402,17 @@ with settings briefly described here:
 The `Lazyman` Neovim configuration contains three separate and distinct
 configurations. The setting `conf.namespace` in `lua/configuration.lua`
 controls which configuration is active. The supported values for
-`conf.namespace` are `candy`, `free`, and `onno`. The `free` namespace is the
+`conf.namespace` are `ecovim`, `free`, and `onno`. The `free` namespace is the
 same configuration used in previous releases of `Lazyman`. The `onno` namespace
 is based on the `ONNO` configuration with modifications and enhancements to
-integrate this config with `lazyman`. The `candy` namespace is based on the
+integrate this config with `lazyman`. The `ecovim` namespace is based on the
 `Ecovim` configuration with modifications and enhancements to integrate this
 config with `lazyman` along with some useless eye candy.
 
-To use the `candy` namespace, set:
+To use the `ecovim` namespace, set:
 
 ```lua
-conf.namespace = "candy"
+conf.namespace = "ecovim"
 ```
 
 To use the `free` namespace, set:

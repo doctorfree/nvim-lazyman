@@ -917,7 +917,7 @@ show_plugin_menu() {
     use_indentline="${indentline_style}"
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    [ "${use_namespace}" == "candy" ] || {
+    [ "${use_namespace}" == "ecovim" ] || {
       options+=("Ascii Art     [${use_asciiart}]")
       options+=("Bdelete cmd   [${use_bbye}]")
       options+=("Bookmarks     [${use_bookmarks}]")
@@ -925,7 +925,7 @@ show_plugin_menu() {
     options+=("ChatGPT (AI)  [${use_chatgpt}]")
     options+=("Codeium (AI)  [${use_codeium}]")
     options+=("Copilot (AI)  [${use_copilot}]")
-    [ "${use_namespace}" == "candy" ] || {
+    [ "${use_namespace}" == "ecovim" ] || {
       pyver=$(check_python_version)
       [ "${pyver}" == "OK" ] && {
         options+=("GPT4ALL (AI)  [${use_codeexplain}]")
@@ -935,11 +935,11 @@ show_plugin_menu() {
       }
     }
     options+=("NeoAI   (AI)  [${use_neoai}]")
-    [ "${use_namespace}" == "candy" ] && {
+    [ "${use_namespace}" == "ecovim" ] && {
       options+=("Tabnine (AI)  [${use_tabnine}]")
     }
     options+=("Cheatsheets   [${use_cheatsheet}]")
-    [ "${use_namespace}" == "candy" ] || {
+    [ "${use_namespace}" == "ecovim" ] || {
       options+=("Enable coding [${use_coding}]")
       options+=("Compile & Run [${use_compile}]")
       [ "${use_namespace}" == "free" ] && {
@@ -951,14 +951,14 @@ show_plugin_menu() {
         fi
       }
     }
-    [ "${use_namespace}" == "candy" ] && {
+    [ "${use_namespace}" == "ecovim" ] && {
       options+=("Alpha Header  [${use_dashboard_header}]")
     }
     options+=("Dressing UI   [${use_dressing}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Terminal      [${use_terminal}]")
-    [ "${use_namespace}" == "candy" ] || {
+    [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
       options+=("Enable IDE    [${use_ide}]")
       options+=("Indentline [${use_indentline}]")
@@ -2271,7 +2271,7 @@ show_conf_menu() {
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
     options+=("Show Tabline  [${use_showtabline}]")
-    [ "${use_namespace}" == "candy" ] || {
+    [ "${use_namespace}" == "ecovim" ] || {
       options+=("Smart Column  [${use_smartcolumn}]")
       options+=("Global Status [${use_global_statusline}]")
       options+=("Status Line   [${use_statusline}]")
@@ -2387,7 +2387,7 @@ show_conf_menu() {
           break
           ;;
         "Namespace"*,* | *,"Namespace"*)
-          choices=("candy" "free" "onno")
+          choices=("ecovim" "free" "onno")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select configuration namespace (current = ${namespace})  " --layout=reverse --border --exit-0)
           [ "${choice}" == "${namespace}" ] || {
             if [[ " ${choices[*]} " =~ " ${choice} " ]]; then

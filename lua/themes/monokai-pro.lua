@@ -93,7 +93,7 @@ if settings.theme == "monokai-pro" then
     require("monokai-pro").setup(mopts)
     vim.cmd([[colorscheme monokai-pro]])
   end, { desc = "Toggle Transparency" })
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

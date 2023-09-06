@@ -45,7 +45,7 @@ if settings.theme == "everforest" then
     require("everforest").setup(opts)
     vim.cmd([[colorscheme everforest]])
   end, { desc = "Toggle Transparency" })
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

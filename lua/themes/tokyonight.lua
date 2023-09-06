@@ -97,7 +97,7 @@ if settings.theme == "tokyonight" then
     })
     set_colorscheme(style)
   end, { desc = "Toggle Transparency" })
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

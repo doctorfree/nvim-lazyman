@@ -78,7 +78,7 @@ if settings.theme == "tundra" then
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "DiagnosticHint" })
   end
   require("util").map("n", "<leader>ut", ":Tundra toggle_transparency<CR>", { desc = "Toggle Transparency" })
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

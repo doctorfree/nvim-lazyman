@@ -187,7 +187,7 @@ if settings.theme == "dracula" then
     require("dracula").setup(dopts)
     vim.cmd([[colorscheme dracula]])
   end, { desc = "Toggle Transparency" })
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

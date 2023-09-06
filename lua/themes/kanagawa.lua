@@ -77,7 +77,7 @@ if settings.theme == "kanagawa" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "NvimTreeSymlink" })
     vim.api.nvim_set_hl(0, "AlphaFooter", { link = "NvimTreeSpecialFile" })
   end
-  if settings.namespace == "candy" then
-    require("candy.plugins.highlights")
+  if settings.namespace == "ecovim" then
+    require("ecovim.plugins.highlights")
   end
 end

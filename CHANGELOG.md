@@ -6,6 +6,9 @@
 
 ### 🐞 Fixed
 
+- Change `candy` namespace to `ecovim` namespace
+- Change references in `ecovim` namespace from `CandyVim` to `Ecovim`
+
 ## v3.1.0r1
 
 ### ⚡️ Added

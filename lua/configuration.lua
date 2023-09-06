@@ -1,10 +1,10 @@
 local conf = {}
 
--- Namespace to use, available namespaces are "candy", free", and "onno"
+-- Namespace to use, available namespaces are "ecovim", free", and "onno"
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
-conf.namespace = "candy"
+conf.namespace = "ecovim"
 --
 -- THEME CONFIGURATION
 -- Available themes:

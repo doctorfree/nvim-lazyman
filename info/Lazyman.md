@@ -1,6 +1,6 @@
 ## Lazyman Neovim Configuration Information
 
-The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides three separate and distinct namespaces ('candy', 'free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'.
+The Lazyman Neovim configuration serves as a reference implementation of a configuration with multiple namespaces and managed via a command line menu interface. Currently the Lazyman Neovim configuration provides three separate and distinct namespaces ('ecovim', 'free' and 'onno'). To switch between namespaces, set the 'namespace' value in 'lua/configuration.lua'.
 
 - Install and initialize: **`Installed and initialized by default`**
 - Configuration category: [Default](https://lazyman.dev/features)
