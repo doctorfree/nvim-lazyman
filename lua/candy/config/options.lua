@@ -2,7 +2,7 @@ local settings = require("configuration")
 local utils = require('candy.utils')
 
 local options = {
-  clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else
+  clipboard      = "unnamed",               --- Copy-paste between vim and everything else
   cmdheight      = 0,                       --- Give more space for displaying messages
   completeopt    = "menu,menuone,noselect", --- Better autocompletion
   cursorline     = true,                    --- Highlight of current line

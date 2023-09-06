@@ -38,7 +38,7 @@ vim.g.maplocalleader = settings.maplocalleader
 vim.treesitter.language.register('markdown', 'text')
 
 o.autowrite = true -- Enable auto write
-o.clipboard = "unnamedplus" -- or "unnamedplus"
+o.clipboard = "unnamed" -- or "unnamedplus"
 o.completeopt = "menu,menuone,noselect"
 -- o.conceallevel = 3 -- Hide * markup for bold and italic
 o.conceallevel = 0 -- so that `` is visible in markdown files
