@@ -25,7 +25,7 @@ require("barbecue").setup({
     ellipsis = { fg = "#737aa2" },
     separator = { fg = "#737aa2" },
     modified = { fg = "#737aa2" },
-    dirname = { fg = "#737aa2" },
+    dirname = { fg = "#488dff" },
     basename = { bold = true },
     context = {},
     context_file = { fg = "#ac8fe4" },
