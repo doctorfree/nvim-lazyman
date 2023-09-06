@@ -1,5 +1,4 @@
 local utils = require("free.utils.functions")
-local Util = require("lazy.core.util")
 
 local cfg = {}
 

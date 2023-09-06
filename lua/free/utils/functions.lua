@@ -1,6 +1,3 @@
-local cmd = vim.cmd
-local fn = vim.fn
-
 local cfg = {}
 
 cfg.notify = function(message, level, title)
