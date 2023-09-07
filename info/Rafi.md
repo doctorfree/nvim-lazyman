@@ -128,272 +128,272 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Toggle Fold | <CR> |  |
-| Clear Search Highlight | <Esc> | <Cmd>noh<CR> |
-| Open Location List |  a |  |
-| Open Quickfix |  q |  |
-| Dictionary |  ? | <Cmd>silent !open dict://<lt>cword><CR> |
-| Terminal (cwd) |  tT |  |
-| Terminal (root dir) |  tt |  |
-| Lazygit (cwd) |  tG |  |
-| Lazygit (root dir) |  tg |  |
-| Append Modeline |  ml |  |
-| Show Treesitter Node |  ui |  |
-| Toggle Wrap |  uw |  |
-| Hide Search Highlight |  uu | <Cmd>nohlsearch<CR> |
-| Toggle Whitespace Symbols |  uo | <Cmd>setlocal nolist!<CR> |
-| Toggle Line Numbers |  ul | <Cmd>setlocal nonumber!<CR> |
-| Toggle Spellcheck |  us | <Cmd>setlocal spell!<CR> |
-| Toggle format on Save |  uf |  |
-| Save |  w | <Cmd>write<CR> |
-| Change Local Directory |  cd |  |
-| Redraw / clear hlsearch / diff update |  ur | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
-| Erase Whitespace |  cw | <Cmd>lua MiniTrailspace.trim()<CR> |
-| Duplicate line |  d | m`""Y""P`` |
-| Move line down |  j | <Cmd>move+<CR>== |
-| Move line up |  k | <Cmd>move-2<CR>== |
-| Yank absolute path |  Y |  |
-| Yank relative path |  y |  |
-| Visual Mode |    | V |
-| Open Lazy UI |  l | <Cmd>Lazy<CR> |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Undo Tree |  gu |  |
-| Grep cursor word |  gg |  |
-| Find file |  gf |  |
-| Find symbol |  gt |  |
-| Git bcommits range |  gc |  |
-| Git stashes |  gh |  |
-| Git buffer commits |  gL |  |
-| Git commits |  gl |  |
-| Git branches |  gr |  |
-| Git status |  gs |  |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme |  uC |  |
-| Colorscheme |  sc |  |
-| Word |  sw |  |
-| Man Pages |  sm |  |
-| Key Maps |  sk |  |
-| Help Pages |  sh |  |
-| Workspace diagnostics |  sD |  |
-| Document diagnostics |  sd |  |
-| Buffer find |  / |  |
-| Git open in browser |  go |  |
-| Mason |  mm |  |
-| Git messenger |  gm |  |
-|  |  v |  |
-| Git blame |  gb |  |
-| Git blame (window) |  gB |  |
-| Zk New |  zn |  |
-| Zk Links |  zl |  |
-| Zk Backlinks |  zb |  |
-| Zk Search |  zf |  |
-| Zk Tags |  zt |  |
-| Zk Notes |  zo |  |
-| Neogen Comment |  cc |  |
-| Spectre |  sp |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-|  |  ue |  |
-| Duplicate Paragraph |  cp | yap<S-}>p |
-| Execute HTTP request |  mh |  |
-| Select VirtualEnv |  cv |  |
-| Symbols Outline |  o |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Workspace Diagnostics |  r |  |
-| Document Diagnostics |  e |  |
-| Location List (Trouble) |  xL |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Highlight word |  mt |  |
-| Dismiss all Notifications |  un |  |
-| Delete Buffer |  bd |  |
-| Line diff reset |  mdr |  |
-| Line diff show |  mds |  |
-| Diff View |  gv |  |
-| Diff File |  gd |  |
-| Zen Mode |  zz |  |
-| Neogit |  mg |  |
-| Toggle structure panel |  tf |  |
-| Execute Shell Command | ! | :! |
-|  | # | g# |
-| Nvim builtin | & | :&&<CR> |
-|  | * | g* |
-| Pick window | - |  |
-| Content-aware menu | ;c |  |
-| todo | ;dt |  |
-| Workspace symbols | ;t |  |
-| Neovim options | ;o |  |
-| Marks | ;m |  |
-| Jump list | ;j |  |
-| Highlights | ;h |  |
-| Buffers | ;b |  |
-| Grep | ;g |  |
-| Find files | ;f |  |
-| Pickers | ;R |  |
-| Resume last | ;r |  |
-| Zoxide (MRU) | ;z |  |
-| Zk notes | ;w |  |
-| Thesaurus | ;k |  |
-| Plugins | ;n |  |
-| Code actions | ;da |  |
-| References | ;dr |  |
-| Implementations | ;di |  |
-| Definitions | ;dd |  |
-| Search history | ;/ |  |
-| Commands | ;: |  |
-| Command history | ;; |  |
-| Old files | ;x |  |
-| Sessions | ;s |  |
-| Spell suggest | ;u |  |
-| Registers | ;v |  |
-| Explorer NeoTree Reveal | ;a |  |
-| Explorer NeoTree Toggle | ;e |  |
-| F | F |  |
-| Leap from windows | SS |  |
-| T | T |  |
-| Nvim builtin | Y | y$ |
-| Previous Whitespace | [s |  |
-| Previous Loclist Item | [a | <Cmd>lprev<CR> |
-| Previous todo comment | [t |  |
-| Prev Reference | [[ |  |
-| Previous trouble/quickfix item | [q |  |
-| Next Whitespace | ]s |  |
-| Next Loclist Item | ]a | <Cmd>lnext<CR> |
-| Next todo comment | ]t |  |
-| Next Reference | ]] |  |
-| Next trouble/quickfix item | ]q |  |
-| Change Surrounding Function | csf |  |
-| Replace surrounding | cs |  |
-| Delete Surrounding Function | dsf |  |
-| Delete surrounding | ds |  |
-| f | f |  |
-| Jump to older buffer | g<C-O> |  |
-| Jump to newer buffer | g<C-I> |  |
-| Paste Command | g! | :put=execute('')<Left><Left> |
-| Select Paste | gpp | '`['.strpart(getregtype(), 0, 1).'`]' |
-|  | g# | # |
-|  | g* | * |
-|  | gl | g$ |
-|  | gh | g^ |
-|  | gpd |  |
-|  | gpy |  |
-|  | gpr |  |
-|  | gpi |  |
-| Move to top edge | gk |  |
-| Move to bottom edge | gj |  |
-| Highlight surrounding | gzh |  |
-| Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Find right surrounding | gzf |  |
-|  | j | v:count == 0 ? 'gj' : 'j' |
-|  | k | v:count == 0 ? 'gk' : 'k' |
-| Marks from all opened buffers | m/ |  |
-| Toggle background dark/light | sh |  |
-| Delete buffer and open new | sx |  |
-| Maximize | sz | <Cmd>vertical resize | resize | normal! ze<CR> |
-| Quit | sq | <Cmd>quit<CR> |
-| Close other windows | so | <Cmd>only<CR> |
-| New tab | st | <Cmd>tabnew<CR> |
-| Split window vertically | sg | <Cmd>vsplit<CR> |
-| Split window horizontally | sv | <Cmd>split<CR> |
-| Buffer delete | sd | <Cmd>bdelete<CR> |
-| Close window | sc | <Cmd>close<CR> |
-| Alternate buffer | sb | <Cmd>buffer#<CR> |
-| Leap forward to | ss |  |
-| Leap backward to | sS |  |
-| Pick window | sp |  |
-| Swap picked window | sw |  |
-| Join arguments | sj |  |
-| Split arguments | sk |  |
-| Add surrounding | sa |  |
-| t | t |  |
-|  | zh | z4h |
-|  | zl | z4l |
-| Swap windows | <C-X> | <C-W>x |
-| Tab Move Forwards | <M-}> | <Cmd>+tabmove<CR> |
-| Tab Move Backwards | <M-{> | <Cmd>-tabmove<CR> |
-| Previous Tab | <C-S-Tab> | <Cmd>tabprevious<CR> |
-| Next Tab | <C-Tab> | <Cmd>tabnext<CR> |
-| Next Tab | <M-]> | <Cmd>tabnext<CR> |
-| Previous Tab | <M-[> | <Cmd>tabprevious<CR> |
-| Previous Tab | <M-k> | <Cmd>tabprevious<CR> |
-| Next Tab | <M-j> | <Cmd>tabnext<CR> |
-| Save | <C-S> | <Cmd>write<CR> |
-| Jump to Paren | <BS> | % |
-| Macro Prefix | <C-Q> | q |
-| Focus Fold | <S-CR> | zMzv |
-| Jump to left pane | <C-H> | <Cmd>TmuxNavigateLeft<CR> |
-| Jump to upper pane | <C-K> | <Cmd>TmuxNavigateUp<CR> |
-| Jump to right pane | <C-L> | <Cmd>TmuxNavigateRight<CR> |
-| Jump to lower pane | <C-J> | <Cmd>TmuxNavigateDown<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-| Scroll forward | <C-F> |  |
-| Scroll backward | <C-B> |  |
-| Toggle terminal | <C-_> |  |
+| Toggle Fold | `<CR>` |  |
+| Clear Search Highlight | `<Esc>` | `<Cmd>noh<CR>` |
+| Open Location List | ` a` |  |
+| Open Quickfix | ` q` |  |
+| Dictionary | ` ?` | `<Cmd>silent !open dict://<lt>cword><CR>` |
+| Terminal (cwd) | ` tT` |  |
+| Terminal (root dir) | ` tt` |  |
+| Lazygit (cwd) | ` tG` |  |
+| Lazygit (root dir) | ` tg` |  |
+| Append Modeline | ` ml` |  |
+| Show Treesitter Node | ` ui` |  |
+| Toggle Wrap | ` uw` |  |
+| Hide Search Highlight | ` uu` | `<Cmd>nohlsearch<CR>` |
+| Toggle Whitespace Symbols | ` uo` | `<Cmd>setlocal nolist!<CR>` |
+| Toggle Line Numbers | ` ul` | `<Cmd>setlocal nonumber!<CR>` |
+| Toggle Spellcheck | ` us` | `<Cmd>setlocal spell!<CR>` |
+| Toggle format on Save | ` uf` |  |
+| Save | ` w` | `<Cmd>write<CR>` |
+| Change Local Directory | ` cd` |  |
+| Redraw / clear hlsearch / diff update | ` ur` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| Erase Whitespace | ` cw` | `<Cmd>lua MiniTrailspace.trim()<CR>` |
+| Duplicate line | ` d` | `m`""Y""P``` |
+| Move line down | ` j` | `<Cmd>move+<CR>==` |
+| Move line up | ` k` | `<Cmd>move-2<CR>==` |
+| Yank absolute path | ` Y` |  |
+| Yank relative path | ` y` |  |
+| Visual Mode | `  ` | `V` |
+| Open Lazy UI | ` l` | `<Cmd>Lazy<CR>` |
+| Symbols Outline | ` o` |  |
+| Git open in browser | ` go` |  |
+| Zen Mode | ` zz` |  |
+| Git messenger | ` gm` |  |
+| Document Diagnostics (Trouble) | ` xx` |  |
+| Workspace Diagnostics | ` r` |  |
+| Document Diagnostics | ` e` |  |
+| Location List (Trouble) | ` xL` |  |
+| Quickfix List (Trouble) | ` xQ` |  |
+| Workspace Diagnostics (Trouble) | ` xX` |  |
+| Git blame (window) | ` gB` |  |
+| Git blame | ` gb` |  |
+| Neogit | ` mg` |  |
+| Neogen Comment | ` cc` |  |
+| Workspace diagnostics | ` sD` |  |
+| Document diagnostics | ` sd` |  |
+| Buffer find | ` /` |  |
+| Goto Symbol | ` ss` |  |
+| Colorscheme | ` uC` |  |
+| Colorscheme | ` sc` |  |
+| Word | ` sw` |  |
+| Goto Symbol (Workspace) | ` sS` |  |
+| Git status | ` gs` |  |
+| Git branches | ` gr` |  |
+| Git commits | ` gl` |  |
+| Git buffer commits | ` gL` |  |
+| Git stashes | ` gh` |  |
+| Git bcommits range | ` gc` |  |
+| Find symbol | ` gt` |  |
+| Find file | ` gf` |  |
+| Grep cursor word | ` gg` |  |
+| Man Pages | ` sm` |  |
+| Key Maps | ` sk` |  |
+| Help Pages | ` sh` |  |
+| Undo Tree | ` gu` |  |
+| Spectre | ` sp` |  |
+| Todo/Fix/Fixme | ` sT` |  |
+| Todo | ` st` |  |
+| Todo (Trouble) | ` xt` |  |
+| Todo/Fix/Fixme (Trouble) | ` xT` |  |
+| Dismiss all Notifications | ` un` |  |
+| Toggle structure panel | ` tf` |  |
+|  | ` ue` |  |
+| Line diff reset | ` mdr` |  |
+| Line diff show | ` mds` |  |
+| Noice All | ` sna` |  |
+| Noice History | ` snh` |  |
+| Noice Last Message | ` snl` |  |
+| Diff View | ` gv` |  |
+| Diff File | ` gd` |  |
+| Zk Links | ` zl` |  |
+| Zk Backlinks | ` zb` |  |
+| Zk Search | ` zf` |  |
+| Zk Tags | ` zt` |  |
+| Zk Notes | ` zo` |  |
+| Zk New | ` zn` |  |
+| Mason | ` mm` |  |
+|  | ` v` |  |
+| Duplicate Paragraph | ` cp` | `yap<S-}>p` |
+| Highlight word | ` mt` |  |
+| Execute HTTP request | ` mh` |  |
+| Select VirtualEnv | ` cv` |  |
+| Delete Buffer | ` bd` |  |
+| Execute Shell Command | `!` | `:!` |
+|  | `#` | `g#` |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `*` | `g*` |
+| Pick window | `-` |  |
+| Content-aware menu | `;c` |  |
+| Search history | `;/` |  |
+| Commands | `;:` |  |
+| Command history | `;;` |  |
+| Old files | `;x` |  |
+| Sessions | `;s` |  |
+| Spell suggest | `;u` |  |
+| Registers | `;v` |  |
+| Workspace symbols | `;t` |  |
+| Neovim options | `;o` |  |
+| Marks | `;m` |  |
+| Code actions | `;da` |  |
+| References | `;dr` |  |
+| Implementations | `;di` |  |
+| Definitions | `;dd` |  |
+| Jump list | `;j` |  |
+| Highlights | `;h` |  |
+| Buffers | `;b` |  |
+| Grep | `;g` |  |
+| Find files | `;f` |  |
+| Pickers | `;R` |  |
+| Resume last | `;r` |  |
+| Plugins | `;n` |  |
+| Thesaurus | `;k` |  |
+| Zk notes | `;w` |  |
+| Zoxide (MRU) | `;z` |  |
+| todo | `;dt` |  |
+| Explorer NeoTree Toggle | `;e` |  |
+| Explorer NeoTree Reveal | `;a` |  |
+| F | `F` |  |
+| Leap from windows | `SS` |  |
+| T | `T` |  |
+| Nvim builtin | `Y` | `y$` |
+| Previous Whitespace | `[s` |  |
+| Previous Loclist Item | `[a` | `<Cmd>lprev<CR>` |
+| Previous trouble/quickfix item | `[q` |  |
+| Previous todo comment | `[t` |  |
+| Prev Reference | `[[` |  |
+| Next Whitespace | `]s` |  |
+| Next Loclist Item | `]a` | `<Cmd>lnext<CR>` |
+| Next trouble/quickfix item | `]q` |  |
+| Next todo comment | `]t` |  |
+| Next Reference | `]]` |  |
+| Change Surrounding Function | `csf` |  |
+| Replace surrounding | `cs` |  |
+| Delete Surrounding Function | `dsf` |  |
+| Delete surrounding | `ds` |  |
+| f | `f` |  |
+| Jump to older buffer | `g<C-O>` |  |
+| Jump to newer buffer | `g<C-I>` |  |
+| Paste Command | `g!` | `:put=execute('')<Left><Left>` |
+| Select Paste | `gpp` | `'`['.strpart(getregtype(), 0, 1).'`]'` |
+|  | `g#` | `#` |
+|  | `g*` | `*` |
+|  | `gl` | `g$` |
+|  | `gh` | `g^` |
+| Move to top edge | `gk` |  |
+| Move to bottom edge | `gj` |  |
+|  | `gpr` |  |
+|  | `gpy` |  |
+|  | `gpd` |  |
+|  | `gpi` |  |
+| Find left surrounding | `gzF` |  |
+| Find right surrounding | `gzf` |  |
+| Update `MiniSurround.config.n_lines` | `gzn` |  |
+| Highlight surrounding | `gzh` |  |
+|  | `j` | `v:count == 0 ? 'gj' : 'j'` |
+|  | `k` | `v:count == 0 ? 'gk' : 'k'` |
+| Marks from all opened buffers | `m/` |  |
+| Toggle background dark/light | `sh` |  |
+| Delete buffer and open new | `sx` |  |
+| Maximize | `sz` | `<Cmd>vertical resize | resize | normal! ze<CR>` |
+| Quit | `sq` | `<Cmd>quit<CR>` |
+| Close other windows | `so` | `<Cmd>only<CR>` |
+| New tab | `st` | `<Cmd>tabnew<CR>` |
+| Split window vertically | `sg` | `<Cmd>vsplit<CR>` |
+| Split window horizontally | `sv` | `<Cmd>split<CR>` |
+| Buffer delete | `sd` | `<Cmd>bdelete<CR>` |
+| Close window | `sc` | `<Cmd>close<CR>` |
+| Alternate buffer | `sb` | `<Cmd>buffer#<CR>` |
+| Leap forward to | `ss` |  |
+| Leap backward to | `sS` |  |
+| Split arguments | `sk` |  |
+| Join arguments | `sj` |  |
+| Add surrounding | `sa` |  |
+| Swap picked window | `sw` |  |
+| Pick window | `sp` |  |
+| t | `t` |  |
+|  | `zh` | `z4h` |
+|  | `zl` | `z4l` |
+| Swap windows | `<C-X>` | `<C-W>x` |
+| Tab Move Forwards | `<M-}>` | `<Cmd>+tabmove<CR>` |
+| Tab Move Backwards | `<M-{>` | `<Cmd>-tabmove<CR>` |
+| Previous Tab | `<C-S-Tab>` | `<Cmd>tabprevious<CR>` |
+| Next Tab | `<C-Tab>` | `<Cmd>tabnext<CR>` |
+| Next Tab | `<M-]>` | `<Cmd>tabnext<CR>` |
+| Previous Tab | `<M-[>` | `<Cmd>tabprevious<CR>` |
+| Previous Tab | `<M-k>` | `<Cmd>tabprevious<CR>` |
+| Next Tab | `<M-j>` | `<Cmd>tabnext<CR>` |
+| Save | `<C-S>` | `<Cmd>write<CR>` |
+| Jump to Paren | `<BS>` | `%` |
+| Macro Prefix | `<C-Q>` | `q` |
+| Focus Fold | `<S-CR>` | `zMzv` |
+| Jump to lower pane | `<C-J>` | `<Cmd>TmuxNavigateDown<CR>` |
+| Jump to left pane | `<C-H>` | `<Cmd>TmuxNavigateLeft<CR>` |
+| Jump to upper pane | `<C-K>` | `<Cmd>TmuxNavigateUp<CR>` |
+| Jump to right pane | `<C-L>` | `<Cmd>TmuxNavigateRight<CR>` |
+|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
+| Toggle terminal | `<C-_>` |  |
+| Scroll backward | `<C-B>` |  |
+| Scroll forward | `<C-F>` |  |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Indent Left | <Tab> | >gv| |
-| Duplicate selection |  d | ""Y""Pgv |
-| Move selection down |  j | :move'>+<CR>gv=gv |
-| Move selection up |  k | :move'<lt>-2<CR>gv=gv |
-| Exit Visual Mode |    | <Esc> |
-| Spectre Word |  sp |  |
-| Git open in browser |  go |  |
-| Grep cursor word |  gg |  |
-| Git bcommits range |  gc |  |
-|  |  v |  |
-| Zk Match |  zf |  |
-| Highlight word |  mt |  |
-| Line diff |  mdf |  |
-| Line diff add |  mda |  |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-| Code actions | ;da |  |
-| Indent Right and Re-select | <lt> | <lt>gv |
-| Indent Left and Re-select | > | >gv| |
-| Blockwise Append | A |  |
-| F | F |  |
-| Blockwise Insert | I |  |
-| Paste In-place | P | P:let @+=@0<CR>:let @"=@0<CR> |
-| Leap from windows | SS |  |
-| T | T |  |
-| Shrink selection | V |  |
-| f | f |  |
-| Move to top edge | gk |  |
-| Move to bottom edge | gj |  |
-| Blockwise Insert | gI |  |
-|  | j | v:count == 0 ? 'gj' : 'j' |
-|  | k | v:count == 0 ? 'gk' : 'k' |
-| Paste | p | p:let @+=@0<CR>:let @"=@0<CR> |
-| Substitute Within Selection | sg | :s//gc<Left><Left><Left> |
-| Split arguments | sk |  |
-| Join arguments | sj |  |
-| Leap backward to | sS |  |
-| Leap forward to | ss |  |
-| Add surrounding | sa |  |
-| t | t |  |
-| Increment selection | v |  |
-| Save | <C-S> | <Cmd>write<CR> |
-| Replace Selection | <C-R> | :<C-U>%s/\V<C-R>=v:lua.require'rafi.lib.edit'.get_visual_selection()<CR>//gc<Left><Left><Left> |
-| Jump to Paren | <BS> | % |
-| Indent Right | <S-Tab> | <lt>gv |
+| Indent Left | `<Tab>` | `>gv|` |
+| Duplicate selection | ` d` | `""Y""Pgv` |
+| Move selection down | ` j` | `:move'>+<CR>gv=gv` |
+| Move selection up | ` k` | `:move'<lt>-2<CR>gv=gv` |
+| Exit Visual Mode | `  ` | `<Esc>` |
+| Grep cursor word | ` gg` |  |
+| Git bcommits range | ` gc` |  |
+| Line diff | ` mdf` |  |
+| Line diff add | ` mda` |  |
+| Git open in browser | ` go` |  |
+|  | ` v` |  |
+| Zk Match | ` zf` |  |
+| Highlight word | ` mt` |  |
+| Spectre Word | ` sp` |  |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+| Code actions | `;da` |  |
+| Indent Right and Re-select | `<lt>` | `<lt>gv` |
+| Indent Left and Re-select | `>` | `>gv|` |
+| Blockwise Append | `A` |  |
+| F | `F` |  |
+| Blockwise Insert | `I` |  |
+| Paste In-place | `P` | `P:let @+=@0<CR>:let @"=@0<CR>` |
+| Leap from windows | `SS` |  |
+| T | `T` |  |
+| Shrink selection | `V` |  |
+| f | `f` |  |
+| Blockwise Insert | `gI` |  |
+| Move to top edge | `gk` |  |
+| Move to bottom edge | `gj` |  |
+|  | `j` | `v:count == 0 ? 'gj' : 'j'` |
+|  | `k` | `v:count == 0 ? 'gk' : 'k'` |
+| Paste | `p` | `p:let @+=@0<CR>:let @"=@0<CR>` |
+| Substitute Within Selection | `sg` | `:s//gc<Left><Left><Left>` |
+| Join arguments | `sj` |  |
+| Split arguments | `sk` |  |
+| Leap backward to | `sS` |  |
+| Leap forward to | `ss` |  |
+| Add surrounding | `sa` |  |
+| t | `t` |  |
+| Increment selection | `v` |  |
+| Save | `<C-S>` | `<Cmd>write<CR>` |
+| Replace Selection | `<C-R>` | `:<C-U>%s/\V<C-R>=v:lua.require'rafi.lib.edit'.get_visual_selection()<CR>//gc<Left><Left><Left>` |
+| Jump to Paren | `<BS>` | `%` |
+| Indent Right | `<S-Tab>` | `<lt>gv` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| F | F |  |
-| Leap from windows | SS |  |
-| T | T |  |
-| f | f |  |
-| Leap backward to | sS |  |
-| Leap forward to | ss |  |
-| t | t |  |
+| F | `F` |  |
+| Leap from windows | `SS` |  |
+| T | `T` |  |
+| f | `f` |  |
+| Leap backward to | `sS` |  |
+| Leap forward to | `ss` |  |
+| t | `t` |  |

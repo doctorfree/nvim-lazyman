@@ -80,172 +80,172 @@ Personal Neovim configuration of Kristijan Husak, author of several Neovim plugi
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | # | #N |
-| Nvim builtin | & | :&&<CR> |
-|  | * | *N |
-|  | + | <C-W>5> |
-|  | ,Q |  |
-|  | ,q |  |
-|  | ,T |  |
-|  | ,db | :silent w | :silent %bd | e#<CR> |
-|  | ,] | <C-W>v<C-]> |
-|  | ,<Tab> | <C-^> |
-|  | ,h | viw"0p |
-|  | ,p | "0p |
-|  | ,  | :noh<CR> |
-|  | ,v | <C-W>v |
-|  | ,s | :w<CR> |
-|  | ,F | :call v:lua.kris.search.run(expand("<lt>cword>"))<CR> |
-|  | ,f | :call v:lua.kris.search.run("")<CR> |
-|  | ,hf | :NvimTreeToggle<CR> |
-|  | ,n | :NvimTreeToggle<CR> |
-|  | ,df | :Git push --force-with-lease<CR> |
-|  | ,dp | :Git push<CR> |
-|  | ,da |  |
-|  | ,dc |  |
-|  | ,dh | :DiffviewFileHistory %<CR> |
-|  | ,do |  |
-|  | ,G | :vert G<CR> |
-|  | ,lt |  |
-|  | ,lT |  |
-|  | ,g |  |
-|  | ,m |  |
-|  | ,t |  |
-|  | ,b |  |
-|  | ,yg |  |
-|  | ,oc |  |
-|  | ,oa |  |
-|  | ,c |  |
-|  | F |  |
-|  | N | Nzz |
-|  | Q | <C-Z> |
-|  | R |  |
-|  | T |  |
-| Nvim builtin | Y | y$ |
-|  | [B | :bfirst<CR> |
-|  | [b | :bprevious<CR> |
-|  | [T | :tfirst<CR> |
-|  | [t | :tprevious<CR> |
-|  | [L | :lopen |
-|  | [e | :lprevious<CR> |
-|  | [Q | :copen<CR> |
-|  | [q | :cprevious<CR> |
-|  | ]B | :blast<CR> |
-|  | ]b | :bnext<CR> |
-|  | ]T | :tlast<CR> |
-|  | ]t | :tnext<CR> |
-|  | ]L | :lclose<CR> |
-|  | ]e | :lnext<CR> |
-|  | ]Q | :cclose<CR> |
-|  | ]q | :cnext<CR> |
-|  | _ | <C-W>5<lt> |
-|  | f |  |
-|  | gF |  |
-|  | gx |  |
-|  | gs | :%s/ |
-|  | gp | '`[' . strpart(getregtype(), 0, 1) . '`]' |
-|  | g# | g#N |
-|  | g* | g*N |
-|  | gJ | :TSJJoin<CR> |
-|  | gS | :TSJSplit<CR> |
-|  | gcip |  |
-|  | j | gj |
-|  | k | gk |
-|  | n | nzz |
-|  | p | p`] |
-|  | t |  |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
-|  | <C-H> | <C-\><C-N><C-W>h |
-|  | <C-S> | :w<CR> |
-|  | <C-Y> |  |
-|  | <C-P> |  |
-|  | <F1> |  |
-|  | <F5> |  |
-|  | <C-L> | <C-\><C-N><C-W>l |
+|  | `#` | `#N` |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `*` | `*N` |
+|  | `+` | `<C-W>5>` |
+|  | `,Q` |  |
+|  | `,q` |  |
+|  | `,T` |  |
+|  | `,db` | `:silent w | :silent %bd | e#<CR>` |
+|  | `,]` | `<C-W>v<C-]>` |
+|  | `,<Tab>` | `<C-^>` |
+|  | `,h` | `viw"0p` |
+|  | `,p` | `"0p` |
+|  | `, ` | `:noh<CR>` |
+|  | `,v` | `<C-W>v` |
+|  | `,s` | `:w<CR>` |
+|  | `,F` | `:call v:lua.kris.search.run(expand("<lt>cword>"))<CR>` |
+|  | `,f` | `:call v:lua.kris.search.run("")<CR>` |
+|  | `,lt` |  |
+|  | `,lT` |  |
+|  | `,g` |  |
+|  | `,m` |  |
+|  | `,t` |  |
+|  | `,b` |  |
+|  | `,df` | `:Git push --force-with-lease<CR>` |
+|  | `,dp` | `:Git push<CR>` |
+|  | `,da` |  |
+|  | `,dc` |  |
+|  | `,dh` | `:DiffviewFileHistory %<CR>` |
+|  | `,do` |  |
+|  | `,yg` |  |
+|  | `,hf` | `:NvimTreeToggle<CR>` |
+|  | `,n` | `:NvimTreeToggle<CR>` |
+|  | `,G` | `:vert G<CR>` |
+|  | `,c` |  |
+|  | `,oc` |  |
+|  | `,oa` |  |
+|  | `F` |  |
+|  | `N` | `Nzz` |
+|  | `Q` | `<C-Z>` |
+|  | `R` |  |
+|  | `T` |  |
+| Nvim builtin | `Y` | `y$` |
+|  | `[B` | `:bfirst<CR>` |
+|  | `[b` | `:bprevious<CR>` |
+|  | `[T` | `:tfirst<CR>` |
+|  | `[t` | `:tprevious<CR>` |
+|  | `[L` | `:lopen` |
+|  | `[e` | `:lprevious<CR>` |
+|  | `[Q` | `:copen<CR>` |
+|  | `[q` | `:cprevious<CR>` |
+|  | `]B` | `:blast<CR>` |
+|  | `]b` | `:bnext<CR>` |
+|  | `]T` | `:tlast<CR>` |
+|  | `]t` | `:tnext<CR>` |
+|  | `]L` | `:lclose<CR>` |
+|  | `]e` | `:lnext<CR>` |
+|  | `]Q` | `:cclose<CR>` |
+|  | `]q` | `:cnext<CR>` |
+|  | `_` | `<C-W>5<lt>` |
+|  | `f` |  |
+|  | `gF` |  |
+|  | `gx` |  |
+|  | `gs` | `:%s/` |
+|  | `gp` | `'`[' . strpart(getregtype(), 0, 1) . '`]'` |
+|  | `g#` | `g#N` |
+|  | `g*` | `g*N` |
+|  | `gJ` | `:TSJJoin<CR>` |
+|  | `gS` | `:TSJSplit<CR>` |
+|  | `gcip` |  |
+|  | `j` | `gj` |
+|  | `k` | `gk` |
+|  | `n` | `nzz` |
+|  | `p` | `p`]` |
+|  | `t` |  |
+|  | `<C-K>` | `<C-W>k` |
+|  | `<C-J>` | `<C-W>j` |
+|  | `<C-H>` | `<C-\><C-N><C-W>h` |
+|  | `<C-S>` | `:w<CR>` |
+|  | `<C-Y>` |  |
+|  | `<C-P>` |  |
+|  | `<F1>` |  |
+|  | `<F5>` |  |
+|  | `<C-L>` | `<C-\><C-N><C-W>l` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | <Tab> | >gv |
-|  | # | "yy?\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N |
-|  | * | "yy/\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N |
-|  | ,p | "0p |
-|  | ,F | :<C-U>call v:lua.kris.search.run("", 1)<CR> |
-|  | ,kS | :<C-U>call v:lua.kris.calculate_selection(v:true)<CR> |
-|  | ,ks | :<C-U>call v:lua.kris.calculate_selection()<CR> |
-|  | ,yg |  |
-|  | ,c |  |
-|  | F |  |
-|  | J | :m '>+1<CR>gv=gv |
-|  | K | :m '<lt>-2<CR>gv=gv |
-|  | Q | <C-Z> |
-|  | T |  |
-|  | a# | :<C-U>normal! F#vf#<CR> |
-|  | a- | :<C-U>normal! F-vf-<CR> |
-|  | a+ | :<C-U>normal! F+vf+<CR> |
-|  | a* | :<C-U>normal! F*vf*<CR> |
-|  | a\ | :<C-U>normal! F\vf\<CR> |
-|  | a/ | :<C-U>normal! F/vf/<CR> |
-|  | a| | :<C-U>normal! F|vf|<CR> |
-|  | a; | :<C-U>normal! F;vf;<CR> |
-|  | a, | :<C-U>normal! F,vf,<CR> |
-|  | a: | :<C-U>normal! F:vf:<CR> |
-|  | a. | :<C-U>normal! F.vf.<CR> |
-|  | a_ | :<C-U>normal! F_vf_<CR> |
-|  | f |  |
-|  | gs | :s/ |
-|  | i# | :<C-U>normal! T#vt#<CR> |
-|  | i- | :<C-U>normal! T-vt-<CR> |
-|  | i+ | :<C-U>normal! T+vt+<CR> |
-|  | i* | :<C-U>normal! T*vt*<CR> |
-|  | i\ | :<C-U>normal! T\vt\<CR> |
-|  | i/ | :<C-U>normal! T/vt/<CR> |
-|  | i| | :<C-U>normal! T|vt|<CR> |
-|  | i; | :<C-U>normal! T;vt;<CR> |
-|  | i, | :<C-U>normal! T,vt,<CR> |
-|  | i: | :<C-U>normal! T:vt:<CR> |
-|  | i. | :<C-U>normal! T.vt.<CR> |
-|  | i_ | :<C-U>normal! T_vt_<CR> |
-|  | p | p`] |
-|  | t |  |
-|  | y | y`] |
-|  | <S-Tab> | <lt>gv |
-|  | <C-C> | "+y |
-|  | <C-S> | :w<CR> |
+|  | `<Tab>` | `>gv` |
+|  | `#` | `"yy?\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N` |
+|  | `*` | `"yy/\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N` |
+|  | `,p` | `"0p` |
+|  | `,F` | `:<C-U>call v:lua.kris.search.run("", 1)<CR>` |
+|  | `,kS` | `:<C-U>call v:lua.kris.calculate_selection(v:true)<CR>` |
+|  | `,ks` | `:<C-U>call v:lua.kris.calculate_selection()<CR>` |
+|  | `,yg` |  |
+|  | `,c` |  |
+|  | `F` |  |
+|  | `J` | `:m '>+1<CR>gv=gv` |
+|  | `K` | `:m '<lt>-2<CR>gv=gv` |
+|  | `Q` | `<C-Z>` |
+|  | `T` |  |
+|  | `a#` | `:<C-U>normal! F#vf#<CR>` |
+|  | `a-` | `:<C-U>normal! F-vf-<CR>` |
+|  | `a+` | `:<C-U>normal! F+vf+<CR>` |
+|  | `a*` | `:<C-U>normal! F*vf*<CR>` |
+|  | `a\` | `:<C-U>normal! F\vf\<CR>` |
+|  | `a/` | `:<C-U>normal! F/vf/<CR>` |
+|  | `a|` | `:<C-U>normal! F|vf|<CR>` |
+|  | `a;` | `:<C-U>normal! F;vf;<CR>` |
+|  | `a,` | `:<C-U>normal! F,vf,<CR>` |
+|  | `a:` | `:<C-U>normal! F:vf:<CR>` |
+|  | `a.` | `:<C-U>normal! F.vf.<CR>` |
+|  | `a_` | `:<C-U>normal! F_vf_<CR>` |
+|  | `f` |  |
+|  | `gs` | `:s/` |
+|  | `i#` | `:<C-U>normal! T#vt#<CR>` |
+|  | `i-` | `:<C-U>normal! T-vt-<CR>` |
+|  | `i+` | `:<C-U>normal! T+vt+<CR>` |
+|  | `i*` | `:<C-U>normal! T*vt*<CR>` |
+|  | `i\` | `:<C-U>normal! T\vt\<CR>` |
+|  | `i/` | `:<C-U>normal! T/vt/<CR>` |
+|  | `i|` | `:<C-U>normal! T|vt|<CR>` |
+|  | `i;` | `:<C-U>normal! T;vt;<CR>` |
+|  | `i,` | `:<C-U>normal! T,vt,<CR>` |
+|  | `i:` | `:<C-U>normal! T:vt:<CR>` |
+|  | `i.` | `:<C-U>normal! T.vt.<CR>` |
+|  | `i_` | `:<C-U>normal! T_vt_<CR>` |
+|  | `p` | `p`]` |
+|  | `t` |  |
+|  | `y` | `y`]` |
+|  | `<S-Tab>` | `<lt>gv` |
+|  | `<C-C>` | `"+y` |
+|  | `<C-S>` | `:w<CR>` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | F |  |
-|  | Q | <C-Z> |
-|  | T |  |
-|  | a# | :normal va#<CR> |
-|  | a- | :normal va-<CR> |
-|  | a+ | :normal va+<CR> |
-|  | a* | :normal va*<CR> |
-|  | a\ | :normal va\<CR> |
-|  | a/ | :normal va/<CR> |
-|  | a| | :normal va|<CR> |
-|  | a; | :normal va;<CR> |
-|  | a, | :normal va,<CR> |
-|  | a: | :normal va:<CR> |
-|  | a. | :normal va.<CR> |
-|  | a_ | :normal va_<CR> |
-|  | f |  |
-|  | i# | :normal vi#<CR> |
-|  | i- | :normal vi-<CR> |
-|  | i+ | :normal vi+<CR> |
-|  | i* | :normal vi*<CR> |
-|  | i\ | :normal vi\<CR> |
-|  | i/ | :normal vi/<CR> |
-|  | i| | :normal vi|<CR> |
-|  | i; | :normal vi;<CR> |
-|  | i, | :normal vi,<CR> |
-|  | i: | :normal vi:<CR> |
-|  | i. | :normal vi.<CR> |
-|  | i_ | :normal vi_<CR> |
-|  | t |  |
-|  | <C-S> | :w<CR> |
+|  | `F` |  |
+|  | `Q` | `<C-Z>` |
+|  | `T` |  |
+|  | `a#` | `:normal va#<CR>` |
+|  | `a-` | `:normal va-<CR>` |
+|  | `a+` | `:normal va+<CR>` |
+|  | `a*` | `:normal va*<CR>` |
+|  | `a\` | `:normal va\<CR>` |
+|  | `a/` | `:normal va/<CR>` |
+|  | `a|` | `:normal va|<CR>` |
+|  | `a;` | `:normal va;<CR>` |
+|  | `a,` | `:normal va,<CR>` |
+|  | `a:` | `:normal va:<CR>` |
+|  | `a.` | `:normal va.<CR>` |
+|  | `a_` | `:normal va_<CR>` |
+|  | `f` |  |
+|  | `i#` | `:normal vi#<CR>` |
+|  | `i-` | `:normal vi-<CR>` |
+|  | `i+` | `:normal vi+<CR>` |
+|  | `i*` | `:normal vi*<CR>` |
+|  | `i\` | `:normal vi\<CR>` |
+|  | `i/` | `:normal vi/<CR>` |
+|  | `i|` | `:normal vi|<CR>` |
+|  | `i;` | `:normal vi;<CR>` |
+|  | `i,` | `:normal vi,<CR>` |
+|  | `i:` | `:normal vi:<CR>` |
+|  | `i.` | `:normal vi.<CR>` |
+|  | `i_` | `:normal vi_<CR>` |
+|  | `t` |  |
+|  | `<C-S>` | `:w<CR>` |

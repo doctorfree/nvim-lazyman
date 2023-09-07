@@ -271,972 +271,962 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><Tab></td>
-<td>:BufferLineCycleNext<CR></td>
+<td><code>&lt;Tab&gt;</code></td>
+<td><code>:BufferLineCycleNext&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><CR></td>
-<td>:noh<CR><CR></td>
+<td><code>&lt;CR&gt;</code></td>
+<td><code>:noh&lt;CR&gt;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitNormalForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,cl</td>
-<td><Cmd>lua vim.diagnostic.open_float({ border = ‘rounded’, max_width =
-100 })<CR></td>
+<td><code>,cl</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,cf</td>
-<td><Cmd>lua vim.lsp.buf.format({ async = true })<CR></td>
+<td><code>,cf</code></td>
+<td><code>&lt;Cmd&gt;lua vim.lsp.buf.format({ async = true })&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,cr</td>
-<td><Cmd>lua vim.lsp.buf.rename()<CR></td>
+<td><code>,cr</code></td>
+<td><code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,ca</td>
-<td><Cmd>lua vim.lsp.buf.code_action()<CR></td>
+<td><code>,ca</code></td>
+<td><code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,q</td>
-<td><Cmd>lua require(‘utils’).toggle_quicklist()<CR></td>
+<td><code>,q</code></td>
+<td><code>&lt;Cmd&gt;lua require('utils').toggle_quicklist()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,.</td>
-<td>:cn<CR></td>
+<td><code>,.</code></td>
+<td><code>:cn&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,,</td>
-<td>:cp<CR></td>
+<td><code>,,</code></td>
+<td><code>:cp&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,pw</td>
-<td><Cmd>lua require(‘telescope.builtin’).grep_string({ initial_mode =
-‘normal’ })<CR></td>
+<td><code>,pw</code></td>
+<td><code>&lt;Cmd&gt;lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,pf</td>
-<td><Cmd>lua require(‘plugins.telescope’).project_files({ default_text =
-vim.fn.expand(‘<lt>cword&gt;’), initial_mode = ‘normal’ })<CR></td>
+<td><code>,pf</code></td>
+<td><code>&lt;Cmd&gt;lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('&lt;lt&gt;cword&gt;'), initial_mode = 'normal' })&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,/l</td>
-<td><Cmd>:Lazy<CR></td>
+<td><code>,/l</code></td>
+<td><code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>terminal float</td>
-<td>,at</td>
-<td><Cmd>ToggleTerm direction=float<CR></td>
+<td><code>,at</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Mason</td>
-<td>,cm</td>
-<td><Cmd>Mason<CR></td>
-</tr>
-<tr class="odd">
 <td>comment box</td>
-<td>,ac</td>
-<td><Cmd>lua require(‘comment-box’).lbox()<CR></td>
-</tr>
-<tr class="even">
-<td>choose session</td>
-<td>,/sc</td>
-<td><Cmd>SessionManager load_session<CR></td>
+<td><code>,ac</code></td>
+<td><code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>save session</td>
-<td>,/ss</td>
-<td><Cmd>SessionManager save_current_session<CR></td>
+<td><code>,/ss</code></td>
+<td><code>&lt;Cmd&gt;SessionManager save_current_session&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>load last session</td>
-<td>,/sl</td>
-<td><Cmd>SessionManager load_last_session<CR></td>
+<td><code>,/sl</code></td>
+<td><code>&lt;Cmd&gt;SessionManager load_last_session&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>load current dir session</td>
-<td>,/sd</td>
-<td><Cmd>SessionManager load_current_dir_session<CR></td>
+<td><code>,/sd</code></td>
+<td><code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>remove session</td>
-<td>,/sr</td>
-<td><Cmd>SessionManager delete_session<CR></td>
+<td><code>,/sr</code></td>
+<td><code>&lt;Cmd&gt;SessionManager delete_session&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,gwc</td>
-<td><Cmd>lua
-require(‘telescope’).extensions.git_worktree.create_git_worktree()<CR></td>
+<td>choose session</td>
+<td><code>,/sc</code></td>
+<td><code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,gww</td>
-<td><Cmd>lua
-require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
-</tr>
-<tr class="odd">
 <td>move to next conflict</td>
-<td>,gcn</td>
-<td><Cmd>GitConflictNextConflict<CR></td>
+<td><code>,gcn</code></td>
+<td><code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>choose both</td>
-<td>,gcb</td>
-<td><Cmd>GitConflictChooseBoth<CR></td>
+<td><code>,gcb</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>choose theirs</td>
-<td>,gct</td>
-<td><Cmd>GitConflictChooseTheirs<CR></td>
+<td><code>,gct</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>move to prev conflict</td>
-<td>,gcp</td>
-<td><Cmd>GitConflictPrevConflict<CR></td>
+<td><code>,gcp</code></td>
+<td><code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>choose ours</td>
-<td>,gco</td>
-<td><Cmd>GitConflictChooseOurs<CR></td>
+<td><code>,gco</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Mason</td>
+<td><code>,cm</code></td>
+<td><code>&lt;Cmd&gt;Mason&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>refactor</td>
-<td>,pr</td>
+<td></td>
+<td><code>,gwc</code></td>
+<td><code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,gww</code></td>
+<td><code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.git_worktrees()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>multicursor</td>
+<td><code>,m</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Go to buffer 3</td>
-<td>,3</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 4</td>
-<td>,4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 5</td>
-<td>,5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 6</td>
-<td>,6</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 7</td>
-<td>,7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 8</td>
-<td>,8</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 9</td>
-<td>,9</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Sort by relative dir</td>
-<td>,bsr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sort by extension</td>
-<td>,bse</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Sort by directory</td>
-<td>,bsd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Pin/Unpin Buffer</td>
-<td>,bP</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Pick Buffer</td>
-<td>,bp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move next</td>
-<td>,bn</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close Right</td>
-<td>,br</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Close Left</td>
-<td>,bl</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move back</td>
-<td>,bb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 1</td>
-<td>,1</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 2</td>
-<td>,2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>toggle deleted</td>
-<td>,ght</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>stage buffer</td>
-<td>,ghS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>stage hunk</td>
-<td>,ghs</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>reset hunk</td>
-<td>,ghr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>reset buffer</td>
-<td>,ghR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>preview</td>
-<td>,ghp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>diff hunk</td>
-<td>,ghd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>undo stage</td>
-<td>,ghu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>diff file</td>
-<td>,gd</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>status</td>
-<td>,gs</td>
+<td><code>,gs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>diff file</td>
+<td><code>,gd</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>lazygit</td>
-<td>,gg</td>
+<td><code>,gg</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>toggle deleted</td>
+<td><code>,ght</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>stage buffer</td>
+<td><code>,ghS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>stage hunk</td>
+<td><code>,ghs</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>reset hunk</td>
+<td><code>,ghr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>reset buffer</td>
+<td><code>,ghR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>preview</td>
+<td><code>,ghp</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>diff hunk</td>
+<td><code>,ghd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>undo stage</td>
+<td><code>,ghu</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,DA</td>
+<td><code>,Da</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,DK</td>
+<td><code>,DA</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,Dk</td>
+<td><code>,DK</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,Dt</td>
+<td><code>,Dk</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,Dh</td>
+<td><code>,Dt</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,Dg</td>
+<td><code>,Dh</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,Ds</td>
+<td><code>,Dg</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,Dd</td>
+<td><code>,Ds</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,Dc</td>
+<td><code>,Dd</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,Di</td>
+<td><code>,Dc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,Da</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>multicursor</td>
-<td>,m</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,dt</td>
+<td><code>,Di</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,dO</td>
+<td><code>,dt</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,do</td>
+<td><code>,dO</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,di</td>
+<td><code>,do</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,dh</td>
+<td><code>,di</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,dd</td>
+<td><code>,dh</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,dc</td>
+<td><code>,dd</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,db</td>
+<td><code>,dc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,da</td>
+<td><code>,db</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><lt><lt></td>
+<td><code>,da</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><lt></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>==</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>=</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>&gt;&gt;</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>&gt;</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>H</td>
-<td>^</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>K</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>L</td>
-<td><Cmd>lua vim.lsp.buf.signature_help()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>P</td>
-<td><Cmd>lua require(‘plugins.telescope.pickers.multi-rg’)()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Q</td>
-<td>:lua require(‘mini.bufremove’).delete(0, false)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>X</td>
-<td>“_X</td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>[g</td>
-<td><Cmd>lua vim.diagnostic.goto_prev({ float = { border = ‘rounded’,
-max_width = 100 }})<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>[%</td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-</tr>
-<tr class="even">
-<td>Previous todo comment</td>
-<td>[t</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>]g</td>
-<td><Cmd>lua vim.diagnostic.goto_next({ float = { border = ‘rounded’,
-max_width = 100 }})<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>]%</td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-</tr>
-<tr class="odd">
-<td>Next todo comment</td>
-<td>]t</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Change a surrounding pair, putting replacements on new lines</td>
-<td>cS</td>
-<td><Plug>(nvim-surround-change-line)</td>
-</tr>
-<tr class="odd">
-<td>Change a surrounding pair</td>
-<td>cs</td>
-<td><Plug>(nvim-surround-change)</td>
-</tr>
-<tr class="even">
-<td>Delete a surrounding pair</td>
-<td>ds</td>
-<td><Plug>(nvim-surround-delete)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gP</td>
-<td><Plug>(printer_print)iw</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gl</td>
-<td><Cmd>lua vim.diagnostic.open_float({ border = ‘rounded’, max_width =
-100 })<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gx</td>
-<td><Cmd>silent execute ‘!xdg-open’ .
-shellescape(‘<lt>cWORD&gt;’)<CR></td>
-</tr>
-<tr class="even">
-<td>Operator keymap for printer.nvim</td>
-<td>gp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gn</td>
-<td>:bn<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>g%</td>
-<td><Plug>(MatchitNormalBackward)</td>
-</tr>
-<tr class="odd">
-<td>Comment insert end of line</td>
-<td>gcA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment insert above</td>
-<td>gcO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment insert below</td>
-<td>gco</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle current block</td>
-<td>gbc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current line</td>
-<td>gcc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise</td>
-<td>gc</td>
-<td><Plug>(comment_toggle_linewise)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gs</td>
-<td><Plug>(Switch)</td>
-</tr>
-<tr class="odd">
-<td>Align with preview</td>
-<td>gA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Align</td>
-<td>ga</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to right “around”</td>
-<td>g]</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move to left “around”</td>
-<td>g[</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>LSP References</td>
-<td>gr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LSP Implementations</td>
-<td>gm</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>LSP Definition</td>
-<td>gd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>LSP Type Definitions</td>
-<td>gy</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Split/Join</td>
-<td>gJ</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>s</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>x</td>
-<td>“_x</td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around the current line, on new lines (normal
-mode)</td>
-<td>ySS</td>
-<td><Plug>(nvim-surround-normal-cur-line)</td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a motion, on new lines (normal
-mode)</td>
-<td>yS</td>
-<td><Plug>(nvim-surround-normal-line)</td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around the current line (normal mode)</td>
-<td>yss</td>
-<td><Plug>(nvim-surround-normal-cur)</td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a motion (normal mode)</td>
-<td>ys</td>
-<td><Plug>(nvim-surround-normal)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>zr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>zM</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>zR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Get text out of textobject formatted for debug printing</td>
-<td><Plug>(printer_print)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Space></td>
-<td><Cmd>lua vim.lsp.buf.code_action()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-X></td>
-<td>:if !switch#Switch({‘reverse’: 1})</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-A></td>
-<td>:if !switch#Switch()</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><S-Tab></td>
-<td>:BufferLineCyclePrev<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-P></td>
-<td><Cmd>lua require(‘plugins.telescope’).project_files()<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-S></td>
-<td>:w<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-K></td>
-<td><C-W>k</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-J></td>
-<td><C-W>j</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-H></td>
-<td><C-W>h</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(MatchitNormalBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(MatchitNormalForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingFallbackDown</td>
-<td><C-X></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingFallbackUp</td>
-<td><C-A></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingNowUTC</td>
-<td>:<C-U>call speeddating#timestamp(1,v:count)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingNowLocal</td>
-<td>:<C-U>call speeddating#timestamp(0,v:count)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingDown</td>
-<td>:<C-U>call speeddating#increment(-v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingUp</td>
-<td>:<C-U>call speeddating#increment(v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle Terminal</td>
-<td><F12></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(SwitchReverse)</td>
-<td>:set opfunc=switch#OpfuncReverse<CR>g@l</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Switch)</td>
-<td>:set opfunc=switch#OpfuncForward<CR>g@l</td>
-</tr>
-<tr class="even">
-<td>Change a surrounding pair, putting replacements on new lines</td>
-<td><Plug>(nvim-surround-change-line)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Change a surrounding pair</td>
-<td><Plug>(nvim-surround-change)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Delete a surrounding pair</td>
-<td><Plug>(nvim-surround-delete)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around the current line, on new lines (normal
-mode)</td>
-<td><Plug>(nvim-surround-normal-cur-line)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a motion, on new lines (normal
-mode)</td>
-<td><Plug>(nvim-surround-normal-line)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around the current line (normal mode)</td>
-<td><Plug>(nvim-surround-normal-cur)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a motion (normal mode)</td>
-<td><Plug>(nvim-surround-normal)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
-<td>Git Conflict: Previous Conflict</td>
-<td><Plug>(git-conflict-prev-conflict)</td>
-<td><Cmd>GitConflictPrevConflict<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Next Conflict</td>
-<td><Plug>(git-conflict-next-conflict)</td>
-<td><Cmd>GitConflictNextConflict<CR></td>
-</tr>
-<tr class="even">
-<td>Git Conflict: Choose Theirs</td>
-<td><Plug>(git-conflict-theirs)</td>
-<td><Cmd>GitConflictChooseTheirs<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Choose None</td>
-<td><Plug>(git-conflict-none)</td>
-<td><Cmd>GitConflictChooseNone<CR></td>
-</tr>
-<tr class="even">
-<td>Git Conflict: Choose Both</td>
-<td><Plug>(git-conflict-both)</td>
-<td><Cmd>GitConflictChooseBoth<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Choose Ours</td>
-<td><Plug>(git-conflict-ours)</td>
-<td><Cmd>GitConflictChooseOurs<CR></td>
-</tr>
-<tr class="even">
-<td>NvimTree</td>
-<td><C-E></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 9</td>
-<td><M-9></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 8</td>
-<td><M-8></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 7</td>
-<td><M-7></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 6</td>
-<td><M-6></td>
+<td>refactor</td>
+<td><code>,pr</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Go to buffer 5</td>
-<td><M-5></td>
+<td><code>,5</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Go to buffer 4</td>
-<td><M-4></td>
+<td>Sort by relative dir</td>
+<td><code>,bsr</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Go to buffer 3</td>
-<td><M-3></td>
+<td>Sort by extension</td>
+<td><code>,bse</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Go to buffer 2</td>
-<td><M-2></td>
+<td>Sort by directory</td>
+<td><code>,bsd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Pin/Unpin Buffer</td>
+<td><code>,bP</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pick Buffer</td>
+<td><code>,bp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move next</td>
+<td><code>,bn</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close Right</td>
+<td><code>,br</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Left</td>
+<td><code>,bl</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move back</td>
+<td><code>,bb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Go to buffer 1</td>
-<td><M-1></td>
+<td><code>,1</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>multicursor down</td>
-<td><C-Down></td>
+<td>Go to buffer 6</td>
+<td><code>,6</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 7</td>
+<td><code>,7</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 8</td>
+<td><code>,8</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 9</td>
+<td><code>,9</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 2</td>
+<td><code>,2</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 3</td>
+<td><code>,3</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 4</td>
+<td><code>,4</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-L></td>
-<td><C-W>l</td>
+<td><code>&lt;lt&gt;&lt;lt&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;lt&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>==</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>=</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&gt;&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>H</code></td>
+<td><code>^</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>K</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>L</code></td>
+<td><code>&lt;Cmd&gt;lua vim.lsp.buf.signature_help()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>P</code></td>
+<td><code>&lt;Cmd&gt;lua require('plugins.telescope.pickers.multi-rg')()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>Q</code></td>
+<td><code>:lua require('mini.bufremove').delete(0, false)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>X</code></td>
+<td><code>"_X</code></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>[g</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td>Previous todo comment</td>
+<td><code>[t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>]g</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+<tr class="odd">
+<td>Next todo comment</td>
+<td><code>]t</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><code>cS</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-change-line)</code></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair</td>
+<td><code>cs</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-change)</code></td>
+</tr>
+<tr class="even">
+<td>Delete a surrounding pair</td>
+<td><code>ds</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-delete)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gP</code></td>
+<td><code>&lt;Plug&gt;(printer_print)iw</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gl</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gx</code></td>
+<td><code>&lt;Cmd&gt;silent execute '!xdg-open ' . shellescape('&lt;lt&gt;cWORD&gt;')&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Operator keymap for printer.nvim</td>
+<td><code>gp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gn</code></td>
+<td><code>:bn&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+<tr class="odd">
+<td>Comment insert end of line</td>
+<td><code>gcA</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment insert above</td>
+<td><code>gcO</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment insert below</td>
+<td><code>gco</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><code>gbc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><code>gcc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gs</code></td>
+<td><code>&lt;Plug&gt;(Switch)</code></td>
+</tr>
+<tr class="odd">
+<td>Align with preview</td>
+<td><code>gA</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Align</td>
+<td><code>ga</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move to right “around”</td>
+<td><code>g]</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move to left “around”</td>
+<td><code>g[</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LSP Implementations</td>
+<td><code>gm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LSP References</td>
+<td><code>gr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LSP Type Definitions</td>
+<td><code>gy</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LSP Definition</td>
+<td><code>gd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Split/Join</td>
+<td><code>gJ</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>x</code></td>
+<td><code>"_x</code></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><code>ySS</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><code>yS</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-line)</code></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><code>yss</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-cur)</code></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><code>ys</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zM</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Get text out of textobject formatted for debug printing</td>
+<td><code>&lt;Plug&gt;(printer_print)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Space&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-X&gt;</code></td>
+<td><code>:if !switch#Switch({'reverse': 1}) | call speeddating#increment(-v:count1) | endif&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>:if !switch#Switch() | call speeddating#increment(v:count1) | endif&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('plugins.telescope').project_files()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>&lt;C-W&gt;k</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;C-W&gt;j</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;C-W&gt;h</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Terminal</td>
+<td><code>&lt;F12&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(SwitchReverse)</code></td>
+<td><code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(Switch)</code></td>
+<td><code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingFallbackDown</code></td>
+<td><code>&lt;C-X&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingFallbackUp</code></td>
+<td><code>&lt;C-A&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingNowUTC</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingNowLocal</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingDown</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;SpeedDatingUp</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Previous Conflict</td>
+<td><code>&lt;Plug&gt;(git-conflict-prev-conflict)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Next Conflict</td>
+<td><code>&lt;Plug&gt;(git-conflict-next-conflict)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Choose Theirs</td>
+<td><code>&lt;Plug&gt;(git-conflict-theirs)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Choose None</td>
+<td><code>&lt;Plug&gt;(git-conflict-none)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Choose Both</td>
+<td><code>&lt;Plug&gt;(git-conflict-both)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Choose Ours</td>
+<td><code>&lt;Plug&gt;(git-conflict-ours)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Change a surrounding pair, putting replacements on new lines</td>
+<td><code>&lt;Plug&gt;(nvim-surround-change-line)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Change a surrounding pair</td>
+<td><code>&lt;Plug&gt;(nvim-surround-change)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete a surrounding pair</td>
+<td><code>&lt;Plug&gt;(nvim-surround-delete)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line, on new lines (normal
+mode)</td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion, on new lines (normal
+mode)</td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-line)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around the current line (normal mode)</td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal-cur)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a motion (normal mode)</td>
+<td><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>multicursor down</td>
+<td><code>&lt;C-Down&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NvimTree</td>
+<td><code>&lt;C-E&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 5</td>
+<td><code>&lt;M-5&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 9</td>
+<td><code>&lt;M-9&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 8</td>
+<td><code>&lt;M-8&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 7</td>
+<td><code>&lt;M-7&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 6</td>
+<td><code>&lt;M-6&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 4</td>
+<td><code>&lt;M-4&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 3</td>
+<td><code>&lt;M-3&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 2</td>
+<td><code>&lt;M-2&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 1</td>
+<td><code>&lt;M-1&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;C-W&gt;l</code></td>
 </tr>
 </tbody>
 </table>
@@ -1257,144 +1247,129 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tbody>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitVisualForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,cf</td>
+<td><code>,cf</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,ca</td>
-<td><Cmd>‘<lt>,’&gt;lua vim.lsp.buf.code_action()<CR></td>
+<td><code>,ca</code></td>
+<td><code>&lt;Cmd&gt;'&lt;lt&gt;,'&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>comment box</td>
-<td>,ac</td>
-<td><Cmd>lua require(‘comment-box’).lbox()<CR></td>
+<td><code>,ac</code></td>
+<td><code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>multicursor</td>
-<td>,m</td>
+<td><code>,m</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>refactor</td>
-<td>,pr</td>
+<td><code>,pr</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><lt></td>
-<td><lt>gv</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>=</td>
+<td><code>=</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&gt;</td>
-<td>&gt;gv</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>J</td>
-<td>:move ’&gt;+1<CR>gv-gv</td>
+<td><code>J</code></td>
+<td><code>:move '&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>K</td>
-<td>:move ’<lt>-2<CR>gv-gv</td>
+<td><code>K</code></td>
+<td><code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="even">
 <td>Add a surrounding pair around a visual selection</td>
-<td>S</td>
-<td><Plug>(nvim-surround-visual)</td>
+<td><code>S</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>X</td>
-<td>“_X</td>
+<td><code>X</code></td>
+<td><code>"_X</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitVisualMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitVisualMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>| u | |  | a% | &lt;Plug&gt;(MatchitVisualTextObject) | | Around last textobject | al |  | | Around next textobject | an |  | | Around textobject | a |  | | Operator keymap for printer.nvim | gp |  | |  | g% | &lt;Plug&gt;(MatchitVisualBackward) | | Add a surrounding pair around a visual selection, on new lines | gS | &lt;Plug&gt;(nvim-surround-visual-line) | | Comment toggle blockwise (visual) | gb | &lt;Plug&gt;(comment_toggle_blockwise_visual) | | Comment toggle linewise (visual) | gc | &lt;Plug&gt;(comment_toggle_linewise_visual) | | Move to right "around" | g] |  | | Move to left "around" | g[ |  | | Align with preview | gA |  | | Align | ga |  | | Inside last textobject | il |  | | Inside next textobject | in |  | | Inside textobject | i |  | |  | p | "_dP | |  | s |  | |  | x | "_x | |  | &lt;Plug&gt;luasnip-expand-repeat |  | |  | &lt;M-</code>&gt;</td>
-<td>U</td>
+<td><code>| `u` | |  | `a%` | `&lt;Plug&gt;(MatchitVisualTextObject)` | | Around last textobject | `al` |  | | Around next textobject | `an` |  | | Around textobject | `a` |  | | Operator keymap for printer.nvim | `gp` |  | |  | `g%` | `&lt;Plug&gt;(MatchitVisualBackward)` | | Align with preview | `gA` |  | | Align | `ga` |  | | Comment toggle blockwise (visual) | `gb` | `&lt;Plug&gt;(comment_toggle_blockwise_visual)` | | Comment toggle linewise (visual) | `gc` | `&lt;Plug&gt;(comment_toggle_linewise_visual)` | | Add a surrounding pair around a visual selection, on new lines | `gS` | `&lt;Plug&gt;(nvim-surround-visual-line)` | | Move to right "around" | `g]` |  | | Move to left "around" | `g[` |  | | Inside last textobject | `il` |  | | Inside next textobject | `in` |  | | Inside textobject | `i` |  | |  | `p` | `"_dP` | |  | `s` |  | |  | `x` | `"_x` | |  | `&lt;Plug&gt;luasnip-expand-repeat` |  | |  | `&lt;M-`&gt;` | `U` | |  | `&lt;Plug&gt;(MatchitVisualTextObject)` | `&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)` | |  | `&lt;Plug&gt;(MatchitVisualMultiForward)` | `:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitVisualTextObject)</td>
-<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualBackward)<code>|</code>:<C-U>call
+matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualForward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”,
-“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+<td><code>&lt;Plug&gt;SpeedDatingDown</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitVisualBackward)</td>
-<td>:<C-U>call
-matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingDown</td>
-<td>:<C-U>call speeddating#incrementvisual(-v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingUp</td>
-<td>:<C-U>call speeddating#incrementvisual(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><Plug>(nvim-surround-visual-line)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-true })<CR></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection</td>
-<td><Plug>(nvim-surround-visual)</td>
-<td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
-false })<CR></td>
+<td><code>&lt;Plug&gt;SpeedDatingUp</code></td>
+<td><code>:&lt;C-U&gt;call speeddating#incrementvisual(v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1415,93 +1390,93 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <tbody>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitOperationForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitOperationMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td>Around last textobject</td>
-<td>al</td>
+<td><code>al</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Around next textobject</td>
-<td>an</td>
+<td><code>an</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Around textobject</td>
-<td>a</td>
+<td><code>a</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitOperationBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
 </tr>
 <tr class="even">
 <td>Move to right “around”</td>
-<td>g]</td>
+<td><code>g]</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Move to left “around”</td>
-<td>g[</td>
+<td><code>g[</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Inside last textobject</td>
-<td>il</td>
+<td><code>il</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Inside next textobject</td>
-<td>in</td>
+<td><code>in</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Inside textobject</td>
-<td>i</td>
+<td><code>i</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>s</td>
+<td><code>s</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

@@ -1146,6 +1146,7 @@ shift $(( OPTIND - 1 ))
 [ "${all}" ] && {
   for conf in ${CF_NAMES}
   do
+    printf "\nGenerating info doc for ${conf}"
     make_info ${install} ${conf}
   done
   exit 0

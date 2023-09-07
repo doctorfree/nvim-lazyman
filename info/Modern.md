@@ -50,6 +50,7 @@ Configure Neovim as a modernized development environment. Details described in [
 - [m4xshen/hardtime.nvim](https://github.com/m4xshen/hardtime.nvim.git)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [lukas-reineke/headlines.nvim](https://github.com/lukas-reineke/headlines.nvim.git)
+- [tzachar/highlight-undo.nvim](https://github.com/tzachar/highlight-undo.nvim.git)
 - [m-demare/hlargs.nvim](https://github.com/m-demare/hlargs.nvim.git)
 - [anuvyklack/hydra.nvim](https://github.com/anuvyklack/hydra.nvim.git)
 - [smjonas/inc-rename.nvim](https://github.com/smjonas/inc-rename.nvim.git)
@@ -76,6 +77,7 @@ Configure Neovim as a modernized development environment. Details described in [
 - [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
 - [echasnovski/mini.map](https://github.com/echasnovski/mini.map.git)
 - [echasnovski/mini.misc](https://github.com/echasnovski/mini.misc.git)
+- [echasnovski/mini.operators](https://github.com/echasnovski/mini.operators.git)
 - [jbyuki/nabla.nvim](https://github.com/jbyuki/nabla.nvim)
 - [Bryley/neoai.nvim](https://github.com/Bryley/neoai.nvim.git)
 - [folke/neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
@@ -131,6 +133,7 @@ Configure Neovim as a modernized development environment. Details described in [
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [rust-lang/rust.vim](https://github.com/rust-lang/rust.vim.git)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [sourcegraph/sg.nvim](https://github.com/sourcegraph/sg.nvim.git)
 - [tami5/sqlite.lua](https://github.com/tami5/sqlite.lua)
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
 - [luukvbaal/statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
@@ -171,6 +174,7 @@ Configure Neovim as a modernized development environment. Details described in [
 - [lervag/vimtex](https://github.com/lervag/vimtex)
 - [mattn/webapi-vim](https://github.com/mattn/webapi-vim.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+- [sustech-data/wildfire.nvim](https://github.com/sustech-data/wildfire.nvim.git)
 - [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
@@ -180,263 +184,263 @@ Configure Neovim as a modernized development environment. Details described in [
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Manage Plugins |  zz | <Cmd>:Lazy<CR> |
-| Code Outline (navbuddy) |  vO |  |
-| Summarize Text |  as |  |
-| Generate Git Message |  ag |  |
-| Debug Cleanup |  rc |  |
-| Debug Print Variable |  rp |  |
-| Debug Print |  rP |  |
-| Extract Block to File |  rf |  |
-| Extract Block |  rb |  |
-| Inline Variable |  ri |  |
-| Rename Buffer |  Dr |  |
-| Find Buffer |  Df |  |
-| Toggle UI |  Dt |  |
-| Last Query Info |  Dq |  |
-| Debug File |  tNF |  |
-| Summary |  tNS |  |
-| Stop |  tNs |  |
-| Output |  tNo |  |
-| Debug Nearest |  tNN |  |
-| Nearest |  tNn |  |
-| Last |  tNl |  |
-| File |  tNf |  |
-| Attach |  tNa |  |
-| Debug Last |  tNL |  |
-| Node Action |  ln |  |
-| Status |  gs |  |
-| Select VirtualEnv |  lv |  |
-| Explorer (Current Directory) |  fe |  |
-| Explorer (Current File) |  fE |  |
-| Toggle Zoom |  vz |  |
-| Function |  lgf |  |
-| Class |  lgc |  |
-| Annotation |  lgd |  |
-| Type |  lgt |  |
-| Edgy Select Window |  zE |  |
-| Edgy Toggle |  ze |  |
-| Delete Buffer |  bd |  |
-| Close Buffer |  bc |  |
-| Reload Buffer |  br |  |
-| Delete Buffer (Force) |  bD |  |
-| Command Palette |  hc |  |
-| Toggle Split/Join |  lj |  |
-| Add File |  ja |  |
-| Command 2 |  6 |  |
-| Command 1 |  5 |  |
-| Terminal 2 |  4 |  |
-| Terminal 1 |  3 |  |
-| File 2 |  2 |  |
-| File 1 |  1 |  |
-| Command Menu |  jc |  |
-| File Menu |  jm |  |
-| Search and Replace (SSR) |  sR |  |
-| ToDo (Trouble) |  lt |  |
-| ToDo |  lT |  |
-| Edit with Instructions |  ae |  |
-| Chat |  aa |  |
-| Complete Code |  ac |  |
-| File |  tf |  |
-| Class |  tc |  |
-| Visit |  tv |  |
-| Suite |  ts |  |
-| Nearest |  tn |  |
-| Last |  tl |  |
-| Docker |  fd |  |
-| +Color |  zC |  |
-| Toggle Highlighter |  zCh |  |
-| Convert |  zCc |  |
-| Pick |  zCp |  |
-| Search and Replace (Spectre) |  sr |  |
-| Toggle Minimap |  vm |  |
-| Notation |  nn |  |
-| Send Mark |  xms |  |
-| Clear |  xc |  |
-| Close REPL |  xC |  |
-| Interrupt |  xI |  |
-| ENTER |  x<CR> |  |
-| Send File |  xf |  |
-| Send Until Cursor |  xt |  |
-| Send Line |  xl |  |
-| Send Motion |  xs |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Hide |  xH |  |
-| Focus |  xF |  |
-| Restart |  xS |  |
-| REPL |  xR |  |
-| Remove Mark |  xmr |  |
-| Mark Motion |  xmm |  |
-| Load Bundle |  tol |  |
-| Delete Bundle |  tod |  |
-| Close |  toc |  |
-| Build |  tob |  |
-| Task Action |  toa |  |
-| Run Command |  toR |  |
-| Toggle |  tot |  |
-| Save Bundle |  tos |  |
-| Run |  tor |  |
-| Quick Action |  toq |  |
-| Open |  too |  |
-| Document Diagnostics |  ld |  |
-| Workspace Diagnostics |  lD |  |
-| Step Out |  du |  |
-| Terminate |  dx |  |
-| Toggle Breakpoint |  dt |  |
-| Start |  ds |  |
-| Toggle REPL |  dr |  |
-| Quit |  dq |  |
-| Pause |  dp |  |
-| Run Last |  dl |  |
-| Step Over |  do |  |
-| Step Into |  di |  |
-| Scopes |  dS |  |
-| Hover Variables |  dh |  |
-| Get Session |  dg |  |
-| Evaluate |  de |  |
-| Disconnect |  dd |  |
-| Continue |  dc |  |
-| Step Back |  db |  |
-| Toggle UI |  dU |  |
-| Conditional Breakpoint |  dC |  |
-| Evaluate Input |  dE |  |
-| Run to Cursor |  dR |  |
-| Preview |  np |  |
-| Forward jump |  nj |  |
-| Toggle Preview |  nt |  |
-| Close Preview |  nc |  |
-| Mason |  lm |  |
-| Open Yank History |  zp |  |
-| Find Files |    |  |
-| Colorscheme |  zc |  |
-| Code Outline |  vo |  |
-| Buffer |  sb |  |
-| Snippets |  ss |  |
-| Grep (Cwd) |  sW |  |
-| Grep (Root Dir) |  sw |  |
-| List |  pp |  |
-| Search |  hs |  |
-| Search |  ps |  |
-| Search Plugins |  zs |  |
-| Conventional Commits |  gc |  |
-| Browser |  fr |  |
-| Change WorkDir |  fc |  |
-| Buffers |  fb |  |
-| Recent |  fo |  |
-| Find Files (Cwd) |  fF |  |
-| Find Files (Root Dir) |  ff |  |
-| Don't Save Current Session |  qd |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Terminal #2 |  0 |  |
-|  |   |  |
-|  | # |  |
-| Nvim builtin | & | :&&<CR> |
-|  | * |  |
-| Put before and indent left | <lt>P |  |
-| Put and indent left | <lt>p |  |
-| Put after applying a filter | =p |  |
-| Put before applying a filter | =P |  |
-| Put before and indent right | >P |  |
-| Put and indent right | >p |  |
-|  | N |  |
-| Put yanked text before cursor | P |  |
-| Flash Treesitter | S |  |
-| Nvim builtin | Y | y$ |
-| Previous ToDo | [t |  |
-| Cycle forward through yank history | [y |  |
-| Put indented before cursor (linewise) | [p |  |
-| Put indented before cursor (linewise) | [P |  |
-| Next ToDo | ]t |  |
-| Cycle backward through yank history | ]y |  |
-| Put indented after cursor (linewise) | ]p |  |
-| Put indented after cursor (linewise) | ]P |  |
-|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | g* |  |
-|  | g# |  |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-|  | gcc |  |
-|  | gc |  |
-|  | gbc |  |
-|  | n |  |
-| Put yanked text after cursor | p |  |
-| Flash | s |  |
-| Yank text | y |  |
-|  | zo |  |
-| Peek Fold | zp |  |
-|  | zC |  |
-|  | zO |  |
-|  | za |  |
-|  | zA |  |
-| Open Folds Except Kinds | zr |  |
-| Open All Folds | zR |  |
-| Close All Folds | zM |  |
-| Close Folds With | zm |  |
-|  | zc |  |
-| Decrement | <C-X> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Increment | <C-A> | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Legendary | <C-S-P> |  |
-| Previous Cell | <M-k> |  |
-| Next Cell | <M-j> |  |
-| Delete Cell | <M-x> |  |
-| Execute Cell | <M-e> |  |
-| Scroll backward | <C-B> |  |
-| Scroll forward | <C-F> |  |
-|  | <C-Bslash> |  |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+| Manage Plugins | ` zz` | `<Cmd>:Lazy<CR>` |
+| Extract Block to File | ` rf` |  |
+| Extract Block | ` rb` |  |
+| Inline Variable | ` ri` |  |
+| Debug Cleanup | ` rc` |  |
+| Debug Print Variable | ` rp` |  |
+| Debug Print | ` rP` |  |
+| Toggle Zoom | ` vz` |  |
+| Run Command | ` toR` |  |
+| Toggle | ` tot` |  |
+| Save Bundle | ` tos` |  |
+| Run | ` tor` |  |
+| Quick Action | ` toq` |  |
+| Open | ` too` |  |
+| Load Bundle | ` tol` |  |
+| Delete Bundle | ` tod` |  |
+| Close | ` toc` |  |
+| Build | ` tob` |  |
+| Task Action | ` toa` |  |
+| Scopes | ` dS` |  |
+| Hover Variables | ` dh` |  |
+| Get Session | ` dg` |  |
+| Evaluate | ` de` |  |
+| Disconnect | ` dd` |  |
+| Continue | ` dc` |  |
+| Step Back | ` db` |  |
+| Toggle UI | ` dU` |  |
+| Conditional Breakpoint | ` dC` |  |
+| Evaluate Input | ` dE` |  |
+| Run to Cursor | ` dR` |  |
+| Step Out | ` du` |  |
+| Terminate | ` dx` |  |
+| Toggle Breakpoint | ` dt` |  |
+| Start | ` ds` |  |
+| Toggle REPL | ` dr` |  |
+| Quit | ` dq` |  |
+| Pause | ` dp` |  |
+| Run Last | ` dl` |  |
+| Step Over | ` do` |  |
+| Step Into | ` di` |  |
+| Document Diagnostics | ` ld` |  |
+| Workspace Diagnostics | ` lD` |  |
+| Visit | ` tv` |  |
+| Suite | ` ts` |  |
+| Nearest | ` tn` |  |
+| Last | ` tl` |  |
+| File | ` tf` |  |
+| Class | ` tc` |  |
+| Node Action | ` ln` |  |
+| Status | ` gs` |  |
+| Debug Last | ` tNL` |  |
+| Debug File | ` tNF` |  |
+| Summary | ` tNS` |  |
+| Stop | ` tNs` |  |
+| Output | ` tNo` |  |
+| Debug Nearest | ` tNN` |  |
+| Nearest | ` tNn` |  |
+| Last | ` tNl` |  |
+| File | ` tNf` |  |
+| Attach | ` tNa` |  |
+| Toggle Split/Join | ` lj` |  |
+| Mason | ` lm` |  |
+| Command Palette | ` hc` |  |
+| Rename Buffer | ` Dr` |  |
+| Find Buffer | ` Df` |  |
+| Toggle UI | ` Dt` |  |
+| Last Query Info | ` Dq` |  |
+| Terminal #2 | ` 0` |  |
+| Forward jump | ` nj` |  |
+| Toggle Preview | ` nt` |  |
+| Close Preview | ` nc` |  |
+| Preview | ` np` |  |
+| Toggle Minimap | ` vm` |  |
+| Mark Motion | ` xmm` |  |
+| Send Mark | ` xms` |  |
+| Clear | ` xc` |  |
+| Close REPL | ` xC` |  |
+| Interrupt | ` xI` |  |
+| ENTER | ` x<CR>` |  |
+| Send File | ` xf` |  |
+| Send Until Cursor | ` xt` |  |
+| Send Line | ` xl` |  |
+| Send Motion | ` xs` |  |
+| +Mark | ` xm` |  |
+| +REPL | ` x` |  |
+| Hide | ` xH` |  |
+| Focus | ` xF` |  |
+| Restart | ` xS` |  |
+| REPL | ` xR` |  |
+| Remove Mark | ` xmr` |  |
+| Complete Code | ` ac` |  |
+| Edit with Instructions | ` ae` |  |
+| Chat | ` aa` |  |
+| Search and Replace (SSR) | ` sR` |  |
+| Summarize Text | ` as` |  |
+| Generate Git Message | ` ag` |  |
+| Docker | ` fd` |  |
+| Edgy Toggle | ` ze` |  |
+| Edgy Select Window | ` zE` |  |
+| ToDo | ` lT` |  |
+| ToDo (Trouble) | ` lt` |  |
+| Search and Replace (Spectre) | ` sr` |  |
+| Open Yank History | ` zp` |  |
+| Select VirtualEnv | ` lv` |  |
+| Function | ` lgf` |  |
+| Annotation | ` lgd` |  |
+| Class | ` lgc` |  |
+| Type | ` lgt` |  |
+| Notation | ` nn` |  |
+| Restore Last Session | ` ql` |  |
+| Restore Session | ` qs` |  |
+| Don't Save Current Session | ` qd` |  |
+| Code Outline (navbuddy) | ` vO` |  |
+| Command 2 | ` 6` |  |
+| Command 1 | ` 5` |  |
+| Terminal 2 | ` 4` |  |
+| Terminal 1 | ` 3` |  |
+| File 2 | ` 2` |  |
+| File 1 | ` 1` |  |
+| Command Menu | ` jc` |  |
+| File Menu | ` jm` |  |
+| Add File | ` ja` |  |
+| Find Files (Cwd) | ` fF` |  |
+| Find Files (Root Dir) | ` ff` |  |
+| Search | ` hs` |  |
+| Colorscheme | ` zc` |  |
+| Code Outline | ` vo` |  |
+| Buffer | ` sb` |  |
+| Snippets | ` ss` |  |
+| Grep (Cwd) | ` sW` |  |
+| Grep (Root Dir) | ` sw` |  |
+| List | ` pp` |  |
+| Find Files | `  ` |  |
+| Search | ` ps` |  |
+| Search Plugins | ` zs` |  |
+| Conventional Commits | ` gc` |  |
+| Browser | ` fr` |  |
+| Change WorkDir | ` fc` |  |
+| Buffers | ` fb` |  |
+| Recent | ` fo` |  |
+| Explorer (Current Directory) | ` fe` |  |
+| Explorer (Current File) | ` fE` |  |
+| +Color | ` zC` |  |
+| Toggle Highlighter | ` zCh` |  |
+| Convert | ` zCc` |  |
+| Pick | ` zCp` |  |
+| Delete Buffer (Force) | ` bD` |  |
+| Delete Buffer | ` bd` |  |
+| Close Buffer | ` bc` |  |
+| Reload Buffer | ` br` |  |
+|  | ` ` | `` |
+|  | `#` |  |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `*` |  |
+| Put and indent left | `<lt>p` |  |
+| Put before and indent left | `<lt>P` |  |
+| Put after applying a filter | `=p` |  |
+| Put before applying a filter | `=P` |  |
+| Put and indent right | `>p` |  |
+| Put before and indent right | `>P` |  |
+|  | `N` |  |
+| Put yanked text before cursor | `P` |  |
+| Flash Treesitter | `S` |  |
+| Nvim builtin | `Y` | `y$` |
+| Previous ToDo | `[t` |  |
+| Put indented before cursor (linewise) | `[p` |  |
+| Put indented before cursor (linewise) | `[P` |  |
+| Cycle forward through yank history | `[y` |  |
+| Next ToDo | `]t` |  |
+| Put indented after cursor (linewise) | `]P` |  |
+| Cycle backward through yank history | `]y` |  |
+| Put indented after cursor (linewise) | `]p` |  |
+|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `g*` |  |
+|  | `g#` |  |
+| Put yanked text before selection | `gP` |  |
+| Put yanked text after selection | `gp` |  |
+|  | `gc` |  |
+|  | `gbc` |  |
+|  | `gcc` |  |
+|  | `n` |  |
+| Put yanked text after cursor | `p` |  |
+| Flash | `s` |  |
+| Yank text | `y` |  |
+| Open All Folds | `zR` |  |
+| Peek Fold | `zp` |  |
+| Close All Folds | `zM` |  |
+| Close Folds With | `zm` |  |
+|  | `zc` |  |
+|  | `zo` |  |
+|  | `zC` |  |
+|  | `zO` |  |
+|  | `za` |  |
+|  | `zA` |  |
+| Open Folds Except Kinds | `zr` |  |
+| Decrement | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+| Increment | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+| Legendary | `<C-S-P>` |  |
+|  | `<C-Bslash>` |  |
+| Previous Cell | `<M-k>` |  |
+| Next Cell | `<M-j>` |  |
+| Delete Cell | `<M-x>` |  |
+| Execute Cell | `<M-e>` |  |
+| Scroll backward | `<C-B>` |  |
+| Scroll forward | `<C-F>` |  |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Search and Replace (SSR) |  sR |  |
-| Refactor |  rs |  |
-| Debug Print Variable |  rp |  |
-| Extract Variable |  rx |  |
-| Extract Function to File |  rF |  |
-| Extract Function |  rf |  |
-| Inline Variable |  ri |  |
-| Evaluate |  de |  |
-| Clear Highlight |  xL |  |
-| Send |  xs |  |
-| +Mark |  xm |  |
-| +REPL |  x |  |
-| Mark Visual |  xmv |  |
-| Edit with Instructions |  ae |  |
-| Complete Code |  ac |  |
-|  |   |  |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-| Put yanked text before cursor | P |  |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-| Decrement | g<C-X> | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@ |
-| Increment | g<C-A> | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@ |
-|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
-|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-|  | gbc |  |
-|  | gcc |  |
-|  | gc |  |
-| Put yanked text after cursor | p |  |
-| Flash | s |  |
-| Yank text | y |  |
-| Decrement | <C-X> | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@ |
-| Increment | <C-A> | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@ |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
+| Search and Replace (SSR) | ` sR` |  |
+| Evaluate | ` de` |  |
+| Send | ` xs` |  |
+| +Mark | ` xm` |  |
+| +REPL | ` x` |  |
+| Mark Visual | ` xmv` |  |
+| Clear Highlight | ` xL` |  |
+| Complete Code | ` ac` |  |
+| Edit with Instructions | ` ae` |  |
+| Extract Function to File | ` rF` |  |
+| Extract Function | ` rf` |  |
+| Inline Variable | ` ri` |  |
+| Refactor | ` rs` |  |
+| Debug Print Variable | ` rp` |  |
+| Extract Variable | ` rx` |  |
+|  | ` ` | `` |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+| Put yanked text before cursor | `P` |  |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+| Decrement | `g<C-X>` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@` |
+| Increment | `g<C-A>` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@` |
+|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv` |
+|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv` |
+|  | `gbc` |  |
+|  | `gcc` |  |
+|  | `gc` |  |
+| Put yanked text before selection | `gP` |  |
+| Put yanked text after selection | `gp` |  |
+| Put yanked text after cursor | `p` |  |
+| Flash | `s` |  |
+| Yank text | `y` |  |
+| Decrement | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@` |
+| Increment | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@` |
+|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv` |
+|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-| Remote Flash | r |  |
-| Flash | s |  |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+| Remote Flash | `r` |  |
+| Flash | `s` |  |

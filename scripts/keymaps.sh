@@ -64,6 +64,7 @@ echo "" >> "${OUT}"
 echo "### ${CFNAME} Keymaps" >> "${OUT}"
 
 cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
+  sed -e "s/\[nvim-treesitter.*//" | \
   grep -v callback | grep -v "^\[" | grep -v ^Dep | grep -v ^Error | \
   grep -v ^Fail | grep -v ^Some | grep -v ^\& | grep -v ^sh | \
   grep -v ^Tele | grep -v ^Lua | grep -v ^Two | grep -i -v ^vim | \
@@ -72,7 +73,8 @@ cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
   grep -v "^\.\.\." | grep -v "[[:space:]]\.\.\." | grep -v "^\# stack" | \
   grep -v -- "[[:space:]]- " | grep -v ^Install | grep -v ^Welcome | \
   grep -v "[[:space:]]vim/" | grep -v ^run | grep -v ^plea | \
-  grep -v ^Plugin | grep -v ^All | grep -v -- ^- > /tmp/${CFNAME}$$.lua
+  grep -v ^Plugin | grep -v ^All | grep -v -- ^- | \
+  grep -v "^$(printf '\t')" | grep -v ^line > /tmp/${CFNAME}$$.lua
 for mode in "normal" "visual" "operator"
 do
   cp /tmp/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua
@@ -89,7 +91,7 @@ do
   echo "    io.write(' | ')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.rhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo '    io.write(" | \`" .. v.rhs .. "\` |\n")' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write(' | \`' .. v.rhs .. '\` |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo '    io.write(" |  |\n")' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua

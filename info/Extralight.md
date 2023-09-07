@@ -37,90 +37,90 @@ Single file lightweight configuration focused on providing basic features
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  fs | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
-|  |  fd | <Cmd>Telescope diagnostics<CR> |
-|  |  fg | <Cmd>Telescope live_grep<CR> |
-|  |  ff | <Cmd>Telescope find_files<CR> |
-|  |    | <Cmd>Telescope buffers<CR> |
-|  |  ? | <Cmd>Telescope oldfiles<CR> |
-|  |  bc | <Cmd>lua pcall(MiniBufremove.delete)<CR> |
-|  |  E | <Cmd>Lexplore %:p:h<CR> |
-|  |  e | <Cmd>Lexplore<CR> |
-|  | % | <Plug>(MatchitNormalForward) |
-| Nvim builtin | & | :&&<CR> |
-| Nvim builtin | Y | y$ |
-|  | [% | <Plug>(MatchitNormalMultiBackward) |
-|  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Comment line | gcc |  |
-| Comment | gc |  |
-|  | gx | <Plug>NetrwBrowseX |
-|  | g% | <Plug>(MatchitNormalBackward) |
-|  | gp | "+p |
-|  | gy | "+y |
-| Highlight next surrounding | shn |  |
-| Find next left surrounding | sFn |  |
-| Find next right surrounding | sfn |  |
-| Replace next surrounding | srn |  |
-| Delete next surrounding | sdn |  |
-| Highlight previous surrounding | shl |  |
-| Find previous left surrounding | sFl |  |
-| Find previous right surrounding | sfl |  |
-| Replace previous surrounding | srl |  |
-| Delete previous surrounding | sdl |  |
-| Update `MiniSurround.config.n_lines` | sn |  |
-| Highlight surrounding | sh |  |
-| Find left surrounding | sF |  |
-| Find right surrounding | sf |  |
-| Replace surrounding | sr |  |
-| Delete surrounding | sd |  |
-| Add surrounding | sa |  |
-|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
-|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
-|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
-|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
-|  | <Plug>luasnip-delete-check |  |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+|  | ` fs` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
+|  | ` fd` | `<Cmd>Telescope diagnostics<CR>` |
+|  | ` fg` | `<Cmd>Telescope live_grep<CR>` |
+|  | ` ff` | `<Cmd>Telescope find_files<CR>` |
+|  | `  ` | `<Cmd>Telescope buffers<CR>` |
+|  | ` ?` | `<Cmd>Telescope oldfiles<CR>` |
+|  | ` bc` | `<Cmd>lua pcall(MiniBufremove.delete)<CR>` |
+|  | ` E` | `<Cmd>Lexplore %:p:h<CR>` |
+|  | ` e` | `<Cmd>Lexplore<CR>` |
+|  | `%` | `<Plug>(MatchitNormalForward)` |
+| Nvim builtin | `&` | `:&&<CR>` |
+| Nvim builtin | `Y` | `y$` |
+|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
+| Comment line | `gcc` |  |
+| Comment | `gc` |  |
+|  | `gx` | `<Plug>NetrwBrowseX` |
+|  | `g%` | `<Plug>(MatchitNormalBackward)` |
+|  | `gp` | `"+p` |
+|  | `gy` | `"+y` |
+| Highlight next surrounding | `shn` |  |
+| Find next left surrounding | `sFn` |  |
+| Find next right surrounding | `sfn` |  |
+| Replace next surrounding | `srn` |  |
+| Delete next surrounding | `sdn` |  |
+| Highlight previous surrounding | `shl` |  |
+| Find previous left surrounding | `sFl` |  |
+| Find previous right surrounding | `sfl` |  |
+| Replace previous surrounding | `srl` |  |
+| Delete previous surrounding | `sdl` |  |
+| Update `MiniSurround.config.n_lines` | `sn` |  |
+| Highlight surrounding | `sh` |  |
+| Find left surrounding | `sF` |  |
+| Find right surrounding | `sf` |  |
+| Replace surrounding | `sr` |  |
+| Delete surrounding | `sd` |  |
+| Add surrounding | `sa` |  |
+|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
+|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
+|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
+|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
+|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
+|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
+|  | `<Plug>luasnip-expand-repeat` |  |
+|  | `<Plug>luasnip-delete-check` |  |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-|  | % | <Plug>(MatchitVisualForward) |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | [% | <Plug>(MatchitVisualMultiBackward) |
-|  | ]% | <Plug>(MatchitVisualMultiForward) |
-|  | a% | <Plug>(MatchitVisualTextObject) |
-| Comment selection | gc | :<C-U>lua MiniComment.operator('visual')<CR> |
-|  | gx | <Plug>NetrwBrowseXVis |
-|  | g% | <Plug>(MatchitVisualBackward) |
-|  | gp | "+p |
-|  | gy | "+y |
-| Add surrounding to selection | sa | :<C-U>lua MiniSurround.add('visual')<CR> |
-|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
-|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
-|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>luasnip-expand-repeat |  |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+|  | `%` | `<Plug>(MatchitVisualForward)` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
+|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
+| Comment selection | `gc` | `:<C-U>lua MiniComment.operator('visual')<CR>` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `g%` | `<Plug>(MatchitVisualBackward)` |
+|  | `gp` | `"+p` |
+|  | `gy` | `"+y` |
+| Add surrounding to selection | `sa` | `:<C-U>lua MiniSurround.add('visual')<CR>` |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
+|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
+|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+|  | `<Plug>luasnip-expand-repeat` |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | % | <Plug>(MatchitOperationForward) |
-|  | [% | <Plug>(MatchitOperationMultiBackward) |
-|  | ]% | <Plug>(MatchitOperationMultiForward) |
-| Comment textobject | gc | <Cmd>lua MiniComment.textobject()<CR> |
-|  | g% | <Plug>(MatchitOperationBackward) |
-|  | gp | "+p |
-|  | gy | "+y |
-|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
-|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
-|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
-|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
-|  | <Plug>luasnip-expand-repeat |  |
+|  | `%` | `<Plug>(MatchitOperationForward)` |
+|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
+| Comment textobject | `gc` | `<Cmd>lua MiniComment.textobject()<CR>` |
+|  | `g%` | `<Plug>(MatchitOperationBackward)` |
+|  | `gp` | `"+p` |
+|  | `gy` | `"+y` |
+|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
+|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
+|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
+|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | `<Plug>luasnip-expand-repeat` |  |

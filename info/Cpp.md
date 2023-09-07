@@ -58,33 +58,34 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |   |  |
-|  | " |  |
-| Nvim builtin | & | :&&<CR> |
-|  | ' |  |
-| Nvim builtin | Y | y$ |
-|  | ` |  |
-|  | c |  |
-| Comment toggle current line | gcc |  |
-| Comment toggle current block | gbc |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
-|  | g |  |
-|  | v |  |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+|  | ` ` |  |
+|  | `"` |  |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `'` |  |
+| Nvim builtin | `Y` | `y$` |
+|  | ``` |  |
+|  | `c` |  |
+| Comment toggle current block | `gbc` |  |
+| Comment toggle linewise | `gc` |  |
+| Comment toggle current line | `gcc` |  |
+| Comment toggle blockwise | `gb` |  |
+|  | `g` |  |
+|  | `v` |  |
+|  | `<C-R>` |  |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-| Comment toggle linewise (visual) | gc |  |
-| Comment toggle blockwise (visual) | gb |  |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+| Comment toggle blockwise (visual) | `gb` |  |
+| Comment toggle linewise (visual) | `gc` |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
+| Comment toggle blockwise | `gb` |  |
+| Comment toggle linewise | `gc` |  |

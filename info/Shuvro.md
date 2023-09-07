@@ -71,6 +71,7 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nvim-lua/popup.nvim](https://github.com/nvim-lua/popup.nvim)
 - [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [rose-pine/neovim](https://github.com/rose-pine/neovim.git)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
 - [cshuaimin/ssr.nvim](https://github.com/cshuaimin/ssr.nvim)
 - [Tastyep/structlog.nvim](https://github.com/Tastyep/structlog.nvim.git)
@@ -97,66 +98,66 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | <CR> | <Cmd>lua require('user.neovim').maximize_current_split()<CR> |
-|  | <Esc><Esc> | <Cmd>nohlsearch<CR> |
-|  |  y |  |
-| Nvim builtin | & | :&&<CR> |
-|  | H | <Cmd>BufferLineCyclePrev<CR> |
-|  | L | <Cmd>BufferLineCycleNext<CR> |
-|  | X | <Cmd>lua require('user.bufferline').delete_buffer()<CR> |
-|  | Y | y$ |
-|  | [d | <Cmd>lua vim.diagnostic.goto_prev()<CR> |
-|  | [b | <Cmd>BufferLineMoveNext<CR> |
-|  | [q | :cprev<CR> |
-|  | ]d | <Cmd>lua vim.diagnostic.goto_next()<CR> |
-|  | ]b | <Cmd>BufferLineMovePrev<CR> |
-|  | ]q | :cnext<CR> |
-|  | ce | <Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR> |
-|  | cu | <Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR> |
-|  | gb |  |
-|  | gc |  |
-|  | gx | <Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR> |
-|  | gv | <Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR> |
-|  | tu | <Cmd>lua require('harpoon.term').gotoTerminal(1)<CR> |
-|  | te | <Cmd>lua require('harpoon.term').gotoTerminal(2)<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <C-Bslash> |  |
-|  | <M-x> | <C-X> |
-|  | <C-Space> | <Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR> |
-|  | <M-a> | <C-A> |
-|  | <C-N>i | <Tab> |
-|  | <C-,> | <Cmd>lua require('neogen').jump_next()<CR> |
-|  | <C-K> | <C-W>k |
-|  | <M-j> | :m .+1<CR>== |
-|  | <C-J> | <C-W>j |
-|  | <M-k> | :m .-2<CR>== |
-|  | <C-H> | <C-W>h |
-|  | <C-Right> | :vertical resize +2<CR> |
-|  | <C-Left> | :vertical resize -2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
-|  | <C-Down> | :resize +2<CR> |
-|  | <C-Up> | :resize -2<CR> |
-|  | <C-L> | <C-W>l |
+|  | `<CR>` | `<Cmd>lua require('user.neovim').maximize_current_split()<CR>` |
+|  | `<Esc><Esc>` | `<Cmd>nohlsearch<CR>` |
+|  | ` y` |  |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `H` | `<Cmd>BufferLineCyclePrev<CR>` |
+|  | `L` | `<Cmd>BufferLineCycleNext<CR>` |
+|  | `X` | `<Cmd>lua require('user.bufferline').delete_buffer()<CR>` |
+|  | `Y` | `y$` |
+|  | `[d` | `<Cmd>lua vim.diagnostic.goto_prev()<CR>` |
+|  | `[b` | `<Cmd>BufferLineMoveNext<CR>` |
+|  | `[q` | `:cprev<CR>` |
+|  | `]d` | `<Cmd>lua vim.diagnostic.goto_next()<CR>` |
+|  | `]b` | `<Cmd>BufferLineMovePrev<CR>` |
+|  | `]q` | `:cnext<CR>` |
+|  | `cu` | `<Cmd>lua require('harpoon.term').sendCommand(1, 1)<CR>` |
+|  | `ce` | `<Cmd>lua require('harpoon.term').sendCommand(1, 2)<CR>` |
+|  | `gc` |  |
+|  | `gb` |  |
+|  | `gx` | `<Cmd>lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "<lt>cWORD>")); vim.cmd "redraw!"<CR>` |
+|  | `gv` | `<Cmd>vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})<CR>` |
+|  | `tu` | `<Cmd>lua require('harpoon.term').gotoTerminal(1)<CR>` |
+|  | `te` | `<Cmd>lua require('harpoon.term').gotoTerminal(2)<CR>` |
+|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
+|  | `<C-Bslash>` |  |
+|  | `<C-Space>` | `<Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>` |
+|  | `<M-x>` | `<C-X>` |
+|  | `<C-N>i` | `<Tab>` |
+|  | `<M-a>` | `<C-A>` |
+|  | `<C-,>` | `<Cmd>lua require('neogen').jump_next()<CR>` |
+|  | `<M-j>` | `:m .+1<CR>==` |
+|  | `<M-k>` | `:m .-2<CR>==` |
+|  | `<C-K>` | `<C-W>k` |
+|  | `<C-J>` | `<C-W>j` |
+|  | `<C-H>` | `<C-W>h` |
+|  | `<C-Q>` | `:call QuickFixToggle()<CR>` |
+|  | `<C-Right>` | `:vertical resize +2<CR>` |
+|  | `<C-Left>` | `:vertical resize -2<CR>` |
+|  | `<C-Down>` | `:resize +2<CR>` |
+|  | `<C-Up>` | `:resize -2<CR>` |
+|  | `<C-L>` | `<C-W>l` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  st | <Cmd>lua require('user.telescope').grep_string_visual()<CR> |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | <lt> | <lt>gv |
-|  | > | >gv |
-|  | gx | <Plug>NetrwBrowseXVis |
-|  | gb |  |
-|  | gc |  |
-|  | ga | <Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR> |
-|  | p | "_dP |
-|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <M-x> | <C-X> |
-|  | <M-a> | <C-A> |
-|  | <M-k> | :m '<lt>-2<CR>gv-gv |
-|  | <M-j> | :m '>+1<CR>gv-gv |
+|  | ` st` | `<Cmd>lua require('user.telescope').grep_string_visual()<CR>` |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `<lt>` | `<lt>gv` |
+|  | `>` | `>gv` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `gc` |  |
+|  | `gb` |  |
+|  | `ga` | `<Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR>` |
+|  | `p` | `"_dP` |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
+|  | `<M-x>` | `<C-X>` |
+|  | `<M-a>` | `<C-A>` |
+|  | `<M-j>` | `:m '>+1<CR>gv-gv` |
+|  | `<M-k>` | `:m '<lt>-2<CR>gv-gv` |
 
 #### operator mode keymaps
 

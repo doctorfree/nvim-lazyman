@@ -72,81 +72,82 @@ Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom).
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | " |  |
-| Nvim builtin | & | :&&<CR> |
-|  | ' |  |
-| Move to end of Treehopper node | ,h] |  |
-| Move to start of Treehopper node | ,h[ |  |
-| Treehopper nodes | ,hm |  |
-| Open new line above HopLineStart target | ,vO |  |
-| Open new line below HopLineStart target | ,vo |  |
-| Paste above target using HopLineStart | ,vP |  |
-| Paste below target using HopLineStart | ,vp |  |
-| Jump to definition | ,hd |  |
-|  | ,hq] | <Cmd>lua require'hop'.hint_patterns({}, [[}]])<CR> |
-|  | ,hq[ | <Cmd>lua require'hop'.hint_patterns({}, [[{]])<CR> |
-|  | ,hqk | <Cmd>lua require'hop'.hint_patterns({}, [[)]])<CR> |
-|  | ,hqj | <Cmd>lua require'hop'.hint_patterns({}, [[(]])<CR> |
-|  | ,hf/ | <Cmd>lua require'hop'.hint_patterns({}, [[/\|?]])<CR> |
-|  | ,hf; | <Cmd>lua require'hop'.hint_patterns({}, [[;\|:]])<CR> |
-|  | ,hf- | <Cmd>lua require'hop'.hint_patterns({}, [[-\|+]])<CR> |
-|  | ,hf' | <Cmd>lua require'hop'.hint_patterns({}, [["\|']])<CR> |
-|  | ,hH | <Cmd>lua require'hop'.hint_patterns({}, [[\d\+]])<CR> |
-|  | ,hW | <Cmd>HopWordMW<CR> |
-|  | ,hl | <Cmd>HopLineStart<CR> |
-|  | ,hw | <Cmd>HopWord<CR> |
-|  | , |  |
-|  | ? | / |
-|  | F |  |
-| Trigger LuaSnip snippet | Ls |  |
-|  | T |  |
-| Nvim builtin | Y | y$ |
-|  | ` |  |
-|  | c |  |
-|  | f |  |
-|  | g |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle current line | gcc |  |
-| Comment toggle linewise | gc |  |
-| Comment toggle current block | gbc |  |
-|  | t |  |
-| Treehopper node target insert | vy |  |
-| HopLineStart target in normal mode | vY |  |
-| Open new line above HopLineStart target | vO |  |
-| Open new line below HopLineStart target | vo |  |
-| Paste above target using HopLineStart | vP |  |
-| Paste below target using HopLineStart | vp |  |
-|  | v |  |
-| Yank using Treehopper | ym |  |
-| Yank a Treesitter code block | yc |  |
-| Yank a line with HopLineStart | yl |  |
-| Yank user syntax-tree-surfer | yx |  |
-|  | <M-q> | q |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+|  | `"` |  |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `'` |  |
+| Open new line above HopLineStart target | `,vO` |  |
+| Open new line below HopLineStart target | `,vo` |  |
+| Paste above target using HopLineStart | `,vP` |  |
+| Paste below target using HopLineStart | `,vp` |  |
+| Jump to definition | `,hd` |  |
+|  | `,hq]` | `<Cmd>lua require'hop'.hint_patterns({}, [[}]])<CR>` |
+|  | `,hq[` | `<Cmd>lua require'hop'.hint_patterns({}, [[{]])<CR>` |
+|  | `,hqk` | `<Cmd>lua require'hop'.hint_patterns({}, [[)]])<CR>` |
+|  | `,hqj` | `<Cmd>lua require'hop'.hint_patterns({}, [[(]])<CR>` |
+|  | `,hf/` | `<Cmd>lua require'hop'.hint_patterns({}, [[/\|?]])<CR>` |
+|  | `,hf;` | `<Cmd>lua require'hop'.hint_patterns({}, [[;\|:]])<CR>` |
+|  | `,hf-` | `<Cmd>lua require'hop'.hint_patterns({}, [[-\|+]])<CR>` |
+|  | `,hf'` | `<Cmd>lua require'hop'.hint_patterns({}, [["\|']])<CR>` |
+|  | `,hH` | `<Cmd>lua require'hop'.hint_patterns({}, [[\d\+]])<CR>` |
+|  | `,hW` | `<Cmd>HopWordMW<CR>` |
+|  | `,hl` | `<Cmd>HopLineStart<CR>` |
+|  | `,hw` | `<Cmd>HopWord<CR>` |
+| Move to end of Treehopper node | `,h]` |  |
+| Move to start of Treehopper node | `,h[` |  |
+| Treehopper nodes | `,hm` |  |
+|  | `,` |  |
+|  | `?` | `/` |
+|  | `F` |  |
+| Trigger LuaSnip snippet | `Ls` |  |
+|  | `T` |  |
+| Nvim builtin | `Y` | `y$` |
+|  | ``` |  |
+|  | `c` |  |
+|  | `f` |  |
+| Comment toggle current block | `gbc` |  |
+| Comment toggle blockwise | `gb` |  |
+| Comment toggle linewise | `gc` |  |
+| Comment toggle current line | `gcc` |  |
+|  | `g` |  |
+|  | `t` |  |
+| Treehopper node target insert | `vy` |  |
+| HopLineStart target in normal mode | `vY` |  |
+| Open new line above HopLineStart target | `vO` |  |
+| Open new line below HopLineStart target | `vo` |  |
+| Paste above target using HopLineStart | `vP` |  |
+| Paste below target using HopLineStart | `vp` |  |
+|  | `v` |  |
+| Yank using Treehopper | `ym` |  |
+| Yank a Treesitter code block | `yc` |  |
+| Yank a line with HopLineStart | `yl` |  |
+| Yank user syntax-tree-surfer | `yx` |  |
+|  | `<M-q>` | `q` |
+|  | `<C-R>` |  |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | ,hl | <Cmd>HopLineStart<CR> |
-|  | ,hw | <Cmd>HopWord<CR> |
-|  | F |  |
-|  | T |  |
-|  | f |  |
-| Comment toggle blockwise (visual) | gb |  |
-| Comment toggle linewise (visual) | gc |  |
-|  | t |  |
-|  | <M-q> | q |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `,hl` | `<Cmd>HopLineStart<CR>` |
+|  | `,hw` | `<Cmd>HopWord<CR>` |
+|  | `F` |  |
+|  | `T` |  |
+|  | `f` |  |
+| Comment toggle blockwise (visual) | `gb` |  |
+| Comment toggle linewise (visual) | `gc` |  |
+|  | `t` |  |
+|  | `<M-q>` | `q` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | F |  |
-|  | T |  |
-|  | f |  |
-| Comment toggle blockwise | gb |  |
-| Comment toggle linewise | gc |  |
-|  | t |  |
+|  | `F` |  |
+|  | `T` |  |
+|  | `f` |  |
+| Comment toggle blockwise | `gb` |  |
+| Comment toggle linewise | `gc` |  |
+|  | `t` |  |

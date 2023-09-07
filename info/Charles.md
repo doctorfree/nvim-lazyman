@@ -128,187 +128,187 @@ Well structured lazy config with several setup scripts and a Wiki
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| buffer: Switch to next | <Tab> | :BufferLineCycleNext<CR> |
-| edit: Clear search highlight | <Esc> | :noh<CR> |
-| edit: Join code block |  j | :<C-U>TSJJoin<CR> |
-| edit: Split code block |  s | :<C-U>TSJSplit<CR> |
-|  |   |  |
-| Nvim builtin | & | :&&<CR> |
-| edit: Increment | + | <C-A> |
-| buffer: Sort by direrctory | ,bd | :BufferLineSortByDirectory<CR> |
-| buffer: Sort by extension | ,be | :BufferLineSortByExtension<CR> |
-| edit: Show undo history | ,u |  |
-| ui: Change colorscheme for current session | ,fc | :<C-U>Telescope colorscheme<CR> |
-| buffer: New | ,fn | :<C-U>:enew<CR> |
-| find: Buffer opened | ,fb | :<C-U>Telescope buffers<CR> |
-| lsp: Show loclist | ,tl | :TroubleToggle loclist<CR> |
-|  | ,= |  |
-| lsp: Show quickfix list | ,tq | :TroubleToggle quickfix<CR> |
-| lsp: Show workspace diagnostics | ,tw | :TroubleToggle workspace_diagnostics<CR> |
-|  | ,- |  |
-| lsp: Show document diagnostics | ,td | :TroubleToggle document_diagnostics<CR> |
-| find: file in git project | ,fg | :<C-U>Telescope git_files<CR> |
-| find: Current word | ,fs | :<C-U>Telescope grep_string<CR> |
-| lsp: Show lsp references | ,tr | :TroubleToggle lsp_references<CR> |
-| lsp: Toggle trouble list | ,tt | :TroubleToggle<CR> |
-| git: Toggle lazygit | ,lg |  |
-| tool: Run code by file | ,R | :<C-U>%SnipRun<CR> |
-| filetree: Refresh | ,nr | :NvimTreeRefresh<CR> |
-| filetree: Find file | ,nf | :NvimTreeFindFile<CR> |
-| debug: Open REPL | ,do |  |
-| git: Open git-fugitive | ,G | :<C-U>Git<CR> |
-| debug: Run last | ,dl |  |
-| debug: Run to cursor | ,dc |  |
-| debug: Set breakpoint with condition | ,db |  |
-| find: File in project | ,ff | :<C-U>Telescope find_files<CR> |
-| find: File by history | ,fe | :<C-U>Telescope oldfiles<CR> |
-| find: Session | ,fd | :<C-U>Telescope persisted<CR> |
-| find: Word in project | ,fw |  |
-| find: File by frecency | ,fr |  |
-| find: Project | ,fp |  |
-| edit: Show search-repacle menu in current buffer | ,rs | :<C-U>SearchReplaceSingleBufferSelections<CR> |
-| edit: Search-repacle in current buffer | ,ro | :<C-U>SearchReplaceSingleBufferOpen<CR> |
-| edit: Search-repacle current buffer CWord | ,rw | :<C-U>SearchReplaceSingleBufferCWord<CR> |
-| edit: Search-repacle current buffer CWORD | ,rW | :<C-U>SearchReplaceSingleBufferCWORD<CR> |
-| edit: Search-repacle current buffer CExpr | ,re | :<C-U>SearchReplaceSingleBufferCExpr<CR> |
-| edit: Search-repacle current buffer CFile | ,rf | :<C-U>SearchReplaceSingleBufferCFile<CR> |
-| edit: Add comment box around multi lines of texts | ,cF |  |
-| edit: Search-repacle multi buffers CWORD | ,rbW | :<C-U>SearchReplaceMultiBufferCWORD<CR> |
-| edit: Add comment box around the texts | ,cf |  |
-| session: Delete | ,sd | :<C-U>SessionDelete<CR> |
-| session: Load current | ,sl | :<C-U>SessionLoad<CR> |
-| session: Save | ,ss | :<C-U>SessionSave<CR> |
-| edit: Search-repacle multi buffers CFile | ,rbf | :<C-U>SearchReplaceMultiBufferCFile<CR> |
-| edit: Search-repacle multi buffers CExpr | ,rbe | :<C-U>SearchReplaceMultiBufferCExpr<CR> |
-| edit: Search-repacle multi buffers CWord | ,rbw | :<C-U>SearchReplaceMultiBufferCWord<CR> |
-| edit: Search-repacle in multi buffers | ,rbo | :<C-U>SearchReplaceMultiBufferOpen<CR> |
-| edit: Show search-repacle menu for multi buffer | ,rbs | :<C-U>SearchReplaceMultiBufferSelections<CR> |
-| git: Close diff | ,,dv | :DiffviewClose<CR> |
-| git: Show diff | ,dv | :DiffviewOpen<CR> |
-| package: Sync | ,ps | :Lazy sync<CR> |
-| package: Debug | ,pd | :Lazy debug<CR> |
-| package: Show | ,ph | :Lazy<CR> |
-| package: Check | ,pc | :Lazy check<CR> |
-| package: Log | ,pl | :Lazy log<CR> |
-| package: Clean | ,px | :Lazy clean<CR> |
-| package: Install | ,pi | :Lazy install<CR> |
-| package: Restore | ,pr | :Lazy restore<CR> |
-| package: Update | ,pu | :Lazy update<CR> |
-| package: Profile | ,pp | :Lazy profile<CR> |
-| edit: Start replacment mode of current word | ,,s | <Cmd>%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left> |
-| filetree: Open Oil | ,o |  |
-| file: chmod +x current file | ,,x | <Cmd>!chmod +x %<CR> |
-| edit: Decrement | - | <C-X> |
-| buffer: Move current to prev | <lt>tab-S-k> | :BufferLineMovePrev<CR> |
-| buffer: Move current to next | <lt>tab-S-j> | :BufferLineMoveNext<CR> |
-| edit: Delete text to EOL | D | d$ |
-| leapn: Jump backward to character | F |  |
-| jump: Jump to specified node | J |  |
-| edit: Prev search result | N | Nzzzv |
-| leapn: Jump backward till character | T |  |
-| edit: Yank text to EOL | Y | y$ |
-| edit: Change a surrounding pair | cs |  |
-| edit: Delete a surrounding pair | ds |  |
-| leapn: Jump to character | f |  |
-| git: Pull | gpl | :G pull<CR> |
-| git: Push | gps | :G push<CR> |
-| edit: Toggle comment for block with operator | gb | <Plug>(comment_toggle_blockwise) |
-| edit: Toggle comment for line with operator | gc | <Plug>(comment_toggle_linewise) |
-| edit: Toggle comment for block | gbc |  |
-| edit: Toggle comment for line | gcc |  |
-| leapn: Jump to character across windows | gt |  |
-| edit: Align with delimiter | gea | :EasyAlign<CR> |
-|  | j |  |
-| jump: Jump to functions | jif |  |
-| jump: Jump to functions | jfu |  |
-| jump: Jump to visible variable_declarations | jv |  |
-|  | k |  |
-| Jumpx: Jump across syntax tree | m |  |
-| edit: Next search result | n | nzzzv |
-| edit: Split or Join code block with autodetect | sj | :<C-U>TSJToggle<CR> |
-| leapn: Jump till character | t |  |
-| tab: Only keep current tab | to | <Cmd>tabonly<CR> |
-| tab: Move to previous tab | tj | <Cmd>tabprevious<CR> |
-| tab: Move to next tab | tk | <Cmd>tabnext<CR> |
-| tab: Create a new tab | tn | <Cmd>tabnew<CR> |
-| edit: Visual select master node | vx | :<C-U>STSSelectMasterNode<CR> |
-| edit: Visual select current node | vn | :<C-U>STSSelectCurrentNode<CR> |
-| edit: Add a surrounding pair around current line | yss |  |
-| edit: Add a surrounding pair around a motion | ys |  |
-| edit: Add a surrounding pair around the current line, on new lines | ySS |  |
-| edit: Add a surrounding pair around a motion, on new lines | yS |  |
-| terminal: Toggle float | <M-d> | :execute v:count . "ToggleTerm direction=float"<CR> |
-| terminal: Toggle vertical | <F5> | :execute v:count . "ToggleTerm direction=vertical"<CR> |
-| terminal: Toggle vertical | <M-Bslash> | :execute v:count . "ToggleTerm direction=vertical"<CR> |
-| terminal: Toggle horizontal | <C-Bslash> | :execute v:count . "ToggleTerm direction=horizontal"<CR> |
-| tmux: Resize tmux/nvim pane rightward | <M-l> |  |
-| tmux: Resize to tmux/nvim pane leftward | <M-h> |  |
-| tmux: Resize to tmux/nvim pane upward | <M-k> |  |
-| tmux: Resize tmux/nvim pane downward | <M-j> |  |
-| debug: Step over | <F11> |  |
-| debug: Step out | <F10> |  |
-| debug: Step into | <F9> |  |
-| debug: Toggle breakpoint | <F8> |  |
-| debug: Stop | <F7> |  |
-| debug: Run/Continue | <F6> |  |
-| tool: Preview markdown | <F12> | :MarkdownPreviewToggle<CR> |
-| editn: Save file using sudo | <M-s> | :<C-U>SudaWrite<CR> |
-| buffer: Close current | <F4> | :BufDel<CR> |
-| Formater: Toggle format on save | <M-f> | <Cmd>FormatToggle<CR> |
-| window: Resize -2 horizontally | <M-;> | :resize -2<CR> |
-| window: Resize -5 vertically | <M-[> | :vertical resize -5<CR> |
-| edit: Force quit | <M-Q> | :q!<CR> |
-| filetree: Toggle | <C-N> | :NvimTreeToggle<CR> |
-| tool: Toggle command panel | <C-P> |  |
-| edit: Save file and quit | <C-Q> | :wq<CR> |
-| window: Resize +2 horizontally | <M-'> | :resize +2<CR> |
-| edit: Save file | <C-S> | :<C-U>write<CR> |
-| window: Resize +5 vertically | <M-]> | :vertical resize +5<CR> |
-| buffer: Switch to prev | <S-Tab> | :BufferLineCyclePrev<CR> |
-| tmux: Move to tmux/nvim top window | <C-K> |  |
-| tmux: Move to tmux/nvim bottom window | <C-J> |  |
-| edit: Select all | <C-A> | gg0vG$ |
-| tmux: Move to tmux/nvim left window | <C-H> |  |
-| tmux: Move tmux/nvim right window | <C-L> |  |
+| buffer: Switch to next | `<Tab>` | `:BufferLineCycleNext<CR>` |
+| edit: Clear search highlight | `<Esc>` | `:noh<CR>` |
+| edit: Join code block | ` j` | `:<C-U>TSJJoin<CR>` |
+| edit: Split code block | ` s` | `:<C-U>TSJSplit<CR>` |
+|  | ` ` | `` |
+| Nvim builtin | `&` | `:&&<CR>` |
+| edit: Increment | `+` | `<C-A>` |
+| buffer: Sort by extension | `,be` | `:BufferLineSortByExtension<CR>` |
+| buffer: Sort by direrctory | `,bd` | `:BufferLineSortByDirectory<CR>` |
+| lsp: Show quickfix list | `,tq` | `:TroubleToggle quickfix<CR>` |
+| debug: Open REPL | `,do` |  |
+|  | `,=` |  |
+| lsp: Show workspace diagnostics | `,tw` | `:TroubleToggle workspace_diagnostics<CR>` |
+| debug: Run last | `,dl` |  |
+| lsp: Show document diagnostics | `,td` | `:TroubleToggle document_diagnostics<CR>` |
+| debug: Run to cursor | `,dc` |  |
+| lsp: Show lsp references | `,tr` | `:TroubleToggle lsp_references<CR>` |
+| debug: Set breakpoint with condition | `,db` |  |
+| lsp: Toggle trouble list | `,tt` | `:TroubleToggle<CR>` |
+| find: Word in project | `,fw` |  |
+| git: Toggle lazygit | `,lg` |  |
+| find: Session | `,fd` | `:<C-U>Telescope persisted<CR>` |
+| tool: Run code by file | `,R` | `:<C-U>%SnipRun<CR>` |
+| filetree: Refresh | `,nr` | `:NvimTreeRefresh<CR>` |
+| filetree: Find file | `,nf` | `:NvimTreeFindFile<CR>` |
+| git: Open git-fugitive | `,G` | `:<C-U>Git<CR>` |
+|  | `,-` |  |
+| find: Current word | `,fs` | `:<C-U>Telescope grep_string<CR>` |
+| find: Buffer opened | `,fb` | `:<C-U>Telescope buffers<CR>` |
+| find: file in git project | `,fg` | `:<C-U>Telescope git_files<CR>` |
+| buffer: New | `,fn` | `:<C-U>:enew<CR>` |
+| ui: Change colorscheme for current session | `,fc` | `:<C-U>Telescope colorscheme<CR>` |
+| find: File in project | `,ff` | `:<C-U>Telescope find_files<CR>` |
+| find: File by history | `,fe` | `:<C-U>Telescope oldfiles<CR>` |
+| find: File by frecency | `,fr` |  |
+| find: Project | `,fp` |  |
+| edit: Show undo history | `,u` |  |
+| lsp: Show loclist | `,tl` | `:TroubleToggle loclist<CR>` |
+| edit: Show search-repacle menu in current buffer | `,rs` | `:<C-U>SearchReplaceSingleBufferSelections<CR>` |
+| edit: Search-repacle current buffer CWord | `,rw` | `:<C-U>SearchReplaceSingleBufferCWord<CR>` |
+| edit: Search-repacle in current buffer | `,ro` | `:<C-U>SearchReplaceSingleBufferOpen<CR>` |
+| edit: Search-repacle multi buffers CFile | `,rbf` | `:<C-U>SearchReplaceMultiBufferCFile<CR>` |
+| edit: Search-repacle multi buffers CExpr | `,rbe` | `:<C-U>SearchReplaceMultiBufferCExpr<CR>` |
+| edit: Search-repacle multi buffers CWORD | `,rbW` | `:<C-U>SearchReplaceMultiBufferCWORD<CR>` |
+| git: Close diff | `,,dv` | `:DiffviewClose<CR>` |
+| edit: Search-repacle multi buffers CWord | `,rbw` | `:<C-U>SearchReplaceMultiBufferCWord<CR>` |
+| git: Show diff | `,dv` | `:DiffviewOpen<CR>` |
+| edit: Search-repacle in multi buffers | `,rbo` | `:<C-U>SearchReplaceMultiBufferOpen<CR>` |
+| edit: Show search-repacle menu for multi buffer | `,rbs` | `:<C-U>SearchReplaceMultiBufferSelections<CR>` |
+| edit: Search-repacle current buffer CFile | `,rf` | `:<C-U>SearchReplaceSingleBufferCFile<CR>` |
+| edit: Search-repacle current buffer CExpr | `,re` | `:<C-U>SearchReplaceSingleBufferCExpr<CR>` |
+| edit: Search-repacle current buffer CWORD | `,rW` | `:<C-U>SearchReplaceSingleBufferCWORD<CR>` |
+| edit: Add comment box around multi lines of texts | `,cF` |  |
+| edit: Add comment box around the texts | `,cf` |  |
+| session: Delete | `,sd` | `:<C-U>SessionDelete<CR>` |
+| session: Load current | `,sl` | `:<C-U>SessionLoad<CR>` |
+| session: Save | `,ss` | `:<C-U>SessionSave<CR>` |
+| package: Show | `,ph` | `:Lazy<CR>` |
+| package: Restore | `,pr` | `:Lazy restore<CR>` |
+| package: Log | `,pl` | `:Lazy log<CR>` |
+| package: Debug | `,pd` | `:Lazy debug<CR>` |
+| package: Profile | `,pp` | `:Lazy profile<CR>` |
+| package: Update | `,pu` | `:Lazy update<CR>` |
+| package: Install | `,pi` | `:Lazy install<CR>` |
+| package: Check | `,pc` | `:Lazy check<CR>` |
+| package: Sync | `,ps` | `:Lazy sync<CR>` |
+| package: Clean | `,px` | `:Lazy clean<CR>` |
+| edit: Start replacment mode of current word | `,,s` | `<Cmd>%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left>` |
+| file: chmod +x current file | `,,x` | `<Cmd>!chmod +x %<CR>` |
+| filetree: Open Oil | `,o` |  |
+| edit: Decrement | `-` | `<C-X>` |
+| buffer: Move current to prev | `<lt>tab-S-k>` | `:BufferLineMovePrev<CR>` |
+| buffer: Move current to next | `<lt>tab-S-j>` | `:BufferLineMoveNext<CR>` |
+| edit: Delete text to EOL | `D` | `d$` |
+| leapn: Jump backward to character | `F` |  |
+| jump: Jump to specified node | `J` |  |
+| edit: Prev search result | `N` | `Nzzzv` |
+| leapn: Jump backward till character | `T` |  |
+| edit: Yank text to EOL | `Y` | `y$` |
+| edit: Change a surrounding pair | `cs` |  |
+| edit: Delete a surrounding pair | `ds` |  |
+| leapn: Jump to character | `f` |  |
+| git: Pull | `gpl` | `:G pull<CR>` |
+| git: Push | `gps` | `:G push<CR>` |
+| edit: Align with delimiter | `gea` | `:EasyAlign<CR>` |
+| edit: Toggle comment for block with operator | `gb` | `<Plug>(comment_toggle_blockwise)` |
+| edit: Toggle comment for line with operator | `gc` | `<Plug>(comment_toggle_linewise)` |
+| edit: Toggle comment for block | `gbc` |  |
+| edit: Toggle comment for line | `gcc` |  |
+| leapn: Jump to character across windows | `gt` |  |
+|  | `j` |  |
+| jump: Jump to functions | `jfu` |  |
+| jump: Jump to visible variable_declarations | `jv` |  |
+| jump: Jump to functions | `jif` |  |
+|  | `k` |  |
+| Jumpx: Jump across syntax tree | `m` |  |
+| edit: Next search result | `n` | `nzzzv` |
+| edit: Split or Join code block with autodetect | `sj` | `:<C-U>TSJToggle<CR>` |
+| leapn: Jump till character | `t` |  |
+| tab: Only keep current tab | `to` | `<Cmd>tabonly<CR>` |
+| tab: Move to previous tab | `tj` | `<Cmd>tabprevious<CR>` |
+| tab: Move to next tab | `tk` | `<Cmd>tabnext<CR>` |
+| tab: Create a new tab | `tn` | `<Cmd>tabnew<CR>` |
+| edit: Visual select current node | `vn` | `:<C-U>STSSelectCurrentNode<CR>` |
+| edit: Visual select master node | `vx` | `:<C-U>STSSelectMasterNode<CR>` |
+| edit: Add a surrounding pair around current line | `yss` |  |
+| edit: Add a surrounding pair around a motion | `ys` |  |
+| edit: Add a surrounding pair around a motion, on new lines | `yS` |  |
+| edit: Add a surrounding pair around the current line, on new lines | `ySS` |  |
+| terminal: Toggle vertical | `<M-Bslash>` | `:execute v:count . "ToggleTerm direction=vertical"<CR>` |
+| debug: Step over | `<F11>` |  |
+| debug: Step out | `<F10>` |  |
+| debug: Step into | `<F9>` |  |
+| terminal: Toggle float | `<M-d>` | `:execute v:count . "ToggleTerm direction=float"<CR>` |
+| debug: Toggle breakpoint | `<F8>` |  |
+| terminal: Toggle vertical | `<F5>` | `:execute v:count . "ToggleTerm direction=vertical"<CR>` |
+| debug: Stop | `<F7>` |  |
+| debug: Run/Continue | `<F6>` |  |
+| terminal: Toggle horizontal | `<C-Bslash>` | `:execute v:count . "ToggleTerm direction=horizontal"<CR>` |
+| tmux: Resize tmux/nvim pane rightward | `<M-l>` |  |
+| tmux: Resize to tmux/nvim pane leftward | `<M-h>` |  |
+| tmux: Resize to tmux/nvim pane upward | `<M-k>` |  |
+| tmux: Resize tmux/nvim pane downward | `<M-j>` |  |
+| tool: Preview markdown | `<F12>` | `:MarkdownPreviewToggle<CR>` |
+| editn: Save file using sudo | `<M-s>` | `:<C-U>SudaWrite<CR>` |
+| buffer: Close current | `<F4>` | `:BufDel<CR>` |
+| Formater: Toggle format on save | `<M-f>` | `<Cmd>FormatToggle<CR>` |
+| edit: Save file | `<C-S>` | `:<C-U>write<CR>` |
+| tmux: Move to tmux/nvim top window | `<C-K>` |  |
+| tmux: Move to tmux/nvim bottom window | `<C-J>` |  |
+| window: Resize +2 horizontally | `<M-'>` | `:resize +2<CR>` |
+| tmux: Move to tmux/nvim left window | `<C-H>` |  |
+| edit: Select all | `<C-A>` | `gg0vG$` |
+| buffer: Switch to prev | `<S-Tab>` | `:BufferLineCyclePrev<CR>` |
+| edit: Force quit | `<M-Q>` | `:q!<CR>` |
+| filetree: Toggle | `<C-N>` | `:NvimTreeToggle<CR>` |
+| window: Resize -2 horizontally | `<M-;>` | `:resize -2<CR>` |
+| tool: Toggle command panel | `<C-P>` |  |
+| window: Resize +5 vertically | `<M-]>` | `:vertical resize +5<CR>` |
+| edit: Save file and quit | `<C-Q>` | `:wq<CR>` |
+| window: Resize -5 vertically | `<M-[>` | `:vertical resize -5<CR>` |
+| tmux: Move tmux/nvim right window | `<C-L>` |  |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |   |  |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | ,= |  |
-| tool: Run code by range | ,R | :SnipRun<CR> |
-|  | ,- |  |
-| move: Change selection region to child node | - | :<C-U>STSSelectChildNode<CR> |
-| edit: Decrease indent | <lt> | <lt>gv |
-| move: Change selection region to parent node | = | :<C-U>STSSelectParentNode<CR> |
-| edit: Increase indent | > | >gv |
-| leapx: Visual select backward to character | F |  |
-| edit: Move this line down | J | :m '>+1<CR>gv=gv |
-| edit: Move this line up | K | :m '<lt>-2<CR>gv=gv |
-| leapx: Visual select backward till character | T |  |
-| move: Change selection region to preivous sibling node | [ | :<C-U>STSSelectPrevSiblingNode<CR> |
-| move: Change selection region to next sibling node | ] | :<C-U>STSSelectNextSiblingNode<CR> |
-| leapx: Visual select to character | f |  |
-| edit: Align with delimiter | gea | :EasyAlign<CR> |
-| edit: Toggle comment for block with selection | gb | <Plug>(comment_toggle_blockwise_visual) |
-| edit: Toggle comment for line with selection | gc | <Plug>(comment_toggle_linewise_visual) |
-| Jumpx: Jump across syntax tree | m |  |
-| leapx: Visual select till character | t |  |
-| edit: Add a surrounding pair around a visual selection, on new lines | yS |  |
-| edit: Add a surrounding pair around a visual selection | ys |  |
-| edit: Search-replace with selection within one line CWord | <C-W> | :<C-U>SearchReplaceWithinVisualSelectionCWord<CR> |
-| edit: Search-replace with selection within one line | <C-R> | :<C-U>SearchReplaceSingleBufferVisualSelection<CR> |
-| edit: Select all | <C-A> | <Esc>gg0vG$ |
+|  | ` ` | `` |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `,-` |  |
+|  | `,=` |  |
+| tool: Run code by range | `,R` | `:SnipRun<CR>` |
+| move: Change selection region to child node | `-` | `:<C-U>STSSelectChildNode<CR>` |
+| edit: Decrease indent | `<lt>` | `<lt>gv` |
+| move: Change selection region to parent node | `=` | `:<C-U>STSSelectParentNode<CR>` |
+| edit: Increase indent | `>` | `>gv` |
+| leapx: Visual select backward to character | `F` |  |
+| edit: Move this line down | `J` | `:m '>+1<CR>gv=gv` |
+| edit: Move this line up | `K` | `:m '<lt>-2<CR>gv=gv` |
+| leapx: Visual select backward till character | `T` |  |
+| move: Change selection region to preivous sibling node | `[` | `:<C-U>STSSelectPrevSiblingNode<CR>` |
+| move: Change selection region to next sibling node | `]` | `:<C-U>STSSelectNextSiblingNode<CR>` |
+| leapx: Visual select to character | `f` |  |
+| edit: Toggle comment for block with selection | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
+| edit: Align with delimiter | `gea` | `:EasyAlign<CR>` |
+| edit: Toggle comment for line with selection | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
+| Jumpx: Jump across syntax tree | `m` |  |
+| leapx: Visual select till character | `t` |  |
+| edit: Add a surrounding pair around a visual selection, on new lines | `yS` |  |
+| edit: Add a surrounding pair around a visual selection | `ys` |  |
+| edit: Search-replace with selection within one line | `<C-R>` | `:<C-U>SearchReplaceSingleBufferVisualSelection<CR>` |
+| edit: Search-replace with selection within one line CWord | `<C-W>` | `:<C-U>SearchReplaceWithinVisualSelectionCWord<CR>` |
+| edit: Select all | `<C-A>` | `<Esc>gg0vG$` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| leapo: Operatate backward to character | F |  |
-| leapo: Operatate backward till character | T |  |
-| leapo: Operatate to character | f |  |
-| Jumpo: Jump across syntax tree | m |  |
-| leapo: Operatate till character | t |  |
+| leapo: Operatate backward to character | `F` |  |
+| leapo: Operatate backward till character | `T` |  |
+| leapo: Operatate to character | `f` |  |
+| Jumpo: Jump across syntax tree | `m` |  |
+| leapo: Operatate till character | `t` |  |

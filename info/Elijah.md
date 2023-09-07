@@ -56,206 +56,206 @@ Personal Neovim configuration of Elijah Manor
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Switch Buffer |  , | <Cmd>Telescope buffers show_all_buffers=true<CR> |
-| Browse Files |  sB | :Telescope file_browser file_browser path=%:p:h=%:p:h<CR> |
-| Goto Symbol (Workspace) |  sS |  |
-| Goto Symbol |  ss |  |
-| Colorscheme with preview |  uC |  |
-| Word (cwd) |  sW |  |
-| Word (root dir) |  sw |  |
-| Resume |  sR | <Cmd>Telescope resume<CR> |
-| Options |  so | <Cmd>Telescope vim_options<CR> |
-| Jump to Mark |  sm | <Cmd>Telescope marks<CR> |
-| Man Pages |  sM | <Cmd>Telescope man_pages<CR> |
-| Key Maps |  sk | <Cmd>Telescope keymaps<CR> |
-| Search Highlight Groups |  sH | <Cmd>Telescope highlights<CR> |
-| Help Pages |  sh | <Cmd>Telescope help_tags<CR> |
-| Grep (cwd) |  sG |  |
-| Grep (root dir) |  sg |  |
-| Workspace diagnostics |  sD | <Cmd>Telescope diagnostics<CR> |
-| Document diagnostics |  sd | <Cmd>Telescope diagnostics bufnr=0<CR> |
-| Commands |  sC | <Cmd>Telescope commands<CR> |
-| Command History |  sc | <Cmd>Telescope command_history<CR> |
-| Buffer |  sb | <Cmd>Telescope current_buffer_fuzzy_find<CR> |
-| Auto Commands |  sa | <Cmd>Telescope autocommands<CR> |
-| Registers |  s" | <Cmd>Telescope registers<CR> |
-| status |  gs | <Cmd>Telescope git_status<CR> |
-| commits |  gc | <Cmd>Telescope git_commits<CR> |
-| Resume |  fR |  |
-| Recent |  fr | <Cmd>Telescope oldfiles<CR> |
-| Find Files (cwd) |  fF |  |
-| Find Files (root dir) |  ff |  |
-| Buffers |  fb | <Cmd>Telescope buffers<CR> |
-| Command History |  : | <Cmd>Telescope command_history<CR> |
-| Grep (root dir) |  / |  |
-| Find Files (root dir) |    |  |
-| Dismiss All |  snd |  |
-| Noice All |  sna |  |
-| Noice History |  snh |  |
-| Noice Last Message |  snl |  |
-| Toggle pin |  bp |  |
-| Delete non-pinned buffers |  bP |  |
-| Dap UI |  du |  |
-| Eval |  de |  |
-| Explorer NeoTree (cwd) |  E |  |
-| Explorer NeoTree (root dir) |  e |  |
-| Explorer NeoTree (cwd) |  fE |  |
-| Explorer NeoTree (root dir) |  fe |  |
-| Type-check |  tc |  |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
-| Run All Test Files |  tT |  |
-| Run File |  tt |  |
-| Stop |  tS |  |
-| Toggle Output Panel |  tO |  |
-| Show Output |  to |  |
-| Toggle Summary |  ts |  |
-| Run Nearest |  tr |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Open Yank History |  p |  |
-| Widgets |  dw |  |
-| Terminate |  dt |  |
-| Session |  ds |  |
-| Toggle REPL |  dr |  |
-| Pause |  dp |  |
-| Step Over |  dO |  |
-| Step Out |  do |  |
-| Run Last |  dl |  |
-| Up |  dk |  |
-| Down |  dj |  |
-| Step Into |  di |  |
-| Go to line (no execute) |  dg |  |
-| Run to Cursor |  dC |  |
-| Continue |  dc |  |
-| Toggle Breakpoint |  db |  |
-| Breakpoint Condition |  dB |  |
-| Debug Nearest |  td |  |
-| Dismiss all Notifications |  un |  |
-| Replace in files (Spectre) |  sr |  |
-| Mason |  cm |  |
-| Open mini.files (cwd) |  fM |  |
-| Open mini.files (directory of current file) |  fm |  |
-| Toggle LSP output |  uo |  |
-| Diffview Open |  gd |  |
-| Neogit |  gn |  |
-|  | % | <Plug>(MatchitNormalForward) |
-| Nvim builtin | & | :&&<CR> |
-| Open parent directory | - |  |
-| Put before and indent left | <lt>P |  |
-| Put and indent left | <lt>p |  |
-| Put after applying a filter | =p |  |
-| Put before applying a filter | =P |  |
-| Put before and indent right | >P |  |
-| Put and indent right | >p |  |
-| Put yanked text before cursor | P |  |
-| Flash Treesitter | S |  |
-| Nvim builtin | Y | y$ |
-|  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Prev Reference | [[ |  |
-| Previous trouble/quickfix item | [q |  |
-| Previous todo comment | [t |  |
-| Cycle forward through yank history | [y |  |
-| Put indented before cursor (linewise) | [p |  |
-| Put indented before cursor (linewise) | [P |  |
-|  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next Reference | ]] |  |
-| Next trouble/quickfix item | ]q |  |
-| Next todo comment | ]t |  |
-| Cycle backward through yank history | ]y |  |
-| Put indented after cursor (linewise) | ]p |  |
-| Put indented after cursor (linewise) | ]P |  |
-|  | gx | <Plug>NetrwBrowseX |
-|  | g% | <Plug>(MatchitNormalBackward) |
-| Delete surrounding | gzd |  |
-| Highlight surrounding | gzh |  |
-| Add surrounding | gza |  |
-| Find left surrounding | gzF |  |
-| Update `MiniSurround.config.n_lines` | gzn |  |
-| Find right surrounding | gzf |  |
-| Replace surrounding | gzr |  |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-| Put yanked text after cursor | p |  |
-| Flash | s |  |
-| Yank text | y |  |
-|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
-|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
-|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
-|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
-|  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
-|  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
-|  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-| Scroll forward | <C-F> |  |
-| Scroll backward | <C-B> |  |
-|  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
+| Browse Files | ` sB` | `:Telescope file_browser file_browser path=%:p:h=%:p:h<CR>` |
+| Goto Symbol (Workspace) | ` sS` |  |
+| Goto Symbol | ` ss` |  |
+| Colorscheme with preview | ` uC` |  |
+| Word (cwd) | ` sW` |  |
+| Word (root dir) | ` sw` |  |
+| Resume | ` sR` | `<Cmd>Telescope resume<CR>` |
+| Options | ` so` | `<Cmd>Telescope vim_options<CR>` |
+| Jump to Mark | ` sm` | `<Cmd>Telescope marks<CR>` |
+| Man Pages | ` sM` | `<Cmd>Telescope man_pages<CR>` |
+| Key Maps | ` sk` | `<Cmd>Telescope keymaps<CR>` |
+| Search Highlight Groups | ` sH` | `<Cmd>Telescope highlights<CR>` |
+| Help Pages | ` sh` | `<Cmd>Telescope help_tags<CR>` |
+| Grep (cwd) | ` sG` |  |
+| Grep (root dir) | ` sg` |  |
+| Workspace diagnostics | ` sD` | `<Cmd>Telescope diagnostics<CR>` |
+| Document diagnostics | ` sd` | `<Cmd>Telescope diagnostics bufnr=0<CR>` |
+| Commands | ` sC` | `<Cmd>Telescope commands<CR>` |
+| Command History | ` sc` | `<Cmd>Telescope command_history<CR>` |
+| Buffer | ` sb` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
+| Auto Commands | ` sa` | `<Cmd>Telescope autocommands<CR>` |
+| Registers | ` s"` | `<Cmd>Telescope registers<CR>` |
+| status | ` gs` | `<Cmd>Telescope git_status<CR>` |
+| commits | ` gc` | `<Cmd>Telescope git_commits<CR>` |
+| Resume | ` fR` |  |
+| Recent | ` fr` | `<Cmd>Telescope oldfiles<CR>` |
+| Find Files (cwd) | ` fF` |  |
+| Find Files (root dir) | ` ff` |  |
+| Buffers | ` fb` | `<Cmd>Telescope buffers<CR>` |
+| Command History | ` :` | `<Cmd>Telescope command_history<CR>` |
+| Grep (root dir) | ` /` |  |
+| Switch Buffer | ` ,` | `<Cmd>Telescope buffers show_all_buffers=true<CR>` |
+| Find Files (root dir) | `  ` |  |
+| Delete non-pinned buffers | ` bP` |  |
+| Toggle pin | ` bp` |  |
+| Explorer NeoTree (root dir) | ` fe` |  |
+| Explorer NeoTree (cwd) | ` E` |  |
+| Explorer NeoTree (root dir) | ` e` |  |
+| Explorer NeoTree (cwd) | ` fE` |  |
+| Replace in files (Spectre) | ` sr` |  |
+| Quickfix List (Trouble) | ` xQ` |  |
+| Location List (Trouble) | ` xL` |  |
+| Workspace Diagnostics (Trouble) | ` xX` |  |
+| Document Diagnostics (Trouble) | ` xx` |  |
+| Type-check | ` tc` |  |
+| Widgets | ` dw` |  |
+| Terminate | ` dt` |  |
+| Session | ` ds` |  |
+| Toggle REPL | ` dr` |  |
+| Pause | ` dp` |  |
+| Step Over | ` dO` |  |
+| Step Out | ` do` |  |
+| Run Last | ` dl` |  |
+| Up | ` dk` |  |
+| Down | ` dj` |  |
+| Step Into | ` di` |  |
+| Go to line (no execute) | ` dg` |  |
+| Run to Cursor | ` dC` |  |
+| Continue | ` dc` |  |
+| Toggle Breakpoint | ` db` |  |
+| Breakpoint Condition | ` dB` |  |
+| Debug Nearest | ` td` |  |
+| Dap UI | ` du` |  |
+| Eval | ` de` |  |
+| Delete Buffer (Force) | ` bD` |  |
+| Delete Buffer | ` bd` |  |
+| Todo/Fix/Fixme (Trouble) | ` xT` |  |
+| Todo/Fix/Fixme | ` sT` |  |
+| Todo | ` st` |  |
+| Todo (Trouble) | ` xt` |  |
+| Neogit | ` gn` |  |
+| Dismiss all Notifications | ` un` |  |
+| Restore Last Session | ` ql` |  |
+| Restore Session | ` qs` |  |
+| Don't Save Current Session | ` qd` |  |
+| Toggle Summary | ` ts` |  |
+| Run Nearest | ` tr` |  |
+| Run All Test Files | ` tT` |  |
+| Run File | ` tt` |  |
+| Stop | ` tS` |  |
+| Toggle Output Panel | ` tO` |  |
+| Show Output | ` to` |  |
+| Mason | ` cm` |  |
+| Open mini.files (directory of current file) | ` fm` |  |
+| Open mini.files (cwd) | ` fM` |  |
+| Diffview Open | ` gd` |  |
+| Open Yank History | ` p` |  |
+| Toggle LSP output | ` uo` |  |
+| Noice History | ` snh` |  |
+| Noice Last Message | ` snl` |  |
+| Dismiss All | ` snd` |  |
+| Noice All | ` sna` |  |
+|  | `%` | `<Plug>(MatchitNormalForward)` |
+| Nvim builtin | `&` | `:&&<CR>` |
+| Open parent directory | `-` |  |
+| Put and indent left | `<lt>p` |  |
+| Put before and indent left | `<lt>P` |  |
+| Put after applying a filter | `=p` |  |
+| Put before applying a filter | `=P` |  |
+| Put and indent right | `>p` |  |
+| Put before and indent right | `>P` |  |
+| Put yanked text before cursor | `P` |  |
+| Flash Treesitter | `S` |  |
+| Nvim builtin | `Y` | `y$` |
+|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
+| Previous trouble/quickfix item | `[q` |  |
+| Previous todo comment | `[t` |  |
+| Prev Reference | `[[` |  |
+| Cycle forward through yank history | `[y` |  |
+| Put indented before cursor (linewise) | `[p` |  |
+| Put indented before cursor (linewise) | `[P` |  |
+|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
+| Next trouble/quickfix item | `]q` |  |
+| Next todo comment | `]t` |  |
+| Next Reference | `]]` |  |
+| Cycle backward through yank history | `]y` |  |
+| Put indented after cursor (linewise) | `]p` |  |
+| Put indented after cursor (linewise) | `]P` |  |
+|  | `gx` | `<Plug>NetrwBrowseX` |
+|  | `g%` | `<Plug>(MatchitNormalBackward)` |
+| Replace surrounding | `gzr` |  |
+| Highlight surrounding | `gzh` |  |
+| Delete surrounding | `gzd` |  |
+| Find right surrounding | `gzf` |  |
+| Find left surrounding | `gzF` |  |
+| Update `MiniSurround.config.n_lines` | `gzn` |  |
+| Add surrounding | `gza` |  |
+| Put yanked text before selection | `gP` |  |
+| Put yanked text after selection | `gp` |  |
+| Put yanked text after cursor | `p` |  |
+| Flash | `s` |  |
+| Yank text | `y` |  |
+|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
+|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
+|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
+|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
+|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
+|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
+|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
+|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
+|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
+|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
+| Scroll forward | `<C-F>` |  |
+| Scroll backward | `<C-B>` |  |
+|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Selection (cwd) |  sW |  |
-| Selection (root dir) |  sw |  |
-| Eval |  de |  |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-|  | % | <Plug>(MatchitVisualForward) |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-| Put yanked text before cursor | P |  |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-|  | [% | <Plug>(MatchitVisualMultiBackward) |
-|  | ]% | <Plug>(MatchitVisualMultiForward) |
-|  | a% | <Plug>(MatchitVisualTextObject) |
-|  | gx | <Plug>NetrwBrowseXVis |
-|  | g% | <Plug>(MatchitVisualBackward) |
-| Add surrounding | gza |  |
-| Put yanked text before selection | gP |  |
-| Put yanked text after selection | gp |  |
-| Put yanked text after cursor | p |  |
-| Flash | s |  |
-| Yank text | y |  |
-|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
-|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
-|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
-|  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
-|  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
-|  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
+| Selection (cwd) | ` sW` |  |
+| Selection (root dir) | ` sw` |  |
+| Eval | ` de` |  |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+|  | `%` | `<Plug>(MatchitVisualForward)` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+| Put yanked text before cursor | `P` |  |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
+|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `g%` | `<Plug>(MatchitVisualBackward)` |
+| Add surrounding | `gza` |  |
+| Put yanked text after selection | `gp` |  |
+| Put yanked text before selection | `gP` |  |
+| Put yanked text after cursor | `p` |  |
+| Flash | `s` |  |
+| Yank text | `y` |  |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
+|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
+|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
+|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
+|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
+|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
+|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | % | <Plug>(MatchitOperationForward) |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-|  | [% | <Plug>(MatchitOperationMultiBackward) |
-|  | ]% | <Plug>(MatchitOperationMultiForward) |
-|  | g% | <Plug>(MatchitOperationBackward) |
-| Remote Flash | r |  |
-| Flash | s |  |
-|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
-|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
-|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
-|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
-|  | <C-Bslash> | :<C-U>TmuxNavigatePrevious<CR> |
-|  | <C-K> | :<C-U>TmuxNavigateUp<CR> |
-|  | <C-J> | :<C-U>TmuxNavigateDown<CR> |
-|  | <C-H> | :<C-U>TmuxNavigateLeft<CR> |
-|  | <C-L> | :<C-U>TmuxNavigateRight<CR> |
+|  | `%` | `<Plug>(MatchitOperationForward)` |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
+|  | `g%` | `<Plug>(MatchitOperationBackward)` |
+| Remote Flash | `r` |  |
+| Flash | `s` |  |
+|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
+|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
+|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
+|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
+|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
+|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
+|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
+|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |

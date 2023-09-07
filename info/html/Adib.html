@@ -83,12 +83,13 @@ href="https://github.com/ggandor/flit.nvim">ggandor/flit.nvim</a></li>
 href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
 <li><a
 href="https://github.com/dnlhc/glance.nvim.git">dnlhc/glance.nvim</a></li>
-<li><a
-href="https://github.com/olexsmir/gopher.nvim.git">olexsmir/gopher.nvim</a></li>
+<li><a href="https://github.com/ray-x/go.nvim">ray-x/go.nvim</a></li>
 <li><a
 href="https://github.com/sainnhe/gruvbox-material">sainnhe/gruvbox-material</a></li>
 <li><a
-href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+href="https://github.com/ray-x/guihua.lua">ray-x/guihua.lua</a></li>
+<li><a
+href="https://github.com/rebelot/kanagawa.nvim">rebelot/kanagawa.nvim</a></li>
 <li><a
 href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
 <li><a
@@ -117,6 +118,8 @@ href="https://github.com/karb94/neoscroll.nvim">karb94/neoscroll.nvim</a></li>
 href="https://github.com/nvim-neotest/neotest">nvim-neotest/neotest</a></li>
 <li><a
 href="https://github.com/nvim-neotest/neotest-go.git">nvim-neotest/neotest-go</a></li>
+<li><a
+href="https://github.com/oxfist/night-owl.nvim.git">oxfist/night-owl.nvim</a></li>
 <li><a
 href="https://github.com/MunifTanjim/nui.nvim">MunifTanjim/nui.nvim</a></li>
 <li><a
@@ -182,6 +185,8 @@ href="https://github.com/RRethy/vim-illuminate">RRethy/vim-illuminate</a></li>
 <li><a
 href="https://github.com/tpope/vim-sleuth.git">tpope/vim-sleuth</a></li>
 <li><a
+href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
+<li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
 <h3 id="adib-keymaps">Adib Keymaps</h3>
@@ -202,340 +207,333 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><CR></td>
-<td>ciw</td>
+<td><code>&lt;CR&gt;</code></td>
+<td><code>ciw</code></td>
 </tr>
 <tr class="even">
-<td>Left File Explorer</td>
-<td><Tab></td>
+<td>Toggle Summary</td>
+<td><code>ts</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Float File Explorer</td>
-<td>e</td>
+<td>Run Nearest</td>
+<td><code>tr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run All Test Files</td>
+<td><code>tT</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run File</td>
+<td><code>tt</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Stop</td>
-<td>tS</td>
+<td><code>tS</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Toggle Output Panel</td>
-<td>tO</td>
+<td><code>tO</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Show Output</td>
-<td>to</td>
+<td><code>to</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Toggle Summary</td>
-<td>ts</td>
+<td>Left File Explorer</td>
+<td><code>&lt;Tab&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Run Nearest</td>
-<td>tr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run All Test Files</td>
-<td>tT</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run File</td>
-<td>tt</td>
+<td>Float File Explorer</td>
+<td><code>e</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitNormalForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>+</td>
-<td>:vertical resize +5<CR></td>
+<td><code>+</code></td>
+<td><code>:vertical resize +5&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>-</td>
-<td>:resize -5<CR></td>
+<td><code>-</code></td>
+<td><code>:resize -5&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>;</td>
-<td><Cmd>lua
-require(‘telescope.builtin’).resume(require(‘telescope.themes’).get_dropdown({}))<CR></td>
+<td><code>;</code></td>
+<td><code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>=</td>
-<td>:resize +5<CR></td>
+<td><code>=</code></td>
+<td><code>:resize +5&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>F</td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>H</td>
-<td>^</td>
+<td><code>H</code></td>
+<td><code>^</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>L</td>
-<td>$</td>
+<td><code>L</code></td>
+<td><code>$</code></td>
 </tr>
 <tr class="even">
 <td>Leap backward to</td>
-<td>S</td>
+<td><code>S</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>T</td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>X</td>
-<td>:keeppatterns substitute/%#/e</td>
+<td><code>X</code></td>
+<td><code>:keeppatterns substitute/\s*\%#\s*/\r/e | normal! ==^&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>YY</td>
-<td>va{Vy</td>
+<td><code>YY</code></td>
+<td><code>va{Vy</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
 </tr>
 <tr class="even">
 <td>Prev Reference</td>
-<td>[[</td>
+<td><code>[[</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td></td>
-<td>:q!<CR></td>
+<td><code>\q</code></td>
+<td><code>:q!&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td></td>
-<td>:write!<CR></td>
+<td><code>\w</code></td>
+<td><code>:write!&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitNormalMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td>Next Reference</td>
-<td>]]</td>
+<td><code>]]</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>_</td>
-<td>:vertical resize -5<CR></td>
+<td><code>_</code></td>
+<td><code>:vertical resize -5&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>f</td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitNormalBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
 </tr>
 <tr class="even">
-<td>Join the object under cursor</td>
-<td>gJ</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Split the object under cursor</td>
-<td>gS</td>
+<td><code>gS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Join the object under cursor</td>
+<td><code>gJ</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Glance references</td>
+<td><code>gR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Glance definitions</td>
+<td><code>gD</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Glance implementations</td>
+<td><code>gM</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Glance type_definitions</td>
+<td><code>gY</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Leap from windows</td>
-<td>gs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Glance implementations</td>
-<td>gM</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Glance type_definitions</td>
-<td>gY</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Glance references</td>
-<td>gR</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Glance definitions</td>
-<td>gD</td>
+<td><code>gs</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>j</td>
-<td>gj</td>
+<td><code>j</code></td>
+<td><code>gj</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>k</td>
-<td>gk</td>
+<td><code>k</code></td>
+<td><code>gk</code></td>
 </tr>
 <tr class="odd">
 <td>Leap forward to</td>
-<td>s</td>
+<td><code>s</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>t</td>
-<td>t</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zb</td>
-<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+<td><code>zt</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>zt</td>
-<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+<td><code>zz</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zz(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+<td><code>zb</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitNormalBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Move to previous reference</td>
-<td><M-p></td>
+<td><code>&lt;M-p&gt;</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Move to next reference</td>
-<td><M-n></td>
+<td><code>&lt;M-n&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-B></td>
-<td><Cmd>lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
+<td><code>&lt;C-E&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td>Toggle Terminal</td>
-<td><C-T></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
+<td><code>&lt;C-T&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-S></td>
-<td>:Telescope current_buffer_fuzzy_find<CR></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:Telescope current_buffer_fuzzy_find&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><BS></td>
-<td>ci</td>
+<td><code>&lt;BS&gt;</code></td>
+<td><code>ci</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Left></td>
-<td>:bprevious<CR></td>
+<td><code>&lt;Left&gt;</code></td>
+<td><code>:bprevious&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Right></td>
-<td>:bnext<CR></td>
+<td><code>&lt;Right&gt;</code></td>
+<td><code>:bnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
+<td><code>&lt;C-U&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td><C-L></td>
-<td><Cmd>nohlsearch</td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch|diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -556,185 +554,157 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tbody>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitVisualForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><lt></td>
-<td><lt>gv</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&gt;</td>
-<td>&gt;gv</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td>F</td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>H</td>
-<td>^</td>
+<td><code>H</code></td>
+<td><code>^</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>J</td>
-<td>:m ’&gt;+1<CR>gv=gv</td>
+<td><code>J</code></td>
+<td><code>:m '&gt;+1&lt;CR&gt;gv=gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>K</td>
-<td>:m ’<lt>-2<CR>gv=gv</td>
+<td><code>K</code></td>
+<td><code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>L</td>
-<td>$</td>
+<td><code>L</code></td>
+<td><code>$</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>P</td>
-<td>“_dP</td>
+<td><code>P</code></td>
+<td><code>"_dP</code></td>
 </tr>
 <tr class="even">
 <td>Leap backward to</td>
-<td>S</td>
+<td><code>S</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>T</td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitVisualMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitVisualMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a%</td>
-<td><Plug>(MatchitVisualTextObject)</td>
+<td><code>a%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
 </tr>
 <tr class="odd">
 <td>f</td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitVisualBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
 </tr>
 <tr class="odd">
 <td>Leap from windows</td>
-<td>gs</td>
+<td><code>gs</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>p</td>
-<td>“_dp</td>
+<td><code>p</code></td>
+<td><code>"_dp</code></td>
 </tr>
 <tr class="odd">
 <td>Leap forward to</td>
-<td>s</td>
+<td><code>s</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>t</td>
-<td>t</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zb</td>
-<td><Cmd>lua require(‘neoscroll’).zb(250)<CR></td>
+<td><code>zt</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>zt</td>
-<td><Cmd>lua require(‘neoscroll’).zt(250)<CR></td>
+<td><code>zz</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zz(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>zz</td>
-<td><Cmd>lua require(‘neoscroll’).zz(250)<CR></td>
+<td><code>zb</code></td>
+<td><code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualTextObject)</td>
-<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitVisualMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”,
-“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
+matchit#MultiMatch(“bW”,
+“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualBackward)</td>
-<td>:<C-U>call
-matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><M-i></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-0.10, false, 100)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-E></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(0.10, false, 100)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-U></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-B></td>
-<td><Cmd>lua
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | |  |</code><C-B><code>|</code><Cmd>lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-D></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-F></td>
-<td><Cmd>lua require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0),
-true, 450)<CR></td>
+450)<CR><code>| |  |</code><C-E><code>|</code><Cmd>lua
+require(‘neoscroll’).scroll(0.10, false,
+100)<CR><code>| |  |</code><C-D><code>|</code><Cmd>lua
+require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)<CR><code>| |  |</code><C-F><code>|</code><Cmd>lua
+require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
+450)<CR><code>| |  |</code><C-Y><code>|</code><Cmd>lua
+require(‘neoscroll’).scroll(-0.10, false,
+100)<CR><code>| |  |</code><C-U><code>|</code><Cmd>lua
+require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)<CR><code>| |  |</code><M-i>`</td>
 </tr>
 </tbody>
 </table>
@@ -755,92 +725,92 @@ true, 450)<CR></td>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitOperationForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
 </tr>
 <tr class="even">
 <td>F</td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>H</td>
-<td>^</td>
+<td><code>H</code></td>
+<td><code>^</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>L</td>
-<td>$</td>
+<td><code>L</code></td>
+<td><code>$</code></td>
 </tr>
 <tr class="odd">
 <td>Leap backward to</td>
-<td>S</td>
+<td><code>S</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>T</td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitOperationMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
 </tr>
 <tr class="odd">
 <td>f</td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitOperationBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
 </tr>
 <tr class="odd">
 <td>Leap from windows</td>
-<td>gs</td>
+<td><code>gs</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Leap forward to</td>
-<td>s</td>
+<td><code>s</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>t</td>
-<td>t</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-i></td>
+<td><code>&lt;M-i&gt;</code></td>
 <td></td>
 </tr>
 </tbody>

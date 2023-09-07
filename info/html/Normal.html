@@ -78,7 +78,7 @@ href="https://github.com/Zeioth/dooku.nvim.git">Zeioth/dooku.nvim</a></li>
 <li><a
 href="https://github.com/stevearc/dressing.nvim.git">stevearc/dressing.nvim</a></li>
 <li><a
-href="https://github.com/zeioth/friendly-snippets.git">zeioth/friendly-snippets</a></li>
+href="https://github.com/rafamadriz/friendly-snippets.git">rafamadriz/friendly-snippets</a></li>
 <li><a
 href="https://github.com/lewis6991/gitsigns.nvim.git">lewis6991/gitsigns.nvim</a></li>
 <li><a
@@ -89,8 +89,6 @@ href="https://github.com/rebelot/heirline.nvim.git">rebelot/heirline.nvim</a></l
 href="https://github.com/tzachar/highlight-undo.nvim.git">tzachar/highlight-undo.nvim</a></li>
 <li><a
 href="https://github.com/phaazon/hop.nvim.git">phaazon/hop.nvim</a></li>
-<li><a
-href="https://github.com/lukas-reineke/indent-blankline.nvim.git">lukas-reineke/indent-blankline.nvim</a></li>
 <li><a
 href="https://github.com/folke/lazy.nvim.git">folke/lazy.nvim</a></li>
 <li><a
@@ -113,6 +111,8 @@ href="https://github.com/williamboman/mason.nvim.git">williamboman/mason.nvim</a
 href="https://github.com/echasnovski/mini.animate.git">echasnovski/mini.animate</a></li>
 <li><a
 href="https://github.com/echasnovski/mini.bufremove.git">echasnovski/mini.bufremove</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.indentscope.git">echasnovski/mini.indentscope</a></li>
 <li><a
 href="https://github.com/folke/neodev.nvim.git">folke/neodev.nvim</a></li>
 <li><a
@@ -208,7 +208,7 @@ href="https://github.com/debugloop/telescope-undo.nvim.git">debugloop/telescope-
 <li><a
 href="https://github.com/akinsho/toggleterm.nvim.git">akinsho/toggleterm.nvim</a></li>
 <li><a
-href="https://github.com/folke/tokyonight.nvim.git">folke/tokyonight.nvim</a></li>
+href="https://github.com/Zeioth/tokyonight.nvim.git">Zeioth/tokyonight.nvim</a></li>
 <li><a
 href="https://github.com/cappyzawa/trim.nvim.git">cappyzawa/trim.nvim</a></li>
 <li><a
@@ -243,1022 +243,1027 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td>FIX: Prevent TAB from behaving like <C-i>, as they share the same
 internal code</td>
-<td><Tab></td>
-<td><Tab></td>
+<td><code>&lt;Tab&gt;</code></td>
+<td><code>&lt;Tab&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Esc></td>
+<td><code>&lt;Esc&gt;</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close all buffers to the right</td>
-<td>br</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Sort by extension (buffers)</td>
-<td>bse</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sort by relative path (buffers)</td>
-<td>bsr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>View Git blame</td>
-<td>gl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sort by full path (buffers)</td>
-<td>bsp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>View full Git blame</td>
-<td>gL</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sort by buffer number (buffers)</td>
-<td>bsi</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Preview Git hunk</td>
-<td>gp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Sort by modification (buffers)</td>
-<td>bsm</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Reset Git hunk</td>
-<td>gh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Horizontal split buffer from tabline</td>
-<td>b\</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Reset Git buffer</td>
-<td>gr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Vertical split buffer from tabline</td>
-<td>b</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Stage Git hunk</td>
-<td>gs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Stage Git buffer</td>
-<td>gS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Unstage Git hunk</td>
-<td>gu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>View Git diff</td>
-<td>gd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Open in github</td>
-<td>gP</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Zen mode</td>
-<td>bz</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ToggleTerm lazygit</td>
-<td>gg</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Ranger</td>
-<td>r</td>
-<td><Cmd>RnvimrToggle<CR></td>
-</tr>
-<tr class="even">
-<td>Toggle background</td>
-<td>ub</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle neotree</td>
-<td>e</td>
-<td><Cmd>Neotree toggle<CR></td>
-</tr>
-<tr class="even">
-<td>Toggle UI notifications</td>
-<td>uN</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Start/Continue (F5)</td>
-<td>dc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Neotree Focus</td>
-<td>o</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Conditional Breakpoint (S-F9)</td>
-<td>dC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Load last session</td>
-<td>Sl</td>
-<td><Cmd>SessionManager! load_last_session<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle animations</td>
-<td>uA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Save this session</td>
-<td>Ss</td>
-<td><Cmd>SessionManager! save_current_session<CR></td>
-</tr>
-<tr class="odd">
-<td>Delete session</td>
-<td>Sd</td>
-<td><Cmd>SessionManager! delete_session<CR></td>
-</tr>
-<tr class="even">
-<td>Mason Installer</td>
-<td>pm</td>
-<td><Cmd>Mason<CR></td>
-</tr>
-<tr class="odd">
-<td>Close Session</td>
-<td>dq</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search sessions</td>
-<td>Sf</td>
-<td><Cmd>SessionManager! load_session<CR></td>
-</tr>
-<tr class="odd">
-<td>Terminate Session (S-F5)</td>
-<td>dQ</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Load current directory session</td>
-<td>S.</td>
-<td><Cmd>SessionManager! load_current_dir_session<CR></td>
-</tr>
-<tr class="odd">
-<td>Find commands</td>
-<td>fC</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Restart (C-F5)</td>
-<td>dr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open compiler</td>
-<td>mm</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle REPL</td>
-<td>dR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run To Cursor</td>
-<td>ds</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Evaluate Input</td>
-<td>dE</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File</td>
-<td>Tf</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Unit in debugger</td>
-<td>Td</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Coverage</td>
-<td>Tc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle autopairs</td>
-<td>ua</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>All</td>
-<td>Ta</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Clear Breakpoints</td>
-<td>dB</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>E2e</td>
-<td>Te</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Save</td>
-<td>w</td>
-<td><Cmd>w<CR></td>
-</tr>
-<tr class="odd">
-<td>Step Out (S-F11)</td>
-<td>dO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle tabline</td>
-<td>ut</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle symbols tree</td>
-<td>lt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Git branches</td>
-<td>gb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find vim registers</td>
-<td>fv</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Git commits (repository)</td>
-<td>gc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Markdown preview</td>
-<td>Dp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Git commits (current file)</td>
-<td>gC</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Git status</td>
-<td>gt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Resume previous search</td>
-<td>f<CR></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find marks</td>
-<td>f’</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find nvim config files</td>
-<td>fa</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Debugger UI</td>
-<td>du</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find buffers</td>
-<td>fB</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger Hover</td>
-<td>dh</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find word under cursor in project</td>
-<td>fw</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Unit</td>
-<td>Tu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find help</td>
-<td>fh</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Stop unit</td>
-<td>Ts</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find keymaps</td>
-<td>fk</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find man</td>
-<td>fm</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find notifications</td>
-<td>fn</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find recent</td>
-<td>fo</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find themes</td>
-<td>ft</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find words in project</td>
-<td>ff</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Into (F11)</td>
-<td>db</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find words in project (no hidden)</td>
-<td>fF</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle conceal</td>
-<td>uS</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find words in current buffer</td>
-<td>f/</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Back (S-F10)</td>
-<td>do</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search symbol in buffer</td>
-<td>ls</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Pause</td>
-<td>dp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find project</td>
-<td>fp</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle find and replace word in project</td>
-<td>fr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle find and replace word in buffer</td>
-<td>fb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find snippets</td>
-<td>fs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find recorded macros</td>
-<td>fc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find recorded macros</td>
-<td>fq</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Markmap</td>
-<td>Dm</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find in undo tree</td>
-<td>fu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open documentation</td>
-<td>Dd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Compiler redo</td>
-<td>mr</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle compiler results</td>
-<td>mt</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Ask chatgpt</td>
-<td>a</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ToggleTerm float</td>
-<td>tt</td>
-<td><Cmd>ToggleTerm direction=float<CR></td>
-</tr>
-<tr class="even">
-<td>Toggleterm horizontal split</td>
-<td>th</td>
-<td><Cmd>ToggleTerm size=10 direction=horizontal<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggleterm vertical split</td>
-<td>tv</td>
-<td><Cmd>ToggleTerm size=80 direction=vertical<CR></td>
-</tr>
-<tr class="even">
-<td>Save as sudo</td>
-<td>W</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>New file</td>
-<td>n</td>
-<td><Cmd>enew<CR></td>
-</tr>
-<tr class="even">
-<td>Quit</td>
-<td>q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle autocompletion</td>
-<td>uc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle color highlight</td>
-<td>uC</td>
-<td><Cmd>ColorizerToggle<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle diagnostics</td>
-<td>ud</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Change indent setting</td>
-<td>uD</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle signcolumn</td>
-<td>ug</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle statusline</td>
-<td>ul</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle CodeLens</td>
-<td>uL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Install</td>
-<td>pi</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Change line numbering</td>
-<td>un</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Status</td>
-<td>ps</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Plugins Sync</td>
-<td>pS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Check Updates</td>
-<td>pu</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle paste mode</td>
-<td>up</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Plugins Update</td>
-<td>pU</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle spellcheck</td>
-<td>us</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mason Update</td>
-<td>pM</td>
-<td><Cmd>MasonUpdateAll<CR></td>
-</tr>
-<tr class="odd">
-<td>Update Plugins and Mason</td>
-<td>pa</td>
-<td><Cmd>NvimUpdatePackages<CR></td>
-</tr>
-<tr class="even">
-<td>Nvim Update</td>
-<td>pA</td>
-<td><Cmd>NvimUpdate<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle URL highlight</td>
-<td>uu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Nvim Version</td>
-<td>pv</td>
-<td><Cmd>NvimVersion<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle wrap</td>
-<td>uw</td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Nvim Changelog</td>
-<td>pl</td>
-<td><Cmd>NvimChangelog<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle syntax highlight (buffer)</td>
-<td>uy</td>
-<td></td>
+<td><code>pl</code></td>
+<td><code>&lt;Cmd&gt;NvimChangelog&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Wipe buffer</td>
-<td>c</td>
+<td>Statusline</td>
+<td><code>ul</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Toggle foldcolumn</td>
-<td>uh</td>
+<td>Wipe buffer</td>
+<td><code>c</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Close buffer</td>
-<td>C</td>
+<td><code>C</code></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Tabline</td>
+<td><code>ut</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Markdown preview</td>
+<td><code>Dp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>URL highlight</td>
+<td><code>uu</code></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Close all buffers except current</td>
-<td>bc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Close all buffers</td>
-<td>bC</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Select buffer from tabline</td>
-<td>bb</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Home screen</td>
-<td>h</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Delete buffer from tabline</td>
-<td>bd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment line</td>
-<td>/</td>
+<td><code>bc</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Close all buffers to the left</td>
-<td>bl</td>
+<td><code>bl</code></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Wrap</td>
+<td><code>uw</code></td>
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitNormalForward)</td>
 </tr>
 <tr class="odd">
-<td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
-</tr>
-<tr class="even">
-<td>Go to the fist character of the line (aliases 0 to ^)</td>
-<td>0</td>
-<td>^</td>
-</tr>
-<tr class="odd">
-<td>Debugger: Step Out</td>
-<td><lt>S-11&gt;</td>
+<td>Spellcheck</td>
+<td><code>us</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Move buffer tab left</td>
-<td><lt>b</td>
+<td>Select buffer from tabline</td>
+<td><code>bb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Move buffer tab right</td>
-<td>&gt;b</td>
+<td>Syntax highlight (buffer)</td>
+<td><code>uy</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Change without yanking</td>
-<td>C</td>
-<td>“_C</td>
+<td>Delete buffer from tabline</td>
+<td><code>bd</code></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>G and go to the last position</td>
-<td>G</td>
+<td>Close all buffers</td>
+<td><code>bC</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
+<td>Animations</td>
+<td><code>uA</code></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>Previous Git hunk</td>
-<td>[g</td>
+<td>Sort by relative path (buffers)</td>
+<td><code>bsr</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Previous tab</td>
-<td>[t</td>
+<td>Sort by full path (buffers)</td>
+<td><code>bsp</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Previous buffer</td>
-<td>[b</td>
+<td>Autopairs</td>
+<td><code>ua</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>[%</td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-</tr>
-<tr class="odd">
-<td>Horizontal Split</td>
-<td>\</td>
-<td><Cmd>split<CR></td>
-</tr>
-<tr class="even">
-<td>Next Git hunk</td>
-<td>]g</td>
+<td>Sort by buffer number (buffers)</td>
+<td><code>bsi</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Next tab</td>
-<td>]t</td>
+<td>CodeLens</td>
+<td><code>uL</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Next buffer</td>
-<td>]b</td>
+<td>Home screen</td>
+<td><code>h</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>]%</td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-</tr>
-<tr class="even">
-<td>Change without yanking</td>
-<td>c</td>
-<td>“_c</td>
-</tr>
-<tr class="odd">
-<td>gg and go to the first position</td>
-<td>gg</td>
+<td>Foldcolumn</td>
+<td><code>uh</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Search symbol in bufffer</td>
-<td>gs</td>
+<td>Comment line</td>
+<td><code>/</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Open the file under cursor with system app</td>
-<td>gx</td>
+<td>Sort by modification (buffers)</td>
+<td><code>bsm</code></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Vertical split buffer from tabline</td>
+<td><code>b|</code></td>
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitNormalBackward)</td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
+<td>View Git blame</td>
+<td><code>gl</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise</td>
-<td>gc</td>
+<td>View full Git blame</td>
+<td><code>gL</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Move cursor down</td>
-<td>j</td>
-<td>v:count == 0 ? ‘gj’ : ‘j’</td>
-</tr>
-<tr class="even">
-<td>Move cursor up</td>
-<td>k</td>
-<td>v:count == 0 ? ‘gk’ : ‘k’</td>
-</tr>
-<tr class="odd">
-<td>Delete character without yanking it</td>
-<td>x</td>
+<td>Zen mode</td>
+<td><code>uz</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Open all folds</td>
-<td>zR</td>
+<td>Preview Git hunk</td>
+<td><code>gp</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close all folds</td>
-<td>zM</td>
+<td>Reset Git hunk</td>
+<td><code>gh</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Fold less</td>
-<td>zr</td>
+<td>Reset Git buffer</td>
+<td><code>gr</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Fold more</td>
-<td>zm</td>
+<td>Background</td>
+<td><code>ub</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Peek fold</td>
-<td>zp</td>
+<td>Stage Git hunk</td>
+<td><code>gs</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Vertical Split</td>
-<td></td>
+<td>Stage Git buffer</td>
+<td><code>gS</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Debugger: Restart</td>
-<td><C-F5></td>
+<td>Diagnostics</td>
+<td><code>ud</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Fast move down</td>
-<td><S-Down></td>
+<td>Unstage Git hunk</td>
+<td><code>gu</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>color highlight</td>
+<td><code>uC</code></td>
+<td><code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>View Git diff</td>
+<td><code>gd</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change line numbering</td>
+<td><code>un</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Open in github</td>
+<td><code>gP</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close all buffers to the right</td>
+<td><code>br</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToggleTerm lazygit</td>
+<td><code>gg</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change indent setting</td>
+<td><code>uD</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find in undo tree</td>
+<td><code>fu</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Ranger</td>
+<td><code>r</code></td>
+<td><code>&lt;Cmd&gt;RnvimrToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Open compiler</td>
+<td><code>mm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>compiler results</td>
+<td><code>mt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>neotree</td>
+<td><code>e</code></td>
+<td><code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Neotree Focus</td>
+<td><code>o</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Load last session</td>
+<td><code>Sl</code></td>
+<td><code>&lt;Cmd&gt;SessionManager! load_last_session&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Save this session</td>
+<td><code>Ss</code></td>
+<td><code>&lt;Cmd&gt;SessionManager! save_current_session&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>UI notifications</td>
+<td><code>uN</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete session</td>
+<td><code>Sd</code></td>
+<td><code>&lt;Cmd&gt;SessionManager! delete_session&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Paste mode</td>
+<td><code>up</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search sessions</td>
+<td><code>Sf</code></td>
+<td><code>&lt;Cmd&gt;SessionManager! load_session&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Toggleterm vertical split</td>
+<td><code>tv</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Load current directory session</td>
+<td><code>S.</code></td>
+<td><code>&lt;Cmd&gt;SessionManager! load_current_dir_session&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Conceal</td>
+<td><code>uS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear Breakpoints</td>
+<td><code>dB</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Start/Continue (F5)</td>
+<td><code>dc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Conditional Breakpoint (S-F9)</td>
+<td><code>dC</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Back (S-F10)</td>
+<td><code>do</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Out (S-F11)</td>
+<td><code>dO</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Session</td>
+<td><code>dq</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminate Session (S-F5)</td>
+<td><code>dQ</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Pause</td>
+<td><code>dp</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Restart (C-F5)</td>
+<td><code>dr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>REPL</td>
+<td><code>dR</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run To Cursor</td>
+<td><code>ds</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Evaluate Input</td>
+<td><code>dE</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger UI</td>
+<td><code>du</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger Hover</td>
+<td><code>dh</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>All</td>
+<td><code>Ta</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git branches</td>
+<td><code>gb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Autocompletion</td>
+<td><code>uc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Horizontal split buffer from tabline</td>
+<td><code>b\</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Symbols tree</td>
+<td><code>lt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git commits (repository)</td>
+<td><code>gc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sort by extension (buffers)</td>
+<td><code>bse</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git commits (current file)</td>
+<td><code>gC</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Markmap</td>
+<td><code>Dm</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git status</td>
+<td><code>gt</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open documentation</td>
+<td><code>Dd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resume previous search</td>
+<td><code>f&lt;CR&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Ask chatgpt</td>
+<td><code>a</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find marks</td>
+<td><code>f'</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Signcolumn</td>
+<td><code>ug</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find nvim config files</td>
+<td><code>fa</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find buffers</td>
+<td><code>fB</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find word under cursor in project</td>
+<td><code>fw</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find commands</td>
+<td><code>fC</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find help</td>
+<td><code>fh</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find keymaps</td>
+<td><code>fk</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find man</td>
+<td><code>fm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find notifications</td>
+<td><code>fn</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find recent</td>
+<td><code>fo</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find vim registers</td>
+<td><code>fv</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find themes</td>
+<td><code>ft</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find words in project</td>
+<td><code>ff</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find words in project (no hidden)</td>
+<td><code>fF</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find words in current buffer</td>
+<td><code>f/</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search symbol in buffer</td>
+<td><code>ls</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find project</td>
+<td><code>fp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find and replace word in project</td>
+<td><code>fr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find and replace word in buffer</td>
+<td><code>fb</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find snippets</td>
+<td><code>fs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find recorded macros</td>
+<td><code>fc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find recorded macros</td>
+<td><code>fq</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Compiler redo</td>
-<td><S-F6></td>
+<td><code>mr</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Debugger: Start</td>
-<td><F5></td>
-<td></td>
+<td>Save</td>
+<td><code>w</code></td>
+<td><code>&lt;Cmd&gt;w&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Fast move up</td>
-<td><S-Up></td>
+<td>Save as sudo</td>
+<td><code>W</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Move to left split</td>
-<td><C-H></td>
+<td>New file</td>
+<td><code>n</code></td>
+<td><code>&lt;Cmd&gt;enew&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>ToggleTerm float</td>
+<td><code>tt</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Toggleterm horizontal split</td>
+<td><code>th</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Quit</td>
+<td><code>q</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Into (F11)</td>
+<td><code>db</code></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Plugins Install</td>
+<td><code>pi</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Status</td>
+<td><code>ps</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Plugins Sync</td>
+<td><code>pS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plugins Check Updates</td>
+<td><code>pu</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Plugins Update</td>
+<td><code>pU</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mason Installer</td>
+<td><code>pm</code></td>
+<td><code>&lt;Cmd&gt;Mason&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Unit</td>
+<td><code>Tu</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Stop unit</td>
+<td><code>Ts</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mason Update</td>
+<td><code>pM</code></td>
+<td><code>&lt;Cmd&gt;MasonUpdateAll&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td><code>Tf</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Unit in debugger</td>
+<td><code>Td</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Update Plugins and Mason</td>
+<td><code>pa</code></td>
+<td><code>&lt;Cmd&gt;NvimUpdatePackages&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Coverage</td>
+<td><code>Tc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim Update</td>
+<td><code>pA</code></td>
+<td><code>&lt;Cmd&gt;NvimUpdate&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>E2e</td>
+<td><code>Te</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim Version</td>
+<td><code>pv</code></td>
+<td><code>&lt;Cmd&gt;NvimVersion&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Go to the fist character of the line (aliases 0 to ^)</td>
+<td><code>0</code></td>
+<td><code>^</code></td>
+</tr>
+<tr class="odd">
+<td>Move buffer tab left</td>
+<td><code>&lt;lt&gt;b</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Step Out</td>
+<td><code>&lt;lt&gt;S-11&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move buffer tab right</td>
+<td><code>&gt;b</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Change without yanking</td>
+<td><code>C</code></td>
+<td><code>"_C</code></td>
+</tr>
+<tr class="odd">
+<td>G and go to the last position</td>
+<td><code>G</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete before character without yanking it</td>
+<td><code>X</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
+</tr>
+<tr class="even">
+<td>Previous Git hunk</td>
+<td><code>[g</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Previous tab</td>
+<td><code>[t</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Previous buffer</td>
+<td><code>[b</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td>Horizontal Split</td>
+<td><code>\</code></td>
+<td><code>&lt;Cmd&gt;split&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Next Git hunk</td>
+<td><code>]g</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Next tab</td>
+<td><code>]t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Next buffer</td>
+<td><code>]b</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+<tr class="odd">
+<td>Change without yanking</td>
+<td><code>c</code></td>
+<td><code>"_c</code></td>
+</tr>
+<tr class="even">
+<td>gg and go to the first position</td>
+<td><code>gg</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search symbol in bufffer</td>
+<td><code>gs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open the file under cursor with system app</td>
+<td><code>gx</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><code>gc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><code>gb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move cursor down</td>
+<td><code>j</code></td>
+<td><code>v:count == 0 ? 'gj' : 'j'</code></td>
+</tr>
+<tr class="odd">
+<td>Move cursor up</td>
+<td><code>k</code></td>
+<td><code>v:count == 0 ? 'gk' : 'k'</code></td>
+</tr>
+<tr class="even">
+<td>Delete character without yanking it</td>
+<td><code>x</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Open all folds</td>
+<td><code>zR</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fold less</td>
+<td><code>zr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fold more</td>
+<td><code>zm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Peek fold</td>
+<td><code>zp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close all folds</td>
+<td><code>zM</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Vertical Split</td>
+<td><code>|</code></td>
+<td><code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td>Resize split up</td>
-<td><C-Up></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Resize split down</td>
-<td><C-Down></td>
+<td><code>&lt;C-Up&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Resize split left</td>
-<td><C-Left></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Resize split right</td>
-<td><C-Right></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Toggle Breakpoint</td>
-<td><F9></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Step Back</td>
-<td><S-F10></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Page up exactly 20% of the total size of the buffer</td>
-<td><S-PageUp></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Page down exactly a 20% of the total size of the buffer</td>
-<td><S-PageDown></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Copy to cliboard</td>
-<td><C-Y></td>
-<td>“+y<Esc></td>
-</tr>
-<tr class="odd">
-<td>Toggle compiler resume</td>
-<td><S-F7></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Stop</td>
-<td><S-F5></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Conditional Breakpoint</td>
-<td><S-F9></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle terminal</td>
-<td><F7></td>
-<td><Cmd>ToggleTerm<CR></td>
-</tr>
-<tr class="odd">
-<td>Debugger: Step Over</td>
-<td><F10></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debugger: Step Into</td>
-<td><F11></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open compiler</td>
-<td><F6></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Paste from cliboard</td>
-<td><C-P></td>
-<td>“+p<Esc></td>
-</tr>
-<tr class="odd">
 <td>Hop to word</td>
-<td><C-M></td>
+<td><code>&lt;C-M&gt;</code></td>
 <td></td>
+</tr>
+<tr class="odd">
+<td>Paste from cliboard</td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>"+p&lt;Esc&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Move to below split</td>
-<td><C-J></td>
+<td><code>&lt;C-J&gt;</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Move to above split</td>
-<td><C-K></td>
+<td><code>&lt;C-K&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Fast move down</td>
+<td><code>&lt;S-Down&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fast move up</td>
+<td><code>&lt;S-Up&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open compiler</td>
+<td><code>&lt;F6&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Compiler redo</td>
+<td><code>&lt;S-F6&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>compiler resume</td>
+<td><code>&lt;S-F7&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Force write</td>
-<td><C-S></td>
-<td><Cmd>w!<CR></td>
-</tr>
-<tr class="odd">
-<td>Toggle terminal</td>
-<td>&lt;C-’&gt;</td>
-<td><Cmd>ToggleTerm<CR></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>&lt;Cmd&gt;w!&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td>terminal</td>
+<td><code>&lt;F7&gt;</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>terminal</td>
+<td><code>&lt;C-'&gt;</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Move to left split</td>
+<td><code>&lt;C-H&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resize split down</td>
+<td><code>&lt;C-Down&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Resize split left</td>
+<td><code>&lt;C-Left&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Resize split right</td>
+<td><code>&lt;C-Right&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Page up exactly 20% of the total size of the buffer</td>
+<td><code>&lt;S-PageUp&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Page down exactly a 20% of the total size of the buffer</td>
+<td><code>&lt;S-PageDown&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Copy to cliboard</td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>"+y&lt;Esc&gt;</code></td>
+</tr>
+<tr class="odd">
 <td>Copy to clipboard and delete line</td>
-<td><C-D></td>
-<td>“+y<Esc>dd</td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>"+y&lt;Esc&gt;dd</code></td>
+</tr>
+<tr class="even">
+<td>Debugger: Start</td>
+<td><code>&lt;F5&gt;</code></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Debugger: Stop</td>
+<td><code>&lt;S-F5&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Restart</td>
+<td><code>&lt;C-F5&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Toggle Breakpoint</td>
+<td><code>&lt;F9&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Conditional Breakpoint</td>
+<td><code>&lt;S-F9&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Step Over</td>
+<td><code>&lt;F10&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debugger: Step Back</td>
+<td><code>&lt;S-F10&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debugger: Step Into</td>
+<td><code>&lt;F11&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Visually select all</td>
-<td><C-A></td>
+<td><code>&lt;C-A&gt;</code></td>
 <td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitNormalBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td>Move to right split</td>
-<td><C-L></td>
+<td><code>&lt;C-L&gt;</code></td>
 <td></td>
 </tr>
 </tbody>
@@ -1280,146 +1285,151 @@ internal code</td>
 <tbody>
 <tr class="odd">
 <td>indent line</td>
-<td><Tab></td>
-<td>&gt;gv</td>
+<td><code>&lt;Tab&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
-<td>Toggle comment line</td>
-<td>/</td>
-<td><Esc><Cmd>lua
-require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())<CR></td>
+<td>comment line</td>
+<td><code>/</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require('Comment.api').toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Evaluate Input</td>
-<td>dE</td>
+<td><code>dE</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitVisualForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>unindent line</td>
-<td><lt></td>
-<td><lt>gv</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td>indent line</td>
-<td>&gt;</td>
-<td>&gt;gv</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td>Change without yanking</td>
-<td>C</td>
-<td>“_C</td>
+<td><code>C</code></td>
+<td><code>"_C</code></td>
 </tr>
 <tr class="even">
 <td>G and go to the last position (visual)</td>
-<td>G</td>
+<td><code>G</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Yank what you are going to override, then paste</td>
-<td>P</td>
-<td>p</td>
+<td><code>P</code></td>
+<td><code>p</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>[%</td>
-<td><Plug>(MatchitVisualMultiBackward)</td>
+<td>Delete all characters in line</td>
+<td><code>X</code></td>
+<td><code>"_X</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitVisualMultiForward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a%</td>
-<td><Plug>(MatchitVisualTextObject)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>a%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+</tr>
+<tr class="even">
 <td>Change without yanking</td>
-<td>c</td>
-<td>“_c</td>
+<td><code>c</code></td>
+<td><code>"_c</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>gg and go to the first position (visual)</td>
-<td>gg</td>
+<td><code>gg</code></td>
 <td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>g%</td>
-<td><Plug>(MatchitVisualBackward)</td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+</tr>
+<tr class="odd">
 <td>Comment toggle blockwise</td>
-<td>gb</td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
-<td>gc</td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Paste content you’ve previourly yanked</td>
-<td>p</td>
-<td>P</td>
-</tr>
 <tr class="odd">
-<td>Delete character without yanking it</td>
-<td>x</td>
-<td>“_x</td>
+<td>Paste content you’ve previourly yanked</td>
+<td><code>p</code></td>
+<td><code>P</code></td>
 </tr>
 <tr class="even">
-<td>Copy to cliboard</td>
-<td><C-Y></td>
-<td>“+y<Esc></td>
+<td>Delete all characters in line</td>
+<td><code>x</code></td>
+<td><code>"_x</code></td>
 </tr>
 <tr class="odd">
 <td>unindent line</td>
-<td><S-Tab></td>
-<td><lt>gv</td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="even">
-<td>Copy to clipboard and delete line</td>
-<td><C-D></td>
-<td>“+y<Esc>dd</td>
-</tr>
-<tr class="odd">
 <td>Hop to word</td>
-<td><C-M></td>
+<td><code>&lt;C-M&gt;</code></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>Copy to clipboard and delete line</td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>"+y&lt;Esc&gt;dd</code></td>
+</tr>
 <tr class="even">
-<td></td>
-<td><Plug>(MatchitVisualTextObject)</td>
-<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+<td>Copy to cliboard</td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>"+y&lt;Esc&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitVisualMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”,
-“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualBackward)</td>
-<td>:<C-U>call
-matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
+matchit#MultiMatch(“bW”,
+“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+<td>`:<C-U>call matchit#Match_wrapper(’‘,1,’v’)<CR>:if col(“’’”) !=
+col(“$”)</td>
 </tr>
 </tbody>
 </table>
@@ -1440,43 +1450,43 @@ matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(Match
 <tbody>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitOperationForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitOperationMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitOperationBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

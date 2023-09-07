@@ -254,8 +254,8 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>;m</code></td>
-<td><code>:MaximizerToggle &lt;CR&gt;</code></td>
+<td><code>;f</code></td>
+<td><code>:Neotree toggle&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -274,8 +274,8 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>;f</code></td>
-<td><code>:Neotree toggle&lt;CR&gt;</code></td>
+<td><code>;m</code></td>
+<td><code>:MaximizerToggle &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -339,13 +339,13 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>cc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>c</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>c</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>cc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -359,13 +359,13 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gb</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gb</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -411,11 +411,11 @@ href="https://github.com/szw/vim-maximizer">szw/vim-maximizer</a></li>
 <td></td>
 <td><code>&lt;C-Z&gt;</code></td>
 <td>`<code>| |  |</code><C-T><code>|</code>:FloatermToggle<CR><code>| |  |</code><Plug>PlenaryTestFile<code>|</code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR><code>| |  |</code><C-F><code>|</code><Cmd>lua
-require(“packer.load”)({‘telescope.nvim’}, { keys = “<lt>C-f&gt;”,
-prefix = “” },
-_G.packer_plugins)<CR><code>| |  |</code><C-P><code>|</code><Cmd>lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR><code>| |  |</code><C-P><code>|</code><Cmd>lua
 require(“packer.load”)({‘telescope.nvim’}, { keys = “<lt>C-p&gt;”,
+prefix = “” },
+_G.packer_plugins)<CR><code>| |  |</code><C-F><code>|</code><Cmd>lua
+require(“packer.load”)({‘telescope.nvim’}, { keys = “<lt>C-f&gt;”,
 prefix = “” },
 _G.packer_plugins)<CR><code>| |  |</code><Plug>NetrwBrowseX<code>|</code>:call
 netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR><code>| |  |</code><Plug>(MatchitNormalMultiForward)<code>|</code>:<C-U>call
@@ -511,13 +511,13 @@ matchit#Match_wrapper(’‘,1,’n’)<CR><code>| |  |</code><M-q><code>|</code
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>cc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>c</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>c</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>cc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -526,13 +526,13 @@ matchit#Match_wrapper(’‘,1,’n’)<CR><code>| |  |</code><M-q><code>|</code
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gb</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gb</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -551,13 +551,13 @@ matchit#Match_wrapper(’‘,1,’n’)<CR><code>| |  |</code><M-q><code>|</code
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-f&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-p&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;C-P&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-p&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-f&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -621,13 +621,13 @@ col(“$”)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>cc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>c</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>c</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'nvim-surround'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>cc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "cc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -636,13 +636,13 @@ col(“$”)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gb</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gc</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gc</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>gb</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -656,13 +656,13 @@ col(“$”)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-f&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-p&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-P&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-p&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require("packer.load")({'telescope.nvim'}, { keys = "&lt;lt&gt;C-f&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>

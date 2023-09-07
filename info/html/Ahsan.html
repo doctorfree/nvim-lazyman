@@ -158,350 +158,348 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitNormalForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitNormalMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td>Comment insert end of line</td>
-<td>gcA</td>
+<td><code>gcA</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Comment insert above</td>
-<td>gcO</td>
+<td><code>gcO</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Comment insert below</td>
-<td>gco</td>
+<td><code>gco</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle current block</td>
-<td>gbc</td>
+<td><code>gbc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Comment toggle current line</td>
-<td>gcc</td>
+<td><code>gcc</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise</td>
-<td>gb</td>
-<td><Plug>(comment_toggle_blockwise)</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 </tr>
 <tr class="even">
 <td>Comment toggle linewise</td>
-<td>gc</td>
-<td><Plug>(comment_toggle_linewise)</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gx</td>
-<td><Plug>NetrwBrowseX</td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitNormalBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>kj</td>
-<td><Esc></td>
+<td><code>kj</code></td>
+<td><code>&lt;Esc&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Toggle Terminal</td>
-<td><C-Bslash></td>
-<td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+<td><code>&lt;C-Bslash&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-S></td>
-<td>“+P</td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>"+P</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-p></td>
-<td>:BufferLineCyclePrev<CR></td>
+<td><code>&lt;M-p&gt;</code></td>
+<td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-n></td>
-<td>:BufferLineCycleNext<CR></td>
+<td><code>&lt;M-n&gt;</code></td>
+<td><code>:BufferLineCycleNext&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>&lt;C-W&gt;k</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-J></td>
-<td><C-W>j</td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;C-W&gt;j</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-H></td>
-<td><C-W>h</td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;C-W&gt;h</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>NetrwBrowseX</td>
-<td>:call
-netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitNormalMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “n”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “n”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitNormalBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitNormalForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Y>m</td>
-<td><Plug>(emmet-merge-lines)</td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><Plug>(emmet-merge-lines)</td>
-<td>:call emmet#mergeLines()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>A</td>
-<td><Plug>(emmet-anchorize-summary)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-anchorize-summary)</td>
-<td>:call emmet#anchorizeURL(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>a</td>
-<td><Plug>(emmet-anchorize-url)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-anchorize-url)</td>
-<td>:call emmet#anchorizeURL(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>k</td>
-<td><Plug>(emmet-remove-tag)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-remove-tag)</td>
-<td>:call emmet#removeTag()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>j</td>
-<td><Plug>(emmet-split-join-tag)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-split-join-tag)</td>
-<td>:call emmet#splitJoinTag()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>/</td>
-<td><Plug>(emmet-toggle-comment)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-toggle-comment)</td>
-<td>:call emmet#toggleComment()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>I</td>
-<td><Plug>(emmet-image-encode)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-image-encode)</td>
-<td>:call emmet#imageEncode()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>i</td>
-<td><Plug>(emmet-image-size)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-image-size)</td>
-<td>:call emmet#imageSize()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(emmet-move-prev-item)</td>
-<td>:call emmet#moveNextPrevItem(1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-move-next-item)</td>
-<td>:call emmet#moveNextPrevItem(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>N</td>
-<td><Plug>(emmet-move-prev)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-move-prev)</td>
-<td>:call emmet#moveNextPrev(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>n</td>
-<td><Plug>(emmet-move-next)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-move-next)</td>
-<td>:call emmet#moveNextPrev(0)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>D</td>
-<td><Plug>(emmet-balance-tag-outword)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-balance-tag-outword)</td>
-<td>:call emmet#balanceTag(-1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>d</td>
-<td><Plug>(emmet-balance-tag-inward)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-balance-tag-inward)</td>
-<td>:call emmet#balanceTag(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>u</td>
-<td><Plug>(emmet-update-tag)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-update-tag)</td>
-<td>:call emmet#updateTag()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>;</td>
-<td><Plug>(emmet-expand-word)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-expand-word)</td>
-<td>:call emmet#expandAbbr(1,““)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>,</td>
-<td><Plug>(emmet-expand-abbr)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-expand-abbr)</td>
-<td>:call emmet#expandAbbr(3,““)<CR></td>
-</tr>
-<tr class="even">
 <td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>luasnip-delete-check</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-L></td>
-<td><C-W>l</td>
+<td><code>&lt;C-Y&gt;m</code></td>
+<td><code>&lt;Plug&gt;(emmet-merge-lines)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-merge-lines)</code></td>
+<td><code>:call emmet#mergeLines()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;A</code></td>
+<td><code>&lt;Plug&gt;(emmet-anchorize-summary)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-anchorize-summary)</code></td>
+<td><code>:call emmet#anchorizeURL(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;a</code></td>
+<td><code>&lt;Plug&gt;(emmet-anchorize-url)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-anchorize-url)</code></td>
+<td><code>:call emmet#anchorizeURL(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;k</code></td>
+<td><code>&lt;Plug&gt;(emmet-remove-tag)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-remove-tag)</code></td>
+<td><code>:call emmet#removeTag()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;j</code></td>
+<td><code>&lt;Plug&gt;(emmet-split-join-tag)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-split-join-tag)</code></td>
+<td><code>:call emmet#splitJoinTag()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;/</code></td>
+<td><code>&lt;Plug&gt;(emmet-toggle-comment)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-toggle-comment)</code></td>
+<td><code>:call emmet#toggleComment()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;I</code></td>
+<td><code>&lt;Plug&gt;(emmet-image-encode)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-image-encode)</code></td>
+<td><code>:call emmet#imageEncode()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;i</code></td>
+<td><code>&lt;Plug&gt;(emmet-image-size)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-image-size)</code></td>
+<td><code>:call emmet#imageSize()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-move-prev-item)</code></td>
+<td><code>:call emmet#moveNextPrevItem(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-move-next-item)</code></td>
+<td><code>:call emmet#moveNextPrevItem(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;N</code></td>
+<td><code>&lt;Plug&gt;(emmet-move-prev)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-move-prev)</code></td>
+<td><code>:call emmet#moveNextPrev(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;n</code></td>
+<td><code>&lt;Plug&gt;(emmet-move-next)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-move-next)</code></td>
+<td><code>:call emmet#moveNextPrev(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;D</code></td>
+<td><code>&lt;Plug&gt;(emmet-balance-tag-outword)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-balance-tag-outword)</code></td>
+<td><code>:call emmet#balanceTag(-1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;d</code></td>
+<td><code>&lt;Plug&gt;(emmet-balance-tag-inward)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-balance-tag-inward)</code></td>
+<td><code>:call emmet#balanceTag(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;u</code></td>
+<td><code>&lt;Plug&gt;(emmet-update-tag)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-update-tag)</code></td>
+<td><code>:call emmet#updateTag()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;;</code></td>
+<td><code>&lt;Plug&gt;(emmet-expand-word)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-expand-word)</code></td>
+<td><code>:call emmet#expandAbbr(1,"")&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;,</code></td>
+<td><code>&lt;Plug&gt;(emmet-expand-abbr)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(emmet-expand-abbr)</code></td>
+<td><code>:call emmet#expandAbbr(3,"")&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;C-W&gt;l</code></td>
 </tr>
 </tbody>
 </table>
@@ -522,152 +520,101 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tbody>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitVisualForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><lt></td>
-<td><lt>gv</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&gt;</td>
-<td>&gt;gv</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitVisualMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitVisualMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a%</td>
-<td><Plug>(MatchitVisualTextObject)</td>
+<td><code>a%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
-<td>gb</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
 </tr>
 <tr class="even">
 <td>Comment toggle linewise (visual)</td>
-<td>gc</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gx</td>
-<td><Plug>NetrwBrowseXVis</td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitVisualBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>kj</td>
-<td><Esc></td>
+<td><code>kj</code></td>
+<td><code>&lt;Esc&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-C></td>
-<td>“+y</td>
+<td><code>&lt;C-C&gt;</code></td>
+<td><code>"+y</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>NetrwBrowseXVis</td>
-<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
+<td><code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualTextObject)</td>
-<td><Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)</td>
+<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitVisualMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”,
-“n”)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualMultiBackward) | :&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv</code></td>
+<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
+matchit#MultiMatch(“bW”,
+“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitVisualBackward)</td>
-<td>:<C-U>call
-matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>luasnip-expand-repeat</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise (visual)</td>
-<td><Plug>(comment_toggle_blockwise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise (visual)</td>
-<td><Plug>(comment_toggle_linewise_visual)</td>
-<td><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>c</td>
-<td><Plug>(emmet-code-pretty)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-code-pretty)</td>
-<td>:call emmet#codePretty()<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>D</td>
-<td><Plug>(emmet-balance-tag-outword)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-balance-tag-outword)</td>
-<td><Esc>:call emmet#balanceTag(-1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>d</td>
-<td><Plug>(emmet-balance-tag-inward)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-balance-tag-inward)</td>
-<td><Esc>:call emmet#balanceTag(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Y>,</td>
-<td><Plug>(emmet-expand-abbr)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(emmet-expand-abbr)</td>
-<td>:call emmet#expandAbbr(2,““)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | |  |</code><C-Y>c<code>|</code><Plug>(emmet-code-pretty)<code>| |  |</code><Plug>(emmet-code-pretty)<code>|</code>:call
+emmet#codePretty()<CR><code>| |  |</code><C-Y>D<code>|</code><Plug>(emmet-balance-tag-outword)<code>| |  |</code><Plug>(emmet-balance-tag-outword)<code>|</code><Esc>:call
+emmet#balanceTag(-1)<CR><code>| |  |</code><C-Y>d<code>|</code><Plug>(emmet-balance-tag-inward)<code>| |  |</code><Plug>(emmet-balance-tag-inward)<code>|</code><Esc>:call
+emmet#balanceTag(1)<CR><code>| |  |</code><C-Y>,<code>|</code><Plug>(emmet-expand-abbr)<code>| |  |</code><Plug>(emmet-expand-abbr)<code>|</code>:call
+emmet#expandAbbr(2,““)<CR><code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | | Comment toggle blockwise (visual) |</code><Plug>(comment_toggle_blockwise_visual)<code>|</code><Esc><Cmd>lua
+require(”Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR><code>| | Comment toggle linewise (visual) |</code><Plug>(comment_toggle_linewise_visual)<code>|</code><Esc><Cmd>lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR>`</td>
 </tr>
 </tbody>
 </table>
@@ -688,47 +635,47 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <tbody>
 <tr class="odd">
 <td></td>
-<td>%</td>
-<td><Plug>(MatchitOperationForward)</td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[%</td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]%</td>
-<td><Plug>(MatchitOperationMultiForward)</td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>g%</td>
-<td><Plug>(MatchitOperationBackward)</td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationMultiForward)</td>
-<td>:<C-U>call matchit#MultiMatch(“W”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationMultiBackward)</td>
-<td>:<C-U>call matchit#MultiMatch(“bW”, “o”)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>(MatchitOperationBackward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,0,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Plug>(MatchitOperationForward)</td>
-<td>:<C-U>call matchit#Match_wrapper(’‘,1,’o’)<CR></td>
+<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>luasnip-expand-repeat</td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
 <td></td>
 </tr>
 </tbody>

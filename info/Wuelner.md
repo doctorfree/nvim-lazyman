@@ -24,22 +24,15 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - cmp-dap
-- cmp-emmet
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
-- cmp-tabnine
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-- duck.nvim
-- edgy.nvim
 - [feline-nvim/feline.nvim](https://github.com/feline-nvim/feline.nvim)
 - flash.nvim
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
-- [junegunn/fzf](https://github.com/junegunn/fzf)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - highlight-undo.nvim
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
@@ -52,16 +45,14 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
-- mini.animate
 - [echasnovski/mini.indentscope](https://github.com/echasnovski/mini.indentscope)
 - mini.move
 - muren.nvim
 - [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - neogen
-- [folke/noice.nvim](https://github.com/folke/noice.nvim)
-- npairs-integrate-upair
 - [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim)
+- numb.nvim
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
@@ -71,8 +62,6 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 - [kosayoda/nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [SmiteshP/nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
-- nvim-scrollbar
 - nvim-spectre
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -83,7 +72,6 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 - [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- presence.nvim
 - projections.nvim
 - [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - rainbow-delimiters.nvim
@@ -96,8 +84,6 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [Wansmer/treesj](https://github.com/Wansmer/treesj)
-- [altermo/ultimate-autopair.nvim](https://github.com/altermo/ultimate-autopair.nvim)
-- [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - vim-visual-multi
 - [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim)
 
@@ -107,20 +93,20 @@ Wuelner's Neovim setup follows a well-defined philosophy governed by coherence a
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | & | :&&<CR> |
-| Nvim builtin | Y | y$ |
-|  | gx | <Plug>NetrwBrowseX |
-|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+| Nvim builtin | `&` | `:&&<CR>` |
+| Nvim builtin | `Y` | `y$` |
+|  | `gx` | `<Plug>NetrwBrowseX` |
+|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | gx | <Plug>NetrwBrowseXVis |
-|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
 
 #### operator mode keymaps
 

@@ -159,6 +159,8 @@ href="https://github.com/nvim-lua/popup.nvim">nvim-lua/popup.nvim</a></li>
 <li><a
 href="https://github.com/ahmedkhalf/project.nvim">ahmedkhalf/project.nvim</a></li>
 <li><a
+href="https://github.com/rose-pine/neovim.git">rose-pine/neovim</a></li>
+<li><a
 href="https://github.com/b0o/schemastore.nvim">b0o/schemastore.nvim</a></li>
 <li><a
 href="https://github.com/cshuaimin/ssr.nvim">cshuaimin/ssr.nvim</a></li>
@@ -215,210 +217,213 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><CR></td>
-<td><Cmd>lua require(‘user.neovim’).maximize_current_split()<CR></td>
+<td><code>&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('user.neovim').maximize_current_split()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><Esc><Esc></td>
-<td><Cmd>nohlsearch<CR></td>
+<td><code>&lt;Esc&gt;&lt;Esc&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>y</td>
+<td><code>y</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>H</td>
-<td><Cmd>BufferLineCyclePrev<CR></td>
+<td><code>H</code></td>
+<td><code>&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>L</td>
-<td><Cmd>BufferLineCycleNext<CR></td>
+<td><code>L</code></td>
+<td><code>&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>X</td>
-<td><Cmd>lua require(‘user.bufferline’).delete_buffer()<CR></td>
+<td><code>X</code></td>
+<td><code>&lt;Cmd&gt;lua require('user.bufferline').delete_buffer()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Y</td>
-<td>y$</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[d</td>
-<td><Cmd>lua vim.diagnostic.goto_prev()<CR></td>
+<td><code>[d</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[b</td>
-<td><Cmd>BufferLineMoveNext<CR></td>
+<td><code>[b</code></td>
+<td><code>&lt;Cmd&gt;BufferLineMoveNext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[q</td>
-<td>:cprev<CR></td>
+<td><code>[q</code></td>
+<td><code>:cprev&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]d</td>
-<td><Cmd>lua vim.diagnostic.goto_next()<CR></td>
+<td><code>]d</code></td>
+<td><code>&lt;Cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]b</td>
-<td><Cmd>BufferLineMovePrev<CR></td>
+<td><code>]b</code></td>
+<td><code>&lt;Cmd&gt;BufferLineMovePrev&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]q</td>
-<td>:cnext<CR></td>
+<td><code>]q</code></td>
+<td><code>:cnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>ce</td>
-<td><Cmd>lua require(‘harpoon.term’).sendCommand(1, 2)<CR></td>
+<td><code>cu</code></td>
+<td><code>&lt;Cmd&gt;lua require('harpoon.term').sendCommand(1, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>cu</td>
-<td><Cmd>lua require(‘harpoon.term’).sendCommand(1, 1)<CR></td>
+<td><code>ce</code></td>
+<td><code>&lt;Cmd&gt;lua require('harpoon.term').sendCommand(1, 2)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gb</td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gx</td>
-<td><Cmd>lua os.execute(“xdg-open” .. vim.fn.shellescape(vim.fn.expand
-“<lt>cWORD&gt;”)); vim.cmd “redraw!”<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gv</td>
-<td><Cmd>vsplit</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>tu</td>
-<td><Cmd>lua require(‘harpoon.term’).gotoTerminal(1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>te</td>
-<td><Cmd>lua require(‘harpoon.term’).gotoTerminal(2)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>PlenaryTestFile</td>
-<td>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-Bslash></td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-x></td>
-<td><C-X></td>
+<td><code>gx</code></td>
+<td><code>&lt;Cmd&gt;lua os.execute("xdg-open " .. vim.fn.shellescape(vim.fn.expand "&lt;lt&gt;cWORD&gt;")); vim.cmd "redraw!"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Space></td>
-<td><Cmd>lua require(‘harpoon.cmd-ui’).toggle_quick_menu()<CR></td>
+<td><code>gv</code></td>
+<td><code>&lt;Cmd&gt;vsplit | lua vim.lsp.buf.definition({on_list = function(items) vim.fn.setqflist({}, 'r', items) vim.cmd('cfirst') end})&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-a></td>
-<td><C-A></td>
+<td><code>tu</code></td>
+<td><code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-N>i</td>
-<td><Tab></td>
+<td><code>te</code></td>
+<td><code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(2)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&lt;C-,&gt;</td>
-<td><Cmd>lua require(‘neogen’).jump_next()<CR></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><code>&lt;C-Bslash&gt;</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m .+1<CR>==</td>
+<td><code>&lt;C-Space&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('harpoon.cmd-ui').toggle_quick_menu()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td><C-W>j</td>
+<td><code>&lt;M-x&gt;</code></td>
+<td><code>&lt;C-X&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-k></td>
-<td>:m .-2<CR>==</td>
+<td><code>&lt;C-N&gt;i</code></td>
+<td><code>&lt;Tab&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-H></td>
-<td><C-W>h</td>
+<td><code>&lt;M-a&gt;</code></td>
+<td><code>&lt;C-A&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Right></td>
-<td>:vertical resize +2<CR></td>
+<td><code>&lt;C-,&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require('neogen').jump_next()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Left></td>
-<td>:vertical resize -2<CR></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m .+1&lt;CR&gt;==</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Q></td>
-<td>:call QuickFixToggle()<CR></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m .-2&lt;CR&gt;==</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-Down></td>
-<td>:resize +2<CR></td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>&lt;C-W&gt;k</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-Up></td>
-<td>:resize -2<CR></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;C-W&gt;j</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-L></td>
-<td><C-W>l</td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;C-W&gt;h</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Q&gt;</code></td>
+<td><code>:call QuickFixToggle()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Right&gt;</code></td>
+<td><code>:vertical resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Left&gt;</code></td>
+<td><code>:vertical resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Down&gt;</code></td>
+<td><code>:resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Up&gt;</code></td>
+<td><code>:resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;C-W&gt;l</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="visual-mode-keymaps">visual mode keymaps</h4>
 <table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Description</th>
@@ -429,78 +434,78 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>st</td>
-<td><Cmd>lua require(‘user.telescope’).grep_string_visual()<CR></td>
+<td><code>st</code></td>
+<td><code>&lt;Cmd&gt;lua require('user.telescope').grep_string_visual()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><lt></td>
-<td><lt>gv</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>&gt;</td>
-<td>&gt;gv</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gx</td>
-<td><Plug>NetrwBrowseXVis</td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gb</td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gc</td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>ga</td>
-<td><Esc><Cmd>lua vim.lsp.buf.range_code_action()<CR></td>
+<td><code>ga</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua vim.lsp.buf.range_code_action()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>p</td>
-<td>“_dP</td>
+<td><code>p</code></td>
+<td><code>"_dP</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><Plug>NetrwBrowseXVis</td>
-<td>:<C-U>call netrw#BrowseXVis()<CR></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
+<td><code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-x></td>
-<td><C-X></td>
+<td><code>&lt;M-x&gt;</code></td>
+<td><code>&lt;C-X&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-a></td>
-<td><C-A></td>
+<td><code>&lt;M-a&gt;</code></td>
+<td><code>&lt;C-A&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><M-k></td>
-<td>:m ’<lt>-2<CR>gv-gv</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m '&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-j></td>
-<td>:m ’&gt;+1<CR>gv-gv</td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>

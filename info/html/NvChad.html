@@ -147,6 +147,11 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <h3 id="nvchad-keymaps">NvChad Keymaps</h3>
 <h4 id="normal-mode-keymaps">normal mode keymaps</h4>
 <table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Description</th>
@@ -157,258 +162,153 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>”</td>
+<td><code>"</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>’</td>
+<td><code>'</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Move to end of Treehopper node</td>
-<td>,h]</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to start of Treehopper node</td>
-<td>,h[</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Treehopper nodes</td>
-<td>,hm</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Open new line above HopLineStart target</td>
-<td>,vO</td>
+<td><code>,vO</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open new line below HopLineStart target</td>
-<td>,vo</td>
+<td><code>,vo</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Paste above target using HopLineStart</td>
-<td>,vP</td>
+<td><code>,vP</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Paste below target using HopLineStart</td>
-<td>,vp</td>
+<td><code>,vp</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Jump to definition</td>
-<td>,hd</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hq]</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[}]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hq[</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[{]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hqk</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[)]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hqj</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[(]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hf/</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[/|?]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hf;</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[;|:]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hf-</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[-|+]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hf’</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[“|’]])<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hH</td>
-<td><Cmd>lua require’hop’.hint_patterns({}, [[]])<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hW</td>
-<td><Cmd>HopWordMW<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hl</td>
-<td><Cmd>HopLineStart<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,hw</td>
-<td><Cmd>HopWord<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,</td>
+<td><code>,hd</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>?</td>
-<td>/</td>
+<td><code>,hq]</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[}]])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>F</td>
+<td><code>,hq[</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[{]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,hqk</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[)]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,hqj</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[(]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,hf/</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[/\|?]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,hf;</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[;\|:]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,hf-</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[-\|+]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,hf'</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [["\|']])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,hH</code></td>
+<td><code>&lt;Cmd&gt;lua require'hop'.hint_patterns({}, [[\d\+]])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,hW</code></td>
+<td><code>&lt;Cmd&gt;HopWordMW&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,hl</code></td>
+<td><code>&lt;Cmd&gt;HopLineStart&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,hw</code></td>
+<td><code>&lt;Cmd&gt;HopWord&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Move to end of Treehopper node</td>
+<td><code>,h]</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move to start of Treehopper node</td>
+<td><code>,h[</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Treehopper nodes</td>
+<td><code>,hm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>?</code></td>
+<td><code>/</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Trigger LuaSnip snippet</td>
-<td>Ls</td>
+<td><code>Ls</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>`</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>c</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>f</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>g</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise</td>
-<td>gb</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current line</td>
-<td>gcc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise</td>
-<td>gc</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle current block</td>
-<td>gbc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>t</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Treehopper node target insert</td>
-<td>vy</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>HopLineStart target in normal mode</td>
-<td>vY</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open new line above HopLineStart target</td>
-<td>vO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Open new line below HopLineStart target</td>
-<td>vo</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Paste above target using HopLineStart</td>
-<td>vP</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Paste below target using HopLineStart</td>
-<td>vp</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>v</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Yank using Treehopper</td>
-<td>ym</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Yank a Treesitter code block</td>
-<td>yc</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Yank a line with HopLineStart</td>
-<td>yl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Yank user syntax-tree-surfer</td>
-<td>yx</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><M-q></td>
-<td>q</td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><C-L></td>
-<td><Cmd>nohlsearch</td>
+<td>``<code>|  | |  |</code>c<code>|  | |  |</code>f<code>|  | | Comment toggle current block |</code>gbc<code>|  | | Comment toggle blockwise |</code>gb<code>|  | | Comment toggle linewise |</code>gc<code>|  | | Comment toggle current line |</code>gcc<code>|  | |  |</code>g<code>|  | |  |</code>t<code>|  | | Treehopper node target insert |</code>vy<code>|  | | HopLineStart target in normal mode |</code>vY<code>|  | | Open new line above HopLineStart target |</code>vO<code>|  | | Open new line below HopLineStart target |</code>vo<code>|  | | Paste above target using HopLineStart |</code>vP<code>|  | | Paste below target using HopLineStart |</code>vp<code>|  | |  |</code>v<code>|  | | Yank using Treehopper |</code>ym<code>|  | | Yank a Treesitter code block |</code>yc<code>|  | | Yank a line with HopLineStart |</code>yl<code>|  | | Yank user syntax-tree-surfer |</code>yx<code>|  | |  |</code><M-q><code>|</code>q<code>| |  |</code><C-R><code>|  | | Nvim builtin |</code><C-L><code>|</code><Cmd>nohlsearch</td>
+<td>diffupdate</td>
 </tr>
 </tbody>
 </table>
@@ -424,58 +324,58 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td>Nvim builtin</td>
-<td>#</td>
-<td>y?“<CR></td>
+<td><code>#</code></td>
+<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>*</td>
-<td>y/“<CR></td>
+<td><code>*</code></td>
+<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,hl</td>
-<td><Cmd>HopLineStart<CR></td>
+<td><code>,hl</code></td>
+<td><code>&lt;Cmd&gt;HopLineStart&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,hw</td>
-<td><Cmd>HopWord<CR></td>
+<td><code>,hw</code></td>
+<td><code>&lt;Cmd&gt;HopWord&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise (visual)</td>
-<td>gb</td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle linewise (visual)</td>
-<td>gc</td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>t</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><M-q></td>
-<td>q</td>
+<td><code>&lt;M-q&gt;</code></td>
+<td><code>q</code></td>
 </tr>
 </tbody>
 </table>
@@ -491,32 +391,32 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Comment toggle blockwise</td>
-<td>gb</td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle linewise</td>
-<td>gc</td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>t</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 </tbody>

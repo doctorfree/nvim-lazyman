@@ -29,20 +29,17 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
-- [rmagatti/auto-session](https://github.com/rmagatti/auto-session.git)
+- auto-session
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [CosmicNvim/cosmic-ui](https://github.com/CosmicNvim/cosmic-ui.git)
-- [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
+- cosmic-ui
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-- [ggandor/lightspeed.nvim](https://github.com/ggandor/lightspeed.nvim.git)
-- [~whynothugo/lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
@@ -77,57 +74,48 @@ Install 'Node.js', 'prettierd', and 'eslint_d'
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Find project file |  ff | <Cmd>lua require("cosmic.plugins.telescope.utils").project_files()<CR> |
-| Git status |  vg | :Telescope git_status<CR> |
-| Git commits |  vc | :Telescope git_commits<CR> |
-| Grep current word |  fw | :Telescope grep_string<CR> |
-| Grep string |  fs | :Telescope live_grep<CR> |
-| Find buffer |  fk | :Telescope buffers<CR> |
-| Find project file |  fp | :Telescope find_files<CR> |
-| Print session |  si | <Cmd>lua require("cosmic.utils.logger"):log("Session name: " .. require("auto-session-library").current_session_name())<CR> |
-| Save session |  ss | <Cmd>SaveSession<CR> |
-| Restore session |  sl | <Cmd>silent RestoreSession<CR> |
-| Refresh Tree |  nr | :NvimTreeRefresh<CR> |
-| Toggle Tree |  nt | :NvimTreeToggle<CR> |
-| Toggle LSP Lines |  ltl |  |
-| Nvim builtin | & | :&&<CR> |
-| Restore plugins from lockfile | ,pr | :Lazy restore<CR> |
-| Clear uninstalled plugins | ,px | :Lazy clear<CR> |
-| Logs | ,pl | :Lazy logs<CR> |
-| Profile | ,pp | :Lazy profile<CR> |
-| Help | ,ph | :Lazy help<CR> |
-| Show plugins | ,ps | :Lazy show<CR> |
-| Update plugins | ,pu | :Lazy update<CR> |
-| Check plugins | ,pc | :Lazy check<CR> |
-| Close tab | ,td | :tabclose<CR> |
-| Next tab | ,tn | :tabnext<CR> |
-| Prev tab | ,tp | :tabprevious<CR> |
-| Delete buffer | ,bd | :bdelete<CR> |
-| Next buffer | ,bn | :bnext<CR> |
-| Prev buffer | ,bp | :bprev<CR> |
-| Next Item | ,cn | :cnext<CR>zz |
-| Prev Item | ,cp | :cprev<CR>zz |
-| Search & Replace | ,cf | :cfdo %s/ |
-| Open list | ,co | :copen <CR> |
-| Close list | ,cc | :cclose <CR> |
-| Clear list | ,ck | :cexpr []<CR> |
-| Nvim builtin | Y | y$ |
-| Vertical Resize +2 | <C-Right> | :vertical resize +2<CR> |
-| Vertical Resize -2 | <C-Left> | :vertical resize -2<CR> |
-| Resize +2 | <C-Down> | :resize +2<CR> |
-| Resize -2 | <C-Up> | :resize -2<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-| Toggle Tree | <C-N> | :NvimTreeToggle<CR> |
-| Floating Terminal | <C-L> |  |
+|  | `%` | `<Plug>(MatchitNormalForward)` |
+| Nvim builtin | `&` | `:&&<CR>` |
+| Nvim builtin | `Y` | `y$` |
+|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
+|  | `gx` | `<Plug>NetrwBrowseX` |
+|  | `g%` | `<Plug>(MatchitNormalBackward)` |
+|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
+|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
+|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
+|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
+|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+|  | `%` | `<Plug>(MatchitVisualForward)` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
+|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `g%` | `<Plug>(MatchitVisualBackward)` |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
+|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
+|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
+|  | `%` | `<Plug>(MatchitOperationForward)` |
+|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
+|  | `g%` | `<Plug>(MatchitOperationBackward)` |
+|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
+|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
+|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
+|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |

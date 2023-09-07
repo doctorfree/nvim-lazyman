@@ -44,55 +44,55 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | <Tab> |  |
-|  |  ls | :LspStart<CR> |
-|  |  lr | :LspRestart<CR> |
-|  |  lp | :LspInfo<CR> |
-|  |  x | <C-W>c |
-|  |  h | :nohlsearch<CR> |
-|  |  pd |  |
-|  |  pp |  |
-|  |  pr |  |
-|  |  pl |  |
-|  |  pc |  |
-|  |  px |  |
-|  |  ps |  |
-|  |  pu |  |
-|  |  pi |  |
-|  |  ph |  |
-|  |  d |  |
-|  |  fr |  |
-|  |  fw |  |
-|  |  ff |  |
-|  |  ft |  |
-|  |  b |  |
-|  |  e |  |
-| Nvim builtin | & | :&&<CR> |
-|  | J | jzz |
-|  | K | kzz |
-| Nvim builtin | Y | y$ |
-|  | [d |  |
-|  | ]d |  |
-|  | <C-Q> | :bd!<CR> |
-|  | <C-S> | :w <CR> |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
-|  | <C-H> | <C-W>h |
-|  | <S-Tab> |  |
-|  | <M-H> |  |
-|  | <M-h> |  |
-|  | <M-t> |  |
-|  | <C-L> | <C-W>l |
+|  | `<Tab>` |  |
+|  | ` ls` | `:LspStart<CR>` |
+|  | ` lr` | `:LspRestart<CR>` |
+|  | ` lp` | `:LspInfo<CR>` |
+|  | ` x` | `<C-W>c` |
+|  | ` h` | `:nohlsearch<CR>` |
+|  | ` pd` |  |
+|  | ` pp` |  |
+|  | ` pr` |  |
+|  | ` pl` |  |
+|  | ` pc` |  |
+|  | ` px` |  |
+|  | ` ps` |  |
+|  | ` pu` |  |
+|  | ` pi` |  |
+|  | ` ph` |  |
+|  | ` d` |  |
+|  | ` e` |  |
+|  | ` b` |  |
+|  | ` fw` |  |
+|  | ` fr` |  |
+|  | ` ff` |  |
+|  | ` ft` |  |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `J` | `jzz` |
+|  | `K` | `kzz` |
+| Nvim builtin | `Y` | `y$` |
+|  | `[d` |  |
+|  | `]d` |  |
+|  | `<C-Q>` | `:bd!<CR>` |
+|  | `<C-S>` | `:w <CR>` |
+|  | `<C-K>` | `<C-W>k` |
+|  | `<C-J>` | `<C-W>j` |
+|  | `<C-H>` | `<C-W>h` |
+|  | `<S-Tab>` |  |
+|  | `<M-H>` |  |
+|  | `<M-h>` |  |
+|  | `<M-t>` |  |
+|  | `<C-L>` | `<C-W>l` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | J | :m '>+1<CR>gv=gv |
-|  | K | :m '<lt>-2<CR>gv=gv |
-|  | p | _dP |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `J` | `:m '>+1<CR>gv=gv` |
+|  | `K` | `:m '<lt>-2<CR>gv=gv` |
+|  | `p` | `_dP` |
 
 #### operator mode keymaps
 

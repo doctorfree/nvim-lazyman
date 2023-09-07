@@ -1,21 +1,14 @@
-DO:
+TODO:
 
-- Check out config of Ahsan Habib
-  -C https://github.com/bibjaw99/workstation
-  -D .config/nvim
-  -N nvim-Ahsan
-
-- Add Chokerman config to Personals
-  -b main
-  -C https://github.com/justchokingaround/dotfiles
-  -D coding/neovim/nvim
-  -N nvim-Chokerman
+- Check out nb author's config at https://github.com/xwmx/dotvim
 
 - Check for available updates to rustc, rustup, cargo, etc and update bob
   rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
 
 DONE:
 
+x Check out config of Ahsan Habib
+x Add Chokerman config to Personals
 x Enable candy on CandyVim dashboard
 x Add CandyVim config to Personals
 x lazyman -C https://github.com/doctorfree/CandyVim -N nvim-CandyVim

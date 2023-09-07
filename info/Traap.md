@@ -132,204 +132,204 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  tn |  |
-| Restore Last Session |  ql |  |
-| Restore Session |  qs |  |
-| Don't Save Current Session |  qd |  |
-| Dismiss all Notifications |  un |  |
-| Debug Class |  dPc |  |
-| Debug Method |  dPt |  |
-| Breakpoint Condition |  dB |  |
-| Step Over |  dO |  |
-| Up |  dk |  |
-| Down |  dj |  |
-| Oil buffer |  no |  |
-|  |  Tm |  |
-|  |  Tl |  |
-|  |  Tb |  |
-|  |  Tr |  |
-| Delete Buffer |  bd |  |
-| Delete Buffer (Force) |  bD |  |
-| Eval |  de |  |
-| Dap UI |  du |  |
-| Todo (Trouble) |  xt |  |
-| Todo/Fix/Fixme |  sT |  |
-| Todo |  st |  |
-| Todo/Fix/Fixme (Trouble) |  xT |  |
-| Location List (Trouble) |  xL |  |
-| Workspace Diagnostics (Trouble) |  xX |  |
-| Document Diagnostics (Trouble) |  xx |  |
-| Quickfix List (Trouble) |  xQ |  |
-| Replace in files (Spectre) |  sr |  |
-|  |  cm |  |
-| Select VirtualEnv |  cv |  |
-|  |  oz | <Cmd>lua require("zen-mode").toggle()<CR> |
-|  |  lx | <Plug>(vimtex-reload) |
-|  |  lv | <Plug>(vimtex-view) |
-|  |  lt | <Plug>(vimtex-toc_open) |
-|  |  ls | <Plug>(vimtex-toggle-main) |
-|  |  lq | <Plug>(vimtex-log) |
-|  |  lo | <Plug>(vimtex-compile-output) |
-|  |  lm | <Plug>(vimtex-impas-list) |
-|  |  ll | <Plug>(vimtex-compile) |
-|  |  lk | <Plug>(vimtex-stop) |
-|  |  li | <Plug>(vimtex-info) |
-|  |  lg | <Plug>(vimtex-status) |
-|  |  le | <Plug>(vimtex-error) |
-|  |  lc | <Plug>(vimtex-clean-full) |
-|  |  la | <Plug>(vimtex-context-menu) |
-|  |  lX | <Plug>(vimtex-reload-state) |
-|  |  lT | <Plug>(vimtex-toc-toggle) |
-|  |  lL | <Plug>(vimtex-compile-selected) |
-|  |  lK | <Plug>(vimtex-stop-all) |
-|  |  lI | <Plug>(vimtex-info-full) |
-|  |  lG | <Plug>(vimtex-status-all) |
-|  |  lC | <Plug>(vimtex-clean-full) |
-|  |  gs | <Cmd>G<CR> |
-|  |  gp | <Cmd>G push<CR> |
-|  |  gh | <Cmd>vert bo help fugitive<CR> |
-|  |  gl | <Cmd>G log<CR> |
-|  |  gd | <Cmd>G diff<CR> |
-|  |  gc | <Cmd>G commmit<CR> |
-|  |  gP | <Cmd>G pull<CR> |
-|  |  2 | gaip=  |
-|  |  1 | gaip=, |
-|  |  0 | gaip*, |
-|  |  kwiki | <Cmd>Dispatch! tmux kill-session -t wiki<CR> |
-|  |  kvim | <Cmd>Dispatch! tmux kill-session -t vim<CR> |
-|  |  ksoup | <Cmd>Dispatch! tmux kill-session -t soup<CR> |
-|  |  kssh | <Cmd>Dispatch! tmux kill-session -t ssh<CR> |
-|  |  kkjv | <Cmd>Dispatch! tmux kill-session -t kjv<CR> |
-|  |  kbash | <Cmd>Dispatch! tmux kill-session -t bash<CR> |
-|  |  kao | <Cmd>Dispatch! tmux kill-session -t ao<CR> |
-|  |  twiki | <Cmd>Dispatch!ao wiki<CR> |
-|  |  tvim | <Cmd>Dispatch!ao vim<CR> |
-|  |  tsoup | <Cmd>Dispatch!ao soup<CR> |
-|  |  tssh | <Cmd>Dispatch!ao ssh<CR> |
-|  |  tkjv | <Cmd>Dispatch!ao kjv<CR> |
-|  |  tbash | <Cmd>Dispatch!ao bash<CR> |
-|  |  tao | <Cmd>Dispatch!ao ao<CR> |
-|  |  gu | <Cmd>call GenerateUmlDiagram<CR> |
-|  |  fy | <Cmd>TodoTelescope keywords=Youtube,URL<CR> |
-|  |  Ls | <Cmd>Telescope lsp_document_symbols<CR> |
-|  |  LS | <Cmd>Telescope lsp_dynamic_workspace_symbols<CR> |
-|  |  go | <Cmd>Telescope git_status<CR> |
-|  |  gb | <Cmd>Telescope git_branches<CR> |
-|  |  gC | <Cmd>Telescope git_commits<CR> |
-|  |  fw | <Cmd>Telescope grep_string<CR> |
-|  |  fp | <Cmd>Telescope planets<CR> |
-|  |  fo | <Cmd>Telescope oldfiles<CR> |
-|  |  fm | <Cmd>Telescope marks<CR> |
-|  |  fl | <Cmd>Telescope resume<CR> |
-|  |  fk | <Cmd>Telescope keymaps<CR> |
-|  |  fi | <Cmd>lua require('telescope').extensions.media_files.media_files()<CR> |
-|  |  fh | <Cmd>Telescope help_tags<CR> |
-|  |  fg | <Cmd>Telescope live_grep<CR> |
-|  |  ff | <Cmd>Telescope find_files<CR> |
-|  |  fd | <Cmd>Telescope diagnostics<CR> |
-|  |  fb | <Cmd>Telescope buffers<CR> |
-|  |  fS | <Cmd>Telescope colorscheme<CR> |
-|  |  fR | <Cmd>Telescope registers<CR> |
-|  |  fO | <Cmd>Telescope oldfiles<CR> |
-|  |  fM | <Cmd>Telescope man_pages<CR> |
-|  |  fF | <Cmd>Telescope media_files<CR> |
-|  |  fC | <Cmd>Telescope commands<CR> |
-|  |  nr | <Cmd>Neotree show<CR> |
-|  |  nf | <Cmd>Neotree focus<CR> |
-|  |  dU | <Cmd>lua require("dapui").toggle()<CR> |
-|  |  Ds | <Cmd>lua require("osv").launch({ port = 8686})<CR> |
-|  |  Dd | <Cmd>lua require("osv").run_this()<CR> |
-| Widgets |  dw |  |
-| Terminate |  dt |  |
-| Toggle REPL |  dr |  |
-| Session |  ds |  |
-|  |  dq | <Cmd>lua require("dap").close()<CR> |
-| Pause |  dp |  |
-| Step Out |  do |  |
-| Run Last |  dl |  |
-| Step Into |  di |  |
-| Go to line (no execute) |  dg |  |
-|  |  dd | <Cmd>lua require("dap").disconnect()<CR> |
-| Continue |  dc |  |
-| Toggle Breakpoint |  db |  |
-| Run to Cursor |  dC |  |
-|  |  nh | <Cmd>NoiceHistory<CR> |
-|  |  ne | <Cmd>NoiceErrors<CR> |
-|  |  aa | <Cmd>Alpha<CR> |
-|  | % | <Plug>(MatchitNormalForward) |
-| Nvim builtin | & | :&&<CR> |
-| Flash Treesitter | S |  |
-| Nvim builtin | Y | y$ |
-|  | [% | <Plug>(MatchitNormalMultiBackward) |
-| Previous todo comment | [t |  |
-| Previous trouble/quickfix item | [q |  |
-|  | ]% | <Plug>(MatchitNormalMultiForward) |
-| Next todo comment | ]t |  |
-| Next trouble/quickfix item | ]q |  |
-|  | g% | <Plug>(MatchitNormalBackward) |
-|  | ga | <Plug>(EasyAlign) |
-| Flash | s |  |
-|  | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-|  | | | gaip*| |
-|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
-|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
-|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
-|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>fugitive: |  |
-|  | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR> |
-| Increment selection | <C-Space> |  |
-|  | <M-5> |  |
-|  | <M-4> |  |
-|  | <M-3> |  |
-|  | <M-2> |  |
-|  | <M-1> |  |
-|  | <M-8> |  |
-|  | <M-7> |  |
-|  | <M-6> |  |
-|  | <C-N> | <Cmd>Neotree toggle<CR> |
-|  | <F12> | <Cmd>lua require("dap").step_out()<CR> |
-|  | <F11> | <Cmd>lua require("dap").step_into()<CR> |
-|  | <F10> | <Cmd>lua require("dap").step_over()<CR> |
-|  | <F5> | <Cmd>lua  require("dap").continue()<CR> |
-| Nvim builtin | <C-L> | <Cmd>nohlsearch|diffupdate|normal! <C-L><CR> |
+|  | ` tn` |  |
+|  | ` cm` |  |
+| Eval | ` de` |  |
+| Dap UI | ` du` |  |
+| Step Over | ` dO` |  |
+| Up | ` dk` |  |
+| Down | ` dj` |  |
+| Breakpoint Condition | ` dB` |  |
+| Replace in files (Spectre) | ` sr` |  |
+| Todo/Fix/Fixme (Trouble) | ` xT` |  |
+| Todo (Trouble) | ` xt` |  |
+| Todo/Fix/Fixme | ` sT` |  |
+| Todo | ` st` |  |
+| Quickfix List (Trouble) | ` xQ` |  |
+| Location List (Trouble) | ` xL` |  |
+| Workspace Diagnostics (Trouble) | ` xX` |  |
+| Document Diagnostics (Trouble) | ` xx` |  |
+| Dismiss all Notifications | ` un` |  |
+| Oil buffer | ` no` |  |
+| Restore Session | ` qs` |  |
+| Don't Save Current Session | ` qd` |  |
+| Restore Last Session | ` ql` |  |
+|  | ` Tb` |  |
+|  | ` Tr` |  |
+|  | ` Tm` |  |
+|  | ` Tl` |  |
+| Delete Buffer (Force) | ` bD` |  |
+| Delete Buffer | ` bd` |  |
+| Select VirtualEnv | ` cv` |  |
+| Debug Class | ` dPc` |  |
+| Debug Method | ` dPt` |  |
+|  | ` oz` | `<Cmd>lua require("zen-mode").toggle()<CR>` |
+|  | ` lx` | `<Plug>(vimtex-reload)` |
+|  | ` lv` | `<Plug>(vimtex-view)` |
+|  | ` lt` | `<Plug>(vimtex-toc_open)` |
+|  | ` ls` | `<Plug>(vimtex-toggle-main)` |
+|  | ` lq` | `<Plug>(vimtex-log)` |
+|  | ` lo` | `<Plug>(vimtex-compile-output)` |
+|  | ` lm` | `<Plug>(vimtex-impas-list)` |
+|  | ` ll` | `<Plug>(vimtex-compile)` |
+|  | ` lk` | `<Plug>(vimtex-stop)` |
+|  | ` li` | `<Plug>(vimtex-info)` |
+|  | ` lg` | `<Plug>(vimtex-status)` |
+|  | ` le` | `<Plug>(vimtex-error)` |
+|  | ` lc` | `<Plug>(vimtex-clean-full)` |
+|  | ` la` | `<Plug>(vimtex-context-menu)` |
+|  | ` lX` | `<Plug>(vimtex-reload-state)` |
+|  | ` lT` | `<Plug>(vimtex-toc-toggle)` |
+|  | ` lL` | `<Plug>(vimtex-compile-selected)` |
+|  | ` lK` | `<Plug>(vimtex-stop-all)` |
+|  | ` lI` | `<Plug>(vimtex-info-full)` |
+|  | ` lG` | `<Plug>(vimtex-status-all)` |
+|  | ` lC` | `<Plug>(vimtex-clean-full)` |
+|  | ` gs` | `<Cmd>G<CR>` |
+|  | ` gp` | `<Cmd>G push<CR>` |
+|  | ` gh` | `<Cmd>vert bo help fugitive<CR>` |
+|  | ` gl` | `<Cmd>G log<CR>` |
+|  | ` gd` | `<Cmd>G diff<CR>` |
+|  | ` gc` | `<Cmd>G commmit<CR>` |
+|  | ` gP` | `<Cmd>G pull<CR>` |
+|  | ` 2` | `gaip= ` |
+|  | ` 1` | `gaip=,` |
+|  | ` 0` | `gaip*,` |
+|  | ` kwiki` | `<Cmd>Dispatch! tmux kill-session -t wiki<CR>` |
+|  | ` kvim` | `<Cmd>Dispatch! tmux kill-session -t vim<CR>` |
+|  | ` ksoup` | `<Cmd>Dispatch! tmux kill-session -t soup<CR>` |
+|  | ` kssh` | `<Cmd>Dispatch! tmux kill-session -t ssh<CR>` |
+|  | ` kkjv` | `<Cmd>Dispatch! tmux kill-session -t kjv<CR>` |
+|  | ` kbash` | `<Cmd>Dispatch! tmux kill-session -t bash<CR>` |
+|  | ` kao` | `<Cmd>Dispatch! tmux kill-session -t ao<CR>` |
+|  | ` twiki` | `<Cmd>Dispatch!ao wiki<CR>` |
+|  | ` tvim` | `<Cmd>Dispatch!ao vim<CR>` |
+|  | ` tsoup` | `<Cmd>Dispatch!ao soup<CR>` |
+|  | ` tssh` | `<Cmd>Dispatch!ao ssh<CR>` |
+|  | ` tkjv` | `<Cmd>Dispatch!ao kjv<CR>` |
+|  | ` tbash` | `<Cmd>Dispatch!ao bash<CR>` |
+|  | ` tao` | `<Cmd>Dispatch!ao ao<CR>` |
+|  | ` gu` | `<Cmd>call GenerateUmlDiagram<CR>` |
+|  | ` fy` | `<Cmd>TodoTelescope keywords=YouTube,Youtube,URL,Url<CR>` |
+|  | ` Ls` | `<Cmd>Telescope lsp_document_symbols<CR>` |
+|  | ` LS` | `<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>` |
+|  | ` go` | `<Cmd>Telescope git_status<CR>` |
+|  | ` gb` | `<Cmd>Telescope git_branches<CR>` |
+|  | ` gC` | `<Cmd>Telescope git_commits<CR>` |
+|  | ` fw` | `<Cmd>Telescope grep_string<CR>` |
+|  | ` fp` | `<Cmd>Telescope planets<CR>` |
+|  | ` fo` | `<Cmd>Telescope oldfiles<CR>` |
+|  | ` fm` | `<Cmd>Telescope marks<CR>` |
+|  | ` fl` | `<Cmd>Telescope resume<CR>` |
+|  | ` fk` | `<Cmd>Telescope keymaps<CR>` |
+|  | ` fi` | `<Cmd>lua require('telescope').extensions.media_files.media_files()<CR>` |
+|  | ` fh` | `<Cmd>Telescope help_tags<CR>` |
+|  | ` fg` | `<Cmd>Telescope live_grep<CR>` |
+|  | ` ff` | `<Cmd>Telescope find_files<CR>` |
+|  | ` fd` | `<Cmd>Telescope diagnostics<CR>` |
+|  | ` fb` | `<Cmd>Telescope buffers<CR>` |
+|  | ` fS` | `<Cmd>Telescope colorscheme<CR>` |
+|  | ` fR` | `<Cmd>Telescope registers<CR>` |
+|  | ` fO` | `<Cmd>Telescope oldfiles<CR>` |
+|  | ` fM` | `<Cmd>Telescope man_pages<CR>` |
+|  | ` fF` | `<Cmd>Telescope media_files<CR>` |
+|  | ` fC` | `<Cmd>Telescope commands<CR>` |
+|  | ` nr` | `<Cmd>Neotree show<CR>` |
+|  | ` nf` | `<Cmd>Neotree focus<CR>` |
+|  | ` dU` | `<Cmd>lua require("dapui").toggle()<CR>` |
+|  | ` Ds` | `<Cmd>lua require("osv").launch({ port = 8686})<CR>` |
+|  | ` Dd` | `<Cmd>lua require("osv").run_this()<CR>` |
+| Widgets | ` dw` |  |
+| Terminate | ` dt` |  |
+| Toggle REPL | ` dr` |  |
+| Session | ` ds` |  |
+|  | ` dq` | `<Cmd>lua require("dap").close()<CR>` |
+| Pause | ` dp` |  |
+| Step Out | ` do` |  |
+| Run Last | ` dl` |  |
+| Step Into | ` di` |  |
+| Go to line (no execute) | ` dg` |  |
+|  | ` dd` | `<Cmd>lua require("dap").disconnect()<CR>` |
+| Continue | ` dc` |  |
+| Toggle Breakpoint | ` db` |  |
+| Run to Cursor | ` dC` |  |
+|  | ` nh` | `<Cmd>NoiceHistory<CR>` |
+|  | ` ne` | `<Cmd>NoiceErrors<CR>` |
+|  | ` aa` | `<Cmd>Alpha<CR>` |
+|  | `%` | `<Plug>(MatchitNormalForward)` |
+| Nvim builtin | `&` | `:&&<CR>` |
+| Flash Treesitter | `S` |  |
+| Nvim builtin | `Y` | `y$` |
+|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
+| Previous todo comment | `[t` |  |
+| Previous trouble/quickfix item | `[q` |  |
+|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
+| Next todo comment | `]t` |  |
+| Next trouble/quickfix item | `]q` |  |
+|  | `g%` | `<Plug>(MatchitNormalBackward)` |
+|  | `ga` | `<Plug>(EasyAlign)` |
+| Flash | `s` |  |
+|  | `y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
+|  | `|` | `gaip*|` |
+|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
+|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
+|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
+|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
+|  | `<Plug>fugitive:` | `` |
+|  | `<Plug>fugitive:y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
+| Increment selection | `<C-Space>` |  |
+|  | `<M-2>` |  |
+|  | `<M-1>` |  |
+|  | `<M-8>` |  |
+|  | `<M-7>` |  |
+|  | `<M-6>` |  |
+|  | `<M-5>` |  |
+|  | `<M-4>` |  |
+|  | `<M-3>` |  |
+|  | `<C-N>` | `<Cmd>Neotree toggle<CR>` |
+|  | `<F12>` | `<Cmd>lua require("dap").step_out()<CR>` |
+|  | `<F11>` | `<Cmd>lua require("dap").step_into()<CR>` |
+|  | `<F10>` | `<Cmd>lua require("dap").step_over()<CR>` |
+|  | `<F5>` | `<Cmd>lua  require("dap").continue()<CR>` |
+| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  tn |  |
-| Eval |  de |  |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-|  | % | <Plug>(MatchitVisualForward) |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-|  | [% | <Plug>(MatchitVisualMultiBackward) |
-|  | ]% | <Plug>(MatchitVisualMultiForward) |
-|  | a% | <Plug>(MatchitVisualTextObject) |
-|  | g% | <Plug>(MatchitVisualBackward) |
-|  | ga | <Plug>(EasyAlign) |
-| Flash | s |  |
-|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
-|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
-|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-| Decrement selection | <BS> |  |
+|  | ` tn` |  |
+| Eval | ` de` |  |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+|  | `%` | `<Plug>(MatchitVisualForward)` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
+|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
+|  | `g%` | `<Plug>(MatchitVisualBackward)` |
+|  | `ga` | `<Plug>(EasyAlign)` |
+| Flash | `s` |  |
+|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
+|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+| Decrement selection | `<BS>` |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | % | <Plug>(MatchitOperationForward) |
-| Treesitter Search | R |  |
-| Flash Treesitter | S |  |
-|  | [% | <Plug>(MatchitOperationMultiBackward) |
-|  | ]% | <Plug>(MatchitOperationMultiForward) |
-|  | g% | <Plug>(MatchitOperationBackward) |
-| Remote Flash | r |  |
-| Flash | s |  |
-|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
-|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
-|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
-|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | `%` | `<Plug>(MatchitOperationForward)` |
+| Treesitter Search | `R` |  |
+| Flash Treesitter | `S` |  |
+|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
+|  | `g%` | `<Plug>(MatchitOperationBackward)` |
+| Remote Flash | `r` |  |
+| Flash | `s` |  |
+|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
+|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
+|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
+|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |

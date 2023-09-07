@@ -166,6 +166,11 @@ href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
 <h3 id="kristijan-keymaps">Kristijan Keymaps</h3>
 <h4 id="normal-mode-keymaps">normal mode keymaps</h4>
 <table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Description</th>
@@ -176,418 +181,369 @@ href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>#</td>
-<td>#N</td>
+<td><code>#</code></td>
+<td><code>#N</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>&amp;</td>
-<td>:&amp;&amp;<CR></td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>*</td>
-<td>*N</td>
+<td><code>*</code></td>
+<td><code>*N</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>+</td>
-<td><C-W>5&gt;</td>
+<td><code>+</code></td>
+<td><code>&lt;C-W&gt;5&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,Q</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,q</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,T</td>
+<td><code>,Q</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,db</td>
-<td>:silent w</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,]</td>
-<td><C-W>v&lt;C-]&gt;</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,<Tab></td>
-<td>&lt;C-^&gt;</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,h</td>
-<td>viw”0p</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,p</td>
-<td>“0p</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,</td>
-<td>:noh<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,v</td>
-<td><C-W>v</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,s</td>
-<td>:w<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,F</td>
-<td>:call v:lua.kris.search.run(expand(“<lt>cword&gt;”))<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,f</td>
-<td>:call v:lua.kris.search.run(““)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,hf</td>
-<td>:NvimTreeToggle<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,n</td>
-<td>:NvimTreeToggle<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,df</td>
-<td>:Git push –force-with-lease<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,dp</td>
-<td>:Git push<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>,da</td>
+<td><code>,q</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,dc</td>
+<td><code>,T</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,dh</td>
-<td>:DiffviewFileHistory %<CR></td>
+<td><code>,db</code></td>
+<td><code>:silent w | :silent %bd | e#&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,do</td>
+<td><code>,]</code></td>
+<td><code>&lt;C-W&gt;v&lt;C-]&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,&lt;Tab&gt;</code></td>
+<td><code>&lt;C-^&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,h</code></td>
+<td><code>viw"0p</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,p</code></td>
+<td><code>"0p</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,</code></td>
+<td><code>:noh&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,v</code></td>
+<td><code>&lt;C-W&gt;v</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,s</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,F</code></td>
+<td><code>:call v:lua.kris.search.run(expand("&lt;lt&gt;cword&gt;"))&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,f</code></td>
+<td><code>:call v:lua.kris.search.run("")&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,lt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,lT</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,G</td>
-<td>:vert G<CR></td>
+<td><code>,g</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,lt</td>
+<td><code>,m</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,lT</td>
+<td><code>,t</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,g</td>
+<td><code>,b</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,m</td>
+<td><code>,df</code></td>
+<td><code>:Git push --force-with-lease&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,dp</code></td>
+<td><code>:Git push&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,da</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,t</td>
+<td><code>,dc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,b</td>
-<td></td>
+<td><code>,dh</code></td>
+<td><code>:DiffviewFileHistory %&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,yg</td>
+<td><code>,do</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,oc</td>
+<td><code>,yg</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,oa</td>
+<td><code>,hf</code></td>
+<td><code>:NvimTreeToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,n</code></td>
+<td><code>:NvimTreeToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,G</code></td>
+<td><code>:vert G&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,c</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,oc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,c</td>
+<td><code>,oa</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>N</td>
-<td>Nzz</td>
+<td><code>N</code></td>
+<td><code>Nzz</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>Q</td>
-<td><C-Z></td>
+<td><code>Q</code></td>
+<td><code>&lt;C-Z&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>R</td>
+<td><code>R</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
-<td>Y</td>
-<td>y$</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[B</td>
-<td>:bfirst<CR></td>
+<td><code>[B</code></td>
+<td><code>:bfirst&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[b</td>
-<td>:bprevious<CR></td>
+<td><code>[b</code></td>
+<td><code>:bprevious&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[T</td>
-<td>:tfirst<CR></td>
+<td><code>[T</code></td>
+<td><code>:tfirst&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[t</td>
-<td>:tprevious<CR></td>
+<td><code>[t</code></td>
+<td><code>:tprevious&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[L</td>
-<td>:lopen</td>
+<td><code>[L</code></td>
+<td><code>:lopen</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[e</td>
-<td>:lprevious<CR></td>
+<td><code>[e</code></td>
+<td><code>:lprevious&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>[Q</td>
-<td>:copen<CR></td>
+<td><code>[Q</code></td>
+<td><code>:copen&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>[q</td>
-<td>:cprevious<CR></td>
+<td><code>[q</code></td>
+<td><code>:cprevious&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]B</td>
-<td>:blast<CR></td>
+<td><code>]B</code></td>
+<td><code>:blast&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]b</td>
-<td>:bnext<CR></td>
+<td><code>]b</code></td>
+<td><code>:bnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]T</td>
-<td>:tlast<CR></td>
+<td><code>]T</code></td>
+<td><code>:tlast&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]t</td>
-<td>:tnext<CR></td>
+<td><code>]t</code></td>
+<td><code>:tnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]L</td>
-<td>:lclose<CR></td>
+<td><code>]L</code></td>
+<td><code>:lclose&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]e</td>
-<td>:lnext<CR></td>
+<td><code>]e</code></td>
+<td><code>:lnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>]Q</td>
-<td>:cclose<CR></td>
+<td><code>]Q</code></td>
+<td><code>:cclose&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>]q</td>
-<td>:cnext<CR></td>
+<td><code>]q</code></td>
+<td><code>:cnext&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>_</td>
-<td><C-W>5<lt></td>
+<td><code>_</code></td>
+<td><code>&lt;C-W&gt;5&lt;lt&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>f</td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>gF</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gx</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gs</td>
-<td>:%s/</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gp</td>
-<td>‘<code>[' . strpart(getregtype(), 0, 1) . '</code>]’</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>g#</td>
-<td>g#N</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>g*</td>
-<td>g*N</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gJ</td>
-<td>:TSJJoin<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>gS</td>
-<td>:TSJSplit<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>gcip</td>
+<td><code>gF</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>j</td>
-<td>gj</td>
+<td><code>gx</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>k</td>
-<td>gk</td>
+<td><code>gs</code></td>
+<td><code>:%s/</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>n</td>
-<td>nzz</td>
+<td><code>gp</code></td>
+<td><code>'</code>[’ . strpart(getregtype(), 0, 1) .
+’<code>]'</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>p</td>
-<td>p`]</td>
+<td><code>g#</code></td>
+<td><code>g#N</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>t</td>
-<td></td>
+<td><code>g*</code></td>
+<td><code>g*N</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-K></td>
-<td><C-W>k</td>
+<td><code>gJ</code></td>
+<td><code>:TSJJoin&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-J></td>
-<td><C-W>j</td>
+<td><code>gS</code></td>
+<td><code>:TSJSplit&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-H></td>
-<td>&lt;C-&gt;<C-N><C-W>h</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-S></td>
-<td>:w<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><C-Y></td>
+<td><code>gcip</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-P></td>
-<td></td>
+<td><code>j</code></td>
+<td><code>gj</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><F1></td>
-<td></td>
+<td><code>k</code></td>
+<td><code>gk</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><F5></td>
-<td></td>
+<td><code>n</code></td>
+<td><code>nzz</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-L></td>
-<td>&lt;C-&gt;<C-N><C-W>l</td>
+<td><code>p</code></td>
+<td><code>p</code>]<code>| |  |</code>t<code>|  | |  |</code><C-K><code>|</code><C-W>k<code>| |  |</code><C-J><code>|</code><C-W>j<code>| |  |</code><C-H><code>|</code>&lt;C-&gt;<C-N><C-W>h<code>| |  |</code><C-S><code>|</code>:w<CR><code>| |  |</code><C-Y><code>|  | |  |</code><C-P><code>|  | |  |</code><F1><code>|  | |  |</code><F5><code>|  | |  |</code><C-L><code>|</code>&lt;C-&gt;<C-N><C-W>l`</td>
 </tr>
 </tbody>
 </table>
@@ -603,223 +559,223 @@ href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><Tab></td>
-<td>&gt;gv</td>
+<td><code>&lt;Tab&gt;</code></td>
+<td><code>&gt;gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>#</td>
-<td>“yy?=escape(getreg(‘y’), ‘/?’)<CR><CR>N</td>
+<td><code>#</code></td>
+<td><code>"yy?\V&lt;C-R&gt;=escape(getreg('y'), '\/?')&lt;CR&gt;&lt;CR&gt;N</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>*</td>
-<td>“yy/=escape(getreg(‘y’), ‘/?’)<CR><CR>N</td>
+<td><code>*</code></td>
+<td><code>"yy/\V&lt;C-R&gt;=escape(getreg('y'), '\/?')&lt;CR&gt;&lt;CR&gt;N</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,p</td>
-<td>“0p</td>
+<td><code>,p</code></td>
+<td><code>"0p</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,F</td>
-<td>:<C-U>call v:lua.kris.search.run(““, 1)<CR></td>
+<td><code>,F</code></td>
+<td><code>:&lt;C-U&gt;call v:lua.kris.search.run("", 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,kS</td>
-<td>:<C-U>call v:lua.kris.calculate_selection(v:true)<CR></td>
+<td><code>,kS</code></td>
+<td><code>:&lt;C-U&gt;call v:lua.kris.calculate_selection(v:true)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>,ks</td>
-<td>:<C-U>call v:lua.kris.calculate_selection()<CR></td>
+<td><code>,ks</code></td>
+<td><code>:&lt;C-U&gt;call v:lua.kris.calculate_selection()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>,yg</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>,c</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>F</td>
+<td><code>,yg</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>J</td>
-<td>:m ’&gt;+1<CR>gv=gv</td>
+<td><code>,c</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>K</td>
-<td>:m ’<lt>-2<CR>gv=gv</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Q</td>
-<td><C-Z></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>T</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a#</td>
-<td>:<C-U>normal! F#vf#<CR></td>
+<td><code>J</code></td>
+<td><code>:m '&gt;+1&lt;CR&gt;gv=gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a-</td>
-<td>:<C-U>normal! F-vf-<CR></td>
+<td><code>K</code></td>
+<td><code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a+</td>
-<td>:<C-U>normal! F+vf+<CR></td>
+<td><code>Q</code></td>
+<td><code>&lt;C-Z&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a*</td>
-<td>:<C-U>normal! F<em>vf</em><CR></td>
+<td><code>T</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a\</td>
-<td>:<C-U>normal! F&lt;CR&gt;</td>
+<td><code>a#</code></td>
+<td><code>:&lt;C-U&gt;normal! F#vf#&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a/</td>
-<td>:<C-U>normal! F/vf/<CR></td>
+<td><code>a-</code></td>
+<td><code>:&lt;C-U&gt;normal! F-vf-&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a</td>
-<td></td>
+<td><code>a+</code></td>
+<td><code>:&lt;C-U&gt;normal! F+vf+&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a;</td>
-<td>:<C-U>normal! F;vf;<CR></td>
+<td><code>a*</code></td>
+<td><code>:&lt;C-U&gt;normal! F*vf*&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a,</td>
-<td>:<C-U>normal! F,vf,<CR></td>
+<td><code>a\</code></td>
+<td><code>:&lt;C-U&gt;normal! F\vf\&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a:</td>
-<td>:<C-U>normal! F:vf:<CR></td>
+<td><code>a/</code></td>
+<td><code>:&lt;C-U&gt;normal! F/vf/&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a.</td>
-<td>:<C-U>normal! F.vf.<CR></td>
+<td><code>a|</code></td>
+<td><code>:&lt;C-U&gt;normal! F|vf|&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a_</td>
-<td>:<C-U>normal! F_vf_<CR></td>
+<td><code>a;</code></td>
+<td><code>:&lt;C-U&gt;normal! F;vf;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>f</td>
-<td></td>
+<td><code>a,</code></td>
+<td><code>:&lt;C-U&gt;normal! F,vf,&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>gs</td>
-<td>:s/</td>
+<td><code>a:</code></td>
+<td><code>:&lt;C-U&gt;normal! F:vf:&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i#</td>
-<td>:<C-U>normal! T#vt#<CR></td>
+<td><code>a.</code></td>
+<td><code>:&lt;C-U&gt;normal! F.vf.&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i-</td>
-<td>:<C-U>normal! T-vt-<CR></td>
+<td><code>a_</code></td>
+<td><code>:&lt;C-U&gt;normal! F_vf_&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i+</td>
-<td>:<C-U>normal! T+vt+<CR></td>
+<td><code>f</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i*</td>
-<td>:<C-U>normal! T<em>vt</em><CR></td>
+<td><code>gs</code></td>
+<td><code>:s/</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i\</td>
-<td>:<C-U>normal! T&lt;CR&gt;</td>
+<td><code>i#</code></td>
+<td><code>:&lt;C-U&gt;normal! T#vt#&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i/</td>
-<td>:<C-U>normal! T/vt/<CR></td>
+<td><code>i-</code></td>
+<td><code>:&lt;C-U&gt;normal! T-vt-&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i</td>
-<td></td>
+<td><code>i+</code></td>
+<td><code>:&lt;C-U&gt;normal! T+vt+&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i;</td>
-<td>:<C-U>normal! T;vt;<CR></td>
+<td><code>i*</code></td>
+<td><code>:&lt;C-U&gt;normal! T*vt*&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i,</td>
-<td>:<C-U>normal! T,vt,<CR></td>
+<td><code>i\</code></td>
+<td><code>:&lt;C-U&gt;normal! T\vt\&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i:</td>
-<td>:<C-U>normal! T:vt:<CR></td>
+<td><code>i/</code></td>
+<td><code>:&lt;C-U&gt;normal! T/vt/&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i.</td>
-<td>:<C-U>normal! T.vt.<CR></td>
+<td><code>i|</code></td>
+<td><code>:&lt;C-U&gt;normal! T|vt|&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i_</td>
-<td>:<C-U>normal! T_vt_<CR></td>
+<td><code>i;</code></td>
+<td><code>:&lt;C-U&gt;normal! T;vt;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>p</td>
-<td>p<code>] | |  | t |  | |  | y | y</code>]</td>
+<td><code>i,</code></td>
+<td><code>:&lt;C-U&gt;normal! T,vt,&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><S-Tab></td>
-<td><lt>gv</td>
+<td><code>i:</code></td>
+<td><code>:&lt;C-U&gt;normal! T:vt:&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><C-C></td>
-<td>“+y</td>
+<td><code>i.</code></td>
+<td><code>:&lt;C-U&gt;normal! T.vt.&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><C-S></td>
-<td>:w<CR></td>
+<td><code>i_</code></td>
+<td><code>:&lt;C-U&gt;normal! T_vt_&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>p</code></td>
+<td><code>p</code>]<code>| |  |</code>t<code>|  | |  |</code>y<code>|</code>y<code>]</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-C&gt;</code></td>
+<td><code>"+y</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -835,153 +791,153 @@ href="https://github.com/hrsh7th/vim-vsnip.git">hrsh7th/vim-vsnip</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td>F</td>
+<td><code>F</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>Q</td>
-<td><C-Z></td>
+<td><code>Q</code></td>
+<td><code>&lt;C-Z&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>T</td>
+<td><code>T</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a#</td>
-<td>:normal va#<CR></td>
+<td><code>a#</code></td>
+<td><code>:normal va#&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a-</td>
-<td>:normal va-<CR></td>
+<td><code>a-</code></td>
+<td><code>:normal va-&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a+</td>
-<td>:normal va+<CR></td>
+<td><code>a+</code></td>
+<td><code>:normal va+&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a*</td>
-<td>:normal va*<CR></td>
+<td><code>a*</code></td>
+<td><code>:normal va*&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a\</td>
-<td>:normal va&lt;CR&gt;</td>
+<td><code>a\</code></td>
+<td><code>:normal va\&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a/</td>
-<td>:normal va/<CR></td>
+<td><code>a/</code></td>
+<td><code>:normal va/&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a</td>
+<td><code>a|</code></td>
+<td><code>:normal va|&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>a;</code></td>
+<td><code>:normal va;&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>a,</code></td>
+<td><code>:normal va,&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>a:</code></td>
+<td><code>:normal va:&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>a.</code></td>
+<td><code>:normal va.&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>a_</code></td>
+<td><code>:normal va_&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>f</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a;</td>
-<td>:normal va;<CR></td>
+<td><code>i#</code></td>
+<td><code>:normal vi#&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a,</td>
-<td>:normal va,<CR></td>
+<td><code>i-</code></td>
+<td><code>:normal vi-&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a:</td>
-<td>:normal va:<CR></td>
+<td><code>i+</code></td>
+<td><code>:normal vi+&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>a.</td>
-<td>:normal va.<CR></td>
+<td><code>i*</code></td>
+<td><code>:normal vi*&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>a_</td>
-<td>:normal va_<CR></td>
+<td><code>i\</code></td>
+<td><code>:normal vi\&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>f</td>
-<td></td>
+<td><code>i/</code></td>
+<td><code>:normal vi/&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i#</td>
-<td>:normal vi#<CR></td>
+<td><code>i|</code></td>
+<td><code>:normal vi|&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i-</td>
-<td>:normal vi-<CR></td>
+<td><code>i;</code></td>
+<td><code>:normal vi;&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i+</td>
-<td>:normal vi+<CR></td>
+<td><code>i,</code></td>
+<td><code>:normal vi,&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i*</td>
-<td>:normal vi*<CR></td>
+<td><code>i:</code></td>
+<td><code>:normal vi:&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i\</td>
-<td>:normal vi&lt;CR&gt;</td>
+<td><code>i.</code></td>
+<td><code>:normal vi.&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i/</td>
-<td>:normal vi/<CR></td>
+<td><code>i_</code></td>
+<td><code>:normal vi_&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td>i</td>
+<td><code>t</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td>i;</td>
-<td>:normal vi;<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>i,</td>
-<td>:normal vi,<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>i:</td>
-<td>:normal vi:<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>i.</td>
-<td>:normal vi.<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>i_</td>
-<td>:normal vi_<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>t</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><C-S></td>
-<td>:w<CR></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

@@ -85,99 +85,99 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  |  t | <Cmd>TroubleToggle<CR> |
-|  |    | :Telescope buffers<CR> |
-|  |  o | <Cmd>SymbolsOutline<CR> |
-|  | % | <Plug>(MatchitNormalForward) |
-| Nvim builtin | & | :&&<CR> |
-|  | H | :BufferLineCyclePrev<CR> |
-|  | L | :BufferLineCycleNext<CR> |
-| Nvim builtin | Y | y$ |
-|  | [% | <Plug>(MatchitNormalMultiBackward) |
-|  | [q | :cprev<CR> |
-|  | ]% | <Plug>(MatchitNormalMultiForward) |
-|  | ]q | :cnext<CR> |
-|  | gx | <Plug>NetrwBrowseX |
-|  | g% | <Plug>(MatchitNormalBackward) |
-|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | gc |  |
-|  | gb |  |
-|  | <Plug>NetrwBrowseX | :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR> |
-|  | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> |
-|  | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> |
-|  | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> |
-|  | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> |
-|  | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR> |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-| Float Terminal | <M-3> |  |
-| Vertical Terminal | <M-2> |  |
-| Horizontal Terminal | <M-1> |  |
-|  | <C-T> |  |
-|  | <C-S> | :w<CR> |
-|  | <C-U> | <C-U>zz |
-|  | <C-D> | <C-D>zz |
-|  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <M-Tab> | <C-6> |
-|  | <M-l> | <C-W>l |
-|  | <M-h> | <C-W>h |
-|  | <C-Space> | <Cmd>WhichKey \ <CR> |
-|  | <C-H> | <C-W>h |
-|  | <M-j> | <C-W>j |
-|  | <C-Right> | :vertical resize +2<CR> |
-|  | <M-k> | <C-W>k |
-|  | <C-Left> | :vertical resize -2<CR> |
-|  | <C-Down> | :resize +2<CR> |
-|  | <C-Up> | :resize -2<CR> |
-|  | <C-Q> | :call QuickFixToggle()<CR> |
-|  | <C-K> | <C-W>k |
-|  | <C-J> | <C-W>j |
-|  | <C-L> | <C-W>l |
+|  | ` t` | `<Cmd>TroubleToggle<CR>` |
+|  | `  ` | `:Telescope buffers<CR>` |
+|  | ` o` | `<Cmd>SymbolsOutline<CR>` |
+|  | `%` | `<Plug>(MatchitNormalForward)` |
+| Nvim builtin | `&` | `:&&<CR>` |
+|  | `H` | `:BufferLineCyclePrev<CR>` |
+|  | `L` | `:BufferLineCycleNext<CR>` |
+| Nvim builtin | `Y` | `y$` |
+|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
+|  | `[q` | `:cprev<CR>` |
+|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
+|  | `]q` | `:cnext<CR>` |
+|  | `gx` | `<Plug>NetrwBrowseX` |
+|  | `g%` | `<Plug>(MatchitNormalBackward)` |
+|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `gb` |  |
+|  | `gc` |  |
+|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
+|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
+|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
+|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
+|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
+|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
+| Float Terminal | `<M-3>` |  |
+| Vertical Terminal | `<M-2>` |  |
+| Horizontal Terminal | `<M-1>` |  |
+|  | `<C-T>` |  |
+|  | `<C-S>` | `:w<CR>` |
+|  | `<C-U>` | `<C-U>zz` |
+|  | `<C-D>` | `<C-D>zz` |
+|  | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<M-Tab>` | `<C-6>` |
+|  | `<M-l>` | `<C-W>l` |
+|  | `<M-h>` | `<C-W>h` |
+|  | `<C-Space>` | `<Cmd>WhichKey \ <CR>` |
+|  | `<C-Left>` | `:vertical resize -2<CR>` |
+|  | `<M-j>` | `<C-W>j` |
+|  | `<C-Down>` | `:resize +2<CR>` |
+|  | `<M-k>` | `<C-W>k` |
+|  | `<C-Up>` | `:resize -2<CR>` |
+|  | `<C-H>` | `<C-W>h` |
+|  | `<C-K>` | `<C-W>k` |
+|  | `<C-Q>` | `:call QuickFixToggle()<CR>` |
+|  | `<C-J>` | `<C-W>j` |
+|  | `<C-Right>` | `:vertical resize +2<CR>` |
+|  | `<C-L>` | `<C-W>l` |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | # | y?\V<C-R>"<CR> |
-|  | % | <Plug>(MatchitVisualForward) |
-| Nvim builtin | * | y/\V<C-R>"<CR> |
-|  | <lt> | <lt>gv |
-|  | > | >gv |
-|  | J | :m '>+1<CR>gv=gv |
-|  | K | :m '<lt>-2<CR>gv=gv |
-|  | [% | <Plug>(MatchitVisualMultiBackward) |
-|  | ]% | <Plug>(MatchitVisualMultiForward) |
-|  | a% | <Plug>(MatchitVisualTextObject) |
-|  | gx | <Plug>NetrwBrowseXVis |
-|  | g% | <Plug>(MatchitVisualBackward) |
-|  | g<Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv |
-|  | g<Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv |
-|  | gb |  |
-|  | gc |  |
-|  | <Plug>NetrwBrowseXVis | :<C-U>call netrw#BrowseXVis()<CR> |
-|  | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) |
-|  | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` |
-|  | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` |
-|  | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` |
-|  | <Plug>(dial-decrement) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv |
-|  | <Plug>(dial-increment) | <Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv |
-|  | <C-X> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <C-A> | <Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR> |
-|  | <M-j> | :m '>+1<CR>gv-gv |
-|  | <M-k> | :m '<lt>-2<CR>gv-gv |
+| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
+|  | `%` | `<Plug>(MatchitVisualForward)` |
+| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
+|  | `<lt>` | `<lt>gv` |
+|  | `>` | `>gv` |
+|  | `J` | `:m '>+1<CR>gv=gv` |
+|  | `K` | `:m '<lt>-2<CR>gv=gv` |
+|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
+|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
+|  | `gx` | `<Plug>NetrwBrowseXVis` |
+|  | `g%` | `<Plug>(MatchitVisualBackward)` |
+|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv` |
+|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv` |
+|  | `gc` |  |
+|  | `gb` |  |
+|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
+|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
+|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
+|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv` |
+|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv` |
+|  | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
+|  | `<M-k>` | `:m '<lt>-2<CR>gv-gv` |
+|  | `<M-j>` | `:m '>+1<CR>gv-gv` |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | % | <Plug>(MatchitOperationForward) |
-|  | [% | <Plug>(MatchitOperationMultiBackward) |
-|  | ]% | <Plug>(MatchitOperationMultiForward) |
-|  | g% | <Plug>(MatchitOperationBackward) |
-|  | <Plug>(MatchitOperationMultiForward) | :<C-U>call matchit#MultiMatch("W",  "o")<CR> |
-|  | <Plug>(MatchitOperationMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "o")<CR> |
-|  | <Plug>(MatchitOperationBackward) | :<C-U>call matchit#Match_wrapper('',0,'o')<CR> |
-|  | <Plug>(MatchitOperationForward) | :<C-U>call matchit#Match_wrapper('',1,'o')<CR> |
+|  | `%` | `<Plug>(MatchitOperationForward)` |
+|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
+|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
+|  | `g%` | `<Plug>(MatchitOperationBackward)` |
+|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
+|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
+|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
+|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
