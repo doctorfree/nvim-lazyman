@@ -64,8 +64,8 @@ echo "" >> "${OUT}"
 echo "### ${CFNAME} Keymaps" >> "${OUT}"
 
 cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
-  sed -e "s/\[nvim-treesitter.*//" | sed -e "s/|/\&#124;/" | \
-  sed -e "s/<Tab>/\&lt;Tab\&gt;/" | sed -e "s/<CR>/\&lt;CR\&gt;/" | \
+  sed -e "s/\[nvim-treesitter.*//" -e "s/|/\&#124;/" | \
+  sed -e "s/</\&lt;/g" -e "s/>/\&gt;/g" | \
   grep -v callback | grep -v "^\[" | grep -v ^Dep | grep -v ^Error | \
   grep -v ^Fail | grep -v ^Some | grep -v ^\& | grep -v ^sh | \
   grep -v ^Tele | grep -v ^Lua | grep -v ^Two | grep -i -v ^vim | \
