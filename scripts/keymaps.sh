@@ -84,12 +84,12 @@ do
   echo "    io.write('| ')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.lhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | ' .. v.lhs)" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write(' | \`' .. v.lhs .. '\`')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write(' | ')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.rhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo '    io.write(" | " .. v.rhs .. " |\n")' >> "${KEYTMP}"/${CFNAME}.lua
+  echo '    io.write(" | \`" .. v.rhs .. "\` |\n")' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo '    io.write(" |  |\n")' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
