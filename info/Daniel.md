@@ -102,122 +102,122 @@
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `Q` | `` |
-|  | `X` | `:BufferKill<CR>` |
-|  | `Y` | `yg_` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `[q` | `:cprev<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `]q` | `:cnext<CR>` |
-|  | `cS` | `<Plug>CSurround` |
-|  | `cs` | `<Plug>Csurround` |
-|  | `ds` | `<Plug>Dsurround` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `ySS` | `<Plug>YSsurround` |
-|  | `ySs` | `<Plug>YSsurround` |
-|  | `yss` | `<Plug>Yssurround` |
-|  | `yS` | `<Plug>YSurround` |
-|  | `ys` | `<Plug>Ysurround` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<Plug>(bullets-promote)` | `:BulletPromote<CR>` |
-|  | `<Plug>(bullets-demote)` | `:BulletDemote<CR>` |
-|  | `<Plug>(bullets-toggle-checkbox)` | `:ToggleCheckbox<CR>` |
-|  | `<Plug>(bullets-renumber)` | `:RenumberList<CR>` |
-|  | `<Plug>(bullets-newline)` | `:call <SNR>26_insert_new_bullet()<CR>` |
-|  | `<Plug>(openbrowser-smart-search)` | `:<C-U>call openbrowser#_keymap_smart_search('n')<CR>` |
-|  | `<Plug>(openbrowser-search)` | `:<C-U>call openbrowser#_keymap_search('n')<CR>` |
-|  | `<Plug>(openbrowser-open-incognito)` | `:<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR>` |
-|  | `<Plug>(openbrowser-open)` | `:<C-U>call openbrowser#_keymap_open('n')<CR>` |
-|  | `<Plug>YSurround` | `<SNR>14_opfunc2('setup')` |
-|  | `<Plug>Ysurround` | `<SNR>14_opfunc('setup')` |
-|  | `<Plug>YSsurround` | `<SNR>14_opfunc2('setup').'_'` |
-|  | `<Plug>Yssurround` | `'^'.v:count1.<SNR>14_opfunc('setup').'g_'` |
-|  | `<Plug>CSurround` | `:<C-U>call <SNR>14_changesurround(1)<CR>` |
-|  | `<Plug>Csurround` | `:<C-U>call <SNR>14_changesurround()<CR>` |
-|  | `<Plug>Dsurround` | `:<C-U>call <SNR>14_dosurround(<SNR>14_inputtarget())<CR>` |
-|  | `<Plug>SurroundRepeat` | `.` |
-| Float Terminal | `<M-3>` |  |
-| Vertical Terminal | `<M-2>` |  |
-| Horizontal Terminal | `<M-1>` |  |
-|  | `<C-T>` |  |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<F10>` |  |
-|  | `<D-v>` | `+p<CR>` |
-|  | `<F5>` | `:lua require('persistence').load()<CR>` |
-|  | `<F4>` | `:ASToggle<CR>` |
-|  | `<F7>` | `:set spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add spell<CR>` |
-|  | `<F6>` | `:set nospell<CR>` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<M-j>` | `:m .+1<CR>==` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<M-k>` | `:m .-2<CR>==` |
-|  | `<C-Right>` | `:vertical resize +2<CR>` |
-|  | `<C-Left>` | `:vertical resize -2<CR>` |
-|  | `<C-Down>` | `:resize -2<CR>` |
-|  | `<C-Q>` | `:call QuickFixToggle()<CR>` |
-|  | `<C-Up>` | `:resize +2<CR>` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>Q</code> | <code></code> |
+|  | <code>X</code> | <code>:BufferKill&lt;CR&gt;</code> |
+|  | <code>Y</code> | <code>yg_</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>[q</code> | <code>:cprev&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>]q</code> | <code>:cnext&lt;CR&gt;</code> |
+|  | <code>cS</code> | <code>&lt;Plug&gt;CSurround</code> |
+|  | <code>cs</code> | <code>&lt;Plug&gt;Csurround</code> |
+|  | <code>ds</code> | <code>&lt;Plug&gt;Dsurround</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gc</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>ySS</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>ySs</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>yss</code> | <code>&lt;Plug&gt;Yssurround</code> |
+|  | <code>yS</code> | <code>&lt;Plug&gt;YSurround</code> |
+|  | <code>ys</code> | <code>&lt;Plug&gt;Ysurround</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_smart_search('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_search('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open-incognito)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('n', 0, ['--incognito'])&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-promote)</code> | <code>:BulletPromote&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-demote)</code> | <code>:BulletDemote&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-toggle-checkbox)</code> | <code>:ToggleCheckbox&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-renumber)</code> | <code>:RenumberList&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-newline)</code> | <code>:call &lt;SNR&gt;20_insert_new_bullet()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;YSurround</code> | <code>&lt;SNR&gt;17_opfunc2('setup')</code> |
+|  | <code>&lt;Plug&gt;Ysurround</code> | <code>&lt;SNR&gt;17_opfunc('setup')</code> |
+|  | <code>&lt;Plug&gt;YSsurround</code> | <code>&lt;SNR&gt;17_opfunc2('setup').'_'</code> |
+|  | <code>&lt;Plug&gt;Yssurround</code> | <code>'^'.v:count1.&lt;SNR&gt;17_opfunc('setup').'g_'</code> |
+|  | <code>&lt;Plug&gt;CSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;17_changesurround(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Csurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;17_changesurround()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Dsurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;17_dosurround(&lt;SNR&gt;17_inputtarget())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SurroundRepeat</code> | <code>.</code> |
+| Float Terminal | <code>&lt;M-3&gt;</code> |  |
+| Vertical Terminal | <code>&lt;M-2&gt;</code> |  |
+| Horizontal Terminal | <code>&lt;M-1&gt;</code> |  |
+|  | <code>&lt;C-T&gt;</code> |  |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;F10&gt;</code> |  |
+|  | <code>&lt;D-v&gt;</code> | <code>+p&lt;CR&gt;</code> |
+|  | <code>&lt;F5&gt;</code> | <code>:lua require('persistence').load()&lt;CR&gt;</code> |
+|  | <code>&lt;F4&gt;</code> | <code>:ASToggle&lt;CR&gt;</code> |
+|  | <code>&lt;F7&gt;</code> | <code>:set spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add spell&lt;CR&gt;</code> |
+|  | <code>&lt;F6&gt;</code> | <code>:set nospell&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m .+1&lt;CR&gt;==</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m .-2&lt;CR&gt;==</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;C-Right&gt;</code> | <code>:vertical resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Left&gt;</code> | <code>:vertical resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Q&gt;</code> | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Down&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Up&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `S` | `<Plug>VSurround` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gS` | `<Plug>VgSurround` |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `p` | `"_dP` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<Plug>VgSurround` | `:<C-U>call <SNR>28_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>` |
-|  | `<Plug>VSurround` | `:<C-U>call <SNR>28_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>` |
-|  | `<Plug>(openbrowser-smart-search)` | `:<C-U>call openbrowser#_keymap_smart_search('v')<CR>` |
-|  | `<Plug>(openbrowser-search)` | `:<C-U>call openbrowser#_keymap_search('v')<CR>` |
-|  | `<Plug>(openbrowser-open-incognito)` | `:<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR>` |
-|  | `<Plug>(openbrowser-open)` | `:<C-U>call openbrowser#_keymap_open('v')<CR>` |
-|  | `<Plug>(bullets-promote)` | `:BulletPromoteVisual<CR>` |
-|  | `<Plug>(bullets-demote)` | `:BulletDemoteVisual<CR>` |
-|  | `<Plug>(bullets-renumber)` | `:RenumberSelection<CR>` |
-|  | `<D-v>` | `<C-R>+` |
-|  | `<F5>` | `:lua require('persistence').load()<CR>` |
-|  | `<M-j>` | `:m '>+1<CR>gv-gv` |
-|  | `<M-k>` | `:m '<lt>-2<CR>gv-gv` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>S</code> | <code>&lt;Plug&gt;VSurround</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>gS</code> | <code>&lt;Plug&gt;VgSurround</code> |
+|  | <code>gc</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>p</code> | <code>"_dP</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;Plug&gt;VgSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;26_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;26_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-promote)</code> | <code>:BulletPromoteVisual&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-demote)</code> | <code>:BulletDemoteVisual&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(bullets-renumber)</code> | <code>:RenumberSelection&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_smart_search('v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_search('v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open-incognito)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('v', 0, ['--incognito'])&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('v')&lt;CR&gt;</code> |
+|  | <code>&lt;D-v&gt;</code> | <code>&lt;C-R&gt;+</code> |
+|  | <code>&lt;F5&gt;</code> | <code>:lua require('persistence').load()&lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<D-v>` | `+p<CR>` |
-|  | `<F5>` | `:lua require('persistence').load()<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;D-v&gt;</code> | <code>+p&lt;CR&gt;</code> |
+|  | <code>&lt;F5&gt;</code> | <code>:lua require('persistence').load()&lt;CR&gt;</code> |

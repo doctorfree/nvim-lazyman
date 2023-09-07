@@ -106,270 +106,270 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Switch Buffers | `<Tab>` |  |
-| Step Over (F10) | ` do` |  |
-| ToggleTerm node | ` tn` |  |
-| Step Out (S-F11) | ` dO` |  |
-| ToggleTerm gdu | ` tu` |  |
-| Close Session | ` dq` |  |
-| ToggleTerm btm | ` tt` |  |
-| Terminate Session (S-F5) | ` dQ` |  |
-| Pause (F6) | ` dp` |  |
-| Restart (C-F5) | ` dr` |  |
-| View Git blame | ` gl` |  |
-| Toggle REPL | ` dR` |  |
-| ToggleTerm horizontal split | ` th` | `<Cmd>ToggleTerm size=10 direction=horizontal<CR>` |
-| Run To Cursor | ` ds` |  |
-| ToggleTerm vertical split | ` tv` | `<Cmd>ToggleTerm size=80 direction=vertical<CR>` |
-| Evaluate Input | ` dE` |  |
-| Toggle Debugger UI | ` du` |  |
-| By buffer number | ` bsi` |  |
-| Debugger Hover | ` dh` |  |
-| Step Into (F11) | ` di` |  |
-| ToggleTerm float | ` tf` | `<Cmd>ToggleTerm direction=float<CR>` |
-| ToggleTerm python | ` tp` |  |
-| By extension | ` bse` |  |
-| Toggle autopairs | ` ua` |  |
-| Toggle syntax highlighting (buffer) | ` uy` |  |
-| Change line numbering | ` un` |  |
-| Toggle background | ` ub` |  |
-| Toggle CodeLens | ` uL` |  |
-| Toggle autocompletion | ` uc` |  |
-| Plugins Status | ` ps` |  |
-| ToggleTerm lazygit | ` tl` |  |
-| Toggle color highlight | ` uC` | `<Cmd>ColorizerToggle<CR>` |
-| Logs | ` ml` |  |
-| Compile Beamer | ` mb` |  |
-| Toggle diagnostics | ` ud` |  |
-| Compile | ` mk` |  |
-| Toggle signcolumn | ` ug` |  |
-| Neogit | ` gG` |  |
-| Change indent setting | ` ui` |  |
-| Plugins Install | ` pi` |  |
-| Toggle statusline | ` ul` |  |
-| Workspace Diagnostics (Trouble) | ` xX` | `<Cmd>TroubleToggle workspace_diagnostics<CR>` |
-| Plugins Sync | ` pS` |  |
-| Plugins Check Updates | ` pu` |  |
-| Find BibTeX | ` fB` | `<Cmd>Telescope bibtex<CR>` |
-| Plugins Update | ` pU` |  |
-| Update Plugins and Mason Packages | ` pa` | `<Cmd>AstroUpdatePackages<CR>` |
-| Toggle Notifications | ` uN` |  |
-| Zen Mode | ` z` | `<Cmd>ZenMode<CR>` |
-| AstroNvim Update | ` pA` | `<Cmd>AstroUpdate<CR>` |
-| Toggle paste mode | ` up` |  |
-| Type | ` at` |  |
-| AstroNvim Version | ` pv` | `<Cmd>AstroVersion<CR>` |
-| Toggle spellcheck | ` us` |  |
-| Function | ` af` |  |
-| AstroNvim Changelog | ` pl` | `<Cmd>AstroChangelog<CR>` |
-| Toggle conceal | ` uS` |  |
-| Close buffer | ` c` |  |
-| Toggle tabline | ` ut` |  |
-| Force close buffer | ` C` |  |
-| New Tab | ` N` | `<Cmd>tabnew<CR>` |
-| Toggle URL highlight | ` uu` |  |
-| Document Diagnostics (Trouble) | ` xx` | `<Cmd>TroubleToggle document_diagnostics<CR>` |
-| Toggle wrap | ` uw` |  |
-| Close all buffers except current | ` bc` |  |
-| Current | ` a<CR>` |  |
-| Close all buffers | ` bC` |  |
-| Toggle foldcolumn | ` uh` |  |
-| Close all buffers to the left | ` bl` |  |
-| Previous buffer | ` bp` |  |
-| File | ` aF` |  |
-| Close all buffers to the right | ` br` |  |
-| Find words (args) | ` fx` |  |
-| Save | ` w` | `<Cmd>w<CR>` |
-| By relative path | ` bsr` |  |
-| Quit | ` q` | `<Cmd>confirm q<CR>` |
-| By full path | ` bsp` |  |
-| New File | ` n` | `<Cmd>enew<CR>` |
-| By modification | ` bsm` |  |
-| Find TODOs | ` fT` | `<Cmd>TodoTelescope<CR>` |
-| Select buffer from tabline | ` bb` |  |
-| Close buffer from tabline | ` bd` |  |
-| File explorer | ` fe` | `<Cmd>Telescope file_browser<CR>` |
-| Horizontal split buffer from tabline | ` b\` |  |
-| Vertical split buffer from tabline | ` b|` |  |
-| Present Output | ` mp` |  |
-| Toggle comment line | ` /` |  |
-| Auto Compile | ` ma` |  |
-| LaTeX | ` mt` | `<Cmd>TexlabBuild<CR>` |
-| Toggle Explorer | ` e` | `<Cmd>Neotree toggle<CR>` |
-| Toggle Explorer Focus | ` o` |  |
-| Find projects | ` fp` |  |
-| View full Git blame | ` gL` |  |
-| Send to REPL | ` rr` | `<Plug>Send` |
-| Preview Git hunk | ` gp` |  |
-| Set REPL | ` r<CR>` | `<Cmd>SendHere<CR>` |
-| Reset Git hunk | ` gh` |  |
-| Send line to REPL | ` rl` | `<Plug>SendLine` |
-| Reset Git buffer | ` gr` |  |
-| Forward Search | ` mf` | `<Cmd>TexlabForward<CR>` |
-| Stage Git hunk | ` gs` |  |
-| Toggle Spectre | ` ss` |  |
-| Stage Git buffer | ` gS` |  |
-| Spectre (current file) | ` sf` |  |
-| Unstage Git hunk | ` gu` |  |
-| Spectre (current word) | ` sw` |  |
-| View Git diff | ` gd` |  |
-| Next Template | ` <CR>` | `<Esc>/<lt>++><CR>"_c4l` |
-| Set CWD | ` .` | `<Cmd>cd %:p:h<CR>` |
-| Load last session | ` Sl` |  |
-| Save this session | ` Ss` |  |
-| View Output | ` mv` |  |
-| Delete a session | ` Sd` |  |
-| Location List (Trouble) | ` xl` | `<Cmd>TroubleToggle loclist<CR>` |
-| Class | ` ac` |  |
-| Load a session | ` Sf` |  |
-| Quickfix List (Trouble) | ` xq` | `<Cmd>TroubleToggle quickfix<CR>` |
-| Load current directory session | ` S.` |  |
-| TODOs (Trouble) | ` xT` | `<Cmd>TodoTrouble<CR>` |
-| Save this tab's session | ` St` |  |
-| Mason Installer | ` pm` | `<Cmd>Mason<CR>` |
-| Mason Update | ` pM` | `<Cmd>MasonUpdateAll<CR>` |
-| Symbols outline | ` lS` |  |
-| Git branches | ` gb` |  |
-| Git commits (repository) | ` gc` |  |
-| Git commits (current file) | ` gC` |  |
-| Git status | ` gt` |  |
-| Resume previous search | ` f<CR>` |  |
-| Find marks | ` f'` |  |
-| Find words in current buffer | ` f/` |  |
-| Find AstroNvim config files | ` fa` |  |
-| Find buffers | ` fb` |  |
-| Find word under cursor | ` fc` |  |
-| Find commands | ` fC` |  |
-| Find files | ` ff` |  |
-| Find all files | ` fF` |  |
-| Find help | ` fh` |  |
-| Find keymaps | ` fk` |  |
-| Find man | ` fm` |  |
-| Find notifications | ` fn` |  |
-| Find history | ` fo` |  |
-| Find registers | ` fr` |  |
-| Find themes | ` ft` |  |
-| Toggle Breakpoint (F9) | ` db` |  |
-| Find words | ` fw` |  |
-| Clear Breakpoints | ` dB` |  |
-| Find words in all files | ` fW` |  |
-| Start/Continue (F5) | ` dc` |  |
-| Search symbols | ` ls` |  |
-| Conditional Breakpoint (S-F9) | ` dC` |  |
-| ToggleTerm lazygit | ` gg` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Increment number | `+` | `<C-A>` |
-| Descrement number | `-` | `<C-X>` |
-| Move buffer tab left | `<lt>b` |  |
-| Move buffer tab right | `>b` |  |
-| Previous buffer | `H` |  |
-| Next buffer | `L` |  |
-| Previous search | `N` |  |
-| Nvim builtin | `Y` | `y$` |
-| Previous tab | `[t` |  |
-| Previous Git hunk | `[g` |  |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-| Horizontal Split | `\` | `<Cmd>split<CR>` |
-| Next tab | `]t` |  |
-| Next Git hunk | `]g` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Open the file under cursor with system app | `gx` |  |
-| Easy Align | `ga` | `<Plug>(EasyAlign)` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Comment toggle linewise | `gc` |  |
-| Comment toggle blockwise | `gb` |  |
-| Move cursor down | `j` | `v:count == 0 ? 'gj' : 'j'` |
-| Move cursor up | `k` | `v:count == 0 ? 'gk' : 'k'` |
-| Next search | `n` |  |
-|  | `q:` | `:` |
-| Replace surrounding | `sr` |  |
-| Delete surrounding | `sd` |  |
-| Add surrounding | `sa` |  |
-| Find right surrounding | `sf` |  |
-| Update `MiniSurround.config.n_lines` | `sn` |  |
-| Find left surrounding | `sF` |  |
-| Highlight surrounding | `sh` |  |
-| Fold less | `zr` |  |
-| Fold more | `zm` |  |
-| Peek fold | `zp` |  |
-| Close all folds | `zM` |  |
-| Open all folds | `zR` |  |
-| Vertical Split | `|` | `<Cmd>vsplit<CR>` |
-| Move to below split | `<C-J>` |  |
-| Toggle terminal | `<C-'>` | `<Cmd>ToggleTerm<CR>` |
-| Debugger: Start | `<F5>` |  |
-| Debugger: Stop | `<F17>` |  |
-| Debugger: Conditional Breakpoint | `<F21>` |  |
-| Debugger: Restart | `<F29>` |  |
-| Debugger: Pause | `<F6>` |  |
-| Toggle terminal | `<F7>` | `<Cmd>ToggleTerm<CR>` |
-| Debugger: Toggle Breakpoint | `<F9>` |  |
-| Debugger: Step Over | `<F10>` |  |
-| Resize split up | `<Up>` |  |
-| Move to left split | `<C-H>` |  |
-| Resize split left | `<Left>` |  |
-| Resize split right | `<Right>` |  |
-| Resize split down | `<Down>` |  |
-| Move to above split | `<C-K>` |  |
-| Debugger: Step Into | `<F11>` |  |
-| Debugger: Step Out | `<F23>` |  |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<M-l>` |  |
-|  | `<M-j>` |  |
-|  | `<M-k>` |  |
-|  | `<M-h>` |  |
-|  | `<Plug>SendLine` |  |
-|  | `<Plug>Send` |  |
-| Move to right split | `<C-L>` |  |
+| Switch Buffers | <code>&lt;Tab&gt;</code> |  |
+| Conditional Breakpoint (S-F9) | <code> dC</code> |  |
+| Class | <code> ac</code> |  |
+| Step Into (F11) | <code> di</code> |  |
+| Function | <code> af</code> |  |
+| Step Over (F10) | <code> do</code> |  |
+| Type | <code> at</code> |  |
+| Step Out (S-F11) | <code> dO</code> |  |
+| Horizontal split buffer from tabline | <code> b\</code> |  |
+| Close Session | <code> dq</code> |  |
+| Quit | <code> q</code> | <code>&lt;Cmd&gt;confirm q&lt;CR&gt;</code> |
+| Terminate Session (S-F5) | <code> dQ</code> |  |
+| Find BibTeX | <code> fB</code> | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
+| Pause (F6) | <code> dp</code> |  |
+| Toggle Explorer Focus | <code> o</code> |  |
+| Restart (C-F5) | <code> dr</code> |  |
+| Toggle Explorer | <code> e</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+| Toggle REPL | <code> dR</code> |  |
+| Run To Cursor | <code> ds</code> |  |
+| Find TODOs | <code> fT</code> | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
+| Evaluate Input | <code> dE</code> |  |
+| Stage Git buffer | <code> gS</code> |  |
+| Toggle Debugger UI | <code> du</code> |  |
+| New File | <code> n</code> | <code>&lt;Cmd&gt;enew&lt;CR&gt;</code> |
+| Debugger Hover | <code> dh</code> |  |
+| Find words in all files | <code> fW</code> |  |
+| Plugins Install | <code> pi</code> |  |
+| Plugins Status | <code> ps</code> |  |
+| Plugins Sync | <code> pS</code> |  |
+| Present Output | <code> mp</code> |  |
+| Plugins Check Updates | <code> pu</code> |  |
+| Logs | <code> ml</code> |  |
+| Plugins Update | <code> pU</code> |  |
+| Toggle autocompletion | <code> uc</code> |  |
+| Update Plugins and Mason Packages | <code> pa</code> | <code>&lt;Cmd&gt;AstroUpdatePackages&lt;CR&gt;</code> |
+| Save | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+| AstroNvim Update | <code> pA</code> | <code>&lt;Cmd&gt;AstroUpdate&lt;CR&gt;</code> |
+| AstroNvim Version | <code> pv</code> | <code>&lt;Cmd&gt;AstroVersion&lt;CR&gt;</code> |
+| Toggle autopairs | <code> ua</code> |  |
+| AstroNvim Changelog | <code> pl</code> | <code>&lt;Cmd&gt;AstroChangelog&lt;CR&gt;</code> |
+| Toggle background | <code> ub</code> |  |
+| Close buffer | <code> c</code> |  |
+| Toggle URL highlight | <code> uu</code> |  |
+| Force close buffer | <code> C</code> |  |
+| Toggle color highlight | <code> uC</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+| Document Diagnostics (Trouble) | <code> xx</code> | <code>&lt;Cmd&gt;TroubleToggle document_diagnostics&lt;CR&gt;</code> |
+| Toggle diagnostics | <code> ud</code> |  |
+| Close all buffers except current | <code> bc</code> |  |
+| Toggle signcolumn | <code> ug</code> |  |
+| Close all buffers | <code> bC</code> |  |
+| Change indent setting | <code> ui</code> |  |
+| Set CWD | <code> .</code> | <code>&lt;Cmd&gt;cd %:p:h&lt;CR&gt;</code> |
+| Previous buffer | <code> bp</code> |  |
+| Toggle statusline | <code> ul</code> |  |
+| Close all buffers to the right | <code> br</code> |  |
+| Spectre (current word) | <code> sw</code> |  |
+| Toggle CodeLens | <code> uL</code> |  |
+| By extension | <code> bse</code> |  |
+| Spectre (current file) | <code> sf</code> |  |
+| Change line numbering | <code> un</code> |  |
+| New Tab | <code> N</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+| By full path | <code> bsp</code> |  |
+| Toggle Notifications | <code> uN</code> |  |
+| By buffer number | <code> bsi</code> |  |
+| Toggle paste mode | <code> up</code> |  |
+| Select buffer from tabline | <code> bb</code> |  |
+| Toggle spellcheck | <code> us</code> |  |
+| Close buffer from tabline | <code> bd</code> |  |
+| TODOs (Trouble) | <code> xT</code> | <code>&lt;Cmd&gt;TodoTrouble&lt;CR&gt;</code> |
+| Toggle conceal | <code> uS</code> |  |
+| Quickfix List (Trouble) | <code> xq</code> | <code>&lt;Cmd&gt;TroubleToggle quickfix&lt;CR&gt;</code> |
+| Vertical split buffer from tabline | <code> b&#124;</code> |  |
+| Toggle tabline | <code> ut</code> |  |
+| Send line to REPL | <code> rl</code> | <code>&lt;Plug&gt;SendLine</code> |
+| Toggle wrap | <code> uw</code> |  |
+| Toggle comment line | <code> /</code> |  |
+| Location List (Trouble) | <code> xl</code> | <code>&lt;Cmd&gt;TroubleToggle loclist&lt;CR&gt;</code> |
+| Toggle syntax highlighting (buffer) | <code> uy</code> |  |
+| Send to REPL | <code> rr</code> | <code>&lt;Plug&gt;Send</code> |
+| View Git blame | <code> gl</code> |  |
+| View full Git blame | <code> gL</code> |  |
+| Preview Git hunk | <code> gp</code> |  |
+| LaTeX | <code> mt</code> | <code>&lt;Cmd&gt;TexlabBuild&lt;CR&gt;</code> |
+| Reset Git hunk | <code> gh</code> |  |
+| Reset Git buffer | <code> gr</code> |  |
+| Toggle Spectre | <code> ss</code> |  |
+| Stage Git hunk | <code> gs</code> |  |
+| Unstage Git hunk | <code> gu</code> |  |
+| View Git diff | <code> gd</code> |  |
+| Zen Mode | <code> z</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+| View Output | <code> mv</code> |  |
+| Set REPL | <code> r&lt;CR&gt;</code> | <code>&lt;Cmd&gt;SendHere&lt;CR&gt;</code> |
+| Load last session | <code> Sl</code> |  |
+| Save this session | <code> Ss</code> |  |
+| Auto Compile | <code> ma</code> |  |
+| Delete a session | <code> Sd</code> |  |
+| Load a session | <code> Sf</code> |  |
+| Neogit | <code> gG</code> |  |
+| By modification | <code> bsm</code> |  |
+| Load current directory session | <code> S.</code> |  |
+| Find projects | <code> fp</code> |  |
+| Compile Beamer | <code> mb</code> |  |
+| Save this tab's session | <code> St</code> |  |
+| File explorer | <code> fe</code> | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
+| Compile | <code> mk</code> |  |
+| Mason Installer | <code> pm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+| Find words (args) | <code> fx</code> |  |
+| Mason Update | <code> pM</code> | <code>&lt;Cmd&gt;MasonUpdateAll&lt;CR&gt;</code> |
+| Forward Search | <code> mf</code> | <code>&lt;Cmd&gt;TexlabForward&lt;CR&gt;</code> |
+| File | <code> aF</code> |  |
+| By relative path | <code> bsr</code> |  |
+| Symbols outline | <code> lS</code> |  |
+| Toggle foldcolumn | <code> uh</code> |  |
+| Git branches | <code> gb</code> |  |
+| Workspace Diagnostics (Trouble) | <code> xX</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
+| Git commits (repository) | <code> gc</code> |  |
+| Close all buffers to the left | <code> bl</code> |  |
+| Git commits (current file) | <code> gC</code> |  |
+| Git status | <code> gt</code> |  |
+| Current | <code> a&lt;CR&gt;</code> |  |
+| Resume previous search | <code> f&lt;CR&gt;</code> |  |
+| Find marks | <code> f'</code> |  |
+| Find words in current buffer | <code> f/</code> |  |
+| Find AstroNvim config files | <code> fa</code> |  |
+| Find buffers | <code> fb</code> |  |
+| Find word under cursor | <code> fc</code> |  |
+| Find commands | <code> fC</code> |  |
+| Find files | <code> ff</code> |  |
+| Find all files | <code> fF</code> |  |
+| Find help | <code> fh</code> |  |
+| Find keymaps | <code> fk</code> |  |
+| Find man | <code> fm</code> |  |
+| Find notifications | <code> fn</code> |  |
+| Find history | <code> fo</code> |  |
+| Find registers | <code> fr</code> |  |
+| Find themes | <code> ft</code> |  |
+| Find words | <code> fw</code> |  |
+| Search symbols | <code> ls</code> |  |
+| ToggleTerm lazygit | <code> gg</code> |  |
+| ToggleTerm lazygit | <code> tl</code> |  |
+| ToggleTerm node | <code> tn</code> |  |
+| ToggleTerm gdu | <code> tu</code> |  |
+| ToggleTerm btm | <code> tt</code> |  |
+| ToggleTerm python | <code> tp</code> |  |
+| ToggleTerm float | <code> tf</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+| ToggleTerm horizontal split | <code> th</code> | <code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code> |
+| ToggleTerm vertical split | <code> tv</code> | <code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code> |
+| Next Template | <code> &lt;CR&gt;</code> | <code>&lt;Esc&gt;/&lt;lt&gt;++&gt;&lt;CR&gt;"_c4l</code> |
+| Toggle Breakpoint (F9) | <code> db</code> |  |
+| Clear Breakpoints | <code> dB</code> |  |
+| Start/Continue (F5) | <code> dc</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Increment number | <code>+</code> | <code>&lt;C-A&gt;</code> |
+| Descrement number | <code>-</code> | <code>&lt;C-X&gt;</code> |
+| Move buffer tab left | <code>&lt;lt&gt;b</code> |  |
+| Move buffer tab right | <code>&gt;b</code> |  |
+| Previous buffer | <code>H</code> |  |
+| Next buffer | <code>L</code> |  |
+| Previous search | <code>N</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+| Previous tab | <code>[t</code> |  |
+| Previous Git hunk | <code>[g</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| Horizontal Split | <code>\</code> | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
+| Next tab | <code>]t</code> |  |
+| Next Git hunk | <code>]g</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Easy Align | <code>ga</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| Open the file under cursor with system app | <code>gx</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Comment toggle linewise | <code>gc</code> |  |
+| Comment toggle blockwise | <code>gb</code> |  |
+| Move cursor down | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
+| Move cursor up | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
+| Next search | <code>n</code> |  |
+|  | <code>q:</code> | <code>:</code> |
+| Replace surrounding | <code>sr</code> |  |
+| Find right surrounding | <code>sf</code> |  |
+| Update `MiniSurround.config.n_lines` | <code>sn</code> |  |
+| Find left surrounding | <code>sF</code> |  |
+| Highlight surrounding | <code>sh</code> |  |
+| Add surrounding | <code>sa</code> |  |
+| Delete surrounding | <code>sd</code> |  |
+| Fold less | <code>zr</code> |  |
+| Fold more | <code>zm</code> |  |
+| Peek fold | <code>zp</code> |  |
+| Open all folds | <code>zR</code> |  |
+| Close all folds | <code>zM</code> |  |
+| Vertical Split | <code>&#124;</code> | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
+| Move to left split | <code>&lt;C-H&gt;</code> |  |
+| Debugger: Pause | <code>&lt;F6&gt;</code> |  |
+| Resize split left | <code>&lt;Left&gt;</code> |  |
+| Move to above split | <code>&lt;C-K&gt;</code> |  |
+| Move to below split | <code>&lt;C-J&gt;</code> |  |
+| Resize split down | <code>&lt;Down&gt;</code> |  |
+| Resize split up | <code>&lt;Up&gt;</code> |  |
+| Toggle terminal | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+| Toggle terminal | <code>&lt;C-'&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+| Debugger: Start | <code>&lt;F5&gt;</code> |  |
+| Debugger: Stop | <code>&lt;F17&gt;</code> |  |
+| Debugger: Conditional Breakpoint | <code>&lt;F21&gt;</code> |  |
+| Debugger: Restart | <code>&lt;F29&gt;</code> |  |
+| Resize split right | <code>&lt;Right&gt;</code> |  |
+| Debugger: Toggle Breakpoint | <code>&lt;F9&gt;</code> |  |
+| Debugger: Step Over | <code>&lt;F10&gt;</code> |  |
+| Debugger: Step Into | <code>&lt;F11&gt;</code> |  |
+| Debugger: Step Out | <code>&lt;F23&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> |  |
+|  | <code>&lt;M-j&gt;</code> |  |
+|  | <code>&lt;M-l&gt;</code> |  |
+|  | <code>&lt;M-h&gt;</code> |  |
+|  | <code>&lt;Plug&gt;SendLine</code> |  |
+|  | <code>&lt;Plug&gt;Send</code> |  |
+| Move to right split | <code>&lt;C-L&gt;</code> |  |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Indent line | `<Tab>` | `>gv` |
-| Evaluate Input | ` dE` |  |
-| Spectre | ` s` |  |
-| Toggle comment for selection | ` /` | `<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>` |
-| Send to REPL | ` r` | `<Plug>Send` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Increment number | `+` | `g<C-A>` |
-| Descrement number | `-` | `g<C-X>` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-| Easy Align | `ga` | `<Plug>(EasyAlign)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Comment toggle linewise | `gc` |  |
-| Comment toggle blockwise | `gb` |  |
-| Add surrounding | `sa` |  |
-| Unindent line | `<S-Tab>` | `<lt>gv` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<M-j>` |  |
-|  | `<M-l>` |  |
-|  | `<M-h>` |  |
-|  | `<M-k>` |  |
+| Indent line | <code>&lt;Tab&gt;</code> | <code>&gt;gv</code> |
+| Evaluate Input | <code> dE</code> |  |
+| Send to REPL | <code> r</code> | <code>&lt;Plug&gt;Send</code> |
+| Spectre | <code> s</code> |  |
+| Toggle comment for selection | <code> /</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('Comment.api').toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Increment number | <code>+</code> | <code>g&lt;C-A&gt;</code> |
+| Descrement number | <code>-</code> | <code>g&lt;C-X&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| Easy Align | <code>ga</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Comment toggle linewise | <code>gc</code> |  |
+| Comment toggle blockwise | <code>gb</code> |  |
+| Add surrounding | <code>sa</code> |  |
+| Unindent line | <code>&lt;S-Tab&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;M-k&gt;</code> |  |
+|  | <code>&lt;M-j&gt;</code> |  |
+|  | <code>&lt;M-l&gt;</code> |  |
+|  | <code>&lt;M-h&gt;</code> |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-| Around line text object | `al` | `:normal val<CR>` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-| Inside line text object | `il` | `:normal vil<CR>` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| Around line text object | <code>al</code> | <code>:normal val&lt;CR&gt;</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| Inside line text object | <code>il</code> | <code>:normal vil&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

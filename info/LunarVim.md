@@ -90,119 +90,119 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` j` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `F` |  |
-|  | `H` | `:BufferLineCyclePrev<CR>` |
-|  | `L` | `:BufferLineCycleNext<CR>` |
-|  | `S` |  |
-|  | `T` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `[q` | `:cprev<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `]q` | `:cnext<CR>` |
-|  | `cS` | `<Plug>CSurround` |
-|  | `cs` | `<Plug>Csurround` |
-|  | `ds` | `<Plug>Dsurround` |
-|  | `f` |  |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `gn` | `:tabe %<CR>` |
-|  | `s` |  |
-|  | `t` |  |
-|  | `ySS` | `<Plug>YSsurround` |
-|  | `ySs` | `<Plug>YSsurround` |
-|  | `yss` | `<Plug>Yssurround` |
-|  | `yS` | `<Plug>YSurround` |
-|  | `ys` | `<Plug>Ysurround` |
-|  | `zs` | `:lua require'telescope.builtin'.spell_suggest()<CR>` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<Plug>YSurround` | `<SNR>11_opfunc2('setup')` |
-|  | `<Plug>Ysurround` | `<SNR>11_opfunc('setup')` |
-|  | `<Plug>YSsurround` | `<SNR>11_opfunc2('setup').'_'` |
-|  | `<Plug>Yssurround` | `'^'.v:count1.<SNR>11_opfunc('setup').'g_'` |
-|  | `<Plug>CSurround` | `:<C-U>call <SNR>11_changesurround(1)<CR>` |
-|  | `<Plug>Csurround` | `:<C-U>call <SNR>11_changesurround()<CR>` |
-|  | `<Plug>Dsurround` | `:<C-U>call <SNR>11_dosurround(<SNR>11_inputtarget())<CR>` |
-|  | `<Plug>SurroundRepeat` | `.` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-| Float Terminal | `<M-3>` |  |
-| Vertical Terminal | `<M-2>` |  |
-| Horizontal Terminal | `<M-1>` |  |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<M-j>` | `:m .+1<CR>==` |
-|  | `<C-Down>` | `:resize +2<CR>` |
-|  | `<C-Up>` | `:resize -2<CR>` |
-|  | `<C-Q>` | `:call QuickFixToggle()<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-Right>` | `:vertical resize +2<CR>` |
-|  | `<M-k>` | `:m .-2<CR>==` |
-|  | `<C-Left>` | `:vertical resize -2<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code> j</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>F</code> |  |
+|  | <code>H</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>L</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+|  | <code>S</code> |  |
+|  | <code>T</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>[q</code> | <code>:cprev&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>]q</code> | <code>:cnext&lt;CR&gt;</code> |
+|  | <code>cS</code> | <code>&lt;Plug&gt;CSurround</code> |
+|  | <code>cs</code> | <code>&lt;Plug&gt;Csurround</code> |
+|  | <code>ds</code> | <code>&lt;Plug&gt;Dsurround</code> |
+|  | <code>f</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gb</code> |  |
+|  | <code>gc</code> |  |
+|  | <code>gn</code> | <code>:tabe %&lt;CR&gt;</code> |
+|  | <code>s</code> |  |
+|  | <code>t</code> |  |
+|  | <code>ySS</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>ySs</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>yss</code> | <code>&lt;Plug&gt;Yssurround</code> |
+|  | <code>yS</code> | <code>&lt;Plug&gt;YSurround</code> |
+|  | <code>ys</code> | <code>&lt;Plug&gt;Ysurround</code> |
+|  | <code>zs</code> | <code>:lua require'telescope.builtin'.spell_suggest()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;YSurround</code> | <code>&lt;SNR&gt;6_opfunc2('setup')</code> |
+|  | <code>&lt;Plug&gt;Ysurround</code> | <code>&lt;SNR&gt;6_opfunc('setup')</code> |
+|  | <code>&lt;Plug&gt;YSsurround</code> | <code>&lt;SNR&gt;6_opfunc2('setup').'_'</code> |
+|  | <code>&lt;Plug&gt;Yssurround</code> | <code>'^'.v:count1.&lt;SNR&gt;6_opfunc('setup').'g_'</code> |
+|  | <code>&lt;Plug&gt;CSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;6_changesurround(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Csurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;6_changesurround()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Dsurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;6_dosurround(&lt;SNR&gt;6_inputtarget())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SurroundRepeat</code> | <code>.</code> |
+| Float Terminal | <code>&lt;M-3&gt;</code> |  |
+| Vertical Terminal | <code>&lt;M-2&gt;</code> |  |
+| Horizontal Terminal | <code>&lt;M-1&gt;</code> |  |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m .+1&lt;CR&gt;==</code> |
+|  | <code>&lt;C-Right&gt;</code> | <code>:vertical resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m .-2&lt;CR&gt;==</code> |
+|  | <code>&lt;C-Left&gt;</code> | <code>:vertical resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Down&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Up&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Q&gt;</code> | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `S` | `<Plug>VSurround` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gS` | `<Plug>VgSurround` |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<Plug>VgSurround` | `:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>` |
-|  | `<Plug>VSurround` | `:<C-U>call <SNR>12_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<M-j>` | `:m '>+1<CR>gv-gv` |
-|  | `<M-k>` | `:m '<lt>-2<CR>gv-gv` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>S</code> | <code>&lt;Plug&gt;VSurround</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>gS</code> | <code>&lt;Plug&gt;VgSurround</code> |
+|  | <code>gc</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;Plug&gt;VgSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;11_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;11_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `F` |  |
-|  | `T` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `f` |  |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `t` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>F</code> |  |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>t</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |

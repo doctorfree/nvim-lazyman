@@ -90,193 +90,193 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Switch python env | ` e` |  |
-|  | ` s` | `<Cmd>SessionManager load_session<CR>` |
-|  | ` n` | `<Cmd>Telescope notify<CR>` |
-|  | ` ?` | `<Cmd>Telescope commands<CR>` |
-|  | ` h` | `<Cmd>Telescope help_tags<CR>` |
-|  | ` w` | `<Cmd>Telescope file_browser<CR>` |
-|  | ` v` | `<Cmd>Telescope vim_options<CR>` |
-|  | ` c` | `<Cmd>Telescope bibtex<CR>` |
-|  | ` /` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
-|  | ` b` | `<Cmd>Telescope buffers<CR>` |
-|  | ` t` | `<Cmd>Telescope live_grep<CR>` |
-|  | ` f` | `<Cmd>Telescope find_files<CR>` |
-|  | `  ` | `<Cmd>Telescope<CR>` |
-|  | `%` | `<Plug>(matchup-%)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| DAP: Terminate debugging | `,t` |  |
-| DAP: Step out | `,u` |  |
-| DAP: Step into | `,s` |  |
-| DAP: Step over | `,n` |  |
-| DAP: Toggle breakpoint with condition | `,B` |  |
-| DAP: Toggle breakpoint | `,b` |  |
-| DAP: Run the last debug adapter entry | `,l` |  |
-| DAP: Start/Continue debugging | `,c` |  |
-| DAP: Check variable value on hover | `,k` |  |
-| DAP: Open default REPL | `,D` |  |
-| DAP: Toggle UI | `,d` |  |
-|  | `S` | `<Cmd>PounceRepeat<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(matchup-[%)` |
-| LSP: Go to the previous diagnostic | `[e` |  |
-| LSP: Show all diagnostics | `\E` |  |
-| LSP: Show diagnostics of the current line | `\e` |  |
-| DAP: Dismiss current notify message | `\n` |  |
-|  | `\=` | `:call FillLine("=")<CR>` |
-|  | `\-` | `:call FillLine("-")<CR>` |
-|  | `\z` | `<Cmd>ZenMode<CR>` |
-|  | `\o` | `<Cmd>SymbolsOutline<CR>` |
-|  | `\T` | `<Cmd>Neotree reveal<CR>` |
-|  | `\t` | `<Cmd>Neotree toggle<CR>` |
-|  | `\d` | `<Cmd>Neogen<CR>` |
-|  | `\a` | `<Plug>(EasyAlign)` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-| LSP: Go to the next diagnostic | `]e` |  |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(matchup-g%)` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-| Comment toggle blockwise | `gb` | `<Plug>(comment_toggle_blockwise)` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-|  | `s` | `<Cmd>Pounce<CR>` |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-|  | `<Plug>(EasyAlignOperator)` | `:set opfunc=<SNR>32_easy_align_op<CR>g@` |
-|  | `<Plug>(EasyAlignRepeat)` | `:call <SNR>32_easy_align_repeat()<CR>` |
-|  | `<Plug>(LiveEasyAlign)` | `:set opfunc=<SNR>32_live_easy_align_op<CR>g@` |
-|  | `<Plug>(EasyAlign)` | `:set opfunc=<SNR>32_easy_align_op<CR>g@` |
-| Move to previous reference | `<M-p>` |  |
-| Move to next reference | `<M-n>` |  |
-|  | `<2-LeftMouse>` | `<Plug>(matchup-double-click)` |
-|  | `<Plug>(matchup-reload)` | `:<C-U>MatchupReload<CR>` |
-|  | `<Plug>(matchup-double-click)` | `:<C-U>call matchup#text_obj#double_click()<CR>` |
-|  | `<Plug>(matchup-Z%)` | `:<C-U>call matchup#motion#jump_inside_prev(0)<CR>` |
-|  | `<Plug>(matchup-z%)` | `:<C-U>call matchup#motion#jump_inside(0)<CR>` |
-|  | `<Plug>(matchup-[%)` | `:<C-U>call matchup#motion#find_unmatched(0, 0)<CR>` |
-|  | `<Plug>(matchup-]%)` | `:<C-U>call matchup#motion#find_unmatched(0, 1)<CR>` |
-|  | `<Plug>(matchup-g%)` | `:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR>` |
-|  | `<Plug>(matchup-%)` | `:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR>` |
-|  | `<SNR>19_(wise)` | `empty(g:v_motion_force) ? 'v' : g:v_motion_force` |
-|  | `<Plug>(matchup-hi-surround)` | `:<C-U>call matchup#matchparen#highlight_surrounding()<CR>` |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<F24>` | `<Cmd>Alpha<CR>` |
-|  | `<F12>` | `<Cmd>set nu rnu!<CR>` |
-|  | `<F23>` | `<Cmd>ColorizerToggle<CR>` |
-|  | `<F11>` | `<Cmd>ZenMode<CR>` |
-|  | `<F22>` | `<Cmd>make clean<CR>` |
-|  | `<F10>` | `<Cmd>make<CR>` |
-|  | `<F21>` | `<Cmd>ClearRegisters<CR>` |
-|  | `<F9>` | `<Cmd>%s/\s\+$//e<CR>` |
-|  | `<F20>` | `<Cmd>tabclose<CR>` |
-|  | `<F8>` | `<Cmd>BufferClose<CR>` |
-|  | `<F19>` | `<Cmd>tabnext<CR>` |
-|  | `<F7>` | `<Cmd>BufferNext<CR>` |
-|  | `<F18>` | `<Cmd>tabprevious<CR>` |
-|  | `<F6>` | `<Cmd>BufferPrevious<CR>` |
-|  | `<F17>` | `<Cmd>tabs<CR>` |
-|  | `<F5>` | `<Cmd>Telescope buffers<CR>` |
-|  | `<F16>` | `<Cmd>Telescope diagnostics<CR>` |
-|  | `<F4>` | `<Cmd>SymbolsOutline<CR>` |
-|  | `<F15>` | `<Cmd>Neotree dir=%:p:h<CR>` |
-|  | `<F3>` | `<Cmd>Neotree toggle<CR>` |
-|  | `<F14>` | `<Cmd>TodoTelescope<CR>` |
-|  | `<F2>` | `<Cmd>lua vim.lsp.buf.rename()<CR>` |
-|  | `<F13>` | `<Cmd>Telescope keymaps<CR>` |
-|  | `<F1>` | `<Cmd>Telescope help_tags<CR>` |
-|  | `<C-/>` |  |
-|  | `<M-C-P>` | `<Cmd>BufferPin<CR>` |
-|  | `<M-C-S-L>` | `<Cmd>BufferMoveNext<CR>` |
-|  | `<M-C-S-K>` | `<Cmd>BufferClose<CR>` |
-|  | `<M-C-S-J>` | `<Cmd>BufferRestore<CR>` |
-|  | `<M-C-S-H>` | `<Cmd>BufferMovePrevious<CR>` |
-|  | `<M-C-L>` | `<Cmd>BufferNext<CR>` |
-|  | `<M-C-K>` | `<Cmd>BufferPickDelete<CR>` |
-|  | `<M-C-J>` | `<Cmd>BufferPick<CR>` |
-|  | `<M-C-H>` | `<Cmd>BufferPrevious<CR>` |
-|  | `<M-L>` | `<C-W>l<C-W>x` |
-|  | `<M-K>` | `<C-W>k<C-W>x` |
-|  | `<M-J>` | `<C-W>j<C-W>x` |
-|  | `<M-H>` | `<C-W>h<C-W>x` |
-|  | `<M-l>` | `<C-W>l` |
-|  | `<M-k>` | `<C-W>k` |
-|  | `<M-j>` | `<C-W>j` |
-|  | `<M-h>` | `<C-W>h` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| Switch python env | <code> e</code> |  |
+|  | <code> s</code> | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
+|  | <code> n</code> | <code>&lt;Cmd&gt;Telescope notify&lt;CR&gt;</code> |
+|  | <code> ?</code> | <code>&lt;Cmd&gt;Telescope commands&lt;CR&gt;</code> |
+|  | <code> h</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+|  | <code> w</code> | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
+|  | <code> v</code> | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+|  | <code> c</code> | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
+|  | <code> /</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+|  | <code> b</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+|  | <code> t</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+|  | <code> f</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+|  | <code>  </code> | <code>&lt;Cmd&gt;Telescope&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| DAP: Terminate debugging | <code>,t</code> |  |
+| DAP: Step out | <code>,u</code> |  |
+| DAP: Step into | <code>,s</code> |  |
+| DAP: Step over | <code>,n</code> |  |
+| DAP: Toggle breakpoint with condition | <code>,B</code> |  |
+| DAP: Toggle breakpoint | <code>,b</code> |  |
+| DAP: Run the last debug adapter entry | <code>,l</code> |  |
+| DAP: Start/Continue debugging | <code>,c</code> |  |
+| DAP: Check variable value on hover | <code>,k</code> |  |
+| DAP: Open default REPL | <code>,D</code> |  |
+| DAP: Toggle UI | <code>,d</code> |  |
+|  | <code>S</code> | <code>&lt;Cmd&gt;PounceRepeat&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| LSP: Go to the previous diagnostic | <code>[e</code> |  |
+| LSP: Show all diagnostics | <code>\E</code> |  |
+| LSP: Show diagnostics of the current line | <code>\e</code> |  |
+| DAP: Dismiss current notify message | <code>\n</code> |  |
+|  | <code>\=</code> | <code>:call FillLine("=")&lt;CR&gt;</code> |
+|  | <code>\-</code> | <code>:call FillLine("-")&lt;CR&gt;</code> |
+|  | <code>\z</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+|  | <code>\o</code> | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
+|  | <code>\T</code> | <code>&lt;Cmd&gt;Neotree reveal&lt;CR&gt;</code> |
+|  | <code>\t</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+|  | <code>\d</code> | <code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code> |
+|  | <code>\a</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| LSP: Go to the next diagnostic | <code>]e</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+|  | <code>s</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(EasyAlignOperator)</code> | <code>:set opfunc=&lt;SNR&gt;36_easy_align_op&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:call &lt;SNR&gt;36_easy_align_repeat()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;36_live_easy_align_op&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;36_easy_align_op&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+|  | <code>&lt;2-LeftMouse&gt;</code> | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+|  | <code>&lt;Plug&gt;(matchup-reload)</code> | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-double-click)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;SNR&gt;26_(wise)</code> | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
+|  | <code>&lt;Plug&gt;(matchup-hi-surround)</code> | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+| Move to previous reference | <code>&lt;M-p&gt;</code> |  |
+| Move to next reference | <code>&lt;M-n&gt;</code> |  |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;F24&gt;</code> | <code>&lt;Cmd&gt;Alpha&lt;CR&gt;</code> |
+|  | <code>&lt;F12&gt;</code> | <code>&lt;Cmd&gt;set nu rnu!&lt;CR&gt;</code> |
+|  | <code>&lt;F23&gt;</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+|  | <code>&lt;F11&gt;</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+|  | <code>&lt;F22&gt;</code> | <code>&lt;Cmd&gt;make clean&lt;CR&gt;</code> |
+|  | <code>&lt;F10&gt;</code> | <code>&lt;Cmd&gt;make&lt;CR&gt;</code> |
+|  | <code>&lt;F21&gt;</code> | <code>&lt;Cmd&gt;ClearRegisters&lt;CR&gt;</code> |
+|  | <code>&lt;F9&gt;</code> | <code>&lt;Cmd&gt;%s/\s\+$//e&lt;CR&gt;</code> |
+|  | <code>&lt;F20&gt;</code> | <code>&lt;Cmd&gt;tabclose&lt;CR&gt;</code> |
+|  | <code>&lt;F8&gt;</code> | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
+|  | <code>&lt;F19&gt;</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+|  | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
+|  | <code>&lt;F18&gt;</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+|  | <code>&lt;F6&gt;</code> | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
+|  | <code>&lt;F17&gt;</code> | <code>&lt;Cmd&gt;tabs&lt;CR&gt;</code> |
+|  | <code>&lt;F5&gt;</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+|  | <code>&lt;F16&gt;</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+|  | <code>&lt;F4&gt;</code> | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
+|  | <code>&lt;F15&gt;</code> | <code>&lt;Cmd&gt;Neotree dir=%:p:h&lt;CR&gt;</code> |
+|  | <code>&lt;F3&gt;</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+|  | <code>&lt;F14&gt;</code> | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
+|  | <code>&lt;F2&gt;</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+|  | <code>&lt;F13&gt;</code> | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+|  | <code>&lt;F1&gt;</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+|  | <code>&lt;C-/&gt;</code> |  |
+|  | <code>&lt;M-C-P&gt;</code> | <code>&lt;Cmd&gt;BufferPin&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-S-L&gt;</code> | <code>&lt;Cmd&gt;BufferMoveNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-S-K&gt;</code> | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-S-J&gt;</code> | <code>&lt;Cmd&gt;BufferRestore&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-S-H&gt;</code> | <code>&lt;Cmd&gt;BufferMovePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-L&gt;</code> | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-K&gt;</code> | <code>&lt;Cmd&gt;BufferPickDelete&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-J&gt;</code> | <code>&lt;Cmd&gt;BufferPick&lt;CR&gt;</code> |
+|  | <code>&lt;M-C-H&gt;</code> | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
+|  | <code>&lt;M-L&gt;</code> | <code>&lt;C-W&gt;l&lt;C-W&gt;x</code> |
+|  | <code>&lt;M-K&gt;</code> | <code>&lt;C-W&gt;k&lt;C-W&gt;x</code> |
+|  | <code>&lt;M-J&gt;</code> | <code>&lt;C-W&gt;j&lt;C-W&gt;x</code> |
+|  | <code>&lt;M-H&gt;</code> | <code>&lt;C-W&gt;h&lt;C-W&gt;x</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;C-W&gt;l</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;M-h&gt;</code> | <code>&lt;C-W&gt;h</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(matchup-%)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `[%` | `<Plug>(matchup-[%)` |
-|  | `\a` | `<Plug>(EasyAlign)` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-|  | `a%` | `<Plug>(matchup-a%)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(matchup-g%)` |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-|  | `i%` | `<Plug>(matchup-i%)` |
-|  | `s` | `<Cmd>Pounce<CR>` |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(EasyAlignRepeat)` | `:<C-U>call <SNR>37_repeat_in_visual()<CR>` |
-|  | `<Plug>(LiveEasyAlign)` | `:<C-U>call <SNR>37_live_easy_align_op(visualmode(), 1)<CR>` |
-|  | `<Plug>(EasyAlign)` | `:<C-U>call <SNR>37_easy_align_op(visualmode(), 1)<CR>` |
-|  | `<M-i>` |  |
-|  | `<Plug>(matchup-a%)` | `:<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-i%)` | `:<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-Z%)` | `<SNR>27_(matchup-Z%)` |
-|  | `<SNR>27_(matchup-Z%)` | `:<C-U>call matchup#motion#jump_inside_prev(1)<CR>` |
-|  | `<Plug>(matchup-z%)` | `<SNR>27_(matchup-z%)` |
-|  | `<SNR>27_(matchup-z%)` | `:<C-U>call matchup#motion#jump_inside(1)<CR>` |
-|  | `<Plug>(matchup-[%)` | `<SNR>27_(matchup-[%)` |
-|  | `<Plug>(matchup-]%)` | `<SNR>27_(matchup-]%)` |
-|  | `<SNR>27_(matchup-[%)` | `:<C-U>call matchup#motion#find_unmatched(1, 0)<CR>` |
-|  | `<SNR>27_(matchup-]%)` | `:<C-U>call matchup#motion#find_unmatched(1, 1)<CR>` |
-|  | `<Plug>(matchup-g%)` | `<SNR>27_(matchup-g%)` |
-|  | `<SNR>27_(matchup-g%)` | `:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR>` |
-|  | `<Plug>(matchup-%)` | `<SNR>27_(matchup-%)` |
-|  | `<SNR>27_(matchup-%)` | `:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+|  | <code>\a</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
+|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
+|  | <code>s</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>&lt;SNR&gt;33_(matchup-Z%)</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>&lt;SNR&gt;33_(matchup-z%)</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>&lt;SNR&gt;33_(matchup-[%)</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>&lt;SNR&gt;33_(matchup-]%)</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>&lt;SNR&gt;33_(matchup-g%)</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>&lt;SNR&gt;33_(matchup-%)</code> |
+|  | <code>&lt;SNR&gt;33_(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_repeat_in_visual()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+|  | <code>&lt;M-i&gt;</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Ignore><Plug>(matchup-%)` |
-|  | `[%` | `<Plug>(matchup-[%)` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-|  | `a%` | `<Plug>(matchup-a%)` |
-|  | `g%` | `<Ignore><Plug>(matchup-g%)` |
-|  | `gs` | `<Cmd>Pounce<CR>` |
-|  | `i%` | `<Plug>(matchup-i%)` |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `<Plug>(matchup-a%)` | `:<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-i%)` | `:<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-Z%)` | `:<C-U>call matchup#motion#op('Z%')<CR>` |
-|  | `<Plug>(matchup-z%)` | `:<C-U>call matchup#motion#op('z%')<CR>` |
-|  | `<Plug>(matchup-[%)` | `:<C-U>call matchup#motion#op('[%')<CR>` |
-|  | `<Plug>(matchup-]%)` | `:<C-U>call matchup#motion#op(']%')<CR>` |
-|  | `<Plug>(matchup-g%)` | `:<C-U>call matchup#motion#op('g%')<CR>` |
-|  | `<Plug>(matchup-%)` | `:<C-U>call matchup#motion#op('%')<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<M-i>` |  |
+|  | <code>%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
+|  | <code>g%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
+|  | <code>gs</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>&lt;M-i&gt;</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |

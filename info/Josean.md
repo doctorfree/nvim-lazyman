@@ -25,93 +25,93 @@ Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Go to previous harpoon mark | ` hp` | `<Cmd>lua require('harpoon.ui').nav_prev()<CR>` |
-| Go to next harpoon mark | ` hn` | `<Cmd>lua require('harpoon.ui').nav_next()<CR>` |
-| Mark file with harpoon | ` hm` | `<Cmd>lua require('harpoon.mark').add_file()<CR>` |
-| Save session for auto session root dir | ` ws` | `<Cmd>SessionSave<CR>` |
-| Restore session for cwd | ` wr` | `<Cmd>SessionRestore<CR>` |
-| Refresh file explorer | ` er` | `<Cmd>NvimTreeRefresh<CR>` |
-| Collapse file explorer | ` ec` | `<Cmd>NvimTreeCollapse<CR>` |
-| Toggle file explorer on current file | ` ef` | `<Cmd>NvimTreeFindFileToggle<CR>` |
-| Toggle file explorer | ` ee` | `<Cmd>NvimTreeToggle<CR>` |
-| Find string under cursor in cwd | ` fc` | `<Cmd>Telescope grep_string<CR>` |
-| Find string in cwd | ` fs` | `<Cmd>Telescope live_grep<CR>` |
-| Fuzzy find recent files | ` fr` | `<Cmd>Telescope oldfiles<CR>` |
-| Fuzzy find files in cwd | ` ff` | `<Cmd>Telescope find_files<CR>` |
-|  | ` sm` |  |
-| Open current buffer in new tab | ` tf` | `<Cmd>tabnew %<CR>` |
-| Go to previous tab | ` tp` | `<Cmd>tabp<CR>` |
-| Go to next tab | ` tn` | `<Cmd>tabn<CR>` |
-| Close current tab | ` tx` | `<Cmd>tabclose<CR>` |
-| Open new tab | ` to` | `<Cmd>tabnew<CR>` |
-| Close current split | ` sx` | `<Cmd>close<CR>` |
-| Make splits equal size | ` se` | `<C-W>=` |
-| Split window horizontally | ` sh` | `<C-W>s` |
-| Split window vertically | ` sv` | `<C-W>v` |
-| Decrement number | ` -` | `<C-X>` |
-| Increment number | ` +` | `<C-A>` |
-| Clear search highlights | ` nh` | `:nohl<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `grr` | `<Plug>ReplaceWithRegisterLine` |
-|  | `gr` | `<Plug>ReplaceWithRegisterOperator` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<Plug>ReplaceWithRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|execute 'normal!' ReplaceWithRegister#VisualMode()|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterVisual")<CR>` |
-|  | `<Plug>ReplaceWithRegisterLine` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterLine", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|call ReplaceWithRegister#SetCount()|execute 'normal! V' . v:count1 . "_\<lt>Esc>"|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterLine", 1)<CR>` |
-|  | `<Plug>ReplaceWithRegisterExpressionSpecial` | `:<C-U>let g:ReplaceWithRegister#expr = getreg('=')|execute 'normal!' v:count1 . '.'<CR>` |
-|  | `<Plug>ReplaceWithRegisterOperator` | `ReplaceWithRegister#OperatorExpression()` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+| Go to previous harpoon mark | <code> hp</code> | <code>&lt;Cmd&gt;lua require('harpoon.ui').nav_prev()&lt;CR&gt;</code> |
+| Go to next harpoon mark | <code> hn</code> | <code>&lt;Cmd&gt;lua require('harpoon.ui').nav_next()&lt;CR&gt;</code> |
+| Mark file with harpoon | <code> hm</code> | <code>&lt;Cmd&gt;lua require('harpoon.mark').add_file()&lt;CR&gt;</code> |
+| Save session for auto session root dir | <code> ws</code> | <code>&lt;Cmd&gt;SessionSave&lt;CR&gt;</code> |
+| Restore session for cwd | <code> wr</code> | <code>&lt;Cmd&gt;SessionRestore&lt;CR&gt;</code> |
+| Refresh file explorer | <code> er</code> | <code>&lt;Cmd&gt;NvimTreeRefresh&lt;CR&gt;</code> |
+| Collapse file explorer | <code> ec</code> | <code>&lt;Cmd&gt;NvimTreeCollapse&lt;CR&gt;</code> |
+| Toggle file explorer on current file | <code> ef</code> | <code>&lt;Cmd&gt;NvimTreeFindFileToggle&lt;CR&gt;</code> |
+| Toggle file explorer | <code> ee</code> | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
+| Find string under cursor in cwd | <code> fc</code> | <code>&lt;Cmd&gt;Telescope grep_string&lt;CR&gt;</code> |
+| Find string in cwd | <code> fs</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+| Fuzzy find recent files | <code> fr</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+| Fuzzy find files in cwd | <code> ff</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+|  | <code> sm</code> |  |
+| Open current buffer in new tab | <code> tf</code> | <code>&lt;Cmd&gt;tabnew %&lt;CR&gt;</code> |
+| Go to previous tab | <code> tp</code> | <code>&lt;Cmd&gt;tabp&lt;CR&gt;</code> |
+| Go to next tab | <code> tn</code> | <code>&lt;Cmd&gt;tabn&lt;CR&gt;</code> |
+| Close current tab | <code> tx</code> | <code>&lt;Cmd&gt;tabclose&lt;CR&gt;</code> |
+| Open new tab | <code> to</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+| Close current split | <code> sx</code> | <code>&lt;Cmd&gt;close&lt;CR&gt;</code> |
+| Make splits equal size | <code> se</code> | <code>&lt;C-W&gt;=</code> |
+| Split window horizontally | <code> sh</code> | <code>&lt;C-W&gt;s</code> |
+| Split window vertically | <code> sv</code> | <code>&lt;C-W&gt;v</code> |
+| Decrement number | <code> -</code> | <code>&lt;C-X&gt;</code> |
+| Increment number | <code> +</code> | <code>&lt;C-A&gt;</code> |
+| Clear search highlights | <code> nh</code> | <code>:nohl&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>grr</code> | <code>&lt;Plug&gt;ReplaceWithRegisterLine</code> |
+|  | <code>gr</code> | <code>&lt;Plug&gt;ReplaceWithRegisterOperator</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|execute 'normal!' ReplaceWithRegister#VisualMode()|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterLine</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterLine", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|call ReplaceWithRegister#SetCount()|execute 'normal! V' . v:count1 . "_\&lt;lt&gt;Esc&gt;"|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterLine", 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterExpressionSpecial</code> | <code>:&lt;C-U&gt;let g:ReplaceWithRegister#expr = getreg('=')&#124;execute 'normal!' v:count1 . '.'&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterOperator</code> | <code>ReplaceWithRegister#OperatorExpression()</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gr` | `<Plug>ReplaceWithRegisterVisual` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<Plug>ReplaceWithRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterVisual")<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>gr</code> | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister#expr = getreg('=')|endif|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |

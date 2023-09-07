@@ -120,263 +120,263 @@ Tailored for frontend development with React and Vue.js
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` | `:BufferLineCycleNext<CR>` |
-|  | `<CR>` | `:noh<CR><CR>` |
-|  | ` cl` | `<Cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>` |
-|  | ` cf` | `<Cmd>lua vim.lsp.buf.format({ async = true })<CR>` |
-|  | ` cr` | `<Cmd>lua vim.lsp.buf.rename()<CR>` |
-|  | ` ca` | `<Cmd>lua vim.lsp.buf.code_action()<CR>` |
-|  | ` q` | `<Cmd>lua require('utils').toggle_quicklist()<CR>` |
-|  | ` .` | `:cn<CR>` |
-|  | ` ,` | `:cp<CR>` |
-|  | ` pw` | `<Cmd>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>` |
-|  | ` pf` | `<Cmd>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<lt>cword>'), initial_mode = 'normal' })<CR>` |
-|  | ` /l` | `<Cmd>:Lazy<CR>` |
-| move to prev conflict | ` gcp` | `<Cmd>GitConflictPrevConflict<CR>` |
-| choose ours | ` gco` | `<Cmd>GitConflictChooseOurs<CR>` |
-| move to next conflict | ` gcn` | `<Cmd>GitConflictNextConflict<CR>` |
-| choose both | ` gcb` | `<Cmd>GitConflictChooseBoth<CR>` |
-| choose theirs | ` gct` | `<Cmd>GitConflictChooseTheirs<CR>` |
-|  | ` gwc` | `<Cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>` |
-|  | ` gww` | `<Cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>` |
-| comment box | ` ac` | `<Cmd>lua require('comment-box').lbox()<CR>` |
-| Mason | ` cm` | `<Cmd>Mason<CR>` |
-| save session | ` /ss` | `<Cmd>SessionManager save_current_session<CR>` |
-| load last session | ` /sl` | `<Cmd>SessionManager load_last_session<CR>` |
-| load current dir session | ` /sd` | `<Cmd>SessionManager load_current_dir_session<CR>` |
-| remove session | ` /sr` | `<Cmd>SessionManager delete_session<CR>` |
-| choose session | ` /sc` | `<Cmd>SessionManager load_session<CR>` |
-| terminal float | ` at` | `<Cmd>ToggleTerm direction=float<CR>` |
-| refactor | ` pr` |  |
-| lazygit | ` gg` |  |
-| reset buffer | ` ghR` |  |
-| preview | ` ghp` |  |
-| diff hunk | ` ghd` |  |
-| undo stage | ` ghu` |  |
-| toggle deleted | ` ght` |  |
-| stage buffer | ` ghS` |  |
-| stage hunk | ` ghs` |  |
-| reset hunk | ` ghr` |  |
-| generate git message | ` ag` |  |
-| summarize text | ` as` |  |
-| Pin/Unpin Buffer | ` bP` |  |
-| Pick Buffer | ` bp` |  |
-| Move next | ` bn` |  |
-| Close Right | ` br` |  |
-| Close Left | ` bl` |  |
-| Move back | ` bb` |  |
-|  | ` 9` |  |
-|  | ` 8` |  |
-|  | ` 7` |  |
-|  | ` 6` |  |
-|  | ` 5` |  |
-|  | ` 4` |  |
-|  | ` 3` |  |
-|  | ` 2` |  |
-|  | ` 1` |  |
-| Sort by relative dir | ` bsr` |  |
-| Sort by extension | ` bse` |  |
-| Sort by directory | ` bsd` |  |
-|  | ` dc` |  |
-|  | ` db` |  |
-|  | ` da` |  |
-|  | ` dt` |  |
-|  | ` dO` |  |
-|  | ` do` |  |
-|  | ` di` |  |
-|  | ` dh` |  |
-|  | ` dd` |  |
-| status | ` gs` |  |
-| diff file | ` gd` |  |
-| multicursor | ` m` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `<lt><lt>` |  |
-|  | `<lt>` |  |
-|  | `==` |  |
-|  | `=` |  |
-|  | `>>` |  |
-|  | `>` |  |
-|  | `H` | `^` |
-|  | `K` |  |
-|  | `L` | `<Cmd>lua vim.lsp.buf.signature_help()<CR>` |
-|  | `P` | `<Cmd>lua require('plugins.telescope.pickers.multi-rg')()<CR>` |
-|  | `Q` | `:lua require('mini.bufremove').delete(0, false)<CR>` |
-|  | `X` | `"_X` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[g` | `<Cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-| Previous todo comment | `[t` |  |
-|  | `]g` | `<Cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Next todo comment | `]t` |  |
-| Change a surrounding pair, putting replacements on new lines | `cS` | `<Plug>(nvim-surround-change-line)` |
-| Change a surrounding pair | `cs` | `<Plug>(nvim-surround-change)` |
-| Delete a surrounding pair | `ds` | `<Plug>(nvim-surround-delete)` |
-|  | `gP` | `<Plug>(printer_print)iw` |
-|  | `gl` | `<Cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>` |
-|  | `gx` | `<Cmd>silent execute '!xdg-open ' . shellescape('<lt>cWORD>')<CR>` |
-| Operator keymap for printer.nvim | `gp` |  |
-|  | `gn` | `:bn<CR>` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-| Comment toggle blockwise | `gb` | `<Plug>(comment_toggle_blockwise)` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-| Move to right "around" | `g]` |  |
-| Move to left "around" | `g[` |  |
-|  | `gs` | `<Plug>(Switch)` |
-| Align with preview | `gA` |  |
-| Align | `ga` |  |
-| Toggle Split/Join | `gJ` |  |
-| LSP References | `gr` |  |
-| LSP Definition | `gd` |  |
-| LSP Type Definitions | `gy` |  |
-| LSP Implementations | `gm` |  |
-|  | `s` |  |
-|  | `x` | `"_x` |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `ySS` | `<Plug>(nvim-surround-normal-cur-line)` |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `yS` | `<Plug>(nvim-surround-normal-line)` |
-| Add a surrounding pair around the current line (normal mode) | `yss` | `<Plug>(nvim-surround-normal-cur)` |
-| Add a surrounding pair around a motion (normal mode) | `ys` | `<Plug>(nvim-surround-normal)` |
-|  | `zr` |  |
-|  | `zM` |  |
-|  | `zR` |  |
-| Get text out of textobject formatted for debug printing | `<Plug>(printer_print)` |  |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-|  | `<C-Space>` | `<Cmd>lua vim.lsp.buf.code_action()<CR>` |
-|  | `<C-X>` | `:if !switch#Switch({'reverse': 1}) | call speeddating#increment(-v:count1) | endif<CR>` |
-|  | `<C-A>` | `:if !switch#Switch() | call speeddating#increment(v:count1) | endif<CR>` |
-|  | `<S-Tab>` | `:BufferLineCyclePrev<CR>` |
-|  | `<C-P>` | `<Cmd>lua require('plugins.telescope').project_files()<CR>` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-| Git Conflict: Previous Conflict | `<Plug>(git-conflict-prev-conflict)` | `<Cmd>GitConflictPrevConflict<CR>` |
-| Git Conflict: Next Conflict | `<Plug>(git-conflict-next-conflict)` | `<Cmd>GitConflictNextConflict<CR>` |
-| Git Conflict: Choose Theirs | `<Plug>(git-conflict-theirs)` | `<Cmd>GitConflictChooseTheirs<CR>` |
-| Git Conflict: Choose None | `<Plug>(git-conflict-none)` | `<Cmd>GitConflictChooseNone<CR>` |
-| Git Conflict: Choose Both | `<Plug>(git-conflict-both)` | `<Cmd>GitConflictChooseBoth<CR>` |
-| Git Conflict: Choose Ours | `<Plug>(git-conflict-ours)` | `<Cmd>GitConflictChooseOurs<CR>` |
-|  | `<Plug>(SwitchReverse)` | `:set opfunc=switch#OpfuncReverse<CR>g@l` |
-|  | `<Plug>(Switch)` | `:set opfunc=switch#OpfuncForward<CR>g@l` |
-| Change a surrounding pair, putting replacements on new lines | `<Plug>(nvim-surround-change-line)` |  |
-| Change a surrounding pair | `<Plug>(nvim-surround-change)` |  |
-| Delete a surrounding pair | `<Plug>(nvim-surround-delete)` |  |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `<Plug>(nvim-surround-normal-cur-line)` |  |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `<Plug>(nvim-surround-normal-line)` |  |
-| Add a surrounding pair around the current line (normal mode) | `<Plug>(nvim-surround-normal-cur)` |  |
-| Add a surrounding pair around a motion (normal mode) | `<Plug>(nvim-surround-normal)` |  |
-|  | `<Plug>SpeedDatingFallbackDown` | `<C-X>` |
-|  | `<Plug>SpeedDatingFallbackUp` | `<C-A>` |
-|  | `<Plug>SpeedDatingNowUTC` | `:<C-U>call speeddating#timestamp(1,v:count)<CR>` |
-|  | `<Plug>SpeedDatingNowLocal` | `:<C-U>call speeddating#timestamp(0,v:count)<CR>` |
-|  | `<Plug>SpeedDatingDown` | `:<C-U>call speeddating#increment(-v:count1)<CR>` |
-|  | `<Plug>SpeedDatingUp` | `:<C-U>call speeddating#increment(v:count1)<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-| Toggle Terminal | `<F12>` | `<Cmd>execute v:count . "ToggleTerm"<CR>` |
-| NvimTree | `<C-E>` |  |
-|  | `<M-9>` |  |
-|  | `<M-8>` |  |
-|  | `<M-7>` |  |
-|  | `<M-6>` |  |
-|  | `<M-5>` |  |
-|  | `<M-4>` |  |
-|  | `<M-3>` |  |
-|  | `<M-2>` |  |
-|  | `<M-1>` |  |
-| multicursor down | `<C-Down>` |  |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code>&lt;Tab&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+|  | <code>&lt;CR&gt;</code> | <code>:noh&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code> cl</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })&lt;CR&gt;</code> |
+|  | <code> cf</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.format({ async = true })&lt;CR&gt;</code> |
+|  | <code> cr</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+|  | <code> ca</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
+|  | <code> q</code> | <code>&lt;Cmd&gt;lua require('utils').toggle_quicklist()&lt;CR&gt;</code> |
+|  | <code> .</code> | <code>:cn&lt;CR&gt;</code> |
+|  | <code> ,</code> | <code>:cp&lt;CR&gt;</code> |
+|  | <code> pw</code> | <code>&lt;Cmd&gt;lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })&lt;CR&gt;</code> |
+|  | <code> pf</code> | <code>&lt;Cmd&gt;lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('&lt;lt&gt;cword&gt;'), initial_mode = 'normal' })&lt;CR&gt;</code> |
+|  | <code> /l</code> | <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |
+| save session | <code> /ss</code> | <code>&lt;Cmd&gt;SessionManager save_current_session&lt;CR&gt;</code> |
+| load last session | <code> /sl</code> | <code>&lt;Cmd&gt;SessionManager load_last_session&lt;CR&gt;</code> |
+| load current dir session | <code> /sd</code> | <code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code> |
+| remove session | <code> /sr</code> | <code>&lt;Cmd&gt;SessionManager delete_session&lt;CR&gt;</code> |
+| choose session | <code> /sc</code> | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
+| Mason | <code> cm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+| comment box | <code> ac</code> | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
+| terminal float | <code> at</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+|  | <code> gwc</code> | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code> |
+|  | <code> gww</code> | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.git_worktrees()&lt;CR&gt;</code> |
+| move to prev conflict | <code> gcp</code> | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
+| choose ours | <code> gco</code> | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
+| move to next conflict | <code> gcn</code> | <code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |
+| choose both | <code> gcb</code> | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
+| choose theirs | <code> gct</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
+| lazygit | <code> gg</code> |  |
+| multicursor | <code> m</code> |  |
+| stage buffer | <code> ghS</code> |  |
+| stage hunk | <code> ghs</code> |  |
+| reset hunk | <code> ghr</code> |  |
+| reset buffer | <code> ghR</code> |  |
+| preview | <code> ghp</code> |  |
+| diff hunk | <code> ghd</code> |  |
+| undo stage | <code> ghu</code> |  |
+| toggle deleted | <code> ght</code> |  |
+| summarize text | <code> as</code> |  |
+| generate git message | <code> ag</code> |  |
+| diff file | <code> gd</code> |  |
+| status | <code> gs</code> |  |
+| Sort by extension | <code> bse</code> |  |
+| Sort by directory | <code> bsd</code> |  |
+| Pin/Unpin Buffer | <code> bP</code> |  |
+| Pick Buffer | <code> bp</code> |  |
+| Move next | <code> bn</code> |  |
+| Close Right | <code> br</code> |  |
+| Close Left | <code> bl</code> |  |
+| Move back | <code> bb</code> |  |
+|  | <code> 9</code> |  |
+|  | <code> 8</code> |  |
+|  | <code> 7</code> |  |
+|  | <code> 6</code> |  |
+|  | <code> 5</code> |  |
+|  | <code> 4</code> |  |
+|  | <code> 3</code> |  |
+|  | <code> 2</code> |  |
+|  | <code> 1</code> |  |
+| Sort by relative dir | <code> bsr</code> |  |
+| refactor | <code> pr</code> |  |
+|  | <code> db</code> |  |
+|  | <code> da</code> |  |
+|  | <code> dt</code> |  |
+|  | <code> dO</code> |  |
+|  | <code> do</code> |  |
+|  | <code> di</code> |  |
+|  | <code> dh</code> |  |
+|  | <code> dd</code> |  |
+|  | <code> dc</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;&lt;lt&gt;</code> |  |
+|  | <code>&lt;lt&gt;</code> |  |
+|  | <code>==</code> |  |
+|  | <code>=</code> |  |
+|  | <code>&gt;&gt;</code> |  |
+|  | <code>&gt;</code> |  |
+|  | <code>H</code> | <code>^</code> |
+|  | <code>K</code> |  |
+|  | <code>L</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.signature_help()&lt;CR&gt;</code> |
+|  | <code>P</code> | <code>&lt;Cmd&gt;lua require('plugins.telescope.pickers.multi-rg')()&lt;CR&gt;</code> |
+|  | <code>Q</code> | <code>:lua require('mini.bufremove').delete(0, false)&lt;CR&gt;</code> |
+|  | <code>X</code> | <code>"_X</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[g</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| Previous todo comment | <code>[t</code> |  |
+|  | <code>]g</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Next todo comment | <code>]t</code> |  |
+| Change a surrounding pair, putting replacements on new lines | <code>cS</code> | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+| Change a surrounding pair | <code>cs</code> | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+| Delete a surrounding pair | <code>ds</code> | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+|  | <code>gP</code> | <code>&lt;Plug&gt;(printer_print)iw</code> |
+|  | <code>gl</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })&lt;CR&gt;</code> |
+|  | <code>gx</code> | <code>&lt;Cmd&gt;silent execute '!xdg-open ' . shellescape('&lt;lt&gt;cWORD&gt;')&lt;CR&gt;</code> |
+| Operator keymap for printer.nvim | <code>gp</code> |  |
+|  | <code>gn</code> | <code>:bn&lt;CR&gt;</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gs</code> | <code>&lt;Plug&gt;(Switch)</code> |
+| Move to right "around" | <code>g]</code> |  |
+| Move to left "around" | <code>g[</code> |  |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| Align with preview | <code>gA</code> |  |
+| Align | <code>ga</code> |  |
+| LSP References | <code>gr</code> |  |
+| LSP Definition | <code>gd</code> |  |
+| LSP Type Definitions | <code>gy</code> |  |
+| LSP Implementations | <code>gm</code> |  |
+| Toggle Split/Join | <code>gJ</code> |  |
+|  | <code>s</code> |  |
+|  | <code>x</code> | <code>"_x</code> |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>ySS</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>yS</code> | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
+| Add a surrounding pair around the current line (normal mode) | <code>yss</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+| Add a surrounding pair around a motion (normal mode) | <code>ys</code> | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+|  | <code>zr</code> |  |
+|  | <code>zM</code> |  |
+|  | <code>zR</code> |  |
+| Get text out of textobject formatted for debug printing | <code>&lt;Plug&gt;(printer_print)</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+|  | <code>&lt;C-Space&gt;</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
+|  | <code>&lt;C-X&gt;</code> | <code>:if !switch#Switch({'reverse': 1}) &#124; call speeddating#increment(-v:count1) | endif&lt;CR&gt;</code> |
+|  | <code>&lt;C-A&gt;</code> | <code>:if !switch#Switch() &#124; call speeddating#increment(v:count1) | endif&lt;CR&gt;</code> |
+|  | <code>&lt;S-Tab&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>&lt;C-P&gt;</code> | <code>&lt;Cmd&gt;lua require('plugins.telescope').project_files()&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SwitchReverse)</code> | <code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |
+|  | <code>&lt;Plug&gt;(Switch)</code> | <code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |
+| Change a surrounding pair, putting replacements on new lines | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |  |
+| Change a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-change)</code> |  |
+| Delete a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |  |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |  |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |  |
+| Add a surrounding pair around the current line (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |  |
+| Add a surrounding pair around a motion (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |  |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+| Toggle Terminal | <code>&lt;F12&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| Git Conflict: Previous Conflict | <code>&lt;Plug&gt;(git-conflict-prev-conflict)</code> | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
+| Git Conflict: Next Conflict | <code>&lt;Plug&gt;(git-conflict-next-conflict)</code> | <code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |
+| Git Conflict: Choose Theirs | <code>&lt;Plug&gt;(git-conflict-theirs)</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
+| Git Conflict: Choose None | <code>&lt;Plug&gt;(git-conflict-none)</code> | <code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code> |
+| Git Conflict: Choose Both | <code>&lt;Plug&gt;(git-conflict-both)</code> | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
+| Git Conflict: Choose Ours | <code>&lt;Plug&gt;(git-conflict-ours)</code> | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> | <code>&lt;C-X&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingFallbackUp</code> | <code>&lt;C-A&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingNowUTC</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingNowLocal</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingDown</code> | <code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingUp</code> | <code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code> |
+| multicursor down | <code>&lt;C-Down&gt;</code> |  |
+| NvimTree | <code>&lt;C-E&gt;</code> |  |
+|  | <code>&lt;M-9&gt;</code> |  |
+|  | <code>&lt;M-8&gt;</code> |  |
+|  | <code>&lt;M-7&gt;</code> |  |
+|  | <code>&lt;M-6&gt;</code> |  |
+|  | <code>&lt;M-5&gt;</code> |  |
+|  | <code>&lt;M-4&gt;</code> |  |
+|  | <code>&lt;M-3&gt;</code> |  |
+|  | <code>&lt;M-2&gt;</code> |  |
+|  | <code>&lt;M-1&gt;</code> |  |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` cf` |  |
-|  | ` ca` | `<Cmd>'<lt>,'>lua vim.lsp.buf.code_action()<CR>` |
-| comment box | ` ac` | `<Cmd>lua require('comment-box').lbox()<CR>` |
-| multicursor | ` m` |  |
-| refactor | ` pr` |  |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `=` |  |
-|  | `>` | `>gv` |
-|  | `J` | `:move '>+1<CR>gv-gv` |
-|  | `K` | `:move '<lt>-2<CR>gv-gv` |
-| Add a surrounding pair around a visual selection | `S` | `<Plug>(nvim-surround-visual)` |
-|  | `X` | `"_X` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | ``` | `u` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-| Around last textobject | `al` |  |
-| Around next textobject | `an` |  |
-| Around textobject | `a` |  |
-| Operator keymap for printer.nvim | `gp` |  |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Add a surrounding pair around a visual selection, on new lines | `gS` | `<Plug>(nvim-surround-visual-line)` |
-| Align with preview | `gA` |  |
-| Align | `ga` |  |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-| Move to right "around" | `g]` |  |
-| Move to left "around" | `g[` |  |
-| Inside last textobject | `il` |  |
-| Inside next textobject | `in` |  |
-| Inside textobject | `i` |  |
-|  | `p` | `"_dP` |
-|  | `s` |  |
-|  | `x` | `"_x` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<M-`>` | `U` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<Plug>SpeedDatingDown` | `:<C-U>call speeddating#incrementvisual(-v:count1)<CR>` |
-|  | `<Plug>SpeedDatingUp` | `:<C-U>call speeddating#incrementvisual(v:count1)<CR>` |
-| Add a surrounding pair around a visual selection, on new lines | `<Plug>(nvim-surround-visual-line)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR>` |
-| Add a surrounding pair around a visual selection | `<Plug>(nvim-surround-visual)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR>` |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
+|  | <code> cf</code> |  |
+|  | <code> ca</code> | <code>&lt;Cmd&gt;'&lt;lt&gt;,'&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
+| comment box | <code> ac</code> | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
+| refactor | <code> pr</code> |  |
+| multicursor | <code> m</code> |  |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>=</code> |  |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>J</code> | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>K</code> | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+| Add a surrounding pair around a visual selection | <code>S</code> | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+|  | <code>X</code> | <code>"_X</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>`</code> | <code>u</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| Around last textobject | <code>al</code> |  |
+| Around next textobject | <code>an</code> |  |
+| Around textobject | <code>a</code> |  |
+| Operator keymap for printer.nvim | <code>gp</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| Add a surrounding pair around a visual selection, on new lines | <code>gS</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+| Move to right "around" | <code>g]</code> |  |
+| Move to left "around" | <code>g[</code> |  |
+| Align with preview | <code>gA</code> |  |
+| Align | <code>ga</code> |  |
+| Inside last textobject | <code>il</code> |  |
+| Inside next textobject | <code>in</code> |  |
+| Inside textobject | <code>i</code> |  |
+|  | <code>p</code> | <code>"_dP</code> |
+|  | <code>s</code> |  |
+|  | <code>x</code> | <code>"_x</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;M-`&gt;</code> | <code>U</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingDown</code> | <code>:&lt;C-U&gt;call speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingUp</code> | <code>:&lt;C-U&gt;call speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-| Around last textobject | `al` |  |
-| Around next textobject | `an` |  |
-| Around textobject | `a` |  |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-| Move to right "around" | `g]` |  |
-| Move to left "around" | `g[` |  |
-| Inside last textobject | `il` |  |
-| Inside next textobject | `in` |  |
-| Inside textobject | `i` |  |
-|  | `s` |  |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| Around last textobject | <code>al</code> |  |
+| Around next textobject | <code>an</code> |  |
+| Around textobject | <code>a</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| Move to right "around" | <code>g]</code> |  |
+| Move to left "around" | <code>g[</code> |  |
+| Inside last textobject | <code>il</code> |  |
+| Inside next textobject | <code>in</code> |  |
+| Inside textobject | <code>i</code> |  |
+|  | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

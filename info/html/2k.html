@@ -242,76 +242,74 @@ href="https://github.com/folke/zen-mode.nvim.git">folke/zen-mode.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>ca</code></td>
+<td><code> ca</code></td>
 <td><code>&lt;Cmd&gt;Lspsaga code_action&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>lk</code></td>
+<td><code> lk</code></td>
 <td><code>&lt;Cmd&gt;Lspsaga diagnostic_jump_prev&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>lj</code></td>
+<td><code> lj</code></td>
 <td><code>&lt;Cmd&gt;Lspsaga diagnostic_jump_next&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gy</code></td>
+<td><code> gy</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>caL</code></td>
+<td><code> caL</code></td>
 <td><code>&lt;Plug&gt;CalendarH</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>cal</code></td>
+<td><code> cal</code></td>
 <td><code>&lt;Plug&gt;CalendarV</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>cT</code></td>
-<td><code>&lt;Cmd&gt;lua require("onedark").toggle()&lt;CR&gt;</code></td>
+<td><code> cT</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(“onedark”).toggle()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Split window right</td>
-<td><code>\</code></td>
+<td><code> &lt;/code&gt;</td>
 <td><code>&lt;C-W&gt;v</code></td>
 </tr>
 <tr class="odd">
 <td>Split window below</td>
-<td><code>-</code></td>
+<td><code> -</code></td>
 <td><code>&lt;C-W&gt;s</code></td>
 </tr>
 <tr class="even">
 <td>Split window right</td>
-<td><code>w\</code></td>
+<td><code> w&lt;/code&gt;</td>
 <td><code>&lt;C-W&gt;v</code></td>
 </tr>
 <tr class="odd">
 <td>Split window below</td>
-<td><code>w-</code></td>
+<td><code> w-</code></td>
 <td><code>&lt;C-W&gt;s</code></td>
 </tr>
 <tr class="even">
 <td>Delete window</td>
-<td><code>wd</code></td>
+<td><code> wd</code></td>
 <td><code>&lt;C-W&gt;c</code></td>
 </tr>
 <tr class="odd">
 <td>Other window</td>
-<td><code>w&lt;Tab&gt;</code></td>
+<td><code> w&lt;Tab&gt;</code></td>
 <td><code>&lt;C-W&gt;p</code></td>
 </tr>
 <tr class="even">
 <td>Switch to Other Buffer</td>
-<td><code>`` |</code><Cmd>e
-#<CR><code>| | Switch to Other Buffer |</code> <Tab><code>|</code><Cmd>e
-#<CR><code>| |  |</code>
-ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><code>| |  |</code>
-<code>| `` | |  |</code>%<code>|</code><Plug>(MatchitNormalForward)<code>| | Nvim builtin |</code>&amp;<code>|</code>:&amp;&amp;<CR><code>| |  |</code>+<code>|  | |  |</code>-<code>|  | |  |</code>1<code>|  | |  |</code>2<code>|  | |  |</code>3<code>|  | |  |</code>4<code>|  | |  |</code>5<code>|  | |  |</code>6<code>|  | |  |</code>7<code>|  | |  |</code>8<code>|  | |  |</code>9<code>|  | |  |</code>C<code>|  | | Prev buffer |</code>H<code>|</code><Cmd>BufferLineCyclePrev<CR><code>| |  |</code>J<code>|</code>mzJ<code>z</code></td>
+<td><code>
+<code>&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;e #&amp;lt;CR&amp;gt;&lt;/code&gt; | | Switch to Other Buffer | &lt;code&gt; &amp;lt;Tab&amp;gt;&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;e #&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt; ss&lt;/code&gt; | &lt;code&gt;:%s/\&amp;lt;lt&amp;gt;&amp;lt;C-R&amp;gt;&amp;lt;C-W&amp;gt;\&amp;gt;/&amp;lt;C-R&amp;gt;&amp;lt;C-W&amp;gt;/gI&amp;lt;Left&amp;gt;&amp;lt;Left&amp;gt;&amp;lt;Left&amp;gt;&lt;/code&gt; | |  | &lt;code&gt; &lt;/code&gt; | &lt;code&gt;&lt;/code&gt; | |  | &lt;code&gt;%&lt;/code&gt; | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitNormalForward)&lt;/code&gt; | | Nvim builtin | &lt;code&gt;&amp;&lt;/code&gt; | &lt;code&gt;:&amp;&amp;&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;+&lt;/code&gt; |  | |  | &lt;code&gt;-&lt;/code&gt; |  | |  | &lt;code&gt;1&lt;/code&gt; |  | |  | &lt;code&gt;2&lt;/code&gt; |  | |  | &lt;code&gt;3&lt;/code&gt; |  | |  | &lt;code&gt;4&lt;/code&gt; |  | |  | &lt;code&gt;5&lt;/code&gt; |  | |  | &lt;code&gt;6&lt;/code&gt; |  | |  | &lt;code&gt;7&lt;/code&gt; |  | |  | &lt;code&gt;8&lt;/code&gt; |  | |  | &lt;code&gt;9&lt;/code&gt; |  | |  | &lt;code&gt;C&lt;/code&gt; |  | | Prev buffer | &lt;code&gt;H&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;BufferLineCyclePrev&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;J&lt;/code&gt; | &lt;code&gt;mzJ</code>z</code></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -327,7 +325,7 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="odd">
 <td>Prev search result</td>
 <td><code>N</code></td>
-<td><code>'nN'[v:searchforward]</code></td>
+<td><code>‘nN’[v:searchforward]</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -372,7 +370,8 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="even">
 <td>Spider-b</td>
 <td><code>b</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('b')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘b’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -402,7 +401,8 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="even">
 <td>Spider-e</td>
 <td><code>e</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('e')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘e’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -417,7 +417,8 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="odd">
 <td>Spider-ge</td>
 <td><code>ge</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('ge')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘ge’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Comment insert end of line</td>
@@ -487,7 +488,8 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="odd">
 <td></td>
 <td><code>gx</code></td>
-<td><code>:silent execute '!$BROWSER ' . shellescape(expand('&lt;lt&gt;cfile&gt;'), 1)&lt;CR&gt;</code></td>
+<td><code>:silent execute ‘!$BROWSER’ .
+shellescape(expand(‘&lt;lt&gt;cfile&gt;’), 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -512,7 +514,7 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="even">
 <td>Next search result</td>
 <td><code>n</code></td>
-<td><code>'Nn'[v:searchforward]</code></td>
+<td><code>‘Nn’[v:searchforward]</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -552,22 +554,23 @@ ss<code>|</code>:%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><cod
 <tr class="even">
 <td></td>
 <td><code>tv</code></td>
-<td><code>:vsplit</code></td>
+<td><code>:vsplit </code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>ts</code></td>
-<td><code>:split</code></td>
+<td><code>:split </code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>te</code></td>
-<td><code>:tabedit</code></td>
+<td><code>:tabedit </code></td>
 </tr>
 <tr class="odd">
 <td>Spider-w</td>
 <td><code>w</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('w')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘w’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -623,12 +626,12 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;C-M&gt;</code></td>
+<td><code>&lt;C-N&gt;</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-N&gt;</code></td>
+<td><code>&lt;C-M&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -711,22 +714,23 @@ mode)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;SnipClose</code></td>
-<td><code>:lua require'sniprun.display'.close_all()&lt;CR&gt;</code></td>
+<td><code>:lua
+require’sniprun.display’.close_all()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;SnipReplMemoryClean</code></td>
-<td><code>:lua require'sniprun'.clear_repl()&lt;CR&gt;</code></td>
+<td><code>:lua require’sniprun’.clear_repl()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;SnipInfo</code></td>
-<td><code>:lua require'sniprun'.info()&lt;CR&gt;</code></td>
+<td><code>:lua require’sniprun’.info()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;SnipReset</code></td>
-<td><code>:lua require'sniprun'.reset()&lt;CR&gt;</code></td>
+<td><code>:lua require’sniprun’.reset()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -736,7 +740,7 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;SnipRun</code></td>
-<td><code>:lua require'sniprun'.run()&lt;CR&gt;</code></td>
+<td><code>:lua require’sniprun’.run()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -791,22 +795,26 @@ mode)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;M-k&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_top()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_top()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-l&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_right()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_bottom()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;M-h&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_left()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-l&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_right()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;M-j&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_bottom()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_left()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -826,27 +834,32 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Save file</td>
@@ -876,12 +889,13 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-J&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_bottom()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.move_bottom()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-H&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_left()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require’tmux’.move_left()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -896,7 +910,7 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-K&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_top()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require’tmux’.move_top()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -931,12 +945,13 @@ mode)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-Space&gt;</code></td>
-<td><code>&lt;Cmd&gt;WhichKey \ &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;WhichKey  &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_right()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.move_right()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -962,23 +977,24 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>ca</code></td>
-<td><code>&lt;Cmd&gt;&lt;C-U&gt;Lspsaga range_code_action&lt;CR&gt;</code></td>
+<td><code> ca</code></td>
+<td><code>&lt;Cmd&gt;&lt;C-U&gt;Lspsaga
+range_code_action&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gy</code></td>
+<td><code> gy</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>pp</code></td>
-<td><code>"_dP</code></td>
+<td><code> pp</code></td>
+<td><code>“_dP</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -988,7 +1004,7 @@ mode)</td>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1063,300 +1079,142 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>J</code></td>
-<td><code>:move '&gt;+1&lt;CR&gt;gv-gv</code></td>
+<td><code>:move ’&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>K</code></td>
-<td><code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
+<td><code>:move ’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>L</code></td>
-<td><code>$</code></td>
+<td><code><span class="math inline">$&lt;/code&gt; | | Prev search
+result | &lt;code&gt;N&lt;/code&gt; |
+&lt;code&gt;'nN'[v:searchforward]&lt;/code&gt; | | Add a surrounding
+pair around a visual selection | &lt;code&gt;S&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(nvim-surround-visual)&lt;/code&gt; | |
+| &lt;code&gt;[%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
+| | | &lt;code&gt;]%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| | | &lt;code&gt;a%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
+| Spider-b | &lt;code&gt;b&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;lua
+require('spider').motion('b')&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+Spider-e | &lt;code&gt;e&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;lua
+require('spider').motion('e')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;gj&lt;/code&gt; | | | | &lt;code&gt;gk&lt;/code&gt; | | |
+Spider-ge | &lt;code&gt;ge&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;lua
+require('spider').motion('ge')&amp;lt;CR&amp;gt;&lt;/code&gt; | | Add a
+surrounding pair around a visual selection, on new lines |
+&lt;code&gt;gS&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(nvim-surround-visual-line)&lt;/code&gt;
+| | Comment toggle blockwise (visual) | &lt;code&gt;gb&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_blockwise_visual)&lt;/code&gt;
+| | Comment toggle linewise (visual) | &lt;code&gt;gc&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_linewise_visual)&lt;/code&gt;
+| | | &lt;code&gt;gs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-cross-window)&lt;/code&gt; | | |
+&lt;code&gt;gx&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NetrwBrowseXVis&lt;/code&gt; | | |
+&lt;code&gt;g%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; | |
+Search word under cursor | &lt;code&gt;gw&lt;/code&gt; |
+&lt;code&gt;*N&lt;/code&gt; | | | &lt;code&gt;h&lt;/code&gt; | | | |
+&lt;code&gt;j&lt;/code&gt; | | | | &lt;code&gt;k&lt;/code&gt; | | | |
+&lt;code&gt;l&lt;/code&gt; | | | Next search result |
+&lt;code&gt;n&lt;/code&gt; |
+&lt;code&gt;'Nn'[v:searchforward]&lt;/code&gt; | | |
+&lt;code&gt;p&lt;/code&gt; | &lt;code&gt;"_dP&lt;/code&gt; | | |
+&lt;code&gt;s&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-forward)&lt;/code&gt; | | |
+&lt;code&gt;tl&lt;/code&gt; |
+&lt;code&gt;&amp;lt;C-W&amp;gt;l&lt;/code&gt; | | |
+&lt;code&gt;tj&lt;/code&gt; |
+&lt;code&gt;&amp;lt;C-W&amp;gt;j&lt;/code&gt; | | |
+&lt;code&gt;tk&lt;/code&gt; |
+&lt;code&gt;&amp;lt;C-W&amp;gt;k&lt;/code&gt; | | |
+&lt;code&gt;th&lt;/code&gt; |
+&lt;code&gt;&amp;lt;C-W&amp;gt;h&lt;/code&gt; | | Spider-w |
+&lt;code&gt;w&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;lua
+require('spider').motion('w')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Up&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Right&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Left&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Down&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;C-N&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;C-M&amp;gt;&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;C-P&amp;gt;&lt;/code&gt; | | | Add a surrounding
+pair around a visual selection, on new lines |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(nvim-surround-visual-line)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require'nvim-surround'.visual_surround({ line_mode = true
+})&amp;lt;CR&amp;gt;&lt;/code&gt; | | Add a surrounding pair around a
+visual selection |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(nvim-surround-visual)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require'nvim-surround'.visual_surround({ line_mode = false
+})&amp;lt;CR&amp;gt;&lt;/code&gt; | | Comment toggle blockwise (visual)
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_blockwise_visual)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | Comment toggle linewise (visual) |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_linewise_visual)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;luasnip-expand-repeat&lt;/code&gt;
+| | | | &lt;code&gt;&amp;lt;Plug&amp;gt;SnipRun&lt;/code&gt; |
+&lt;code&gt;:lua
+require'sniprun'.run('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-backward-x)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-forward-x)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-backward)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-forward)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-cross-window)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-from-window)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(leap-backward-till)&lt;/code&gt; | | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(leap-backward-to)&lt;/code&gt; | | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(leap-forward-till)&lt;/code&gt; | | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(leap-forward-to)&lt;/code&gt; | | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NetrwBrowseXVis&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+netrw#BrowseXVis()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)o&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("W",
+"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW",
+"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchit#Match_wrapper('',0,'v')&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") !=
+col("$</span>“) | exe”:normal! m’”</td>
 </tr>
 <tr class="odd">
-<td>Prev search result</td>
-<td><code>N</code></td>
-<td><code>'nN'[v:searchforward]</code></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection</td>
-<td><code>S</code></td>
-<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>a%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
-</tr>
-<tr class="even">
-<td>Spider-b</td>
-<td><code>b</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('b')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Spider-e</td>
-<td><code>e</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('e')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gj</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gk</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Spider-ge</td>
-<td><code>ge</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('ge')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><code>gS</code></td>
-<td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
-</tr>
-<tr class="even">
-<td>Comment toggle blockwise (visual)</td>
-<td><code>gb</code></td>
-<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle linewise (visual)</td>
-<td><code>gc</code></td>
-<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gs</code></td>
-<td><code>&lt;Plug&gt;(leap-cross-window)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gx</code></td>
-<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
-</tr>
-<tr class="odd">
-<td>Search word under cursor</td>
-<td><code>gw</code></td>
-<td><code>*N</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>h</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>j</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>k</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>l</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Next search result</td>
-<td><code>n</code></td>
-<td><code>'Nn'[v:searchforward]</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>p</code></td>
-<td><code>"_dP</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>s</code></td>
-<td><code>&lt;Plug&gt;(leap-forward)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>tl</code></td>
-<td><code>&lt;C-W&gt;l</code></td>
+<td>Save file</td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>&lt;Cmd&gt;w&lt;CR&gt;&lt;Esc&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>tj</code></td>
-<td><code>&lt;C-W&gt;j</code></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:move ’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>tk</code></td>
-<td><code>&lt;C-W&gt;k</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>th</code></td>
-<td><code>&lt;C-W&gt;h</code></td>
-</tr>
-<tr class="odd">
-<td>Spider-w</td>
-<td><code>w</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('w')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Left&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Down&gt;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Up&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Right&gt;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-M&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-P&gt;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-N&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Add a surrounding pair around a visual selection, on new lines</td>
-<td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Add a surrounding pair around a visual selection</td>
-<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;SnipRun</code></td>
-<td><code>:lua require'sniprun'.run('v')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-backward-x)</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-forward-x)</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-backward)</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-forward)</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-cross-window)</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-from-window)</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-backward-till)</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-backward-to)</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-forward-till)</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(leap-forward-to)</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
-<td><code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | | Save file |</code><C-S><code>|</code><Cmd>w<CR><Esc><code>| |  |</code><M-k><code>|</code>:move
-‘<lt>-2<CR>gv-gv<code>| |  |</code><M-j><code>|</code>:move’&gt;+1<CR>gv-gv`</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:move ’&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -1393,7 +1251,7 @@ matchit#MultiMatch(“bW”,
 <tr class="even">
 <td>Prev search result</td>
 <td><code>N</code></td>
-<td><code>'nN'[v:searchforward]</code></td>
+<td><code>‘nN’[v:searchforward]</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1418,17 +1276,20 @@ matchit#MultiMatch(“bW”,
 <tr class="odd">
 <td>Spider-b</td>
 <td><code>b</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('b')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘b’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Spider-e</td>
 <td><code>e</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('e')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘e’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Spider-ge</td>
 <td><code>ge</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('ge')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘ge’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1443,7 +1304,7 @@ matchit#MultiMatch(“bW”,
 <tr class="even">
 <td>Next search result</td>
 <td><code>n</code></td>
-<td><code>'Nn'[v:searchforward]</code></td>
+<td><code>‘Nn’[v:searchforward]</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1468,7 +1329,8 @@ matchit#MultiMatch(“bW”,
 <tr class="odd">
 <td>Spider-w</td>
 <td><code>w</code></td>
-<td><code>&lt;Cmd&gt;lua require('spider').motion('w')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘spider’).motion(‘w’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1482,22 +1344,22 @@ matchit#MultiMatch(“bW”,
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Down&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><code>&lt;Up&gt;</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Right&gt;</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Left&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Down&gt;</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1558,22 +1420,26 @@ matchit#MultiMatch(“bW”,
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

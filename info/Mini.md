@@ -25,149 +25,149 @@ Uses the [mini.nvim](https://github.com/echasnovski/mini.nvim) library. Personal
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Suite | ` Ts` | `<Cmd>TestSuite<CR>` |
-| Suite (quickfix) | ` TS` | `<Cmd>TestSuite -strategy=make | copen<CR>` |
-| Nearest | ` Tn` | `<Cmd>TestNearest<CR>` |
-| Nearest (quickfix) | ` TN` | `<Cmd>TestNearest -strategy=make | copen<CR>` |
-| Last | ` Tl` | `<Cmd>TestLast<CR>` |
-| Last (quickfix) | ` TL` | `<Cmd>TestLast -strategy=make | copen<CR>` |
-| File | ` Tf` | `<Cmd>TestFile<CR>` |
-| File (quickfix) | ` TF` | `<Cmd>TestFile -strategy=make | copen<CR>` |
-| Terminal (vertical) | ` tt` | `<Cmd>vertical Tnew<CR>` |
-| Terminal (horizontal) | ` tT` | `<Cmd>belowright Tnew<CR>` |
-| Test show screenshot | ` ts` | `<Cmd>lua EC.minitest_screenshots.browse()<CR>` |
-| Test run location | ` tl` | `<Cmd>lua MiniTest.run_at_location()<CR>` |
-| Test run file | ` tf` | `<Cmd>lua MiniTest.run_file()<CR>` |
-| Test run all | ` ta` | `<Cmd>lua MiniTest.run()<CR>` |
-| Send to terminal | ` s` | `<Cmd>TREPLSendLine<CR>j` |
-| Test | ` rt` | `<Cmd>T devtools::test()<CR>` |
-| Test file | ` rT` | `<Cmd>T testthat::test_file("%")<CR>` |
-| Load all | ` rl` | `<Cmd>T devtools::load_all()<CR>` |
-| Knit file | ` rk` | `<Cmd>T rmarkdown::render("%")<CR>` |
-| Install | ` ri` | `<Cmd>T devtools::install(keep_source=TRUE)<CR>` |
-| Document | ` rd` | `<Cmd>T devtools::document()<CR>` |
-| Coverage | ` rC` | `<Cmd>T devtools::test_coverage()<CR>` |
-| Check | ` rc` | `<Cmd>T devtools::check()<CR>` |
-| Zoom toggle | ` oz` | `<Cmd>lua MiniMisc.zoom()<CR>` |
-| Trailspace hl toggle | ` oT` | `<Cmd>lua vim.b.minitrailspace_disable = not vim.b.minitrailspace_disable<CR>` |
-| Trim trailspace | ` ot` | `<Cmd>lua MiniTrailspace.trim()<CR>` |
-| Section insert | ` oS` | `<Cmd>lua EC.insert_section()<CR>` |
-| Session select | ` os` | `<Cmd>lua MiniSessions.select()<CR>` |
-| Resize to default width | ` or` | `<Cmd>lua MiniMisc.resize_window()<CR>` |
-| Move arg right | ` ol` | `<Cmd>normal gxiagxina<CR>` |
-| Generate plugin doc | ` og` | `<Cmd>lua MiniDoc.generate()<CR>` |
-| Highlight toggle | ` oH` | `<Cmd>TSBufToggle highlight<CR>` |
-| Move arg left | ` oh` | `<Cmd>normal gxiagxila<CR>` |
-| Document | ` od` | `<Cmd>Neogen<CR>` |
-| Cursor word hl toggle | ` oC` | `<Cmd>lua MiniCursorword.toggle()<CR>` |
-| Toggle | ` mt` | `<Cmd>lua MiniMap.toggle()<CR>` |
-| Side (toggle) | ` ms` | `<Cmd>lua MiniMap.toggle_side()<CR>` |
-| Refresh | ` mr` | `<Cmd>lua MiniMap.refresh()<CR>` |
-| Open | ` mo` | `<Cmd>lua MiniMap.open()<CR>` |
-| Focus (toggle) | ` mf` | `<Cmd>lua MiniMap.toggle_focus()<CR>` |
-| Close | ` mc` | `<Cmd>lua MiniMap.close()<CR>` |
-| Execute `lua` line | ` Lx` | `<Cmd>lua EC.execute_lua_line()<CR>` |
-| `luafile` buffer | ` Lf` | `<Cmd>luafile %<CR>` |
-| Source definition | ` ls` | `<Cmd>lua vim.lsp.buf.definition()<CR>` |
-| Rename | ` lr` | `<Cmd>lua vim.lsp.buf.rename()<CR>` |
-| References | ` lR` | `<Cmd>lua vim.lsp.buf.references()<CR>` |
-| Prev diagnostic | ` lk` | `<Cmd>lua vim.diagnostic.goto_prev()<CR>` |
-| Next diagnostic | ` lj` | `<Cmd>lua vim.diagnostic.goto_next()<CR>` |
-| Information | ` li` | `<Cmd>lua vim.lsp.buf.hover()<CR>` |
-| Format | ` lf` | `<Cmd>lua vim.lsp.buf.format({ async = true })<CR>` |
-| Diagnostics popup | ` ld` | `<Cmd>lua vim.diagnostic.open_float()<CR>` |
-| Arguments popup | ` la` | `<Cmd>lua vim.lsp.buf.signature_help()<CR>` |
-| Discard (reset) buffer | ` gX` | `<Cmd>lua require("gitsigns").reset_buffer()<CR>` |
-| Discard (reset) hunk | ` gx` | `<Cmd>lua require("gitsigns").reset_hunk()<CR>` |
-| Undo stage hunk | ` gu` | `<Cmd>lua require("gitsigns").undo_stage_hunk()<CR>` |
-| Quickfix hunks | ` gq` | `<Cmd>lua require("gitsigns").setqflist()<CR>:copen<CR>` |
-| Preview hunk | ` gp` | `<Cmd>lua require("gitsigns").preview_hunk()<CR>` |
-| Git tab | ` gg` | `<Cmd>lua EC.open_lazygit()<CR>` |
-| Blame line | ` gb` | `<Cmd>lua require("gitsigns").blame_line()<CR>` |
-| Add (stage) hunk | ` ga` | `<Cmd>lua require("gitsigns").stage_hunk()<CR>` |
-| Add buffer | ` gA` | `<Cmd>lua require("gitsigns").stage_buffer()<CR>` |
-| File browser | ` ft` | `<Cmd>Telescope file_browser<CR>` |
-| Symbols (treesitter) | ` fS` | `<Cmd>Telescope treesitter<CR>` |
-| Spell suggestions | ` fs` | `<Cmd>Telescope spell_suggest<CR>` |
-| References (LSP) | ` fR` | `<Cmd>Telescope lsp_references<CR>` |
-| Resume | ` fr` | `<Cmd>lua MiniPick.builtin.resume()<CR>` |
-| Options | ` fO` | `<Cmd>Telescope vim_options<CR>` |
-| Old files | ` fo` | `<Cmd>Telescope oldfiles<CR>` |
-| Jumplist | ` fj` | `<Cmd>Telescope jumplist<CR>` |
-| Highlight groups | ` fH` | `<Cmd>Telescope highlights<CR>` |
-| Help tags | ` fh` | `<Cmd>lua MiniPick.builtin.help()<CR>` |
-| Grep live | ` fg` | `<Cmd>lua MiniPick.builtin.grep_live()<CR>` |
-| Files | ` ff` | `<Cmd>lua MiniPick.builtin.files()<CR>` |
-| Diagnostic buffer | ` fD` | `<Cmd>Telescope diagnostics bufnr=0<CR>` |
-| Diagnostic workspace | ` fd` | `<Cmd>Telescope diagnostics<CR>` |
-| Buffer commits | ` fC` | `<Cmd>Telescope git_bcommits<CR>` |
-| Commits | ` fc` | `<Cmd>Telescope git_commits<CR>` |
-| Open buffers | ` fB` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
-| Open buffers | ` fb` | `<Cmd>lua MiniPick.builtin.buffers()<CR>` |
-| Commands | ` f:` | `<Cmd>Telescope command_history<CR>` |
-| "/" history | ` f/` | `<Cmd>Telescope search_history<CR>` |
-| Quickfix | ` eq` | `<Cmd>lua EC.toggle_quickfix()<CR>` |
-| Mini.nvim directory | ` em` | `<Cmd>lua MiniFiles.open('~/.config/nvim-Mini/pack/plugins/opt/mini')<CR>` |
-| File directory | ` ef` | `<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>` |
-| Directory | ` ed` | `<Cmd>lua MiniFiles.open()<CR>` |
-| Wipeout! | ` bW` | `<Cmd>lua MiniBufremove.wipeout(0, true)<CR>` |
-| Wipeout | ` bw` | `<Cmd>lua MiniBufremove.wipeout()<CR>` |
-| Scratch | ` bs` | `<Cmd>lua EC.new_scratch_buffer()<CR>` |
-| Delete! | ` bD` | `<Cmd>lua MiniBufremove.delete(0, true)<CR>` |
-| Delete | ` bd` | `<Cmd>lua MiniBufremove.delete()<CR>` |
-| Alternate | ` ba` | `<Cmd>b#<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-| Paste Above | `[p` | `<Cmd>exe "put! " . v:register<CR>` |
-| Toggle hlsearch | `\h` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Paste Below | `]p` | `<Cmd>exe "put "  . v:register<CR>` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `s` | `` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| Suite | <code> Ts</code> | <code>&lt;Cmd&gt;TestSuite&lt;CR&gt;</code> |
+| Suite (quickfix) | <code> TS</code> | <code>&lt;Cmd&gt;TestSuite -strategy=make &#124; copen&lt;CR&gt;</code> |
+| Nearest | <code> Tn</code> | <code>&lt;Cmd&gt;TestNearest&lt;CR&gt;</code> |
+| Nearest (quickfix) | <code> TN</code> | <code>&lt;Cmd&gt;TestNearest -strategy=make &#124; copen&lt;CR&gt;</code> |
+| Last | <code> Tl</code> | <code>&lt;Cmd&gt;TestLast&lt;CR&gt;</code> |
+| Last (quickfix) | <code> TL</code> | <code>&lt;Cmd&gt;TestLast -strategy=make &#124; copen&lt;CR&gt;</code> |
+| File | <code> Tf</code> | <code>&lt;Cmd&gt;TestFile&lt;CR&gt;</code> |
+| File (quickfix) | <code> TF</code> | <code>&lt;Cmd&gt;TestFile -strategy=make &#124; copen&lt;CR&gt;</code> |
+| Terminal (vertical) | <code> tt</code> | <code>&lt;Cmd&gt;vertical Tnew&lt;CR&gt;</code> |
+| Terminal (horizontal) | <code> tT</code> | <code>&lt;Cmd&gt;belowright Tnew&lt;CR&gt;</code> |
+| Test show screenshot | <code> ts</code> | <code>&lt;Cmd&gt;lua EC.minitest_screenshots.browse()&lt;CR&gt;</code> |
+| Test run location | <code> tl</code> | <code>&lt;Cmd&gt;lua MiniTest.run_at_location()&lt;CR&gt;</code> |
+| Test run file | <code> tf</code> | <code>&lt;Cmd&gt;lua MiniTest.run_file()&lt;CR&gt;</code> |
+| Test run all | <code> ta</code> | <code>&lt;Cmd&gt;lua MiniTest.run()&lt;CR&gt;</code> |
+| Send to terminal | <code> s</code> | <code>&lt;Cmd&gt;TREPLSendLine&lt;CR&gt;j</code> |
+| Test | <code> rt</code> | <code>&lt;Cmd&gt;T devtools::test()&lt;CR&gt;</code> |
+| Test file | <code> rT</code> | <code>&lt;Cmd&gt;T testthat::test_file("%")&lt;CR&gt;</code> |
+| Load all | <code> rl</code> | <code>&lt;Cmd&gt;T devtools::load_all()&lt;CR&gt;</code> |
+| Knit file | <code> rk</code> | <code>&lt;Cmd&gt;T rmarkdown::render("%")&lt;CR&gt;</code> |
+| Install | <code> ri</code> | <code>&lt;Cmd&gt;T devtools::install(keep_source=TRUE)&lt;CR&gt;</code> |
+| Document | <code> rd</code> | <code>&lt;Cmd&gt;T devtools::document()&lt;CR&gt;</code> |
+| Coverage | <code> rC</code> | <code>&lt;Cmd&gt;T devtools::test_coverage()&lt;CR&gt;</code> |
+| Check | <code> rc</code> | <code>&lt;Cmd&gt;T devtools::check()&lt;CR&gt;</code> |
+| Zoom toggle | <code> oz</code> | <code>&lt;Cmd&gt;lua MiniMisc.zoom()&lt;CR&gt;</code> |
+| Trailspace hl toggle | <code> oT</code> | <code>&lt;Cmd&gt;lua vim.b.minitrailspace_disable = not vim.b.minitrailspace_disable&lt;CR&gt;</code> |
+| Trim trailspace | <code> ot</code> | <code>&lt;Cmd&gt;lua MiniTrailspace.trim()&lt;CR&gt;</code> |
+| Section insert | <code> oS</code> | <code>&lt;Cmd&gt;lua EC.insert_section()&lt;CR&gt;</code> |
+| Session select | <code> os</code> | <code>&lt;Cmd&gt;lua MiniSessions.select()&lt;CR&gt;</code> |
+| Resize to default width | <code> or</code> | <code>&lt;Cmd&gt;lua MiniMisc.resize_window()&lt;CR&gt;</code> |
+| Move arg right | <code> ol</code> | <code>&lt;Cmd&gt;normal gxiagxina&lt;CR&gt;</code> |
+| Generate plugin doc | <code> og</code> | <code>&lt;Cmd&gt;lua MiniDoc.generate()&lt;CR&gt;</code> |
+| Highlight toggle | <code> oH</code> | <code>&lt;Cmd&gt;TSBufToggle highlight&lt;CR&gt;</code> |
+| Move arg left | <code> oh</code> | <code>&lt;Cmd&gt;normal gxiagxila&lt;CR&gt;</code> |
+| Document | <code> od</code> | <code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code> |
+| Cursor word hl toggle | <code> oC</code> | <code>&lt;Cmd&gt;lua MiniCursorword.toggle()&lt;CR&gt;</code> |
+| Toggle | <code> mt</code> | <code>&lt;Cmd&gt;lua MiniMap.toggle()&lt;CR&gt;</code> |
+| Side (toggle) | <code> ms</code> | <code>&lt;Cmd&gt;lua MiniMap.toggle_side()&lt;CR&gt;</code> |
+| Refresh | <code> mr</code> | <code>&lt;Cmd&gt;lua MiniMap.refresh()&lt;CR&gt;</code> |
+| Open | <code> mo</code> | <code>&lt;Cmd&gt;lua MiniMap.open()&lt;CR&gt;</code> |
+| Focus (toggle) | <code> mf</code> | <code>&lt;Cmd&gt;lua MiniMap.toggle_focus()&lt;CR&gt;</code> |
+| Close | <code> mc</code> | <code>&lt;Cmd&gt;lua MiniMap.close()&lt;CR&gt;</code> |
+| Execute `lua` line | <code> Lx</code> | <code>&lt;Cmd&gt;lua EC.execute_lua_line()&lt;CR&gt;</code> |
+| `luafile` buffer | <code> Lf</code> | <code>&lt;Cmd&gt;luafile %&lt;CR&gt;</code> |
+| Source definition | <code> ls</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.definition()&lt;CR&gt;</code> |
+| Rename | <code> lr</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+| References | <code> lR</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.references()&lt;CR&gt;</code> |
+| Prev diagnostic | <code> lk</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;</code> |
+| Next diagnostic | <code> lj</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;</code> |
+| Information | <code> li</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.hover()&lt;CR&gt;</code> |
+| Format | <code> lf</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.format({ async = true })&lt;CR&gt;</code> |
+| Diagnostics popup | <code> ld</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float()&lt;CR&gt;</code> |
+| Arguments popup | <code> la</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.signature_help()&lt;CR&gt;</code> |
+| Discard (reset) buffer | <code> gX</code> | <code>&lt;Cmd&gt;lua require("gitsigns").reset_buffer()&lt;CR&gt;</code> |
+| Discard (reset) hunk | <code> gx</code> | <code>&lt;Cmd&gt;lua require("gitsigns").reset_hunk()&lt;CR&gt;</code> |
+| Undo stage hunk | <code> gu</code> | <code>&lt;Cmd&gt;lua require("gitsigns").undo_stage_hunk()&lt;CR&gt;</code> |
+| Quickfix hunks | <code> gq</code> | <code>&lt;Cmd&gt;lua require("gitsigns").setqflist()&lt;CR&gt;:copen&lt;CR&gt;</code> |
+| Preview hunk | <code> gp</code> | <code>&lt;Cmd&gt;lua require("gitsigns").preview_hunk()&lt;CR&gt;</code> |
+| Git tab | <code> gg</code> | <code>&lt;Cmd&gt;lua EC.open_lazygit()&lt;CR&gt;</code> |
+| Blame line | <code> gb</code> | <code>&lt;Cmd&gt;lua require("gitsigns").blame_line()&lt;CR&gt;</code> |
+| Add (stage) hunk | <code> ga</code> | <code>&lt;Cmd&gt;lua require("gitsigns").stage_hunk()&lt;CR&gt;</code> |
+| Add buffer | <code> gA</code> | <code>&lt;Cmd&gt;lua require("gitsigns").stage_buffer()&lt;CR&gt;</code> |
+| File browser | <code> ft</code> | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
+| Symbols (treesitter) | <code> fS</code> | <code>&lt;Cmd&gt;Telescope treesitter&lt;CR&gt;</code> |
+| Spell suggestions | <code> fs</code> | <code>&lt;Cmd&gt;Telescope spell_suggest&lt;CR&gt;</code> |
+| References (LSP) | <code> fR</code> | <code>&lt;Cmd&gt;Telescope lsp_references&lt;CR&gt;</code> |
+| Resume | <code> fr</code> | <code>&lt;Cmd&gt;lua MiniPick.builtin.resume()&lt;CR&gt;</code> |
+| Options | <code> fO</code> | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+| Old files | <code> fo</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+| Jumplist | <code> fj</code> | <code>&lt;Cmd&gt;Telescope jumplist&lt;CR&gt;</code> |
+| Highlight groups | <code> fH</code> | <code>&lt;Cmd&gt;Telescope highlights&lt;CR&gt;</code> |
+| Help tags | <code> fh</code> | <code>&lt;Cmd&gt;lua MiniPick.builtin.help()&lt;CR&gt;</code> |
+| Grep live | <code> fg</code> | <code>&lt;Cmd&gt;lua MiniPick.builtin.grep_live()&lt;CR&gt;</code> |
+| Files | <code> ff</code> | <code>&lt;Cmd&gt;lua MiniPick.builtin.files()&lt;CR&gt;</code> |
+| Diagnostic buffer | <code> fD</code> | <code>&lt;Cmd&gt;Telescope diagnostics bufnr=0&lt;CR&gt;</code> |
+| Diagnostic workspace | <code> fd</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+| Buffer commits | <code> fC</code> | <code>&lt;Cmd&gt;Telescope git_bcommits&lt;CR&gt;</code> |
+| Commits | <code> fc</code> | <code>&lt;Cmd&gt;Telescope git_commits&lt;CR&gt;</code> |
+| Open buffers | <code> fB</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+| Open buffers | <code> fb</code> | <code>&lt;Cmd&gt;lua MiniPick.builtin.buffers()&lt;CR&gt;</code> |
+| Commands | <code> f:</code> | <code>&lt;Cmd&gt;Telescope command_history&lt;CR&gt;</code> |
+| "/" history | <code> f/</code> | <code>&lt;Cmd&gt;Telescope search_history&lt;CR&gt;</code> |
+| Quickfix | <code> eq</code> | <code>&lt;Cmd&gt;lua EC.toggle_quickfix()&lt;CR&gt;</code> |
+| Mini.nvim directory | <code> em</code> | <code>&lt;Cmd&gt;lua MiniFiles.open('~/.config/nvim-Mini/pack/plugins/opt/mini')&lt;CR&gt;</code> |
+| File directory | <code> ef</code> | <code>&lt;Cmd&gt;lua MiniFiles.open(vim.api.nvim_buf_get_name(0))&lt;CR&gt;</code> |
+| Directory | <code> ed</code> | <code>&lt;Cmd&gt;lua MiniFiles.open()&lt;CR&gt;</code> |
+| Wipeout! | <code> bW</code> | <code>&lt;Cmd&gt;lua MiniBufremove.wipeout(0, true)&lt;CR&gt;</code> |
+| Wipeout | <code> bw</code> | <code>&lt;Cmd&gt;lua MiniBufremove.wipeout()&lt;CR&gt;</code> |
+| Scratch | <code> bs</code> | <code>&lt;Cmd&gt;lua EC.new_scratch_buffer()&lt;CR&gt;</code> |
+| Delete! | <code> bD</code> | <code>&lt;Cmd&gt;lua MiniBufremove.delete(0, true)&lt;CR&gt;</code> |
+| Delete | <code> bd</code> | <code>&lt;Cmd&gt;lua MiniBufremove.delete()&lt;CR&gt;</code> |
+| Alternate | <code> ba</code> | <code>&lt;Cmd&gt;b#&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| Paste Above | <code>[p</code> | <code>&lt;Cmd&gt;exe "put! " . v:register&lt;CR&gt;</code> |
+| Toggle hlsearch | <code>\h</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Paste Below | <code>]p</code> | <code>&lt;Cmd&gt;exe "put "  . v:register&lt;CR&gt;</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>s</code> | <code></code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Send to terminal | ` s` | `mode() ==# "v" ? ":TREPLSendSelection<CR>`>l" : ":TREPLSendSelection<CR>'>j"` |
-| Reprex selection | ` rx` | `"+y :T reprex::reprex()<CR>` |
-| Format selection | ` lf` | `<Cmd>lua vim.lsp.buf.format()<CR><Esc>` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-| Paste Above | `[p` | `<Cmd>exe "put! " . v:register<CR>` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-| Paste Below | `]p` | `<Cmd>exe "put "  . v:register<CR>` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `s` | `` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+| Send to terminal | <code> s</code> | <code>mode() ==# "v" ? ":TREPLSendSelection&lt;CR&gt;`&gt;l" : ":TREPLSendSelection&lt;CR&gt;'&gt;j"</code> |
+| Reprex selection | <code> rx</code> | <code>"+y :T reprex::reprex()&lt;CR&gt;</code> |
+| Format selection | <code> lf</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.format()&lt;CR&gt;&lt;Esc&gt;</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| Paste Above | <code>[p</code> | <code>&lt;Cmd&gt;exe "put! " . v:register&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| Paste Below | <code>]p</code> | <code>&lt;Cmd&gt;exe "put "  . v:register&lt;CR&gt;</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>s</code> | <code></code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

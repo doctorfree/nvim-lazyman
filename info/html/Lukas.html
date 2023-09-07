@@ -290,263 +290,275 @@ href="https://github.com/microsoft/vscode-js-debug">microsoft/vscode-js-debug</a
 <tbody>
 <tr class="odd">
 <td></td>
-<td><code>k</code></td>
-<td><code>&lt;Cmd&gt;lua require'luasnip'.jump(-1)&lt;CR&gt;</code></td>
+<td><code> k</code></td>
+<td><code>&lt;Cmd&gt;lua require’luasnip’.jump(-1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>j</code></td>
-<td><code>&lt;Cmd&gt;lua require'luasnip'.jump(1)&lt;CR&gt;</code></td>
+<td><code> j</code></td>
+<td><code>&lt;Cmd&gt;lua require’luasnip’.jump(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gl</code></td>
+<td><code> gl</code></td>
 <td><code>:diffget //3&lt;CR&gt; :diffupdate&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gh</code></td>
+<td><code> gh</code></td>
 <td><code>:diffget //2&lt;CR&gt; :diffupdate&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gn</code></td>
-<td><code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:Git mergetool&lt;CR&gt;</code></td>
+<td><code> gn</code></td>
+<td><code>:lua require(‘lists’).change_active(‘Quickfix’)&lt;CR&gt;:Git
+mergetool&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gg</code></td>
-<td><code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:execute 'Git difftool ' .. g:git_base&lt;CR&gt;</code></td>
+<td><code> gg</code></td>
+<td><code>:lua
+require(‘lists’).change_active(‘Quickfix’)&lt;CR&gt;:execute ‘Git
+difftool’ .. g:git_base&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gc</code></td>
+<td><code> gc</code></td>
 <td><code>:0Gclog&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>ga</code></td>
+<td><code> ga</code></td>
 <td><code>&lt;Plug&gt;(GitGutterStageHunk)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gu</code></td>
+<td><code> gu</code></td>
 <td><code>&lt;Plug&gt;(GitGutterUndoHunk)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gm</code></td>
+<td><code> gm</code></td>
 <td><code>&lt;Plug&gt;(git-messenger)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gs</code></td>
+<td><code> gs</code></td>
 <td><code>:Git&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gb</code></td>
+<td><code> gb</code></td>
 <td><code>:Git blame&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gr</code></td>
+<td><code> gr</code></td>
 <td><code>:Gread&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gd</code></td>
-<td><code>:set nosplitright&lt;CR&gt;:execute 'Gvdiff ' .. g:git_base&lt;CR&gt;:set splitright&lt;CR&gt;</code></td>
+<td><code> gd</code></td>
+<td><code>:set nosplitright&lt;CR&gt;:execute ‘Gvdiff’ ..
+g:git_base&lt;CR&gt;:set splitright&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>f</code></td>
-<td><code>:lua require('fuzzy').symbols()&lt;CR&gt;</code></td>
+<td><code> f</code></td>
+<td><code>:lua require(‘fuzzy’).symbols()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>m</code></td>
+<td><code> m</code></td>
 <td><code>:Marks&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-H&gt;</code></td>
+<td><code> &lt;C-H&gt;</code></td>
 <td><code>:Helptags&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;C-P&gt;</code></td>
+<td><code> &lt;C-P&gt;</code></td>
 <td><code>:Commands&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>p</code></td>
+<td><code> p</code></td>
 <td><code>:Buffers&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>n</code></td>
-<td><code>:lua require('fuzzy').files(vim.fn.expand('%:h'))&lt;CR&gt;</code></td>
+<td><code> n</code></td>
+<td><code>:lua
+require(‘fuzzy’).files(vim.fn.expand(‘%:h’))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gf</code></td>
-<td><code>:lua require('fuzzy').git_files()&lt;CR&gt;</code></td>
+<td><code> gf</code></td>
+<td><code>:lua require(‘fuzzy’).git_files()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>a</code></td>
-<td><code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:silent grep</code></td>
+<td><code> a</code></td>
+<td><code>:lua
+require(‘lists’).change_active(‘Quickfix’)&lt;CR&gt;:silent grep
+</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>b</code></td>
-<td><code>:lua require('lists').toggle_active()&lt;CR&gt;</code></td>
+<td><code> b</code></td>
+<td><code>:lua require(‘lists’).toggle_active()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>v</code></td>
-<td><code>&lt;Plug&gt;(qf_loc_toggle_stay):lua require('lists').change_active('Location')&lt;CR&gt;</code></td>
+<td><code> v</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_toggle_stay):lua
+require(‘lists’).change_active(‘Location’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>c</code></td>
-<td><code>&lt;Plug&gt;(qf_qf_toggle_stay):lua require('lists').change_active('Quickfix')&lt;CR&gt;</code></td>
+<td><code> c</code></td>
+<td><code>&lt;Plug&gt;(qf_qf_toggle_stay):lua
+require(‘lists’).change_active(‘Quickfix’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>dl</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>dk</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>dj</code></td>
+<td><code> dl</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>dh</code></td>
+<td><code> dk</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>d&lt;CR&gt;</code></td>
+<td><code> dj</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>dp</code></td>
+<td><code> dh</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>di</code></td>
+<td><code> d&lt;CR&gt;</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>do</code></td>
+<td><code> dp</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>dB</code></td>
+<td><code> di</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>db</code></td>
+<td><code> do</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>dc</code></td>
+<td><code> dB</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>td</code></td>
+<td><code> db</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>tf</code></td>
+<td><code> dc</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>ts</code></td>
+<td><code> td</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>to</code></td>
+<td><code> tf</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>tt</code></td>
+<td><code> ts</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>ll</code></td>
+<td><code> to</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>e</code></td>
+<td><code> tt</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>oa</code></td>
-<td><code>&lt;Cmd&gt;lua require('orgmode').action('agenda.prompt')&lt;CR&gt;</code></td>
+<td><code> ll</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>of</code></td>
-<td><code>&lt;Cmd&gt;lua require('orgmode').action('capture.prompt')&lt;CR&gt;</code></td>
+<td><code> e</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>N</code></td>
+<td><code> oa</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘orgmode’).action(‘agenda.prompt’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code> of</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘orgmode’).action(‘capture.prompt’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code> N</code></td>
 <td><code>:e %:h/</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>rr</code></td>
-<td><code>:%s/\v()</code></td>
+<td><code> rr</code></td>
+<td><code>:%s/)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>z</code></td>
+<td><code> z</code></td>
 <td><code>1z=</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>w</code></td>
+<td><code> w</code></td>
 <td><code>:update&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>q</code></td>
-<td><code>:lua require 'buffers'.close()&lt;CR&gt;</code></td>
+<td><code> q</code></td>
+<td><code>:lua require ‘buffers’.close()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-O&gt;</code></td>
-<td><code>:lua require 'buffers'.close_others()&lt;CR&gt;</code></td>
+<td><code> &lt;C-O&gt;</code></td>
+<td><code>:lua require ‘buffers’.close_others()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code></code></td>
-<td><code>:&lt;C-U&gt;exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')&lt;CR&gt;</code></td>
+<td><code> </code></td>
+<td><code>:&lt;C-U&gt;exe v:count ? v:count . ‘b’ : ‘b’ . (bufloaded(0)
+? ‘#’ : ‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -565,13 +577,15 @@ href="https://github.com/microsoft/vscode-js-debug">microsoft/vscode-js-debug</a
 </tr>
 <tr class="even">
 <td></td>
-<td><code>'[</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "alpha")&lt;CR&gt;</code></td>
+<td><code>’[</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“prev”, “line”,
+“alpha”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>']</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("next", "line", "alpha")&lt;CR&gt;</code></td>
+<td><code>’]</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “line”,
+“alpha”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -656,47 +670,47 @@ href="https://github.com/microsoft/vscode-js-debug">microsoft/vscode-js-debug</a
 <tr class="even">
 <td></td>
 <td><code>L</code></td>
-<td><code>$</code></td>
+<td><code><span class="math inline">$&lt;/code&gt; | | |
+&lt;code&gt;N&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-N)&lt;/code&gt; | | |
+&lt;code&gt;T&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-T)&lt;/code&gt; | | |
+&lt;code&gt;Y&lt;/code&gt; | &lt;code&gt;y$</span></code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><code>N</code></td>
-<td><code>&lt;Plug&gt;(is-N)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>T</code></td>
-<td><code>&lt;Plug&gt;(clever-f-T)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>Y</code></td>
-<td><code>y$</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>[=</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#Goto("prev", "any",  v:count)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[-</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#Goto("prev", "same", v:count)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#Goto(“prev”, “any”,
+v:count)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[`` |</code>:<C-U>call signature#mark#Goto(“prev”, “spot”,
-“pos”)<CR><code>| |  |</code>[’<code>|</code>:<C-U>call
-signature#mark#Goto(“prev”, “line”,
-“pos”)<CR><code>| |  |</code>[%<code>|</code><Plug>(MatchitNormalMultiBackward)<code>| |  |</code>&lt;lt&gt;Space&gt;tt<code>|</code><Plug>(table-mode-tableize)<code>| |  |</code>&lt;lt&gt;Space&gt;tm<code>|</code>:<C-U>call
-tablemode#Toggle()<CR><code>| |  |</code>]=<code>|</code>:<C-U>call
-signature#marker#Goto(“next”, “any”,
-v:count)<CR><code>| |  |</code>]-<code>|</code>:<C-U>call
-signature#marker#Goto(“next”, “same”,
-v:count)<CR><code>| |  |</code>]<code>| `:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "pos")&lt;CR&gt;` | |  | `]'` | `:&lt;C-U&gt;call signature#mark#Goto("next", "line", "pos")&lt;CR&gt;` | |  | `]%` | `&lt;Plug&gt;(MatchitNormalMultiForward)` | |  |</code>[<code>|</code>:<C-U>call
-signature#mark#Goto(“prev”, “spot”,
-“alpha”)<CR><code>| |  | ``]</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "alpha")&lt;CR&gt;</code></td>
+<td><code>[-</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#Goto(“prev”, “same”,
+v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[<code>&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "spot", "pos")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;['&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "line", "pos")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;[%&lt;/code&gt; | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitNormalMultiBackward)&lt;/code&gt; | |  | &lt;code&gt;\&amp;lt;lt&amp;gt;Space&amp;gt;tt&lt;/code&gt; | &lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; | |  | &lt;code&gt;\&amp;lt;lt&amp;gt;Space&amp;gt;tm&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call tablemode#Toggle()&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;]=&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#marker#Goto("next", "any",  v:count)&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;]-&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#marker#Goto("next", "same", v:count)&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;]</code></code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “spot”,
+“pos”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]’</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “line”,
+“pos”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code><code>[&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "spot", "alpha")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;</code>]</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “spot”,
+“alpha”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -706,7 +720,8 @@ signature#mark#Goto(“prev”, “spot”,
 <tr class="even">
 <td></td>
 <td><code>dm</code></td>
-<td><code>:&lt;C-U&gt;call signature#utils#Remove(v:count)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#utils#Remove(v:count)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -740,7 +755,7 @@ signature#mark#Goto(“prev”, “spot”,
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gs</code></td>
+<td><code>gs </code></td>
 <td><code>&lt;Plug&gt;CaserSpaceCase</code></td>
 </tr>
 <tr class="even">
@@ -925,12 +940,12 @@ signature#mark#Goto(“prev”, “spot”,
 </tr>
 <tr class="even">
 <td></td>
-<td><code>g,"P</code></td>
+<td><code>g,“P</code></td>
 <td><code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>g,"p</code></td>
+<td><code>g,“p</code></td>
 <td><code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter</code></td>
 </tr>
 <tr class="even">
@@ -1016,459 +1031,111 @@ signature#mark#Goto(“prev”, “spot”,
 <tr class="even">
 <td></td>
 <td><code>gck</code></td>
-<td><code>m'yypgcc</code>‘<code>| |  |</code>glP<code>|</code><Plug>UnconditionalPasteIndentedBefore<code>| |  |</code>glp<code>|</code><Plug>UnconditionalPasteIndentedAfter<code>| |  |</code>gr<code>|</code><Plug>ReplaceWithRegisterOperator<code>| |  |</code>grR<code>|</code><Plug>ReplaceWithRegisterLine<code>| |  |</code>grr<code>|</code><Plug>ReplaceWithSameIndentRegisterLine<code>| |  |</code>g-<code>|  | |  |</code>ge<code>|</code><Plug>CamelCaseMotion_ge<code>| |  |</code>j<code>|</code>v:count
-? (v:count &gt; 5 ? “m’” . v:count :’‘) . ’j’ :
-‘gj’<code>| |  |</code>k<code>|</code>v:count ? (v:count &gt; 5 ? “m’” .
-v:count : ’‘) . ’k’ : ‘gk’<code>| |  |</code>m?<code>|</code>:<C-U>call
-signature#marker#List(v:count,
-0)<CR><code>| |  |</code>m/<code>|</code>:<C-U>call
-signature#mark#List(0,
-0)<CR><code>| |  |</code>m<BS><code>|</code>:<C-U>call
-signature#marker#Purge()<CR><code>| |  |</code>m
-<code>|</code>:<C-U>call
-signature#mark#Purge(“all”)<CR><code>| |  |</code>m-<code>|</code>:<C-U>call
-signature#mark#Purge(“line”)<CR><code>| |  |</code>m.<code>|</code>:<C-U>call
-signature#mark#ToggleAtLine()<CR><code>| |  |</code>m,<code>|</code>:<C-U>call
-signature#mark#Toggle(“next”)<CR><code>| |  |</code>m<code>|</code>:<C-U>call
-signature#utils#Input()<CR><code>| |  |</code>n<code>|</code><Plug>(is-n)<code>| |  |</code>srb<code>|</code><Plug>(sandwich-replace-auto)<code>| |  |</code>sr<code>|</code><Plug>(sandwich-replace)<code>| |  |</code>sdb<code>|</code><Plug>(sandwich-delete-auto)<code>| |  |</code>sd<code>|</code><Plug>(sandwich-delete)<code>| |  |</code>sa<code>|</code><Plug>(sandwich-add)<code>| |  |</code>t<code>|</code><Plug>(clever-f-t)<code>| |  |</code>w<code>|</code><Plug>CamelCaseMotion_w<code>| |  |</code>x<code>|</code>“_x<code>| |  |</code>y<C-G><code>|</code>:<C-U>call
-setreg(v:register,
-fugitive#Object(@%))<CR><code>| |  |</code><Plug>(table-mode-sort)<code>|</code>:call
-tablemode#spreadsheet#Sort(’‘)<CR><code>| |  |</code><Plug>(table-mode-echo-cell)<code>|</code>:call
-tablemode#spreadsheet#EchoCell()<CR><code>| |  |</code><Plug>(table-mode-eval-formula)<code>|</code>:call
-tablemode#spreadsheet#formula#EvaluateFormulaLine()<CR><code>| |  |</code><Plug>(table-mode-add-formula)<code>|</code>:call
-tablemode#spreadsheet#formula#Add()<CR><code>| |  |</code><Plug>(table-mode-insert-column-after)<code>|</code>:<C-U>call
-tablemode#spreadsheet#InsertColumn(1)<CR><code>| |  |</code><Plug>(table-mode-insert-column-before)<code>|</code>:<C-U>call
-tablemode#spreadsheet#InsertColumn(0)<CR><code>| |  |</code><Plug>(table-mode-delete-column)<code>|</code>:<C-U>call
-tablemode#spreadsheet#DeleteColumn()<CR><code>| |  |</code><Plug>(table-mode-delete-row)<code>|</code>:<C-U>call
-tablemode#spreadsheet#DeleteRow()<CR><code>| |  |</code><Plug>(table-mode-motion-right)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#Motion(’l’)<CR><code>| |  |</code><Plug>(table-mode-motion-left)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#Motion(‘h’)<CR><code>| |  |</code><Plug>(table-mode-motion-down)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#Motion(‘j’)<CR><code>| |  |</code><Plug>(table-mode-motion-up)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#Motion(‘k’)<CR><code>| |  |</code><Plug>(table-mode-realign)<code>|</code>:call
-tablemode#table#Realign(‘.’)<CR><code>| |  |</code><Plug>(table-mode-tableize)<code>|</code>:Tableize<CR><code>| |  |</code><Plug>(textobj-sandwich-literal-query-a)<code>|</code>textobj#sandwich#query(‘n’,
-‘a’, {},
-[])<code>| |  |</code><Plug>(textobj-sandwich-literal-query-i)<code>|</code>textobj#sandwich#query(‘n’,
-‘i’, {},
-[])<code>| |  |</code><Plug>(textobj-sandwich-query-a)<code>|</code>textobj#sandwich#query(‘n’,
-‘a’)<code>| |  |</code><Plug>(textobj-sandwich-query-i)<code>|</code>textobj#sandwich#query(‘n’,
-‘i’)<code>| |  |</code><Plug>(textobj-sandwich-auto-a)<code>|</code>textobj#sandwich#auto(‘n’,
-‘a’)<code>| |  |</code><Plug>(textobj-sandwich-auto-i)<code>|</code>textobj#sandwich#auto(‘n’,
-‘i’)<code>| |  |</code><Plug>(sandwich-replace-auto)<code>|</code><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)<code>| |  |</code><Plug>(sandwich-delete-auto)<code>|</code><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)<code>| |  |</code><Plug>(sandwich-replace)<code>|</code><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)<code>| |  |</code><Plug>(sandwich-delete)<code>|</code><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)<code>| |  |</code><Plug>(sandwich-add)<code>|</code><Plug>(operator-sandwich-add)<code>| |  |</code><Plug>(operator-sandwich-gv)<code>|</code>gv<code>| |  |</code><Plug>(operator-sandwich-g@)<code>|</code>g@<code>| |  |</code><Plug>(operator-sandwich-replace-visualrepeat)<code>|</code>:<C-U>call
-operator#sandwich#visualrepeat(‘replace’)<CR><code>| |  |</code><Plug>(operator-sandwich-delete-visualrepeat)<code>|</code>:<C-U>call
-operator#sandwich#visualrepeat(‘delete’)<CR><code>| |  |</code><Plug>(operator-sandwich-add-visualrepeat)<code>|</code>:<C-U>call
-operator#sandwich#visualrepeat(‘add’)<CR><code>| |  |</code><Plug>(operator-sandwich-dot)<code>|</code>operator#sandwich#dot()<code>| |  |</code><Plug>(operator-sandwich-predot)<code>|</code>operator#sandwich#predot()<code>| |  |</code><Plug>(operator-sandwich-replace-query1st)<code>|</code>:<C-U>call
-operator#sandwich#query1st(‘replace’,
-‘n’)<CR><code>| |  |</code><Plug>(operator-sandwich-add-query1st)<code>|</code>:<C-U>call
-operator#sandwich#query1st(‘add’,
-‘n’)<CR><code>| |  |</code><Plug>(operator-sandwich-replace-pre)<code>|</code>:<C-U>call
-operator#sandwich#prerequisite(‘replace’,
-‘n’)<CR><code>| |  |</code><Plug>(operator-sandwich-delete-pre)<code>|</code>:<C-U>call
-operator#sandwich#prerequisite(‘delete’,
-‘n’)<CR><code>| |  |</code><Plug>(operator-sandwich-add-pre)<code>|</code>:<C-U>call
-operator#sandwich#prerequisite(‘add’,
-‘n’)<CR><code>| |  |</code><Plug>(operator-sandwich-replace)<code>|</code><Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-g@)<code>| |  |</code><Plug>(operator-sandwich-delete)<code>|</code><Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-g@)<code>| |  |</code><Plug>(operator-sandwich-add)<code>|</code><Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@)<code>| |  |</code><Plug>(qf_qf_switch)<code>|</code>&amp;filetype
-==# ‘qf’ ? ‘<C-W>p’ :
-‘<C-W>b’<code>| |  |</code><Plug>(qf_loc_toggle_stay)<code>|</code>:<C-U>
-call
-qf#toggle#ToggleLocWindow(1)<CR><code>| |  |</code><Plug>(qf_loc_toggle)<code>|</code>:<C-U>
-call
-qf#toggle#ToggleLocWindow(0)<CR><code>| |  |</code><Plug>(qf_qf_toggle_stay)<code>|</code>:<C-U>
-call
-qf#toggle#ToggleQfWindow(1)<CR><code>| |  |</code><Plug>(qf_qf_toggle)<code>|</code>:<C-U>
-call
-qf#toggle#ToggleQfWindow(0)<CR><code>| |  |</code><Plug>(qf_loc_next)<code>|</code>:<C-U>
-call qf#wrap#WrapCommand(‘down’,
-‘l’)<CR><code>| |  |</code><Plug>(qf_loc_previous)<code>|</code>:<C-U>
-call qf#wrap#WrapCommand(‘up’,
-‘l’)<CR><code>| |  |</code><Plug>(qf_qf_next)<code>|</code>:<C-U> call
-qf#wrap#WrapCommand(‘down’,
-‘c’)<CR><code>| |  |</code><Plug>(qf_qf_previous)<code>|</code>:<C-U>
-call qf#wrap#WrapCommand(‘up’,
-‘c’)<CR><code>| |  |</code><Plug>QfSwitch<code>|</code>&amp;filetype ==#
-‘qf’ ? ‘<C-W>p’ :
-‘<C-W>b’<code>| |  |</code><Plug>QfLtoggle<code>|</code><Plug>(qf_loc_toggle)<code>| |  |</code><Plug>QfCtoggle<code>|</code><Plug>(qf_qf_toggle)<code>| |  |</code><Plug>QfLnext<code>|</code><Plug>(qf_loc_next)<code>| |  |</code><Plug>QfLprevious<code>|</code><Plug>(qf_loc_previous)<code>| |  |</code><Plug>QfCnext<code>|</code><Plug>(qf_qf_next)<code>| |  |</code><Plug>QfCprevious<code>|</code><Plug>(qf_qf_previous)<code>| |  |</code><Plug>GitGutterPreviewHunk<code>|</code>:call
-gitgutter#utility#warn(‘Please change your map
-<lt>Plug&gt;GitGutterPreviewHunk to
-<lt>Plug&gt;(GitGutterPreviewHunk)’)<CR><code>| |  |</code><Plug>(GitGutterPreviewHunk)<code>|</code>:GitGutterPreviewHunk<CR><code>| |  |</code><Plug>GitGutterUndoHunk<code>|</code>:call
-gitgutter#utility#warn(‘Please change your map
-<lt>Plug&gt;GitGutterUndoHunk to
-<lt>Plug&gt;(GitGutterUndoHunk)’)<CR><code>| |  |</code><Plug>(GitGutterUndoHunk)<code>|</code>:GitGutterUndoHunk<CR><code>| |  |</code><Plug>GitGutterStageHunk<code>|</code>:call
-gitgutter#utility#warn(‘Please change your map
-<lt>Plug&gt;GitGutterStageHunk to
-<lt>Plug&gt;(GitGutterStageHunk)’)<CR><code>| |  |</code><Plug>(GitGutterStageHunk)<code>|</code>:GitGutterStageHunk<CR><code>| |  |</code><Plug>GitGutterPrevHunk<code>|</code>&amp;diff
-? ‘[c’ : “:&lt;C-U&gt;call gitgutter#utility#warn(‘Please change your
-map &lt;lt&gt;Plug&gt;GitGutterPrevHunk to
-&lt;lt&gt;Plug&gt;(GitGutterPrevHunk)’)&lt;CR&gt;”<code>| |  |</code><Plug>(GitGutterPrevHunk)<code>|</code>&amp;diff
-? ’[c’ : “:&lt;C-U&gt;execute v:count1 .
-‘GitGutterPrevHunk’&lt;CR&gt;”<code>| |  |</code><Plug>GitGutterNextHunk<code>|</code>&amp;diff
-? ’]c’ : “:&lt;C-U&gt;call gitgutter#utility#warn(‘Please change your
-map &lt;lt&gt;Plug&gt;GitGutterNextHunk to
-&lt;lt&gt;Plug&gt;(GitGutterNextHunk)’)&lt;CR&gt;”<code>| |  |</code><Plug>(GitGutterNextHunk)<code>|</code>&amp;diff
-? ’]c’ : “:&lt;C-U&gt;execute v:count1 .
-‘GitGutterNextHunk’&lt;CR&gt;”<code>| |  |</code><Plug>fugitive:<code>| `` | |  |</code><Plug>fugitive:y<C-G><code>|</code>:<C-U>call
-setreg(v:register,
-fugitive#Object(@%))<CR><code>| |  |</code><Plug>CaserDotCase<code>|</code>:<C-U>call
-caser#ActionSetup(“DotCase”)<CR>g@<code>| |  |</code><Plug>CaserTitleKebabCase<code>|</code>:<C-U>call
-caser#ActionSetup(“TitleKebabCase”)<CR>g@<code>| |  |</code><Plug>CaserKebabCase<code>|</code>:<C-U>call
-caser#ActionSetup(“KebabCase”)<CR>g@<code>| |  |</code><Plug>CaserSpaceCase<code>|</code>:<C-U>call
-caser#ActionSetup(“SpaceCase”)<CR>g@<code>| |  |</code><Plug>CaserSentenceCase<code>|</code>:<C-U>call
-caser#ActionSetup(“SentenceCase”)<CR>g@<code>| |  |</code><Plug>CaserTitleCase<code>|</code>:<C-U>call
-caser#ActionSetup(“TitleCase”)<CR>g@<code>| |  |</code><Plug>CaserUpperCase<code>|</code>:<C-U>call
-caser#ActionSetup(“UpperCase”)<CR>g@<code>| |  |</code><Plug>CaserSnakeCase<code>|</code>:<C-U>call
-caser#ActionSetup(“SnakeCase”)<CR>g@<code>| |  |</code><Plug>CaserCamelCase<code>|</code>:<C-U>call
-caser#ActionSetup(“CamelCase”)<CR>g@<code>| |  |</code><Plug>CaserMixedCase<code>|</code>:<C-U>call
-caser#ActionSetup(“MixedCase”)<CR>g@<code>| |  |</code><Plug>(QuickScopeToggle)<code>|</code>:call
-<SNR>82_toggle()<CR><code>| |  |</code><Plug>PlenaryTestFile<code>|</code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR><code>| |  |</code><Plug>(openbrowser-smart-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_smart_search(‘n’)<CR><code>| |  |</code><Plug>(openbrowser-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_search(‘n’)<CR><code>| |  |</code><Plug>(openbrowser-open-incognito)<code>|</code>:<C-U>call
-openbrowser#_keymap_open(‘n’, 0,
-[‘–incognito’])<CR><code>| |  |</code><Plug>(openbrowser-open)<code>|</code>:<C-U>call
-openbrowser#_keymap_open(‘n’)<CR><code>| |  |</code><Plug>(is-g#)<code>|</code><Plug>(is-nohl)<Plug>(_is-g#)<code>| |  |</code><Plug>(is-g*)<code>|</code><Plug>(is-nohl)<Plug>(_is-g*)<code>| |  |</code><Plug>(is-#)<code>|</code><Plug>(is-nohl)<Plug>(_is-#)<code>| |  |</code><Plug>(is-*)<code>|</code><Plug>(is-nohl)<Plug>(_is-*)<code>| |  |</code><Plug>(is-N)<code>|</code><Plug>(is-nohl)<Plug>(_is-N)<code>| |  |</code><Plug>(is-n)<code>|</code><Plug>(is-nohl)<Plug>(_is-n)<code>| |  |</code><Plug>(_is-g#)<code>|</code>g#<code>| |  |</code><Plug>(_is-g<em>)<code>|</code>g</em><code>| |  |</code><Plug>(_is-#)<code>|</code>#<code>| |  |</code><Plug>(_is-<em>)<code>|</code></em><code>| |  |</code><Plug>(_is-N)<code>|</code>N<code>| |  |</code><Plug>(_is-n)<code>|</code>n<code>| |  |</code><Plug>(is-nohl)<code>|</code><Plug>(is-nohl-2)<code>| |  |</code><Plug>(is-nohl-3)<code>|</code>is#auto_nohlsearch(3)<code>| |  |</code><Plug>(is-nohl-2)<code>|</code>is#auto_nohlsearch(2)<code>| |  |</code><Plug>(is-nohl-1)<code>|</code>is#auto_nohlsearch(1)<code>| |  |</code><Plug>(is-scroll-b)<code>|</code>is#scroll_count(0,
-@/) .
-‘Nzz’<code>| |  |</code><Plug>(is-scroll-f)<code>|</code>is#scroll_count(1,
-@/) . ‘nzz’<code>| |  |</code><Plug>(fzf-maps-n)<code>|</code>:<C-U>call
-fzf#vim#maps(‘n’,
-0)<CR><code>| |  |</code><Plug>(fzf-normal)<code>| `` | |  |</code><Plug>(fzf-insert)<code>|</code>i<code>| |  |</code><Plug>(clever-f-repeat-back)<code>|</code>clever_f#repeat(1)<code>| |  |</code><Plug>(clever-f-repeat-forward)<code>|</code>clever_f#repeat(0)<code>| |  |</code><Plug>(clever-f-reset)<code>|</code>clever_f#reset()<code>| |  |</code><Plug>(clever-f-T)<code>|</code>clever_f#find_with(‘T’)<code>| |  |</code><Plug>(clever-f-t)<code>|</code>clever_f#find_with(‘t’)<code>| |  |</code><Plug>(clever-f-F)<code>|</code>clever_f#find_with(‘F’)<code>| |  |</code><Plug>(clever-f-f)<code>|</code>clever_f#find_with(‘f’)<code>| |  |</code><Plug>CamelCaseMotion_ge<code>|</code>:<C-U>call
-camelcasemotion#Motion(‘ge’,v:count1,‘n’)<CR><code>| |  |</code><Plug>CamelCaseMotion_e<code>|</code>:<C-U>call
-camelcasemotion#Motion(‘e’,v:count1,‘n’)<CR><code>| |  |</code><Plug>CamelCaseMotion_b<code>|</code>:<C-U>call
-camelcasemotion#Motion(‘b’,v:count1,‘n’)<CR><code>| |  |</code><Plug>CamelCaseMotion_w<code>|</code>:<C-U>call
-camelcasemotion#Motion(‘w’,v:count1,‘n’)<CR><code>| |  |</code><Plug>UnconditionalPasteGPlusRepeatBefore<code>|</code>:<C-U>execute
-‘silent! call
-repeat#setreg(“&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore”,
-v:register)’</td>
-</tr>
-</tbody>
-</table>
-<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
-<table>
-<colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td><code>rr</code></td>
-<td><code>:s/\v%V()</code></td>
-</tr>
-<tr class="even">
-<td>Nvim builtin</td>
-<td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>m’yypgcc`’</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+<td><code>glP</code></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code></td>
 </tr>
 <tr class="even">
-<td>Nvim builtin</td>
-<td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td></td>
+<td><code>glp</code></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteIndentedAfter</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><code>&lt;lt&gt;</code></td>
-<td><code>&lt;lt&gt;gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&gt;</code></td>
-<td><code>&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>@(targets)</code></td>
-<td><code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>A</code></td>
-<td><code>&lt;Plug&gt;(niceblock-A)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>F</code></td>
-<td><code>&lt;Plug&gt;(clever-f-F)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>H</code></td>
-<td><code>^</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>I</code></td>
-<td><code>&lt;Plug&gt;(niceblock-I)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>J</code></td>
-<td><code>5j</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>K</code></td>
-<td><code>5k</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>L</code></td>
-<td><code>$</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>N</code></td>
-<td><code>&lt;Plug&gt;(is-N)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>P</code></td>
-<td><code>'"_d"'.v:register.'P'</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>T</code></td>
-<td><code>&lt;Plug&gt;(clever-f-T)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\&lt;lt&gt;Space&gt;T</code></td>
-<td><code>&lt;Plug&gt;(table-mode-tableize-delimiter)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\&lt;lt&gt;Space&gt;tt</code></td>
-<td><code>&lt;Plug&gt;(table-mode-tableize)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>as</code></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-query-a)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>ab</code></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>aI</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 1, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>ai</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 0, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>a</code></td>
-<td><code>targets#e('o', 'a', 'a')</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>a%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>au</code></td>
-<td><code>:lua require"treesitter-unit".select(true)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>b</code></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_b</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>e</code></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_e</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>f</code></td>
-<td><code>&lt;Plug&gt;(clever-f-f)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gs.</code></td>
-<td><code>&lt;Plug&gt;CaserVDotCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gsK</code></td>
-<td><code>&lt;Plug&gt;CaserVTitleKebabCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gs-</code></td>
-<td><code>&lt;Plug&gt;CaserVKebabCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gsk</code></td>
-<td><code>&lt;Plug&gt;CaserVKebabCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gs</code></td>
-<td><code>&lt;Plug&gt;CaserVSpaceCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gss</code></td>
-<td><code>&lt;Plug&gt;CaserVSentenceCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gst</code></td>
-<td><code>&lt;Plug&gt;CaserVTitleCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gsU</code></td>
-<td><code>&lt;Plug&gt;CaserVUpperCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gsu</code></td>
-<td><code>&lt;Plug&gt;CaserVUpperCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gs_</code></td>
-<td><code>&lt;Plug&gt;CaserVSnakeCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gsc</code></td>
-<td><code>&lt;Plug&gt;CaserVCamelCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gsp</code></td>
-<td><code>&lt;Plug&gt;CaserVMixedCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gsm</code></td>
-<td><code>&lt;Plug&gt;CaserVMixedCase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>g#</code></td>
-<td><code>&lt;Plug&gt;(is-g#)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>g*</code></td>
-<td><code>&lt;Plug&gt;(is-g*)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gR</code></td>
-<td><code>&lt;Plug&gt;ReplaceWithSameIndentRegisterVisual</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>gr</code></td>
-<td><code>&lt;Plug&gt;ReplaceWithRegisterVisual</code></td>
-</tr>
-<tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td><code>gb</code></td>
-<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-</tr>
-<tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td><code>gc</code></td>
-<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>&lt;Plug&gt;ReplaceWithRegisterOperator</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gI</code></td>
-<td><code>&lt;Plug&gt;(niceblock-gI)</code></td>
+<td><code>grR</code></td>
+<td><code>&lt;Plug&gt;ReplaceWithRegisterLine</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gx</code></td>
-<td><code>&lt;Plug&gt;(openbrowser-smart-search)</code></td>
+<td><code>grr</code></td>
+<td><code>&lt;Plug&gt;ReplaceWithSameIndentRegisterLine</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>g-</code></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>ge</code></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ge</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>is</code></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-query-i)</code></td>
-</tr>
 <tr class="even">
-<td></td>
-<td><code>ib</code></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>iI</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 1, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>ii</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 0, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>i</code></td>
-<td><code>targets#e('o', 'i', 'i')</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>iu</code></td>
-<td><code>:lua require"treesitter-unit".select()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><code>j</code></td>
-<td><code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'j' : 'gj'</code></td>
+<td><code>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’j’ :
+‘gj’</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>k</code></td>
+<td><code>v:count ? (v:count &gt; 5 ? “m’” . v:count : ’‘) . ’k’ :
+‘gk’</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>k</code></td>
-<td><code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'k' : 'gk'</code></td>
+<td><code>m?</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#List(v:count,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>m/</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#List(0,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m&lt;BS&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#marker#Purge()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m </code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Purge(“all”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m-</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Purge(“line”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m.</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#ToggleAtLine()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m,</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Toggle(“next”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m</code></td>
+<td><code>:&lt;C-U&gt;call signature#utils#Input()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>n</code></td>
 <td><code>&lt;Plug&gt;(is-n)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>srb</code></td>
+<td><code>&lt;Plug&gt;(sandwich-replace-auto)</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1477,128 +1144,179 @@ v:register)’</td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code>sdb</code></td>
+<td><code>&lt;Plug&gt;(sandwich-delete-auto)</code></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><code>sd</code></td>
 <td><code>&lt;Plug&gt;(sandwich-delete)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>sa</code></td>
 <td><code>&lt;Plug&gt;(sandwich-add)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>t</code></td>
 <td><code>&lt;Plug&gt;(clever-f-t)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>w</code></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_w</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(table-mode-cell-text-object-i)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(table-mode-cell-text-object-a)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code></td>
+<td><code>x</code></td>
+<td><code>“_x</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(table-mode-tableize-delimiter)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#TableizeByDelimiter()&lt;CR&gt;</code></td>
+<td><code>y&lt;C-G&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setreg(v:register,
+fugitive#Object(@%))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-sort)</code></td>
+<td><code>:call tablemode#spreadsheet#Sort(’’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-echo-cell)</code></td>
+<td><code>:call tablemode#spreadsheet#EchoCell()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-eval-formula)</code></td>
+<td><code>:call
+tablemode#spreadsheet#formula#EvaluateFormulaLine()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-add-formula)</code></td>
+<td><code>:call
+tablemode#spreadsheet#formula#Add()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-insert-column-after)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#InsertColumn(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-insert-column-before)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#InsertColumn(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-delete-column)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#DeleteColumn()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-delete-row)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#DeleteRow()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-right)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘l’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-left)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘h’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-down)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘j’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-up)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘k’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-realign)</code></td>
+<td><code>:call tablemode#table#Realign(‘.’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(table-mode-tableize)</code></td>
 <td><code>:Tableize&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code></td>
-<td><code>textobj#sandwich#query('x', 'a', {}, [])</code></td>
+<td><code>textobj#sandwich#query(‘n’, ‘a’, {}, [])</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code></td>
-<td><code>textobj#sandwich#query('x', 'i', {}, [])</code></td>
+<td><code>textobj#sandwich#query(‘n’, ‘i’, {}, [])</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-query-a)</code></td>
-<td><code>textobj#sandwich#query('x', 'a')</code></td>
+<td><code>textobj#sandwich#query(‘n’, ‘a’)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-query-i)</code></td>
-<td><code>textobj#sandwich#query('x', 'i')</code></td>
+<td><code>textobj#sandwich#query(‘n’, ‘i’)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td>
-<td><code>textobj#sandwich#auto('x', 'a')</code></td>
+<td><code>textobj#sandwich#auto(‘n’, ‘a’)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code></td>
-<td><code>textobj#sandwich#auto('x', 'i')</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(sandwich-replace)</code></td>
-<td><code>&lt;Plug&gt;(operator-sandwich-replace)</code></td>
+<td><code>textobj#sandwich#auto(‘n’, ‘i’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(sandwich-delete)</code></td>
-<td><code>&lt;Plug&gt;(operator-sandwich-delete)</code></td>
+<td><code>&lt;Plug&gt;(sandwich-replace-auto)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(sandwich-delete-auto)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(sandwich-replace)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(sandwich-delete)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(sandwich-add)</code></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add)</code></td>
 </tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code></td>
-</tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-function-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#a('x')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('x')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-function-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#i('x')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('x')&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-gv)</code></td>
+<td><code>gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1608,167 +1326,335 @@ v:register)’</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘replace’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘delete’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘add’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-dot)</code></td>
+<td><code>operator#sandwich#dot()</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-predot)</code></td>
+<td><code>operator#sandwich#predot()</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code></td>
-<td><code>&lt;Esc&gt;:call operator#sandwich#query1st('replace', 'x')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call operator#sandwich#query1st(‘replace’,
+‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code></td>
-<td><code>&lt;Esc&gt;:call operator#sandwich#query1st('add', 'x')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call operator#sandwich#query1st(‘add’,
+‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code></td>
-<td><code>&lt;Esc&gt;:call operator#sandwich#prerequisite('replace', 'x')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call operator#sandwich#prerequisite(‘replace’,
+‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code></td>
-<td><code>&lt;Esc&gt;:call operator#sandwich#prerequisite('delete', 'x')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call operator#sandwich#prerequisite(‘delete’,
+‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add-pre)</code></td>
-<td><code>&lt;Esc&gt;:call operator#sandwich#prerequisite('add', 'x')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call operator#sandwich#prerequisite(‘add’,
+‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-replace)</code></td>
-<td><code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-delete)</code></td>
-<td><code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add)</code></td>
-<td><code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
+<td><code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-g@)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(niceblock-A)</code></td>
-<td><code>niceblock#force_blockwise('A')</code></td>
+<td><code>&lt;Plug&gt;(qf_qf_switch)</code></td>
+<td><code>&amp;filetype ==# ‘qf’ ? ‘&lt;C-W&gt;p’ :
+‘&lt;C-W&gt;b’</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(niceblock-gI)</code></td>
-<td><code>niceblock#force_blockwise('gI')</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_toggle_stay)</code></td>
+<td><code>:&lt;C-U&gt; call
+qf#toggle#ToggleLocWindow(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(niceblock-I)</code></td>
-<td><code>niceblock#force_blockwise('I')</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_toggle)</code></td>
+<td><code>:&lt;C-U&gt; call
+qf#toggle#ToggleLocWindow(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_qf_toggle_stay)</code></td>
+<td><code>:&lt;C-U&gt; call
+qf#toggle#ToggleQfWindow(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_qf_toggle)</code></td>
+<td><code>:&lt;C-U&gt; call
+qf#toggle#ToggleQfWindow(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_loc_next)</code></td>
+<td><code>:&lt;C-U&gt; call qf#wrap#WrapCommand(‘down’,
+‘l’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_loc_previous)</code></td>
+<td><code>:&lt;C-U&gt; call qf#wrap#WrapCommand(‘up’,
+‘l’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_qf_next)</code></td>
+<td><code>:&lt;C-U&gt; call qf#wrap#WrapCommand(‘down’,
+‘c’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(qf_qf_previous)</code></td>
+<td><code>:&lt;C-U&gt; call qf#wrap#WrapCommand(‘up’,
+‘c’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;QfSwitch</code></td>
+<td><code>&amp;filetype ==# ‘qf’ ? ‘&lt;C-W&gt;p’ :
+‘&lt;C-W&gt;b’</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;QfLtoggle</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_toggle)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;QfCtoggle</code></td>
+<td><code>&lt;Plug&gt;(qf_qf_toggle)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;QfLnext</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_next)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;QfLprevious</code></td>
+<td><code>&lt;Plug&gt;(qf_loc_previous)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;QfCnext</code></td>
+<td><code>&lt;Plug&gt;(qf_qf_next)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;QfCprevious</code></td>
+<td><code>&lt;Plug&gt;(qf_qf_previous)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;GitGutterPreviewHunk</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterPreviewHunk to
+&lt;lt&gt;Plug&gt;(GitGutterPreviewHunk)’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(GitGutterPreviewHunk)</code></td>
+<td><code>:GitGutterPreviewHunk&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;GitGutterUndoHunk</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterUndoHunk to
+&lt;lt&gt;Plug&gt;(GitGutterUndoHunk)’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(GitGutterUndoHunk)</code></td>
+<td><code>:GitGutterUndoHunk&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;GitGutterStageHunk</code></td>
-<td><code>:call gitgutter#utility#warn('Please change your map &lt;lt&gt;Plug&gt;GitGutterStageHunk to &lt;lt&gt;Plug&gt;(GitGutterStageHunk)')&lt;CR&gt;</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterStageHunk to
+&lt;lt&gt;Plug&gt;(GitGutterStageHunk)’)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(GitGutterStageHunk)</code></td>
 <td><code>:GitGutterStageHunk&lt;CR&gt;</code></td>
 </tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;GitGutterPrevHunk</code></td>
+<td><code>&amp;diff ? ‘[c’ : “:&amp;lt;C-U&gt;call
+gitgutter#utility#warn(‘Please change your map
+&amp;lt;lt&gt;Plug&gt;GitGutterPrevHunk to
+&amp;lt;lt&gt;Plug&gt;(GitGutterPrevHunk)’)&amp;lt;CR&gt;”</code></td>
+</tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(GitGutterTextObjectOuterVisual)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(0)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterPrevHunk)</code></td>
+<td><code>&amp;diff ? ‘[c’ : “:&amp;lt;C-U&gt;execute v:count1 .
+‘GitGutterPrevHunk’&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(GitGutterTextObjectInnerVisual)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(1)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterNextHunk</code></td>
+<td><code>&amp;diff ? ‘]c’ : “:&amp;lt;C-U&gt;call
+gitgutter#utility#warn(‘Please change your map
+&amp;lt;lt&gt;Plug&gt;GitGutterNextHunk to
+&amp;lt;lt&gt;Plug&gt;(GitGutterNextHunk)’)&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVDotCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("DotCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterNextHunk)</code></td>
+<td><code>&amp;diff ? ‘]c’ : “:&amp;lt;C-U&gt;execute v:count1 .
+‘GitGutterNextHunk’&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVTitleKebabCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("TitleKebabCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;fugitive:</code></td>
+<td><code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVKebabCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("KebabCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setreg(v:register,
+fugitive#Object(@%))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVSpaceCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("SpaceCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserDotCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“DotCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVSentenceCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("SentenceCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserTitleKebabCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“TitleKebabCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVTitleCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("TitleCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserKebabCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“KebabCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVUpperCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("UpperCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserSpaceCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“SpaceCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVSnakeCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("SnakeCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserSentenceCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“SentenceCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVCamelCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("CamelCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserTitleCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“TitleCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;CaserVMixedCase</code></td>
-<td><code>:&lt;C-U&gt;call caser#DoAction("MixedCase",visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;CaserUpperCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“UpperCase”)&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CaserSnakeCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“SnakeCase”)&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CaserCamelCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“CamelCase”)&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CaserMixedCase</code></td>
+<td><code>:&lt;C-U&gt;call
+caser#ActionSetup(“MixedCase”)&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(QuickScopeToggle)</code></td>
-<td><code>:&lt;C-U&gt;call &lt;SNR&gt;82_toggle()&lt;CR&gt;</code></td>
+<td><code>:call &lt;SNR&gt;82_toggle()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(openbrowser-smart-search)</code></td>
-<td><code>:&lt;C-U&gt;call openbrowser#_keymap_smart_search('v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_smart_search(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(openbrowser-search)</code></td>
-<td><code>:&lt;C-U&gt;call openbrowser#_keymap_search('v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_search(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(openbrowser-open-incognito)</code></td>
-<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open('v', 0, ['--incognito'])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open(‘n’, 0,
+[‘–incognito’])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(openbrowser-open)</code></td>
-<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open('v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_open(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1853,17 +1739,27 @@ v:register)’</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(is-scroll-b)</code></td>
-<td><code>is#scroll_count(0, @/) . 'Nzz'</code></td>
+<td><code>is#scroll_count(0, @/) . ‘Nzz’</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(is-scroll-f)</code></td>
-<td><code>is#scroll_count(1, @/) . 'nzz'</code></td>
+<td><code>is#scroll_count(1, @/) . ‘nzz’</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(fzf-maps-x)</code></td>
-<td><code>:&lt;C-U&gt;call fzf#vim#maps('x', 0)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(fzf-maps-n)</code></td>
+<td><code>:&lt;C-U&gt;call fzf#vim#maps(‘n’, 0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(fzf-normal)</code></td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(fzf-insert)</code></td>
+<td><code>i</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1883,72 +1779,409 @@ v:register)’</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-T)</code></td>
-<td><code>clever_f#find_with('T')</code></td>
+<td><code>clever_f#find_with(‘T’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-t)</code></td>
-<td><code>clever_f#find_with('t')</code></td>
+<td><code>clever_f#find_with(‘t’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-F)</code></td>
-<td><code>clever_f#find_with('F')</code></td>
+<td><code>clever_f#find_with(‘F’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-f)</code></td>
-<td><code>clever_f#find_with('f')</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_ige</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('ge',v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_ie</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('e',v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_ib</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('b',v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;CamelCaseMotion_iw</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('w',v:count1)&lt;CR&gt;</code></td>
+<td><code>clever_f#find_with(‘f’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ge</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('ge',v:count1,'v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘ge’,v:count1,‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_e</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('e',v:count1,'v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘e’,v:count1,‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_b</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('b',v:count1,'v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘b’,v:count1,‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_w</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('w',v:count1,'v')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘w’,v:count1,‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteGPlusRepeatBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteGPlusRepeatAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteGPlusBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteGPlusAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPastePlusRepeatBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPastePlusRepeatAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPastePlusBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPastePlusAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteUnjoinBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteUnjoinAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallQueriedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallQueriedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteQueriedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteQueriedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteDelimitedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteDelimitedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteJaggedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteJaggedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteJaggedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteJaggedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteSpacedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteSpacedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteSpacedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteSpacedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommentedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommentedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommentedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommentedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteShiftedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteShiftedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteShiftedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteShiftedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteLessIndentBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteLessIndentAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteMoreIndentBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteMoreIndentAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteIndentedBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteIndentedAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteIndentedAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCommaAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCommaAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteBlockBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteBlockBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteBlockAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteBlockAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteLineBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteLineBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteLineAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteLineAfter”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCharBefore</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCharBefore”,
+v:register)’|if v:register ==# “=”</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UnconditionalPasteCharAfter</code></td>
+<td><code>:&lt;C-U&gt;execute ‘silent! call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;UnconditionalPasteCharAfter”,
+v:register)’|if v:register ==# “=”</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;ReplaceWithSameIndentRegisterVisual</code></td>
-<td><code>:&lt;C-U&gt;call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|call ReplaceWithSameIndentRegister#Visual("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setline(‘.’, getline(‘.’))|execute ‘silent!
+call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual”,
+v:register)’</td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code>&lt;Plug&gt;ReplaceWithSameIndentRegisterLine</code></td>
+<td><code>:&lt;C-U&gt;call setline(‘.’, getline(‘.’))|execute ‘silent!
+call
+repeat#setreg(“&amp;lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterLine”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
 <td><code>&lt;Plug&gt;ReplaceWithRegisterVisual</code></td>
-<td><code>:&lt;C-U&gt;call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setline(‘.’, getline(‘.’))|execute ‘silent!
+call repeat#setreg(“&amp;lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual”,
+v:register)’</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;ReplaceWithRegisterLine</code></td>
+<td><code>:&lt;C-U&gt;call setline(‘.’, getline(‘.’))|execute ‘silent!
+call repeat#setreg(“&amp;lt;lt&gt;Plug&gt;ReplaceWithRegisterLine”,
+v:register)’</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;ReplaceWithRegisterExpressionSpecial</code></td>
+<td><code>:&lt;C-U&gt;let g:ReplaceWithRegister_expr =
+getreg(‘=’)|execute ‘normal!’ v:count1 . ‘.’&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;ReplaceWithRegisterOperator</code></td>
+<td><code>ReplaceWithRegister#OperatorExpression()</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1956,32 +2189,615 @@ v:register)’</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise (visual)</td>
-<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise (visual)</td>
-<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td>Comment toggle blockwise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>:lua require(‘fuzzy’).files(’’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-W&gt;j</code></td>
+<td><code>&lt;C-W&gt;5-</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-W&gt;k</code></td>
+<td><code>&lt;C-W&gt;5+</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-W&gt;h</code></td>
+<td><code>&lt;C-W&gt;5&lt;lt&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-W&gt;l</code></td>
+<td><code>&lt;C-W&gt;5&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘Navigator’).up()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘Navigator’).down()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘Navigator’).left()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Right&gt;</code></td>
+<td><code>:lua require(‘lists’).move(‘right’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Left&gt;</code></td>
+<td><code>:lua require(‘lists’).move(‘left’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Down&gt;</code></td>
+<td><code>:lua require(‘lists’).move(‘down’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Up&gt;</code></td>
+<td><code>:lua require(‘lists’).move(‘up’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘Navigator’).right()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
+<table>
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>LHS</th>
+<th>RHS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><code> rr</code></td>
+<td><code>:s/ Nvim builtin</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>%</code></td>
 <td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td>`:<C-U>call matchit#Match_wrapper(’‘,1,’v’)<CR>:if col(“’’”) !=
-col(“$”)</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>*</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>@(targets)</code></td>
+<td><code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>A</code></td>
+<td><code>&lt;Plug&gt;(niceblock-A)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>F</code></td>
+<td><code>&lt;Plug&gt;(clever-f-F)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>H</code></td>
+<td><code>^</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>I</code></td>
+<td><code>&lt;Plug&gt;(niceblock-I)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>J</code></td>
+<td><code>5j</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>K</code></td>
+<td><code>5k</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>L</code></td>
+<td><code><span class="math inline">$&lt;/code&gt; | | |
+&lt;code&gt;N&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-N)&lt;/code&gt; | | |
+&lt;code&gt;P&lt;/code&gt; |
+&lt;code&gt;'"_d"'.v:register.'P'&lt;/code&gt; | | |
+&lt;code&gt;T&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-T)&lt;/code&gt; | | |
+&lt;code&gt;[%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
+| | | &lt;code&gt;\&amp;lt;lt&amp;gt;Space&amp;gt;T&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize-delimiter)&lt;/code&gt;
+| | | &lt;code&gt;\&amp;lt;lt&amp;gt;Space&amp;gt;tt&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; | | |
+&lt;code&gt;]%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| | | &lt;code&gt;as&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-query-a)&lt;/code&gt;
+| | | &lt;code&gt;ab&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-auto-a)&lt;/code&gt; |
+| | &lt;code&gt;aI&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;cal
+&amp;lt;SNR&amp;gt;95_HandleTextObjectMapping(0, 1, 1,
+[line("'&amp;lt;lt&amp;gt;"), line("'&amp;gt;"),
+col("'&amp;lt;lt&amp;gt;"),
+col("'&amp;gt;")])&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt;gv&lt;/code&gt; |
+| | &lt;code&gt;ai&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;cal
+&amp;lt;SNR&amp;gt;95_HandleTextObjectMapping(0, 0, 1,
+[line("'&amp;lt;lt&amp;gt;"), line("'&amp;gt;"),
+col("'&amp;lt;lt&amp;gt;"),
+col("'&amp;gt;")])&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt;gv&lt;/code&gt; |
+| | &lt;code&gt;a&lt;/code&gt; | &lt;code&gt;targets#e('o', 'a',
+'a')&lt;/code&gt; | | | &lt;code&gt;a%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
+| | &lt;code&gt;au&lt;/code&gt; | &lt;code&gt;:lua
+require"treesitter-unit".select(true)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;b&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_b&lt;/code&gt; | | |
+&lt;code&gt;e&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_e&lt;/code&gt; | | |
+&lt;code&gt;f&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-f)&lt;/code&gt; | | |
+&lt;code&gt;gs.&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVDotCase&lt;/code&gt; | | |
+&lt;code&gt;gsK&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVTitleKebabCase&lt;/code&gt; | | |
+&lt;code&gt;gs-&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVKebabCase&lt;/code&gt; | | |
+&lt;code&gt;gsk&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVKebabCase&lt;/code&gt; | | |
+&lt;code&gt;gs &lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSpaceCase&lt;/code&gt; | | |
+&lt;code&gt;gss&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSentenceCase&lt;/code&gt; | | |
+&lt;code&gt;gst&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVTitleCase&lt;/code&gt; | | |
+&lt;code&gt;gsU&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVUpperCase&lt;/code&gt; | | |
+&lt;code&gt;gsu&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVUpperCase&lt;/code&gt; | | |
+&lt;code&gt;gs_&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSnakeCase&lt;/code&gt; | | |
+&lt;code&gt;gsc&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVCamelCase&lt;/code&gt; | | |
+&lt;code&gt;gsp&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVMixedCase&lt;/code&gt; | | |
+&lt;code&gt;gsm&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVMixedCase&lt;/code&gt; | | |
+&lt;code&gt;g#&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-g#)&lt;/code&gt; | | |
+&lt;code&gt;g*&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-g*)&lt;/code&gt; | | |
+&lt;code&gt;gR&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReplaceWithSameIndentRegisterVisual&lt;/code&gt;
+| | | &lt;code&gt;gr&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReplaceWithRegisterVisual&lt;/code&gt; |
+| Comment toggle blockwise (visual) | &lt;code&gt;gb&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_blockwise_visual)&lt;/code&gt;
+| | Comment toggle linewise (visual) | &lt;code&gt;gc&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_linewise_visual)&lt;/code&gt;
+| | | &lt;code&gt;g%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; | |
+| &lt;code&gt;gI&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(niceblock-gI)&lt;/code&gt; | | |
+&lt;code&gt;gx&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-smart-search)&lt;/code&gt;
+| | | &lt;code&gt;ge&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_ge&lt;/code&gt; | | |
+&lt;code&gt;is&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-query-i)&lt;/code&gt;
+| | | &lt;code&gt;ib&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-auto-i)&lt;/code&gt; |
+| | &lt;code&gt;iI&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;cal
+&amp;lt;SNR&amp;gt;95_HandleTextObjectMapping(1, 1, 1,
+[line("'&amp;lt;lt&amp;gt;"), line("'&amp;gt;"),
+col("'&amp;lt;lt&amp;gt;"),
+col("'&amp;gt;")])&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt;gv&lt;/code&gt; |
+| | &lt;code&gt;ii&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;cal
+&amp;lt;SNR&amp;gt;95_HandleTextObjectMapping(1, 0, 1,
+[line("'&amp;lt;lt&amp;gt;"), line("'&amp;gt;"),
+col("'&amp;lt;lt&amp;gt;"),
+col("'&amp;gt;")])&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt;gv&lt;/code&gt; |
+| | &lt;code&gt;i&lt;/code&gt; | &lt;code&gt;targets#e('o', 'i',
+'i')&lt;/code&gt; | | | &lt;code&gt;iu&lt;/code&gt; | &lt;code&gt;:lua
+require"treesitter-unit".select()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;j&lt;/code&gt; | &lt;code&gt;v:count ? (v:count &amp;gt; 5 ?
+"m'" . v:count : '') . 'j' : 'gj'&lt;/code&gt; | | |
+&lt;code&gt;k&lt;/code&gt; | &lt;code&gt;v:count ? (v:count &amp;gt; 5 ?
+"m'" . v:count : '') . 'k' : 'gk'&lt;/code&gt; | | |
+&lt;code&gt;n&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-n)&lt;/code&gt; | | |
+&lt;code&gt;sr&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-replace)&lt;/code&gt; | | |
+&lt;code&gt;sd&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-delete)&lt;/code&gt; | | |
+&lt;code&gt;sa&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-add)&lt;/code&gt; | | |
+&lt;code&gt;t&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-t)&lt;/code&gt; | | |
+&lt;code&gt;w&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_w&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-cell-text-object-i)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#spreadsheet#cell#TextObject(1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-cell-text-object-a)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#spreadsheet#cell#TextObject(0)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize-delimiter)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#TableizeByDelimiter()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; |
+&lt;code&gt;:Tableize&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-literal-query-a)&lt;/code&gt;
+| &lt;code&gt;textobj#sandwich#query('x', 'a', {}, [])&lt;/code&gt; | |
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-literal-query-i)&lt;/code&gt;
+| &lt;code&gt;textobj#sandwich#query('x', 'i', {}, [])&lt;/code&gt; | |
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-query-a)&lt;/code&gt;
+| &lt;code&gt;textobj#sandwich#query('x', 'a')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-query-i)&lt;/code&gt;
+| &lt;code&gt;textobj#sandwich#query('x', 'i')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-auto-a)&lt;/code&gt; |
+&lt;code&gt;textobj#sandwich#auto('x', 'a')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-auto-i)&lt;/code&gt; |
+&lt;code&gt;textobj#sandwich#auto('x', 'i')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-replace)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-delete)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-delete)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(sandwich-add)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add)&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-tag-a)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#t#at()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-tag-i)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#t#it()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-tagname-a)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#t#a()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-tagname-i)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#t#i()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-function-a)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#f#a('x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-function-ap)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#f#ap('x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-function-i)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#f#i('x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-sandwich-function-ip)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+sandwich#magicchar#f#ip('x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-g@)&lt;/code&gt; |
+&lt;code&gt;g@&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace-visualrepeat)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+operator#sandwich#visualrepeat('replace')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-delete-visualrepeat)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+operator#sandwich#visualrepeat('delete')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add-visualrepeat)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+operator#sandwich#visualrepeat('add')&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace-query1st)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;:call
+operator#sandwich#query1st('replace',
+'x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add-query1st)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;:call operator#sandwich#query1st('add',
+'x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace-pre)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;:call
+operator#sandwich#prerequisite('replace',
+'x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-delete-pre)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;:call
+operator#sandwich#prerequisite('delete',
+'x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add-pre)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;:call
+operator#sandwich#prerequisite('add',
+'x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace)&lt;/code&gt;
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-replace-pre)&amp;lt;Plug&amp;gt;(operator-sandwich-gv)&amp;lt;Plug&amp;gt;(operator-sandwich-g@)&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-delete)&lt;/code&gt;
+|
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-delete-pre)&amp;lt;Plug&amp;gt;(operator-sandwich-gv)&amp;lt;Plug&amp;gt;(operator-sandwich-g@)&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(operator-sandwich-add-pre)&amp;lt;Plug&amp;gt;(operator-sandwich-gv)&amp;lt;Plug&amp;gt;(operator-sandwich-g@)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(niceblock-A)&lt;/code&gt; |
+&lt;code&gt;niceblock#force_blockwise('A')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(niceblock-gI)&lt;/code&gt; |
+&lt;code&gt;niceblock#force_blockwise('gI')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(niceblock-I)&lt;/code&gt; |
+&lt;code&gt;niceblock#force_blockwise('I')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;GitGutterStageHunk&lt;/code&gt; |
+&lt;code&gt;:call gitgutter#utility#warn('Please change your map
+&amp;lt;lt&amp;gt;Plug&amp;gt;GitGutterStageHunk to
+&amp;lt;lt&amp;gt;Plug&amp;gt;(GitGutterStageHunk)')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterStageHunk)&lt;/code&gt;
+| &lt;code&gt;:GitGutterStageHunk&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterTextObjectOuterVisual)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+gitgutter#hunk#text_object(0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterTextObjectInnerVisual)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+gitgutter#hunk#text_object(1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CaserVDotCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("DotCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVTitleKebabCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("TitleKebabCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVKebabCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("KebabCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSpaceCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("SpaceCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSentenceCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("SentenceCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVTitleCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("TitleCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVUpperCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("UpperCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVSnakeCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("SnakeCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVCamelCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("CamelCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CaserVMixedCase&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+caser#DoAction("MixedCase",visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(QuickScopeToggle)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;82_toggle()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-smart-search)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_smart_search('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-search)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_search('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open-incognito)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call openbrowser#_keymap_open('v', 0,
+['--incognito'])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_open('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-g#)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-g#)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(is-g*)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-g*)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(is-#)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-#)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(is-*)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-*)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(is-N)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-N)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(is-n)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&amp;lt;Plug&amp;gt;(_is-n)&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(_is-g#)&lt;/code&gt; |
+&lt;code&gt;g#&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(_is-g*)&lt;/code&gt; |
+&lt;code&gt;g*&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(_is-#)&lt;/code&gt; |
+&lt;code&gt;#&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(_is-*)&lt;/code&gt; |
+&lt;code&gt;*&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(_is-N)&lt;/code&gt; |
+&lt;code&gt;N&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(_is-n)&lt;/code&gt; |
+&lt;code&gt;n&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl-2)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl-3)&lt;/code&gt; |
+&lt;code&gt;is#auto_nohlsearch(3)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl-2)&lt;/code&gt; |
+&lt;code&gt;is#auto_nohlsearch(2)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-nohl-1)&lt;/code&gt; |
+&lt;code&gt;is#auto_nohlsearch(1)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-scroll-b)&lt;/code&gt; |
+&lt;code&gt;is#scroll_count(0, @/) . 'Nzz'&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(is-scroll-f)&lt;/code&gt; |
+&lt;code&gt;is#scroll_count(1, @/) . 'nzz'&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(fzf-maps-x)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call fzf#vim#maps('x',
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-repeat-back)&lt;/code&gt; |
+&lt;code&gt;clever_f#repeat(1)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-repeat-forward)&lt;/code&gt; |
+&lt;code&gt;clever_f#repeat(0)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-reset)&lt;/code&gt; |
+&lt;code&gt;clever_f#reset()&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-T)&lt;/code&gt; |
+&lt;code&gt;clever_f#find_with('T')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-t)&lt;/code&gt; |
+&lt;code&gt;clever_f#find_with('t')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-F)&lt;/code&gt; |
+&lt;code&gt;clever_f#find_with('F')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(clever-f-f)&lt;/code&gt; |
+&lt;code&gt;clever_f#find_with('f')&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_ige&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#InnerMotion('ge',v:count1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_ie&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#InnerMotion('e',v:count1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_ib&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#InnerMotion('b',v:count1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_iw&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#InnerMotion('w',v:count1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_ge&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#Motion('ge',v:count1,'v')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_e&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#Motion('e',v:count1,'v')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_b&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#Motion('b',v:count1,'v')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;CamelCaseMotion_w&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+camelcasemotion#Motion('w',v:count1,'v')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReplaceWithSameIndentRegisterVisual&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call setline('.',
+getline('.'))&amp;#124;execute 'silent! call
+repeat#setreg("\&amp;lt;lt&amp;gt;Plug&amp;gt;ReplaceWithSameIndentRegisterVisual",
+v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if
+ReplaceWithSameIndentRegister#IsExprReg()| let
+g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|call
+ReplaceWithSameIndentRegister#Visual("\&amp;lt;lt&amp;gt;Plug&amp;gt;ReplaceWithSameIndentRegisterVisual")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReplaceWithRegisterVisual&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call setline('.',
+getline('.'))&amp;#124;execute 'silent! call
+repeat#setreg("\&amp;lt;lt&amp;gt;Plug&amp;gt;ReplaceWithRegisterVisual",
+v:register)'|call ReplaceWithRegister#SetRegister()|if
+ReplaceWithRegister#IsExprReg()| let g:ReplaceWithRegister_expr =
+getreg('=')|endif|call ReplaceWithRegister#Operator('visual',
+"\&amp;lt;lt&amp;gt;Plug&amp;gt;ReplaceWithRegisterVisual")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;luasnip-expand-repeat&lt;/code&gt;
+| | | Comment toggle blockwise (visual) |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_blockwise_visual)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | Comment toggle linewise (visual) |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(comment_toggle_linewise_visual)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Esc&amp;gt;&amp;lt;Cmd&amp;gt;lua
+require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)o&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("W",
+"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW",
+"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchit#Match_wrapper('',0,'v')&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") !=
+col("$</span>“) | exe”:normal! m’”</td>
 </tr>
 </tbody>
 </table>
@@ -2023,7 +2839,7 @@ col(“$”)</td>
 <tr class="odd">
 <td></td>
 <td><code>A</code></td>
-<td><code>targets#e('o', 'A', 'A')</code></td>
+<td><code>targets#e(‘o’, ‘A’, ‘A’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2038,7 +2854,7 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>I</code></td>
-<td><code>targets#e('o', 'I', 'I')</code></td>
+<td><code>targets#e(‘o’, ‘I’, ‘I’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2078,22 +2894,25 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>aI</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 1, 0,
+[line(“.”), line(“.”), col(“.”), col(“.”)])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>ai</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 0, 0,
+[line(“.”), line(“.”), col(“.”), col(“.”)])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>a</code></td>
-<td><code>targets#e('o', 'a', 'a')</code></td>
+<td><code>targets#e(‘o’, ‘a’, ‘a’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>au</code></td>
-<td><code>:&lt;C-U&gt;lua require"treesitter-unit".select(true)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;lua
+require”treesitter-unit”.select(true)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2143,22 +2962,25 @@ col(“$”)</td>
 <tr class="odd">
 <td></td>
 <td><code>iI</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 1, 0,
+[line(“.”), line(“.”), col(“.”), col(“.”)])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>ii</code></td>
-<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 0, 0,
+[line(“.”), line(“.”), col(“.”), col(“.”)])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>i</code></td>
-<td><code>targets#e('o', 'i', 'i')</code></td>
+<td><code>targets#e(‘o’, ‘i’, ‘i’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>iu</code></td>
-<td><code>:&lt;C-U&gt;lua require"treesitter-unit".select()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;lua
+require”treesitter-unit”.select()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2183,42 +3005,44 @@ col(“$”)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(table-mode-cell-text-object-i)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(table-mode-cell-text-object-a)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code></td>
-<td><code>textobj#sandwich#query('o', 'a', {}, [])</code></td>
+<td><code>textobj#sandwich#query(‘o’, ‘a’, {}, [])</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code></td>
-<td><code>textobj#sandwich#query('o', 'i', {}, [])</code></td>
+<td><code>textobj#sandwich#query(‘o’, ‘i’, {}, [])</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-query-a)</code></td>
-<td><code>textobj#sandwich#query('o', 'a')</code></td>
+<td><code>textobj#sandwich#query(‘o’, ‘a’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-query-i)</code></td>
-<td><code>textobj#sandwich#query('o', 'i')</code></td>
+<td><code>textobj#sandwich#query(‘o’, ‘i’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td>
-<td><code>textobj#sandwich#auto('o', 'a')</code></td>
+<td><code>textobj#sandwich#auto(‘o’, ‘a’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code></td>
-<td><code>textobj#sandwich#auto('o', 'i')</code></td>
+<td><code>textobj#sandwich#auto(‘o’, ‘i’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2228,42 +3052,50 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#t#at()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#t#it()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#t#a()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#t#i()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-function-a)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#a('o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#f#a(‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#f#ap(‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-function-i)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#i('o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#f#i(‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code></td>
-<td><code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+sandwich#magicchar#f#ip(‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2273,17 +3105,20 @@ col(“$”)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘replace’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘delete’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code></td>
-<td><code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+operator#sandwich#visualrepeat(‘add’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2318,12 +3153,14 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(GitGutterTextObjectOuterPending)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+gitgutter#hunk#text_object(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(GitGutterTextObjectInnerPending)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+gitgutter#hunk#text_object(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2408,17 +3245,18 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(is-scroll-b)</code></td>
-<td><code>is#scroll_count(0, @/) . 'Nzz'</code></td>
+<td><code>is#scroll_count(0, @/) . ‘Nzz’</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(is-scroll-f)</code></td>
-<td><code>is#scroll_count(1, @/) . 'nzz'</code></td>
+<td><code>is#scroll_count(1, @/) . ‘nzz’</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(fzf-maps-o)</code></td>
-<td><code>&lt;C-C&gt;:&lt;C-U&gt;call fzf#vim#maps('o', 0)&lt;CR&gt;</code></td>
+<td><code>&lt;C-C&gt;:&lt;C-U&gt;call fzf#vim#maps(‘o’,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2438,62 +3276,70 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-T)</code></td>
-<td><code>clever_f#find_with('T')</code></td>
+<td><code>clever_f#find_with(‘T’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-t)</code></td>
-<td><code>clever_f#find_with('t')</code></td>
+<td><code>clever_f#find_with(‘t’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-F)</code></td>
-<td><code>clever_f#find_with('F')</code></td>
+<td><code>clever_f#find_with(‘F’)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(clever-f-f)</code></td>
-<td><code>clever_f#find_with('f')</code></td>
+<td><code>clever_f#find_with(‘f’)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ige</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('ge',v:count1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#InnerMotion(‘ge’,v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ie</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('e',v:count1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#InnerMotion(‘e’,v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ib</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('b',v:count1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#InnerMotion(‘b’,v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_iw</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('w',v:count1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#InnerMotion(‘w’,v:count1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_ge</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('ge',v:count1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘ge’,v:count1,‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_e</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('e',v:count1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘e’,v:count1,‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_b</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('b',v:count1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘b’,v:count1,‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;CamelCaseMotion_w</code></td>
-<td><code>:&lt;C-U&gt;call camelcasemotion#Motion('w',v:count1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+camelcasemotion#Motion(‘w’,v:count1,‘o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2503,22 +3349,26 @@ col(“$”)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

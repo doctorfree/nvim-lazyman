@@ -85,233 +85,233 @@ Personal Neovim configuration of mechanical engineering student Alexander Vazque
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Search on current file | ` sp` | `<Cmd>lua require("spectre").open_file_search({select_word=true})<CR>` |
-| Open Spectre | ` E` | `<Cmd>lua require("spectre").open()<CR>` |
-| LSP: Navbuddy | ` U` | `:Navbuddy<CR>` |
-|  | ` p` | `<Cmd>lua require('illuminate').goto_prev_reference()<CR>` |
-|  | ` n` | `<Cmd>lua require('illuminate').goto_next_reference()<CR>` |
-|  | ` f` | `<Cmd>lua vim.lsp.buf.format{async=true}<CR>` |
-|  | ` F` | `<Cmd>lua vim.lsp.buf.formatting()<CR>` |
-|  | ` tr` | `<Cmd>TroubleToggle workspace_diagnostics<CR><Cmd>TroubleToggle lsp_references<CR>` |
-|  | ` tl` | `<Cmd>TroubleToggle workspace_diagnostics<CR><Cmd>TroubleToggle loclist<CR>` |
-|  | ` tq` | `<Cmd>TroubleToggle workspace_diagnostics<CR><Cmd>TroubleToggle quickfix<CR>` |
-|  | ` td` | `<Cmd>TroubleToggle workspace_diagnostics<CR><Cmd>TroubleToggle document_diagnostics<CR>` |
-|  | ` tw` | `<Cmd>TroubleToggle workspace_diagnostics<CR><Cmd>TroubleToggle workspace_diagnostics<CR>` |
-|  | ` tt` | `<Cmd>TroubleToggle<CR>` |
-|  | ` Q` | `<Cmd>:q<CR>` |
-| LSP: Show line diagnostic | ` L` | `<Cmd>lua vim.diagnostic.open_float({scope="line"}) <CR>` |
-| [/] Fuzzily search in current buffer | ` g` |  |
-| [ ] Find existing buffers | `  ` |  |
-| [?] Find recently opened files | ` ?` |  |
-| Open diagnostics list | ` q` |  |
-|  | ` e` | `<Cmd>:NvimTreeToggle<CR>` |
-| LSP: Refresh | ` R` | `<Cmd>w<CR><Cmd>e!<CR>` |
-|  | ` N` | `*` |
-| LSP: [W]orkspace [L]ist Folders | ` wl` |  |
-| LSP: [W]orkspace [R]emove Folder | ` wr` |  |
-| LSP: [W]orkspace [A]dd Folder | ` wa` |  |
-| LSP: Signature Documentation | ` l` |  |
-| LSP: [W]orkspace [S]ymbols | ` ws` |  |
-| LSP: [D]ocument [S]ymbols | ` ds` |  |
-| LSP: Type [D]efinition | ` D` |  |
-|  | ` ca` |  |
-| LSP: [R]e[n]ame | ` rn` |  |
-| [S]earch [D]iagnostics | ` sd` |  |
-| [S]earch by [G]rep | ` sg` |  |
-| Search current word | ` sw` | `<Cmd>lua require("spectre").open_visual({select_word=true})<CR>` |
-| [S]earch [H]elp | ` sh` |  |
-| [S]earch [F]iles | ` sf` |  |
-|  | ` X` | `:qa!<CR>` |
-|  | ` h` | `:noh<CR>` |
-|  | ` B` | `:<C-U>bprevious | bdelete #<CR>` |
-|  | ` x` | `:<C-U>bprevious | bdelete #<CR>` |
-|  | ` /` | `<Cmd>lua require("Comment.api").toggle.linewise.current()<CR>` |
-|  | ` ` | `` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `+` | `<C-A>` |
-|  | `-` | `<C-X>` |
-|  | `H` | `<Cmd>BufferLineCyclePrev<CR>` |
-| LSP: Hover Documentation | `K` |  |
-|  | `L` | `<Cmd>BufferLineCycleNext<CR>` |
-|  | `S` | `:HopWord<CR>` |
-| Nvim builtin | `Y` | `y$` |
-| Go to previous diagnostic message | `[d` |  |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `\\gS` | `<Plug>(VM-Reselect-Last)` |
-|  | `\\/` | `<Plug>(VM-Start-Regex-Search)` |
-|  | `\\\` | `<Plug>(VM-Add-Cursor-At-Pos)` |
-|  | `\\A` | `<Plug>(VM-Select-All)` |
-| Go to next diagnostic message | `]d` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `c` | `"_c` |
-|  | `dw` | `diw` |
-| LSP: [G]oto [D]eclaration | `gD` |  |
-| LSP: [G]oto [I]mplementation | `gI` |  |
-| LSP: [G]oto [R]eferences | `gr` |  |
-| LSP: [G]oto [D]efinition | `gd` |  |
-|  | `gpr` | `<Cmd>lua require('goto-preview').goto_preview_references()<CR>` |
-|  | `gP` | `<Cmd>lua require('goto-preview').close_all_win()<CR>` |
-|  | `gpi` | `<Cmd>lua require('goto-preview').goto_preview_implementation()<CR>` |
-|  | `gpd` | `<Cmd>lua require('goto-preview').goto_preview_definition()<CR>` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-| Comment toggle blockwise | `gb` | `<Plug>(comment_toggle_blockwise)` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-|  | `j` | `v:count == 0 ? 'gj' : 'j'` |
-|  | `k` | `v:count == 0 ? 'gk' : 'k'` |
-|  | `sh` | `:noh<CR>` |
-|  | `s` | `:HopAnywhere<CR>` |
-|  | `sv` | `:vsplit<CR><C-W>w` |
-|  | `ss` | `:split<CR><C-W>w` |
-|  | `te` | `:tabedit<CR>` |
-|  | `x` | `"_x` |
-|  | `<M-N>` | `*` |
-|  | `<M-Q>` | `:qa!<CR>` |
-|  | `<M-J>` | `<C-W>-` |
-|  | `<M-K>` | `<C-W>+` |
-|  | `<M-L>` | `<C-W>>` |
-|  | `<M-H>` | `<C-W><lt>` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<M-X>` | `:<C-U>bprevious | bdelete #<CR>` |
-|  | `<M-S>` | `:SymbolsOutline<CR>` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<M-b>` | `:BufferLineMovePrev<CR>` |
-|  | `<M-m>` | `:BufferLineMoveNext<CR>` |
-|  | `<M-k>` | `:m .-2<CR>==` |
-|  | `<M-j>` | `:m .+1<CR>==` |
-| Toggle Terminal | `<M-F>` | `<Cmd>execute v:count . "ToggleTerm"<CR>` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<M-C-RightMouse>` | `<Plug>(VM-Mouse-Column)` |
-|  | `<C-RightMouse>` | `<Plug>(VM-Mouse-Word)` |
-|  | `<C-LeftMouse>` | `<Plug>(VM-Mouse-Cursor)` |
-|  | `<M-C-K>` | `<Plug>(VM-Add-Cursor-Up)` |
-|  | `<M-C-J>` | `<Plug>(VM-Add-Cursor-Down)` |
-|  | `<C-Down>` | `<Plug>(VM-Add-Cursor-Down)` |
-|  | `<C-Up>` | `<Plug>(VM-Add-Cursor-Up)` |
-|  | `<S-Right>` | `<Plug>(VM-Select-l)` |
-|  | `<S-Left>` | `<Plug>(VM-Select-h)` |
-|  | `<C-N>` | `<Plug>(VM-Find-Under)` |
-|  | `<Plug>(VM-Select-BBW)` | `:<C-U>call vm#commands#motion('BBW', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-gE)` | `:<C-U>call vm#commands#motion('gE', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-ge)` | `:<C-U>call vm#commands#motion('ge', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-E)` | `:<C-U>call vm#commands#motion('E', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-e)` | `:<C-U>call vm#commands#motion('e', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-B)` | `:<C-U>call vm#commands#motion('B', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-b)` | `:<C-U>call vm#commands#motion('b', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-W)` | `:<C-U>call vm#commands#motion('W', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-w)` | `:<C-U>call vm#commands#motion('w', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-l)` | `:<C-U>call vm#commands#motion('l', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-k)` | `:<C-U>call vm#commands#motion('k', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-j)` | `:<C-U>call vm#commands#motion('j', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Select-h)` | `:<C-U>call vm#commands#motion('h', v:count1, 1, 0)<CR>` |
-|  | `<Plug>(VM-Mouse-Column)` | `:call vm#commands#mouse_column()<CR>` |
-|  | `<Plug>(VM-Mouse-Word)` | `<Plug>(VM-Left-Mouse)<Plug>(VM-Find-Under)` |
-|  | `<Plug>(VM-Mouse-Cursor)` | `<Plug>(VM-Left-Mouse)<Plug>(VM-Add-Cursor-At-Pos)` |
-|  | `<Plug>(VM-Left-Mouse)` | `<LeftMouse>` |
-|  | `<Plug>(VM-Slash-Search)` | `@=vm#commands#find_by_regex(3)<CR>` |
-|  | `<Plug>(VM-Start-Regex-Search)` | `@=vm#commands#find_by_regex(1)<CR>` |
-|  | `<Plug>(VM-Find-Under)` | `:<C-U>call vm#commands#ctrln(v:count1)<CR>` |
-|  | `<Plug>(VM-Select-All)` | `:call vm#commands#find_all(0, 1)<CR>` |
-|  | `<Plug>(VM-Reselect-Last)` | `:call vm#commands#reselect_last()<CR>` |
-|  | `<Plug>(VM-Select-Cursor-Up)` | `:<C-U>call vm#commands#add_cursor_up(1, v:count1)<CR>` |
-|  | `<Plug>(VM-Select-Cursor-Down)` | `:<C-U>call vm#commands#add_cursor_down(1, v:count1)<CR>` |
-|  | `<Plug>(VM-Add-Cursor-Up)` | `:<C-U>call vm#commands#add_cursor_up(0, v:count1)<CR>` |
-|  | `<Plug>(VM-Add-Cursor-Down)` | `:<C-U>call vm#commands#add_cursor_down(0, v:count1)<CR>` |
-|  | `<Plug>(VM-Add-Cursor-At-Word)` | `:call vm#commands#add_cursor_at_word(1, 1)<CR>` |
-|  | `<Plug>(VM-Add-Cursor-At-Pos)` | `:call vm#commands#add_cursor_at_pos(0)<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-| Move to previous reference | `<M-p>` |  |
-| Move to next reference | `<M-n>` |  |
-|  | `<C-S-V>` | `"+p` |
-|  | `<C-S-C>` | `"+y` |
-|  | `<C-L>` | `<C-W>l` |
+| Search on current file | <code> sp</code> | <code>&lt;Cmd&gt;lua require("spectre").open_file_search({select_word=true})&lt;CR&gt;</code> |
+| Open Spectre | <code> E</code> | <code>&lt;Cmd&gt;lua require("spectre").open()&lt;CR&gt;</code> |
+| LSP: Navbuddy | <code> U</code> | <code>:Navbuddy&lt;CR&gt;</code> |
+|  | <code> p</code> | <code>&lt;Cmd&gt;lua require('illuminate').goto_prev_reference()&lt;CR&gt;</code> |
+|  | <code> n</code> | <code>&lt;Cmd&gt;lua require('illuminate').goto_next_reference()&lt;CR&gt;</code> |
+|  | <code> f</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.format{async=true}&lt;CR&gt;</code> |
+|  | <code> F</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.formatting()&lt;CR&gt;</code> |
+|  | <code> tr</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;&lt;Cmd&gt;TroubleToggle lsp_references&lt;CR&gt;</code> |
+|  | <code> tl</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;&lt;Cmd&gt;TroubleToggle loclist&lt;CR&gt;</code> |
+|  | <code> tq</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;&lt;Cmd&gt;TroubleToggle quickfix&lt;CR&gt;</code> |
+|  | <code> td</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;&lt;Cmd&gt;TroubleToggle document_diagnostics&lt;CR&gt;</code> |
+|  | <code> tw</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
+|  | <code> tt</code> | <code>&lt;Cmd&gt;TroubleToggle&lt;CR&gt;</code> |
+|  | <code> Q</code> | <code>&lt;Cmd&gt;:q&lt;CR&gt;</code> |
+| LSP: Show line diagnostic | <code> L</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float({scope="line"}) &lt;CR&gt;</code> |
+| [/] Fuzzily search in current buffer | <code> g</code> |  |
+| [ ] Find existing buffers | <code>  </code> |  |
+| [?] Find recently opened files | <code> ?</code> |  |
+| Open diagnostics list | <code> q</code> |  |
+|  | <code> e</code> | <code>&lt;Cmd&gt;:NvimTreeToggle&lt;CR&gt;</code> |
+| LSP: Refresh | <code> R</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;&lt;Cmd&gt;e!&lt;CR&gt;</code> |
+|  | <code> N</code> | <code>*</code> |
+| LSP: [W]orkspace [L]ist Folders | <code> wl</code> |  |
+| LSP: [W]orkspace [R]emove Folder | <code> wr</code> |  |
+| LSP: [W]orkspace [A]dd Folder | <code> wa</code> |  |
+| LSP: Signature Documentation | <code> l</code> |  |
+| LSP: [W]orkspace [S]ymbols | <code> ws</code> |  |
+| LSP: [D]ocument [S]ymbols | <code> ds</code> |  |
+| LSP: Type [D]efinition | <code> D</code> |  |
+|  | <code> ca</code> |  |
+| LSP: [R]e[n]ame | <code> rn</code> |  |
+| [S]earch [D]iagnostics | <code> sd</code> |  |
+| [S]earch by [G]rep | <code> sg</code> |  |
+| Search current word | <code> sw</code> | <code>&lt;Cmd&gt;lua require("spectre").open_visual({select_word=true})&lt;CR&gt;</code> |
+| [S]earch [H]elp | <code> sh</code> |  |
+| [S]earch [F]iles | <code> sf</code> |  |
+|  | <code> X</code> | <code>:qa!&lt;CR&gt;</code> |
+|  | <code> h</code> | <code>:noh&lt;CR&gt;</code> |
+|  | <code> B</code> | <code>:&lt;C-U&gt;bprevious &#124; bdelete #&lt;CR&gt;</code> |
+|  | <code> x</code> | <code>:&lt;C-U&gt;bprevious &#124; bdelete #&lt;CR&gt;</code> |
+|  | <code> /</code> | <code>&lt;Cmd&gt;lua require("Comment.api").toggle.linewise.current()&lt;CR&gt;</code> |
+|  | <code> </code> | <code></code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>+</code> | <code>&lt;C-A&gt;</code> |
+|  | <code>-</code> | <code>&lt;C-X&gt;</code> |
+|  | <code>H</code> | <code>&lt;Cmd&gt;BufferLineCyclePrev&lt;CR&gt;</code> |
+| LSP: Hover Documentation | <code>K</code> |  |
+|  | <code>L</code> | <code>&lt;Cmd&gt;BufferLineCycleNext&lt;CR&gt;</code> |
+|  | <code>S</code> | <code>:HopWord&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+| Go to previous diagnostic message | <code>[d</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>\\gS</code> | <code>&lt;Plug&gt;(VM-Reselect-Last)</code> |
+|  | <code>\\/</code> | <code>&lt;Plug&gt;(VM-Start-Regex-Search)</code> |
+|  | <code>\\\</code> | <code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code> |
+|  | <code>\\A</code> | <code>&lt;Plug&gt;(VM-Select-All)</code> |
+| Go to next diagnostic message | <code>]d</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>c</code> | <code>"_c</code> |
+|  | <code>dw</code> | <code>diw</code> |
+| LSP: [G]oto [D]eclaration | <code>gD</code> |  |
+| LSP: [G]oto [I]mplementation | <code>gI</code> |  |
+| LSP: [G]oto [R]eferences | <code>gr</code> |  |
+| LSP: [G]oto [D]efinition | <code>gd</code> |  |
+|  | <code>gpr</code> | <code>&lt;Cmd&gt;lua require('goto-preview').goto_preview_references()&lt;CR&gt;</code> |
+|  | <code>gP</code> | <code>&lt;Cmd&gt;lua require('goto-preview').close_all_win()&lt;CR&gt;</code> |
+|  | <code>gpi</code> | <code>&lt;Cmd&gt;lua require('goto-preview').goto_preview_implementation()&lt;CR&gt;</code> |
+|  | <code>gpd</code> | <code>&lt;Cmd&gt;lua require('goto-preview').goto_preview_definition()&lt;CR&gt;</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+|  | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
+|  | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
+|  | <code>sh</code> | <code>:noh&lt;CR&gt;</code> |
+|  | <code>s</code> | <code>:HopAnywhere&lt;CR&gt;</code> |
+|  | <code>sv</code> | <code>:vsplit&lt;CR&gt;&lt;C-W&gt;w</code> |
+|  | <code>ss</code> | <code>:split&lt;CR&gt;&lt;C-W&gt;w</code> |
+|  | <code>te</code> | <code>:tabedit&lt;CR&gt;</code> |
+|  | <code>x</code> | <code>"_x</code> |
+|  | <code>&lt;M-N&gt;</code> | <code>*</code> |
+|  | <code>&lt;M-Q&gt;</code> | <code>:qa!&lt;CR&gt;</code> |
+|  | <code>&lt;M-J&gt;</code> | <code>&lt;C-W&gt;-</code> |
+|  | <code>&lt;M-K&gt;</code> | <code>&lt;C-W&gt;+</code> |
+|  | <code>&lt;M-L&gt;</code> | <code>&lt;C-W&gt;&gt;</code> |
+|  | <code>&lt;M-H&gt;</code> | <code>&lt;C-W&gt;&lt;lt&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;M-X&gt;</code> | <code>:&lt;C-U&gt;bprevious &#124; bdelete #&lt;CR&gt;</code> |
+|  | <code>&lt;M-S&gt;</code> | <code>:SymbolsOutline&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;M-b&gt;</code> | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
+|  | <code>&lt;M-m&gt;</code> | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m .-2&lt;CR&gt;==</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m .+1&lt;CR&gt;==</code> |
+| Toggle Terminal | <code>&lt;M-F&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+|  | <code>&lt;M-C-RightMouse&gt;</code> | <code>&lt;Plug&gt;(VM-Mouse-Column)</code> |
+|  | <code>&lt;C-RightMouse&gt;</code> | <code>&lt;Plug&gt;(VM-Mouse-Word)</code> |
+|  | <code>&lt;C-LeftMouse&gt;</code> | <code>&lt;Plug&gt;(VM-Mouse-Cursor)</code> |
+|  | <code>&lt;M-C-K&gt;</code> | <code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code> |
+|  | <code>&lt;M-C-J&gt;</code> | <code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code> |
+|  | <code>&lt;C-Down&gt;</code> | <code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code> |
+|  | <code>&lt;C-Up&gt;</code> | <code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code> |
+|  | <code>&lt;S-Right&gt;</code> | <code>&lt;Plug&gt;(VM-Select-l)</code> |
+|  | <code>&lt;S-Left&gt;</code> | <code>&lt;Plug&gt;(VM-Select-h)</code> |
+|  | <code>&lt;C-N&gt;</code> | <code>&lt;Plug&gt;(VM-Find-Under)</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-BBW)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('BBW', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-gE)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('gE', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-ge)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('ge', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-E)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('E', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-e)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('e', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-B)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('B', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-b)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('b', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-W)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('W', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-w)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('w', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-l)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('l', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-k)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('k', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-j)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('j', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-h)</code> | <code>:&lt;C-U&gt;call vm#commands#motion('h', v:count1, 1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Mouse-Column)</code> | <code>:call vm#commands#mouse_column()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Mouse-Word)</code> | <code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Find-Under)</code> |
+|  | <code>&lt;Plug&gt;(VM-Mouse-Cursor)</code> | <code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code> |
+|  | <code>&lt;Plug&gt;(VM-Left-Mouse)</code> | <code>&lt;LeftMouse&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Slash-Search)</code> | <code>@=vm#commands#find_by_regex(3)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Start-Regex-Search)</code> | <code>@=vm#commands#find_by_regex(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Find-Under)</code> | <code>:&lt;C-U&gt;call vm#commands#ctrln(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-All)</code> | <code>:call vm#commands#find_all(0, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Reselect-Last)</code> | <code>:call vm#commands#reselect_last()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-Cursor-Up)</code> | <code>:&lt;C-U&gt;call vm#commands#add_cursor_up(1, v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Select-Cursor-Down)</code> | <code>:&lt;C-U&gt;call vm#commands#add_cursor_down(1, v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code> | <code>:&lt;C-U&gt;call vm#commands#add_cursor_up(0, v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code> | <code>:&lt;C-U&gt;call vm#commands#add_cursor_down(0, v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Add-Cursor-At-Word)</code> | <code>:call vm#commands#add_cursor_at_word(1, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code> | <code>:call vm#commands#add_cursor_at_pos(0)&lt;CR&gt;</code> |
+| Move to previous reference | <code>&lt;M-p&gt;</code> |  |
+| Move to next reference | <code>&lt;M-n&gt;</code> |  |
+|  | <code>&lt;C-S-V&gt;</code> | <code>"+p</code> |
+|  | <code>&lt;C-S-C&gt;</code> | <code>"+y</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` p` | `"_dP` |
-| Search current word | ` sw` | `<Esc><Cmd>lua require("spectre").open_visual()<CR>` |
-|  | ` /` | `<Esc><Cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>` |
-|  | ` ` | `` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `\\c` | `<Plug>(VM-Visual-Cursors)` |
-|  | `\\a` | `<Plug>(VM-Visual-Add)` |
-|  | `\\f` | `<Plug>(VM-Visual-Find)` |
-|  | `\\/` | `<Plug>(VM-Visual-Regex)` |
-|  | `\\A` | `<Plug>(VM-Visual-All)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<M-k>` | `:m '<lt>-2<CR>gv=gv` |
-|  | `<M-j>` | `:m '>+1<CR>gv=gv` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<C-N>` | `<Plug>(VM-Find-Subword-Under)` |
-|  | `<Plug>(VM-Visual-Regex)` | `:call vm#commands#find_by_regex(2)<CR>:call feedkeys('/', 'n')<CR>` |
-|  | `<Plug>(VM-Find-Subword-Under)` | `<SNR>11_Visual('under')` |
-|  | `<Plug>(VM-Visual-Reduce)` | `:<C-U>call vm#visual#reduce()<CR>` |
-|  | `<Plug>(VM-Visual-Add)` | `<Esc>:call vm#commands#visual_add()<CR>` |
-|  | `<Plug>(VM-Visual-Cursors)` | `<Esc>:call vm#commands#visual_cursors()<CR>` |
-|  | `<Plug>(VM-Visual-All)` | `<SNR>11_Visual('all')` |
-|  | `<Plug>(VM-Visual-Find)` | `vm#operators#find(1, 1)` |
-|  | `<M-i>` |  |
-|  | `<C-S-C>` | `"+y` |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code> p</code> | <code>"_dP</code> |
+| Search current word | <code> sw</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("spectre").open_visual()&lt;CR&gt;</code> |
+|  | <code> /</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code> </code> | <code></code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>\\c</code> | <code>&lt;Plug&gt;(VM-Visual-Cursors)</code> |
+|  | <code>\\a</code> | <code>&lt;Plug&gt;(VM-Visual-Add)</code> |
+|  | <code>\\f</code> | <code>&lt;Plug&gt;(VM-Visual-Find)</code> |
+|  | <code>\\/</code> | <code>&lt;Plug&gt;(VM-Visual-Regex)</code> |
+|  | <code>\\A</code> | <code>&lt;Plug&gt;(VM-Visual-All)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;M-i&gt;</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;C-N&gt;</code> | <code>&lt;Plug&gt;(VM-Find-Subword-Under)</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-Regex)</code> | <code>:call vm#commands#find_by_regex(2)&lt;CR&gt;:call feedkeys('/', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Find-Subword-Under)</code> | <code>&lt;SNR&gt;8_Visual('under')</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-Reduce)</code> | <code>:&lt;C-U&gt;call vm#visual#reduce()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-Add)</code> | <code>&lt;Esc&gt;:call vm#commands#visual_add()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-Cursors)</code> | <code>&lt;Esc&gt;:call vm#commands#visual_cursors()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-All)</code> | <code>&lt;SNR&gt;8_Visual('all')</code> |
+|  | <code>&lt;Plug&gt;(VM-Visual-Find)</code> | <code>vm#operators#find(1, 1)</code> |
+|  | <code>&lt;C-S-C&gt;</code> | <code>"+y</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<M-i>` |  |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;M-i&gt;</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |

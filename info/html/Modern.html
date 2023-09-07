@@ -393,776 +393,1066 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tbody>
 <tr class="odd">
 <td>Manage Plugins</td>
-<td><code>zz</code></td>
+<td><code> zz</code></td>
 <td><code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Extract Block to File</td>
-<td><code>rf</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Extract Block</td>
-<td><code>rb</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Inline Variable</td>
-<td><code>ri</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debug Cleanup</td>
-<td><code>rc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debug Print Variable</td>
-<td><code>rp</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debug Print</td>
-<td><code>rP</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Zoom</td>
-<td><code>vz</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Run Command</td>
-<td><code>toR</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle</td>
-<td><code>tot</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Save Bundle</td>
-<td><code>tos</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run</td>
-<td><code>tor</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Quick Action</td>
-<td><code>toq</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Open</td>
-<td><code>too</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Load Bundle</td>
-<td><code>tol</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Delete Bundle</td>
-<td><code>tod</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Close</td>
-<td><code>toc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Build</td>
-<td><code>tob</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Task Action</td>
-<td><code>toa</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Scopes</td>
-<td><code>dS</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Hover Variables</td>
-<td><code>dh</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Get Session</td>
-<td><code>dg</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Evaluate</td>
-<td><code>de</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Disconnect</td>
-<td><code>dd</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Continue</td>
-<td><code>dc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Back</td>
-<td><code>db</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle UI</td>
-<td><code>dU</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Conditional Breakpoint</td>
-<td><code>dC</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Evaluate Input</td>
-<td><code>dE</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run to Cursor</td>
-<td><code>dR</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Out</td>
-<td><code>du</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminate</td>
-<td><code>dx</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Breakpoint</td>
-<td><code>dt</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Start</td>
-<td><code>ds</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle REPL</td>
-<td><code>dr</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Quit</td>
-<td><code>dq</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Pause</td>
-<td><code>dp</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Run Last</td>
-<td><code>dl</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Step Over</td>
-<td><code>do</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Step Into</td>
-<td><code>di</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Document Diagnostics</td>
-<td><code>ld</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Workspace Diagnostics</td>
-<td><code>lD</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Visit</td>
-<td><code>tv</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Suite</td>
-<td><code>ts</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Nearest</td>
-<td><code>tn</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Last</td>
-<td><code>tl</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File</td>
-<td><code>tf</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Class</td>
-<td><code>tc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Node Action</td>
-<td><code>ln</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Status</td>
-<td><code>gs</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Debug Last</td>
-<td><code>tNL</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debug File</td>
-<td><code>tNF</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Summary</td>
-<td><code>tNS</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Stop</td>
-<td><code>tNs</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Output</td>
-<td><code>tNo</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Debug Nearest</td>
-<td><code>tNN</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Nearest</td>
-<td><code>tNn</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Last</td>
-<td><code>tNl</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File</td>
-<td><code>tNf</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Attach</td>
-<td><code>tNa</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Split/Join</td>
-<td><code>lj</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mason</td>
-<td><code>lm</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Command Palette</td>
-<td><code>hc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Rename Buffer</td>
-<td><code>Dr</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find Buffer</td>
-<td><code>Df</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle UI</td>
-<td><code>Dt</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Last Query Info</td>
-<td><code>Dq</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal #2</td>
-<td><code>0</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Forward jump</td>
-<td><code>nj</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Toggle Preview</td>
-<td><code>nt</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Close Preview</td>
-<td><code>nc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Preview</td>
-<td><code>np</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Toggle Minimap</td>
-<td><code>vm</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mark Motion</td>
-<td><code>xmm</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Send Mark</td>
-<td><code>xms</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Clear</td>
-<td><code>xc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Close REPL</td>
-<td><code>xC</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Interrupt</td>
-<td><code>xI</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ENTER</td>
-<td><code>x&lt;CR&gt;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Send File</td>
-<td><code>xf</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Send Until Cursor</td>
-<td><code>xt</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Send Line</td>
-<td><code>xl</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Send Motion</td>
-<td><code>xs</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>+Mark</td>
-<td><code>xm</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>+REPL</td>
-<td><code>x</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Hide</td>
-<td><code>xH</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Focus</td>
-<td><code>xF</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Restart</td>
-<td><code>xS</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>REPL</td>
-<td><code>xR</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Remove Mark</td>
-<td><code>xmr</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Complete Code</td>
-<td><code>ac</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Edit with Instructions</td>
-<td><code>ae</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Chat</td>
-<td><code>aa</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search and Replace (SSR)</td>
-<td><code>sR</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Summarize Text</td>
-<td><code>as</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Generate Git Message</td>
-<td><code>ag</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Docker</td>
-<td><code>fd</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Edgy Toggle</td>
-<td><code>ze</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Edgy Select Window</td>
-<td><code>zE</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>ToDo</td>
-<td><code>lT</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>ToDo (Trouble)</td>
-<td><code>lt</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search and Replace (Spectre)</td>
-<td><code>sr</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open Yank History</td>
-<td><code>zp</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Select VirtualEnv</td>
-<td><code>lv</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Function</td>
-<td><code>lgf</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Annotation</td>
-<td><code>lgd</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Class</td>
-<td><code>lgc</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Type</td>
-<td><code>lgt</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Notation</td>
-<td><code>nn</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Restore Last Session</td>
-<td><code>ql</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Restore Session</td>
-<td><code>qs</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Don’t Save Current Session</td>
-<td><code>qd</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Code Outline (navbuddy)</td>
-<td><code>vO</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Command 2</td>
-<td><code>6</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Command 1</td>
-<td><code>5</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal 2</td>
-<td><code>4</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal 1</td>
-<td><code>3</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>File 2</td>
-<td><code>2</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File 1</td>
-<td><code>1</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Command Menu</td>
-<td><code>jc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>File Menu</td>
-<td><code>jm</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Add File</td>
-<td><code>ja</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find Files (Cwd)</td>
-<td><code>fF</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Find Files (Root Dir)</td>
-<td><code>ff</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search</td>
-<td><code>hs</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Colorscheme</td>
-<td><code>zc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Code Outline</td>
-<td><code>vo</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Buffer</td>
-<td><code>sb</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Snippets</td>
-<td><code>ss</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Grep (Cwd)</td>
-<td><code>sW</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Grep (Root Dir)</td>
-<td><code>sw</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>List</td>
-<td><code>pp</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Find Files</td>
-<td><code></code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Search</td>
-<td><code>ps</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Search Plugins</td>
-<td><code>zs</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Conventional Commits</td>
-<td><code>gc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Browser</td>
-<td><code>fr</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Change WorkDir</td>
-<td><code>fc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Buffers</td>
-<td><code>fb</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Recent</td>
-<td><code>fo</code></td>
+<td>Explorer (Current File)</td>
+<td><code> fE</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Explorer (Current Directory)</td>
-<td><code>fe</code></td>
+<td><code> fe</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Explorer (Current File)</td>
-<td><code>fE</code></td>
+<td>Restore Session</td>
+<td><code> qs</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>+Color</td>
-<td><code>zC</code></td>
+<td>Don’t Save Current Session</td>
+<td><code> qd</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Toggle Highlighter</td>
-<td><code>zCh</code></td>
+<td>Restore Last Session</td>
+<td><code> ql</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debug Cleanup</td>
+<td><code> rc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debug Print Variable</td>
+<td><code> rp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debug Print</td>
+<td><code> rP</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Extract Block to File</td>
+<td><code> rf</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Extract Block</td>
+<td><code> rb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Inline Variable</td>
+<td><code> ri</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle Zoom</td>
+<td><code> vz</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Notation</td>
+<td><code> nn</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Visit</td>
+<td><code> tv</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Suite</td>
+<td><code> ts</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nearest</td>
+<td><code> tn</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td><code> tl</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td><code> tf</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Class</td>
+<td><code> tc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search and Replace (SSR)</td>
+<td><code> sR</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Build</td>
+<td><code> tob</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Task Action</td>
+<td><code> toa</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run Command</td>
+<td><code> toR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle</td>
+<td><code> tot</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Save Bundle</td>
+<td><code> tos</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run</td>
+<td><code> tor</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quick Action</td>
+<td><code> toq</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Open</td>
+<td><code> too</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Load Bundle</td>
+<td><code> tol</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete Bundle</td>
+<td><code> tod</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close</td>
+<td><code> toc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Status</td>
+<td><code> gs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Preview</td>
+<td><code> nt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Preview</td>
+<td><code> nc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Preview</td>
+<td><code> np</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forward jump</td>
+<td><code> nj</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open Yank History</td>
+<td><code> zp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle UI</td>
+<td><code> Dt</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last Query Info</td>
+<td><code> Dq</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Rename Buffer</td>
+<td><code> Dr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Buffer</td>
+<td><code> Df</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Edit with Instructions</td>
+<td><code> ae</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Complete Code</td>
+<td><code> ac</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Chat</td>
+<td><code> aa</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Summarize Text</td>
+<td><code> as</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Generate Git Message</td>
+<td><code> ag</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Docker</td>
+<td><code> fd</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Convert</td>
-<td><code>zCc</code></td>
+<td><code> zCc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Pick</td>
-<td><code>zCp</code></td>
+<td><code> zCp</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Delete Buffer (Force)</td>
-<td><code>bD</code></td>
+<td>+Color</td>
+<td><code> zC</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Delete Buffer</td>
-<td><code>bd</code></td>
+<td>Toggle Highlighter</td>
+<td><code> zCh</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close Buffer</td>
-<td><code>bc</code></td>
+<td>Select VirtualEnv</td>
+<td><code> lv</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Out</td>
+<td><code> du</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminate</td>
+<td><code> dx</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Breakpoint</td>
+<td><code> dt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Start</td>
+<td><code> ds</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle REPL</td>
+<td><code> dr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Quit</td>
+<td><code> dq</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pause</td>
+<td><code> dp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Run Last</td>
+<td><code> dl</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Over</td>
+<td><code> do</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Step Into</td>
+<td><code> di</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Scopes</td>
+<td><code> dS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hover Variables</td>
+<td><code> dh</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Get Session</td>
+<td><code> dg</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Evaluate</td>
+<td><code> de</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Disconnect</td>
+<td><code> dd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Continue</td>
+<td><code> dc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Step Back</td>
+<td><code> db</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Toggle UI</td>
+<td><code> dU</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Conditional Breakpoint</td>
+<td><code> dC</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Evaluate Input</td>
+<td><code> dE</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Run to Cursor</td>
+<td><code> dR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hide</td>
+<td><code> xH</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Focus</td>
+<td><code> xF</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Restart</td>
+<td><code> xS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>REPL</td>
+<td><code> xR</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Remove Mark</td>
+<td><code> xmr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mark Motion</td>
+<td><code> xmm</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Mark</td>
+<td><code> xms</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clear</td>
+<td><code> xc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close REPL</td>
+<td><code> xC</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Interrupt</td>
+<td><code> xI</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ENTER</td>
+<td><code> x&lt;CR&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send File</td>
+<td><code> xf</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Until Cursor</td>
+<td><code> xt</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Send Line</td>
+<td><code> xl</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Send Motion</td>
+<td><code> xs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>+Mark</td>
+<td><code> xm</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>+REPL</td>
+<td><code> x</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Split/Join</td>
+<td><code> lj</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Code Outline (navbuddy)</td>
+<td><code> vO</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Node Action</td>
+<td><code> ln</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Type</td>
+<td><code> lgt</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Function</td>
+<td><code> lgf</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Class</td>
+<td><code> lgc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Annotation</td>
+<td><code> lgd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mason</td>
+<td><code> lm</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Reload Buffer</td>
-<td><code>br</code></td>
+<td><code> br</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete Buffer (Force)</td>
+<td><code> bD</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Delete Buffer</td>
+<td><code> bd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Buffer</td>
+<td><code> bc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal #2</td>
+<td><code> 0</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search and Replace (Spectre)</td>
+<td><code> sr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal 2</td>
+<td><code> 4</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal 1</td>
+<td><code> 3</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>File 2</td>
+<td><code> 2</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>File 1</td>
+<td><code> 1</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Command Menu</td>
+<td><code> jc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>File Menu</td>
+<td><code> jm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Add File</td>
+<td><code> ja</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Command 2</td>
+<td><code> 6</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Command 1</td>
+<td><code> 5</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Edgy Toggle</td>
+<td><code> ze</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Edgy Select Window</td>
+<td><code> zE</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Buffer</td>
+<td><code> sb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Snippets</td>
+<td><code> ss</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Grep (Cwd)</td>
+<td><code> sW</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Grep (Root Dir)</td>
+<td><code> sw</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>List</td>
+<td><code> pp</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search</td>
+<td><code> hs</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Search</td>
+<td><code> ps</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Search Plugins</td>
+<td><code> zs</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Conventional Commits</td>
+<td><code> gc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Browser</td>
+<td><code> fr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Change WorkDir</td>
+<td><code> fc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Buffers</td>
+<td><code> fb</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Recent</td>
+<td><code> fo</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Files (Cwd)</td>
+<td><code> fF</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Find Files (Root Dir)</td>
+<td><code> ff</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Find Files</td>
+<td><code> </code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Colorscheme</td>
+<td><code> zc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Code Outline</td>
+<td><code> vo</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Command Palette</td>
+<td><code> hc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ToDo</td>
+<td><code> lT</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ToDo (Trouble)</td>
+<td><code> lt</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Toggle Minimap</td>
+<td><code> vm</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td><code> tNo</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debug Nearest</td>
+<td><code> tNN</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nearest</td>
+<td><code> tNn</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td><code> tNl</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>File</td>
+<td><code> tNf</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Attach</td>
+<td><code> tNa</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Debug Last</td>
+<td><code> tNL</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Debug File</td>
+<td><code> tNF</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Summary</td>
+<td><code> tNS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Stop</td>
+<td><code> tNs</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Document Diagnostics</td>
+<td><code> ld</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Workspace Diagnostics</td>
+<td><code> lD</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td>`<code>| |  |</code>#<code>|  | | Nvim builtin |</code>&amp;<code>|</code>:&amp;&amp;<CR><code>| |  |</code><em><code>|  | | Put and indent left |</code><lt>p<code>|  | | Put before and indent left |</code><lt>P<code>|  | | Put after applying a filter |</code>=p<code>|  | | Put before applying a filter |</code>=P<code>|  | | Put and indent right |</code>&gt;p<code>|  | | Put before and indent right |</code>&gt;P<code>|  | |  |</code>N<code>|  | | Put yanked text before cursor |</code>P<code>|  | | Flash Treesitter |</code>S<code>|  | | Nvim builtin |</code>Y<code>|</code>y$<code>| | Previous ToDo |</code>[t<code>|  | | Put indented before cursor (linewise) |</code>[p<code>|  | | Put indented before cursor (linewise) |</code>[P<code>|  | | Cycle forward through yank history |</code>[y<code>|  | | Next ToDo |</code>]t<code>|  | | Put indented after cursor (linewise) |</code>]P<code>|  | | Cycle backward through yank history |</code>]y<code>|  | | Put indented after cursor (linewise) |</code>]p<code>|  | |  |</code>g<Plug>(dial-decrement)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| |  |</code>g<Plug>(dial-increment)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_gnormal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_gnormal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| |  |</code>g</em><code>|  | |  |</code>g#<code>|  | | Put yanked text before selection |</code>gP<code>|  | | Put yanked text after selection |</code>gp<code>|  | |  |</code>gc<code>|  | |  |</code>gbc<code>|  | |  |</code>gcc<code>|  | |  |</code>n<code>|  | | Put yanked text after cursor |</code>p<code>|  | | Flash |</code>s<code>|  | | Yank text |</code>y<code>|  | | Open All Folds |</code>zR<code>|  | | Peek Fold |</code>zp<code>|  | | Close All Folds |</code>zM<code>|  | | Close Folds With |</code>zm<code>|  | |  |</code>zc<code>|  | |  |</code>zo<code>|  | |  |</code>zC<code>|  | |  |</code>zO<code>|  | |  |</code>za<code>|  | |  |</code>zA<code>|  | | Open Folds Except Kinds |</code>zr<code>|  | | Decrement |</code><C-X><code>|</code><Cmd>lua
-require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| | Increment |</code><C-A><code>|</code><Cmd>lua
-require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| |  |</code><Plug>(dial-decrement)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| |  |</code><Plug>(dial-increment)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_normal()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_normal”<CR>g@<Cmd>lua
-require(“dial.command”).textobj()<CR><code>| | Legendary |</code><C-S-P><code>|  | |  |</code><C-Bslash><code>|  | | Previous Cell |</code><M-k><code>|  | | Next Cell |</code><M-j><code>|  | | Delete Cell |</code><M-x><code>|  | | Execute Cell |</code><M-e><code>|  | | Scroll backward |</code><C-B><code>|  | | Scroll forward |</code><C-F><code>|  | | Nvim builtin |</code><C-L><code>|</code><Cmd>nohlsearch</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>#</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>*</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put before and indent left</td>
+<td><code>&lt;lt&gt;P</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put and indent left</td>
+<td><code>&lt;lt&gt;p</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put after applying a filter</td>
+<td><code>=p</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put before applying a filter</td>
+<td><code>=P</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put and indent right</td>
+<td><code>&gt;p</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put before and indent right</td>
+<td><code>&gt;P</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>N</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put yanked text before cursor</td>
+<td><code>P</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Flash Treesitter</td>
+<td><code>S</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
+</tr>
+<tr class="odd">
+<td>Cycle forward through yank history</td>
+<td><code>[y</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put indented before cursor (linewise)</td>
+<td><code>[p</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put indented before cursor (linewise)</td>
+<td><code>[P</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Previous ToDo</td>
+<td><code>[t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cycle backward through yank history</td>
+<td><code>]y</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put indented after cursor (linewise)</td>
+<td><code>]p</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put indented after cursor (linewise)</td>
+<td><code>]P</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Next ToDo</td>
+<td><code>]t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_gnormal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_gnormal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gbc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gcc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Put yanked text before selection</td>
+<td><code>gP</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put yanked text after selection</td>
+<td><code>gp</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g*</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g#</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>n</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put yanked text after cursor</td>
+<td><code>p</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Flash</td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Yank text</td>
+<td><code>y</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Open Folds Except Kinds</td>
+<td><code>zr</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Open All Folds</td>
+<td><code>zR</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Close All Folds</td>
+<td><code>zM</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Close Folds With</td>
+<td><code>zm</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Peek Fold</td>
+<td><code>zp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zo</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zC</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zO</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>za</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zA</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Decrement</td>
+<td><code>&lt;C-X&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Increment</td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Scroll forward</td>
+<td><code>&lt;C-F&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Scroll backward</td>
+<td><code>&lt;C-B&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Previous Cell</td>
+<td><code>&lt;M-k&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Next Cell</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delete Cell</td>
+<td><code>&lt;M-x&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Execute Cell</td>
+<td><code>&lt;M-e&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Bslash&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Legendary</td>
+<td><code>&lt;C-S-P&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
 </tr>
 </tbody>
 </table>
@@ -1182,100 +1472,205 @@ require(“dial.command”).textobj()<CR><code>| | Legendary |</code><C-S-P><cod
 </thead>
 <tbody>
 <tr class="odd">
-<td>Search and Replace (SSR)</td>
-<td><code>sR</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Evaluate</td>
-<td><code>de</code></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Send</td>
-<td><code>xs</code></td>
+<td><code> xs</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>+Mark</td>
-<td><code>xm</code></td>
+<td><code> xm</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>+REPL</td>
-<td><code>x</code></td>
+<td><code> x</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Mark Visual</td>
-<td><code>xmv</code></td>
+<td><code> xmv</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Clear Highlight</td>
-<td><code>xL</code></td>
+<td><code> xL</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Complete Code</td>
-<td><code>ac</code></td>
+<td>Search and Replace (SSR)</td>
+<td><code> sR</code></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Evaluate</td>
+<td><code> de</code></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Edit with Instructions</td>
-<td><code>ae</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Extract Function to File</td>
-<td><code>rF</code></td>
+<td><code> ae</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Extract Function</td>
-<td><code>rf</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Inline Variable</td>
-<td><code>ri</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Refactor</td>
-<td><code>rs</code></td>
+<td>Complete Code</td>
+<td><code> ac</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Debug Print Variable</td>
-<td><code>rp</code></td>
+<td><code> rp</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Extract Variable</td>
-<td><code>rx</code></td>
+<td><code> rx</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Extract Function to File</td>
+<td><code> rF</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Extract Function</td>
+<td><code> rf</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Inline Variable</td>
+<td><code> ri</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Refactor</td>
+<td><code> rs</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td>`<code>| | Nvim builtin |</code>#<code>|</code>y?“<CR><code>| | Nvim builtin |</code>*<code>|</code>y/“<CR><code>| | Put yanked text before cursor |</code>P<code>|  | | Treesitter Search |</code>R<code>|  | | Flash Treesitter |</code>S<code>|  | | Decrement |</code>g<C-X><code>|</code><Cmd>lua
-require”dial.command”.select_augend_gvisual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_gvisual”<CR>g@<code>| | Increment |</code>g<C-A><code>|</code><Cmd>lua
-require”dial.command”.select_augend_gvisual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_gvisual”<CR>g@<code>| |  |</code>g<Plug>(dial-decrement)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_gvisual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_gvisual”<CR>g@gv<code>| |  |</code>g<Plug>(dial-increment)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_gvisual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_gvisual”<CR>g@gv<code>| |  |</code>gbc<code>|  | |  |</code>gcc<code>|  | |  |</code>gc<code>|  | | Put yanked text before selection |</code>gP<code>|  | | Put yanked text after selection |</code>gp<code>|  | | Put yanked text after cursor |</code>p<code>|  | | Flash |</code>s<code>|  | | Yank text |</code>y<code>|  | | Decrement |</code><C-X><code>|</code><Cmd>lua
-require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_visual”<CR>g@<code>| | Increment |</code><C-A><code>|</code><Cmd>lua
-require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_visual”<CR>g@<code>| |  |</code><Plug>(dial-decrement)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#decrement_visual”<CR>g@gv<code>| |  |</code><Plug>(dial-increment)<code>|</code><Cmd>lua
-require”dial.command”.select_augend_visual()<CR><Cmd>let
-&amp;opfunc=“dial#operator#increment_visual”<CR>g@gv`</td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>#</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>*</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Put yanked text before cursor</td>
+<td><code>P</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Treesitter Search</td>
+<td><code>R</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Flash Treesitter</td>
+<td><code>S</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Decrement</td>
+<td><code>g&lt;C-X&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_gvisual”&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="odd">
+<td>Increment</td>
+<td><code>g&lt;C-A&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_gvisual”&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_gvisual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_gvisual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="even">
+<td>Put yanked text before selection</td>
+<td><code>gP</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put yanked text after selection</td>
+<td><code>gp</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gbc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gcc</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Put yanked text after cursor</td>
+<td><code>p</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Flash</td>
+<td><code>s</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Yank text</td>
+<td><code>y</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Decrement</td>
+<td><code>&lt;C-X&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_visual”&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="odd">
+<td>Increment</td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_visual”&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_visual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_visual”&lt;CR&gt;g@gv</code></td>
 </tr>
 </tbody>
 </table>

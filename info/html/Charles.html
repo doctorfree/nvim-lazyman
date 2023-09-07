@@ -249,62 +249,684 @@ href="https://github.com/gelguy/wilder.nvim">gelguy/wilder.nvim</a></li>
 </tr>
 <tr class="odd">
 <td>edit: Join code block</td>
-<td><code>j</code></td>
+<td><code> j</code></td>
 <td><code>:&lt;C-U&gt;TSJJoin&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>edit: Split code block</td>
-<td><code>s</code></td>
+<td><code> s</code></td>
 <td><code>:&lt;C-U&gt;TSJSplit&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td>`<code>| | Nvim builtin |</code>&amp;<code>|</code>:&amp;&amp;<CR><code>| | edit: Increment |</code>+<code>|</code><C-A><code>| | buffer: Sort by extension |</code>,be<code>|</code>:BufferLineSortByExtension<CR><code>| | buffer: Sort by direrctory |</code>,bd<code>|</code>:BufferLineSortByDirectory<CR><code>| | lsp: Show quickfix list |</code>,tq<code>|</code>:TroubleToggle
-quickfix<CR><code>| | debug: Open REPL |</code>,do<code>|  | |  |</code>,=<code>|  | | lsp: Show workspace diagnostics |</code>,tw<code>|</code>:TroubleToggle
-workspace_diagnostics<CR><code>| | debug: Run last |</code>,dl<code>|  | | lsp: Show document diagnostics |</code>,td<code>|</code>:TroubleToggle
-document_diagnostics<CR><code>| | debug: Run to cursor |</code>,dc<code>|  | | lsp: Show lsp references |</code>,tr<code>|</code>:TroubleToggle
-lsp_references<CR><code>| | debug: Set breakpoint with condition |</code>,db<code>|  | | lsp: Toggle trouble list |</code>,tt<code>|</code>:TroubleToggle<CR><code>| | find: Word in project |</code>,fw<code>|  | | git: Toggle lazygit |</code>,lg<code>|  | | find: Session |</code>,fd<code>|</code>:<C-U>Telescope
-persisted<CR><code>| | tool: Run code by file |</code>,R<code>|</code>:<C-U>%SnipRun<CR><code>| | filetree: Refresh |</code>,nr<code>|</code>:NvimTreeRefresh<CR><code>| | filetree: Find file |</code>,nf<code>|</code>:NvimTreeFindFile<CR><code>| | git: Open git-fugitive |</code>,G<code>|</code>:<C-U>Git<CR><code>| |  |</code>,-<code>|  | | find: Current word |</code>,fs<code>|</code>:<C-U>Telescope
-grep_string<CR><code>| | find: Buffer opened |</code>,fb<code>|</code>:<C-U>Telescope
-buffers<CR><code>| | find: file in git project |</code>,fg<code>|</code>:<C-U>Telescope
-git_files<CR><code>| | buffer: New |</code>,fn<code>|</code>:<C-U>:enew<CR><code>| | ui: Change colorscheme for current session |</code>,fc<code>|</code>:<C-U>Telescope
-colorscheme<CR><code>| | find: File in project |</code>,ff<code>|</code>:<C-U>Telescope
-find_files<CR><code>| | find: File by history |</code>,fe<code>|</code>:<C-U>Telescope
-oldfiles<CR><code>| | find: File by frecency |</code>,fr<code>|  | | find: Project |</code>,fp<code>|  | | edit: Show undo history |</code>,u<code>|  | | lsp: Show loclist |</code>,tl<code>|</code>:TroubleToggle
-loclist<CR><code>| | edit: Show search-repacle menu in current buffer |</code>,rs<code>|</code>:<C-U>SearchReplaceSingleBufferSelections<CR><code>| | edit: Search-repacle current buffer CWord |</code>,rw<code>|</code>:<C-U>SearchReplaceSingleBufferCWord<CR><code>| | edit: Search-repacle in current buffer |</code>,ro<code>|</code>:<C-U>SearchReplaceSingleBufferOpen<CR><code>| | edit: Search-repacle multi buffers CFile |</code>,rbf<code>|</code>:<C-U>SearchReplaceMultiBufferCFile<CR><code>| | edit: Search-repacle multi buffers CExpr |</code>,rbe<code>|</code>:<C-U>SearchReplaceMultiBufferCExpr<CR><code>| | edit: Search-repacle multi buffers CWORD |</code>,rbW<code>|</code>:<C-U>SearchReplaceMultiBufferCWORD<CR><code>| | git: Close diff |</code>,,dv<code>|</code>:DiffviewClose<CR><code>| | edit: Search-repacle multi buffers CWord |</code>,rbw<code>|</code>:<C-U>SearchReplaceMultiBufferCWord<CR><code>| | git: Show diff |</code>,dv<code>|</code>:DiffviewOpen<CR><code>| | edit: Search-repacle in multi buffers |</code>,rbo<code>|</code>:<C-U>SearchReplaceMultiBufferOpen<CR><code>| | edit: Show search-repacle menu for multi buffer |</code>,rbs<code>|</code>:<C-U>SearchReplaceMultiBufferSelections<CR><code>| | edit: Search-repacle current buffer CFile |</code>,rf<code>|</code>:<C-U>SearchReplaceSingleBufferCFile<CR><code>| | edit: Search-repacle current buffer CExpr |</code>,re<code>|</code>:<C-U>SearchReplaceSingleBufferCExpr<CR><code>| | edit: Search-repacle current buffer CWORD |</code>,rW<code>|</code>:<C-U>SearchReplaceSingleBufferCWORD<CR><code>| | edit: Add comment box around multi lines of texts |</code>,cF<code>|  | | edit: Add comment box around the texts |</code>,cf<code>|  | | session: Delete |</code>,sd<code>|</code>:<C-U>SessionDelete<CR><code>| | session: Load current |</code>,sl<code>|</code>:<C-U>SessionLoad<CR><code>| | session: Save |</code>,ss<code>|</code>:<C-U>SessionSave<CR><code>| | package: Show |</code>,ph<code>|</code>:Lazy<CR><code>| | package: Restore |</code>,pr<code>|</code>:Lazy
-restore<CR><code>| | package: Log |</code>,pl<code>|</code>:Lazy
-log<CR><code>| | package: Debug |</code>,pd<code>|</code>:Lazy
-debug<CR><code>| | package: Profile |</code>,pp<code>|</code>:Lazy
-profile<CR><code>| | package: Update |</code>,pu<code>|</code>:Lazy
-update<CR><code>| | package: Install |</code>,pi<code>|</code>:Lazy
-install<CR><code>| | package: Check |</code>,pc<code>|</code>:Lazy
-check<CR><code>| | package: Sync |</code>,ps<code>|</code>:Lazy
-sync<CR><code>| | package: Clean |</code>,px<code>|</code>:Lazy
-clean<CR><code>| | edit: Start replacment mode of current word |</code>,,s<code>|</code><Cmd>%s/&lt;lt&gt;<C-R><C-W>&gt;/<C-R><C-W>/gI<Left><Left><Left><code>| | file: chmod +x current file |</code>,,x<code>|</code><Cmd>!chmod
-+x
-%<CR><code>| | filetree: Open Oil |</code>,o<code>|  | | edit: Decrement |</code>-<code>|</code><C-X><code>| | buffer: Move current to prev |</code><lt>tab-S-k&gt;<code>|</code>:BufferLineMovePrev<CR><code>| | buffer: Move current to next |</code><lt>tab-S-j&gt;<code>|</code>:BufferLineMoveNext<CR><code>| | edit: Delete text to EOL |</code>D<code>|</code>d<span
-class="math inline">$` | | leapn: Jump backward to character | `F` | | |
-jump: Jump to specified node | `J` | | | edit: Prev search result | `N`
-| `Nzzzv` | | leapn: Jump backward till character | `T` | | | edit: Yank
-text to EOL | `Y` |
-`y$</span><code>| | edit: Change a surrounding pair |</code>cs<code>|  | | edit: Delete a surrounding pair |</code>ds<code>|  | | leapn: Jump to character |</code>f<code>|  | | git: Pull |</code>gpl<code>|</code>:G
-pull<CR><code>| | git: Push |</code>gps<code>|</code>:G
-push<CR><code>| | edit: Align with delimiter |</code>gea<code>|</code>:EasyAlign<CR><code>| | edit: Toggle comment for block with operator |</code>gb<code>|</code><Plug>(comment_toggle_blockwise)<code>| | edit: Toggle comment for line with operator |</code>gc<code>|</code><Plug>(comment_toggle_linewise)<code>| | edit: Toggle comment for block |</code>gbc<code>|  | | edit: Toggle comment for line |</code>gcc<code>|  | | leapn: Jump to character across windows |</code>gt<code>|  | |  |</code>j<code>|  | | jump: Jump to functions |</code>jfu<code>|  | | jump: Jump to visible variable_declarations |</code>jv<code>|  | | jump: Jump to functions |</code>jif<code>|  | |  |</code>k<code>|  | | Jumpx: Jump across syntax tree |</code>m<code>|  | | edit: Next search result |</code>n<code>|</code>nzzzv<code>| | edit: Split or Join code block with autodetect |</code>sj<code>|</code>:<C-U>TSJToggle<CR><code>| | leapn: Jump till character |</code>t<code>|  | | tab: Only keep current tab |</code>to<code>|</code><Cmd>tabonly<CR><code>| | tab: Move to previous tab |</code>tj<code>|</code><Cmd>tabprevious<CR><code>| | tab: Move to next tab |</code>tk<code>|</code><Cmd>tabnext<CR><code>| | tab: Create a new tab |</code>tn<code>|</code><Cmd>tabnew<CR><code>| | edit: Visual select current node |</code>vn<code>|</code>:<C-U>STSSelectCurrentNode<CR><code>| | edit: Visual select master node |</code>vx<code>|</code>:<C-U>STSSelectMasterNode<CR><code>| | edit: Add a surrounding pair around current line |</code>yss<code>|  | | edit: Add a surrounding pair around a motion |</code>ys<code>|  | | edit: Add a surrounding pair around a motion, on new lines |</code>yS<code>|  | | edit: Add a surrounding pair around the current line, on new lines |</code>ySS<code>|  | | terminal: Toggle vertical |</code><M-Bslash><code>|</code>:execute
-v:count . “ToggleTerm
-direction=vertical”<CR><code>| | debug: Step over |</code><F11><code>|  | | debug: Step out |</code><F10><code>|  | | debug: Step into |</code><F9><code>|  | | terminal: Toggle float |</code><M-d><code>|</code>:execute
-v:count . “ToggleTerm
-direction=float”<CR><code>| | debug: Toggle breakpoint |</code><F8><code>|  | | terminal: Toggle vertical |</code><F5><code>|</code>:execute
-v:count . “ToggleTerm
-direction=vertical”<CR><code>| | debug: Stop |</code><F7><code>|  | | debug: Run/Continue |</code><F6><code>|  | | terminal: Toggle horizontal |</code><C-Bslash><code>|</code>:execute
-v:count . “ToggleTerm
-direction=horizontal”<CR><code>| | tmux: Resize tmux/nvim pane rightward |</code><M-l><code>|  | | tmux: Resize to tmux/nvim pane leftward |</code><M-h><code>|  | | tmux: Resize to tmux/nvim pane upward |</code><M-k><code>|  | | tmux: Resize tmux/nvim pane downward |</code><M-j><code>|  | | tool: Preview markdown |</code><F12><code>|</code>:MarkdownPreviewToggle<CR><code>| | editn: Save file using sudo |</code><M-s><code>|</code>:<C-U>SudaWrite<CR><code>| | buffer: Close current |</code><F4><code>|</code>:BufDel<CR><code>| | Formater: Toggle format on save |</code><M-f><code>|</code><Cmd>FormatToggle<CR><code>| | edit: Save file |</code><C-S><code>|</code>:<C-U>write<CR><code>| | tmux: Move to tmux/nvim top window |</code><C-K><code>|  | | tmux: Move to tmux/nvim bottom window |</code><C-J><code>|  | | window: Resize +2 horizontally |</code>&lt;M-’&gt;<code>|</code>:resize
-+2<CR><code>| | tmux: Move to tmux/nvim left window |</code><C-H><code>|  | | edit: Select all |</code><C-A><code>|</code>gg0vG$<code>| | buffer: Switch to prev |</code><S-Tab><code>|</code>:BufferLineCyclePrev<CR><code>| | edit: Force quit |</code><M-Q><code>|</code>:q!<CR><code>| | filetree: Toggle |</code><C-N><code>|</code>:NvimTreeToggle<CR><code>| | window: Resize -2 horizontally |</code>&lt;M-;&gt;<code>|</code>:resize
--2<CR><code>| | tool: Toggle command panel |</code><C-P><code>|  | | window: Resize +5 vertically |</code>&lt;M-]&gt;<code>|</code>:vertical
-resize
-+5<CR><code>| | edit: Save file and quit |</code><C-Q><code>|</code>:wq<CR><code>| | window: Resize -5 vertically |</code>&lt;M-[&gt;<code>|</code>:vertical
-resize
--5<CR><code>| | tmux: Move tmux/nvim right window |</code><C-L>`</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Increment</td>
+<td><code>+</code></td>
+<td><code>&lt;C-A&gt;</code></td>
+</tr>
+<tr class="even">
+<td>buffer: Sort by direrctory</td>
+<td><code>,bd</code></td>
+<td><code>:BufferLineSortByDirectory&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>buffer: Sort by extension</td>
+<td><code>,be</code></td>
+<td><code>:BufferLineSortByExtension&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,-</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>find: Session</td>
+<td><code>,fd</code></td>
+<td><code>:&lt;C-U&gt;Telescope persisted&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,=</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>find: Current word</td>
+<td><code>,fs</code></td>
+<td><code>:&lt;C-U&gt;Telescope grep_string&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>find: Buffer opened</td>
+<td><code>,fb</code></td>
+<td><code>:&lt;C-U&gt;Telescope buffers&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>find: file in git project</td>
+<td><code>,fg</code></td>
+<td><code>:&lt;C-U&gt;Telescope git_files&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>buffer: New</td>
+<td><code>,fn</code></td>
+<td><code>:&lt;C-U&gt;:enew&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>ui: Change colorscheme for current session</td>
+<td><code>,fc</code></td>
+<td><code>:&lt;C-U&gt;Telescope colorscheme&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>find: File in project</td>
+<td><code>,ff</code></td>
+<td><code>:&lt;C-U&gt;Telescope find_files&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>debug: Open REPL</td>
+<td><code>,do</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>find: File by history</td>
+<td><code>,fe</code></td>
+<td><code>:&lt;C-U&gt;Telescope oldfiles&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>debug: Run last</td>
+<td><code>,dl</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>find: Word in project</td>
+<td><code>,fw</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>find: File by frecency</td>
+<td><code>,fr</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>find: Project</td>
+<td><code>,fp</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Show undo history</td>
+<td><code>,u</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>lsp: Show loclist</td>
+<td><code>,tl</code></td>
+<td><code>:TroubleToggle loclist&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>lsp: Show quickfix list</td>
+<td><code>,tq</code></td>
+<td><code>:TroubleToggle quickfix&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>lsp: Show workspace diagnostics</td>
+<td><code>,tw</code></td>
+<td><code>:TroubleToggle workspace_diagnostics&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>lsp: Show document diagnostics</td>
+<td><code>,td</code></td>
+<td><code>:TroubleToggle document_diagnostics&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>lsp: Show lsp references</td>
+<td><code>,tr</code></td>
+<td><code>:TroubleToggle lsp_references&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>lsp: Toggle trouble list</td>
+<td><code>,tt</code></td>
+<td><code>:TroubleToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>git: Toggle lazygit</td>
+<td><code>,lg</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Run to cursor</td>
+<td><code>,dc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>tool: Run code by file</td>
+<td><code>,R</code></td>
+<td><code>:&lt;C-U&gt;%SnipRun&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>debug: Set breakpoint with condition</td>
+<td><code>,db</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>filetree: Refresh</td>
+<td><code>,nr</code></td>
+<td><code>:NvimTreeRefresh&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>filetree: Find file</td>
+<td><code>,nf</code></td>
+<td><code>:NvimTreeFindFile&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>git: Open git-fugitive</td>
+<td><code>,G</code></td>
+<td><code>:&lt;C-U&gt;Git&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle multi buffers CExpr</td>
+<td><code>,rbe</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferCExpr&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle in multi buffers</td>
+<td><code>,rbo</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferOpen&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle multi buffers CWord</td>
+<td><code>,rbw</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferCWord&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>git: Show diff</td>
+<td><code>,dv</code></td>
+<td><code>:DiffviewOpen&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle multi buffers CWORD</td>
+<td><code>,rbW</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferCWORD&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle multi buffers CFile</td>
+<td><code>,rbf</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferCFile&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>git: Close diff</td>
+<td><code>,,dv</code></td>
+<td><code>:DiffviewClose&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Add comment box around multi lines of texts</td>
+<td><code>,cF</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Add comment box around the texts</td>
+<td><code>,cf</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>session: Delete</td>
+<td><code>,sd</code></td>
+<td><code>:&lt;C-U&gt;SessionDelete&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>session: Load current</td>
+<td><code>,sl</code></td>
+<td><code>:&lt;C-U&gt;SessionLoad&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>session: Save</td>
+<td><code>,ss</code></td>
+<td><code>:&lt;C-U&gt;SessionSave&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Show search-repacle menu for multi buffer</td>
+<td><code>,rbs</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceMultiBufferSelections&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle current buffer CFile</td>
+<td><code>,rf</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferCFile&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle current buffer CExpr</td>
+<td><code>,re</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferCExpr&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle current buffer CWORD</td>
+<td><code>,rW</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferCWORD&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-repacle current buffer CWord</td>
+<td><code>,rw</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferCWord&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-repacle in current buffer</td>
+<td><code>,ro</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferOpen&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Show search-repacle menu in current buffer</td>
+<td><code>,rs</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferSelections&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>package: Restore</td>
+<td><code>,pr</code></td>
+<td><code>:Lazy restore&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>package: Update</td>
+<td><code>,pu</code></td>
+<td><code>:Lazy update&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>package: Profile</td>
+<td><code>,pp</code></td>
+<td><code>:Lazy profile&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>package: Sync</td>
+<td><code>,ps</code></td>
+<td><code>:Lazy sync&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>package: Debug</td>
+<td><code>,pd</code></td>
+<td><code>:Lazy debug&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>package: Show</td>
+<td><code>,ph</code></td>
+<td><code>:Lazy&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>package: Check</td>
+<td><code>,pc</code></td>
+<td><code>:Lazy check&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>package: Log</td>
+<td><code>,pl</code></td>
+<td><code>:Lazy log&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>package: Clean</td>
+<td><code>,px</code></td>
+<td><code>:Lazy clean&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>package: Install</td>
+<td><code>,pi</code></td>
+<td><code>:Lazy install&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Start replacment mode of current word</td>
+<td><code>,,s</code></td>
+<td><code>&lt;Cmd&gt;%s/&amp;lt;lt&gt;&lt;C-R&gt;&lt;C-W&gt;&amp;gt;/&lt;C-R&gt;&lt;C-W&gt;/gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>filetree: Open Oil</td>
+<td><code>,o</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>file: chmod +x current file</td>
+<td><code>,,x</code></td>
+<td><code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Decrement</td>
+<td><code>-</code></td>
+<td><code>&lt;C-X&gt;</code></td>
+</tr>
+<tr class="even">
+<td>buffer: Move current to next</td>
+<td><code>&lt;lt&gt;tab-S-j&gt;</code></td>
+<td><code>:BufferLineMoveNext&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>buffer: Move current to prev</td>
+<td><code>&lt;lt&gt;tab-S-k&gt;</code></td>
+<td><code>:BufferLineMovePrev&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Delete text to EOL</td>
+<td><code>D</code></td>
+<td><code>d<span
+class="math inline"> &lt; /<em>c</em><em>o</em><em>d</em><em>e</em> &gt; ||<em>l</em><em>e</em><em>a</em><em>p</em><em>n</em> : <em>J</em><em>u</em><em>m</em><em>p</em><em>b</em><em>a</em><em>c</em><em>k</em><em>w</em><em>a</em><em>r</em><em>d</em><em>t</em><em>o</em><em>c</em><em>h</em><em>a</em><em>r</em><em>a</em><em>c</em><em>t</em><em>e</em><em>r</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>F</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;|||<em>j</em><em>u</em><em>m</em><em>p</em> : <em>J</em><em>u</em><em>m</em><em>p</em><em>t</em><em>o</em><em>s</em><em>p</em><em>e</em><em>c</em><em>i</em><em>f</em><em>i</em><em>e</em><em>d</em><em>n</em><em>o</em><em>d</em><em>e</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>J</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;|||<em>e</em><em>d</em><em>i</em><em>t</em> : <em>P</em><em>r</em><em>e</em><em>v</em><em>s</em><em>e</em><em>a</em><em>r</em><em>c</em><em>h</em><em>r</em><em>e</em><em>s</em><em>u</em><em>l</em><em>t</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>N</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;| &lt; <em>c</em><em>o</em><em>d</em><em>e</em> &gt; <em>N</em><em>z</em><em>z</em><em>z</em><em>v</em> &lt; /<em>c</em><em>o</em><em>d</em><em>e</em> &gt; ||<em>l</em><em>e</em><em>a</em><em>p</em><em>n</em> : <em>J</em><em>u</em><em>m</em><em>p</em><em>b</em><em>a</em><em>c</em><em>k</em><em>w</em><em>a</em><em>r</em><em>d</em><em>t</em><em>i</em><em>l</em><em>l</em><em>c</em><em>h</em><em>a</em><em>r</em><em>a</em><em>c</em><em>t</em><em>e</em><em>r</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>T</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;|||<em>e</em><em>d</em><em>i</em><em>t</em> : <em>Y</em><em>a</em><em>n</em><em>k</em><em>t</em><em>e</em><em>x</em><em>t</em><em>t</em><em>o</em><em>E</em><em>O</em><em>L</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>Y</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;| &lt; <em>c</em><em>o</em><em>d</em><em>e</em> &gt; <em>y</em></span></code></td>
+</tr>
+<tr class="odd">
+<td>edit: Change a surrounding pair</td>
+<td><code>cs</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Delete a surrounding pair</td>
+<td><code>ds</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>leapn: Jump to character</td>
+<td><code>f</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>git: Push</td>
+<td><code>gps</code></td>
+<td><code>:G push&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>git: Pull</td>
+<td><code>gpl</code></td>
+<td><code>:G pull&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>leapn: Jump to character across windows</td>
+<td><code>gt</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Toggle comment for block</td>
+<td><code>gbc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Align with delimiter</td>
+<td><code>gea</code></td>
+<td><code>:EasyAlign&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Toggle comment for block with operator</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+</tr>
+<tr class="even">
+<td>edit: Toggle comment for line with operator</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Toggle comment for line</td>
+<td><code>gcc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>jump: Jump to functions</td>
+<td><code>jif</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>jump: Jump to functions</td>
+<td><code>jfu</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>jump: Jump to visible variable_declarations</td>
+<td><code>jv</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>j</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>k</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Jumpx: Jump across syntax tree</td>
+<td><code>m</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Next search result</td>
+<td><code>n</code></td>
+<td><code>nzzzv</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Split or Join code block with autodetect</td>
+<td><code>sj</code></td>
+<td><code>:&lt;C-U&gt;TSJToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>leapn: Jump till character</td>
+<td><code>t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tab: Only keep current tab</td>
+<td><code>to</code></td>
+<td><code>&lt;Cmd&gt;tabonly&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tab: Move to previous tab</td>
+<td><code>tj</code></td>
+<td><code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>tab: Move to next tab</td>
+<td><code>tk</code></td>
+<td><code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tab: Create a new tab</td>
+<td><code>tn</code></td>
+<td><code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Visual select current node</td>
+<td><code>vn</code></td>
+<td><code>:&lt;C-U&gt;STSSelectCurrentNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Visual select master node</td>
+<td><code>vx</code></td>
+<td><code>:&lt;C-U&gt;STSSelectMasterNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Add a surrounding pair around the current line, on new
+lines</td>
+<td><code>ySS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Add a surrounding pair around a motion, on new lines</td>
+<td><code>yS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Add a surrounding pair around current line</td>
+<td><code>yss</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Add a surrounding pair around a motion</td>
+<td><code>ys</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Stop</td>
+<td><code>&lt;F7&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>debug: Toggle breakpoint</td>
+<td><code>&lt;F8&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Run/Continue</td>
+<td><code>&lt;F6&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>terminal: Toggle float</td>
+<td><code>&lt;M-d&gt;</code></td>
+<td><code>:execute v:count . “ToggleTerm
+direction=float”&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>terminal: Toggle vertical</td>
+<td><code>&lt;F5&gt;</code></td>
+<td><code>:execute v:count . “ToggleTerm
+direction=vertical”&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>terminal: Toggle vertical</td>
+<td><code>&lt;M-Bslash&gt;</code></td>
+<td><code>:execute v:count . “ToggleTerm
+direction=vertical”&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>terminal: Toggle horizontal</td>
+<td><code>&lt;C-Bslash&gt;</code></td>
+<td><code>:execute v:count . “ToggleTerm
+direction=horizontal”&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tmux: Resize tmux/nvim pane rightward</td>
+<td><code>&lt;M-l&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tmux: Resize to tmux/nvim pane leftward</td>
+<td><code>&lt;M-h&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>tmux: Resize to tmux/nvim pane upward</td>
+<td><code>&lt;M-k&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tmux: Resize tmux/nvim pane downward</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>debug: Step over</td>
+<td><code>&lt;F11&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>debug: Step out</td>
+<td><code>&lt;F10&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>debug: Step into</td>
+<td><code>&lt;F9&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tool: Preview markdown</td>
+<td><code>&lt;F12&gt;</code></td>
+<td><code>:MarkdownPreviewToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>editn: Save file using sudo</td>
+<td><code>&lt;M-s&gt;</code></td>
+<td><code>:&lt;C-U&gt;SudaWrite&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>buffer: Close current</td>
+<td><code>&lt;F4&gt;</code></td>
+<td><code>:BufDel&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Formater: Toggle format on save</td>
+<td><code>&lt;M-f&gt;</code></td>
+<td><code>&lt;Cmd&gt;FormatToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Save file</td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:&lt;C-U&gt;write&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Select all</td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>gg0vG$</code></td>
+</tr>
+<tr class="odd">
+<td>buffer: Switch to prev</td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Force quit</td>
+<td><code>&lt;M-Q&gt;</code></td>
+<td><code>:q!&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>filetree: Toggle</td>
+<td><code>&lt;C-N&gt;</code></td>
+<td><code>:NvimTreeToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tool: Toggle command panel</td>
+<td><code>&lt;C-P&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Save file and quit</td>
+<td><code>&lt;C-Q&gt;</code></td>
+<td><code>:wq&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>window: Resize +2 horizontally</td>
+<td><code>&lt;M-’&gt;</code></td>
+<td><code>:resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>window: Resize -2 horizontally</td>
+<td><code>&lt;M-;&gt;</code></td>
+<td><code>:resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>window: Resize +5 vertically</td>
+<td><code>&lt;M-]&gt;</code></td>
+<td><code>:vertical resize +5&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>window: Resize -5 vertically</td>
+<td><code>&lt;M-[&gt;</code></td>
+<td><code>:vertical resize -5&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tmux: Move to tmux/nvim top window</td>
+<td><code>&lt;C-K&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tmux: Move to tmux/nvim bottom window</td>
+<td><code>&lt;C-J&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>tmux: Move to tmux/nvim left window</td>
+<td><code>&lt;C-H&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>tmux: Move tmux/nvim right window</td>
+<td><code>&lt;C-L&gt;</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -325,9 +947,139 @@ resize
 <tbody>
 <tr class="odd">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td>`<code>| | Nvim builtin |</code>#<code>|</code>y?“<CR><code>| | Nvim builtin |</code>*<code>|</code>y/“<CR><code>| |  |</code>,-<code>|  | |  |</code>,=<code>|  | | tool: Run code by range |</code>,R<code>|</code>:SnipRun<CR><code>| | move: Change selection region to child node |</code>-<code>|</code>:<C-U>STSSelectChildNode<CR><code>| | edit: Decrease indent |</code><lt><code>|</code><lt>gv<code>| | move: Change selection region to parent node |</code>=<code>|</code>:<C-U>STSSelectParentNode<CR><code>| | edit: Increase indent |</code>&gt;<code>|</code>&gt;gv<code>| | leapx: Visual select backward to character |</code>F<code>|  | | edit: Move this line down |</code>J<code>|</code>:m
-‘&gt;+1<CR>gv=gv<code>| | edit: Move this line up |</code>K<code>|</code>:m’<lt>-2<CR>gv=gv<code>| | leapx: Visual select backward till character |</code>T<code>|  | | move: Change selection region to preivous sibling node |</code>[<code>|</code>:<C-U>STSSelectPrevSiblingNode<CR><code>| | move: Change selection region to next sibling node |</code>]<code>|</code>:<C-U>STSSelectNextSiblingNode<CR><code>| | leapx: Visual select to character |</code>f<code>|  | | edit: Toggle comment for block with selection |</code>gb<code>|</code><Plug>(comment_toggle_blockwise_visual)<code>| | edit: Align with delimiter |</code>gea<code>|</code>:EasyAlign<CR><code>| | edit: Toggle comment for line with selection |</code>gc<code>|</code><Plug>(comment_toggle_linewise_visual)<code>| | Jumpx: Jump across syntax tree |</code>m<code>|  | | leapx: Visual select till character |</code>t<code>|  | | edit: Add a surrounding pair around a visual selection, on new lines |</code>yS<code>|  | | edit: Add a surrounding pair around a visual selection |</code>ys<code>|  | | edit: Search-replace with selection within one line |</code><C-R><code>|</code>:<C-U>SearchReplaceSingleBufferVisualSelection<CR><code>| | edit: Search-replace with selection within one line CWord |</code><C-W><code>|</code>:<C-U>SearchReplaceWithinVisualSelectionCWord<CR><code>| | edit: Select all |</code><C-A><code>|</code><Esc>gg0vG$`</td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>#</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Nvim builtin</td>
+<td><code>*</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>tool: Run code by range</td>
+<td><code>,R</code></td>
+<td><code>:SnipRun&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,-</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>,=</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>move: Change selection region to child node</td>
+<td><code>-</code></td>
+<td><code>:&lt;C-U&gt;STSSelectChildNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Decrease indent</td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td>move: Change selection region to parent node</td>
+<td><code>=</code></td>
+<td><code>:&lt;C-U&gt;STSSelectParentNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Increase indent</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td>leapx: Visual select backward to character</td>
+<td><code>F</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Move this line down</td>
+<td><code>J</code></td>
+<td><code>:m ’&gt;+1&lt;CR&gt;gv=gv</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Move this line up</td>
+<td><code>K</code></td>
+<td><code>:m ’&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
+</tr>
+<tr class="even">
+<td>leapx: Visual select backward till character</td>
+<td><code>T</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>move: Change selection region to preivous sibling node</td>
+<td><code>[</code></td>
+<td><code>:&lt;C-U&gt;STSSelectPrevSiblingNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>move: Change selection region to next sibling node</td>
+<td><code>]</code></td>
+<td><code>:&lt;C-U&gt;STSSelectNextSiblingNode&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>leapx: Visual select to character</td>
+<td><code>f</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Toggle comment for block with selection</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Toggle comment for line with selection</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+</tr>
+<tr class="even">
+<td>edit: Align with delimiter</td>
+<td><code>gea</code></td>
+<td><code>:EasyAlign&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Jumpx: Jump across syntax tree</td>
+<td><code>m</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>leapx: Visual select till character</td>
+<td><code>t</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Add a surrounding pair around a visual selection, on new
+lines</td>
+<td><code>yS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>edit: Add a surrounding pair around a visual selection</td>
+<td><code>ys</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>edit: Search-replace with selection within one line</td>
+<td><code>&lt;C-R&gt;</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceSingleBufferVisualSelection&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>edit: Search-replace with selection within one line CWord</td>
+<td><code>&lt;C-W&gt;</code></td>
+<td><code>:&lt;C-U&gt;SearchReplaceWithinVisualSelectionCWord&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>edit: Select all</td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>&lt;Esc&gt;gg0vG$</code></td>
 </tr>
 </tbody>
 </table>

@@ -72,78 +72,78 @@ PaK in Farsi means pure, something that is in its purest form
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` | `:bn<CR>` |
-|  | ` n` | `:NvimTreeFindFile<CR>` |
-|  | ` r` | `:NvimTreeRefresh<CR>` |
-|  | ` bw` | `<Cmd>BufferOrderByWindowNumber<CR>` |
-|  | ` bl` | `<Cmd>BufferOrderByLanguage<CR>` |
-|  | ` bd` | `<Cmd>BufferOrderByDirectory<CR>` |
-|  | ` bb` | `<Cmd>BufferOrderByBufferNumber<CR>` |
-|  | ` /` | `<Cmd>noh<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `<C-N>` | `:NvimTreeToggle<CR>` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-P>` | `<Cmd>BufferPick<CR>` |
-|  | `<M-c>` | `<Cmd>BufferClose<CR>` |
-|  | `<M-p>` | `<Cmd>BufferPin<CR>` |
-|  | `<M-0>` | `<Cmd>BufferLast<CR>` |
-|  | `<M-9>` | `<Cmd>BufferGoto 9<CR>` |
-|  | `<M-8>` | `<Cmd>BufferGoto 8<CR>` |
-|  | `<M-7>` | `<Cmd>BufferGoto 7<CR>` |
-|  | `<M-6>` | `<Cmd>BufferGoto 6<CR>` |
-|  | `<M-5>` | `<Cmd>BufferGoto 5<CR>` |
-|  | `<M-4>` | `<Cmd>BufferGoto 4<CR>` |
-|  | `<M-3>` | `<Cmd>BufferGoto 3<CR>` |
-|  | `<M-2>` | `<Cmd>BufferGoto 2<CR>` |
-|  | `<M-1>` | `<Cmd>BufferGoto 1<CR>` |
-|  | `<M->>` | `<Cmd>BufferMoveNext<CR>` |
-|  | `<M-lt>` | `<Cmd>BufferMovePrevious<CR>` |
-|  | `<M-.>` | `<Cmd>BufferNext<CR>` |
-|  | `<M-,>` | `<Cmd>BufferPrevious<CR>` |
-|  | `<C-F>` | `:lua vim.lsp.buf.format({ async = true})<CR>` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<C-B>` | `:bd<CR>` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+|  | <code>&lt;Tab&gt;</code> | <code>:bn&lt;CR&gt;</code> |
+|  | <code> n</code> | <code>:NvimTreeFindFile&lt;CR&gt;</code> |
+|  | <code> r</code> | <code>:NvimTreeRefresh&lt;CR&gt;</code> |
+|  | <code> bw</code> | <code>&lt;Cmd&gt;BufferOrderByWindowNumber&lt;CR&gt;</code> |
+|  | <code> bl</code> | <code>&lt;Cmd&gt;BufferOrderByLanguage&lt;CR&gt;</code> |
+|  | <code> bd</code> | <code>&lt;Cmd&gt;BufferOrderByDirectory&lt;CR&gt;</code> |
+|  | <code> bb</code> | <code>&lt;Cmd&gt;BufferOrderByBufferNumber&lt;CR&gt;</code> |
+|  | <code> /</code> | <code>&lt;Cmd&gt;noh&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>&lt;C-N&gt;</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;C-P&gt;</code> | <code>&lt;Cmd&gt;BufferPick&lt;CR&gt;</code> |
+|  | <code>&lt;M-c&gt;</code> | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
+|  | <code>&lt;M-p&gt;</code> | <code>&lt;Cmd&gt;BufferPin&lt;CR&gt;</code> |
+|  | <code>&lt;M-0&gt;</code> | <code>&lt;Cmd&gt;BufferLast&lt;CR&gt;</code> |
+|  | <code>&lt;M-9&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 9&lt;CR&gt;</code> |
+|  | <code>&lt;M-8&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 8&lt;CR&gt;</code> |
+|  | <code>&lt;M-7&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 7&lt;CR&gt;</code> |
+|  | <code>&lt;M-6&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 6&lt;CR&gt;</code> |
+|  | <code>&lt;M-5&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 5&lt;CR&gt;</code> |
+|  | <code>&lt;M-4&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 4&lt;CR&gt;</code> |
+|  | <code>&lt;M-3&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 3&lt;CR&gt;</code> |
+|  | <code>&lt;M-2&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 2&lt;CR&gt;</code> |
+|  | <code>&lt;M-1&gt;</code> | <code>&lt;Cmd&gt;BufferGoto 1&lt;CR&gt;</code> |
+|  | <code>&lt;M-&gt;&gt;</code> | <code>&lt;Cmd&gt;BufferMoveNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-lt&gt;</code> | <code>&lt;Cmd&gt;BufferMovePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;M-.&gt;</code> | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-,&gt;</code> | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-F&gt;</code> | <code>:lua vim.lsp.buf.format({ async = true})&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;C-B&gt;</code> | <code>:bd&lt;CR&gt;</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<C-/>` | `:s/^/#<CR>` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;C-/&gt;</code> | <code>:s/^/#&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

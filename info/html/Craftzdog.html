@@ -72,7 +72,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 </tr>
 <tr class="even">
 <td></td>
-<td><code></code></td>
+<td><code> </code></td>
 <td><code>&lt;C-W&gt;w</code></td>
 </tr>
 <tr class="odd">
@@ -137,52 +137,60 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\\</code></td>
+<td><code>\</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\gR</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.revert').open(true)&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.revert’).open(true)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\gr</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.revert').open(false)&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.revert’).open(false)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\gD</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.diff').close()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.diff’).close()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\gd</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.diff').open()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.diff’).open()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\gn</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.browse').create_pull_request()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.browse’).create_pull_request()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\gp</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.browse').pull_request()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.browse’).pull_request()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\go</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.browse').open(false)&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.browse’).open(false)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\gb</code></td>
-<td><code>&lt;Cmd&gt;lua require('git.blame').blame()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘git.blame’).blame()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\ca</code></td>
+<td><code></code></td>
 <td><code>&lt;Cmd&gt;Lspsaga code_action&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
@@ -193,7 +201,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td></td>
 <td><code>dw</code></td>
-<td><code>vb"_d</code></td>
+<td><code>vb”_d</code></td>
 </tr>
 <tr class="odd">
 <td>Comment insert end of line</td>
@@ -308,7 +316,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="odd">
 <td></td>
 <td><code>x</code></td>
-<td><code>"_x</code></td>
+<td><code>“_x</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -323,7 +331,8 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -373,27 +382,32 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -423,7 +437,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;nohlsearch|diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
 </tr>
 </tbody>
 </table>
@@ -445,7 +459,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -455,7 +469,7 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -464,12 +478,13 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\go</code></td>
-<td><code>:&lt;C-U&gt; lua require('git.browse').open(true)&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>:&lt;C-U&gt; lua
+require(‘git.browse’).open(true)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\ca</code></td>
+<td><code></code></td>
 <td><code>&lt;Cmd&gt;Lspsaga code_action&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
@@ -530,12 +545,14 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td>Comment toggle blockwise (visual)</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle linewise (visual)</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -550,15 +567,14 @@ href="https://dotfyle.com/craftzdog/dotfiles-public-config-nvim">https://dotfyle
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td>`:<C-U>call matchit#Match_wrapper(’‘,1,’v’)<CR>:if col(“’’”) !=
-col(“$”)</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
 </tr>
 </tbody>
 </table>
@@ -625,22 +641,26 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

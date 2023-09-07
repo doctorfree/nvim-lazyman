@@ -44,55 +44,55 @@ Neovim config by the creator of 'MetisLinux' and 'Ewm'
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` |  |
-|  | ` ls` | `:LspStart<CR>` |
-|  | ` lr` | `:LspRestart<CR>` |
-|  | ` lp` | `:LspInfo<CR>` |
-|  | ` x` | `<C-W>c` |
-|  | ` h` | `:nohlsearch<CR>` |
-|  | ` pd` |  |
-|  | ` pp` |  |
-|  | ` pr` |  |
-|  | ` pl` |  |
-|  | ` pc` |  |
-|  | ` px` |  |
-|  | ` ps` |  |
-|  | ` pu` |  |
-|  | ` pi` |  |
-|  | ` ph` |  |
-|  | ` d` |  |
-|  | ` e` |  |
-|  | ` b` |  |
-|  | ` fw` |  |
-|  | ` fr` |  |
-|  | ` ff` |  |
-|  | ` ft` |  |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `J` | `jzz` |
-|  | `K` | `kzz` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[d` |  |
-|  | `]d` |  |
-|  | `<C-Q>` | `:bd!<CR>` |
-|  | `<C-S>` | `:w <CR>` |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<S-Tab>` |  |
-|  | `<M-H>` |  |
-|  | `<M-h>` |  |
-|  | `<M-t>` |  |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code>&lt;Tab&gt;</code> |  |
+|  | <code> ls</code> | <code>:LspStart&lt;CR&gt;</code> |
+|  | <code> lr</code> | <code>:LspRestart&lt;CR&gt;</code> |
+|  | <code> lp</code> | <code>:LspInfo&lt;CR&gt;</code> |
+|  | <code> x</code> | <code>&lt;C-W&gt;c</code> |
+|  | <code> h</code> | <code>:nohlsearch&lt;CR&gt;</code> |
+|  | <code> pd</code> |  |
+|  | <code> pp</code> |  |
+|  | <code> pr</code> |  |
+|  | <code> pl</code> |  |
+|  | <code> pc</code> |  |
+|  | <code> px</code> |  |
+|  | <code> ps</code> |  |
+|  | <code> pu</code> |  |
+|  | <code> pi</code> |  |
+|  | <code> ph</code> |  |
+|  | <code> d</code> |  |
+|  | <code> fw</code> |  |
+|  | <code> ff</code> |  |
+|  | <code> ft</code> |  |
+|  | <code> fr</code> |  |
+|  | <code> b</code> |  |
+|  | <code> e</code> |  |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>J</code> | <code>jzz</code> |
+|  | <code>K</code> | <code>kzz</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[d</code> |  |
+|  | <code>]d</code> |  |
+|  | <code>&lt;C-Q&gt;</code> | <code>:bd!&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w &lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;M-H&gt;</code> |  |
+|  | <code>&lt;M-h&gt;</code> |  |
+|  | <code>&lt;M-t&gt;</code> |  |
+|  | <code>&lt;S-Tab&gt;</code> |  |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `J` | `:m '>+1<CR>gv=gv` |
-|  | `K` | `:m '<lt>-2<CR>gv=gv` |
-|  | `p` | `_dP` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>J</code> | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+|  | <code>K</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+|  | <code>p</code> | <code>_dP</code> |
 
 #### operator mode keymaps
 

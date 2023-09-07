@@ -121,230 +121,230 @@ LunarVim config based on [Christian Chiarulli's](https://github.com/ChristianChi
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` | `<Cmd>lua require('telescope').extensions.bookmark.filemarks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Filemarks'})<CR>` |
-|  | `#` | `#zz` |
-|  | `%` | `<Plug>(matchup-%)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `*` | `*zz` |
-|  | `-` | `:lua require'lir.float'.toggle()<CR>` |
-|  | `F` |  |
-|  | `K` | `:lua require('user.keymaps').show_documentation()<CR>` |
-|  | `N` | `Nzz` |
-|  | `Q` | `<Cmd>Bdelete!<CR>` |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `SS` | `<Plug>(nvim-surround-normal-cur-line)` |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `S` | `<Plug>(nvim-surround-normal-line)` |
-|  | `T` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(matchup-[%)` |
-|  | `[q` | `:cprev<CR>` |
-|  | `\ag` | `<Esc><Cmd>lua require('neoai.shortcuts').shortcut_functions['__uid2n']()<CR>` |
-|  | `\gy` | `<Cmd>lua require'gitlinker'.get_buf_range_url('n')<CR>` |
-|  | `\'` | `siw'` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-|  | `]q` | `:cnext<CR>` |
-| Change a surrounding pair, putting replacements on new lines | `cS` | `<Plug>(nvim-surround-change-line)` |
-| Change a surrounding pair | `cs` | `<Plug>(nvim-surround-change)` |
-| Delete a surrounding pair | `ds` | `<Plug>(nvim-surround-delete)` |
-|  | `f` |  |
-|  | `g%` | `<Plug>(matchup-g%)` |
-|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#decrement_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gnormal()<CR><Cmd>let &opfunc="dial#operator#increment_gnormal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `gx` | `:silent execute '!$BROWSER ' . shellescape(expand('<lt>cfile>'), 1)<CR>` |
-|  | `g#` | `g#zz` |
-|  | `g*` | `g*zz` |
-|  | `n` | `nzz` |
-| Add a surrounding pair around the current line (normal mode) | `ss` | `<Plug>(nvim-surround-normal-cur)` |
-| Add a surrounding pair around a motion (normal mode) | `s` | `<Plug>(nvim-surround-normal)` |
-|  | `t` |  |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `zb` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")<CR>` |
-|  | `z-` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")<CR>` |
-|  | `zz` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")<CR>` |
-|  | `z.` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")<CR>` |
-|  | `z<CR>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\<lt>CR>")<CR>` |
-|  | `zt` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")<CR>` |
-|  | `z^` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")<CR>` |
-|  | `z+` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")<CR>` |
-|  | `{` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")<CR>` |
-|  | `}` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")<CR>` |
-|  | `<2-LeftMouse>` | `<Plug>(matchup-double-click)` |
-|  | `<Plug>(matchup-reload)` | `:<C-U>MatchupReload<CR>` |
-|  | `<Plug>(matchup-double-click)` | `:<C-U>call matchup#text_obj#double_click()<CR>` |
-|  | `<Plug>(matchup-Z%)` | `:<C-U>call matchup#motion#jump_inside_prev(0)<CR>` |
-|  | `<Plug>(matchup-z%)` | `:<C-U>call matchup#motion#jump_inside(0)<CR>` |
-|  | `<Plug>(matchup-[%)` | `:<C-U>call matchup#motion#find_unmatched(0, 0)<CR>` |
-|  | `<Plug>(matchup-]%)` | `:<C-U>call matchup#motion#find_unmatched(0, 1)<CR>` |
-|  | `<Plug>(matchup-g%)` | `:<C-U>call matchup#motion#find_matching_pair(0, 0)<CR>` |
-|  | `<Plug>(matchup-%)` | `:<C-U>call matchup#motion#find_matching_pair(0, 1)<CR>` |
-|  | `<SNR>41_(wise)` | `empty(g:v_motion_force) ? 'v' : g:v_motion_force` |
-|  | `<Plug>(matchup-hi-surround)` | `:<C-U>call matchup#matchparen#highlight_surrounding()<CR>` |
-|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_normal()<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `<Plug>(SmoothieBackwards)` | `<Cmd>call smoothie#backwards() <CR>` |
-|  | `<Plug>(SmoothieForwards)` | `<Cmd>call smoothie#forwards()  <CR>` |
-|  | `<Plug>(SmoothieUpwards)` | `<Cmd>call smoothie#upwards()   <CR>` |
-|  | `<Plug>(SmoothieDownwards)` | `<Cmd>call smoothie#downwards() <CR>` |
-|  | `<ScrollWheelUp>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>ScrollWheelUp>")<CR>` |
-|  | `<ScrollWheelDown>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>ScrollWheelDown>")<CR>` |
-|  | `<PageUp>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>PageUp>")<CR>` |
-|  | `<S-Up>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>S-Up>")<CR>` |
-|  | `<C-B>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-B>")<CR>` |
-|  | `<PageDown>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>PageDown>")<CR>` |
-|  | `<S-Down>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>S-Down>")<CR>` |
-|  | `<C-F>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-F>")<CR>` |
-|  | `<C-U>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-U>")<CR>` |
-|  | `<C-D>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-D>")<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-| Float Terminal | `<M-3>` |  |
-| Vertical Terminal | `<M-2>` |  |
-| Horizontal Terminal | `<M-1>` |  |
-|  | `<C-Bslash>` |  |
-|  | `<C-S>` | `<Cmd>lua require('copilot.suggestion').toggle_auto_trigger()<CR>` |
-|  | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_normal('mygroup')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `<M-r>` | `:silent only | Jaq<CR>` |
-| Change a surrounding pair, putting replacements on new lines | `<Plug>(nvim-surround-change-line)` |  |
-| Change a surrounding pair | `<Plug>(nvim-surround-change)` |  |
-| Delete a surrounding pair | `<Plug>(nvim-surround-delete)` |  |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `<Plug>(nvim-surround-normal-cur-line)` |  |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `<Plug>(nvim-surround-normal-line)` |  |
-| Add a surrounding pair around the current line (normal mode) | `<Plug>(nvim-surround-normal-cur)` |  |
-| Add a surrounding pair around a motion (normal mode) | `<Plug>(nvim-surround-normal)` |  |
-|  | `<M-q>` | `:call QuickFixToggle()<CR>` |
-|  | `<S-Tab>` | `<Cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<CR>` |
-|  | `<M-/>` | `<Cmd>lua require('Comment.api').toggle_current_linewise()<CR>` |
-|  | `<M-v>` | `<Cmd>lua require('lsp_lines').toggle()<CR>` |
-|  | `<C-Z>` | `<Cmd>ZenMode<CR>` |
-|  | `<F7>` | `<Cmd>TSHighlightCapturesUnderCursor<CR>` |
-|  | `<F6>` | `:echo "hi<lt>" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<lt>' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<lt>" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>` |
-|  | `<C-M>` | `M` |
-|  | `<Left>` | `<Cmd>FilemarkPrev<CR>` |
-|  | `<Right>` | `<Cmd>FilemarkNext<CR>` |
-|  | `<Up>` | `<Cmd>BookmarkPrev<CR>` |
-|  | `<Down>` | `<Cmd>BookmarkNext<CR>` |
-|  | `<M-Tab>` | `<C-6>` |
-|  | `<M-l>` | `<C-W>l` |
-|  | `<M-h>` | `<C-W>h` |
-|  | `<C-I>` | `<Tab>` |
-|  | `<C-Space>` | `<Cmd>WhichKey \ <CR>` |
-|  | `<M-j>` | `<C-W>j` |
-|  | `<C-Down>` | `:resize +2<CR>` |
-|  | `<M-k>` | `<C-W>k` |
-|  | `<C-Up>` | `:resize -2<CR>` |
-|  | `<C-K>` | `<Cmd>call smoothie#do("\<C-U>") <CR>` |
-|  | `<C-Q>` | `:call QuickFixToggle()<CR>` |
-|  | `<C-J>` | `<Cmd>call smoothie#do("\<C-D>") <CR>` |
-|  | `<C-H>` | `<C-W>h` |
-|  | `<C-Right>` | `:vertical resize +2<CR>` |
-|  | `<C-Left>` | `:vertical resize -2<CR>` |
-|  | `<C-L>` | `<C-W>l` |
+|  | <code>&lt;Tab&gt;</code> | <code>&lt;Cmd&gt;lua require('telescope').extensions.bookmark.filemarks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Filemarks'})&lt;CR&gt;</code> |
+|  | <code>#</code> | <code>#zz</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>*</code> | <code>*zz</code> |
+|  | <code>-</code> | <code>:lua require'lir.float'.toggle()&lt;CR&gt;</code> |
+|  | <code>F</code> |  |
+|  | <code>K</code> | <code>:lua require('user.keymaps').show_documentation()&lt;CR&gt;</code> |
+|  | <code>N</code> | <code>Nzz</code> |
+|  | <code>Q</code> | <code>&lt;Cmd&gt;Bdelete!&lt;CR&gt;</code> |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>SS</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>S</code> | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
+|  | <code>T</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+|  | <code>[q</code> | <code>:cprev&lt;CR&gt;</code> |
+|  | <code>\ag</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('neoai.shortcuts').shortcut_functions['__uid2n']()&lt;CR&gt;</code> |
+|  | <code>\gy</code> | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('n')&lt;CR&gt;</code> |
+|  | <code>\'</code> | <code>siw'</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+|  | <code>]q</code> | <code>:cnext&lt;CR&gt;</code> |
+| Change a surrounding pair, putting replacements on new lines | <code>cS</code> | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+| Change a surrounding pair | <code>cs</code> | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+| Delete a surrounding pair | <code>ds</code> | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
+|  | <code>g&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>g&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>gc</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>gx</code> | <code>:silent execute '!$BROWSER ' . shellescape(expand('&lt;lt&gt;cfile&gt;'), 1)&lt;CR&gt;</code> |
+|  | <code>g#</code> | <code>g#zz</code> |
+|  | <code>g*</code> | <code>g*zz</code> |
+|  | <code>n</code> | <code>nzz</code> |
+| Add a surrounding pair around the current line (normal mode) | <code>ss</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+| Add a surrounding pair around a motion (normal mode) | <code>s</code> | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+|  | <code>t</code> |  |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>zb</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")&lt;CR&gt;</code> |
+|  | <code>z-</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")&lt;CR&gt;</code> |
+|  | <code>zz</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")&lt;CR&gt;</code> |
+|  | <code>z.</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")&lt;CR&gt;</code> |
+|  | <code>z&lt;CR&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\&lt;lt&gt;CR&gt;")&lt;CR&gt;</code> |
+|  | <code>zt</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")&lt;CR&gt;</code> |
+|  | <code>z^</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")&lt;CR&gt;</code> |
+|  | <code>z+</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")&lt;CR&gt;</code> |
+|  | <code>{</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")&lt;CR&gt;</code> |
+|  | <code>}</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")&lt;CR&gt;</code> |
+|  | <code>&lt;2-LeftMouse&gt;</code> | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+|  | <code>&lt;Plug&gt;(matchup-reload)</code> | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-double-click)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;SNR&gt;39_(wise)</code> | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
+|  | <code>&lt;Plug&gt;(matchup-hi-surround)</code> | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieBackwards)</code> | <code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieForwards)</code> | <code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieUpwards)</code> | <code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieDownwards)</code> | <code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code> |
+|  | <code>&lt;ScrollWheelUp&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelUp&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;ScrollWheelDown&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelDown&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;PageUp&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageUp&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;S-Up&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Up&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-B&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-B&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;PageDown&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageDown&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;S-Down&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Down&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-F&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-F&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-U&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-U&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-D&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-D&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+| Float Terminal | <code>&lt;M-3&gt;</code> |  |
+| Vertical Terminal | <code>&lt;M-2&gt;</code> |  |
+| Horizontal Terminal | <code>&lt;M-1&gt;</code> |  |
+|  | <code>&lt;C-Bslash&gt;</code> |  |
+|  | <code>&lt;C-S&gt;</code> | <code>&lt;Cmd&gt;lua require('copilot.suggestion').toggle_auto_trigger()&lt;CR&gt;</code> |
+|  | <code>&lt;C-X&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('mygroup')&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>&lt;C-A&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('mygroup')&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>&lt;M-r&gt;</code> | <code>:silent only &#124; Jaq&lt;CR&gt;</code> |
+| Change a surrounding pair, putting replacements on new lines | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |  |
+| Change a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-change)</code> |  |
+| Delete a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |  |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |  |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |  |
+| Add a surrounding pair around the current line (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |  |
+| Add a surrounding pair around a motion (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |  |
+|  | <code>&lt;M-q&gt;</code> | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
+|  | <code>&lt;S-Tab&gt;</code> | <code>&lt;Cmd&gt;lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})&lt;CR&gt;</code> |
+|  | <code>&lt;M-/&gt;</code> | <code>&lt;Cmd&gt;lua require('Comment.api').toggle_current_linewise()&lt;CR&gt;</code> |
+|  | <code>&lt;M-v&gt;</code> | <code>&lt;Cmd&gt;lua require('lsp_lines').toggle()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Z&gt;</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+|  | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;TSHighlightCapturesUnderCursor&lt;CR&gt;</code> |
+|  | <code>&lt;F6&gt;</code> | <code>:echo "hi&lt;lt&gt;" . synIDattr(synID(line("."),col("."),1),"name") . '&gt; trans&lt;lt&gt;' . synIDattr(synID(line("."),col("."),0),"name") . "&gt; lo&lt;lt&gt;" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "&gt;" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")&lt;CR&gt;</code> |
+|  | <code>&lt;C-M&gt;</code> | <code>M</code> |
+|  | <code>&lt;Left&gt;</code> | <code>&lt;Cmd&gt;FilemarkPrev&lt;CR&gt;</code> |
+|  | <code>&lt;Right&gt;</code> | <code>&lt;Cmd&gt;FilemarkNext&lt;CR&gt;</code> |
+|  | <code>&lt;Up&gt;</code> | <code>&lt;Cmd&gt;BookmarkPrev&lt;CR&gt;</code> |
+|  | <code>&lt;Down&gt;</code> | <code>&lt;Cmd&gt;BookmarkNext&lt;CR&gt;</code> |
+|  | <code>&lt;M-Tab&gt;</code> | <code>&lt;C-6&gt;</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;C-W&gt;l</code> |
+|  | <code>&lt;M-h&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;C-I&gt;</code> | <code>&lt;Tab&gt;</code> |
+|  | <code>&lt;C-Space&gt;</code> | <code>&lt;Cmd&gt;WhichKey \ &lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;Cmd&gt;call smoothie#do("\&lt;C-D&gt;") &lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code>&lt;C-Right&gt;</code> | <code>:vertical resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Q&gt;</code> | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Left&gt;</code> | <code>:vertical resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Down&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;C-Up&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;Cmd&gt;call smoothie#do("\&lt;C-U&gt;") &lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(matchup-%)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `F` |  |
-|  | `T` |  |
-|  | `[%` | `<Plug>(matchup-[%)` |
-|  | `\as` | `<Esc><Cmd>lua require('neoai.shortcuts').shortcut_functions['__uid1v']()<CR>` |
-|  | `\gy` | `<Cmd>lua require'gitlinker'.get_buf_range_url('v')<CR>` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-|  | `a%` | `<Plug>(matchup-a%)` |
-|  | `f` |  |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#decrement_gvisual"<CR>g@gv` |
-|  | `g<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_gvisual()<CR><Cmd>let &opfunc="dial#operator#increment_gvisual"<CR>g@gv` |
-|  | `g%` | `<Plug>(matchup-g%)` |
-|  | `gc` |  |
-|  | `gb` |  |
-| Add a surrounding pair around a visual selection, on new lines | `gS` | `<Plug>(nvim-surround-visual-line)` |
-|  | `i%` | `<Plug>(matchup-i%)` |
-|  | `p` | `"_dP` |
-| Add a surrounding pair around a visual selection | `s` | `<Plug>(nvim-surround-visual)` |
-|  | `t` |  |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `zb` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")<CR>` |
-|  | `z-` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")<CR>` |
-|  | `zz` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")<CR>` |
-|  | `z.` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")<CR>` |
-|  | `z<CR>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\<lt>CR>")<CR>` |
-|  | `zt` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")<CR>` |
-|  | `z^` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")<CR>` |
-|  | `z+` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")<CR>` |
-|  | `{` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")<CR>` |
-|  | `}` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")<CR>` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(dial-decrement)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#decrement_visual"<CR>g@gv` |
-|  | `<Plug>(dial-increment)` | `<Cmd>lua require"dial.command".select_augend_visual()<CR><Cmd>let &opfunc="dial#operator#increment_visual"<CR>g@gv` |
-|  | `<Plug>(matchup-a%)` | `:<C-U>call matchup#text_obj#delimited(0, 1, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-i%)` | `:<C-U>call matchup#text_obj#delimited(1, 1, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-Z%)` | `<SNR>26_(matchup-Z%)` |
-|  | `<SNR>26_(matchup-Z%)` | `:<C-U>call matchup#motion#jump_inside_prev(1)<CR>` |
-|  | `<Plug>(matchup-z%)` | `<SNR>26_(matchup-z%)` |
-|  | `<SNR>26_(matchup-z%)` | `:<C-U>call matchup#motion#jump_inside(1)<CR>` |
-|  | `<Plug>(matchup-[%)` | `<SNR>26_(matchup-[%)` |
-|  | `<Plug>(matchup-]%)` | `<SNR>26_(matchup-]%)` |
-|  | `<SNR>26_(matchup-[%)` | `:<C-U>call matchup#motion#find_unmatched(1, 0)<CR>` |
-|  | `<SNR>26_(matchup-]%)` | `:<C-U>call matchup#motion#find_unmatched(1, 1)<CR>` |
-|  | `<Plug>(matchup-g%)` | `<SNR>26_(matchup-g%)` |
-|  | `<SNR>26_(matchup-g%)` | `:<C-U>call matchup#motion#find_matching_pair(1, 0)<CR>` |
-|  | `<Plug>(matchup-%)` | `<SNR>26_(matchup-%)` |
-|  | `<SNR>26_(matchup-%)` | `:<C-U>call matchup#motion#find_matching_pair(1, 1)<CR>` |
-|  | `<Plug>(SmoothieBackwards)` | `<Cmd>call smoothie#backwards() <CR>` |
-|  | `<Plug>(SmoothieForwards)` | `<Cmd>call smoothie#forwards()  <CR>` |
-|  | `<Plug>(SmoothieUpwards)` | `<Cmd>call smoothie#upwards()   <CR>` |
-|  | `<Plug>(SmoothieDownwards)` | `<Cmd>call smoothie#downwards() <CR>` |
-|  | `<ScrollWheelUp>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>ScrollWheelUp>")<CR>` |
-|  | `<ScrollWheelDown>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>ScrollWheelDown>")<CR>` |
-|  | `<PageUp>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>PageUp>")<CR>` |
-|  | `<S-Up>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>S-Up>")<CR>` |
-|  | `<C-B>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-B>")<CR>` |
-|  | `<PageDown>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>PageDown>")<CR>` |
-|  | `<S-Down>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>S-Down>")<CR>` |
-|  | `<C-F>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-F>")<CR>` |
-|  | `<C-U>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-U>")<CR>` |
-|  | `<C-D>` | `<Cmd>let [v:hlsearch, @/, v:searchforward]=smoothie#do("\<lt>C-D>")<CR>` |
-|  | `<C-X>` | `<Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#decrement_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-|  | `<C-A>` | `<Cmd>lua require"dial.command".select_augend_normal('visual')<CR><Cmd>let &opfunc="dial#operator#increment_normal"<CR>g@<Cmd>lua require("dial.command").textobj()<CR>` |
-| Add a surrounding pair around a visual selection, on new lines | `<Plug>(nvim-surround-visual-line)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR>` |
-| Add a surrounding pair around a visual selection | `<Plug>(nvim-surround-visual)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR>` |
-|  | `<C-K>` | `<Cmd>call smoothie#do("\<C-U>") <CR>` |
-|  | `<C-J>` | `<Cmd>call smoothie#do("\<C-D>") <CR>` |
-|  | `<M-/>` | `<Esc><Cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>` |
-|  | `<M-k>` | `:m '<lt>-2<CR>gv-gv` |
-|  | `<M-j>` | `:m '>+1<CR>gv-gv` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>F</code> |  |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+|  | <code>\as</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('neoai.shortcuts').shortcut_functions['__uid1v']()&lt;CR&gt;</code> |
+|  | <code>\gy</code> | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('v')&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
+|  | <code>f</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
+|  | <code>g&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@gv</code> |
+|  | <code>g&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@gv</code> |
+|  | <code>gb</code> |  |
+|  | <code>gc</code> |  |
+| Add a surrounding pair around a visual selection, on new lines | <code>gS</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
+|  | <code>p</code> | <code>"_dP</code> |
+| Add a surrounding pair around a visual selection | <code>s</code> | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+|  | <code>t</code> |  |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>zb</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")&lt;CR&gt;</code> |
+|  | <code>z-</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")&lt;CR&gt;</code> |
+|  | <code>zz</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")&lt;CR&gt;</code> |
+|  | <code>z.</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")&lt;CR&gt;</code> |
+|  | <code>z&lt;CR&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\&lt;lt&gt;CR&gt;")&lt;CR&gt;</code> |
+|  | <code>zt</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")&lt;CR&gt;</code> |
+|  | <code>z^</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")&lt;CR&gt;</code> |
+|  | <code>z+</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")&lt;CR&gt;</code> |
+|  | <code>{</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")&lt;CR&gt;</code> |
+|  | <code>}</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>&lt;SNR&gt;37_(matchup-Z%)</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>&lt;SNR&gt;37_(matchup-z%)</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>&lt;SNR&gt;37_(matchup-[%)</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>&lt;SNR&gt;37_(matchup-]%)</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>&lt;SNR&gt;37_(matchup-g%)</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>&lt;SNR&gt;37_(matchup-%)</code> |
+|  | <code>&lt;SNR&gt;37_(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@gv</code> |
+|  | <code>&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@gv</code> |
+|  | <code>&lt;Plug&gt;(SmoothieBackwards)</code> | <code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieForwards)</code> | <code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieUpwards)</code> | <code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieDownwards)</code> | <code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code> |
+|  | <code>&lt;ScrollWheelUp&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelUp&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;ScrollWheelDown&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelDown&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;PageUp&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageUp&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;S-Up&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Up&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-B&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-B&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;PageDown&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageDown&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;S-Down&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Down&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-F&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-F&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-U&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-U&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-D&gt;</code> | <code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-D&gt;")&lt;CR&gt;</code> |
+|  | <code>&lt;C-X&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('visual')&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+|  | <code>&lt;C-A&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('visual')&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;Cmd&gt;call smoothie#do("\&lt;C-U&gt;") &lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;Cmd&gt;call smoothie#do("\&lt;C-D&gt;") &lt;CR&gt;</code> |
+|  | <code>&lt;M-/&gt;</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:m '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Ignore><Plug>(matchup-%)` |
-|  | `F` |  |
-|  | `T` |  |
-|  | `[%` | `<Plug>(matchup-[%)` |
-|  | `]%` | `<Plug>(matchup-]%)` |
-|  | `a%` | `<Plug>(matchup-a%)` |
-|  | `f` |  |
-|  | `g%` | `<Ignore><Plug>(matchup-g%)` |
-|  | `i%` | `<Plug>(matchup-i%)` |
-|  | `t` |  |
-|  | `z%` | `<Plug>(matchup-z%)` |
-|  | `<Plug>(matchup-a%)` | `:<C-U>call matchup#text_obj#delimited(0, 0, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-i%)` | `:<C-U>call matchup#text_obj#delimited(1, 0, 'delim_all')<CR>` |
-|  | `<Plug>(matchup-Z%)` | `:<C-U>call matchup#motion#op('Z%')<CR>` |
-|  | `<Plug>(matchup-z%)` | `:<C-U>call matchup#motion#op('z%')<CR>` |
-|  | `<Plug>(matchup-[%)` | `:<C-U>call matchup#motion#op('[%')<CR>` |
-|  | `<Plug>(matchup-]%)` | `:<C-U>call matchup#motion#op(']%')<CR>` |
-|  | `<Plug>(matchup-g%)` | `:<C-U>call matchup#motion#op('g%')<CR>` |
-|  | `<Plug>(matchup-%)` | `:<C-U>call matchup#motion#op('%')<CR>` |
-|  | `<Plug>(SmoothieBackwards)` | `<Cmd>call smoothie#backwards() <CR>` |
-|  | `<Plug>(SmoothieForwards)` | `<Cmd>call smoothie#forwards()  <CR>` |
-|  | `<Plug>(SmoothieUpwards)` | `<Cmd>call smoothie#upwards()   <CR>` |
-|  | `<Plug>(SmoothieDownwards)` | `<Cmd>call smoothie#downwards() <CR>` |
+|  | <code>%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
+|  | <code>F</code> |  |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
+|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
+|  | <code>t</code> |  |
+|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
+|  | <code>&lt;Plug&gt;(SmoothieBackwards)</code> | <code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieForwards)</code> | <code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieUpwards)</code> | <code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SmoothieDownwards)</code> | <code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |

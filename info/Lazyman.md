@@ -202,13 +202,21 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Lazy Update | <code>,U</code> | <code>&lt;Cmd&gt;Lazy update&lt;CR&gt;</code> |
 | Lazy Menu | <code>,L</code> | <code>&lt;Cmd&gt;Lazy&lt;CR&gt;</code> |
 |  | <code>,/l</code> | <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |
+| Mason | <code>,cm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+| comment box | <code>,ac</code> | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
+| terminal float | <code>,at</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
 |  | <code>,gwc</code> | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code> |
 |  | <code>,gww</code> | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.git_worktrees()&lt;CR&gt;</code> |
+| choose theirs | <code>,gct</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
 | move to prev conflict | <code>,gcp</code> | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
 | choose ours | <code>,gco</code> | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
 | move to next conflict | <code>,gcn</code> | <code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |
 | choose both | <code>,gcb</code> | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
-| choose theirs | <code>,gct</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
+| choose session | <code>,/sc</code> | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
+| save session | <code>,/ss</code> | <code>&lt;Cmd&gt;SessionManager save_current_session&lt;CR&gt;</code> |
+| load last session | <code>,/sl</code> | <code>&lt;Cmd&gt;SessionManager load_last_session&lt;CR&gt;</code> |
+| load current dir session | <code>,/sd</code> | <code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code> |
+| remove session | <code>,/sr</code> | <code>&lt;Cmd&gt;SessionManager delete_session&lt;CR&gt;</code> |
 | Move Float | <code>,tf</code> |  |
 | Move Bottom Right New | <code>,tH</code> |  |
 | Move Below Right New | <code>,th</code> |  |
@@ -222,37 +230,13 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | New Terminal Toggle | <code>,tO</code> |  |
 | Terminal Toggle | <code>,to</code> |  |
 | Terminal Send | <code>,ts</code> |  |
-| comment box | <code>,ac</code> | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
-| load current dir session | <code>,/sd</code> | <code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code> |
-| remove session | <code>,/sr</code> | <code>&lt;Cmd&gt;SessionManager delete_session&lt;CR&gt;</code> |
-| choose session | <code>,/sc</code> | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
-| save session | <code>,/ss</code> | <code>&lt;Cmd&gt;SessionManager save_current_session&lt;CR&gt;</code> |
-| load last session | <code>,/sl</code> | <code>&lt;Cmd&gt;SessionManager load_last_session&lt;CR&gt;</code> |
-| Mason | <code>,cm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
-| terminal float | <code>,at</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
-| Toggle Transparency | <code>,ut</code> |  |
 | Select Moonokai pro filter | <code>,up</code> | <code>&lt;Cmd&gt;MonokaiProSelect&lt;CR&gt;</code> |
-| multicursor | <code>,M</code> |  |
-| lazygit | <code>,gg</code> |  |
-| diff hunk | <code>,ghd</code> |  |
-| undo stage | <code>,ghu</code> |  |
-| toggle deleted | <code>,ght</code> |  |
-| stage buffer | <code>,ghS</code> |  |
-| stage hunk | <code>,ghs</code> |  |
-| reset hunk | <code>,ghr</code> |  |
-| reset buffer | <code>,ghR</code> |  |
-| preview | <code>,ghp</code> |  |
-| diff file | <code>,gd</code> |  |
-| status | <code>,gs</code> |  |
-|  | <code>,dt</code> |  |
-|  | <code>,dO</code> |  |
-|  | <code>,do</code> |  |
-|  | <code>,di</code> |  |
-|  | <code>,dh</code> |  |
-|  | <code>,dd</code> |  |
-|  | <code>,dc</code> |  |
-|  | <code>,db</code> |  |
-|  | <code>,da</code> |  |
+| Toggle Transparency | <code>,ut</code> |  |
+| refactor | <code>,pr</code> |  |
+|  | <code>,DK</code> |  |
+|  | <code>,Dk</code> |  |
+|  | <code>,Dt</code> |  |
+|  | <code>,Dh</code> |  |
 |  | <code>,Dg</code> |  |
 |  | <code>,Ds</code> |  |
 |  | <code>,Dd</code> |  |
@@ -260,29 +244,45 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 |  | <code>,Di</code> |  |
 |  | <code>,Da</code> |  |
 |  | <code>,DA</code> |  |
-|  | <code>,DK</code> |  |
-|  | <code>,Dk</code> |  |
-|  | <code>,Dt</code> |  |
-|  | <code>,Dh</code> |  |
-| refactor | <code>,pr</code> |  |
+| status | <code>,gs</code> |  |
+| diff file | <code>,gd</code> |  |
+|  | <code>,db</code> |  |
+|  | <code>,da</code> |  |
+|  | <code>,dt</code> |  |
+|  | <code>,dO</code> |  |
+|  | <code>,do</code> |  |
+|  | <code>,di</code> |  |
+|  | <code>,dh</code> |  |
+|  | <code>,dd</code> |  |
+|  | <code>,dc</code> |  |
+| multicursor | <code>,M</code> |  |
+| lazygit | <code>,gg</code> |  |
+| toggle deleted | <code>,ght</code> |  |
+| stage buffer | <code>,ghS</code> |  |
+| stage hunk | <code>,ghs</code> |  |
+| reset hunk | <code>,ghr</code> |  |
+| reset buffer | <code>,ghR</code> |  |
+| preview | <code>,ghp</code> |  |
+| diff hunk | <code>,ghd</code> |  |
+| undo stage | <code>,ghu</code> |  |
+| Sort by directory | <code>,bsd</code> |  |
+| Pin/Unpin Buffer | <code>,bP</code> |  |
+| Go to buffer 1 | <code>,1</code> |  |
+| Go to buffer 2 | <code>,2</code> |  |
+| Go to buffer 3 | <code>,3</code> |  |
+| Go to buffer 4 | <code>,4</code> |  |
+| Go to buffer 5 | <code>,5</code> |  |
 | Go to buffer 6 | <code>,6</code> |  |
 | Go to buffer 7 | <code>,7</code> |  |
 | Go to buffer 8 | <code>,8</code> |  |
 | Go to buffer 9 | <code>,9</code> |  |
-| Go to buffer 3 | <code>,3</code> |  |
-| Go to buffer 2 | <code>,2</code> |  |
-| Go to buffer 1 | <code>,1</code> |  |
-| Go to buffer 4 | <code>,4</code> |  |
-| Go to buffer 5 | <code>,5</code> |  |
+| Move back | <code>,bb</code> |  |
+| Close Left | <code>,bl</code> |  |
+| Close Right | <code>,br</code> |  |
+| Move next | <code>,bn</code> |  |
+| Pick Buffer | <code>,bp</code> |  |
 | Sort by relative dir | <code>,bsr</code> |  |
 | Sort by extension | <code>,bse</code> |  |
-| Sort by directory | <code>,bsd</code> |  |
-| Pin/Unpin Buffer | <code>,bP</code> |  |
-| Pick Buffer | <code>,bp</code> |  |
-| Move next | <code>,bn</code> |  |
-| Close Right | <code>,br</code> |  |
-| Close Left | <code>,bl</code> |  |
-| Move back | <code>,bb</code> |  |
 |  | <code>&lt;lt&gt;&lt;lt&gt;</code> |  |
 |  | <code>&lt;lt&gt;</code> |  |
 |  | <code>==</code> |  |
@@ -312,6 +312,8 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Operator keymap for printer.nvim | <code>gp</code> |  |
 |  | <code>gn</code> | <code>:bn&lt;CR&gt;</code> |
 |  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Align with preview | <code>gA</code> |  |
+| Align | <code>ga</code> |  |
 | Comment insert end of line | <code>gcA</code> |  |
 | Comment insert above | <code>gcO</code> |  |
 | Comment insert below | <code>gco</code> |  |
@@ -322,10 +324,8 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 |  | <code>gs</code> | <code>&lt;Plug&gt;(Switch)</code> |
 | Move to right "around" | <code>g]</code> |  |
 | Move to left "around" | <code>g[</code> |  |
-| Align with preview | <code>gA</code> |  |
-| Align | <code>ga</code> |  |
-| LSP Definition | <code>gd</code> |  |
 | LSP References | <code>gr</code> |  |
+| LSP Definition | <code>gd</code> |  |
 | LSP Implementations | <code>gm</code> |  |
 | LSP Type Definitions | <code>gy</code> |  |
 | Toggle Split/Join | <code>gJ</code> |  |
@@ -357,12 +357,27 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 |  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
 |  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
 |  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> | <code>&lt;C-X&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingFallbackUp</code> | <code>&lt;C-A&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingNowUTC</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingNowLocal</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingDown</code> | <code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SpeedDatingUp</code> | <code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code> |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+| Toggle Terminal | <code>&lt;F12&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
 | Git Conflict: Previous Conflict | <code>&lt;Plug&gt;(git-conflict-prev-conflict)</code> | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
 | Git Conflict: Next Conflict | <code>&lt;Plug&gt;(git-conflict-next-conflict)</code> | <code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |
 | Git Conflict: Choose Theirs | <code>&lt;Plug&gt;(git-conflict-theirs)</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
 | Git Conflict: Choose None | <code>&lt;Plug&gt;(git-conflict-none)</code> | <code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code> |
 | Git Conflict: Choose Both | <code>&lt;Plug&gt;(git-conflict-both)</code> | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
 | Git Conflict: Choose Ours | <code>&lt;Plug&gt;(git-conflict-ours)</code> | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(SwitchReverse)</code> | <code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |
+|  | <code>&lt;Plug&gt;(Switch)</code> | <code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |
 | Change a surrounding pair, putting replacements on new lines | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |  |
 | Change a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-change)</code> |  |
 | Delete a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |  |
@@ -370,33 +385,18 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Add a surrounding pair around a motion, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |  |
 | Add a surrounding pair around the current line (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |  |
 | Add a surrounding pair around a motion (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |  |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-|  | <code>&lt;Plug&gt;(SwitchReverse)</code> | <code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |
-|  | <code>&lt;Plug&gt;(Switch)</code> | <code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |
 |  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-| Toggle Terminal | <code>&lt;F12&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> | <code>&lt;C-X&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingFallbackUp</code> | <code>&lt;C-A&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingNowUTC</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingNowLocal</code> | <code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingDown</code> | <code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SpeedDatingUp</code> | <code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code> |
-| multicursor down | <code>&lt;C-Down&gt;</code> |  |
 | NvimTree | <code>&lt;C-E&gt;</code> |  |
-| Go to buffer 8 | <code>&lt;M-8&gt;</code> |  |
-| Go to buffer 7 | <code>&lt;M-7&gt;</code> |  |
-| Go to buffer 6 | <code>&lt;M-6&gt;</code> |  |
+| multicursor down | <code>&lt;C-Down&gt;</code> |  |
 | Go to buffer 5 | <code>&lt;M-5&gt;</code> |  |
 | Go to buffer 4 | <code>&lt;M-4&gt;</code> |  |
 | Go to buffer 3 | <code>&lt;M-3&gt;</code> |  |
 | Go to buffer 2 | <code>&lt;M-2&gt;</code> |  |
 | Go to buffer 1 | <code>&lt;M-1&gt;</code> |  |
+| Go to buffer 8 | <code>&lt;M-8&gt;</code> |  |
 | Go to buffer 9 | <code>&lt;M-9&gt;</code> |  |
+| Go to buffer 6 | <code>&lt;M-6&gt;</code> |  |
+| Go to buffer 7 | <code>&lt;M-7&gt;</code> |  |
 |  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
@@ -428,11 +428,11 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | Around textobject | <code>a</code> |  |
 | Operator keymap for printer.nvim | <code>gp</code> |  |
 |  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-| Add a surrounding pair around a visual selection, on new lines | <code>gS</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 | Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
 | Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
 | Align with preview | <code>gA</code> |  |
 | Align | <code>ga</code> |  |
+| Add a surrounding pair around a visual selection, on new lines | <code>gS</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 | Move to right "around" | <code>g]</code> |  |
 | Move to left "around" | <code>g[</code> |  |
 | Inside last textobject | <code>il</code> |  |
@@ -448,10 +448,10 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 |  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
 |  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
 |  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
-| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 | Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
 | Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 |  | <code>&lt;Plug&gt;SpeedDatingDown</code> | <code>:&lt;C-U&gt;call speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |
 |  | <code>&lt;Plug&gt;SpeedDatingUp</code> | <code>:&lt;C-U&gt;call speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |
 

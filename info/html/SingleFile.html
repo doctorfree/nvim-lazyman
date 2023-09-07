@@ -65,432 +65,414 @@ href="https://github.com/creativenull/nvim-oneconfig">https://github.com/creativ
 <tbody>
 <tr class="odd">
 <td>Toggle file tree (neo-tree)</td>
-<td><code>ff</code></td>
+<td><code> ff</code></td>
 <td><code>&lt;Cmd&gt;Neotree reveal toggle right&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Paste from system clipboard</td>
-<td><code>p</code></td>
-<td><code>"+p</code></td>
+<td><code> p</code></td>
+<td><code>“+p</code></td>
 </tr>
 <tr class="odd">
 <td>Yank from system clipboard</td>
-<td><code>y</code></td>
-<td><code>"+y</code></td>
+<td><code> y</code></td>
+<td><code>“+y</code></td>
 </tr>
 <tr class="even">
 <td>Reload current buffer with the file</td>
-<td><code>r</code></td>
+<td><code> r</code></td>
 <td><code>&lt;Cmd&gt;edit!&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Reload init.lua</td>
-<td><code>vs</code></td>
+<td><code> vs</code></td>
 <td><code>&lt;Cmd&gt;ConfigReload&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Open init.lua</td>
-<td><code>ve</code></td>
-<td><code>&lt;Cmd&gt;edit $MYVIMRC&lt;CR&gt;</code></td>
+<td><code> ve</code></td>
+<td><code>&lt;Cmd&gt;edit <span
+class="math inline">$MYVIMRC&amp;lt;CR&amp;gt;&lt;/code&gt; | | Close
+all buffers except current | &lt;code&gt; bx&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;%bd&amp;#124;e#|bd#&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | Close current buffer | &lt;code&gt; bd&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;bp&amp;#124;sp|bn|bd&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | Previous buffer | &lt;code&gt; bp&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;bprevious&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | Next buffer | &lt;code&gt; bn&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;bnext&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+Show buffers | &lt;code&gt; bl&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;buffers&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| Disable search highlight | &lt;code&gt;
+&amp;lt;CR&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;noh&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitNormalForward)&lt;/code&gt; | |
+Nvim builtin | &lt;code&gt;&amp;&lt;/code&gt; |
+&lt;code&gt;:&amp;&amp;&amp;lt;CR&amp;gt;&lt;/code&gt; | | Nvim builtin
+| &lt;code&gt;Y&lt;/code&gt; | &lt;code&gt;y$</span></code></td>
 </tr>
 <tr class="odd">
-<td>Close all buffers except current</td>
-<td><code>bx</code></td>
-<td><code>&lt;Cmd&gt;%bd|e#|bd#&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Close current buffer</td>
-<td><code>bd</code></td>
-<td><code>&lt;Cmd&gt;bp|sp|bn|bd&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Previous buffer</td>
-<td><code>bp</code></td>
-<td><code>&lt;Cmd&gt;bprevious&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Next buffer</td>
-<td><code>bn</code></td>
-<td><code>&lt;Cmd&gt;bnext&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Show buffers</td>
-<td><code>bl</code></td>
-<td><code>&lt;Cmd&gt;buffers&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Disable search highlight</td>
-<td><code>&lt;CR&gt;</code></td>
-<td><code>&lt;Cmd&gt;noh&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>%</code></td>
-<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-</tr>
-<tr class="even">
-<td>Nvim builtin</td>
-<td><code>&amp;</code></td>
-<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>Y</code></td>
-<td><code>y$</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>[%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>]%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Change a surrounding pair.</td>
 <td><code>cs</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Delete a surrounding pair.</td>
 <td><code>ds</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert end of line</td>
 <td><code>gcA</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert above</td>
 <td><code>gcO</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert below</td>
 <td><code>gco</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current block</td>
 <td><code>gbc</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current line</td>
 <td><code>gcc</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise</td>
 <td><code>gb</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise</td>
 <td><code>gc</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>gx</code></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>g%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode).</td>
 <td><code>ySS</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around a motion, on new lines (normal
 mode).</td>
 <td><code>yS</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around the current line (normal mode).</td>
 <td><code>yss</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around a motion (normal mode).</td>
 <td><code>ys</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
-<td><code>:set operatorfunc=&lt;SNR&gt;42_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
-<td><code>:set operatorfunc=&lt;SNR&gt;42_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
+<td><code>:set
+operatorfunc=&lt;SNR&gt;42_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
+<td><code>:set
+operatorfunc=&lt;SNR&gt;42_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;m</code></td>
 <td><code>&lt;Plug&gt;(emmet-merge-lines)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-merge-lines)</code></td>
 <td><code>:call emmet#mergeLines()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;A</code></td>
 <td><code>&lt;Plug&gt;(emmet-anchorize-summary)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-anchorize-summary)</code></td>
 <td><code>:call emmet#anchorizeURL(1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;a</code></td>
 <td><code>&lt;Plug&gt;(emmet-anchorize-url)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-anchorize-url)</code></td>
 <td><code>:call emmet#anchorizeURL(0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;k</code></td>
 <td><code>&lt;Plug&gt;(emmet-remove-tag)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-remove-tag)</code></td>
 <td><code>:call emmet#removeTag()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;j</code></td>
 <td><code>&lt;Plug&gt;(emmet-split-join-tag)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-split-join-tag)</code></td>
 <td><code>:call emmet#splitJoinTag()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;/</code></td>
 <td><code>&lt;Plug&gt;(emmet-toggle-comment)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-toggle-comment)</code></td>
 <td><code>:call emmet#toggleComment()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;I</code></td>
 <td><code>&lt;Plug&gt;(emmet-image-encode)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-image-encode)</code></td>
 <td><code>:call emmet#imageEncode()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;i</code></td>
 <td><code>&lt;Plug&gt;(emmet-image-size)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-image-size)</code></td>
 <td><code>:call emmet#imageSize()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-move-prev-item)</code></td>
 <td><code>:call emmet#moveNextPrevItem(1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-move-next-item)</code></td>
 <td><code>:call emmet#moveNextPrevItem(0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;N</code></td>
 <td><code>&lt;Plug&gt;(emmet-move-prev)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-move-prev)</code></td>
 <td><code>:call emmet#moveNextPrev(1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;n</code></td>
 <td><code>&lt;Plug&gt;(emmet-move-next)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-move-next)</code></td>
 <td><code>:call emmet#moveNextPrev(0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;D</code></td>
 <td><code>&lt;Plug&gt;(emmet-balance-tag-outword)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-balance-tag-outword)</code></td>
 <td><code>:call emmet#balanceTag(-1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;d</code></td>
 <td><code>&lt;Plug&gt;(emmet-balance-tag-inward)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-balance-tag-inward)</code></td>
 <td><code>:call emmet#balanceTag(1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;u</code></td>
 <td><code>&lt;Plug&gt;(emmet-update-tag)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-update-tag)</code></td>
 <td><code>:call emmet#updateTag()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;;</code></td>
 <td><code>&lt;Plug&gt;(emmet-expand-word)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-expand-word)</code></td>
-<td><code>:call emmet#expandAbbr(1,"")&lt;CR&gt;</code></td>
+<td><code>:call emmet#expandAbbr(1,““)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Q&gt;,</code></td>
 <td><code>&lt;Plug&gt;(emmet-expand-abbr)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-expand-abbr)</code></td>
-<td><code>:call emmet#expandAbbr(3,"")&lt;CR&gt;</code></td>
+<td><code>:call emmet#expandAbbr(3,““)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise with count</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise with count</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current block</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current line</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Open text search (telescope)</td>
 <td><code>&lt;C-T&gt;</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Open file finder (telescope)</td>
 <td><code>&lt;C-P&gt;</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td>Previous buffer</td>
 <td><code>&lt;C-H&gt;</code></td>
 <td><code>&lt;Cmd&gt;bprevious&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Right&gt;</code></td>
 <td><code>&lt;Cmd&gt;vertical resize +2&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Left&gt;</code></td>
 <td><code>&lt;Cmd&gt;vertical resize -2&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Down&gt;</code></td>
 <td><code>&lt;Cmd&gt;resize -2&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Up&gt;</code></td>
 <td><code>&lt;Cmd&gt;resize +2&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Next buffer</td>
 <td><code>&lt;C-L&gt;</code></td>
 <td><code>&lt;Cmd&gt;bnext&lt;CR&gt;</code></td>
@@ -514,13 +496,13 @@ mode).</td>
 <tbody>
 <tr class="odd">
 <td>Yank from system clipboard</td>
-<td><code>y</code></td>
-<td><code>"+y</code></td>
+<td><code> y</code></td>
+<td><code>“+y</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -530,12 +512,13 @@ mode).</td>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Add a surrounding pair around a visual selection.</td>
 <td><code>S</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround()&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -565,7 +548,8 @@ mode).</td>
 <tr class="odd">
 <td>Add a surrounding pair around a visual selection, on new lines.</td>
 <td><code>gS</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround(true)&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround(true)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -580,17 +564,19 @@ mode).</td>
 <tr class="even">
 <td>Paste from yanked contents only</td>
 <td><code>p</code></td>
-<td><code>"_dP</code></td>
+<td><code>“_dP</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
-<td><code>:&lt;C-U&gt;call &lt;SNR&gt;42_vsnip_visual_text(visualmode())&lt;CR&gt;gv"_c</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;42_vsnip_visual_text(visualmode())&lt;CR&gt;gv”_c</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
-<td><code>:&lt;C-U&gt;call &lt;SNR&gt;42_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;42_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -630,17 +616,19 @@ mode).</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(emmet-expand-abbr)</code></td>
-<td><code>:call emmet#expandAbbr(2,"")&lt;CR&gt;</code></td>
+<td><code>:call emmet#expandAbbr(2,““)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Comment toggle linewise (visual)</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -655,14 +643,34 @@ mode).</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | |  |</code><Right><code>| `` | |  |</code><Left><code>| `` | |  |</code><Down><code>| `` | |  |</code><Up>`</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Right&gt;</code></td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Left&gt;</code></td>
+<td><code></code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Down&gt;</code></td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Up&gt;</code></td>
+<td><code></code></td>
 </tr>
 </tbody>
 </table>
@@ -704,32 +712,46 @@ matchit#MultiMatch(“bW”,
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Right&gt;</code></td>
-<td><code>| |  | `&lt;Left&gt;` |</code></td>
+<td><code></code></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><code>&lt;Left&gt;</code></td>
+<td><code></code></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><code>&lt;Down&gt;</code></td>
-<td><code>| |  | `&lt;Up&gt;` |</code></td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Up&gt;</code></td>
+<td><code></code></td>
 </tr>
 </tbody>
 </table>

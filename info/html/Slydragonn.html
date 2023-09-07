@@ -127,82 +127,84 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 </tr>
 <tr class="even">
 <td></td>
-<td><code>mn</code></td>
+<td><code> mn</code></td>
 <td><code>&lt;Cmd&gt;MarkdownPreviewStop&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>m</code></td>
+<td><code> m</code></td>
 <td><code>&lt;Cmd&gt;MarkdownPreview&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>tv</code></td>
-<td><code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code></td>
+<td><code> tv</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm size=80
+direction=vertical&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>th</code></td>
-<td><code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code></td>
+<td><code> th</code></td>
+<td><code>&lt;Cmd&gt;ToggleTerm size=10
+direction=horizontal&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>o</code></td>
+<td><code> o</code></td>
 <td><code>&lt;Cmd&gt;Neotree focus&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>e</code></td>
+<td><code> e</code></td>
 <td><code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>p</code></td>
+<td><code> p</code></td>
 <td><code>&lt;Cmd&gt;split&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>ñ</code></td>
+<td><code> ñ</code></td>
 <td><code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>q</code></td>
+<td><code> q</code></td>
 <td><code>&lt;Cmd&gt;q&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>w</code></td>
+<td><code> w</code></td>
 <td><code>&lt;Cmd&gt;update&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>fc</code></td>
+<td><code> fc</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>fs</code></td>
+<td><code> fs</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>fh</code></td>
+<td><code> fh</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>fb</code></td>
+<td><code> fb</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>fg</code></td>
+<td><code> fg</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>ff</code></td>
+<td><code> ff</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -243,7 +245,8 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -258,32 +261,38 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 <tr class="even">
 <td>Toggle Terminal</td>
 <td><code>&lt;F7&gt;</code></td>
-<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count .
+“ToggleTerm”&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -350,7 +359,7 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -360,7 +369,7 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -405,15 +414,14 @@ href="https://github.com/akinsho/toggleterm.nvim">akinsho/toggleterm.nvim</a></l
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td>`:<C-U>call matchit#Match_wrapper(’‘,1,’v’)<CR>:if col(“’’”) !=
-col(“$”)</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
 </tr>
 </tbody>
 </table>
@@ -460,22 +468,26 @@ col(“$”)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

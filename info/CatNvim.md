@@ -78,135 +78,135 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Replace in files (Spectre) | ` sr` |  |
-| Delete Buffer | ` bd` |  |
-| Delete Buffer (Force) | ` bD` |  |
-| Explorer NeoTree (root dir) | ` fe` |  |
-| Explorer NeoTree (cwd) | ` E` |  |
-| Explorer NeoTree (root dir) | ` e` |  |
-| Explorer NeoTree (cwd) | ` fE` |  |
-| Mason | ` cm` |  |
-| Dismiss all Notifications | ` un` |  |
-| Todo (Trouble) | ` xt` |  |
-| Todo/Fix/Fixme | ` sT` |  |
-| Todo | ` st` |  |
-| Todo/Fix/Fixme (Trouble) | ` xT` |  |
-| Workspace Diagnostics (Trouble) | ` xX` |  |
-| Document Diagnostics (Trouble) | ` xx` |  |
-| Quickfix List (Trouble) | ` xQ` |  |
-| Location List (Trouble) | ` xL` |  |
-| Dismiss All | ` snd` |  |
-| Noice All | ` sna` |  |
-| Noice History | ` snh` |  |
-| Noice Last Message | ` snl` |  |
-| Toggle pin | ` bp` |  |
-| Delete non-pinned buffers | ` bP` |  |
-| Restore Session | ` qs` |  |
-| Don't Save Current Session | ` qd` |  |
-| Restore Last Session | ` ql` |  |
-| Workspace diagnostics | ` sD` |  |
-| Document diagnostics | ` sd` |  |
-| Commands | ` sC` |  |
-| Command History | ` sc` |  |
-| Buffer | ` sb` |  |
-| Auto Commands | ` sa` |  |
-| Registers | ` s"` |  |
-| status | ` gs` |  |
-| commits | ` gc` |  |
-| Recent (cwd) | ` fR` |  |
-| Recent | ` fr` |  |
-| Find Files (cwd) | ` fF` |  |
-| Find Files (root dir) | ` ff` |  |
-| Buffers | ` fb` |  |
-| Command History | ` :` |  |
-| Grep (root dir) | ` /` |  |
-| Switch Buffer | ` ,` |  |
-| Find Files (root dir) | `  ` |  |
-| Goto Symbol (Workspace) | ` sS` |  |
-| Goto Symbol | ` ss` |  |
-| Colorscheme with preview | ` uC` |  |
-| Word (cwd) | ` sW` |  |
-| Word (root dir) | ` sw` |  |
-| Resume | ` sR` |  |
-| Options | ` so` |  |
-| Jump to Mark | ` sm` |  |
-| Man Pages | ` sM` |  |
-| Key Maps | ` sk` |  |
-| Search Highlight Groups | ` sH` |  |
-| Help Pages | ` sh` |  |
-| Grep (cwd) | ` sG` |  |
-| Grep (root dir) | ` sg` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Flash Treesitter | `S` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-| Previous todo comment | `[t` |  |
-| Previous trouble/quickfix item | `[q` |  |
-| Prev Reference | `[[` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Next todo comment | `]t` |  |
-| Next trouble/quickfix item | `]q` |  |
-| Next Reference | `]]` |  |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Replace surrounding | `gzr` |  |
-| Find right surrounding | `gzf` |  |
-| Add surrounding | `gza` |  |
-| Highlight surrounding | `gzh` |  |
-| Delete surrounding | `gzd` |  |
-| Update `MiniSurround.config.n_lines` | `gzn` |  |
-| Find left surrounding | `gzF` |  |
-| Flash | `s` |  |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-| Increment selection | `<C-Space>` |  |
-| Scroll forward | `<C-F>` |  |
-| Scroll backward | `<C-B>` |  |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| Mason | <code> cm</code> |  |
+| Replace in files (Spectre) | <code> sr</code> |  |
+| Explorer NeoTree (cwd) | <code> fE</code> |  |
+| Explorer NeoTree (root dir) | <code> fe</code> |  |
+| Explorer NeoTree (root dir) | <code> e</code> |  |
+| Explorer NeoTree (cwd) | <code> E</code> |  |
+| Help Pages | <code> sh</code> |  |
+| Grep (cwd) | <code> sG</code> |  |
+| Grep (root dir) | <code> sg</code> |  |
+| Workspace diagnostics | <code> sD</code> |  |
+| Document diagnostics | <code> sd</code> |  |
+| Commands | <code> sC</code> |  |
+| Command History | <code> sc</code> |  |
+| Buffer | <code> sb</code> |  |
+| Auto Commands | <code> sa</code> |  |
+| Registers | <code> s"</code> |  |
+| status | <code> gs</code> |  |
+| commits | <code> gc</code> |  |
+| Recent (cwd) | <code> fR</code> |  |
+| Recent | <code> fr</code> |  |
+| Find Files (cwd) | <code> fF</code> |  |
+| Find Files (root dir) | <code> ff</code> |  |
+| Buffers | <code> fb</code> |  |
+| Command History | <code> :</code> |  |
+| Grep (root dir) | <code> /</code> |  |
+| Switch Buffer | <code> ,</code> |  |
+| Find Files (root dir) | <code>  </code> |  |
+| Goto Symbol (Workspace) | <code> sS</code> |  |
+| Goto Symbol | <code> ss</code> |  |
+| Colorscheme with preview | <code> uC</code> |  |
+| Word (cwd) | <code> sW</code> |  |
+| Word (root dir) | <code> sw</code> |  |
+| Resume | <code> sR</code> |  |
+| Options | <code> so</code> |  |
+| Jump to Mark | <code> sm</code> |  |
+| Man Pages | <code> sM</code> |  |
+| Key Maps | <code> sk</code> |  |
+| Search Highlight Groups | <code> sH</code> |  |
+| Todo (Trouble) | <code> xt</code> |  |
+| Todo/Fix/Fixme | <code> sT</code> |  |
+| Todo | <code> st</code> |  |
+| Todo/Fix/Fixme (Trouble) | <code> xT</code> |  |
+| Dismiss all Notifications | <code> un</code> |  |
+| Delete Buffer | <code> bd</code> |  |
+| Delete Buffer (Force) | <code> bD</code> |  |
+| Delete non-pinned buffers | <code> bP</code> |  |
+| Toggle pin | <code> bp</code> |  |
+| Quickfix List (Trouble) | <code> xQ</code> |  |
+| Location List (Trouble) | <code> xL</code> |  |
+| Workspace Diagnostics (Trouble) | <code> xX</code> |  |
+| Document Diagnostics (Trouble) | <code> xx</code> |  |
+| Don't Save Current Session | <code> qd</code> |  |
+| Restore Last Session | <code> ql</code> |  |
+| Restore Session | <code> qs</code> |  |
+| Dismiss All | <code> snd</code> |  |
+| Noice All | <code> sna</code> |  |
+| Noice History | <code> snh</code> |  |
+| Noice Last Message | <code> snl</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Flash Treesitter | <code>S</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| Previous todo comment | <code>[t</code> |  |
+| Prev Reference | <code>[[</code> |  |
+| Previous trouble/quickfix item | <code>[q</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Next todo comment | <code>]t</code> |  |
+| Next Reference | <code>]]</code> |  |
+| Next trouble/quickfix item | <code>]q</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Highlight surrounding | <code>gzh</code> |  |
+| Find right surrounding | <code>gzf</code> |  |
+| Delete surrounding | <code>gzd</code> |  |
+| Update `MiniSurround.config.n_lines` | <code>gzn</code> |  |
+| Find left surrounding | <code>gzF</code> |  |
+| Replace surrounding | <code>gzr</code> |  |
+| Add surrounding | <code>gza</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+| Increment selection | <code>&lt;C-Space&gt;</code> |  |
+| Scroll backward | <code>&lt;C-B&gt;</code> |  |
+| Scroll forward | <code>&lt;C-F&gt;</code> |  |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Selection (cwd) | ` sW` |  |
-| Selection (root dir) | ` sw` |  |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Add surrounding | `gza` |  |
-| Flash | `s` |  |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-| Decrement selection | `<BS>` |  |
+| Selection (cwd) | <code> sW</code> |  |
+| Selection (root dir) | <code> sw</code> |  |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Add surrounding | <code>gza</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+| Decrement selection | <code>&lt;BS&gt;</code> |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-| Remote Flash | `r` |  |
-| Flash | `s` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| Remote Flash | <code>r</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

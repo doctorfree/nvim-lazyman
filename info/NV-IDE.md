@@ -120,170 +120,170 @@ Configuration oriented for web developers (rails, ruby, php, html, css, SCSS, ja
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` e` |  |
-|  | `#` | `#<Cmd>lua require('hlslens').start()<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `*` | `*<Cmd>lua require('hlslens').start()<CR>` |
-|  | `N` | `<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[d` |  |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `\n` | `:lua require('config.plugins.telescope').my_note()<CR>` |
-|  | `\nt` | `:lua require('util.scratches').open_scratch_file_floating()<CR>` |
-|  | `\tv` | `:lua require('util.scratches').open_scratch_file()<CR>` |
-|  | `\df` | `<Cmd>lua require'telescope'.extensions.dap.frames{}<CR>` |
-|  | `\dv` | `<Cmd>lua require'telescope'.extensions.dap.variables{}<CR>` |
-|  | `\dlb` | `<Cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>` |
-|  | `\dcc` | `<Cmd>lua require'telescope'.extensions.dap.commands{}<CR>` |
-|  | `\dro` | `<Cmd>lua require'dap'.repl.open()<CR>` |
-|  | `\dui` | `:lua require('dapui').toggle()<CR>` |
-|  | `\db` | `<Cmd>lua require'dap'.toggle_breakpoint()<CR>` |
-|  | `\dso` | `<Cmd>lua require'dap'.step_out()<CR>` |
-|  | `\dsi` | `<Cmd>lua require'dap'.step_into()<CR>` |
-|  | `\ds` | `<Cmd>lua require'dap'.step_over()<CR>` |
-|  | `\dc` | `<Cmd>lua require'dap'.continue()<CR>` |
-|  | `\tl` | `<Cmd>Trouble lsp_references<CR>` |
-|  | `\tq` | `<Cmd>Trouble quickfix<CR>` |
-|  | `\tll` | `<Cmd>Trouble loclist<CR>` |
-|  | `\td` | `<Cmd>Trouble document_diagnostics<CR>` |
-|  | `\tw` | `<Cmd>Trouble workspace_diagnostics<CR>` |
-|  | `\tr` | `<Cmd>TroubleToggle<CR>` |
-|  | `\tn` | `:TodoTrouble keywords=NOTE<CR>` |
-|  | `\tf` | `:TodoTrouble keywords=FIX,FIXME<CR>` |
-|  | `\tt` | `:TodoTrouble keywords=TODO<CR>` |
-|  | `\ll` | `:lua require('telescope.builtin').grep_string({ search = vim.fn.input('GREP -> ') })<CR>` |
-|  | `\y` | `:Telescope neoclip<CR>` |
-|  | `\nn` | `:lua NewNote()<CR>` |
-|  | `\ns` | `:lua require('config.plugins.telescope').my_note()<CR>` |
-|  | `\bb` | `:lua require('config.plugins.telescope').my_git_bcommits()<CR>` |
-|  | `\g` | `:lua require('config.plugins.telescope').my_git_status()<CR>` |
-|  | `\c` | `:lua require('config.plugins.telescope').my_git_commits()<CR>` |
-|  | `\p` | `:lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%.asdf/', '/%.zinit/', '/%.tmux/'}}<CR>` |
-|  | `\fp` | `:lua require('config.plugins.telescope').project_files()<CR>` |
-|  | `\f` | `:lua require('telescope.builtin').find_files()<CR>` |
-|  | `\l` | `:lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>` |
-|  | `\ts` | `:lua require('telescope.builtin').treesitter()<CR>` |
-|  | `\b` | `:lua require('config.plugins.telescope').my_buffers()<CR>` |
-|  | `\m` | `:lua require('telescope.builtin').marks()<CR>` |
-|  | `\#` | `:lua require('telescope.builtin').grep_string()<CR>` |
-|  | `\r` | `:lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>` |
-|  | `\sl` | `viw:lua require('spectre').open_file_search()<CR>` |
-|  | `\sp` | `:lua require('spectre').open()<CR>` |
-|  | `\gf` | `:20G<CR>` |
-|  | `\bp` | `:BufferLineCyclePrev<CR>` |
-|  | `\bn` | `:BufferLineCycleNext<CR>` |
-|  | `\bdh` | `:BDelete! hidden<CR>` |
-|  | `\bda` | `:BDelete! all<CR>` |
-|  | `\bd` | `:BDelete this<CR>` |
-|  | `\nm` | `:Dispatch npm start<CR>` |
-|  | `\x` |  |
-|  | `\ld` |  |
-|  | `\gg` |  |
-| Create a selection for selcted text or word under the cursor | `\mc` |  |
-| Symbols Outline | `\cs` |  |
-|  | `]d` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `g#` | `g#<Cmd>lua require('hlslens').start()<CR>` |
-|  | `g*` | `g*<Cmd>lua require('hlslens').start()<CR>` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-| Comment toggle blockwise | `gb` | `<Plug>(comment_toggle_blockwise)` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-|  | `gC` | `<Plug>CapsLockToggle` |
-|  | `h` |  |
-|  | `j` |  |
-|  | `k` |  |
-|  | `l` |  |
-|  | `n` | `<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>` |
-| Flash | `s` |  |
-| Close all folds | `zM` |  |
-| Peek folded lines under cursor | `zZ` |  |
-| Open all folds | `zR` |  |
-|  | `<F8>` | `:ZenMode<CR>` |
-|  | `<F7>` | `:Neotree filesystem reveal left toggle<CR>` |
-|  | `<F4>` | `:set list! list?<CR>` |
-|  | `<F3>` | `:set nu! rnu!<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<Plug>(vsnip-cut-text)` | `:set operatorfunc=<SNR>21_vsnip_cut_text_normal<CR>g@` |
-|  | `<Plug>(vsnip-select-text)` | `:set operatorfunc=<SNR>21_vsnip_select_text_normal<CR>g@` |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<Plug>CapsLockDisable` | `:<C-U>call <SNR>13_disable('i')<CR>` |
-|  | `<Plug>CapsLockEnable` | `:<C-U>call <SNR>13_enable('i',1)<CR>` |
-|  | `<Plug>CapsLockToggle` | `:<C-U>call <SNR>13_toggle('i',1)<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<F5>` |  |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code> e</code> |  |
+|  | <code>#</code> | <code>#&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>*</code> | <code>*&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+|  | <code>N</code> | <code>&lt;Cmd&gt;execute('normal! ' . v:count1 . 'N')&lt;CR&gt;&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[d</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>\n</code> | <code>:lua require('config.plugins.telescope').my_note()&lt;CR&gt;</code> |
+|  | <code>\nt</code> | <code>:lua require('util.scratches').open_scratch_file_floating()&lt;CR&gt;</code> |
+|  | <code>\tv</code> | <code>:lua require('util.scratches').open_scratch_file()&lt;CR&gt;</code> |
+|  | <code>\df</code> | <code>&lt;Cmd&gt;lua require'telescope'.extensions.dap.frames{}&lt;CR&gt;</code> |
+|  | <code>\dv</code> | <code>&lt;Cmd&gt;lua require'telescope'.extensions.dap.variables{}&lt;CR&gt;</code> |
+|  | <code>\dlb</code> | <code>&lt;Cmd&gt;lua require'telescope'.extensions.dap.list_breakpoints{}&lt;CR&gt;</code> |
+|  | <code>\dcc</code> | <code>&lt;Cmd&gt;lua require'telescope'.extensions.dap.commands{}&lt;CR&gt;</code> |
+|  | <code>\dro</code> | <code>&lt;Cmd&gt;lua require'dap'.repl.open()&lt;CR&gt;</code> |
+|  | <code>\dui</code> | <code>:lua require('dapui').toggle()&lt;CR&gt;</code> |
+|  | <code>\db</code> | <code>&lt;Cmd&gt;lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
+|  | <code>\dso</code> | <code>&lt;Cmd&gt;lua require'dap'.step_out()&lt;CR&gt;</code> |
+|  | <code>\dsi</code> | <code>&lt;Cmd&gt;lua require'dap'.step_into()&lt;CR&gt;</code> |
+|  | <code>\ds</code> | <code>&lt;Cmd&gt;lua require'dap'.step_over()&lt;CR&gt;</code> |
+|  | <code>\dc</code> | <code>&lt;Cmd&gt;lua require'dap'.continue()&lt;CR&gt;</code> |
+|  | <code>\tl</code> | <code>&lt;Cmd&gt;Trouble lsp_references&lt;CR&gt;</code> |
+|  | <code>\tq</code> | <code>&lt;Cmd&gt;Trouble quickfix&lt;CR&gt;</code> |
+|  | <code>\tll</code> | <code>&lt;Cmd&gt;Trouble loclist&lt;CR&gt;</code> |
+|  | <code>\td</code> | <code>&lt;Cmd&gt;Trouble document_diagnostics&lt;CR&gt;</code> |
+|  | <code>\tw</code> | <code>&lt;Cmd&gt;Trouble workspace_diagnostics&lt;CR&gt;</code> |
+|  | <code>\tr</code> | <code>&lt;Cmd&gt;TroubleToggle&lt;CR&gt;</code> |
+|  | <code>\tn</code> | <code>:TodoTrouble keywords=NOTE&lt;CR&gt;</code> |
+|  | <code>\tf</code> | <code>:TodoTrouble keywords=FIX,FIXME&lt;CR&gt;</code> |
+|  | <code>\tt</code> | <code>:TodoTrouble keywords=TODO&lt;CR&gt;</code> |
+|  | <code>\ll</code> | <code>:lua require('telescope.builtin').grep_string({ search = vim.fn.input('GREP -&gt; ') })&lt;CR&gt;</code> |
+|  | <code>\y</code> | <code>:Telescope neoclip&lt;CR&gt;</code> |
+|  | <code>\nn</code> | <code>:lua NewNote()&lt;CR&gt;</code> |
+|  | <code>\ns</code> | <code>:lua require('config.plugins.telescope').my_note()&lt;CR&gt;</code> |
+|  | <code>\bb</code> | <code>:lua require('config.plugins.telescope').my_git_bcommits()&lt;CR&gt;</code> |
+|  | <code>\g</code> | <code>:lua require('config.plugins.telescope').my_git_status()&lt;CR&gt;</code> |
+|  | <code>\c</code> | <code>:lua require('config.plugins.telescope').my_git_commits()&lt;CR&gt;</code> |
+|  | <code>\p</code> | <code>:lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%.asdf/', '/%.zinit/', '/%.tmux/'}}&lt;CR&gt;</code> |
+|  | <code>\fp</code> | <code>:lua require('config.plugins.telescope').project_files()&lt;CR&gt;</code> |
+|  | <code>\f</code> | <code>:lua require('telescope.builtin').find_files()&lt;CR&gt;</code> |
+|  | <code>\l</code> | <code>:lua require('telescope.builtin').current_buffer_fuzzy_find()&lt;CR&gt;</code> |
+|  | <code>\ts</code> | <code>:lua require('telescope.builtin').treesitter()&lt;CR&gt;</code> |
+|  | <code>\b</code> | <code>:lua require('config.plugins.telescope').my_buffers()&lt;CR&gt;</code> |
+|  | <code>\m</code> | <code>:lua require('telescope.builtin').marks()&lt;CR&gt;</code> |
+|  | <code>\#</code> | <code>:lua require('telescope.builtin').grep_string()&lt;CR&gt;</code> |
+|  | <code>\r</code> | <code>:lua require'telescope'.extensions.live_grep_args.live_grep_args()&lt;CR&gt;</code> |
+|  | <code>\sl</code> | <code>viw:lua require('spectre').open_file_search()&lt;CR&gt;</code> |
+|  | <code>\sp</code> | <code>:lua require('spectre').open()&lt;CR&gt;</code> |
+|  | <code>\gf</code> | <code>:20G&lt;CR&gt;</code> |
+|  | <code>\bp</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>\bn</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+|  | <code>\bdh</code> | <code>:BDelete! hidden&lt;CR&gt;</code> |
+|  | <code>\bda</code> | <code>:BDelete! all&lt;CR&gt;</code> |
+|  | <code>\bd</code> | <code>:BDelete this&lt;CR&gt;</code> |
+|  | <code>\nm</code> | <code>:Dispatch npm start&lt;CR&gt;</code> |
+| Symbols Outline | <code>\cs</code> |  |
+|  | <code>\x</code> |  |
+|  | <code>\ld</code> |  |
+|  | <code>\gg</code> |  |
+| Create a selection for selcted text or word under the cursor | <code>\mc</code> |  |
+|  | <code>]d</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>g#</code> | <code>g#&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+|  | <code>g*</code> | <code>g*&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gC</code> | <code>&lt;Plug&gt;CapsLockToggle</code> |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+|  | <code>h</code> |  |
+|  | <code>j</code> |  |
+|  | <code>k</code> |  |
+|  | <code>l</code> |  |
+|  | <code>n</code> | <code>&lt;Cmd&gt;execute('normal! ' . v:count1 . 'n')&lt;CR&gt;&lt;Cmd&gt;lua require('hlslens').start()&lt;CR&gt;</code> |
+| Flash | <code>s</code> |  |
+| Peek folded lines under cursor | <code>zZ</code> |  |
+| Close all folds | <code>zM</code> |  |
+| Open all folds | <code>zR</code> |  |
+|  | <code>&lt;F8&gt;</code> | <code>:ZenMode&lt;CR&gt;</code> |
+|  | <code>&lt;F7&gt;</code> | <code>:Neotree filesystem reveal left toggle&lt;CR&gt;</code> |
+|  | <code>&lt;F4&gt;</code> | <code>:set list! list?&lt;CR&gt;</code> |
+|  | <code>&lt;F3&gt;</code> | <code>:set nu! rnu!&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(vsnip-cut-text)</code> | <code>:set operatorfunc=&lt;SNR&gt;25_vsnip_cut_text_normal&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;(vsnip-select-text)</code> | <code>:set operatorfunc=&lt;SNR&gt;25_vsnip_select_text_normal&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CapsLockDisable</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_disable('i')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CapsLockEnable</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_enable('i',1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CapsLockToggle</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_toggle('i',1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;F5&gt;</code> |  |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `\sp` | `:lua require('spectre').open_visual()<CR>` |
-| Create a selection for selcted text or word under the cursor | `\mc` |  |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-| Flash | `s` |  |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<Plug>(vsnip-cut-text)` | `:<C-U>call <SNR>18_vsnip_visual_text(visualmode())<CR>gv"_c` |
-|  | `<Plug>(vsnip-select-text)` | `:<C-U>call <SNR>18_vsnip_visual_text(visualmode())<CR>gv` |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>\sp</code> | <code>:lua require('spectre').open_visual()&lt;CR&gt;</code> |
+| Create a selection for selcted text or word under the cursor | <code>\mc</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;Plug&gt;(vsnip-cut-text)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;25_vsnip_visual_text(visualmode())&lt;CR&gt;gv"_c</code> |
+|  | <code>&lt;Plug&gt;(vsnip-select-text)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;25_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code> |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-| Remote Flash | `r` |  |
-| Flash | `s` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| Remote Flash | <code>r</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |

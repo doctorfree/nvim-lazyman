@@ -66,208 +66,208 @@ Neovim config of Heiker Curiel, author of [lsp-zero](https://github.com/VonHeike
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<CR>` | `<Cmd>FineCmdline<CR>` |
-|  | ` m` | `<Cmd>BufferNavMark<CR>` |
-|  | ` s` | `<Cmd>SearchBoxClear<CR>` |
-|  | ` bb` | `<Cmd>Telescope buffers<CR>` |
-|  | ` fh` | `<Cmd>Telescope oldfiles<CR>` |
-|  | ` fb` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
-|  | ` fs` | `<Cmd>Telescope treesitter<CR>` |
-|  | ` ff` | `<Cmd>Telescope find_files<CR>` |
-|  | ` ?` | `<Cmd>Telescope keymaps<CR>` |
-|  | ` fg` | `<Cmd>Telescope live_grep<CR>` |
-|  | ` uf` | `<Cmd>CtrlSFToggle<CR>` |
-|  | ` fw` | `<Esc><Cmd>exe 'Find' expand('<lt>cword>')<CR>` |
-|  | ` F` | `<Cmd>FineCmdline Find <CR>` |
-|  | ` ui` | `<Cmd>IndentBlanklineToggle<CR>` |
-|  | ` da` |  |
-|  | ` dd` |  |
-|  | ` g` |  |
-|  | ` uz` |  |
-|  | ` bc` |  |
-|  | ` j` | `<Cmd>let @/='\<lt>'.expand('<lt>cword>').'\>'<CR>"_ciw` |
-|  | ` ur` | `<Cmd>set invrelativenumber<CR>` |
-|  | ` un` | `<Cmd>set invnumber<CR>` |
-|  | ` uc` | `<Cmd>set invcursorline<CR>` |
-|  | ` ul` |  |
-|  | ` ut` |  |
-|  | ` uh` | `<Cmd>set invhlsearch<CR>` |
-|  | ` cd` | `<Cmd>lcd %:p:h<CR><Cmd>pwd<CR>` |
-|  | `  ` | `<Cmd>echo ''<CR>` |
-|  | ` tn` | `<Cmd>tabnew<CR>` |
-|  | ` bl` | `<Cmd>buffer #<CR>` |
-|  | ` bq` | `<Cmd>bdelete<CR>` |
-|  | ` Q` | `<Cmd>quitall!<CR>` |
-|  | ` qq` | `<Cmd>quitall<CR>` |
-|  | ` w` | `<Cmd>write<CR>` |
-|  | ` l` | `g_` |
-|  | ` h` | `^` |
-|  | ` e` | `%` |
-|  | ` a` | `<Cmd>keepjumps normal! ggVG<CR>` |
-|  | `#` | `#zz` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `*` | `*zz` |
-|  | `.` |  |
-| Jump to line below cursor | `B` |  |
-|  | `C` | `"_C` |
-| Jump to word (ignore _) | `E` |  |
-|  | `F` |  |
-|  | `H` | `b` |
-|  | `L` | `e` |
-|  | `M` | `<Cmd>BufferNavMenu<CR>` |
-|  | `N` | `Nzzzv` |
-|  | `R` | `<Cmd>exe 'SearchBoxReplace  --' expand('<lt>cword>')<CR>` |
-|  | `S` | `<Cmd>SearchBoxMatchAll title=' Match '<CR>` |
-|  | `T` |  |
-|  | `U` | `<C-R>` |
-|  | `X` | `"_d` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `[g` |  |
-|  | `[q` |  |
-|  | `[t` | `<Cmd>tabprevious<CR>` |
-|  | `[b` | `<Cmd>bprevious<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `]g` |  |
-|  | `]q` |  |
-|  | `]t` | `<Cmd>tabnext<CR>` |
-|  | `]b` | `<Cmd>bnext<CR>` |
-| Jump to line above cursor | `b` |  |
-|  | `cr` |  |
-|  | `cs` |  |
-|  | `c` | `"_c` |
-|  | `ds` |  |
-| Jump to word | `e` |  |
-|  | `f` |  |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `gL` | `E` |
-|  | `gH` | `B` |
-|  | `gB` |  |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `gcc` |  |
-|  | `gp` | `"+p` |
-|  | `gy` | `"+y` |
-|  | `n` | `nzzzv` |
-|  | `r` | `<Cmd>SearchBoxReplace <CR>` |
-|  | `s` | `<Cmd>SearchBoxIncSearch<CR>` |
-|  | `t` |  |
-|  | `x` | `"_x` |
-|  | `ys` |  |
-|  | `<M-4>` | `<Cmd>BufferNav 4<CR>` |
-|  | `<M-3>` | `<Cmd>BufferNav 3<CR>` |
-|  | `<M-2>` | `<Cmd>BufferNav 2<CR>` |
-|  | `<M-1>` | `<Cmd>BufferNav 1<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<C-W>f` | `<Cmd>ToggleTerm direction=float<CR>` |
-|  | `<C-W>t` | `<Cmd>ToggleTerm direction=tab<CR>` |
-| Toggle terminal | `<M-i>` | `<Cmd>Term<CR>` |
-|  | `<F8>` | `gn@i` |
-|  | `<C-K>` | `<Cmd>move .-2<CR>==` |
-|  | `<C-J>` | `<Cmd>move .+1<CR>==` |
-|  | `<M-j>` | `<C-D>M` |
-|  | `<M-k>` | `<C-U>M` |
-|  | `<M-b>` | `<CR>` |
-|  | `<M-l>` | `<Esc>` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+|  | <code>&lt;CR&gt;</code> | <code>&lt;Cmd&gt;FineCmdline&lt;CR&gt;</code> |
+|  | <code> m</code> | <code>&lt;Cmd&gt;BufferNavMark&lt;CR&gt;</code> |
+|  | <code> uf</code> | <code>&lt;Cmd&gt;CtrlSFToggle&lt;CR&gt;</code> |
+|  | <code> fw</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;exe 'Find' expand('&lt;lt&gt;cword&gt;')&lt;CR&gt;</code> |
+|  | <code> F</code> | <code>&lt;Cmd&gt;FineCmdline Find &lt;CR&gt;</code> |
+|  | <code> ui</code> | <code>&lt;Cmd&gt;IndentBlanklineToggle&lt;CR&gt;</code> |
+|  | <code> da</code> |  |
+|  | <code> dd</code> |  |
+|  | <code> bb</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+|  | <code> fh</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+|  | <code> fb</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+|  | <code> fs</code> | <code>&lt;Cmd&gt;Telescope treesitter&lt;CR&gt;</code> |
+|  | <code> ff</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+|  | <code> ?</code> | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+|  | <code> fg</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+|  | <code> s</code> | <code>&lt;Cmd&gt;SearchBoxClear&lt;CR&gt;</code> |
+|  | <code> uz</code> |  |
+|  | <code> g</code> |  |
+|  | <code> bc</code> |  |
+|  | <code> j</code> | <code>&lt;Cmd&gt;let @/='\&lt;lt&gt;'.expand('&lt;lt&gt;cword&gt;').'\&gt;'&lt;CR&gt;"_ciw</code> |
+|  | <code> ur</code> | <code>&lt;Cmd&gt;set invrelativenumber&lt;CR&gt;</code> |
+|  | <code> un</code> | <code>&lt;Cmd&gt;set invnumber&lt;CR&gt;</code> |
+|  | <code> uc</code> | <code>&lt;Cmd&gt;set invcursorline&lt;CR&gt;</code> |
+|  | <code> ul</code> |  |
+|  | <code> ut</code> |  |
+|  | <code> uh</code> | <code>&lt;Cmd&gt;set invhlsearch&lt;CR&gt;</code> |
+|  | <code> cd</code> | <code>&lt;Cmd&gt;lcd %:p:h&lt;CR&gt;&lt;Cmd&gt;pwd&lt;CR&gt;</code> |
+|  | <code>  </code> | <code>&lt;Cmd&gt;echo ''&lt;CR&gt;</code> |
+|  | <code> tn</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+|  | <code> bl</code> | <code>&lt;Cmd&gt;buffer #&lt;CR&gt;</code> |
+|  | <code> bq</code> | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
+|  | <code> Q</code> | <code>&lt;Cmd&gt;quitall!&lt;CR&gt;</code> |
+|  | <code> qq</code> | <code>&lt;Cmd&gt;quitall&lt;CR&gt;</code> |
+|  | <code> w</code> | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
+|  | <code> l</code> | <code>g_</code> |
+|  | <code> h</code> | <code>^</code> |
+|  | <code> e</code> | <code>%</code> |
+|  | <code> a</code> | <code>&lt;Cmd&gt;keepjumps normal! ggVG&lt;CR&gt;</code> |
+|  | <code>#</code> | <code>#zz</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>*</code> | <code>*zz</code> |
+|  | <code>.</code> |  |
+| Jump to line below cursor | <code>B</code> |  |
+|  | <code>C</code> | <code>"_C</code> |
+| Jump to word (ignore _) | <code>E</code> |  |
+|  | <code>F</code> |  |
+|  | <code>H</code> | <code>b</code> |
+|  | <code>L</code> | <code>e</code> |
+|  | <code>M</code> | <code>&lt;Cmd&gt;BufferNavMenu&lt;CR&gt;</code> |
+|  | <code>N</code> | <code>Nzzzv</code> |
+|  | <code>R</code> | <code>&lt;Cmd&gt;exe 'SearchBoxReplace  --' expand('&lt;lt&gt;cword&gt;')&lt;CR&gt;</code> |
+|  | <code>S</code> | <code>&lt;Cmd&gt;SearchBoxMatchAll title=' Match '&lt;CR&gt;</code> |
+|  | <code>T</code> |  |
+|  | <code>U</code> | <code>&lt;C-R&gt;</code> |
+|  | <code>X</code> | <code>"_d</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>[g</code> |  |
+|  | <code>[q</code> |  |
+|  | <code>[t</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+|  | <code>[b</code> | <code>&lt;Cmd&gt;bprevious&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>]q</code> |  |
+|  | <code>]g</code> |  |
+|  | <code>]t</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+|  | <code>]b</code> | <code>&lt;Cmd&gt;bnext&lt;CR&gt;</code> |
+| Jump to line above cursor | <code>b</code> |  |
+|  | <code>cr</code> |  |
+|  | <code>cs</code> |  |
+|  | <code>c</code> | <code>"_c</code> |
+|  | <code>ds</code> |  |
+| Jump to word | <code>e</code> |  |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gL</code> | <code>E</code> |
+|  | <code>gH</code> | <code>B</code> |
+|  | <code>gB</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>gcc</code> |  |
+|  | <code>gc</code> |  |
+|  | <code>gp</code> | <code>"+p</code> |
+|  | <code>gy</code> | <code>"+y</code> |
+|  | <code>n</code> | <code>nzzzv</code> |
+|  | <code>r</code> | <code>&lt;Cmd&gt;SearchBoxReplace &lt;CR&gt;</code> |
+|  | <code>s</code> | <code>&lt;Cmd&gt;SearchBoxIncSearch&lt;CR&gt;</code> |
+|  | <code>t</code> |  |
+|  | <code>x</code> | <code>"_x</code> |
+|  | <code>ys</code> |  |
+|  | <code>&lt;M-4&gt;</code> | <code>&lt;Cmd&gt;BufferNav 4&lt;CR&gt;</code> |
+|  | <code>&lt;M-3&gt;</code> | <code>&lt;Cmd&gt;BufferNav 3&lt;CR&gt;</code> |
+|  | <code>&lt;M-2&gt;</code> | <code>&lt;Cmd&gt;BufferNav 2&lt;CR&gt;</code> |
+|  | <code>&lt;M-1&gt;</code> | <code>&lt;Cmd&gt;BufferNav 1&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;C-W&gt;f</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+|  | <code>&lt;C-W&gt;t</code> | <code>&lt;Cmd&gt;ToggleTerm direction=tab&lt;CR&gt;</code> |
+| Toggle terminal | <code>&lt;M-i&gt;</code> | <code>&lt;Cmd&gt;Term&lt;CR&gt;</code> |
+|  | <code>&lt;F8&gt;</code> | <code>gn@i</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;Cmd&gt;move .-2&lt;CR&gt;==</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;Cmd&gt;move .+1&lt;CR&gt;==</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-D&gt;M</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-U&gt;M</code> |
+|  | <code>&lt;M-b&gt;</code> | <code>&lt;CR&gt;</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;Esc&gt;</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<CR>` | `<Esc><Cmd>FineCmdline '<lt>,'><CR>` |
-|  | ` F` | `<Esc><Cmd>GetSelection<CR><Cmd>exe 'Find' getreg('/')<CR>` |
-|  | ` j` | `y<Cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<CR>"_cgn` |
-|  | ` Y` | `<Esc><Cmd>GetSelection<CR><Cmd>set hlsearch<CR>` |
-|  | ` y` | `<Esc><Cmd>GetSelection<CR>gv` |
-|  | ` l` | `g_` |
-|  | ` h` | `^` |
-|  | ` e` | `%` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Jump to line below cursor | `B` |  |
-|  | `C` | `"_c` |
-| Jump to word (ignore _) | `E` |  |
-|  | `F` |  |
-|  | `H` | `b` |
-|  | `L` | `e` |
-|  | `R` | `<Esc><Cmd>GetSelection<CR><Cmd>exe 'SearchBoxReplace --' getreg('/')<CR>` |
-|  | `S` | `<Esc><Cmd>'<lt>,'>SearchBoxMatchAll title=' Match ' visual_mode=true<CR>` |
-|  | `T` |  |
-|  | `X` | `"_d` |
-|  | `Y` |  |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `[g` |  |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `]g` |  |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `a` |  |
-| Jump to line above cursor | `b` |  |
-|  | `cc` | `"_c` |
-|  | `c` | `"_c` |
-| Jump to word | `e` |  |
-|  | `f` |  |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gL` | `E` |
-|  | `gH` | `B` |
-|  | `gB` |  |
-|  | `gb` |  |
-|  | `gc` |  |
-|  | `gp` | `"+p` |
-|  | `gy` | `"+y` |
-|  | `i` |  |
-|  | `qi` | `y<Cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<CR>gvqi` |
-|  | `r` | `<Esc><Cmd>SearchBoxReplace  visual_mode=true<CR>` |
-|  | `s` | `<Esc><Cmd>'<lt>,'>SearchBoxIncSearch visual_mode=true<CR>` |
-|  | `t` |  |
-|  | `x` | `"_x` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-| Toggle terminal | `<M-i>` | `<Cmd>Term<CR>` |
-|  | `<C-K>` | `<Esc><Cmd>'<lt>,'>move '<lt>-2<CR>gv=gv` |
-|  | `<C-J>` | `<Esc><Cmd>'<lt>,'>move '>+1<CR>gv=gv` |
-|  | `<M-l>` | `<Esc>` |
+|  | <code>&lt;CR&gt;</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;FineCmdline '&lt;lt&gt;,'&gt;&lt;CR&gt;</code> |
+|  | <code> F</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;GetSelection&lt;CR&gt;&lt;Cmd&gt;exe 'Find' getreg('/')&lt;CR&gt;</code> |
+|  | <code> j</code> | <code>y&lt;Cmd&gt;let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')&lt;CR&gt;"_cgn</code> |
+|  | <code> Y</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;GetSelection&lt;CR&gt;&lt;Cmd&gt;set hlsearch&lt;CR&gt;</code> |
+|  | <code> y</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;GetSelection&lt;CR&gt;gv</code> |
+|  | <code> l</code> | <code>g_</code> |
+|  | <code> h</code> | <code>^</code> |
+|  | <code> e</code> | <code>%</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Jump to line below cursor | <code>B</code> |  |
+|  | <code>C</code> | <code>"_c</code> |
+| Jump to word (ignore _) | <code>E</code> |  |
+|  | <code>F</code> |  |
+|  | <code>H</code> | <code>b</code> |
+|  | <code>L</code> | <code>e</code> |
+|  | <code>R</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;GetSelection&lt;CR&gt;&lt;Cmd&gt;exe 'SearchBoxReplace --' getreg('/')&lt;CR&gt;</code> |
+|  | <code>S</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;'&lt;lt&gt;,'&gt;SearchBoxMatchAll title=' Match ' visual_mode=true&lt;CR&gt;</code> |
+|  | <code>T</code> |  |
+|  | <code>X</code> | <code>"_d</code> |
+|  | <code>Y</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>[g</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>]g</code> |  |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>a</code> |  |
+| Jump to line above cursor | <code>b</code> |  |
+|  | <code>cc</code> | <code>"_c</code> |
+|  | <code>c</code> | <code>"_c</code> |
+| Jump to word | <code>e</code> |  |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>gL</code> | <code>E</code> |
+|  | <code>gH</code> | <code>B</code> |
+|  | <code>gB</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>gc</code> |  |
+|  | <code>gp</code> | <code>"+p</code> |
+|  | <code>gy</code> | <code>"+y</code> |
+|  | <code>i</code> |  |
+|  | <code>qi</code> | <code>y&lt;Cmd&gt;let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')&lt;CR&gt;gvqi</code> |
+|  | <code>r</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;SearchBoxReplace  visual_mode=true&lt;CR&gt;</code> |
+|  | <code>s</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;'&lt;lt&gt;,'&gt;SearchBoxIncSearch visual_mode=true&lt;CR&gt;</code> |
+|  | <code>t</code> |  |
+|  | <code>x</code> | <code>"_x</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+| Toggle terminal | <code>&lt;M-i&gt;</code> | <code>&lt;Cmd&gt;Term&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;'&lt;lt&gt;,'&gt;move '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;'&lt;lt&gt;,'&gt;move '&gt;+1&lt;CR&gt;gv=gv</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;Esc&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` l` | `g_` |
-|  | ` h` | `^` |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-| Jump to line below cursor | `B` |  |
-| Jump to word (ignore _) | `E` |  |
-|  | `F` |  |
-|  | `H` | `b` |
-|  | `L` | `e` |
-|  | `T` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `a` |  |
-| Jump to line above cursor | `b` |  |
-| Jump to word | `e` |  |
-|  | `f` |  |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `gL` | `E` |
-|  | `gH` | `B` |
-|  | `gc` |  |
-|  | `gB` |  |
-|  | `gb` |  |
-|  | `gp` | `"+p` |
-|  | `gy` | `"+y` |
-|  | `i` |  |
-|  | `t` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<M-l>` | `<Esc>` |
+|  | <code> l</code> | <code>g_</code> |
+|  | <code> h</code> | <code>^</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| Jump to line below cursor | <code>B</code> |  |
+| Jump to word (ignore _) | <code>E</code> |  |
+|  | <code>F</code> |  |
+|  | <code>H</code> | <code>b</code> |
+|  | <code>L</code> | <code>e</code> |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>a</code> |  |
+| Jump to line above cursor | <code>b</code> |  |
+| Jump to word | <code>e</code> |  |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>gL</code> | <code>E</code> |
+|  | <code>gH</code> | <code>B</code> |
+|  | <code>gB</code> |  |
+|  | <code>gb</code> |  |
+|  | <code>gc</code> |  |
+|  | <code>gp</code> | <code>"+p</code> |
+|  | <code>gy</code> | <code>"+y</code> |
+|  | <code>i</code> |  |
+|  | <code>t</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;Esc&gt;</code> |

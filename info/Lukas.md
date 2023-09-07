@@ -134,659 +134,659 @@ Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim 
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` k` | `<Cmd>lua require'luasnip'.jump(-1)<CR>` |
-|  | ` j` | `<Cmd>lua require'luasnip'.jump(1)<CR>` |
-|  | ` gl` | `:diffget //3<CR> :diffupdate<CR>` |
-|  | ` gh` | `:diffget //2<CR> :diffupdate<CR>` |
-|  | ` gn` | `:lua require('lists').change_active('Quickfix')<CR>:Git mergetool<CR>` |
-|  | ` gg` | `:lua require('lists').change_active('Quickfix')<CR>:execute 'Git difftool ' .. g:git_base<CR>` |
-|  | ` gc` | `:0Gclog<CR>` |
-|  | ` ga` | `<Plug>(GitGutterStageHunk)` |
-|  | ` gu` | `<Plug>(GitGutterUndoHunk)` |
-|  | ` gm` | `<Plug>(git-messenger)` |
-|  | ` gs` | `:Git<CR>` |
-|  | ` gb` | `:Git blame<CR>` |
-|  | ` gr` | `:Gread<CR>` |
-|  | ` gd` | `:set nosplitright<CR>:execute 'Gvdiff ' .. g:git_base<CR>:set splitright<CR>` |
-|  | ` f` | `:lua require('fuzzy').symbols()<CR>` |
-|  | ` m` | `:Marks<CR>` |
-|  | ` <C-H>` | `:Helptags<CR>` |
-|  | ` <C-P>` | `:Commands<CR>` |
-|  | ` p` | `:Buffers<CR>` |
-|  | ` n` | `:lua require('fuzzy').files(vim.fn.expand('%:h'))<CR>` |
-|  | ` gf` | `:lua require('fuzzy').git_files()<CR>` |
-|  | ` a` | `:lua require('lists').change_active('Quickfix')<CR>:silent grep ` |
-|  | ` b` | `:lua require('lists').toggle_active()<CR>` |
-|  | ` v` | `<Plug>(qf_loc_toggle_stay):lua require('lists').change_active('Location')<CR>` |
-|  | ` c` | `<Plug>(qf_qf_toggle_stay):lua require('lists').change_active('Quickfix')<CR>` |
-|  | ` dl` |  |
-|  | ` dk` |  |
-|  | ` dj` |  |
-|  | ` dh` |  |
-|  | ` d<CR>` |  |
-|  | ` dp` |  |
-|  | ` di` |  |
-|  | ` do` |  |
-|  | ` dB` |  |
-|  | ` db` |  |
-|  | ` dc` |  |
-|  | ` td` |  |
-|  | ` tf` |  |
-|  | ` ts` |  |
-|  | ` to` |  |
-|  | ` tt` |  |
-|  | ` ll` |  |
-|  | ` e` |  |
-|  | ` oa` | `<Cmd>lua require('orgmode').action('agenda.prompt')<CR>` |
-|  | ` of` | `<Cmd>lua require('orgmode').action('capture.prompt')<CR>` |
-|  | ` N` | `:e %:h/` |
-|  | ` rr` | `:%s/\v()` |
-|  | ` z` | `1z=` |
-|  | ` w` | `:update<CR>` |
-|  | ` q` | `:lua require 'buffers'.close()<CR>` |
-|  | ` <C-O>` | `:lua require 'buffers'.close_others()<CR>` |
-|  | `  ` | `:<C-U>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>` |
-|  | `#` | `<Plug>(is-#)` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `'[` | `:<C-U>call signature#mark#Goto("prev", "line", "alpha")<CR>` |
-|  | `']` | `:<C-U>call signature#mark#Goto("next", "line", "alpha")<CR>` |
-|  | `*` | `<Plug>(is-*)N` |
-|  | `-` |  |
-|  | `<lt>CLEAR-10>` | `<Plug>UnconditionalPasteUnjoinAfter` |
-|  | `<lt>CLEAR-9>` | `<Plug>UnconditionalPasteUnjoinBefore` |
-|  | `<lt>CLEAR-8>` | `<Plug>VimwikiDecrementListItem` |
-|  | `<lt>CLEAR-7>` | `<Plug>VimwikiIncrementListItem` |
-|  | `<lt>CLEAR-6>` | `<Plug>UnconditionalPasteCommaSingleQuoteBefore` |
-|  | `<lt>CLEAR-5>` | `<Plug>UnconditionalPasteCommaSingleQuoteAfter` |
-|  | `<lt>CLEAR-4>` | `<Plug>UnconditionalPasteCommaBefore` |
-|  | `<lt>CLEAR-3>` | `<Plug>UnconditionalPasteCommaAfter` |
-|  | `<lt>CLEAR-2>` | `<Plug>UnconditionalPasteLineBefore` |
-|  | `<lt>CLEAR-1>` | `<Plug>UnconditionalPasteLineAfter` |
-|  | `F` | `<Plug>(clever-f-F)` |
-|  | `H` | `^` |
-|  | `J` | `5j` |
-|  | `K` | `5k` |
-|  | `L` | `$` |
-|  | `N` | `<Plug>(is-N)` |
-|  | `T` | `<Plug>(clever-f-T)` |
-|  | `Y` | `y$` |
-|  | `[=` | `:<C-U>call signature#marker#Goto("prev", "any",  v:count)<CR>` |
-|  | `[-` | `:<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>` |
-|  | `[`` | `:<C-U>call signature#mark#Goto("prev", "spot", "pos")<CR>` |
-|  | `['` | `:<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `\<lt>Space>tt` | `<Plug>(table-mode-tableize)` |
-|  | `\<lt>Space>tm` | `:<C-U>call tablemode#Toggle()<CR>` |
-|  | `]=` | `:<C-U>call signature#marker#Goto("next", "any",  v:count)<CR>` |
-|  | `]-` | `:<C-U>call signature#marker#Goto("next", "same", v:count)<CR>` |
-|  | `]`` | `:<C-U>call signature#mark#Goto("next", "spot", "pos")<CR>` |
-|  | `]'` | `:<C-U>call signature#mark#Goto("next", "line", "pos")<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | ``[` | `:<C-U>call signature#mark#Goto("prev", "spot", "alpha")<CR>` |
-|  | ``]` | `:<C-U>call signature#mark#Goto("next", "spot", "alpha")<CR>` |
-|  | `b` | `<Plug>CamelCaseMotion_b` |
-|  | `dm` | `:<C-U>call signature#utils#Remove(v:count)<CR>` |
-|  | `e` | `<Plug>CamelCaseMotion_e` |
-|  | `f` | `<Plug>(clever-f-f)` |
-|  | `gs.` | `<Plug>CaserDotCase` |
-|  | `gsK` | `<Plug>CaserTitleKebabCase` |
-|  | `gs-` | `<Plug>CaserKebabCase` |
-|  | `gsk` | `<Plug>CaserKebabCase` |
-|  | `gs ` | `<Plug>CaserSpaceCase` |
-|  | `gss` | `<Plug>CaserSentenceCase` |
-|  | `gst` | `<Plug>CaserTitleCase` |
-|  | `gsU` | `<Plug>CaserUpperCase` |
-|  | `gsu` | `<Plug>CaserUpperCase` |
-|  | `gs_` | `<Plug>CaserSnakeCase` |
-|  | `gsc` | `<Plug>CaserCamelCase` |
-|  | `gsm` | `<Plug>CaserMixedCase` |
-|  | `gPP` | `<Plug>UnconditionalPasteGPlusBefore` |
-|  | `gPp` | `<Plug>UnconditionalPasteGPlusAfter` |
-|  | `gpP` | `<Plug>UnconditionalPastePlusBefore` |
-|  | `gpp` | `<Plug>UnconditionalPastePlusAfter` |
-|  | `gUP` | `<Plug>UnconditionalPasteRecallUnjoinBefore` |
-|  | `gUp` | `<Plug>UnconditionalPasteRecallUnjoinAfter` |
-|  | `gQP` | `<Plug>UnconditionalPasteRecallQueriedBefore` |
-|  | `gQp` | `<Plug>UnconditionalPasteRecallQueriedAfter` |
-|  | `gqP` | `<Plug>UnconditionalPasteQueriedBefore` |
-|  | `gqp` | `<Plug>UnconditionalPasteQueriedAfter` |
-|  | `gQBP` | `<Plug>UnconditionalPasteRecallDelimitedBefore` |
-|  | `gQBp` | `<Plug>UnconditionalPasteRecallDelimitedAfter` |
-|  | `gqbP` | `<Plug>UnconditionalPasteDelimitedBefore` |
-|  | `gqbp` | `<Plug>UnconditionalPasteDelimitedAfter` |
-|  | `gBP` | `<Plug>UnconditionalPasteJaggedBefore` |
-|  | `gBp` | `<Plug>UnconditionalPasteJaggedAfter` |
-|  | `gsP` | `<Plug>UnconditionalPasteSpacedBefore` |
-|  | `gsp` | `<Plug>CaserMixedCase` |
-|  | `g#P` | `<Plug>UnconditionalPasteCommentedBefore` |
-|  | `g#p` | `<Plug>UnconditionalPasteCommentedAfter` |
-|  | `g>P` | `<Plug>UnconditionalPasteShiftedBefore` |
-|  | `g>p` | `<Plug>UnconditionalPasteShiftedAfter` |
-|  | `g[[P` | `<Plug>UnconditionalPasteLessIndentBefore` |
-|  | `g[[p` | `<Plug>UnconditionalPasteLessIndentAfter` |
-|  | `g]]P` | `<Plug>UnconditionalPasteMoreIndentBefore` |
-|  | `g]]p` | `<Plug>UnconditionalPasteMoreIndentAfter` |
-|  | `g[p` | `<Plug>UnconditionalPasteIndentedBefore` |
-|  | `g[P` | `<Plug>UnconditionalPasteIndentedBefore` |
-|  | `g]P` | `<Plug>UnconditionalPasteIndentedBefore` |
-|  | `g,"P` | `<Plug>UnconditionalPasteCommaDoubleQuoteBefore` |
-|  | `g,"p` | `<Plug>UnconditionalPasteCommaDoubleQuoteAfter` |
-|  | `gbP` | `<Plug>UnconditionalPasteBlockBefore` |
-|  | `gbp` | `<Plug>UnconditionalPasteBlockAfter` |
-|  | `gcP` | `<Plug>UnconditionalPasteCharBefore` |
-|  | `gcp` | `<Plug>UnconditionalPasteCharAfter` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-| Comment toggle blockwise | `gb` | `<Plug>(comment_toggle_blockwise)` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `gx` | `<Plug>(openbrowser-smart-search)` |
-|  | `gk` | `<Plug>(GitGutterPrevHunk)` |
-|  | `gj` | `<Plug>(GitGutterNextHunk)` |
-|  | `g*` | `<Plug>(is-g*)N` |
-|  | `gck` | `m'yypgcc`'` |
-|  | `glP` | `<Plug>UnconditionalPasteIndentedBefore` |
-|  | `glp` | `<Plug>UnconditionalPasteIndentedAfter` |
-|  | `gr` | `<Plug>ReplaceWithRegisterOperator` |
-|  | `grR` | `<Plug>ReplaceWithRegisterLine` |
-|  | `grr` | `<Plug>ReplaceWithSameIndentRegisterLine` |
-|  | `g-` |  |
-|  | `ge` | `<Plug>CamelCaseMotion_ge` |
-|  | `j` | `v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'` |
-|  | `k` | `v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'` |
-|  | `m?` | `:<C-U>call signature#marker#List(v:count, 0)<CR>` |
-|  | `m/` | `:<C-U>call signature#mark#List(0, 0)<CR>` |
-|  | `m<BS>` | `:<C-U>call signature#marker#Purge()<CR>` |
-|  | `m ` | `:<C-U>call signature#mark#Purge("all")<CR>` |
-|  | `m-` | `:<C-U>call signature#mark#Purge("line")<CR>` |
-|  | `m.` | `:<C-U>call signature#mark#ToggleAtLine()<CR>` |
-|  | `m,` | `:<C-U>call signature#mark#Toggle("next")<CR>` |
-|  | `m` | `:<C-U>call signature#utils#Input()<CR>` |
-|  | `n` | `<Plug>(is-n)` |
-|  | `srb` | `<Plug>(sandwich-replace-auto)` |
-|  | `sr` | `<Plug>(sandwich-replace)` |
-|  | `sdb` | `<Plug>(sandwich-delete-auto)` |
-|  | `sd` | `<Plug>(sandwich-delete)` |
-|  | `sa` | `<Plug>(sandwich-add)` |
-|  | `t` | `<Plug>(clever-f-t)` |
-|  | `w` | `<Plug>CamelCaseMotion_w` |
-|  | `x` | `"_x` |
-|  | `y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<Plug>(table-mode-sort)` | `:call tablemode#spreadsheet#Sort('')<CR>` |
-|  | `<Plug>(table-mode-echo-cell)` | `:call tablemode#spreadsheet#EchoCell()<CR>` |
-|  | `<Plug>(table-mode-eval-formula)` | `:call tablemode#spreadsheet#formula#EvaluateFormulaLine()<CR>` |
-|  | `<Plug>(table-mode-add-formula)` | `:call tablemode#spreadsheet#formula#Add()<CR>` |
-|  | `<Plug>(table-mode-insert-column-after)` | `:<C-U>call tablemode#spreadsheet#InsertColumn(1)<CR>` |
-|  | `<Plug>(table-mode-insert-column-before)` | `:<C-U>call tablemode#spreadsheet#InsertColumn(0)<CR>` |
-|  | `<Plug>(table-mode-delete-column)` | `:<C-U>call tablemode#spreadsheet#DeleteColumn()<CR>` |
-|  | `<Plug>(table-mode-delete-row)` | `:<C-U>call tablemode#spreadsheet#DeleteRow()<CR>` |
-|  | `<Plug>(table-mode-motion-right)` | `:<C-U>call tablemode#spreadsheet#cell#Motion('l')<CR>` |
-|  | `<Plug>(table-mode-motion-left)` | `:<C-U>call tablemode#spreadsheet#cell#Motion('h')<CR>` |
-|  | `<Plug>(table-mode-motion-down)` | `:<C-U>call tablemode#spreadsheet#cell#Motion('j')<CR>` |
-|  | `<Plug>(table-mode-motion-up)` | `:<C-U>call tablemode#spreadsheet#cell#Motion('k')<CR>` |
-|  | `<Plug>(table-mode-realign)` | `:call tablemode#table#Realign('.')<CR>` |
-|  | `<Plug>(table-mode-tableize)` | `:Tableize<CR>` |
-|  | `<Plug>(textobj-sandwich-literal-query-a)` | `textobj#sandwich#query('n', 'a', {}, [])` |
-|  | `<Plug>(textobj-sandwich-literal-query-i)` | `textobj#sandwich#query('n', 'i', {}, [])` |
-|  | `<Plug>(textobj-sandwich-query-a)` | `textobj#sandwich#query('n', 'a')` |
-|  | `<Plug>(textobj-sandwich-query-i)` | `textobj#sandwich#query('n', 'i')` |
-|  | `<Plug>(textobj-sandwich-auto-a)` | `textobj#sandwich#auto('n', 'a')` |
-|  | `<Plug>(textobj-sandwich-auto-i)` | `textobj#sandwich#auto('n', 'i')` |
-|  | `<Plug>(sandwich-replace-auto)` | `<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)` |
-|  | `<Plug>(sandwich-delete-auto)` | `<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)` |
-|  | `<Plug>(sandwich-replace)` | `<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)` |
-|  | `<Plug>(sandwich-delete)` | `<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)` |
-|  | `<Plug>(sandwich-add)` | `<Plug>(operator-sandwich-add)` |
-|  | `<Plug>(operator-sandwich-gv)` | `gv` |
-|  | `<Plug>(operator-sandwich-g@)` | `g@` |
-|  | `<Plug>(operator-sandwich-replace-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('replace')<CR>` |
-|  | `<Plug>(operator-sandwich-delete-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('delete')<CR>` |
-|  | `<Plug>(operator-sandwich-add-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('add')<CR>` |
-|  | `<Plug>(operator-sandwich-dot)` | `operator#sandwich#dot()` |
-|  | `<Plug>(operator-sandwich-predot)` | `operator#sandwich#predot()` |
-|  | `<Plug>(operator-sandwich-replace-query1st)` | `:<C-U>call operator#sandwich#query1st('replace', 'n')<CR>` |
-|  | `<Plug>(operator-sandwich-add-query1st)` | `:<C-U>call operator#sandwich#query1st('add', 'n')<CR>` |
-|  | `<Plug>(operator-sandwich-replace-pre)` | `:<C-U>call operator#sandwich#prerequisite('replace', 'n')<CR>` |
-|  | `<Plug>(operator-sandwich-delete-pre)` | `:<C-U>call operator#sandwich#prerequisite('delete', 'n')<CR>` |
-|  | `<Plug>(operator-sandwich-add-pre)` | `:<C-U>call operator#sandwich#prerequisite('add', 'n')<CR>` |
-|  | `<Plug>(operator-sandwich-replace)` | `<Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-delete)` | `<Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-add)` | `<Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(qf_qf_switch)` | `&filetype ==# 'qf' ? '<C-W>p' : '<C-W>b'` |
-|  | `<Plug>(qf_loc_toggle_stay)` | `:<C-U> call qf#toggle#ToggleLocWindow(1)<CR>` |
-|  | `<Plug>(qf_loc_toggle)` | `:<C-U> call qf#toggle#ToggleLocWindow(0)<CR>` |
-|  | `<Plug>(qf_qf_toggle_stay)` | `:<C-U> call qf#toggle#ToggleQfWindow(1)<CR>` |
-|  | `<Plug>(qf_qf_toggle)` | `:<C-U> call qf#toggle#ToggleQfWindow(0)<CR>` |
-|  | `<Plug>(qf_loc_next)` | `:<C-U> call qf#wrap#WrapCommand('down', 'l')<CR>` |
-|  | `<Plug>(qf_loc_previous)` | `:<C-U> call qf#wrap#WrapCommand('up', 'l')<CR>` |
-|  | `<Plug>(qf_qf_next)` | `:<C-U> call qf#wrap#WrapCommand('down', 'c')<CR>` |
-|  | `<Plug>(qf_qf_previous)` | `:<C-U> call qf#wrap#WrapCommand('up', 'c')<CR>` |
-|  | `<Plug>QfSwitch` | `&filetype ==# 'qf' ? '<C-W>p' : '<C-W>b'` |
-|  | `<Plug>QfLtoggle` | `<Plug>(qf_loc_toggle)` |
-|  | `<Plug>QfCtoggle` | `<Plug>(qf_qf_toggle)` |
-|  | `<Plug>QfLnext` | `<Plug>(qf_loc_next)` |
-|  | `<Plug>QfLprevious` | `<Plug>(qf_loc_previous)` |
-|  | `<Plug>QfCnext` | `<Plug>(qf_qf_next)` |
-|  | `<Plug>QfCprevious` | `<Plug>(qf_qf_previous)` |
-|  | `<Plug>GitGutterPreviewHunk` | `:call gitgutter#utility#warn('Please change your map <lt>Plug>GitGutterPreviewHunk to <lt>Plug>(GitGutterPreviewHunk)')<CR>` |
-|  | `<Plug>(GitGutterPreviewHunk)` | `:GitGutterPreviewHunk<CR>` |
-|  | `<Plug>GitGutterUndoHunk` | `:call gitgutter#utility#warn('Please change your map <lt>Plug>GitGutterUndoHunk to <lt>Plug>(GitGutterUndoHunk)')<CR>` |
-|  | `<Plug>(GitGutterUndoHunk)` | `:GitGutterUndoHunk<CR>` |
-|  | `<Plug>GitGutterStageHunk` | `:call gitgutter#utility#warn('Please change your map <lt>Plug>GitGutterStageHunk to <lt>Plug>(GitGutterStageHunk)')<CR>` |
-|  | `<Plug>(GitGutterStageHunk)` | `:GitGutterStageHunk<CR>` |
-|  | `<Plug>GitGutterPrevHunk` | `&diff ? '[c' : ":\<C-U>call gitgutter#utility#warn('Please change your map \<lt>Plug>GitGutterPrevHunk to \<lt>Plug>(GitGutterPrevHunk)')\<CR>"` |
-|  | `<Plug>(GitGutterPrevHunk)` | `&diff ? '[c' : ":\<C-U>execute v:count1 . 'GitGutterPrevHunk'\<CR>"` |
-|  | `<Plug>GitGutterNextHunk` | `&diff ? ']c' : ":\<C-U>call gitgutter#utility#warn('Please change your map \<lt>Plug>GitGutterNextHunk to \<lt>Plug>(GitGutterNextHunk)')\<CR>"` |
-|  | `<Plug>(GitGutterNextHunk)` | `&diff ? ']c' : ":\<C-U>execute v:count1 . 'GitGutterNextHunk'\<CR>"` |
-|  | `<Plug>fugitive:` | `` |
-|  | `<Plug>fugitive:y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<Plug>CaserDotCase` | `:<C-U>call caser#ActionSetup("DotCase")<CR>g@` |
-|  | `<Plug>CaserTitleKebabCase` | `:<C-U>call caser#ActionSetup("TitleKebabCase")<CR>g@` |
-|  | `<Plug>CaserKebabCase` | `:<C-U>call caser#ActionSetup("KebabCase")<CR>g@` |
-|  | `<Plug>CaserSpaceCase` | `:<C-U>call caser#ActionSetup("SpaceCase")<CR>g@` |
-|  | `<Plug>CaserSentenceCase` | `:<C-U>call caser#ActionSetup("SentenceCase")<CR>g@` |
-|  | `<Plug>CaserTitleCase` | `:<C-U>call caser#ActionSetup("TitleCase")<CR>g@` |
-|  | `<Plug>CaserUpperCase` | `:<C-U>call caser#ActionSetup("UpperCase")<CR>g@` |
-|  | `<Plug>CaserSnakeCase` | `:<C-U>call caser#ActionSetup("SnakeCase")<CR>g@` |
-|  | `<Plug>CaserCamelCase` | `:<C-U>call caser#ActionSetup("CamelCase")<CR>g@` |
-|  | `<Plug>CaserMixedCase` | `:<C-U>call caser#ActionSetup("MixedCase")<CR>g@` |
-|  | `<Plug>(QuickScopeToggle)` | `:call <SNR>82_toggle()<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<Plug>(openbrowser-smart-search)` | `:<C-U>call openbrowser#_keymap_smart_search('n')<CR>` |
-|  | `<Plug>(openbrowser-search)` | `:<C-U>call openbrowser#_keymap_search('n')<CR>` |
-|  | `<Plug>(openbrowser-open-incognito)` | `:<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR>` |
-|  | `<Plug>(openbrowser-open)` | `:<C-U>call openbrowser#_keymap_open('n')<CR>` |
-|  | `<Plug>(is-g#)` | `<Plug>(is-nohl)<Plug>(_is-g#)` |
-|  | `<Plug>(is-g*)` | `<Plug>(is-nohl)<Plug>(_is-g*)` |
-|  | `<Plug>(is-#)` | `<Plug>(is-nohl)<Plug>(_is-#)` |
-|  | `<Plug>(is-*)` | `<Plug>(is-nohl)<Plug>(_is-*)` |
-|  | `<Plug>(is-N)` | `<Plug>(is-nohl)<Plug>(_is-N)` |
-|  | `<Plug>(is-n)` | `<Plug>(is-nohl)<Plug>(_is-n)` |
-|  | `<Plug>(_is-g#)` | `g#` |
-|  | `<Plug>(_is-g*)` | `g*` |
-|  | `<Plug>(_is-#)` | `#` |
-|  | `<Plug>(_is-*)` | `*` |
-|  | `<Plug>(_is-N)` | `N` |
-|  | `<Plug>(_is-n)` | `n` |
-|  | `<Plug>(is-nohl)` | `<Plug>(is-nohl-2)` |
-|  | `<Plug>(is-nohl-3)` | `is#auto_nohlsearch(3)` |
-|  | `<Plug>(is-nohl-2)` | `is#auto_nohlsearch(2)` |
-|  | `<Plug>(is-nohl-1)` | `is#auto_nohlsearch(1)` |
-|  | `<Plug>(is-scroll-b)` | `is#scroll_count(0, @/) . 'Nzz'` |
-|  | `<Plug>(is-scroll-f)` | `is#scroll_count(1, @/) . 'nzz'` |
-|  | `<Plug>(fzf-maps-n)` | `:<C-U>call fzf#vim#maps('n', 0)<CR>` |
-|  | `<Plug>(fzf-normal)` | `` |
-|  | `<Plug>(fzf-insert)` | `i` |
-|  | `<Plug>(clever-f-repeat-back)` | `clever_f#repeat(1)` |
-|  | `<Plug>(clever-f-repeat-forward)` | `clever_f#repeat(0)` |
-|  | `<Plug>(clever-f-reset)` | `clever_f#reset()` |
-|  | `<Plug>(clever-f-T)` | `clever_f#find_with('T')` |
-|  | `<Plug>(clever-f-t)` | `clever_f#find_with('t')` |
-|  | `<Plug>(clever-f-F)` | `clever_f#find_with('F')` |
-|  | `<Plug>(clever-f-f)` | `clever_f#find_with('f')` |
-|  | `<Plug>CamelCaseMotion_ge` | `:<C-U>call camelcasemotion#Motion('ge',v:count1,'n')<CR>` |
-|  | `<Plug>CamelCaseMotion_e` | `:<C-U>call camelcasemotion#Motion('e',v:count1,'n')<CR>` |
-|  | `<Plug>CamelCaseMotion_b` | `:<C-U>call camelcasemotion#Motion('b',v:count1,'n')<CR>` |
-|  | `<Plug>CamelCaseMotion_w` | `:<C-U>call camelcasemotion#Motion('w',v:count1,'n')<CR>` |
-|  | `<Plug>UnconditionalPasteGPlusRepeatBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteGPlusRepeatBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.P', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteGPlusRepeatBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteGPlusRepeatAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteGPlusRepeatAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.P', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteGPlusRepeatAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteGPlusBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteGPlusRepeatBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'P', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteGPlusRepeatBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteGPlusAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteGPlusRepeatAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'P', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteGPlusRepeatAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPastePlusRepeatBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPastePlusRepeatBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.p', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPastePlusRepeatBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPastePlusRepeatAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPastePlusRepeatAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.p', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPastePlusRepeatAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPastePlusBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPastePlusRepeatBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'p', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPastePlusRepeatBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPastePlusAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPastePlusRepeatAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'p', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPastePlusRepeatAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallUnjoinBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallUnjoinBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'U', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallUnjoinBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallUnjoinAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallUnjoinAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'U', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallUnjoinAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteUnjoinBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallUnjoinBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'u', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallUnjoinBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteUnjoinAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallUnjoinAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'u', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallUnjoinAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallQueriedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallQueriedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'Q', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallQueriedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallQueriedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallQueriedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'Q', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallQueriedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteQueriedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallQueriedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'q', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallQueriedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteQueriedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallQueriedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'q', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallQueriedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallDelimitedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallDelimitedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'QB', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallDelimitedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteRecallDelimitedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallDelimitedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'QB', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallDelimitedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteDelimitedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallDelimitedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'qb', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallDelimitedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteDelimitedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteRecallDelimitedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'qb', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteRecallDelimitedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteJaggedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteJaggedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'B', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteJaggedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteJaggedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteJaggedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'B', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteJaggedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteSpacedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteSpacedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 's', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteSpacedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteSpacedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteSpacedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 's', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteSpacedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommentedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommentedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '#', ']P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommentedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommentedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommentedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '#', ']p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommentedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteShiftedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteShiftedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '>', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteShiftedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteShiftedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteShiftedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '>', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteShiftedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteLessIndentBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteLessIndentBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'n', ']P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteLessIndentBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteLessIndentAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteLessIndentAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'n', ']p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteLessIndentAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteMoreIndentBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteMoreIndentBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'm', ']P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteMoreIndentBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteMoreIndentAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteMoreIndentAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'm', ']p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteMoreIndentAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteIndentedBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteIndentedBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', ']P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteIndentedBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteIndentedAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteIndentedAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', ']p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteIndentedAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaDoubleQuoteBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaDoubleQuoteBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',"', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaDoubleQuoteBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaDoubleQuoteAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaDoubleQuoteAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',"', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaDoubleQuoteAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaSingleQuoteBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaSingleQuoteBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',''', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaSingleQuoteBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaSingleQuoteAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaSingleQuoteAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',''', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaSingleQuoteAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCommaAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCommaAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCommaAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteBlockBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteBlockBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'b', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteBlockBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteBlockAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteBlockAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'b', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteBlockAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteLineBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteLineBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteLineBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteLineAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteLineAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteLineAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCharBefore` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCharBefore", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'c', 'P')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCharBefore", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>UnconditionalPasteCharAfter` | `:<C-U>execute 'silent! call repeat#setreg("\<lt>Plug>UnconditionalPasteCharAfter", v:register)'|if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'c', 'p')|silent! call repeat#set("\<lt>Plug>UnconditionalPasteCharAfter", UnconditionalPaste#GetCount())<CR>` |
-|  | `<Plug>ReplaceWithSameIndentRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithSameIndentRegisterVisual", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|execute 'normal!' ReplaceWithSameIndentRegister#VisualMode()|call ReplaceWithSameIndentRegister#Visual("\<lt>Plug>ReplaceWithSameIndentRegisterVisual")<CR>` |
-|  | `<Plug>ReplaceWithSameIndentRegisterLine` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithSameIndentRegisterLine", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|execute 'normal! V' . v:count1 . "_\<lt>Esc>"|call ReplaceWithSameIndentRegister#Visual("\<lt>Plug>ReplaceWithSameIndentRegisterLine")<CR>` |
-|  | `<Plug>ReplaceWithRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|execute 'normal!' ReplaceWithRegister#VisualMode()|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterVisual")<CR>` |
-|  | `<Plug>ReplaceWithRegisterLine` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterLine", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|execute 'normal! V' . v:count1 . "_\<lt>Esc>"|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterLine")<CR>` |
-|  | `<Plug>ReplaceWithRegisterExpressionSpecial` | `:<C-U>let g:ReplaceWithRegister_expr = getreg('=')|execute 'normal!' v:count1 . '.'<CR>` |
-|  | `<Plug>ReplaceWithRegisterOperator` | `ReplaceWithRegister#OperatorExpression()` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-P>` | `:lua require('fuzzy').files('')<CR>` |
-|  | `<C-W>j` | `<C-W>5-` |
-|  | `<C-W>k` | `<C-W>5+` |
-|  | `<C-W>h` | `<C-W>5<lt>` |
-|  | `<C-W>l` | `<C-W>5>` |
-|  | `<C-K>` | `<Cmd>lua require('Navigator').up()<CR>` |
-|  | `<C-J>` | `<Cmd>lua require('Navigator').down()<CR>` |
-|  | `<C-H>` | `<Cmd>lua require('Navigator').left()<CR>` |
-|  | `<Right>` | `:lua require('lists').move('right')<CR>` |
-|  | `<Left>` | `:lua require('lists').move('left')<CR>` |
-|  | `<Down>` | `:lua require('lists').move('down')<CR>` |
-|  | `<Up>` | `:lua require('lists').move('up')<CR>` |
-|  | `<C-L>` | `<Cmd>lua require('Navigator').right()<CR>` |
+|  | <code> k</code> | <code>&lt;Cmd&gt;lua require'luasnip'.jump(-1)&lt;CR&gt;</code> |
+|  | <code> j</code> | <code>&lt;Cmd&gt;lua require'luasnip'.jump(1)&lt;CR&gt;</code> |
+|  | <code> gl</code> | <code>:diffget //3&lt;CR&gt; :diffupdate&lt;CR&gt;</code> |
+|  | <code> gh</code> | <code>:diffget //2&lt;CR&gt; :diffupdate&lt;CR&gt;</code> |
+|  | <code> gn</code> | <code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:Git mergetool&lt;CR&gt;</code> |
+|  | <code> gg</code> | <code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:execute 'Git difftool ' .. g:git_base&lt;CR&gt;</code> |
+|  | <code> gc</code> | <code>:0Gclog&lt;CR&gt;</code> |
+|  | <code> ga</code> | <code>&lt;Plug&gt;(GitGutterStageHunk)</code> |
+|  | <code> gu</code> | <code>&lt;Plug&gt;(GitGutterUndoHunk)</code> |
+|  | <code> gm</code> | <code>&lt;Plug&gt;(git-messenger)</code> |
+|  | <code> gs</code> | <code>:Git&lt;CR&gt;</code> |
+|  | <code> gb</code> | <code>:Git blame&lt;CR&gt;</code> |
+|  | <code> gr</code> | <code>:Gread&lt;CR&gt;</code> |
+|  | <code> gd</code> | <code>:set nosplitright&lt;CR&gt;:execute 'Gvdiff ' .. g:git_base&lt;CR&gt;:set splitright&lt;CR&gt;</code> |
+|  | <code> f</code> | <code>:lua require('fuzzy').symbols()&lt;CR&gt;</code> |
+|  | <code> m</code> | <code>:Marks&lt;CR&gt;</code> |
+|  | <code> &lt;C-H&gt;</code> | <code>:Helptags&lt;CR&gt;</code> |
+|  | <code> &lt;C-P&gt;</code> | <code>:Commands&lt;CR&gt;</code> |
+|  | <code> p</code> | <code>:Buffers&lt;CR&gt;</code> |
+|  | <code> n</code> | <code>:lua require('fuzzy').files(vim.fn.expand('%:h'))&lt;CR&gt;</code> |
+|  | <code> gf</code> | <code>:lua require('fuzzy').git_files()&lt;CR&gt;</code> |
+|  | <code> a</code> | <code>:lua require('lists').change_active('Quickfix')&lt;CR&gt;:silent grep </code> |
+|  | <code> b</code> | <code>:lua require('lists').toggle_active()&lt;CR&gt;</code> |
+|  | <code> v</code> | <code>&lt;Plug&gt;(qf_loc_toggle_stay):lua require('lists').change_active('Location')&lt;CR&gt;</code> |
+|  | <code> c</code> | <code>&lt;Plug&gt;(qf_qf_toggle_stay):lua require('lists').change_active('Quickfix')&lt;CR&gt;</code> |
+|  | <code> dl</code> |  |
+|  | <code> dk</code> |  |
+|  | <code> dj</code> |  |
+|  | <code> dh</code> |  |
+|  | <code> d&lt;CR&gt;</code> |  |
+|  | <code> dp</code> |  |
+|  | <code> di</code> |  |
+|  | <code> do</code> |  |
+|  | <code> dB</code> |  |
+|  | <code> db</code> |  |
+|  | <code> dc</code> |  |
+|  | <code> td</code> |  |
+|  | <code> tf</code> |  |
+|  | <code> ts</code> |  |
+|  | <code> to</code> |  |
+|  | <code> tt</code> |  |
+|  | <code> ll</code> |  |
+|  | <code> e</code> |  |
+|  | <code> oa</code> | <code>&lt;Cmd&gt;lua require('orgmode').action('agenda.prompt')&lt;CR&gt;</code> |
+|  | <code> of</code> | <code>&lt;Cmd&gt;lua require('orgmode').action('capture.prompt')&lt;CR&gt;</code> |
+|  | <code> N</code> | <code>:e %:h/</code> |
+|  | <code> rr</code> | <code>:%s/\v()</code> |
+|  | <code> z</code> | <code>1z=</code> |
+|  | <code> w</code> | <code>:update&lt;CR&gt;</code> |
+|  | <code> q</code> | <code>:lua require 'buffers'.close()&lt;CR&gt;</code> |
+|  | <code> &lt;C-O&gt;</code> | <code>:lua require 'buffers'.close_others()&lt;CR&gt;</code> |
+|  | <code>  </code> | <code>:&lt;C-U&gt;exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')&lt;CR&gt;</code> |
+|  | <code>#</code> | <code>&lt;Plug&gt;(is-#)</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>'[</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "alpha")&lt;CR&gt;</code> |
+|  | <code>']</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "line", "alpha")&lt;CR&gt;</code> |
+|  | <code>*</code> | <code>&lt;Plug&gt;(is-*)N</code> |
+|  | <code>-</code> |  |
+|  | <code>&lt;lt&gt;CLEAR-10&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteUnjoinAfter</code> |
+|  | <code>&lt;lt&gt;CLEAR-9&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteUnjoinBefore</code> |
+|  | <code>&lt;lt&gt;CLEAR-8&gt;</code> | <code>&lt;Plug&gt;VimwikiDecrementListItem</code> |
+|  | <code>&lt;lt&gt;CLEAR-7&gt;</code> | <code>&lt;Plug&gt;VimwikiIncrementListItem</code> |
+|  | <code>&lt;lt&gt;CLEAR-6&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore</code> |
+|  | <code>&lt;lt&gt;CLEAR-5&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter</code> |
+|  | <code>&lt;lt&gt;CLEAR-4&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaBefore</code> |
+|  | <code>&lt;lt&gt;CLEAR-3&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaAfter</code> |
+|  | <code>&lt;lt&gt;CLEAR-2&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteLineBefore</code> |
+|  | <code>&lt;lt&gt;CLEAR-1&gt;</code> | <code>&lt;Plug&gt;UnconditionalPasteLineAfter</code> |
+|  | <code>F</code> | <code>&lt;Plug&gt;(clever-f-F)</code> |
+|  | <code>H</code> | <code>^</code> |
+|  | <code>J</code> | <code>5j</code> |
+|  | <code>K</code> | <code>5k</code> |
+|  | <code>L</code> | <code>$</code> |
+|  | <code>N</code> | <code>&lt;Plug&gt;(is-N)</code> |
+|  | <code>T</code> | <code>&lt;Plug&gt;(clever-f-T)</code> |
+|  | <code>Y</code> | <code>y$</code> |
+|  | <code>[=</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("prev", "any",  v:count)&lt;CR&gt;</code> |
+|  | <code>[-</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("prev", "same", v:count)&lt;CR&gt;</code> |
+|  | <code>[`</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt;</code> |
+|  | <code>['</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>\&lt;lt&gt;Space&gt;tt</code> | <code>&lt;Plug&gt;(table-mode-tableize)</code> |
+|  | <code>\&lt;lt&gt;Space&gt;tm</code> | <code>:&lt;C-U&gt;call tablemode#Toggle()&lt;CR&gt;</code> |
+|  | <code>]=</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt;</code> |
+|  | <code>]-</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt;</code> |
+|  | <code>]`</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "pos")&lt;CR&gt;</code> |
+|  | <code>]'</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "line", "pos")&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>`[</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "alpha")&lt;CR&gt;</code> |
+|  | <code>`]</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "alpha")&lt;CR&gt;</code> |
+|  | <code>b</code> | <code>&lt;Plug&gt;CamelCaseMotion_b</code> |
+|  | <code>dm</code> | <code>:&lt;C-U&gt;call signature#utils#Remove(v:count)&lt;CR&gt;</code> |
+|  | <code>e</code> | <code>&lt;Plug&gt;CamelCaseMotion_e</code> |
+|  | <code>f</code> | <code>&lt;Plug&gt;(clever-f-f)</code> |
+|  | <code>gs.</code> | <code>&lt;Plug&gt;CaserDotCase</code> |
+|  | <code>gsK</code> | <code>&lt;Plug&gt;CaserTitleKebabCase</code> |
+|  | <code>gs-</code> | <code>&lt;Plug&gt;CaserKebabCase</code> |
+|  | <code>gsk</code> | <code>&lt;Plug&gt;CaserKebabCase</code> |
+|  | <code>gs </code> | <code>&lt;Plug&gt;CaserSpaceCase</code> |
+|  | <code>gss</code> | <code>&lt;Plug&gt;CaserSentenceCase</code> |
+|  | <code>gst</code> | <code>&lt;Plug&gt;CaserTitleCase</code> |
+|  | <code>gsU</code> | <code>&lt;Plug&gt;CaserUpperCase</code> |
+|  | <code>gsu</code> | <code>&lt;Plug&gt;CaserUpperCase</code> |
+|  | <code>gs_</code> | <code>&lt;Plug&gt;CaserSnakeCase</code> |
+|  | <code>gsc</code> | <code>&lt;Plug&gt;CaserCamelCase</code> |
+|  | <code>gsm</code> | <code>&lt;Plug&gt;CaserMixedCase</code> |
+|  | <code>gPP</code> | <code>&lt;Plug&gt;UnconditionalPasteGPlusBefore</code> |
+|  | <code>gPp</code> | <code>&lt;Plug&gt;UnconditionalPasteGPlusAfter</code> |
+|  | <code>gpP</code> | <code>&lt;Plug&gt;UnconditionalPastePlusBefore</code> |
+|  | <code>gpp</code> | <code>&lt;Plug&gt;UnconditionalPastePlusAfter</code> |
+|  | <code>gUP</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinBefore</code> |
+|  | <code>gUp</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinAfter</code> |
+|  | <code>gQP</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallQueriedBefore</code> |
+|  | <code>gQp</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallQueriedAfter</code> |
+|  | <code>gqP</code> | <code>&lt;Plug&gt;UnconditionalPasteQueriedBefore</code> |
+|  | <code>gqp</code> | <code>&lt;Plug&gt;UnconditionalPasteQueriedAfter</code> |
+|  | <code>gQBP</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedBefore</code> |
+|  | <code>gQBp</code> | <code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedAfter</code> |
+|  | <code>gqbP</code> | <code>&lt;Plug&gt;UnconditionalPasteDelimitedBefore</code> |
+|  | <code>gqbp</code> | <code>&lt;Plug&gt;UnconditionalPasteDelimitedAfter</code> |
+|  | <code>gBP</code> | <code>&lt;Plug&gt;UnconditionalPasteJaggedBefore</code> |
+|  | <code>gBp</code> | <code>&lt;Plug&gt;UnconditionalPasteJaggedAfter</code> |
+|  | <code>gsP</code> | <code>&lt;Plug&gt;UnconditionalPasteSpacedBefore</code> |
+|  | <code>gsp</code> | <code>&lt;Plug&gt;CaserMixedCase</code> |
+|  | <code>g#P</code> | <code>&lt;Plug&gt;UnconditionalPasteCommentedBefore</code> |
+|  | <code>g#p</code> | <code>&lt;Plug&gt;UnconditionalPasteCommentedAfter</code> |
+|  | <code>g&gt;P</code> | <code>&lt;Plug&gt;UnconditionalPasteShiftedBefore</code> |
+|  | <code>g&gt;p</code> | <code>&lt;Plug&gt;UnconditionalPasteShiftedAfter</code> |
+|  | <code>g[[P</code> | <code>&lt;Plug&gt;UnconditionalPasteLessIndentBefore</code> |
+|  | <code>g[[p</code> | <code>&lt;Plug&gt;UnconditionalPasteLessIndentAfter</code> |
+|  | <code>g]]P</code> | <code>&lt;Plug&gt;UnconditionalPasteMoreIndentBefore</code> |
+|  | <code>g]]p</code> | <code>&lt;Plug&gt;UnconditionalPasteMoreIndentAfter</code> |
+|  | <code>g[p</code> | <code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code> |
+|  | <code>g[P</code> | <code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code> |
+|  | <code>g]P</code> | <code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code> |
+|  | <code>g,"P</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore</code> |
+|  | <code>g,"p</code> | <code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter</code> |
+|  | <code>gbP</code> | <code>&lt;Plug&gt;UnconditionalPasteBlockBefore</code> |
+|  | <code>gbp</code> | <code>&lt;Plug&gt;UnconditionalPasteBlockAfter</code> |
+|  | <code>gcP</code> | <code>&lt;Plug&gt;UnconditionalPasteCharBefore</code> |
+|  | <code>gcp</code> | <code>&lt;Plug&gt;UnconditionalPasteCharAfter</code> |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> |
+|  | <code>gk</code> | <code>&lt;Plug&gt;(GitGutterPrevHunk)</code> |
+|  | <code>gj</code> | <code>&lt;Plug&gt;(GitGutterNextHunk)</code> |
+|  | <code>g*</code> | <code>&lt;Plug&gt;(is-g*)N</code> |
+|  | <code>gck</code> | <code>m'yypgcc`'</code> |
+|  | <code>glP</code> | <code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code> |
+|  | <code>glp</code> | <code>&lt;Plug&gt;UnconditionalPasteIndentedAfter</code> |
+|  | <code>gr</code> | <code>&lt;Plug&gt;ReplaceWithRegisterOperator</code> |
+|  | <code>grR</code> | <code>&lt;Plug&gt;ReplaceWithRegisterLine</code> |
+|  | <code>grr</code> | <code>&lt;Plug&gt;ReplaceWithSameIndentRegisterLine</code> |
+|  | <code>g-</code> |  |
+|  | <code>ge</code> | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> |
+|  | <code>j</code> | <code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'j' : 'gj'</code> |
+|  | <code>k</code> | <code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'k' : 'gk'</code> |
+|  | <code>m?</code> | <code>:&lt;C-U&gt;call signature#marker#List(v:count, 0)&lt;CR&gt;</code> |
+|  | <code>m/</code> | <code>:&lt;C-U&gt;call signature#mark#List(0, 0)&lt;CR&gt;</code> |
+|  | <code>m&lt;BS&gt;</code> | <code>:&lt;C-U&gt;call signature#marker#Purge()&lt;CR&gt;</code> |
+|  | <code>m </code> | <code>:&lt;C-U&gt;call signature#mark#Purge("all")&lt;CR&gt;</code> |
+|  | <code>m-</code> | <code>:&lt;C-U&gt;call signature#mark#Purge("line")&lt;CR&gt;</code> |
+|  | <code>m.</code> | <code>:&lt;C-U&gt;call signature#mark#ToggleAtLine()&lt;CR&gt;</code> |
+|  | <code>m,</code> | <code>:&lt;C-U&gt;call signature#mark#Toggle("next")&lt;CR&gt;</code> |
+|  | <code>m</code> | <code>:&lt;C-U&gt;call signature#utils#Input()&lt;CR&gt;</code> |
+|  | <code>n</code> | <code>&lt;Plug&gt;(is-n)</code> |
+|  | <code>srb</code> | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> |
+|  | <code>sr</code> | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+|  | <code>sdb</code> | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> |
+|  | <code>sd</code> | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
+|  | <code>t</code> | <code>&lt;Plug&gt;(clever-f-t)</code> |
+|  | <code>w</code> | <code>&lt;Plug&gt;CamelCaseMotion_w</code> |
+|  | <code>x</code> | <code>"_x</code> |
+|  | <code>y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-sort)</code> | <code>:call tablemode#spreadsheet#Sort('')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-echo-cell)</code> | <code>:call tablemode#spreadsheet#EchoCell()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-eval-formula)</code> | <code>:call tablemode#spreadsheet#formula#EvaluateFormulaLine()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-add-formula)</code> | <code>:call tablemode#spreadsheet#formula#Add()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-insert-column-after)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#InsertColumn(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-insert-column-before)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#InsertColumn(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-delete-column)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#DeleteColumn()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-delete-row)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#DeleteRow()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-motion-right)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#Motion('l')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-motion-left)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#Motion('h')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-motion-down)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#Motion('j')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-motion-up)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#Motion('k')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-realign)</code> | <code>:call tablemode#table#Realign('.')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-tableize)</code> | <code>:Tableize&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('n', 'a', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('n', 'i', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('n', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('n', 'i')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('n', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('n', 'i')</code> |
+|  | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-gv)</code> | <code>gv</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-dot)</code> | <code>operator#sandwich#dot()</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-predot)</code> | <code>operator#sandwich#predot()</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> | <code>:&lt;C-U&gt;call operator#sandwich#query1st('replace', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> | <code>:&lt;C-U&gt;call operator#sandwich#query1st('add', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('replace', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('delete', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('add', 'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(qf_qf_switch)</code> | <code>&filetype ==# 'qf' ? '&lt;C-W&gt;p' : '&lt;C-W&gt;b'</code> |
+|  | <code>&lt;Plug&gt;(qf_loc_toggle_stay)</code> | <code>:&lt;C-U&gt; call qf#toggle#ToggleLocWindow(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_loc_toggle)</code> | <code>:&lt;C-U&gt; call qf#toggle#ToggleLocWindow(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_qf_toggle_stay)</code> | <code>:&lt;C-U&gt; call qf#toggle#ToggleQfWindow(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_qf_toggle)</code> | <code>:&lt;C-U&gt; call qf#toggle#ToggleQfWindow(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_loc_next)</code> | <code>:&lt;C-U&gt; call qf#wrap#WrapCommand('down', 'l')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_loc_previous)</code> | <code>:&lt;C-U&gt; call qf#wrap#WrapCommand('up', 'l')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_qf_next)</code> | <code>:&lt;C-U&gt; call qf#wrap#WrapCommand('down', 'c')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(qf_qf_previous)</code> | <code>:&lt;C-U&gt; call qf#wrap#WrapCommand('up', 'c')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;QfSwitch</code> | <code>&filetype ==# 'qf' ? '&lt;C-W&gt;p' : '&lt;C-W&gt;b'</code> |
+|  | <code>&lt;Plug&gt;QfLtoggle</code> | <code>&lt;Plug&gt;(qf_loc_toggle)</code> |
+|  | <code>&lt;Plug&gt;QfCtoggle</code> | <code>&lt;Plug&gt;(qf_qf_toggle)</code> |
+|  | <code>&lt;Plug&gt;QfLnext</code> | <code>&lt;Plug&gt;(qf_loc_next)</code> |
+|  | <code>&lt;Plug&gt;QfLprevious</code> | <code>&lt;Plug&gt;(qf_loc_previous)</code> |
+|  | <code>&lt;Plug&gt;QfCnext</code> | <code>&lt;Plug&gt;(qf_qf_next)</code> |
+|  | <code>&lt;Plug&gt;QfCprevious</code> | <code>&lt;Plug&gt;(qf_qf_previous)</code> |
+|  | <code>&lt;Plug&gt;GitGutterPreviewHunk</code> | <code>:call gitgutter#utility#warn('Please change your map &lt;lt&gt;Plug&gt;GitGutterPreviewHunk to &lt;lt&gt;Plug&gt;(GitGutterPreviewHunk)')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterPreviewHunk)</code> | <code>:GitGutterPreviewHunk&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;GitGutterUndoHunk</code> | <code>:call gitgutter#utility#warn('Please change your map &lt;lt&gt;Plug&gt;GitGutterUndoHunk to &lt;lt&gt;Plug&gt;(GitGutterUndoHunk)')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterUndoHunk)</code> | <code>:GitGutterUndoHunk&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;GitGutterStageHunk</code> | <code>:call gitgutter#utility#warn('Please change your map &lt;lt&gt;Plug&gt;GitGutterStageHunk to &lt;lt&gt;Plug&gt;(GitGutterStageHunk)')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterStageHunk)</code> | <code>:GitGutterStageHunk&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;GitGutterPrevHunk</code> | <code>&diff ? '[c' : ":\&lt;C-U&gt;call gitgutter#utility#warn('Please change your map \&lt;lt&gt;Plug&gt;GitGutterPrevHunk to \&lt;lt&gt;Plug&gt;(GitGutterPrevHunk)')\&lt;CR&gt;"</code> |
+|  | <code>&lt;Plug&gt;(GitGutterPrevHunk)</code> | <code>&diff ? '[c' : ":\&lt;C-U&gt;execute v:count1 . 'GitGutterPrevHunk'\&lt;CR&gt;"</code> |
+|  | <code>&lt;Plug&gt;GitGutterNextHunk</code> | <code>&diff ? ']c' : ":\&lt;C-U&gt;call gitgutter#utility#warn('Please change your map \&lt;lt&gt;Plug&gt;GitGutterNextHunk to \&lt;lt&gt;Plug&gt;(GitGutterNextHunk)')\&lt;CR&gt;"</code> |
+|  | <code>&lt;Plug&gt;(GitGutterNextHunk)</code> | <code>&diff ? ']c' : ":\&lt;C-U&gt;execute v:count1 . 'GitGutterNextHunk'\&lt;CR&gt;"</code> |
+|  | <code>&lt;Plug&gt;fugitive:</code> | <code></code> |
+|  | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserDotCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("DotCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserTitleKebabCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("TitleKebabCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserKebabCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("KebabCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserSpaceCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("SpaceCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserSentenceCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("SentenceCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserTitleCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("TitleCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserUpperCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("UpperCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserSnakeCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("SnakeCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserCamelCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("CamelCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;CaserMixedCase</code> | <code>:&lt;C-U&gt;call caser#ActionSetup("MixedCase")&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;(QuickScopeToggle)</code> | <code>:call &lt;SNR&gt;82_toggle()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_smart_search('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_search('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open-incognito)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('n', 0, ['--incognito'])&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(is-g#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g#)</code> |
+|  | <code>&lt;Plug&gt;(is-g*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g*)</code> |
+|  | <code>&lt;Plug&gt;(is-#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-#)</code> |
+|  | <code>&lt;Plug&gt;(is-*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-*)</code> |
+|  | <code>&lt;Plug&gt;(is-N)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-N)</code> |
+|  | <code>&lt;Plug&gt;(is-n)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-n)</code> |
+|  | <code>&lt;Plug&gt;(_is-g#)</code> | <code>g#</code> |
+|  | <code>&lt;Plug&gt;(_is-g*)</code> | <code>g*</code> |
+|  | <code>&lt;Plug&gt;(_is-#)</code> | <code>#</code> |
+|  | <code>&lt;Plug&gt;(_is-*)</code> | <code>*</code> |
+|  | <code>&lt;Plug&gt;(_is-N)</code> | <code>N</code> |
+|  | <code>&lt;Plug&gt;(_is-n)</code> | <code>n</code> |
+|  | <code>&lt;Plug&gt;(is-nohl)</code> | <code>&lt;Plug&gt;(is-nohl-2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-3)</code> | <code>is#auto_nohlsearch(3)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-2)</code> | <code>is#auto_nohlsearch(2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-1)</code> | <code>is#auto_nohlsearch(1)</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-b)</code> | <code>is#scroll_count(0, @/) . 'Nzz'</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-f)</code> | <code>is#scroll_count(1, @/) . 'nzz'</code> |
+|  | <code>&lt;Plug&gt;(fzf-maps-n)</code> | <code>:&lt;C-U&gt;call fzf#vim#maps('n', 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(fzf-normal)</code> | <code></code> |
+|  | <code>&lt;Plug&gt;(fzf-insert)</code> | <code>i</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-back)</code> | <code>clever_f#repeat(1)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-forward)</code> | <code>clever_f#repeat(0)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-reset)</code> | <code>clever_f#reset()</code> |
+|  | <code>&lt;Plug&gt;(clever-f-T)</code> | <code>clever_f#find_with('T')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-t)</code> | <code>clever_f#find_with('t')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-F)</code> | <code>clever_f#find_with('F')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-f)</code> | <code>clever_f#find_with('f')</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('ge',v:count1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_e</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('e',v:count1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_b</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('b',v:count1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_w</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('w',v:count1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteGPlusRepeatBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.P', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteGPlusRepeatAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.P', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteGPlusBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'P', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteGPlusAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'P', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteGPlusRepeatAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPastePlusRepeatBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.p', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPastePlusRepeatAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '.p', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPastePlusBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'p', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPastePlusAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'p', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPastePlusRepeatAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'U', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallUnjoinAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'U', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteUnjoinBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'u', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteUnjoinAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'u', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallUnjoinAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallQueriedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'Q', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallQueriedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'Q', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteQueriedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'q', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteQueriedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'q', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallQueriedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'QB', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteRecallDelimitedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'QB', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteDelimitedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'qb', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteDelimitedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'qb', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteRecallDelimitedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteJaggedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'B', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteJaggedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'B', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteJaggedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteSpacedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 's', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteSpacedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 's', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteSpacedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommentedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '#', ']P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommentedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '#', ']p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommentedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteShiftedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '&gt;', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteShiftedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, '&gt;', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteShiftedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteLessIndentBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'n', ']P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteLessIndentAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'n', ']p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteLessIndentAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteMoreIndentBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'm', ']P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteMoreIndentAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'm', ']p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteMoreIndentAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteIndentedBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', ']P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteIndentedAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', ']p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteIndentedAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',"', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',"', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaDoubleQuoteAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',''', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',''', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaSingleQuoteAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCommaAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, ',', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCommaAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteBlockBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteBlockBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'b', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteBlockBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteBlockAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteBlockAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'b', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteBlockAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteLineBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteLineBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteLineBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteLineAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteLineAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'l', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteLineAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCharBefore</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCharBefore", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'c', 'P')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCharBefore", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;UnconditionalPasteCharAfter</code> | <code>:&lt;C-U&gt;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;UnconditionalPasteCharAfter", v:register)'&#124;if v:register ==# "="|    call UnconditionalPaste#HandleExprReg(getreg("="))|endif|call UnconditionalPaste#Paste(v:register, 'c', 'p')|silent! call repeat#set("\&lt;lt&gt;Plug&gt;UnconditionalPasteCharAfter", UnconditionalPaste#GetCount())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithSameIndentRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|execute 'normal!' ReplaceWithSameIndentRegister#VisualMode()|call ReplaceWithSameIndentRegister#Visual("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithSameIndentRegisterLine</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterLine", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|execute 'normal! V' . v:count1 . "_\&lt;lt&gt;Esc&gt;"|call ReplaceWithSameIndentRegister#Visual("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterLine")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|execute 'normal!' ReplaceWithRegister#VisualMode()|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterLine</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterLine", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|execute 'normal! V' . v:count1 . "_\&lt;lt&gt;Esc&gt;"|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterLine")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterExpressionSpecial</code> | <code>:&lt;C-U&gt;let g:ReplaceWithRegister_expr = getreg('=')&#124;execute 'normal!' v:count1 . '.'&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterOperator</code> | <code>ReplaceWithRegister#OperatorExpression()</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;C-P&gt;</code> | <code>:lua require('fuzzy').files('')&lt;CR&gt;</code> |
+|  | <code>&lt;C-W&gt;j</code> | <code>&lt;C-W&gt;5-</code> |
+|  | <code>&lt;C-W&gt;k</code> | <code>&lt;C-W&gt;5+</code> |
+|  | <code>&lt;C-W&gt;h</code> | <code>&lt;C-W&gt;5&lt;lt&gt;</code> |
+|  | <code>&lt;C-W&gt;l</code> | <code>&lt;C-W&gt;5&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;Cmd&gt;lua require('Navigator').up()&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;Cmd&gt;lua require('Navigator').down()&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;Cmd&gt;lua require('Navigator').left()&lt;CR&gt;</code> |
+|  | <code>&lt;Right&gt;</code> | <code>:lua require('lists').move('right')&lt;CR&gt;</code> |
+|  | <code>&lt;Left&gt;</code> | <code>:lua require('lists').move('left')&lt;CR&gt;</code> |
+|  | <code>&lt;Down&gt;</code> | <code>:lua require('lists').move('down')&lt;CR&gt;</code> |
+|  | <code>&lt;Up&gt;</code> | <code>:lua require('lists').move('up')&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;lua require('Navigator').right()&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` rr` | `:s/\v%V()` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-|  | `@(targets)` | `:<C-U>call targets#do()<CR>` |
-|  | `A` | `<Plug>(niceblock-A)` |
-|  | `F` | `<Plug>(clever-f-F)` |
-|  | `H` | `^` |
-|  | `I` | `<Plug>(niceblock-I)` |
-|  | `J` | `5j` |
-|  | `K` | `5k` |
-|  | `L` | `$` |
-|  | `N` | `<Plug>(is-N)` |
-|  | `P` | `'"_d"'.v:register.'P'` |
-|  | `T` | `<Plug>(clever-f-T)` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `\<lt>Space>T` | `<Plug>(table-mode-tableize-delimiter)` |
-|  | `\<lt>Space>tt` | `<Plug>(table-mode-tableize)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `as` | `<Plug>(textobj-sandwich-query-a)` |
-|  | `ab` | `<Plug>(textobj-sandwich-auto-a)` |
-|  | `aI` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(0, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv` |
-|  | `ai` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(0, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv` |
-|  | `a` | `targets#e('o', 'a', 'a')` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `au` | `:lua require"treesitter-unit".select(true)<CR>` |
-|  | `b` | `<Plug>CamelCaseMotion_b` |
-|  | `e` | `<Plug>CamelCaseMotion_e` |
-|  | `f` | `<Plug>(clever-f-f)` |
-|  | `gs.` | `<Plug>CaserVDotCase` |
-|  | `gsK` | `<Plug>CaserVTitleKebabCase` |
-|  | `gs-` | `<Plug>CaserVKebabCase` |
-|  | `gsk` | `<Plug>CaserVKebabCase` |
-|  | `gs ` | `<Plug>CaserVSpaceCase` |
-|  | `gss` | `<Plug>CaserVSentenceCase` |
-|  | `gst` | `<Plug>CaserVTitleCase` |
-|  | `gsU` | `<Plug>CaserVUpperCase` |
-|  | `gsu` | `<Plug>CaserVUpperCase` |
-|  | `gs_` | `<Plug>CaserVSnakeCase` |
-|  | `gsc` | `<Plug>CaserVCamelCase` |
-|  | `gsp` | `<Plug>CaserVMixedCase` |
-|  | `gsm` | `<Plug>CaserVMixedCase` |
-|  | `g#` | `<Plug>(is-g#)` |
-|  | `g*` | `<Plug>(is-g*)` |
-|  | `gR` | `<Plug>ReplaceWithSameIndentRegisterVisual` |
-|  | `gr` | `<Plug>ReplaceWithRegisterVisual` |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gI` | `<Plug>(niceblock-gI)` |
-|  | `gx` | `<Plug>(openbrowser-smart-search)` |
-|  | `ge` | `<Plug>CamelCaseMotion_ge` |
-|  | `is` | `<Plug>(textobj-sandwich-query-i)` |
-|  | `ib` | `<Plug>(textobj-sandwich-auto-i)` |
-|  | `iI` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(1, 1, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv` |
-|  | `ii` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(1, 0, 1, [line("'<lt>"), line("'>"), col("'<lt>"), col("'>")])<CR><Esc>gv` |
-|  | `i` | `targets#e('o', 'i', 'i')` |
-|  | `iu` | `:lua require"treesitter-unit".select()<CR>` |
-|  | `j` | `v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'` |
-|  | `k` | `v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'` |
-|  | `n` | `<Plug>(is-n)` |
-|  | `sr` | `<Plug>(sandwich-replace)` |
-|  | `sd` | `<Plug>(sandwich-delete)` |
-|  | `sa` | `<Plug>(sandwich-add)` |
-|  | `t` | `<Plug>(clever-f-t)` |
-|  | `w` | `<Plug>CamelCaseMotion_w` |
-|  | `<Plug>(table-mode-cell-text-object-i)` | `:<C-U>call tablemode#spreadsheet#cell#TextObject(1)<CR>` |
-|  | `<Plug>(table-mode-cell-text-object-a)` | `:<C-U>call tablemode#spreadsheet#cell#TextObject(0)<CR>` |
-|  | `<Plug>(table-mode-tableize-delimiter)` | `:<C-U>call tablemode#TableizeByDelimiter()<CR>` |
-|  | `<Plug>(table-mode-tableize)` | `:Tableize<CR>` |
-|  | `<Plug>(textobj-sandwich-literal-query-a)` | `textobj#sandwich#query('x', 'a', {}, [])` |
-|  | `<Plug>(textobj-sandwich-literal-query-i)` | `textobj#sandwich#query('x', 'i', {}, [])` |
-|  | `<Plug>(textobj-sandwich-query-a)` | `textobj#sandwich#query('x', 'a')` |
-|  | `<Plug>(textobj-sandwich-query-i)` | `textobj#sandwich#query('x', 'i')` |
-|  | `<Plug>(textobj-sandwich-auto-a)` | `textobj#sandwich#auto('x', 'a')` |
-|  | `<Plug>(textobj-sandwich-auto-i)` | `textobj#sandwich#auto('x', 'i')` |
-|  | `<Plug>(sandwich-replace)` | `<Plug>(operator-sandwich-replace)` |
-|  | `<Plug>(sandwich-delete)` | `<Plug>(operator-sandwich-delete)` |
-|  | `<Plug>(sandwich-add)` | `<Plug>(operator-sandwich-add)` |
-|  | `<Plug>(textobj-sandwich-tag-a)` | `:<C-U>call sandwich#magicchar#t#at()<CR>` |
-|  | `<Plug>(textobj-sandwich-tag-i)` | `:<C-U>call sandwich#magicchar#t#it()<CR>` |
-|  | `<Plug>(textobj-sandwich-tagname-a)` | `:<C-U>call sandwich#magicchar#t#a()<CR>` |
-|  | `<Plug>(textobj-sandwich-tagname-i)` | `:<C-U>call sandwich#magicchar#t#i()<CR>` |
-|  | `<Plug>(textobj-sandwich-function-a)` | `:<C-U>call sandwich#magicchar#f#a('x')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-ap)` | `:<C-U>call sandwich#magicchar#f#ap('x')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-i)` | `:<C-U>call sandwich#magicchar#f#i('x')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-ip)` | `:<C-U>call sandwich#magicchar#f#ip('x')<CR>` |
-|  | `<Plug>(operator-sandwich-g@)` | `g@` |
-|  | `<Plug>(operator-sandwich-replace-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('replace')<CR>` |
-|  | `<Plug>(operator-sandwich-delete-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('delete')<CR>` |
-|  | `<Plug>(operator-sandwich-add-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('add')<CR>` |
-|  | `<Plug>(operator-sandwich-replace-query1st)` | `<Esc>:call operator#sandwich#query1st('replace', 'x')<CR>` |
-|  | `<Plug>(operator-sandwich-add-query1st)` | `<Esc>:call operator#sandwich#query1st('add', 'x')<CR>` |
-|  | `<Plug>(operator-sandwich-replace-pre)` | `<Esc>:call operator#sandwich#prerequisite('replace', 'x')<CR>` |
-|  | `<Plug>(operator-sandwich-delete-pre)` | `<Esc>:call operator#sandwich#prerequisite('delete', 'x')<CR>` |
-|  | `<Plug>(operator-sandwich-add-pre)` | `<Esc>:call operator#sandwich#prerequisite('add', 'x')<CR>` |
-|  | `<Plug>(operator-sandwich-replace)` | `<Plug>(operator-sandwich-replace-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-delete)` | `<Plug>(operator-sandwich-delete-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-add)` | `<Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-gv)<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(niceblock-A)` | `niceblock#force_blockwise('A')` |
-|  | `<Plug>(niceblock-gI)` | `niceblock#force_blockwise('gI')` |
-|  | `<Plug>(niceblock-I)` | `niceblock#force_blockwise('I')` |
-|  | `<Plug>GitGutterStageHunk` | `:call gitgutter#utility#warn('Please change your map <lt>Plug>GitGutterStageHunk to <lt>Plug>(GitGutterStageHunk)')<CR>` |
-|  | `<Plug>(GitGutterStageHunk)` | `:GitGutterStageHunk<CR>` |
-|  | `<Plug>(GitGutterTextObjectOuterVisual)` | `:<C-U>call gitgutter#hunk#text_object(0)<CR>` |
-|  | `<Plug>(GitGutterTextObjectInnerVisual)` | `:<C-U>call gitgutter#hunk#text_object(1)<CR>` |
-|  | `<Plug>CaserVDotCase` | `:<C-U>call caser#DoAction("DotCase",visualmode())<CR>` |
-|  | `<Plug>CaserVTitleKebabCase` | `:<C-U>call caser#DoAction("TitleKebabCase",visualmode())<CR>` |
-|  | `<Plug>CaserVKebabCase` | `:<C-U>call caser#DoAction("KebabCase",visualmode())<CR>` |
-|  | `<Plug>CaserVSpaceCase` | `:<C-U>call caser#DoAction("SpaceCase",visualmode())<CR>` |
-|  | `<Plug>CaserVSentenceCase` | `:<C-U>call caser#DoAction("SentenceCase",visualmode())<CR>` |
-|  | `<Plug>CaserVTitleCase` | `:<C-U>call caser#DoAction("TitleCase",visualmode())<CR>` |
-|  | `<Plug>CaserVUpperCase` | `:<C-U>call caser#DoAction("UpperCase",visualmode())<CR>` |
-|  | `<Plug>CaserVSnakeCase` | `:<C-U>call caser#DoAction("SnakeCase",visualmode())<CR>` |
-|  | `<Plug>CaserVCamelCase` | `:<C-U>call caser#DoAction("CamelCase",visualmode())<CR>` |
-|  | `<Plug>CaserVMixedCase` | `:<C-U>call caser#DoAction("MixedCase",visualmode())<CR>` |
-|  | `<Plug>(QuickScopeToggle)` | `:<C-U>call <SNR>82_toggle()<CR>` |
-|  | `<Plug>(openbrowser-smart-search)` | `:<C-U>call openbrowser#_keymap_smart_search('v')<CR>` |
-|  | `<Plug>(openbrowser-search)` | `:<C-U>call openbrowser#_keymap_search('v')<CR>` |
-|  | `<Plug>(openbrowser-open-incognito)` | `:<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR>` |
-|  | `<Plug>(openbrowser-open)` | `:<C-U>call openbrowser#_keymap_open('v')<CR>` |
-|  | `<Plug>(is-g#)` | `<Plug>(is-nohl)<Plug>(_is-g#)` |
-|  | `<Plug>(is-g*)` | `<Plug>(is-nohl)<Plug>(_is-g*)` |
-|  | `<Plug>(is-#)` | `<Plug>(is-nohl)<Plug>(_is-#)` |
-|  | `<Plug>(is-*)` | `<Plug>(is-nohl)<Plug>(_is-*)` |
-|  | `<Plug>(is-N)` | `<Plug>(is-nohl)<Plug>(_is-N)` |
-|  | `<Plug>(is-n)` | `<Plug>(is-nohl)<Plug>(_is-n)` |
-|  | `<Plug>(_is-g#)` | `g#` |
-|  | `<Plug>(_is-g*)` | `g*` |
-|  | `<Plug>(_is-#)` | `#` |
-|  | `<Plug>(_is-*)` | `*` |
-|  | `<Plug>(_is-N)` | `N` |
-|  | `<Plug>(_is-n)` | `n` |
-|  | `<Plug>(is-nohl)` | `<Plug>(is-nohl-2)` |
-|  | `<Plug>(is-nohl-3)` | `is#auto_nohlsearch(3)` |
-|  | `<Plug>(is-nohl-2)` | `is#auto_nohlsearch(2)` |
-|  | `<Plug>(is-nohl-1)` | `is#auto_nohlsearch(1)` |
-|  | `<Plug>(is-scroll-b)` | `is#scroll_count(0, @/) . 'Nzz'` |
-|  | `<Plug>(is-scroll-f)` | `is#scroll_count(1, @/) . 'nzz'` |
-|  | `<Plug>(fzf-maps-x)` | `:<C-U>call fzf#vim#maps('x', 0)<CR>` |
-|  | `<Plug>(clever-f-repeat-back)` | `clever_f#repeat(1)` |
-|  | `<Plug>(clever-f-repeat-forward)` | `clever_f#repeat(0)` |
-|  | `<Plug>(clever-f-reset)` | `clever_f#reset()` |
-|  | `<Plug>(clever-f-T)` | `clever_f#find_with('T')` |
-|  | `<Plug>(clever-f-t)` | `clever_f#find_with('t')` |
-|  | `<Plug>(clever-f-F)` | `clever_f#find_with('F')` |
-|  | `<Plug>(clever-f-f)` | `clever_f#find_with('f')` |
-|  | `<Plug>CamelCaseMotion_ige` | `:<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ie` | `:<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ib` | `:<C-U>call camelcasemotion#InnerMotion('b',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_iw` | `:<C-U>call camelcasemotion#InnerMotion('w',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ge` | `:<C-U>call camelcasemotion#Motion('ge',v:count1,'v')<CR>` |
-|  | `<Plug>CamelCaseMotion_e` | `:<C-U>call camelcasemotion#Motion('e',v:count1,'v')<CR>` |
-|  | `<Plug>CamelCaseMotion_b` | `:<C-U>call camelcasemotion#Motion('b',v:count1,'v')<CR>` |
-|  | `<Plug>CamelCaseMotion_w` | `:<C-U>call camelcasemotion#Motion('w',v:count1,'v')<CR>` |
-|  | `<Plug>ReplaceWithSameIndentRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithSameIndentRegisterVisual", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|call ReplaceWithSameIndentRegister#Visual("\<lt>Plug>ReplaceWithSameIndentRegisterVisual")<CR>` |
-|  | `<Plug>ReplaceWithRegisterVisual` | `:<C-U>call setline('.', getline('.'))|execute 'silent! call repeat#setreg("\<lt>Plug>ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|call ReplaceWithRegister#Operator('visual', "\<lt>Plug>ReplaceWithRegisterVisual")<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+|  | <code> rr</code> | <code>:s/\v%V()</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+|  | <code>@(targets)</code> | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
+|  | <code>A</code> | <code>&lt;Plug&gt;(niceblock-A)</code> |
+|  | <code>F</code> | <code>&lt;Plug&gt;(clever-f-F)</code> |
+|  | <code>H</code> | <code>^</code> |
+|  | <code>I</code> | <code>&lt;Plug&gt;(niceblock-I)</code> |
+|  | <code>J</code> | <code>5j</code> |
+|  | <code>K</code> | <code>5k</code> |
+|  | <code>L</code> | <code>$</code> |
+|  | <code>N</code> | <code>&lt;Plug&gt;(is-N)</code> |
+|  | <code>P</code> | <code>'"_d"'.v:register.'P'</code> |
+|  | <code>T</code> | <code>&lt;Plug&gt;(clever-f-T)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>\&lt;lt&gt;Space&gt;T</code> | <code>&lt;Plug&gt;(table-mode-tableize-delimiter)</code> |
+|  | <code>\&lt;lt&gt;Space&gt;tt</code> | <code>&lt;Plug&gt;(table-mode-tableize)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>as</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+|  | <code>ab</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+|  | <code>aI</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 1, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code> |
+|  | <code>ai</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 0, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code> |
+|  | <code>a</code> | <code>targets#e('o', 'a', 'a')</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>au</code> | <code>:lua require"treesitter-unit".select(true)&lt;CR&gt;</code> |
+|  | <code>b</code> | <code>&lt;Plug&gt;CamelCaseMotion_b</code> |
+|  | <code>e</code> | <code>&lt;Plug&gt;CamelCaseMotion_e</code> |
+|  | <code>f</code> | <code>&lt;Plug&gt;(clever-f-f)</code> |
+|  | <code>gs.</code> | <code>&lt;Plug&gt;CaserVDotCase</code> |
+|  | <code>gsK</code> | <code>&lt;Plug&gt;CaserVTitleKebabCase</code> |
+|  | <code>gs-</code> | <code>&lt;Plug&gt;CaserVKebabCase</code> |
+|  | <code>gsk</code> | <code>&lt;Plug&gt;CaserVKebabCase</code> |
+|  | <code>gs </code> | <code>&lt;Plug&gt;CaserVSpaceCase</code> |
+|  | <code>gss</code> | <code>&lt;Plug&gt;CaserVSentenceCase</code> |
+|  | <code>gst</code> | <code>&lt;Plug&gt;CaserVTitleCase</code> |
+|  | <code>gsU</code> | <code>&lt;Plug&gt;CaserVUpperCase</code> |
+|  | <code>gsu</code> | <code>&lt;Plug&gt;CaserVUpperCase</code> |
+|  | <code>gs_</code> | <code>&lt;Plug&gt;CaserVSnakeCase</code> |
+|  | <code>gsc</code> | <code>&lt;Plug&gt;CaserVCamelCase</code> |
+|  | <code>gsp</code> | <code>&lt;Plug&gt;CaserVMixedCase</code> |
+|  | <code>gsm</code> | <code>&lt;Plug&gt;CaserVMixedCase</code> |
+|  | <code>g#</code> | <code>&lt;Plug&gt;(is-g#)</code> |
+|  | <code>g*</code> | <code>&lt;Plug&gt;(is-g*)</code> |
+|  | <code>gR</code> | <code>&lt;Plug&gt;ReplaceWithSameIndentRegisterVisual</code> |
+|  | <code>gr</code> | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>gI</code> | <code>&lt;Plug&gt;(niceblock-gI)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> |
+|  | <code>ge</code> | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> |
+|  | <code>is</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+|  | <code>ib</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+|  | <code>iI</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 1, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code> |
+|  | <code>ii</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 0, 1, [line("'&lt;lt&gt;"), line("'&gt;"), col("'&lt;lt&gt;"), col("'&gt;")])&lt;CR&gt;&lt;Esc&gt;gv</code> |
+|  | <code>i</code> | <code>targets#e('o', 'i', 'i')</code> |
+|  | <code>iu</code> | <code>:lua require"treesitter-unit".select()&lt;CR&gt;</code> |
+|  | <code>j</code> | <code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'j' : 'gj'</code> |
+|  | <code>k</code> | <code>v:count ? (v:count &gt; 5 ? "m'" . v:count : '') . 'k' : 'gk'</code> |
+|  | <code>n</code> | <code>&lt;Plug&gt;(is-n)</code> |
+|  | <code>sr</code> | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+|  | <code>sd</code> | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
+|  | <code>t</code> | <code>&lt;Plug&gt;(clever-f-t)</code> |
+|  | <code>w</code> | <code>&lt;Plug&gt;CamelCaseMotion_w</code> |
+|  | <code>&lt;Plug&gt;(table-mode-cell-text-object-i)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-cell-text-object-a)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-tableize-delimiter)</code> | <code>:&lt;C-U&gt;call tablemode#TableizeByDelimiter()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-tableize)</code> | <code>:Tableize&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('x', 'a', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('x', 'i', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('x', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('x', 'i')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('x', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('x', 'i')</code> |
+|  | <code>&lt;Plug&gt;(sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
+|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> | <code>&lt;Esc&gt;:call operator#sandwich#query1st('replace', 'x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> | <code>&lt;Esc&gt;:call operator#sandwich#query1st('add', 'x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('replace', 'x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('delete', 'x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('add', 'x')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(niceblock-A)</code> | <code>niceblock#force_blockwise('A')</code> |
+|  | <code>&lt;Plug&gt;(niceblock-gI)</code> | <code>niceblock#force_blockwise('gI')</code> |
+|  | <code>&lt;Plug&gt;(niceblock-I)</code> | <code>niceblock#force_blockwise('I')</code> |
+|  | <code>&lt;Plug&gt;GitGutterStageHunk</code> | <code>:call gitgutter#utility#warn('Please change your map &lt;lt&gt;Plug&gt;GitGutterStageHunk to &lt;lt&gt;Plug&gt;(GitGutterStageHunk)')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterStageHunk)</code> | <code>:GitGutterStageHunk&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterTextObjectOuterVisual)</code> | <code>:&lt;C-U&gt;call gitgutter#hunk#text_object(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterTextObjectInnerVisual)</code> | <code>:&lt;C-U&gt;call gitgutter#hunk#text_object(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVDotCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("DotCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVTitleKebabCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("TitleKebabCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVKebabCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("KebabCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVSpaceCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("SpaceCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVSentenceCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("SentenceCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVTitleCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("TitleCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVUpperCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("UpperCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVSnakeCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("SnakeCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVCamelCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("CamelCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CaserVMixedCase</code> | <code>:&lt;C-U&gt;call caser#DoAction("MixedCase",visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(QuickScopeToggle)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;82_toggle()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-smart-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_smart_search('v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-search)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_search('v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open-incognito)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('v', 0, ['--incognito'])&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(openbrowser-open)</code> | <code>:&lt;C-U&gt;call openbrowser#_keymap_open('v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(is-g#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g#)</code> |
+|  | <code>&lt;Plug&gt;(is-g*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g*)</code> |
+|  | <code>&lt;Plug&gt;(is-#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-#)</code> |
+|  | <code>&lt;Plug&gt;(is-*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-*)</code> |
+|  | <code>&lt;Plug&gt;(is-N)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-N)</code> |
+|  | <code>&lt;Plug&gt;(is-n)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-n)</code> |
+|  | <code>&lt;Plug&gt;(_is-g#)</code> | <code>g#</code> |
+|  | <code>&lt;Plug&gt;(_is-g*)</code> | <code>g*</code> |
+|  | <code>&lt;Plug&gt;(_is-#)</code> | <code>#</code> |
+|  | <code>&lt;Plug&gt;(_is-*)</code> | <code>*</code> |
+|  | <code>&lt;Plug&gt;(_is-N)</code> | <code>N</code> |
+|  | <code>&lt;Plug&gt;(_is-n)</code> | <code>n</code> |
+|  | <code>&lt;Plug&gt;(is-nohl)</code> | <code>&lt;Plug&gt;(is-nohl-2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-3)</code> | <code>is#auto_nohlsearch(3)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-2)</code> | <code>is#auto_nohlsearch(2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-1)</code> | <code>is#auto_nohlsearch(1)</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-b)</code> | <code>is#scroll_count(0, @/) . 'Nzz'</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-f)</code> | <code>is#scroll_count(1, @/) . 'nzz'</code> |
+|  | <code>&lt;Plug&gt;(fzf-maps-x)</code> | <code>:&lt;C-U&gt;call fzf#vim#maps('x', 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-back)</code> | <code>clever_f#repeat(1)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-forward)</code> | <code>clever_f#repeat(0)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-reset)</code> | <code>clever_f#reset()</code> |
+|  | <code>&lt;Plug&gt;(clever-f-T)</code> | <code>clever_f#find_with('T')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-t)</code> | <code>clever_f#find_with('t')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-F)</code> | <code>clever_f#find_with('F')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-f)</code> | <code>clever_f#find_with('f')</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ige</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('ge',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ie</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('e',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ib</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('b',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_iw</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('w',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('ge',v:count1,'v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_e</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('e',v:count1,'v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_b</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('b',v:count1,'v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_w</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('w',v:count1,'v')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithSameIndentRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual", v:register)'|call ReplaceWithSameIndentRegister#SetRegister()|if ReplaceWithSameIndentRegister#IsExprReg()|    let g:ReplaceWithSameIndentRegister_expr = getreg('=')|endif|call ReplaceWithSameIndentRegister#Visual("\&lt;lt&gt;Plug&gt;ReplaceWithSameIndentRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ReplaceWithRegisterVisual</code> | <code>:&lt;C-U&gt;call setline('.', getline('.'))&#124;execute 'silent! call repeat#setreg("\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual", v:register)'|call ReplaceWithRegister#SetRegister()|if ReplaceWithRegister#IsExprReg()|    let g:ReplaceWithRegister_expr = getreg('=')|endif|call ReplaceWithRegister#Operator('visual', "\&lt;lt&gt;Plug&gt;ReplaceWithRegisterVisual")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `#` | `<Plug>(is-#)` |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `*` | `<Plug>(is-*)N` |
-|  | `@(targets)` | `:<C-U>call targets#do()<CR>` |
-|  | `A` | `targets#e('o', 'A', 'A')` |
-|  | `F` | `<Plug>(clever-f-F)` |
-|  | `H` | `^` |
-|  | `I` | `targets#e('o', 'I', 'I')` |
-|  | `L` | `$` |
-|  | `N` | `<Plug>(is-N)` |
-|  | `T` | `<Plug>(clever-f-T)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `as` | `<Plug>(textobj-sandwich-query-a)` |
-|  | `ab` | `<Plug>(textobj-sandwich-auto-a)` |
-|  | `aI` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])<CR>` |
-|  | `ai` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])<CR>` |
-|  | `a` | `targets#e('o', 'a', 'a')` |
-|  | `au` | `:<C-U>lua require"treesitter-unit".select(true)<CR>` |
-|  | `b` | `<Plug>CamelCaseMotion_b` |
-|  | `e` | `<Plug>CamelCaseMotion_e` |
-|  | `f` | `<Plug>(clever-f-f)` |
-|  | `g#` | `<Plug>(is-g#)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `g*` | `<Plug>(is-g*)N` |
-|  | `ge` | `<Plug>CamelCaseMotion_ge` |
-|  | `is` | `<Plug>(textobj-sandwich-query-i)` |
-|  | `ib` | `<Plug>(textobj-sandwich-auto-i)` |
-|  | `iI` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])<CR>` |
-|  | `ii` | `:<C-U>cal <SNR>95_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])<CR>` |
-|  | `i` | `targets#e('o', 'i', 'i')` |
-|  | `iu` | `:<C-U>lua require"treesitter-unit".select()<CR>` |
-|  | `n` | `<Plug>(is-n)` |
-|  | `sa` | `<Plug>(sandwich-add)` |
-|  | `t` | `<Plug>(clever-f-t)` |
-|  | `w` | `<Plug>CamelCaseMotion_w` |
-|  | `<Plug>(table-mode-cell-text-object-i)` | `:<C-U>call tablemode#spreadsheet#cell#TextObject(1)<CR>` |
-|  | `<Plug>(table-mode-cell-text-object-a)` | `:<C-U>call tablemode#spreadsheet#cell#TextObject(0)<CR>` |
-|  | `<Plug>(textobj-sandwich-literal-query-a)` | `textobj#sandwich#query('o', 'a', {}, [])` |
-|  | `<Plug>(textobj-sandwich-literal-query-i)` | `textobj#sandwich#query('o', 'i', {}, [])` |
-|  | `<Plug>(textobj-sandwich-query-a)` | `textobj#sandwich#query('o', 'a')` |
-|  | `<Plug>(textobj-sandwich-query-i)` | `textobj#sandwich#query('o', 'i')` |
-|  | `<Plug>(textobj-sandwich-auto-a)` | `textobj#sandwich#auto('o', 'a')` |
-|  | `<Plug>(textobj-sandwich-auto-i)` | `textobj#sandwich#auto('o', 'i')` |
-|  | `<Plug>(sandwich-add)` | `<Plug>(operator-sandwich-add)` |
-|  | `<Plug>(textobj-sandwich-tag-a)` | `:<C-U>call sandwich#magicchar#t#at()<CR>` |
-|  | `<Plug>(textobj-sandwich-tag-i)` | `:<C-U>call sandwich#magicchar#t#it()<CR>` |
-|  | `<Plug>(textobj-sandwich-tagname-a)` | `:<C-U>call sandwich#magicchar#t#a()<CR>` |
-|  | `<Plug>(textobj-sandwich-tagname-i)` | `:<C-U>call sandwich#magicchar#t#i()<CR>` |
-|  | `<Plug>(textobj-sandwich-function-a)` | `:<C-U>call sandwich#magicchar#f#a('o')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-ap)` | `:<C-U>call sandwich#magicchar#f#ap('o')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-i)` | `:<C-U>call sandwich#magicchar#f#i('o')<CR>` |
-|  | `<Plug>(textobj-sandwich-function-ip)` | `:<C-U>call sandwich#magicchar#f#ip('o')<CR>` |
-|  | `<Plug>(operator-sandwich-g@)` | `g@` |
-|  | `<Plug>(operator-sandwich-replace-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('replace')<CR>` |
-|  | `<Plug>(operator-sandwich-delete-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('delete')<CR>` |
-|  | `<Plug>(operator-sandwich-add-visualrepeat)` | `:<C-U>call operator#sandwich#visualrepeat('add')<CR>` |
-|  | `<Plug>(operator-sandwich-squash-count)` | `operator#sandwich#squash_count()` |
-|  | `<Plug>(operator-sandwich-release-count)` | `operator#sandwich#release_count()` |
-|  | `<Plug>(operator-sandwich-synchro-count)` | `operator#sandwich#synchro_count()` |
-|  | `<Plug>(operator-sandwich-replace)` | `<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-delete)` | `<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(operator-sandwich-add)` | `<Plug>(operator-sandwich-g@)` |
-|  | `<Plug>(GitGutterTextObjectOuterPending)` | `:<C-U>call gitgutter#hunk#text_object(0)<CR>` |
-|  | `<Plug>(GitGutterTextObjectInnerPending)` | `:<C-U>call gitgutter#hunk#text_object(1)<CR>` |
-|  | `<Plug>(is-g#)` | `<Plug>(is-nohl)<Plug>(_is-g#)` |
-|  | `<Plug>(is-g*)` | `<Plug>(is-nohl)<Plug>(_is-g*)` |
-|  | `<Plug>(is-#)` | `<Plug>(is-nohl)<Plug>(_is-#)` |
-|  | `<Plug>(is-*)` | `<Plug>(is-nohl)<Plug>(_is-*)` |
-|  | `<Plug>(is-N)` | `<Plug>(is-nohl)<Plug>(_is-N)` |
-|  | `<Plug>(is-n)` | `<Plug>(is-nohl)<Plug>(_is-n)` |
-|  | `<Plug>(_is-g#)` | `g#` |
-|  | `<Plug>(_is-g*)` | `g*` |
-|  | `<Plug>(_is-#)` | `#` |
-|  | `<Plug>(_is-*)` | `*` |
-|  | `<Plug>(_is-N)` | `N` |
-|  | `<Plug>(_is-n)` | `n` |
-|  | `<Plug>(is-nohl)` | `<Plug>(is-nohl-2)` |
-|  | `<Plug>(is-nohl-3)` | `is#auto_nohlsearch(3)` |
-|  | `<Plug>(is-nohl-2)` | `is#auto_nohlsearch(2)` |
-|  | `<Plug>(is-nohl-1)` | `is#auto_nohlsearch(1)` |
-|  | `<Plug>(is-scroll-b)` | `is#scroll_count(0, @/) . 'Nzz'` |
-|  | `<Plug>(is-scroll-f)` | `is#scroll_count(1, @/) . 'nzz'` |
-|  | `<Plug>(fzf-maps-o)` | `<C-C>:<C-U>call fzf#vim#maps('o', 0)<CR>` |
-|  | `<Plug>(clever-f-repeat-back)` | `clever_f#repeat(1)` |
-|  | `<Plug>(clever-f-repeat-forward)` | `clever_f#repeat(0)` |
-|  | `<Plug>(clever-f-reset)` | `clever_f#reset()` |
-|  | `<Plug>(clever-f-T)` | `clever_f#find_with('T')` |
-|  | `<Plug>(clever-f-t)` | `clever_f#find_with('t')` |
-|  | `<Plug>(clever-f-F)` | `clever_f#find_with('F')` |
-|  | `<Plug>(clever-f-f)` | `clever_f#find_with('f')` |
-|  | `<Plug>CamelCaseMotion_ige` | `:<C-U>call camelcasemotion#InnerMotion('ge',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ie` | `:<C-U>call camelcasemotion#InnerMotion('e',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ib` | `:<C-U>call camelcasemotion#InnerMotion('b',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_iw` | `:<C-U>call camelcasemotion#InnerMotion('w',v:count1)<CR>` |
-|  | `<Plug>CamelCaseMotion_ge` | `:<C-U>call camelcasemotion#Motion('ge',v:count1,'o')<CR>` |
-|  | `<Plug>CamelCaseMotion_e` | `:<C-U>call camelcasemotion#Motion('e',v:count1,'o')<CR>` |
-|  | `<Plug>CamelCaseMotion_b` | `:<C-U>call camelcasemotion#Motion('b',v:count1,'o')<CR>` |
-|  | `<Plug>CamelCaseMotion_w` | `:<C-U>call camelcasemotion#Motion('w',v:count1,'o')<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>#</code> | <code>&lt;Plug&gt;(is-#)</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>*</code> | <code>&lt;Plug&gt;(is-*)N</code> |
+|  | <code>@(targets)</code> | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
+|  | <code>A</code> | <code>targets#e('o', 'A', 'A')</code> |
+|  | <code>F</code> | <code>&lt;Plug&gt;(clever-f-F)</code> |
+|  | <code>H</code> | <code>^</code> |
+|  | <code>I</code> | <code>targets#e('o', 'I', 'I')</code> |
+|  | <code>L</code> | <code>$</code> |
+|  | <code>N</code> | <code>&lt;Plug&gt;(is-N)</code> |
+|  | <code>T</code> | <code>&lt;Plug&gt;(clever-f-T)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>as</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+|  | <code>ab</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+|  | <code>aI</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 1, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code> |
+|  | <code>ai</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(0, 0, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code> |
+|  | <code>a</code> | <code>targets#e('o', 'a', 'a')</code> |
+|  | <code>au</code> | <code>:&lt;C-U&gt;lua require"treesitter-unit".select(true)&lt;CR&gt;</code> |
+|  | <code>b</code> | <code>&lt;Plug&gt;CamelCaseMotion_b</code> |
+|  | <code>e</code> | <code>&lt;Plug&gt;CamelCaseMotion_e</code> |
+|  | <code>f</code> | <code>&lt;Plug&gt;(clever-f-f)</code> |
+|  | <code>g#</code> | <code>&lt;Plug&gt;(is-g#)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>g*</code> | <code>&lt;Plug&gt;(is-g*)N</code> |
+|  | <code>ge</code> | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> |
+|  | <code>is</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+|  | <code>ib</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+|  | <code>iI</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 1, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code> |
+|  | <code>ii</code> | <code>:&lt;C-U&gt;cal &lt;SNR&gt;95_HandleTextObjectMapping(1, 0, 0, [line("."), line("."), col("."), col(".")])&lt;CR&gt;</code> |
+|  | <code>i</code> | <code>targets#e('o', 'i', 'i')</code> |
+|  | <code>iu</code> | <code>:&lt;C-U&gt;lua require"treesitter-unit".select()&lt;CR&gt;</code> |
+|  | <code>n</code> | <code>&lt;Plug&gt;(is-n)</code> |
+|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
+|  | <code>t</code> | <code>&lt;Plug&gt;(clever-f-t)</code> |
+|  | <code>w</code> | <code>&lt;Plug&gt;CamelCaseMotion_w</code> |
+|  | <code>&lt;Plug&gt;(table-mode-cell-text-object-i)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(table-mode-cell-text-object-a)</code> | <code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('o', 'a', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('o', 'i', {}, [])</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('o', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('o', 'i')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('o', 'a')</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('o', 'i')</code> |
+|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-squash-count)</code> | <code>operator#sandwich#squash_count()</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-release-count)</code> | <code>operator#sandwich#release_count()</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-synchro-count)</code> | <code>operator#sandwich#synchro_count()</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+|  | <code>&lt;Plug&gt;(GitGutterTextObjectOuterPending)</code> | <code>:&lt;C-U&gt;call gitgutter#hunk#text_object(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(GitGutterTextObjectInnerPending)</code> | <code>:&lt;C-U&gt;call gitgutter#hunk#text_object(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(is-g#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g#)</code> |
+|  | <code>&lt;Plug&gt;(is-g*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-g*)</code> |
+|  | <code>&lt;Plug&gt;(is-#)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-#)</code> |
+|  | <code>&lt;Plug&gt;(is-*)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-*)</code> |
+|  | <code>&lt;Plug&gt;(is-N)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-N)</code> |
+|  | <code>&lt;Plug&gt;(is-n)</code> | <code>&lt;Plug&gt;(is-nohl)&lt;Plug&gt;(_is-n)</code> |
+|  | <code>&lt;Plug&gt;(_is-g#)</code> | <code>g#</code> |
+|  | <code>&lt;Plug&gt;(_is-g*)</code> | <code>g*</code> |
+|  | <code>&lt;Plug&gt;(_is-#)</code> | <code>#</code> |
+|  | <code>&lt;Plug&gt;(_is-*)</code> | <code>*</code> |
+|  | <code>&lt;Plug&gt;(_is-N)</code> | <code>N</code> |
+|  | <code>&lt;Plug&gt;(_is-n)</code> | <code>n</code> |
+|  | <code>&lt;Plug&gt;(is-nohl)</code> | <code>&lt;Plug&gt;(is-nohl-2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-3)</code> | <code>is#auto_nohlsearch(3)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-2)</code> | <code>is#auto_nohlsearch(2)</code> |
+|  | <code>&lt;Plug&gt;(is-nohl-1)</code> | <code>is#auto_nohlsearch(1)</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-b)</code> | <code>is#scroll_count(0, @/) . 'Nzz'</code> |
+|  | <code>&lt;Plug&gt;(is-scroll-f)</code> | <code>is#scroll_count(1, @/) . 'nzz'</code> |
+|  | <code>&lt;Plug&gt;(fzf-maps-o)</code> | <code>&lt;C-C&gt;:&lt;C-U&gt;call fzf#vim#maps('o', 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-back)</code> | <code>clever_f#repeat(1)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-repeat-forward)</code> | <code>clever_f#repeat(0)</code> |
+|  | <code>&lt;Plug&gt;(clever-f-reset)</code> | <code>clever_f#reset()</code> |
+|  | <code>&lt;Plug&gt;(clever-f-T)</code> | <code>clever_f#find_with('T')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-t)</code> | <code>clever_f#find_with('t')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-F)</code> | <code>clever_f#find_with('F')</code> |
+|  | <code>&lt;Plug&gt;(clever-f-f)</code> | <code>clever_f#find_with('f')</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ige</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('ge',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ie</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('e',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ib</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('b',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_iw</code> | <code>:&lt;C-U&gt;call camelcasemotion#InnerMotion('w',v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_ge</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('ge',v:count1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_e</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('e',v:count1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_b</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('b',v:count1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CamelCaseMotion_w</code> | <code>:&lt;C-U&gt;call camelcasemotion#Motion('w',v:count1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

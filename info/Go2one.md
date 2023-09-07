@@ -21,274 +21,274 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` t` | `:lua require'testo'.test_nearest()<CR>` |
-|  | ` s` | `:lua require'utils'.reload('go2one')<CR>` |
-|  | ` a` | `ggVG$` |
-|  | ` v` | `:e $MYVIMRC<CR>` |
-|  | ` -` | `:q!<CR>` |
-|  | ` gj` | `:%!jq .<CR>` |
-|  | ` x` | `:ccl<CR>` |
-|  | ` ,` | `10<C-W><lt>` |
-|  | ` .` | `10<C-W>>` |
-|  | ` =` | `<C-W>=` |
-|  | ` m` | `<C-W>_` |
-|  | ` l` | `<C-W>l` |
-|  | ` h` | `<C-W>h` |
-|  | ` k` | `<C-W>k` |
-|  | ` j` | `<C-W>j` |
-|  | ` y` |  |
-|  | ` 9` | `<Cmd>BufferLineGoToBuffer 9<CR>` |
-|  | ` 8` | `<Cmd>BufferLineGoToBuffer 8<CR>` |
-|  | ` 7` | `<Cmd>BufferLineGoToBuffer 7<CR>` |
-|  | ` 6` | `<Cmd>BufferLineGoToBuffer 6<CR>` |
-|  | ` 5` | `<Cmd>BufferLineGoToBuffer 5<CR>` |
-|  | ` 4` | `<Cmd>BufferLineGoToBuffer 4<CR>` |
-|  | ` 3` | `<Cmd>BufferLineGoToBuffer 3<CR>` |
-|  | ` 2` | `<Cmd>BufferLineGoToBuffer 2<CR>` |
-|  | ` 1` | `<Cmd>BufferLineGoToBuffer 1<CR>` |
-|  | ` db` | `:lua require'dap'.toggle_breakpoint()<CR>` |
-|  | ` dd` | `:lua require'dap'.continue()<CR>` |
-|  | ` do` | `:lua require'dap'.step_over()<CR>` |
-|  | ` di` | `:lua require'dap'.step_into()<CR>` |
-|  | ` dc` | `:lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>` |
-|  | ` du` | `:lua require'dapui'.toggle()<CR>` |
-|  | ` i` | `:lua require'dapui'.eval()<CR>` |
-|  | ` q` | `:NvimTreeToggle<CR>` |
-|  | ` /` | `<Plug>(comment_toggle_linewise_current)` |
-|  | ` ghc` |  |
-|  | ` ghf` |  |
-|  | ` ghh` |  |
-|  | ` gs` |  |
-|  | ` gb` |  |
-|  | ` gl` |  |
-|  | ` gd` |  |
-|  | ` b` |  |
-|  | ` f;` |  |
-|  | ` fd` |  |
-|  | ` fk` |  |
-|  | ` fg` |  |
-|  | ` fh` |  |
-|  | ` fp` |  |
-|  | ` ff` |  |
-|  | ` gp` | `:Git push<CR>` |
-|  | ` gc` | `:Git commit -s<CR>` |
-|  | ` gg` | `:Git<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `,` |  |
-|  | `;` |  |
-|  | `F` |  |
-|  | `T` |  |
-|  | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `_` | `:bdelete!<CR>` |
-|  | `cS` | `<Plug>CSurround` |
-|  | `cs` | `<Plug>Csurround` |
-|  | `ds` | `<Plug>Dsurround` |
-|  | `dm0` | `<Cmd>lua require'marks'.delete_bookmark0()<CR>` |
-|  | `dm4` | `<Cmd>lua require'marks'.delete_bookmark4()<CR>` |
-|  | `dm` | `<Cmd>lua require'marks'.delete()<CR>` |
-|  | `dm ` | `<Cmd>lua require'marks'.delete_buf()<CR>` |
-|  | `dm5` | `<Cmd>lua require'marks'.delete_bookmark5()<CR>` |
-|  | `dm-` | `<Cmd>lua require'marks'.delete_line()<CR>` |
-|  | `dm3` | `<Cmd>lua require'marks'.delete_bookmark3()<CR>` |
-|  | `dm6` | `<Cmd>lua require'marks'.delete_bookmark6()<CR>` |
-|  | `dm=` | `<Cmd>lua require'marks'.delete_bookmark()<CR>` |
-|  | `dm2` | `<Cmd>lua require'marks'.delete_bookmark2()<CR>` |
-|  | `dm8` | `<Cmd>lua require'marks'.delete_bookmark8()<CR>` |
-|  | `dm1` | `<Cmd>lua require'marks'.delete_bookmark1()<CR>` |
-|  | `dm7` | `<Cmd>lua require'marks'.delete_bookmark7()<CR>` |
-|  | `dm9` | `<Cmd>lua require'marks'.delete_bookmark9()<CR>` |
-|  | `f` |  |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Comment insert end of line | `gcA` |  |
-| Comment insert above | `gcO` |  |
-| Comment insert below | `gco` |  |
-| Comment toggle current block | `gbc` |  |
-| Comment toggle current line | `gcc` |  |
-|  | `gb` | ``.` |
-| Comment toggle linewise | `gc` | `<Plug>(comment_toggle_linewise)` |
-|  | `j` | `(v:count == 0 ? 'gj' : 'j')` |
-|  | `k` | `(v:count == 0 ? 'gk' : 'k')` |
-|  | `m7` | `<Cmd>lua require'marks'.set_bookmark7()<CR>` |
-|  | `m3` | `<Cmd>lua require'marks'.set_bookmark3()<CR>` |
-|  | `m0` | `<Cmd>lua require'marks'.set_bookmark0()<CR>` |
-|  | `m;` | `<Cmd>lua require'marks'.toggle()<CR>` |
-|  | `m}` | `<Cmd>lua require'marks'.next_bookmark()<CR>` |
-|  | `m]` | `<Cmd>lua require'marks'.next()<CR>` |
-|  | `m{` | `<Cmd>lua require'marks'.prev_bookmark()<CR>` |
-|  | `m5` | `<Cmd>lua require'marks'.set_bookmark5()<CR>` |
-|  | `m:` | `<Cmd>lua require'marks'.preview()<CR>` |
-|  | `m,` | `<Cmd>lua require'marks'.set_next()<CR>` |
-|  | `m4` | `<Cmd>lua require'marks'.set_bookmark4()<CR>` |
-|  | `m6` | `<Cmd>lua require'marks'.set_bookmark6()<CR>` |
-|  | `m[` | `<Cmd>lua require'marks'.prev()<CR>` |
-|  | `m9` | `<Cmd>lua require'marks'.set_bookmark9()<CR>` |
-|  | `m8` | `<Cmd>lua require'marks'.set_bookmark8()<CR>` |
-|  | `m2` | `<Cmd>lua require'marks'.set_bookmark2()<CR>` |
-|  | `m` | `<Cmd>lua require'marks'.set()<CR>` |
-|  | `m1` | `<Cmd>lua require'marks'.set_bookmark1()<CR>` |
-|  | `t` |  |
-|  | `ySS` | `<Plug>YSsurround` |
-|  | `ySs` | `<Plug>YSsurround` |
-|  | `yss` | `<Plug>Yssurround` |
-|  | `yS` | `<Plug>YSurround` |
-|  | `ys` | `<Plug>Ysurround` |
-|  | `y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<C-X>` | `:split term://bash<CR>` |
-|  | `<BS>` | `:bdelete<CR>` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<F4>` | `:setlocal spell! spelllang=en_us<CR>` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-J>` | `:BufferLineMovePrev<CR>` |
-|  | `<C-K>` | `:BufferLineMoveNext<CR>` |
-|  | `<C-H>` | `:BufferLineCyclePrev<CR>` |
-|  | `<F11>` | `:lua require'dap'.step_out()<CR>` |
-|  | `<F10>` | `:lua require'dap'.step_into()<CR>` |
-|  | `<F9>` | `:lua require'dap'.step_over()<CR>` |
-|  | `<F8>` | `:lua require'dap'.continue()<CR>` |
-|  | `<F7>` | `:lua require'dap'.toggle_breakpoint()<CR>` |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<Plug>YSurround` | `<SNR>19_opfunc2('setup')` |
-|  | `<Plug>Ysurround` | `<SNR>19_opfunc('setup')` |
-|  | `<Plug>YSsurround` | `<SNR>19_opfunc2('setup').'_'` |
-|  | `<Plug>Yssurround` | `'^'.v:count1.<SNR>19_opfunc('setup').'g_'` |
-|  | `<Plug>CSurround` | `:<C-U>call <SNR>19_changesurround(1)<CR>` |
-|  | `<Plug>Csurround` | `:<C-U>call <SNR>19_changesurround()<CR>` |
-|  | `<Plug>Dsurround` | `:<C-U>call <SNR>19_dosurround(<SNR>19_inputtarget())<CR>` |
-|  | `<Plug>SurroundRepeat` | `.` |
-|  | `<Plug>(Marks-prev-bookmark9)` | `<Cmd> lua require'marks'.prev_bookmark9()<CR>` |
-|  | `<Plug>(Marks-next-bookmark9)` | `<Cmd> lua require'marks'.next_bookmark9()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark9)` | `<Cmd> lua require'marks'.toggle_bookmark9()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark9)` | `<Cmd> lua require'marks'.delete_bookmark9()<CR>` |
-|  | `<Plug>(Marks-set-bookmark9)` | `<Cmd> lua require'marks'.set_bookmark9()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark8)` | `<Cmd> lua require'marks'.prev_bookmark8()<CR>` |
-|  | `<Plug>(Marks-next-bookmark8)` | `<Cmd> lua require'marks'.next_bookmark8()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark8)` | `<Cmd> lua require'marks'.toggle_bookmark8()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark8)` | `<Cmd> lua require'marks'.delete_bookmark8()<CR>` |
-|  | `<Plug>(Marks-set-bookmark8)` | `<Cmd> lua require'marks'.set_bookmark8()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark7)` | `<Cmd> lua require'marks'.prev_bookmark7()<CR>` |
-|  | `<Plug>(Marks-next-bookmark7)` | `<Cmd> lua require'marks'.next_bookmark7()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark7)` | `<Cmd> lua require'marks'.toggle_bookmark7()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark7)` | `<Cmd> lua require'marks'.delete_bookmark7()<CR>` |
-|  | `<Plug>(Marks-set-bookmark7)` | `<Cmd> lua require'marks'.set_bookmark7()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark6)` | `<Cmd> lua require'marks'.prev_bookmark6()<CR>` |
-|  | `<Plug>(Marks-next-bookmark6)` | `<Cmd> lua require'marks'.next_bookmark6()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark6)` | `<Cmd> lua require'marks'.toggle_bookmark6()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark6)` | `<Cmd> lua require'marks'.delete_bookmark6()<CR>` |
-|  | `<Plug>(Marks-set-bookmark6)` | `<Cmd> lua require'marks'.set_bookmark6()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark5)` | `<Cmd> lua require'marks'.prev_bookmark5()<CR>` |
-|  | `<Plug>(Marks-next-bookmark5)` | `<Cmd> lua require'marks'.next_bookmark5()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark5)` | `<Cmd> lua require'marks'.toggle_bookmark5()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark5)` | `<Cmd> lua require'marks'.delete_bookmark5()<CR>` |
-|  | `<Plug>(Marks-set-bookmark5)` | `<Cmd> lua require'marks'.set_bookmark5()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark4)` | `<Cmd> lua require'marks'.prev_bookmark4()<CR>` |
-|  | `<Plug>(Marks-next-bookmark4)` | `<Cmd> lua require'marks'.next_bookmark4()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark4)` | `<Cmd> lua require'marks'.toggle_bookmark4()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark4)` | `<Cmd> lua require'marks'.delete_bookmark4()<CR>` |
-|  | `<Plug>(Marks-set-bookmark4)` | `<Cmd> lua require'marks'.set_bookmark4()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark3)` | `<Cmd> lua require'marks'.prev_bookmark3()<CR>` |
-|  | `<Plug>(Marks-next-bookmark3)` | `<Cmd> lua require'marks'.next_bookmark3()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark3)` | `<Cmd> lua require'marks'.toggle_bookmark3()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark3)` | `<Cmd> lua require'marks'.delete_bookmark3()<CR>` |
-|  | `<Plug>(Marks-set-bookmark3)` | `<Cmd> lua require'marks'.set_bookmark3()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark2)` | `<Cmd> lua require'marks'.prev_bookmark2()<CR>` |
-|  | `<Plug>(Marks-next-bookmark2)` | `<Cmd> lua require'marks'.next_bookmark2()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark2)` | `<Cmd> lua require'marks'.toggle_bookmark2()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark2)` | `<Cmd> lua require'marks'.delete_bookmark2()<CR>` |
-|  | `<Plug>(Marks-set-bookmark2)` | `<Cmd> lua require'marks'.set_bookmark2()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark1)` | `<Cmd> lua require'marks'.prev_bookmark1()<CR>` |
-|  | `<Plug>(Marks-next-bookmark1)` | `<Cmd> lua require'marks'.next_bookmark1()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark1)` | `<Cmd> lua require'marks'.toggle_bookmark1()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark1)` | `<Cmd> lua require'marks'.delete_bookmark1()<CR>` |
-|  | `<Plug>(Marks-set-bookmark1)` | `<Cmd> lua require'marks'.set_bookmark1()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark0)` | `<Cmd> lua require'marks'.prev_bookmark0()<CR>` |
-|  | `<Plug>(Marks-next-bookmark0)` | `<Cmd> lua require'marks'.next_bookmark0()<CR>` |
-|  | `<Plug>(Marks-toggle-bookmark0)` | `<Cmd> lua require'marks'.toggle_bookmark0()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark0)` | `<Cmd> lua require'marks'.delete_bookmark0()<CR>` |
-|  | `<Plug>(Marks-set-bookmark0)` | `<Cmd> lua require'marks'.set_bookmark0()<CR>` |
-|  | `<Plug>(Marks-prev-bookmark)` | `<Cmd> lua require'marks'.prev_bookmark()<CR>` |
-|  | `<Plug>(Marks-next-bookmark)` | `<Cmd> lua require'marks'.next_bookmark()<CR>` |
-|  | `<Plug>(Marks-delete-bookmark)` | `<Cmd> lua require'marks'.delete_bookmark()<CR>` |
-|  | `<Plug>(Marks-prev)` | `<Cmd> lua require'marks'.prev()<CR>` |
-|  | `<Plug>(Marks-next)` | `<Cmd> lua require'marks'.next()<CR>` |
-|  | `<Plug>(Marks-preview)` | `<Cmd> lua require'marks'.preview()<CR>` |
-|  | `<Plug>(Marks-deletebuf)` | `<Cmd> lua require'marks'.delete_buf()<CR>` |
-|  | `<Plug>(Marks-deleteline)` | `<Cmd> lua require'marks'.delete_line()<CR>` |
-|  | `<Plug>(Marks-delete)` | `<Cmd> lua require'marks'.delete()<CR>` |
-|  | `<Plug>(Marks-toggle)` | `<Cmd> lua require'marks'.toggle()<CR>` |
-|  | `<Plug>(Marks-setnext)` | `<Cmd> lua require'marks'.set_next()<CR>` |
-|  | `<Plug>(Marks-set)` | `<Cmd> lua require'marks'.set()<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-|  | `<Plug>fugitive:` | `` |
-|  | `<Plug>fugitive:y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<C-L>` | `:BufferLineCycleNext<CR>` |
+|  | <code> t</code> | <code>:lua require'testo'.test_nearest()&lt;CR&gt;</code> |
+|  | <code> s</code> | <code>:lua require'utils'.reload('go2one')&lt;CR&gt;</code> |
+|  | <code> a</code> | <code>ggVG$</code> |
+|  | <code> v</code> | <code>:e $MYVIMRC&lt;CR&gt;</code> |
+|  | <code> -</code> | <code>:q!&lt;CR&gt;</code> |
+|  | <code> gj</code> | <code>:%!jq .&lt;CR&gt;</code> |
+|  | <code> x</code> | <code>:ccl&lt;CR&gt;</code> |
+|  | <code> ,</code> | <code>10&lt;C-W&gt;&lt;lt&gt;</code> |
+|  | <code> .</code> | <code>10&lt;C-W&gt;&gt;</code> |
+|  | <code> =</code> | <code>&lt;C-W&gt;=</code> |
+|  | <code> m</code> | <code>&lt;C-W&gt;_</code> |
+|  | <code> l</code> | <code>&lt;C-W&gt;l</code> |
+|  | <code> h</code> | <code>&lt;C-W&gt;h</code> |
+|  | <code> k</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code> j</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code> 9</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;</code> |
+|  | <code> 8</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;</code> |
+|  | <code> 7</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;</code> |
+|  | <code> 6</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;</code> |
+|  | <code> 5</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;</code> |
+|  | <code> 4</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;</code> |
+|  | <code> 3</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;</code> |
+|  | <code> 2</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;</code> |
+|  | <code> 1</code> | <code>&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;</code> |
+|  | <code> y</code> |  |
+|  | <code> q</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+|  | <code> db</code> | <code>:lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
+|  | <code> dd</code> | <code>:lua require'dap'.continue()&lt;CR&gt;</code> |
+|  | <code> do</code> | <code>:lua require'dap'.step_over()&lt;CR&gt;</code> |
+|  | <code> di</code> | <code>:lua require'dap'.step_into()&lt;CR&gt;</code> |
+|  | <code> dc</code> | <code>:lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))&lt;CR&gt;</code> |
+|  | <code> du</code> | <code>:lua require'dapui'.toggle()&lt;CR&gt;</code> |
+|  | <code> i</code> | <code>:lua require'dapui'.eval()&lt;CR&gt;</code> |
+|  | <code> /</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+|  | <code> ghc</code> |  |
+|  | <code> ghf</code> |  |
+|  | <code> ghh</code> |  |
+|  | <code> gs</code> |  |
+|  | <code> gb</code> |  |
+|  | <code> gl</code> |  |
+|  | <code> gd</code> |  |
+|  | <code> b</code> |  |
+|  | <code> f;</code> |  |
+|  | <code> fd</code> |  |
+|  | <code> fk</code> |  |
+|  | <code> fg</code> |  |
+|  | <code> fh</code> |  |
+|  | <code> fp</code> |  |
+|  | <code> ff</code> |  |
+|  | <code> gp</code> | <code>:Git push&lt;CR&gt;</code> |
+|  | <code> gc</code> | <code>:Git commit -s&lt;CR&gt;</code> |
+|  | <code> gg</code> | <code>:Git&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>,</code> |  |
+|  | <code>;</code> |  |
+|  | <code>F</code> |  |
+|  | <code>T</code> |  |
+|  | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>_</code> | <code>:bdelete!&lt;CR&gt;</code> |
+|  | <code>cS</code> | <code>&lt;Plug&gt;CSurround</code> |
+|  | <code>cs</code> | <code>&lt;Plug&gt;Csurround</code> |
+|  | <code>ds</code> | <code>&lt;Plug&gt;Dsurround</code> |
+|  | <code>dm-</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_line()&lt;CR&gt;</code> |
+|  | <code>dm5</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark5()&lt;CR&gt;</code> |
+|  | <code>dm=</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark()&lt;CR&gt;</code> |
+|  | <code>dm0</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark0()&lt;CR&gt;</code> |
+|  | <code>dm4</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark4()&lt;CR&gt;</code> |
+|  | <code>dm </code> | <code>&lt;Cmd&gt;lua require'marks'.delete_buf()&lt;CR&gt;</code> |
+|  | <code>dm3</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark3()&lt;CR&gt;</code> |
+|  | <code>dm</code> | <code>&lt;Cmd&gt;lua require'marks'.delete()&lt;CR&gt;</code> |
+|  | <code>dm2</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark2()&lt;CR&gt;</code> |
+|  | <code>dm7</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark7()&lt;CR&gt;</code> |
+|  | <code>dm1</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark1()&lt;CR&gt;</code> |
+|  | <code>dm8</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark8()&lt;CR&gt;</code> |
+|  | <code>dm6</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark6()&lt;CR&gt;</code> |
+|  | <code>dm9</code> | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark9()&lt;CR&gt;</code> |
+|  | <code>f</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Comment insert end of line | <code>gcA</code> |  |
+| Comment insert above | <code>gcO</code> |  |
+| Comment insert below | <code>gco</code> |  |
+| Comment toggle current block | <code>gbc</code> |  |
+| Comment toggle current line | <code>gcc</code> |  |
+|  | <code>gb</code> | <code>`.</code> |
+| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+|  | <code>j</code> | <code>(v:count == 0 ? 'gj' : 'j')</code> |
+|  | <code>k</code> | <code>(v:count == 0 ? 'gk' : 'k')</code> |
+|  | <code>m}</code> | <code>&lt;Cmd&gt;lua require'marks'.next_bookmark()&lt;CR&gt;</code> |
+|  | <code>m]</code> | <code>&lt;Cmd&gt;lua require'marks'.next()&lt;CR&gt;</code> |
+|  | <code>m</code> | <code>&lt;Cmd&gt;lua require'marks'.set()&lt;CR&gt;</code> |
+|  | <code>m3</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark3()&lt;CR&gt;</code> |
+|  | <code>m4</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark4()&lt;CR&gt;</code> |
+|  | <code>m5</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark5()&lt;CR&gt;</code> |
+|  | <code>m[</code> | <code>&lt;Cmd&gt;lua require'marks'.prev()&lt;CR&gt;</code> |
+|  | <code>m6</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark6()&lt;CR&gt;</code> |
+|  | <code>m9</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark9()&lt;CR&gt;</code> |
+|  | <code>m7</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark7()&lt;CR&gt;</code> |
+|  | <code>m2</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark2()&lt;CR&gt;</code> |
+|  | <code>m8</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark8()&lt;CR&gt;</code> |
+|  | <code>m1</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark1()&lt;CR&gt;</code> |
+|  | <code>m{</code> | <code>&lt;Cmd&gt;lua require'marks'.prev_bookmark()&lt;CR&gt;</code> |
+|  | <code>m:</code> | <code>&lt;Cmd&gt;lua require'marks'.preview()&lt;CR&gt;</code> |
+|  | <code>m0</code> | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark0()&lt;CR&gt;</code> |
+|  | <code>m,</code> | <code>&lt;Cmd&gt;lua require'marks'.set_next()&lt;CR&gt;</code> |
+|  | <code>m;</code> | <code>&lt;Cmd&gt;lua require'marks'.toggle()&lt;CR&gt;</code> |
+|  | <code>t</code> |  |
+|  | <code>ySS</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>ySs</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>yss</code> | <code>&lt;Plug&gt;Yssurround</code> |
+|  | <code>yS</code> | <code>&lt;Plug&gt;YSurround</code> |
+|  | <code>ys</code> | <code>&lt;Plug&gt;Ysurround</code> |
+|  | <code>y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;C-X&gt;</code> | <code>:split term://bash&lt;CR&gt;</code> |
+|  | <code>&lt;BS&gt;</code> | <code>:bdelete&lt;CR&gt;</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;F4&gt;</code> | <code>:setlocal spell! spelllang=en_us&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>&lt;F11&gt;</code> | <code>:lua require'dap'.step_out()&lt;CR&gt;</code> |
+|  | <code>&lt;F10&gt;</code> | <code>:lua require'dap'.step_into()&lt;CR&gt;</code> |
+|  | <code>&lt;F9&gt;</code> | <code>:lua require'dap'.step_over()&lt;CR&gt;</code> |
+|  | <code>&lt;F8&gt;</code> | <code>:lua require'dap'.continue()&lt;CR&gt;</code> |
+|  | <code>&lt;F7&gt;</code> | <code>:lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;YSurround</code> | <code>&lt;SNR&gt;20_opfunc2('setup')</code> |
+|  | <code>&lt;Plug&gt;Ysurround</code> | <code>&lt;SNR&gt;20_opfunc('setup')</code> |
+|  | <code>&lt;Plug&gt;YSsurround</code> | <code>&lt;SNR&gt;20_opfunc2('setup').'_'</code> |
+|  | <code>&lt;Plug&gt;Yssurround</code> | <code>'^'.v:count1.&lt;SNR&gt;20_opfunc('setup').'g_'</code> |
+|  | <code>&lt;Plug&gt;CSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_changesurround(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Csurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_changesurround()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Dsurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_dosurround(&lt;SNR&gt;20_inputtarget())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SurroundRepeat</code> | <code>.</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark9)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark9()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark9)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark9()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark9)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark9()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark9)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark9()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark9)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark9()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark8)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark8()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark8)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark8()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark8)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark8()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark8)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark8()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark8)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark8()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark7)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark7()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark7)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark7()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark7)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark7()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark7)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark7()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark7)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark7()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark6)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark6()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark6)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark6()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark6)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark6()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark6)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark6()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark6)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark6()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark5)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark5()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark5)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark5()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark5)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark5()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark5)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark5()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark5)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark5()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark4)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark4()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark4)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark4()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark4)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark4()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark4)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark4()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark4)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark4()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark3)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark3()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark3)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark3()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark3)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark3()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark3)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark3()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark3)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark3()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark2)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark2()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark2)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark2()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark2)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark2()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark2)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark2()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark2)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark2()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark1)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark1()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark1)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark1()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark1)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark1()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark1)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark1()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark1)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark1()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark0)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark0()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark0)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark0()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle-bookmark0)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle_bookmark0()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark0)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark0()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set-bookmark0)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_bookmark0()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev-bookmark)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev_bookmark()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next-bookmark)</code> | <code>&lt;Cmd&gt; lua require'marks'.next_bookmark()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete-bookmark)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_bookmark()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-prev)</code> | <code>&lt;Cmd&gt; lua require'marks'.prev()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-next)</code> | <code>&lt;Cmd&gt; lua require'marks'.next()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-preview)</code> | <code>&lt;Cmd&gt; lua require'marks'.preview()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-deletebuf)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_buf()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-deleteline)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete_line()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-delete)</code> | <code>&lt;Cmd&gt; lua require'marks'.delete()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-toggle)</code> | <code>&lt;Cmd&gt; lua require'marks'.toggle()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-setnext)</code> | <code>&lt;Cmd&gt; lua require'marks'.set_next()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(Marks-set)</code> | <code>&lt;Cmd&gt; lua require'marks'.set()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;fugitive:</code> | <code></code> |
+|  | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` /` | `<Plug>(comment_toggle_linewise_visual)` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `,` |  |
-|  | `;` |  |
-|  | `<lt>silent><C-S>` | `:sort<CR>` |
-|  | `F` |  |
-|  | `S` | `<Plug>VSurround` |
-|  | `T` |  |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `f` |  |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `gS` | `<Plug>VgSurround` |
-| Comment toggle blockwise (visual) | `gb` | `<Plug>(comment_toggle_blockwise_visual)` |
-| Comment toggle linewise (visual) | `gc` | `<Plug>(comment_toggle_linewise_visual)` |
-|  | `t` |  |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>VgSurround` | `:<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>` |
-|  | `<Plug>VSurround` | `:<C-U>call <SNR>14_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>` |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
+|  | <code> /</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>,</code> |  |
+|  | <code>;</code> |  |
+|  | <code>&lt;lt&gt;silent&gt;&lt;C-S&gt;</code> | <code>:sort&lt;CR&gt;</code> |
+|  | <code>F</code> |  |
+|  | <code>S</code> | <code>&lt;Plug&gt;VSurround</code> |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>f</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+|  | <code>gS</code> | <code>&lt;Plug&gt;VgSurround</code> |
+|  | <code>t</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VgSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;22_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;22_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `,` |  |
-|  | `;` |  |
-|  | `F` |  |
-|  | `T` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `f` |  |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `t` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>,</code> |  |
+|  | <code>;</code> |  |
+|  | <code>F</code> |  |
+|  | <code>T</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>f</code> |  |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>t</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |

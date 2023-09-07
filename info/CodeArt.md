@@ -80,78 +80,78 @@ Use Neovim as a general purpose IDE
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` | `:BufferLineCycleNext<CR>` |
-|  | ` ` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>leader>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | ` co` | `<Cmd>lua require("onedark").toggle()<CR>` |
-|  | `!` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)<CR>` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `<lt>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = ">", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `H` | `:call ResizeLeft(3)<CR><Esc>` |
-|  | `J` | `:call ResizeDown(1)<CR><Esc>` |
-|  | `K` | `:call ResizeUp(1)<CR><Esc>` |
-|  | `L` | `:call ResizeRight(3)<CR><Esc>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `]` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `c` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `d` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `g` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `v` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `y` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `z` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<C-T>` | `<Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_visual_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_line_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<S-Tab>` | `:BufferLineCyclePrev<CR>` |
-|  | `<M-h>` | `<C-W><C-H>` |
-|  | `<M-l>` | `<C-W><C-L>` |
-|  | `<M-k>` | `<C-W><C-K>` |
-|  | `<M-j>` | `<C-W><NL>` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+|  | <code>&lt;Tab&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+|  | <code> </code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;leader&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code> co</code> | <code>&lt;Cmd&gt;lua require("onedark").toggle()&lt;CR&gt;</code> |
+|  | <code>!</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>H</code> | <code>:call ResizeLeft(3)&lt;CR&gt;&lt;Esc&gt;</code> |
+|  | <code>J</code> | <code>:call ResizeDown(1)&lt;CR&gt;&lt;Esc&gt;</code> |
+|  | <code>K</code> | <code>:call ResizeUp(1)&lt;CR&gt;&lt;Esc&gt;</code> |
+|  | <code>L</code> | <code>:call ResizeRight(3)&lt;CR&gt;&lt;Esc&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>]</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>c</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>d</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>g</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>v</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>y</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>z</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;C-T&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'toggleterm.nvim'}, { keys = "&lt;lt&gt;C-t&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_visual_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_visual_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_line_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_line_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;S-Tab&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>&lt;M-h&gt;</code> | <code>&lt;C-W&gt;&lt;C-H&gt;</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>&lt;C-W&gt;&lt;C-L&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-W&gt;&lt;C-K&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-W&gt;&lt;NL&gt;</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` ` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>leader>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `!` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)<CR>` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = ">", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `J` | `:move '>+1<CR>gv-gv` |
-|  | `K` | `:move '<lt>-2<CR>gv-gv` |
-|  | `[` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `]` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `c` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `d` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `g` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `p` | `"_dP` |
-|  | `v` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `y` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `z` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<C-T>` | `<Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_visual_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_line_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR>` |
+|  | <code> </code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;leader&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>!</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>J</code> | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>K</code> | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+|  | <code>[</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>]</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>c</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>d</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>g</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>p</code> | <code>"_dP</code> |
+|  | <code>v</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>y</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>z</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;C-T&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'toggleterm.nvim'}, { keys = "&lt;lt&gt;C-t&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_visual_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_visual_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_line_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_line_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` ` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>leader>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `!` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<lt>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "<lt>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `>` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = ">", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `[` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `]` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `c` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `d` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `g` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `v` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `y` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `z` | `<Cmd>lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<C-T>` | `<Cmd>lua require("packer.load")({'toggleterm.nvim'}, { keys = "<lt>C-t>", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_visual_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_visual_default", prefix = "" }, _G.packer_plugins)<CR>` |
-|  | `<Plug>kommentary_line_default` | `<Cmd>lua require("packer.load")({'kommentary'}, { keys = "<lt>Plug>kommentary_line_default", prefix = "" }, _G.packer_plugins)<CR>` |
+|  | <code> </code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;leader&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>!</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "!", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&lt;lt&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>[</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "[", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>]</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "]", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>c</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "c", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>d</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "d", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>g</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "g", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>v</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "v", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>y</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "y", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>z</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'which-key.nvim'}, { keys = "z", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;C-T&gt;</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'toggleterm.nvim'}, { keys = "&lt;lt&gt;C-t&gt;", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_visual_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_visual_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;kommentary_line_default</code> | <code>&lt;Cmd&gt;lua require("packer.load")({'kommentary'}, { keys = "&lt;lt&gt;Plug&gt;kommentary_line_default", prefix = "" }, _G.packer_plugins)&lt;CR&gt;</code> |

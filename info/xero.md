@@ -80,80 +80,80 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| remove highlighting | `<Esc><Esc>` | `:nohlsearch<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Search marks | `,/M` |  |
-| Search highlights | `,/h` |  |
-| Find files | `,/o` |  |
-| Find files | `,/f` |  |
-| Search command history | `,/C` |  |
-| Search commands | `,/c` |  |
-| Resume FZF | `,//` |  |
-| Search git buffer commits | `,bc` |  |
-| Search git buffer commits | `,/gC` |  |
-| Search git commits | `,/gc` |  |
-| Search git branches | `,/gb` |  |
-| Find git files | `,/gf` |  |
-| Search treesitter | `,/t` |  |
-| Search keymaps | `,/k` |  |
-|  | `,` |  |
-| chmod +x buffer | `,x` | `:Chmodx<CR>` |
-| toggle spell check | `,s` | `:Sp<CR>` |
-| jq format | `,j` | `:%!jq .<CR>` |
-|  | `,<Tab>[` | `<Cmd>tabprevious<CR>` |
-|  | `,<Tab>d` | `<Cmd>tabclose<CR>` |
-|  | `,<Tab>]` | `<Cmd>tabnext<CR>` |
-|  | `,<Tab><Tab>` | `<Cmd>tabnew<CR>` |
-|  | `,<Tab>f` | `<Cmd>tabfirst<CR>` |
-|  | `,<Tab>l` | `<Cmd>tablast<CR>` |
-| prev match | `N` | `Nzzzv` |
-|  | `Q` | `` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| next match | `n` | `nzzzv` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-| scroll up | `<C-U>` | `<C-U>zz` |
-| scroll down | `<C-D>` | `<C-D>zz` |
-| ios home key | `<M-Left>` | `0` |
-| exit buffer | `<C-X>` | `:bd<CR>` |
-| prev buffer | `<C-P>` | `:bp<CR>` |
-| next buffer | `<C-N>` | `:bn<CR>` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| remove highlighting | <code>&lt;Esc&gt;&lt;Esc&gt;</code> | <code>:nohlsearch&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Search git branches | <code>,/gb</code> |  |
+| Find git files | <code>,/gf</code> |  |
+| Search treesitter | <code>,/t</code> |  |
+| Search keymaps | <code>,/k</code> |  |
+| Search marks | <code>,/M</code> |  |
+| Search highlights | <code>,/h</code> |  |
+| Find files | <code>,/o</code> |  |
+| Find files | <code>,/f</code> |  |
+| Search command history | <code>,/C</code> |  |
+| Search commands | <code>,/c</code> |  |
+| Resume FZF | <code>,//</code> |  |
+| Search git buffer commits | <code>,bc</code> |  |
+| Search git buffer commits | <code>,/gC</code> |  |
+| Search git commits | <code>,/gc</code> |  |
+|  | <code>,</code> |  |
+| chmod +x buffer | <code>,x</code> | <code>:Chmodx&lt;CR&gt;</code> |
+| toggle spell check | <code>,s</code> | <code>:Sp&lt;CR&gt;</code> |
+| jq format | <code>,j</code> | <code>:%!jq .&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;[</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;d</code> | <code>&lt;Cmd&gt;tabclose&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;]</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;&lt;Tab&gt;</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;f</code> | <code>&lt;Cmd&gt;tabfirst&lt;CR&gt;</code> |
+|  | <code>,&lt;Tab&gt;l</code> | <code>&lt;Cmd&gt;tablast&lt;CR&gt;</code> |
+| prev match | <code>N</code> | <code>Nzzzv</code> |
+|  | <code>Q</code> | <code></code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| next match | <code>n</code> | <code>nzzzv</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+| scroll up | <code>&lt;C-U&gt;</code> | <code>&lt;C-U&gt;zz</code> |
+| scroll down | <code>&lt;C-D&gt;</code> | <code>&lt;C-D&gt;zz</code> |
+| ios home key | <code>&lt;M-Left&gt;</code> | <code>0</code> |
+| exit buffer | <code>&lt;C-X&gt;</code> | <code>:bd&lt;CR&gt;</code> |
+| prev buffer | <code>&lt;C-P&gt;</code> | <code>:bp&lt;CR&gt;</code> |
+| next buffer | <code>&lt;C-N&gt;</code> | <code>:bn&lt;CR&gt;</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| move block up | `J` | `:m '>+1<CR>gv=gv` |
-| move block down | `K` | `:m '<lt>-2<CR>gv=gv` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| move block up | <code>J</code> | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+| move block down | <code>K</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

@@ -195,27 +195,27 @@ href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>fh</code></td>
+<td><code> fh</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>fb</code></td>
+<td><code> fb</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>fg</code></td>
+<td><code> fg</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>ff</code></td>
+<td><code> ff</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>n</code></td>
+<td><code> n</code></td>
 <td><code>:ASToggle&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
@@ -245,7 +245,7 @@ href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\F</code></td>
+<td><code></code></td>
 <td><code>:FormatWrite&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
@@ -256,7 +256,8 @@ href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 <tr class="even">
 <td></td>
 <td><code>fb</code></td>
-<td><code>:Telescope file_browser path=%:p:h select_buffer=true&lt;CR&gt;</code></td>
+<td><code>:Telescope file_browser path=%:p:h
+select_buffer=true&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -336,17 +337,19 @@ href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 <tr class="even">
 <td></td>
 <td><code>y&lt;C-G&gt;</code></td>
-<td><code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setreg(v:register,
+fugitive#Object(@%))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-T&gt;</code></td>
-<td><code>&lt;Cmd&gt;exe v:count1 . "ToggleTerm"&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;exe v:count1 . “ToggleTerm”&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Toggle Terminal</td>
 <td><code>&lt;C-Bslash&gt;</code></td>
-<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count .
+“ToggleTerm”&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -391,35 +394,559 @@ href="https://github.com/gbprod/yanky.nvim">gbprod/yanky.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;fugitive:</code></td>
-<td>`<code>| |  |</code><Plug>fugitive:y<C-G><code>|</code>:<C-U>call
-setreg(v:register,
-fugitive#Object(@%))<CR><code>| | Git Conflict: Previous Conflict |</code><Plug>(git-conflict-prev-conflict)<code>|</code><Cmd>GitConflictPrevConflict<CR><code>| | Git Conflict: Next Conflict |</code><Plug>(git-conflict-next-conflict)<code>|</code><Cmd>GitConflictNextConflict<CR><code>| | Git Conflict: Choose Theirs |</code><Plug>(git-conflict-theirs)<code>|</code><Cmd>GitConflictChooseTheirs<CR><code>| | Git Conflict: Choose None |</code><Plug>(git-conflict-none)<code>|</code><Cmd>GitConflictChooseNone<CR><code>| | Git Conflict: Choose Both |</code><Plug>(git-conflict-both)<code>|</code><Cmd>GitConflictChooseBoth<CR><code>| | Git Conflict: Choose Ours |</code><Plug>(git-conflict-ours)<code>|</code><Cmd>GitConflictChooseOurs<CR><code>| | Comment toggle blockwise with count |</code><Plug>(comment_toggle_blockwise_count)<code>|  | | Comment toggle linewise with count |</code><Plug>(comment_toggle_linewise_count)<code>|  | | Comment toggle current block |</code><Plug>(comment_toggle_blockwise_current)<code>|  | | Comment toggle current line |</code><Plug>(comment_toggle_linewise_current)<code>|  | | Comment toggle blockwise |</code><Plug>(comment_toggle_blockwise)<code>|  | | Comment toggle linewise |</code><Plug>(comment_toggle_linewise)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyGPutBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeFilter)<code>|  | |  |</code><Plug>(YankyGPutBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyGPutBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeCharwise)<code>|  | |  |</code><Plug>(YankyGPutBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeLinewise)<code>|  | |  |</code><Plug>(YankyGPutBeforeJoined)<code>|  | |  |</code><Plug>(YankyGPutBefore)<code>|  | |  |</code><Plug>(YankyPutAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyPutAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutAfterShiftRight)<code>|  | |  |</code><Plug>(YankyPutAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyPutAfterFilter)<code>|  | |  |</code><Plug>(YankyPutAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterBlockwise)<code>|  | |  |</code><Plug>(YankyPutAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterCharwise)<code>|  | |  |</code><Plug>(YankyPutAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterLinewise)<code>|  | |  |</code><Plug>(YankyPutAfterJoined)<code>|  | |  |</code><Plug>(YankyPutAfter)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftRight)<code>|  | |  |</code><Plug>(YankyPutIndentAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterFilter)<code>|  | |  |</code><Plug>(YankyPutIndentAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterBlockwise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterCharwise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterLinewise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfter)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyPutBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeFilter)<code>|  | |  |</code><Plug>(YankyPutBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyPutBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeCharwise)<code>|  | |  |</code><Plug>(YankyPutBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeLinewise)<code>|  | |  |</code><Plug>(YankyPutBeforeJoined)<code>|  | |  |</code><Plug>(YankyPutBefore)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeFilter)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeCharwise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeLinewise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBefore)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftRight)<code>|  | |  |</code><Plug>(YankyGPutAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterFilter)<code>|  | |  |</code><Plug>(YankyGPutAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterBlockwise)<code>|  | |  |</code><Plug>(YankyGPutAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterCharwise)<code>|  | |  |</code><Plug>(YankyGPutAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterLinewise)<code>|  | |  |</code><Plug>(YankyGPutAfterJoined)<code>|  | |  |</code><Plug>(YankyGPutAfter)<code>|  | |  |</code><Plug>(YankyYank)<code>|  | |  |</code><Plug>(YankyCycleBackward)<code>|  | |  |</code><Plug>(YankyCycleForward)<code>|  | |  |</code><Plug>PlenaryTestFile<code>|</code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR><code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><Plug>luasnip-delete-check<code>|  | |  |</code><C-L><code>|</code><C-W>l`</td>
+<td><code></code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code></td>
+<td><code>:&lt;C-U&gt;call setreg(v:register,
+fugitive#Object(@%))&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyYank)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyCycleBackward)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyCycleForward)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Previous Conflict</td>
+<td><code>&lt;Plug&gt;(git-conflict-prev-conflict)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Next Conflict</td>
+<td><code>&lt;Plug&gt;(git-conflict-next-conflict)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Choose Theirs</td>
+<td><code>&lt;Plug&gt;(git-conflict-theirs)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Choose None</td>
+<td><code>&lt;Plug&gt;(git-conflict-none)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Git Conflict: Choose Both</td>
+<td><code>&lt;Plug&gt;(git-conflict-both)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Git Conflict: Choose Ours</td>
+<td><code>&lt;Plug&gt;(git-conflict-ours)</code></td>
+<td><code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;C-W&gt;l</code></td>
 </tr>
 </tbody>
 </table>
@@ -441,12 +968,13 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Tab&gt;</code></td>
-<td><code>:lua require('luasnip.util.util').store_selection()&lt;CR&gt;gv"_s</code></td>
+<td><code>:lua
+require(‘luasnip.util.util’).store_selection()&lt;CR&gt;gv”_s</code></td>
 </tr>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -456,7 +984,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -526,16 +1054,456 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | | Comment toggle blockwise (visual) |</code><Plug>(comment_toggle_blockwise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR><code>| | Comment toggle linewise (visual) |</code><Plug>(comment_toggle_linewise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR><code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><Plug>(YankyGPutAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterFilter)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftRight)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyGPutAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterBlockwise)<code>|  | |  |</code><Plug>(YankyGPutAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterCharwise)<code>|  | |  |</code><Plug>(YankyGPutAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyGPutAfterLinewise)<code>|  | |  |</code><Plug>(YankyGPutAfterJoined)<code>|  | |  |</code><Plug>(YankyGPutAfter)<code>|  | |  |</code><Plug>(YankyPutBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeFilter)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyPutBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyPutBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeCharwise)<code>|  | |  |</code><Plug>(YankyPutBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutBeforeLinewise)<code>|  | |  |</code><Plug>(YankyPutBeforeJoined)<code>|  | |  |</code><Plug>(YankyPutBefore)<code>|  | |  |</code><Plug>(YankyPutIndentAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterFilter)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftRight)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyPutIndentAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterBlockwise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterCharwise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfterLinewise)<code>|  | |  |</code><Plug>(YankyPutIndentAfterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentAfter)<code>|  | |  |</code><Plug>(YankyPutAfterFilterJoined)<code>|  | |  |</code><Plug>(YankyPutAfterFilter)<code>|  | |  |</code><Plug>(YankyPutAfterShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutAfterShiftRight)<code>|  | |  |</code><Plug>(YankyPutAfterShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutAfterShiftLeft)<code>|  | |  |</code><Plug>(YankyPutAfterBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterBlockwise)<code>|  | |  |</code><Plug>(YankyPutAfterCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterCharwise)<code>|  | |  |</code><Plug>(YankyPutAfterLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutAfterLinewise)<code>|  | |  |</code><Plug>(YankyPutAfterJoined)<code>|  | |  |</code><Plug>(YankyPutAfter)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeFilter)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeCharwise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeLinewise)<code>|  | |  |</code><Plug>(YankyPutIndentBeforeJoined)<code>|  | |  |</code><Plug>(YankyPutIndentBefore)<code>|  | |  |</code><Plug>(YankyGPutBeforeFilterJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeFilter)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftRightJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftRight)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftLeftJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeShiftLeft)<code>|  | |  |</code><Plug>(YankyGPutBeforeBlockwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeBlockwise)<code>|  | |  |</code><Plug>(YankyGPutBeforeCharwiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeCharwise)<code>|  | |  |</code><Plug>(YankyGPutBeforeLinewiseJoined)<code>|  | |  |</code><Plug>(YankyGPutBeforeLinewise)<code>|  | |  |</code><Plug>(YankyGPutBeforeJoined)<code>|  | |  |</code><Plug>(YankyGPutBefore)<code>|  | |  |</code><Plug>(YankyYank)`</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyGPutAfter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyPutIndentBefore)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(YankyYank)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -577,22 +1545,26 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>

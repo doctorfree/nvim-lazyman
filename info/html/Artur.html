@@ -202,7 +202,9 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘telescope.builtin’).find_files(require(‘telescope.themes’).get_dropdown{previewer
+= false})&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -211,86 +213,194 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gy</code></td>
-<td><code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('n')&lt;CR&gt;</code></td>
+<td><code> gy</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’gitlinker’.get_buf_range_url(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>we</code></td>
+<td><code> we</code></td>
 <td><code>&lt;C-W&gt;=</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>wh</code></td>
+<td><code> wh</code></td>
 <td><code>&lt;C-W&gt;s</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>wv</code></td>
+<td><code> wv</code></td>
 <td><code>:close&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>-</code></td>
+<td><code> -</code></td>
 <td><code>&lt;C-X&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>+</code></td>
+<td><code> +</code></td>
 <td><code>&lt;C-A&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>d</code></td>
-<td><code>"_d</code></td>
+<td><code> d</code></td>
+<td><code>“_d</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>Y</code></td>
-<td><code>"+Y</code></td>
+<td><code> Y</code></td>
+<td><code>“+Y</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>y</code></td>
-<td><code>"+y</code></td>
+<td><code> y</code></td>
+<td><code>“+y</code></td>
 </tr>
 <tr class="even">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td><code>| |  | `%` | `&lt;Plug&gt;(matchup-%)` | | Nvim builtin | `&amp;` | `:&amp;&amp;&lt;CR&gt;` | |  | `'[` | `:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "alpha")&lt;CR&gt;` | |  | `']` | `:&lt;C-U&gt;call signature#mark#Goto("next", "line", "alpha")&lt;CR&gt;` | |  | `,` | `&lt;Cmd&gt;lua require('harpoon.ui').nav_prev()&lt;CR&gt;` | |  | `.` | `&lt;Cmd&gt;lua require('harpoon.ui').nav_next()&lt;CR&gt;` | |  | `K` | `:lua require('user.functions').show_documentation()&lt;CR&gt;` | |  | `L` |  | |  | `M0` |  | |  | `M9` |  | |  | `M8` |  | |  | `M7` |  | |  | `M6` |  | |  | `M5` |  | |  | `M4` |  | |  | `M3` |  | |  | `M2` |  | |  | `M1` |  | |  | `U` |  | | Nvim builtin | `Y` | `y$` | |  | `[%` | `&lt;Plug&gt;(matchup-[%)` | |  | `[=` | `:&lt;C-U&gt;call signature#marker#Goto("prev", "any",  v:count)&lt;CR&gt;` | |  | `[-` | `:&lt;C-U&gt;call signature#marker#Goto("prev", "same", v:count)&lt;CR&gt;` | |  | `[</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>['</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt;</code></td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
 </tr>
 <tr class="even">
+<td>Nvim builtin</td>
+<td><code>&amp;</code></td>
+<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>’[</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“prev”, “line”,
+“alpha”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>’]</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “line”,
+“alpha”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>,</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘harpoon.ui’).nav_prev()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>.</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘harpoon.ui’).nav_next()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>K</code></td>
+<td><code>:lua
+require(‘user.functions’).show_documentation()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>L</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>M0</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>M9</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>M8</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>M7</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>M6</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>M5</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>M4</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>M3</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>M2</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>M1</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>U</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[=</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#Goto(“prev”, “any”,
+v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>[-</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#Goto(“prev”, “same”,
+v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[<code>&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "spot", "pos")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;['&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "line", "pos")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;[%&lt;/code&gt; | &lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-[%)&lt;/code&gt; | |  | &lt;code&gt;]=&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#marker#Goto("next", "any",  v:count)&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;]-&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#marker#Goto("next", "same", v:count)&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;]</code></code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “spot”,
+“pos”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]’</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “line”,
+“pos”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>]%</code></td>
 <td><code>&lt;Plug&gt;(matchup-]%)</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>]=</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt;</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>]-</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>]`` |</code>:<C-U>call signature#mark#Goto(“next”, “spot”,
-“pos”)<CR><code>| |  |</code>]’<code>|</code>:<C-U>call
-signature#mark#Goto(“next”, “line”,
-“pos”)<CR><code>| |  | ``[</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "alpha")&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>`<code>]</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "alpha")&lt;CR&gt;</code></td>
+<td><code><code>[&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call signature#mark#Goto("prev", "spot", "alpha")&amp;lt;CR&amp;gt;&lt;/code&gt; | |  | &lt;code&gt;</code>]</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#Goto(“next”, “spot”,
+“alpha”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Change a surrounding pair, putting replacements on new lines</td>
@@ -303,14 +413,15 @@ signature#mark#Goto(“next”, “line”,
 <td><code>&lt;Plug&gt;(nvim-surround-change)</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>dm</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#utils#Remove(v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td>Delete a surrounding pair</td>
 <td><code>ds</code></td>
 <td><code>&lt;Plug&gt;(nvim-surround-delete)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>dm</code></td>
-<td><code>:&lt;C-U&gt;call signature#utils#Remove(v:count)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -318,44 +429,91 @@ signature#mark#Goto(“next”, “line”,
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+</tr>
+<tr class="odd">
 <td>Comment insert end of line</td>
 <td><code>gcA</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert above</td>
 <td><code>gcO</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert below</td>
 <td><code>gco</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current block</td>
 <td><code>gbc</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current line</td>
 <td><code>gcc</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle blockwise</td>
 <td><code>gb</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle linewise</td>
 <td><code>gc</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 </tr>
+<tr class="even">
+<td></td>
+<td><code>m?</code></td>
+<td><code>:&lt;C-U&gt;call signature#marker#List(v:count,
+0)&lt;CR&gt;</code></td>
+</tr>
 <tr class="odd">
 <td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>m/</code></td>
+<td><code>:&lt;C-U&gt;call signature#mark#List(0,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m&lt;BS&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#marker#Purge()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m </code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Purge(“all”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m-</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Purge(“line”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m.</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#ToggleAtLine()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>m,</code></td>
+<td><code>:&lt;C-U&gt;call
+signature#mark#Toggle(“next”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>m</code></td>
+<td><code>:&lt;C-U&gt;call signature#utils#Input()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -408,46 +566,6 @@ signature#mark#Goto(“next”, “line”,
 <td><code>&lt;Plug&gt;BookmarkShowAll</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>m?</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#List(v:count, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>m/</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#List(0, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>m&lt;BS&gt;</code></td>
-<td><code>:&lt;C-U&gt;call signature#marker#Purge()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>m</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Purge("all")&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>m-</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Purge("line")&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>m.</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#ToggleAtLine()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>m,</code></td>
-<td><code>:&lt;C-U&gt;call signature#mark#Toggle("next")&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>m</code></td>
-<td><code>:&lt;C-U&gt;call signature#utils#Input()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode)</td>
 <td><code>ySS</code></td>
@@ -471,28 +589,155 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>zz</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').zz(250)&lt;CR&gt;</code></td>
+<td><code>z%</code></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>zb</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zb(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>zt</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code></td>
+<td><code>zz</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zz(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>z%</code></td>
-<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>zt</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zt(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F3&gt;</code></td>
+<td><code>:MaximizerToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-h&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_left()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_bottom()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-l&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_right()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.resize_top()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;2-LeftMouse&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-reload)</code></td>
+<td><code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#text_obj#double_click()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;SNR&gt;23_(wise)</code></td>
+<td><code>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-hi-surround)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-3&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua _HORIZONTAL_TERM()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-2&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua _VERTICAL_TERM()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-1&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua _FLOAT_TERM()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Toggle Terminal</td>
+<td><code>&lt;C-Bslash&gt;</code></td>
+<td><code>&lt;Cmd&gt;execute v:count .
+“ToggleTerm”&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Change a surrounding pair, putting replacements on new lines</td>
@@ -563,136 +808,6 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;F3&gt;</code></td>
-<td><code>:MaximizerToggle&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-j&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_bottom()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;M-h&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_left()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-k&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_top()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;M-l&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.resize_right()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-3&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua _HORIZONTAL_TERM()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;M-2&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua _VERTICAL_TERM()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-1&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua _FLOAT_TERM()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Toggle Terminal</td>
-<td><code>&lt;C-Bslash&gt;</code></td>
-<td><code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-Y&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-E&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;2-LeftMouse&gt;</code></td>
-<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-reload)</code></td>
-<td><code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;SNR&gt;26_(wise)</code></td>
-<td><code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-hi-surround)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><code>&lt;Plug&gt;BookmarkMoveToLine</code></td>
 <td><code>:&lt;C-U&gt;BookmarkMoveToLine v:count&lt;CR&gt;</code></td>
 </tr>
@@ -744,17 +859,46 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
-<td></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
+450)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td><code>&lt;C-E&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(0.10, false,
+100)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-0.10, false,
+100)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(vim.wo.scroll,
+true, 250)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-U&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-vim.wo.scroll,
+true, 250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -774,7 +918,8 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-T&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua vim.lsp.buf.document_symbol()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+vim.lsp.buf.document_symbol()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -814,27 +959,29 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-Space&gt;</code></td>
-<td><code>&lt;Cmd&gt;WhichKey \ &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;WhichKey  &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-K&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_top()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require’tmux’.move_top()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-J&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_bottom()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.move_bottom()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-H&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_left()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require’tmux’.move_left()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require'tmux'.move_right()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’tmux’.move_right()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -855,65 +1002,299 @@ mode)</td>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><code>gy</code></td>
-<td><code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('v')&lt;CR&gt;</code></td>
+<td><code> gy</code></td>
+<td><code>&lt;Cmd&gt;lua
+require’gitlinker’.get_buf_range_url(‘v’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>d</code></td>
-<td><code>"_d</code></td>
+<td><code> d</code></td>
+<td><code>“_d</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>y</code></td>
-<td><code>"+y</code></td>
+<td><code> y</code></td>
+<td><code>“+y</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code> p</code></td>
+<td><code>“_dP</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code> </code></td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>#</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>%</code></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>*</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;lt&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&gt;</code></td>
+<td><code>&gt;gv</code></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><code>S</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>a%</code></td>
+<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><code>gS</code></td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><code>gb</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><code>gc</code></td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>i%</code></td>
+<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>p</code></td>
-<td><code>"_dP</code></td>
+<td><code>“_dP</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zb</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zb(250)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code></code></td>
-<td>`<code>| | Nvim builtin |</code>#<code>|</code>y?“<CR><code>| |  |</code>%<code>|</code><Plug>(matchup-%)<code>| | Nvim builtin |</code>*<code>|</code>y/“<CR><code>| |  |</code><lt><code>|</code><lt>gv<code>| |  |</code>&gt;<code>|</code>&gt;gv<code>| | Add a surrounding pair around a visual selection |</code>S<code>|</code><Plug>(nvim-surround-visual)<code>| |  |</code>[%<code>|</code><Plug>(matchup-[%)<code>| |  |</code>]%<code>|</code><Plug>(matchup-]%)<code>| |  |</code>a%<code>|</code><Plug>(matchup-a%)<code>| |  |</code>gx<code>|</code><Plug>NetrwBrowseXVis<code>| | Add a surrounding pair around a visual selection, on new lines |</code>gS<code>|</code><Plug>(nvim-surround-visual-line)<code>| | Comment toggle blockwise (visual) |</code>gb<code>|</code><Plug>(comment_toggle_blockwise_visual)<code>| | Comment toggle linewise (visual) |</code>gc<code>|</code><Plug>(comment_toggle_linewise_visual)<code>| |  |</code>g%<code>|</code><Plug>(matchup-g%)<code>| |  |</code>i%<code>|</code><Plug>(matchup-i%)<code>| |  |</code>p<code>|</code>”<em>dP<code>| |  |</code>z%<code>|</code><Plug>(matchup-z%)<code>| |  |</code>zz<code>|</code><Cmd>lua
-require(‘neoscroll’).zz(250)<CR><code>| |  |</code>zt<code>|</code><Cmd>lua
-require(‘neoscroll’).zt(250)<CR><code>| |  |</code>zb<code>|</code><Cmd>lua
-require(‘neoscroll’).zb(250)<CR><code>| |  |</code><Plug>NetrwBrowseXVis<code>|</code>:<C-U>call
-netrw#BrowseXVis()<CR><code>| |  |</code><F3><code>|</code>:MaximizerToggle<CR>gv<code>| | Add a surrounding pair around a visual selection, on new lines |</code><Plug>(nvim-surround-visual-line)<code>|</code><Esc><Cmd>lua
+<td><code>zz</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zz(250)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zt</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zt(250)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z%</code></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NetrwBrowseXVis</code></td>
+<td><code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F3&gt;</code></td>
+<td><code>:MaximizerToggle&lt;CR&gt;gv</code></td>
+</tr>
+<tr class="even">
+<td>Add a surrounding pair around a visual selection, on new lines</td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
 require’nvim-surround’.visual_surround({ line_mode = true
-})<CR><code>| | Add a surrounding pair around a visual selection |</code><Plug>(nvim-surround-visual)<code>|</code><Esc><Cmd>lua
+})&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Add a surrounding pair around a visual selection</td>
+<td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
 require’nvim-surround’.visual_surround({ line_mode = false
-})<CR><code>| | Comment toggle blockwise (visual) |</code><Plug>(comment_toggle_blockwise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR><code>| | Comment toggle linewise (visual) |</code><Plug>(comment_toggle_linewise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR><code>| |  |</code><Plug>(matchup-a%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(0, 1,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-i%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(1, 1,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-Z%)<code>|</code><SNR>28</em>(matchup-Z%)<code>| |  |</code><SNR>28_(matchup-Z%)<code>|</code>:<C-U>call
-matchup#motion#jump_inside_prev(1)<CR><code>| |  |</code><Plug>(matchup-z%)<code>|</code><SNR>28_(matchup-z%)<code>| |  |</code><SNR>28_(matchup-z%)<code>|</code>:<C-U>call
-matchup#motion#jump_inside(1)<CR><code>| |  |</code><Plug>(matchup-[%)<code>|</code><SNR>28_(matchup-[%)<code>| |  |</code><Plug>(matchup-]%)<code>|</code><SNR>28_(matchup-]%)<code>| |  |</code><SNR>28_(matchup-[%)<code>|</code>:<C-U>call
-matchup#motion#find_unmatched(1,
-0)<CR><code>| |  |</code><SNR>28_(matchup-]%)<code>|</code>:<C-U>call
-matchup#motion#find_unmatched(1,
-1)<CR><code>| |  |</code><Plug>(matchup-g%)<code>|</code><SNR>28_(matchup-g%)<code>| |  |</code><SNR>28_(matchup-g%)<code>|</code>:<C-U>call
-matchup#motion#find_matching_pair(1,
-0)<CR><code>| |  |</code><Plug>(matchup-%)<code>|</code><SNR>28_(matchup-%)<code>| |  |</code><SNR>28_(matchup-%)<code>|</code>:<C-U>call
-matchup#motion#find_matching_pair(1,
-1)<CR><code>| |  |</code><C-E><code>|</code><Cmd>lua
-require(‘neoscroll’).scroll(0.10, false,
-100)<CR><code>| |  |</code><C-F><code>|</code><Cmd>lua
+})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(vim.wo.scroll,
+true, 250)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
-450)<CR><code>| |  |</code><C-B><code>|</code><Cmd>lua
+450)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-0.10, false,
+100)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-E&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(0.10, false,
+100)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-U&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-vim.wo.scroll,
+true, 250)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)<CR><code>| |  |</code><C-U><code>|</code><Cmd>lua
-require(‘neoscroll’).scroll(-vim.wo.scroll, true,
-250)<CR><code>| |  |</code><C-Y><code>|</code><Cmd>lua
-require(‘neoscroll’).scroll(-0.10, false,
-100)<CR><code>| |  |</code><C-D><code>|</code><Cmd>lua
-require(‘neoscroll’).scroll(vim.wo.scroll, true,
-250)<CR><code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><M-k><code>|</code>:m
-.-2<CR>==<code>| |  |</code><M-j><code>|</code>:m .+1<CR>==`</td>
+450)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-Z%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-Z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-z%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-[%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-]%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-]%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-g%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+<td><code>&lt;SNR&gt;13_(matchup-%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;13_(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m .-2&lt;CR&gt;==</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m .+1&lt;CR&gt;==</code></td>
 </tr>
 </tbody>
 </table>
@@ -934,18 +1315,90 @@ require(‘neoscroll’).scroll(vim.wo.scroll, true,
 <tbody>
 <tr class="odd">
 <td></td>
+<td><code> </code></td>
 <td><code></code></td>
-<td>`<code>| |  |</code>%<code>|</code><Ignore><Plug>(matchup-%)<code>| |  |</code>[%<code>|</code><Plug>(matchup-[%)<code>| |  |</code>]%<code>|</code><Plug>(matchup-]%)<code>| |  |</code>a%<code>|</code><Plug>(matchup-a%)<code>| |  |</code>g%<code>|</code><Ignore><Plug>(matchup-g%)<code>| |  |</code>i%<code>|</code><Plug>(matchup-i%)<code>| |  |</code>z%<code>|</code><Plug>(matchup-z%)<code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><Plug>(matchup-a%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(0, 0,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-i%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(1, 0,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-Z%)<code>|</code>:<C-U>call
-matchup#motion#op(‘Z%’)<CR><code>| |  |</code><Plug>(matchup-z%)<code>|</code>:<C-U>call
-matchup#motion#op(‘z%’)<CR><code>| |  |</code><Plug>(matchup-[%)<code>|</code>:<C-U>call
-matchup#motion#op(‘[%’)<CR><code>| |  |</code><Plug>(matchup-]%)<code>|</code>:<C-U>call
-matchup#motion#op(’]%‘)<CR><code>| |  |</code><Plug>(matchup-g%)<code>|</code>:<C-U>call
-matchup#motion#op(’g%’)<CR><code>| |  |</code><Plug>(matchup-%)<code>|</code>:<C-U>call
-matchup#motion#op(‘%’)<CR>`</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>%</code></td>
+<td><code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>a%</code></td>
+<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>i%</code></td>
+<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z%</code></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘Z%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘z%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘[%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘]%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘g%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

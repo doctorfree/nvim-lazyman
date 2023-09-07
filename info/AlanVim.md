@@ -57,140 +57,140 @@ Oriented toward Python development
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Esc>` | `:noh<CR>` |
-|  | ` u` |  |
-|  | ` g` |  |
-|  | ` w` |  |
-|  | ` f` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `'gR` | `<Cmd>lua require('git.revert').open(true)<CR>` |
-|  | `'gr` | `<Cmd>lua require('git.revert').open(false)<CR>` |
-|  | `'gD` | `<Cmd>lua require('git.diff').close()<CR>` |
-|  | `'gd` | `<Cmd>lua require('git.diff').open()<CR>` |
-|  | `'gn` | `<Cmd>lua require('git.browse').create_pull_request()<CR>` |
-|  | `'gp` | `<Cmd>lua require('git.browse').pull_request()<CR>` |
-|  | `'go` | `<Cmd>lua require('git.browse').open(false)<CR>` |
-|  | `'gb` | `<Cmd>lua require('git.blame').blame()<CR>` |
-|  | `'s` | `:source %<CR>` |
-|  | `'p` | `:vsplit ~/.config/nvim-AlanVim/lua/packages.lua<CR>` |
-|  | `'m` | `:vsplit ~/.config/nvim-AlanVim/lua/general/mappings.lua<CR>` |
-|  | `D` | `:BufDel<CR>` |
-|  | `H` | `:BufferLineCyclePrev<CR>` |
-|  | `L` | `:BufferLineCycleNext<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Change a surrounding pair, putting replacements on new lines | `cS` | `<Plug>(nvim-surround-change-line)` |
-| Change a surrounding pair | `cs` | `<Plug>(nvim-surround-change)` |
-| Delete a surrounding pair | `ds` | `<Plug>(nvim-surround-delete)` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `tt` | `:t.<CR>` |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `ySS` | `<Plug>(nvim-surround-normal-cur-line)` |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `yS` | `<Plug>(nvim-surround-normal-line)` |
-| Add a surrounding pair around the current line (normal mode) | `yss` | `<Plug>(nvim-surround-normal-cur)` |
-| Add a surrounding pair around a motion (normal mode) | `ys` | `<Plug>(nvim-surround-normal)` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<C-Y>m` | `<Plug>(emmet-merge-lines)` |
-|  | `<Plug>(emmet-merge-lines)` | `:call emmet#mergeLines()<CR>` |
-|  | `<C-Y>A` | `<Plug>(emmet-anchorize-summary)` |
-|  | `<Plug>(emmet-anchorize-summary)` | `:call emmet#anchorizeURL(1)<CR>` |
-|  | `<C-Y>a` | `<Plug>(emmet-anchorize-url)` |
-|  | `<Plug>(emmet-anchorize-url)` | `:call emmet#anchorizeURL(0)<CR>` |
-|  | `<C-Y>k` | `<Plug>(emmet-remove-tag)` |
-|  | `<Plug>(emmet-remove-tag)` | `:call emmet#removeTag()<CR>` |
-|  | `<C-Y>j` | `<Plug>(emmet-split-join-tag)` |
-|  | `<Plug>(emmet-split-join-tag)` | `:call emmet#splitJoinTag()<CR>` |
-|  | `<C-Y>/` | `<Plug>(emmet-toggle-comment)` |
-|  | `<Plug>(emmet-toggle-comment)` | `:call emmet#toggleComment()<CR>` |
-|  | `<C-Y>I` | `<Plug>(emmet-image-encode)` |
-|  | `<Plug>(emmet-image-encode)` | `:call emmet#imageEncode()<CR>` |
-|  | `<C-Y>i` | `<Plug>(emmet-image-size)` |
-|  | `<Plug>(emmet-image-size)` | `:call emmet#imageSize()<CR>` |
-|  | `<Plug>(emmet-move-prev-item)` | `:call emmet#moveNextPrevItem(1)<CR>` |
-|  | `<Plug>(emmet-move-next-item)` | `:call emmet#moveNextPrevItem(0)<CR>` |
-|  | `<C-Y>N` | `<Plug>(emmet-move-prev)` |
-|  | `<Plug>(emmet-move-prev)` | `:call emmet#moveNextPrev(1)<CR>` |
-|  | `<C-Y>n` | `<Plug>(emmet-move-next)` |
-|  | `<Plug>(emmet-move-next)` | `:call emmet#moveNextPrev(0)<CR>` |
-|  | `<C-Y>D` | `<Plug>(emmet-balance-tag-outword)` |
-|  | `<Plug>(emmet-balance-tag-outword)` | `:call emmet#balanceTag(-1)<CR>` |
-|  | `<C-Y>d` | `<Plug>(emmet-balance-tag-inward)` |
-|  | `<Plug>(emmet-balance-tag-inward)` | `:call emmet#balanceTag(1)<CR>` |
-|  | `<C-Y>u` | `<Plug>(emmet-update-tag)` |
-|  | `<Plug>(emmet-update-tag)` | `:call emmet#updateTag()<CR>` |
-|  | `<C-Y>;` | `<Plug>(emmet-expand-word)` |
-|  | `<Plug>(emmet-expand-word)` | `:call emmet#expandAbbr(1,"")<CR>` |
-|  | `<C-Y>,` | `<Plug>(emmet-expand-abbr)` |
-|  | `<Plug>(emmet-expand-abbr)` | `:call emmet#expandAbbr(3,"")<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-| Change a surrounding pair, putting replacements on new lines | `<Plug>(nvim-surround-change-line)` |  |
-| Change a surrounding pair | `<Plug>(nvim-surround-change)` |  |
-| Delete a surrounding pair | `<Plug>(nvim-surround-delete)` |  |
-| Add a surrounding pair around the current line, on new lines (normal mode) | `<Plug>(nvim-surround-normal-cur-line)` |  |
-| Add a surrounding pair around a motion, on new lines (normal mode) | `<Plug>(nvim-surround-normal-line)` |  |
-| Add a surrounding pair around the current line (normal mode) | `<Plug>(nvim-surround-normal-cur)` |  |
-| Add a surrounding pair around a motion (normal mode) | `<Plug>(nvim-surround-normal)` |  |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-Bslash>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<CR>` |
-|  | `<C-Space>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<CR>` |
-|  | `<C-H>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<CR>` |
-|  | `<C-K>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<CR>` |
-|  | `<C-J>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<CR>` |
-|  | `<C-N>` | `:NvimTreeToggle<CR>` |
-|  | `<M-l>` | `:vertical resize +2<CR>` |
-|  | `<M-h>` | `:vertical resize -2<CR>` |
-|  | `<M-k>` | `:resize +2<CR>` |
-|  | `<M-j>` | `:resize -2<CR>` |
-|  | `<C-L>` | `:lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<CR>` |
+|  | <code>&lt;Esc&gt;</code> | <code>:noh&lt;CR&gt;</code> |
+|  | <code> u</code> |  |
+|  | <code> g</code> |  |
+|  | <code> w</code> |  |
+|  | <code> f</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>'gR</code> | <code>&lt;Cmd&gt;lua require('git.revert').open(true)&lt;CR&gt;</code> |
+|  | <code>'gr</code> | <code>&lt;Cmd&gt;lua require('git.revert').open(false)&lt;CR&gt;</code> |
+|  | <code>'gD</code> | <code>&lt;Cmd&gt;lua require('git.diff').close()&lt;CR&gt;</code> |
+|  | <code>'gd</code> | <code>&lt;Cmd&gt;lua require('git.diff').open()&lt;CR&gt;</code> |
+|  | <code>'gn</code> | <code>&lt;Cmd&gt;lua require('git.browse').create_pull_request()&lt;CR&gt;</code> |
+|  | <code>'gp</code> | <code>&lt;Cmd&gt;lua require('git.browse').pull_request()&lt;CR&gt;</code> |
+|  | <code>'go</code> | <code>&lt;Cmd&gt;lua require('git.browse').open(false)&lt;CR&gt;</code> |
+|  | <code>'gb</code> | <code>&lt;Cmd&gt;lua require('git.blame').blame()&lt;CR&gt;</code> |
+|  | <code>'s</code> | <code>:source %&lt;CR&gt;</code> |
+|  | <code>'p</code> | <code>:vsplit ~/.config/nvim-AlanVim/lua/packages.lua&lt;CR&gt;</code> |
+|  | <code>'m</code> | <code>:vsplit ~/.config/nvim-AlanVim/lua/general/mappings.lua&lt;CR&gt;</code> |
+|  | <code>D</code> | <code>:BufDel&lt;CR&gt;</code> |
+|  | <code>H</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+|  | <code>L</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Change a surrounding pair, putting replacements on new lines | <code>cS</code> | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+| Change a surrounding pair | <code>cs</code> | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+| Delete a surrounding pair | <code>ds</code> | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>tt</code> | <code>:t.&lt;CR&gt;</code> |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>ySS</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>yS</code> | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
+| Add a surrounding pair around the current line (normal mode) | <code>yss</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+| Add a surrounding pair around a motion (normal mode) | <code>ys</code> | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;m</code> | <code>&lt;Plug&gt;(emmet-merge-lines)</code> |
+|  | <code>&lt;Plug&gt;(emmet-merge-lines)</code> | <code>:call emmet#mergeLines()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;A</code> | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> |
+|  | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> | <code>:call emmet#anchorizeURL(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;a</code> | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> |
+|  | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> | <code>:call emmet#anchorizeURL(0)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;k</code> | <code>&lt;Plug&gt;(emmet-remove-tag)</code> |
+|  | <code>&lt;Plug&gt;(emmet-remove-tag)</code> | <code>:call emmet#removeTag()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;j</code> | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> |
+|  | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> | <code>:call emmet#splitJoinTag()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;/</code> | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> |
+|  | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> | <code>:call emmet#toggleComment()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;I</code> | <code>&lt;Plug&gt;(emmet-image-encode)</code> |
+|  | <code>&lt;Plug&gt;(emmet-image-encode)</code> | <code>:call emmet#imageEncode()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;i</code> | <code>&lt;Plug&gt;(emmet-image-size)</code> |
+|  | <code>&lt;Plug&gt;(emmet-image-size)</code> | <code>:call emmet#imageSize()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(emmet-move-prev-item)</code> | <code>:call emmet#moveNextPrevItem(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(emmet-move-next-item)</code> | <code>:call emmet#moveNextPrevItem(0)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;N</code> | <code>&lt;Plug&gt;(emmet-move-prev)</code> |
+|  | <code>&lt;Plug&gt;(emmet-move-prev)</code> | <code>:call emmet#moveNextPrev(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;n</code> | <code>&lt;Plug&gt;(emmet-move-next)</code> |
+|  | <code>&lt;Plug&gt;(emmet-move-next)</code> | <code>:call emmet#moveNextPrev(0)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;D</code> | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+|  | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> | <code>:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;d</code> | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+|  | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> | <code>:call emmet#balanceTag(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;u</code> | <code>&lt;Plug&gt;(emmet-update-tag)</code> |
+|  | <code>&lt;Plug&gt;(emmet-update-tag)</code> | <code>:call emmet#updateTag()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;;</code> | <code>&lt;Plug&gt;(emmet-expand-word)</code> |
+|  | <code>&lt;Plug&gt;(emmet-expand-word)</code> | <code>:call emmet#expandAbbr(1,"")&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;,</code> | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+|  | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> | <code>:call emmet#expandAbbr(3,"")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+| Change a surrounding pair, putting replacements on new lines | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |  |
+| Change a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-change)</code> |  |
+| Delete a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |  |
+| Add a surrounding pair around the current line, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |  |
+| Add a surrounding pair around a motion, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |  |
+| Add a surrounding pair around the current line (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |  |
+| Add a surrounding pair around a motion (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Space&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()&lt;CR&gt;</code> |
+|  | <code>&lt;C-N&gt;</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+|  | <code>&lt;M-l&gt;</code> | <code>:vertical resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;M-h&gt;</code> | <code>:vertical resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;M-k&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
+|  | <code>&lt;M-j&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-|  | `'go` | `:<C-U> lua require('git.browse').open(true)<CR>` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `<lt>` | `<lt>gv` |
-|  | `>` | `>gv` |
-| Add a surrounding pair around a visual selection | `S` | `<Plug>(nvim-surround-visual)` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-| Add a surrounding pair around a visual selection, on new lines | `gS` | `<Plug>(nvim-surround-visual-line)` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `<C-Y>c` | `<Plug>(emmet-code-pretty)` |
-|  | `<Plug>(emmet-code-pretty)` | `:call emmet#codePretty()<CR>` |
-|  | `<C-Y>D` | `<Plug>(emmet-balance-tag-outword)` |
-|  | `<Plug>(emmet-balance-tag-outword)` | `<Esc>:call emmet#balanceTag(-1)<CR>` |
-|  | `<C-Y>d` | `<Plug>(emmet-balance-tag-inward)` |
-|  | `<Plug>(emmet-balance-tag-inward)` | `<Esc>:call emmet#balanceTag(1)<CR>` |
-|  | `<C-Y>,` | `<Plug>(emmet-expand-abbr)` |
-|  | `<Plug>(emmet-expand-abbr)` | `:call emmet#expandAbbr(2,"")<CR>` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-| Add a surrounding pair around a visual selection, on new lines | `<Plug>(nvim-surround-visual-line)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = true })<CR>` |
-| Add a surrounding pair around a visual selection | `<Plug>(nvim-surround-visual)` | `<Esc><Cmd>lua require'nvim-surround'.visual_surround({ line_mode = false })<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+|  | <code>'go</code> | <code>:&lt;C-U&gt; lua require('git.browse').open(true)&lt;CR&gt;</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&gt;</code> | <code>&gt;gv</code> |
+| Add a surrounding pair around a visual selection | <code>S</code> | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| Add a surrounding pair around a visual selection, on new lines | <code>gS</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>&lt;C-Y&gt;c</code> | <code>&lt;Plug&gt;(emmet-code-pretty)</code> |
+|  | <code>&lt;Plug&gt;(emmet-code-pretty)</code> | <code>:call emmet#codePretty()&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;D</code> | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+|  | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> | <code>&lt;Esc&gt;:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;d</code> | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+|  | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> | <code>&lt;Esc&gt;:call emmet#balanceTag(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;,</code> | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+|  | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> | <code>:call emmet#expandAbbr(2,"")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
+| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

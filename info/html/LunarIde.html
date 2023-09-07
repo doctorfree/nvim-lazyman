@@ -264,7 +264,10 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('telescope').extensions.bookmark.filemarks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Filemarks'})&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘telescope’).extensions.bookmark.filemarks(require(‘telescope.themes’).get_dropdown{previewer
+= false, initial_mode=‘normal’,
+prompt_title=‘Filemarks’})&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -289,7 +292,7 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="even">
 <td></td>
 <td><code>-</code></td>
-<td><code>:lua require'lir.float'.toggle()&lt;CR&gt;</code></td>
+<td><code>:lua require’lir.float’.toggle()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -299,7 +302,8 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="even">
 <td></td>
 <td><code>K</code></td>
-<td><code>:lua require('user.keymaps').show_documentation()&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘user.keymaps’).show_documentation()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -331,242 +335,173 @@ mode)</td>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>Y</code></td>
-<td><code>y$</code></td>
+<td><code>y<span
+class="math inline"> &lt; /<em>c</em><em>o</em><em>d</em><em>e</em> &gt; ||| &lt; <em>c</em><em>o</em><em>d</em><em>e</em> &gt; [</span>BROWSER
+’ . shellescape(expand(‘&lt;lt&gt;cfile&gt;’), 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><code>[%</code></td>
-<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[q</code></td>
-<td><code>:cprev&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\ag</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require('neoai.shortcuts').shortcut_functions['__uid2n']()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\gy</code></td>
-<td><code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('n')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\'</code></td>
-<td><code>siw'</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>]q</code></td>
-<td><code>:cnext&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Change a surrounding pair, putting replacements on new lines</td>
-<td><code>cS</code></td>
-<td><code>&lt;Plug&gt;(nvim-surround-change-line)</code></td>
-</tr>
-<tr class="odd">
-<td>Change a surrounding pair</td>
-<td><code>cs</code></td>
-<td><code>&lt;Plug&gt;(nvim-surround-change)</code></td>
-</tr>
-<tr class="even">
-<td>Delete a surrounding pair</td>
-<td><code>ds</code></td>
-<td><code>&lt;Plug&gt;(nvim-surround-delete)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>f</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>g&lt;Plug&gt;(dial-decrement)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>g&lt;Plug&gt;(dial-increment)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gb</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>gc</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>gx</code></td>
-<td><code>:silent execute '!$BROWSER ' . shellescape(expand('&lt;lt&gt;cfile&gt;'), 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>g#</code></td>
 <td><code>g#zz</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>g*</code></td>
 <td><code>g*zz</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>n</code></td>
 <td><code>nzz</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around the current line (normal mode)</td>
 <td><code>ss</code></td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal-cur)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around a motion (normal mode)</td>
 <td><code>s</code></td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>t</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>z%</code></td>
 <td><code>&lt;Plug&gt;(matchup-z%)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>zb</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zb”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>z-</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z-”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>zz</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zz”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>z.</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z.”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>z&lt;CR&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\&lt;lt&gt;CR&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z&amp;lt;lt&gt;CR&gt;”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>zt</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zt”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>z^</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z^”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>z+</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>{</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z+”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>}</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")&lt;CR&gt;</code></td>
+<td><code>{</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“{”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>}</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“}”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;2-LeftMouse&gt;</code></td>
 <td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-reload)</code></td>
 <td><code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#text_obj#double_click()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside(0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+0)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;SNR&gt;41_(wise)</code></td>
-<td><code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;SNR&gt;39_(wise)</code></td>
+<td><code>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-hi-surround)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(dial-increment)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -576,12 +511,12 @@ mode)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#forwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#upwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -591,234 +526,287 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;ScrollWheelUp&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelUp&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;ScrollWheelUp&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;ScrollWheelDown&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelDown&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;ScrollWheelDown&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;PageUp&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageUp&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;PageUp&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;S-Up&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Up&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;S-Up&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-B&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-B&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;PageDown&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageDown&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;PageDown&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;S-Down&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Down&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;S-Down&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-F&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-F&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-U&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-U&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-D&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-D&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td>Float Terminal</td>
 <td><code>&lt;M-3&gt;</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertical Terminal</td>
 <td><code>&lt;M-2&gt;</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Horizontal Terminal</td>
 <td><code>&lt;M-1&gt;</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Bslash&gt;</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-S&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('copilot.suggestion').toggle_auto_trigger()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-X&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('mygroup')&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘copilot.suggestion’).toggle_auto_trigger()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-A&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('mygroup')&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>&lt;C-X&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal(‘mygroup’)&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;C-A&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal(‘mygroup’)&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>&lt;M-r&gt;</code></td>
 <td><code>:silent only | Jaq&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Change a surrounding pair, putting replacements on new lines</td>
 <td><code>&lt;Plug&gt;(nvim-surround-change-line)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Change a surrounding pair</td>
 <td><code>&lt;Plug&gt;(nvim-surround-change)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Delete a surrounding pair</td>
 <td><code>&lt;Plug&gt;(nvim-surround-delete)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around the current line, on new lines (normal
 mode)</td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion, on new lines (normal
 mode)</td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal-line)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add a surrounding pair around the current line (normal mode)</td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal-cur)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add a surrounding pair around a motion (normal mode)</td>
 <td><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;M-q&gt;</code></td>
 <td><code>:call QuickFixToggle()&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;S-Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;M-/&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('Comment.api').toggle_current_linewise()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘telescope.builtin’).buffers(require(‘telescope.themes’).get_dropdown{previewer
+= false, initial_mode=‘normal’})&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;M-v&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require('lsp_lines').toggle()&lt;CR&gt;</code></td>
+<td><code>&lt;M-/&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘Comment.api’).toggle_current_linewise()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;M-v&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require(‘lsp_lines’).toggle()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Z&gt;</code></td>
 <td><code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;F7&gt;</code></td>
 <td><code>&lt;Cmd&gt;TSHighlightCapturesUnderCursor&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;F6&gt;</code></td>
-<td><code>:echo "hi&lt;lt&gt;" . synIDattr(synID(line("."),col("."),1),"name") . '&gt; trans&lt;lt&gt;' . synIDattr(synID(line("."),col("."),0),"name") . "&gt; lo&lt;lt&gt;" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "&gt;" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")&lt;CR&gt;</code></td>
+<td><code>:echo “hi&lt;lt&gt;” .
+synIDattr(synID(line(“.”),col(“.”),1),“name”) . ‘&gt; trans&lt;lt&gt;’ .
+synIDattr(synID(line(“.”),col(“.”),0),“name”) . “&gt; lo&lt;lt&gt;” .
+synIDattr(synIDtrans(synID(line(“.”),col(“.”),1)),“name”) . “&gt;” . ”
+FG:” .
+synIDattr(synIDtrans(synID(line(“.”),col(“.”),1)),“fg#”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-M&gt;</code></td>
 <td><code>M</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Left&gt;</code></td>
 <td><code>&lt;Cmd&gt;FilemarkPrev&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Right&gt;</code></td>
 <td><code>&lt;Cmd&gt;FilemarkNext&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Up&gt;</code></td>
 <td><code>&lt;Cmd&gt;BookmarkPrev&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Down&gt;</code></td>
 <td><code>&lt;Cmd&gt;BookmarkNext&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;M-Tab&gt;</code></td>
 <td><code>&lt;C-6&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;M-l&gt;</code></td>
 <td><code>&lt;C-W&gt;l</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;M-h&gt;</code></td>
 <td><code>&lt;C-W&gt;h</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-I&gt;</code></td>
 <td><code>&lt;Tab&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Space&gt;</code></td>
-<td><code>&lt;Cmd&gt;WhichKey \ &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;WhichKey  &lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#do(“&amp;lt;C-D&gt;”)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;M-j&gt;</code></td>
-<td><code>&lt;C-W&gt;j</code></td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;C-W&gt;h</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;C-Right&gt;</code></td>
+<td><code>:vertical resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Q&gt;</code></td>
+<td><code>:call QuickFixToggle()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Left&gt;</code></td>
+<td><code>:vertical resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Down&gt;</code></td>
 <td><code>:resize +2&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-k&gt;</code></td>
-<td><code>&lt;C-W&gt;k</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -827,35 +815,21 @@ mode)</td>
 </tr>
 <tr class="odd">
 <td></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>&lt;C-W&gt;k</code></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><code>&lt;C-K&gt;</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#do("\&lt;C-U&gt;") &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-Q&gt;</code></td>
-<td><code>:call QuickFixToggle()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#do(“&amp;lt;C-U&gt;”)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;C-J&gt;</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#do("\&lt;C-D&gt;") &lt;CR&gt;</code></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>&lt;C-W&gt;j</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;C-H&gt;</code></td>
-<td><code>&lt;C-W&gt;h</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-Right&gt;</code></td>
-<td><code>:vertical resize +2&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-Left&gt;</code></td>
-<td><code>:vertical resize -2&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td><code>&lt;C-L&gt;</code></td>
 <td><code>&lt;C-W&gt;l</code></td>
@@ -880,7 +854,7 @@ mode)</td>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -890,7 +864,7 @@ mode)</td>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -919,13 +893,16 @@ mode)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\as</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require('neoai.shortcuts').shortcut_functions['__uid1v']()&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(‘neoai.shortcuts’).shortcut_functions<a
+href="">’__uid1v’</a>&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\gy</code></td>
-<td><code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('v')&lt;CR&gt;</code></td>
+<td><code></code></td>
+<td><code>&lt;Cmd&gt;lua
+require’gitlinker’.get_buf_range_url(‘v’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -949,27 +926,31 @@ mode)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>g&lt;Plug&gt;(dial-decrement)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>g&lt;Plug&gt;(dial-increment)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><code>g%</code></td>
 <td><code>&lt;Plug&gt;(matchup-g%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gc</code></td>
+<td><code>g&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_gvisual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_gvisual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gb</code></td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -985,7 +966,7 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>p</code></td>
-<td><code>"_dP</code></td>
+<td><code>“_dP</code></td>
 </tr>
 <tr class="odd">
 <td>Add a surrounding pair around a visual selection</td>
@@ -1005,52 +986,62 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>zb</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zb")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zb”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>z-</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z-")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z-”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>zz</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zz")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zz”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>z.</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z.")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z.”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>z&lt;CR&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z\&lt;lt&gt;CR&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z&amp;lt;lt&gt;CR&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>zt</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("zt")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“zt”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>z^</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z^")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z^”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>z+</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("z+")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“z+”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>{</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("{")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“{”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>}</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("}")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“}”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1059,83 +1050,95 @@ mode)</td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(dial-increment)</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_visual"&lt;CR&gt;g@gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
 <td><code>&lt;Plug&gt;(matchup-a%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1,
+‘delim_all’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-i%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1,
+‘delim_all’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-Z%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-Z%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-Z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-Z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-z%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-z%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-z%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-[%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-[%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-]%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-]%)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-[%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-]%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-]%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-g%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-g%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-g%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-%)</code></td>
-<td><code>&lt;SNR&gt;26_(matchup-%)</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-%)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;SNR&gt;26_(matchup-%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;37_(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-decrement)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_visual”&lt;CR&gt;g@gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(dial-increment)</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_visual”&lt;CR&gt;g@gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -1145,12 +1148,12 @@ mode)</td>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#forwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#upwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -1160,97 +1163,120 @@ mode)</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;ScrollWheelUp&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelUp&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;ScrollWheelUp&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;ScrollWheelDown&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;ScrollWheelDown&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;ScrollWheelDown&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;PageUp&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageUp&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;PageUp&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;S-Up&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Up&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;S-Up&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-B&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-B&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;PageDown&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;PageDown&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;PageDown&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;S-Down&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;S-Down&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;S-Down&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-F&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-F&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-U&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-U&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;let [v:hlsearch, @/, v:searchforward]=smoothie#do("\&lt;lt&gt;C-D&gt;")&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;let [v:hlsearch, @/,
+v:searchforward]=smoothie#do(“&amp;lt;lt&gt;C-D&gt;”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-X&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('visual')&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal(‘visual’)&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#decrement_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-A&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal('visual')&lt;CR&gt;&lt;Cmd&gt;let &amp;opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+require”dial.command”.select_augend_normal(‘visual’)&lt;CR&gt;&lt;Cmd&gt;let
+&amp;opfunc=“dial#operator#increment_normal”&lt;CR&gt;g@&lt;Cmd&gt;lua
+require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Add a surrounding pair around a visual selection, on new lines</td>
 <td><code>&lt;Plug&gt;(nvim-surround-visual-line)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround({ line_mode = true
+})&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Add a surrounding pair around a visual selection</td>
 <td><code>&lt;Plug&gt;(nvim-surround-visual)</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround({ line_mode = false
+})&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-K&gt;</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#do("\&lt;C-U&gt;") &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#do(“&amp;lt;C-U&gt;”)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-J&gt;</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#do("\&lt;C-D&gt;") &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#do(“&amp;lt;C-D&gt;”)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;M-/&gt;</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())&lt;CR&gt;</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).toggle_linewise_op(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;M-k&gt;</code></td>
-<td><code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m ’&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;M-j&gt;</code></td>
-<td><code>:m '&gt;+1&lt;CR&gt;gv-gv</code></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m ’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -1326,63 +1352,65 @@ mode)</td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(matchup-%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
 <td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
 <td><code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#forwards()  &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#forwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#upwards()   &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#upwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieDownwards)</code></td>
 <td><code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-a%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-i%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-Z%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘Z%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘z%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘[%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘]%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘g%’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

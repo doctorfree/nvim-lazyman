@@ -167,122 +167,128 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td>Move line right</td>
 <td><code>&lt;Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua MiniMove.move_line('right')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘right’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Test keymap</td>
-<td><code>test</code></td>
-<td><code>:echo 'This is a test keymap!'&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Select all</td>
-<td><code>a</code></td>
-<td><code>ggvG&lt;S-End&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Where am I</td>
-<td><code>wai</code></td>
-<td><code>:echo expand('%:p')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Open Telescope Keymaps</td>
-<td><code>k</code></td>
-<td><code>:Telescope keymaps&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Show git branches</td>
-<td><code>gb</code></td>
-<td><code>:Telescope git_branches initial_mode=normal&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Show git log</td>
-<td><code>glo</code></td>
-<td><code>:Telescope git_commits initial_mode=normal&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Open Telescope live_grep</td>
-<td><code>fg</code></td>
-<td><code>:Telescope live_grep&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Open Telescope</td>
-<td><code>ff</code></td>
-<td><code>:Telescope find_files&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Show git status</td>
-<td><code>gst</code></td>
-<td><code>:Telescope git_status initial_mode=normal&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>List PR’s</td>
-<td><code>opl</code></td>
-<td><code>:Octo pr list initial_mode=normal&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Submit PR review</td>
-<td><code>orss</code></td>
-<td><code>:Octo review submit&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Start PR review</td>
-<td><code>ors</code></td>
-<td><code>:Octo review start&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Close current review</td>
-<td><code>orc</code></td>
-<td><code>:Octo review close&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
 <td>Resume PR review</td>
-<td><code>orr</code></td>
+<td><code> orr</code></td>
 <td><code>:Octo review resume&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Reload current PR</td>
-<td><code>opr</code></td>
+<td><code> opr</code></td>
 <td><code>:Octo pr reload&lt;CR&gt;</code></td>
 </tr>
+<tr class="even">
+<td>List PR’s</td>
+<td><code> opl</code></td>
+<td><code>:Octo pr list initial_mode=normal&lt;CR&gt;</code></td>
+</tr>
 <tr class="odd">
-<td>Open a floating term</td>
-<td><code>tt</code></td>
-<td><code>:ToggleTerm direction=float&lt;CR&gt;</code></td>
+<td>Submit PR review</td>
+<td><code> orss</code></td>
+<td><code>:Octo review submit&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Open Spectre</td>
-<td><code>ss</code></td>
-<td><code>:lua require('spectre').open()&lt;CR&gt;</code></td>
+<td>Start PR review</td>
+<td><code> ors</code></td>
+<td><code>:Octo review start&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
-<td>Search on current file with Spectre</td>
-<td><code>sf</code></td>
-<td><code>:lua require('spectre').open_file_search({select_word=true})&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Search current word with Spectre</td>
-<td><code>sw</code></td>
-<td><code>:lua require('spectre').open_visual({select_word=true})&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Close diffview</td>
-<td><code>dcc</code></td>
-<td><code>:DiffviewClose&lt;CR&gt;</code></td>
+<td>Close current review</td>
+<td><code> orc</code></td>
+<td><code>:Octo review close&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Open diffview</td>
-<td><code>dv</code></td>
+<td><code> dv</code></td>
 <td><code>:DiffviewOpen&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Show current file history</td>
-<td><code>dch</code></td>
+<td><code> dch</code></td>
 <td><code>:DiffviewFileHistory %&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Show Commit history with changes</td>
-<td><code>dh</code></td>
+<td><code> dh</code></td>
 <td><code>:DiffviewFileHistory&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Close diffview</td>
+<td><code> dcc</code></td>
+<td><code>:DiffviewClose&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Show git status</td>
+<td><code> gst</code></td>
+<td><code>:Telescope git_status
+initial_mode=normal&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Open Telescope Keymaps</td>
+<td><code> k</code></td>
+<td><code>:Telescope keymaps&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Show git branches</td>
+<td><code> gb</code></td>
+<td><code>:Telescope git_branches
+initial_mode=normal&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Show git log</td>
+<td><code> glo</code></td>
+<td><code>:Telescope git_commits
+initial_mode=normal&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Open Telescope live_grep</td>
+<td><code> fg</code></td>
+<td><code>:Telescope live_grep&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Open Telescope</td>
+<td><code> ff</code></td>
+<td><code>:Telescope find_files&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Select all</td>
+<td><code> a</code></td>
+<td><code>ggvG&lt;S-End&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Test keymap</td>
+<td><code> test</code></td>
+<td><code>:echo ‘This is a test keymap!’&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Open Spectre</td>
+<td><code> ss</code></td>
+<td><code>:lua require(‘spectre’).open()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Search on current file with Spectre</td>
+<td><code> sf</code></td>
+<td><code>:lua
+require(‘spectre’).open_file_search({select_word=true})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Search current word with Spectre</td>
+<td><code> sw</code></td>
+<td><code>:lua
+require(‘spectre’).open_visual({select_word=true})&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Open a floating term</td>
+<td><code> tt</code></td>
+<td><code>:ToggleTerm direction=float&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Where am I</td>
+<td><code> wai</code></td>
+<td><code>:echo expand(‘%:p’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -302,121 +308,112 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="even">
 <td>go to the end of the line</td>
 <td><code>E</code></td>
-<td><code>$</code></td>
+<td><code><span
+class="math inline"> &lt; /<em>c</em><em>o</em><em>d</em><em>e</em> &gt; ||<em>N</em><em>v</em><em>i</em><em>m</em><em>b</em><em>u</em><em>i</em><em>l</em><em>t</em><em>i</em><em>n</em>|&lt;<em>c</em><em>o</em><em>d</em><em>e</em>&gt;<em>Y</em>&lt;/<em>c</em><em>o</em><em>d</em><em>e</em>&gt;| &lt; <em>c</em><em>o</em><em>d</em><em>e</em> &gt; <em>y</em></span></code></td>
 </tr>
 <tr class="odd">
-<td>Nvim builtin</td>
-<td><code>Y</code></td>
-<td><code>y$</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>[%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
-<td><code>\\gS</code></td>
+<td><code>\gS</code></td>
 <td><code>&lt;Plug&gt;(VM-Reselect-Last)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><code>\\/</code></td>
+<td><code>\/</code></td>
 <td><code>&lt;Plug&gt;(VM-Start-Regex-Search)</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>\\\</code></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>\\A</code></td>
-<td><code>&lt;Plug&gt;(VM-Select-All)</code></td>
+<td><code>\&lt;/code&gt;</td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>\A</code></td>
+<td><code>&lt;Plug&gt;(VM-Select-All)</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>]%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Clear search highlight</td>
 <td><code>_</code></td>
 <td><code>:noh&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>gx</code></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>g%</code></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert end of line</td>
 <td><code>gcA</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment insert above</td>
 <td><code>gcO</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment insert below</td>
 <td><code>gco</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current block</td>
 <td><code>gbc</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current line</td>
 <td><code>gcc</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise</td>
 <td><code>gb</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
 <td><code>gc</code></td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Close preview windows</td>
 <td><code>gP</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Preview references</td>
 <td><code>gpr</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Preview implementation</td>
 <td><code>gpi</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Preview type definition</td>
 <td><code>gpt</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Preview definition</td>
 <td><code>gpd</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Open all folds</td>
-<td><code>zR</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -425,39 +422,9 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Save current file</td>
-<td><code>&lt;C-S&gt;</code></td>
-<td><code>:w&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Update buffer</td>
-<td><code>&lt;F5&gt;</code></td>
-<td><code>:bufdo e!&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Close current buffer</td>
-<td><code>&lt;M-w&gt;</code></td>
-<td><code>:bd&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Move to the previous buffer</td>
-<td><code>&lt;M-h&gt;</code></td>
-<td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Move to the next buffer</td>
-<td><code>&lt;M-l&gt;</code></td>
-<td><code>:BufferLineCycleNext&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Format file</td>
-<td><code>&lt;M-F&gt;</code></td>
-<td><code>:lua vim.lsp.buf.format({ timeout_ms = 5000 })&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Open Nvimtree</td>
-<td><code>&lt;C-B&gt;</code></td>
-<td><code>:NvimTreeFindFileToggle&lt;CR&gt;</code></td>
+<td>Open all folds</td>
+<td><code>zR</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Move up faster</td>
@@ -475,264 +442,328 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <td><code>10j</code></td>
 </tr>
 <tr class="odd">
+<td>Format file</td>
+<td><code>&lt;M-F&gt;</code></td>
+<td><code>:lua vim.lsp.buf.format({ timeout_ms = 5000
+})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Move to the next buffer</td>
+<td><code>&lt;M-l&gt;</code></td>
+<td><code>:BufferLineCycleNext&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Close current buffer</td>
+<td><code>&lt;M-w&gt;</code></td>
+<td><code>:bd&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Move to the previous buffer</td>
+<td><code>&lt;M-h&gt;</code></td>
+<td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Save current file</td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Open Nvimtree</td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>:NvimTreeFindFileToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Update buffer</td>
+<td><code>&lt;F5&gt;</code></td>
+<td><code>:bufdo e!&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
-<td><code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Move line up</td>
-<td><code>&lt;M-k&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua MiniMove.move_line('up')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
-<td>Move line down</td>
-<td><code>&lt;M-j&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua MiniMove.move_line('down')&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Move line left</td>
-<td><code>&lt;S-Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua MiniMove.move_line('left')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-Down&gt;</code></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-Up&gt;</code></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;S-Right&gt;</code></td>
-<td><code>&lt;Plug&gt;(VM-Select-l)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;S-Left&gt;</code></td>
-<td><code>&lt;Plug&gt;(VM-Select-h)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-N&gt;</code></td>
-<td><code>&lt;Plug&gt;(VM-Find-Under)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-BBW)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('BBW', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-gE)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('gE', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-ge)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('ge', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-E)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('E', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-e)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('e', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-B)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('B', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-b)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('b', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-W)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('W', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-w)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('w', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-l)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('l', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-k)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('k', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-j)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('j', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-h)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#motion('h', v:count1, 1, 0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Mouse-Column)</code></td>
-<td><code>:call vm#commands#mouse_column()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Mouse-Word)</code></td>
-<td><code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Find-Under)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Mouse-Cursor)</code></td>
-<td><code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Left-Mouse)</code></td>
-<td><code>&lt;LeftMouse&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Slash-Search)</code></td>
-<td><code>@=vm#commands#find_by_regex(3)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Start-Regex-Search)</code></td>
-<td><code>@=vm#commands#find_by_regex(1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Find-Under)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#ctrln(v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-All)</code></td>
-<td><code>:call vm#commands#find_all(0, 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Reselect-Last)</code></td>
-<td><code>:call vm#commands#reselect_last()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-Cursor-Up)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_up(1, v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Select-Cursor-Down)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_down(1, v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_up(0, v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code></td>
-<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_down(0, v:count1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Word)</code></td>
-<td><code>:call vm#commands#add_cursor_at_word(1, 1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
-<td><code>:call vm#commands#add_cursor_at_pos(0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
 <td>Comment toggle blockwise with count</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise with count</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle current block</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle current line</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comment toggle blockwise</td>
 <td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment toggle linewise</td>
 <td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;nohlsearch|diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>&lt;C-Down&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Up&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;S-Right&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Select-l)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;S-Left&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Select-h)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-N&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Find-Under)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-BBW)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘BBW’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-gE)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘gE’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-ge)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘ge’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-E)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘E’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-e)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘e’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-B)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘B’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-b)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘b’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-W)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘W’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-w)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘w’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-l)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘l’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-k)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘k’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-j)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘j’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-h)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#motion(‘h’, v:count1, 1,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Mouse-Column)</code></td>
+<td><code>:call vm#commands#mouse_column()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Mouse-Word)</code></td>
+<td><code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Find-Under)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Mouse-Cursor)</code></td>
+<td><code>&lt;Plug&gt;(VM-Left-Mouse)&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Left-Mouse)</code></td>
+<td><code>&lt;LeftMouse&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Slash-Search)</code></td>
+<td><code>@=vm#commands#find_by_regex(3)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Start-Regex-Search)</code></td>
+<td><code>@=vm#commands#find_by_regex(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Find-Under)</code></td>
+<td><code>:&lt;C-U&gt;call
+vm#commands#ctrln(v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-All)</code></td>
+<td><code>:call vm#commands#find_all(0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Reselect-Last)</code></td>
+<td><code>:call vm#commands#reselect_last()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-Cursor-Up)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_up(1,
+v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Select-Cursor-Down)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_down(1,
+v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-Up)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_up(0,
+v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-Down)</code></td>
+<td><code>:&lt;C-U&gt;call vm#commands#add_cursor_down(0,
+v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Word)</code></td>
+<td><code>:call vm#commands#add_cursor_at_word(1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Add-Cursor-At-Pos)</code></td>
+<td><code>:call vm#commands#add_cursor_at_pos(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Move line up</td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua MiniMove.move_line(‘up’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Move line down</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘down’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Move line left</td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘left’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
+</tr>
+<tr class="odd">
 <td>Close current buffer</td>
 <td><code>æ</code></td>
 <td><code>:bd&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Move to the previous buffer</td>
 <td><code>™</code></td>
 <td><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Format file</td>
 <td><code>ﬁ</code></td>
-<td><code>:lua vim.lsp.buf.format({ timeout_ms = 5000 })&lt;CR&gt;</code></td>
+<td><code>:lua vim.lsp.buf.format({ timeout_ms = 5000
+})&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -754,17 +785,19 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td>Move right</td>
 <td><code>&lt;Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua MiniMove.move_selection('right')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘right’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td>Search on current file with Spectre</td>
-<td><code>sw</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua require('spectre').open_visual()&lt;CR&gt;</code></td>
+<td><code> sw</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(‘spectre’).open_visual()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -774,7 +807,7 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -783,27 +816,27 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\\c</code></td>
+<td><code>\c</code></td>
 <td><code>&lt;Plug&gt;(VM-Visual-Cursors)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\\a</code></td>
+<td><code>\a</code></td>
 <td><code>&lt;Plug&gt;(VM-Visual-Add)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\\f</code></td>
+<td><code>\f</code></td>
 <td><code>&lt;Plug&gt;(VM-Visual-Find)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\\/</code></td>
+<td><code>\/</code></td>
 <td><code>&lt;Plug&gt;(VM-Visual-Regex)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\\A</code></td>
+<td><code>\A</code></td>
 <td><code>&lt;Plug&gt;(VM-Visual-All)</code></td>
 </tr>
 <tr class="even">
@@ -859,25 +892,87 @@ href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | |  |</code><C-N><code>|</code><Plug>(VM-Find-Subword-Under)<code>| |  |</code><Plug>(VM-Visual-Regex)<code>|</code>:call
-vm#commands#find_by_regex(2)<CR>:call feedkeys(‘/’,
-‘n’)<CR><code>| |  |</code><Plug>(VM-Find-Subword-Under)<code>|</code><SNR>20_Visual(‘under’)<code>| |  |</code><Plug>(VM-Visual-Reduce)<code>|</code>:<C-U>call
-vm#visual#reduce()<CR><code>| |  |</code><Plug>(VM-Visual-Add)<code>|</code><Esc>:call
-vm#commands#visual_add()<CR><code>| |  |</code><Plug>(VM-Visual-Cursors)<code>|</code><Esc>:call
-vm#commands#visual_cursors()<CR><code>| |  |</code><Plug>(VM-Visual-All)<code>|</code><SNR>20_Visual(‘all’)<code>| |  |</code><Plug>(VM-Visual-Find)<code>|</code>vm#operators#find(1,
-1)<code>| | Comment toggle blockwise (visual) |</code><Plug>(comment_toggle_blockwise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR><code>| | Comment toggle linewise (visual) |</code><Plug>(comment_toggle_linewise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR><code>| | Move up |</code><M-k><code>|</code><Cmd>lua
-MiniMove.move_selection(‘up’)<CR><code>| | Move down |</code><M-j><code>|</code><Cmd>lua
-MiniMove.move_selection(‘down’)<CR><code>| | Move left |</code><S-Tab><code>|</code><Cmd>lua
-MiniMove.move_selection(‘left’)<CR>`</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-N&gt;</code></td>
+<td><code>&lt;Plug&gt;(VM-Find-Subword-Under)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-Regex)</code></td>
+<td><code>:call vm#commands#find_by_regex(2)&lt;CR&gt;:call
+feedkeys(‘/’, ‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Find-Subword-Under)</code></td>
+<td><code>&lt;SNR&gt;19_Visual(‘under’)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-Reduce)</code></td>
+<td><code>:&lt;C-U&gt;call vm#visual#reduce()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-Add)</code></td>
+<td><code>&lt;Esc&gt;:call
+vm#commands#visual_add()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-Cursors)</code></td>
+<td><code>&lt;Esc&gt;:call
+vm#commands#visual_cursors()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-All)</code></td>
+<td><code>&lt;SNR&gt;19_Visual(‘all’)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(VM-Visual-Find)</code></td>
+<td><code>vm#operators#find(1, 1)</code></td>
+</tr>
+<tr class="even">
+<td>Move up</td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘up’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Move down</td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘down’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Move left</td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘left’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -919,22 +1014,26 @@ MiniMove.move_selection(‘left’)<CR>`</td>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

@@ -21,446 +21,446 @@ Personal Neovim configuration of Enrique Mejidas
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` r#` |  |
-|  | ` #` |  |
-|  | ` g?` | `:map  g<CR>` |
-|  | ` gw` | `:GBrowse<CR>` |
-|  | ` gl` | `:Gclog -n 100 --<CR>` |
-|  | ` gd` | `:Git diff<CR>` |
-|  | ` gP` | `:Git push origin ` |
-|  | ` gpr` | `:Git pull --rebase origin ` |
-|  | ` gpo` | `:Git pull --ff-only origin ` |
-|  | ` gb` | `:Git blame<CR>` |
-|  | ` gs` | `:Git<CR>` |
-|  | ` ts` |  |
-|  | ` tb` |  |
-|  | ` tg` |  |
-|  | ` tf` |  |
-|  | ` th` |  |
-|  | ` sd` |  |
-|  | ` v*` | `:vsplit<CR>*` |
-|  | ` x*` | `:split<CR>*` |
-|  | `  ` | `<C-^>` |
-|  | ` vf` | `:Vexplore!<CR>` |
-|  | ` sf` | `:Sexplore<CR>` |
-|  | ` f` | `:Explore<CR>` |
-|  | ` yy` | `"+yy` |
-|  | ` y` | `"+y` |
-|  | ` w` | `:w<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `'[` | `:<C-U>call signature#mark#Goto("prev", "line", "alpha")<CR>` |
-|  | `']` | `:<C-U>call signature#mark#Goto("next", "line", "alpha")<CR>` |
-|  | `-` | `<Plug>VinegarUp` |
-|  | `<lt>p` | `<Plug>(unimpaired-put-below-leftward)` |
-|  | `<lt>P` | `<Plug>(unimpaired-put-above-leftward)` |
-|  | `<lt>s<Esc>` | `` |
-|  | `<lt>s` | `<Plug>(unimpaired-enable)` |
-|  | `=p` | `<Plug>(unimpaired-put-below-reformat)` |
-|  | `=P` | `<Plug>(unimpaired-put-above-reformat)` |
-|  | `=s<Esc>` | `` |
-|  | `=s` | `<Plug>(unimpaired-toggle)` |
-|  | `>p` | `<Plug>(unimpaired-put-below-rightward)` |
-|  | `>P` | `<Plug>(unimpaired-put-above-rightward)` |
-|  | `>s<Esc>` | `` |
-|  | `>s` | `<Plug>(unimpaired-disable)` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[xx` | `<Plug>(unimpaired-xml-encode-line)` |
-|  | `[x` | `<Plug>(unimpaired-xml-encode)` |
-|  | `[uu` | `<Plug>(unimpaired-url-encode-line)` |
-|  | `[u` | `<Plug>(unimpaired-url-encode)` |
-|  | `[CC` | `<Plug>(unimpaired-string-encode-line)` |
-|  | `[C` | `<Plug>(unimpaired-string-encode)` |
-|  | `[yy` | `<Plug>(unimpaired-string-encode-line)` |
-|  | `[y` | `<Plug>(unimpaired-string-encode)` |
-|  | `[P` | `<Plug>(unimpaired-put-above)` |
-|  | `[p` | `<Plug>(unimpaired-put-above)` |
-|  | `[o<Esc>` | `` |
-|  | `[o` | `<Plug>(unimpaired-enable)` |
-|  | `[e` | `<Plug>(unimpaired-move-up)` |
-|  | `[ ` | `<Plug>(unimpaired-blank-up)` |
-|  | `[n` | `<Plug>(unimpaired-context-previous)` |
-|  | `[f` | `<Plug>(unimpaired-directory-previous)` |
-|  | `[<C-T>` | `<Plug>(unimpaired-ptprevious)` |
-|  | `[T` | `<Plug>(unimpaired-tfirst)` |
-|  | `[t` | `<Plug>(unimpaired-tprevious)` |
-|  | `[<C-Q>` | `<Plug>(unimpaired-cpfile)` |
-|  | `[Q` | `<Plug>(unimpaired-cfirst)` |
-|  | `[q` | `<Plug>(unimpaired-cprevious)` |
-|  | `[<C-L>` | `<Plug>(unimpaired-lpfile)` |
-|  | `[L` | `<Plug>(unimpaired-lfirst)` |
-|  | `[l` | `<Plug>(unimpaired-lprevious)` |
-|  | `[B` | `<Plug>(unimpaired-bfirst)` |
-|  | `[b` | `<Plug>(unimpaired-bprevious)` |
-|  | `[A` | `<Plug>(unimpaired-first)` |
-|  | `[a` | `<Plug>(unimpaired-previous)` |
-|  | `[=` | `:<C-U>call signature#marker#Goto("prev", "any",  v:count)<CR>` |
-|  | `[-` | `:<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>` |
-|  | `[`` | `:<C-U>call signature#mark#Goto("prev", "spot", "pos")<CR>` |
-|  | `['` | `:<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `[d` |  |
-|  | `]xx` | `<Plug>(unimpaired-xml-decode-line)` |
-|  | `]x` | `<Plug>(unimpaired-xml-decode)` |
-|  | `]uu` | `<Plug>(unimpaired-url-decode-line)` |
-|  | `]u` | `<Plug>(unimpaired-url-decode)` |
-|  | `]CC` | `<Plug>(unimpaired-string-decode-line)` |
-|  | `]C` | `<Plug>(unimpaired-string-decode)` |
-|  | `]yy` | `<Plug>(unimpaired-string-decode-line)` |
-|  | `]y` | `<Plug>(unimpaired-string-decode)` |
-|  | `]P` | `<Plug>(unimpaired-put-below)` |
-|  | `]p` | `<Plug>(unimpaired-put-below)` |
-|  | `]o<Esc>` | `` |
-|  | `]o` | `<Plug>(unimpaired-disable)` |
-|  | `]e` | `<Plug>(unimpaired-move-down)` |
-|  | `] ` | `<Plug>(unimpaired-blank-down)` |
-|  | `]n` | `<Plug>(unimpaired-context-next)` |
-|  | `]f` | `<Plug>(unimpaired-directory-next)` |
-|  | `]<C-T>` | `<Plug>(unimpaired-ptnext)` |
-|  | `]T` | `<Plug>(unimpaired-tlast)` |
-|  | `]t` | `<Plug>(unimpaired-tnext)` |
-|  | `]<C-Q>` | `<Plug>(unimpaired-cnfile)` |
-|  | `]Q` | `<Plug>(unimpaired-clast)` |
-|  | `]q` | `<Plug>(unimpaired-cnext)` |
-|  | `]<C-L>` | `<Plug>(unimpaired-lnfile)` |
-|  | `]L` | `<Plug>(unimpaired-llast)` |
-|  | `]l` | `<Plug>(unimpaired-lnext)` |
-|  | `]B` | `<Plug>(unimpaired-blast)` |
-|  | `]b` | `<Plug>(unimpaired-bnext)` |
-|  | `]A` | `<Plug>(unimpaired-last)` |
-|  | `]a` | `<Plug>(unimpaired-next)` |
-|  | `]=` | `:<C-U>call signature#marker#Goto("next", "any",  v:count)<CR>` |
-|  | `]-` | `:<C-U>call signature#marker#Goto("next", "same", v:count)<CR>` |
-|  | `]`` | `:<C-U>call signature#mark#Goto("next", "spot", "pos")<CR>` |
-|  | `]'` | `:<C-U>call signature#mark#Goto("next", "line", "pos")<CR>` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `]d` |  |
-|  | ``[` | `:<C-U>call signature#mark#Goto("prev", "spot", "alpha")<CR>` |
-|  | ``]` | `:<C-U>call signature#mark#Goto("next", "spot", "alpha")<CR>` |
-|  | `cS` | `<Plug>CSurround` |
-|  | `cs` | `<Plug>Csurround` |
-|  | `ds` | `<Plug>Dsurround` |
-|  | `dm` | `:<C-U>call signature#utils#Remove(v:count)<CR>` |
-|  | `gcu` | `<Plug>Commentary<Plug>Commentary` |
-|  | `gcc` | `<Plug>CommentaryLine` |
-|  | `gc` | `<Plug>Commentary` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-|  | `j` | `gj` |
-|  | `k` | `gk` |
-|  | `m?` | `:<C-U>call signature#marker#List(v:count, 0)<CR>` |
-|  | `m/` | `:<C-U>call signature#mark#List(0, 0)<CR>` |
-|  | `m<BS>` | `:<C-U>call signature#marker#Purge()<CR>` |
-|  | `m ` | `:<C-U>call signature#mark#Purge("all")<CR>` |
-|  | `m-` | `:<C-U>call signature#mark#Purge("line")<CR>` |
-|  | `m.` | `:<C-U>call signature#mark#ToggleAtLine()<CR>` |
-|  | `m,` | `:<C-U>call signature#mark#Toggle("next")<CR>` |
-|  | `m` | `:<C-U>call signature#utils#Input()<CR>` |
-|  | `yo<Esc>` | `` |
-|  | `yo` | `<Plug>(unimpaired-toggle)` |
-|  | `ySS` | `<Plug>YSsurround` |
-|  | `ySs` | `<Plug>YSsurround` |
-|  | `yss` | `<Plug>Yssurround` |
-|  | `yS` | `<Plug>YSurround` |
-|  | `ys` | `<Plug>Ysurround` |
-|  | `y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<Plug>(vsnip-cut-text)` | `:set operatorfunc=<SNR>48_vsnip_cut_text_normal<CR>g@` |
-|  | `<Plug>(vsnip-select-text)` | `:set operatorfunc=<SNR>48_vsnip_select_text_normal<CR>g@` |
-|  | `<Plug>VinegarVerticalSplitUp` | `:call <SNR>47_opendir('vsplit')<CR>` |
-|  | `<Plug>VinegarSplitUp` | `:call <SNR>47_opendir('split')<CR>` |
-|  | `<Plug>VinegarTabUp` | `:call <SNR>47_opendir('tabedit')<CR>` |
-|  | `<Plug>VinegarUp` | `:call <SNR>47_opendir('edit')<CR>` |
-|  | `<Plug>(unimpaired-xml-decode-line)` | `<SNR>46_TransformSetup("xml_decode")."_"` |
-|  | `<Plug>(unimpaired-xml-decode)` | `<SNR>46_TransformSetup("xml_decode")` |
-|  | `<Plug>unimpaired_line_xml_decode` | `<SNR>46_TransformSetup("xml_decode")."_"` |
-|  | `<Plug>unimpaired_xml_decode` | `<SNR>46_TransformSetup("xml_decode")` |
-|  | `<Plug>(unimpaired-xml-encode-line)` | `<SNR>46_TransformSetup("xml_encode")."_"` |
-|  | `<Plug>(unimpaired-xml-encode)` | `<SNR>46_TransformSetup("xml_encode")` |
-|  | `<Plug>unimpaired_line_xml_encode` | `<SNR>46_TransformSetup("xml_encode")."_"` |
-|  | `<Plug>unimpaired_xml_encode` | `<SNR>46_TransformSetup("xml_encode")` |
-|  | `<Plug>(unimpaired-url-decode-line)` | `<SNR>46_TransformSetup("url_decode")."_"` |
-|  | `<Plug>(unimpaired-url-decode)` | `<SNR>46_TransformSetup("url_decode")` |
-|  | `<Plug>unimpaired_line_url_decode` | `<SNR>46_TransformSetup("url_decode")."_"` |
-|  | `<Plug>unimpaired_url_decode` | `<SNR>46_TransformSetup("url_decode")` |
-|  | `<Plug>(unimpaired-url-encode-line)` | `<SNR>46_TransformSetup("url_encode")."_"` |
-|  | `<Plug>(unimpaired-url-encode)` | `<SNR>46_TransformSetup("url_encode")` |
-|  | `<Plug>unimpaired_line_url_encode` | `<SNR>46_TransformSetup("url_encode")."_"` |
-|  | `<Plug>unimpaired_url_encode` | `<SNR>46_TransformSetup("url_encode")` |
-|  | `<Plug>(unimpaired-string-decode-line)` | `<SNR>46_TransformSetup("string_decode")."_"` |
-|  | `<Plug>(unimpaired-string-decode)` | `<SNR>46_TransformSetup("string_decode")` |
-|  | `<Plug>unimpaired_line_string_decode` | `<SNR>46_TransformSetup("string_decode")."_"` |
-|  | `<Plug>unimpaired_string_decode` | `<SNR>46_TransformSetup("string_decode")` |
-|  | `<Plug>(unimpaired-string-encode-line)` | `<SNR>46_TransformSetup("string_encode")."_"` |
-|  | `<Plug>(unimpaired-string-encode)` | `<SNR>46_TransformSetup("string_encode")` |
-|  | `<Plug>unimpaired_line_string_encode` | `<SNR>46_TransformSetup("string_encode")."_"` |
-|  | `<Plug>unimpaired_string_encode` | `<SNR>46_TransformSetup("string_encode")` |
-|  | `<Plug>unimpairedPutBelow` | `:call <SNR>46_putline(']p', 'below')<CR>` |
-|  | `<Plug>unimpairedPutAbove` | `:call <SNR>46_putline('[p', 'above')<CR>` |
-|  | `<Plug>(unimpaired-put-below-reformat)` | `:<C-U>call <SNR>46_putline(v:count1 . ']p', 'Below')<CR>=']` |
-|  | `<Plug>(unimpaired-put-above-reformat)` | `:<C-U>call <SNR>46_putline(v:count1 . '[p', 'Above')<CR>=']` |
-|  | `<Plug>(unimpaired-put-below-leftward)` | `:<C-U>call <SNR>46_putline(v:count1 . ']p', 'Below')<CR><lt>']` |
-|  | `<Plug>(unimpaired-put-above-leftward)` | `:<C-U>call <SNR>46_putline(v:count1 . '[p', 'Above')<CR><lt>']` |
-|  | `<Plug>(unimpaired-put-below-rightward)` | `:<C-U>call <SNR>46_putline(v:count1 . ']p', 'Below')<CR>>']` |
-|  | `<Plug>(unimpaired-put-above-rightward)` | `:<C-U>call <SNR>46_putline(v:count1 . '[p', 'Above')<CR>>']` |
-|  | `<Plug>(unimpaired-put-below)` | `:call <SNR>46_putline(']p', 'below')<CR>` |
-|  | `<Plug>(unimpaired-put-above)` | `:call <SNR>46_putline('[p', 'above')<CR>` |
-|  | `<Plug>(unimpaired-toggle)p` | `:<C-U>call <SNR>46_SetupPaste()<CR>0C` |
-|  | `<Plug>(unimpaired-disable)p` | `:<C-U>call <SNR>46_SetupPaste()<CR>o` |
-|  | `<Plug>(unimpaired-enable)p` | `:<C-U>call <SNR>46_SetupPaste()<CR>O` |
-|  | `<Plug>(unimpaired-paste)` | `:<C-U>call <SNR>46_SetupPaste()<CR>` |
-|  | `<Plug>unimpairedPaste` | `:call <SNR>46_SetupPaste()<CR>` |
-|  | `<Plug>(unimpaired-toggle)t` | `:<C-U>set colorcolumn=<C-R>=<SNR>46_ColorColumn(!empty(&cc))<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)t` | `:<C-U>set colorcolumn=<C-R>=<SNR>46_ColorColumn(1)<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)t` | `:<C-U>set colorcolumn=<C-R>=<SNR>46_ColorColumn(0)<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)+` | `:<C-U>set <C-R>=<SNR>46_CursorOptions()<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)+` | `:<C-U>set nocursorline nocursorcolumn<CR>` |
-|  | `<Plug>(unimpaired-enable)+` | `:<C-U>set cursorline cursorcolumn<CR>` |
-|  | `<Plug>(unimpaired-toggle)x` | `:<C-U>set <C-R>=<SNR>46_CursorOptions()<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)x` | `:<C-U>set nocursorline nocursorcolumn<CR>` |
-|  | `<Plug>(unimpaired-enable)x` | `:<C-U>set cursorline cursorcolumn<CR>` |
-|  | `<Plug>(unimpaired-toggle)v` | `:<C-U>set <C-R>=(&virtualedit =~# "all") ? "virtualedit-=all" : "virtualedit+=all"<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)v` | `:<C-U>set virtualedit-=all<CR>` |
-|  | `<Plug>(unimpaired-enable)v` | `:<C-U>set virtualedit+=all<CR>` |
-|  | `<Plug>(unimpaired-toggle)z` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("spell")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)z` | `:<C-U>setlocal nospell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)z` | `:<C-U>setlocal spell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)w` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("wrap")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)w` | `:<C-U>setlocal nowrap<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)w` | `:<C-U>setlocal wrap<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)s` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("spell")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)s` | `:<C-U>setlocal nospell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)s` | `:<C-U>setlocal spell<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)r` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("relativenumber")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)r` | `:<C-U>setlocal norelativenumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)r` | `:<C-U>setlocal relativenumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)n` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("number")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)n` | `:<C-U>setlocal nonumber<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)n` | `:<C-U>setlocal number<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)l` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("list")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)l` | `:<C-U>setlocal nolist<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)l` | `:<C-U>setlocal list<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)i` | `:<C-U>set <C-R>=<SNR>46_Toggle("ignorecase")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)i` | `:<C-U>set noignorecase<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)i` | `:<C-U>set ignorecase<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)h` | `:<C-U>set <C-R>=<SNR>46_Toggle("hlsearch")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)h` | `:<C-U>set nohlsearch<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)h` | `:<C-U>set hlsearch<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)d` | `:<C-U><C-R>=&diff ? "diffoff" : "diffthis"<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)d` | `:<C-U>diffoff<CR>` |
-|  | `<Plug>(unimpaired-enable)d` | `:<C-U>diffthis<CR>` |
-|  | `<Plug>(unimpaired-toggle)|` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("cursorcolumn")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)|` | `:<C-U>setlocal nocursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)|` | `:<C-U>setlocal cursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)u` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("cursorcolumn")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)u` | `:<C-U>setlocal nocursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)u` | `:<C-U>setlocal cursorcolumn<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)_` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("cursorline")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)_` | `:<C-U>setlocal nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)_` | `:<C-U>setlocal cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)-` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("cursorline")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)-` | `:<C-U>setlocal nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)-` | `:<C-U>setlocal cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)c` | `:<C-U>setlocal <C-R>=<SNR>46_Toggle("cursorline")<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)c` | `:<C-U>setlocal nocursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-enable)c` | `:<C-U>setlocal cursorline<C-R>=<SNR>46_StatuslineRefresh()<CR><CR>` |
-|  | `<Plug>(unimpaired-toggle)b` | `:<C-U>set background=<C-R>=&background == "dark" ? "light" : "dark"<CR><CR>` |
-|  | `<Plug>(unimpaired-disable)b` | `:<C-U>set background=dark<CR>` |
-|  | `<Plug>(unimpaired-enable)b` | `:<C-U>set background=light<CR>` |
-|  | `<Plug>unimpairedMoveSelectionDown` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>unimpairedMoveSelectionUp` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>unimpairedMoveDown` | `:<C-U>call <SNR>46_Move('+',v:count1,'down')<CR>` |
-|  | `<Plug>unimpairedMoveUp` | `:<C-U>call <SNR>46_Move('--',v:count1,'up')<CR>` |
-|  | `<Plug>(unimpaired-move-selection-down)` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-selection-up)` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-down)` | `:<C-U>call <SNR>46_Move('+',v:count1,'down')<CR>` |
-|  | `<Plug>(unimpaired-move-up)` | `:<C-U>call <SNR>46_Move('--',v:count1,'up')<CR>` |
-|  | `<Plug>unimpairedBlankDown` | `:<C-U>exe <SNR>46_BlankDown()<CR>` |
-|  | `<Plug>unimpairedBlankUp` | `:<C-U>exe <SNR>46_BlankUp()<CR>` |
-|  | `<Plug>(unimpaired-blank-down)` | `:<C-U>exe <SNR>46_BlankDown()<CR>` |
-|  | `<Plug>(unimpaired-blank-up)` | `:<C-U>exe <SNR>46_BlankUp()<CR>` |
-|  | `<Plug>unimpairedContextNext` | `:<C-U>call <SNR>46_Context(0)<CR>` |
-|  | `<Plug>unimpairedContextPrevious` | `:<C-U>call <SNR>46_Context(1)<CR>` |
-|  | `<Plug>(unimpaired-context-next)` | `:<C-U>call <SNR>46_Context(0)<CR>` |
-|  | `<Plug>(unimpaired-context-previous)` | `:<C-U>call <SNR>46_Context(1)<CR>` |
-|  | `<Plug>unimpairedDirectoryPrevious` | `:<C-U>execute <SNR>46_PreviousFileEntry(v:count1)<CR>` |
-|  | `<Plug>unimpairedDirectoryNext` | `:<C-U>execute <SNR>46_NextFileEntry(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-directory-previous)` | `:<C-U>execute <SNR>46_PreviousFileEntry(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-directory-next)` | `:<C-U>execute <SNR>46_NextFileEntry(v:count1)<CR>` |
-|  | `<Plug>unimpairedTPNext` | `:<C-U>exe "p".(v:count ? v:count : "")."tnext"<CR>` |
-|  | `<Plug>unimpairedTPPrevious` | `:<C-U>exe "p".(v:count ? v:count : "")."tprevious"<CR>` |
-|  | `<Plug>(unimpaired-ptnext)` | `:<C-U>exe v:count1 . "ptnext"<CR>` |
-|  | `<Plug>(unimpaired-ptprevious)` | `:<C-U>exe v:count1 . "ptprevious"<CR>` |
-|  | `<Plug>unimpairedTLast` | `:<C-U>exe "".(v:count ? v:count : "")."tlast"<CR>` |
-|  | `<Plug>unimpairedTFirst` | `:<C-U>exe "".(v:count ? v:count : "")."tfirst"<CR>` |
-|  | `<Plug>unimpairedTNext` | `:<C-U>exe "".(v:count ? v:count : "")."tnext"<CR>` |
-|  | `<Plug>unimpairedTPrevious` | `:<C-U>exe "".(v:count ? v:count : "")."tprevious"<CR>` |
-|  | `<Plug>(unimpaired-tlast)` | `:<C-U><C-R>=v:count ? v:count . "trewind" : "tlast"<CR><CR>` |
-|  | `<Plug>(unimpaired-tfirst)` | `:<C-U><C-R>=v:count ? v:count . "trewind" : "tfirst"<CR><CR>` |
-|  | `<Plug>(unimpaired-tnext)` | `:<C-U>exe "".(v:count ? v:count : "")."tnext"<CR>` |
-|  | `<Plug>(unimpaired-tprevious)` | `:<C-U>exe "".(v:count ? v:count : "")."tprevious"<CR>` |
-|  | `<Plug>unimpairedQNFile` | `:<C-U>exe "".(v:count ? v:count : "")."cnfile"<CR>zv` |
-|  | `<Plug>unimpairedQPFile` | `:<C-U>exe "".(v:count ? v:count : "")."cpfile"<CR>zv` |
-|  | `<Plug>(unimpaired-cnfile)` | `:<C-U>exe "".(v:count ? v:count : "")."cnfile"<CR>zv` |
-|  | `<Plug>(unimpaired-cpfile)` | `:<C-U>exe "".(v:count ? v:count : "")."cpfile"<CR>zv` |
-|  | `<Plug>unimpairedQLast` | `:<C-U>exe "".(v:count ? v:count : "")."clast"<CR>zv` |
-|  | `<Plug>unimpairedQFirst` | `:<C-U>exe "".(v:count ? v:count : "")."cfirst"<CR>zv` |
-|  | `<Plug>unimpairedQNext` | `:<C-U>exe "".(v:count ? v:count : "")."cnext"<CR>zv` |
-|  | `<Plug>unimpairedQPrevious` | `:<C-U>exe "".(v:count ? v:count : "")."cprevious"<CR>zv` |
-|  | `<Plug>(unimpaired-clast)` | `:<C-U><C-R>=v:count ? v:count . "cc" : "clast"<CR><CR>zv` |
-|  | `<Plug>(unimpaired-cfirst)` | `:<C-U><C-R>=v:count ? v:count . "cc" : "cfirst"<CR><CR>zv` |
-|  | `<Plug>(unimpaired-cnext)` | `:<C-U>exe "".(v:count ? v:count : "")."cnext"<CR>zv` |
-|  | `<Plug>(unimpaired-cprevious)` | `:<C-U>exe "".(v:count ? v:count : "")."cprevious"<CR>zv` |
-|  | `<Plug>unimpairedLNFile` | `:<C-U>exe "".(v:count ? v:count : "")."lnfile"<CR>zv` |
-|  | `<Plug>unimpairedLPFile` | `:<C-U>exe "".(v:count ? v:count : "")."lpfile"<CR>zv` |
-|  | `<Plug>(unimpaired-lnfile)` | `:<C-U>exe "".(v:count ? v:count : "")."lnfile"<CR>zv` |
-|  | `<Plug>(unimpaired-lpfile)` | `:<C-U>exe "".(v:count ? v:count : "")."lpfile"<CR>zv` |
-|  | `<Plug>unimpairedLLast` | `:<C-U>exe "".(v:count ? v:count : "")."llast"<CR>zv` |
-|  | `<Plug>unimpairedLFirst` | `:<C-U>exe "".(v:count ? v:count : "")."lfirst"<CR>zv` |
-|  | `<Plug>unimpairedLNext` | `:<C-U>exe "".(v:count ? v:count : "")."lnext"<CR>zv` |
-|  | `<Plug>unimpairedLPrevious` | `:<C-U>exe "".(v:count ? v:count : "")."lprevious"<CR>zv` |
-|  | `<Plug>(unimpaired-llast)` | `:<C-U><C-R>=v:count ? v:count . "ll" : "llast"<CR><CR>zv` |
-|  | `<Plug>(unimpaired-lfirst)` | `:<C-U><C-R>=v:count ? v:count . "ll" : "lfirst"<CR><CR>zv` |
-|  | `<Plug>(unimpaired-lnext)` | `:<C-U>exe "".(v:count ? v:count : "")."lnext"<CR>zv` |
-|  | `<Plug>(unimpaired-lprevious)` | `:<C-U>exe "".(v:count ? v:count : "")."lprevious"<CR>zv` |
-|  | `<Plug>unimpairedBLast` | `:<C-U>exe "".(v:count ? v:count : "")."blast"<CR>` |
-|  | `<Plug>unimpairedBFirst` | `:<C-U>exe "".(v:count ? v:count : "")."bfirst"<CR>` |
-|  | `<Plug>unimpairedBNext` | `:<C-U>exe "".(v:count ? v:count : "")."bnext"<CR>` |
-|  | `<Plug>unimpairedBPrevious` | `:<C-U>exe "".(v:count ? v:count : "")."bprevious"<CR>` |
-|  | `<Plug>(unimpaired-blast)` | `:<C-U><C-R>=v:count ? v:count . "buffer" : "blast"<CR><CR>` |
-|  | `<Plug>(unimpaired-bfirst)` | `:<C-U><C-R>=v:count ? v:count . "buffer" : "bfirst"<CR><CR>` |
-|  | `<Plug>(unimpaired-bnext)` | `:<C-U>exe "".(v:count ? v:count : "")."bnext"<CR>` |
-|  | `<Plug>(unimpaired-bprevious)` | `:<C-U>exe "".(v:count ? v:count : "")."bprevious"<CR>` |
-|  | `<Plug>unimpairedALast` | `:<C-U>exe "".(v:count ? v:count : "")."last"<CR>` |
-|  | `<Plug>unimpairedAFirst` | `:<C-U>exe "".(v:count ? v:count : "")."first"<CR>` |
-|  | `<Plug>unimpairedANext` | `:<C-U>exe "".(v:count ? v:count : "")."next"<CR>` |
-|  | `<Plug>unimpairedAPrevious` | `:<C-U>exe "".(v:count ? v:count : "")."previous"<CR>` |
-|  | `<Plug>(unimpaired-last)` | `:<C-U><C-R>=v:count ? v:count . "argument" : "last"<CR><CR>` |
-|  | `<Plug>(unimpaired-first)` | `:<C-U><C-R>=v:count ? v:count . "argument" : "first"<CR><CR>` |
-|  | `<Plug>(unimpaired-next)` | `:<C-U>exe "".(v:count ? v:count : "")."next"<CR>` |
-|  | `<Plug>(unimpaired-previous)` | `:<C-U>exe "".(v:count ? v:count : "")."previous"<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<Plug>YSurround` | `<SNR>44_opfunc2('setup')` |
-|  | `<Plug>Ysurround` | `<SNR>44_opfunc('setup')` |
-|  | `<Plug>YSsurround` | `<SNR>44_opfunc2('setup').'_'` |
-|  | `<Plug>Yssurround` | `'^'.v:count1.<SNR>44_opfunc('setup').'g_'` |
-|  | `<Plug>CSurround` | `:<C-U>call <SNR>44_changesurround(1)<CR>` |
-|  | `<Plug>Csurround` | `:<C-U>call <SNR>44_changesurround()<CR>` |
-|  | `<Plug>Dsurround` | `:<C-U>call <SNR>44_dosurround(<SNR>44_inputtarget())<CR>` |
-|  | `<Plug>SurroundRepeat` | `.` |
-|  | `<Plug>fugitive:` | `` |
-|  | `<Plug>fugitive:y<C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |
-|  | `<Plug>CommentaryUndo` | `:echoerr "Change your <Plug>CommentaryUndo map to <Plug>Commentary<Plug>Commentary"<CR>` |
-|  | `<Plug>ChangeCommentary` | `c:<C-U>call <SNR>39_textobject(1)<CR>` |
-|  | `<Plug>CommentaryLine` | `<SNR>39_go() . '_'` |
-|  | `<Plug>Commentary` | `<SNR>39_go()` |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<Down>` | `:resize +1<CR>` |
-|  | `<Up>` | `:resize -1<CR>` |
-|  | `<Right>` | `:vertical resize +1<CR>` |
-|  | `<Left>` | `:vertical resize -1<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code> r#</code> |  |
+|  | <code> #</code> |  |
+|  | <code> g?</code> | <code>:map  g&lt;CR&gt;</code> |
+|  | <code> gw</code> | <code>:GBrowse&lt;CR&gt;</code> |
+|  | <code> gl</code> | <code>:Gclog -n 100 --&lt;CR&gt;</code> |
+|  | <code> gd</code> | <code>:Git diff&lt;CR&gt;</code> |
+|  | <code> gP</code> | <code>:Git push origin </code> |
+|  | <code> gpr</code> | <code>:Git pull --rebase origin </code> |
+|  | <code> gpo</code> | <code>:Git pull --ff-only origin </code> |
+|  | <code> gb</code> | <code>:Git blame&lt;CR&gt;</code> |
+|  | <code> gs</code> | <code>:Git&lt;CR&gt;</code> |
+|  | <code> ts</code> |  |
+|  | <code> tb</code> |  |
+|  | <code> tg</code> |  |
+|  | <code> tf</code> |  |
+|  | <code> th</code> |  |
+|  | <code> sd</code> |  |
+|  | <code> v*</code> | <code>:vsplit&lt;CR&gt;*</code> |
+|  | <code> x*</code> | <code>:split&lt;CR&gt;*</code> |
+|  | <code>  </code> | <code>&lt;C-^&gt;</code> |
+|  | <code> vf</code> | <code>:Vexplore!&lt;CR&gt;</code> |
+|  | <code> sf</code> | <code>:Sexplore&lt;CR&gt;</code> |
+|  | <code> f</code> | <code>:Explore&lt;CR&gt;</code> |
+|  | <code> yy</code> | <code>"+yy</code> |
+|  | <code> y</code> | <code>"+y</code> |
+|  | <code> w</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>'[</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "alpha")&lt;CR&gt;</code> |
+|  | <code>']</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "line", "alpha")&lt;CR&gt;</code> |
+|  | <code>-</code> | <code>&lt;Plug&gt;VinegarUp</code> |
+|  | <code>&lt;lt&gt;p</code> | <code>&lt;Plug&gt;(unimpaired-put-below-leftward)</code> |
+|  | <code>&lt;lt&gt;P</code> | <code>&lt;Plug&gt;(unimpaired-put-above-leftward)</code> |
+|  | <code>&lt;lt&gt;s&lt;Esc&gt;</code> | <code></code> |
+|  | <code>&lt;lt&gt;s</code> | <code>&lt;Plug&gt;(unimpaired-enable)</code> |
+|  | <code>=p</code> | <code>&lt;Plug&gt;(unimpaired-put-below-reformat)</code> |
+|  | <code>=P</code> | <code>&lt;Plug&gt;(unimpaired-put-above-reformat)</code> |
+|  | <code>=s&lt;Esc&gt;</code> | <code></code> |
+|  | <code>=s</code> | <code>&lt;Plug&gt;(unimpaired-toggle)</code> |
+|  | <code>&gt;p</code> | <code>&lt;Plug&gt;(unimpaired-put-below-rightward)</code> |
+|  | <code>&gt;P</code> | <code>&lt;Plug&gt;(unimpaired-put-above-rightward)</code> |
+|  | <code>&gt;s&lt;Esc&gt;</code> | <code></code> |
+|  | <code>&gt;s</code> | <code>&lt;Plug&gt;(unimpaired-disable)</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[xx</code> | <code>&lt;Plug&gt;(unimpaired-xml-encode-line)</code> |
+|  | <code>[x</code> | <code>&lt;Plug&gt;(unimpaired-xml-encode)</code> |
+|  | <code>[uu</code> | <code>&lt;Plug&gt;(unimpaired-url-encode-line)</code> |
+|  | <code>[u</code> | <code>&lt;Plug&gt;(unimpaired-url-encode)</code> |
+|  | <code>[CC</code> | <code>&lt;Plug&gt;(unimpaired-string-encode-line)</code> |
+|  | <code>[C</code> | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> |
+|  | <code>[yy</code> | <code>&lt;Plug&gt;(unimpaired-string-encode-line)</code> |
+|  | <code>[y</code> | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> |
+|  | <code>[P</code> | <code>&lt;Plug&gt;(unimpaired-put-above)</code> |
+|  | <code>[p</code> | <code>&lt;Plug&gt;(unimpaired-put-above)</code> |
+|  | <code>[o&lt;Esc&gt;</code> | <code></code> |
+|  | <code>[o</code> | <code>&lt;Plug&gt;(unimpaired-enable)</code> |
+|  | <code>[e</code> | <code>&lt;Plug&gt;(unimpaired-move-up)</code> |
+|  | <code>[ </code> | <code>&lt;Plug&gt;(unimpaired-blank-up)</code> |
+|  | <code>[n</code> | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> |
+|  | <code>[f</code> | <code>&lt;Plug&gt;(unimpaired-directory-previous)</code> |
+|  | <code>[&lt;C-T&gt;</code> | <code>&lt;Plug&gt;(unimpaired-ptprevious)</code> |
+|  | <code>[T</code> | <code>&lt;Plug&gt;(unimpaired-tfirst)</code> |
+|  | <code>[t</code> | <code>&lt;Plug&gt;(unimpaired-tprevious)</code> |
+|  | <code>[&lt;C-Q&gt;</code> | <code>&lt;Plug&gt;(unimpaired-cpfile)</code> |
+|  | <code>[Q</code> | <code>&lt;Plug&gt;(unimpaired-cfirst)</code> |
+|  | <code>[q</code> | <code>&lt;Plug&gt;(unimpaired-cprevious)</code> |
+|  | <code>[&lt;C-L&gt;</code> | <code>&lt;Plug&gt;(unimpaired-lpfile)</code> |
+|  | <code>[L</code> | <code>&lt;Plug&gt;(unimpaired-lfirst)</code> |
+|  | <code>[l</code> | <code>&lt;Plug&gt;(unimpaired-lprevious)</code> |
+|  | <code>[B</code> | <code>&lt;Plug&gt;(unimpaired-bfirst)</code> |
+|  | <code>[b</code> | <code>&lt;Plug&gt;(unimpaired-bprevious)</code> |
+|  | <code>[A</code> | <code>&lt;Plug&gt;(unimpaired-first)</code> |
+|  | <code>[a</code> | <code>&lt;Plug&gt;(unimpaired-previous)</code> |
+|  | <code>[=</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("prev", "any",  v:count)&lt;CR&gt;</code> |
+|  | <code>[-</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("prev", "same", v:count)&lt;CR&gt;</code> |
+|  | <code>[`</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "pos")&lt;CR&gt;</code> |
+|  | <code>['</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "line", "pos")&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>[d</code> |  |
+|  | <code>]xx</code> | <code>&lt;Plug&gt;(unimpaired-xml-decode-line)</code> |
+|  | <code>]x</code> | <code>&lt;Plug&gt;(unimpaired-xml-decode)</code> |
+|  | <code>]uu</code> | <code>&lt;Plug&gt;(unimpaired-url-decode-line)</code> |
+|  | <code>]u</code> | <code>&lt;Plug&gt;(unimpaired-url-decode)</code> |
+|  | <code>]CC</code> | <code>&lt;Plug&gt;(unimpaired-string-decode-line)</code> |
+|  | <code>]C</code> | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> |
+|  | <code>]yy</code> | <code>&lt;Plug&gt;(unimpaired-string-decode-line)</code> |
+|  | <code>]y</code> | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> |
+|  | <code>]P</code> | <code>&lt;Plug&gt;(unimpaired-put-below)</code> |
+|  | <code>]p</code> | <code>&lt;Plug&gt;(unimpaired-put-below)</code> |
+|  | <code>]o&lt;Esc&gt;</code> | <code></code> |
+|  | <code>]o</code> | <code>&lt;Plug&gt;(unimpaired-disable)</code> |
+|  | <code>]e</code> | <code>&lt;Plug&gt;(unimpaired-move-down)</code> |
+|  | <code>] </code> | <code>&lt;Plug&gt;(unimpaired-blank-down)</code> |
+|  | <code>]n</code> | <code>&lt;Plug&gt;(unimpaired-context-next)</code> |
+|  | <code>]f</code> | <code>&lt;Plug&gt;(unimpaired-directory-next)</code> |
+|  | <code>]&lt;C-T&gt;</code> | <code>&lt;Plug&gt;(unimpaired-ptnext)</code> |
+|  | <code>]T</code> | <code>&lt;Plug&gt;(unimpaired-tlast)</code> |
+|  | <code>]t</code> | <code>&lt;Plug&gt;(unimpaired-tnext)</code> |
+|  | <code>]&lt;C-Q&gt;</code> | <code>&lt;Plug&gt;(unimpaired-cnfile)</code> |
+|  | <code>]Q</code> | <code>&lt;Plug&gt;(unimpaired-clast)</code> |
+|  | <code>]q</code> | <code>&lt;Plug&gt;(unimpaired-cnext)</code> |
+|  | <code>]&lt;C-L&gt;</code> | <code>&lt;Plug&gt;(unimpaired-lnfile)</code> |
+|  | <code>]L</code> | <code>&lt;Plug&gt;(unimpaired-llast)</code> |
+|  | <code>]l</code> | <code>&lt;Plug&gt;(unimpaired-lnext)</code> |
+|  | <code>]B</code> | <code>&lt;Plug&gt;(unimpaired-blast)</code> |
+|  | <code>]b</code> | <code>&lt;Plug&gt;(unimpaired-bnext)</code> |
+|  | <code>]A</code> | <code>&lt;Plug&gt;(unimpaired-last)</code> |
+|  | <code>]a</code> | <code>&lt;Plug&gt;(unimpaired-next)</code> |
+|  | <code>]=</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("next", "any",  v:count)&lt;CR&gt;</code> |
+|  | <code>]-</code> | <code>:&lt;C-U&gt;call signature#marker#Goto("next", "same", v:count)&lt;CR&gt;</code> |
+|  | <code>]`</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "pos")&lt;CR&gt;</code> |
+|  | <code>]'</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "line", "pos")&lt;CR&gt;</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>]d</code> |  |
+|  | <code>`[</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("prev", "spot", "alpha")&lt;CR&gt;</code> |
+|  | <code>`]</code> | <code>:&lt;C-U&gt;call signature#mark#Goto("next", "spot", "alpha")&lt;CR&gt;</code> |
+|  | <code>cS</code> | <code>&lt;Plug&gt;CSurround</code> |
+|  | <code>cs</code> | <code>&lt;Plug&gt;Csurround</code> |
+|  | <code>ds</code> | <code>&lt;Plug&gt;Dsurround</code> |
+|  | <code>dm</code> | <code>:&lt;C-U&gt;call signature#utils#Remove(v:count)&lt;CR&gt;</code> |
+|  | <code>gcu</code> | <code>&lt;Plug&gt;Commentary&lt;Plug&gt;Commentary</code> |
+|  | <code>gcc</code> | <code>&lt;Plug&gt;CommentaryLine</code> |
+|  | <code>gc</code> | <code>&lt;Plug&gt;Commentary</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+|  | <code>j</code> | <code>gj</code> |
+|  | <code>k</code> | <code>gk</code> |
+|  | <code>m?</code> | <code>:&lt;C-U&gt;call signature#marker#List(v:count, 0)&lt;CR&gt;</code> |
+|  | <code>m/</code> | <code>:&lt;C-U&gt;call signature#mark#List(0, 0)&lt;CR&gt;</code> |
+|  | <code>m&lt;BS&gt;</code> | <code>:&lt;C-U&gt;call signature#marker#Purge()&lt;CR&gt;</code> |
+|  | <code>m </code> | <code>:&lt;C-U&gt;call signature#mark#Purge("all")&lt;CR&gt;</code> |
+|  | <code>m-</code> | <code>:&lt;C-U&gt;call signature#mark#Purge("line")&lt;CR&gt;</code> |
+|  | <code>m.</code> | <code>:&lt;C-U&gt;call signature#mark#ToggleAtLine()&lt;CR&gt;</code> |
+|  | <code>m,</code> | <code>:&lt;C-U&gt;call signature#mark#Toggle("next")&lt;CR&gt;</code> |
+|  | <code>m</code> | <code>:&lt;C-U&gt;call signature#utils#Input()&lt;CR&gt;</code> |
+|  | <code>yo&lt;Esc&gt;</code> | <code></code> |
+|  | <code>yo</code> | <code>&lt;Plug&gt;(unimpaired-toggle)</code> |
+|  | <code>ySS</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>ySs</code> | <code>&lt;Plug&gt;YSsurround</code> |
+|  | <code>yss</code> | <code>&lt;Plug&gt;Yssurround</code> |
+|  | <code>yS</code> | <code>&lt;Plug&gt;YSurround</code> |
+|  | <code>ys</code> | <code>&lt;Plug&gt;Ysurround</code> |
+|  | <code>y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(vsnip-cut-text)</code> | <code>:set operatorfunc=&lt;SNR&gt;48_vsnip_cut_text_normal&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;(vsnip-select-text)</code> | <code>:set operatorfunc=&lt;SNR&gt;48_vsnip_select_text_normal&lt;CR&gt;g@</code> |
+|  | <code>&lt;Plug&gt;VinegarVerticalSplitUp</code> | <code>:call &lt;SNR&gt;47_opendir('vsplit')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VinegarSplitUp</code> | <code>:call &lt;SNR&gt;47_opendir('split')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VinegarTabUp</code> | <code>:call &lt;SNR&gt;47_opendir('tabedit')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VinegarUp</code> | <code>:call &lt;SNR&gt;47_opendir('edit')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-decode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_xml_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_xml_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-encode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_xml_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_xml_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-decode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_url_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_url_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-encode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_url_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_url_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-decode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_string_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_string_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-encode-line)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_line_string_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")."_"</code> |
+|  | <code>&lt;Plug&gt;unimpaired_string_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpairedPutBelow</code> | <code>:call &lt;SNR&gt;46_putline(']p', 'below')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedPutAbove</code> | <code>:call &lt;SNR&gt;46_putline('[p', 'above')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-below-reformat)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . ']p', 'Below')&lt;CR&gt;=']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-above-reformat)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . '[p', 'Above')&lt;CR&gt;=']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-below-leftward)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . ']p', 'Below')&lt;CR&gt;&lt;lt&gt;']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-above-leftward)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . '[p', 'Above')&lt;CR&gt;&lt;lt&gt;']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-below-rightward)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . ']p', 'Below')&lt;CR&gt;&gt;']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-above-rightward)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_putline(v:count1 . '[p', 'Above')&lt;CR&gt;&gt;']</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-below)</code> | <code>:call &lt;SNR&gt;46_putline(']p', 'below')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-put-above)</code> | <code>:call &lt;SNR&gt;46_putline('[p', 'above')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)p</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_SetupPaste()&lt;CR&gt;0C</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)p</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_SetupPaste()&lt;CR&gt;o</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)p</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_SetupPaste()&lt;CR&gt;O</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-paste)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_SetupPaste()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedPaste</code> | <code>:call &lt;SNR&gt;46_SetupPaste()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)t</code> | <code>:&lt;C-U&gt;set colorcolumn=&lt;C-R&gt;=&lt;SNR&gt;46_ColorColumn(!empty(&cc))&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)t</code> | <code>:&lt;C-U&gt;set colorcolumn=&lt;C-R&gt;=&lt;SNR&gt;46_ColorColumn(1)&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)t</code> | <code>:&lt;C-U&gt;set colorcolumn=&lt;C-R&gt;=&lt;SNR&gt;46_ColorColumn(0)&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)+</code> | <code>:&lt;C-U&gt;set &lt;C-R&gt;=&lt;SNR&gt;46_CursorOptions()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)+</code> | <code>:&lt;C-U&gt;set nocursorline nocursorcolumn&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)+</code> | <code>:&lt;C-U&gt;set cursorline cursorcolumn&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)x</code> | <code>:&lt;C-U&gt;set &lt;C-R&gt;=&lt;SNR&gt;46_CursorOptions()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)x</code> | <code>:&lt;C-U&gt;set nocursorline nocursorcolumn&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)x</code> | <code>:&lt;C-U&gt;set cursorline cursorcolumn&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)v</code> | <code>:&lt;C-U&gt;set &lt;C-R&gt;=(&virtualedit =~# "all") ? "virtualedit-=all" : "virtualedit+=all"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)v</code> | <code>:&lt;C-U&gt;set virtualedit-=all&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)v</code> | <code>:&lt;C-U&gt;set virtualedit+=all&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)z</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("spell")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)z</code> | <code>:&lt;C-U&gt;setlocal nospell&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)z</code> | <code>:&lt;C-U&gt;setlocal spell&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)w</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("wrap")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)w</code> | <code>:&lt;C-U&gt;setlocal nowrap&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)w</code> | <code>:&lt;C-U&gt;setlocal wrap&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)s</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("spell")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)s</code> | <code>:&lt;C-U&gt;setlocal nospell&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)s</code> | <code>:&lt;C-U&gt;setlocal spell&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)r</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("relativenumber")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)r</code> | <code>:&lt;C-U&gt;setlocal norelativenumber&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)r</code> | <code>:&lt;C-U&gt;setlocal relativenumber&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)n</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("number")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)n</code> | <code>:&lt;C-U&gt;setlocal nonumber&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)n</code> | <code>:&lt;C-U&gt;setlocal number&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)l</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("list")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)l</code> | <code>:&lt;C-U&gt;setlocal nolist&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)l</code> | <code>:&lt;C-U&gt;setlocal list&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)i</code> | <code>:&lt;C-U&gt;set &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("ignorecase")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)i</code> | <code>:&lt;C-U&gt;set noignorecase&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)i</code> | <code>:&lt;C-U&gt;set ignorecase&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)h</code> | <code>:&lt;C-U&gt;set &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("hlsearch")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)h</code> | <code>:&lt;C-U&gt;set nohlsearch&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)h</code> | <code>:&lt;C-U&gt;set hlsearch&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)d</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=&diff ? "diffoff" : "diffthis"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)d</code> | <code>:&lt;C-U&gt;diffoff&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)d</code> | <code>:&lt;C-U&gt;diffthis&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)&#124;</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("cursorcolumn")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)&#124;</code> | <code>:&lt;C-U&gt;setlocal nocursorcolumn&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)&#124;</code> | <code>:&lt;C-U&gt;setlocal cursorcolumn&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)u</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("cursorcolumn")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)u</code> | <code>:&lt;C-U&gt;setlocal nocursorcolumn&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)u</code> | <code>:&lt;C-U&gt;setlocal cursorcolumn&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)_</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("cursorline")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)_</code> | <code>:&lt;C-U&gt;setlocal nocursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)_</code> | <code>:&lt;C-U&gt;setlocal cursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)-</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("cursorline")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)-</code> | <code>:&lt;C-U&gt;setlocal nocursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)-</code> | <code>:&lt;C-U&gt;setlocal cursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)c</code> | <code>:&lt;C-U&gt;setlocal &lt;C-R&gt;=&lt;SNR&gt;46_Toggle("cursorline")&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)c</code> | <code>:&lt;C-U&gt;setlocal nocursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)c</code> | <code>:&lt;C-U&gt;setlocal cursorline&lt;C-R&gt;=&lt;SNR&gt;46_StatuslineRefresh()&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-toggle)b</code> | <code>:&lt;C-U&gt;set background=&lt;C-R&gt;=&background == "dark" ? "light" : "dark"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-disable)b</code> | <code>:&lt;C-U&gt;set background=dark&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-enable)b</code> | <code>:&lt;C-U&gt;set background=light&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionDown</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionUp</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveDown</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Move('+',v:count1,'down')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveUp</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Move('--',v:count1,'up')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-down)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-up)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-down)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Move('+',v:count1,'down')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-up)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Move('--',v:count1,'up')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedBlankDown</code> | <code>:&lt;C-U&gt;exe &lt;SNR&gt;46_BlankDown()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedBlankUp</code> | <code>:&lt;C-U&gt;exe &lt;SNR&gt;46_BlankUp()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-blank-down)</code> | <code>:&lt;C-U&gt;exe &lt;SNR&gt;46_BlankDown()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-blank-up)</code> | <code>:&lt;C-U&gt;exe &lt;SNR&gt;46_BlankUp()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextNext</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Context(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextPrevious</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Context(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-next)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Context(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_Context(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedDirectoryPrevious</code> | <code>:&lt;C-U&gt;execute &lt;SNR&gt;46_PreviousFileEntry(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedDirectoryNext</code> | <code>:&lt;C-U&gt;execute &lt;SNR&gt;46_NextFileEntry(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-directory-previous)</code> | <code>:&lt;C-U&gt;execute &lt;SNR&gt;46_PreviousFileEntry(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-directory-next)</code> | <code>:&lt;C-U&gt;execute &lt;SNR&gt;46_NextFileEntry(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTPNext</code> | <code>:&lt;C-U&gt;exe "p".(v:count ? v:count : "")."tnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTPPrevious</code> | <code>:&lt;C-U&gt;exe "p".(v:count ? v:count : "")."tprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-ptnext)</code> | <code>:&lt;C-U&gt;exe v:count1 . "ptnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-ptprevious)</code> | <code>:&lt;C-U&gt;exe v:count1 . "ptprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTLast</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tlast"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTFirst</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tfirst"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTNext</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedTPrevious</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-tlast)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "trewind" : "tlast"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-tfirst)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "trewind" : "tfirst"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-tnext)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-tprevious)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."tprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedQNFile</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cnfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedQPFile</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cpfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-cnfile)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cnfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-cpfile)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cpfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedQLast</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."clast"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedQFirst</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cfirst"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedQNext</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cnext"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedQPrevious</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cprevious"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-clast)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "cc" : "clast"&lt;CR&gt;&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-cfirst)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "cc" : "cfirst"&lt;CR&gt;&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-cnext)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cnext"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-cprevious)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."cprevious"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLNFile</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lnfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLPFile</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lpfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-lnfile)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lnfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-lpfile)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lpfile"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLLast</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."llast"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLFirst</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lfirst"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLNext</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lnext"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedLPrevious</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lprevious"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-llast)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "ll" : "llast"&lt;CR&gt;&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-lfirst)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "ll" : "lfirst"&lt;CR&gt;&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-lnext)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lnext"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-lprevious)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."lprevious"&lt;CR&gt;zv</code> |
+|  | <code>&lt;Plug&gt;unimpairedBLast</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."blast"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedBFirst</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."bfirst"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedBNext</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."bnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedBPrevious</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."bprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-blast)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "buffer" : "blast"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-bfirst)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "buffer" : "bfirst"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-bnext)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."bnext"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-bprevious)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."bprevious"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedALast</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."last"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedAFirst</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."first"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedANext</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."next"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedAPrevious</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."previous"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-last)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "argument" : "last"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-first)</code> | <code>:&lt;C-U&gt;&lt;C-R&gt;=v:count ? v:count . "argument" : "first"&lt;CR&gt;&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-next)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."next"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-previous)</code> | <code>:&lt;C-U&gt;exe "".(v:count ? v:count : "")."previous"&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;YSurround</code> | <code>&lt;SNR&gt;44_opfunc2('setup')</code> |
+|  | <code>&lt;Plug&gt;Ysurround</code> | <code>&lt;SNR&gt;44_opfunc('setup')</code> |
+|  | <code>&lt;Plug&gt;YSsurround</code> | <code>&lt;SNR&gt;44_opfunc2('setup').'_'</code> |
+|  | <code>&lt;Plug&gt;Yssurround</code> | <code>'^'.v:count1.&lt;SNR&gt;44_opfunc('setup').'g_'</code> |
+|  | <code>&lt;Plug&gt;CSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;44_changesurround(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Csurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;44_changesurround()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Dsurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;44_dosurround(&lt;SNR&gt;44_inputtarget())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;SurroundRepeat</code> | <code>.</code> |
+|  | <code>&lt;Plug&gt;fugitive:</code> | <code></code> |
+|  | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CommentaryUndo</code> | <code>:echoerr "Change your &lt;Plug&gt;CommentaryUndo map to &lt;Plug&gt;Commentary&lt;Plug&gt;Commentary"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;ChangeCommentary</code> | <code>c:&lt;C-U&gt;call &lt;SNR&gt;39_textobject(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;CommentaryLine</code> | <code>&lt;SNR&gt;39_go() . '_'</code> |
+|  | <code>&lt;Plug&gt;Commentary</code> | <code>&lt;SNR&gt;39_go()</code> |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;Down&gt;</code> | <code>:resize +1&lt;CR&gt;</code> |
+|  | <code>&lt;Up&gt;</code> | <code>:resize -1&lt;CR&gt;</code> |
+|  | <code>&lt;Right&gt;</code> | <code>:vertical resize +1&lt;CR&gt;</code> |
+|  | <code>&lt;Left&gt;</code> | <code>:vertical resize -1&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | ` #` | `y:match MatchGroup /<C-R>"/<CR>` |
-|  | ` y` | `"+y` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `//` | `y/<C-R>"<CR>` |
-|  | `S` | `<Plug>VSurround` |
-|  | `[x` | `<Plug>(unimpaired-xml-encode)` |
-|  | `[u` | `<Plug>(unimpaired-url-encode)` |
-|  | `[C` | `<Plug>(unimpaired-string-encode)` |
-|  | `[y` | `<Plug>(unimpaired-string-encode)` |
-|  | `[e` | `<Plug>(unimpaired-move-selection-up)` |
-|  | `[n` | `<Plug>(unimpaired-context-previous)` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]x` | `<Plug>(unimpaired-xml-decode)` |
-|  | `]u` | `<Plug>(unimpaired-url-decode)` |
-|  | `]C` | `<Plug>(unimpaired-string-decode)` |
-|  | `]y` | `<Plug>(unimpaired-string-decode)` |
-|  | `]e` | `<Plug>(unimpaired-move-selection-down)` |
-|  | `]n` | `<Plug>(unimpaired-context-next)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gS` | `<Plug>VgSurround` |
-|  | `gc` | `<Plug>Commentary` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `<Plug>(vsnip-cut-text)` | `:<C-U>call <SNR>48_vsnip_visual_text(visualmode())<CR>gv"_c` |
-|  | `<Plug>(vsnip-select-text)` | `:<C-U>call <SNR>48_vsnip_visual_text(visualmode())<CR>gv` |
-|  | `<Plug>(unimpaired-xml-decode)` | `<SNR>46_TransformSetup("xml_decode")` |
-|  | `<Plug>unimpaired_xml_decode` | `<SNR>46_TransformSetup("xml_decode")` |
-|  | `<Plug>(unimpaired-xml-encode)` | `<SNR>46_TransformSetup("xml_encode")` |
-|  | `<Plug>unimpaired_xml_encode` | `<SNR>46_TransformSetup("xml_encode")` |
-|  | `<Plug>(unimpaired-url-decode)` | `<SNR>46_TransformSetup("url_decode")` |
-|  | `<Plug>unimpaired_url_decode` | `<SNR>46_TransformSetup("url_decode")` |
-|  | `<Plug>(unimpaired-url-encode)` | `<SNR>46_TransformSetup("url_encode")` |
-|  | `<Plug>unimpaired_url_encode` | `<SNR>46_TransformSetup("url_encode")` |
-|  | `<Plug>(unimpaired-string-decode)` | `<SNR>46_TransformSetup("string_decode")` |
-|  | `<Plug>unimpaired_string_decode` | `<SNR>46_TransformSetup("string_decode")` |
-|  | `<Plug>(unimpaired-string-encode)` | `<SNR>46_TransformSetup("string_encode")` |
-|  | `<Plug>unimpaired_string_encode` | `<SNR>46_TransformSetup("string_encode")` |
-|  | `<Plug>unimpairedMoveSelectionDown` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>unimpairedMoveSelectionUp` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-selection-down)` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-selection-up)` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>unimpairedContextNext` | `:<C-U>exe 'normal! gv'|call <SNR>46_Context(0)<CR>` |
-|  | `<Plug>unimpairedContextPrevious` | `:<C-U>exe 'normal! gv'|call <SNR>46_Context(1)<CR>` |
-|  | `<Plug>(unimpaired-context-next)` | `:<C-U>exe 'normal! gv'|call <SNR>46_Context(0)<CR>` |
-|  | `<Plug>(unimpaired-context-previous)` | `:<C-U>exe 'normal! gv'|call <SNR>46_Context(1)<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<Plug>VgSurround` | `:<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>` |
-|  | `<Plug>VSurround` | `:<C-U>call <SNR>44_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>` |
-|  | `<Plug>Commentary` | `<SNR>39_go()` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code> #</code> | <code>y:match MatchGroup /&lt;C-R&gt;"/&lt;CR&gt;</code> |
+|  | <code> y</code> | <code>"+y</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>//</code> | <code>y/&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>S</code> | <code>&lt;Plug&gt;VSurround</code> |
+|  | <code>[x</code> | <code>&lt;Plug&gt;(unimpaired-xml-encode)</code> |
+|  | <code>[u</code> | <code>&lt;Plug&gt;(unimpaired-url-encode)</code> |
+|  | <code>[C</code> | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> |
+|  | <code>[y</code> | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> |
+|  | <code>[e</code> | <code>&lt;Plug&gt;(unimpaired-move-selection-up)</code> |
+|  | <code>[n</code> | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]x</code> | <code>&lt;Plug&gt;(unimpaired-xml-decode)</code> |
+|  | <code>]u</code> | <code>&lt;Plug&gt;(unimpaired-url-decode)</code> |
+|  | <code>]C</code> | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> |
+|  | <code>]y</code> | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> |
+|  | <code>]e</code> | <code>&lt;Plug&gt;(unimpaired-move-selection-down)</code> |
+|  | <code>]n</code> | <code>&lt;Plug&gt;(unimpaired-context-next)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gS</code> | <code>&lt;Plug&gt;VgSurround</code> |
+|  | <code>gc</code> | <code>&lt;Plug&gt;Commentary</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>&lt;Plug&gt;(vsnip-cut-text)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_vsnip_visual_text(visualmode())&lt;CR&gt;gv"_c</code> |
+|  | <code>&lt;Plug&gt;(vsnip-select-text)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_xml_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-xml-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_xml_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("xml_encode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_url_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-url-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_url_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("url_encode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-decode)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_string_decode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_decode")</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-string-encode)</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpaired_string_encode</code> | <code>&lt;SNR&gt;46_TransformSetup("string_encode")</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionDown</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionUp</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-down)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-up)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextNext</code> | <code>:&lt;C-U&gt;exe 'normal! gv'&#124;call &lt;SNR&gt;46_Context(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextPrevious</code> | <code>:&lt;C-U&gt;exe 'normal! gv'&#124;call &lt;SNR&gt;46_Context(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-next)</code> | <code>:&lt;C-U&gt;exe 'normal! gv'&#124;call &lt;SNR&gt;46_Context(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> | <code>:&lt;C-U&gt;exe 'normal! gv'&#124;call &lt;SNR&gt;46_Context(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VgSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;44_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;VSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;44_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Commentary</code> | <code>&lt;SNR&gt;39_go()</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[n` | `<Plug>(unimpaired-context-previous)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]n` | `<Plug>(unimpaired-context-next)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `gc` | `<Plug>Commentary` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>unimpairedMoveSelectionDown` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>unimpairedMoveSelectionUp` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-selection-down)` | `:<C-U>call <SNR>46_MoveSelectionDown(v:count1)<CR>` |
-|  | `<Plug>(unimpaired-move-selection-up)` | `:<C-U>call <SNR>46_MoveSelectionUp(v:count1)<CR>` |
-|  | `<Plug>unimpairedContextNext` | `:<C-U>call <SNR>46_ContextMotion(0)<CR>` |
-|  | `<Plug>unimpairedContextPrevious` | `:<C-U>call <SNR>46_ContextMotion(1)<CR>` |
-|  | `<Plug>(unimpaired-context-next)` | `:<C-U>call <SNR>46_ContextMotion(0)<CR>` |
-|  | `<Plug>(unimpaired-context-previous)` | `:<C-U>call <SNR>46_ContextMotion(1)<CR>` |
-|  | `<C-Bslash>` | `:<C-U>TmuxNavigatePrevious<CR>` |
-|  | `<Plug>Commentary` | `:<C-U>call <SNR>39_textobject(get(v:, 'operator', '') ==# 'c')<CR>` |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
-|  | `<C-H>` | `:<C-U>TmuxNavigateLeft<CR>` |
-|  | `<C-K>` | `:<C-U>TmuxNavigateUp<CR>` |
-|  | `<C-J>` | `:<C-U>TmuxNavigateDown<CR>` |
-|  | `<C-L>` | `:<C-U>TmuxNavigateRight<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[n</code> | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]n</code> | <code>&lt;Plug&gt;(unimpaired-context-next)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>gc</code> | <code>&lt;Plug&gt;Commentary</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionDown</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedMoveSelectionUp</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-down)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionDown(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-move-selection-up)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_MoveSelectionUp(v:count1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextNext</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_ContextMotion(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;unimpairedContextPrevious</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_ContextMotion(1)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-next)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_ContextMotion(0)&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(unimpaired-context-previous)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;46_ContextMotion(1)&lt;CR&gt;</code> |
+|  | <code>&lt;C-Bslash&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;Commentary</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;39_textobject(get(v:, 'operator', '') ==# 'c')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+|  | <code>&lt;C-K&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+|  | <code>&lt;C-L&gt;</code> | <code>:&lt;C-U&gt;TmuxNavigateRight&lt;CR&gt;</code> |

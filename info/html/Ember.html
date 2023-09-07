@@ -182,12 +182,14 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>#</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('#', 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘#’, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>$</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('$', 0, 1)&lt;CR&gt;</code></td>
+<td><code><span class="math inline">$&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;lua Scroll('$</span>’, 0,
+1)&lt;CR&gt;</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -202,80 +204,419 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>*</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('*', 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(’*’, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>0</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('0')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘0’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>G</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('G', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘G’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>N</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('N', 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘N’, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>Q</code></td>
-<td>`<code>| | Nvim builtin |</code>Y<code>|</code>y$<code>| |  |</code>[%<code>|</code><Plug>(MatchitNormalMultiBackward)<code>| |  |</code>]%<code>|</code><Plug>(MatchitNormalMultiForward)<code>| |  |</code>^<code>|</code><Cmd>lua
-Scroll(‘^’)<CR><code>| |  |</code>cS<code>|</code><Plug>CSurround<code>| |  |</code>cs<code>|</code><Plug>Csurround<code>| |  |</code>ds<code>|</code><Plug>Dsurround<code>| |  |</code>g#<code>|</code><Cmd>lua
-Scroll(‘g#’, 1)<CR><code>| |  |</code>g<em><code>|</code><Cmd>lua
-Scroll(’g</em>’, 1)<CR><code>| |  |</code>gg<code>|</code><Cmd>lua
-Scroll(‘gg’)<CR><code>| |  |</code>gx<code>|</code><Plug>NetrwBrowseX<code>| |  |</code>g%<code>|</code><Plug>(MatchitNormalBackward)<code>| |  |</code>h<code>|</code><Cmd>lua
-Scroll(‘h’, 0, 1)<CR><code>| |  |</code>j<code>|</code><Cmd>lua
-Scroll(‘j’, 0, 1)<CR><code>| |  |</code>k<code>|</code><Cmd>lua
-Scroll(‘k’, 0, 1)<CR><code>| |  |</code>l<code>|</code><Cmd>lua
-Scroll(‘l’, 0, 1)<CR><code>| |  |</code>n<code>|</code><Cmd>lua
-Scroll(‘n’,
-1)<CR><code>| |  |</code>ySS<code>|</code><Plug>YSsurround<code>| |  |</code>ySs<code>|</code><Plug>YSsurround<code>| |  |</code>yss<code>|</code><Plug>Yssurround<code>| |  |</code>yS<code>|</code><Plug>YSurround<code>| |  |</code>ys<code>|</code><Plug>Ysurround<code>| |  |</code>ze<code>|</code><Cmd>lua
-Scroll(‘ze’)<CR><code>| |  |</code>zs<code>|</code><Cmd>lua
-Scroll(‘zs’)<CR><code>| |  |</code>zL<code>|</code><Cmd>lua
-Scroll(‘zL’)<CR><code>| |  |</code>zH<code>|</code><Cmd>lua
-Scroll(‘zH’)<CR><code>| |  |</code>zl<code>|</code><Cmd>lua Scroll(‘zl’,
-0, 1)<CR><code>| |  |</code>zh<code>|</code><Cmd>lua Scroll(‘zh’, 0,
-1)<CR><code>| |  |</code>z+<code>|</code><Cmd>lua Scroll(‘z+’, 0,
-1)<CR><code>| |  |</code>z^<code>|</code><Cmd>lua Scroll(‘z^’, 0,
-1)<CR><code>| |  |</code>z-<code>|</code><Cmd>lua Scroll(‘z-’, 0,
-1)<CR><code>| |  |</code>z<CR><code>|</code><Cmd>lua Scroll(‘zt^’, 0,
-1)<CR><code>| |  |</code>z.<code>|</code><Cmd>lua Scroll(‘z.’, 0,
-1)<CR><code>| |  |</code>zb<code>|</code><Cmd>lua Scroll(‘zb’, 0,
-1)<CR><code>| |  |</code>zt<code>|</code><Cmd>lua Scroll(‘zt’, 0,
-1)<CR><code>| |  |</code>zz<code>|</code><Cmd>lua Scroll(‘zz’, 0,
-1)<CR><code>| |  |</code>{<code>|</code><Cmd>lua
-Scroll(‘{’)<CR><code>| |  |</code>}<code>|</code><Cmd>lua
-Scroll(‘}’)<CR><code>| |  |</code><Right><code>|</code><Cmd>lua
-Scroll(‘l’, 0, 1)<CR><code>| |  |</code><Left><code>|</code><Cmd>lua
-Scroll(‘h’, 0, 1)<CR><code>| |  |</code><Down><code>|</code><Cmd>lua
-Scroll(‘j’, 0, 1)<CR><code>| |  |</code><Up><code>|</code><Cmd>lua
-Scroll(‘k’, 0, 1)<CR><code>| |  |</code><C-E><code>|</code><Cmd>lua
-Scroll(‘<C-E>’, 0, 1)<CR><code>| |  |</code><C-Y><code>|</code><Cmd>lua
-Scroll(‘<C-Y>’, 0, 1)<CR><code>| |  |</code><C-I><code>|</code><Cmd>lua
-Scroll(‘1<Tab>’, 1)<CR><code>| |  |</code><C-O><code>|</code><Cmd>lua
-Scroll(‘<C-O>’,
-1)<CR><code>| |  |</code><PageDown><code>|</code><Cmd>lua
-Scroll(‘<C-F>’, 1,
-1)<CR><code>| |  |</code><PageUp><code>|</code><Cmd>lua Scroll(‘<C-B>’,
-1, 1)<CR><code>| |  |</code><C-F><code>|</code><Cmd>lua Scroll(‘<C-F>’,
-1, 1)<CR><code>| |  |</code><C-B><code>|</code><Cmd>lua Scroll(‘<C-B>’,
-1, 1)<CR><code>| |  |</code><C-D><code>|</code><Cmd>lua Scroll(‘<C-D>’,
-1, 1)<CR><code>| |  |</code><C-U><code>|</code><Cmd>lua Scroll(‘<C-U>’,
-1, 1)<CR><code>| |  |</code><Plug>NetrwBrowseX<code>|</code>:call
-netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR><code>| |  |</code><Plug>(MatchitNormalMultiForward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“W”,
-“n”)<CR><code>| |  |</code><Plug>(MatchitNormalMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR><code>| |  |</code><Plug>(MatchitNormalBackward)<code>|</code>:<C-U>call
-matchit#Match_wrapper(’‘,0,’n’)<CR><code>| |  |</code><Plug>(MatchitNormalForward)<code>|</code>:<C-U>call
-matchit#Match_wrapper(’‘,1,’n’)<CR><code>| |  |</code><Plug>YSurround<code>|</code><SNR>29_opfunc2(‘setup’)<code>| |  |</code><Plug>Ysurround<code>|</code><SNR>29_opfunc(‘setup’)<code>| |  |</code><Plug>YSsurround<code>|</code><SNR>29_opfunc2(‘setup’).’<em>‘<code>| |  |</code><Plug>Yssurround<code>|</code>’^‘.v:count1.<SNR>29_opfunc(’setup’).’g</em>’<code>| |  |</code><Plug>CSurround<code>|</code>:<C-U>call
-<SNR>29_changesurround(1)<CR><code>| |  |</code><Plug>Csurround<code>|</code>:<C-U>call
-<SNR>29_changesurround()<CR><code>| |  |</code><Plug>Dsurround<code>|</code>:<C-U>call
-<SNR>29_dosurround(<SNR>29_inputtarget())<CR><code>| |  |</code><Plug>SurroundRepeat<code>|</code>.<code>| | Comment toggle blockwise with count |</code><Plug>(comment_toggle_blockwise_count)<code>|  | | Comment toggle linewise with count |</code><Plug>(comment_toggle_linewise_count)<code>|  | | Comment toggle current block |</code><Plug>(comment_toggle_blockwise_current)<code>|  | | Comment toggle current line |</code><Plug>(comment_toggle_linewise_current)<code>|  | | Comment toggle blockwise |</code><Plug>(comment_toggle_blockwise)<code>|  | | Comment toggle linewise |</code><Plug>(comment_toggle_linewise)<code>|  | |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><Plug>luasnip-delete-check<code>|  | |  |</code><Plug>PlenaryTestFile<code>|</code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR><code>| | Nvim builtin |</code><C-L><code>|</code><Cmd>nohlsearch</td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>Y</code></td>
+<td><code>y$</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>^</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘^’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>cS</code></td>
+<td><code>&lt;Plug&gt;CSurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>cs</code></td>
+<td><code>&lt;Plug&gt;Csurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ds</code></td>
+<td><code>&lt;Plug&gt;Dsurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g#</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘g#’, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g*</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(’g*’, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gg</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘gg’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>h</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘h’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>j</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘j’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>k</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘k’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>l</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘l’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>n</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘n’, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ySS</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ySs</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>yss</code></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>yS</code></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ys</code></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ze</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘ze’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zs</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zs’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zL</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zL’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zH</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zH’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zl</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zl’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zh</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zh’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z+</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘z+’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z^</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘z^’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z-</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘z-’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zt^’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z.</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘z.’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zb</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zb’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zt</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zt’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zz</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘zz’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>{</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘{’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>}</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘}’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Right&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘l’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Left&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘h’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Down&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘j’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Up&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘k’, 0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-E&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-E&gt;’, 0,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Y&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-Y&gt;’, 0,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-I&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘1&lt;Tab&gt;’, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-O&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-O&gt;’, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;PageDown&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-F&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;PageUp&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-B&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-F&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-B&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-D&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-U&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-U&gt;’, 1,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+<td><code>&lt;SNR&gt;32_opfunc2(‘setup’)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+<td><code>&lt;SNR&gt;32_opfunc(‘setup’)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+<td><code>&lt;SNR&gt;32_opfunc2(‘setup’).’_’</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+<td><code>‘^’.v:count1.&lt;SNR&gt;32_opfunc(‘setup’).’g_’</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;32_changesurround(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Csurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;32_changesurround()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Dsurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;32_dosurround(&lt;SNR&gt;32_inputtarget())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;SurroundRepeat</code></td>
+<td><code>.</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise with count</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current block</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current line</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle blockwise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle linewise</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nvim builtin</td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
 </tr>
 </tbody>
 </table>
@@ -297,12 +638,14 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>$</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('$', 0, 1)&lt;CR&gt;</code></td>
+<td><code><span class="math inline">$&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;lua Scroll('$</span>’, 0,
+1)&lt;CR&gt;</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -312,17 +655,17 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>0</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('0')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘0’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>G</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('G', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘G’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -342,7 +685,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><code>^</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('^')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘^’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -352,7 +695,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><code>gg</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('gg')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘gg’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -372,82 +715,88 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><code>h</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('h', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘h’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>j</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('j', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘j’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>k</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('k', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘k’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>l</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('l', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘l’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>{</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('{')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘{’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>}</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('}')&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘}’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Right&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('l', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘l’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Left&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('h', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘h’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Down&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('j', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘j’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Up&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('k', 0, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘k’, 0, 1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;PageDown&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-F&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-F&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;PageUp&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-B&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-B&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-F&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-F&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-B&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-B&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-D&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-D&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua Scroll('&lt;C-U&gt;', 1, 1)&lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;lua Scroll(‘&lt;C-U&gt;’, 1,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -462,19 +811,45 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | | Comment toggle blockwise (visual) |</code><Plug>(comment_toggle_blockwise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())<CR><code>| | Comment toggle linewise (visual) |</code><Plug>(comment_toggle_linewise_visual)<code>|</code><Esc><Cmd>lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR><code>| |  |</code><Plug>luasnip-expand-repeat<code>|  | |  |</code><Plug>VgSurround<code>|</code>:<C-U>call
-<SNR>11_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR><code>| |  |</code><Plug>VSurround<code>|</code>:<C-U>call
-<SNR>11_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 : 0)<CR>`</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise (visual)</td>
+<td><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;VgSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;13_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;VSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;13_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -516,22 +891,26 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())<CR
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>

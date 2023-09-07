@@ -80,172 +80,172 @@ Personal Neovim configuration of Kristijan Husak, author of several Neovim plugi
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `#` | `#N` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  | `*` | `*N` |
-|  | `+` | `<C-W>5>` |
-|  | `,Q` |  |
-|  | `,q` |  |
-|  | `,T` |  |
-|  | `,db` | `:silent w | :silent %bd | e#<CR>` |
-|  | `,]` | `<C-W>v<C-]>` |
-|  | `,<Tab>` | `<C-^>` |
-|  | `,h` | `viw"0p` |
-|  | `,p` | `"0p` |
-|  | `, ` | `:noh<CR>` |
-|  | `,v` | `<C-W>v` |
-|  | `,s` | `:w<CR>` |
-|  | `,F` | `:call v:lua.kris.search.run(expand("<lt>cword>"))<CR>` |
-|  | `,f` | `:call v:lua.kris.search.run("")<CR>` |
-|  | `,lt` |  |
-|  | `,lT` |  |
-|  | `,g` |  |
-|  | `,m` |  |
-|  | `,t` |  |
-|  | `,b` |  |
-|  | `,df` | `:Git push --force-with-lease<CR>` |
-|  | `,dp` | `:Git push<CR>` |
-|  | `,da` |  |
-|  | `,dc` |  |
-|  | `,dh` | `:DiffviewFileHistory %<CR>` |
-|  | `,do` |  |
-|  | `,yg` |  |
-|  | `,hf` | `:NvimTreeToggle<CR>` |
-|  | `,n` | `:NvimTreeToggle<CR>` |
-|  | `,G` | `:vert G<CR>` |
-|  | `,c` |  |
-|  | `,oc` |  |
-|  | `,oa` |  |
-|  | `F` |  |
-|  | `N` | `Nzz` |
-|  | `Q` | `<C-Z>` |
-|  | `R` |  |
-|  | `T` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[B` | `:bfirst<CR>` |
-|  | `[b` | `:bprevious<CR>` |
-|  | `[T` | `:tfirst<CR>` |
-|  | `[t` | `:tprevious<CR>` |
-|  | `[L` | `:lopen` |
-|  | `[e` | `:lprevious<CR>` |
-|  | `[Q` | `:copen<CR>` |
-|  | `[q` | `:cprevious<CR>` |
-|  | `]B` | `:blast<CR>` |
-|  | `]b` | `:bnext<CR>` |
-|  | `]T` | `:tlast<CR>` |
-|  | `]t` | `:tnext<CR>` |
-|  | `]L` | `:lclose<CR>` |
-|  | `]e` | `:lnext<CR>` |
-|  | `]Q` | `:cclose<CR>` |
-|  | `]q` | `:cnext<CR>` |
-|  | `_` | `<C-W>5<lt>` |
-|  | `f` |  |
-|  | `gF` |  |
-|  | `gx` |  |
-|  | `gs` | `:%s/` |
-|  | `gp` | `'`[' . strpart(getregtype(), 0, 1) . '`]'` |
-|  | `g#` | `g#N` |
-|  | `g*` | `g*N` |
-|  | `gJ` | `:TSJJoin<CR>` |
-|  | `gS` | `:TSJSplit<CR>` |
-|  | `gcip` |  |
-|  | `j` | `gj` |
-|  | `k` | `gk` |
-|  | `n` | `nzz` |
-|  | `p` | `p`]` |
-|  | `t` |  |
-|  | `<C-K>` | `<C-W>k` |
-|  | `<C-J>` | `<C-W>j` |
-|  | `<C-H>` | `<C-\><C-N><C-W>h` |
-|  | `<C-S>` | `:w<CR>` |
-|  | `<C-Y>` |  |
-|  | `<C-P>` |  |
-|  | `<F1>` |  |
-|  | `<F5>` |  |
-|  | `<C-L>` | `<C-\><C-N><C-W>l` |
+|  | <code>#</code> | <code>#N</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  | <code>*</code> | <code>*N</code> |
+|  | <code>+</code> | <code>&lt;C-W&gt;5&gt;</code> |
+|  | <code>,Q</code> |  |
+|  | <code>,q</code> |  |
+|  | <code>,T</code> |  |
+|  | <code>,db</code> | <code>:silent w &#124; :silent %bd | e#&lt;CR&gt;</code> |
+|  | <code>,]</code> | <code>&lt;C-W&gt;v&lt;C-]&gt;</code> |
+|  | <code>,&lt;Tab&gt;</code> | <code>&lt;C-^&gt;</code> |
+|  | <code>,h</code> | <code>viw"0p</code> |
+|  | <code>,p</code> | <code>"0p</code> |
+|  | <code>, </code> | <code>:noh&lt;CR&gt;</code> |
+|  | <code>,v</code> | <code>&lt;C-W&gt;v</code> |
+|  | <code>,s</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>,F</code> | <code>:call v:lua.kris.search.run(expand("&lt;lt&gt;cword&gt;"))&lt;CR&gt;</code> |
+|  | <code>,f</code> | <code>:call v:lua.kris.search.run("")&lt;CR&gt;</code> |
+|  | <code>,G</code> | <code>:vert G&lt;CR&gt;</code> |
+|  | <code>,hf</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+|  | <code>,n</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+|  | <code>,yg</code> |  |
+|  | <code>,lt</code> |  |
+|  | <code>,lT</code> |  |
+|  | <code>,g</code> |  |
+|  | <code>,m</code> |  |
+|  | <code>,t</code> |  |
+|  | <code>,b</code> |  |
+|  | <code>,df</code> | <code>:Git push --force-with-lease&lt;CR&gt;</code> |
+|  | <code>,dp</code> | <code>:Git push&lt;CR&gt;</code> |
+|  | <code>,da</code> |  |
+|  | <code>,dc</code> |  |
+|  | <code>,dh</code> | <code>:DiffviewFileHistory %&lt;CR&gt;</code> |
+|  | <code>,do</code> |  |
+|  | <code>,c</code> |  |
+|  | <code>,oc</code> |  |
+|  | <code>,oa</code> |  |
+|  | <code>F</code> |  |
+|  | <code>N</code> | <code>Nzz</code> |
+|  | <code>Q</code> | <code>&lt;C-Z&gt;</code> |
+|  | <code>R</code> |  |
+|  | <code>T</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[B</code> | <code>:bfirst&lt;CR&gt;</code> |
+|  | <code>[b</code> | <code>:bprevious&lt;CR&gt;</code> |
+|  | <code>[T</code> | <code>:tfirst&lt;CR&gt;</code> |
+|  | <code>[t</code> | <code>:tprevious&lt;CR&gt;</code> |
+|  | <code>[L</code> | <code>:lopen</code> |
+|  | <code>[e</code> | <code>:lprevious&lt;CR&gt;</code> |
+|  | <code>[Q</code> | <code>:copen&lt;CR&gt;</code> |
+|  | <code>[q</code> | <code>:cprevious&lt;CR&gt;</code> |
+|  | <code>]B</code> | <code>:blast&lt;CR&gt;</code> |
+|  | <code>]b</code> | <code>:bnext&lt;CR&gt;</code> |
+|  | <code>]T</code> | <code>:tlast&lt;CR&gt;</code> |
+|  | <code>]t</code> | <code>:tnext&lt;CR&gt;</code> |
+|  | <code>]L</code> | <code>:lclose&lt;CR&gt;</code> |
+|  | <code>]e</code> | <code>:lnext&lt;CR&gt;</code> |
+|  | <code>]Q</code> | <code>:cclose&lt;CR&gt;</code> |
+|  | <code>]q</code> | <code>:cnext&lt;CR&gt;</code> |
+|  | <code>_</code> | <code>&lt;C-W&gt;5&lt;lt&gt;</code> |
+|  | <code>f</code> |  |
+|  | <code>gF</code> |  |
+|  | <code>gx</code> |  |
+|  | <code>gs</code> | <code>:%s/</code> |
+|  | <code>gp</code> | <code>'`[' . strpart(getregtype(), 0, 1) . '`]'</code> |
+|  | <code>g#</code> | <code>g#N</code> |
+|  | <code>g*</code> | <code>g*N</code> |
+|  | <code>gJ</code> | <code>:TSJJoin&lt;CR&gt;</code> |
+|  | <code>gS</code> | <code>:TSJSplit&lt;CR&gt;</code> |
+|  | <code>gcip</code> |  |
+|  | <code>j</code> | <code>gj</code> |
+|  | <code>k</code> | <code>gk</code> |
+|  | <code>n</code> | <code>nzz</code> |
+|  | <code>p</code> | <code>p`]</code> |
+|  | <code>t</code> |  |
+|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
+|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
+|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-\&gt;&lt;C-N&gt;&lt;C-W&gt;h</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
+|  | <code>&lt;C-Y&gt;</code> |  |
+|  | <code>&lt;C-P&gt;</code> |  |
+|  | <code>&lt;F1&gt;</code> |  |
+|  | <code>&lt;F5&gt;</code> |  |
+|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-\&gt;&lt;C-N&gt;&lt;C-W&gt;l</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `<Tab>` | `>gv` |
-|  | `#` | `"yy?\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N` |
-|  | `*` | `"yy/\V<C-R>=escape(getreg('y'), '\/?')<CR><CR>N` |
-|  | `,p` | `"0p` |
-|  | `,F` | `:<C-U>call v:lua.kris.search.run("", 1)<CR>` |
-|  | `,kS` | `:<C-U>call v:lua.kris.calculate_selection(v:true)<CR>` |
-|  | `,ks` | `:<C-U>call v:lua.kris.calculate_selection()<CR>` |
-|  | `,yg` |  |
-|  | `,c` |  |
-|  | `F` |  |
-|  | `J` | `:m '>+1<CR>gv=gv` |
-|  | `K` | `:m '<lt>-2<CR>gv=gv` |
-|  | `Q` | `<C-Z>` |
-|  | `T` |  |
-|  | `a#` | `:<C-U>normal! F#vf#<CR>` |
-|  | `a-` | `:<C-U>normal! F-vf-<CR>` |
-|  | `a+` | `:<C-U>normal! F+vf+<CR>` |
-|  | `a*` | `:<C-U>normal! F*vf*<CR>` |
-|  | `a\` | `:<C-U>normal! F\vf\<CR>` |
-|  | `a/` | `:<C-U>normal! F/vf/<CR>` |
-|  | `a|` | `:<C-U>normal! F|vf|<CR>` |
-|  | `a;` | `:<C-U>normal! F;vf;<CR>` |
-|  | `a,` | `:<C-U>normal! F,vf,<CR>` |
-|  | `a:` | `:<C-U>normal! F:vf:<CR>` |
-|  | `a.` | `:<C-U>normal! F.vf.<CR>` |
-|  | `a_` | `:<C-U>normal! F_vf_<CR>` |
-|  | `f` |  |
-|  | `gs` | `:s/` |
-|  | `i#` | `:<C-U>normal! T#vt#<CR>` |
-|  | `i-` | `:<C-U>normal! T-vt-<CR>` |
-|  | `i+` | `:<C-U>normal! T+vt+<CR>` |
-|  | `i*` | `:<C-U>normal! T*vt*<CR>` |
-|  | `i\` | `:<C-U>normal! T\vt\<CR>` |
-|  | `i/` | `:<C-U>normal! T/vt/<CR>` |
-|  | `i|` | `:<C-U>normal! T|vt|<CR>` |
-|  | `i;` | `:<C-U>normal! T;vt;<CR>` |
-|  | `i,` | `:<C-U>normal! T,vt,<CR>` |
-|  | `i:` | `:<C-U>normal! T:vt:<CR>` |
-|  | `i.` | `:<C-U>normal! T.vt.<CR>` |
-|  | `i_` | `:<C-U>normal! T_vt_<CR>` |
-|  | `p` | `p`]` |
-|  | `t` |  |
-|  | `y` | `y`]` |
-|  | `<S-Tab>` | `<lt>gv` |
-|  | `<C-C>` | `"+y` |
-|  | `<C-S>` | `:w<CR>` |
+|  | <code>&lt;Tab&gt;</code> | <code>&gt;gv</code> |
+|  | <code>#</code> | <code>"yy?\V&lt;C-R&gt;=escape(getreg('y'), '\/?')&lt;CR&gt;&lt;CR&gt;N</code> |
+|  | <code>*</code> | <code>"yy/\V&lt;C-R&gt;=escape(getreg('y'), '\/?')&lt;CR&gt;&lt;CR&gt;N</code> |
+|  | <code>,p</code> | <code>"0p</code> |
+|  | <code>,F</code> | <code>:&lt;C-U&gt;call v:lua.kris.search.run("", 1)&lt;CR&gt;</code> |
+|  | <code>,kS</code> | <code>:&lt;C-U&gt;call v:lua.kris.calculate_selection(v:true)&lt;CR&gt;</code> |
+|  | <code>,ks</code> | <code>:&lt;C-U&gt;call v:lua.kris.calculate_selection()&lt;CR&gt;</code> |
+|  | <code>,yg</code> |  |
+|  | <code>,c</code> |  |
+|  | <code>F</code> |  |
+|  | <code>J</code> | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+|  | <code>K</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+|  | <code>Q</code> | <code>&lt;C-Z&gt;</code> |
+|  | <code>T</code> |  |
+|  | <code>a#</code> | <code>:&lt;C-U&gt;normal! F#vf#&lt;CR&gt;</code> |
+|  | <code>a-</code> | <code>:&lt;C-U&gt;normal! F-vf-&lt;CR&gt;</code> |
+|  | <code>a+</code> | <code>:&lt;C-U&gt;normal! F+vf+&lt;CR&gt;</code> |
+|  | <code>a*</code> | <code>:&lt;C-U&gt;normal! F*vf*&lt;CR&gt;</code> |
+|  | <code>a\</code> | <code>:&lt;C-U&gt;normal! F\vf\&lt;CR&gt;</code> |
+|  | <code>a/</code> | <code>:&lt;C-U&gt;normal! F/vf/&lt;CR&gt;</code> |
+|  | <code>a&#124;</code> | <code>:&lt;C-U&gt;normal! F&#124;vf|&lt;CR&gt;</code> |
+|  | <code>a;</code> | <code>:&lt;C-U&gt;normal! F;vf;&lt;CR&gt;</code> |
+|  | <code>a,</code> | <code>:&lt;C-U&gt;normal! F,vf,&lt;CR&gt;</code> |
+|  | <code>a:</code> | <code>:&lt;C-U&gt;normal! F:vf:&lt;CR&gt;</code> |
+|  | <code>a.</code> | <code>:&lt;C-U&gt;normal! F.vf.&lt;CR&gt;</code> |
+|  | <code>a_</code> | <code>:&lt;C-U&gt;normal! F_vf_&lt;CR&gt;</code> |
+|  | <code>f</code> |  |
+|  | <code>gs</code> | <code>:s/</code> |
+|  | <code>i#</code> | <code>:&lt;C-U&gt;normal! T#vt#&lt;CR&gt;</code> |
+|  | <code>i-</code> | <code>:&lt;C-U&gt;normal! T-vt-&lt;CR&gt;</code> |
+|  | <code>i+</code> | <code>:&lt;C-U&gt;normal! T+vt+&lt;CR&gt;</code> |
+|  | <code>i*</code> | <code>:&lt;C-U&gt;normal! T*vt*&lt;CR&gt;</code> |
+|  | <code>i\</code> | <code>:&lt;C-U&gt;normal! T\vt\&lt;CR&gt;</code> |
+|  | <code>i/</code> | <code>:&lt;C-U&gt;normal! T/vt/&lt;CR&gt;</code> |
+|  | <code>i&#124;</code> | <code>:&lt;C-U&gt;normal! T&#124;vt|&lt;CR&gt;</code> |
+|  | <code>i;</code> | <code>:&lt;C-U&gt;normal! T;vt;&lt;CR&gt;</code> |
+|  | <code>i,</code> | <code>:&lt;C-U&gt;normal! T,vt,&lt;CR&gt;</code> |
+|  | <code>i:</code> | <code>:&lt;C-U&gt;normal! T:vt:&lt;CR&gt;</code> |
+|  | <code>i.</code> | <code>:&lt;C-U&gt;normal! T.vt.&lt;CR&gt;</code> |
+|  | <code>i_</code> | <code>:&lt;C-U&gt;normal! T_vt_&lt;CR&gt;</code> |
+|  | <code>p</code> | <code>p`]</code> |
+|  | <code>t</code> |  |
+|  | <code>y</code> | <code>y`]</code> |
+|  | <code>&lt;S-Tab&gt;</code> | <code>&lt;lt&gt;gv</code> |
+|  | <code>&lt;C-C&gt;</code> | <code>"+y</code> |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `F` |  |
-|  | `Q` | `<C-Z>` |
-|  | `T` |  |
-|  | `a#` | `:normal va#<CR>` |
-|  | `a-` | `:normal va-<CR>` |
-|  | `a+` | `:normal va+<CR>` |
-|  | `a*` | `:normal va*<CR>` |
-|  | `a\` | `:normal va\<CR>` |
-|  | `a/` | `:normal va/<CR>` |
-|  | `a|` | `:normal va|<CR>` |
-|  | `a;` | `:normal va;<CR>` |
-|  | `a,` | `:normal va,<CR>` |
-|  | `a:` | `:normal va:<CR>` |
-|  | `a.` | `:normal va.<CR>` |
-|  | `a_` | `:normal va_<CR>` |
-|  | `f` |  |
-|  | `i#` | `:normal vi#<CR>` |
-|  | `i-` | `:normal vi-<CR>` |
-|  | `i+` | `:normal vi+<CR>` |
-|  | `i*` | `:normal vi*<CR>` |
-|  | `i\` | `:normal vi\<CR>` |
-|  | `i/` | `:normal vi/<CR>` |
-|  | `i|` | `:normal vi|<CR>` |
-|  | `i;` | `:normal vi;<CR>` |
-|  | `i,` | `:normal vi,<CR>` |
-|  | `i:` | `:normal vi:<CR>` |
-|  | `i.` | `:normal vi.<CR>` |
-|  | `i_` | `:normal vi_<CR>` |
-|  | `t` |  |
-|  | `<C-S>` | `:w<CR>` |
+|  | <code>F</code> |  |
+|  | <code>Q</code> | <code>&lt;C-Z&gt;</code> |
+|  | <code>T</code> |  |
+|  | <code>a#</code> | <code>:normal va#&lt;CR&gt;</code> |
+|  | <code>a-</code> | <code>:normal va-&lt;CR&gt;</code> |
+|  | <code>a+</code> | <code>:normal va+&lt;CR&gt;</code> |
+|  | <code>a*</code> | <code>:normal va*&lt;CR&gt;</code> |
+|  | <code>a\</code> | <code>:normal va\&lt;CR&gt;</code> |
+|  | <code>a/</code> | <code>:normal va/&lt;CR&gt;</code> |
+|  | <code>a&#124;</code> | <code>:normal va&#124;&lt;CR&gt;</code> |
+|  | <code>a;</code> | <code>:normal va;&lt;CR&gt;</code> |
+|  | <code>a,</code> | <code>:normal va,&lt;CR&gt;</code> |
+|  | <code>a:</code> | <code>:normal va:&lt;CR&gt;</code> |
+|  | <code>a.</code> | <code>:normal va.&lt;CR&gt;</code> |
+|  | <code>a_</code> | <code>:normal va_&lt;CR&gt;</code> |
+|  | <code>f</code> |  |
+|  | <code>i#</code> | <code>:normal vi#&lt;CR&gt;</code> |
+|  | <code>i-</code> | <code>:normal vi-&lt;CR&gt;</code> |
+|  | <code>i+</code> | <code>:normal vi+&lt;CR&gt;</code> |
+|  | <code>i*</code> | <code>:normal vi*&lt;CR&gt;</code> |
+|  | <code>i\</code> | <code>:normal vi\&lt;CR&gt;</code> |
+|  | <code>i/</code> | <code>:normal vi/&lt;CR&gt;</code> |
+|  | <code>i&#124;</code> | <code>:normal vi&#124;&lt;CR&gt;</code> |
+|  | <code>i;</code> | <code>:normal vi;&lt;CR&gt;</code> |
+|  | <code>i,</code> | <code>:normal vi,&lt;CR&gt;</code> |
+|  | <code>i:</code> | <code>:normal vi:&lt;CR&gt;</code> |
+|  | <code>i.</code> | <code>:normal vi.&lt;CR&gt;</code> |
+|  | <code>i_</code> | <code>:normal vi_&lt;CR&gt;</code> |
+|  | <code>t</code> |  |
+|  | <code>&lt;C-S&gt;</code> | <code>:w&lt;CR&gt;</code> |

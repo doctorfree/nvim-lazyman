@@ -233,34 +233,331 @@ href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
 <tr class="odd">
 <td></td>
 <td><code>Q</code></td>
-<td>`<code>| |  |</code>X<code>|</code>:BufferKill<CR><code>| |  |</code>Y<code>|</code>yg_<code>| |  |</code>[%<code>|</code><Plug>(MatchitNormalMultiBackward)<code>| |  |</code>[q<code>|</code>:cprev<CR><code>| |  |</code>]%<code>|</code><Plug>(MatchitNormalMultiForward)<code>| |  |</code>]q<code>|</code>:cnext<CR><code>| |  |</code>cS<code>|</code><Plug>CSurround<code>| |  |</code>cs<code>|</code><Plug>Csurround<code>| |  |</code>ds<code>|</code><Plug>Dsurround<code>| |  |</code>gx<code>|</code><Plug>NetrwBrowseX<code>| |  |</code>g%<code>|</code><Plug>(MatchitNormalBackward)<code>| |  |</code>gb<code>|  | |  |</code>gc<code>|  | |  |</code>ySS<code>|</code><Plug>YSsurround<code>| |  |</code>ySs<code>|</code><Plug>YSsurround<code>| |  |</code>yss<code>|</code><Plug>Yssurround<code>| |  |</code>yS<code>|</code><Plug>YSurround<code>| |  |</code>ys<code>|</code><Plug>Ysurround<code>| |  |</code><Plug>NetrwBrowseX<code>|</code>:call
-netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR><code>| |  |</code><Plug>(MatchitNormalMultiForward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“W”,
-“n”)<CR><code>| |  |</code><Plug>(MatchitNormalMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR><code>| |  |</code><Plug>(MatchitNormalBackward)<code>|</code>:<C-U>call
-matchit#Match_wrapper(’‘,0,’n’)<CR><code>| |  |</code><Plug>(MatchitNormalForward)<code>|</code>:<C-U>call
-matchit#Match_wrapper(’‘,1,’n’)<CR><code>| |  |</code><Plug>(bullets-promote)<code>|</code>:BulletPromote<CR><code>| |  |</code><Plug>(bullets-demote)<code>|</code>:BulletDemote<CR><code>| |  |</code><Plug>(bullets-toggle-checkbox)<code>|</code>:ToggleCheckbox<CR><code>| |  |</code><Plug>(bullets-renumber)<code>|</code>:RenumberList<CR><code>| |  |</code><Plug>(bullets-newline)<code>|</code>:call
-<SNR>26_insert_new_bullet()<CR><code>| |  |</code><Plug>(openbrowser-smart-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_smart_search(‘n’)<CR><code>| |  |</code><Plug>(openbrowser-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_search(‘n’)<CR><code>| |  |</code><Plug>(openbrowser-open-incognito)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_open(‘n’, 0,
-[‘–incognito’])<CR><code>| |  |</code><Plug>(openbrowser-open)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_open(‘n’)<CR><code>| |  |</code><Plug>YSurround<code>|</code><SNR>14_opfunc2(‘setup’)<code>| |  |</code><Plug>Ysurround<code>|</code><SNR>14_opfunc(‘setup’)<code>| |  |</code><Plug>YSsurround<code>|</code><SNR>14_opfunc2(‘setup’).’</em>’<code>| |  |</code><Plug>Yssurround<code>|</code>‘^’.v:count1.<SNR>14_opfunc(‘setup’).’g</em>’<code>| |  |</code><Plug>CSurround<code>|</code>:<C-U>call
-<SNR>14_changesurround(1)<CR><code>| |  |</code><Plug>Csurround<code>|</code>:<C-U>call
-<SNR>14_changesurround()<CR><code>| |  |</code><Plug>Dsurround<code>|</code>:<C-U>call
-<SNR>14_dosurround(<SNR>14_inputtarget())<CR><code>| |  |</code><Plug>SurroundRepeat<code>|</code>.<code>| | Float Terminal |</code><M-3><code>|  | | Vertical Terminal |</code><M-2><code>|  | | Horizontal Terminal |</code><M-1><code>|  | |  |</code><C-T><code>|  | |  |</code><C-S><code>|</code>:w<CR><code>| |  |</code><F10><code>|  | |  |</code><D-v><code>|</code>+p<CR><code>| |  |</code><F5><code>|</code>:lua
-require(‘persistence’).load()<CR><code>| |  |</code><F4><code>|</code>:ASToggle<CR><code>| |  |</code><F7><code>|</code>:set
-spelllang=de spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add
-spell<CR><code>| |  |</code><F6><code>|</code>:set
-nospell<CR><code>| |  |</code><C-J><code>|</code><C-W>j<code>| |  |</code><M-j><code>|</code>:m
-.+1<CR>==<code>| |  |</code><C-H><code>|</code><C-W>h<code>| |  |</code><M-k><code>|</code>:m
-.-2<CR>==<code>| |  |</code><C-Right><code>|</code>:vertical resize
-+2<CR><code>| |  |</code><C-Left><code>|</code>:vertical resize
--2<CR><code>| |  |</code><C-Down><code>|</code>:resize
--2<CR><code>| |  |</code><C-Q><code>|</code>:call
-QuickFixToggle()<CR><code>| |  |</code><C-Up><code>|</code>:resize
-+2<CR><code>| |  |</code><C-K><code>|</code><C-W>k<code>| |  |</code><C-L><code>|</code><C-W>l`</td>
+<td><code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>X</code></td>
+<td><code>:BufferKill&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>Y</code></td>
+<td><code>yg_</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>[%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>[q</code></td>
+<td><code>:cprev&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>]%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>]q</code></td>
+<td><code>:cnext&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>cS</code></td>
+<td><code>&lt;Plug&gt;CSurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>cs</code></td>
+<td><code>&lt;Plug&gt;Csurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ds</code></td>
+<td><code>&lt;Plug&gt;Dsurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gx</code></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>g%</code></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>gc</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>gb</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ySS</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ySs</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>yss</code></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>yS</code></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ys</code></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+<td><code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“n”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-smart-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_smart_search(‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_search(‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-open-incognito)</code></td>
+<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open(‘n’, 0,
+[‘–incognito’])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-open)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_open(‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-promote)</code></td>
+<td><code>:BulletPromote&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-demote)</code></td>
+<td><code>:BulletDemote&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-toggle-checkbox)</code></td>
+<td><code>:ToggleCheckbox&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-renumber)</code></td>
+<td><code>:RenumberList&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-newline)</code></td>
+<td><code>:call &lt;SNR&gt;20_insert_new_bullet()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+<td><code>&lt;SNR&gt;17_opfunc2(‘setup’)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+<td><code>&lt;SNR&gt;17_opfunc(‘setup’)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+<td><code>&lt;SNR&gt;17_opfunc2(‘setup’).’_’</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+<td><code>‘^’.v:count1.&lt;SNR&gt;17_opfunc(‘setup’).’g_’</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;17_changesurround(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Csurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;17_changesurround()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Dsurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;17_dosurround(&lt;SNR&gt;17_inputtarget())&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;SurroundRepeat</code></td>
+<td><code>.</code></td>
+</tr>
+<tr class="even">
+<td>Float Terminal</td>
+<td><code>&lt;M-3&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Vertical Terminal</td>
+<td><code>&lt;M-2&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Horizontal Terminal</td>
+<td><code>&lt;M-1&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-T&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:w&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F10&gt;</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;D-v&gt;</code></td>
+<td><code>+p&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F5&gt;</code></td>
+<td><code>:lua require(‘persistence’).load()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;F4&gt;</code></td>
+<td><code>:ASToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F7&gt;</code></td>
+<td><code>:set spelllang=de
+spellfile=~/.config/nvim-Daniel/spell/de.utf-8.add
+spell&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;F6&gt;</code></td>
+<td><code>:set nospell&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>&lt;C-W&gt;k</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m .+1&lt;CR&gt;==</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>&lt;C-W&gt;j</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m .-2&lt;CR&gt;==</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>&lt;C-W&gt;h</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Right&gt;</code></td>
+<td><code>:vertical resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Left&gt;</code></td>
+<td><code>:vertical resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Q&gt;</code></td>
+<td><code>:call QuickFixToggle()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-Down&gt;</code></td>
+<td><code>:resize -2&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-Up&gt;</code></td>
+<td><code>:resize +2&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-L&gt;</code></td>
+<td><code>&lt;C-W&gt;l</code></td>
 </tr>
 </tbody>
 </table>
@@ -282,7 +579,7 @@ QuickFixToggle()<CR><code>| |  |</code><C-Up><code>|</code>:resize
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -292,7 +589,7 @@ QuickFixToggle()<CR><code>| |  |</code><C-Up><code>|</code>:resize
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -341,18 +638,18 @@ QuickFixToggle()<CR><code>| |  |</code><C-Up><code>|</code>:resize
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>gb</code></td>
+<td><code>gc</code></td>
 <td></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>gc</code></td>
+<td><code>gb</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>p</code></td>
-<td><code>"_dP</code></td>
+<td><code>“_dP</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -367,25 +664,87 @@ QuickFixToggle()<CR><code>| |  |</code><C-Up><code>|</code>:resize
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``` | |  |</code><Plug>(MatchitVisualMultiBackward)<code>|</code>:<C-U>call
-matchit#MultiMatch(“bW”,
-“n”)<CR>m’gv<code>| |  | `&lt;Plug&gt;(MatchitVisualBackward)` | `:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“n”)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW", "n")&amp;lt;CR&amp;gt;m'gv</code></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv``` | |  |</code><Plug>VgSurround<code>|</code>:<C-U>call
-<SNR>28_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR><code>| |  |</code><Plug>VSurround<code>|</code>:<C-U>call
-<SNR>28_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR><code>| |  |</code><Plug>(openbrowser-smart-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_smart_search(‘v’)<CR><code>| |  |</code><Plug>(openbrowser-search)<code>|</code>:<C-U>call
-openbrowser#_keymap_search(‘v’)<CR><code>| |  |</code><Plug>(openbrowser-open-incognito)<code>|</code>:<C-U>call
-openbrowser#_keymap_open(‘v’, 0,
-[‘–incognito’])<CR><code>| |  |</code><Plug>(openbrowser-open)<code>|</code>:<C-U>call
-openbrowser#_keymap_open(‘v’)<CR><code>| |  |</code><Plug>(bullets-promote)<code>|</code>:BulletPromoteVisual<CR><code>| |  |</code><Plug>(bullets-demote)<code>|</code>:BulletDemoteVisual<CR><code>| |  |</code><Plug>(bullets-renumber)<code>|</code>:RenumberSelection<CR><code>| |  |</code><D-v><code>|</code><C-R>+<code>| |  |</code><F5><code>|</code>:lua
-require(‘persistence’).load()<CR><code>| |  |</code><M-j><code>|</code>:m
-‘&gt;+1<CR>gv-gv<code>| |  |</code><M-k><code>|</code>:m’<lt>-2<CR>gv-gv`</td>
+<td><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv<code>&lt;/code&gt; | |  | &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") != col("$") &amp;#124; exe ":normal! m'" | endif&amp;lt;CR&amp;gt;gv</code></code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;VgSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;26_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;VSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;26_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-promote)</code></td>
+<td><code>:BulletPromoteVisual&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-demote)</code></td>
+<td><code>:BulletDemoteVisual&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(bullets-renumber)</code></td>
+<td><code>:RenumberSelection&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-smart-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_smart_search(‘v’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_search(‘v’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-open-incognito)</code></td>
+<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open(‘v’, 0,
+[‘–incognito’])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(openbrowser-open)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_open(‘v’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;D-v&gt;</code></td>
+<td><code>&lt;C-R&gt;+</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;F5&gt;</code></td>
+<td><code>:lua require(‘persistence’).load()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-j&gt;</code></td>
+<td><code>:m ’&gt;+1&lt;CR&gt;gv-gv</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-k&gt;</code></td>
+<td><code>:m ’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -427,22 +786,26 @@ require(‘persistence’).load()<CR><code>| |  |</code><M-j><code>|</code>:m
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
+“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -452,7 +815,7 @@ require(‘persistence’).load()<CR><code>| |  |</code><M-j><code>|</code>:m
 <tr class="even">
 <td></td>
 <td><code>&lt;F5&gt;</code></td>
-<td><code>:lua require('persistence').load()&lt;CR&gt;</code></td>
+<td><code>:lua require(‘persistence’).load()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

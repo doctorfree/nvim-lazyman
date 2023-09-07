@@ -108,303 +108,303 @@ Personal Neovim configuration of Github user justchokingaround
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Diff View | ` gv` | `<Cmd>DiffviewOpen<CR>` |
-| Commit history | ` gH` | `<Cmd>DiffviewFileHistory <CR>` |
-| file history | ` gh` | `<Cmd>DiffviewFileHistory %<CR>` |
-| [Hydra] UI Options | ` u` |  |
-| [Hydra] Lazy | ` L` |  |
-| [Hydra] LSP | ` l` |  |
-| [Hydra] Telescope | ` f` |  |
-| [Hydra]  Rust | ` r` |  |
-| org return | ` or` |  |
-| org index | ` oi` |  |
-| Edgy Select Window | ` uE` |  |
-| Edgy Toggle | ` ue` |  |
-| Todo/Fix/Fixme (Trouble) | ` xT` |  |
-| Todo/Fix/Fixme | ` sT` |  |
-| Todo | ` st` |  |
-| Todo (Trouble) | ` xt` |  |
-| Quickfix List (Trouble) | ` xQ` |  |
-| Location List (Trouble) | ` xL` |  |
-| Workspace Diagnostics (Trouble) | ` xX` |  |
-| Document Diagnostics (Trouble) | ` xx` |  |
-| Dismiss All | ` snd` |  |
-| Noice All | ` sna` |  |
-| Noice History | ` snh` |  |
-| Noice Last Message | ` snl` |  |
-| Mason | ` cm` |  |
-| Symbols Outline | ` cs` |  |
-| LSP Len Toggle | ` uL` |  |
-| Don't Save Current Session | ` qd` |  |
-| Restore Last Session | ` ql` |  |
-| Restore Session | ` qs` |  |
-| Switch Buffer | ` ,` |  |
-| Goto Symbol | ` ss` |  |
-| Colorscheme with preview | ` uC` |  |
-| Word (cwd) | ` sW` |  |
-| Word (root dir) | ` sw` |  |
-| Resume | ` sR` |  |
-| Options | ` so` |  |
-| Jump to Mark | ` sm` |  |
-| Man Pages | ` sM` |  |
-| Key Maps | ` sk` |  |
-| Search Highlight Groups | ` sH` |  |
-| Help Pages | ` sh` |  |
-| Grep (cwd) | ` sG` |  |
-| Grep (root dir) | ` sg` |  |
-| Workspace diagnostics | ` sD` |  |
-| Document diagnostics | ` sd` |  |
-| Commands | ` sC` |  |
-| Recent | ` fr` |  |
-| Goto Symbol (Workspace) | ` sS` |  |
-| Command History | ` sc` |  |
-| Buffer | ` sb` |  |
-| Auto Commands | ` sa` |  |
-| Registers | ` s"` |  |
-| status | ` gs` |  |
-| commits | ` gc` |  |
-| Recent (cwd) | ` fR` |  |
-| Find Files (root dir) | `  ` |  |
-| Find Files (cwd) | ` fF` |  |
-| Find Files (root dir) | ` ff` |  |
-| Buffers | ` fb` |  |
-| Command History | ` :` |  |
-| Grep (root dir) | ` /` |  |
-| Replace in files (Spectre) | ` sr` |  |
-| Explorer NeoTree (cwd) | ` fE` |  |
-| Explorer NeoTree (root dir) | ` fe` |  |
-| Explorer NeoTree (cwd) | ` E` |  |
-| Explorer | ` e` |  |
-| Projects | ` fp` |  |
-| Toggle pin | ` bp` |  |
-| Delete non-pinned buffers | ` bP` |  |
-| Run Nearest | ` tr` |  |
-| Run All Test Files | ` tT` |  |
-| Run File | ` tt` |  |
-| Stop | ` tS` |  |
-| Toggle Output Panel | ` tO` |  |
-| Show Output | ` to` |  |
-| Toggle Summary | ` ts` |  |
-|  Insert Macro Breakpoint. | `##` |  |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-|  Play Macro | `Q` |  |
-| Flash Treesitter | `S` |  |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-| Previous todo comment | `[t` |  |
-| Previous trouble/quickfix item | `[q` |  |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-| Next todo comment | `]t` |  |
-| Next trouble/quickfix item | `]q` |  |
-|  Edit Macro | `cq` |  |
-| Hop to char | `f` |  |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Hop to word | `gh` |  |
-| Replace surrounding | `gzr` |  |
-| Find right surrounding | `gzf` |  |
-| Highlight surrounding | `gzh` |  |
-| Update `MiniSurround.config.n_lines` | `gzn` |  |
-| Add surrounding | `gza` |  |
-| Delete surrounding | `gzd` |  |
-| Find left surrounding | `gzF` |  |
-|  Start/Stop Recording | `q` |  |
-| Flash | `s` |  |
-|  Yank Macro | `yq` |  |
-|  | `zh` |  |
-| half screen ←/→ | `zL` |  |
-|  | `zH` |  |
-| ←/→ | `zl` |  |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-| Git Conflict: Previous Conflict | `<Plug>(git-conflict-prev-conflict)` | `<Cmd>GitConflictPrevConflict<CR>` |
-| Git Conflict: Next Conflict | `<Plug>(git-conflict-next-conflict)` | `<Cmd>GitConflictNextConflict<CR>` |
-| Git Conflict: Choose Theirs | `<Plug>(git-conflict-theirs)` | `<Cmd>GitConflictChooseTheirs<CR>` |
-| Git Conflict: Choose None | `<Plug>(git-conflict-none)` | `<Cmd>GitConflictChooseNone<CR>` |
-| Git Conflict: Choose Both | `<Plug>(git-conflict-both)` | `<Cmd>GitConflictChooseBoth<CR>` |
-| Git Conflict: Choose Ours | `<Plug>(git-conflict-ours)` | `<Cmd>GitConflictChooseOurs<CR>` |
-|  | `<Plug>(accelerated_jk_gk)` | `<Cmd>lua require'accelerated-jk'.move_to('gk')<CR>` |
-|  | `<Plug>(accelerated_jk_j)` | `<Cmd>lua require'accelerated-jk'.move_to('j')<CR>` |
-|  | `<Plug>(accelerated_jk_k)` | `<Cmd>lua require'accelerated-jk'.move_to('k')<CR>` |
-|  | `<Plug>(accelerated_jk_gj)` | `<Cmd>lua require'accelerated-jk'.move_to('gj')<CR>` |
-|  Switch Macro Slot | `<C-Q>` |  |
-| zen mode | `<Plug>(Hydra6_wait)z` |  |
-| cursor line | `<Plug>(Hydra6_wait)c` |  |
-| show invisible | `<Plug>(Hydra6_wait)i` |  |
-|  | `<Plug>(Hydra6_wait)<Esc>` |  |
-| relativenumber | `<Plug>(Hydra6_wait)r` |  |
-| virtualedit | `<Plug>(Hydra6_wait)v` |  |
-| spell | `<Plug>(Hydra6_wait)s` |  |
-| wrap | `<Plug>(Hydra6_wait)w` |  |
-| number | `<Plug>(Hydra6_wait)n` |  |
-|  | `<Plug>(Hydra6_wait)` |  |
-|  | `<Plug>(Hydra5_wait)u` |  |
-|  | `<Plug>(Hydra5_wait)D` |  |
-|  | `<Plug>(Hydra5_wait)i` |  |
-|  | `<Plug>(Hydra5_wait)c` |  |
-|  | `<Plug>(Hydra5_wait)<Esc>` |  |
-|  | `<Plug>(Hydra5_wait)<CR>` |  |
-|  | `<Plug>(Hydra5_wait)s` |  |
-|  | `<Plug>(Hydra5_wait)h` |  |
-|  | `<Plug>(Hydra5_wait)L` |  |
-|  | `<Plug>(Hydra5_wait)p` |  |
-|  | `<Plug>(Hydra5_wait)` |  |
-|  | `<Plug>(Hydra4_wait)p` |  |
-|  | `<Plug>(Hydra4_wait)<Esc>` |  |
-|  | `<Plug>(Hydra4_wait)r` |  |
-|  | `<Plug>(Hydra4_wait)K` |  |
-|  | `<Plug>(Hydra4_wait)d` |  |
-|  | `<Plug>(Hydra4_wait)t` |  |
-|  | `<Plug>(Hydra4_wait)a` |  |
-|  | `<Plug>(Hydra4_wait)o` |  |
-|  | `<Plug>(Hydra4_wait)P` |  |
-|  | `<Plug>(Hydra4_wait)` |  |
-|  | `<Plug>(Hydra3_wait)O` |  |
-|  | `<Plug>(Hydra3_wait)?` |  |
-|  | `<Plug>(Hydra3_wait)k` |  |
-|  | `<Plug>(Hydra3_wait)c` |  |
-|  | `<Plug>(Hydra3_wait)<Esc>` |  |
-|  | `<Plug>(Hydra3_wait)r` |  |
-|  | `<Plug>(Hydra3_wait)h` |  |
-|  | `<Plug>(Hydra3_wait);` |  |
-|  | `<Plug>(Hydra3_wait)g` |  |
-|  | `<Plug>(Hydra3_wait)p` |  |
-|  | `<Plug>(Hydra3_wait)<CR>` |  |
-|  | `<Plug>(Hydra3_wait)/` |  |
-|  | `<Plug>(Hydra3_wait)o` |  |
-|  | `<Plug>(Hydra3_wait)f` |  |
-|  | `<Plug>(Hydra3_wait)` |  |
-|  | `<Plug>(Hydra2_wait)m` |  |
-|  | `<Plug>(Hydra2_wait)D` |  |
-|  | `<Plug>(Hydra2_wait)h` |  |
-|  | `<Plug>(Hydra2_wait)c` |  |
-|  | `<Plug>(Hydra2_wait)<Esc>` |  |
-|  | `<Plug>(Hydra2_wait)r` |  |
-|  | `<Plug>(Hydra2_wait)g` |  |
-|  | `<Plug>(Hydra2_wait)i` |  |
-|  | `<Plug>(Hydra2_wait)s` |  |
-|  | `<Plug>(Hydra2_wait)d` |  |
-|  | `<Plug>(Hydra2_wait)w` |  |
-|  | `<Plug>(Hydra2_wait)p` |  |
-|  | `<Plug>(Hydra2_wait)` |  |
-|  | `<Plug>(Hydra1_wait)h` |  |
-| half screen ←/→ | `<Plug>(Hydra1_wait)L` |  |
-|  | `<Plug>(Hydra1_wait)H` |  |
-|  | `<Plug>(Hydra1_wait)<Esc>` |  |
-| ←/→ | `<Plug>(Hydra1_wait)l` |  |
-|  | `<Plug>(Hydra1_wait)` |  |
-| Increment selection | `<C-Space>` |  |
-| Scroll backward | `<C-B>` |  |
-| Scroll forward | `<C-F>` |  |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| file history | <code> gh</code> | <code>&lt;Cmd&gt;DiffviewFileHistory %&lt;CR&gt;</code> |
+| Diff View | <code> gv</code> | <code>&lt;Cmd&gt;DiffviewOpen&lt;CR&gt;</code> |
+| Commit history | <code> gH</code> | <code>&lt;Cmd&gt;DiffviewFileHistory &lt;CR&gt;</code> |
+| [Hydra] UI Options | <code> u</code> |  |
+| [Hydra] Lazy | <code> L</code> |  |
+| [Hydra] LSP | <code> l</code> |  |
+| [Hydra] Telescope | <code> f</code> |  |
+| [Hydra]  Rust | <code> r</code> |  |
+| Don't Save Current Session | <code> qd</code> |  |
+| Restore Last Session | <code> ql</code> |  |
+| Restore Session | <code> qs</code> |  |
+| Todo/Fix/Fixme (Trouble) | <code> xT</code> |  |
+| Todo/Fix/Fixme | <code> sT</code> |  |
+| Todo | <code> st</code> |  |
+| Todo (Trouble) | <code> xt</code> |  |
+| Replace in files (Spectre) | <code> sr</code> |  |
+| Workspace Diagnostics (Trouble) | <code> xX</code> |  |
+| Document Diagnostics (Trouble) | <code> xx</code> |  |
+| Quickfix List (Trouble) | <code> xQ</code> |  |
+| Location List (Trouble) | <code> xL</code> |  |
+| Word (cwd) | <code> sW</code> |  |
+| Word (root dir) | <code> sw</code> |  |
+| Resume | <code> sR</code> |  |
+| Options | <code> so</code> |  |
+| Jump to Mark | <code> sm</code> |  |
+| Man Pages | <code> sM</code> |  |
+| Key Maps | <code> sk</code> |  |
+| Search Highlight Groups | <code> sH</code> |  |
+| Help Pages | <code> sh</code> |  |
+| Grep (cwd) | <code> sG</code> |  |
+| Grep (root dir) | <code> sg</code> |  |
+| Workspace diagnostics | <code> sD</code> |  |
+| Document diagnostics | <code> sd</code> |  |
+| Commands | <code> sC</code> |  |
+| Command History | <code> sc</code> |  |
+| Buffer | <code> sb</code> |  |
+| Auto Commands | <code> sa</code> |  |
+| Registers | <code> s"</code> |  |
+| status | <code> gs</code> |  |
+| commits | <code> gc</code> |  |
+| Recent (cwd) | <code> fR</code> |  |
+| Recent | <code> fr</code> |  |
+| Find Files (cwd) | <code> fF</code> |  |
+| Find Files (root dir) | <code> ff</code> |  |
+| Buffers | <code> fb</code> |  |
+| Command History | <code> :</code> |  |
+| Grep (root dir) | <code> /</code> |  |
+| Switch Buffer | <code> ,</code> |  |
+| Find Files (root dir) | <code>  </code> |  |
+| Goto Symbol (Workspace) | <code> sS</code> |  |
+| Goto Symbol | <code> ss</code> |  |
+| Colorscheme with preview | <code> uC</code> |  |
+| Explorer NeoTree (root dir) | <code> fe</code> |  |
+| Explorer | <code> e</code> |  |
+| Explorer NeoTree (cwd) | <code> E</code> |  |
+| Explorer NeoTree (cwd) | <code> fE</code> |  |
+| Toggle pin | <code> bp</code> |  |
+| Delete non-pinned buffers | <code> bP</code> |  |
+| Stop | <code> tS</code> |  |
+| Toggle Output Panel | <code> tO</code> |  |
+| Show Output | <code> to</code> |  |
+| Toggle Summary | <code> ts</code> |  |
+| Run Nearest | <code> tr</code> |  |
+| Run All Test Files | <code> tT</code> |  |
+| Run File | <code> tt</code> |  |
+| Dismiss All | <code> snd</code> |  |
+| Noice All | <code> sna</code> |  |
+| Noice History | <code> snh</code> |  |
+| Noice Last Message | <code> snl</code> |  |
+| org return | <code> or</code> |  |
+| org index | <code> oi</code> |  |
+| Edgy Select Window | <code> uE</code> |  |
+| Edgy Toggle | <code> ue</code> |  |
+| Mason | <code> cm</code> |  |
+| LSP Len Toggle | <code> uL</code> |  |
+| Symbols Outline | <code> cs</code> |  |
+| Projects | <code> fp</code> |  |
+|  Insert Macro Breakpoint. | <code>##</code> |  |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+|  Play Macro | <code>Q</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| Previous todo comment | <code>[t</code> |  |
+| Previous trouble/quickfix item | <code>[q</code> |  |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| Next todo comment | <code>]t</code> |  |
+| Next trouble/quickfix item | <code>]q</code> |  |
+|  Edit Macro | <code>cq</code> |  |
+| Hop to char | <code>f</code> |  |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Hop to word | <code>gh</code> |  |
+| Find left surrounding | <code>gzF</code> |  |
+| Delete surrounding | <code>gzd</code> |  |
+| Add surrounding | <code>gza</code> |  |
+| Replace surrounding | <code>gzr</code> |  |
+| Find right surrounding | <code>gzf</code> |  |
+| Highlight surrounding | <code>gzh</code> |  |
+| Update `MiniSurround.config.n_lines` | <code>gzn</code> |  |
+|  Start/Stop Recording | <code>q</code> |  |
+| Flash | <code>s</code> |  |
+|  Yank Macro | <code>yq</code> |  |
+| ←/→ | <code>zl</code> |  |
+|  | <code>zH</code> |  |
+|  | <code>zh</code> |  |
+| half screen ←/→ | <code>zL</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(accelerated_jk_gj)</code> | <code>&lt;Cmd&gt;lua require'accelerated-jk'.move_to('gj')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(accelerated_jk_gk)</code> | <code>&lt;Cmd&gt;lua require'accelerated-jk'.move_to('gk')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(accelerated_jk_j)</code> | <code>&lt;Cmd&gt;lua require'accelerated-jk'.move_to('j')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(accelerated_jk_k)</code> | <code>&lt;Cmd&gt;lua require'accelerated-jk'.move_to('k')&lt;CR&gt;</code> |
+|  Switch Macro Slot | <code>&lt;C-Q&gt;</code> |  |
+| Git Conflict: Previous Conflict | <code>&lt;Plug&gt;(git-conflict-prev-conflict)</code> | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
+| Git Conflict: Next Conflict | <code>&lt;Plug&gt;(git-conflict-next-conflict)</code> | <code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |
+| Git Conflict: Choose Theirs | <code>&lt;Plug&gt;(git-conflict-theirs)</code> | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
+| Git Conflict: Choose None | <code>&lt;Plug&gt;(git-conflict-none)</code> | <code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code> |
+| Git Conflict: Choose Both | <code>&lt;Plug&gt;(git-conflict-both)</code> | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
+| Git Conflict: Choose Ours | <code>&lt;Plug&gt;(git-conflict-ours)</code> | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
+| cursor line | <code>&lt;Plug&gt;(Hydra6_wait)c</code> |  |
+| spell | <code>&lt;Plug&gt;(Hydra6_wait)s</code> |  |
+| zen mode | <code>&lt;Plug&gt;(Hydra6_wait)z</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra6_wait)&lt;Esc&gt;</code> |  |
+| show invisible | <code>&lt;Plug&gt;(Hydra6_wait)i</code> |  |
+| virtualedit | <code>&lt;Plug&gt;(Hydra6_wait)v</code> |  |
+| relativenumber | <code>&lt;Plug&gt;(Hydra6_wait)r</code> |  |
+| wrap | <code>&lt;Plug&gt;(Hydra6_wait)w</code> |  |
+| number | <code>&lt;Plug&gt;(Hydra6_wait)n</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra6_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)L</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)&lt;CR&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)s</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)i</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)u</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)D</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)K</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)o</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)d</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)t</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)a</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)P</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)k</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)o</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)/</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)&lt;CR&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait);</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)O</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)?</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)g</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)f</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)w</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)s</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)d</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)g</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)i</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)m</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)D</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)</code> |  |
+| ←/→ | <code>&lt;Plug&gt;(Hydra1_wait)l</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra1_wait)H</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra1_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Esc&gt;</code> |  |
+| half screen ←/→ | <code>&lt;Plug&gt;(Hydra1_wait)L</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra1_wait)</code> |  |
+| Scroll forward | <code>&lt;C-F&gt;</code> |  |
+| Scroll backward | <code>&lt;C-B&gt;</code> |  |
+| Increment selection | <code>&lt;C-Space&gt;</code> |  |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| [Hydra] UI Options | ` u` |  |
-| [Hydra] Lazy | ` L` |  |
-| [Hydra] LSP | ` l` |  |
-| [Hydra] Telescope | ` f` |  |
-| [Hydra]  Rust | ` r` |  |
-| Selection (cwd) | ` sW` |  |
-| Selection (root dir) | ` sw` |  |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-| Add surrounding | `gza` |  |
-| Flash | `s` |  |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-| relativenumber | `<Plug>(Hydra6_wait)r` |  |
-|  | `<Plug>(Hydra6_wait)<Esc>` |  |
-| virtualedit | `<Plug>(Hydra6_wait)v` |  |
-| wrap | `<Plug>(Hydra6_wait)w` |  |
-| cursor line | `<Plug>(Hydra6_wait)c` |  |
-| number | `<Plug>(Hydra6_wait)n` |  |
-| zen mode | `<Plug>(Hydra6_wait)z` |  |
-| spell | `<Plug>(Hydra6_wait)s` |  |
-| show invisible | `<Plug>(Hydra6_wait)i` |  |
-|  | `<Plug>(Hydra6_wait)` |  |
-|  | `<Plug>(Hydra5_wait)<CR>` |  |
-|  | `<Plug>(Hydra5_wait)L` |  |
-|  | `<Plug>(Hydra5_wait)c` |  |
-|  | `<Plug>(Hydra5_wait)D` |  |
-|  | `<Plug>(Hydra5_wait)<Esc>` |  |
-|  | `<Plug>(Hydra5_wait)u` |  |
-|  | `<Plug>(Hydra5_wait)p` |  |
-|  | `<Plug>(Hydra5_wait)h` |  |
-|  | `<Plug>(Hydra5_wait)s` |  |
-|  | `<Plug>(Hydra5_wait)i` |  |
-|  | `<Plug>(Hydra5_wait)` |  |
-|  | `<Plug>(Hydra4_wait)r` |  |
-|  | `<Plug>(Hydra4_wait)a` |  |
-|  | `<Plug>(Hydra4_wait)<Esc>` |  |
-|  | `<Plug>(Hydra4_wait)P` |  |
-|  | `<Plug>(Hydra4_wait)p` |  |
-|  | `<Plug>(Hydra4_wait)o` |  |
-|  | `<Plug>(Hydra4_wait)K` |  |
-|  | `<Plug>(Hydra4_wait)d` |  |
-|  | `<Plug>(Hydra4_wait)t` |  |
-|  | `<Plug>(Hydra4_wait)` |  |
-|  | `<Plug>(Hydra3_wait)/` |  |
-|  | `<Plug>(Hydra3_wait)O` |  |
-|  | `<Plug>(Hydra3_wait)r` |  |
-|  | `<Plug>(Hydra3_wait)g` |  |
-|  | `<Plug>(Hydra3_wait)<Esc>` |  |
-|  | `<Plug>(Hydra3_wait)c` |  |
-|  | `<Plug>(Hydra3_wait)p` |  |
-|  | `<Plug>(Hydra3_wait)o` |  |
-|  | `<Plug>(Hydra3_wait)h` |  |
-|  | `<Plug>(Hydra3_wait)?` |  |
-|  | `<Plug>(Hydra3_wait);` |  |
-|  | `<Plug>(Hydra3_wait)<CR>` |  |
-|  | `<Plug>(Hydra3_wait)f` |  |
-|  | `<Plug>(Hydra3_wait)k` |  |
-|  | `<Plug>(Hydra3_wait)` |  |
-|  | `<Plug>(Hydra2_wait)r` |  |
-|  | `<Plug>(Hydra2_wait)D` |  |
-|  | `<Plug>(Hydra2_wait)h` |  |
-|  | `<Plug>(Hydra2_wait)m` |  |
-|  | `<Plug>(Hydra2_wait)w` |  |
-|  | `<Plug>(Hydra2_wait)g` |  |
-|  | `<Plug>(Hydra2_wait)p` |  |
-|  | `<Plug>(Hydra2_wait)<Esc>` |  |
-|  | `<Plug>(Hydra2_wait)c` |  |
-|  | `<Plug>(Hydra2_wait)d` |  |
-|  | `<Plug>(Hydra2_wait)s` |  |
-|  | `<Plug>(Hydra2_wait)i` |  |
-|  | `<Plug>(Hydra2_wait)` |  |
-| Decrement selection | `<BS>` |  |
+| [Hydra] UI Options | <code> u</code> |  |
+| [Hydra] Lazy | <code> L</code> |  |
+| [Hydra] LSP | <code> l</code> |  |
+| [Hydra] Telescope | <code> f</code> |  |
+| [Hydra]  Rust | <code> r</code> |  |
+| Selection (cwd) | <code> sW</code> |  |
+| Selection (root dir) | <code> sw</code> |  |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| Add surrounding | <code>gza</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+| relativenumber | <code>&lt;Plug&gt;(Hydra6_wait)r</code> |  |
+| number | <code>&lt;Plug&gt;(Hydra6_wait)n</code> |  |
+| wrap | <code>&lt;Plug&gt;(Hydra6_wait)w</code> |  |
+| spell | <code>&lt;Plug&gt;(Hydra6_wait)s</code> |  |
+| virtualedit | <code>&lt;Plug&gt;(Hydra6_wait)v</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra6_wait)&lt;Esc&gt;</code> |  |
+| zen mode | <code>&lt;Plug&gt;(Hydra6_wait)z</code> |  |
+| cursor line | <code>&lt;Plug&gt;(Hydra6_wait)c</code> |  |
+| show invisible | <code>&lt;Plug&gt;(Hydra6_wait)i</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra6_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)D</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)L</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)&lt;CR&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)s</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)u</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)i</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra5_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)a</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)o</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)t</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)P</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)K</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)d</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra4_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)?</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)o</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)g</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)&lt;CR&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)f</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)k</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)/</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)O</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait);</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra3_wait)</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)c</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)r</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)p</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)w</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)g</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)s</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)&lt;Esc&gt;</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)m</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)D</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)h</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)i</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)d</code> |  |
+|  | <code>&lt;Plug&gt;(Hydra2_wait)</code> |  |
+| Decrement selection | <code>&lt;BS&gt;</code> |  |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-| Treesitter Search | `R` |  |
-| Flash Treesitter | `S` |  |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-| Remote Flash | `r` |  |
-| Flash | `s` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| Treesitter Search | <code>R</code> |  |
+| Flash Treesitter | <code>S</code> |  |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| Remote Flash | <code>r</code> |  |
+| Flash | <code>s</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |

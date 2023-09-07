@@ -78,180 +78,180 @@ Default AstroNvim example configuration
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| By modification | ` bsm` |  |
-| Conditional Breakpoint (S-F9) | ` dC` |  |
-| Toggle Breakpoint (F9) | ` db` |  |
-| Toggle CodeLens | ` uL` |  |
-| Toggle statusline | ` ul` |  |
-| Toggle autocompletion | ` uc` |  |
-| Toggle autopairs | ` ua` |  |
-| Toggle Debugger UI | ` du` |  |
-| Evaluate Input | ` dE` |  |
-| Run To Cursor | ` ds` |  |
-| Toggle REPL | ` dR` |  |
-| Restart (C-F5) | ` dr` |  |
-| Pause (F6) | ` dp` |  |
-| Terminate Session (S-F5) | ` dQ` |  |
-| Close Session | ` dq` |  |
-| Step Out (S-F11) | ` dO` |  |
-| Step Over (F10) | ` do` |  |
-| Step Into (F11) | ` di` |  |
-| AstroNvim Changelog | ` pl` | `<Cmd>AstroChangelog<CR>` |
-| Close all buffers except current | ` bc` |  |
-| By extension | ` bse` |  |
-| By relative path | ` bsr` |  |
-| Find history | ` fo` |  |
-| Find words in all files | ` fW` |  |
-| Close all buffers to the left | ` bl` |  |
-| ToggleTerm lazygit | ` tl` |  |
-| ToggleTerm gdu | ` tu` |  |
-| ToggleTerm btm | ` tt` |  |
-| ToggleTerm python | ` tp` |  |
-| ToggleTerm float | ` tf` | `<Cmd>ToggleTerm direction=float<CR>` |
-| Symbols outline | ` lS` |  |
-| Git branches | ` gb` |  |
-| Git commits (repository) | ` gc` |  |
-| Git commits (current file) | ` gC` |  |
-| Git status | ` gt` |  |
-| Resume previous search | ` f<CR>` |  |
-| Find marks | ` f'` |  |
-| Find words in current buffer | ` f/` |  |
-| Find AstroNvim config files | ` fa` |  |
-| Find buffers | ` fb` |  |
-| Find word under cursor | ` fc` |  |
-| Find commands | ` fC` |  |
-| Find files | ` ff` |  |
-| Find all files | ` fF` |  |
-| Find help | ` fh` |  |
-| Find keymaps | ` fk` |  |
-| Find man | ` fm` |  |
-| Save | ` w` | `<Cmd>w<CR>` |
-| Find notifications | ` fn` |  |
-| Quit | ` q` | `<Cmd>confirm q<CR>` |
-| Find registers | ` fr` |  |
-| New File | ` n` | `<Cmd>enew<CR>` |
-| Find themes | ` ft` |  |
-| Find words | ` fw` |  |
-| Search symbols | ` ls` |  |
-| ToggleTerm lazygit | ` gg` |  |
-| ToggleTerm node | ` tn` |  |
-| Plugins Install | ` pi` |  |
-| Plugins Status | ` ps` |  |
-| Toggle background | ` ub` |  |
-| Plugins Sync | ` pS` |  |
-| Plugins Check Updates | ` pu` |  |
-| Plugins Update | ` pU` |  |
-| Toggle color highlight | ` uC` | `<Cmd>ColorizerToggle<CR>` |
-| Update Plugins and Mason Packages | ` pa` | `<Cmd>AstroUpdatePackages<CR>` |
-| ToggleTerm horizontal split | ` th` | `<Cmd>ToggleTerm size=10 direction=horizontal<CR>` |
-| Toggle diagnostics | ` ud` |  |
-| AstroNvim Update | ` pA` | `<Cmd>AstroUpdate<CR>` |
-| ToggleTerm vertical split | ` tv` | `<Cmd>ToggleTerm size=80 direction=vertical<CR>` |
-| Toggle signcolumn | ` ug` |  |
-| AstroNvim Version | ` pv` | `<Cmd>AstroVersion<CR>` |
-| Change indent setting | ` ui` |  |
-| Close buffer | ` c` |  |
-| Force close buffer | ` C` |  |
-| Change line numbering | ` un` |  |
-| Toggle Notifications | ` uN` |  |
-| Toggle paste mode | ` up` |  |
-| Close all buffers | ` bC` |  |
-| Toggle spellcheck | ` us` |  |
-| Previous buffer | ` bp` |  |
-| Toggle conceal | ` uS` |  |
-| Close all buffers to the right | ` br` |  |
-| Clear Breakpoints | ` dB` |  |
-| Toggle tabline | ` ut` |  |
-| Start/Continue (F5) | ` dc` |  |
-| Toggle URL highlight | ` uu` |  |
-| By full path | ` bsp` |  |
-| Toggle wrap | ` uw` |  |
-| By buffer number | ` bsi` |  |
-| Toggle syntax highlighting (buffer) | ` uy` |  |
-| Select buffer from tabline | ` bb` |  |
-| Toggle foldcolumn | ` uh` |  |
-| Close buffer from tabline | ` bd` |  |
-| Horizontal split buffer from tabline | ` b\` |  |
-| Vertical split buffer from tabline | ` b|` |  |
-| Home Screen | ` h` |  |
-| Toggle comment line | ` /` |  |
-| Debugger Hover | ` dh` |  |
-| View Git blame | ` gl` |  |
-| View full Git blame | ` gL` |  |
-| Preview Git hunk | ` gp` |  |
-| Reset Git hunk | ` gh` |  |
-| Reset Git buffer | ` gr` |  |
-| Stage Git hunk | ` gs` |  |
-| Stage Git buffer | ` gS` |  |
-| Unstage Git hunk | ` gu` |  |
-| View Git diff | ` gd` |  |
-| Toggle Explorer | ` e` | `<Cmd>Neotree toggle<CR>` |
-| Toggle Explorer Focus | ` o` |  |
-| Load last session | ` Sl` | `<Cmd>SessionManager! load_last_session<CR>` |
-| Save this session | ` Ss` | `<Cmd>SessionManager! save_current_session<CR>` |
-| Delete session | ` Sd` | `<Cmd>SessionManager! delete_session<CR>` |
-| Search sessions | ` Sf` | `<Cmd>SessionManager! load_session<CR>` |
-| Load current directory session | ` S.` | `<Cmd>SessionManager! load_current_dir_session<CR>` |
-| Mason Installer | ` pm` | `<Cmd>Mason<CR>` |
-| Mason Update | ` pM` | `<Cmd>MasonUpdateAll<CR>` |
-| New tab | ` bn` | `<Cmd>tabnew<CR>` |
-| Pick to close | ` bD` |  |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Move buffer tab left | `<lt>b` |  |
-| Move buffer tab right | `>b` |  |
-| Nvim builtin | `Y` | `y$` |
-| Previous buffer | `[b` |  |
-| Previous tab | `[t` |  |
-| Previous Git hunk | `[g` |  |
-| Horizontal Split | `\` | `<Cmd>split<CR>` |
-| Next buffer | `]b` |  |
-| Next tab | `]t` |  |
-| Next Git hunk | `]g` |  |
-| Open the file under cursor with system app | `gx` |  |
-| Comment toggle blockwise | `gb` |  |
-| Comment toggle linewise | `gc` |  |
-| Move cursor down | `j` | `v:count == 0 ? 'gj' : 'j'` |
-| Move cursor up | `k` | `v:count == 0 ? 'gk' : 'k'` |
-| Close all folds | `zM` |  |
-| Peek fold | `zp` |  |
-| Open all folds | `zR` |  |
-| Fold less | `zr` |  |
-| Fold more | `zm` |  |
-| Vertical Split | `|` | `<Cmd>vsplit<CR>` |
-| Debugger: Step Over | `<F10>` |  |
-| Debugger: Restart | `<F29>` |  |
-| Move to above split | `<C-K>` |  |
-| Move to below split | `<C-J>` |  |
-| Force write | `<C-S>` | `<Cmd>w!<CR>` |
-| Force quit | `<C-Q>` | `<Cmd>qa!<CR>` |
-| Toggle terminal | `<C-'>` | `<Cmd>ToggleTerm<CR>` |
-| Debugger: Start | `<F5>` |  |
-| Debugger: Stop | `<F17>` |  |
-| Debugger: Conditional Breakpoint | `<F21>` |  |
-| Debugger: Pause | `<F6>` |  |
-| Debugger: Toggle Breakpoint | `<F9>` |  |
-| Toggle terminal | `<F7>` | `<Cmd>ToggleTerm<CR>` |
-| Debugger: Step Into | `<F11>` |  |
-| Debugger: Step Out | `<F23>` |  |
-| Move to left split | `<C-H>` |  |
-| Resize split up | `<C-Up>` |  |
-| Resize split down | `<C-Down>` |  |
-| Resize split left | `<C-Left>` |  |
-| Resize split right | `<C-Right>` |  |
-| Move to right split | `<C-L>` |  |
+| Toggle color highlight | <code> uC</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+| Toggle background | <code> ub</code> |  |
+| Find files | <code> ff</code> |  |
+| Toggle diagnostics | <code> ud</code> |  |
+| Find all files | <code> fF</code> |  |
+| Toggle signcolumn | <code> ug</code> |  |
+| Find keymaps | <code> fk</code> |  |
+| Change indent setting | <code> ui</code> |  |
+| Find man | <code> fm</code> |  |
+| Step Into (F11) | <code> di</code> |  |
+| Toggle statusline | <code> ul</code> |  |
+| ToggleTerm python | <code> tp</code> |  |
+| Find history | <code> fo</code> |  |
+| Toggle CodeLens | <code> uL</code> |  |
+| Find registers | <code> fr</code> |  |
+| ToggleTerm node | <code> tn</code> |  |
+| Change line numbering | <code> un</code> |  |
+| Find words | <code> fw</code> |  |
+| Toggle Notifications | <code> uN</code> |  |
+| Find words in all files | <code> fW</code> |  |
+| Toggle paste mode | <code> up</code> |  |
+| Search symbols | <code> ls</code> |  |
+| Toggle spellcheck | <code> us</code> |  |
+| ToggleTerm lazygit | <code> tl</code> |  |
+| Toggle conceal | <code> uS</code> |  |
+| ToggleTerm lazygit | <code> gg</code> |  |
+| ToggleTerm gdu | <code> tu</code> |  |
+| Toggle tabline | <code> ut</code> |  |
+| ToggleTerm btm | <code> tt</code> |  |
+| View Git blame | <code> gl</code> |  |
+| Toggle URL highlight | <code> uu</code> |  |
+| Find themes | <code> ft</code> |  |
+| Find words in current buffer | <code> f/</code> |  |
+| Toggle wrap | <code> uw</code> |  |
+| Quit | <code> q</code> | <code>&lt;Cmd&gt;confirm q&lt;CR&gt;</code> |
+| By buffer number | <code> bsi</code> |  |
+| Toggle syntax highlighting (buffer) | <code> uy</code> |  |
+| Toggle foldcolumn | <code> uh</code> |  |
+| Find notifications | <code> fn</code> |  |
+| Mason Update | <code> pM</code> | <code>&lt;Cmd&gt;MasonUpdateAll&lt;CR&gt;</code> |
+| Restart (C-F5) | <code> dr</code> |  |
+| ToggleTerm vertical split | <code> tv</code> | <code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code> |
+| Toggle Explorer Focus | <code> o</code> |  |
+| Find help | <code> fh</code> |  |
+| Search sessions | <code> Sf</code> | <code>&lt;Cmd&gt;SessionManager! load_session&lt;CR&gt;</code> |
+| Mason Installer | <code> pm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+| AstroNvim Update | <code> pA</code> | <code>&lt;Cmd&gt;AstroUpdate&lt;CR&gt;</code> |
+| ToggleTerm float | <code> tf</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+| Find commands | <code> fC</code> |  |
+| Git branches | <code> gb</code> |  |
+| Pick to close | <code> bD</code> |  |
+| AstroNvim Version | <code> pv</code> | <code>&lt;Cmd&gt;AstroVersion&lt;CR&gt;</code> |
+| New tab | <code> bn</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+| AstroNvim Changelog | <code> pl</code> | <code>&lt;Cmd&gt;AstroChangelog&lt;CR&gt;</code> |
+| Close buffer | <code> c</code> |  |
+| Force close buffer | <code> C</code> |  |
+| Close all buffers except current | <code> bc</code> |  |
+| Close all buffers | <code> bC</code> |  |
+| Close all buffers to the left | <code> bl</code> |  |
+| Previous buffer | <code> bp</code> |  |
+| Close all buffers to the right | <code> br</code> |  |
+| By extension | <code> bse</code> |  |
+| By relative path | <code> bsr</code> |  |
+| By full path | <code> bsp</code> |  |
+| By modification | <code> bsm</code> |  |
+| Select buffer from tabline | <code> bb</code> |  |
+| Close buffer from tabline | <code> bd</code> |  |
+| Horizontal split buffer from tabline | <code> b\</code> |  |
+| Vertical split buffer from tabline | <code> b&#124;</code> |  |
+| Home Screen | <code> h</code> |  |
+| Toggle comment line | <code> /</code> |  |
+| View full Git blame | <code> gL</code> |  |
+| ToggleTerm horizontal split | <code> th</code> | <code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code> |
+| Preview Git hunk | <code> gp</code> |  |
+| Reset Git hunk | <code> gh</code> |  |
+| Reset Git buffer | <code> gr</code> |  |
+| Stage Git hunk | <code> gs</code> |  |
+| Stage Git buffer | <code> gS</code> |  |
+| Unstage Git hunk | <code> gu</code> |  |
+| View Git diff | <code> gd</code> |  |
+| Toggle Explorer | <code> e</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+| Load last session | <code> Sl</code> | <code>&lt;Cmd&gt;SessionManager! load_last_session&lt;CR&gt;</code> |
+| Save this session | <code> Ss</code> | <code>&lt;Cmd&gt;SessionManager! save_current_session&lt;CR&gt;</code> |
+| Delete session | <code> Sd</code> | <code>&lt;Cmd&gt;SessionManager! delete_session&lt;CR&gt;</code> |
+| Toggle Breakpoint (F9) | <code> db</code> |  |
+| Clear Breakpoints | <code> dB</code> |  |
+| Load current directory session | <code> S.</code> | <code>&lt;Cmd&gt;SessionManager! load_current_dir_session&lt;CR&gt;</code> |
+| Start/Continue (F5) | <code> dc</code> |  |
+| Conditional Breakpoint (S-F9) | <code> dC</code> |  |
+| Plugins Install | <code> pi</code> |  |
+| Step Over (F10) | <code> do</code> |  |
+| Plugins Status | <code> ps</code> |  |
+| Step Out (S-F11) | <code> dO</code> |  |
+| Plugins Sync | <code> pS</code> |  |
+| Close Session | <code> dq</code> |  |
+| Plugins Check Updates | <code> pu</code> |  |
+| Terminate Session (S-F5) | <code> dQ</code> |  |
+| Plugins Update | <code> pU</code> |  |
+| Pause (F6) | <code> dp</code> |  |
+| Update Plugins and Mason Packages | <code> pa</code> | <code>&lt;Cmd&gt;AstroUpdatePackages&lt;CR&gt;</code> |
+| Toggle REPL | <code> dR</code> |  |
+| Run To Cursor | <code> ds</code> |  |
+| Evaluate Input | <code> dE</code> |  |
+| Toggle Debugger UI | <code> du</code> |  |
+| Debugger Hover | <code> dh</code> |  |
+| Symbols outline | <code> lS</code> |  |
+| Save | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+| Git commits (repository) | <code> gc</code> |  |
+| Git commits (current file) | <code> gC</code> |  |
+| Git status | <code> gt</code> |  |
+| New File | <code> n</code> | <code>&lt;Cmd&gt;enew&lt;CR&gt;</code> |
+| Resume previous search | <code> f&lt;CR&gt;</code> |  |
+| Find marks | <code> f'</code> |  |
+| Toggle autopairs | <code> ua</code> |  |
+| Find AstroNvim config files | <code> fa</code> |  |
+| Find buffers | <code> fb</code> |  |
+| Toggle autocompletion | <code> uc</code> |  |
+| Find word under cursor | <code> fc</code> |  |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Move buffer tab left | <code>&lt;lt&gt;b</code> |  |
+| Move buffer tab right | <code>&gt;b</code> |  |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+| Previous buffer | <code>[b</code> |  |
+| Previous tab | <code>[t</code> |  |
+| Previous Git hunk | <code>[g</code> |  |
+| Horizontal Split | <code>\</code> | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
+| Next buffer | <code>]b</code> |  |
+| Next tab | <code>]t</code> |  |
+| Next Git hunk | <code>]g</code> |  |
+| Open the file under cursor with system app | <code>gx</code> |  |
+| Comment toggle linewise | <code>gc</code> |  |
+| Comment toggle blockwise | <code>gb</code> |  |
+| Move cursor down | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
+| Move cursor up | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
+| Peek fold | <code>zp</code> |  |
+| Open all folds | <code>zR</code> |  |
+| Close all folds | <code>zM</code> |  |
+| Fold less | <code>zr</code> |  |
+| Fold more | <code>zm</code> |  |
+| Vertical Split | <code>&#124;</code> | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
+| Resize split left | <code>&lt;C-Left&gt;</code> |  |
+| Move to left split | <code>&lt;C-H&gt;</code> |  |
+| Move to above split | <code>&lt;C-K&gt;</code> |  |
+| Move to below split | <code>&lt;C-J&gt;</code> |  |
+| Toggle terminal | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+| Toggle terminal | <code>&lt;C-'&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+| Debugger: Start | <code>&lt;F5&gt;</code> |  |
+| Debugger: Stop | <code>&lt;F17&gt;</code> |  |
+| Debugger: Conditional Breakpoint | <code>&lt;F21&gt;</code> |  |
+| Debugger: Restart | <code>&lt;F29&gt;</code> |  |
+| Debugger: Pause | <code>&lt;F6&gt;</code> |  |
+| Debugger: Toggle Breakpoint | <code>&lt;F9&gt;</code> |  |
+| Debugger: Step Over | <code>&lt;F10&gt;</code> |  |
+| Debugger: Step Into | <code>&lt;F11&gt;</code> |  |
+| Debugger: Step Out | <code>&lt;F23&gt;</code> |  |
+| Resize split up | <code>&lt;C-Up&gt;</code> |  |
+| Resize split down | <code>&lt;C-Down&gt;</code> |  |
+| Resize split right | <code>&lt;C-Right&gt;</code> |  |
+| Force write | <code>&lt;C-S&gt;</code> | <code>&lt;Cmd&gt;w!&lt;CR&gt;</code> |
+| Force quit | <code>&lt;C-Q&gt;</code> | <code>&lt;Cmd&gt;qa!&lt;CR&gt;</code> |
+| Move to right split | <code>&lt;C-L&gt;</code> |  |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Indent line | `<Tab>` | `>gv` |
-| Toggle comment for selection | ` /` | `<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>` |
-| Evaluate Input | ` dE` |  |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-| Comment toggle linewise | `gc` |  |
-| Comment toggle blockwise | `gb` |  |
-| Unindent line | `<S-Tab>` | `<lt>gv` |
+| Indent line | <code>&lt;Tab&gt;</code> | <code>&gt;gv</code> |
+| Toggle comment for selection | <code> /</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('Comment.api').toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Evaluate Input | <code> dE</code> |  |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+| Comment toggle blockwise | <code>gb</code> |  |
+| Comment toggle linewise | <code>gc</code> |  |
+| Unindent line | <code>&lt;S-Tab&gt;</code> | <code>&lt;lt&gt;gv</code> |
 
 #### operator mode keymaps
 

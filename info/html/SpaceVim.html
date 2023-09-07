@@ -241,22 +241,22 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tbody>
 <tr class="odd">
 <td></td>
-<td><code>h</code></td>
+<td><code> h </code></td>
 <td><code>[SPC]h[SPC]</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>xd</code></td>
+<td><code> xd </code></td>
 <td><code>[SPC]xd[SPC]</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>xa</code></td>
+<td><code> xa </code></td>
 <td><code>[SPC]xa[SPC]</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code></code></td>
+<td><code> </code></td>
 <td><code>[SPC]</code></td>
 </tr>
 <tr class="odd">
@@ -271,28 +271,16 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>,</code></td>
-<td><code>:&lt;C-U&gt;silent! keeppatterns %substitute/\s\+$//e&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;lt&gt;</code></td>
-<td><code>&lt;lt&gt;&lt;lt&gt;_</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&gt;</code></td>
-<td><code>&gt;&gt;_</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>J</code></td>
-<td><code>&lt;Plug&gt;(jplus)</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>Y</code></td>
-<td><code>y$</code></td>
+<td><code>, </code></td>
+<td><code>:&lt;C-U&gt;silent! keeppatterns %substitute/+<span
+class="math inline">$//e&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;lt&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;lt&amp;gt;&amp;lt;lt&amp;gt;_&lt;/code&gt; | | |
+&lt;code&gt;&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;gt;&amp;gt;_&lt;/code&gt; | | |
+&lt;code&gt;J&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(jplus)&lt;/code&gt; | | Nvim builtin |
+&lt;code&gt;Y&lt;/code&gt; | &lt;code&gt;y$</span></code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -302,7 +290,8 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]as</code></td>
-<td><code>:&lt;C-U&gt;Startify | doautocmd WinEnter&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;Startify | doautocmd
+WinEnter&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -332,7 +321,9 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]gM</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;62_display_last_commit_of_current_line'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;62_display_last_commit_of_current_line’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -392,7 +383,9 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]d.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;61_debug_transient_state'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;61_debug_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -437,12 +430,15 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="even">
 <td></td>
 <td><code>[SPC]dl</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#debug#launching(&amp;ft)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#debug#launching(&amp;ft)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]hi</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;82_get_help_with_cursor_symbol'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;82_get_help_with_cursor_symbol’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -452,7 +448,8 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]ff</code></td>
-<td><code>:&lt;C-U&gt;exe 'Telescope find_files cwd=' . fnamemodify(bufname('%'), ':p:h')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;exe ‘Telescope find_files cwd=’ .
+fnamemodify(bufname(‘%’), ‘:p:h’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -462,7 +459,8 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]ji</code></td>
-<td><code>:&lt;C-U&gt;Telescope ctags_outline outline&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;Telescope ctags_outline
+outline&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -477,12 +475,14 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="even">
 <td></td>
 <td><code>[SPC]h[SPC]</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;82_get_help'), ["SpaceVim"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call call(function(‘&lt;SNR&gt;82_get_help’),
+[“SpaceVim”])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]?</code></td>
-<td><code>:&lt;C-U&gt;Telescope menu menu=CustomKeyMaps default_text=[SPC]&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;Telescope menu menu=CustomKeyMaps
+default_text=[SPC]&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -492,17 +492,21 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]tmh</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("hunks")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“hunks”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>[SPC]tmv</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("vcs")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“vcs”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]g.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;58_git_transient_state'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;58_git_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -537,57 +541,75 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="even">
 <td></td>
 <td><code>[SPC]Tn</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;54_cycle_spacevim_theme'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;54_cycle_spacevim_theme’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]"</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;53_open_default_shell'), [1])&lt;CR&gt;</code></td>
+<td><code>[SPC]“</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;53_open_default_shell’),
+[1])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]'</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;53_open_default_shell'), [0])&lt;CR&gt;</code></td>
+<td><code>[SPC]’</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;53_open_default_shell’),
+[0])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]tmT</code></td>
-<td><code>:&lt;C-U&gt;if &amp;laststatus == 2 | let &amp;laststatus = 0 | else | let &amp;laststatus = 2 | endif&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;if &amp;laststatus == 2 | let &amp;laststatus =
+0</td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>[SPC]tmp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("cursorpos")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“cursorpos”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]tmt</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("time")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“time”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>[SPC]tmi</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("input method")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“input
+method”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]tmd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("date")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“date”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>[SPC]tmb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("battery status")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“battery
+status”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>[SPC]tmM</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("major mode")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“major
+mode”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>[SPC]tmm</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_section("minor mode lighters")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_section(“minor mode
+lighters”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -616,1985 +638,3096 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]c$</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterToEOL</code></td>
+<td><code>[SPC]c<span class="math inline">$&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterToEOL&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cY&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterYank&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cy&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CommenterInvertYank&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterSexy&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cv&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterInvertgv&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cu&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterUncomment&lt;/code&gt; | |
+| &lt;code&gt;[SPC]cL&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterComment&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cl&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterInvert&lt;/code&gt; | | |
+&lt;code&gt;[SPC]ca&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterAltDelims&lt;/code&gt; | |
+| &lt;code&gt;[SPC]qt&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_close_current_tab'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]qr&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]qR&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]qQ&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;qa!&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]qq&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;qa&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]p/&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;Grepper&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]pp&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#projectmanager#list()&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]pk&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#projectmanager#kill_project()&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]ptr&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#runner#run_task(SpaceVim#plugins#tasks#get())&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]ptc&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#runner#clear_tasks()&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;[SPC]ptl&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#tasks#list()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]pte&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#tasks#edit()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]n+&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_number_transient_state'),
+["+"])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]n-&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_number_transient_state'),
+["-"])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fvd&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;SPConfig&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]fvv&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;let @+=g:spacevim_version &amp;#124;
+echo g:spacevim_version&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fY&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;YankGitRemoteURL&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fy&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#util#CopyToClipboard()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bt&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;NERDTree
+%&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[SPC]fo&lt;/code&gt;
+|
+&lt;code&gt;:&amp;lt;C-U&amp;gt;NERDTreeFind&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]fT&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;NERDTree&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]ft&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;NERDTreeToggle&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]f/&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#find#open()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fD&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_delete_current_buffer_file'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fCu&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;update &amp;#124; e ++ff=dos | setlocal
+ff=unix | w&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]fCd&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;update &amp;#124; e ++ff=dos |
+w&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[SPC]fb&lt;/code&gt;
+|
+&lt;code&gt;:&amp;lt;C-U&amp;gt;BookmarkShowAll&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]bNn&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;enew&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;[SPC]bNl&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;rightbelow vertical
+new&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bNk&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;new&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bNj&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;rightbelow
+new&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bNh&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;topleft vertical
+new&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bw&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;setl
+readonly!&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bY&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;normal!
+ggVG"+y``&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bR&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_safe_revert_buffer'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bP&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;normal!
+ggdG"+P&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bo&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_only_buf_win'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bm&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_open_message_buffer'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bh&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;Startify&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]be&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_safe_erase_buffer'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bc&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#mapping#clear_saved_buffers()&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]b&amp;lt;C-S-D&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#mapping#kill_buffer_expr()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]b&amp;lt;C-D&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#mapping#clear_buffers()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]bD&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#mapping#kill_visible_buffer_choosewin()&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]bd&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#mapping#close_current_buffer()&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]hG&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#helpgrep#help(expand("&amp;lt;lt&amp;gt;cword&amp;gt;"))&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]hg&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#helpgrep#help()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]b.&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_buffer_transient_state'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]&amp;lt;Tab&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;try &amp;#124; b# | catch |
+endtry&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]wR&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_previous_window'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]wr&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_next_window'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jS&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_split_string'),
+[1])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]j.&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_jump_transient_state'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]js&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_split_string'),
+[0])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jc&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_jump_last_change'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jn&lt;/code&gt; |
+&lt;code&gt;i&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jD&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_explore_current_dir'),
+[1])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jd&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;33_explore_current_dir'),
+[0])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jf&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Tab&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jb&lt;/code&gt; |
+&lt;code&gt;&amp;lt;C-O&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]j$</span></code></td>
+<td><code>m<code>g_&lt;/code&gt; | |  | &lt;code&gt;[SPC]j0&lt;/code&gt; | &lt;code&gt;m</code>^</code></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td><code>[SPC]cY</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterYank</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]cy</code></td>
-<td><code>&lt;Plug&gt;CommenterInvertYank</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]cs</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterSexy</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]cv</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterInvertgv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]cu</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterUncomment</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]cL</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterComment</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]cl</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterInvert</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]ca</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterAltDelims</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]qt</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_close_current_tab'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]qr</code></td>
-<td><code>:&lt;C-U&gt;&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]qR</code></td>
-<td><code>:&lt;C-U&gt;&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]qQ</code></td>
-<td><code>:&lt;C-U&gt;qa!&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]qq</code></td>
-<td><code>:&lt;C-U&gt;qa&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]p/</code></td>
-<td><code>:&lt;C-U&gt;Grepper&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]pp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#projectmanager#list()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]pk</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#projectmanager#kill_project()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]ptr</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#runner#run_task(SpaceVim#plugins#tasks#get())&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]ptc</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#runner#clear_tasks()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]ptl</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#tasks#list()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]pte</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#tasks#edit()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]n+</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_number_transient_state'), ["+"])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]n-</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_number_transient_state'), ["-"])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fvd</code></td>
-<td><code>:&lt;C-U&gt;SPConfig&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fvv</code></td>
-<td><code>:&lt;C-U&gt;let @+=g:spacevim_version | echo g:spacevim_version&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fY</code></td>
-<td><code>&lt;Plug&gt;YankGitRemoteURL</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fy</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#util#CopyToClipboard()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bt</code></td>
-<td><code>:&lt;C-U&gt;NERDTree %&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fo</code></td>
-<td><code>:&lt;C-U&gt;NERDTreeFind&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fT</code></td>
-<td><code>:&lt;C-U&gt;NERDTree&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]ft</code></td>
-<td><code>:&lt;C-U&gt;NERDTreeToggle&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]f/</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#find#open()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fD</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_delete_current_buffer_file'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fCu</code></td>
-<td><code>:&lt;C-U&gt;update | e ++ff=dos | setlocal ff=unix | w&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fCd</code></td>
-<td><code>:&lt;C-U&gt;update | e ++ff=dos | w&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fb</code></td>
-<td><code>:&lt;C-U&gt;BookmarkShowAll&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bNn</code></td>
-<td><code>:&lt;C-U&gt;enew&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bNl</code></td>
-<td><code>:&lt;C-U&gt;rightbelow vertical new&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bNk</code></td>
-<td><code>:&lt;C-U&gt;new&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bNj</code></td>
-<td><code>:&lt;C-U&gt;rightbelow new&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bNh</code></td>
-<td><code>:&lt;C-U&gt;topleft vertical new&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bw</code></td>
-<td><code>:&lt;C-U&gt;setl readonly!&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bY</code></td>
-<td><code>:&lt;C-U&gt;normal! ggVG"+y``&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bR</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_safe_revert_buffer'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bP</code></td>
-<td><code>:&lt;C-U&gt;normal! ggdG"+P&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bo</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_only_buf_win'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bm</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_open_message_buffer'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bh</code></td>
-<td><code>:&lt;C-U&gt;Startify&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]be</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_safe_erase_buffer'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bc</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#clear_saved_buffers()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]b&lt;C-S-D&gt;</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#kill_buffer_expr()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]b&lt;C-D&gt;</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#clear_buffers()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]bD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#kill_visible_buffer_choosewin()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]bd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#close_current_buffer()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]hG</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#helpgrep#help(expand("&lt;lt&gt;cword&gt;"))&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]hg</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#helpgrep#help()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]b.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_buffer_transient_state'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]&lt;Tab&gt;</code></td>
-<td><code>:&lt;C-U&gt;try | b# | catch | endtry&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]wR</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_previous_window'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]wr</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_next_window'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jS</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_split_string'), [1])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]j.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_jump_transient_state'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]js</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_split_string'), [0])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]jc</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_jump_last_change'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jn</code></td>
-<td><code>i&lt;CR&gt;&lt;Esc&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]jD</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_explore_current_dir'), [1])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jd</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_explore_current_dir'), [0])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]jf</code></td>
-<td><code>&lt;Tab&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jb</code></td>
-<td><code>&lt;C-O&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]j$</code></td>
-<td><code>m</code>g_<code>| |  |</code>[SPC]j0<code>|</code>m<code>^</code></td>
-</tr>
-<tr class="even">
 <td></td>
 <td><code>[SPC]hk</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuide "[KEYs]"&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;LeaderGuide “[KEYs]”&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]hL</code></td>
 <td><code>:&lt;C-U&gt;SPRuntimeLog&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]hl</code></td>
 <td><code>:&lt;C-U&gt;SPLayer -l&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]hI</code></td>
 <td><code>:&lt;C-U&gt;call SpaceVim#issue#report()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]fS</code></td>
 <td><code>:&lt;C-U&gt;wall&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]fa</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_save_as_new_file'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]fR</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_rename_current_file'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;33_save_as_new_file’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]fs</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;33_save_current_file'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]fR</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;33_rename_current_file’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>[SPC]fs</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;33_save_current_file’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>[p</code></td>
 <td><code>P</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[t</code></td>
 <td><code>:tabprevious&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[w</code></td>
 <td><code>:call &lt;SNR&gt;33_previous_window()&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[l</code></td>
 <td><code>:lprevious&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[f</code></td>
-<td><code>:&lt;C-U&gt;call &lt;SNR&gt;33_previous_file()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;33_previous_file()&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[b</code></td>
 <td><code>:&lt;C-U&gt;bN | stopinsert&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[e</code></td>
-<td><code>:&lt;C-U&gt;execute 'move -1-'. v:count1&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[</code></td>
-<td><code>:&lt;C-U&gt;put! =repeat(nr2char(10), v:count1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;execute ‘move -1-’. v:count1&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>[ </code></td>
+<td><code>:&lt;C-U&gt;put! =repeat(nr2char(10),
+v:count1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>[SPC]z.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_fonts_transient_state'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]tW</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("wrapline")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_fonts_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>[SPC]tW</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“wrapline”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>[SPC]tl</code></td>
 <td><code>:&lt;C-U&gt;setlocal list!&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]tP</code></td>
 <td><code>:&lt;C-U&gt;DelimitMateSwitch&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]tp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("paste-mode")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“paste-mode”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]tS</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("spell-checking")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“spell-checking”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]tw</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("whitespace")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“whitespace”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]T~</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_end_of_buffer'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_end_of_buffer’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]Tt</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_tool_bar'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_tool_bar’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]Tf</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_win_fringe'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_win_fringe’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]Tm</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_menu_bar'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]TF</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_full_screen'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_menu_bar’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]ths</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_syntax_hi'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]TF</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_full_screen’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]ths</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_syntax_hi’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]thc</code></td>
 <td><code>:&lt;C-U&gt;set cursorcolumn!&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]thi</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_indentline'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_indentline’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]thh</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_cursorline'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_cursorline’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]tf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("fill-column-indicator")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“fill-column-indicator”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]tt</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#tabmanager#open()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#tabmanager#open()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]tc</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_conceallevel'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_conceallevel’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]tb</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_toggle_background'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;32_toggle_background’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ta</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#autocomplete#toggle_deoplete()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]t8</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("hi-characters-for-long-lines")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#autocomplete#toggle_deoplete()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]ju</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_jump_to_url'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]t8</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“hi-characters-for-long-lines”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]ju</code></td>
+<td><code>:&lt;C-U&gt;call call(function(‘&lt;SNR&gt;25_jump_to_url’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]jw</code></td>
 <td><code>:&lt;C-U&gt;HopWord&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]jl</code></td>
 <td><code>:&lt;C-U&gt;HopLine&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]jJ</code></td>
 <td><code>:&lt;C-U&gt;HopChar2&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]jj</code></td>
 <td><code>:&lt;C-U&gt;HopChar1&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]jk</code></td>
 <td><code>j==</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]jm</code></td>
 <td><code>:&lt;C-U&gt;SplitjoinSplit&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]jo</code></td>
 <td><code>:&lt;C-U&gt;SplitjoinJoin&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xtL</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_next'), ["line"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_next’),
+[“line”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xtW</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_next'), ["word"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_next’),
+[“word”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xtC</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_next'), ["character"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_next’),
+[“character”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xtl</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_previous'), ["line"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_previous’),
+[“line”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xtw</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_previous'), ["word"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_previous’),
+[“word”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xtc</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_transpose_with_previous'), ["character"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_transpose_with_previous’),
+[“character”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xK</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_move_text_up_transient_state'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_move_text_up_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xJ</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_move_text_down_transient_state'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_move_text_down_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ils</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_lorem_ipsum_sentence'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_lorem_ipsum_sentence’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]ilp</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_lorem_ipsum_paragraph'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_lorem_ipsum_paragraph’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ill</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_lorem_ipsum_list'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_lorem_ipsum_list’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]iUU</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_uuidgen_U'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call call(function(‘&lt;SNR&gt;25_uuidgen_U’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ipn</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_numerical_password'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_numerical_password’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]ipp</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_phonetically_password'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_phonetically_password’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ip3</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_paranoid_password'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]ip2</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_stronger_password'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_paranoid_password’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]ip1</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_insert_simple_password'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]ip2</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_stronger_password’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]ip1</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_insert_simple_password’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]xgp</code></td>
 <td><code>&lt;Plug&gt;(grammarous-move-to-previous-error)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xgn</code></td>
 <td><code>&lt;Plug&gt;(grammarous-move-to-next-error)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xlU</code></td>
 <td><code>&lt;Plug&gt;UniquifyCaseSenstiveLines</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xlu</code></td>
 <td><code>&lt;Plug&gt;UniquifyIgnoreCaseLines</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xlS</code></td>
 <td><code>:&lt;C-U&gt;sort&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xls</code></td>
 <td><code>:&lt;C-U&gt;sort i&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xlr</code></td>
 <td><code>&lt;Plug&gt;ReverseLines</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xld</code></td>
 <td><code>&lt;Plug&gt;DuplicateLines</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xsj</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_join_string_with'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_join_string_with’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]x~</code></td>
 <td><code>&lt;Plug&gt;ToggleCase</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xU</code></td>
 <td><code>&lt;Plug&gt;Uppercase</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xu</code></td>
 <td><code>&lt;Plug&gt;Lowercase</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xjr</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_set_justification_to'), ["right"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_set_justification_to’),
+[“right”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xjc</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_set_justification_to'), ["center"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_set_justification_to’),
+[“center”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xjl</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_set_justification_to'), ["left"])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_set_justification_to’),
+[“left”])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xi-</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_kebab_case'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_kebab_case’), [])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xik</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_kebab_case'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_kebab_case’), [])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xiU</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_up_case'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_up_case’), [])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xiu</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_under_score'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_under_score’), [])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xi_</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_under_score'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_under_score’), [])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xiC</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_UpperCamelCase'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xic</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_lowerCamelCase'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_UpperCamelCase’), [])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]xd[SPC]</code></td>
-<td><code>:&lt;C-U&gt;silent call call(function('&lt;SNR&gt;25_delete_extra_space'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]xic</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_lowerCamelCase’), [])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><code>[SPC]xd[SPC]</code></td>
+<td><code>:&lt;C-U&gt;silent call
+call(function(‘&lt;SNR&gt;25_delete_extra_space’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xdw</code></td>
 <td><code>:&lt;C-U&gt;StripWhitespace&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xar</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;25_align_at_regular_expression'), [])&lt;CR&gt;</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]xa[SPC]</code></td>
-<td><code>:&lt;C-U&gt;Tabularize /\s\ze\S/l0&lt;CR&gt;</code></td>
+<td><code>[SPC]xar</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;25_align_at_regular_expression’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]xa[SPC]</code></td>
+<td><code>:&lt;C-U&gt;Tabularize //l0&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa|</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /[|｜]&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa¦</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /¦&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xao</code></td>
-<td><code>:&lt;C-U&gt;Tabularize /&amp;&amp;\|||\|\.\.\|\*\*\|&lt;lt&gt;&lt;lt&gt;\|&gt;&gt;\|\/\/\|[-+*/.%^&gt;&lt;lt&gt;&amp;|?]/l1r1&lt;CR&gt;</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]xa=</code></td>
-<td><code>:&lt;C-U&gt;Tabularize /===\|&lt;lt&gt;=&gt;\|\(&amp;&amp;\|||\|&lt;lt&gt;&lt;lt&gt;\|&gt;&gt;\|\/\/\)=\|=\~[#?]\?\|=&gt;\|[:+/*!%^=&gt;&lt;lt&gt;&amp;|.?-]\?=[#?]\?/l1r1&lt;CR&gt;</code></td>
+<td><code>[SPC]xao</code></td>
+<td><code>:&lt;C-U&gt;Tabularize /&amp;&amp;&amp;#124;</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]xa=</code></td>
+<td><code>:&lt;C-U&gt;Tabularize
+/===&amp;#124;&lt;lt&gt;=&gt;|(&amp;&amp;|</td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa;</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /;&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa:</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /:&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa.</code></td>
-<td><code>:&lt;C-U&gt;Tabularize /\.&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;Tabularize /.&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa,</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /,&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa}</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /}&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa{</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /{&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa]</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /]&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa[</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /[&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa)</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa(</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /(&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa&amp;</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /&amp;&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xa%</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /%&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xa#</code></td>
 <td><code>:&lt;C-U&gt;Tabularize /#&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]xc</code></td>
 <td><code>&lt;Plug&gt;CountSelectionRegion</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]bf</code></td>
 <td><code>:&lt;C-U&gt;Neoformat&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ee</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_explain_the_error'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_explain_the_error’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]ts</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#toggle_mode("syntax-checking")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#layers#core#statusline#toggle_mode(“syntax-checking”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]e.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_error_transient_state'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_error_transient_state’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]eN</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_jump_to_previous_error'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_jump_to_previous_error’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ep</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_jump_to_previous_error'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_jump_to_previous_error’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]eL</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_toggle_show_error'), [1])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_toggle_show_error’),
+[1])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]el</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_toggle_show_error'), [0])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]en</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_jump_to_next_error'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_toggle_show_error’),
+[0])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]ev</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_verify_syntax_setup'), [])&lt;CR&gt;</code></td>
+<td><code>[SPC]en</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_jump_to_next_error’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]ev</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;22_verify_syntax_setup’),
+[])&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]eh</code></td>
 <td><code>:&lt;C-U&gt;&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ec</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;22_clear_errors'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call call(function(‘&lt;SNR&gt;22_clear_errors’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]xss</code></td>
 <td><code>:&lt;C-U&gt;NeoSnippetEdit&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]hdt</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_describe_current_time'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;90_describe_current_time’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]hdk</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#help#describe_key()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#help#describe_key()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sh</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#highlight#start(0)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]sH</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#highlight#start(1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#highlight#start(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]sE</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#iedit#start({"selectall" : 0})&lt;CR&gt;</code></td>
+<td><code>[SPC]sH</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#highlight#start(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]sE</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#iedit#start({“selectall” :
+0})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]se</code></td>
 <td><code>&lt;Plug&gt;SpaceVim-plugin-iedit</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sc</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#clear()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#clear()&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]s/</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#flygrep#open({})&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]stJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "pt")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“pt”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]stj</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "pt")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”pt”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]stF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]stf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]stP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]stp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]stD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]std</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]stB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]stb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("t", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“t”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]siJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "findstr")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“findstr”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sij</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "findstr")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”findstr”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]siF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sif</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]siP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sip</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]siD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sid</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]siB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sib</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("i", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“i”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]srJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "rg")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“rg”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]srj</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "rg")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”rg”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]srF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]srf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]srP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]srp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]srD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]srd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]srB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]srb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("r", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“r”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]skJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "ack")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“ack”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]skj</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "ack")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”ack”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]skF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]skf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]skP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]skp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]skD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]skd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]skB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]skb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("k", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“k”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sGF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sGf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sGP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sGp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sGD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sGd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sGB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sGb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("G", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“G”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sgJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "grep")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“grep”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sgj</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "grep")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”grep”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sgF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sgf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sgP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sgp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sgD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sgd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sgB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sgb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("g", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“g”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]saJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"), "ag")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),
+“ag”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]saj</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find("", "ag")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(““,”ag”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]saF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "F")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“F”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]saf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "f")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“f”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]saP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "P")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“P”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sap</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "p")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“p”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]saD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "D")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“D”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sad</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "d")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“d”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]saB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "B")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“B”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sab</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep("a", "b")&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#mapping#search#grep(“a”,
+“b”)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sl</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#list()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#list()&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sJ</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#searcher#find(expand("&lt;lt&gt;cword&gt;"),SpaceVim#mapping#search#default_tool()[0])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#searcher#find(expand(“&lt;lt&gt;cword&gt;”),SpaceVim#mapping#search#default_tool()[0])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sj</code></td>
-<td><code>:&lt;C-U&gt;lua require('spacevim.plugin.searcher').find('', require('spacevim.plugin.search').default_tool())&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;lua require(‘spacevim.plugin.searcher’).find(’‘,
+require(’spacevim.plugin.search’).default_tool())&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sP</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({'input' : expand("&lt;lt&gt;cword&gt;"), 'dir' : get(b:, "rootDir", getcwd())})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({‘input’ :
+expand(“&lt;lt&gt;cword&gt;”), ‘dir’ : get(b:, “rootDir”,
+getcwd())})&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sp</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({'input' : input("grep pattern:"), 'dir' : get(b:, "rootDir", getcwd())})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({‘input’ :
+input(“grep pattern:”), ‘dir’ : get(b:, “rootDir”,
+getcwd())})&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sF</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : expand("&lt;lt&gt;cword&gt;"), "dir": input("arbitrary dir:", "", "dir")})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+expand(“&lt;lt&gt;cword&gt;”), “dir”: input(“arbitrary dir:”,
+““,”dir”)})&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sf</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : input("grep pattern:"), "dir": input("arbitrary dir:", "", "dir")})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+input(“grep pattern:”), “dir”: input(“arbitrary dir:”,
+““,”dir”)})&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sD</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : expand("&lt;lt&gt;cword&gt;"), "dir": fnamemodify(expand("%"), ":p:h")})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+expand(“&lt;lt&gt;cword&gt;”), “dir”: fnamemodify(expand(“%”),
+“:p:h”)})&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sd</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : input("grep pattern:"), "dir": fnamemodify(expand("%"), ":p:h")})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+input(“grep pattern:”), “dir”: fnamemodify(expand(“%”),
+“:p:h”)})&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]sB</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : expand("&lt;lt&gt;cword&gt;"), "files": "@buffers"})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+expand(“&lt;lt&gt;cword&gt;”), “files”: “<span class="citation"
+data-cites="buffers">@buffers</span>”})&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]sb</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : input("grep pattern:"), "files": "@buffers"})&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]sS</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : expand("&lt;lt&gt;cword&gt;"), "files": bufname("%")})&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+input(“grep pattern:”), “files”: “<span class="citation"
+data-cites="buffers">@buffers</span>”})&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]ss</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({"input" : input("grep pattern:"), "files": bufname("%")})&lt;CR&gt;</code></td>
+<td><code>[SPC]sS</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+expand(“&lt;lt&gt;cword&gt;”), “files”:
+bufname(“%”)})&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]ss</code></td>
+<td><code>:&lt;C-U&gt;call SpaceVim#plugins#flygrep#open({“input” :
+input(“grep pattern:”), “files”: bufname(“%”)})&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]tn</code></td>
 <td><code>:&lt;C-U&gt;setlocal number!&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]bp</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_previous_buffer'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;90_previous_buffer’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]bs</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_switch_scratch_buffer'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+call(function(‘&lt;SNR&gt;90_switch_scratch_buffer’),
+[])&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]bn</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_next_buffer'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]wU</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#windowsmanager#RedoQuitWin()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call call(function(‘&lt;SNR&gt;90_next_buffer’),
+[])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wu</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#windowsmanager#UndoQuitWin()&lt;CR&gt;</code></td>
+<td><code>[SPC]wU</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#windowsmanager#RedoQuitWin()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]wu</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#windowsmanager#UndoQuitWin()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]wW</code></td>
 <td><code>:&lt;C-U&gt;ChooseWin&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ww</code></td>
 <td><code>:&lt;C-U&gt;wincmd w&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]w=</code></td>
 <td><code>:&lt;C-U&gt;wincmd =&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]wV</code></td>
 <td><code>:&lt;C-U&gt;bel vs&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]w3</code></td>
-<td><code>:&lt;C-U&gt;silent only | vs | vs | wincmd H&lt;CR&gt;</code></td>
-</tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]w2</code></td>
-<td><code>:&lt;C-U&gt;silent only | vs | wincmd w&lt;CR&gt;</code></td>
+<td><code>[SPC]w3</code></td>
+<td><code>:&lt;C-U&gt;silent only | vs</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>[SPC]w2</code></td>
+<td><code>:&lt;C-U&gt;silent only | vs</td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>[SPC]wS</code></td>
 <td><code>:&lt;C-U&gt;bel split&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]ws</code></td>
 <td><code>:&lt;C-U&gt;bel split | wincmd w&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]w-</code></td>
 <td><code>:&lt;C-U&gt;bel split | wincmd w&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]wv</code></td>
 <td><code>:&lt;C-U&gt;belowright vsplit | wincmd w&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]w/</code></td>
 <td><code>:&lt;C-U&gt;belowright vsplit | wincmd w&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>[SPC]wo</code></td>
 <td><code>:&lt;C-U&gt;tabnext&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>[SPC]wM</code></td>
-<td><code>:&lt;C-U&gt;execute eval("winnr('$')&lt;lt&gt;=2 ? 'wincmd x' : 'ChooseWinSwap'")&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]wm</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_maximize_minimize_win'), [])&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;execute eval(“winnr(’<span
+class="math inline">$')&amp;lt;lt&amp;gt;=2 ? 'wincmd x' :
+'ChooseWinSwap'")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]wm&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;90_maximize_minimize_win'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]wL&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd L&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wK&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd K&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wJ&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd J&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wH&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd H&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wl&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd l&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wk&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd k&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wx&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd x&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wj&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd j&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wh&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;wincmd h&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]wF&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;tabnew&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]wD&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;ChooseWin &amp;#124; close | wincmd
+w&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[SPC]wf&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;setlocal
+scrollbind!&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]wd&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;close&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;[SPC]w.&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;32_win_resize_transient_state'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]w+&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+call(function('&amp;lt;SNR&amp;gt;90_windows_layout_toggle'),
+[])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]w&amp;lt;Tab&amp;gt;&lt;/code&gt; | &lt;code&gt;:wincmd
+w&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[SPC]9&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(9)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]8&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(8)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]7&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(7)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]6&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(6)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]5&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(5)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]4&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(4)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]3&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(3)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]2&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(2)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]1&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#layers#core#statusline#jump(1)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;[SPC]&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuide '
+'&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[Z]&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuide
+"z"&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[G]&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuide
+"g"&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;\w\m&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiMakeTomorrowDiaryNote&lt;/code&gt;
+| | | &lt;code&gt;\w\y&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiMakeYesterdayDiaryNote&lt;/code&gt;
+| | | &lt;code&gt;\w\t&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiTabMakeDiaryNote&lt;/code&gt; | |
+| &lt;code&gt;\w\w&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiMakeDiaryNote&lt;/code&gt; | | |
+&lt;code&gt;\w\i&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiDiaryGenerateLinks&lt;/code&gt; |
+| | &lt;code&gt;\wi&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiDiaryIndex&lt;/code&gt; | | |
+&lt;code&gt;\ws&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiUISelect&lt;/code&gt; | | |
+&lt;code&gt;\wt&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiTabIndex&lt;/code&gt; | | |
+&lt;code&gt;\ww&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VimwikiIndex&lt;/code&gt; | | |
+&lt;code&gt;\tt&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; | | |
+&lt;code&gt;\tm&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#Toggle()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\s&lt;/code&gt; | &lt;code&gt;:set
+operatorfunc=unstack#Unstack&amp;lt;CR&amp;gt;g@&lt;/code&gt; | | |
+&lt;code&gt;\fr&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+resume&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;\ft&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;FzfTags&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;\fl&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+loclist&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fp&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+menu menu=AddedPlugins&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\f &lt;/code&gt; | &lt;code&gt;:Telescope menu
+menu=CustomKeyMaps&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fo&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+ctags_outline outline&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fq&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+quickfix&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fm&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+messages&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fj&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+jumplist&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fh&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+neoyank&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\fe&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;Telescope
+registers&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\)&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(20)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\(&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(19)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\*&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(18)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\&amp;&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(17)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\^&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(16)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\%&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(15)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\$&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(14)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\#&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(13)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\@&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(12)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\!&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(11)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\0&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(10)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\9&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(9)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\8&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(8)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\7&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(7)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\6&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(6)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\5&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(5)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\4&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(4)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\3&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(3)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\2&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(2)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\1&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#layers#core#tabline#jump(1)&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;\&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuide get(g:, 'mapleader',
+'\')&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;\qc&lt;/code&gt; |
+&lt;code&gt;:call setqflist([])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\qr&lt;/code&gt; | &lt;code&gt;q&lt;/code&gt; | | |
+&lt;code&gt;\ql&lt;/code&gt; |
+&lt;code&gt;:copen&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\qp&lt;/code&gt; |
+&lt;code&gt;:cprev&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\qn&lt;/code&gt; |
+&lt;code&gt;:cnext&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\P&lt;/code&gt; |
+&lt;code&gt;clipboard#paste('P')&lt;/code&gt; | | |
+&lt;code&gt;\p&lt;/code&gt; |
+&lt;code&gt;clipboard#paste('p')&lt;/code&gt; | | |
+&lt;code&gt;]%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-]%)&lt;/code&gt; | | |
+&lt;code&gt;]n&lt;/code&gt; | &lt;code&gt;:call
+&amp;lt;SNR&amp;gt;58_Context(0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]p&lt;/code&gt; | &lt;code&gt;p&lt;/code&gt; | | |
+&lt;code&gt;]t&lt;/code&gt; |
+&lt;code&gt;:tabnext&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]w&lt;/code&gt; | &lt;code&gt;:call
+&amp;lt;SNR&amp;gt;33_next_window()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]l&lt;/code&gt; |
+&lt;code&gt;:lnext&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]f&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;33_next_file()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]b&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;bn
+&amp;#124; stopinsert&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]e&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;execute
+'move +'. v:count1&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;]
+&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;put =repeat(nr2char(10),
+v:count1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]&amp;lt;Home&amp;gt;&lt;/code&gt; |
+&lt;code&gt;ddggP``&lt;/code&gt; | | |
+&lt;code&gt;]&amp;lt;End&amp;gt;&lt;/code&gt; |
+&lt;code&gt;ddGp``&lt;/code&gt; | | | &lt;code&gt;cS&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CSurround&lt;/code&gt; | | |
+&lt;code&gt;cs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Csurround&lt;/code&gt; | | |
+&lt;code&gt;ds&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Dsurround&lt;/code&gt; | | |
+&lt;code&gt;g%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-g%)&lt;/code&gt; | | |
+&lt;code&gt;gx&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-smart-search)&lt;/code&gt;
+| | | &lt;code&gt;gp&lt;/code&gt; |
+&lt;code&gt;'`['.strpart(getregtype(), 0, 1).'`]'&lt;/code&gt; | | |
+&lt;code&gt;g=&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#mapping#format()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;gd&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#mapping#gd()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;gD&lt;/code&gt; | &lt;code&gt;:call
+SpaceVim#mapping#g_capital_d()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;g&amp;lt;C-]&amp;gt;&lt;/code&gt; |
+&lt;code&gt;g&amp;lt;C-]&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;gv&lt;/code&gt; | &lt;code&gt;gv&lt;/code&gt; | | |
+&lt;code&gt;gs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-search)&lt;/code&gt; | | |
+&lt;code&gt;go&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open)&lt;/code&gt; | | |
+&lt;code&gt;gm&lt;/code&gt; | &lt;code&gt;gm&lt;/code&gt; | | |
+&lt;code&gt;gg&lt;/code&gt; | &lt;code&gt;gg&lt;/code&gt; | | |
+&lt;code&gt;ga&lt;/code&gt; | &lt;code&gt;ga&lt;/code&gt; | | |
+&lt;code&gt;g~&lt;/code&gt; | &lt;code&gt;g~&lt;/code&gt; | | |
+&lt;code&gt;g_&lt;/code&gt; | &lt;code&gt;g_&lt;/code&gt; | | |
+&lt;code&gt;g^&lt;/code&gt; | &lt;code&gt;g^&lt;/code&gt; | | |
+&lt;code&gt;g]&lt;/code&gt; | &lt;code&gt;g]&lt;/code&gt; | | |
+&lt;code&gt;gt&lt;/code&gt; | &lt;code&gt;gt&lt;/code&gt; | | |
+&lt;code&gt;gT&lt;/code&gt; | &lt;code&gt;gT&lt;/code&gt; | | |
+&lt;code&gt;gR&lt;/code&gt; | &lt;code&gt;gR&lt;/code&gt; | | |
+&lt;code&gt;gq&lt;/code&gt; | &lt;code&gt;gq&lt;/code&gt; | | |
+&lt;code&gt;gQ&lt;/code&gt; | &lt;code&gt;gQ&lt;/code&gt; | | |
+&lt;code&gt;gn&lt;/code&gt; | &lt;code&gt;gn&lt;/code&gt; | | |
+&lt;code&gt;gN&lt;/code&gt; | &lt;code&gt;gN&lt;/code&gt; | | |
+&lt;code&gt;gJ&lt;/code&gt; | &lt;code&gt;gJ&lt;/code&gt; | | |
+&lt;code&gt;gi&lt;/code&gt; | &lt;code&gt;gi&lt;/code&gt; | | |
+&lt;code&gt;gI&lt;/code&gt; | &lt;code&gt;gI&lt;/code&gt; | | |
+&lt;code&gt;gh&lt;/code&gt; | &lt;code&gt;gh&lt;/code&gt; | | |
+&lt;code&gt;gH&lt;/code&gt; | &lt;code&gt;gH&lt;/code&gt; | | |
+&lt;code&gt;gU&lt;/code&gt; | &lt;code&gt;gU&lt;/code&gt; | | |
+&lt;code&gt;gE&lt;/code&gt; | &lt;code&gt;gE&lt;/code&gt; | | |
+&lt;code&gt;gu&lt;/code&gt; | &lt;code&gt;gu&lt;/code&gt; | | |
+&lt;code&gt;gk&lt;/code&gt; | &lt;code&gt;gk&lt;/code&gt; | | |
+&lt;code&gt;gj&lt;/code&gt; | &lt;code&gt;gj&lt;/code&gt; | | |
+&lt;code&gt;gF&lt;/code&gt; | &lt;code&gt;gF&lt;/code&gt; | | |
+&lt;code&gt;gf&lt;/code&gt; | &lt;code&gt;gf&lt;/code&gt; | | |
+&lt;code&gt;g&amp;lt;lt&amp;gt;&lt;/code&gt; |
+&lt;code&gt;g&amp;lt;lt&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;ge&lt;/code&gt; | &lt;code&gt;ge&lt;/code&gt; | | |
+&lt;code&gt;g&amp;lt;Home&amp;gt;&lt;/code&gt; |
+&lt;code&gt;g&amp;lt;Home&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;g0&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;tabfirst&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;g&amp;lt;End&amp;gt;&lt;/code&gt; |
+&lt;code&gt;g&amp;lt;End&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;g$</span></code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]wL</code></td>
-<td><code>:&lt;C-U&gt;wincmd L&lt;CR&gt;</code></td>
+<td><code>g@</code></td>
+<td><code>g@</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wK</code></td>
-<td><code>:&lt;C-U&gt;wincmd K&lt;CR&gt;</code></td>
+<td><code>g;</code></td>
+<td><code>g;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]wJ</code></td>
-<td><code>:&lt;C-U&gt;wincmd J&lt;CR&gt;</code></td>
+<td><code>g,</code></td>
+<td><code>g,</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wH</code></td>
-<td><code>:&lt;C-U&gt;wincmd H&lt;CR&gt;</code></td>
+<td><code>g-</code></td>
+<td><code>g-</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]wl</code></td>
-<td><code>:&lt;C-U&gt;wincmd l&lt;CR&gt;</code></td>
+<td><code>g+</code></td>
+<td><code>g+</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wk</code></td>
-<td><code>:&lt;C-U&gt;wincmd k&lt;CR&gt;</code></td>
+<td><code>g<code>&lt;/code&gt; | &lt;code&gt;g</code></code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]wx</code></td>
-<td><code>:&lt;C-U&gt;wincmd x&lt;CR&gt;</code></td>
+<td><code>g’</code></td>
+<td><code>g’</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wj</code></td>
-<td><code>:&lt;C-U&gt;wincmd j&lt;CR&gt;</code></td>
+<td><code>g&amp;</code></td>
+<td><code>g&amp;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]wh</code></td>
-<td><code>:&lt;C-U&gt;wincmd h&lt;CR&gt;</code></td>
+<td><code>g&lt;C-G&gt;</code></td>
+<td><code>g&lt;C-G&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]wF</code></td>
-<td><code>:&lt;C-U&gt;tabnew&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]wD</code></td>
-<td><code>:&lt;C-U&gt;ChooseWin | close | wincmd w&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]wf</code></td>
-<td><code>:&lt;C-U&gt;setlocal scrollbind!&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]wd</code></td>
-<td><code>:&lt;C-U&gt;close&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]w.</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;32_win_resize_transient_state'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]w+</code></td>
-<td><code>:&lt;C-U&gt;call call(function('&lt;SNR&gt;90_windows_layout_toggle'), [])&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]w&lt;Tab&gt;</code></td>
-<td><code>:wincmd w&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]9</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(9)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]8</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(8)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]7</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(7)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]6</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(6)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]5</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(5)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]4</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(4)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]3</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(3)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]2</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(2)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]1</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#layers#core#statusline#jump(1)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuide ' '&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[Z]</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuide "z"&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
+<td><code>g</code></td>
 <td><code>[G]</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuide "g"&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\w\m</code></td>
+<td><code>gr</code></td>
+<td><code>tabpagenr(‘#’) &gt; 0 ? ‘:exe “tabnext” .
+tabpagenr(“#”)&lt;CR&gt;’ : ’’</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>mg</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveToLine</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>mjj</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveDown</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>mkk</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveUp</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>mx</code></td>
+<td><code>&lt;Plug&gt;BookmarkClearAll</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>mp</code></td>
+<td><code>:&lt;C-U&gt;BookmarkPrev&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>mn</code></td>
+<td><code>:&lt;C-U&gt;BookmarkNext&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ma</code></td>
+<td><code>:&lt;C-U&gt;BookmarkShowAll&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>mi</code></td>
+<td><code>:&lt;C-U&gt;BookmarkAnnotate&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>mc</code></td>
+<td><code>:&lt;C-U&gt;BookmarkClear&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>mm</code></td>
+<td><code>:&lt;C-U&gt;BookmarkToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ySS</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ySs</code></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>yss</code></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>yS</code></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ys</code></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z%</code></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zx</code></td>
+<td><code>zx</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zw</code></td>
+<td><code>zw</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zv</code></td>
+<td><code>zv</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zt</code></td>
+<td><code>zt</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zs</code></td>
+<td><code>zs</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zr</code></td>
+<td><code>zr</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zo</code></td>
+<td><code>zo</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zn</code></td>
+<td><code>zn</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zm</code></td>
+<td><code>zm</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z&lt;Right&gt;</code></td>
+<td><code>zl</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zl</code></td>
+<td><code>zl</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zK</code></td>
+<td><code>zkzx</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zk</code></td>
+<td><code>zk</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zJ</code></td>
+<td><code>zjzx</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zj</code></td>
+<td><code>zj</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zi</code></td>
+<td><code>zi</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z&lt;Left&gt;</code></td>
+<td><code>zh</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zh</code></td>
+<td><code>zh</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zg</code></td>
+<td><code>zg</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zf</code></td>
+<td><code>zf</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>ze</code></td>
+<td><code>ze</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zd</code></td>
+<td><code>zd</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zc</code></td>
+<td><code>zc</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zb</code></td>
+<td><code>zb</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>za</code></td>
+<td><code>za</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zX</code></td>
+<td><code>zX</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zW</code></td>
+<td><code>zW</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zR</code></td>
+<td><code>zR</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zO</code></td>
+<td><code>zO</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zN</code></td>
+<td><code>zN</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zM</code></td>
+<td><code>zM</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zL</code></td>
+<td><code>zL</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zH</code></td>
+<td><code>zH</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zG</code></td>
+<td><code>zG</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zF</code></td>
+<td><code>zF</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zE</code></td>
+<td><code>zE</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zD</code></td>
+<td><code>zD</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>zC</code></td>
+<td><code>zC</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zA</code></td>
+<td><code>zA</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z=</code></td>
+<td><code>z=</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z.</code></td>
+<td><code>z.</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z^</code></td>
+<td><code>z^</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z-</code></td>
+<td><code>z-</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z+</code></td>
+<td><code>z+</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>z&lt;CR&gt;</code></td>
+<td><code>z&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>z</code></td>
+<td><code>[Z]</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>zz</code></td>
+<td><code>zz</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(nohlsearch)</code></td>
+<td><code>:nohlsearch&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
 <td><code>&lt;Plug&gt;VimwikiMakeTomorrowDiaryNote</code></td>
+<td><code>:&lt;C-U&gt;call vimwiki#diary#make_note(v:count, 0,
+vimwiki#diary#diary_date_link(localtime(), 1))&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><code>\w\y</code></td>
 <td><code>&lt;Plug&gt;VimwikiMakeYesterdayDiaryNote</code></td>
+<td><code>:&lt;C-U&gt;call vimwiki#diary#make_note(v:count, 0,
+vimwiki#diary#diary_date_link(localtime(), -1))&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
-<td><code>\w\t</code></td>
 <td><code>&lt;Plug&gt;VimwikiTabMakeDiaryNote</code></td>
+<td><code>:&lt;C-U&gt;call vimwiki#diary#make_note(v:count,
+1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><code>\w\w</code></td>
 <td><code>&lt;Plug&gt;VimwikiMakeDiaryNote</code></td>
+<td><code>:&lt;C-U&gt;call vimwiki#diary#make_note(v:count,
+5)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
-<td><code>\w\i</code></td>
 <td><code>&lt;Plug&gt;VimwikiDiaryGenerateLinks</code></td>
+<td><code>:VimwikiDiaryGenerateLinks&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><code>\wi</code></td>
 <td><code>&lt;Plug&gt;VimwikiDiaryIndex</code></td>
+<td><code>:&lt;C-U&gt;call
+vimwiki#diary#goto_diary_index(v:count)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
-<td><code>\ws</code></td>
 <td><code>&lt;Plug&gt;VimwikiUISelect</code></td>
+<td><code>:VimwikiUISelect&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
-<td><code>\wt</code></td>
 <td><code>&lt;Plug&gt;VimwikiTabIndex</code></td>
+<td><code>:&lt;C-U&gt;call vimwiki#base#goto_index(v:count,
+1)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
-<td><code>\ww</code></td>
 <td><code>&lt;Plug&gt;VimwikiIndex</code></td>
+<td><code>:&lt;C-U&gt;call
+vimwiki#base#goto_index(v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterAltDelims</code></td>
+<td><code>:call
+&lt;SNR&gt;240_SwitchToAlternativeDelimiters(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\tt</code></td>
+<td><code>&lt;Plug&gt;NERDCommenterUncomment</code></td>
+<td><code>:call NERDComment(“n”, “Uncomment”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterAlignBoth</code></td>
+<td><code>:call NERDComment(“n”, “AlignBoth”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterAlignLeft</code></td>
+<td><code>:call NERDComment(“n”, “AlignLeft”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterAppend</code></td>
+<td><code>:call NERDComment(“n”, “Append”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterYank</code></td>
+<td><code>:call NERDComment(“n”, “Yank”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterSexy</code></td>
+<td><code>:call NERDComment(“n”, “Sexy”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterInvert</code></td>
+<td><code>:call NERDComment(“n”, “Invert”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterToEOL</code></td>
+<td><code>:call NERDComment(“n”, “ToEOL”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterNested</code></td>
+<td><code>:call NERDComment(“n”, “Nested”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterMinimal</code></td>
+<td><code>:call NERDComment(“n”, “Minimal”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterToggle</code></td>
+<td><code>:call NERDComment(“n”, “Toggle”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;NERDCommenterComment</code></td>
+<td><code>:call NERDComment(“n”, “Comment”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;YSurround</code></td>
+<td><code>&lt;SNR&gt;239_opfunc2(‘setup’)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Ysurround</code></td>
+<td><code>&lt;SNR&gt;239_opfunc(‘setup’)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;YSsurround</code></td>
+<td><code>&lt;SNR&gt;239_opfunc2(‘setup’).’_’</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Yssurround</code></td>
+<td><code>‘^’.v:count1.&lt;SNR&gt;239_opfunc(‘setup’).’g_’</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CSurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;239_changesurround(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Csurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;239_changesurround()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Dsurround</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;239_dosurround(&lt;SNR&gt;239_inputtarget())&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;SurroundRepeat</code></td>
+<td><code>.</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-sort)</code></td>
+<td><code>:call tablemode#spreadsheet#Sort(’’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-echo-cell)</code></td>
+<td><code>:call &lt;SNR&gt;234_TableEchoCell()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-eval-formula)</code></td>
+<td><code>:call
+tablemode#spreadsheet#formula#EvaluateFormulaLine()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-add-formula)</code></td>
+<td><code>:call
+tablemode#spreadsheet#formula#Add()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-insert-column-after)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#InsertColumn(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-insert-column-before)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#InsertColumn(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-delete-column)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#DeleteColumn()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-delete-row)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#DeleteRow()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-right)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘l’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-left)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘h’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-down)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘j’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-motion-up)</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#Motion(‘k’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(table-mode-realign)</code></td>
+<td><code>:call tablemode#table#Realign(‘.’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
 <td><code>&lt;Plug&gt;(table-mode-tableize)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\tm</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#Toggle()&lt;CR&gt;</code></td>
+<td><code>:Tableize&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\s</code></td>
-<td><code>:set operatorfunc=unstack#Unstack&lt;CR&gt;g@</code></td>
+<td><code>&lt;Plug&gt;(startify-open-buffers)</code></td>
+<td><code>:&lt;C-U&gt;call startify#open_buffers()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\fr</code></td>
-<td><code>:&lt;C-U&gt;Telescope resume&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterPreviewHunk</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterPreviewHunk to
+&lt;lt&gt;Plug&gt;(GitGutterPreviewHunk)’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\ft</code></td>
-<td><code>:&lt;C-U&gt;FzfTags&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterPreviewHunk)</code></td>
+<td><code>:GitGutterPreviewHunk&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\fl</code></td>
-<td><code>:&lt;C-U&gt;Telescope loclist&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterUndoHunk</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterUndoHunk to
+&lt;lt&gt;Plug&gt;(GitGutterUndoHunk)’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\fp</code></td>
-<td><code>:&lt;C-U&gt;Telescope menu menu=AddedPlugins&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterUndoHunk)</code></td>
+<td><code>:GitGutterUndoHunk&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\f</code></td>
-<td><code>:Telescope menu menu=CustomKeyMaps&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterStageHunk</code></td>
+<td><code>:call gitgutter#utility#warn(‘Please change your map
+&lt;lt&gt;Plug&gt;GitGutterStageHunk to
+&lt;lt&gt;Plug&gt;(GitGutterStageHunk)’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\fo</code></td>
-<td><code>:&lt;C-U&gt;Telescope ctags_outline outline&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterStageHunk)</code></td>
+<td><code>:GitGutterStageHunk&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\fq</code></td>
-<td><code>:&lt;C-U&gt;Telescope quickfix&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterPrevHunk</code></td>
+<td><code>&amp;diff ? ‘[c’ : “:&amp;lt;C-U&gt;call
+gitgutter#utility#warn(‘Please change your map
+&amp;lt;lt&gt;Plug&gt;GitGutterPrevHunk to
+&amp;lt;lt&gt;Plug&gt;(GitGutterPrevHunk)’)&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\fm</code></td>
-<td><code>:&lt;C-U&gt;Telescope messages&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterPrevHunk)</code></td>
+<td><code>&amp;diff ? ‘[c’ : “:&amp;lt;C-U&gt;execute v:count1 .
+‘GitGutterPrevHunk’&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\fj</code></td>
-<td><code>:&lt;C-U&gt;Telescope jumplist&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;GitGutterNextHunk</code></td>
+<td><code>&amp;diff ? ‘]c’ : “:&amp;lt;C-U&gt;call
+gitgutter#utility#warn(‘Please change your map
+&amp;lt;lt&gt;Plug&gt;GitGutterNextHunk to
+&amp;lt;lt&gt;Plug&gt;(GitGutterNextHunk)’)&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\fh</code></td>
-<td><code>:&lt;C-U&gt;Telescope neoyank&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(GitGutterNextHunk)</code></td>
+<td><code>&amp;diff ? ‘]c’ : “:&amp;lt;C-U&gt;execute v:count1 .
+‘GitGutterNextHunk’&amp;lt;CR&gt;”</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\fe</code></td>
-<td><code>:&lt;C-U&gt;Telescope registers&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveToLine</code></td>
+<td><code>:&lt;C-U&gt;BookmarkMoveToLine v:count&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\)</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(20)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveDown</code></td>
+<td><code>:&lt;C-U&gt;BookmarkMoveDown v:count&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\(</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(19)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkMoveUp</code></td>
+<td><code>:&lt;C-U&gt;BookmarkMoveUp v:count&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\*</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(18)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkClearAll</code></td>
+<td><code>:BookmarkClearAll&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\&amp;</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(17)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkClear</code></td>
+<td><code>:BookmarkClear&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\^</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(16)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkPrev</code></td>
+<td><code>:BookmarkPrev&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\%</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(15)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkNext</code></td>
+<td><code>:BookmarkNext&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\$</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(14)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkAnnotate</code></td>
+<td><code>:BookmarkAnnotate&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\#</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(13)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkToggle</code></td>
+<td><code>:BookmarkToggle&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\@</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(12)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;BookmarkShowAll</code></td>
+<td><code>:BookmarkShowAll&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\!</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(11)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(openbrowser-smart-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_smart_search(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\0</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(10)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(openbrowser-search)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_search(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\9</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(9)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(openbrowser-open-incognito)</code></td>
+<td><code>:&lt;C-U&gt;call openbrowser#_keymap_open(‘n’, 0,
+[‘–incognito’])&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\8</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(8)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(openbrowser-open)</code></td>
+<td><code>:&lt;C-U&gt;call
+openbrowser#_keymap_open(‘n’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\7</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(7)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(expand_region_expand)</code></td>
+<td><code>:&lt;C-U&gt;call expand_region#next(‘n’,
+‘+’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\6</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(6)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(complete_parameter#overload_up)</code></td>
+<td><code>&lt;Esc&gt;:call cmp#overload_next(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\5</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(5)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(complete_parameter#overload_down)</code></td>
+<td><code>&lt;Esc&gt;:call cmp#overload_next(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\4</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(4)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(complete_parameter#goto_previous_parameter)</code></td>
+<td><code>&lt;Esc&gt;:call cmp#goto_next_param(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\3</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(3)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(complete_parameter#goto_next_parameter)</code></td>
+<td><code>&lt;Esc&gt;:call cmp#goto_next_param(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\2</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(2)&lt;CR&gt;</code></td>
+<td><code>&lt;2-LeftMouse&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\1</code></td>
-<td><code>:call SpaceVim#layers#core#tabline#jump(1)&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-reload)</code></td>
+<td><code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuide get(g:, 'mapleader', '\')&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-double-click)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#text_obj#double_click()&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\qc</code></td>
-<td><code>:call setqflist([])&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-z%)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#motion#jump_inside(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>\qr</code></td>
-<td><code>q</code></td>
+<td><code>&lt;Plug&gt;(matchup-[%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>\ql</code></td>
-<td><code>:copen&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\qp</code></td>
-<td><code>:cprev&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\qn</code></td>
-<td><code>:cnext&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\P</code></td>
-<td><code>clipboard#paste('P')</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\p</code></td>
-<td><code>clipboard#paste('p')</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>]%</code></td>
 <td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>]n</code></td>
-<td><code>:call &lt;SNR&gt;58_Context(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>]p</code></td>
-<td><code>p</code></td>
+<td><code>&lt;Plug&gt;(matchup-g%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>]t</code></td>
-<td><code>:tabnext&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-%)</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0,
+1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>]w</code></td>
-<td><code>:call &lt;SNR&gt;33_next_window()&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;172_(wise)</code></td>
+<td><code>empty(g:v_motion_force) ? ‘v’ : g:v_motion_force</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>]l</code></td>
-<td><code>:lnext&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(matchup-hi-surround)</code></td>
+<td><code>:&lt;C-U&gt;call
+matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>]f</code></td>
-<td><code>:&lt;C-U&gt;call &lt;SNR&gt;33_next_file()&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;(ctrlp)</code></td>
+<td><code>:&lt;C-U&gt;CtrlP&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>]b</code></td>
-<td><code>:&lt;C-U&gt;bn | stopinsert&lt;CR&gt;</code></td>
+<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+<td><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>]e</code></td>
-<td><code>:&lt;C-U&gt;execute 'move +'. v:count1&lt;CR&gt;</code></td>
+<td><code>&lt;PageUp&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>]</code></td>
-<td><code>:&lt;C-U&gt;put =repeat(nr2char(10), v:count1)&lt;CR&gt;</code></td>
+<td><code>&lt;S-Up&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>]&lt;Home&gt;</code></td>
-<td><code>ddggP``` | |  |</code>]<End><code>|</code>ddGp`<code>| |  | `cS` | `&lt;Plug&gt;CSurround` | |  | `cs` | `&lt;Plug&gt;Csurround` | |  | `ds` | `&lt;Plug&gt;Dsurround` | |  | `g%` | `&lt;Plug&gt;(matchup-g%)` | |  | `gx` | `&lt;Plug&gt;(openbrowser-smart-search)` | |  | `gp` | `'`['.strpart(getregtype(), 0, 1).'`]'` | |  | `g=` | `:call SpaceVim#mapping#format()&lt;CR&gt;` | |  | `gd` | `:call SpaceVim#mapping#gd()&lt;CR&gt;` | |  | `gD` | `:call SpaceVim#mapping#g_capital_d()&lt;CR&gt;` | |  | `g&lt;C-]&gt;` | `g&lt;C-]&gt;` | |  | `gv` | `gv` | |  | `gs` | `&lt;Plug&gt;(openbrowser-search)` | |  | `go` | `&lt;Plug&gt;(openbrowser-open)` | |  | `gm` | `gm` | |  | `gg` | `gg` | |  | `ga` | `ga` | |  | `g~` | `g~` | |  | `g_` | `g_` | |  | `g^` | `g^` | |  | `g]` | `g]` | |  | `gt` | `gt` | |  | `gT` | `gT` | |  | `gR` | `gR` | |  | `gq` | `gq` | |  | `gQ` | `gQ` | |  | `gn` | `gn` | |  | `gN` | `gN` | |  | `gJ` | `gJ` | |  | `gi` | `gi` | |  | `gI` | `gI` | |  | `gh` | `gh` | |  | `gH` | `gH` | |  | `gU` | `gU` | |  | `gE` | `gE` | |  | `gu` | `gu` | |  | `gk` | `gk` | |  | `gj` | `gj` | |  | `gF` | `gF` | |  | `gf` | `gf` | |  | `g&lt;lt&gt;` | `g&lt;lt&gt;` | |  | `ge` | `ge` | |  | `g&lt;Home&gt;` | `g&lt;Home&gt;` | |  | `g0` | `:&lt;C-U&gt;tabfirst&lt;CR&gt;` | |  | `g&lt;End&gt;` | `g&lt;End&gt;` | |  | `g$` | `:&lt;C-U&gt;tablast&lt;CR&gt;` | |  | `g@` | `g@` | |  | `g;` | `g;` | |  | `g,` | `g,` | |  | `g-` | `g-` | |  | `g+` | `g+` | |  | `g</code></td>
+<td><code>&lt;C-B&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>&lt;PageDown&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;S-Down&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-F&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-U&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-D&gt;</code></td>
+<td><code>&lt;Plug&gt;(SmoothieDownwards)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(Smoothie_G)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#cursor_movement(‘G’)
+&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(Smoothie_gg)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#cursor_movement(‘gg’)
+&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#forwards() &lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#upwards() &lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(SmoothieDownwards)</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;ScripteaseSynnames</code></td>
+<td><code>:&lt;C-U&gt;exe
+scriptease#synnames_map(v:count)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;ScripteaseFilter</code></td>
+<td><code>scriptease#filterop()</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(fzf-normal)</code></td>
+<td><code></code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(fzf-insert)</code></td>
+<td><code>i</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;SNR&gt;149_</code></td>
+<td><code>&lt;SNR&gt;149_</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos)</code></td>
+<td><code>&lt;SNR&gt;149_save_cursor_pos()</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-move-to-previous-error)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#move_to_previous_error(getpos(‘.’)[1 : 2],
+b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-move-to-next-error)</code></td>
+<td><code>:&lt;C-U&gt;call grammarous#move_to_next_error(getpos(‘.’)[1 :
+2], b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-disable-category)</code></td>
+<td><code>:&lt;C-U&gt;call grammarous#disable_category_at(getpos(‘.’)[1
+: 2], b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-disable-rule)</code></td>
+<td><code>:&lt;C-U&gt;call grammarous#disable_rule_at(getpos(‘.’)[1 :
+2], b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-remove-error)</code></td>
+<td><code>:&lt;C-U&gt;call grammarous#remove_error_at(getpos(‘.’)[1 :
+2], b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-close-info-window)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#info_win#close()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-fixall)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#fixall(b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-fixit)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#fixit(grammarous#get_error_at(getpos(‘.’)[1 : 2],
+b:grammarous_result))&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-reset)</code></td>
+<td><code>:&lt;C-U&gt;call grammarous#reset()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-open-info-window)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#create_update_info_window_of(b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(grammarous-move-to-info-window)</code></td>
+<td><code>:&lt;C-U&gt;call
+grammarous#create_and_jump_to_info_window_of(b:grammarous_result)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-P&gt;</code></td>
+<td><code>&lt;Plug&gt;(ctrlp)</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(markdown-insert-picture)</code></td>
+<td><code>:call &lt;SNR&gt;70_markdown_insert_link(0,
+1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(markdown-insert-link)</code></td>
+<td><code>:call &lt;SNR&gt;70_markdown_insert_link(0,
+0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-_&gt;</code></td>
+<td><code>&lt;Esc&gt;:Ydc&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-K&gt;</code></td>
+<td><code>:TmuxNavigateUp&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-J&gt;</code></td>
+<td><code>:TmuxNavigateDown&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-H&gt;</code></td>
+<td><code>:TmuxNavigateLeft&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-S-Right&gt;</code></td>
+<td><code>:call &lt;SNR&gt;49_move_tabpage(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-S-Left&gt;</code></td>
+<td><code>:call &lt;SNR&gt;49_move_tabpage(-1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CommentOperator</code></td>
+<td><code>:set
+opfunc=&lt;SNR&gt;33_commentOperator&lt;CR&gt;g@</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CommentParagraphsInvert</code></td>
+<td><code>:call
+&lt;SNR&gt;33_comment_paragraphs(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CommentParagraphs</code></td>
+<td><code>:call
+&lt;SNR&gt;33_comment_paragraphs(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CommentToLineInvert</code></td>
+<td><code>:call &lt;SNR&gt;33_comment_to_line(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CommenterInvertYank</code></td>
+<td><code>:call
+&lt;SNR&gt;33_comment_invert_yank(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;CommentToLine</code></td>
+<td><code>:call &lt;SNR&gt;33_comment_to_line(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;YankGitRemoteURL</code></td>
+<td><code>:call SpaceVim#util#CopyToClipboard(2)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>:wincmd p&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;F3&gt;</code></td>
+<td><code>:NERDTreeToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F11&gt;</code></td>
+<td><code>:call &lt;SNR&gt;32_toggle_full_screen()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;F2&gt;</code></td>
+<td><code>:TagbarToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;UniquifyCaseSenstiveLines</code></td>
+<td><code>:call &lt;SNR&gt;25_uniquify_lines(0, 0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;UniquifyIgnoreCaseLines</code></td>
+<td><code>:call &lt;SNR&gt;25_uniquify_lines(0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;ReverseLines</code></td>
+<td><code>:ReverseLines&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;DuplicateLines</code></td>
+<td><code>:call &lt;SNR&gt;25_duplicate_lines(0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;ToggleCase</code></td>
+<td><code>:call &lt;SNR&gt;25_toggle_case(0, 0)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;Uppercase</code></td>
+<td><code>:call &lt;SNR&gt;25_toggle_case(0, 1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;Lowercase</code></td>
+<td><code>:call &lt;SNR&gt;25_toggle_case(0, -1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;CountSelectionRegion</code></td>
+<td><code>:call
+&lt;SNR&gt;25_count_selection_region()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;F7&gt;</code></td>
+<td><code>:MundoToggle&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;(jplus</code></td>
+<td><code>:&lt;C-U&gt;call
+dein#autoload#_on_map(‘&lt;lt&gt;Plug&gt;(jplus’,
+‘vim-jplus’,‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Plug&gt;(wildfire-</code></td>
+<td><code>:&lt;C-U&gt;call
+dein#autoload#_on_map(‘&lt;lt&gt;Plug&gt;(wildfire-’,
+‘wildfire.vim’,‘n’)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Plug&gt;SpaceVim-plugin-iedit</code></td>
+<td><code>:lua
+require(‘spacevim.plugin.iedit’).start()&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-Left&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;17_tobur(“prev”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-Right&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+&lt;SNR&gt;17_tobur(“next”)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-5&gt;</code></td>
+<td><code>:&lt;C-U&gt;call &lt;SNR&gt;17_tobur(5)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-4&gt;</code></td>
+<td><code>:&lt;C-U&gt;call &lt;SNR&gt;17_tobur(4)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-3&gt;</code></td>
+<td><code>:&lt;C-U&gt;call &lt;SNR&gt;17_tobur(3)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;M-2&gt;</code></td>
+<td><code>:&lt;C-U&gt;call &lt;SNR&gt;17_tobur(2)&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;M-1&gt;</code></td>
+<td><code>:&lt;C-U&gt;call &lt;SNR&gt;17_tobur(1)&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:&lt;C-U&gt;w&lt;CR&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;Up&gt;</code></td>
+<td><code>gk</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>&lt;Down&gt;</code></td>
+<td><code>gj</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>&lt;C-`&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#runner#close()&lt;CR&gt;</code></td>
+</tr>
+<tr class="even">
 <td></td>
 <td><code>&lt;C-G&gt;</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#ctrlg#display()&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+SpaceVim#plugins#ctrlg#display()&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-S-Up&gt;</code></td>
 <td><code>:m .-2&lt;CR&gt;==</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-S-Down&gt;</code></td>
 <td><code>:m .+1&lt;CR&gt;==</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Down&gt;</code></td>
 <td><code>:&lt;C-U&gt;wincmd j&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-Up&gt;</code></td>
 <td><code>:&lt;C-U&gt;wincmd k&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-Left&gt;</code></td>
 <td><code>:&lt;C-U&gt;wincmd h&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><code>&lt;C-Right&gt;</code></td>
 <td><code>:&lt;C-U&gt;wincmd l&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><code>&lt;C-L&gt;</code></td>
 <td><code>:TmuxNavigateRight&lt;CR&gt;</code></td>
@@ -2623,13 +3756,13 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code></code></td>
+<td><code> </code></td>
 <td><code>[SPC]</code></td>
 </tr>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>#</code></td>
-<td><code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2639,7 +3772,7 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 <tr class="odd">
 <td>Nvim builtin</td>
 <td><code>*</code></td>
-<td><code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code></td>
+<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -2703,377 +3836,415 @@ href="https://github.com/zchee/deoplete-zsh">zchee/deoplete-zsh</a></li>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]c$</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterToEOL</code></td>
+<td><code>[SPC]c<span class="math inline">$&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterToEOL&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cY&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterYank&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cy&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CommenterInvertYank&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterSexy&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cv&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterInvertgv&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cu&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterUncomment&lt;/code&gt; | |
+| &lt;code&gt;[SPC]cL&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterComment&lt;/code&gt; | | |
+&lt;code&gt;[SPC]cl&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterInvert&lt;/code&gt; | | |
+&lt;code&gt;[SPC]ca&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterAltDelims&lt;/code&gt; | |
+| &lt;code&gt;[SPC]fY&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;YankGitRemoteURL&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jw&lt;/code&gt; |
+&lt;code&gt;:HopWord&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jl&lt;/code&gt; |
+&lt;code&gt;:HopLine&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jJ&lt;/code&gt; |
+&lt;code&gt;:HopChar2&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]jj&lt;/code&gt; |
+&lt;code&gt;:HopChar1&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xgp&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(grammarous-move-to-previous-error)&lt;/code&gt;
+| | | &lt;code&gt;[SPC]xgn&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(grammarous-move-to-next-error)&lt;/code&gt;
+| | | &lt;code&gt;[SPC]xlU&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;UniquifyCaseSenstiveLines&lt;/code&gt; |
+| | &lt;code&gt;[SPC]xlu&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;UniquifyIgnoreCaseLines&lt;/code&gt; | |
+| &lt;code&gt;[SPC]xlr&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReverseLines&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xld&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;DuplicateLines&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xwc&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;normal!
+:'&amp;lt;lt&amp;gt;,'&amp;gt;s/\w\+//gn&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]x~&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ToggleCase&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xU&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Uppercase&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xu&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Lowercase&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa[SPC]&lt;/code&gt; | &lt;code&gt;:Tabularize
+/\s\ze\S/l0&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa&amp;#124;&lt;/code&gt; | &lt;code&gt;:Tabularize
+/[&amp;#124;｜]&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa¦&lt;/code&gt; | &lt;code&gt;:Tabularize
+/¦&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xao&lt;/code&gt; | &lt;code&gt;:Tabularize
+/&amp;&amp;\&amp;#124;||\|\.\.\|\*\*\|&amp;lt;lt&amp;gt;&amp;lt;lt&amp;gt;\|&amp;gt;&amp;gt;\|\/\/\|[-+*/.%^&amp;gt;&amp;lt;lt&amp;gt;&amp;|?]/l1r1&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]xa=&lt;/code&gt; | &lt;code&gt;:Tabularize
+/===\&amp;#124;&amp;lt;lt&amp;gt;=&amp;gt;\|\(&amp;&amp;\|||\|&amp;lt;lt&amp;gt;&amp;lt;lt&amp;gt;\|&amp;gt;&amp;gt;\|\/\/\)=\|=\~[#?]\?\|=&amp;gt;\|[:+/*!%^=&amp;gt;&amp;lt;lt&amp;gt;&amp;|.?-]\?=[#?]\?/l1r1&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;[SPC]xa;&lt;/code&gt; | &lt;code&gt;:Tabularize
+/;&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa:&lt;/code&gt; | &lt;code&gt;:Tabularize
+/:&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa.&lt;/code&gt; | &lt;code&gt;:Tabularize
+/\.&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa,&lt;/code&gt; | &lt;code&gt;:Tabularize
+/,&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa}&lt;/code&gt; | &lt;code&gt;:Tabularize
+/}&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa{&lt;/code&gt; | &lt;code&gt;:Tabularize
+/{&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa]&lt;/code&gt; | &lt;code&gt;:Tabularize
+/]&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa[&lt;/code&gt; | &lt;code&gt;:Tabularize
+/[&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa)&lt;/code&gt; | &lt;code&gt;:Tabularize
+/)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa(&lt;/code&gt; | &lt;code&gt;:Tabularize
+/(&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa&amp;&lt;/code&gt; | &lt;code&gt;:Tabularize
+/&amp;&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa%&lt;/code&gt; | &lt;code&gt;:Tabularize
+/%&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;[SPC]xa#&lt;/code&gt; | &lt;code&gt;:Tabularize
+/#&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;[SPC]xc&lt;/code&gt;
+| &lt;code&gt;&amp;lt;Plug&amp;gt;CountSelectionRegion&lt;/code&gt; | |
+| &lt;code&gt;[SPC]se&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;SpaceVim-plugin-iedit&lt;/code&gt; | | |
+&lt;code&gt;[SPC]&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuideVisual '
+'&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;\T&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize-delimiter)&lt;/code&gt;
+| | | &lt;code&gt;\tt&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; | | |
+&lt;code&gt;\s&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+unstack#Unstack(visualmode())&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;LeaderGuideVisual get(g:, 'mapleader',
+'\')&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;\Y&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#plugins#pastebin#paste()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;\P&lt;/code&gt; |
+&lt;code&gt;clipboard#paste('P')&lt;/code&gt; | | |
+&lt;code&gt;\p&lt;/code&gt; |
+&lt;code&gt;clipboard#paste('p')&lt;/code&gt; | | |
+&lt;code&gt;\y&lt;/code&gt; | &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+clipboard#yank()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;]%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-]%)&lt;/code&gt; | | |
+&lt;code&gt;]&amp;lt;Home&amp;gt;&lt;/code&gt; |
+&lt;code&gt;dggP``&lt;/code&gt; | | |
+&lt;code&gt;]&amp;lt;End&amp;gt;&lt;/code&gt; |
+&lt;code&gt;dGp``&lt;/code&gt; | | | &lt;code&gt;ae&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-entire-a)&lt;/code&gt; | | |
+&lt;code&gt;a%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-a%)&lt;/code&gt; | | |
+&lt;code&gt;ai&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-a)&lt;/code&gt; | | |
+&lt;code&gt;aI&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-same-a)&lt;/code&gt; | |
+| &lt;code&gt;al&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-line-a)&lt;/code&gt; | | |
+&lt;code&gt;gS&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VgSurround&lt;/code&gt; | | |
+&lt;code&gt;g%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-g%)&lt;/code&gt; | | |
+&lt;code&gt;g!&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ScripteaseFilter&lt;/code&gt; | | |
+&lt;code&gt;g=&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ScripteaseFilter&lt;/code&gt; | | |
+&lt;code&gt;gx&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-smart-search)&lt;/code&gt;
+| | | &lt;code&gt;gs&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-search)&lt;/code&gt; | | |
+&lt;code&gt;go&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open)&lt;/code&gt; | | |
+&lt;code&gt;ie&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-entire-i)&lt;/code&gt; | | |
+&lt;code&gt;i%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-i%)&lt;/code&gt; | | |
+&lt;code&gt;ii&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-i)&lt;/code&gt; | | |
+&lt;code&gt;iI&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-same-i)&lt;/code&gt; | |
+| &lt;code&gt;il&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-line-i)&lt;/code&gt; | | |
+&lt;code&gt;v&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(expand_region_expand)&lt;/code&gt; | |
+| &lt;code&gt;z%&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-z%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterUncomment&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Uncomment")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterAlignBoth&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"AlignBoth")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterAlignLeft&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"AlignLeft")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterYank&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Yank")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterSexy&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Sexy")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterInvert&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Invert")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterNested&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Nested")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterMinimal&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Minimal")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterToggle&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Toggle")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;NERDCommenterComment&lt;/code&gt; |
+&lt;code&gt;:call NERDComment("x",
+"Comment")&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VgSurround&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;239_opfunc(visualmode(),visualmode() ==# 'V' ? 0 :
+1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;VSurround&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;239_opfunc(visualmode(),visualmode() ==# 'V' ? 1 :
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-entire-i)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_entire.do_by_function("select-i","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-entire-a)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_entire.do_by_function("select-a","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-cell-text-object-i)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#spreadsheet#cell#TextObject(1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-cell-text-object-a)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#spreadsheet#cell#TextObject(0)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize-delimiter)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+tablemode#TableizeByDelimiter()&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(table-mode-tableize)&lt;/code&gt; |
+&lt;code&gt;:Tableize&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;GitGutterStageHunk&lt;/code&gt; |
+&lt;code&gt;:call gitgutter#utility#warn('Please change your map
+&amp;lt;lt&amp;gt;Plug&amp;gt;GitGutterStageHunk to
+&amp;lt;lt&amp;gt;Plug&amp;gt;(GitGutterStageHunk)')&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterStageHunk)&lt;/code&gt;
+| &lt;code&gt;:GitGutterStageHunk&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterTextObjectOuterVisual)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+gitgutter#hunk#text_object(0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(GitGutterTextObjectInnerVisual)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+gitgutter#hunk#text_object(1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-smart-search)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_smart_search('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-search)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_search('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open-incognito)&lt;/code&gt;
+| &lt;code&gt;:&amp;lt;C-U&amp;gt;call openbrowser#_keymap_open('v', 0,
+['--incognito'])&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(openbrowser-open)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+openbrowser#_keymap_open('v')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(expand_region_shrink)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call expand_region#next('v',
+'-')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(expand_region_expand)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call expand_region#next('v',
+'+')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-a%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call matchup#text_obj#delimited(0, 1,
+'delim_all')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-i%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call matchup#text_obj#delimited(1, 1,
+'delim_all')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-z%)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-z%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-z%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchup#motion#jump_inside(1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-[%)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-[%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-]%)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-]%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-[%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call matchup#motion#find_unmatched(1,
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-]%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call matchup#motion#find_unmatched(1,
+1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-g%)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-g%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-g%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchup#motion#find_matching_pair(1, 0)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;&amp;lt;Plug&amp;gt;(matchup-%)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-%)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;SNR&amp;gt;172_(matchup-%)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+matchup#motion#find_matching_pair(1, 1)&amp;lt;CR&amp;gt;&lt;/code&gt; |
+| | &lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-i)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_indent.do_by_function("select-i","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-a)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_indent.do_by_function("select-a","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-same-i)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_indent.do_by_function("select-i","same","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-indent-same-a)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_indent.do_by_function("select-a","same","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;PageUp&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieBackwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;S-Up&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieBackwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;C-B&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieBackwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;PageDown&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieForwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;S-Down&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieForwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;C-F&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieForwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;C-U&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieUpwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;C-D&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieDownwards)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(Smoothie_G)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#cursor_movement('G')
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(Smoothie_gg)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#cursor_movement('gg')
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieBackwards)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#backwards()
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieForwards)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#forwards()
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieUpwards)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#upwards()
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(SmoothieDownwards)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Cmd&amp;gt;call smoothie#downwards()
+&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ScripteaseFilter&lt;/code&gt; |
+&lt;code&gt;scriptease#filterop()&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-line-i)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_line.do_by_function("select-i","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;(textobj-line-a)&lt;/code&gt; |
+&lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos):&amp;lt;C-U&amp;gt;call
+g:__textobj_line.do_by_function("select-a","-","v")&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;SNR&amp;gt;149_(save-cursor-pos)&lt;/code&gt;
+| &lt;code&gt;&amp;lt;SNR&amp;gt;149_save_cursor_pos()&lt;/code&gt; | |
+| &lt;code&gt;&amp;lt;C-P&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(ctrlp)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(markdown-insert-picture)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt; call
+&amp;lt;SNR&amp;gt;70_markdown_insert_link(1,
+1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(markdown-insert-link)&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt; call
+&amp;lt;SNR&amp;gt;70_markdown_insert_link(1,
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;C-_&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Esc&amp;gt;:Ydv&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CommenterInvertYank&lt;/code&gt; |
+&lt;code&gt;:call
+&amp;lt;SNR&amp;gt;33_comment_invert_yank(1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;YankGitRemoteURL&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+SpaceVim#util#CopyToClipboard(3)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;F3&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:NERDTreeToggle&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;F2&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:TagbarToggle&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;UniquifyCaseSenstiveLines&lt;/code&gt; |
+&lt;code&gt;:call &amp;lt;SNR&amp;gt;25_uniquify_lines(1,
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;UniquifyIgnoreCaseLines&lt;/code&gt; |
+&lt;code&gt;:call &amp;lt;SNR&amp;gt;25_uniquify_lines(1,
+1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;ReverseLines&lt;/code&gt; |
+&lt;code&gt;:ReverseLines&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;DuplicateLines&lt;/code&gt; |
+&lt;code&gt;:call
+&amp;lt;SNR&amp;gt;25_duplicate_lines(1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;Plug&amp;gt;ToggleCase&lt;/code&gt; |
+&lt;code&gt;:call &amp;lt;SNR&amp;gt;25_toggle_case(1,
+0)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Uppercase&lt;/code&gt; |
+&lt;code&gt;:call &amp;lt;SNR&amp;gt;25_toggle_case(1,
+1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;Lowercase&lt;/code&gt; |
+&lt;code&gt;:call &amp;lt;SNR&amp;gt;25_toggle_case(1,
+-1)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;CountSelectionRegion&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;25_count_selection_region()&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;C-Space&amp;gt;&lt;/code&gt; |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(wildfire-water)&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(jplus&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+dein#autoload#_on_map('&amp;lt;lt&amp;gt;Plug&amp;gt;(jplus',
+'vim-jplus','x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;(wildfire-&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+dein#autoload#_on_map('&amp;lt;lt&amp;gt;Plug&amp;gt;(wildfire-',
+'wildfire.vim','x')&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
+&lt;code&gt;&amp;lt;Plug&amp;gt;SpaceVim-plugin-iedit&lt;/code&gt; |
+&lt;code&gt;:lua
+require('spacevim.plugin.iedit').start(1)&amp;lt;CR&amp;gt;&lt;/code&gt;
+| | | &lt;code&gt;&amp;lt;C-R&amp;gt;&lt;/code&gt; |
+&lt;code&gt;:&amp;lt;C-U&amp;gt;call
+&amp;lt;SNR&amp;gt;17_VSetSearch()&amp;lt;CR&amp;gt;:,$</span>s/&lt;C-R&gt;=@/&lt;CR&gt;//gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]cY</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterYank</code></td>
+<td><code>&lt;C-S&gt;</code></td>
+<td><code>:&lt;C-U&gt;w&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]cy</code></td>
-<td><code>&lt;Plug&gt;CommenterInvertYank</code></td>
+<td><code>&lt;S-Tab&gt;</code></td>
+<td><code>&lt;lt&gt;gv</code></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>[SPC]cs</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterSexy</code></td>
+<td><code>&lt;C-S-Up&gt;</code></td>
+<td><code>:m ’&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><code>[SPC]cv</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterInvertgv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]cu</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterUncomment</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]cL</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterComment</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]cl</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterInvert</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]ca</code></td>
-<td><code>&lt;Plug&gt;NERDCommenterAltDelims</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]fY</code></td>
-<td><code>&lt;Plug&gt;YankGitRemoteURL</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jw</code></td>
-<td><code>:HopWord&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]jl</code></td>
-<td><code>:HopLine&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]jJ</code></td>
-<td><code>:HopChar2&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]jj</code></td>
-<td><code>:HopChar1&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xgp</code></td>
-<td><code>&lt;Plug&gt;(grammarous-move-to-previous-error)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xgn</code></td>
-<td><code>&lt;Plug&gt;(grammarous-move-to-next-error)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xlU</code></td>
-<td><code>&lt;Plug&gt;UniquifyCaseSenstiveLines</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xlu</code></td>
-<td><code>&lt;Plug&gt;UniquifyIgnoreCaseLines</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xlr</code></td>
-<td><code>&lt;Plug&gt;ReverseLines</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xld</code></td>
-<td><code>&lt;Plug&gt;DuplicateLines</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xwc</code></td>
-<td><code>:&lt;C-U&gt;normal! :'&lt;lt&gt;,'&gt;s/\w\+//gn&lt;CR&gt;&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]x~</code></td>
-<td><code>&lt;Plug&gt;ToggleCase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xU</code></td>
-<td><code>&lt;Plug&gt;Uppercase</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xu</code></td>
-<td><code>&lt;Plug&gt;Lowercase</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa[SPC]</code></td>
-<td><code>:Tabularize /\s\ze\S/l0&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa|</code></td>
-<td><code>:Tabularize /[|｜]&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa¦</code></td>
-<td><code>:Tabularize /¦&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xao</code></td>
-<td><code>:Tabularize /&amp;&amp;\|||\|\.\.\|\*\*\|&lt;lt&gt;&lt;lt&gt;\|&gt;&gt;\|\/\/\|[-+*/.%^&gt;&lt;lt&gt;&amp;|?]/l1r1&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa=</code></td>
-<td><code>:Tabularize /===\|&lt;lt&gt;=&gt;\|\(&amp;&amp;\|||\|&lt;lt&gt;&lt;lt&gt;\|&gt;&gt;\|\/\/\)=\|=\~[#?]\?\|=&gt;\|[:+/*!%^=&gt;&lt;lt&gt;&amp;|.?-]\?=[#?]\?/l1r1&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa;</code></td>
-<td><code>:Tabularize /;&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa:</code></td>
-<td><code>:Tabularize /:&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa.</code></td>
-<td><code>:Tabularize /\.&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa,</code></td>
-<td><code>:Tabularize /,&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa}</code></td>
-<td><code>:Tabularize /}&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa{</code></td>
-<td><code>:Tabularize /{&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa]</code></td>
-<td><code>:Tabularize /]&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa[</code></td>
-<td><code>:Tabularize /[&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa)</code></td>
-<td><code>:Tabularize /)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa(</code></td>
-<td><code>:Tabularize /(&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa&amp;</code></td>
-<td><code>:Tabularize /&amp;&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xa%</code></td>
-<td><code>:Tabularize /%&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]xa#</code></td>
-<td><code>:Tabularize /#&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]xc</code></td>
-<td><code>&lt;Plug&gt;CountSelectionRegion</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>[SPC]se</code></td>
-<td><code>&lt;Plug&gt;SpaceVim-plugin-iedit</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>[SPC]</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuideVisual ' '&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\T</code></td>
-<td><code>&lt;Plug&gt;(table-mode-tableize-delimiter)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\tt</code></td>
-<td><code>&lt;Plug&gt;(table-mode-tableize)</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\s</code></td>
-<td><code>:&lt;C-U&gt;call unstack#Unstack(visualmode())&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\</code></td>
-<td><code>:&lt;C-U&gt;LeaderGuideVisual get(g:, 'mapleader', '\')&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\Y</code></td>
-<td><code>:&lt;C-U&gt;call SpaceVim#plugins#pastebin#paste()&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\P</code></td>
-<td><code>clipboard#paste('P')</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>\p</code></td>
-<td><code>clipboard#paste('p')</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>\y</code></td>
-<td><code>:&lt;C-U&gt;call clipboard#yank()&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>]&lt;Home&gt;</code></td>
-<td><code>dggP``` | |  |</code>]<End><code>|</code>dGp``<code>| |  |</code>ae<code>|</code><Plug>(textobj-entire-a)<code>| |  |</code>a%<code>|</code><Plug>(matchup-a%)<code>| |  |</code>ai<code>|</code><Plug>(textobj-indent-a)<code>| |  |</code>aI<code>|</code><Plug>(textobj-indent-same-a)<code>| |  |</code>al<code>|</code><Plug>(textobj-line-a)<code>| |  |</code>gS<code>|</code><Plug>VgSurround<code>| |  |</code>g%<code>|</code><Plug>(matchup-g%)<code>| |  |</code>g!<code>|</code><Plug>ScripteaseFilter<code>| |  |</code>g=<code>|</code><Plug>ScripteaseFilter<code>| |  |</code>gx<code>|</code><Plug>(openbrowser-smart-search)<code>| |  |</code>gs<code>|</code><Plug>(openbrowser-search)<code>| |  |</code>go<code>|</code><Plug>(openbrowser-open)<code>| |  |</code>ie<code>|</code><Plug>(textobj-entire-i)<code>| |  |</code>i%<code>|</code><Plug>(matchup-i%)<code>| |  |</code>ii<code>|</code><Plug>(textobj-indent-i)<code>| |  |</code>iI<code>|</code><Plug>(textobj-indent-same-i)<code>| |  |</code>il<code>|</code><Plug>(textobj-line-i)<code>| |  |</code>v<code>|</code><Plug>(expand_region_expand)<code>| |  |</code>z%<code>|</code><Plug>(matchup-z%)<code>| |  |</code><Plug>NERDCommenterUncomment<code>|</code>:call
-NERDComment(“x”,
-“Uncomment”)<CR><code>| |  |</code><Plug>NERDCommenterAlignBoth<code>|</code>:call
-NERDComment(“x”,
-“AlignBoth”)<CR><code>| |  |</code><Plug>NERDCommenterAlignLeft<code>|</code>:call
-NERDComment(“x”,
-“AlignLeft”)<CR><code>| |  |</code><Plug>NERDCommenterYank<code>|</code>:call
-NERDComment(“x”,
-“Yank”)<CR><code>| |  |</code><Plug>NERDCommenterSexy<code>|</code>:call
-NERDComment(“x”,
-“Sexy”)<CR><code>| |  |</code><Plug>NERDCommenterInvert<code>|</code>:call
-NERDComment(“x”,
-“Invert”)<CR><code>| |  |</code><Plug>NERDCommenterNested<code>|</code>:call
-NERDComment(“x”,
-“Nested”)<CR><code>| |  |</code><Plug>NERDCommenterMinimal<code>|</code>:call
-NERDComment(“x”,
-“Minimal”)<CR><code>| |  |</code><Plug>NERDCommenterToggle<code>|</code>:call
-NERDComment(“x”,
-“Toggle”)<CR><code>| |  |</code><Plug>NERDCommenterComment<code>|</code>:call
-NERDComment(“x”,
-“Comment”)<CR><code>| |  |</code><Plug>VgSurround<code>|</code>:<C-U>call
-<SNR>239_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
-1)<CR><code>| |  |</code><Plug>VSurround<code>|</code>:<C-U>call
-<SNR>239_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
-0)<CR><code>| |  |</code><Plug>(textobj-entire-i)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_entire.do_by_function(“select-i”,“-”,“v”)<CR><code>| |  |</code><Plug>(textobj-entire-a)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_entire.do_by_function(“select-a”,“-”,“v”)<CR><code>| |  |</code><Plug>(table-mode-cell-text-object-i)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#TextObject(1)<CR><code>| |  |</code><Plug>(table-mode-cell-text-object-a)<code>|</code>:<C-U>call
-tablemode#spreadsheet#cell#TextObject(0)<CR><code>| |  |</code><Plug>(table-mode-tableize-delimiter)<code>|</code>:<C-U>call
-tablemode#TableizeByDelimiter()<CR><code>| |  |</code><Plug>(table-mode-tableize)<code>|</code>:Tableize<CR><code>| |  |</code><Plug>GitGutterStageHunk<code>|</code>:call
-gitgutter#utility#warn(‘Please change your map
-<lt>Plug&gt;GitGutterStageHunk to
-<lt>Plug&gt;(GitGutterStageHunk)’)<CR><code>| |  |</code><Plug>(GitGutterStageHunk)<code>|</code>:GitGutterStageHunk<CR><code>| |  |</code><Plug>(GitGutterTextObjectOuterVisual)<code>|</code>:<C-U>call
-gitgutter#hunk#text_object(0)<CR><code>| |  |</code><Plug>(GitGutterTextObjectInnerVisual)<code>|</code>:<C-U>call
-gitgutter#hunk#text_object(1)<CR><code>| |  |</code><Plug>(openbrowser-smart-search)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_smart_search(‘v’)<CR><code>| |  |</code><Plug>(openbrowser-search)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_search(‘v’)<CR><code>| |  |</code><Plug>(openbrowser-open-incognito)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_open(‘v’, 0,
-[‘–incognito’])<CR><code>| |  |</code><Plug>(openbrowser-open)<code>|</code>:<C-U>call
-openbrowser#<em>keymap_open(‘v’)<CR><code>| |  |</code><Plug>(expand_region_shrink)<code>|</code>:<C-U>call
-expand_region#next(‘v’,
-‘-’)<CR><code>| |  |</code><Plug>(expand_region_expand)<code>|</code>:<C-U>call
-expand_region#next(‘v’,
-‘+’)<CR><code>| |  |</code><Plug>(matchup-a%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(0, 1,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-i%)<code>|</code>:<C-U>call
-matchup#text_obj#delimited(1, 1,
-‘delim_all’)<CR><code>| |  |</code><Plug>(matchup-z%)<code>|</code><SNR>172</em>(matchup-z%)<code>| |  |</code><SNR>172</em>(matchup-z%)<code>|</code>:<C-U>call
-matchup#motion#jump_inside(1)<CR><code>| |  |</code><Plug>(matchup-[%)<code>|</code><SNR>172_(matchup-[%)<code>| |  |</code><Plug>(matchup-]%)<code>|</code><SNR>172_(matchup-]%)<code>| |  |</code><SNR>172</em>(matchup-[%)<code>|</code>:<C-U>call
-matchup#motion#find_unmatched(1,
-0)<CR><code>| |  |</code><SNR>172_(matchup-]%)<code>|</code>:<C-U>call
-matchup#motion#find_unmatched(1,
-1)<CR><code>| |  |</code><Plug>(matchup-g%)<code>|</code><SNR>172</em>(matchup-g%)<code>| |  |</code><SNR>172_(matchup-g%)<code>|</code>:<C-U>call
-matchup#motion#find_matching_pair(1,
-0)<CR><code>| |  |</code><Plug>(matchup-%)<code>|</code><SNR>172_(matchup-%)<code>| |  |</code><SNR>172_(matchup-%)<code>|</code>:<C-U>call
-matchup#motion#find_matching_pair(1,
-1)<CR><code>| |  |</code><Plug>(textobj-indent-i)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_indent.do_by_function(“select-i”,“-”,“v”)<CR><code>| |  |</code><Plug>(textobj-indent-a)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_indent.do_by_function(“select-a”,“-”,“v”)<CR><code>| |  |</code><Plug>(textobj-indent-same-i)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_indent.do_by_function(“select-i”,“same”,“v”)<CR><code>| |  |</code><Plug>(textobj-indent-same-a)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_indent.do_by_function(“select-a”,“same”,“v”)<CR><code>| |  |</code><PageUp><code>|</code><Plug>(SmoothieBackwards)<code>| |  |</code><S-Up><code>|</code><Plug>(SmoothieBackwards)<code>| |  |</code><C-B><code>|</code><Plug>(SmoothieBackwards)<code>| |  |</code><PageDown><code>|</code><Plug>(SmoothieForwards)<code>| |  |</code><S-Down><code>|</code><Plug>(SmoothieForwards)<code>| |  |</code><C-F><code>|</code><Plug>(SmoothieForwards)<code>| |  |</code><C-U><code>|</code><Plug>(SmoothieUpwards)<code>| |  |</code><C-D><code>|</code><Plug>(SmoothieDownwards)<code>| |  |</code><Plug>(Smoothie_G)<code>|</code><Cmd>call
-smoothie#cursor_movement(‘G’)
-<CR><code>| |  |</code><Plug>(Smoothie_gg)<code>|</code><Cmd>call
-smoothie#cursor_movement(‘gg’)
-<CR><code>| |  |</code><Plug>(SmoothieBackwards)<code>|</code><Cmd>call
-smoothie#backwards()
-<CR><code>| |  |</code><Plug>(SmoothieForwards)<code>|</code><Cmd>call
-smoothie#forwards()
-<CR><code>| |  |</code><Plug>(SmoothieUpwards)<code>|</code><Cmd>call
-smoothie#upwards()
-<CR><code>| |  |</code><Plug>(SmoothieDownwards)<code>|</code><Cmd>call
-smoothie#downwards()
-<CR><code>| |  |</code><Plug>ScripteaseFilter<code>|</code>scriptease#filterop()<code>| |  |</code><Plug>(textobj-line-i)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_line.do_by_function(“select-i”,“-”,“v”)<CR><code>| |  |</code><Plug>(textobj-line-a)<code>|</code><SNR>149_(save-cursor-pos):<C-U>call
-g:__textobj_line.do_by_function(“select-a”,“-”,“v”)<CR><code>| |  |</code><SNR>149_(save-cursor-pos)<code>|</code><SNR>149_save_cursor_pos()<code>| |  |</code><C-P><code>|</code><Plug>(ctrlp)<code>| |  |</code><Plug>(markdown-insert-picture)<code>|</code>:<C-U>
-call <SNR>70_markdown_insert_link(1,
-1)<CR><code>| |  |</code><Plug>(markdown-insert-link)<code>|</code>:<C-U>
-call <SNR>70_markdown_insert_link(1,
-0)<CR><code>| |  |</code><C-_><code>|</code><Esc>:Ydv<CR><code>| |  |</code><Plug>CommenterInvertYank<code>|</code>:call
-<SNR>33_comment_invert_yank(1)<CR><code>| |  |</code><Plug>YankGitRemoteURL<code>|</code>:<C-U>call
-SpaceVim#util#CopyToClipboard(3)<CR><code>| |  |</code><F3><code>|</code>:NERDTreeToggle<CR><code>| |  |</code><F2><code>|</code>:TagbarToggle<CR><code>| |  |</code><Plug>UniquifyCaseSenstiveLines<code>|</code>:call
-<SNR>25_uniquify_lines(1,
-0)<CR><code>| |  |</code><Plug>UniquifyIgnoreCaseLines<code>|</code>:call
-<SNR>25_uniquify_lines(1,
-1)<CR><code>| |  |</code><Plug>ReverseLines<code>|</code>:ReverseLines<CR><code>| |  |</code><Plug>DuplicateLines<code>|</code>:call
-<SNR>25_duplicate_lines(1)<CR><code>| |  |</code><Plug>ToggleCase<code>|</code>:call
-<SNR>25_toggle_case(1,
-0)<CR><code>| |  |</code><Plug>Uppercase<code>|</code>:call
-<SNR>25_toggle_case(1,
-1)<CR><code>| |  |</code><Plug>Lowercase<code>|</code>:call
-<SNR>25_toggle_case(1,
--1)<CR><code>| |  |</code><Plug>CountSelectionRegion<code>|</code>:<C-U>call
-<SNR>25_count_selection_region()<CR><code>| |  |</code><C-Space><code>|</code><Plug>(wildfire-water)<code>| |  |</code><Plug>(jplus<code>|</code>:<C-U>call
-dein#autoload#_on_map(‘<lt>Plug&gt;(jplus’,
-‘vim-jplus’,‘x’)<CR><code>| |  |</code><Plug>(wildfire-<code>|</code>:<C-U>call
-dein#autoload#_on_map(‘<lt>Plug&gt;(wildfire-’,
-‘wildfire.vim’,‘x’)<CR><code>| |  |</code><Plug>SpaceVim-plugin-iedit<code>|</code>:lua
-require(‘spacevim.plugin.iedit’).start(1)<CR><code>| |  |</code><C-R><code>|</code>:<C-U>call
-<SNR>17_VSetSearch()<CR>:,$s/<C-R>=@/<CR>//gc<Left><Left><Left><code>| |  |</code><C-S><code>|</code>:<C-U>w<CR><code>| |  |</code><S-Tab><code>|</code><lt>gv<code>| |  |</code><C-S-Up><code>|</code>:m
-‘<lt>-2<CR>gv=gv<code>| |  |</code><C-S-Down><code>|</code>:m’&gt;+1<CR>gv=gv`</td>
+<td><code>&lt;C-S-Down&gt;</code></td>
+<td><code>:m ’&gt;+1&lt;CR&gt;gv=gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -3170,87 +4341,99 @@ require(‘spacevim.plugin.iedit’).start(1)<CR><code>| |  |</code><C-R><code>|
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-entire-i)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_entire.do_by_function("select-i","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_entire.do_by_function(“select-i”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-entire-a)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_entire.do_by_function("select-a","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_entire.do_by_function(“select-a”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(table-mode-cell-text-object-i)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#TextObject(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(table-mode-cell-text-object-a)</code></td>
-<td><code>:&lt;C-U&gt;call tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+tablemode#spreadsheet#cell#TextObject(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(GitGutterTextObjectOuterPending)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(0)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+gitgutter#hunk#text_object(0)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(GitGutterTextObjectInnerPending)</code></td>
-<td><code>:&lt;C-U&gt;call gitgutter#hunk#text_object(1)&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call
+gitgutter#hunk#text_object(1)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-a%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-i%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0,
+‘delim_all’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-z%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘z%’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-[%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘[%’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-]%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘]%’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-g%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘g%’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(matchup-%)</code></td>
-<td><code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code></td>
+<td><code>:&lt;C-U&gt;call matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-indent-i)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_indent.do_by_function("select-i","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_indent.do_by_function(“select-i”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-indent-a)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_indent.do_by_function("select-a","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_indent.do_by_function(“select-a”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-indent-same-i)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_indent.do_by_function("select-i","same","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_indent.do_by_function(“select-i”,“same”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-indent-same-a)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_indent.do_by_function("select-a","same","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_indent.do_by_function(“select-a”,“same”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -3295,32 +4478,34 @@ require(‘spacevim.plugin.iedit’).start(1)<CR><code>| |  |</code><C-R><code>|
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(Smoothie_G)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#cursor_movement('G')  &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#cursor_movement(‘G’)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(Smoothie_gg)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#cursor_movement('gg') &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#cursor_movement(‘gg’)
+&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieBackwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#backwards()           &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#backwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieForwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#forwards()            &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#forwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieUpwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#upwards()             &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#upwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(SmoothieDownwards)</code></td>
-<td><code>&lt;Cmd&gt;call smoothie#downwards()           &lt;CR&gt;</code></td>
+<td><code>&lt;Cmd&gt;call smoothie#downwards() &lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -3330,12 +4515,14 @@ require(‘spacevim.plugin.iedit’).start(1)<CR><code>| |  |</code><C-R><code>|
 <tr class="even">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-line-i)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_line.do_by_function("select-i","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_line.do_by_function(“select-i”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="odd">
 <td></td>
 <td><code>&lt;Plug&gt;(textobj-line-a)</code></td>
-<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call g:__textobj_line.do_by_function("select-a","-","o")&lt;CR&gt;</code></td>
+<td><code>&lt;SNR&gt;149_(save-cursor-pos):&lt;C-U&gt;call
+g:__textobj_line.do_by_function(“select-a”,“-”,“o”)&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
 <td></td>

@@ -65,341 +65,341 @@ Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Cod
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Take Action | ` la` | `<Cmd>lua vim.lsp.buf.code_action()<CR>` |
-| Update Mason(LSP) | ` lu` | `<Cmd>MasonUpdate<CR>` |
-| Open Mason | ` lm` | `<Cmd>Mason<CR>` |
-| Previous Diagnostic | ` lp` | `<Cmd>lua vim.diagnostic.goto_prev()<CR>` |
-| Next Diagnostic | ` ln` | `<Cmd>lua vim.diagnostic.goto_next()<CR>` |
-| Diagnostics | ` lh` | `<Cmd>lua vim.diagnostic.open_float()<CR>` |
-| Jump to Definition | ` ld` | `<Cmd>lua vim.lsp.buf.definition()<CR>` |
-| Rename Buffer | ` lr` | `<Cmd>lua vim.lsp.buf.rename()<CR>` |
-| List Plugins | ` Pl` | `<Cmd>PackerStatus<CR>` |
-| Clean Up | ` Pc` | `<Cmd>PackerClean<CR>` |
-| Update Plugins | ` Pu` | `<Cmd>PackerSync<CR>` |
-| Install Plugin | ` Pi` | `<Cmd>PackerInstall<CR>` |
-| Search Help Pages | ` th` | `<Cmd>Telescope help_tags<CR>` |
-| Clear Yank History | ` tY` | `<Cmd>YankyClearHistory<CR>` |
-| Change Colorscheme | ` tc` | `<Cmd>Telescope colorscheme<CR>` |
-| Find Man Pages | ` tm` | `<Cmd>Telescope man_pages<CR>` |
-| Open Buffers | ` tb` | `<Cmd>Telescope buffers<CR>` |
-| Spelling | ` ts` | `<Cmd>Telescope spell_suggest<CR>` |
-| Diagnostics | ` td` | `<Cmd>Telescope diagnostics<CR>` |
-| Live Grep | ` tg` | `<Cmd>Telescope live_grep<CR>` |
-| Find File | ` tf` | `<Cmd>Telescope find_files<CR>` |
-| Select ALL | ` a` | `ggVG` |
-| Close Window | ` X` | `<C-W>c<CR>` |
-| Paste | ` p` | `"+p<CR>` |
-| Copy | ` c` | `"+y<CR>` |
-|  | ` g` | `<Cmd>lua _lazygit_toggle()<CR>` |
-| Comment Out THIS Line | ` '` | `<Plug>(comment_toggle_linewise_current)` |
-| Yank List | ` y` | `<Cmd>Telescope yank_history<CR>` |
-| Search Key Maps | ` k` | `<Cmd>Legendary<CR>` |
-| Hop to a Word | ` h` | `<Cmd>HopWord<CR>` |
-| Write with Sudo | ` S` | `<Cmd>SudaWrite<CR>` |
-| Search | ` /` | `<Cmd>Telescope current_buffer_fuzzy_find<CR>` |
-| Show Colors in THIS File | ` C` | `<Cmd>ColorizerToggle<CR>` |
-| Make THIS File Executable | ` E` | `<Cmd>!chmod +x %<CR>` |
-| Open Nvim-Tree | ` F` | `<Cmd>NvimTreeFindFileToggle<CR>` |
-| Floating Terminal | ` T` | `<Cmd>ToggleTerm direction=float<CR>` |
-| Source THIS File | ` s` | `<Cmd>so%<CR>` |
-| Open Undo Tree | ` u` | `<Cmd>UndotreeToggle<CR>` |
-| Open Ranger | ` f` | `<Cmd>RnvimrToggle<CR>` |
-| Open Recent Files | ` r` | `<Cmd>Telescope oldfiles<CR>` |
-| Save & Quit | ` x` | `<Cmd>wq<CR>` |
-| Quit | ` q` | `<Cmd>q!<CR>` |
-| Write | ` w` | `<Cmd>w<CR>` |
-|  | `%` | `<Plug>(MatchitNormalForward)` |
-| Nvim builtin | `&` | `:&&<CR>` |
-| Nvim builtin | `Y` | `y$` |
-|  | `[%` | `<Plug>(MatchitNormalMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitNormalMultiForward)` |
-|  | `gx` | `<Plug>NetrwBrowseX` |
-|  | `g%` | `<Plug>(MatchitNormalBackward)` |
-| Toggle Terminal | `<C-Q>` | `<Cmd>execute v:count . "ToggleTerm"<CR>` |
-|  | `<Plug>(cokeline-focus-20)` |  |
-|  | `<Plug>(cokeline-switch-20)` |  |
-|  | `<Plug>(cokeline-focus-19)` |  |
-|  | `<Plug>(cokeline-switch-19)` |  |
-|  | `<Plug>(cokeline-focus-18)` |  |
-|  | `<Plug>(cokeline-switch-18)` |  |
-|  | `<Plug>(cokeline-focus-17)` |  |
-|  | `<Plug>(cokeline-switch-17)` |  |
-|  | `<Plug>(cokeline-focus-16)` |  |
-|  | `<Plug>(cokeline-switch-16)` |  |
-|  | `<Plug>(cokeline-focus-15)` |  |
-|  | `<Plug>(cokeline-switch-15)` |  |
-|  | `<Plug>(cokeline-focus-14)` |  |
-|  | `<Plug>(cokeline-switch-14)` |  |
-|  | `<Plug>(cokeline-focus-13)` |  |
-|  | `<Plug>(cokeline-switch-13)` |  |
-|  | `<Plug>(cokeline-focus-12)` |  |
-|  | `<Plug>(cokeline-switch-12)` |  |
-|  | `<Plug>(cokeline-focus-11)` |  |
-|  | `<Plug>(cokeline-switch-11)` |  |
-|  | `<Plug>(cokeline-focus-10)` |  |
-|  | `<Plug>(cokeline-switch-10)` |  |
-|  | `<Plug>(cokeline-focus-9)` |  |
-|  | `<Plug>(cokeline-switch-9)` |  |
-|  | `<Plug>(cokeline-focus-8)` |  |
-|  | `<Plug>(cokeline-switch-8)` |  |
-|  | `<Plug>(cokeline-focus-7)` |  |
-|  | `<Plug>(cokeline-switch-7)` |  |
-|  | `<Plug>(cokeline-focus-6)` |  |
-|  | `<Plug>(cokeline-switch-6)` |  |
-|  | `<Plug>(cokeline-focus-5)` |  |
-|  | `<Plug>(cokeline-switch-5)` |  |
-|  | `<Plug>(cokeline-focus-4)` |  |
-|  | `<Plug>(cokeline-switch-4)` |  |
-|  | `<Plug>(cokeline-focus-3)` |  |
-|  | `<Plug>(cokeline-switch-3)` |  |
-|  | `<Plug>(cokeline-focus-2)` |  |
-|  | `<Plug>(cokeline-switch-2)` |  |
-|  | `<Plug>(cokeline-focus-1)` |  |
-|  | `<Plug>(cokeline-switch-1)` |  |
-|  | `<Plug>(cokeline-pick-close)` |  |
-|  | `<Plug>(cokeline-pick-focus)` |  |
-|  | `<Plug>(cokeline-focus-next)` |  |
-|  | `<Plug>(cokeline-focus-prev)` |  |
-|  | `<Plug>(cokeline-switch-next)` |  |
-|  | `<Plug>(cokeline-switch-prev)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyGPutBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeFilter)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftRight)` |  |
-|  | `<Plug>(YankyGPutBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeBlockwise)` |  |
-|  | `<Plug>(YankyGPutBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeCharwise)` |  |
-|  | `<Plug>(YankyGPutBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeLinewise)` |  |
-|  | `<Plug>(YankyGPutBeforeJoined)` |  |
-|  | `<Plug>(YankyGPutBefore)` |  |
-|  | `<Plug>(YankyGPutAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyGPutAfterShiftLeft)` |  |
-|  | `<Plug>(YankyGPutAfterFilterJoined)` |  |
-|  | `<Plug>(YankyGPutAfterFilter)` |  |
-|  | `<Plug>(YankyGPutAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyGPutAfterShiftRight)` |  |
-|  | `<Plug>(YankyGPutAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterBlockwise)` |  |
-|  | `<Plug>(YankyGPutAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterCharwise)` |  |
-|  | `<Plug>(YankyGPutAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterLinewise)` |  |
-|  | `<Plug>(YankyGPutAfterJoined)` |  |
-|  | `<Plug>(YankyGPutAfter)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyPutIndentBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeFilter)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftRight)` |  |
-|  | `<Plug>(YankyPutIndentBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeBlockwise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeCharwise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeLinewise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeJoined)` |  |
-|  | `<Plug>(YankyPutIndentBefore)` |  |
-|  | `<Plug>(YankyPutAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutAfterShiftLeft)` |  |
-|  | `<Plug>(YankyPutAfterFilterJoined)` |  |
-|  | `<Plug>(YankyPutAfterFilter)` |  |
-|  | `<Plug>(YankyPutAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutAfterShiftRight)` |  |
-|  | `<Plug>(YankyPutAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterBlockwise)` |  |
-|  | `<Plug>(YankyPutAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterCharwise)` |  |
-|  | `<Plug>(YankyPutAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterLinewise)` |  |
-|  | `<Plug>(YankyPutAfterJoined)` |  |
-|  | `<Plug>(YankyPutAfter)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftLeft)` |  |
-|  | `<Plug>(YankyPutIndentAfterFilterJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterFilter)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftRight)` |  |
-|  | `<Plug>(YankyPutIndentAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterBlockwise)` |  |
-|  | `<Plug>(YankyPutIndentAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterCharwise)` |  |
-|  | `<Plug>(YankyPutIndentAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterLinewise)` |  |
-|  | `<Plug>(YankyPutIndentAfterJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfter)` |  |
-|  | `<Plug>(YankyPutBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyPutBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyPutBeforeFilter)` |  |
-|  | `<Plug>(YankyPutBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutBeforeShiftRight)` |  |
-|  | `<Plug>(YankyPutBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeBlockwise)` |  |
-|  | `<Plug>(YankyPutBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeCharwise)` |  |
-|  | `<Plug>(YankyPutBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeLinewise)` |  |
-|  | `<Plug>(YankyPutBeforeJoined)` |  |
-|  | `<Plug>(YankyPutBefore)` |  |
-|  | `<Plug>(YankyYank)` |  |
-|  | `<Plug>(YankyCycleBackward)` |  |
-|  | `<Plug>(YankyCycleForward)` |  |
-|  | `<Plug>PlenaryTestFile` | `:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>` |
-|  | `<Plug>(fzf-normal)` | `` |
-|  | `<Plug>(fzf-insert)` | `i` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>luasnip-delete-check` |  |
-| Comment toggle blockwise with count | `<Plug>(comment_toggle_blockwise_count)` |  |
-| Comment toggle linewise with count | `<Plug>(comment_toggle_linewise_count)` |  |
-| Comment toggle current block | `<Plug>(comment_toggle_blockwise_current)` |  |
-| Comment toggle current line | `<Plug>(comment_toggle_linewise_current)` |  |
-| Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |  |
-| Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |  |
-|  | `<Plug>NetrwBrowseX` | `:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>` |
-|  | `<Plug>(MatchitNormalMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>` |
-|  | `<Plug>(MatchitNormalMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>` |
-|  | `<Plug>(MatchitNormalBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'n')<CR>` |
-|  | `<Plug>(MatchitNormalForward)` | `:<C-U>call matchit#Match_wrapper('',1,'n')<CR>` |
-|  | `<M-o>` | `:RnvimrToggle<CR>` |
-|  | `<C-D>` | `<Cmd>bdelete<CR>` |
-|  | `<S-Left>` | `<Cmd>bp<CR>` |
-|  | `<S-Right>` | `<Cmd>bn<CR>` |
-|  | `<M-Right>` | `w` |
-|  | `<M-Left>` | `b` |
-|  | `<C-Down>` | `G` |
-|  | `<C-Up>` | `gg` |
-|  | `<C-Left>` | `^` |
-|  | `<C-Right>` | `$` |
-| Nvim builtin | `<C-L>` | `<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>` |
+| Take Action | <code> la</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
+| Update Mason(LSP) | <code> lu</code> | <code>&lt;Cmd&gt;MasonUpdate&lt;CR&gt;</code> |
+| Open Mason | <code> lm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+| Previous Diagnostic | <code> lp</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;</code> |
+| Next Diagnostic | <code> ln</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;</code> |
+| Diagnostics | <code> lh</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float()&lt;CR&gt;</code> |
+| Jump to Definition | <code> ld</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.definition()&lt;CR&gt;</code> |
+| Rename Buffer | <code> lr</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+| List Plugins | <code> Pl</code> | <code>&lt;Cmd&gt;PackerStatus&lt;CR&gt;</code> |
+| Clean Up | <code> Pc</code> | <code>&lt;Cmd&gt;PackerClean&lt;CR&gt;</code> |
+| Update Plugins | <code> Pu</code> | <code>&lt;Cmd&gt;PackerSync&lt;CR&gt;</code> |
+| Install Plugin | <code> Pi</code> | <code>&lt;Cmd&gt;PackerInstall&lt;CR&gt;</code> |
+| Search Help Pages | <code> th</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+| Clear Yank History | <code> tY</code> | <code>&lt;Cmd&gt;YankyClearHistory&lt;CR&gt;</code> |
+| Change Colorscheme | <code> tc</code> | <code>&lt;Cmd&gt;Telescope colorscheme&lt;CR&gt;</code> |
+| Find Man Pages | <code> tm</code> | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
+| Open Buffers | <code> tb</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+| Spelling | <code> ts</code> | <code>&lt;Cmd&gt;Telescope spell_suggest&lt;CR&gt;</code> |
+| Diagnostics | <code> td</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+| Live Grep | <code> tg</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+| Find File | <code> tf</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+| Select ALL | <code> a</code> | <code>ggVG</code> |
+| Close Window | <code> X</code> | <code>&lt;C-W&gt;c&lt;CR&gt;</code> |
+| Paste | <code> p</code> | <code>"+p&lt;CR&gt;</code> |
+| Copy | <code> c</code> | <code>"+y&lt;CR&gt;</code> |
+|  | <code> g</code> | <code>&lt;Cmd&gt;lua _lazygit_toggle()&lt;CR&gt;</code> |
+| Comment Out THIS Line | <code> '</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| Yank List | <code> y</code> | <code>&lt;Cmd&gt;Telescope yank_history&lt;CR&gt;</code> |
+| Search Key Maps | <code> k</code> | <code>&lt;Cmd&gt;Legendary&lt;CR&gt;</code> |
+| Hop to a Word | <code> h</code> | <code>&lt;Cmd&gt;HopWord&lt;CR&gt;</code> |
+| Write with Sudo | <code> S</code> | <code>&lt;Cmd&gt;SudaWrite&lt;CR&gt;</code> |
+| Search | <code> /</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+| Show Colors in THIS File | <code> C</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+| Make THIS File Executable | <code> E</code> | <code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code> |
+| Open Nvim-Tree | <code> F</code> | <code>&lt;Cmd&gt;NvimTreeFindFileToggle&lt;CR&gt;</code> |
+| Floating Terminal | <code> T</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+| Source THIS File | <code> s</code> | <code>&lt;Cmd&gt;so%&lt;CR&gt;</code> |
+| Open Undo Tree | <code> u</code> | <code>&lt;Cmd&gt;UndotreeToggle&lt;CR&gt;</code> |
+| Open Ranger | <code> f</code> | <code>&lt;Cmd&gt;RnvimrToggle&lt;CR&gt;</code> |
+| Open Recent Files | <code> r</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+| Save & Quit | <code> x</code> | <code>&lt;Cmd&gt;wq&lt;CR&gt;</code> |
+| Quit | <code> q</code> | <code>&lt;Cmd&gt;q!&lt;CR&gt;</code> |
+| Write | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
+| Nvim builtin | <code>Y</code> | <code>y$</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| Toggle Terminal | <code>&lt;C-Q&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(cokeline-focus-20)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-20)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-19)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-19)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-18)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-18)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-17)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-17)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-16)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-16)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-15)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-15)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-14)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-14)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-13)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-13)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-12)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-12)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-11)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-11)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-10)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-10)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-9)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-9)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-8)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-8)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-7)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-7)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-6)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-6)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-5)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-5)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-4)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-4)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-3)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-3)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-2)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-2)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-1)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-1)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-pick-close)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-pick-focus)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-next)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-focus-prev)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-next)</code> |  |
+|  | <code>&lt;Plug&gt;(cokeline-switch-prev)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyYank)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyCycleBackward)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyCycleForward)</code> |  |
+|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(fzf-normal)</code> | <code></code> |
+|  | <code>&lt;Plug&gt;(fzf-insert)</code> | <code>i</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
+| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
+| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
+| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
+| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
+| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
+| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
+|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+|  | <code>&lt;M-o&gt;</code> | <code>:RnvimrToggle&lt;CR&gt;</code> |
+|  | <code>&lt;C-D&gt;</code> | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
+|  | <code>&lt;S-Left&gt;</code> | <code>&lt;Cmd&gt;bp&lt;CR&gt;</code> |
+|  | <code>&lt;S-Right&gt;</code> | <code>&lt;Cmd&gt;bn&lt;CR&gt;</code> |
+|  | <code>&lt;M-Right&gt;</code> | <code>w</code> |
+|  | <code>&lt;M-Left&gt;</code> | <code>b</code> |
+|  | <code>&lt;C-Down&gt;</code> | <code>G</code> |
+|  | <code>&lt;C-Up&gt;</code> | <code>gg</code> |
+|  | <code>&lt;C-Left&gt;</code> | <code>^</code> |
+|  | <code>&lt;C-Right&gt;</code> | <code>$</code> |
+| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
 
 #### visual mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-| Copy | ` c` | `"+y<CR>` |
-| Add Text to End of Selected Lines | ` a` | `:norm A` |
-| Add Text to Start of Selected Lines | ` i` | `:norm I` |
-| Comment Out Selected Lines | ` '` | `<Plug>(comment_toggle_linewise_visual)` |
-| Nvim builtin | `#` | `y?\V<C-R>"<CR>` |
-|  | `%` | `<Plug>(MatchitVisualForward)` |
-| Nvim builtin | `*` | `y/\V<C-R>"<CR>` |
-|  | `[%` | `<Plug>(MatchitVisualMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitVisualMultiForward)` |
-|  | `a%` | `<Plug>(MatchitVisualTextObject)` |
-|  | `gx` | `<Plug>NetrwBrowseXVis` |
-|  | `g%` | `<Plug>(MatchitVisualBackward)` |
-|  | `<Plug>(YankyPutBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutBeforeShiftRight)` |  |
-|  | `<Plug>(YankyPutBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyPutBeforeFilter)` |  |
-|  | `<Plug>(YankyPutBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyPutBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeBlockwise)` |  |
-|  | `<Plug>(YankyPutBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeCharwise)` |  |
-|  | `<Plug>(YankyPutBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutBeforeLinewise)` |  |
-|  | `<Plug>(YankyPutBeforeJoined)` |  |
-|  | `<Plug>(YankyPutBefore)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftRight)` |  |
-|  | `<Plug>(YankyGPutBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeFilter)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyGPutBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeBlockwise)` |  |
-|  | `<Plug>(YankyGPutBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeCharwise)` |  |
-|  | `<Plug>(YankyGPutBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyGPutBeforeLinewise)` |  |
-|  | `<Plug>(YankyGPutBeforeJoined)` |  |
-|  | `<Plug>(YankyGPutBefore)` |  |
-|  | `<Plug>(YankyPutAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutAfterShiftRight)` |  |
-|  | `<Plug>(YankyPutAfterFilterJoined)` |  |
-|  | `<Plug>(YankyPutAfterFilter)` |  |
-|  | `<Plug>(YankyPutAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutAfterShiftLeft)` |  |
-|  | `<Plug>(YankyPutAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterBlockwise)` |  |
-|  | `<Plug>(YankyPutAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterCharwise)` |  |
-|  | `<Plug>(YankyPutAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutAfterLinewise)` |  |
-|  | `<Plug>(YankyPutAfterJoined)` |  |
-|  | `<Plug>(YankyPutAfter)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftRight)` |  |
-|  | `<Plug>(YankyPutIndentAfterFilterJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterFilter)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterShiftLeft)` |  |
-|  | `<Plug>(YankyPutIndentAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterBlockwise)` |  |
-|  | `<Plug>(YankyPutIndentAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterCharwise)` |  |
-|  | `<Plug>(YankyPutIndentAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfterLinewise)` |  |
-|  | `<Plug>(YankyPutIndentAfterJoined)` |  |
-|  | `<Plug>(YankyPutIndentAfter)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftRightJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftRight)` |  |
-|  | `<Plug>(YankyPutIndentBeforeFilterJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeFilter)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftLeftJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeShiftLeft)` |  |
-|  | `<Plug>(YankyPutIndentBeforeBlockwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeBlockwise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeCharwiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeCharwise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeLinewiseJoined)` |  |
-|  | `<Plug>(YankyPutIndentBeforeLinewise)` |  |
-|  | `<Plug>(YankyPutIndentBeforeJoined)` |  |
-|  | `<Plug>(YankyPutIndentBefore)` |  |
-|  | `<Plug>(YankyGPutAfterShiftRightJoined)` |  |
-|  | `<Plug>(YankyGPutAfterShiftRight)` |  |
-|  | `<Plug>(YankyGPutAfterFilterJoined)` |  |
-|  | `<Plug>(YankyGPutAfterFilter)` |  |
-|  | `<Plug>(YankyGPutAfterShiftLeftJoined)` |  |
-|  | `<Plug>(YankyGPutAfterShiftLeft)` |  |
-|  | `<Plug>(YankyGPutAfterBlockwiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterBlockwise)` |  |
-|  | `<Plug>(YankyGPutAfterCharwiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterCharwise)` |  |
-|  | `<Plug>(YankyGPutAfterLinewiseJoined)` |  |
-|  | `<Plug>(YankyGPutAfterLinewise)` |  |
-|  | `<Plug>(YankyGPutAfterJoined)` |  |
-|  | `<Plug>(YankyGPutAfter)` |  |
-|  | `<Plug>(YankyYank)` |  |
-|  | `<Plug>luasnip-expand-repeat` |  |
-| Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
-| Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
-|  | `<Plug>NetrwBrowseXVis` | `:<C-U>call netrw#BrowseXVis()<CR>` |
-|  | `<Plug>(MatchitVisualTextObject)` | `<Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)` |
-|  | `<Plug>(MatchitVisualMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``` |
-|  | `<Plug>(MatchitVisualForward)` | `:<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``` |
-|  | `<M-Down>` | `:move '>+1<CR>gv-gv` |
-|  | `<M-Up>` | `:move '<lt>-2<CR>gv-gv` |
+| Copy | <code> c</code> | <code>"+y&lt;CR&gt;</code> |
+| Add Text to End of Selected Lines | <code> a</code> | <code>:norm A</code> |
+| Add Text to Start of Selected Lines | <code> i</code> | <code>:norm I</code> |
+| Comment Out Selected Lines | <code> '</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |  |
+|  | <code>&lt;Plug&gt;(YankyYank)</code> |  |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+|  | <code>&lt;M-Down&gt;</code> | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
+|  | <code>&lt;M-Up&gt;</code> | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
 
 #### operator mode keymaps
 
 | Description | LHS | RHS |
 | ----------- | --- | --- |
-|  | `%` | `<Plug>(MatchitOperationForward)` |
-|  | `[%` | `<Plug>(MatchitOperationMultiBackward)` |
-|  | `]%` | `<Plug>(MatchitOperationMultiForward)` |
-|  | `g%` | `<Plug>(MatchitOperationBackward)` |
-|  | `<Plug>luasnip-expand-repeat` |  |
-|  | `<Plug>(MatchitOperationMultiForward)` | `:<C-U>call matchit#MultiMatch("W",  "o")<CR>` |
-|  | `<Plug>(MatchitOperationMultiBackward)` | `:<C-U>call matchit#MultiMatch("bW", "o")<CR>` |
-|  | `<Plug>(MatchitOperationBackward)` | `:<C-U>call matchit#Match_wrapper('',0,'o')<CR>` |
-|  | `<Plug>(MatchitOperationForward)` | `:<C-U>call matchit#Match_wrapper('',1,'o')<CR>` |
+|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
