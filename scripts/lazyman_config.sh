@@ -957,11 +957,11 @@ show_plugin_menu() {
     options+=("Dressing UI   [${use_dressing}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("Enable Games  [${use_games}]")
+    options+=("Indentline [${use_indentline}]")
     options+=("Terminal      [${use_terminal}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
       options+=("Enable IDE    [${use_ide}]")
-      options+=("Indentline [${use_indentline}]")
       options+=("Lualine Style [${use_lualine_style}]")
       if [ "${use_lualine_style}" == "onno" ]; then
         options+=(" Separator    [${use_lualine_separator}]")
@@ -2404,7 +2404,6 @@ show_conf_menu() {
                   set_conf_value "enable_winbar" "barbecue"
                 fi
               fi
-              rm -rf "${HOME}/.cache/${LAZYMAN}"
               pluginit=1
             fi
           }

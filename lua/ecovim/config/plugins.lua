@@ -174,6 +174,37 @@ if settings.enable_games then
   }
 end
 
+local indentline_cfg = {
+  "lukas-reineke/indent-blankline.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  config = function()
+    require("config.indent-blankline")
+  end,
+}
+if settings.indentline_style == "none" then
+  indentline_cfg = {}
+elseif settings.indentline_style == "mini" then
+  indentline_cfg = {
+    "echasnovski/mini.indentscope",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "help", "alpha", "dashboard", "NvimTree", "Trouble", "lazy", "mason" },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function(_, opts)
+      require("mini.indentscope").setup(opts)
+    end,
+  }
+end
+
 return {
   -- Supported themes
   -- nightfox, tundra, tokyonight, catppuccin, dracula, kanagawa, onedarkpro
@@ -1071,6 +1102,9 @@ return {
 
   -- Lazyman cheatsheet
   cheatsheet,
+
+  -- Neovim indent guides
+  indentline_cfg,
 
   -- Games
   vimbegood,
