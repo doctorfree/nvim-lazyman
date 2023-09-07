@@ -284,6 +284,8 @@ href="https://github.com/tpope/vim-speeddating.git">tpope/vim-speeddating</a></l
 <li><a
 href="https://github.com/dhruvasagar/vim-table-mode.git">dhruvasagar/vim-table-mode</a></li>
 <li><a
+href="https://github.com/wakatime/vim-wakatime.git">wakatime/vim-wakatime</a></li>
+<li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 <li><a
 href="https://github.com/folke/zen-mode.nvim">folke/zen-mode.nvim</a></li>
@@ -569,36 +571,6 @@ default_text = vim.fn.expand(‘<lt>cword&gt;’), initial_mode = ‘normal’
 <td><Cmd>:Lazy<CR></td>
 </tr>
 <tr class="odd">
-<td>terminal float</td>
-<td>,at</td>
-<td><Cmd>ToggleTerm direction=float<CR></td>
-</tr>
-<tr class="even">
-<td>choose theirs</td>
-<td>,gct</td>
-<td><Cmd>GitConflictChooseTheirs<CR></td>
-</tr>
-<tr class="odd">
-<td>move to prev conflict</td>
-<td>,gcp</td>
-<td><Cmd>GitConflictPrevConflict<CR></td>
-</tr>
-<tr class="even">
-<td>choose ours</td>
-<td>,gco</td>
-<td><Cmd>GitConflictChooseOurs<CR></td>
-</tr>
-<tr class="odd">
-<td>move to next conflict</td>
-<td>,gcn</td>
-<td><Cmd>GitConflictNextConflict<CR></td>
-</tr>
-<tr class="even">
-<td>choose both</td>
-<td>,gcb</td>
-<td><Cmd>GitConflictChooseBoth<CR></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>,gwc</td>
 <td><Cmd>lua
@@ -616,69 +588,9 @@ require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 <td><Cmd>lua require(‘comment-box’).lbox()<CR></td>
 </tr>
 <tr class="even">
-<td>Move Float</td>
-<td>,tf</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move Bottom Right New</td>
-<td>,tH</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move Below Right New</td>
-<td>,th</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move Bottom Right</td>
-<td>,tL</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Move Below Right</td>
-<td>,tl</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Prev</td>
-<td>,t[</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Next</td>
-<td>,t]</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Kill</td>
-<td>,tk</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>New Terminal Run</td>
-<td>,tR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Run</td>
-<td>,tr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>New Terminal Toggle</td>
-<td>,tO</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Terminal Toggle</td>
-<td>,to</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Terminal Send</td>
-<td>,ts</td>
-<td></td>
+<td>terminal float</td>
+<td>,at</td>
+<td><Cmd>ToggleTerm direction=float<CR></td>
 </tr>
 <tr class="odd">
 <td>Mason</td>
@@ -711,148 +623,158 @@ require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 <td><Cmd>SessionManager load_session<CR></td>
 </tr>
 <tr class="odd">
-<td>Toggle Transparency</td>
-<td>,ut</td>
+<td>Move Float</td>
+<td>,tf</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Move Bottom Right New</td>
+<td>,tH</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move Below Right New</td>
+<td>,th</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Move Bottom Right</td>
+<td>,tL</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Move Below Right</td>
+<td>,tl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Prev</td>
+<td>,t[</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Next</td>
+<td>,t]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Kill</td>
+<td>,tk</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>New Terminal Run</td>
+<td>,tR</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Run</td>
+<td>,tr</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>New Terminal Toggle</td>
+<td>,tO</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Terminal Toggle</td>
+<td>,to</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Terminal Send</td>
+<td>,ts</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>choose ours</td>
+<td>,gco</td>
+<td><Cmd>GitConflictChooseOurs<CR></td>
+</tr>
+<tr class="odd">
+<td>move to next conflict</td>
+<td>,gcn</td>
+<td><Cmd>GitConflictNextConflict<CR></td>
+</tr>
+<tr class="even">
+<td>choose both</td>
+<td>,gcb</td>
+<td><Cmd>GitConflictChooseBoth<CR></td>
+</tr>
+<tr class="odd">
+<td>choose theirs</td>
+<td>,gct</td>
+<td><Cmd>GitConflictChooseTheirs<CR></td>
+</tr>
+<tr class="even">
+<td>move to prev conflict</td>
+<td>,gcp</td>
+<td><Cmd>GitConflictPrevConflict<CR></td>
+</tr>
+<tr class="odd">
 <td>Select Moonokai pro filter</td>
 <td>,up</td>
 <td><Cmd>MonokaiProSelect<CR></td>
 </tr>
+<tr class="even">
+<td>Toggle Transparency</td>
+<td>,ut</td>
+<td></td>
+</tr>
 <tr class="odd">
-<td>refactor</td>
-<td>,pr</td>
+<td></td>
+<td>,Di</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Go to buffer 8</td>
-<td>,8</td>
+<td></td>
+<td>,Da</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Sort by relative dir</td>
-<td>,bsr</td>
+<td></td>
+<td>,DA</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Sort by extension</td>
-<td>,bse</td>
+<td></td>
+<td>,DK</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Sort by directory</td>
-<td>,bsd</td>
+<td></td>
+<td>,Dk</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Pin/Unpin Buffer</td>
-<td>,bP</td>
+<td></td>
+<td>,Dt</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Pick Buffer</td>
-<td>,bp</td>
+<td></td>
+<td>,Dh</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Move next</td>
-<td>,bn</td>
+<td></td>
+<td>,Dg</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Close Right</td>
-<td>,br</td>
+<td></td>
+<td>,Ds</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Close Left</td>
-<td>,bl</td>
+<td></td>
+<td>,Dd</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Move back</td>
-<td>,bb</td>
 <td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 1</td>
-<td>,1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 2</td>
-<td>,2</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 3</td>
-<td>,3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 9</td>
-<td>,9</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 4</td>
-<td>,4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 5</td>
-<td>,5</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 6</td>
-<td>,6</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 7</td>
-<td>,7</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>diff hunk</td>
-<td>,ghd</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>undo stage</td>
-<td>,ghu</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>toggle deleted</td>
-<td>,ght</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>stage buffer</td>
-<td>,ghS</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>stage hunk</td>
-<td>,ghs</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>reset hunk</td>
-<td>,ghr</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>reset buffer</td>
-<td>,ghR</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>preview</td>
-<td>,ghp</td>
+<td>,Dc</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -901,68 +823,148 @@ require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,Dg</td>
+<td>diff hunk</td>
+<td>,ghd</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,Ds</td>
+<td>undo stage</td>
+<td>,ghu</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,Dd</td>
+<td>toggle deleted</td>
+<td>,ght</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,Dc</td>
+<td>stage buffer</td>
+<td>,ghS</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,Di</td>
+<td>stage hunk</td>
+<td>,ghs</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,Da</td>
+<td>reset hunk</td>
+<td>,ghr</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,DA</td>
+<td>reset buffer</td>
+<td>,ghR</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,DK</td>
+<td>preview</td>
+<td>,ghp</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,Dk</td>
+<td>Move back</td>
+<td>,bb</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td>,Dt</td>
+<td>Close Left</td>
+<td>,bl</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td>,Dh</td>
+<td>Close Right</td>
+<td>,br</td>
 <td></td>
 </tr>
 <tr class="even">
+<td>Move next</td>
+<td>,bn</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Pick Buffer</td>
+<td>,bp</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pin/Unpin Buffer</td>
+<td>,bP</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Sort by directory</td>
+<td>,bsd</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sort by extension</td>
+<td>,bse</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Sort by relative dir</td>
+<td>,bsr</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 1</td>
+<td>,1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 2</td>
+<td>,2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 3</td>
+<td>,3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 4</td>
+<td>,4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 5</td>
+<td>,5</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 6</td>
+<td>,6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 7</td>
+<td>,7</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 8</td>
+<td>,8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 9</td>
+<td>,9</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>lazygit</td>
 <td>,gg</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>multicursor</td>
 <td>,M</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>status</td>
+<td>,gs</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -971,8 +973,8 @@ require(‘telescope’).extensions.git_worktree.git_worktrees()<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>status</td>
-<td>,gs</td>
+<td>refactor</td>
+<td>,pr</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1136,16 +1138,6 @@ shellescape(‘<lt>cWORD&gt;’)<CR></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Align with preview</td>
-<td>gA</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Align</td>
-<td>ga</td>
-<td></td>
-</tr>
-<tr class="odd">
 <td></td>
 <td>gs</td>
 <td><Plug>(Switch)</td>
@@ -1184,6 +1176,16 @@ shellescape(‘<lt>cWORD&gt;’)<CR></td>
 <td>Comment toggle linewise</td>
 <td>gc</td>
 <td><Plug>(comment_toggle_linewise)</td>
+</tr>
+<tr class="odd">
+<td>Align with preview</td>
+<td>gA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Align</td>
+<td>ga</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>LSP Implementations</td>
@@ -1354,9 +1356,79 @@ require(‘ecovim.plugins.telescope’).project_files()<CR></td>
 <td>:<C-U>call matchit#Match_wrapper(’‘,1,’n’)<CR></td>
 </tr>
 <tr class="even">
+<td></td>
+<td><Plug>(SwitchReverse)</td>
+<td>:set opfunc=switch#OpfuncReverse<CR>g@l</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>(Switch)</td>
+<td>:set opfunc=switch#OpfuncForward<CR>g@l</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingFallbackDown</td>
+<td><C-X></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingFallbackUp</td>
+<td><C-A></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingNowUTC</td>
+<td>:<C-U>call speeddating#timestamp(1,v:count)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingNowLocal</td>
+<td>:<C-U>call speeddating#timestamp(0,v:count)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingDown</td>
+<td>:<C-U>call speeddating#increment(-v:count1)<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingUp</td>
+<td>:<C-U>call speeddating#increment(v:count1)<CR></td>
+</tr>
+<tr class="even">
 <td>Toggle Terminal</td>
 <td><F12></td>
 <td><Cmd>execute v:count . “ToggleTerm”<CR></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise with count</td>
+<td><Plug>(comment_toggle_blockwise_count)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise with count</td>
+<td><Plug>(comment_toggle_linewise_count)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle current block</td>
+<td><Plug>(comment_toggle_blockwise_current)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle current line</td>
+<td><Plug>(comment_toggle_linewise_current)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Comment toggle blockwise</td>
+<td><Plug>(comment_toggle_blockwise)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Comment toggle linewise</td>
+<td><Plug>(comment_toggle_linewise)</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>Change a surrounding pair, putting replacements on new lines</td>
@@ -1396,140 +1468,40 @@ mode)</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Git Conflict: Previous Conflict</td>
-<td><Plug>(git-conflict-prev-conflict)</td>
-<td><Cmd>GitConflictPrevConflict<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Next Conflict</td>
-<td><Plug>(git-conflict-next-conflict)</td>
-<td><Cmd>GitConflictNextConflict<CR></td>
-</tr>
-<tr class="even">
-<td>Git Conflict: Choose Theirs</td>
-<td><Plug>(git-conflict-theirs)</td>
-<td><Cmd>GitConflictChooseTheirs<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Choose None</td>
-<td><Plug>(git-conflict-none)</td>
-<td><Cmd>GitConflictChooseNone<CR></td>
-</tr>
-<tr class="even">
-<td>Git Conflict: Choose Both</td>
-<td><Plug>(git-conflict-both)</td>
-<td><Cmd>GitConflictChooseBoth<CR></td>
-</tr>
-<tr class="odd">
-<td>Git Conflict: Choose Ours</td>
-<td><Plug>(git-conflict-ours)</td>
-<td><Cmd>GitConflictChooseOurs<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingFallbackDown</td>
-<td><C-X></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingFallbackUp</td>
-<td><C-A></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingNowUTC</td>
-<td>:<C-U>call speeddating#timestamp(1,v:count)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingNowLocal</td>
-<td>:<C-U>call speeddating#timestamp(0,v:count)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingDown</td>
-<td>:<C-U>call speeddating#increment(-v:count1)<CR></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingUp</td>
-<td>:<C-U>call speeddating#increment(v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>(SwitchReverse)</td>
-<td>:set opfunc=switch#OpfuncReverse<CR>g@l</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>(Switch)</td>
-<td>:set opfunc=switch#OpfuncForward<CR>g@l</td>
-</tr>
-<tr class="even">
 <td></td>
 <td><Plug>PlenaryTestFile</td>
 <td>:lua
 require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise with count</td>
-<td><Plug>(comment_toggle_blockwise_count)</td>
-<td></td>
+<td>Git Conflict: Previous Conflict</td>
+<td><Plug>(git-conflict-prev-conflict)</td>
+<td><Cmd>GitConflictPrevConflict<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise with count</td>
-<td><Plug>(comment_toggle_linewise_count)</td>
-<td></td>
+<td>Git Conflict: Next Conflict</td>
+<td><Plug>(git-conflict-next-conflict)</td>
+<td><Cmd>GitConflictNextConflict<CR></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle current block</td>
-<td><Plug>(comment_toggle_blockwise_current)</td>
-<td></td>
+<td>Git Conflict: Choose Theirs</td>
+<td><Plug>(git-conflict-theirs)</td>
+<td><Cmd>GitConflictChooseTheirs<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle current line</td>
-<td><Plug>(comment_toggle_linewise_current)</td>
-<td></td>
+<td>Git Conflict: Choose None</td>
+<td><Plug>(git-conflict-none)</td>
+<td><Cmd>GitConflictChooseNone<CR></td>
 </tr>
 <tr class="odd">
-<td>Comment toggle blockwise</td>
-<td><Plug>(comment_toggle_blockwise)</td>
-<td></td>
+<td>Git Conflict: Choose Both</td>
+<td><Plug>(git-conflict-both)</td>
+<td><Cmd>GitConflictChooseBoth<CR></td>
 </tr>
 <tr class="even">
-<td>Comment toggle linewise</td>
-<td><Plug>(comment_toggle_linewise)</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>NvimTree</td>
-<td><C-E></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 7</td>
-<td><M-7></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 6</td>
-<td><M-6></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 9</td>
-<td><M-9></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Go to buffer 5</td>
-<td><M-5></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Go to buffer 4</td>
-<td><M-4></td>
-<td></td>
+<td>Git Conflict: Choose Ours</td>
+<td><Plug>(git-conflict-ours)</td>
+<td><Cmd>GitConflictChooseOurs<CR></td>
 </tr>
 <tr class="odd">
 <td>Go to buffer 3</td>
@@ -1547,13 +1519,43 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td></td>
 </tr>
 <tr class="even">
+<td>Go to buffer 9</td>
+<td><M-9></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Go to buffer 8</td>
 <td><M-8></td>
 <td></td>
 </tr>
+<tr class="even">
+<td>Go to buffer 7</td>
+<td><M-7></td>
+<td></td>
+</tr>
 <tr class="odd">
+<td>Go to buffer 6</td>
+<td><M-6></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Go to buffer 5</td>
+<td><M-5></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Go to buffer 4</td>
+<td><M-4></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>multicursor down</td>
 <td><C-Down></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NvimTree</td>
+<td><C-E></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1604,23 +1606,23 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Cmd>‘<lt>,’&gt;lua vim.lsp.buf.code_action()<CR></td>
 </tr>
 <tr class="even">
-<td>comment box</td>
-<td>,ac</td>
-<td><Cmd>lua require(‘comment-box’).lbox()<CR></td>
-</tr>
-<tr class="odd">
 <td>Terminal Send</td>
 <td>,ts</td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>comment box</td>
+<td>,ac</td>
+<td><Cmd>lua require(‘comment-box’).lbox()<CR></td>
+</tr>
 <tr class="even">
-<td>multicursor</td>
-<td>,M</td>
+<td>refactor</td>
+<td>,pr</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>refactor</td>
-<td>,pr</td>
+<td>multicursor</td>
+<td>,M</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1670,7 +1672,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 </tr>
 <tr class="odd">
 <td></td>
-<td><code>| u | |  | a% | &lt;Plug&gt;(MatchitVisualTextObject) | | Around last textobject | al |  | | Around next textobject | an |  | | Around textobject | a |  | | Operator keymap for printer.nvim | gp |  | |  | g% | &lt;Plug&gt;(MatchitVisualBackward) | | Move to right "around" | g] |  | | Move to left "around" | g[ |  | | Comment toggle blockwise (visual) | gb | &lt;Plug&gt;(comment_toggle_blockwise_visual) | | Comment toggle linewise (visual) | gc | &lt;Plug&gt;(comment_toggle_linewise_visual) | | Add a surrounding pair around a visual selection, on new lines | gS | &lt;Plug&gt;(nvim-surround-visual-line) | | Align with preview | gA |  | | Align | ga |  | | Inside last textobject | il |  | | Inside next textobject | in |  | | Inside textobject | i |  | |  | p | "_dP | |  | s |  | |  | x | "_x | |  | &lt;Plug&gt;luasnip-expand-repeat |  | |  | &lt;M-</code>&gt;</td>
+<td><code>| u | |  | a% | &lt;Plug&gt;(MatchitVisualTextObject) | | Around last textobject | al |  | | Around next textobject | an |  | | Around textobject | a |  | | Operator keymap for printer.nvim | gp |  | |  | g% | &lt;Plug&gt;(MatchitVisualBackward) | | Comment toggle blockwise (visual) | gb | &lt;Plug&gt;(comment_toggle_blockwise_visual) | | Comment toggle linewise (visual) | gc | &lt;Plug&gt;(comment_toggle_linewise_visual) | | Add a surrounding pair around a visual selection, on new lines | gS | &lt;Plug&gt;(nvim-surround-visual-line) | | Move to right "around" | g] |  | | Move to left "around" | g[ |  | | Align with preview | gA |  | | Align | ga |  | | Inside last textobject | il |  | | Inside next textobject | in |  | | Inside textobject | i |  | |  | p | "_dP | |  | s |  | |  | x | "_x | |  | &lt;Plug&gt;luasnip-expand-repeat |  | |  | &lt;M-</code>&gt;</td>
 <td>U</td>
 </tr>
 <tr class="even">
@@ -1689,16 +1691,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))<CR>
 <td><Plug>(MatchitVisualBackward)</td>
 <td>:<C-U>call
 matchit#Match_wrapper(’‘,0,’v’)<CR>m’gv<code>| |  | &lt;Plug&gt;(MatchitVisualForward) | :&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") | exe ":normal! m'" | endif&lt;CR&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><Plug>SpeedDatingDown</td>
-<td>:<C-U>call speeddating#incrementvisual(-v:count1)<CR></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><Plug>SpeedDatingUp</td>
-<td>:<C-U>call speeddating#incrementvisual(v:count1)<CR></td>
 </tr>
 <tr class="odd">
 <td>Comment toggle blockwise (visual)</td>
@@ -1723,6 +1715,16 @@ true })<CR></td>
 <td><Plug>(nvim-surround-visual)</td>
 <td><Esc><Cmd>lua require’nvim-surround’.visual_surround({ line_mode =
 false })<CR></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><Plug>SpeedDatingDown</td>
+<td>:<C-U>call speeddating#incrementvisual(-v:count1)<CR></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><Plug>SpeedDatingUp</td>
+<td>:<C-U>call speeddating#incrementvisual(v:count1)<CR></td>
 </tr>
 </tbody>
 </table>
