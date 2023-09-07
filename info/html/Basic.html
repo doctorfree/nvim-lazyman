@@ -28,8 +28,8 @@
 <header id="title-block-header">
 <h1 class="title">Lazyman config: Basic</h1>
 </header>
-<h2 id="basic-neovim-configuration-information">Basic Neovim
-Configuration Information</h2>
+<h1 id="basic-neovim-configuration-information">Basic Neovim
+Configuration Information</h1>
 <p>Starter config by the author of NvChad with <a
 href="https://youtube.com/playlist?list=PLYVQrj2EVSUL1NqYn3jsIVXG3U9eWaMcq">video
 tutorial</a></p>
@@ -44,14 +44,38 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Basic</code></strong></li>
 </ul>
-<h3 id="git-repository">Git repository</h3>
+<h2 id="git-repository">Git repository</h2>
 <p><a
 href="https://github.com/NvChad/basic-config">https://github.com/NvChad/basic-config</a></p>
-<h3 id="youtube-channel">YouTube channel</h3>
+<h2 id="youtube-channel">YouTube channel</h2>
 <p><a
 href="https://www.youtube.com/@siduck_og">https://www.youtube.com/<span
 class="citation" data-cites="siduck_og">@siduck_og</span></a></p>
-<h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Jump</th>
+<th style="text-align: center;">to</th>
+<th style="text-align: center;">Keymaps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><a href="#normal-mode-keymaps">Normal
+mode keymaps</a></td>
+<td style="text-align: center;"><a href="#visual-mode-keymaps">Visual
+mode keymaps</a></td>
+<td style="text-align: center;"><a
+href="#operator-mode-keymaps">Operator mode keymaps</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lazy-managed-plugins">Lazy managed plugins</h2>
 <ul>
 <li><a
 href="https://github.com/numToStr/Comment.nvim">numToStr/Comment.nvim</a></li>
@@ -102,138 +126,362 @@ href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
 <li><a
 href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
 </ul>
-<h3 id="basic-keymaps">Basic Keymaps</h3>
-<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<h2 id="basic-keymaps">Basic Keymaps</h2>
+<h3 id="normal-mode-keymaps">Normal mode keymaps</h3>
 <table>
 <colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt; BufferLineCycleNext &lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Tab&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code> /</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code> gt</code></td>
-<td><code>&lt;Cmd&gt; Telescope git_status &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code> fw</code></td>
-<td><code>&lt;Cmd&gt; Telescope live_grep &lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code> fo</code></td>
-<td><code>&lt;Cmd&gt; Telescope oldfiles &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code> ff</code></td>
-<td><code>&lt;Cmd&gt; Telescope find_files &lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>&amp;</code></td>
-<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Nvim builtin</td>
-<td><code>Y</code></td>
-<td><code>y$</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-Q&gt;</code></td>
-<td><code>&lt;Cmd&gt; bd &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;S-Tab&gt;</code></td>
-<td><code>&lt;Cmd&gt; BufferLineCyclePrev &lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-H&gt;</code></td>
-<td><code>&lt;Cmd&gt; NvimTreeFocus &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-N&gt;</code></td>
-<td><code>&lt;Cmd&gt; NvimTreeToggle &lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-S&gt;</code></td>
-<td><code>&lt;Cmd&gt; w &lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Nvim builtin</td>
-<td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; BufferLineCycleNext
+&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
-<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
 <table>
-<colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td><code> /</code></td>
-<td><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> /</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> gt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; Telescope git_status
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> fw</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; Telescope live_grep
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> fo</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; Telescope oldfiles
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> ff</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; Telescope find_files
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&amp;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&amp;&amp;&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>Y</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y$</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Q&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; bd
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;S-Tab&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; BufferLineCyclePrev
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-H&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; NvimTreeFocus
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-N&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; NvimTreeToggle
+&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt; w &lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-L&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visual-mode-keymaps">Visual mode keymaps</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> /</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
 require(‘Comment.api’).toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
-<tr class="even">
-<td>Nvim builtin</td>
-<td><code>#</code></td>
-<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>*</code></td>
-<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
-</tr>
 </tbody>
 </table>
-<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
 <table>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>#</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>*</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="operator-mode-keymaps">Operator mode keymaps</h3>
 </body>
 </html>

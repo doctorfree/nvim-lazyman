@@ -1,4 +1,4 @@
-## StartMason Neovim Configuration Information
+# StartMason Neovim Configuration Information
 
 Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers
 
@@ -8,11 +8,15 @@ Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.n
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-StartMason`**
 
-### Git repository
+## Git repository
 
 [https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -48,134 +52,588 @@ Same as 'StartLsp' but uses [mason.nvim](https://github.com/williamboman/mason.n
 - [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 - [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 
-### StartMason Keymaps
+## StartMason Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> e</code> | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
-|  | <code> fs</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
-|  | <code> fd</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
-|  | <code> fg</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
-|  | <code> ff</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-|  | <code>  </code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
-|  | <code> ?</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
-|  | <code> bc</code> | <code>&lt;Cmd&gt;Bdelete&lt;CR&gt;</code> |
-|  | <code> bl</code> | <code>&lt;Cmd&gt;buffer #&lt;CR&gt;</code> |
-|  | <code> bq</code> | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
-|  | <code> w</code> | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
-|  | <code> a</code> | <code>:keepjumps normal! ggVG&lt;CR&gt;</code> |
-|  | <code> l</code> | <code>g_</code> |
-|  | <code> h</code> | <code>^</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-|  | <code>cS</code> | <code>&lt;Plug&gt;CSurround</code> |
-|  | <code>cs</code> | <code>&lt;Plug&gt;Csurround</code> |
-|  | <code>ds</code> | <code>&lt;Plug&gt;Dsurround</code> |
-| Comment insert end of line | <code>gcA</code> |  |
-| Comment insert above | <code>gcO</code> |  |
-| Comment insert below | <code>gco</code> |  |
-| Comment toggle current block | <code>gbc</code> |  |
-| Comment toggle current line | <code>gcc</code> |  |
-| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-|  | <code>gp</code> | <code>"+p</code> |
-|  | <code>gy</code> | <code>"+y</code> |
-|  | <code>x</code> | <code>"_x</code> |
-|  | <code>ySS</code> | <code>&lt;Plug&gt;YSsurround</code> |
-|  | <code>ySs</code> | <code>&lt;Plug&gt;YSsurround</code> |
-|  | <code>yss</code> | <code>&lt;Plug&gt;Yssurround</code> |
-|  | <code>yS</code> | <code>&lt;Plug&gt;YSurround</code> |
-|  | <code>ys</code> | <code>&lt;Plug&gt;Ysurround</code> |
-|  | <code>y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
-| Toggle Terminal | <code>&lt;C-G&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
-|  | <code>&lt;Plug&gt;YSurround</code> | <code>&lt;SNR&gt;15_opfunc2('setup')</code> |
-|  | <code>&lt;Plug&gt;Ysurround</code> | <code>&lt;SNR&gt;15_opfunc('setup')</code> |
-|  | <code>&lt;Plug&gt;YSsurround</code> | <code>&lt;SNR&gt;15_opfunc2('setup').'_'</code> |
-|  | <code>&lt;Plug&gt;Yssurround</code> | <code>'^'.v:count1.&lt;SNR&gt;15_opfunc('setup').'g_'</code> |
-|  | <code>&lt;Plug&gt;CSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;15_changesurround(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;Csurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;15_changesurround()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;Dsurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;15_dosurround(&lt;SNR&gt;15_inputtarget())&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SurroundRepeat</code> | <code>.</code> |
-|  | <code>&lt;Plug&gt;fugitive:</code> | <code></code> |
-|  | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
 
-#### visual mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> fs</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> l</code> | <code>g_</code> |
-|  | <code> h</code> | <code>^</code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>@(targets)</code> | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
-|  | <code>A</code> | <code>targets#e('o', 'A', 'A')</code> |
-|  | <code>I</code> | <code>targets#e('o', 'I', 'I')</code> |
-|  | <code>S</code> | <code>&lt;Plug&gt;VSurround</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-|  | <code>a</code> | <code>targets#e('o', 'a', 'a')</code> |
-| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-|  | <code>gS</code> | <code>&lt;Plug&gt;VgSurround</code> |
-|  | <code>gp</code> | <code>"+p</code> |
-|  | <code>gy</code> | <code>"+y</code> |
-|  | <code>i</code> | <code>targets#e('o', 'i', 'i')</code> |
-|  | <code>x</code> | <code>"_x</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;VgSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;VSurround</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
-| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> fd</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> fg</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> l</code> | <code>g_</code> |
-|  | <code> h</code> | <code>^</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-|  | <code>@(targets)</code> | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
-|  | <code>A</code> | <code>targets#e('o', 'A', 'A')</code> |
-|  | <code>I</code> | <code>targets#e('o', 'I', 'I')</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-|  | <code>a</code> | <code>targets#e('o', 'a', 'a')</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-|  | <code>i</code> | <code>targets#e('o', 'i', 'i')</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ?</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Bdelete&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bl</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;buffer #&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bq</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> a</code> |
+| **Right hand side** | <code>:keepjumps normal! ggVG&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> l</code> |
+| **Right hand side** | <code>g_</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>^</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>cS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;CSurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>cs</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Csurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ds</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Dsurround</code> |
+
+| **Description** | Comment insert end of line |
+| :---- | :---- |
+| **Left hand side** | <code>gcA</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert above |
+| :---- | :---- |
+| **Left hand side** | <code>gcO</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert below |
+| :---- | :---- |
+| **Left hand side** | <code>gco</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gp</code> |
+| **Right hand side** | <code>"+p</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gy</code> |
+| **Right hand side** | <code>"+y</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>x</code> |
+| **Right hand side** | <code>"_x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ySS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;YSsurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ySs</code> |
+| **Right hand side** | <code>&lt;Plug&gt;YSsurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>yss</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Yssurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>yS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;YSurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ys</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Ysurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>y&lt;C-G&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+
+| **Description** | Toggle Terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-G&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+| **Right hand side** | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;20_opfunc2('setup')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;20_opfunc('setup')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;20_opfunc2('setup').'_'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
+| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;20_opfunc('setup').'g_'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_changesurround(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_changesurround()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_dosurround(&lt;SNR&gt;20_inputtarget())&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SurroundRepeat</code> |
+| **Right hand side** | <code>.</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;fugitive:</code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> l</code> |
+| **Right hand side** | <code>g_</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>^</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>@(targets)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>A</code> |
+| **Right hand side** | <code>targets#e('o', 'A', 'A')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>I</code> |
+| **Right hand side** | <code>targets#e('o', 'I', 'I')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | <code>&lt;Plug&gt;VSurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a</code> |
+| **Right hand side** | <code>targets#e('o', 'a', 'a')</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;VgSurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gp</code> |
+| **Right hand side** | <code>"+p</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gy</code> |
+| **Right hand side** | <code>"+y</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i</code> |
+| **Right hand side** | <code>targets#e('o', 'i', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>x</code> |
+| **Right hand side** | <code>"_x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> l</code> |
+| **Right hand side** | <code>g_</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>^</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>@(targets)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call targets#do()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>A</code> |
+| **Right hand side** | <code>targets#e('o', 'A', 'A')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>I</code> |
+| **Right hand side** | <code>targets#e('o', 'I', 'I')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a</code> |
+| **Right hand side** | <code>targets#e('o', 'a', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i</code> |
+| **Right hand side** | <code>targets#e('o', 'i', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+

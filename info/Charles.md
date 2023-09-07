@@ -1,4 +1,4 @@
-## Charles Neovim Configuration Information
+# Charles Neovim Configuration Information
 
 Well structured lazy config with several setup scripts and a Wiki
 
@@ -8,11 +8,15 @@ Well structured lazy config with several setup scripts and a Wiki
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Charles`**
 
-### Git repository
+## Git repository
 
 [https://github.com/CharlesChiuGit/nvimdots.lua](https://github.com/CharlesChiuGit/nvimdots.lua)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -122,193 +126,883 @@ Well structured lazy config with several setup scripts and a Wiki
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
-### Charles Keymaps
+## Charles Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| buffer: Switch to next | <code>&lt;Tab&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
-| edit: Clear search highlight | <code>&lt;Esc&gt;</code> | <code>:noh&lt;CR&gt;</code> |
-| edit: Join code block | <code> j</code> | <code>:&lt;C-U&gt;TSJJoin&lt;CR&gt;</code> |
-| edit: Split code block | <code> s</code> | <code>:&lt;C-U&gt;TSJSplit&lt;CR&gt;</code> |
-|  | <code> </code> | <code></code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| edit: Increment | <code>+</code> | <code>&lt;C-A&gt;</code> |
-| buffer: Sort by direrctory | <code>,bd</code> | <code>:BufferLineSortByDirectory&lt;CR&gt;</code> |
-| buffer: Sort by extension | <code>,be</code> | <code>:BufferLineSortByExtension&lt;CR&gt;</code> |
-|  | <code>,-</code> |  |
-| find: Session | <code>,fd</code> | <code>:&lt;C-U&gt;Telescope persisted&lt;CR&gt;</code> |
-|  | <code>,=</code> |  |
-| find: Current word | <code>,fs</code> | <code>:&lt;C-U&gt;Telescope grep_string&lt;CR&gt;</code> |
-| find: Buffer opened | <code>,fb</code> | <code>:&lt;C-U&gt;Telescope buffers&lt;CR&gt;</code> |
-| find: file in git project | <code>,fg</code> | <code>:&lt;C-U&gt;Telescope git_files&lt;CR&gt;</code> |
-| buffer: New | <code>,fn</code> | <code>:&lt;C-U&gt;:enew&lt;CR&gt;</code> |
-| ui: Change colorscheme for current session | <code>,fc</code> | <code>:&lt;C-U&gt;Telescope colorscheme&lt;CR&gt;</code> |
-| find: File in project | <code>,ff</code> | <code>:&lt;C-U&gt;Telescope find_files&lt;CR&gt;</code> |
-| debug: Open REPL | <code>,do</code> |  |
-| find: File by history | <code>,fe</code> | <code>:&lt;C-U&gt;Telescope oldfiles&lt;CR&gt;</code> |
-| debug: Run last | <code>,dl</code> |  |
-| find: Word in project | <code>,fw</code> |  |
-| find: File by frecency | <code>,fr</code> |  |
-| find: Project | <code>,fp</code> |  |
-| edit: Show undo history | <code>,u</code> |  |
-| lsp: Show loclist | <code>,tl</code> | <code>:TroubleToggle loclist&lt;CR&gt;</code> |
-| lsp: Show quickfix list | <code>,tq</code> | <code>:TroubleToggle quickfix&lt;CR&gt;</code> |
-| lsp: Show workspace diagnostics | <code>,tw</code> | <code>:TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
-| lsp: Show document diagnostics | <code>,td</code> | <code>:TroubleToggle document_diagnostics&lt;CR&gt;</code> |
-| lsp: Show lsp references | <code>,tr</code> | <code>:TroubleToggle lsp_references&lt;CR&gt;</code> |
-| lsp: Toggle trouble list | <code>,tt</code> | <code>:TroubleToggle&lt;CR&gt;</code> |
-| git: Toggle lazygit | <code>,lg</code> |  |
-| debug: Run to cursor | <code>,dc</code> |  |
-| tool: Run code by file | <code>,R</code> | <code>:&lt;C-U&gt;%SnipRun&lt;CR&gt;</code> |
-| debug: Set breakpoint with condition | <code>,db</code> |  |
-| filetree: Refresh | <code>,nr</code> | <code>:NvimTreeRefresh&lt;CR&gt;</code> |
-| filetree: Find file | <code>,nf</code> | <code>:NvimTreeFindFile&lt;CR&gt;</code> |
-| git: Open git-fugitive | <code>,G</code> | <code>:&lt;C-U&gt;Git&lt;CR&gt;</code> |
-| edit: Search-repacle multi buffers CExpr | <code>,rbe</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCExpr&lt;CR&gt;</code> |
-| edit: Search-repacle in multi buffers | <code>,rbo</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferOpen&lt;CR&gt;</code> |
-| edit: Search-repacle multi buffers CWord | <code>,rbw</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCWord&lt;CR&gt;</code> |
-| git: Show diff | <code>,dv</code> | <code>:DiffviewOpen&lt;CR&gt;</code> |
-| edit: Search-repacle multi buffers CWORD | <code>,rbW</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCWORD&lt;CR&gt;</code> |
-| edit: Search-repacle multi buffers CFile | <code>,rbf</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCFile&lt;CR&gt;</code> |
-| git: Close diff | <code>,,dv</code> | <code>:DiffviewClose&lt;CR&gt;</code> |
-| edit: Add comment box around multi lines of texts | <code>,cF</code> |  |
-| edit: Add comment box around the texts | <code>,cf</code> |  |
-| session: Delete | <code>,sd</code> | <code>:&lt;C-U&gt;SessionDelete&lt;CR&gt;</code> |
-| session: Load current | <code>,sl</code> | <code>:&lt;C-U&gt;SessionLoad&lt;CR&gt;</code> |
-| session: Save | <code>,ss</code> | <code>:&lt;C-U&gt;SessionSave&lt;CR&gt;</code> |
-| edit: Show search-repacle menu for multi buffer | <code>,rbs</code> | <code>:&lt;C-U&gt;SearchReplaceMultiBufferSelections&lt;CR&gt;</code> |
-| edit: Search-repacle current buffer CFile | <code>,rf</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCFile&lt;CR&gt;</code> |
-| edit: Search-repacle current buffer CExpr | <code>,re</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCExpr&lt;CR&gt;</code> |
-| edit: Search-repacle current buffer CWORD | <code>,rW</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCWORD&lt;CR&gt;</code> |
-| edit: Search-repacle current buffer CWord | <code>,rw</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCWord&lt;CR&gt;</code> |
-| edit: Search-repacle in current buffer | <code>,ro</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferOpen&lt;CR&gt;</code> |
-| edit: Show search-repacle menu in current buffer | <code>,rs</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferSelections&lt;CR&gt;</code> |
-| package: Restore | <code>,pr</code> | <code>:Lazy restore&lt;CR&gt;</code> |
-| package: Update | <code>,pu</code> | <code>:Lazy update&lt;CR&gt;</code> |
-| package: Profile | <code>,pp</code> | <code>:Lazy profile&lt;CR&gt;</code> |
-| package: Sync | <code>,ps</code> | <code>:Lazy sync&lt;CR&gt;</code> |
-| package: Debug | <code>,pd</code> | <code>:Lazy debug&lt;CR&gt;</code> |
-| package: Show | <code>,ph</code> | <code>:Lazy&lt;CR&gt;</code> |
-| package: Check | <code>,pc</code> | <code>:Lazy check&lt;CR&gt;</code> |
-| package: Log | <code>,pl</code> | <code>:Lazy log&lt;CR&gt;</code> |
-| package: Clean | <code>,px</code> | <code>:Lazy clean&lt;CR&gt;</code> |
-| package: Install | <code>,pi</code> | <code>:Lazy install&lt;CR&gt;</code> |
-| edit: Start replacment mode of current word | <code>,,s</code> | <code>&lt;Cmd&gt;%s/\&lt;lt&gt;&lt;C-R&gt;&lt;C-W&gt;\&gt;/&lt;C-R&gt;&lt;C-W&gt;/gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
-| filetree: Open Oil | <code>,o</code> |  |
-| file: chmod +x current file | <code>,,x</code> | <code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code> |
-| edit: Decrement | <code>-</code> | <code>&lt;C-X&gt;</code> |
-| buffer: Move current to next | <code>&lt;lt&gt;tab-S-j&gt;</code> | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
-| buffer: Move current to prev | <code>&lt;lt&gt;tab-S-k&gt;</code> | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
-| edit: Delete text to EOL | <code>D</code> | <code>d$</code> |
-| leapn: Jump backward to character | <code>F</code> |  |
-| jump: Jump to specified node | <code>J</code> |  |
-| edit: Prev search result | <code>N</code> | <code>Nzzzv</code> |
-| leapn: Jump backward till character | <code>T</code> |  |
-| edit: Yank text to EOL | <code>Y</code> | <code>y$</code> |
-| edit: Change a surrounding pair | <code>cs</code> |  |
-| edit: Delete a surrounding pair | <code>ds</code> |  |
-| leapn: Jump to character | <code>f</code> |  |
-| git: Push | <code>gps</code> | <code>:G push&lt;CR&gt;</code> |
-| git: Pull | <code>gpl</code> | <code>:G pull&lt;CR&gt;</code> |
-| leapn: Jump to character across windows | <code>gt</code> |  |
-| edit: Toggle comment for block | <code>gbc</code> |  |
-| edit: Align with delimiter | <code>gea</code> | <code>:EasyAlign&lt;CR&gt;</code> |
-| edit: Toggle comment for block with operator | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| edit: Toggle comment for line with operator | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-| edit: Toggle comment for line | <code>gcc</code> |  |
-| jump: Jump to functions | <code>jif</code> |  |
-| jump: Jump to functions | <code>jfu</code> |  |
-| jump: Jump to visible variable_declarations | <code>jv</code> |  |
-|  | <code>j</code> |  |
-|  | <code>k</code> |  |
-| Jumpx: Jump across syntax tree | <code>m</code> |  |
-| edit: Next search result | <code>n</code> | <code>nzzzv</code> |
-| edit: Split or Join code block with autodetect | <code>sj</code> | <code>:&lt;C-U&gt;TSJToggle&lt;CR&gt;</code> |
-| leapn: Jump till character | <code>t</code> |  |
-| tab: Only keep current tab | <code>to</code> | <code>&lt;Cmd&gt;tabonly&lt;CR&gt;</code> |
-| tab: Move to previous tab | <code>tj</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
-| tab: Move to next tab | <code>tk</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
-| tab: Create a new tab | <code>tn</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
-| edit: Visual select current node | <code>vn</code> | <code>:&lt;C-U&gt;STSSelectCurrentNode&lt;CR&gt;</code> |
-| edit: Visual select master node | <code>vx</code> | <code>:&lt;C-U&gt;STSSelectMasterNode&lt;CR&gt;</code> |
-| edit: Add a surrounding pair around the current line, on new lines | <code>ySS</code> |  |
-| edit: Add a surrounding pair around a motion, on new lines | <code>yS</code> |  |
-| edit: Add a surrounding pair around current line | <code>yss</code> |  |
-| edit: Add a surrounding pair around a motion | <code>ys</code> |  |
-| debug: Stop | <code>&lt;F7&gt;</code> |  |
-| debug: Toggle breakpoint | <code>&lt;F8&gt;</code> |  |
-| debug: Run/Continue | <code>&lt;F6&gt;</code> |  |
-| terminal: Toggle float | <code>&lt;M-d&gt;</code> | <code>:execute v:count . "ToggleTerm direction=float"&lt;CR&gt;</code> |
-| terminal: Toggle vertical | <code>&lt;F5&gt;</code> | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
-| terminal: Toggle vertical | <code>&lt;M-Bslash&gt;</code> | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
-| terminal: Toggle horizontal | <code>&lt;C-Bslash&gt;</code> | <code>:execute v:count . "ToggleTerm direction=horizontal"&lt;CR&gt;</code> |
-| tmux: Resize tmux/nvim pane rightward | <code>&lt;M-l&gt;</code> |  |
-| tmux: Resize to tmux/nvim pane leftward | <code>&lt;M-h&gt;</code> |  |
-| tmux: Resize to tmux/nvim pane upward | <code>&lt;M-k&gt;</code> |  |
-| tmux: Resize tmux/nvim pane downward | <code>&lt;M-j&gt;</code> |  |
-| debug: Step over | <code>&lt;F11&gt;</code> |  |
-| debug: Step out | <code>&lt;F10&gt;</code> |  |
-| debug: Step into | <code>&lt;F9&gt;</code> |  |
-| tool: Preview markdown | <code>&lt;F12&gt;</code> | <code>:MarkdownPreviewToggle&lt;CR&gt;</code> |
-| editn: Save file using sudo | <code>&lt;M-s&gt;</code> | <code>:&lt;C-U&gt;SudaWrite&lt;CR&gt;</code> |
-| buffer: Close current | <code>&lt;F4&gt;</code> | <code>:BufDel&lt;CR&gt;</code> |
-| Formater: Toggle format on save | <code>&lt;M-f&gt;</code> | <code>&lt;Cmd&gt;FormatToggle&lt;CR&gt;</code> |
-| edit: Save file | <code>&lt;C-S&gt;</code> | <code>:&lt;C-U&gt;write&lt;CR&gt;</code> |
-| edit: Select all | <code>&lt;C-A&gt;</code> | <code>gg0vG$</code> |
-| buffer: Switch to prev | <code>&lt;S-Tab&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
-| edit: Force quit | <code>&lt;M-Q&gt;</code> | <code>:q!&lt;CR&gt;</code> |
-| filetree: Toggle | <code>&lt;C-N&gt;</code> | <code>:NvimTreeToggle&lt;CR&gt;</code> |
-| tool: Toggle command panel | <code>&lt;C-P&gt;</code> |  |
-| edit: Save file and quit | <code>&lt;C-Q&gt;</code> | <code>:wq&lt;CR&gt;</code> |
-| window: Resize +2 horizontally | <code>&lt;M-'&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
-| window: Resize -2 horizontally | <code>&lt;M-;&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
-| window: Resize +5 vertically | <code>&lt;M-]&gt;</code> | <code>:vertical resize +5&lt;CR&gt;</code> |
-| window: Resize -5 vertically | <code>&lt;M-[&gt;</code> | <code>:vertical resize -5&lt;CR&gt;</code> |
-| tmux: Move to tmux/nvim top window | <code>&lt;C-K&gt;</code> |  |
-| tmux: Move to tmux/nvim bottom window | <code>&lt;C-J&gt;</code> |  |
-| tmux: Move to tmux/nvim left window | <code>&lt;C-H&gt;</code> |  |
-| tmux: Move tmux/nvim right window | <code>&lt;C-L&gt;</code> |  |
+| **Description** | buffer: Switch to next |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Tab&gt;</code> |
+| **Right hand side** | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
 
-#### visual mode keymaps
+| **Description** | edit: Clear search highlight |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Esc&gt;</code> |
+| **Right hand side** | <code>:noh&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> </code> | <code></code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| tool: Run code by range | <code>,R</code> | <code>:SnipRun&lt;CR&gt;</code> |
-|  | <code>,-</code> |  |
-|  | <code>,=</code> |  |
-| move: Change selection region to child node | <code>-</code> | <code>:&lt;C-U&gt;STSSelectChildNode&lt;CR&gt;</code> |
-| edit: Decrease indent | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-| move: Change selection region to parent node | <code>=</code> | <code>:&lt;C-U&gt;STSSelectParentNode&lt;CR&gt;</code> |
-| edit: Increase indent | <code>&gt;</code> | <code>&gt;gv</code> |
-| leapx: Visual select backward to character | <code>F</code> |  |
-| edit: Move this line down | <code>J</code> | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
-| edit: Move this line up | <code>K</code> | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
-| leapx: Visual select backward till character | <code>T</code> |  |
-| move: Change selection region to preivous sibling node | <code>[</code> | <code>:&lt;C-U&gt;STSSelectPrevSiblingNode&lt;CR&gt;</code> |
-| move: Change selection region to next sibling node | <code>]</code> | <code>:&lt;C-U&gt;STSSelectNextSiblingNode&lt;CR&gt;</code> |
-| leapx: Visual select to character | <code>f</code> |  |
-| edit: Toggle comment for block with selection | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| edit: Toggle comment for line with selection | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| edit: Align with delimiter | <code>gea</code> | <code>:EasyAlign&lt;CR&gt;</code> |
-| Jumpx: Jump across syntax tree | <code>m</code> |  |
-| leapx: Visual select till character | <code>t</code> |  |
-| edit: Add a surrounding pair around a visual selection, on new lines | <code>yS</code> |  |
-| edit: Add a surrounding pair around a visual selection | <code>ys</code> |  |
-| edit: Search-replace with selection within one line | <code>&lt;C-R&gt;</code> | <code>:&lt;C-U&gt;SearchReplaceSingleBufferVisualSelection&lt;CR&gt;</code> |
-| edit: Search-replace with selection within one line CWord | <code>&lt;C-W&gt;</code> | <code>:&lt;C-U&gt;SearchReplaceWithinVisualSelectionCWord&lt;CR&gt;</code> |
-| edit: Select all | <code>&lt;C-A&gt;</code> | <code>&lt;Esc&gt;gg0vG$</code> |
+| **Description** | edit: Join code block |
+| :---- | :---- |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;TSJJoin&lt;CR&gt;</code> |
 
-#### operator mode keymaps
+| **Description** | edit: Split code block |
+| :---- | :---- |
+| **Left hand side** | <code> s</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;TSJSplit&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| leapo: Operatate backward to character | <code>F</code> |  |
-| leapo: Operatate backward till character | <code>T</code> |  |
-| leapo: Operatate to character | <code>f</code> |  |
-| Jumpo: Jump across syntax tree | <code>m</code> |  |
-| leapo: Operatate till character | <code>t</code> |  |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> </code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | edit: Increment |
+| :---- | :---- |
+| **Left hand side** | <code>+</code> |
+| **Right hand side** | <code>&lt;C-A&gt;</code> |
+
+| **Description** | buffer: Sort by extension |
+| :---- | :---- |
+| **Left hand side** | <code>,be</code> |
+| **Right hand side** | <code>:BufferLineSortByExtension&lt;CR&gt;</code> |
+
+| **Description** | buffer: Sort by direrctory |
+| :---- | :---- |
+| **Left hand side** | <code>,bd</code> |
+| **Right hand side** | <code>:BufferLineSortByDirectory&lt;CR&gt;</code> |
+
+| **Description** | find: file in git project |
+| :---- | :---- |
+| **Left hand side** | <code>,fg</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope git_files&lt;CR&gt;</code> |
+
+| **Description** | find: File by history |
+| :---- | :---- |
+| **Left hand side** | <code>,fe</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope oldfiles&lt;CR&gt;</code> |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,-</code> |
+| **Right hand side** | |
+
+| **Description** | buffer: New |
+| :---- | :---- |
+| **Left hand side** | <code>,fn</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;:enew&lt;CR&gt;</code> |
+
+| **Description** | find: Word in project |
+| :---- | :---- |
+| **Left hand side** | <code>,fw</code> |
+| **Right hand side** | |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,=</code> |
+| **Right hand side** | |
+
+| **Description** | ui: Change colorscheme for current session |
+| :---- | :---- |
+| **Left hand side** | <code>,fc</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope colorscheme&lt;CR&gt;</code> |
+
+| **Description** | find: File in project |
+| :---- | :---- |
+| **Left hand side** | <code>,ff</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | debug: Run last |
+| :---- | :---- |
+| **Left hand side** | <code>,dl</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Run to cursor |
+| :---- | :---- |
+| **Left hand side** | <code>,dc</code> |
+| **Right hand side** | |
+
+| **Description** | find: File by frecency |
+| :---- | :---- |
+| **Left hand side** | <code>,fr</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Open REPL |
+| :---- | :---- |
+| **Left hand side** | <code>,do</code> |
+| **Right hand side** | |
+
+| **Description** | find: Project |
+| :---- | :---- |
+| **Left hand side** | <code>,fp</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Show undo history |
+| :---- | :---- |
+| **Left hand side** | <code>,u</code> |
+| **Right hand side** | |
+
+| **Description** | lsp: Show loclist |
+| :---- | :---- |
+| **Left hand side** | <code>,tl</code> |
+| **Right hand side** | <code>:TroubleToggle loclist&lt;CR&gt;</code> |
+
+| **Description** | lsp: Show quickfix list |
+| :---- | :---- |
+| **Left hand side** | <code>,tq</code> |
+| **Right hand side** | <code>:TroubleToggle quickfix&lt;CR&gt;</code> |
+
+| **Description** | lsp: Show workspace diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code>,tw</code> |
+| **Right hand side** | <code>:TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
+
+| **Description** | lsp: Show document diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code>,td</code> |
+| **Right hand side** | <code>:TroubleToggle document_diagnostics&lt;CR&gt;</code> |
+
+| **Description** | lsp: Show lsp references |
+| :---- | :---- |
+| **Left hand side** | <code>,tr</code> |
+| **Right hand side** | <code>:TroubleToggle lsp_references&lt;CR&gt;</code> |
+
+| **Description** | debug: Set breakpoint with condition |
+| :---- | :---- |
+| **Left hand side** | <code>,db</code> |
+| **Right hand side** | |
+
+| **Description** | lsp: Toggle trouble list |
+| :---- | :---- |
+| **Left hand side** | <code>,tt</code> |
+| **Right hand side** | <code>:TroubleToggle&lt;CR&gt;</code> |
+
+| **Description** | git: Toggle lazygit |
+| :---- | :---- |
+| **Left hand side** | <code>,lg</code> |
+| **Right hand side** | |
+
+| **Description** | tool: Run code by file |
+| :---- | :---- |
+| **Left hand side** | <code>,R</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;%SnipRun&lt;CR&gt;</code> |
+
+| **Description** | filetree: Refresh |
+| :---- | :---- |
+| **Left hand side** | <code>,nr</code> |
+| **Right hand side** | <code>:NvimTreeRefresh&lt;CR&gt;</code> |
+
+| **Description** | filetree: Find file |
+| :---- | :---- |
+| **Left hand side** | <code>,nf</code> |
+| **Right hand side** | <code>:NvimTreeFindFile&lt;CR&gt;</code> |
+
+| **Description** | find: Session |
+| :---- | :---- |
+| **Left hand side** | <code>,fd</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope persisted&lt;CR&gt;</code> |
+
+| **Description** | git: Open git-fugitive |
+| :---- | :---- |
+| **Left hand side** | <code>,G</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Git&lt;CR&gt;</code> |
+
+| **Description** | find: Current word |
+| :---- | :---- |
+| **Left hand side** | <code>,fs</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope grep_string&lt;CR&gt;</code> |
+
+| **Description** | find: Buffer opened |
+| :---- | :---- |
+| **Left hand side** | <code>,fb</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | session: Save |
+| :---- | :---- |
+| **Left hand side** | <code>,ss</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SessionSave&lt;CR&gt;</code> |
+
+| **Description** | session: Load current |
+| :---- | :---- |
+| **Left hand side** | <code>,sl</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SessionLoad&lt;CR&gt;</code> |
+
+| **Description** | edit: Add comment box around the texts |
+| :---- | :---- |
+| **Left hand side** | <code>,cf</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Search-repacle multi buffers CFile |
+| :---- | :---- |
+| **Left hand side** | <code>,rbf</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCFile&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle multi buffers CExpr |
+| :---- | :---- |
+| **Left hand side** | <code>,rbe</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCExpr&lt;CR&gt;</code> |
+
+| **Description** | git: Close diff |
+| :---- | :---- |
+| **Left hand side** | <code>,,dv</code> |
+| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle multi buffers CWORD |
+| :---- | :---- |
+| **Left hand side** | <code>,rbW</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCWORD&lt;CR&gt;</code> |
+
+| **Description** | git: Show diff |
+| :---- | :---- |
+| **Left hand side** | <code>,dv</code> |
+| **Right hand side** | <code>:DiffviewOpen&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle multi buffers CWord |
+| :---- | :---- |
+| **Left hand side** | <code>,rbw</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCWord&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle in multi buffers |
+| :---- | :---- |
+| **Left hand side** | <code>,rbo</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferOpen&lt;CR&gt;</code> |
+
+| **Description** | edit: Show search-repacle menu for multi buffer |
+| :---- | :---- |
+| **Left hand side** | <code>,rbs</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferSelections&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle current buffer CFile |
+| :---- | :---- |
+| **Left hand side** | <code>,rf</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCFile&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle current buffer CExpr |
+| :---- | :---- |
+| **Left hand side** | <code>,re</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCExpr&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle current buffer CWORD |
+| :---- | :---- |
+| **Left hand side** | <code>,rW</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCWORD&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle current buffer CWord |
+| :---- | :---- |
+| **Left hand side** | <code>,rw</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferCWord&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-repacle in current buffer |
+| :---- | :---- |
+| **Left hand side** | <code>,ro</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferOpen&lt;CR&gt;</code> |
+
+| **Description** | edit: Add comment box around multi lines of texts |
+| :---- | :---- |
+| **Left hand side** | <code>,cF</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Show search-repacle menu in current buffer |
+| :---- | :---- |
+| **Left hand side** | <code>,rs</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferSelections&lt;CR&gt;</code> |
+
+| **Description** | session: Delete |
+| :---- | :---- |
+| **Left hand side** | <code>,sd</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SessionDelete&lt;CR&gt;</code> |
+
+| **Description** | package: Update |
+| :---- | :---- |
+| **Left hand side** | <code>,pu</code> |
+| **Right hand side** | <code>:Lazy update&lt;CR&gt;</code> |
+
+| **Description** | package: Profile |
+| :---- | :---- |
+| **Left hand side** | <code>,pp</code> |
+| **Right hand side** | <code>:Lazy profile&lt;CR&gt;</code> |
+
+| **Description** | package: Sync |
+| :---- | :---- |
+| **Left hand side** | <code>,ps</code> |
+| **Right hand side** | <code>:Lazy sync&lt;CR&gt;</code> |
+
+| **Description** | package: Debug |
+| :---- | :---- |
+| **Left hand side** | <code>,pd</code> |
+| **Right hand side** | <code>:Lazy debug&lt;CR&gt;</code> |
+
+| **Description** | package: Show |
+| :---- | :---- |
+| **Left hand side** | <code>,ph</code> |
+| **Right hand side** | <code>:Lazy&lt;CR&gt;</code> |
+
+| **Description** | package: Check |
+| :---- | :---- |
+| **Left hand side** | <code>,pc</code> |
+| **Right hand side** | <code>:Lazy check&lt;CR&gt;</code> |
+
+| **Description** | package: Log |
+| :---- | :---- |
+| **Left hand side** | <code>,pl</code> |
+| **Right hand side** | <code>:Lazy log&lt;CR&gt;</code> |
+
+| **Description** | package: Clean |
+| :---- | :---- |
+| **Left hand side** | <code>,px</code> |
+| **Right hand side** | <code>:Lazy clean&lt;CR&gt;</code> |
+
+| **Description** | package: Install |
+| :---- | :---- |
+| **Left hand side** | <code>,pi</code> |
+| **Right hand side** | <code>:Lazy install&lt;CR&gt;</code> |
+
+| **Description** | package: Restore |
+| :---- | :---- |
+| **Left hand side** | <code>,pr</code> |
+| **Right hand side** | <code>:Lazy restore&lt;CR&gt;</code> |
+
+| **Description** | edit: Start replacment mode of current word |
+| :---- | :---- |
+| **Left hand side** | <code>,,s</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;%s/\&lt;lt&gt;&lt;C-R&gt;&lt;C-W&gt;\&gt;/&lt;C-R&gt;&lt;C-W&gt;/gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
+
+| **Description** | filetree: Open Oil |
+| :---- | :---- |
+| **Left hand side** | <code>,o</code> |
+| **Right hand side** | |
+
+| **Description** | file: chmod +x current file |
+| :---- | :---- |
+| **Left hand side** | <code>,,x</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code> |
+
+| **Description** | edit: Decrement |
+| :---- | :---- |
+| **Left hand side** | <code>-</code> |
+| **Right hand side** | <code>&lt;C-X&gt;</code> |
+
+| **Description** | buffer: Move current to prev |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;tab-S-k&gt;</code> |
+| **Right hand side** | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
+
+| **Description** | buffer: Move current to next |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;tab-S-j&gt;</code> |
+| **Right hand side** | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
+
+| **Description** | edit: Delete text to EOL |
+| :---- | :---- |
+| **Left hand side** | <code>D</code> |
+| **Right hand side** | <code>d$</code> |
+
+| **Description** | leapn: Jump backward to character |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | jump: Jump to specified node |
+| :---- | :---- |
+| **Left hand side** | <code>J</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Prev search result |
+| :---- | :---- |
+| **Left hand side** | <code>N</code> |
+| **Right hand side** | <code>Nzzzv</code> |
+
+| **Description** | leapn: Jump backward till character |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Yank text to EOL |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | edit: Change a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>cs</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Delete a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>ds</code> |
+| **Right hand side** | |
+
+| **Description** | leapn: Jump to character |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | git: Push |
+| :---- | :---- |
+| **Left hand side** | <code>gps</code> |
+| **Right hand side** | <code>:G push&lt;CR&gt;</code> |
+
+| **Description** | git: Pull |
+| :---- | :---- |
+| **Left hand side** | <code>gpl</code> |
+| **Right hand side** | <code>:G pull&lt;CR&gt;</code> |
+
+| **Description** | edit: Toggle comment for block with operator |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | edit: Toggle comment for line with operator |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+
+| **Description** | edit: Toggle comment for block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Toggle comment for line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | leapn: Jump to character across windows |
+| :---- | :---- |
+| **Left hand side** | <code>gt</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Align with delimiter |
+| :---- | :---- |
+| **Left hand side** | <code>gea</code> |
+| **Right hand side** | <code>:EasyAlign&lt;CR&gt;</code> |
+
+| **Description** | jump: Jump to visible variable_declarations |
+| :---- | :---- |
+| **Left hand side** | <code>jv</code> |
+| **Right hand side** | |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | |
+
+| **Description** | jump: Jump to functions |
+| :---- | :---- |
+| **Left hand side** | <code>jif</code> |
+| **Right hand side** | |
+
+| **Description** | jump: Jump to functions |
+| :---- | :---- |
+| **Left hand side** | <code>jfu</code> |
+| **Right hand side** | |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | |
+
+| **Description** | Jumpx: Jump across syntax tree |
+| :---- | :---- |
+| **Left hand side** | <code>m</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Next search result |
+| :---- | :---- |
+| **Left hand side** | <code>n</code> |
+| **Right hand side** | <code>nzzzv</code> |
+
+| **Description** | edit: Split or Join code block with autodetect |
+| :---- | :---- |
+| **Left hand side** | <code>sj</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;TSJToggle&lt;CR&gt;</code> |
+
+| **Description** | leapn: Jump till character |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+
+| **Description** | tab: Create a new tab |
+| :---- | :---- |
+| **Left hand side** | <code>tn</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+
+| **Description** | tab: Only keep current tab |
+| :---- | :---- |
+| **Left hand side** | <code>to</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabonly&lt;CR&gt;</code> |
+
+| **Description** | tab: Move to previous tab |
+| :---- | :---- |
+| **Left hand side** | <code>tj</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+
+| **Description** | tab: Move to next tab |
+| :---- | :---- |
+| **Left hand side** | <code>tk</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | edit: Visual select current node |
+| :---- | :---- |
+| **Left hand side** | <code>vn</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectCurrentNode&lt;CR&gt;</code> |
+
+| **Description** | edit: Visual select master node |
+| :---- | :---- |
+| **Left hand side** | <code>vx</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectMasterNode&lt;CR&gt;</code> |
+
+| **Description** | edit: Add a surrounding pair around the current line, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>ySS</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Add a surrounding pair around a motion, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>yS</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Add a surrounding pair around current line |
+| :---- | :---- |
+| **Left hand side** | <code>yss</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Add a surrounding pair around a motion |
+| :---- | :---- |
+| **Left hand side** | <code>ys</code> |
+| **Right hand side** | |
+
+| **Description** | tmux: Resize to tmux/nvim pane leftward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Run/Continue |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F6&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Step over |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F11&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Step out |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F10&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Step into |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F9&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | terminal: Toggle float |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-d&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=float"&lt;CR&gt;</code> |
+
+| **Description** | debug: Toggle breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F8&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | terminal: Toggle vertical |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F5&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
+
+| **Description** | debug: Stop |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F7&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | terminal: Toggle vertical |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Bslash&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
+
+| **Description** | terminal: Toggle horizontal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=horizontal"&lt;CR&gt;</code> |
+
+| **Description** | tmux: Resize tmux/nvim pane rightward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | tmux: Resize to tmux/nvim pane upward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | tmux: Resize tmux/nvim pane downward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | tool: Preview markdown |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F12&gt;</code> |
+| **Right hand side** | <code>:MarkdownPreviewToggle&lt;CR&gt;</code> |
+
+| **Description** | editn: Save file using sudo |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-s&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SudaWrite&lt;CR&gt;</code> |
+
+| **Description** | buffer: Close current |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F4&gt;</code> |
+| **Right hand side** | <code>:BufDel&lt;CR&gt;</code> |
+
+| **Description** | Formater: Toggle format on save |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-f&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;FormatToggle&lt;CR&gt;</code> |
+
+| **Description** | window: Resize -2 horizontally |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-;&gt;</code> |
+| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
+
+| **Description** | tmux: Move to tmux/nvim bottom window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | window: Resize +2 horizontally |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-'&gt;</code> |
+| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
+
+| **Description** | edit: Select all |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-A&gt;</code> |
+| **Right hand side** | <code>gg0vG$</code> |
+
+| **Description** | tool: Toggle command panel |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-P&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Save file and quit |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>:wq&lt;CR&gt;</code> |
+
+| **Description** | window: Resize -5 vertically |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-[&gt;</code> |
+| **Right hand side** | <code>:vertical resize -5&lt;CR&gt;</code> |
+
+| **Description** | tmux: Move to tmux/nvim top window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Force quit |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Q&gt;</code> |
+| **Right hand side** | <code>:q!&lt;CR&gt;</code> |
+
+| **Description** | filetree: Toggle |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-N&gt;</code> |
+| **Right hand side** | <code>:NvimTreeToggle&lt;CR&gt;</code> |
+
+| **Description** | tmux: Move to tmux/nvim left window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | window: Resize +5 vertically |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-]&gt;</code> |
+| **Right hand side** | <code>:vertical resize +5&lt;CR&gt;</code> |
+
+| **Description** | edit: Save file |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;write&lt;CR&gt;</code> |
+
+| **Description** | buffer: Switch to prev |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+
+| **Description** | tmux: Move tmux/nvim right window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | |
+
+
+### Visual mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> </code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,-</code> |
+| **Right hand side** | |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,=</code> |
+| **Right hand side** | |
+
+| **Description** | tool: Run code by range |
+| :---- | :---- |
+| **Left hand side** | <code>,R</code> |
+| **Right hand side** | <code>:SnipRun&lt;CR&gt;</code> |
+
+| **Description** | move: Change selection region to child node |
+| :---- | :---- |
+| **Left hand side** | <code>-</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectChildNode&lt;CR&gt;</code> |
+
+| **Description** | edit: Decrease indent |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | move: Change selection region to parent node |
+| :---- | :---- |
+| **Left hand side** | <code>=</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectParentNode&lt;CR&gt;</code> |
+
+| **Description** | edit: Increase indent |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | leapx: Visual select backward to character |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Move this line down |
+| :---- | :---- |
+| **Left hand side** | <code>J</code> |
+| **Right hand side** | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+
+| **Description** | edit: Move this line up |
+| :---- | :---- |
+| **Left hand side** | <code>K</code> |
+| **Right hand side** | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+
+| **Description** | leapx: Visual select backward till character |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | move: Change selection region to preivous sibling node |
+| :---- | :---- |
+| **Left hand side** | <code>[</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectPrevSiblingNode&lt;CR&gt;</code> |
+
+| **Description** | move: Change selection region to next sibling node |
+| :---- | :---- |
+| **Left hand side** | <code>]</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;STSSelectNextSiblingNode&lt;CR&gt;</code> |
+
+| **Description** | leapx: Visual select to character |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Toggle comment for line with selection |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | edit: Toggle comment for block with selection |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+
+| **Description** | edit: Align with delimiter |
+| :---- | :---- |
+| **Left hand side** | <code>gea</code> |
+| **Right hand side** | <code>:EasyAlign&lt;CR&gt;</code> |
+
+| **Description** | Jumpx: Jump across syntax tree |
+| :---- | :---- |
+| **Left hand side** | <code>m</code> |
+| **Right hand side** | |
+
+| **Description** | leapx: Visual select till character |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>yS</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Add a surrounding pair around a visual selection |
+| :---- | :---- |
+| **Left hand side** | <code>ys</code> |
+| **Right hand side** | |
+
+| **Description** | edit: Search-replace with selection within one line CWord |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-W&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceWithinVisualSelectionCWord&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-replace with selection within one line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-R&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferVisualSelection&lt;CR&gt;</code> |
+
+| **Description** | edit: Select all |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-A&gt;</code> |
+| **Right hand side** | <code>&lt;Esc&gt;gg0vG$</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | leapo: Operatate backward to character |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | leapo: Operatate backward till character |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | leapo: Operatate to character |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | Jumpo: Jump across syntax tree |
+| :---- | :---- |
+| **Left hand side** | <code>m</code> |
+| **Right hand side** | |
+
+| **Description** | leapo: Operatate till character |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+

@@ -1,4 +1,4 @@
-## Barebones Neovim Configuration Information
+# Barebones Neovim Configuration Information
 
 Bare bones LazyVim configuration by Traap with a [video introduction](https://youtu.be/xpBoiTIiepc)
 
@@ -8,15 +8,19 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Barebones`**
 
-### Git repository
+## Git repository
 
 [https://github.com/Traap/barebones](https://github.com/Traap/barebones)
 
-### YouTube channel
+## YouTube channel
 
 [https://www.youtube.com/@traap.](https://www.youtube.com/@traap.)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim.git)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -81,159 +85,713 @@ Bare bones LazyVim configuration by Traap with a [video introduction](https://yo
 - [dstein64/vim-startuptime](https://github.com/dstein64/vim-startuptime)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
-### Barebones Keymaps
+## Barebones Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Dap UI | <code> du</code> |  |
-| Eval | <code> de</code> |  |
-| Dismiss All | <code> snd</code> |  |
-| Noice All | <code> sna</code> |  |
-| Noice History | <code> snh</code> |  |
-| Noice Last Message | <code> snl</code> |  |
-| Help Pages | <code> sh</code> |  |
-| Grep (cwd) | <code> sG</code> |  |
-| Grep (root dir) | <code> sg</code> |  |
-| Workspace diagnostics | <code> sD</code> |  |
-| Document diagnostics | <code> sd</code> |  |
-| Commands | <code> sC</code> |  |
-| Command History | <code> sc</code> |  |
-| Buffer | <code> sb</code> |  |
-| Auto Commands | <code> sa</code> |  |
-| Registers | <code> s"</code> |  |
-| status | <code> gs</code> |  |
-| commits | <code> gc</code> |  |
-| Recent (cwd) | <code> fR</code> |  |
-| Recent | <code> fr</code> |  |
-| Find Files (cwd) | <code> fF</code> |  |
-| Find Files (root dir) | <code> ff</code> |  |
-| Buffers | <code> fb</code> |  |
-| Command History | <code> :</code> |  |
-| Grep (root dir) | <code> /</code> |  |
-| Switch Buffer | <code> ,</code> |  |
-| Find Files (root dir) | <code>  </code> |  |
-| Goto Symbol (Workspace) | <code> sS</code> |  |
-| Goto Symbol | <code> ss</code> |  |
-| Colorscheme with preview | <code> uC</code> |  |
-| Word (cwd) | <code> sW</code> |  |
-| Word (root dir) | <code> sw</code> |  |
-| Resume | <code> sR</code> |  |
-| Options | <code> so</code> |  |
-| Jump to Mark | <code> sm</code> |  |
-| Man Pages | <code> sM</code> |  |
-| Key Maps | <code> sk</code> |  |
-| Search Highlight Groups | <code> sH</code> |  |
-| Delete non-pinned buffers | <code> bP</code> |  |
-| Toggle pin | <code> bp</code> |  |
-| Mason | <code> cm</code> |  |
-| Replace in files (Spectre) | <code> sr</code> |  |
-| Explorer NeoTree (cwd) | <code> fE</code> |  |
-| Explorer NeoTree (root dir) | <code> fe</code> |  |
-| Explorer NeoTree (cwd) | <code> E</code> |  |
-| Explorer NeoTree (root dir) | <code> e</code> |  |
-| Delete Buffer (Force) | <code> bD</code> |  |
-| Delete Buffer | <code> bd</code> |  |
-| Dismiss all Notifications | <code> un</code> |  |
-| Restore Last Session | <code> ql</code> |  |
-| Restore Session | <code> qs</code> |  |
-| Don't Save Current Session | <code> qd</code> |  |
-| Down | <code> dj</code> |  |
-| Step Into | <code> di</code> |  |
-| Go to line (no execute) | <code> dg</code> |  |
-| Run to Cursor | <code> dC</code> |  |
-| Continue | <code> dc</code> |  |
-| Toggle Breakpoint | <code> db</code> |  |
-| Breakpoint Condition | <code> dB</code> |  |
-| Widgets | <code> dw</code> |  |
-| Terminate | <code> dt</code> |  |
-| Session | <code> ds</code> |  |
-| Toggle REPL | <code> dr</code> |  |
-| Pause | <code> dp</code> |  |
-| Step Over | <code> dO</code> |  |
-| Step Out | <code> do</code> |  |
-| Run Last | <code> dl</code> |  |
-| Up | <code> dk</code> |  |
-| Select VirtualEnv | <code> cv</code> |  |
-| Debug Method | <code> dPt</code> |  |
-| Debug Class | <code> dPc</code> |  |
-| Todo | <code> st</code> |  |
-| Todo/Fix/Fixme | <code> sT</code> |  |
-| Todo/Fix/Fixme (Trouble) | <code> xT</code> |  |
-| Todo (Trouble) | <code> xt</code> |  |
-| Document Diagnostics (Trouble) | <code> xx</code> |  |
-| Quickfix List (Trouble) | <code> xQ</code> |  |
-| Location List (Trouble) | <code> xL</code> |  |
-| Workspace Diagnostics (Trouble) | <code> xX</code> |  |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Flash Treesitter | <code>S</code> |  |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-| Prev Reference | <code>[[</code> |  |
-| Previous todo comment | <code>[t</code> |  |
-| Previous trouble/quickfix item | <code>[q</code> |  |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-| Next Reference | <code>]]</code> |  |
-| Next todo comment | <code>]t</code> |  |
-| Next trouble/quickfix item | <code>]q</code> |  |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-| Delete surrounding | <code>gzd</code> |  |
-| Find left surrounding | <code>gzF</code> |  |
-| Add surrounding | <code>gza</code> |  |
-| Highlight surrounding | <code>gzh</code> |  |
-| Replace surrounding | <code>gzr</code> |  |
-| Find right surrounding | <code>gzf</code> |  |
-| Update `MiniSurround.config.n_lines` | <code>gzn</code> |  |
-| Flash | <code>s</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-| Scroll backward | <code>&lt;C-B&gt;</code> |  |
-| Scroll forward | <code>&lt;C-F&gt;</code> |  |
-| Increment selection | <code>&lt;C-Space&gt;</code> |  |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | Explorer NeoTree (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> E</code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | Explorer NeoTree (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Eval | <code> de</code> |  |
-| Selection (root dir) | <code> sw</code> |  |
-| Selection (cwd) | <code> sW</code> |  |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Treesitter Search | <code>R</code> |  |
-| Flash Treesitter | <code>S</code> |  |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-| Add surrounding | <code>gza</code> |  |
-| Flash | <code>s</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-| Decrement selection | <code>&lt;BS&gt;</code> |  |
+| **Description** | Explorer NeoTree (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fE</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | Explorer NeoTree (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> fe</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-| Treesitter Search | <code>R</code> |  |
-| Flash Treesitter | <code>S</code> |  |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-| Remote Flash | <code>r</code> |  |
-| Flash | <code>s</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+| **Description** | Toggle pin |
+| :---- | :---- |
+| **Left hand side** | <code> bp</code> |
+| **Right hand side** | |
+
+| **Description** | Delete non-pinned buffers |
+| :---- | :---- |
+| **Left hand side** | <code> bP</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Session |
+| :---- | :---- |
+| **Left hand side** | <code> qs</code> |
+| **Right hand side** | |
+
+| **Description** | Don't Save Current Session |
+| :---- | :---- |
+| **Left hand side** | <code> qd</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Last Session |
+| :---- | :---- |
+| **Left hand side** | <code> ql</code> |
+| **Right hand side** | |
+
+| **Description** | Dap UI |
+| :---- | :---- |
+| **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Quickfix List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xQ</code> |
+| **Right hand side** | |
+
+| **Description** | Location List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xL</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xX</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xx</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme |
+| :---- | :---- |
+| **Left hand side** | <code> sT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo |
+| :---- | :---- |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xt</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer (Force) |
+| :---- | :---- |
+| **Left hand side** | <code> bD</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bd</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss All |
+| :---- | :---- |
+| **Left hand side** | <code> snd</code> |
+| **Right hand side** | |
+
+| **Description** | Noice All |
+| :---- | :---- |
+| **Left hand side** | <code> sna</code> |
+| **Right hand side** | |
+
+| **Description** | Noice History |
+| :---- | :---- |
+| **Left hand side** | <code> snh</code> |
+| **Right hand side** | |
+
+| **Description** | Noice Last Message |
+| :---- | :---- |
+| **Left hand side** | <code> snl</code> |
+| **Right hand side** | |
+
+| **Description** | Mason |
+| :---- | :---- |
+| **Left hand side** | <code> cm</code> |
+| **Right hand side** | |
+
+| **Description** | Select VirtualEnv |
+| :---- | :---- |
+| **Left hand side** | <code> cv</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Method |
+| :---- | :---- |
+| **Left hand side** | <code> dPt</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Class |
+| :---- | :---- |
+| **Left hand side** | <code> dPc</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle REPL |
+| :---- | :---- |
+| **Left hand side** | <code> dr</code> |
+| **Right hand side** | |
+
+| **Description** | Pause |
+| :---- | :---- |
+| **Left hand side** | <code> dp</code> |
+| **Right hand side** | |
+
+| **Description** | Step Over |
+| :---- | :---- |
+| **Left hand side** | <code> dO</code> |
+| **Right hand side** | |
+
+| **Description** | Step Out |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | |
+
+| **Description** | Run Last |
+| :---- | :---- |
+| **Left hand side** | <code> dl</code> |
+| **Right hand side** | |
+
+| **Description** | Up |
+| :---- | :---- |
+| **Left hand side** | <code> dk</code> |
+| **Right hand side** | |
+
+| **Description** | Down |
+| :---- | :---- |
+| **Left hand side** | <code> dj</code> |
+| **Right hand side** | |
+
+| **Description** | Step Into |
+| :---- | :---- |
+| **Left hand side** | <code> di</code> |
+| **Right hand side** | |
+
+| **Description** | Go to line (no execute) |
+| :---- | :---- |
+| **Left hand side** | <code> dg</code> |
+| **Right hand side** | |
+
+| **Description** | Run to Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> dC</code> |
+| **Right hand side** | |
+
+| **Description** | Continue |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code> db</code> |
+| **Right hand side** | |
+
+| **Description** | Breakpoint Condition |
+| :---- | :---- |
+| **Left hand side** | <code> dB</code> |
+| **Right hand side** | |
+
+| **Description** | Widgets |
+| :---- | :---- |
+| **Left hand side** | <code> dw</code> |
+| **Right hand side** | |
+
+| **Description** | Terminate |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | Session |
+| :---- | :---- |
+| **Left hand side** | <code> ds</code> |
+| **Right hand side** | |
+
+| **Description** | Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> sb</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Symbol (Workspace) |
+| :---- | :---- |
+| **Left hand side** | <code> sS</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Symbol |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme with preview |
+| :---- | :---- |
+| **Left hand side** | <code> uC</code> |
+| **Right hand side** | |
+
+| **Description** | Word (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sW</code> |
+| **Right hand side** | |
+
+| **Description** | Word (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Resume |
+| :---- | :---- |
+| **Left hand side** | <code> sR</code> |
+| **Right hand side** | |
+
+| **Description** | Options |
+| :---- | :---- |
+| **Left hand side** | <code> so</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to Mark |
+| :---- | :---- |
+| **Left hand side** | <code> sm</code> |
+| **Right hand side** | |
+
+| **Description** | Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sM</code> |
+| **Right hand side** | |
+
+| **Description** | Key Maps |
+| :---- | :---- |
+| **Left hand side** | <code> sk</code> |
+| **Right hand side** | |
+
+| **Description** | Search Highlight Groups |
+| :---- | :---- |
+| **Left hand side** | <code> sH</code> |
+| **Right hand side** | |
+
+| **Description** | Help Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sh</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sG</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sg</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sD</code> |
+| **Right hand side** | |
+
+| **Description** | Document diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sd</code> |
+| **Right hand side** | |
+
+| **Description** | Commands |
+| :---- | :---- |
+| **Left hand side** | <code> sC</code> |
+| **Right hand side** | |
+
+| **Description** | Command History |
+| :---- | :---- |
+| **Left hand side** | <code> sc</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | |
+
+| **Description** | Auto Commands |
+| :---- | :---- |
+| **Left hand side** | <code> sa</code> |
+| **Right hand side** | |
+
+| **Description** | Registers |
+| :---- | :---- |
+| **Left hand side** | <code> s"</code> |
+| **Right hand side** | |
+
+| **Description** | status |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | |
+
+| **Description** | commits |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | |
+
+| **Description** | Recent (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fR</code> |
+| **Right hand side** | |
+
+| **Description** | Recent |
+| :---- | :---- |
+| **Left hand side** | <code> fr</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fF</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | |
+
+| **Description** | Buffers |
+| :---- | :---- |
+| **Left hand side** | <code> fb</code> |
+| **Right hand side** | |
+
+| **Description** | Command History |
+| :---- | :---- |
+| **Left hand side** | <code> :</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | |
+
+| **Description** | Switch Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> ,</code> |
+| **Right hand side** | |
+
+| **Description** | Replace in files (Spectre) |
+| :---- | :---- |
+| **Left hand side** | <code> sr</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+
+| **Description** | Prev Reference |
+| :---- | :---- |
+| **Left hand side** | <code>[[</code> |
+| **Right hand side** | |
+
+| **Description** | Previous trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>[q</code> |
+| **Right hand side** | |
+
+| **Description** | Previous todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | Next Reference |
+| :---- | :---- |
+| **Left hand side** | <code>]]</code> |
+| **Right hand side** | |
+
+| **Description** | Next trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>]q</code> |
+| **Right hand side** | |
+
+| **Description** | Next todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzf</code> |
+| **Right hand side** | |
+
+| **Description** | Delete surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzd</code> |
+| **Right hand side** | |
+
+| **Description** | Update `MiniSurround.config.n_lines` |
+| :---- | :---- |
+| **Left hand side** | <code>gzn</code> |
+| **Right hand side** | |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gza</code> |
+| **Right hand side** | |
+
+| **Description** | Find left surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzF</code> |
+| **Right hand side** | |
+
+| **Description** | Highlight surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzh</code> |
+| **Right hand side** | |
+
+| **Description** | Replace surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzr</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | Increment selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Space&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll forward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll backward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Selection (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sW</code> |
+| **Right hand side** | |
+
+| **Description** | Selection (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Treesitter Search |
+| :---- | :---- |
+| **Left hand side** | <code>R</code> |
+| **Right hand side** | |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gza</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | Decrement selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;BS&gt;</code> |
+| **Right hand side** | |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | Treesitter Search |
+| :---- | :---- |
+| **Left hand side** | <code>R</code> |
+| **Right hand side** | |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | Remote Flash |
+| :---- | :---- |
+| **Left hand side** | <code>r</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+

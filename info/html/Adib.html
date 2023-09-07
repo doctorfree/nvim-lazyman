@@ -28,8 +28,8 @@
 <header id="title-block-header">
 <h1 class="title">Lazyman config: Adib</h1>
 </header>
-<h2 id="adib-neovim-configuration-information">Adib Neovim Configuration
-Information</h2>
+<h1 id="adib-neovim-configuration-information">Adib Neovim Configuration
+Information</h1>
 <p>Personal Neovim configuration of Adib Hanna. Tips, distros, and
 configuration <a href="https://youtu.be/8SVPOKZVaMU">demo video</a></p>
 <ul>
@@ -43,17 +43,41 @@ href="https://github.com/folke/lazy.nvim">Lazy</a></li>
 <li>Installation location:
 <strong><code>~/.config/nvim-Adib</code></strong></li>
 </ul>
-<h3 id="git-repository">Git repository</h3>
+<h2 id="git-repository">Git repository</h2>
 <p><a
 href="https://github.com/adibhanna/nvim">https://github.com/adibhanna/nvim</a></p>
-<h3 id="neovimcraft-entry">Neovimcraft entry</h3>
+<h2 id="neovimcraft-entry">Neovimcraft entry</h2>
 <p><a
 href="http://neovimcraft.com/plugin/adibhanna/nvim">http://neovimcraft.com/plugin/adibhanna/nvim</a></p>
-<h3 id="youtube-channel">YouTube channel</h3>
+<h2 id="youtube-channel">YouTube channel</h2>
 <p><a
 href="https://www.youtube.com/@adibhanna">https://www.youtube.com/<span
 class="citation" data-cites="adibhanna">@adibhanna</span></a></p>
-<h3 id="lazy-managed-plugins">Lazy managed plugins</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Jump</th>
+<th style="text-align: center;">to</th>
+<th style="text-align: center;">Keymaps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><a href="#normal-mode-keymaps">Normal
+mode keymaps</a></td>
+<td style="text-align: center;"><a href="#visual-mode-keymaps">Visual
+mode keymaps</a></td>
+<td style="text-align: center;"><a
+href="#operator-mode-keymaps">Operator mode keymaps</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lazy-managed-plugins">Lazy managed plugins</h2>
 <ul>
 <li><a
 href="https://github.com/antoinemadec/FixCursorHold.nvim">antoinemadec/FixCursorHold.nvim</a></li>
@@ -189,606 +213,2458 @@ href="https://github.com/Mofiqul/vscode.nvim.git">Mofiqul/vscode.nvim</a></li>
 <li><a
 href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
 </ul>
-<h3 id="adib-keymaps">Adib Keymaps</h3>
-<h4 id="normal-mode-keymaps">normal mode keymaps</h4>
+<h2 id="adib-keymaps">Adib Keymaps</h2>
+<h3 id="normal-mode-keymaps">Normal mode keymaps</h3>
 <table>
-<colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;CR&gt;</code></td>
-<td><code>ciw</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;CR&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Float File Explorer</td>
-<td><code> e</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>ciw</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Stop</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Left File Explorer</td>
-<td><code> &lt;Tab&gt;</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tS</code></td>
 </tr>
 <tr class="even">
-<td>Show Output</td>
-<td><code> to</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Toggle Output Panel</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Toggle Summary</td>
-<td><code> ts</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tO</code></td>
 </tr>
 <tr class="even">
-<td>Run Nearest</td>
-<td><code> tr</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Show Output</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Run All Test Files</td>
-<td><code> tT</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> to</code></td>
 </tr>
 <tr class="even">
-<td>Run File</td>
-<td><code> tt</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Toggle Summary</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Stop</td>
-<td><code> tS</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> ts</code></td>
 </tr>
 <tr class="even">
-<td>Toggle Output Panel</td>
-<td><code> tO</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Run Nearest</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>%</code></td>
-<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tr</code></td>
 </tr>
 <tr class="even">
-<td>Nvim builtin</td>
-<td><code>&amp;</code></td>
-<td><code>:&amp;&amp;&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Run All Test Files</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>+</code></td>
-<td><code>:vertical resize +5&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tT</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>-</code></td>
-<td><code>:resize -5&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Run File</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>;</code></td>
-<td><code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tt</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>=</code></td>
-<td><code>:resize +5&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Float File Explorer</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>F</td>
-<td><code>F</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> e</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>H</code></td>
-<td><code>^</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Left File Explorer</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>L</code></td>
-<td><code><span class="math inline">$&lt;/code&gt; | | Leap backward to
-| &lt;code&gt;S&lt;/code&gt; | | | T | &lt;code&gt;T&lt;/code&gt; | | |
-| &lt;code&gt;X&lt;/code&gt; | &lt;code&gt;:keeppatterns
-substitute/\s*\%#\s*/\r/e &amp;#124; normal!
-==^&amp;lt;CR&amp;gt;&lt;/code&gt; | | | &lt;code&gt;YY&lt;/code&gt; |
-&lt;code&gt;va{Vy&lt;/code&gt; | | Nvim builtin |
-&lt;code&gt;Y&lt;/code&gt; | &lt;code&gt;y$</span></code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> &lt;Tab&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>[%</code></td>
-<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Prev Reference</td>
-<td><code>[[</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>%</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code></code></td>
-<td><code>:q!&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code></code></td>
-<td><code>:write!&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&amp;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&amp;&amp;&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Next Reference</td>
-<td><code>]]</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>+</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>_</code></td>
-<td><code>:vertical resize -5&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:vertical resize
++5&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>f</td>
-<td><code>f</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>-</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:resize -5&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Join the object under cursor</td>
-<td><code>gJ</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>;</code></td>
 </tr>
 <tr class="even">
-<td>Split the object under cursor</td>
-<td><code>gS</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;Telescope
+resume&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Glance definitions</td>
-<td><code>gD</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>=</code></td>
 </tr>
 <tr class="even">
-<td>Glance implementations</td>
-<td><code>gM</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:resize +5&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">F</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Glance type_definitions</td>
-<td><code>gY</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>F</code></td>
 </tr>
 <tr class="even">
-<td>Glance references</td>
-<td><code>gR</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Leap from windows</td>
-<td><code>gs</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>H</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>j</code></td>
-<td><code>gj</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>^</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>k</code></td>
-<td><code>gk</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>L</code></td>
 </tr>
 <tr class="even">
-<td>Leap forward to</td>
-<td><code>s</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>$</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap backward to</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>t</td>
-<td><code>t</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>S</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>zt</code></td>
-<td><code>&lt;Cmd&gt;lua
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>X</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:keeppatterns substitute/%#/e |
+normal! ==^&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>YY</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>va{Vy</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>Y</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y$</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>[%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Prev Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>[[</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:q!&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:write!&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>]%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Next Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>]]</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>_</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:vertical resize
+-5&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">f</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>f</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>g%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Split the object under cursor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gS</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Join the object under cursor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gJ</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap from windows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gs</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Glance references</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gR</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Glance definitions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gD</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Glance implementations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gM</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Glance type_definitions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gY</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>j</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>gj</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>k</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>gk</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap forward to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>s</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">t</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>t</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).zt(250)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>zz</code></td>
-<td><code>&lt;Cmd&gt;lua
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zz</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).zz(250)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zb</code></td>
+</tr>
 <tr class="even">
-<td></td>
-<td><code>zb</code></td>
-<td><code>&lt;Cmd&gt;lua
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).zb(250)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
-“n”)&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalMultiForward)</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
-“n”)&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “n”)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
-<td><code>:&lt;C-U&gt;call
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “n”)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
+</tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
-<td><code>:&lt;C-U&gt;call
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Toggle Terminal</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-<td><code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-T&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Move to previous reference</td>
-<td><code>&lt;M-p&gt;</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Move to next reference</td>
-<td><code>&lt;M-n&gt;</code></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua
-require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
-450)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-Y&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-0.10, false,
-100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-E&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(0.10, false,
-100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td>Toggle Terminal</td>
-<td><code>&lt;C-T&gt;</code></td>
-<td><code>&lt;Cmd&gt;execute v:count .
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;execute v:count .
 “ToggleTerm”&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-S&gt;</code></td>
-<td><code>:Telescope current_buffer_fuzzy_find&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;BS&gt;</code></td>
-<td><code>ci</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;Left&gt;</code></td>
-<td><code>:bprevious&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;Right&gt;</code></td>
-<td><code>:bnext&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-vim.wo.scroll,
-true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(vim.wo.scroll,
-true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>&lt;C-L&gt;</code></td>
-<td><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
-</tr>
 </tbody>
 </table>
-<h4 id="visual-mode-keymaps">visual mode keymaps</h4>
 <table>
 <colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nvim builtin</td>
-<td><code>#</code></td>
-<td><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-F&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>%</code></td>
-<td><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
-</tr>
-<tr class="odd">
-<td>Nvim builtin</td>
-<td><code>*</code></td>
-<td><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;lt&gt;</code></td>
-<td><code>&lt;lt&gt;gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&gt;</code></td>
-<td><code>&gt;gv</code></td>
-</tr>
-<tr class="even">
-<td>F</td>
-<td><code>F</code></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>H</code></td>
-<td><code>^</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>J</code></td>
-<td><code>:m ’&gt;+1&lt;CR&gt;gv=gv</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>K</code></td>
-<td><code>:m ’&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>L</code></td>
-<td><code><span class="math inline">$&lt;/code&gt; | | |
-&lt;code&gt;P&lt;/code&gt; | &lt;code&gt;"_dP&lt;/code&gt; | | Leap
-backward to | &lt;code&gt;S&lt;/code&gt; | | | T |
-&lt;code&gt;T&lt;/code&gt; | | | | &lt;code&gt;[%&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
-| | | &lt;code&gt;]%&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
-| | | &lt;code&gt;a%&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
-| f | &lt;code&gt;f&lt;/code&gt; | | | | &lt;code&gt;g%&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; | |
-Leap from windows | &lt;code&gt;gs&lt;/code&gt; | | | |
-&lt;code&gt;p&lt;/code&gt; | &lt;code&gt;"_dp&lt;/code&gt; | | Leap
-forward to | &lt;code&gt;s&lt;/code&gt; | | | t |
-&lt;code&gt;t&lt;/code&gt; | | | | &lt;code&gt;zt&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Cmd&amp;gt;lua
-require('neoscroll').zt(250)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
-&lt;code&gt;zz&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;lua
-require('neoscroll').zz(250)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
-&lt;code&gt;zb&lt;/code&gt; | &lt;code&gt;&amp;lt;Cmd&amp;gt;lua
-require('neoscroll').zb(250)&amp;lt;CR&amp;gt;&lt;/code&gt; | | |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualTextObject)&lt;/code&gt; |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)o&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
-| | |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiForward)&lt;/code&gt;
-| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("W",
-"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualMultiBackward)&lt;/code&gt;
-| &lt;code&gt;:&amp;lt;C-U&amp;gt;call matchit#MultiMatch("bW",
-"n")&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | | |
-&lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualBackward)&lt;/code&gt; |
-&lt;code&gt;:&amp;lt;C-U&amp;gt;call
-matchit#Match_wrapper('',0,'v')&amp;lt;CR&amp;gt;m'gv``&lt;/code&gt; | |
-| &lt;code&gt;&amp;lt;Plug&amp;gt;(MatchitVisualForward)&lt;/code&gt; |
-&lt;code&gt;:&amp;lt;C-U&amp;gt;call
-matchit#Match_wrapper('',1,'v')&amp;lt;CR&amp;gt;:if col("''") !=
-col("$</span>“) | exe”:normal! m’”</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-B&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua
-require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
-450)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-U&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-vim.wo.scroll,
-true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-Y&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(-0.10, false,
-100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-F&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
 require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
 450)&lt;CR&gt;</code></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;C-E&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(0.10, false,
-100)&lt;CR&gt;</code></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><code>&lt;C-D&gt;</code></td>
-<td><code>&lt;Cmd&gt;lua require(‘neoscroll’).scroll(vim.wo.scroll,
-true, 250)&lt;CR&gt;</code></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><code>&lt;M-i&gt;</code></td>
-<td></td>
-</tr>
 </tbody>
 </table>
-<h4 id="operator-mode-keymaps">operator mode keymaps</h4>
 <table>
 <colgroup>
-<col style="width: 64%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Description</th>
-<th>LHS</th>
-<th>RHS</th>
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td><code>%</code></td>
-<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Y&gt;</code></td>
 </tr>
 <tr class="even">
-<td>F</td>
-<td><code>F</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-0.10, false, 100)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>H</code></td>
-<td><code>^</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-B&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>L</code></td>
-<td><code>$</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Leap backward to</td>
-<td><code>S</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-E&gt;</code></td>
 </tr>
 <tr class="even">
-<td>T</td>
-<td><code>T</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(0.10, false, 100)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>[%</code></td>
-<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>]%</code></td>
-<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move to previous reference</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>f</td>
-<td><code>f</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-p&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>g%</code></td>
-<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move to next reference</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Leap from windows</td>
-<td><code>gs</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-n&gt;</code></td>
 </tr>
 <tr class="even">
-<td>Leap forward to</td>
-<td><code>s</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>t</td>
-<td><code>t</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“W”,
-“o”)&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Telescope
+current_buffer_fuzzy_find&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
-<td><code>:&lt;C-U&gt;call matchit#MultiMatch(“bW”,
-“o”)&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;BS&gt;</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
-<td><code>:&lt;C-U&gt;call
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>ci</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Left&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:bprevious&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Right&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:bnext&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-U&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-D&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-L&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Cmd&gt;nohlsearch|diffupdate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visual-mode-keymaps">Visual mode keymaps</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>#</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y?&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Nvim builtin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>*</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>y/&lt;C-R&gt;“&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;lt&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;lt&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>F</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>H</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>^</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>J</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m
+’&gt;+1&lt;CR&gt;gv=gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>K</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m
+’&lt;lt&gt;-2&lt;CR&gt;gv=gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>L</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>$</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>P</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>“_dP</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap backward to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>S</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>[%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>]%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>a%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">f</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>f</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>g%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap from windows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gs</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>p</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>“_dp</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap forward to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>s</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">t</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>t</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zt(250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zz</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zz(250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>zb</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).zb(250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualTextObject)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualMultiForward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “n”)&lt;CR&gt;m’gv``</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “n”)&lt;CR&gt;m’gv``</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv``</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualForward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’v’)&lt;CR&gt;:if col(“’‘“) != col(”$“) |
+exe”:normal! m’”</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-i&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-F&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(vim.api.nvim_win_get_height(0), true,
+450)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-B&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-vim.api.nvim_win_get_height(0), true,
+450)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-E&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(0.10, false, 100)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-U&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-vim.wo.scroll, true,
+250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-D&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(vim.wo.scroll, true,
+250)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Y&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+require(‘neoscroll’).scroll(-0.10, false, 100)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="operator-mode-keymaps">Operator mode keymaps</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>F</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>H</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>^</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>L</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>$</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap backward to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>S</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>[%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>]%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">f</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>f</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>g%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap from windows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>gs</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Leap forward to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>s</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">t</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>t</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationMultiForward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “o”)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “o”)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationBackward)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code></td>
 </tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td></td>
-<td><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
-<td><code>:&lt;C-U&gt;call
-matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(MatchitOperationForward)</code></td>
 </tr>
 <tr class="even">
-<td></td>
-<td><code>&lt;M-i&gt;</code></td>
-<td></td>
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-i&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>

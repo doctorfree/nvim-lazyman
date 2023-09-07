@@ -1,4 +1,4 @@
-## MagicVim Neovim Configuration Information
+# MagicVim Neovim Configuration Information
 
 Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Code Completion all work out of the box and auto install when you open a file type that doesn't have code completion for it yet.
 
@@ -8,11 +8,15 @@ Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Cod
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-MagicVim`**
 
-### Git repository
+## Git repository
 
 [https://gitlab.com/GitMaster210/magicvim](https://gitlab.com/GitMaster210/magicvim)
 
-### Packer managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Packer managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -59,347 +63,1653 @@ Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Cod
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim)
 
-### MagicVim Keymaps
+## MagicVim Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Take Action | <code> la</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
-| Update Mason(LSP) | <code> lu</code> | <code>&lt;Cmd&gt;MasonUpdate&lt;CR&gt;</code> |
-| Open Mason | <code> lm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
-| Previous Diagnostic | <code> lp</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;</code> |
-| Next Diagnostic | <code> ln</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;</code> |
-| Diagnostics | <code> lh</code> | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float()&lt;CR&gt;</code> |
-| Jump to Definition | <code> ld</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.definition()&lt;CR&gt;</code> |
-| Rename Buffer | <code> lr</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
-| List Plugins | <code> Pl</code> | <code>&lt;Cmd&gt;PackerStatus&lt;CR&gt;</code> |
-| Clean Up | <code> Pc</code> | <code>&lt;Cmd&gt;PackerClean&lt;CR&gt;</code> |
-| Update Plugins | <code> Pu</code> | <code>&lt;Cmd&gt;PackerSync&lt;CR&gt;</code> |
-| Install Plugin | <code> Pi</code> | <code>&lt;Cmd&gt;PackerInstall&lt;CR&gt;</code> |
-| Search Help Pages | <code> th</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
-| Clear Yank History | <code> tY</code> | <code>&lt;Cmd&gt;YankyClearHistory&lt;CR&gt;</code> |
-| Change Colorscheme | <code> tc</code> | <code>&lt;Cmd&gt;Telescope colorscheme&lt;CR&gt;</code> |
-| Find Man Pages | <code> tm</code> | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
-| Open Buffers | <code> tb</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
-| Spelling | <code> ts</code> | <code>&lt;Cmd&gt;Telescope spell_suggest&lt;CR&gt;</code> |
-| Diagnostics | <code> td</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
-| Live Grep | <code> tg</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
-| Find File | <code> tf</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-| Select ALL | <code> a</code> | <code>ggVG</code> |
-| Close Window | <code> X</code> | <code>&lt;C-W&gt;c&lt;CR&gt;</code> |
-| Paste | <code> p</code> | <code>"+p&lt;CR&gt;</code> |
-| Copy | <code> c</code> | <code>"+y&lt;CR&gt;</code> |
-|  | <code> g</code> | <code>&lt;Cmd&gt;lua _lazygit_toggle()&lt;CR&gt;</code> |
-| Comment Out THIS Line | <code> '</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
-| Yank List | <code> y</code> | <code>&lt;Cmd&gt;Telescope yank_history&lt;CR&gt;</code> |
-| Search Key Maps | <code> k</code> | <code>&lt;Cmd&gt;Legendary&lt;CR&gt;</code> |
-| Hop to a Word | <code> h</code> | <code>&lt;Cmd&gt;HopWord&lt;CR&gt;</code> |
-| Write with Sudo | <code> S</code> | <code>&lt;Cmd&gt;SudaWrite&lt;CR&gt;</code> |
-| Search | <code> /</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
-| Show Colors in THIS File | <code> C</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
-| Make THIS File Executable | <code> E</code> | <code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code> |
-| Open Nvim-Tree | <code> F</code> | <code>&lt;Cmd&gt;NvimTreeFindFileToggle&lt;CR&gt;</code> |
-| Floating Terminal | <code> T</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
-| Source THIS File | <code> s</code> | <code>&lt;Cmd&gt;so%&lt;CR&gt;</code> |
-| Open Undo Tree | <code> u</code> | <code>&lt;Cmd&gt;UndotreeToggle&lt;CR&gt;</code> |
-| Open Ranger | <code> f</code> | <code>&lt;Cmd&gt;RnvimrToggle&lt;CR&gt;</code> |
-| Open Recent Files | <code> r</code> | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
-| Save & Quit | <code> x</code> | <code>&lt;Cmd&gt;wq&lt;CR&gt;</code> |
-| Quit | <code> q</code> | <code>&lt;Cmd&gt;q!&lt;CR&gt;</code> |
-| Write | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-| Toggle Terminal | <code>&lt;C-Q&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(cokeline-focus-20)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-20)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-19)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-19)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-18)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-18)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-17)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-17)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-16)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-16)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-15)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-15)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-14)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-14)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-13)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-13)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-12)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-12)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-11)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-11)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-10)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-10)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-9)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-9)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-8)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-8)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-7)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-7)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-6)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-6)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-5)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-5)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-4)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-4)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-3)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-3)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-2)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-2)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-1)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-1)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-pick-close)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-pick-focus)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-next)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-focus-prev)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-next)</code> |  |
-|  | <code>&lt;Plug&gt;(cokeline-switch-prev)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyYank)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyCycleBackward)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyCycleForward)</code> |  |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(fzf-normal)</code> | <code></code> |
-|  | <code>&lt;Plug&gt;(fzf-insert)</code> | <code>i</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;M-o&gt;</code> | <code>:RnvimrToggle&lt;CR&gt;</code> |
-|  | <code>&lt;C-D&gt;</code> | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
-|  | <code>&lt;S-Left&gt;</code> | <code>&lt;Cmd&gt;bp&lt;CR&gt;</code> |
-|  | <code>&lt;S-Right&gt;</code> | <code>&lt;Cmd&gt;bn&lt;CR&gt;</code> |
-|  | <code>&lt;M-Right&gt;</code> | <code>w</code> |
-|  | <code>&lt;M-Left&gt;</code> | <code>b</code> |
-|  | <code>&lt;C-Down&gt;</code> | <code>G</code> |
-|  | <code>&lt;C-Up&gt;</code> | <code>gg</code> |
-|  | <code>&lt;C-Left&gt;</code> | <code>^</code> |
-|  | <code>&lt;C-Right&gt;</code> | <code>$</code> |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | Take Action |
+| :---- | :---- |
+| **Left hand side** | <code> la</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
 
-#### visual mode keymaps
+| **Description** | Update Mason(LSP) |
+| :---- | :---- |
+| **Left hand side** | <code> lu</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;MasonUpdate&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Copy | <code> c</code> | <code>"+y&lt;CR&gt;</code> |
-| Add Text to End of Selected Lines | <code> a</code> | <code>:norm A</code> |
-| Add Text to Start of Selected Lines | <code> i</code> | <code>:norm I</code> |
-| Comment Out Selected Lines | <code> '</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |  |
-|  | <code>&lt;Plug&gt;(YankyYank)</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-|  | <code>&lt;M-Down&gt;</code> | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
-|  | <code>&lt;M-Up&gt;</code> | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+| **Description** | Open Mason |
+| :---- | :---- |
+| **Left hand side** | <code> lm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
 
-#### operator mode keymaps
+| **Description** | Previous Diagnostic |
+| :---- | :---- |
+| **Left hand side** | <code> lp</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_prev()&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+| **Description** | Next Diagnostic |
+| :---- | :---- |
+| **Left hand side** | <code> ln</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.diagnostic.goto_next()&lt;CR&gt;</code> |
+
+| **Description** | Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> lh</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.diagnostic.open_float()&lt;CR&gt;</code> |
+
+| **Description** | Jump to Definition |
+| :---- | :---- |
+| **Left hand side** | <code> ld</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.lsp.buf.definition()&lt;CR&gt;</code> |
+
+| **Description** | Rename Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> lr</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+
+| **Description** | List Plugins |
+| :---- | :---- |
+| **Left hand side** | <code> Pl</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;PackerStatus&lt;CR&gt;</code> |
+
+| **Description** | Clean Up |
+| :---- | :---- |
+| **Left hand side** | <code> Pc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;PackerClean&lt;CR&gt;</code> |
+
+| **Description** | Update Plugins |
+| :---- | :---- |
+| **Left hand side** | <code> Pu</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;PackerSync&lt;CR&gt;</code> |
+
+| **Description** | Install Plugin |
+| :---- | :---- |
+| **Left hand side** | <code> Pi</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;PackerInstall&lt;CR&gt;</code> |
+
+| **Description** | Search Help Pages |
+| :---- | :---- |
+| **Left hand side** | <code> th</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+
+| **Description** | Clear Yank History |
+| :---- | :---- |
+| **Left hand side** | <code> tY</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;YankyClearHistory&lt;CR&gt;</code> |
+
+| **Description** | Change Colorscheme |
+| :---- | :---- |
+| **Left hand side** | <code> tc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope colorscheme&lt;CR&gt;</code> |
+
+| **Description** | Find Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code> tm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
+
+| **Description** | Open Buffers |
+| :---- | :---- |
+| **Left hand side** | <code> tb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | Spelling |
+| :---- | :---- |
+| **Left hand side** | <code> ts</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope spell_suggest&lt;CR&gt;</code> |
+
+| **Description** | Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> td</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+
+| **Description** | Live Grep |
+| :---- | :---- |
+| **Left hand side** | <code> tg</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+
+| **Description** | Find File |
+| :---- | :---- |
+| **Left hand side** | <code> tf</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | Select ALL |
+| :---- | :---- |
+| **Left hand side** | <code> a</code> |
+| **Right hand side** | <code>ggVG</code> |
+
+| **Description** | Close Window |
+| :---- | :---- |
+| **Left hand side** | <code> X</code> |
+| **Right hand side** | <code>&lt;C-W&gt;c&lt;CR&gt;</code> |
+
+| **Description** | Paste |
+| :---- | :---- |
+| **Left hand side** | <code> p</code> |
+| **Right hand side** | <code>"+p&lt;CR&gt;</code> |
+
+| **Description** | Copy |
+| :---- | :---- |
+| **Left hand side** | <code> c</code> |
+| **Right hand side** | <code>"+y&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> g</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua _lazygit_toggle()&lt;CR&gt;</code> |
+
+| **Description** | Comment Out THIS Line |
+| :---- | :---- |
+| **Left hand side** | <code> '</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+
+| **Description** | Yank List |
+| :---- | :---- |
+| **Left hand side** | <code> y</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope yank_history&lt;CR&gt;</code> |
+
+| **Description** | Search Key Maps |
+| :---- | :---- |
+| **Left hand side** | <code> k</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Legendary&lt;CR&gt;</code> |
+
+| **Description** | Hop to a Word |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;HopWord&lt;CR&gt;</code> |
+
+| **Description** | Write with Sudo |
+| :---- | :---- |
+| **Left hand side** | <code> S</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SudaWrite&lt;CR&gt;</code> |
+
+| **Description** | Search |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+
+| **Description** | Show Colors in THIS File |
+| :---- | :---- |
+| **Left hand side** | <code> C</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+
+| **Description** | Make THIS File Executable |
+| :---- | :---- |
+| **Left hand side** | <code> E</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;!chmod +x %&lt;CR&gt;</code> |
+
+| **Description** | Open Nvim-Tree |
+| :---- | :---- |
+| **Left hand side** | <code> F</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;NvimTreeFindFileToggle&lt;CR&gt;</code> |
+
+| **Description** | Floating Terminal |
+| :---- | :---- |
+| **Left hand side** | <code> T</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+
+| **Description** | Source THIS File |
+| :---- | :---- |
+| **Left hand side** | <code> s</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;so%&lt;CR&gt;</code> |
+
+| **Description** | Open Undo Tree |
+| :---- | :---- |
+| **Left hand side** | <code> u</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;UndotreeToggle&lt;CR&gt;</code> |
+
+| **Description** | Open Ranger |
+| :---- | :---- |
+| **Left hand side** | <code> f</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;RnvimrToggle&lt;CR&gt;</code> |
+
+| **Description** | Open Recent Files |
+| :---- | :---- |
+| **Left hand side** | <code> r</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+
+| **Description** | Save & Quit |
+| :---- | :---- |
+| **Left hand side** | <code> x</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;wq&lt;CR&gt;</code> |
+
+| **Description** | Quit |
+| :---- | :---- |
+| **Left hand side** | <code> q</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;q!&lt;CR&gt;</code> |
+
+| **Description** | Write |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | Toggle Terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-20)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-20)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-19)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-19)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-18)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-18)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-17)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-17)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-16)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-16)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-15)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-15)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-14)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-14)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-13)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-13)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-12)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-12)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-11)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-11)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-10)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-10)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-9)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-9)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-8)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-8)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-7)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-7)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-6)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-6)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-5)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-5)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-4)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-4)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-3)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-3)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-2)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-2)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-1)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-1)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-pick-close)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-pick-focus)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-next)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-focus-prev)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-next)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(cokeline-switch-prev)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyYank)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyCycleBackward)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyCycleForward)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(fzf-normal)</code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(fzf-insert)</code> |
+| **Right hand side** | <code>i</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+| **Right hand side** | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-o&gt;</code> |
+| **Right hand side** | <code>:RnvimrToggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Left&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bp&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Right&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bn&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Right&gt;</code> |
+| **Right hand side** | <code>w</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Left&gt;</code> |
+| **Right hand side** | <code>b</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Down&gt;</code> |
+| **Right hand side** | <code>G</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Up&gt;</code> |
+| **Right hand side** | <code>gg</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Left&gt;</code> |
+| **Right hand side** | <code>^</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Right&gt;</code> |
+| **Right hand side** | <code>$</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Copy |
+| :---- | :---- |
+| **Left hand side** | <code> c</code> |
+| **Right hand side** | <code>"+y&lt;CR&gt;</code> |
+
+| **Description** | Add Text to End of Selected Lines |
+| :---- | :---- |
+| **Left hand side** | <code> a</code> |
+| **Right hand side** | <code>:norm A</code> |
+
+| **Description** | Add Text to Start of Selected Lines |
+| :---- | :---- |
+| **Left hand side** | <code> i</code> |
+| **Right hand side** | <code>:norm I</code> |
+
+| **Description** | Comment Out Selected Lines |
+| :---- | :---- |
+| **Left hand side** | <code> '</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyGPutAfter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutIndentBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftRightJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftRight)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeFilterJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeFilter)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeftJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeShiftLeft)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeBlockwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeBlockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeCharwiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeCharwise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeLinewiseJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeLinewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBeforeJoined)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyPutBefore)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(YankyYank)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Down&gt;</code> |
+| **Right hand side** | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Up&gt;</code> |
+| **Right hand side** | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+

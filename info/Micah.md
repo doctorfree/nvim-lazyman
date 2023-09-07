@@ -1,4 +1,4 @@
-## Micah Neovim Configuration Information
+# Micah Neovim Configuration Information
 
 One of the AstroNvim 'Black Belt' example advanced configurations
 
@@ -8,15 +8,19 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Micah`**
 
-### Git repository
+## Git repository
 
 [https://code.mehalter.com/AstroNvim_user](https://code.mehalter.com/AstroNvim_user)
 
-### Website
+## Website
 
 [https://astronvim.com](https://astronvim.com)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim.git)
 - [arsham/arshlib.nvim](https://github.com/arsham/arshlib.nvim.git)
@@ -100,276 +104,1298 @@ One of the AstroNvim 'Black Belt' example advanced configurations
 - [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker.git)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim.git)
 
-### Micah Keymaps
+## Micah Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Switch Buffers | <code>&lt;Tab&gt;</code> |  |
-| Conditional Breakpoint (S-F9) | <code> dC</code> |  |
-| Class | <code> ac</code> |  |
-| Step Into (F11) | <code> di</code> |  |
-| Function | <code> af</code> |  |
-| Step Over (F10) | <code> do</code> |  |
-| Type | <code> at</code> |  |
-| Step Out (S-F11) | <code> dO</code> |  |
-| Horizontal split buffer from tabline | <code> b\</code> |  |
-| Close Session | <code> dq</code> |  |
-| Quit | <code> q</code> | <code>&lt;Cmd&gt;confirm q&lt;CR&gt;</code> |
-| Terminate Session (S-F5) | <code> dQ</code> |  |
-| Find BibTeX | <code> fB</code> | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
-| Pause (F6) | <code> dp</code> |  |
-| Toggle Explorer Focus | <code> o</code> |  |
-| Restart (C-F5) | <code> dr</code> |  |
-| Toggle Explorer | <code> e</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
-| Toggle REPL | <code> dR</code> |  |
-| Run To Cursor | <code> ds</code> |  |
-| Find TODOs | <code> fT</code> | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
-| Evaluate Input | <code> dE</code> |  |
-| Stage Git buffer | <code> gS</code> |  |
-| Toggle Debugger UI | <code> du</code> |  |
-| New File | <code> n</code> | <code>&lt;Cmd&gt;enew&lt;CR&gt;</code> |
-| Debugger Hover | <code> dh</code> |  |
-| Find words in all files | <code> fW</code> |  |
-| Plugins Install | <code> pi</code> |  |
-| Plugins Status | <code> ps</code> |  |
-| Plugins Sync | <code> pS</code> |  |
-| Present Output | <code> mp</code> |  |
-| Plugins Check Updates | <code> pu</code> |  |
-| Logs | <code> ml</code> |  |
-| Plugins Update | <code> pU</code> |  |
-| Toggle autocompletion | <code> uc</code> |  |
-| Update Plugins and Mason Packages | <code> pa</code> | <code>&lt;Cmd&gt;AstroUpdatePackages&lt;CR&gt;</code> |
-| Save | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
-| AstroNvim Update | <code> pA</code> | <code>&lt;Cmd&gt;AstroUpdate&lt;CR&gt;</code> |
-| AstroNvim Version | <code> pv</code> | <code>&lt;Cmd&gt;AstroVersion&lt;CR&gt;</code> |
-| Toggle autopairs | <code> ua</code> |  |
-| AstroNvim Changelog | <code> pl</code> | <code>&lt;Cmd&gt;AstroChangelog&lt;CR&gt;</code> |
-| Toggle background | <code> ub</code> |  |
-| Close buffer | <code> c</code> |  |
-| Toggle URL highlight | <code> uu</code> |  |
-| Force close buffer | <code> C</code> |  |
-| Toggle color highlight | <code> uC</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
-| Document Diagnostics (Trouble) | <code> xx</code> | <code>&lt;Cmd&gt;TroubleToggle document_diagnostics&lt;CR&gt;</code> |
-| Toggle diagnostics | <code> ud</code> |  |
-| Close all buffers except current | <code> bc</code> |  |
-| Toggle signcolumn | <code> ug</code> |  |
-| Close all buffers | <code> bC</code> |  |
-| Change indent setting | <code> ui</code> |  |
-| Set CWD | <code> .</code> | <code>&lt;Cmd&gt;cd %:p:h&lt;CR&gt;</code> |
-| Previous buffer | <code> bp</code> |  |
-| Toggle statusline | <code> ul</code> |  |
-| Close all buffers to the right | <code> br</code> |  |
-| Spectre (current word) | <code> sw</code> |  |
-| Toggle CodeLens | <code> uL</code> |  |
-| By extension | <code> bse</code> |  |
-| Spectre (current file) | <code> sf</code> |  |
-| Change line numbering | <code> un</code> |  |
-| New Tab | <code> N</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
-| By full path | <code> bsp</code> |  |
-| Toggle Notifications | <code> uN</code> |  |
-| By buffer number | <code> bsi</code> |  |
-| Toggle paste mode | <code> up</code> |  |
-| Select buffer from tabline | <code> bb</code> |  |
-| Toggle spellcheck | <code> us</code> |  |
-| Close buffer from tabline | <code> bd</code> |  |
-| TODOs (Trouble) | <code> xT</code> | <code>&lt;Cmd&gt;TodoTrouble&lt;CR&gt;</code> |
-| Toggle conceal | <code> uS</code> |  |
-| Quickfix List (Trouble) | <code> xq</code> | <code>&lt;Cmd&gt;TroubleToggle quickfix&lt;CR&gt;</code> |
-| Vertical split buffer from tabline | <code> b&#124;</code> |  |
-| Toggle tabline | <code> ut</code> |  |
-| Send line to REPL | <code> rl</code> | <code>&lt;Plug&gt;SendLine</code> |
-| Toggle wrap | <code> uw</code> |  |
-| Toggle comment line | <code> /</code> |  |
-| Location List (Trouble) | <code> xl</code> | <code>&lt;Cmd&gt;TroubleToggle loclist&lt;CR&gt;</code> |
-| Toggle syntax highlighting (buffer) | <code> uy</code> |  |
-| Send to REPL | <code> rr</code> | <code>&lt;Plug&gt;Send</code> |
-| View Git blame | <code> gl</code> |  |
-| View full Git blame | <code> gL</code> |  |
-| Preview Git hunk | <code> gp</code> |  |
-| LaTeX | <code> mt</code> | <code>&lt;Cmd&gt;TexlabBuild&lt;CR&gt;</code> |
-| Reset Git hunk | <code> gh</code> |  |
-| Reset Git buffer | <code> gr</code> |  |
-| Toggle Spectre | <code> ss</code> |  |
-| Stage Git hunk | <code> gs</code> |  |
-| Unstage Git hunk | <code> gu</code> |  |
-| View Git diff | <code> gd</code> |  |
-| Zen Mode | <code> z</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
-| View Output | <code> mv</code> |  |
-| Set REPL | <code> r&lt;CR&gt;</code> | <code>&lt;Cmd&gt;SendHere&lt;CR&gt;</code> |
-| Load last session | <code> Sl</code> |  |
-| Save this session | <code> Ss</code> |  |
-| Auto Compile | <code> ma</code> |  |
-| Delete a session | <code> Sd</code> |  |
-| Load a session | <code> Sf</code> |  |
-| Neogit | <code> gG</code> |  |
-| By modification | <code> bsm</code> |  |
-| Load current directory session | <code> S.</code> |  |
-| Find projects | <code> fp</code> |  |
-| Compile Beamer | <code> mb</code> |  |
-| Save this tab's session | <code> St</code> |  |
-| File explorer | <code> fe</code> | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
-| Compile | <code> mk</code> |  |
-| Mason Installer | <code> pm</code> | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
-| Find words (args) | <code> fx</code> |  |
-| Mason Update | <code> pM</code> | <code>&lt;Cmd&gt;MasonUpdateAll&lt;CR&gt;</code> |
-| Forward Search | <code> mf</code> | <code>&lt;Cmd&gt;TexlabForward&lt;CR&gt;</code> |
-| File | <code> aF</code> |  |
-| By relative path | <code> bsr</code> |  |
-| Symbols outline | <code> lS</code> |  |
-| Toggle foldcolumn | <code> uh</code> |  |
-| Git branches | <code> gb</code> |  |
-| Workspace Diagnostics (Trouble) | <code> xX</code> | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
-| Git commits (repository) | <code> gc</code> |  |
-| Close all buffers to the left | <code> bl</code> |  |
-| Git commits (current file) | <code> gC</code> |  |
-| Git status | <code> gt</code> |  |
-| Current | <code> a&lt;CR&gt;</code> |  |
-| Resume previous search | <code> f&lt;CR&gt;</code> |  |
-| Find marks | <code> f'</code> |  |
-| Find words in current buffer | <code> f/</code> |  |
-| Find AstroNvim config files | <code> fa</code> |  |
-| Find buffers | <code> fb</code> |  |
-| Find word under cursor | <code> fc</code> |  |
-| Find commands | <code> fC</code> |  |
-| Find files | <code> ff</code> |  |
-| Find all files | <code> fF</code> |  |
-| Find help | <code> fh</code> |  |
-| Find keymaps | <code> fk</code> |  |
-| Find man | <code> fm</code> |  |
-| Find notifications | <code> fn</code> |  |
-| Find history | <code> fo</code> |  |
-| Find registers | <code> fr</code> |  |
-| Find themes | <code> ft</code> |  |
-| Find words | <code> fw</code> |  |
-| Search symbols | <code> ls</code> |  |
-| ToggleTerm lazygit | <code> gg</code> |  |
-| ToggleTerm lazygit | <code> tl</code> |  |
-| ToggleTerm node | <code> tn</code> |  |
-| ToggleTerm gdu | <code> tu</code> |  |
-| ToggleTerm btm | <code> tt</code> |  |
-| ToggleTerm python | <code> tp</code> |  |
-| ToggleTerm float | <code> tf</code> | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
-| ToggleTerm horizontal split | <code> th</code> | <code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code> |
-| ToggleTerm vertical split | <code> tv</code> | <code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code> |
-| Next Template | <code> &lt;CR&gt;</code> | <code>&lt;Esc&gt;/&lt;lt&gt;++&gt;&lt;CR&gt;"_c4l</code> |
-| Toggle Breakpoint (F9) | <code> db</code> |  |
-| Clear Breakpoints | <code> dB</code> |  |
-| Start/Continue (F5) | <code> dc</code> |  |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Increment number | <code>+</code> | <code>&lt;C-A&gt;</code> |
-| Descrement number | <code>-</code> | <code>&lt;C-X&gt;</code> |
-| Move buffer tab left | <code>&lt;lt&gt;b</code> |  |
-| Move buffer tab right | <code>&gt;b</code> |  |
-| Previous buffer | <code>H</code> |  |
-| Next buffer | <code>L</code> |  |
-| Previous search | <code>N</code> |  |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-| Previous tab | <code>[t</code> |  |
-| Previous Git hunk | <code>[g</code> |  |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-| Horizontal Split | <code>\</code> | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
-| Next tab | <code>]t</code> |  |
-| Next Git hunk | <code>]g</code> |  |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-| Easy Align | <code>ga</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
-| Open the file under cursor with system app | <code>gx</code> |  |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-| Comment toggle linewise | <code>gc</code> |  |
-| Comment toggle blockwise | <code>gb</code> |  |
-| Move cursor down | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
-| Move cursor up | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
-| Next search | <code>n</code> |  |
-|  | <code>q:</code> | <code>:</code> |
-| Replace surrounding | <code>sr</code> |  |
-| Find right surrounding | <code>sf</code> |  |
-| Update `MiniSurround.config.n_lines` | <code>sn</code> |  |
-| Find left surrounding | <code>sF</code> |  |
-| Highlight surrounding | <code>sh</code> |  |
-| Add surrounding | <code>sa</code> |  |
-| Delete surrounding | <code>sd</code> |  |
-| Fold less | <code>zr</code> |  |
-| Fold more | <code>zm</code> |  |
-| Peek fold | <code>zp</code> |  |
-| Open all folds | <code>zR</code> |  |
-| Close all folds | <code>zM</code> |  |
-| Vertical Split | <code>&#124;</code> | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
-| Move to left split | <code>&lt;C-H&gt;</code> |  |
-| Debugger: Pause | <code>&lt;F6&gt;</code> |  |
-| Resize split left | <code>&lt;Left&gt;</code> |  |
-| Move to above split | <code>&lt;C-K&gt;</code> |  |
-| Move to below split | <code>&lt;C-J&gt;</code> |  |
-| Resize split down | <code>&lt;Down&gt;</code> |  |
-| Resize split up | <code>&lt;Up&gt;</code> |  |
-| Toggle terminal | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
-| Toggle terminal | <code>&lt;C-'&gt;</code> | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
-| Debugger: Start | <code>&lt;F5&gt;</code> |  |
-| Debugger: Stop | <code>&lt;F17&gt;</code> |  |
-| Debugger: Conditional Breakpoint | <code>&lt;F21&gt;</code> |  |
-| Debugger: Restart | <code>&lt;F29&gt;</code> |  |
-| Resize split right | <code>&lt;Right&gt;</code> |  |
-| Debugger: Toggle Breakpoint | <code>&lt;F9&gt;</code> |  |
-| Debugger: Step Over | <code>&lt;F10&gt;</code> |  |
-| Debugger: Step Into | <code>&lt;F11&gt;</code> |  |
-| Debugger: Step Out | <code>&lt;F23&gt;</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;M-k&gt;</code> |  |
-|  | <code>&lt;M-j&gt;</code> |  |
-|  | <code>&lt;M-l&gt;</code> |  |
-|  | <code>&lt;M-h&gt;</code> |  |
-|  | <code>&lt;Plug&gt;SendLine</code> |  |
-|  | <code>&lt;Plug&gt;Send</code> |  |
-| Move to right split | <code>&lt;C-L&gt;</code> |  |
+| **Description** | Switch Buffers |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Tab&gt;</code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | Save this session |
+| :---- | :---- |
+| **Left hand side** | <code> Ss</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Indent line | <code>&lt;Tab&gt;</code> | <code>&gt;gv</code> |
-| Evaluate Input | <code> dE</code> |  |
-| Send to REPL | <code> r</code> | <code>&lt;Plug&gt;Send</code> |
-| Spectre | <code> s</code> |  |
-| Toggle comment for selection | <code> /</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('Comment.api').toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Increment number | <code>+</code> | <code>g&lt;C-A&gt;</code> |
-| Descrement number | <code>-</code> | <code>g&lt;C-X&gt;</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-| Easy Align | <code>ga</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-| Comment toggle linewise | <code>gc</code> |  |
-| Comment toggle blockwise | <code>gb</code> |  |
-| Add surrounding | <code>sa</code> |  |
-| Unindent line | <code>&lt;S-Tab&gt;</code> | <code>&lt;lt&gt;gv</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-|  | <code>&lt;M-k&gt;</code> |  |
-|  | <code>&lt;M-j&gt;</code> |  |
-|  | <code>&lt;M-l&gt;</code> |  |
-|  | <code>&lt;M-h&gt;</code> |  |
+| **Description** | Plugins Check Updates |
+| :---- | :---- |
+| **Left hand side** | <code> pu</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | Delete a session |
+| :---- | :---- |
+| **Left hand side** | <code> Sd</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-| Around line text object | <code>al</code> | <code>:normal val&lt;CR&gt;</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-| Inside line text object | <code>il</code> | <code>:normal vil&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+| **Description** | Toggle wrap |
+| :---- | :---- |
+| **Left hand side** | <code> uw</code> |
+| **Right hand side** | |
+
+| **Description** | Plugins Update |
+| :---- | :---- |
+| **Left hand side** | <code> pU</code> |
+| **Right hand side** | |
+
+| **Description** | Load a session |
+| :---- | :---- |
+| **Left hand side** | <code> Sf</code> |
+| **Right hand side** | |
+
+| **Description** | Update Plugins and Mason Packages |
+| :---- | :---- |
+| **Left hand side** | <code> pa</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;AstroUpdatePackages&lt;CR&gt;</code> |
+
+| **Description** | Search symbols |
+| :---- | :---- |
+| **Left hand side** | <code> ls</code> |
+| **Right hand side** | |
+
+| **Description** | Load current directory session |
+| :---- | :---- |
+| **Left hand side** | <code> S.</code> |
+| **Right hand side** | |
+
+| **Description** | AstroNvim Update |
+| :---- | :---- |
+| **Left hand side** | <code> pA</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;AstroUpdate&lt;CR&gt;</code> |
+
+| **Description** | Toggle autopairs |
+| :---- | :---- |
+| **Left hand side** | <code> ua</code> |
+| **Right hand side** | |
+
+| **Description** | AstroNvim Version |
+| :---- | :---- |
+| **Left hand side** | <code> pv</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;AstroVersion&lt;CR&gt;</code> |
+
+| **Description** | AstroNvim Changelog |
+| :---- | :---- |
+| **Left hand side** | <code> pl</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;AstroChangelog&lt;CR&gt;</code> |
+
+| **Description** | Mason Installer |
+| :---- | :---- |
+| **Left hand side** | <code> pm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
+
+| **Description** | Close buffer |
+| :---- | :---- |
+| **Left hand side** | <code> c</code> |
+| **Right hand side** | |
+
+| **Description** | Force close buffer |
+| :---- | :---- |
+| **Left hand side** | <code> C</code> |
+| **Right hand side** | |
+
+| **Description** | Save this tab's session |
+| :---- | :---- |
+| **Left hand side** | <code> St</code> |
+| **Right hand side** | |
+
+| **Description** | Previous buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bp</code> |
+| **Right hand side** | |
+
+| **Description** | Evaluate Input |
+| :---- | :---- |
+| **Left hand side** | <code> dE</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm vertical split |
+| :---- | :---- |
+| **Left hand side** | <code> tv</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm size=80 direction=vertical&lt;CR&gt;</code> |
+
+| **Description** | Toggle Debugger UI |
+| :---- | :---- |
+| **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm float |
+| :---- | :---- |
+| **Left hand side** | <code> tf</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm direction=float&lt;CR&gt;</code> |
+
+| **Description** | Debugger Hover |
+| :---- | :---- |
+| **Left hand side** | <code> dh</code> |
+| **Right hand side** | |
+
+| **Description** | Mason Update |
+| :---- | :---- |
+| **Left hand side** | <code> pM</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;MasonUpdateAll&lt;CR&gt;</code> |
+
+| **Description** | Symbols outline |
+| :---- | :---- |
+| **Left hand side** | <code> lS</code> |
+| **Right hand side** | |
+
+| **Description** | Find themes |
+| :---- | :---- |
+| **Left hand side** | <code> ft</code> |
+| **Right hand side** | |
+
+| **Description** | Git branches |
+| :---- | :---- |
+| **Left hand side** | <code> gb</code> |
+| **Right hand side** | |
+
+| **Description** | Find notifications |
+| :---- | :---- |
+| **Left hand side** | <code> fn</code> |
+| **Right hand side** | |
+
+| **Description** | Git commits (repository) |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | |
+
+| **Description** | Find help |
+| :---- | :---- |
+| **Left hand side** | <code> fh</code> |
+| **Right hand side** | |
+
+| **Description** | Git commits (current file) |
+| :---- | :---- |
+| **Left hand side** | <code> gC</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm python |
+| :---- | :---- |
+| **Left hand side** | <code> tp</code> |
+| **Right hand side** | |
+
+| **Description** | Git status |
+| :---- | :---- |
+| **Left hand side** | <code> gt</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle spellcheck |
+| :---- | :---- |
+| **Left hand side** | <code> us</code> |
+| **Right hand side** | |
+
+| **Description** | Resume previous search |
+| :---- | :---- |
+| **Left hand side** | <code> f&lt;CR&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle paste mode |
+| :---- | :---- |
+| **Left hand side** | <code> up</code> |
+| **Right hand side** | |
+
+| **Description** | Find marks |
+| :---- | :---- |
+| **Left hand side** | <code> f'</code> |
+| **Right hand side** | |
+
+| **Description** | Find commands |
+| :---- | :---- |
+| **Left hand side** | <code> fC</code> |
+| **Right hand side** | |
+
+| **Description** | Find words in current buffer |
+| :---- | :---- |
+| **Left hand side** | <code> f/</code> |
+| **Right hand side** | |
+
+| **Description** | Find AstroNvim config files |
+| :---- | :---- |
+| **Left hand side** | <code> fa</code> |
+| **Right hand side** | |
+
+| **Description** | Type |
+| :---- | :---- |
+| **Left hand side** | <code> at</code> |
+| **Right hand side** | |
+
+| **Description** | Find buffers |
+| :---- | :---- |
+| **Left hand side** | <code> fb</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle background |
+| :---- | :---- |
+| **Left hand side** | <code> ub</code> |
+| **Right hand side** | |
+
+| **Description** | Find word under cursor |
+| :---- | :---- |
+| **Left hand side** | <code> fc</code> |
+| **Right hand side** | |
+
+| **Description** | Function |
+| :---- | :---- |
+| **Left hand side** | <code> af</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle autocompletion |
+| :---- | :---- |
+| **Left hand side** | <code> uc</code> |
+| **Right hand side** | |
+
+| **Description** | Class |
+| :---- | :---- |
+| **Left hand side** | <code> ac</code> |
+| **Right hand side** | |
+
+| **Description** | Find files |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle color highlight |
+| :---- | :---- |
+| **Left hand side** | <code> uC</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+
+| **Description** | Find all files |
+| :---- | :---- |
+| **Left hand side** | <code> fF</code> |
+| **Right hand side** | |
+
+| **Description** | Next Template |
+| :---- | :---- |
+| **Left hand side** | <code> &lt;CR&gt;</code> |
+| **Right hand side** | <code>&lt;Esc&gt;/&lt;lt&gt;++&gt;&lt;CR&gt;"_c4l</code> |
+
+| **Description** | Toggle diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> ud</code> |
+| **Right hand side** | |
+
+| **Description** | New Tab |
+| :---- | :---- |
+| **Left hand side** | <code> N</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+
+| **Description** | Find keymaps |
+| :---- | :---- |
+| **Left hand side** | <code> fk</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle signcolumn |
+| :---- | :---- |
+| **Left hand side** | <code> ug</code> |
+| **Right hand side** | |
+
+| **Description** | Find man |
+| :---- | :---- |
+| **Left hand side** | <code> fm</code> |
+| **Right hand side** | |
+
+| **Description** | Quickfix List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xq</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TroubleToggle quickfix&lt;CR&gt;</code> |
+
+| **Description** | Change indent setting |
+| :---- | :---- |
+| **Left hand side** | <code> ui</code> |
+| **Right hand side** | |
+
+| **Description** | Find history |
+| :---- | :---- |
+| **Left hand side** | <code> fo</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle statusline |
+| :---- | :---- |
+| **Left hand side** | <code> ul</code> |
+| **Right hand side** | |
+
+| **Description** | Find registers |
+| :---- | :---- |
+| **Left hand side** | <code> fr</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle CodeLens |
+| :---- | :---- |
+| **Left hand side** | <code> uL</code> |
+| **Right hand side** | |
+
+| **Description** | Find words |
+| :---- | :---- |
+| **Left hand side** | <code> fw</code> |
+| **Right hand side** | |
+
+| **Description** | Change line numbering |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
+| **Right hand side** | |
+
+| **Description** | Find words in all files |
+| :---- | :---- |
+| **Left hand side** | <code> fW</code> |
+| **Right hand side** | |
+
+| **Description** | Send line to REPL |
+| :---- | :---- |
+| **Left hand side** | <code> rl</code> |
+| **Right hand side** | <code>&lt;Plug&gt;SendLine</code> |
+
+| **Description** | Toggle Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> uN</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm lazygit |
+| :---- | :---- |
+| **Left hand side** | <code> gg</code> |
+| **Right hand side** | |
+
+| **Description** | Send to REPL |
+| :---- | :---- |
+| **Left hand side** | <code> rr</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Send</code> |
+
+| **Description** | ToggleTerm lazygit |
+| :---- | :---- |
+| **Left hand side** | <code> tl</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm node |
+| :---- | :---- |
+| **Left hand side** | <code> tn</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm gdu |
+| :---- | :---- |
+| **Left hand side** | <code> tu</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle conceal |
+| :---- | :---- |
+| **Left hand side** | <code> uS</code> |
+| **Right hand side** | |
+
+| **Description** | ToggleTerm btm |
+| :---- | :---- |
+| **Left hand side** | <code> tt</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle tabline |
+| :---- | :---- |
+| **Left hand side** | <code> ut</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle URL highlight |
+| :---- | :---- |
+| **Left hand side** | <code> uu</code> |
+| **Right hand side** | |
+
+| **Description** | Location List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xl</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TroubleToggle loclist&lt;CR&gt;</code> |
+
+| **Description** | ToggleTerm horizontal split |
+| :---- | :---- |
+| **Left hand side** | <code> th</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm size=10 direction=horizontal&lt;CR&gt;</code> |
+
+| **Description** | Set REPL |
+| :---- | :---- |
+| **Left hand side** | <code> r&lt;CR&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SendHere&lt;CR&gt;</code> |
+
+| **Description** | Toggle syntax highlighting (buffer) |
+| :---- | :---- |
+| **Left hand side** | <code> uy</code> |
+| **Right hand side** | |
+
+| **Description** | View Git blame |
+| :---- | :---- |
+| **Left hand side** | <code> gl</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle foldcolumn |
+| :---- | :---- |
+| **Left hand side** | <code> uh</code> |
+| **Right hand side** | |
+
+| **Description** | Current |
+| :---- | :---- |
+| **Left hand side** | <code> a&lt;CR&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | File |
+| :---- | :---- |
+| **Left hand side** | <code> aF</code> |
+| **Right hand side** | |
+
+| **Description** | Find words (args) |
+| :---- | :---- |
+| **Left hand side** | <code> fx</code> |
+| **Right hand side** | |
+
+| **Description** | LaTeX |
+| :---- | :---- |
+| **Left hand side** | <code> mt</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TexlabBuild&lt;CR&gt;</code> |
+
+| **Description** | Find TODOs |
+| :---- | :---- |
+| **Left hand side** | <code> fT</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
+
+| **Description** | File explorer |
+| :---- | :---- |
+| **Left hand side** | <code> fe</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
+
+| **Description** | Find projects |
+| :---- | :---- |
+| **Left hand side** | <code> fp</code> |
+| **Right hand side** | |
+
+| **Description** | Set CWD |
+| :---- | :---- |
+| **Left hand side** | <code> .</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;cd %:p:h&lt;CR&gt;</code> |
+
+| **Description** | Neogit |
+| :---- | :---- |
+| **Left hand side** | <code> gG</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Breakpoint (F9) |
+| :---- | :---- |
+| **Left hand side** | <code> db</code> |
+| **Right hand side** | |
+
+| **Description** | Clear Breakpoints |
+| :---- | :---- |
+| **Left hand side** | <code> dB</code> |
+| **Right hand side** | |
+
+| **Description** | Compile |
+| :---- | :---- |
+| **Left hand side** | <code> mk</code> |
+| **Right hand side** | |
+
+| **Description** | Start/Continue (F5) |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | |
+
+| **Description** | Auto Compile |
+| :---- | :---- |
+| **Left hand side** | <code> ma</code> |
+| **Right hand side** | |
+
+| **Description** | Conditional Breakpoint (S-F9) |
+| :---- | :---- |
+| **Left hand side** | <code> dC</code> |
+| **Right hand side** | |
+
+| **Description** | View Output |
+| :---- | :---- |
+| **Left hand side** | <code> mv</code> |
+| **Right hand side** | |
+
+| **Description** | Step Into (F11) |
+| :---- | :---- |
+| **Left hand side** | <code> di</code> |
+| **Right hand side** | |
+
+| **Description** | Compile Beamer |
+| :---- | :---- |
+| **Left hand side** | <code> mb</code> |
+| **Right hand side** | |
+
+| **Description** | Step Over (F10) |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | |
+
+| **Description** | Present Output |
+| :---- | :---- |
+| **Left hand side** | <code> mp</code> |
+| **Right hand side** | |
+
+| **Description** | Step Out (S-F11) |
+| :---- | :---- |
+| **Left hand side** | <code> dO</code> |
+| **Right hand side** | |
+
+| **Description** | Logs |
+| :---- | :---- |
+| **Left hand side** | <code> ml</code> |
+| **Right hand side** | |
+
+| **Description** | Close Session |
+| :---- | :---- |
+| **Left hand side** | <code> dq</code> |
+| **Right hand side** | |
+
+| **Description** | Terminate Session (S-F5) |
+| :---- | :---- |
+| **Left hand side** | <code> dQ</code> |
+| **Right hand side** | |
+
+| **Description** | Pause (F6) |
+| :---- | :---- |
+| **Left hand side** | <code> dp</code> |
+| **Right hand side** | |
+
+| **Description** | Forward Search |
+| :---- | :---- |
+| **Left hand side** | <code> mf</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TexlabForward&lt;CR&gt;</code> |
+
+| **Description** | Restart (C-F5) |
+| :---- | :---- |
+| **Left hand side** | <code> dr</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle REPL |
+| :---- | :---- |
+| **Left hand side** | <code> dR</code> |
+| **Right hand side** | |
+
+| **Description** | Reset Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gh</code> |
+| **Right hand side** | |
+
+| **Description** | Run To Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> ds</code> |
+| **Right hand side** | |
+
+| **Description** | Find BibTeX |
+| :---- | :---- |
+| **Left hand side** | <code> fB</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
+
+| **Description** | Zen Mode |
+| :---- | :---- |
+| **Left hand side** | <code> z</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+
+| **Description** | Toggle Spectre |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Spectre (current file) |
+| :---- | :---- |
+| **Left hand side** | <code> sf</code> |
+| **Right hand side** | |
+
+| **Description** | Spectre (current word) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xx</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TroubleToggle document_diagnostics&lt;CR&gt;</code> |
+
+| **Description** | Workspace Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xX</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TroubleToggle workspace_diagnostics&lt;CR&gt;</code> |
+
+| **Description** | Close all buffers except current |
+| :---- | :---- |
+| **Left hand side** | <code> bc</code> |
+| **Right hand side** | |
+
+| **Description** | Close all buffers |
+| :---- | :---- |
+| **Left hand side** | <code> bC</code> |
+| **Right hand side** | |
+
+| **Description** | TODOs (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xT</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TodoTrouble&lt;CR&gt;</code> |
+
+| **Description** | Close all buffers to the left |
+| :---- | :---- |
+| **Left hand side** | <code> bl</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Explorer |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+
+| **Description** | Close all buffers to the right |
+| :---- | :---- |
+| **Left hand side** | <code> br</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Explorer Focus |
+| :---- | :---- |
+| **Left hand side** | <code> o</code> |
+| **Right hand side** | |
+
+| **Description** | By extension |
+| :---- | :---- |
+| **Left hand side** | <code> bse</code> |
+| **Right hand side** | |
+
+| **Description** | By relative path |
+| :---- | :---- |
+| **Left hand side** | <code> bsr</code> |
+| **Right hand side** | |
+
+| **Description** | By full path |
+| :---- | :---- |
+| **Left hand side** | <code> bsp</code> |
+| **Right hand side** | |
+
+| **Description** | By buffer number |
+| :---- | :---- |
+| **Left hand side** | <code> bsi</code> |
+| **Right hand side** | |
+
+| **Description** | By modification |
+| :---- | :---- |
+| **Left hand side** | <code> bsm</code> |
+| **Right hand side** | |
+
+| **Description** | Select buffer from tabline |
+| :---- | :---- |
+| **Left hand side** | <code> bb</code> |
+| **Right hand side** | |
+
+| **Description** | Close buffer from tabline |
+| :---- | :---- |
+| **Left hand side** | <code> bd</code> |
+| **Right hand side** | |
+
+| **Description** | Horizontal split buffer from tabline |
+| :---- | :---- |
+| **Left hand side** | <code> b\</code> |
+| **Right hand side** | |
+
+| **Description** | Vertical split buffer from tabline |
+| :---- | :---- |
+| **Left hand side** | <code> b&#124;</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle comment line |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | |
+
+| **Description** | Save |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+
+| **Description** | Quit |
+| :---- | :---- |
+| **Left hand side** | <code> q</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;confirm q&lt;CR&gt;</code> |
+
+| **Description** | View full Git blame |
+| :---- | :---- |
+| **Left hand side** | <code> gL</code> |
+| **Right hand side** | |
+
+| **Description** | New File |
+| :---- | :---- |
+| **Left hand side** | <code> n</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;enew&lt;CR&gt;</code> |
+
+| **Description** | Preview Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gp</code> |
+| **Right hand side** | |
+
+| **Description** | Reset Git buffer |
+| :---- | :---- |
+| **Left hand side** | <code> gr</code> |
+| **Right hand side** | |
+
+| **Description** | Stage Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | |
+
+| **Description** | Stage Git buffer |
+| :---- | :---- |
+| **Left hand side** | <code> gS</code> |
+| **Right hand side** | |
+
+| **Description** | Unstage Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gu</code> |
+| **Right hand side** | |
+
+| **Description** | View Git diff |
+| :---- | :---- |
+| **Left hand side** | <code> gd</code> |
+| **Right hand side** | |
+
+| **Description** | Plugins Install |
+| :---- | :---- |
+| **Left hand side** | <code> pi</code> |
+| **Right hand side** | |
+
+| **Description** | Plugins Status |
+| :---- | :---- |
+| **Left hand side** | <code> ps</code> |
+| **Right hand side** | |
+
+| **Description** | Load last session |
+| :---- | :---- |
+| **Left hand side** | <code> Sl</code> |
+| **Right hand side** | |
+
+| **Description** | Plugins Sync |
+| :---- | :---- |
+| **Left hand side** | <code> pS</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Increment number |
+| :---- | :---- |
+| **Left hand side** | <code>+</code> |
+| **Right hand side** | <code>&lt;C-A&gt;</code> |
+
+| **Description** | Descrement number |
+| :---- | :---- |
+| **Left hand side** | <code>-</code> |
+| **Right hand side** | <code>&lt;C-X&gt;</code> |
+
+| **Description** | Move buffer tab left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;b</code> |
+| **Right hand side** | |
+
+| **Description** | Move buffer tab right |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;b</code> |
+| **Right hand side** | |
+
+| **Description** | Previous buffer |
+| :---- | :---- |
+| **Left hand side** | <code>H</code> |
+| **Right hand side** | |
+
+| **Description** | Next buffer |
+| :---- | :---- |
+| **Left hand side** | <code>L</code> |
+| **Right hand side** | |
+
+| **Description** | Previous search |
+| :---- | :---- |
+| **Left hand side** | <code>N</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | Previous tab |
+| :---- | :---- |
+| **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
+| **Description** | Previous Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code>[g</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+
+| **Description** | Horizontal Split |
+| :---- | :---- |
+| **Left hand side** | <code>\</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
+
+| **Description** | Next tab |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
+| **Description** | Next Git hunk |
+| :---- | :---- |
+| **Left hand side** | <code>]g</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | Easy Align |
+| :---- | :---- |
+| **Left hand side** | <code>ga</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+
+| **Description** | Open the file under cursor with system app |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+| **Description** | Move cursor down |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gj' : 'j'</code> |
+
+| **Description** | Move cursor up |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gk' : 'k'</code> |
+
+| **Description** | Next search |
+| :---- | :---- |
+| **Left hand side** | <code>n</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>q:</code> |
+| **Right hand side** | <code>:</code> |
+
+| **Description** | Find left surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sF</code> |
+| **Right hand side** | |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | |
+
+| **Description** | Highlight surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sh</code> |
+| **Right hand side** | |
+
+| **Description** | Replace surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sr</code> |
+| **Right hand side** | |
+
+| **Description** | Delete surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sd</code> |
+| **Right hand side** | |
+
+| **Description** | Update `MiniSurround.config.n_lines` |
+| :---- | :---- |
+| **Left hand side** | <code>sn</code> |
+| **Right hand side** | |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sf</code> |
+| **Right hand side** | |
+
+| **Description** | Open all folds |
+| :---- | :---- |
+| **Left hand side** | <code>zR</code> |
+| **Right hand side** | |
+
+| **Description** | Fold more |
+| :---- | :---- |
+| **Left hand side** | <code>zm</code> |
+| **Right hand side** | |
+
+| **Description** | Peek fold |
+| :---- | :---- |
+| **Left hand side** | <code>zp</code> |
+| **Right hand side** | |
+
+| **Description** | Fold less |
+| :---- | :---- |
+| **Left hand side** | <code>zr</code> |
+| **Right hand side** | |
+
+| **Description** | Close all folds |
+| :---- | :---- |
+| **Left hand side** | <code>zM</code> |
+| **Right hand side** | |
+
+| **Description** | Vertical Split |
+| :---- | :---- |
+| **Left hand side** | <code>&#124;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
+
+| **Description** | Toggle terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F7&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+
+| **Description** | Resize split down |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Down&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to left split |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to above split |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to below split |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Pause |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F6&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Resize split right |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Right&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Resize split left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Left&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-'&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ToggleTerm&lt;CR&gt;</code> |
+
+| **Description** | Debugger: Start |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F5&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Resize split up |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Up&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Stop |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F17&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Conditional Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F21&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Restart |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F29&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Toggle Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F9&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Step Over |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F10&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Step Into |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F11&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Debugger: Step Out |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F23&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SendLine</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;Send</code> |
+| **Right hand side** | |
+
+| **Description** | Move to right split |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | |
+
+
+### Visual mode keymaps
+
+| **Description** | Indent line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Tab&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | Toggle comment for selection |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require('Comment.api').toggle.linewise(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Spectre |
+| :---- | :---- |
+| **Left hand side** | <code> s</code> |
+| **Right hand side** | |
+
+| **Description** | Evaluate Input |
+| :---- | :---- |
+| **Left hand side** | <code> dE</code> |
+| **Right hand side** | |
+
+| **Description** | Send to REPL |
+| :---- | :---- |
+| **Left hand side** | <code> r</code> |
+| **Right hand side** | <code>&lt;Plug&gt;Send</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Increment number |
+| :---- | :---- |
+| **Left hand side** | <code>+</code> |
+| **Right hand side** | <code>g&lt;C-A&gt;</code> |
+
+| **Description** | Descrement number |
+| :---- | :---- |
+| **Left hand side** | <code>-</code> |
+| **Right hand side** | <code>g&lt;C-X&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | Easy Align |
+| :---- | :---- |
+| **Left hand side** | <code>ga</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | |
+
+| **Description** | Unindent line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | Around line text object |
+| :---- | :---- |
+| **Left hand side** | <code>al</code> |
+| **Right hand side** | <code>:normal val&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | Inside line text object |
+| :---- | :---- |
+| **Left hand side** | <code>il</code> |
+| **Right hand side** | <code>:normal vil&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+

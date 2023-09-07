@@ -1,4 +1,4 @@
-## Modern Neovim Configuration Information
+# Modern Neovim Configuration Information
 
 Configure Neovim as a modernized development environment. Details described in [an excellent Medium article](https://alpha2phi.medium.com/modern-neovim-configuration-recipes-d68b16537698)
 
@@ -8,11 +8,15 @@ Configure Neovim as a modernized development environment. Details described in [
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Modern`**
 
-### Git repository
+## Git repository
 
 [https://github.com/alpha2phi/modern-neovim](https://github.com/alpha2phi/modern-neovim)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [jackMort/ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim.git)
 - [dpayne/CodeGPT.nvim](https://github.com/dpayne/CodeGPT.nvim.git)
@@ -178,269 +182,1263 @@ Configure Neovim as a modernized development environment. Details described in [
 - [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
-### Modern Keymaps
+## Modern Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Manage Plugins | <code> zz</code> | <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |
-| Explorer (Current File) | <code> fE</code> |  |
-| Explorer (Current Directory) | <code> fe</code> |  |
-| Restore Session | <code> qs</code> |  |
-| Don't Save Current Session | <code> qd</code> |  |
-| Restore Last Session | <code> ql</code> |  |
-| Debug Cleanup | <code> rc</code> |  |
-| Debug Print Variable | <code> rp</code> |  |
-| Debug Print | <code> rP</code> |  |
-| Extract Block to File | <code> rf</code> |  |
-| Extract Block | <code> rb</code> |  |
-| Inline Variable | <code> ri</code> |  |
-| Toggle Zoom | <code> vz</code> |  |
-| Notation | <code> nn</code> |  |
-| Visit | <code> tv</code> |  |
-| Suite | <code> ts</code> |  |
-| Nearest | <code> tn</code> |  |
-| Last | <code> tl</code> |  |
-| File | <code> tf</code> |  |
-| Class | <code> tc</code> |  |
-| Search and Replace (SSR) | <code> sR</code> |  |
-| Build | <code> tob</code> |  |
-| Task Action | <code> toa</code> |  |
-| Run Command | <code> toR</code> |  |
-| Toggle | <code> tot</code> |  |
-| Save Bundle | <code> tos</code> |  |
-| Run | <code> tor</code> |  |
-| Quick Action | <code> toq</code> |  |
-| Open | <code> too</code> |  |
-| Load Bundle | <code> tol</code> |  |
-| Delete Bundle | <code> tod</code> |  |
-| Close | <code> toc</code> |  |
-| Status | <code> gs</code> |  |
-| Toggle Preview | <code> nt</code> |  |
-| Close Preview | <code> nc</code> |  |
-| Preview | <code> np</code> |  |
-| Forward jump | <code> nj</code> |  |
-| Open Yank History | <code> zp</code> |  |
-| Toggle UI | <code> Dt</code> |  |
-| Last Query Info | <code> Dq</code> |  |
-| Rename Buffer | <code> Dr</code> |  |
-| Find Buffer | <code> Df</code> |  |
-| Edit with Instructions | <code> ae</code> |  |
-| Complete Code | <code> ac</code> |  |
-| Chat | <code> aa</code> |  |
-| Summarize Text | <code> as</code> |  |
-| Generate Git Message | <code> ag</code> |  |
-| Docker | <code> fd</code> |  |
-| Convert | <code> zCc</code> |  |
-| Pick | <code> zCp</code> |  |
-| +Color | <code> zC</code> |  |
-| Toggle Highlighter | <code> zCh</code> |  |
-| Select VirtualEnv | <code> lv</code> |  |
-| Step Out | <code> du</code> |  |
-| Terminate | <code> dx</code> |  |
-| Toggle Breakpoint | <code> dt</code> |  |
-| Start | <code> ds</code> |  |
-| Toggle REPL | <code> dr</code> |  |
-| Quit | <code> dq</code> |  |
-| Pause | <code> dp</code> |  |
-| Run Last | <code> dl</code> |  |
-| Step Over | <code> do</code> |  |
-| Step Into | <code> di</code> |  |
-| Scopes | <code> dS</code> |  |
-| Hover Variables | <code> dh</code> |  |
-| Get Session | <code> dg</code> |  |
-| Evaluate | <code> de</code> |  |
-| Disconnect | <code> dd</code> |  |
-| Continue | <code> dc</code> |  |
-| Step Back | <code> db</code> |  |
-| Toggle UI | <code> dU</code> |  |
-| Conditional Breakpoint | <code> dC</code> |  |
-| Evaluate Input | <code> dE</code> |  |
-| Run to Cursor | <code> dR</code> |  |
-| Hide | <code> xH</code> |  |
-| Focus | <code> xF</code> |  |
-| Restart | <code> xS</code> |  |
-| REPL | <code> xR</code> |  |
-| Remove Mark | <code> xmr</code> |  |
-| Mark Motion | <code> xmm</code> |  |
-| Send Mark | <code> xms</code> |  |
-| Clear | <code> xc</code> |  |
-| Close REPL | <code> xC</code> |  |
-| Interrupt | <code> xI</code> |  |
-| ENTER | <code> x&lt;CR&gt;</code> |  |
-| Send File | <code> xf</code> |  |
-| Send Until Cursor | <code> xt</code> |  |
-| Send Line | <code> xl</code> |  |
-| Send Motion | <code> xs</code> |  |
-| +Mark | <code> xm</code> |  |
-| +REPL | <code> x</code> |  |
-| Toggle Split/Join | <code> lj</code> |  |
-| Code Outline (navbuddy) | <code> vO</code> |  |
-| Node Action | <code> ln</code> |  |
-| Type | <code> lgt</code> |  |
-| Function | <code> lgf</code> |  |
-| Class | <code> lgc</code> |  |
-| Annotation | <code> lgd</code> |  |
-| Mason | <code> lm</code> |  |
-| Reload Buffer | <code> br</code> |  |
-| Delete Buffer (Force) | <code> bD</code> |  |
-| Delete Buffer | <code> bd</code> |  |
-| Close Buffer | <code> bc</code> |  |
-| Terminal #2 | <code> 0</code> |  |
-| Search and Replace (Spectre) | <code> sr</code> |  |
-| Terminal 2 | <code> 4</code> |  |
-| Terminal 1 | <code> 3</code> |  |
-| File 2 | <code> 2</code> |  |
-| File 1 | <code> 1</code> |  |
-| Command Menu | <code> jc</code> |  |
-| File Menu | <code> jm</code> |  |
-| Add File | <code> ja</code> |  |
-| Command 2 | <code> 6</code> |  |
-| Command 1 | <code> 5</code> |  |
-| Edgy Toggle | <code> ze</code> |  |
-| Edgy Select Window | <code> zE</code> |  |
-| Buffer | <code> sb</code> |  |
-| Snippets | <code> ss</code> |  |
-| Grep (Cwd) | <code> sW</code> |  |
-| Grep (Root Dir) | <code> sw</code> |  |
-| List | <code> pp</code> |  |
-| Search | <code> hs</code> |  |
-| Search | <code> ps</code> |  |
-| Search Plugins | <code> zs</code> |  |
-| Conventional Commits | <code> gc</code> |  |
-| Browser | <code> fr</code> |  |
-| Change WorkDir | <code> fc</code> |  |
-| Buffers | <code> fb</code> |  |
-| Recent | <code> fo</code> |  |
-| Find Files (Cwd) | <code> fF</code> |  |
-| Find Files (Root Dir) | <code> ff</code> |  |
-| Find Files | <code>  </code> |  |
-| Colorscheme | <code> zc</code> |  |
-| Code Outline | <code> vo</code> |  |
-| Command Palette | <code> hc</code> |  |
-| ToDo | <code> lT</code> |  |
-| ToDo (Trouble) | <code> lt</code> |  |
-| Toggle Minimap | <code> vm</code> |  |
-| Output | <code> tNo</code> |  |
-| Debug Nearest | <code> tNN</code> |  |
-| Nearest | <code> tNn</code> |  |
-| Last | <code> tNl</code> |  |
-| File | <code> tNf</code> |  |
-| Attach | <code> tNa</code> |  |
-| Debug Last | <code> tNL</code> |  |
-| Debug File | <code> tNF</code> |  |
-| Summary | <code> tNS</code> |  |
-| Stop | <code> tNs</code> |  |
-| Document Diagnostics | <code> ld</code> |  |
-| Workspace Diagnostics | <code> lD</code> |  |
-|  | <code> </code> | <code></code> |
-|  | <code>#</code> |  |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-|  | <code>*</code> |  |
-| Put before and indent left | <code>&lt;lt&gt;P</code> |  |
-| Put and indent left | <code>&lt;lt&gt;p</code> |  |
-| Put after applying a filter | <code>=p</code> |  |
-| Put before applying a filter | <code>=P</code> |  |
-| Put and indent right | <code>&gt;p</code> |  |
-| Put before and indent right | <code>&gt;P</code> |  |
-|  | <code>N</code> |  |
-| Put yanked text before cursor | <code>P</code> |  |
-| Flash Treesitter | <code>S</code> |  |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-| Cycle forward through yank history | <code>[y</code> |  |
-| Put indented before cursor (linewise) | <code>[p</code> |  |
-| Put indented before cursor (linewise) | <code>[P</code> |  |
-| Previous ToDo | <code>[t</code> |  |
-| Cycle backward through yank history | <code>]y</code> |  |
-| Put indented after cursor (linewise) | <code>]p</code> |  |
-| Put indented after cursor (linewise) | <code>]P</code> |  |
-| Next ToDo | <code>]t</code> |  |
-|  | <code>g&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-|  | <code>g&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-|  | <code>gbc</code> |  |
-|  | <code>gc</code> |  |
-|  | <code>gcc</code> |  |
-| Put yanked text before selection | <code>gP</code> |  |
-| Put yanked text after selection | <code>gp</code> |  |
-|  | <code>g*</code> |  |
-|  | <code>g#</code> |  |
-|  | <code>n</code> |  |
-| Put yanked text after cursor | <code>p</code> |  |
-| Flash | <code>s</code> |  |
-| Yank text | <code>y</code> |  |
-| Open Folds Except Kinds | <code>zr</code> |  |
-| Open All Folds | <code>zR</code> |  |
-| Close All Folds | <code>zM</code> |  |
-| Close Folds With | <code>zm</code> |  |
-| Peek Fold | <code>zp</code> |  |
-|  | <code>zc</code> |  |
-|  | <code>zo</code> |  |
-|  | <code>zC</code> |  |
-|  | <code>zO</code> |  |
-|  | <code>za</code> |  |
-|  | <code>zA</code> |  |
-| Decrement | <code>&lt;C-X&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-| Increment | <code>&lt;C-A&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
-| Scroll forward | <code>&lt;C-F&gt;</code> |  |
-| Scroll backward | <code>&lt;C-B&gt;</code> |  |
-| Previous Cell | <code>&lt;M-k&gt;</code> |  |
-| Next Cell | <code>&lt;M-j&gt;</code> |  |
-| Delete Cell | <code>&lt;M-x&gt;</code> |  |
-| Execute Cell | <code>&lt;M-e&gt;</code> |  |
-|  | <code>&lt;C-Bslash&gt;</code> |  |
-| Legendary | <code>&lt;C-S-P&gt;</code> |  |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | Manage Plugins |
+| :---- | :---- |
+| **Left hand side** | <code> zz</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |
 
-#### visual mode keymaps
+| **Description** | Search and Replace (SSR) |
+| :---- | :---- |
+| **Left hand side** | <code> sR</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Send | <code> xs</code> |  |
-| +Mark | <code> xm</code> |  |
-| +REPL | <code> x</code> |  |
-| Mark Visual | <code> xmv</code> |  |
-| Clear Highlight | <code> xL</code> |  |
-| Search and Replace (SSR) | <code> sR</code> |  |
-| Evaluate | <code> de</code> |  |
-| Edit with Instructions | <code> ae</code> |  |
-| Complete Code | <code> ac</code> |  |
-| Debug Print Variable | <code> rp</code> |  |
-| Extract Variable | <code> rx</code> |  |
-| Extract Function to File | <code> rF</code> |  |
-| Extract Function | <code> rf</code> |  |
-| Inline Variable | <code> ri</code> |  |
-| Refactor | <code> rs</code> |  |
-|  | <code> </code> | <code></code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Put yanked text before cursor | <code>P</code> |  |
-| Treesitter Search | <code>R</code> |  |
-| Flash Treesitter | <code>S</code> |  |
-| Decrement | <code>g&lt;C-X&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@</code> |
-| Increment | <code>g&lt;C-A&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@</code> |
-|  | <code>g&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@gv</code> |
-|  | <code>g&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@gv</code> |
-| Put yanked text before selection | <code>gP</code> |  |
-| Put yanked text after selection | <code>gp</code> |  |
-|  | <code>gc</code> |  |
-|  | <code>gbc</code> |  |
-|  | <code>gcc</code> |  |
-| Put yanked text after cursor | <code>p</code> |  |
-| Flash | <code>s</code> |  |
-| Yank text | <code>y</code> |  |
-| Decrement | <code>&lt;C-X&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@</code> |
-| Increment | <code>&lt;C-A&gt;</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;(dial-decrement)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@gv</code> |
-|  | <code>&lt;Plug&gt;(dial-increment)</code> | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@gv</code> |
+| **Description** | Type |
+| :---- | :---- |
+| **Left hand side** | <code> lgt</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | Function |
+| :---- | :---- |
+| **Left hand side** | <code> lgf</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Treesitter Search | <code>R</code> |  |
-| Flash Treesitter | <code>S</code> |  |
-| Remote Flash | <code>r</code> |  |
-| Flash | <code>s</code> |  |
+| **Description** | Class |
+| :---- | :---- |
+| **Left hand side** | <code> lgc</code> |
+| **Right hand side** | |
+
+| **Description** | Annotation |
+| :---- | :---- |
+| **Left hand side** | <code> lgd</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer (Current File) |
+| :---- | :---- |
+| **Left hand side** | <code> fE</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer (Current Directory) |
+| :---- | :---- |
+| **Left hand side** | <code> fe</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Highlighter |
+| :---- | :---- |
+| **Left hand side** | <code> zCh</code> |
+| **Right hand side** | |
+
+| **Description** | Convert |
+| :---- | :---- |
+| **Left hand side** | <code> zCc</code> |
+| **Right hand side** | |
+
+| **Description** | Pick |
+| :---- | :---- |
+| **Left hand side** | <code> zCp</code> |
+| **Right hand side** | |
+
+| **Description** | +Color |
+| :---- | :---- |
+| **Left hand side** | <code> zC</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> lD</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> ld</code> |
+| **Right hand side** | |
+
+| **Description** | Stop |
+| :---- | :---- |
+| **Left hand side** | <code> tNs</code> |
+| **Right hand side** | |
+
+| **Description** | Output |
+| :---- | :---- |
+| **Left hand side** | <code> tNo</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> tNN</code> |
+| **Right hand side** | |
+
+| **Description** | Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> tNn</code> |
+| **Right hand side** | |
+
+| **Description** | Last |
+| :---- | :---- |
+| **Left hand side** | <code> tNl</code> |
+| **Right hand side** | |
+
+| **Description** | File |
+| :---- | :---- |
+| **Left hand side** | <code> tNf</code> |
+| **Right hand side** | |
+
+| **Description** | Attach |
+| :---- | :---- |
+| **Left hand side** | <code> tNa</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Last |
+| :---- | :---- |
+| **Left hand side** | <code> tNL</code> |
+| **Right hand side** | |
+
+| **Description** | Debug File |
+| :---- | :---- |
+| **Left hand side** | <code> tNF</code> |
+| **Right hand side** | |
+
+| **Description** | Summary |
+| :---- | :---- |
+| **Left hand side** | <code> tNS</code> |
+| **Right hand side** | |
+
+| **Description** | Rename Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> Dr</code> |
+| **Right hand side** | |
+
+| **Description** | Find Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> Df</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle UI |
+| :---- | :---- |
+| **Left hand side** | <code> Dt</code> |
+| **Right hand side** | |
+
+| **Description** | Last Query Info |
+| :---- | :---- |
+| **Left hand side** | <code> Dq</code> |
+| **Right hand side** | |
+
+| **Description** | ToDo |
+| :---- | :---- |
+| **Left hand side** | <code> lT</code> |
+| **Right hand side** | |
+
+| **Description** | ToDo (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> lt</code> |
+| **Right hand side** | |
+
+| **Description** | Status |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | |
+
+| **Description** | Edgy Toggle |
+| :---- | :---- |
+| **Left hand side** | <code> ze</code> |
+| **Right hand side** | |
+
+| **Description** | Edgy Select Window |
+| :---- | :---- |
+| **Left hand side** | <code> zE</code> |
+| **Right hand side** | |
+
+| **Description** | Terminate |
+| :---- | :---- |
+| **Left hand side** | <code> dx</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | Start |
+| :---- | :---- |
+| **Left hand side** | <code> ds</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle REPL |
+| :---- | :---- |
+| **Left hand side** | <code> dr</code> |
+| **Right hand side** | |
+
+| **Description** | Quit |
+| :---- | :---- |
+| **Left hand side** | <code> dq</code> |
+| **Right hand side** | |
+
+| **Description** | Pause |
+| :---- | :---- |
+| **Left hand side** | <code> dp</code> |
+| **Right hand side** | |
+
+| **Description** | Run Last |
+| :---- | :---- |
+| **Left hand side** | <code> dl</code> |
+| **Right hand side** | |
+
+| **Description** | Step Over |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | |
+
+| **Description** | Step Into |
+| :---- | :---- |
+| **Left hand side** | <code> di</code> |
+| **Right hand side** | |
+
+| **Description** | Scopes |
+| :---- | :---- |
+| **Left hand side** | <code> dS</code> |
+| **Right hand side** | |
+
+| **Description** | Hover Variables |
+| :---- | :---- |
+| **Left hand side** | <code> dh</code> |
+| **Right hand side** | |
+
+| **Description** | Get Session |
+| :---- | :---- |
+| **Left hand side** | <code> dg</code> |
+| **Right hand side** | |
+
+| **Description** | Evaluate |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Disconnect |
+| :---- | :---- |
+| **Left hand side** | <code> dd</code> |
+| **Right hand side** | |
+
+| **Description** | Continue |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | |
+
+| **Description** | Step Back |
+| :---- | :---- |
+| **Left hand side** | <code> db</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle UI |
+| :---- | :---- |
+| **Left hand side** | <code> dU</code> |
+| **Right hand side** | |
+
+| **Description** | Conditional Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code> dC</code> |
+| **Right hand side** | |
+
+| **Description** | Evaluate Input |
+| :---- | :---- |
+| **Left hand side** | <code> dE</code> |
+| **Right hand side** | |
+
+| **Description** | Run to Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> dR</code> |
+| **Right hand side** | |
+
+| **Description** | Step Out |
+| :---- | :---- |
+| **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | Edit with Instructions |
+| :---- | :---- |
+| **Left hand side** | <code> ae</code> |
+| **Right hand side** | |
+
+| **Description** | Complete Code |
+| :---- | :---- |
+| **Left hand side** | <code> ac</code> |
+| **Right hand side** | |
+
+| **Description** | Chat |
+| :---- | :---- |
+| **Left hand side** | <code> aa</code> |
+| **Right hand side** | |
+
+| **Description** | Summarize Text |
+| :---- | :---- |
+| **Left hand side** | <code> as</code> |
+| **Right hand side** | |
+
+| **Description** | Generate Git Message |
+| :---- | :---- |
+| **Left hand side** | <code> ag</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Cleanup |
+| :---- | :---- |
+| **Left hand side** | <code> rc</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Print Variable |
+| :---- | :---- |
+| **Left hand side** | <code> rp</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Print |
+| :---- | :---- |
+| **Left hand side** | <code> rP</code> |
+| **Right hand side** | |
+
+| **Description** | Extract Block to File |
+| :---- | :---- |
+| **Left hand side** | <code> rf</code> |
+| **Right hand side** | |
+
+| **Description** | Extract Block |
+| :---- | :---- |
+| **Left hand side** | <code> rb</code> |
+| **Right hand side** | |
+
+| **Description** | Inline Variable |
+| :---- | :---- |
+| **Left hand side** | <code> ri</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Split/Join |
+| :---- | :---- |
+| **Left hand side** | <code> lj</code> |
+| **Right hand side** | |
+
+| **Description** | Send Motion |
+| :---- | :---- |
+| **Left hand side** | <code> xs</code> |
+| **Right hand side** | |
+
+| **Description** | Clear |
+| :---- | :---- |
+| **Left hand side** | <code> xc</code> |
+| **Right hand side** | |
+
+| **Description** | +Mark |
+| :---- | :---- |
+| **Left hand side** | <code> xm</code> |
+| **Right hand side** | |
+
+| **Description** | +REPL |
+| :---- | :---- |
+| **Left hand side** | <code> x</code> |
+| **Right hand side** | |
+
+| **Description** | Send Mark |
+| :---- | :---- |
+| **Left hand side** | <code> xms</code> |
+| **Right hand side** | |
+
+| **Description** | Mark Motion |
+| :---- | :---- |
+| **Left hand side** | <code> xmm</code> |
+| **Right hand side** | |
+
+| **Description** | Remove Mark |
+| :---- | :---- |
+| **Left hand side** | <code> xmr</code> |
+| **Right hand side** | |
+
+| **Description** | REPL |
+| :---- | :---- |
+| **Left hand side** | <code> xR</code> |
+| **Right hand side** | |
+
+| **Description** | Restart |
+| :---- | :---- |
+| **Left hand side** | <code> xS</code> |
+| **Right hand side** | |
+
+| **Description** | Focus |
+| :---- | :---- |
+| **Left hand side** | <code> xF</code> |
+| **Right hand side** | |
+
+| **Description** | Close REPL |
+| :---- | :---- |
+| **Left hand side** | <code> xC</code> |
+| **Right hand side** | |
+
+| **Description** | Interrupt |
+| :---- | :---- |
+| **Left hand side** | <code> xI</code> |
+| **Right hand side** | |
+
+| **Description** | ENTER |
+| :---- | :---- |
+| **Left hand side** | <code> x&lt;CR&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Hide |
+| :---- | :---- |
+| **Left hand side** | <code> xH</code> |
+| **Right hand side** | |
+
+| **Description** | Send File |
+| :---- | :---- |
+| **Left hand side** | <code> xf</code> |
+| **Right hand side** | |
+
+| **Description** | Send Until Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> xt</code> |
+| **Right hand side** | |
+
+| **Description** | Send Line |
+| :---- | :---- |
+| **Left hand side** | <code> xl</code> |
+| **Right hand side** | |
+
+| **Description** | Node Action |
+| :---- | :---- |
+| **Left hand side** | <code> ln</code> |
+| **Right hand side** | |
+
+| **Description** | Docker |
+| :---- | :---- |
+| **Left hand side** | <code> fd</code> |
+| **Right hand side** | |
+
+| **Description** | Command Palette |
+| :---- | :---- |
+| **Left hand side** | <code> hc</code> |
+| **Right hand side** | |
+
+| **Description** | Select VirtualEnv |
+| :---- | :---- |
+| **Left hand side** | <code> lv</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal #2 |
+| :---- | :---- |
+| **Left hand side** | <code> 0</code> |
+| **Right hand side** | |
+
+| **Description** | File 1 |
+| :---- | :---- |
+| **Left hand side** | <code> 1</code> |
+| **Right hand side** | |
+
+| **Description** | Command Menu |
+| :---- | :---- |
+| **Left hand side** | <code> jc</code> |
+| **Right hand side** | |
+
+| **Description** | File Menu |
+| :---- | :---- |
+| **Left hand side** | <code> jm</code> |
+| **Right hand side** | |
+
+| **Description** | Add File |
+| :---- | :---- |
+| **Left hand side** | <code> ja</code> |
+| **Right hand side** | |
+
+| **Description** | Command 2 |
+| :---- | :---- |
+| **Left hand side** | <code> 6</code> |
+| **Right hand side** | |
+
+| **Description** | Command 1 |
+| :---- | :---- |
+| **Left hand side** | <code> 5</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal 2 |
+| :---- | :---- |
+| **Left hand side** | <code> 4</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal 1 |
+| :---- | :---- |
+| **Left hand side** | <code> 3</code> |
+| **Right hand side** | |
+
+| **Description** | File 2 |
+| :---- | :---- |
+| **Left hand side** | <code> 2</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme |
+| :---- | :---- |
+| **Left hand side** | <code> zc</code> |
+| **Right hand side** | |
+
+| **Description** | Code Outline |
+| :---- | :---- |
+| **Left hand side** | <code> vo</code> |
+| **Right hand side** | |
+
+| **Description** | Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> sb</code> |
+| **Right hand side** | |
+
+| **Description** | Snippets |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (Cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sW</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (Root Dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | List |
+| :---- | :---- |
+| **Left hand side** | <code> pp</code> |
+| **Right hand side** | |
+
+| **Description** | Search |
+| :---- | :---- |
+| **Left hand side** | <code> hs</code> |
+| **Right hand side** | |
+
+| **Description** | Search |
+| :---- | :---- |
+| **Left hand side** | <code> ps</code> |
+| **Right hand side** | |
+
+| **Description** | Search Plugins |
+| :---- | :---- |
+| **Left hand side** | <code> zs</code> |
+| **Right hand side** | |
+
+| **Description** | Conventional Commits |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | |
+
+| **Description** | Browser |
+| :---- | :---- |
+| **Left hand side** | <code> fr</code> |
+| **Right hand side** | |
+
+| **Description** | Change WorkDir |
+| :---- | :---- |
+| **Left hand side** | <code> fc</code> |
+| **Right hand side** | |
+
+| **Description** | Buffers |
+| :---- | :---- |
+| **Left hand side** | <code> fb</code> |
+| **Right hand side** | |
+
+| **Description** | Recent |
+| :---- | :---- |
+| **Left hand side** | <code> fo</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (Cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fF</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (Root Dir) |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | |
+
+| **Description** | Restore Session |
+| :---- | :---- |
+| **Left hand side** | <code> qs</code> |
+| **Right hand side** | |
+
+| **Description** | Don't Save Current Session |
+| :---- | :---- |
+| **Left hand side** | <code> qd</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Last Session |
+| :---- | :---- |
+| **Left hand side** | <code> ql</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Zoom |
+| :---- | :---- |
+| **Left hand side** | <code> vz</code> |
+| **Right hand side** | |
+
+| **Description** | Close Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bc</code> |
+| **Right hand side** | |
+
+| **Description** | Reload Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> br</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer (Force) |
+| :---- | :---- |
+| **Left hand side** | <code> bD</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bd</code> |
+| **Right hand side** | |
+
+| **Description** | Mason |
+| :---- | :---- |
+| **Left hand side** | <code> lm</code> |
+| **Right hand side** | |
+
+| **Description** | Forward jump |
+| :---- | :---- |
+| **Left hand side** | <code> nj</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Preview |
+| :---- | :---- |
+| **Left hand side** | <code> nt</code> |
+| **Right hand side** | |
+
+| **Description** | Close Preview |
+| :---- | :---- |
+| **Left hand side** | <code> nc</code> |
+| **Right hand side** | |
+
+| **Description** | Preview |
+| :---- | :---- |
+| **Left hand side** | <code> np</code> |
+| **Right hand side** | |
+
+| **Description** | Code Outline (navbuddy) |
+| :---- | :---- |
+| **Left hand side** | <code> vO</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle |
+| :---- | :---- |
+| **Left hand side** | <code> tot</code> |
+| **Right hand side** | |
+
+| **Description** | Save Bundle |
+| :---- | :---- |
+| **Left hand side** | <code> tos</code> |
+| **Right hand side** | |
+
+| **Description** | Run |
+| :---- | :---- |
+| **Left hand side** | <code> tor</code> |
+| **Right hand side** | |
+
+| **Description** | Quick Action |
+| :---- | :---- |
+| **Left hand side** | <code> toq</code> |
+| **Right hand side** | |
+
+| **Description** | Open |
+| :---- | :---- |
+| **Left hand side** | <code> too</code> |
+| **Right hand side** | |
+
+| **Description** | Load Bundle |
+| :---- | :---- |
+| **Left hand side** | <code> tol</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Bundle |
+| :---- | :---- |
+| **Left hand side** | <code> tod</code> |
+| **Right hand side** | |
+
+| **Description** | Close |
+| :---- | :---- |
+| **Left hand side** | <code> toc</code> |
+| **Right hand side** | |
+
+| **Description** | Build |
+| :---- | :---- |
+| **Left hand side** | <code> tob</code> |
+| **Right hand side** | |
+
+| **Description** | Task Action |
+| :---- | :---- |
+| **Left hand side** | <code> toa</code> |
+| **Right hand side** | |
+
+| **Description** | Run Command |
+| :---- | :---- |
+| **Left hand side** | <code> toR</code> |
+| **Right hand side** | |
+
+| **Description** | Notation |
+| :---- | :---- |
+| **Left hand side** | <code> nn</code> |
+| **Right hand side** | |
+
+| **Description** | Last |
+| :---- | :---- |
+| **Left hand side** | <code> tl</code> |
+| **Right hand side** | |
+
+| **Description** | File |
+| :---- | :---- |
+| **Left hand side** | <code> tf</code> |
+| **Right hand side** | |
+
+| **Description** | Class |
+| :---- | :---- |
+| **Left hand side** | <code> tc</code> |
+| **Right hand side** | |
+
+| **Description** | Visit |
+| :---- | :---- |
+| **Left hand side** | <code> tv</code> |
+| **Right hand side** | |
+
+| **Description** | Suite |
+| :---- | :---- |
+| **Left hand side** | <code> ts</code> |
+| **Right hand side** | |
+
+| **Description** | Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> tn</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Minimap |
+| :---- | :---- |
+| **Left hand side** | <code> vm</code> |
+| **Right hand side** | |
+
+| **Description** | Open Yank History |
+| :---- | :---- |
+| **Left hand side** | <code> zp</code> |
+| **Right hand side** | |
+
+| **Description** | Search and Replace (Spectre) |
+| :---- | :---- |
+| **Left hand side** | <code> sr</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> </code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | |
+
+| **Description** | Put before and indent left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;P</code> |
+| **Right hand side** | |
+
+| **Description** | Put and indent left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;p</code> |
+| **Right hand side** | |
+
+| **Description** | Put after applying a filter |
+| :---- | :---- |
+| **Left hand side** | <code>=p</code> |
+| **Right hand side** | |
+
+| **Description** | Put before applying a filter |
+| :---- | :---- |
+| **Left hand side** | <code>=P</code> |
+| **Right hand side** | |
+
+| **Description** | Put and indent right |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;p</code> |
+| **Right hand side** | |
+
+| **Description** | Put before and indent right |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;P</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>N</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text before cursor |
+| :---- | :---- |
+| **Left hand side** | <code>P</code> |
+| **Right hand side** | |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | Previous ToDo |
+| :---- | :---- |
+| **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented before cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>[p</code> |
+| **Right hand side** | |
+
+| **Description** | Cycle forward through yank history |
+| :---- | :---- |
+| **Left hand side** | <code>[y</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented before cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>[P</code> |
+| **Right hand side** | |
+
+| **Description** | Next ToDo |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented after cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>]p</code> |
+| **Right hand side** | |
+
+| **Description** | Cycle backward through yank history |
+| :---- | :---- |
+| **Left hand side** | <code>]y</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented after cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>]P</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;Plug&gt;(dial-decrement)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;Plug&gt;(dial-increment)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gnormal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gnormal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g*</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g#</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text before selection |
+| :---- | :---- |
+| **Left hand side** | <code>gP</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text after selection |
+| :---- | :---- |
+| **Left hand side** | <code>gp</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>n</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text after cursor |
+| :---- | :---- |
+| **Left hand side** | <code>p</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+
+| **Description** | Yank text |
+| :---- | :---- |
+| **Left hand side** | <code>y</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zO</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>za</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zA</code> |
+| **Right hand side** | |
+
+| **Description** | Open Folds Except Kinds |
+| :---- | :---- |
+| **Left hand side** | <code>zr</code> |
+| **Right hand side** | |
+
+| **Description** | Open All Folds |
+| :---- | :---- |
+| **Left hand side** | <code>zR</code> |
+| **Right hand side** | |
+
+| **Description** | Close All Folds |
+| :---- | :---- |
+| **Left hand side** | <code>zM</code> |
+| **Right hand side** | |
+
+| **Description** | Close Folds With |
+| :---- | :---- |
+| **Left hand side** | <code>zm</code> |
+| **Right hand side** | |
+
+| **Description** | Peek Fold |
+| :---- | :---- |
+| **Left hand side** | <code>zp</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zo</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zC</code> |
+| **Right hand side** | |
+
+| **Description** | Decrement |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-X&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | Increment |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-A&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(dial-decrement)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(dial-increment)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
+
+| **Description** | Scroll backward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll forward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Previous Cell |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Next Cell |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Cell |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-x&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Execute Cell |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-e&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Legendary |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S-P&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Extract Function to File |
+| :---- | :---- |
+| **Left hand side** | <code> rF</code> |
+| **Right hand side** | |
+
+| **Description** | Extract Function |
+| :---- | :---- |
+| **Left hand side** | <code> rf</code> |
+| **Right hand side** | |
+
+| **Description** | Inline Variable |
+| :---- | :---- |
+| **Left hand side** | <code> ri</code> |
+| **Right hand side** | |
+
+| **Description** | Refactor |
+| :---- | :---- |
+| **Left hand side** | <code> rs</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Print Variable |
+| :---- | :---- |
+| **Left hand side** | <code> rp</code> |
+| **Right hand side** | |
+
+| **Description** | Extract Variable |
+| :---- | :---- |
+| **Left hand side** | <code> rx</code> |
+| **Right hand side** | |
+
+| **Description** | Evaluate |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Edit with Instructions |
+| :---- | :---- |
+| **Left hand side** | <code> ae</code> |
+| **Right hand side** | |
+
+| **Description** | Complete Code |
+| :---- | :---- |
+| **Left hand side** | <code> ac</code> |
+| **Right hand side** | |
+
+| **Description** | Search and Replace (SSR) |
+| :---- | :---- |
+| **Left hand side** | <code> sR</code> |
+| **Right hand side** | |
+
+| **Description** | Mark Visual |
+| :---- | :---- |
+| **Left hand side** | <code> xmv</code> |
+| **Right hand side** | |
+
+| **Description** | Clear Highlight |
+| :---- | :---- |
+| **Left hand side** | <code> xL</code> |
+| **Right hand side** | |
+
+| **Description** | Send |
+| :---- | :---- |
+| **Left hand side** | <code> xs</code> |
+| **Right hand side** | |
+
+| **Description** | +Mark |
+| :---- | :---- |
+| **Left hand side** | <code> xm</code> |
+| **Right hand side** | |
+
+| **Description** | +REPL |
+| :---- | :---- |
+| **Left hand side** | <code> x</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> </code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Put yanked text before cursor |
+| :---- | :---- |
+| **Left hand side** | <code>P</code> |
+| **Right hand side** | |
+
+| **Description** | Treesitter Search |
+| :---- | :---- |
+| **Left hand side** | <code>R</code> |
+| **Right hand side** | |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | Decrement |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-X&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@</code> |
+
+| **Description** | Increment |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-A&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;Plug&gt;(dial-decrement)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_gvisual"&lt;CR&gt;g@gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;Plug&gt;(dial-increment)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_gvisual"&lt;CR&gt;g@gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text before selection |
+| :---- | :---- |
+| **Left hand side** | <code>gP</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text after selection |
+| :---- | :---- |
+| **Left hand side** | <code>gp</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text after cursor |
+| :---- | :---- |
+| **Left hand side** | <code>p</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+
+| **Description** | Yank text |
+| :---- | :---- |
+| **Left hand side** | <code>y</code> |
+| **Right hand side** | |
+
+| **Description** | Decrement |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-X&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@</code> |
+
+| **Description** | Increment |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-A&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(dial-decrement)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(dial-increment)</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@gv</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | Treesitter Search |
+| :---- | :---- |
+| **Left hand side** | <code>R</code> |
+| **Right hand side** | |
+
+| **Description** | Flash Treesitter |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | |
+
+| **Description** | Remote Flash |
+| :---- | :---- |
+| **Left hand side** | <code>r</code> |
+| **Right hand side** | |
+
+| **Description** | Flash |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | |
+

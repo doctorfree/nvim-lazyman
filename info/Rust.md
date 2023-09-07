@@ -1,4 +1,4 @@
-## Rust Neovim Configuration Information
+# Rust Neovim Configuration Information
 
 'NvChad' based Neovim config with Rust formatting, debugging, and diagnostics. Dreams of Code [video tutorial](https://youtu.be/mh_EJhH49Ms)
 
@@ -8,19 +8,23 @@
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Rust`**
 
-### Git repository
+## Git repository
 
 [https://github.com/dreamsofcode-io/neovim-rust](https://github.com/dreamsofcode-io/neovim-rust)
 
-### Website
+## Website
 
 [https://nvchad.com](https://nvchad.com)
 
-### YouTube channel
+## YouTube channel
 
 [https://www.youtube.com/@dreamsofcode](https://www.youtube.com/@dreamsofcode)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -53,40 +57,118 @@
 - [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
-### Rust Keymaps
+## Rust Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> </code> |  |
-|  | <code>"</code> |  |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-|  | <code>'</code> |  |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>`</code> |  |
-|  | <code>c</code> |  |
-| Comment toggle current block | <code>gbc</code> |  |
-| Comment toggle current line | <code>gcc</code> |  |
-| Comment toggle blockwise | <code>gb</code> |  |
-| Comment toggle linewise | <code>gc</code> |  |
-|  | <code>g</code> |  |
-|  | <code>v</code> |  |
-|  | <code>&lt;C-R&gt;</code> |  |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> </code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>"</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>gc</code> |  |
-| Comment toggle blockwise (visual) | <code>gb</code> |  |
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>'</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Comment toggle linewise | <code>gc</code> |  |
-| Comment toggle blockwise | <code>gb</code> |  |
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>`</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>c</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>v</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-R&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+
+
+### Operator mode keymaps
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | |
+

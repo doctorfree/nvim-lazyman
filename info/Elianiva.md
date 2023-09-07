@@ -1,4 +1,4 @@
-## Elianiva Neovim Configuration Information
+# Elianiva Neovim Configuration Information
 
 Personal Neovim configuration of Dicha Zelianivan Arkana
 
@@ -8,11 +8,15 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Elianiva`**
 
-### Git repository
+## Git repository
 
 [https://github.com/elianiva/dotfiles](https://github.com/elianiva/dotfiles)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
@@ -51,219 +55,1013 @@ Personal Neovim configuration of Dicha Zelianivan Arkana
 - [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip)
 - [Mofiqul/vscode.nvim](https://github.com/Mofiqul/vscode.nvim.git)
 
-### Elianiva Keymaps
+## Elianiva Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> gy</code> | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('n')&lt;CR&gt;</code> |
-|  | <code> w</code> |  |
-|  | <code> c</code> |  |
-|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Keeps jumplist after forward searching | <code>/</code> | <code>ms/</code> |
-| Keeps jumplist after backward searching | <code>?</code> | <code>ms?</code> |
-| Better backward N behaviour | <code>N</code> | <code>"nN"[v:searchforward]</code> |
-| Remove annoying exmode | <code>Q</code> | <code></code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-| Open scratch buffer | <code>\v</code> |  |
-| Toggle search highlight | <code>\n</code> | <code>&lt;Cmd&gt;nohl&lt;CR&gt;</code> |
-| Run file using Deno | <code>\rd</code> | <code>&lt;Cmd&gt;!NO_COLOR=true deno run %&lt;CR&gt;</code> |
-| Run file using Node | <code>\rn</code> | <code>&lt;Cmd&gt;!node %&lt;CR&gt;</code> |
-| Run Lua file | <code>\rl</code> | <code>&lt;Cmd&gt;luafile %&lt;CR&gt;</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
-|  | <code>gS</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;9_Mapping(g:splitjoin_split_mapping, "sj#Split")&lt;CR&gt;</code> |
-|  | <code>gJ</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;9_Mapping(g:splitjoin_join_mapping, "sj#Join")&lt;CR&gt;</code> |
-| Move down by visual line on wrapped lines | <code>j</code> | <code>gj</code> |
-| Move up by visual line on wrapped lines | <code>k</code> | <code>gk</code> |
-| Better forward N behaviour | <code>n</code> | <code>"Nn"[v:searchforward]</code> |
-| Remove annoying exmode | <code>q:</code> | <code></code> |
-|  | <code>srb</code> | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> |
-|  | <code>sr</code> | <code>&lt;Plug&gt;(sandwich-replace)</code> |
-|  | <code>sdb</code> | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> |
-|  | <code>sd</code> | <code>&lt;Plug&gt;(sandwich-delete)</code> |
-|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;M-k&gt;</code> | <code>&lt;Cmd&gt;Sayonara&lt;CR&gt;</code> |
-|  | <code>&lt;M-j&gt;</code> | <code>&lt;Cmd&gt;Sayonara!&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('n', 'a', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('n', 'i', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('n', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('n', 'i')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('n', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('n', 'i')</code> |
-|  | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-gv)</code> | <code>gv</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-dot)</code> | <code>operator#sandwich#dot()</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-predot)</code> | <code>operator#sandwich#predot()</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> | <code>:&lt;C-U&gt;call operator#sandwich#query1st('replace', 'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> | <code>:&lt;C-U&gt;call operator#sandwich#query1st('add', 'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('replace', 'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('delete', 'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('add', 'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignOperator)</code> | <code>:set opfunc=&lt;SNR&gt;27_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:call &lt;SNR&gt;27_easy_align_repeat()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;27_live_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;27_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;2-LeftMouse&gt;</code> | <code>&lt;Plug&gt;(matchup-double-click)</code> |
-|  | <code>&lt;Plug&gt;(matchup-reload)</code> | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-double-click)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;SNR&gt;21_(wise)</code> | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
-|  | <code>&lt;Plug&gt;(matchup-hi-surround)</code> | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SplitjoinJoin</code> | <code>:&lt;C-U&gt;call sj#Join()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;SplitjoinSplit</code> | <code>:&lt;C-U&gt;call sj#Split()&lt;CR&gt;</code> |
-| Toggle whitespace stripping | <code>&lt;F2&gt;</code> |  |
-| Go to next buffer | <code>&lt;M-l&gt;</code> | <code>&lt;Cmd&gt;bn&lt;CR&gt;</code> |
-| Go to previous buffer | <code>&lt;M-h&gt;</code> | <code>&lt;Cmd&gt;bp&lt;CR&gt;</code> |
-| Resize buffer to the bottom | <code>&lt;Down&gt;</code> | <code>:resize -2&lt;CR&gt;</code> |
-| Resize buffer to the top | <code>&lt;Up&gt;</code> | <code>:resize +2&lt;CR&gt;</code> |
-| Resize buffer to the right | <code>&lt;Right&gt;</code> | <code>:vertical resize -2&lt;CR&gt;</code> |
-| Resize buffer to the left | <code>&lt;Left&gt;</code> | <code>:vertical resize +2&lt;CR&gt;</code> |
-| Go to the top window | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;&lt;C-K&gt;</code> |
-| Go to the bottom window | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;&lt;NL&gt;</code> |
-| Go to the left window | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;&lt;C-H&gt;</code> |
-| Toggle NeoTree | <code>&lt;C-N&gt;</code> | <code>&lt;Cmd&gt;NeoTreeRevealToggle&lt;CR&gt;</code> |
-| Go to the right window | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;&lt;C-L&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> gy</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('n')&lt;CR&gt;</code> |
 
-#### visual mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> gy</code> | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('v')&lt;CR&gt;</code> |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Dedent current selection | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-| Indent current selection | <code>&gt;</code> | <code>&gt;gv</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-|  | <code>as</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
-|  | <code>ab</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
-|  | <code>ga</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
-|  | <code>is</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
-|  | <code>ib</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
-|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
-|  | <code>sr</code> | <code>&lt;Plug&gt;(sandwich-replace)</code> |
-|  | <code>sd</code> | <code>&lt;Plug&gt;(sandwich-delete)</code> |
-|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('x', 'a', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('x', 'i', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('x', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('x', 'i')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('x', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('x', 'i')</code> |
-|  | <code>&lt;Plug&gt;(sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
-|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> | <code>&lt;Esc&gt;:call operator#sandwich#query1st('replace', 'x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> | <code>&lt;Esc&gt;:call operator#sandwich#query1st('add', 'x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('replace', 'x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('delete', 'x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('add', 'x')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;19_repeat_in_visual()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;19_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;19_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>&lt;SNR&gt;15_(matchup-Z%)</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>&lt;SNR&gt;15_(matchup-z%)</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>&lt;SNR&gt;15_(matchup-[%)</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>&lt;SNR&gt;15_(matchup-]%)</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>&lt;SNR&gt;15_(matchup-g%)</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>&lt;SNR&gt;15_(matchup-%)</code> |
-|  | <code>&lt;SNR&gt;15_(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
-| Yank selection to clipboard | <code>&lt;M-y&gt;</code> | <code>"+y</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> c</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
-|  | <code>as</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
-|  | <code>ab</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
-|  | <code>g%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
-|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
-|  | <code>is</code> | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
-|  | <code>ib</code> | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
-|  | <code>sa</code> | <code>&lt;Plug&gt;(sandwich-add)</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> | <code>textobj#sandwich#query('o', 'a', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> | <code>textobj#sandwich#query('o', 'i', {}, [])</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> | <code>textobj#sandwich#query('o', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> | <code>textobj#sandwich#query('o', 'i')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> | <code>textobj#sandwich#auto('o', 'a')</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> | <code>textobj#sandwich#auto('o', 'i')</code> |
-|  | <code>&lt;Plug&gt;(sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> | <code>g@</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-squash-count)</code> | <code>operator#sandwich#squash_count()</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-release-count)</code> | <code>operator#sandwich#release_count()</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-synchro-count)</code> | <code>operator#sandwich#synchro_count()</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
-|  | <code>&lt;Plug&gt;(operator-sandwich-add)</code> | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Keeps jumplist after forward searching |
+| :---- | :---- |
+| **Left hand side** | <code>/</code> |
+| **Right hand side** | <code>ms/</code> |
+
+| **Description** | Keeps jumplist after backward searching |
+| :---- | :---- |
+| **Left hand side** | <code>?</code> |
+| **Right hand side** | <code>ms?</code> |
+
+| **Description** | Better backward N behaviour |
+| :---- | :---- |
+| **Left hand side** | <code>N</code> |
+| **Right hand side** | <code>"nN"[v:searchforward]</code> |
+
+| **Description** | Remove annoying exmode |
+| :---- | :---- |
+| **Left hand side** | <code>Q</code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | Open scratch buffer |
+| :---- | :---- |
+| **Left hand side** | <code>\v</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle search highlight |
+| :---- | :---- |
+| **Left hand side** | <code>\n</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohl&lt;CR&gt;</code> |
+
+| **Description** | Run file using Deno |
+| :---- | :---- |
+| **Left hand side** | <code>\rd</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;!NO_COLOR=true deno run %&lt;CR&gt;</code> |
+
+| **Description** | Run file using Node |
+| :---- | :---- |
+| **Left hand side** | <code>\rn</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;!node %&lt;CR&gt;</code> |
+
+| **Description** | Run Lua file |
+| :---- | :---- |
+| **Left hand side** | <code>\rl</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;luafile %&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;18_Mapping(g:splitjoin_split_mapping, "sj#Split")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gJ</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;18_Mapping(g:splitjoin_join_mapping, "sj#Join")&lt;CR&gt;</code> |
+
+| **Description** | Move down by visual line on wrapped lines |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | <code>gj</code> |
+
+| **Description** | Move up by visual line on wrapped lines |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | <code>gk</code> |
+
+| **Description** | Better forward N behaviour |
+| :---- | :---- |
+| **Left hand side** | <code>n</code> |
+| **Right hand side** | <code>"Nn"[v:searchforward]</code> |
+
+| **Description** | Remove annoying exmode |
+| :---- | :---- |
+| **Left hand side** | <code>q:</code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>srb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sr</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sdb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sd</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Sayonara&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Sayonara!&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;2-LeftMouse&gt;</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-reload)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;26_(wise)</code> |
+| **Right hand side** | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-hi-surround)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SplitjoinJoin</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sj#Join()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SplitjoinSplit</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sj#Split()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignOperator)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;17_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:call &lt;SNR&gt;17_easy_align_repeat()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;17_live_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;17_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('n', 'a', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('n', 'i', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('n', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('n', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('n', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('n', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-replace-auto)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-delete-auto)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)&lt;Plug&gt;(operator-sandwich-release-count)&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-gv)</code> |
+| **Right hand side** | <code>gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+| **Right hand side** | <code>g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-dot)</code> |
+| **Right hand side** | <code>operator#sandwich#dot()</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-predot)</code> |
+| **Right hand side** | <code>operator#sandwich#predot()</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#query1st('replace', 'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#query1st('add', 'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('replace', 'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('delete', 'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#prerequisite('add', 'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | Toggle whitespace stripping |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F2&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Go to next buffer |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bn&lt;CR&gt;</code> |
+
+| **Description** | Go to previous buffer |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bp&lt;CR&gt;</code> |
+
+| **Description** | Resize buffer to the bottom |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Down&gt;</code> |
+| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
+
+| **Description** | Resize buffer to the top |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Up&gt;</code> |
+| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
+
+| **Description** | Resize buffer to the right |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Right&gt;</code> |
+| **Right hand side** | <code>:vertical resize -2&lt;CR&gt;</code> |
+
+| **Description** | Resize buffer to the left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Left&gt;</code> |
+| **Right hand side** | <code>:vertical resize +2&lt;CR&gt;</code> |
+
+| **Description** | Go to the top window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;&lt;C-K&gt;</code> |
+
+| **Description** | Go to the bottom window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;&lt;NL&gt;</code> |
+
+| **Description** | Go to the left window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;&lt;C-H&gt;</code> |
+
+| **Description** | Toggle NeoTree |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-N&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;NeoTreeRevealToggle&lt;CR&gt;</code> |
+
+| **Description** | Go to the right window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;&lt;C-L&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> gy</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'gitlinker'.get_buf_range_url('v')&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Dedent current selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | Indent current selection |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>as</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ab</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ga</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>is</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ib</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sr</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sd</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-Z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;27_(matchup-%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;27_(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('x', 'a', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('x', 'i', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('x', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('x', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('x', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('x', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-replace)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-delete)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+| **Right hand side** | <code>g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-query1st)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call operator#sandwich#query1st('replace', 'x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-query1st)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call operator#sandwich#query1st('add', 'x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('replace', 'x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('delete', 'x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-pre)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call operator#sandwich#prerequisite('add', 'x')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&gt;(operator-sandwich-gv)&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;9_repeat_in_visual()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;9_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;9_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+
+| **Description** | Yank selection to clipboard |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-y&gt;</code> |
+| **Right hand side** | <code>"+y</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>as</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ab</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>is</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ib</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('o', 'a', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-literal-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('o', 'i', {}, [])</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('o', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-query-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#query('o', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('o', 'a')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code> |
+| **Right hand side** | <code>textobj#sandwich#auto('o', 'i')</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tag-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#at()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tag-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#it()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tagname-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#a()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-tagname-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#t#i()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-a)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#a('o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-ap)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ap('o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-i)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#i('o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(textobj-sandwich-function-ip)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call sandwich#magicchar#f#ip('o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+| **Right hand side** | <code>g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('replace')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('delete')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add-visualrepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call operator#sandwich#visualrepeat('add')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-squash-count)</code> |
+| **Right hand side** | <code>operator#sandwich#squash_count()</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-release-count)</code> |
+| **Right hand side** | <code>operator#sandwich#release_count()</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-synchro-count)</code> |
+| **Right hand side** | <code>operator#sandwich#synchro_count()</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-replace)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-delete)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(operator-sandwich-add)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(operator-sandwich-g@)</code> |
+

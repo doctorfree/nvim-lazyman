@@ -55,7 +55,7 @@ get_plugins() {
       Lazy)
         if [ -f "${confdir}/lazy-lock.json" ]
         then
-          echo "### Lazy managed plugins" >> "${outfile}"
+          echo "## Lazy managed plugins" >> "${outfile}"
           echo "" >> "${outfile}"
           grep ':' "${confdir}/lazy-lock.json" | awk -F ':' ' { print $1 } ' | \
           sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
@@ -87,7 +87,7 @@ get_plugins() {
             fi
           done
         else
-          echo "### Lazy managed plugins" >> "${outfile}"
+          echo "## Lazy managed plugins" >> "${outfile}"
           echo "" >> "${outfile}"
           for gitconf in ${HOME}/.local/share/${nvimdir}/lazy/*/.git/config \
                          ${HOME}/.local/share/${nvimdir}/site/pack/lazy/opt/*/.git/config
@@ -104,7 +104,7 @@ get_plugins() {
         fi
         ;;
       Mini)
-        echo "### Mini.nvim managed plugins" >> "${outfile}"
+        echo "## Mini.nvim managed plugins" >> "${outfile}"
         echo "" >> "${outfile}"
         for gitconf in ${confdir}/.git/modules/*/config
         do
@@ -115,7 +115,7 @@ get_plugins() {
         done
         ;;
       Packer)
-        echo "### Packer managed plugins" >> "${outfile}"
+        echo "## Packer managed plugins" >> "${outfile}"
         echo "" >> "${outfile}"
         find "${confdir}" -name packer_compiled.lua -print0 | \
         xargs -0 grep url | grep = | awk -F '=' ' { print $2 } ' | \
@@ -127,7 +127,7 @@ get_plugins() {
         done
         ;;
       Plug)
-        echo "### Plug managed plugins" >> "${outfile}"
+        echo "## Plug managed plugins" >> "${outfile}"
         echo "" >> "${outfile}"
         for gitconf in ${HOME}/.local/share/${nvimdir}/plugged/*/.git/config
         do
@@ -138,7 +138,7 @@ get_plugins() {
         done
         ;;
       SP*)
-        echo "### SP (dein) managed plugins" >> "${outfile}"
+        echo "## SP (dein) managed plugins" >> "${outfile}"
         echo "" >> "${outfile}"
         for gitconf in ${HOME}/.cache/vimfiles/repos/*/*/*/.git/config
         do
@@ -149,7 +149,7 @@ get_plugins() {
         done
         ;;
       *)
-        echo "### Unsupported plugin manager" >> "${outfile}"
+        echo "## Unsupported plugin manager" >> "${outfile}"
         ;;
     esac
   }
@@ -1011,7 +1011,7 @@ make_info() {
       ;;
   esac
 
-  echo "## ${nvimconf} Neovim Configuration Information" > "${OUTF}"
+  echo "# ${nvimconf} Neovim Configuration Information" > "${OUTF}"
   echo "" >> "${OUTF}"
   [ "${C_DESC}" ] && {
     echo "${C_DESC}" >> "${OUTF}"
@@ -1079,35 +1079,39 @@ make_info() {
   echo "- Installation location:  **\`~/.config/nvim-${nvimconf}\`**" >> "${OUTF}"
   echo "" >> "${OUTF}"
   [ "${GH_URL}" ] && {
-    echo "### Git repository" >> "${OUTF}"
+    echo "## Git repository" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${GH_URL}](${GH_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
   [ "${NC_URL}" ] && {
-    echo "### Neovimcraft entry" >> "${OUTF}"
+    echo "## Neovimcraft entry" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${NC_URL}](${NC_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
   [ "${DF_URL}" ] && {
-    echo "### Dotfyle entry" >> "${OUTF}"
+    echo "## Dotfyle entry" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${DF_URL}](${DF_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
   [ "${WS_URL}" ] && {
-    echo "### Website" >> "${OUTF}"
+    echo "## Website" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${WS_URL}](${WS_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
   [ "${YT_URL}" ] && {
-    echo "### YouTube channel" >> "${OUTF}"
+    echo "## YouTube channel" >> "${OUTF}"
     echo "" >> "${OUTF}"
     echo "[${YT_URL}](${YT_URL})" >> "${OUTF}"
     echo "" >> "${OUTF}"
   }
+  echo "|  Jump  |   to   | Keymaps |" >> "${OUTF}"
+  echo "| :----: | :----: | :-----: |" >> "${OUTF}"
+  echo "| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |" >> "${OUTF}"
+  echo "" >> "${OUTF}"
   get_plugins "${nvimconf}" "${OUTF}" "${PL_MAN}"
   [ -x "${KEYMAP}" ] && {
     "${KEYMAP}" ${debug} "${nvimconf}" "${OUTF}"

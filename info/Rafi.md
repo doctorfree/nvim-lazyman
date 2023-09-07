@@ -1,4 +1,4 @@
-## Rafi Neovim Configuration Information
+# Rafi Neovim Configuration Information
 
 [Extensible](https://github.com/rafi/vim-config#extending) Neovim configuration
 
@@ -8,15 +8,19 @@
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Rafi`**
 
-### Git repository
+## Git repository
 
 [https://github.com/rafi/vim-config](https://github.com/rafi/vim-config)
 
-### Dotfyle entry
+## Dotfyle entry
 
 [https://dotfyle.com/rafi/vim-config](https://dotfyle.com/rafi/vim-config)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [b0o/SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim)
@@ -122,278 +126,1308 @@
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 - [mickael-menu/zk-nvim](https://github.com/mickael-menu/zk-nvim.git)
 
-### Rafi Keymaps
+## Rafi Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Toggle Fold | <code>&lt;CR&gt;</code> |  |
-| Clear Search Highlight | <code>&lt;Esc&gt;</code> | <code>&lt;Cmd&gt;noh&lt;CR&gt;</code> |
-| Open Location List | <code> a</code> |  |
-| Open Quickfix | <code> q</code> |  |
-| Dictionary | <code> ?</code> | <code>&lt;Cmd&gt;silent !open dict://&lt;lt&gt;cword&gt;&lt;CR&gt;</code> |
-| Terminal (cwd) | <code> tT</code> |  |
-| Terminal (root dir) | <code> tt</code> |  |
-| Lazygit (cwd) | <code> tG</code> |  |
-| Lazygit (root dir) | <code> tg</code> |  |
-| Append Modeline | <code> ml</code> |  |
-| Show Treesitter Node | <code> ui</code> |  |
-| Toggle Wrap | <code> uw</code> |  |
-| Hide Search Highlight | <code> uu</code> | <code>&lt;Cmd&gt;nohlsearch&lt;CR&gt;</code> |
-| Toggle Whitespace Symbols | <code> uo</code> | <code>&lt;Cmd&gt;setlocal nolist!&lt;CR&gt;</code> |
-| Toggle Line Numbers | <code> ul</code> | <code>&lt;Cmd&gt;setlocal nonumber!&lt;CR&gt;</code> |
-| Toggle Spellcheck | <code> us</code> | <code>&lt;Cmd&gt;setlocal spell!&lt;CR&gt;</code> |
-| Toggle format on Save | <code> uf</code> |  |
-| Save | <code> w</code> | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
-| Change Local Directory | <code> cd</code> |  |
-| Redraw / clear hlsearch / diff update | <code> ur</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
-| Erase Whitespace | <code> cw</code> | <code>&lt;Cmd&gt;lua MiniTrailspace.trim()&lt;CR&gt;</code> |
-| Duplicate line | <code> d</code> | <code>m`""Y""P``</code> |
-| Move line down | <code> j</code> | <code>&lt;Cmd&gt;move+&lt;CR&gt;==</code> |
-| Move line up | <code> k</code> | <code>&lt;Cmd&gt;move-2&lt;CR&gt;==</code> |
-| Yank absolute path | <code> Y</code> |  |
-| Yank relative path | <code> y</code> |  |
-| Visual Mode | <code>  </code> | <code>V</code> |
-| Open Lazy UI | <code> l</code> | <code>&lt;Cmd&gt;Lazy&lt;CR&gt;</code> |
-| Execute HTTP request | <code> mh</code> |  |
-| Zen Mode | <code> zz</code> |  |
-| Undo Tree | <code> gu</code> |  |
-| Symbols Outline | <code> o</code> |  |
-| Line diff reset | <code> mdr</code> |  |
-| Line diff show | <code> mds</code> |  |
-| Document Diagnostics | <code> e</code> |  |
-| Location List (Trouble) | <code> xL</code> |  |
-| Quickfix List (Trouble) | <code> xQ</code> |  |
-| Workspace Diagnostics (Trouble) | <code> xX</code> |  |
-| Document Diagnostics (Trouble) | <code> xx</code> |  |
-| Workspace Diagnostics | <code> r</code> |  |
-| Zk Tags | <code> zt</code> |  |
-| Zk Notes | <code> zo</code> |  |
-| Zk New | <code> zn</code> |  |
-| Zk Links | <code> zl</code> |  |
-| Zk Backlinks | <code> zb</code> |  |
-| Zk Search | <code> zf</code> |  |
-| Find symbol | <code> gt</code> |  |
-| Buffer find | <code> /</code> |  |
-| Git bcommits range | <code> gc</code> |  |
-| Find file | <code> gf</code> |  |
-| Grep cursor word | <code> gg</code> |  |
-| Git stashes | <code> gh</code> |  |
-| Git buffer commits | <code> gL</code> |  |
-| Git commits | <code> gl</code> |  |
-| Git branches | <code> gr</code> |  |
-| Git status | <code> gs</code> |  |
-| Goto Symbol (Workspace) | <code> sS</code> |  |
-| Goto Symbol | <code> ss</code> |  |
-| Colorscheme | <code> uC</code> |  |
-| Colorscheme | <code> sc</code> |  |
-| Word | <code> sw</code> |  |
-| Man Pages | <code> sm</code> |  |
-| Key Maps | <code> sk</code> |  |
-| Help Pages | <code> sh</code> |  |
-| Workspace diagnostics | <code> sD</code> |  |
-| Document diagnostics | <code> sd</code> |  |
-| Neogit | <code> mg</code> |  |
-| Mason | <code> mm</code> |  |
-| Todo/Fix/Fixme | <code> sT</code> |  |
-| Todo | <code> st</code> |  |
-| Todo/Fix/Fixme (Trouble) | <code> xT</code> |  |
-| Todo (Trouble) | <code> xt</code> |  |
-| Duplicate Paragraph | <code> cp</code> | <code>yap&lt;S-}&gt;p</code> |
-| Diff View | <code> gv</code> |  |
-| Diff File | <code> gd</code> |  |
-| Dismiss all Notifications | <code> un</code> |  |
-| Toggle structure panel | <code> tf</code> |  |
-|  | <code> ue</code> |  |
-| Highlight word | <code> mt</code> |  |
-| Select VirtualEnv | <code> cv</code> |  |
-| Neogen Comment | <code> cc</code> |  |
-| Noice All | <code> sna</code> |  |
-| Noice History | <code> snh</code> |  |
-| Noice Last Message | <code> snl</code> |  |
-| Git open in browser | <code> go</code> |  |
-| Git messenger | <code> gm</code> |  |
-| Git blame (window) | <code> gB</code> |  |
-| Git blame | <code> gb</code> |  |
-|  | <code> v</code> |  |
-| Delete Buffer | <code> bd</code> |  |
-| Spectre | <code> sp</code> |  |
-| Execute Shell Command | <code>!</code> | <code>:!</code> |
-|  | <code>#</code> | <code>g#</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-|  | <code>*</code> | <code>g*</code> |
-| Pick window | <code>-</code> |  |
-| Content-aware menu | <code>;c</code> |  |
-| Zoxide (MRU) | <code>;z</code> |  |
-| Search history | <code>;/</code> |  |
-| Commands | <code>;:</code> |  |
-| Command history | <code>;;</code> |  |
-| Old files | <code>;x</code> |  |
-| Sessions | <code>;s</code> |  |
-| Spell suggest | <code>;u</code> |  |
-| Registers | <code>;v</code> |  |
-| Workspace symbols | <code>;t</code> |  |
-| Neovim options | <code>;o</code> |  |
-| Marks | <code>;m</code> |  |
-| Jump list | <code>;j</code> |  |
-| Highlights | <code>;h</code> |  |
-| Buffers | <code>;b</code> |  |
-| Grep | <code>;g</code> |  |
-| Find files | <code>;f</code> |  |
-| Pickers | <code>;R</code> |  |
-| Resume last | <code>;r</code> |  |
-| Zk notes | <code>;w</code> |  |
-| Thesaurus | <code>;k</code> |  |
-| Plugins | <code>;n</code> |  |
-| Code actions | <code>;da</code> |  |
-| References | <code>;dr</code> |  |
-| Implementations | <code>;di</code> |  |
-| Definitions | <code>;dd</code> |  |
-| todo | <code>;dt</code> |  |
-| Explorer NeoTree Toggle | <code>;e</code> |  |
-| Explorer NeoTree Reveal | <code>;a</code> |  |
-| F | <code>F</code> |  |
-| Leap from windows | <code>SS</code> |  |
-| T | <code>T</code> |  |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-| Previous Whitespace | <code>[s</code> |  |
-| Previous Loclist Item | <code>[a</code> | <code>&lt;Cmd&gt;lprev&lt;CR&gt;</code> |
-| Prev Reference | <code>[[</code> |  |
-| Previous trouble/quickfix item | <code>[q</code> |  |
-| Previous todo comment | <code>[t</code> |  |
-| Next Whitespace | <code>]s</code> |  |
-| Next Loclist Item | <code>]a</code> | <code>&lt;Cmd&gt;lnext&lt;CR&gt;</code> |
-| Next Reference | <code>]]</code> |  |
-| Next trouble/quickfix item | <code>]q</code> |  |
-| Next todo comment | <code>]t</code> |  |
-| Change Surrounding Function | <code>csf</code> |  |
-| Replace surrounding | <code>cs</code> |  |
-| Delete Surrounding Function | <code>dsf</code> |  |
-| Delete surrounding | <code>ds</code> |  |
-| f | <code>f</code> |  |
-| Jump to older buffer | <code>g&lt;C-O&gt;</code> |  |
-| Jump to newer buffer | <code>g&lt;C-I&gt;</code> |  |
-| Paste Command | <code>g!</code> | <code>:put=execute('')&lt;Left&gt;&lt;Left&gt;</code> |
-| Select Paste | <code>gpp</code> | <code>'`['.strpart(getregtype(), 0, 1).'`]'</code> |
-|  | <code>g#</code> | <code>#</code> |
-|  | <code>g*</code> | <code>*</code> |
-|  | <code>gl</code> | <code>g$</code> |
-|  | <code>gh</code> | <code>g^</code> |
-| Move to bottom edge | <code>gj</code> |  |
-| Move to top edge | <code>gk</code> |  |
-| Highlight surrounding | <code>gzh</code> |  |
-| Find right surrounding | <code>gzf</code> |  |
-| Update `MiniSurround.config.n_lines` | <code>gzn</code> |  |
-| Find left surrounding | <code>gzF</code> |  |
-|  | <code>gpr</code> |  |
-|  | <code>gpy</code> |  |
-|  | <code>gpd</code> |  |
-|  | <code>gpi</code> |  |
-|  | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
-|  | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
-| Marks from all opened buffers | <code>m/</code> |  |
-| Toggle background dark/light | <code>sh</code> |  |
-| Delete buffer and open new | <code>sx</code> |  |
-| Maximize | <code>sz</code> | <code>&lt;Cmd&gt;vertical resize &#124; resize | normal! ze&lt;CR&gt;</code> |
-| Quit | <code>sq</code> | <code>&lt;Cmd&gt;quit&lt;CR&gt;</code> |
-| Close other windows | <code>so</code> | <code>&lt;Cmd&gt;only&lt;CR&gt;</code> |
-| New tab | <code>st</code> | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
-| Split window vertically | <code>sg</code> | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
-| Split window horizontally | <code>sv</code> | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
-| Buffer delete | <code>sd</code> | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
-| Close window | <code>sc</code> | <code>&lt;Cmd&gt;close&lt;CR&gt;</code> |
-| Alternate buffer | <code>sb</code> | <code>&lt;Cmd&gt;buffer#&lt;CR&gt;</code> |
-| Leap backward to | <code>sS</code> |  |
-| Leap forward to | <code>ss</code> |  |
-| Pick window | <code>sp</code> |  |
-| Swap picked window | <code>sw</code> |  |
-| Add surrounding | <code>sa</code> |  |
-| Join arguments | <code>sj</code> |  |
-| Split arguments | <code>sk</code> |  |
-| t | <code>t</code> |  |
-|  | <code>zh</code> | <code>z4h</code> |
-|  | <code>zl</code> | <code>z4l</code> |
-| Swap windows | <code>&lt;C-X&gt;</code> | <code>&lt;C-W&gt;x</code> |
-| Tab Move Forwards | <code>&lt;M-}&gt;</code> | <code>&lt;Cmd&gt;+tabmove&lt;CR&gt;</code> |
-| Tab Move Backwards | <code>&lt;M-{&gt;</code> | <code>&lt;Cmd&gt;-tabmove&lt;CR&gt;</code> |
-| Previous Tab | <code>&lt;C-S-Tab&gt;</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
-| Next Tab | <code>&lt;C-Tab&gt;</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
-| Next Tab | <code>&lt;M-]&gt;</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
-| Previous Tab | <code>&lt;M-[&gt;</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
-| Previous Tab | <code>&lt;M-k&gt;</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
-| Next Tab | <code>&lt;M-j&gt;</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
-| Save | <code>&lt;C-S&gt;</code> | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
-| Jump to Paren | <code>&lt;BS&gt;</code> | <code>%</code> |
-| Macro Prefix | <code>&lt;C-Q&gt;</code> | <code>q</code> |
-| Focus Fold | <code>&lt;S-CR&gt;</code> | <code>zMzv</code> |
-| Jump to right pane | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;TmuxNavigateRight&lt;CR&gt;</code> |
-| Jump to lower pane | <code>&lt;C-J&gt;</code> | <code>&lt;Cmd&gt;TmuxNavigateDown&lt;CR&gt;</code> |
-| Jump to left pane | <code>&lt;C-H&gt;</code> | <code>&lt;Cmd&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
-| Jump to upper pane | <code>&lt;C-K&gt;</code> | <code>&lt;Cmd&gt;TmuxNavigateUp&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-| Toggle terminal | <code>&lt;C-_&gt;</code> |  |
-| Scroll backward | <code>&lt;C-B&gt;</code> |  |
-| Scroll forward | <code>&lt;C-F&gt;</code> |  |
+| **Description** | Toggle Fold |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;CR&gt;</code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | Clear Search Highlight |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Esc&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;noh&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Indent Left | <code>&lt;Tab&gt;</code> | <code>&gt;gv&#124;</code> |
-| Duplicate selection | <code> d</code> | <code>""Y""Pgv</code> |
-| Move selection down | <code> j</code> | <code>:move'&gt;+&lt;CR&gt;gv=gv</code> |
-| Move selection up | <code> k</code> | <code>:move'&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
-| Exit Visual Mode | <code>  </code> | <code>&lt;Esc&gt;</code> |
-| Git open in browser | <code> go</code> |  |
-| Line diff | <code> mdf</code> |  |
-| Line diff add | <code> mda</code> |  |
-| Highlight word | <code> mt</code> |  |
-| Zk Match | <code> zf</code> |  |
-|  | <code> v</code> |  |
-| Spectre Word | <code> sp</code> |  |
-| Git bcommits range | <code> gc</code> |  |
-| Grep cursor word | <code> gg</code> |  |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-| Code actions | <code>;da</code> |  |
-| Indent Right and Re-select | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-| Indent Left and Re-select | <code>&gt;</code> | <code>&gt;gv&#124;</code> |
-| Blockwise Append | <code>A</code> |  |
-| F | <code>F</code> |  |
-| Blockwise Insert | <code>I</code> |  |
-| Paste In-place | <code>P</code> | <code>P:let @+=@0&lt;CR&gt;:let @"=@0&lt;CR&gt;</code> |
-| Leap from windows | <code>SS</code> |  |
-| T | <code>T</code> |  |
-| Shrink selection | <code>V</code> |  |
-| f | <code>f</code> |  |
-| Move to bottom edge | <code>gj</code> |  |
-| Move to top edge | <code>gk</code> |  |
-| Blockwise Insert | <code>gI</code> |  |
-|  | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
-|  | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
-| Paste | <code>p</code> | <code>p:let @+=@0&lt;CR&gt;:let @"=@0&lt;CR&gt;</code> |
-| Substitute Within Selection | <code>sg</code> | <code>:s//gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
-| Add surrounding | <code>sa</code> |  |
-| Join arguments | <code>sj</code> |  |
-| Split arguments | <code>sk</code> |  |
-| Leap backward to | <code>sS</code> |  |
-| Leap forward to | <code>ss</code> |  |
-| t | <code>t</code> |  |
-| Increment selection | <code>v</code> |  |
-| Save | <code>&lt;C-S&gt;</code> | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
-| Replace Selection | <code>&lt;C-R&gt;</code> | <code>:&lt;C-U&gt;%s/\V&lt;C-R&gt;=v:lua.require'rafi.lib.edit'.get_visual_selection()&lt;CR&gt;//gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
-| Jump to Paren | <code>&lt;BS&gt;</code> | <code>%</code> |
-| Indent Right | <code>&lt;S-Tab&gt;</code> | <code>&lt;lt&gt;gv</code> |
+| **Description** | Open Location List |
+| :---- | :---- |
+| **Left hand side** | <code> a</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | Open Quickfix |
+| :---- | :---- |
+| **Left hand side** | <code> q</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| F | <code>F</code> |  |
-| Leap from windows | <code>SS</code> |  |
-| T | <code>T</code> |  |
-| f | <code>f</code> |  |
-| Leap backward to | <code>sS</code> |  |
-| Leap forward to | <code>ss</code> |  |
-| t | <code>t</code> |  |
+| **Description** | Dictionary |
+| :---- | :---- |
+| **Left hand side** | <code> ?</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;silent !open dict://&lt;lt&gt;cword&gt;&lt;CR&gt;</code> |
+
+| **Description** | Terminal (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> tT</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> tt</code> |
+| **Right hand side** | |
+
+| **Description** | Lazygit (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> tG</code> |
+| **Right hand side** | |
+
+| **Description** | Lazygit (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> tg</code> |
+| **Right hand side** | |
+
+| **Description** | Append Modeline |
+| :---- | :---- |
+| **Left hand side** | <code> ml</code> |
+| **Right hand side** | |
+
+| **Description** | Show Treesitter Node |
+| :---- | :---- |
+| **Left hand side** | <code> ui</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Wrap |
+| :---- | :---- |
+| **Left hand side** | <code> uw</code> |
+| **Right hand side** | |
+
+| **Description** | Hide Search Highlight |
+| :---- | :---- |
+| **Left hand side** | <code> uu</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&lt;CR&gt;</code> |
+
+| **Description** | Toggle Whitespace Symbols |
+| :---- | :---- |
+| **Left hand side** | <code> uo</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;setlocal nolist!&lt;CR&gt;</code> |
+
+| **Description** | Toggle Line Numbers |
+| :---- | :---- |
+| **Left hand side** | <code> ul</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;setlocal nonumber!&lt;CR&gt;</code> |
+
+| **Description** | Toggle Spellcheck |
+| :---- | :---- |
+| **Left hand side** | <code> us</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;setlocal spell!&lt;CR&gt;</code> |
+
+| **Description** | Toggle format on Save |
+| :---- | :---- |
+| **Left hand side** | <code> uf</code> |
+| **Right hand side** | |
+
+| **Description** | Save |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
+
+| **Description** | Change Local Directory |
+| :---- | :---- |
+| **Left hand side** | <code> cd</code> |
+| **Right hand side** | |
+
+| **Description** | Redraw / clear hlsearch / diff update |
+| :---- | :---- |
+| **Left hand side** | <code> ur</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+| **Description** | Erase Whitespace |
+| :---- | :---- |
+| **Left hand side** | <code> cw</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniTrailspace.trim()&lt;CR&gt;</code> |
+
+| **Description** | Duplicate line |
+| :---- | :---- |
+| **Left hand side** | <code> d</code> |
+| **Right hand side** | <code>m`""Y""P``</code> |
+
+| **Description** | Move line down |
+| :---- | :---- |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;move+&lt;CR&gt;==</code> |
+
+| **Description** | Move line up |
+| :---- | :---- |
+| **Left hand side** | <code> k</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;move-2&lt;CR&gt;==</code> |
+
+| **Description** | Yank absolute path |
+| :---- | :---- |
+| **Left hand side** | <code> Y</code> |
+| **Right hand side** | |
+
+| **Description** | Yank relative path |
+| :---- | :---- |
+| **Left hand side** | <code> y</code> |
+| **Right hand side** | |
+
+| **Description** | Visual Mode |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | <code>V</code> |
+
+| **Description** | Open Lazy UI |
+| :---- | :---- |
+| **Left hand side** | <code> l</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Lazy&lt;CR&gt;</code> |
+
+| **Description** | Git messenger |
+| :---- | :---- |
+| **Left hand side** | <code> gm</code> |
+| **Right hand side** | |
+
+| **Description** | Git blame |
+| :---- | :---- |
+| **Left hand side** | <code> gb</code> |
+| **Right hand side** | |
+
+| **Description** | Git blame (window) |
+| :---- | :---- |
+| **Left hand side** | <code> gB</code> |
+| **Right hand side** | |
+
+| **Description** | Spectre |
+| :---- | :---- |
+| **Left hand side** | <code> sp</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme |
+| :---- | :---- |
+| **Left hand side** | <code> uC</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme |
+| :---- | :---- |
+| **Left hand side** | <code> sc</code> |
+| **Right hand side** | |
+
+| **Description** | Word |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sm</code> |
+| **Right hand side** | |
+
+| **Description** | Find symbol |
+| :---- | :---- |
+| **Left hand side** | <code> gt</code> |
+| **Right hand side** | |
+
+| **Description** | Find file |
+| :---- | :---- |
+| **Left hand side** | <code> gf</code> |
+| **Right hand side** | |
+
+| **Description** | Grep cursor word |
+| :---- | :---- |
+| **Left hand side** | <code> gg</code> |
+| **Right hand side** | |
+
+| **Description** | Key Maps |
+| :---- | :---- |
+| **Left hand side** | <code> sk</code> |
+| **Right hand side** | |
+
+| **Description** | Help Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sh</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sD</code> |
+| **Right hand side** | |
+
+| **Description** | Document diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sd</code> |
+| **Right hand side** | |
+
+| **Description** | Buffer find |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | |
+
+| **Description** | Git bcommits range |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | |
+
+| **Description** | Git stashes |
+| :---- | :---- |
+| **Left hand side** | <code> gh</code> |
+| **Right hand side** | |
+
+| **Description** | Git buffer commits |
+| :---- | :---- |
+| **Left hand side** | <code> gL</code> |
+| **Right hand side** | |
+
+| **Description** | Git commits |
+| :---- | :---- |
+| **Left hand side** | <code> gl</code> |
+| **Right hand side** | |
+
+| **Description** | Git branches |
+| :---- | :---- |
+| **Left hand side** | <code> gr</code> |
+| **Right hand side** | |
+
+| **Description** | Git status |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Symbol (Workspace) |
+| :---- | :---- |
+| **Left hand side** | <code> sS</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Symbol |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Execute HTTP request |
+| :---- | :---- |
+| **Left hand side** | <code> mh</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> v</code> |
+| **Right hand side** | |
+
+| **Description** | Symbols Outline |
+| :---- | :---- |
+| **Left hand side** | <code> o</code> |
+| **Right hand side** | |
+
+| **Description** | Diff View |
+| :---- | :---- |
+| **Left hand side** | <code> gv</code> |
+| **Right hand side** | |
+
+| **Description** | Diff File |
+| :---- | :---- |
+| **Left hand side** | <code> gd</code> |
+| **Right hand side** | |
+
+| **Description** | Location List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xL</code> |
+| **Right hand side** | |
+
+| **Description** | Quickfix List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xQ</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xX</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xx</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> r</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
+
+| **Description** | Noice Last Message |
+| :---- | :---- |
+| **Left hand side** | <code> snl</code> |
+| **Right hand side** | |
+
+| **Description** | Noice All |
+| :---- | :---- |
+| **Left hand side** | <code> sna</code> |
+| **Right hand side** | |
+
+| **Description** | Noice History |
+| :---- | :---- |
+| **Left hand side** | <code> snh</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bd</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle structure panel |
+| :---- | :---- |
+| **Left hand side** | <code> tf</code> |
+| **Right hand side** | |
+
+| **Description** | Todo (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xt</code> |
+| **Right hand side** | |
+
+| **Description** | Todo |
+| :---- | :---- |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme |
+| :---- | :---- |
+| **Left hand side** | <code> sT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xT</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ue</code> |
+| **Right hand side** | |
+
+| **Description** | Duplicate Paragraph |
+| :---- | :---- |
+| **Left hand side** | <code> cp</code> |
+| **Right hand side** | <code>yap&lt;S-}&gt;p</code> |
+
+| **Description** | Highlight word |
+| :---- | :---- |
+| **Left hand side** | <code> mt</code> |
+| **Right hand side** | |
+
+| **Description** | Zen Mode |
+| :---- | :---- |
+| **Left hand side** | <code> zz</code> |
+| **Right hand side** | |
+
+| **Description** | Neogen Comment |
+| :---- | :---- |
+| **Left hand side** | <code> cc</code> |
+| **Right hand side** | |
+
+| **Description** | Zk Links |
+| :---- | :---- |
+| **Left hand side** | <code> zl</code> |
+| **Right hand side** | |
+
+| **Description** | Zk Backlinks |
+| :---- | :---- |
+| **Left hand side** | <code> zb</code> |
+| **Right hand side** | |
+
+| **Description** | Zk Search |
+| :---- | :---- |
+| **Left hand side** | <code> zf</code> |
+| **Right hand side** | |
+
+| **Description** | Zk Tags |
+| :---- | :---- |
+| **Left hand side** | <code> zt</code> |
+| **Right hand side** | |
+
+| **Description** | Zk Notes |
+| :---- | :---- |
+| **Left hand side** | <code> zo</code> |
+| **Right hand side** | |
+
+| **Description** | Zk New |
+| :---- | :---- |
+| **Left hand side** | <code> zn</code> |
+| **Right hand side** | |
+
+| **Description** | Select VirtualEnv |
+| :---- | :---- |
+| **Left hand side** | <code> cv</code> |
+| **Right hand side** | |
+
+| **Description** | Undo Tree |
+| :---- | :---- |
+| **Left hand side** | <code> gu</code> |
+| **Right hand side** | |
+
+| **Description** | Neogit |
+| :---- | :---- |
+| **Left hand side** | <code> mg</code> |
+| **Right hand side** | |
+
+| **Description** | Git open in browser |
+| :---- | :---- |
+| **Left hand side** | <code> go</code> |
+| **Right hand side** | |
+
+| **Description** | Mason |
+| :---- | :---- |
+| **Left hand side** | <code> mm</code> |
+| **Right hand side** | |
+
+| **Description** | Line diff show |
+| :---- | :---- |
+| **Left hand side** | <code> mds</code> |
+| **Right hand side** | |
+
+| **Description** | Line diff reset |
+| :---- | :---- |
+| **Left hand side** | <code> mdr</code> |
+| **Right hand side** | |
+
+| **Description** | Execute Shell Command |
+| :---- | :---- |
+| **Left hand side** | <code>!</code> |
+| **Right hand side** | <code>:!</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>g#</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>g*</code> |
+
+| **Description** | Pick window |
+| :---- | :---- |
+| **Left hand side** | <code>-</code> |
+| **Right hand side** | |
+
+| **Description** | Content-aware menu |
+| :---- | :---- |
+| **Left hand side** | <code>;c</code> |
+| **Right hand side** | |
+
+| **Description** | Definitions |
+| :---- | :---- |
+| **Left hand side** | <code>;dd</code> |
+| **Right hand side** | |
+
+| **Description** | Zk notes |
+| :---- | :---- |
+| **Left hand side** | <code>;w</code> |
+| **Right hand side** | |
+
+| **Description** | Zoxide (MRU) |
+| :---- | :---- |
+| **Left hand side** | <code>;z</code> |
+| **Right hand side** | |
+
+| **Description** | Search history |
+| :---- | :---- |
+| **Left hand side** | <code>;/</code> |
+| **Right hand side** | |
+
+| **Description** | Commands |
+| :---- | :---- |
+| **Left hand side** | <code>;:</code> |
+| **Right hand side** | |
+
+| **Description** | Command history |
+| :---- | :---- |
+| **Left hand side** | <code>;;</code> |
+| **Right hand side** | |
+
+| **Description** | Old files |
+| :---- | :---- |
+| **Left hand side** | <code>;x</code> |
+| **Right hand side** | |
+
+| **Description** | Sessions |
+| :---- | :---- |
+| **Left hand side** | <code>;s</code> |
+| **Right hand side** | |
+
+| **Description** | Spell suggest |
+| :---- | :---- |
+| **Left hand side** | <code>;u</code> |
+| **Right hand side** | |
+
+| **Description** | Registers |
+| :---- | :---- |
+| **Left hand side** | <code>;v</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace symbols |
+| :---- | :---- |
+| **Left hand side** | <code>;t</code> |
+| **Right hand side** | |
+
+| **Description** | Neovim options |
+| :---- | :---- |
+| **Left hand side** | <code>;o</code> |
+| **Right hand side** | |
+
+| **Description** | Marks |
+| :---- | :---- |
+| **Left hand side** | <code>;m</code> |
+| **Right hand side** | |
+
+| **Description** | Jump list |
+| :---- | :---- |
+| **Left hand side** | <code>;j</code> |
+| **Right hand side** | |
+
+| **Description** | Highlights |
+| :---- | :---- |
+| **Left hand side** | <code>;h</code> |
+| **Right hand side** | |
+
+| **Description** | Buffers |
+| :---- | :---- |
+| **Left hand side** | <code>;b</code> |
+| **Right hand side** | |
+
+| **Description** | Grep |
+| :---- | :---- |
+| **Left hand side** | <code>;g</code> |
+| **Right hand side** | |
+
+| **Description** | Find files |
+| :---- | :---- |
+| **Left hand side** | <code>;f</code> |
+| **Right hand side** | |
+
+| **Description** | Pickers |
+| :---- | :---- |
+| **Left hand side** | <code>;R</code> |
+| **Right hand side** | |
+
+| **Description** | Resume last |
+| :---- | :---- |
+| **Left hand side** | <code>;r</code> |
+| **Right hand side** | |
+
+| **Description** | Thesaurus |
+| :---- | :---- |
+| **Left hand side** | <code>;k</code> |
+| **Right hand side** | |
+
+| **Description** | Plugins |
+| :---- | :---- |
+| **Left hand side** | <code>;n</code> |
+| **Right hand side** | |
+
+| **Description** | Code actions |
+| :---- | :---- |
+| **Left hand side** | <code>;da</code> |
+| **Right hand side** | |
+
+| **Description** | References |
+| :---- | :---- |
+| **Left hand side** | <code>;dr</code> |
+| **Right hand side** | |
+
+| **Description** | Implementations |
+| :---- | :---- |
+| **Left hand side** | <code>;di</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree Reveal |
+| :---- | :---- |
+| **Left hand side** | <code>;a</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree Toggle |
+| :---- | :---- |
+| **Left hand side** | <code>;e</code> |
+| **Right hand side** | |
+
+| **Description** | todo |
+| :---- | :---- |
+| **Left hand side** | <code>;dt</code> |
+| **Right hand side** | |
+
+| **Description** | F |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | Leap from windows |
+| :---- | :---- |
+| **Left hand side** | <code>SS</code> |
+| **Right hand side** | |
+
+| **Description** | T |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | Previous Whitespace |
+| :---- | :---- |
+| **Left hand side** | <code>[s</code> |
+| **Right hand side** | |
+
+| **Description** | Previous Loclist Item |
+| :---- | :---- |
+| **Left hand side** | <code>[a</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lprev&lt;CR&gt;</code> |
+
+| **Description** | Previous trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>[q</code> |
+| **Right hand side** | |
+
+| **Description** | Previous todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
+| **Description** | Prev Reference |
+| :---- | :---- |
+| **Left hand side** | <code>[[</code> |
+| **Right hand side** | |
+
+| **Description** | Next Whitespace |
+| :---- | :---- |
+| **Left hand side** | <code>]s</code> |
+| **Right hand side** | |
+
+| **Description** | Next Loclist Item |
+| :---- | :---- |
+| **Left hand side** | <code>]a</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lnext&lt;CR&gt;</code> |
+
+| **Description** | Next trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>]q</code> |
+| **Right hand side** | |
+
+| **Description** | Next todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
+| **Description** | Next Reference |
+| :---- | :---- |
+| **Left hand side** | <code>]]</code> |
+| **Right hand side** | |
+
+| **Description** | Replace surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>cs</code> |
+| **Right hand side** | |
+
+| **Description** | Change Surrounding Function |
+| :---- | :---- |
+| **Left hand side** | <code>csf</code> |
+| **Right hand side** | |
+
+| **Description** | Delete surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>ds</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Surrounding Function |
+| :---- | :---- |
+| **Left hand side** | <code>dsf</code> |
+| **Right hand side** | |
+
+| **Description** | f |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to older buffer |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-O&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to newer buffer |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-I&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Paste Command |
+| :---- | :---- |
+| **Left hand side** | <code>g!</code> |
+| **Right hand side** | <code>:put=execute('')&lt;Left&gt;&lt;Left&gt;</code> |
+
+| **Description** | Select Paste |
+| :---- | :---- |
+| **Left hand side** | <code>gpp</code> |
+| **Right hand side** | <code>'`['.strpart(getregtype(), 0, 1).'`]'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g#</code> |
+| **Right hand side** | <code>#</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g*</code> |
+| **Right hand side** | <code>*</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gl</code> |
+| **Right hand side** | <code>g$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gh</code> |
+| **Right hand side** | <code>g^</code> |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzf</code> |
+| **Right hand side** | |
+
+| **Description** | Update `MiniSurround.config.n_lines` |
+| :---- | :---- |
+| **Left hand side** | <code>gzn</code> |
+| **Right hand side** | |
+
+| **Description** | Highlight surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzh</code> |
+| **Right hand side** | |
+
+| **Description** | Find left surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzF</code> |
+| **Right hand side** | |
+
+| **Description** | Move to top edge |
+| :---- | :---- |
+| **Left hand side** | <code>gk</code> |
+| **Right hand side** | |
+
+| **Description** | Move to bottom edge |
+| :---- | :---- |
+| **Left hand side** | <code>gj</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gpr</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gpi</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gpy</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gpd</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gj' : 'j'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gk' : 'k'</code> |
+
+| **Description** | Marks from all opened buffers |
+| :---- | :---- |
+| **Left hand side** | <code>m/</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle background dark/light |
+| :---- | :---- |
+| **Left hand side** | <code>sh</code> |
+| **Right hand side** | |
+
+| **Description** | Delete buffer and open new |
+| :---- | :---- |
+| **Left hand side** | <code>sx</code> |
+| **Right hand side** | |
+
+| **Description** | Maximize |
+| :---- | :---- |
+| **Left hand side** | <code>sz</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;vertical resize &#124; resize | normal! ze&lt;CR&gt;</code> |
+
+| **Description** | Quit |
+| :---- | :---- |
+| **Left hand side** | <code>sq</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;quit&lt;CR&gt;</code> |
+
+| **Description** | Close other windows |
+| :---- | :---- |
+| **Left hand side** | <code>so</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;only&lt;CR&gt;</code> |
+
+| **Description** | New tab |
+| :---- | :---- |
+| **Left hand side** | <code>st</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
+
+| **Description** | Split window vertically |
+| :---- | :---- |
+| **Left hand side** | <code>sg</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;vsplit&lt;CR&gt;</code> |
+
+| **Description** | Split window horizontally |
+| :---- | :---- |
+| **Left hand side** | <code>sv</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;split&lt;CR&gt;</code> |
+
+| **Description** | Buffer delete |
+| :---- | :---- |
+| **Left hand side** | <code>sd</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;bdelete&lt;CR&gt;</code> |
+
+| **Description** | Close window |
+| :---- | :---- |
+| **Left hand side** | <code>sc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;close&lt;CR&gt;</code> |
+
+| **Description** | Alternate buffer |
+| :---- | :---- |
+| **Left hand side** | <code>sb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;buffer#&lt;CR&gt;</code> |
+
+| **Description** | Join arguments |
+| :---- | :---- |
+| **Left hand side** | <code>sj</code> |
+| **Right hand side** | |
+
+| **Description** | Split arguments |
+| :---- | :---- |
+| **Left hand side** | <code>sk</code> |
+| **Right hand side** | |
+
+| **Description** | Swap picked window |
+| :---- | :---- |
+| **Left hand side** | <code>sw</code> |
+| **Right hand side** | |
+
+| **Description** | Pick window |
+| :---- | :---- |
+| **Left hand side** | <code>sp</code> |
+| **Right hand side** | |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | |
+
+| **Description** | Leap backward to |
+| :---- | :---- |
+| **Left hand side** | <code>sS</code> |
+| **Right hand side** | |
+
+| **Description** | Leap forward to |
+| :---- | :---- |
+| **Left hand side** | <code>ss</code> |
+| **Right hand side** | |
+
+| **Description** | t |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zh</code> |
+| **Right hand side** | <code>z4h</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zl</code> |
+| **Right hand side** | <code>z4l</code> |
+
+| **Description** | Swap windows |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-X&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;x</code> |
+
+| **Description** | Tab Move Forwards |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-}&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;+tabmove&lt;CR&gt;</code> |
+
+| **Description** | Tab Move Backwards |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-{&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;-tabmove&lt;CR&gt;</code> |
+
+| **Description** | Previous Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+
+| **Description** | Next Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | Next Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-]&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | Previous Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-[&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+
+| **Description** | Previous Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+
+| **Description** | Next Tab |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | Save |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
+
+| **Description** | Jump to Paren |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;BS&gt;</code> |
+| **Right hand side** | <code>%</code> |
+
+| **Description** | Macro Prefix |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>q</code> |
+
+| **Description** | Focus Fold |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-CR&gt;</code> |
+| **Right hand side** | <code>zMzv</code> |
+
+| **Description** | Jump to left pane |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+
+| **Description** | Jump to upper pane |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TmuxNavigateUp&lt;CR&gt;</code> |
+
+| **Description** | Jump to right pane |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TmuxNavigateRight&lt;CR&gt;</code> |
+
+| **Description** | Jump to lower pane |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | Toggle terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-_&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll backward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll forward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | |
+
+
+### Visual mode keymaps
+
+| **Description** | Indent Left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Tab&gt;</code> |
+| **Right hand side** | <code>&gt;gv&#124;</code> |
+
+| **Description** | Duplicate selection |
+| :---- | :---- |
+| **Left hand side** | <code> d</code> |
+| **Right hand side** | <code>""Y""Pgv</code> |
+
+| **Description** | Move selection down |
+| :---- | :---- |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | <code>:move'&gt;+&lt;CR&gt;gv=gv</code> |
+
+| **Description** | Move selection up |
+| :---- | :---- |
+| **Left hand side** | <code> k</code> |
+| **Right hand side** | <code>:move'&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+
+| **Description** | Exit Visual Mode |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | <code>&lt;Esc&gt;</code> |
+
+| **Description** | Zk Match |
+| :---- | :---- |
+| **Left hand side** | <code> zf</code> |
+| **Right hand side** | |
+
+| **Description** | Line diff add |
+| :---- | :---- |
+| **Left hand side** | <code> mda</code> |
+| **Right hand side** | |
+
+| **Description** | Line diff |
+| :---- | :---- |
+| **Left hand side** | <code> mdf</code> |
+| **Right hand side** | |
+
+| **Description** | Spectre Word |
+| :---- | :---- |
+| **Left hand side** | <code> sp</code> |
+| **Right hand side** | |
+
+| **Description** | Git open in browser |
+| :---- | :---- |
+| **Left hand side** | <code> go</code> |
+| **Right hand side** | |
+
+| **Description** | Git bcommits range |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | |
+
+| **Description** | Grep cursor word |
+| :---- | :---- |
+| **Left hand side** | <code> gg</code> |
+| **Right hand side** | |
+
+| **Description** | Highlight word |
+| :---- | :---- |
+| **Left hand side** | <code> mt</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> v</code> |
+| **Right hand side** | |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | Code actions |
+| :---- | :---- |
+| **Left hand side** | <code>;da</code> |
+| **Right hand side** | |
+
+| **Description** | Indent Right and Re-select |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | Indent Left and Re-select |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv&#124;</code> |
+
+| **Description** | Blockwise Append |
+| :---- | :---- |
+| **Left hand side** | <code>A</code> |
+| **Right hand side** | |
+
+| **Description** | F |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | Blockwise Insert |
+| :---- | :---- |
+| **Left hand side** | <code>I</code> |
+| **Right hand side** | |
+
+| **Description** | Paste In-place |
+| :---- | :---- |
+| **Left hand side** | <code>P</code> |
+| **Right hand side** | <code>P:let @+=@0&lt;CR&gt;:let @"=@0&lt;CR&gt;</code> |
+
+| **Description** | Leap from windows |
+| :---- | :---- |
+| **Left hand side** | <code>SS</code> |
+| **Right hand side** | |
+
+| **Description** | T |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | Shrink selection |
+| :---- | :---- |
+| **Left hand side** | <code>V</code> |
+| **Right hand side** | |
+
+| **Description** | f |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | Move to top edge |
+| :---- | :---- |
+| **Left hand side** | <code>gk</code> |
+| **Right hand side** | |
+
+| **Description** | Move to bottom edge |
+| :---- | :---- |
+| **Left hand side** | <code>gj</code> |
+| **Right hand side** | |
+
+| **Description** | Blockwise Insert |
+| :---- | :---- |
+| **Left hand side** | <code>gI</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gj' : 'j'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gk' : 'k'</code> |
+
+| **Description** | Paste |
+| :---- | :---- |
+| **Left hand side** | <code>p</code> |
+| **Right hand side** | <code>p:let @+=@0&lt;CR&gt;:let @"=@0&lt;CR&gt;</code> |
+
+| **Description** | Substitute Within Selection |
+| :---- | :---- |
+| **Left hand side** | <code>sg</code> |
+| **Right hand side** | <code>:s//gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>sa</code> |
+| **Right hand side** | |
+
+| **Description** | Join arguments |
+| :---- | :---- |
+| **Left hand side** | <code>sj</code> |
+| **Right hand side** | |
+
+| **Description** | Split arguments |
+| :---- | :---- |
+| **Left hand side** | <code>sk</code> |
+| **Right hand side** | |
+
+| **Description** | Leap forward to |
+| :---- | :---- |
+| **Left hand side** | <code>ss</code> |
+| **Right hand side** | |
+
+| **Description** | Leap backward to |
+| :---- | :---- |
+| **Left hand side** | <code>sS</code> |
+| **Right hand side** | |
+
+| **Description** | t |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+
+| **Description** | Increment selection |
+| :---- | :---- |
+| **Left hand side** | <code>v</code> |
+| **Right hand side** | |
+
+| **Description** | Save |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;write&lt;CR&gt;</code> |
+
+| **Description** | Replace Selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-R&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;%s/\V&lt;C-R&gt;=v:lua.require'rafi.lib.edit'.get_visual_selection()&lt;CR&gt;//gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |
+
+| **Description** | Jump to Paren |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;BS&gt;</code> |
+| **Right hand side** | <code>%</code> |
+
+| **Description** | Indent Right |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | F |
+| :---- | :---- |
+| **Left hand side** | <code>F</code> |
+| **Right hand side** | |
+
+| **Description** | Leap from windows |
+| :---- | :---- |
+| **Left hand side** | <code>SS</code> |
+| **Right hand side** | |
+
+| **Description** | T |
+| :---- | :---- |
+| **Left hand side** | <code>T</code> |
+| **Right hand side** | |
+
+| **Description** | f |
+| :---- | :---- |
+| **Left hand side** | <code>f</code> |
+| **Right hand side** | |
+
+| **Description** | Leap backward to |
+| :---- | :---- |
+| **Left hand side** | <code>sS</code> |
+| **Right hand side** | |
+
+| **Description** | Leap forward to |
+| :---- | :---- |
+| **Left hand side** | <code>ss</code> |
+| **Right hand side** | |
+
+| **Description** | t |
+| :---- | :---- |
+| **Left hand side** | <code>t</code> |
+| **Right hand side** | |
+

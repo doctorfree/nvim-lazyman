@@ -1,4 +1,4 @@
-## Knvim Neovim Configuration Information
+# Knvim Neovim Configuration Information
 
 Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sheet](https://github.com/knmac/knvim/blob/main/res/cheatsheet.md)
 
@@ -8,15 +8,19 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Knvim`**
 
-### Git repository
+## Git repository
 
 [https://github.com/knmac/knvim](https://github.com/knmac/knvim)
 
-### Dotfyle entry
+## Dotfyle entry
 
 [https://dotfyle.com/knmac/knvim](https://dotfyle.com/knmac/knvim)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -84,199 +88,913 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
-### Knvim Keymaps
+## Knvim Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Switch python env | <code> e</code> |  |
-|  | <code> s</code> | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
-|  | <code> n</code> | <code>&lt;Cmd&gt;Telescope notify&lt;CR&gt;</code> |
-|  | <code> ?</code> | <code>&lt;Cmd&gt;Telescope commands&lt;CR&gt;</code> |
-|  | <code> h</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
-|  | <code> w</code> | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
-|  | <code> v</code> | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
-|  | <code> c</code> | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
-|  | <code> /</code> | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
-|  | <code> b</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
-|  | <code> t</code> | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
-|  | <code> f</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-|  | <code>  </code> | <code>&lt;Cmd&gt;Telescope&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| DAP: Terminate debugging | <code>,t</code> |  |
-| DAP: Step out | <code>,u</code> |  |
-| DAP: Step into | <code>,s</code> |  |
-| DAP: Step over | <code>,n</code> |  |
-| DAP: Toggle breakpoint with condition | <code>,B</code> |  |
-| DAP: Toggle breakpoint | <code>,b</code> |  |
-| DAP: Run the last debug adapter entry | <code>,l</code> |  |
-| DAP: Start/Continue debugging | <code>,c</code> |  |
-| DAP: Check variable value on hover | <code>,k</code> |  |
-| DAP: Open default REPL | <code>,D</code> |  |
-| DAP: Toggle UI | <code>,d</code> |  |
-|  | <code>S</code> | <code>&lt;Cmd&gt;PounceRepeat&lt;CR&gt;</code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-| LSP: Go to the previous diagnostic | <code>[e</code> |  |
-| LSP: Show all diagnostics | <code>\E</code> |  |
-| LSP: Show diagnostics of the current line | <code>\e</code> |  |
-| DAP: Dismiss current notify message | <code>\n</code> |  |
-|  | <code>\=</code> | <code>:call FillLine("=")&lt;CR&gt;</code> |
-|  | <code>\-</code> | <code>:call FillLine("-")&lt;CR&gt;</code> |
-|  | <code>\z</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
-|  | <code>\o</code> | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
-|  | <code>\T</code> | <code>&lt;Cmd&gt;Neotree reveal&lt;CR&gt;</code> |
-|  | <code>\t</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
-|  | <code>\d</code> | <code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code> |
-|  | <code>\a</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-| LSP: Go to the next diagnostic | <code>]e</code> |  |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
-| Comment insert end of line | <code>gcA</code> |  |
-| Comment insert above | <code>gcO</code> |  |
-| Comment insert below | <code>gco</code> |  |
-| Comment toggle current block | <code>gbc</code> |  |
-| Comment toggle current line | <code>gcc</code> |  |
-| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-|  | <code>s</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignOperator)</code> | <code>:set opfunc=&lt;SNR&gt;36_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:call &lt;SNR&gt;36_easy_align_repeat()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;36_live_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:set opfunc=&lt;SNR&gt;36_easy_align_op&lt;CR&gt;g@</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
-|  | <code>&lt;2-LeftMouse&gt;</code> | <code>&lt;Plug&gt;(matchup-double-click)</code> |
-|  | <code>&lt;Plug&gt;(matchup-reload)</code> | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-double-click)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;SNR&gt;26_(wise)</code> | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
-|  | <code>&lt;Plug&gt;(matchup-hi-surround)</code> | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
-| Move to previous reference | <code>&lt;M-p&gt;</code> |  |
-| Move to next reference | <code>&lt;M-n&gt;</code> |  |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;F24&gt;</code> | <code>&lt;Cmd&gt;Alpha&lt;CR&gt;</code> |
-|  | <code>&lt;F12&gt;</code> | <code>&lt;Cmd&gt;set nu rnu!&lt;CR&gt;</code> |
-|  | <code>&lt;F23&gt;</code> | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
-|  | <code>&lt;F11&gt;</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
-|  | <code>&lt;F22&gt;</code> | <code>&lt;Cmd&gt;make clean&lt;CR&gt;</code> |
-|  | <code>&lt;F10&gt;</code> | <code>&lt;Cmd&gt;make&lt;CR&gt;</code> |
-|  | <code>&lt;F21&gt;</code> | <code>&lt;Cmd&gt;ClearRegisters&lt;CR&gt;</code> |
-|  | <code>&lt;F9&gt;</code> | <code>&lt;Cmd&gt;%s/\s\+$//e&lt;CR&gt;</code> |
-|  | <code>&lt;F20&gt;</code> | <code>&lt;Cmd&gt;tabclose&lt;CR&gt;</code> |
-|  | <code>&lt;F8&gt;</code> | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
-|  | <code>&lt;F19&gt;</code> | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
-|  | <code>&lt;F7&gt;</code> | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
-|  | <code>&lt;F18&gt;</code> | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
-|  | <code>&lt;F6&gt;</code> | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
-|  | <code>&lt;F17&gt;</code> | <code>&lt;Cmd&gt;tabs&lt;CR&gt;</code> |
-|  | <code>&lt;F5&gt;</code> | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
-|  | <code>&lt;F16&gt;</code> | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
-|  | <code>&lt;F4&gt;</code> | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
-|  | <code>&lt;F15&gt;</code> | <code>&lt;Cmd&gt;Neotree dir=%:p:h&lt;CR&gt;</code> |
-|  | <code>&lt;F3&gt;</code> | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
-|  | <code>&lt;F14&gt;</code> | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
-|  | <code>&lt;F2&gt;</code> | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
-|  | <code>&lt;F13&gt;</code> | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
-|  | <code>&lt;F1&gt;</code> | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
-|  | <code>&lt;C-/&gt;</code> |  |
-|  | <code>&lt;M-C-P&gt;</code> | <code>&lt;Cmd&gt;BufferPin&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-S-L&gt;</code> | <code>&lt;Cmd&gt;BufferMoveNext&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-S-K&gt;</code> | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-S-J&gt;</code> | <code>&lt;Cmd&gt;BufferRestore&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-S-H&gt;</code> | <code>&lt;Cmd&gt;BufferMovePrevious&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-L&gt;</code> | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-K&gt;</code> | <code>&lt;Cmd&gt;BufferPickDelete&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-J&gt;</code> | <code>&lt;Cmd&gt;BufferPick&lt;CR&gt;</code> |
-|  | <code>&lt;M-C-H&gt;</code> | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
-|  | <code>&lt;M-L&gt;</code> | <code>&lt;C-W&gt;l&lt;C-W&gt;x</code> |
-|  | <code>&lt;M-K&gt;</code> | <code>&lt;C-W&gt;k&lt;C-W&gt;x</code> |
-|  | <code>&lt;M-J&gt;</code> | <code>&lt;C-W&gt;j&lt;C-W&gt;x</code> |
-|  | <code>&lt;M-H&gt;</code> | <code>&lt;C-W&gt;h&lt;C-W&gt;x</code> |
-|  | <code>&lt;M-l&gt;</code> | <code>&lt;C-W&gt;l</code> |
-|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-W&gt;k</code> |
-|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-W&gt;j</code> |
-|  | <code>&lt;M-h&gt;</code> | <code>&lt;C-W&gt;h</code> |
-| Nvim builtin | <code>&lt;C-L&gt;</code> | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+| **Description** | Switch python env |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> s</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SessionManager load_session&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(matchup-%)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-|  | <code>&gt;</code> | <code>&gt;gv</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-|  | <code>\a</code> | <code>&lt;Plug&gt;(EasyAlign)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(matchup-g%)</code> |
-|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
-|  | <code>s</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
-| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>&lt;SNR&gt;33_(matchup-Z%)</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>&lt;SNR&gt;33_(matchup-z%)</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>&lt;SNR&gt;33_(matchup-[%)</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>&lt;SNR&gt;33_(matchup-]%)</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>&lt;SNR&gt;33_(matchup-g%)</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>&lt;SNR&gt;33_(matchup-%)</code> |
-|  | <code>&lt;SNR&gt;33_(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_repeat_in_visual()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(LiveEasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(EasyAlign)</code> | <code>:&lt;C-U&gt;call &lt;SNR&gt;24_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-|  | <code>&lt;M-i&gt;</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> n</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope notify&lt;CR&gt;</code> |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ?</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope commands&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(matchup-[%)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(matchup-]%)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(matchup-a%)</code> |
-|  | <code>g%</code> | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
-|  | <code>gs</code> | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
-|  | <code>i%</code> | <code>&lt;Plug&gt;(matchup-i%)</code> |
-|  | <code>z%</code> | <code>&lt;Plug&gt;(matchup-z%)</code> |
-|  | <code>&lt;M-i&gt;</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;(matchup-a%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-i%)</code> | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-Z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-z%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-[%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-]%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-g%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(matchup-%)</code> | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope file_browser&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> v</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> c</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope bibtex&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> b</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> t</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> f</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>  </code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | DAP: Terminate debugging |
+| :---- | :---- |
+| **Left hand side** | <code>,t</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Step out |
+| :---- | :---- |
+| **Left hand side** | <code>,u</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Step into |
+| :---- | :---- |
+| **Left hand side** | <code>,s</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Step over |
+| :---- | :---- |
+| **Left hand side** | <code>,n</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Toggle breakpoint with condition |
+| :---- | :---- |
+| **Left hand side** | <code>,B</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Toggle breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code>,b</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Run the last debug adapter entry |
+| :---- | :---- |
+| **Left hand side** | <code>,l</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Start/Continue debugging |
+| :---- | :---- |
+| **Left hand side** | <code>,c</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Check variable value on hover |
+| :---- | :---- |
+| **Left hand side** | <code>,k</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Open default REPL |
+| :---- | :---- |
+| **Left hand side** | <code>,D</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Toggle UI |
+| :---- | :---- |
+| **Left hand side** | <code>,d</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>S</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;PounceRepeat&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | LSP: Go to the previous diagnostic |
+| :---- | :---- |
+| **Left hand side** | <code>[e</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | LSP: Show all diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code>\E</code> |
+| **Right hand side** | |
+
+| **Description** | LSP: Show diagnostics of the current line |
+| :---- | :---- |
+| **Left hand side** | <code>\e</code> |
+| **Right hand side** | |
+
+| **Description** | DAP: Dismiss current notify message |
+| :---- | :---- |
+| **Left hand side** | <code>\n</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\=</code> |
+| **Right hand side** | <code>:call FillLine("=")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\-</code> |
+| **Right hand side** | <code>:call FillLine("-")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\z</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\o</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\T</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neotree reveal&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\t</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\d</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\a</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+
+| **Description** | LSP: Go to the next diagnostic |
+| :---- | :---- |
+| **Left hand side** | <code>]e</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+
+| **Description** | Comment insert end of line |
+| :---- | :---- |
+| **Left hand side** | <code>gcA</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert above |
+| :---- | :---- |
+| **Left hand side** | <code>gcO</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert below |
+| :---- | :---- |
+| **Left hand side** | <code>gco</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+| **Right hand side** | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;2-LeftMouse&gt;</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-reload)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;24_(wise)</code> |
+| **Right hand side** | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-hi-surround)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+
+| **Description** | Move to previous reference |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-p&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to next reference |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-n&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignOperator)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:call &lt;SNR&gt;12_easy_align_repeat()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_live_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F24&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Alpha&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F12&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;set nu rnu!&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F23&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ColorizerToggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F11&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F22&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;make clean&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F10&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;make&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F21&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ClearRegisters&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F9&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;%s/\s\+$//e&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F20&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabclose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F8&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F19&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F7&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F18&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabprevious&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F6&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F17&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabs&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F5&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F16&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F4&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F15&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neotree dir=%:p:h&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F3&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F14&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;TodoTelescope&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F2&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F13&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F1&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-/&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-P&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferPin&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-S-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferMoveNext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-S-K&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferClose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-S-J&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferRestore&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-S-H&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferMovePrevious&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferNext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-K&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferPickDelete&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-J&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferPick&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-C-H&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferPrevious&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-L&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;l&lt;C-W&gt;x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-K&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k&lt;C-W&gt;x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-J&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;j&lt;C-W&gt;x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-H&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;h&lt;C-W&gt;x</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;l</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;h</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;nohlsearch&#124;diffupdate|normal! &lt;C-L&gt;&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>\a</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_repeat_in_visual()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-i&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 1, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-Z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gs</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>i%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 0, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-i%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(1, 0, 'delim_all')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('Z%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('z%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('[%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op(']%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('g%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#op('%')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-i&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+

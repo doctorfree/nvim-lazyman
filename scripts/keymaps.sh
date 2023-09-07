@@ -61,7 +61,7 @@ else
 fi
 
 echo "" >> "${OUT}"
-echo "### ${CFNAME} Keymaps" >> "${OUT}"
+echo "## ${CFNAME} Keymaps" >> "${OUT}"
 
 cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
   sed -e "s/\[nvim-treesitter.*//" -e "s/|/\&#124;/" | \
@@ -82,27 +82,27 @@ do
   echo "" >> "${KEYTMP}"/${CFNAME}.lua
   echo "for k,v in pairs(${mode}_mode) do" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.desc ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write('| ' .. v.desc)" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Description** | ' .. v.desc .. ' |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write('| ')" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Description** | |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  io.write('| :---- | :---- |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.lhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | <code>' .. v.lhs .. '</code>')" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Left hand side** | <code>' .. v.lhs .. '</code> |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | ')" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Left hand side** | |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.rhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | <code>' .. v.rhs .. '</code> |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Right hand side** | <code>' .. v.rhs .. '</code> |' .. \"\n\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
-  echo '    io.write(" |  |\n")' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write('| **Right hand side** | |' .. \"\n\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "end" >> "${KEYTMP}"/${CFNAME}.lua
 
   echo "" >> "${OUT}"
-  echo "#### ${mode} mode keymaps" >> "${OUT}"
+  modename="$(tr '[:lower:]' '[:upper:]' <<< ${mode:0:1})${mode:1}"
+  echo "### ${modename} mode keymaps" >> "${OUT}"
   echo "" >> "${OUT}"
-  echo "| Description | LHS | RHS |" >> "${OUT}"
-  echo "| ----------- | --- | --- |" >> "${OUT}"
   lua "${KEYTMP}"/${CFNAME}.lua >> "${OUT}"
   [ "${debug}" ] && cp "${KEYTMP}"/${CFNAME}.lua "${KEYTMP}"/${CFNAME}-debug.lua
 done

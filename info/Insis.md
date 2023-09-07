@@ -1,4 +1,4 @@
-## Insis Neovim Configuration Information
+# Insis Neovim Configuration Information
 
 An out-of-the-box Neovim IDE solution with simple development environment setup
 
@@ -8,19 +8,23 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
 - Installation location:  **`~/.config/nvim-Insis`**
 
-### Git repository
+## Git repository
 
 [https://github.com/nshen/InsisVim](https://github.com/nshen/InsisVim)
 
-### Neovimcraft entry
+## Neovimcraft entry
 
 [http://neovimcraft.com/plugin/nshen/InsisVim](http://neovimcraft.com/plugin/nshen/InsisVim)
 
-### Dotfyle entry
+## Dotfyle entry
 
 [https://dotfyle.com/nshen/insisvim](https://dotfyle.com/nshen/insisvim)
 
-### Packer managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Packer managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -90,157 +94,703 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
-### Insis Keymaps
+## Insis Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code> tc</code> |  |
-|  | <code> tb</code> |  |
-|  | <code> ta</code> |  |
-|  | <code> z</code> | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
-|  | <code> v</code> |  |
-|  | <code> gh</code> |  |
-|  | <code> ns</code> |  |
-|  | <code> nf</code> |  |
-|  | <code> nd</code> |  |
-|  | <code> nr</code> |  |
-|  | <code> nt</code> |  |
-|  | <code> bp</code> | <code>:BufferLinePickClose&lt;CR&gt;</code> |
-|  | <code> bo</code> | <code>:BufferLineCloseRight&lt;CR&gt;:BufferLineCloseLeft&lt;CR&gt;</code> |
-|  | <code> bl</code> | <code>:BufferLineCloseRight&lt;CR&gt;</code> |
-|  | <code> bh</code> | <code>:BufferLineCloseLeft&lt;CR&gt;</code> |
-|  | <code> m</code> | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
-|  | <code> de</code> |  |
-|  | <code> dh</code> |  |
-|  | <code> dT</code> |  |
-|  | <code> dt</code> |  |
-|  | <code> do</code> |  |
-|  | <code> di</code> |  |
-|  | <code> dj</code> |  |
-|  | <code> dc</code> |  |
-|  | <code> l</code> | <code>&lt;C-W&gt;l</code> |
-|  | <code> k</code> | <code>&lt;C-W&gt;k</code> |
-|  | <code> j</code> | <code>&lt;C-W&gt;j</code> |
-|  | <code> h</code> | <code>&lt;C-W&gt;h</code> |
-|  | <code> q</code> | <code>&lt;Cmd&gt;qa!&lt;CR&gt;</code> |
-|  | <code> w</code> | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
-|  | <code>$</code> | <code>g_</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-| Change a surrounding pair, putting replacements on new lines | <code>cS</code> | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
-| Change a surrounding pair | <code>cs</code> | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
-| Delete a surrounding pair | <code>ds</code> | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
-|  | <code>ff</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-| Comment toggle current block | <code>gbc</code> |  |
-| Comment toggle current line | <code>gcc</code> |  |
-| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-|  | <code>g_</code> | <code>$</code> |
-|  | <code>j</code> | <code>v:count == 0 ? 'gj' : 'j'</code> |
-|  | <code>k</code> | <code>v:count == 0 ? 'gk' : 'k'</code> |
-|  | <code>sf</code> | <code>:lua require('telescope').extensions.live_grep_args.live_grep_args()&lt;CR&gt;</code> |
-|  | <code>s=</code> | <code>&lt;C-W&gt;=</code> |
-|  | <code>sk</code> | <code>:horizontal resize +10&lt;CR&gt;</code> |
-|  | <code>sj</code> | <code>:horizontal resize -10&lt;CR&gt;</code> |
-|  | <code>s.</code> | <code>:vertical resize +10&lt;CR&gt;</code> |
-|  | <code>s,</code> | <code>:vertical resize -10&lt;CR&gt;</code> |
-|  | <code>so</code> | <code>&lt;C-W&gt;o</code> |
-|  | <code>sc</code> | <code>&lt;C-W&gt;c</code> |
-|  | <code>sh</code> | <code>:sp&lt;CR&gt;</code> |
-|  | <code>sv</code> | <code>:vsp&lt;CR&gt;</code> |
-|  | <code>s</code> | <code></code> |
-| Add a surrounding pair around the current line (normal mode) | <code>yss</code> | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
-| Add a surrounding pair around a motion (normal mode) | <code>ys</code> | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
-|  | <code>zc</code> | <code>:foldclose&lt;CR&gt;</code> |
-|  | <code>zo</code> | <code>:foldopen&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-| Change a surrounding pair, putting replacements on new lines | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |  |
-| Change a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-change)</code> |  |
-| Delete a surrounding pair | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |  |
-| Add a surrounding pair around the current line, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |  |
-| Add a surrounding pair around a motion, on new lines (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |  |
-| Add a surrounding pair around the current line (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |  |
-| Add a surrounding pair around a motion (normal mode) | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |  |
-|  | <code>&lt;C-W&gt;</code> | <code>:Bdelete!&lt;CR&gt;</code> |
-|  | <code>&lt;C-H&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
-|  | <code>&lt;C-F&gt;</code> | <code>:&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
-|  | <code>&lt;C-P&gt;</code> | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-|  | <code>&lt;M-m&gt;</code> | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;M-l&gt;</code> | <code>&lt;C-W&gt;l</code> |
-|  | <code>&lt;M-k&gt;</code> | <code>&lt;C-W&gt;k</code> |
-|  | <code>&lt;M-j&gt;</code> | <code>&lt;C-W&gt;j</code> |
-|  | <code>&lt;M-h&gt;</code> | <code>&lt;C-W&gt;h</code> |
-|  | <code>&lt;C-U&gt;</code> | <code>10k</code> |
-|  | <code>&lt;C-D&gt;</code> | <code>10j</code> |
-|  | <code>&lt;C-K&gt;</code> | <code>5k</code> |
-|  | <code>&lt;C-J&gt;</code> | <code>5j</code> |
-|  | <code>&lt;C-L&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> tc</code> |
+| **Right hand side** | |
 
-#### visual mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> tb</code> |
+| **Right hand side** | |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>$</code> | <code>g_</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-|  | <code>&gt;</code> | <code>&gt;gv</code> |
-|  | <code>J</code> | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
-|  | <code>K</code> | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| Add a surrounding pair around a visual selection, on new lines | <code>gs</code> | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-|  | <code>g_</code> | <code>$</code> |
-|  | <code>p</code> | <code>"_dP</code> |
-| Add a surrounding pair around a visual selection | <code>s</code> | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Add a surrounding pair around a visual selection, on new lines | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
-| Add a surrounding pair around a visual selection | <code>&lt;Plug&gt;(nvim-surround-visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-|  | <code>&lt;C-U&gt;</code> | <code>10k</code> |
-|  | <code>&lt;C-D&gt;</code> | <code>10j</code> |
-|  | <code>&lt;C-K&gt;</code> | <code>5k</code> |
-|  | <code>&lt;C-J&gt;</code> | <code>5j</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ta</code> |
+| **Right hand side** | |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> z</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;ZenMode&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> v</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> gh</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> ns</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> nf</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> nd</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> nr</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> nt</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bp</code> |
+| **Right hand side** | <code>:BufferLinePickClose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bo</code> |
+| **Right hand side** | <code>:BufferLineCloseRight&lt;CR&gt;:BufferLineCloseLeft&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bl</code> |
+| **Right hand side** | <code>:BufferLineCloseRight&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> bh</code> |
+| **Right hand side** | <code>:BufferLineCloseLeft&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> m</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dh</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dT</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> di</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dj</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> l</code> |
+| **Right hand side** | <code>&lt;C-W&gt;l</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> k</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | <code>&lt;C-W&gt;j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> h</code> |
+| **Right hand side** | <code>&lt;C-W&gt;h</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> q</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;qa!&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>$</code> |
+| **Right hand side** | <code>g_</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | Change a surrounding pair, putting replacements on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>cS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+
+| **Description** | Change a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>cs</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+
+| **Description** | Delete a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>ds</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ff</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g_</code> |
+| **Right hand side** | <code>$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>j</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gj' : 'j'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>k</code> |
+| **Right hand side** | <code>v:count == 0 ? 'gk' : 'k'</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sf</code> |
+| **Right hand side** | <code>:lua require('telescope').extensions.live_grep_args.live_grep_args()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s=</code> |
+| **Right hand side** | <code>&lt;C-W&gt;=</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sk</code> |
+| **Right hand side** | <code>:horizontal resize +10&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sj</code> |
+| **Right hand side** | <code>:horizontal resize -10&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s.</code> |
+| **Right hand side** | <code>:vertical resize +10&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s,</code> |
+| **Right hand side** | <code>:vertical resize -10&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>so</code> |
+| **Right hand side** | <code>&lt;C-W&gt;o</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sc</code> |
+| **Right hand side** | <code>&lt;C-W&gt;c</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sh</code> |
+| **Right hand side** | <code>:sp&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>sv</code> |
+| **Right hand side** | <code>:vsp&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | <code></code> |
+
+| **Description** | Add a surrounding pair around the current line (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>yss</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+
+| **Description** | Add a surrounding pair around a motion (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>ys</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zc</code> |
+| **Right hand side** | <code>:foldclose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zo</code> |
+| **Right hand side** | <code>:foldopen&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | Change a surrounding pair, putting replacements on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Change a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+| **Right hand side** | |
+
+| **Description** | Delete a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around the current line, on new lines (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a motion, on new lines (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around the current line (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a motion (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-W&gt;</code> |
+| **Right hand side** | <code>:Bdelete!&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>:&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-P&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-m&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;l</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;h</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>10k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>10j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>5k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>5j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>$</code> |
+| **Right hand side** | <code>g_</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>J</code> |
+| **Right hand side** | <code>:move '&gt;+1&lt;CR&gt;gv-gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>K</code> |
+| **Right hand side** | <code>:move '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>gs</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g_</code> |
+| **Right hand side** | <code>$</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>p</code> |
+| **Right hand side** | <code>"_dP</code> |
+
+| **Description** | Add a surrounding pair around a visual selection |
+| :---- | :---- |
+| **Left hand side** | <code>s</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
+
+| **Description** | Add a surrounding pair around a visual selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>10k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>10j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>5k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>5j</code> |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+

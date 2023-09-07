@@ -1,4 +1,4 @@
-## Ahsan Neovim Configuration Information
+# Ahsan Neovim Configuration Information
 
 Personal Neovim configuration of Ahsan Habib
 
@@ -8,11 +8,15 @@ Personal Neovim configuration of Ahsan Habib
 - Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Ahsan`**
 
-### Git repository
+## Git repository
 
 [https://github.com/bibjaw99/workstation](https://github.com/bibjaw99/workstation)
 
-### Lazy managed plugins
+|  Jump  |   to   | Keymaps |
+| :----: | :----: | :-----: |
+| [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
+
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -61,128 +65,558 @@ Personal Neovim configuration of Ahsan Habib
 - [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim.git)
 - [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
 
-### Ahsan Keymaps
+## Ahsan Keymaps
 
-#### normal mode keymaps
+### Normal mode keymaps
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| Nvim builtin | <code>&</code> | <code>:&&&lt;CR&gt;</code> |
-| Nvim builtin | <code>Y</code> | <code>y$</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-| Comment insert end of line | <code>gcA</code> |  |
-| Comment insert above | <code>gcO</code> |  |
-| Comment insert below | <code>gco</code> |  |
-| Comment toggle current block | <code>gbc</code> |  |
-| Comment toggle current line | <code>gcc</code> |  |
-| Comment toggle blockwise | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| Comment toggle linewise | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseX</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-|  | <code>kj</code> | <code>&lt;Esc&gt;</code> |
-| Toggle Terminal | <code>&lt;C-Bslash&gt;</code> | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-|  | <code>&lt;C-S&gt;</code> | <code>"+P</code> |
-|  | <code>&lt;M-p&gt;</code> | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
-|  | <code>&lt;M-n&gt;</code> | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
-|  | <code>&lt;C-K&gt;</code> | <code>&lt;C-W&gt;k</code> |
-|  | <code>&lt;C-J&gt;</code> | <code>&lt;C-W&gt;j</code> |
-|  | <code>&lt;C-H&gt;</code> | <code>&lt;C-W&gt;h</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseX</code> | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitNormalForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;m</code> | <code>&lt;Plug&gt;(emmet-merge-lines)</code> |
-|  | <code>&lt;Plug&gt;(emmet-merge-lines)</code> | <code>:call emmet#mergeLines()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;A</code> | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> |
-|  | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> | <code>:call emmet#anchorizeURL(1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;a</code> | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> |
-|  | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> | <code>:call emmet#anchorizeURL(0)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;k</code> | <code>&lt;Plug&gt;(emmet-remove-tag)</code> |
-|  | <code>&lt;Plug&gt;(emmet-remove-tag)</code> | <code>:call emmet#removeTag()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;j</code> | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> |
-|  | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> | <code>:call emmet#splitJoinTag()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;/</code> | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> |
-|  | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> | <code>:call emmet#toggleComment()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;I</code> | <code>&lt;Plug&gt;(emmet-image-encode)</code> |
-|  | <code>&lt;Plug&gt;(emmet-image-encode)</code> | <code>:call emmet#imageEncode()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;i</code> | <code>&lt;Plug&gt;(emmet-image-size)</code> |
-|  | <code>&lt;Plug&gt;(emmet-image-size)</code> | <code>:call emmet#imageSize()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(emmet-move-prev-item)</code> | <code>:call emmet#moveNextPrevItem(1)&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(emmet-move-next-item)</code> | <code>:call emmet#moveNextPrevItem(0)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;N</code> | <code>&lt;Plug&gt;(emmet-move-prev)</code> |
-|  | <code>&lt;Plug&gt;(emmet-move-prev)</code> | <code>:call emmet#moveNextPrev(1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;n</code> | <code>&lt;Plug&gt;(emmet-move-next)</code> |
-|  | <code>&lt;Plug&gt;(emmet-move-next)</code> | <code>:call emmet#moveNextPrev(0)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;D</code> | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
-|  | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> | <code>:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;d</code> | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
-|  | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> | <code>:call emmet#balanceTag(1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;u</code> | <code>&lt;Plug&gt;(emmet-update-tag)</code> |
-|  | <code>&lt;Plug&gt;(emmet-update-tag)</code> | <code>:call emmet#updateTag()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;;</code> | <code>&lt;Plug&gt;(emmet-expand-word)</code> |
-|  | <code>&lt;Plug&gt;(emmet-expand-word)</code> | <code>:call emmet#expandAbbr(1,"")&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;,</code> | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
-|  | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> | <code>:call emmet#expandAbbr(3,"")&lt;CR&gt;</code> |
-| Comment toggle blockwise with count | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |  |
-| Comment toggle linewise with count | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |  |
-| Comment toggle current block | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |  |
-| Comment toggle current line | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |  |
-| Comment toggle blockwise | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |  |
-| Comment toggle linewise | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;Plug&gt;luasnip-delete-check</code> |  |
-|  | <code>&lt;Plug&gt;PlenaryTestFile</code> | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-|  | <code>&lt;C-L&gt;</code> | <code>&lt;C-W&gt;l</code> |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 
-#### visual mode keymaps
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>&</code> |
+| **Right hand side** | <code>:&&&lt;CR&gt;</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-| Nvim builtin | <code>#</code> | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
-| Nvim builtin | <code>*</code> | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
-|  | <code>&lt;lt&gt;</code> | <code>&lt;lt&gt;gv</code> |
-|  | <code>&gt;</code> | <code>&gt;gv</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>a%</code> | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
-| Comment toggle blockwise (visual) | <code>gb</code> | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| Comment toggle linewise (visual) | <code>gc</code> | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-|  | <code>gx</code> | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-|  | <code>kj</code> | <code>&lt;Esc&gt;</code> |
-|  | <code>&lt;C-C&gt;</code> | <code>"+y</code> |
-|  | <code>&lt;Plug&gt;NetrwBrowseXVis</code> | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
-|  | <code>&lt;Plug&gt;(MatchitVisualForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
-|  | <code>&lt;C-Y&gt;c</code> | <code>&lt;Plug&gt;(emmet-code-pretty)</code> |
-|  | <code>&lt;Plug&gt;(emmet-code-pretty)</code> | <code>:call emmet#codePretty()&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;D</code> | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
-|  | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> | <code>&lt;Esc&gt;:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;d</code> | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
-|  | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> | <code>&lt;Esc&gt;:call emmet#balanceTag(1)&lt;CR&gt;</code> |
-|  | <code>&lt;C-Y&gt;,</code> | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
-|  | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> | <code>:call emmet#expandAbbr(2,"")&lt;CR&gt;</code> |
-| Comment toggle blockwise (visual) | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-| Comment toggle linewise (visual) | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>Y</code> |
+| **Right hand side** | <code>y$</code> |
 
-#### operator mode keymaps
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
-| Description | LHS | RHS |
-| ----------- | --- | --- |
-|  | <code>%</code> | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
-|  | <code>[%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
-|  | <code>]%</code> | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
-|  | <code>g%</code> | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;(MatchitOperationForward)</code> | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
-|  | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |  |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | Comment insert end of line |
+| :---- | :---- |
+| **Left hand side** | <code>gcA</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert above |
+| :---- | :---- |
+| **Left hand side** | <code>gcO</code> |
+| **Right hand side** | |
+
+| **Description** | Comment insert below |
+| :---- | :---- |
+| **Left hand side** | <code>gco</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>gbc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>gcc</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>kj</code> |
+| **Right hand side** | <code>&lt;Esc&gt;</code> |
+
+| **Description** | Toggle Terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>"+P</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-p&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-n&gt;</code> |
+| **Right hand side** | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;j</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;h</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+| **Right hand side** | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;m</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-merge-lines)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-merge-lines)</code> |
+| **Right hand side** | <code>:call emmet#mergeLines()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;A</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-anchorize-summary)</code> |
+| **Right hand side** | <code>:call emmet#anchorizeURL(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;a</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-anchorize-url)</code> |
+| **Right hand side** | <code>:call emmet#anchorizeURL(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;k</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-remove-tag)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-remove-tag)</code> |
+| **Right hand side** | <code>:call emmet#removeTag()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;j</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-split-join-tag)</code> |
+| **Right hand side** | <code>:call emmet#splitJoinTag()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;/</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-toggle-comment)</code> |
+| **Right hand side** | <code>:call emmet#toggleComment()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;I</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-image-encode)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-image-encode)</code> |
+| **Right hand side** | <code>:call emmet#imageEncode()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;i</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-image-size)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-image-size)</code> |
+| **Right hand side** | <code>:call emmet#imageSize()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-move-prev-item)</code> |
+| **Right hand side** | <code>:call emmet#moveNextPrevItem(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-move-next-item)</code> |
+| **Right hand side** | <code>:call emmet#moveNextPrevItem(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;N</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-move-prev)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-move-prev)</code> |
+| **Right hand side** | <code>:call emmet#moveNextPrev(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;n</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-move-next)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-move-next)</code> |
+| **Right hand side** | <code>:call emmet#moveNextPrev(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;D</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+| **Right hand side** | <code>:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;d</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+| **Right hand side** | <code>:call emmet#balanceTag(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;u</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-update-tag)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-update-tag)</code> |
+| **Right hand side** | <code>:call emmet#updateTag()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;;</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-expand-word)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-expand-word)</code> |
+| **Right hand side** | <code>:call emmet#expandAbbr(1,"")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;,</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+| **Right hand side** | <code>:call emmet#expandAbbr(3,"")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-L&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;l</code> |
+
+
+### Visual mode keymaps
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>#</code> |
+| **Right hand side** | <code>y?\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+
+| **Description** | Nvim builtin |
+| :---- | :---- |
+| **Left hand side** | <code>*</code> |
+| **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;</code> |
+| **Right hand side** | <code>&lt;lt&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;</code> |
+| **Right hand side** | <code>&gt;gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>a%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gb</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>kj</code> |
+| **Right hand side** | <code>&lt;Esc&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-C&gt;</code> |
+| **Right hand side** | <code>"+y</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'v')&lt;CR&gt;m'gv``</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;c</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-code-pretty)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-code-pretty)</code> |
+| **Right hand side** | <code>:call emmet#codePretty()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;D</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-outword)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call emmet#balanceTag(-1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;d</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-balance-tag-inward)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;:call emmet#balanceTag(1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;,</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(emmet-expand-abbr)</code> |
+| **Right hand side** | <code>:call emmet#expandAbbr(2,"")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+
+### Operator mode keymaps
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "o")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
