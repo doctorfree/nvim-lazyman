@@ -176,7 +176,7 @@ end
 
 local indentline_cfg = {
   "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("config.indent-blankline")
   end,
@@ -853,13 +853,6 @@ return {
     },
     config = function()
       require("ecovim.plugins.printer")
-    end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
-    config = function()
-      require("ecovim.plugins.indent")
     end,
   },
   {

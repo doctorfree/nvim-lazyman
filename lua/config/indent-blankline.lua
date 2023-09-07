@@ -1,3 +1,4 @@
+-- https://github.com/lukas-reineke/indent-blankline.nvim
 local settings = require("configuration")
 local indent_style = settings.indentline_style
 local char = "▏"
@@ -79,9 +80,12 @@ require("indent_blankline").setup({
     "Trouble",
     "alpha",
     "neo-tree",
+    "TelescopePrompt",
+    "Float",
   },
   buftype_exclude = {
     "terminal",
+    "telescope",
     "nofile",
   },
 })
