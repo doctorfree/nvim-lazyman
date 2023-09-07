@@ -64,7 +64,7 @@ echo "" >> "${OUT}"
 echo "### ${CFNAME} Keymaps" >> "${OUT}"
 
 cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
-  sed -e "s/\[nvim-treesitter.*//" | \
+  sed -e "s/\[nvim-treesitter.*//" | sed -e "s/|/\&#124;/" | \
   grep -v callback | grep -v "^\[" | grep -v ^Dep | grep -v ^Error | \
   grep -v ^Fail | grep -v ^Some | grep -v ^\& | grep -v ^sh | \
   grep -v ^Tele | grep -v ^Lua | grep -v ^Two | grep -i -v ^vim | \
@@ -86,12 +86,12 @@ do
   echo "    io.write('| ')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.lhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | \`' .. v.lhs .. '\`')" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write(' | <code>' .. v.lhs .. '</code>')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write(' | ')" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.rhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "    io.write(' | \`' .. v.rhs .. '\` |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "    io.write(' | <code>' .. v.rhs .. '</code> |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo '    io.write(" |  |\n")' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
