@@ -4,7 +4,19 @@
 
 ### ⚡️ Added
 
+- Add `indentline` plugins to `ecovim` namespace, manage in `lazyman_config.sh`
+- Add `WakaTime` to `ecovim` and `lazyman_config.sh` for `ecovim`
+
 ### 🐞 Fixed
+
+- Resolve `indentline` duplicates and config in `ecovim` namespace
+- Merge `ecovim` icons with toplevel icons
+- Move `free/utils` up to `utils`
+- Resize nvim tree with + and -
+- Update Lazyman info docs
+- Resolve some keymap conflicts in `ecovim` namespace
+- Add `version = false` and `missing = true` to `lazy.nvim` config
+- Update Lazyman info docs using new `ecovim` namespace
 
 ## v3.1.0r2
 
