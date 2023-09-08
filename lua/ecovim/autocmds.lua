@@ -51,17 +51,45 @@ autocmd("BufReadPost", {
   end,
 })
 
+-- close some filetypes with <q>
+autocmd("FileType", {
+  group = augroup("close_with_q"),
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "query", -- :InspectTree
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
 -- Highlight on yank
-autocmd("TextYankPost",
-  { callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 100 }) end })
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+  end,
+})
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 -- Enable spell checking for certain file types
-autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
-  command = "setlocal spell" })
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.txt", "*.md", "*.tex" },
+  command = "setlocal spell",
+})
 -- Show `` in specific files
-autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" },
-  command = "setlocal conceallevel=0" })
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.txt", "*.md", "*.json" },
+  command = "setlocal conceallevel=0",
+})
 
 -- Open the URL of the plugin spec or 'user/repo' path under the cursor
 vim.api.nvim_create_user_command("OpenRepo", function(_)
@@ -87,26 +115,52 @@ end, {
 
 -- Attach specific keybindings in which-key for specific filetypes
 local present, _ = pcall(require, "which-key")
-if not present then return end
+if not present then
+  return
+end
 local _, pwk = pcall(require, "ecovim.plugins.which-key")
 
-autocmd("BufEnter", { pattern = "*.md",
-  callback = function() pwk.attach_markdown(0) end })
-autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" },
-  callback = function() pwk.attach_typescript(0) end })
-autocmd("BufEnter", { pattern = { "package.json" },
-  callback = function() pwk.attach_npm(0) end })
-autocmd("FileType",
-  { pattern = "*",
-    callback = function()
-      if Ecovim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
-        pwk.attach_zen(0)
-      end
+autocmd("BufEnter", {
+  pattern = "*.md",
+  callback = function()
+    pwk.attach_markdown(0)
+  end,
+})
+autocmd("BufEnter", {
+  pattern = { "*.ts", "*.tsx" },
+  callback = function()
+    pwk.attach_typescript(0)
+  end,
+})
+autocmd("BufEnter", {
+  pattern = { "package.json" },
+  callback = function()
+    pwk.attach_npm(0)
+  end,
+})
+autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    if Ecovim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
+      pwk.attach_zen(0)
     end
-  })
-autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx" },
-  callback = function() pwk.attach_jest(0) end })
-autocmd("FileType", { pattern = "spectre_panel",
-  callback = function() pwk.attach_spectre(0) end })
-autocmd("FileType", { pattern = "NvimTree",
-  callback = function() pwk.attach_nvim_tree(0) end })
+  end,
+})
+autocmd("BufEnter", {
+  pattern = { "*test.js", "*test.ts", "*test.tsx" },
+  callback = function()
+    pwk.attach_jest(0)
+  end,
+})
+autocmd("FileType", {
+  pattern = "spectre_panel",
+  callback = function()
+    pwk.attach_spectre(0)
+  end,
+})
+autocmd("FileType", {
+  pattern = "NvimTree",
+  callback = function()
+    pwk.attach_nvim_tree(0)
+  end,
+})

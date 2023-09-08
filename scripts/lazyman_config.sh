@@ -959,6 +959,7 @@ show_plugin_menu() {
     options+=("Enable Games  [${use_games}]")
     options+=("Indentline [${use_indentline}]")
     options+=("Enable Motion [${use_motion}]")
+    options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
     [ "${use_namespace}" == "ecovim" ] || {
@@ -981,7 +982,6 @@ show_plugin_menu() {
         }
       fi
       options+=("Media Backend [${use_media_backend}]")
-      options+=("Multi Cursor  [${use_multi_cursor}]")
       options+=("Navigator     [${use_navigator}]")
       options+=("Picker        [${use_picker}]")
       options+=("Project       [${use_project}]")
