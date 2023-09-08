@@ -187,7 +187,6 @@ select_theme_style() {
     set_haves
     while true; do
       confmenu=
-      mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
       if [ "${have_rich}" ]; then
@@ -207,6 +206,10 @@ select_theme_style() {
       done
       [ "${theme_style}" == "${selected_style}" ] || {
         options+=("Set style to ${theme_style}")
+      }
+      options+=("Lazyman Config")
+      [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+        options+=("Webdev Menu")
       }
       options+=("Configuration Menu" "Main Menu" "Quit")
       select opt in "${options[@]}"; do
@@ -349,14 +352,21 @@ select_theme_style() {
             set_conf_value "theme_style" "${theme_style}"
             break 2
             ;;
+          "Lazyman Config"*,* | *,"Lazyman Config"* | "l",* | *,"l")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exec lazyman -F conf
+            ;;
+          "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exit 5
+            ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
-            mainmenu=1
-            break 2
+            exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
@@ -368,7 +378,6 @@ select_theme_style() {
       done
     done
     [ "${confmenu}" ] && show_conf_menu
-    [ "${mainmenu}" ] && exit 2
   fi
 }
 
@@ -415,7 +424,6 @@ select_theme() {
     set_haves
     while true; do
       confmenu=
-      mainmenu=
       [ "$debug" ] || tput reset
       printf "\n"
       if [ "${have_rich}" ]; then
@@ -435,6 +443,10 @@ select_theme() {
       done
       [ "${theme}" == "${selected_theme}" ] || {
         options+=("Set theme to ${theme}")
+      }
+      options+=("Lazyman Config")
+      [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+        options+=("Webdev Menu")
       }
       options+=("Configuration Menu" "Main Menu" "Quit")
       select opt in "${options[@]}"; do
@@ -486,14 +498,21 @@ select_theme() {
             set_default_style "${theme}"
             break 2
             ;;
+          "Lazyman Config"*,* | *,"Lazyman Config"* | "l",* | *,"l")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exec lazyman -F conf
+            ;;
+          "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exit 5
+            ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
-            mainmenu=1
-            break 2
+            exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
@@ -506,19 +525,16 @@ select_theme() {
     done
   fi
   [ "${confmenu}" ] && show_conf_menu
-  [ "${mainmenu}" ] && exit 2
 }
 
 show_conf_menu() {
   set_haves
   while true; do
-    mainmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
       printf "\nYou may need to update or re-install LazyIde"
       prompt_continue
-      mainmenu=1
       break
     }
     [ "$debug" ] || tput reset
@@ -662,7 +678,10 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LIDEDIR}" ] && options+=("Open LazyIde")
-    options+=("Main Menu")
+    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+      options+=("Webdev Menu")
+    }
+    options+=("Lazyman Config" "Main Menu")
     options+=("Quit")
     select opt in "${options[@]}"; do
       case "$opt,$REPLY" in
@@ -918,10 +937,17 @@ show_conf_menu() {
           fi
           break
           ;;
+        "Lazyman Config"*,* | *,"Lazyman Config"* | "l",* | *,"l")
+          [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+          exec lazyman -F conf
+          ;;
+        "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
+          [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+          exit 5
+          ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
-          mainmenu=1
-          break 2
+          exit 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
           [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
@@ -938,7 +964,6 @@ show_conf_menu() {
       REPLY=
     done
   done
-  [ "${mainmenu}" ] && exit 2
 }
 
 debug=

@@ -2073,6 +2073,7 @@ show_main_help() {
   printf "\nAll shortcuts have single key support:"
   printf "\n  'h' = help, 'I' = info, 'i' = install, 'o' = open, 'q' = quit"
   printf "\n  'r' = remove, 's' = search, 'u' = update, 'c' = Lazyman Config menu"
+  printf "\n  'm' = main menu, 'L' = LazyIde Config menu, 'W' = Webdev Config menu"
   printf "\nIn the fuzzy selection dialogs, enter a few letters to fuzzy select from the options"
   printf "\nor use the <Up-Arrow> and <Down-Arrow> keys to move through the options."
   printf "\nPress <Enter> to select the highlighted option.\n"
@@ -3206,12 +3207,18 @@ show_main_menu() {
       [ $? -eq 3 ] && exit 0
     }
     [ "${lidemenu}" ] && {
+      exitstatus=0
       ${LZYIDE}
-      [ $? -eq 3 ] && exit 0
+      exitstatus=$?
+      [ ${exitstatus} -eq 3 ] && exit 0
+      [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
     }
     [ "${wdevmenu}" ] && {
+      exitstatus=0
       ${WEBDEV}
-      [ $? -eq 3 ] && exit 0
+      exitstatus=$?
+      [ ${exitstatus} -eq 3 ] && exit 0
+      [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
     }
     [ "${versmenu}" ] && show_vers_menu
   done
@@ -5574,5 +5581,7 @@ exitstatus=0
 }
 # Submenus can exit 2 to indicate display main menu
 [ ${exitstatus} -eq 2 ] && exec lazyman
+[ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
+[ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
 
 exit 0

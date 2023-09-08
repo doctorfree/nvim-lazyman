@@ -2689,11 +2689,15 @@ show_conf_menu() {
   [ "${formenu}" ] && show_formlint_menu
   [ "${lidemenu}" ] && {
     ${LZYIDE}
-    [ $? -eq 3 ] && exit 0
+    exitstatus=$?
+    [ ${exitstatus} -eq 3 ] && exit 0
+    [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
   }
   [ "${wdevmenu}" ] && {
     ${WEBDEV}
-    [ $? -eq 3 ] && exit 0
+    exitstatus=$?
+    [ ${exitstatus} -eq 3 ] && exit 0
+    [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
   }
 }
 
