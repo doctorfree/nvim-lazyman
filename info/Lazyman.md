@@ -440,18 +440,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,/l</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |
 
-| **Description** | choose theirs |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,gct</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
-
-| **Description** | move to prev conflict |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,gcp</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
-
 | **Description** | choose ours |
 | **Description** | |
 | :---- | :---- |
@@ -469,6 +457,24 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | :---- | :---- |
 | **Left hand side** | <code>,gcb</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |
+
+| **Description** | choose theirs |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,gct</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |
+
+| **Description** | move to prev conflict |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,gcp</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |
+
+| **Description** | load current dir session |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,/sd</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code> |
 
 | **Description** | remove session |
 | **Description** | |
@@ -494,25 +500,11 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,/sl</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;SessionManager load_last_session&lt;CR&gt;</code> |
 
-| **Description** | load current dir session |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,/sd</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;SessionManager load_current_dir_session&lt;CR&gt;</code> |
-
 | **Description** | Mason |
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,cm</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>,gwc</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>,gww</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.git_worktrees()&lt;CR&gt;</code> |
 
 | **Description** | Move Float |
 | **Description** | |
@@ -604,17 +596,25 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,ac</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
 
-| **Description** | Toggle Transparency |
-| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>,ut</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>,gwc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>,gww</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('telescope').extensions.git_worktree.git_worktrees()&lt;CR&gt;</code> |
 
 | **Description** | Select Moonokai pro filter |
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,up</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;MonokaiProSelect&lt;CR&gt;</code> |
+
+| **Description** | Toggle Transparency |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,ut</code> |
+| **Right hand side** | |
 
 | **Description** | Go to buffer 3 |
 | **Description** | |
@@ -626,6 +626,12 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,2</code> |
+| **Right hand side** | |
+
+| **Description** | Go to buffer 1 |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,1</code> |
 | **Right hand side** | |
 
 | **Description** | Sort by relative dir |
@@ -682,12 +688,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,bb</code> |
 | **Right hand side** | |
 
-| **Description** | Go to buffer 1 |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,1</code> |
-| **Right hand side** | |
-
 | **Description** | Go to buffer 4 |
 | **Description** | |
 | :---- | :---- |
@@ -724,16 +724,34 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,9</code> |
 | **Right hand side** | |
 
-| **Description** | status |
+| **Description** | Create a selection for selected text or word under the cursor |
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>,gs</code> |
+| **Left hand side** | <code>,ms</code> |
+| **Right hand side** | |
+
+| **Description** | multicursor down |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,m&lt;C-Down&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | diff file |
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,gd</code> |
+| **Right hand side** | |
+
+| **Description** | status |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,gs</code> |
+| **Right hand side** | |
+
+| **Description** | lazygit |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,gg</code> |
 | **Right hand side** | |
 
 | :---- | :---- |
@@ -773,6 +791,18 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Right hand side** | |
 
 | :---- | :---- |
+| **Left hand side** | <code>,DK</code> |
+| **Right hand side** | |
+
+| :---- | :---- |
+| **Left hand side** | <code>,Dk</code> |
+| **Right hand side** | |
+
+| :---- | :---- |
+| **Left hand side** | <code>,Dt</code> |
+| **Right hand side** | |
+
+| :---- | :---- |
 | **Left hand side** | <code>,Dh</code> |
 | **Right hand side** | |
 
@@ -804,22 +834,10 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,DA</code> |
 | **Right hand side** | |
 
-| :---- | :---- |
-| **Left hand side** | <code>,DK</code> |
-| **Right hand side** | |
-
-| :---- | :---- |
-| **Left hand side** | <code>,Dk</code> |
-| **Right hand side** | |
-
-| :---- | :---- |
-| **Left hand side** | <code>,Dt</code> |
-| **Right hand side** | |
-
-| **Description** | multicursor |
+| **Description** | stage hunk |
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>,M</code> |
+| **Left hand side** | <code>,ghs</code> |
 | **Right hand side** | |
 
 | **Description** | reset hunk |
@@ -862,18 +880,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,ghS</code> |
-| **Right hand side** | |
-
-| **Description** | stage hunk |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,ghs</code> |
-| **Right hand side** | |
-
-| **Description** | lazygit |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,gg</code> |
 | **Right hand side** | |
 
 | **Description** | refactor |
@@ -1038,30 +1044,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
-| **Description** | Move to right "around" |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g]</code> |
-| **Right hand side** | |
-
-| **Description** | Move to left "around" |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g[</code> |
-| **Right hand side** | |
-
-| **Description** | Align with preview |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>gA</code> |
-| **Right hand side** | |
-
-| **Description** | Align |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>ga</code> |
-| **Right hand side** | |
-
 | **Description** | Comment insert end of line |
 | **Description** | |
 | :---- | :---- |
@@ -1104,6 +1086,40 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>gc</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
 
+| **Description** | Align with preview |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gA</code> |
+| **Right hand side** | |
+
+| **Description** | Align |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>ga</code> |
+| **Right hand side** | |
+
+| **Description** | Move to right "around" |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g]</code> |
+| **Right hand side** | |
+
+| **Description** | Move to left "around" |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g[</code> |
+| **Right hand side** | |
+
+| :---- | :---- |
+| **Left hand side** | <code>gs</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(Switch)</code> |
+
+| **Description** | Toggle Split/Join |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gJ</code> |
+| **Right hand side** | |
+
 | **Description** | LSP Definition |
 | **Description** | |
 | :---- | :---- |
@@ -1126,16 +1142,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>gm</code> |
-| **Right hand side** | |
-
-| :---- | :---- |
-| **Left hand side** | <code>gs</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(Switch)</code> |
-
-| **Description** | Toggle Split/Join |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>gJ</code> |
 | **Right hand side** | |
 
 | **Description** | Leap forward to |
@@ -1228,6 +1234,12 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>&lt;C-Left&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;vertical resize -2&lt;CR&gt;</code> |
 
+| **Description** | Decrease window height |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Down&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;resize -2&lt;CR&gt;</code> |
+
 | **Description** | Increase window height |
 | **Description** | |
 | :---- | :---- |
@@ -1286,38 +1298,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
 
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> |
-| **Right hand side** | <code>&lt;C-X&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingFallbackUp</code> |
-| **Right hand side** | <code>&lt;C-A&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingNowUTC</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingNowLocal</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingDown</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingUp</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(SwitchReverse)</code> |
-| **Right hand side** | <code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |
-
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Switch)</code> |
-| **Right hand side** | <code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |
-
 | **Description** | Git Conflict: Previous Conflict |
 | **Description** | |
 | :---- | :---- |
@@ -1353,6 +1333,14 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(git-conflict-ours)</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(SwitchReverse)</code> |
+| **Right hand side** | <code>:set opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Switch)</code> |
+| **Right hand side** | <code>:set opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |
 
 | **Description** | Change a surrounding pair, putting replacements on new lines |
 | **Description** | |
@@ -1397,8 +1385,28 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Right hand side** | |
 
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> |
+| **Right hand side** | <code>&lt;C-X&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingFallbackUp</code> |
+| **Right hand side** | <code>&lt;C-A&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingNowUTC</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#timestamp(1,v:count)&lt;CR&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingNowLocal</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#timestamp(0,v:count)&lt;CR&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingDown</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#increment(-v:count1)&lt;CR&gt;</code> |
+
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingUp</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#increment(v:count1)&lt;CR&gt;</code> |
 
 | **Description** | Comment toggle blockwise with count |
 | **Description** | |
@@ -1442,6 +1450,34 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>&lt;F12&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
 
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | Go to buffer 9 |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-9&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Go to buffer 8 |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-8&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Go to buffer 7 |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-7&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Go to buffer 6 |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-6&gt;</code> |
+| **Right hand side** | |
+
 | **Description** | Go to buffer 5 |
 | **Description** | |
 | :---- | :---- |
@@ -1470,36 +1506,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-1&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Go to buffer 8 |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-8&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Go to buffer 9 |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-9&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Go to buffer 7 |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-7&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Go to buffer 6 |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-6&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | multicursor down |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Down&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | NvimTree |
@@ -1539,17 +1545,17 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>,ca</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;'&lt;lt&gt;,'&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;</code> |
 
-| **Description** | Terminal Send |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>,ts</code> |
-| **Right hand side** | |
-
 | **Description** | comment box |
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>,ac</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('comment-box').lbox()&lt;CR&gt;</code> |
+
+| **Description** | Terminal Send |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,ts</code> |
+| **Right hand side** | |
 
 | **Description** | refactor |
 | **Description** | |
@@ -1560,7 +1566,13 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Description** | multicursor |
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>,M</code> |
+| **Left hand side** | <code>,mM</code> |
+| **Right hand side** | |
+
+| **Description** | Create a selection for selected text or word under the cursor |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>,ms</code> |
 | **Right hand side** | |
 
 | :---- | :---- |
@@ -1655,24 +1667,6 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
 
-| **Description** | Move to right "around" |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g]</code> |
-| **Right hand side** | |
-
-| **Description** | Move to left "around" |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g[</code> |
-| **Right hand side** | |
-
-| **Description** | Add a surrounding pair around a visual selection, on new lines |
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>gS</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
-
 | **Description** | Comment toggle blockwise (visual) |
 | **Description** | |
 | :---- | :---- |
@@ -1685,6 +1679,18 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>gc</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
 
+| **Description** | Move to right "around" |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g]</code> |
+| **Right hand side** | |
+
+| **Description** | Move to left "around" |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g[</code> |
+| **Right hand side** | |
+
 | **Description** | Align with preview |
 | **Description** | |
 | :---- | :---- |
@@ -1696,6 +1702,12 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | :---- | :---- |
 | **Left hand side** | <code>ga</code> |
 | **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 
 | **Description** | Leap from windows |
 | **Description** | |
@@ -1785,13 +1797,17 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
+| **Description** | Comment toggle blockwise (visual) |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingDown</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
 
+| **Description** | Comment toggle linewise (visual) |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingUp</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
 
 | **Description** | Add a surrounding pair around a visual selection, on new lines |
 | **Description** | |
@@ -1805,17 +1821,13 @@ The Lazyman Neovim configuration serves as a reference implementation of a confi
 | **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
 | **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle blockwise (visual) |
-| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingDown</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle linewise (visual) |
-| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;SpeedDatingUp</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps
