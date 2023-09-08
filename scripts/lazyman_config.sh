@@ -958,6 +958,7 @@ show_plugin_menu() {
     options+=("Noice UI      [${use_noice}]")
     options+=("Enable Games  [${use_games}]")
     options+=("Indentline [${use_indentline}]")
+    options+=("Enable Motion [${use_motion}]")
     options+=("Terminal      [${use_terminal}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
@@ -967,7 +968,6 @@ show_plugin_menu() {
         options+=(" Separator    [${use_lualine_separator}]")
       fi
       options+=(" Fancy Icons  [${use_fancy}]")
-      options+=("Enable Motion [${use_motion}]")
       options+=("Enable Notes  [${use_notes}]")
       if [ "${enable_notes}" == "true" ]; then
         options+=("Enable Obsidian [${use_obsidian}]")

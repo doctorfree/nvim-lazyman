@@ -6,9 +6,84 @@ local hacker = {}
 local sudoku = {}
 local blackjack = {}
 local cellular = {}
+local hop_motion = {}
+local leap_motion = {}
 local neoscroll = {}
 local terminal_nvim = {}
 local wakatime_type = {}
+
+if settings.enable_motion == "hop" then
+  hop_motion = {
+    { "ziontee113/syntax-tree-surfer" },
+    {
+      "mfussenegger/nvim-treehopper",
+      lazy = false,
+      config = function()
+        local tree_hopper = require("tsht")
+        vim.keymap.set("n", "<leader>hm", function()
+          tree_hopper.nodes()
+        end, { desc = "Treehopper nodes" })
+        vim.keymap.set("n", "<leader>h[", function()
+          tree_hopper.move({ side = "start" })
+        end, { desc = "Move to start of Treehopper node" })
+        vim.keymap.set("n", "<leader>h]", function()
+          tree_hopper.move({ side = "end" })
+        end, { desc = "Move to end of Treehopper node" })
+      end,
+    },
+    {
+      "phaazon/hop.nvim",
+      branch = "v2",
+      cmd = {
+        "HopAnywhere",
+        "HopChar1",
+        "HopChar2",
+        "HopLine",
+        "HopLineStart",
+        "HopVertical",
+        "HopPattern",
+        "HopWord",
+      },
+      lazy = false,
+      config = function()
+        require("config.hop")
+      end,
+    },
+  }
+end
+
+if settings.enable_motion == "leap" then
+  leap_motion = {
+    {
+      "ggandor/flit.nvim",
+      keys = function()
+        local ret = {}
+        for _, key in ipairs({ "f", "F", "t", "T" }) do
+          ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
+        end
+        return ret
+      end,
+      opts = { labeled_modes = "nx" },
+    },
+    {
+      "ggandor/leap.nvim",
+      keys = {
+        { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+        { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+        { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+      },
+      config = function(_, opts)
+        local leap = require("leap")
+        for k, v in pairs(opts) do
+          leap.opts[k] = v
+        end
+        leap.add_default_mappings(true)
+        vim.keymap.del({ "x", "o" }, "x")
+        vim.keymap.del({ "x", "o" }, "X")
+      end,
+    },
+  }
+end
 
 if settings.enable_wakatime then
   wakatime_type = {
@@ -1098,6 +1173,10 @@ return {
 
   -- Neovim indent guides
   indentline_cfg,
+
+  -- Motion
+  hop_motion,
+  leap_motion,
 
   -- Games
   vimbegood,
