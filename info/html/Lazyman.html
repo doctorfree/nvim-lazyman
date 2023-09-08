@@ -143,6 +143,8 @@ href="https://github.com/folke/flash.nvim.git">folke/flash.nvim</a></li>
 <li><a
 href="https://github.com/tamton-aquib/flirt.nvim.git">tamton-aquib/flirt.nvim</a></li>
 <li><a
+href="https://github.com/ggandor/flit.nvim">ggandor/flit.nvim</a></li>
+<li><a
 href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
 <li><a
 href="https://github.com/nvimdev/galaxyline.nvim.git">nvimdev/galaxyline.nvim</a></li>
@@ -159,13 +161,13 @@ href="https://github.com/letieu/hacker.nvim">letieu/hacker.nvim</a></li>
 <li><a
 href="https://github.com/smoka7/hydra.nvim.git">smoka7/hydra.nvim</a></li>
 <li><a
-href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
-<li><a
 href="https://github.com/rebelot/kanagawa.nvim">rebelot/kanagawa.nvim</a></li>
 <li><a
 href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
 <li><a
 href="https://github.com/kdheepak/lazygit.nvim.git">kdheepak/lazygit.nvim</a></li>
+<li><a
+href="https://github.com/ggandor/leap.nvim">ggandor/leap.nvim</a></li>
 <li><a
 href="https://github.com/onsails/lspkind-nvim">onsails/lspkind-nvim</a></li>
 <li><a
@@ -182,6 +184,8 @@ href="https://github.com/echasnovski/mini.align.git">echasnovski/mini.align</a><
 href="https://github.com/echasnovski/mini.animate.git">echasnovski/mini.animate</a></li>
 <li><a
 href="https://github.com/echasnovski/mini.bufremove.git">echasnovski/mini.bufremove</a></li>
+<li><a
+href="https://github.com/echasnovski/mini.indentscope">echasnovski/mini.indentscope</a></li>
 <li><a
 href="https://github.com/loctvl842/monokai-pro.nvim">loctvl842/monokai-pro.nvim</a></li>
 <li><a
@@ -616,20 +620,92 @@ update&lt;CR&gt;</code> |</div>
 <strong>Left hand side</strong> | <code>,/l</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Cmd&gt;:Lazy&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | terminal float
+<div class="line-block"><strong>Description</strong> | choose theirs
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,at</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;ToggleTerm
-direction=float&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | comment box
+<strong>Left hand side</strong> | <code>,gct</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | move to prev
+conflict |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gcp</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | choose ours
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,ac</code> |<br />
+<strong>Left hand side</strong> | <code>,gco</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | move to next
+conflict |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gcn</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | choose both
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gcb</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | remove session
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,/sr</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
+delete_session&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | choose session
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,/sc</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
+load_session&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | save session
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,/ss</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
+save_current_session&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | load last session
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,/sl</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
+load_last_session&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | load current dir
+session |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,/sd</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
+load_current_dir_session&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Mason |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,cm</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gwc</code> |<br />
 <strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
-require(‘comment-box’).lbox()&lt;CR&gt;</code> |</div>
+require(‘telescope’).extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gww</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require(‘telescope’).extensions.git_worktree.git_worktrees()&lt;CR&gt;</code>
+|</div>
 <div class="line-block"><strong>Description</strong> | Move Float
 |<br />
 <strong>Description</strong> | |<br />
@@ -708,92 +784,26 @@ Toggle |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,ts</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gwc</code> |<br />
+<div class="line-block"><strong>Description</strong> | terminal float
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,at</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;ToggleTerm
+direction=float&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | comment box
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,ac</code> |<br />
 <strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
-require(‘telescope’).extensions.git_worktree.create_git_worktree()&lt;CR&gt;</code>
-|</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gww</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
-require(‘telescope’).extensions.git_worktree.git_worktrees()&lt;CR&gt;</code>
-|</div>
-<div class="line-block"><strong>Description</strong> | move to prev
-conflict |<br />
+require(‘comment-box’).lbox()&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Toggle
+Transparency |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gcp</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | choose ours
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gco</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | move to next
-conflict |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gcn</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | choose both
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gcb</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | choose theirs
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gct</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | remove session
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,/sr</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
-delete_session&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | choose session
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,/sc</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
-load_session&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | save session
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,/ss</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
-save_current_session&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | load last session
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,/sl</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
-load_last_session&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | load current dir
-session |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,/sd</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;SessionManager
-load_current_dir_session&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Mason |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,cm</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |</div>
+<strong>Left hand side</strong> | <code>,ut</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Select Moonokai
 pro filter |<br />
 <strong>Description</strong> | |<br />
@@ -801,11 +811,17 @@ pro filter |<br />
 <strong>Left hand side</strong> | <code>,up</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Cmd&gt;MonokaiProSelect&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Toggle
-Transparency |<br />
+<div class="line-block"><strong>Description</strong> | Go to buffer 3
+|<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,ut</code> |<br />
+<strong>Left hand side</strong> | <code>,3</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Go to buffer 2
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,2</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Sort by relative
 dir |<br />
@@ -854,23 +870,16 @@ dir |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,bl</code> |<br />
 <strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Move back |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,bb</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Go to buffer 1
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,1</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 2
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,2</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 3
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,3</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Go to buffer 4
 |<br />
@@ -890,11 +899,6 @@ dir |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,6</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Move back |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,bb</code> |<br />
-<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Go to buffer 7
 |<br />
 <strong>Description</strong> | |<br />
@@ -913,10 +917,75 @@ dir |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,9</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | refactor |<br />
+<div class="line-block"><strong>Description</strong> | status |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,pr</code> |<br />
+<strong>Left hand side</strong> | <code>,gs</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | diff file |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,gd</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,dt</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,dO</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,do</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,di</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,dh</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,dd</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,dc</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,db</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,da</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dh</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dg</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Ds</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dd</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dc</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Di</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Da</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,DA</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,DK</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dk</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Dt</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | multicursor
 |<br />
@@ -970,80 +1039,15 @@ dir |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,ghs</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,di</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,dh</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,dd</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,dc</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,db</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,da</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,dt</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,dO</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,do</code> |<br />
-<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | lazygit |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>,gg</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | diff file |<br />
+<div class="line-block"><strong>Description</strong> | refactor |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gd</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | status |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,gs</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,DK</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dk</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dt</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dh</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dg</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Ds</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dd</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Dc</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Di</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,Da</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>,DA</code> |<br />
+<strong>Left hand side</strong> | <code>,pr</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&lt;lt&gt;&lt;lt&gt;</code>
@@ -1064,6 +1068,11 @@ dir |<br />
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | F |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>F</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>H</code> |<br />
 <strong>Right hand side</strong> | <code>^</code> |</div>
@@ -1083,6 +1092,17 @@ require(‘ecovim.plugins.telescope.pickers.multi-rg’)()&lt;CR&gt;</code>
 <strong>Left hand side</strong> | <code>Q</code> |<br />
 <strong>Right hand side</strong> | <code>:lua
 require(‘mini.bufremove’).delete(0, false)&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Leap backward to
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>S</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | T |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>T</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>X</code> |<br />
 <strong>Right hand side</strong> | <code>“_X</code> |</div>
@@ -1143,6 +1163,11 @@ surrounding pair |<br />
 <strong>Left hand side</strong> | <code>ds</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(nvim-surround-delete)</code> |</div>
+<div class="line-block"><strong>Description</strong> | f |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>f</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>gP</code> |<br />
 <strong>Right hand side</strong> |
@@ -1163,8 +1188,8 @@ vim.diagnostic.open_float({ border = ‘rounded’, max_width = 100
 <strong>Right hand side</strong> | <code>&lt;Cmd&gt;silent execute
 ‘!xdg-open’ . shellescape(‘&lt;lt&gt;cWORD&gt;’)&lt;CR&gt;</code>
 |</div>
-<div class="line-block"><strong>Description</strong> | Operator keymap
-for printer.nvim |<br />
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Operator keymap for printer.nvim |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>gp</code> |<br />
@@ -1176,10 +1201,29 @@ for printer.nvim |<br />
 <strong>Left hand side</strong> | <code>g%</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gs</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Plug&gt;(Switch)</code>
-|</div>
+<div class="line-block"><strong>Description</strong> | Move to right
+“around” |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g]</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Move to left
+“around” |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g[</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Align with
+preview |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gA</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Align |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>ga</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Comment insert
 end of line |<br />
 <strong>Description</strong> | |<br />
@@ -1224,52 +1268,11 @@ linewise |<br />
 <strong>Left hand side</strong> | <code>gc</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |</div>
-<div class="line-block"><strong>Description</strong> | Move to right
-“around” |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>g]</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Move to left
-“around” |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>g[</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Align with
-preview |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gA</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Align |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>ga</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Toggle Split/Join
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gJ</code> |<br />
-<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | LSP Definition
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>gd</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | LSP
-Implementations |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gm</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | LSP References
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gr</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | LSP Type
 Definitions |<br />
@@ -1277,8 +1280,38 @@ Definitions |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>gy</code> |<br />
 <strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | LSP References
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gr</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | LSP
+Implementations |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gm</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gs</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Plug&gt;(Switch)</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Toggle Split/Join
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gJ</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Leap forward to
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>s</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | t |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>t</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>x</code> |<br />
@@ -1320,8 +1353,22 @@ pair around a motion (normal mode) |<br />
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>zR</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Get text out of
-textobject formatted for debug printing |<br />
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Yank a debug print based on the motion |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(printer_yank)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Add a line below with debug print based on the motion |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(printer_below)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Debug print based on the config behavior |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> |
@@ -1412,16 +1459,6 @@ matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code> |</div>
 matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code> |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(SwitchReverse)</code> |<br />
-<strong>Right hand side</strong> | <code>:set
-opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;Plug&gt;(Switch)</code>
-|<br />
-<strong>Right hand side</strong> | <code>:set
-opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> |
 <code>&lt;Plug&gt;SpeedDatingFallbackDown</code> |<br />
 <strong>Right hand side</strong> | <code>&lt;C-X&gt;</code> |</div>
 <div class="line-block">:—- | :—- |<br />
@@ -1448,6 +1485,64 @@ speeddating#increment(-v:count1)&lt;CR&gt;</code> |</div>
 |<br />
 <strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
 speeddating#increment(v:count1)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(SwitchReverse)</code> |<br />
+<strong>Right hand side</strong> | <code>:set
+opfunc=switch#OpfuncReverse&lt;CR&gt;g@l</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;(Switch)</code>
+|<br />
+<strong>Right hand side</strong> | <code>:set
+opfunc=switch#OpfuncForward&lt;CR&gt;g@l</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Previous Conflict |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-prev-conflict)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Next Conflict |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-next-conflict)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Choose Theirs |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-theirs)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Choose None |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-none)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Choose Both |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-both)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Git Conflict:
+Choose Ours |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(git-conflict-ours)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |</div>
 <div class="line-block"><strong>Description</strong> | Change a
 surrounding pair, putting replacements on new lines |<br />
 <strong>Description</strong> | |<br />
@@ -1497,13 +1592,12 @@ pair around a motion (normal mode) |<br />
 <strong>Left hand side</strong> |
 <code>&lt;Plug&gt;(nvim-surround-normal)</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Toggle Terminal
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;F12&gt;</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Cmd&gt;execute v:count .
-“ToggleTerm”&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;PlenaryTestFile</code> |<br />
+<strong>Right hand side</strong> | <code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code>
+|</div>
 <div class="line-block"><strong>Description</strong> | Comment toggle
 blockwise with count |<br />
 <strong>Description</strong> | |<br />
@@ -1546,71 +1640,18 @@ linewise |<br />
 <strong>Left hand side</strong> |
 <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Previous Conflict |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-prev-conflict)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictPrevConflict&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Next Conflict |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-next-conflict)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictNextConflict&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Choose Theirs |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-theirs)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseTheirs&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Choose None |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-none)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseNone&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Choose Both |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-both)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseBoth&lt;CR&gt;</code> |</div>
-<div class="line-block"><strong>Description</strong> | Git Conflict:
-Choose Ours |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(git-conflict-ours)</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Cmd&gt;GitConflictChooseOurs&lt;CR&gt;</code> |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;PlenaryTestFile</code> |<br />
-<strong>Right hand side</strong> | <code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code>
-|</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 7
+<div class="line-block"><strong>Description</strong> | Toggle Terminal
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;M-7&gt;</code> |<br />
-<strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 6
+<strong>Left hand side</strong> | <code>&lt;F12&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;execute v:count .
+“ToggleTerm”&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Go to buffer 5
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;M-6&gt;</code> |<br />
+<strong>Left hand side</strong> | <code>&lt;M-5&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Go to buffer 4
 |<br />
@@ -1636,34 +1677,40 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&lt;M-1&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 9
-|<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;M-9&gt;</code> |<br />
-<strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Go to buffer 8
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&lt;M-8&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Go to buffer 5
+<div class="line-block"><strong>Description</strong> | Go to buffer 9
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;M-5&gt;</code> |<br />
+<strong>Left hand side</strong> | <code>&lt;M-9&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | NvimTree |<br />
+<div class="line-block"><strong>Description</strong> | Go to buffer 7
+|<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;C-E&gt;</code> |<br />
+<strong>Left hand side</strong> | <code>&lt;M-7&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Go to buffer 6
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-6&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | multicursor down
 |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&lt;C-Down&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | NvimTree |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-E&gt;</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&lt;C-L&gt;</code> |<br />
@@ -1727,6 +1774,11 @@ require(‘comment-box’).lbox()&lt;CR&gt;</code> |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>&gt;</code> |<br />
 <strong>Right hand side</strong> | <code>&gt;gv</code> |</div>
+<div class="line-block"><strong>Description</strong> | F |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>F</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>J</code> |<br />
 <strong>Right hand side</strong> | <code>:move
@@ -1742,6 +1794,11 @@ pair around a visual selection |<br />
 <strong>Left hand side</strong> | <code>S</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(nvim-surround-visual)</code> |</div>
+<div class="line-block"><strong>Description</strong> | T |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>T</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>X</code> |<br />
 <strong>Right hand side</strong> | <code>“_X</code> |</div>
@@ -1778,8 +1835,13 @@ textobject |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>a</code> |<br />
 <strong>Right hand side</strong> | |</div>
-<div class="line-block"><strong>Description</strong> | Operator keymap
-for printer.nvim |<br />
+<div class="line-block"><strong>Description</strong> | f |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>f</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Operator keymap for printer.nvim |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>gp</code> |<br />
@@ -1788,20 +1850,6 @@ for printer.nvim |<br />
 <strong>Left hand side</strong> | <code>g%</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |</div>
-<div class="line-block"><strong>Description</strong> | Comment toggle
-blockwise (visual) |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gb</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |</div>
-<div class="line-block"><strong>Description</strong> | Comment toggle
-linewise (visual) |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>gc</code> |<br />
-<strong>Right hand side</strong> |
-<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |</div>
 <div class="line-block"><strong>Description</strong> | Move to right
 “around” |<br />
 <strong>Description</strong> | |<br />
@@ -1821,6 +1869,20 @@ pair around a visual selection, on new lines |<br />
 <strong>Left hand side</strong> | <code>gS</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gb</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gc</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |</div>
 <div class="line-block"><strong>Description</strong> | Align with
 preview |<br />
 <strong>Description</strong> | |<br />
@@ -1831,6 +1893,12 @@ preview |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>ga</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Leap from windows
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gs</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Inside last
 textobject |<br />
@@ -1853,12 +1921,38 @@ textobject |<br />
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>p</code> |<br />
 <strong>Right hand side</strong> | <code>“_dP</code> |</div>
-<div class="line-block">:—- | :—- |<br />
+<div class="line-block"><strong>Description</strong> | Leap forward to
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>s</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | t |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>t</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>x</code> |<br />
 <strong>Right hand side</strong> | <code>“_x</code> |</div>
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Yank a debug print based on the visual selection |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(printer_yank)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | (printer.nvim)
+Add a line below with debug print based on the visual selection |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(printer_below)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(printer_print)</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> |
 <code>&lt;Plug&gt;luasnip-expand-repeat</code> |<br />
@@ -1893,24 +1987,16 @@ matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv``</code> |</div>
 <strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
 matchit#Match_wrapper(’‘,1,’v’)&lt;CR&gt;:if col(“’‘“) != col(”$“) |
 exe”:normal! m’” | endif&lt;CR&gt;gv``</code> |</div>
-<div class="line-block"><strong>Description</strong> | Comment toggle
-blockwise (visual) |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
+<div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code>
-|</div>
-<div class="line-block"><strong>Description</strong> | Comment toggle
-linewise (visual) |<br />
-<strong>Description</strong> | |<br />
-:—- | :—- |<br />
-<strong>Left hand side</strong> |
-<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |<br />
-<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code>
-|</div>
+<code>&lt;Plug&gt;SpeedDatingDown</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;SpeedDatingUp</code>
+|<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |</div>
 <div class="line-block"><strong>Description</strong> | Add a surrounding
 pair around a visual selection, on new lines |<br />
 <strong>Description</strong> | |<br />
@@ -1929,21 +2015,45 @@ pair around a visual selection |<br />
 <strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
 require’nvim-surround’.visual_surround({ line_mode = false
 })&lt;CR&gt;</code> |</div>
-<div class="line-block">:—- | :—- |<br />
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
 <strong>Left hand side</strong> |
-<code>&lt;Plug&gt;SpeedDatingDown</code> |<br />
-<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
-speeddating#incrementvisual(-v:count1)&lt;CR&gt;</code> |</div>
-<div class="line-block">:—- | :—- |<br />
-<strong>Left hand side</strong> | <code>&lt;Plug&gt;SpeedDatingUp</code>
-|<br />
-<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
-speeddating#incrementvisual(v:count1)&lt;CR&gt;</code> |</div>
+<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code>
+|</div>
 <h3 id="operator-mode-keymaps">Operator mode keymaps</h3>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>%</code> |<br />
 <strong>Right hand side</strong> |
 <code>&lt;Plug&gt;(MatchitOperationForward)</code> |</div>
+<div class="line-block"><strong>Description</strong> | F |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>F</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Leap backward to
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>S</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | T |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>T</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>[%</code> |<br />
 <strong>Right hand side</strong> |
@@ -1970,6 +2080,11 @@ textobject |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>a</code> |<br />
 <strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | f |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>f</code> |<br />
+<strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>g%</code> |<br />
 <strong>Right hand side</strong> |
@@ -1985,6 +2100,12 @@ textobject |<br />
 <strong>Description</strong> | |<br />
 :—- | :—- |<br />
 <strong>Left hand side</strong> | <code>g[</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Leap from windows
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gs</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block"><strong>Description</strong> | Inside last
 textobject |<br />
@@ -2006,6 +2127,11 @@ textobject |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> | <code>s</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | t |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>t</code> |<br />
 <strong>Right hand side</strong> | |</div>
 <div class="line-block">:—- | :—- |<br />
 <strong>Left hand side</strong> |
