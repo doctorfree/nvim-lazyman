@@ -774,24 +774,6 @@ style="text-align: left;"><code>&lt;Cmd&gt;PounceRepeat&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">LSP: Go to the previous diagnostic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>[e</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;"></th>
 </tr>
 </thead>
@@ -803,6 +785,24 @@ style="text-align: left;"><code>&lt;Cmd&gt;PounceRepeat&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Plug&gt;(matchup-[%)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">LSP: Go to the previous diagnostic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>[e</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -1028,6 +1028,24 @@ style="text-align: left;"><code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>]%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-]%)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">LSP: Go to the next diagnostic</th>
 </tr>
 </thead>
@@ -1052,11 +1070,11 @@ style="text-align: left;"><code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>]%</code></td>
+<td style="text-align: left;"><code>gx</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-]%)</code></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;NetrwBrowseX</code></td>
 </tr>
 </tbody>
 </table>
@@ -1070,11 +1088,11 @@ style="text-align: left;"><code>&lt;Cmd&gt;Neogen&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gx</code></td>
+<td style="text-align: left;"><code>g%</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;NetrwBrowseX</code></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-g%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1224,24 +1242,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>g%</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-g%)</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>s</code></td>
 </tr>
 <tr class="even">
@@ -1338,18 +1338,19 @@ style="text-align: left;"><code>&lt;Plug&gt;luasnip-delete-check</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise with count</th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignOperator)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;28_easy_align_op&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -1361,18 +1362,19 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</co
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise with count</th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>:call
+&lt;SNR&gt;28_easy_align_repeat()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1384,18 +1386,19 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_count)</cod
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle current block</th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;28_live_easy_align_op&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -1407,64 +1410,18 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle current line</th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;28_easy_align_op&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -1691,7 +1648,7 @@ matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;SNR&gt;24_(wise)</code></td>
+<td style="text-align: left;"><code>&lt;SNR&gt;22_(wise)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -1721,6 +1678,168 @@ style="text-align: left;"><code>&lt;Plug&gt;(matchup-hi-surround)</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise with count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise with count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle current block</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle current line</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1757,125 +1876,6 @@ matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignOperator)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:call
-&lt;SNR&gt;12_easy_align_repeat()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;12_live_easy_align_op&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -3090,96 +3090,6 @@ netrw#BrowseXVis()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;31_repeat_in_visual()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;31_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;31_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;M-i&gt;</code></td>
 </tr>
 <tr class="even">
@@ -3233,6 +3143,25 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</co
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
 require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -3297,7 +3226,7 @@ matchup#text_obj#delimited(1, 1, ‘delim_all’)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-Z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-Z%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3316,7 +3245,7 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-Z%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-Z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-Z%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3340,7 +3269,7 @@ matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-z%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3359,7 +3288,7 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-z%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-z%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3383,7 +3312,7 @@ matchup#motion#jump_inside(1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-[%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-[%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3402,7 +3331,7 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-[%)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-]%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-]%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3421,7 +3350,7 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-]%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-[%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-[%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3445,7 +3374,7 @@ matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-]%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-]%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3469,7 +3398,7 @@ matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-g%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-g%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3488,7 +3417,7 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-g%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-g%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-g%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3512,7 +3441,7 @@ matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3531,12 +3460,83 @@ style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;18_(matchup-%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;15_(matchup-%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;7_repeat_in_visual()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;7_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;7_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -3890,7 +3890,8 @@ matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-i&gt;</code></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3908,8 +3909,7 @@ matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+<td style="text-align: left;"><code>&lt;M-i&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>

@@ -232,15 +232,15 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 | **Left hand side** | <code>Y</code> |
 | **Right hand side** | <code>y$</code> |
 
-| **Description** | LSP: Go to the previous diagnostic |
-| :---- | :---- |
-| **Left hand side** | <code>[e</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+
+| **Description** | LSP: Go to the previous diagnostic |
+| :---- | :---- |
+| **Left hand side** | <code>[e</code> |
+| **Right hand side** | |
 
 | **Description** | LSP: Show all diagnostics |
 | :---- | :---- |
@@ -297,6 +297,11 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 | **Left hand side** | <code>\a</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
 
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+
 | **Description** | LSP: Go to the next diagnostic |
 | :---- | :---- |
 | **Left hand side** | <code>]e</code> |
@@ -304,13 +309,13 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>]%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Left hand side** | <code>gx</code> |
+| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gx</code> |
-| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
 
 | **Description** | Comment insert end of line |
 | :---- | :---- |
@@ -349,11 +354,6 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>g%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>s</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Pounce&lt;CR&gt;</code> |
 
@@ -377,35 +377,25 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 | **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
 | **Right hand side** | |
 
-| **Description** | Comment toggle blockwise with count |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignOperator)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;28_easy_align_op&lt;CR&gt;g@</code> |
 
-| **Description** | Comment toggle linewise with count |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:call &lt;SNR&gt;28_easy_align_repeat()&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle current block |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;28_live_easy_align_op&lt;CR&gt;g@</code> |
 
-| **Description** | Comment toggle current line |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle blockwise |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle linewise |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;28_easy_align_op&lt;CR&gt;g@</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -454,13 +444,48 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;24_(wise)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;22_(wise)</code> |
 | **Right hand side** | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-hi-surround)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | Move to previous reference |
 | :---- | :---- |
@@ -471,31 +496,6 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-n&gt;</code> |
 | **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignOperator)</code> |
-| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
-| **Right hand side** | <code>:call &lt;SNR&gt;12_easy_align_repeat()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
-| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_live_easy_align_op&lt;CR&gt;g@</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
-| **Right hand side** | <code>:set opfunc=&lt;SNR&gt;12_easy_align_op&lt;CR&gt;g@</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -802,26 +802,6 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_repeat_in_visual()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;31_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;M-i&gt;</code> |
 | **Right hand side** | |
 
@@ -837,6 +817,11 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-a%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#delimited(0, 1, 'delim_all')&lt;CR&gt;</code> |
 
@@ -848,62 +833,77 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-Z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-Z%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-Z%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-Z%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-z%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-z%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-z%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-[%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-[%)</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-]%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-]%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-[%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-[%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-]%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-]%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-g%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-g%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-g%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-g%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;18_(matchup-%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;15_(matchup-%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;18_(matchup-%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;15_(matchup-%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlignRepeat)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_repeat_in_visual()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(LiveEasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(EasyAlign)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_easy_align_op(visualmode(), 1)&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps
@@ -990,11 +990,11 @@ Targets Python, Bash, LaTeX, Markdown, and C/C++. See the [Knvim Config Cheat Sh
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-i&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Left hand side** | <code>&lt;M-i&gt;</code> |
 | **Right hand side** | |
 

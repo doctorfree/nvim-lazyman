@@ -228,12 +228,12 @@ buffers&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> o</code></td>
+<td style="text-align: left;"><code> t</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code></td>
+style="text-align: left;"><code>&lt;Cmd&gt;TroubleToggle&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -251,12 +251,12 @@ style="text-align: left;"><code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> t</code></td>
+<td style="text-align: left;"><code> o</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Cmd&gt;TroubleToggle&lt;CR&gt;</code></td>
+style="text-align: left;"><code>&lt;Cmd&gt;SymbolsOutline&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -542,7 +542,7 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gb</code></td>
+<td style="text-align: left;"><code>gc</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -560,7 +560,7 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gc</code></td>
+<td style="text-align: left;"><code>gb</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -863,11 +863,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-U&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:w&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-U&gt;zz</code></td>
 </tr>
 </tbody>
 </table>
@@ -881,11 +881,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-U&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-U&gt;zz</code></td>
+<td style="text-align: left;"><code>:w&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1022,12 +1022,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-Left&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-Down&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:vertical resize
--2&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>:resize +2&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1059,11 +1058,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-Down&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-Up&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:resize +2&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>:resize -2&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1095,11 +1094,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-Up&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:resize -2&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-W&gt;k</code></td>
 </tr>
 </tbody>
 </table>
@@ -1113,11 +1112,11 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
+<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-W&gt;k</code></td>
+<td style="text-align: left;"><code>&lt;C-W&gt;j</code></td>
 </tr>
 </tbody>
 </table>
@@ -1137,24 +1136,6 @@ require(“dial.command”).textobj()&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:call
 QuickFixToggle()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-W&gt;j</code></td>
 </tr>
 </tbody>
 </table>
@@ -1192,6 +1173,25 @@ QuickFixToggle()&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:vertical resize
 +2&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Left&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:vertical resize
+-2&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1518,7 +1518,7 @@ require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gb</code></td>
+<td style="text-align: left;"><code>gc</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -1536,7 +1536,7 @@ require”dial.command”.select_augend_gvisual()&lt;CR&gt;&lt;Cmd&gt;let
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gc</code></td>
+<td style="text-align: left;"><code>gb</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>

@@ -201,6 +201,267 @@ MiniMove.move_line(‘right’)&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Close diffview</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> dcc</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:DiffviewClose&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Open diffview</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> dv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:DiffviewOpen&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Show current file history</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> dch</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:DiffviewFileHistory
+%&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Show Commit history with changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> dh</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>:DiffviewFileHistory&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">List PR’s</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> opl</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo pr list
+initial_mode=normal&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Submit PR review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> orss</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo review
+submit&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Start PR review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> ors</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo review
+start&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Close current review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> orc</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo review
+close&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Resume PR review</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> orr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo review
+resume&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Reload current PR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> opr</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:Octo pr
+reload&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Search current word with Spectre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> sw</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘spectre’).open_visual({select_word=true})&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Open Spectre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> ss</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘spectre’).open()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Search on current file with Spectre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> sf</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘spectre’).open_file_search({select_word=true})&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">Open Telescope Keymaps</th>
 </tr>
 </thead>
@@ -331,290 +592,6 @@ initial_mode=normal&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">List PR’s</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> opl</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo pr list
-initial_mode=normal&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Submit PR review</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> orss</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo review
-submit&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Start PR review</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> ors</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo review
-start&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Close current review</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> orc</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo review
-close&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Resume PR review</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> orr</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo review
-resume&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Reload current PR</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> opr</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:Octo pr
-reload&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Open a floating term</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> tt</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:ToggleTerm
-direction=float&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Search current word with Spectre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> sw</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘spectre’).open_visual({select_word=true})&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Open Spectre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> ss</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘spectre’).open()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Search on current file with Spectre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> sf</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘spectre’).open_file_search({select_word=true})&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Close diffview</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> dcc</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:DiffviewClose&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Open diffview</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> dv</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:DiffviewOpen&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Show current file history</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> dch</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:DiffviewFileHistory
-%&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Show Commit history with changes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> dh</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td
-style="text-align: left;"><code>:DiffviewFileHistory&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">Test keymap</th>
 </tr>
 </thead>
@@ -664,6 +641,29 @@ keymap!’&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:echo
 expand(‘%:p’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Open a floating term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code> tt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:ToggleTerm
+direction=float&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1217,6 +1217,24 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move up faster</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>10k</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">Quit Nvim</th>
 </tr>
 </thead>
@@ -1250,24 +1268,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move up faster</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>10k</code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1287,42 +1287,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:lua vim.lsp.buf.format({ timeout_ms
 = 5000 })&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Save current file</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:w&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Update buffer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;F5&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:bufdo e!&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1379,6 +1343,42 @@ style="text-align: left;"><code>:BufferLineCyclePrev&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>:BufferLineCycleNext&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Save current file</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-S&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:w&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Update buffer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;F5&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:bufdo e!&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1517,6 +1517,213 @@ style="text-align: left;"><code>&lt;Plug&gt;(MatchitNormalForward)</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
 matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise with count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise with count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle current block</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle current line</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move line up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘up’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move line down</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘down’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move line left</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;S-Tab&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_line(‘left’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2307,213 +2514,6 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;
 </tbody>
 </table>
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise with count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise with count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_count)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle current block</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle current line</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_current)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move line up</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_line(‘up’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move line down</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_line(‘down’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move line left</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;S-Tab&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_line(‘left’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
@@ -2954,24 +2954,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</co
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move down faster</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>10j</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">Move up faster</th>
 </tr>
 </thead>
@@ -2983,6 +2965,24 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</co
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>10k</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move down faster</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>10j</code></td>
 </tr>
 </tbody>
 </table>
@@ -3139,6 +3139,123 @@ exe”:normal! m’”</td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘up’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move down</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘down’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Move left</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;S-Tab&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Cmd&gt;lua
+MiniMove.move_selection(‘left’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise (visual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise (visual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;"></th>
 </tr>
 </thead>
@@ -3199,7 +3316,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(VM-Find-Subword-Under)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;20_Visual(‘under’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;11_Visual(‘under’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3291,7 +3408,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(VM-Visual-All)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;20_Visual(‘all’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;11_Visual(‘all’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3311,123 +3428,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(VM-Visual-Find)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>vm#operators#find(1, 1)</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise (visual)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise (visual)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move up</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_selection(‘up’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move down</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_selection(‘down’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Move left</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;S-Tab&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Cmd&gt;lua
-MiniMove.move_selection(‘left’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

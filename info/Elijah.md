@@ -58,6 +58,61 @@ Personal Neovim configuration of Elijah Manor
 
 ### Normal mode keymaps
 
+| **Description** | Goto Symbol |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme with preview |
+| :---- | :---- |
+| **Left hand side** | <code> uC</code> |
+| **Right hand side** | |
+
+| **Description** | Word (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sW</code> |
+| **Right hand side** | |
+
+| **Description** | Word (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Resume |
+| :---- | :---- |
+| **Left hand side** | <code> sR</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code> |
+
+| **Description** | Options |
+| :---- | :---- |
+| **Left hand side** | <code> so</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+
+| **Description** | Jump to Mark |
+| :---- | :---- |
+| **Left hand side** | <code> sm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope marks&lt;CR&gt;</code> |
+
+| **Description** | Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sM</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
+
+| **Description** | Key Maps |
+| :---- | :---- |
+| **Left hand side** | <code> sk</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+
+| **Description** | Help Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sh</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+
+| **Description** | Grep (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sG</code> |
+| **Right hand side** | |
+
 | **Description** | Grep (root dir) |
 | :---- | :---- |
 | **Left hand side** | <code> sg</code> |
@@ -148,20 +203,10 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> ,</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers show_all_buffers=true&lt;CR&gt;</code> |
 
-| **Description** | Man Pages |
+| **Description** | Search Highlight Groups |
 | :---- | :---- |
-| **Left hand side** | <code> sM</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
-
-| **Description** | Jump to Mark |
-| :---- | :---- |
-| **Left hand side** | <code> sm</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope marks&lt;CR&gt;</code> |
-
-| **Description** | Colorscheme with preview |
-| :---- | :---- |
-| **Left hand side** | <code> uC</code> |
-| **Right hand side** | |
+| **Left hand side** | <code> sH</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope highlights&lt;CR&gt;</code> |
 
 | **Description** | Browse Files |
 | :---- | :---- |
@@ -173,54 +218,49 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> sS</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Symbol |
+| **Description** | Neogit |
 | :---- | :---- |
-| **Left hand side** | <code> ss</code> |
+| **Left hand side** | <code> gn</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (root dir) |
+| **Description** | Dismiss all Notifications |
 | :---- | :---- |
-| **Left hand side** | <code>  </code> |
+| **Left hand side** | <code> un</code> |
 | **Right hand side** | |
 
-| **Description** | Word (cwd) |
+| **Description** | Toggle LSP output |
 | :---- | :---- |
-| **Left hand side** | <code> sW</code> |
+| **Left hand side** | <code> uo</code> |
 | **Right hand side** | |
 
-| **Description** | Word (root dir) |
+| **Description** | Diffview Open |
 | :---- | :---- |
-| **Left hand side** | <code> sw</code> |
+| **Left hand side** | <code> gd</code> |
 | **Right hand side** | |
 
-| **Description** | Resume |
+| **Description** | Mason |
 | :---- | :---- |
-| **Left hand side** | <code> sR</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code> |
+| **Left hand side** | <code> cm</code> |
+| **Right hand side** | |
 
-| **Description** | Options |
+| **Description** | Quickfix List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> so</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+| **Left hand side** | <code> xQ</code> |
+| **Right hand side** | |
 
-| **Description** | Key Maps |
+| **Description** | Location List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> sk</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+| **Left hand side** | <code> xL</code> |
+| **Right hand side** | |
 
-| **Description** | Search Highlight Groups |
+| **Description** | Workspace Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> sH</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope highlights&lt;CR&gt;</code> |
+| **Left hand side** | <code> xX</code> |
+| **Right hand side** | |
 
-| **Description** | Help Pages |
+| **Description** | Document Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> sh</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
-
-| **Description** | Grep (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> sG</code> |
+| **Left hand side** | <code> xx</code> |
 | **Right hand side** | |
 
 | **Description** | Restore Last Session |
@@ -238,39 +278,14 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> qd</code> |
 | **Right hand side** | |
 
-| **Description** | Noice Last Message |
+| **Description** | Dap UI |
 | :---- | :---- |
-| **Left hand side** | <code> snl</code> |
+| **Left hand side** | <code> du</code> |
 | **Right hand side** | |
 
-| **Description** | Dismiss All |
+| **Description** | Eval |
 | :---- | :---- |
-| **Left hand side** | <code> snd</code> |
-| **Right hand side** | |
-
-| **Description** | Noice All |
-| :---- | :---- |
-| **Left hand side** | <code> sna</code> |
-| **Right hand side** | |
-
-| **Description** | Noice History |
-| :---- | :---- |
-| **Left hand side** | <code> snh</code> |
-| **Right hand side** | |
-
-| **Description** | Open Yank History |
-| :---- | :---- |
-| **Left hand side** | <code> p</code> |
-| **Right hand side** | |
-
-| **Description** | Dismiss all Notifications |
-| :---- | :---- |
-| **Left hand side** | <code> un</code> |
-| **Right hand side** | |
-
-| **Description** | Replace in files (Spectre) |
-| :---- | :---- |
-| **Left hand side** | <code> sr</code> |
+| **Left hand side** | <code> de</code> |
 | **Right hand side** | |
 
 | **Description** | Delete non-pinned buffers |
@@ -283,9 +298,74 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> bp</code> |
 | **Right hand side** | |
 
-| **Description** | Type-check |
+| **Description** | Delete Buffer |
 | :---- | :---- |
-| **Left hand side** | <code> tc</code> |
+| **Left hand side** | <code> bd</code> |
+| **Right hand side** | |
+
+| **Description** | Delete Buffer (Force) |
+| :---- | :---- |
+| **Left hand side** | <code> bD</code> |
+| **Right hand side** | |
+
+| **Description** | Show Output |
+| :---- | :---- |
+| **Left hand side** | <code> to</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Summary |
+| :---- | :---- |
+| **Left hand side** | <code> ts</code> |
+| **Right hand side** | |
+
+| **Description** | Run Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> tr</code> |
+| **Right hand side** | |
+
+| **Description** | Run All Test Files |
+| :---- | :---- |
+| **Left hand side** | <code> tT</code> |
+| **Right hand side** | |
+
+| **Description** | Run File |
+| :---- | :---- |
+| **Left hand side** | <code> tt</code> |
+| **Right hand side** | |
+
+| **Description** | Stop |
+| :---- | :---- |
+| **Left hand side** | <code> tS</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Output Panel |
+| :---- | :---- |
+| **Left hand side** | <code> tO</code> |
+| **Right hand side** | |
+
+| **Description** | Replace in files (Spectre) |
+| :---- | :---- |
+| **Left hand side** | <code> sr</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> E</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fE</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer NeoTree (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> fe</code> |
 | **Right hand side** | |
 
 | **Description** | Widgets |
@@ -383,24 +463,34 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> fm</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle LSP output |
+| **Description** | Noice History |
 | :---- | :---- |
-| **Left hand side** | <code> uo</code> |
+| **Left hand side** | <code> snh</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme |
+| **Description** | Noice Last Message |
 | :---- | :---- |
-| **Left hand side** | <code> sT</code> |
+| **Left hand side** | <code> snl</code> |
 | **Right hand side** | |
 
-| **Description** | Todo |
+| **Description** | Dismiss All |
 | :---- | :---- |
-| **Left hand side** | <code> st</code> |
+| **Left hand side** | <code> snd</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme (Trouble) |
+| **Description** | Noice All |
 | :---- | :---- |
-| **Left hand side** | <code> xT</code> |
+| **Left hand side** | <code> sna</code> |
+| **Right hand side** | |
+
+| **Description** | Type-check |
+| :---- | :---- |
+| **Left hand side** | <code> tc</code> |
+| **Right hand side** | |
+
+| **Description** | Open Yank History |
+| :---- | :---- |
+| **Left hand side** | <code> p</code> |
 | **Right hand side** | |
 
 | **Description** | Todo (Trouble) |
@@ -408,114 +498,19 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code> xt</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (cwd) |
+| **Description** | Todo |
 | :---- | :---- |
-| **Left hand side** | <code> E</code> |
+| **Left hand side** | <code> st</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (root dir) |
+| **Description** | Todo/Fix/Fixme |
 | :---- | :---- |
-| **Left hand side** | <code> e</code> |
+| **Left hand side** | <code> sT</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (cwd) |
+| **Description** | Todo/Fix/Fixme (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> fE</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer NeoTree (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> fe</code> |
-| **Right hand side** | |
-
-| **Description** | Mason |
-| :---- | :---- |
-| **Left hand side** | <code> cm</code> |
-| **Right hand side** | |
-
-| **Description** | Neogit |
-| :---- | :---- |
-| **Left hand side** | <code> gn</code> |
-| **Right hand side** | |
-
-| **Description** | Run File |
-| :---- | :---- |
-| **Left hand side** | <code> tt</code> |
-| **Right hand side** | |
-
-| **Description** | Stop |
-| :---- | :---- |
-| **Left hand side** | <code> tS</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Output Panel |
-| :---- | :---- |
-| **Left hand side** | <code> tO</code> |
-| **Right hand side** | |
-
-| **Description** | Show Output |
-| :---- | :---- |
-| **Left hand side** | <code> to</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Summary |
-| :---- | :---- |
-| **Left hand side** | <code> ts</code> |
-| **Right hand side** | |
-
-| **Description** | Run Nearest |
-| :---- | :---- |
-| **Left hand side** | <code> tr</code> |
-| **Right hand side** | |
-
-| **Description** | Run All Test Files |
-| :---- | :---- |
-| **Left hand side** | <code> tT</code> |
-| **Right hand side** | |
-
-| **Description** | Quickfix List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xQ</code> |
-| **Right hand side** | |
-
-| **Description** | Location List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xL</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xX</code> |
-| **Right hand side** | |
-
-| **Description** | Document Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xx</code> |
-| **Right hand side** | |
-
-| **Description** | Diffview Open |
-| :---- | :---- |
-| **Left hand side** | <code> gd</code> |
-| **Right hand side** | |
-
-| **Description** | Dap UI |
-| :---- | :---- |
-| **Left hand side** | <code> du</code> |
-| **Right hand side** | |
-
-| **Description** | Eval |
-| :---- | :---- |
-| **Left hand side** | <code> de</code> |
-| **Right hand side** | |
-
-| **Description** | Delete Buffer (Force) |
-| :---- | :---- |
-| **Left hand side** | <code> bD</code> |
-| **Right hand side** | |
-
-| **Description** | Delete Buffer |
-| :---- | :---- |
-| **Left hand side** | <code> bd</code> |
+| **Left hand side** | <code> xT</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -533,14 +528,14 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code>-</code> |
 | **Right hand side** | |
 
-| **Description** | Put before and indent left |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;lt&gt;P</code> |
-| **Right hand side** | |
-
 | **Description** | Put and indent left |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;lt&gt;p</code> |
+| **Right hand side** | |
+
+| **Description** | Put before and indent left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;P</code> |
 | **Right hand side** | |
 
 | **Description** | Put after applying a filter |
@@ -583,6 +578,16 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
+| **Description** | Previous trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>[q</code> |
+| **Right hand side** | |
+
+| **Description** | Prev Reference |
+| :---- | :---- |
+| **Left hand side** | <code>[[</code> |
+| **Right hand side** | |
+
 | **Description** | Put indented before cursor (linewise) |
 | :---- | :---- |
 | **Left hand side** | <code>[p</code> |
@@ -603,40 +608,10 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code>[t</code> |
 | **Right hand side** | |
 
-| **Description** | Previous trouble/quickfix item |
-| :---- | :---- |
-| **Left hand side** | <code>[q</code> |
-| **Right hand side** | |
-
-| **Description** | Prev Reference |
-| :---- | :---- |
-| **Left hand side** | <code>[[</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>]%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-
-| **Description** | Put indented after cursor (linewise) |
-| :---- | :---- |
-| **Left hand side** | <code>]p</code> |
-| **Right hand side** | |
-
-| **Description** | Put indented after cursor (linewise) |
-| :---- | :---- |
-| **Left hand side** | <code>]P</code> |
-| **Right hand side** | |
-
-| **Description** | Cycle backward through yank history |
-| :---- | :---- |
-| **Left hand side** | <code>]y</code> |
-| **Right hand side** | |
-
-| **Description** | Next todo comment |
-| :---- | :---- |
-| **Left hand side** | <code>]t</code> |
-| **Right hand side** | |
 
 | **Description** | Next trouble/quickfix item |
 | :---- | :---- |
@@ -648,6 +623,26 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code>]]</code> |
 | **Right hand side** | |
 
+| **Description** | Cycle backward through yank history |
+| :---- | :---- |
+| **Left hand side** | <code>]y</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented after cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>]p</code> |
+| **Right hand side** | |
+
+| **Description** | Put indented after cursor (linewise) |
+| :---- | :---- |
+| **Left hand side** | <code>]P</code> |
+| **Right hand side** | |
+
+| **Description** | Next todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>gx</code> |
@@ -657,16 +652,6 @@ Personal Neovim configuration of Elijah Manor
 | :---- | :---- |
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-
-| **Description** | Put yanked text before selection |
-| :---- | :---- |
-| **Left hand side** | <code>gP</code> |
-| **Right hand side** | |
-
-| **Description** | Put yanked text after selection |
-| :---- | :---- |
-| **Left hand side** | <code>gp</code> |
-| **Right hand side** | |
 
 | **Description** | Delete surrounding |
 | :---- | :---- |
@@ -701,6 +686,16 @@ Personal Neovim configuration of Elijah Manor
 | **Description** | Highlight surrounding |
 | :---- | :---- |
 | **Left hand side** | <code>gzh</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text before selection |
+| :---- | :---- |
+| **Left hand side** | <code>gP</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text after selection |
+| :---- | :---- |
+| **Left hand side** | <code>gp</code> |
 | **Right hand side** | |
 
 | **Description** | Put yanked text after cursor |
@@ -745,11 +740,6 @@ Personal Neovim configuration of Elijah Manor
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code> |
 
@@ -767,6 +757,11 @@ Personal Neovim configuration of Elijah Manor
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-H&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | Scroll forward |
 | :---- | :---- |
@@ -861,14 +856,14 @@ Personal Neovim configuration of Elijah Manor
 | **Left hand side** | <code>gza</code> |
 | **Right hand side** | |
 
-| **Description** | Put yanked text before selection |
-| :---- | :---- |
-| **Left hand side** | <code>gP</code> |
-| **Right hand side** | |
-
 | **Description** | Put yanked text after selection |
 | :---- | :---- |
 | **Left hand side** | <code>gp</code> |
+| **Right hand side** | |
+
+| **Description** | Put yanked text before selection |
+| :---- | :---- |
+| **Left hand side** | <code>gP</code> |
 | **Right hand side** | |
 
 | **Description** | Put yanked text after cursor |

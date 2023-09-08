@@ -222,6 +222,16 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | **Left hand side** | <code> bD</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;%bd&#124;e#|bd#&lt;CR&gt;</code> |
 
+| **Description** | Toggle SymbolsOutline |
+| :---- | :---- |
+| **Left hand side** | <code> tO</code> |
+| **Right hand side** | |
+
+| **Description** | Search current word |
+| :---- | :---- |
+| **Left hand side** | <code> Rw</code> |
+| **Right hand side** | |
+
 | **Description** | Toggle search and replace |
 | :---- | :---- |
 | **Left hand side** | <code> Rr</code> |
@@ -232,54 +242,14 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | **Left hand side** | <code> Rf</code> |
 | **Right hand side** | |
 
-| **Description** | Search current word |
+| **Description** | Advanced Git Search |
 | :---- | :---- |
-| **Left hand side** | <code> Rw</code> |
+| **Left hand side** | <code> ga</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle SymbolsOutline |
+| **Description** | Toggle Filetree |
 | :---- | :---- |
-| **Left hand side** | <code> tO</code> |
-| **Right hand side** | |
-
-| **Description** | Headings |
-| :---- | :---- |
-| **Left hand side** | <code> sh</code> |
-| **Right hand side** | |
-
-| **Description** | Help |
-| :---- | :---- |
-| **Left hand side** | <code> s?</code> |
-| **Right hand side** | |
-
-| **Description** | Strings |
-| :---- | :---- |
-| **Left hand side** | <code> st</code> |
-| **Right hand side** | |
-
-| **Description** | Commands |
-| :---- | :---- |
-| **Left hand side** | <code> sc</code> |
-| **Right hand side** | |
-
-| **Description** | Bufferlist |
-| :---- | :---- |
-| **Left hand side** | <code> bb</code> |
-| **Right hand side** | |
-
-| **Description** | Telescope |
-| :---- | :---- |
-| **Left hand side** | <code> mt</code> |
-| **Right hand side** | |
-
-| **Description** | Run make |
-| :---- | :---- |
-| **Left hand side** | <code> mm</code> |
-| **Right hand side** | |
-
-| **Description** | Recent files |
-| :---- | :---- |
-| **Left hand side** | <code> fr</code> |
+| **Left hand side** | <code> fp</code> |
 | **Right hand side** | |
 
 | **Description** | Open file (ignore git) |
@@ -362,25 +332,50 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | **Left hand side** | <code> sk</code> |
 | **Right hand side** | |
 
-| **Description** | Advanced Git Search |
+| **Description** | Headings |
 | :---- | :---- |
-| **Left hand side** | <code> ga</code> |
+| **Left hand side** | <code> sh</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle Filetree |
+| **Description** | Help |
 | :---- | :---- |
-| **Left hand side** | <code> fp</code> |
+| **Left hand side** | <code> s?</code> |
+| **Right hand side** | |
+
+| **Description** | Strings |
+| :---- | :---- |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Commands |
+| :---- | :---- |
+| **Left hand side** | <code> sc</code> |
+| **Right hand side** | |
+
+| **Description** | Telescope |
+| :---- | :---- |
+| **Left hand side** | <code> mt</code> |
+| **Right hand side** | |
+
+| **Description** | Bufferlist |
+| :---- | :---- |
+| **Left hand side** | <code> bb</code> |
+| **Right hand side** | |
+
+| **Description** | Run make |
+| :---- | :---- |
+| **Left hand side** | <code> mm</code> |
+| **Right hand side** | |
+
+| **Description** | Recent files |
+| :---- | :---- |
+| **Left hand side** | <code> fr</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code> ml</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Lazy&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -504,11 +499,6 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;fugitive:</code> |
 | **Right hand side** | <code></code> |
 
@@ -516,6 +506,11 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;fugitive:y&lt;C-G&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | Git Conflict: Previous Conflict |
 | :---- | :---- |
@@ -589,11 +584,6 @@ One of the inspirations for Lazyman. Excellent support for Python, Golang, Rust,
 | :---- | :---- |
 | **Left hand side** | <code> Rw</code> |
 | **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |

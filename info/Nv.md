@@ -118,179 +118,9 @@
 
 ### Normal mode keymaps
 
-| **Description** | Debug Nearest |
-| :---- | :---- |
-| **Left hand side** | <code> td</code> |
-| **Right hand side** | |
-
-| **Description** | Eval |
-| :---- | :---- |
-| **Left hand side** | <code> de</code> |
-| **Right hand side** | |
-
-| **Description** | Frames |
-| :---- | :---- |
-| **Left hand side** | <code> dwf</code> |
-| **Right hand side** | |
-
-| **Description** | Scopes |
-| :---- | :---- |
-| **Left hand side** | <code> dws</code> |
-| **Right hand side** | |
-
-| **Description** | Threads |
-| :---- | :---- |
-| **Left hand side** | <code> dwt</code> |
-| **Right hand side** | |
-
-| **Description** | Widgets |
-| :---- | :---- |
-| **Left hand side** | <code> dw</code> |
-| **Right hand side** | |
-
-| **Description** | Terminate |
-| :---- | :---- |
-| **Left hand side** | <code> dt</code> |
-| **Right hand side** | |
-
-| **Description** | Session |
-| :---- | :---- |
-| **Left hand side** | <code> ds</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle REPL |
-| :---- | :---- |
-| **Left hand side** | <code> dr</code> |
-| **Right hand side** | |
-
-| **Description** | Pause |
-| :---- | :---- |
-| **Left hand side** | <code> dp</code> |
-| **Right hand side** | |
-
-| **Description** | Step Over |
-| :---- | :---- |
-| **Left hand side** | <code> dO</code> |
-| **Right hand side** | |
-
-| **Description** | Step Out |
-| :---- | :---- |
-| **Left hand side** | <code> do</code> |
-| **Right hand side** | |
-
-| **Description** | Run Last |
-| :---- | :---- |
-| **Left hand side** | <code> dl</code> |
-| **Right hand side** | |
-
-| **Description** | Up |
-| :---- | :---- |
-| **Left hand side** | <code> dk</code> |
-| **Right hand side** | |
-
-| **Description** | Down |
-| :---- | :---- |
-| **Left hand side** | <code> dj</code> |
-| **Right hand side** | |
-
-| **Description** | Step Into |
-| :---- | :---- |
-| **Left hand side** | <code> di</code> |
-| **Right hand side** | |
-
-| **Description** | Go to line (no execute) |
-| :---- | :---- |
-| **Left hand side** | <code> dg</code> |
-| **Right hand side** | |
-
-| **Description** | Run to Cursor |
-| :---- | :---- |
-| **Left hand side** | <code> dC</code> |
-| **Right hand side** | |
-
-| **Description** | Continue |
-| :---- | :---- |
-| **Left hand side** | <code> dc</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Breakpoint |
-| :---- | :---- |
-| **Left hand side** | <code> db</code> |
-| **Right hand side** | |
-
-| **Description** | Breakpoint Condition |
-| :---- | :---- |
-| **Left hand side** | <code> dB</code> |
-| **Right hand side** | |
-
-| **Description** | Quickfix List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xQ</code> |
-| **Right hand side** | |
-
-| **Description** | Document Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xx</code> |
-| **Right hand side** | |
-
-| **Description** | Location List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xL</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xX</code> |
-| **Right hand side** | |
-
-| **Description** | Delete Buffer (Force) |
-| :---- | :---- |
-| **Left hand side** | <code> bD</code> |
-| **Right hand side** | |
-
-| **Description** | Delete Buffer |
-| :---- | :---- |
-| **Left hand side** | <code> bd</code> |
-| **Right hand side** | |
-
 | **Description** | Open Yank History |
 | :---- | :---- |
 | **Left hand side** | <code> p</code> |
-| **Right hand side** | |
-
-| **Description** | Replace in files (Spectre) |
-| :---- | :---- |
-| **Left hand side** | <code> sr</code> |
-| **Right hand side** | |
-
-| **Description** | Symbols Outline |
-| :---- | :---- |
-| **Left hand side** | <code> cs</code> |
-| **Right hand side** | |
-
-| **Description** | Zen Mode |
-| :---- | :---- |
-| **Left hand side** | <code> z</code> |
-| **Right hand side** | |
-
-| **Description** | Projects |
-| :---- | :---- |
-| **Left hand side** | <code> fp</code> |
-| **Right hand side** | |
-
-| **Description** | Adapter Lua |
-| :---- | :---- |
-| **Left hand side** | <code> dal</code> |
-| **Right hand side** | |
-
-| **Description** | Adapter Lua Server |
-| :---- | :---- |
-| **Left hand side** | <code> daL</code> |
-| **Right hand side** | |
-
-| **Description** | Select VirtualEnv |
-| :---- | :---- |
-| **Left hand side** | <code> cv</code> |
 | **Right hand side** | |
 
 | **Description** | Debug Class |
@@ -303,124 +133,99 @@
 | **Left hand side** | <code> dPt</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme |
+| **Description** | Select VirtualEnv |
 | :---- | :---- |
-| **Left hand side** | <code> sT</code> |
+| **Left hand side** | <code> cv</code> |
 | **Right hand side** | |
 
-| **Description** | Todo |
+| **Description** | Location List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> st</code> |
+| **Left hand side** | <code> xL</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme (Trouble) |
+| **Description** | Workspace Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> xT</code> |
+| **Left hand side** | <code> xX</code> |
 | **Right hand side** | |
 
-| **Description** | Todo (Trouble) |
+| **Description** | Document Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> xt</code> |
+| **Left hand side** | <code> xx</code> |
 | **Right hand side** | |
 
-| **Description** | Run Request |
+| **Description** | Quickfix List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> hr</code> |
+| **Left hand side** | <code> xQ</code> |
 | **Right hand side** | |
 
-| **Description** | Preview Request |
+| **Description** | Buffers |
 | :---- | :---- |
-| **Left hand side** | <code> hp</code> |
+| **Left hand side** | <code> fb</code> |
 | **Right hand side** | |
 
-| **Description** | Stop |
+| **Description** | Command History |
 | :---- | :---- |
-| **Left hand side** | <code> tS</code> |
+| **Left hand side** | <code> :</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle Output Panel |
+| **Description** | Grep (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code> tO</code> |
+| **Left hand side** | <code> /</code> |
 | **Right hand side** | |
 
-| **Description** | Show Output |
+| **Description** | Switch Buffer |
 | :---- | :---- |
-| **Left hand side** | <code> to</code> |
+| **Left hand side** | <code> ,</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle Summary |
+| **Description** | Goto Symbol (Workspace) |
 | :---- | :---- |
-| **Left hand side** | <code> ts</code> |
+| **Left hand side** | <code> sS</code> |
 | **Right hand side** | |
 
-| **Description** | Run Nearest |
+| **Description** | Goto Symbol |
 | :---- | :---- |
-| **Left hand side** | <code> tr</code> |
+| **Left hand side** | <code> ss</code> |
 | **Right hand side** | |
 
-| **Description** | Run All Test Files |
+| **Description** | Colorscheme with preview |
 | :---- | :---- |
-| **Left hand side** | <code> tT</code> |
+| **Left hand side** | <code> uC</code> |
 | **Right hand side** | |
 
-| **Description** | Run File |
+| **Description** | Word (cwd) |
 | :---- | :---- |
-| **Left hand side** | <code> tt</code> |
+| **Left hand side** | <code> sW</code> |
 | **Right hand side** | |
 
-| **Description** | Don't Save Current Session |
+| **Description** | Word (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code> qd</code> |
+| **Left hand side** | <code> sw</code> |
 | **Right hand side** | |
 
-| **Description** | Restore Last Session |
+| **Description** | Resume |
 | :---- | :---- |
-| **Left hand side** | <code> ql</code> |
+| **Left hand side** | <code> sR</code> |
 | **Right hand side** | |
 
-| **Description** | Restore Session |
+| **Description** | Options |
 | :---- | :---- |
-| **Left hand side** | <code> qs</code> |
+| **Left hand side** | <code> so</code> |
 | **Right hand side** | |
 
-| **Description** | Edgy Select Window |
+| **Description** | Jump to Mark |
 | :---- | :---- |
-| **Left hand side** | <code> uE</code> |
+| **Left hand side** | <code> sm</code> |
 | **Right hand side** | |
 
-| **Description** | Edgy Toggle |
+| **Description** | Man Pages |
 | :---- | :---- |
-| **Left hand side** | <code> ue</code> |
+| **Left hand side** | <code> sM</code> |
 | **Right hand side** | |
 
-| **Description** | Noice Last Message |
+| **Description** | Key Maps |
 | :---- | :---- |
-| **Left hand side** | <code> snl</code> |
-| **Right hand side** | |
-
-| **Description** | Dismiss All |
-| :---- | :---- |
-| **Left hand side** | <code> snd</code> |
-| **Right hand side** | |
-
-| **Description** | Noice All |
-| :---- | :---- |
-| **Left hand side** | <code> sna</code> |
-| **Right hand side** | |
-
-| **Description** | Noice History |
-| :---- | :---- |
-| **Left hand side** | <code> snh</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle pin |
-| :---- | :---- |
-| **Left hand side** | <code> bp</code> |
-| **Right hand side** | |
-
-| **Description** | Delete non-pinned buffers |
-| :---- | :---- |
-| **Left hand side** | <code> bP</code> |
+| **Left hand side** | <code> sk</code> |
 | **Right hand side** | |
 
 | **Description** | Search Highlight Groups |
@@ -508,84 +313,184 @@
 | **Left hand side** | <code> ff</code> |
 | **Right hand side** | |
 
-| **Description** | Buffers |
+| **Description** | Show Output |
 | :---- | :---- |
-| **Left hand side** | <code> fb</code> |
+| **Left hand side** | <code> to</code> |
 | **Right hand side** | |
 
-| **Description** | Command History |
+| **Description** | Toggle Summary |
 | :---- | :---- |
-| **Left hand side** | <code> :</code> |
+| **Left hand side** | <code> ts</code> |
 | **Right hand side** | |
 
-| **Description** | Grep (root dir) |
+| **Description** | Run Nearest |
 | :---- | :---- |
-| **Left hand side** | <code> /</code> |
+| **Left hand side** | <code> tr</code> |
 | **Right hand side** | |
 
-| **Description** | Switch Buffer |
+| **Description** | Run All Test Files |
 | :---- | :---- |
-| **Left hand side** | <code> ,</code> |
+| **Left hand side** | <code> tT</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (root dir) |
+| **Description** | Run File |
 | :---- | :---- |
-| **Left hand side** | <code>  </code> |
+| **Left hand side** | <code> tt</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Symbol (Workspace) |
+| **Description** | Stop |
 | :---- | :---- |
-| **Left hand side** | <code> sS</code> |
+| **Left hand side** | <code> tS</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Symbol |
+| **Description** | Toggle Output Panel |
 | :---- | :---- |
-| **Left hand side** | <code> ss</code> |
+| **Left hand side** | <code> tO</code> |
 | **Right hand side** | |
 
-| **Description** | Colorscheme with preview |
+| **Description** | Edgy Select Window |
 | :---- | :---- |
-| **Left hand side** | <code> uC</code> |
+| **Left hand side** | <code> uE</code> |
 | **Right hand side** | |
 
-| **Description** | Word (cwd) |
+| **Description** | Edgy Toggle |
 | :---- | :---- |
-| **Left hand side** | <code> sW</code> |
+| **Left hand side** | <code> ue</code> |
 | **Right hand side** | |
 
-| **Description** | Word (root dir) |
+| **Description** | Projects |
 | :---- | :---- |
-| **Left hand side** | <code> sw</code> |
+| **Left hand side** | <code> fp</code> |
 | **Right hand side** | |
 
-| **Description** | Resume |
+| **Description** | Replace in files (Spectre) |
 | :---- | :---- |
-| **Left hand side** | <code> sR</code> |
+| **Left hand side** | <code> sr</code> |
 | **Right hand side** | |
 
-| **Description** | Options |
+| **Description** | Delete Buffer (Force) |
 | :---- | :---- |
-| **Left hand side** | <code> so</code> |
+| **Left hand side** | <code> bD</code> |
 | **Right hand side** | |
 
-| **Description** | Jump to Mark |
+| **Description** | Delete Buffer |
 | :---- | :---- |
-| **Left hand side** | <code> sm</code> |
+| **Left hand side** | <code> bd</code> |
 | **Right hand side** | |
 
-| **Description** | Man Pages |
+| **Description** | Mason |
 | :---- | :---- |
-| **Left hand side** | <code> sM</code> |
+| **Left hand side** | <code> cm</code> |
 | **Right hand side** | |
 
-| **Description** | Key Maps |
+| **Description** | Breakpoint Condition |
 | :---- | :---- |
-| **Left hand side** | <code> sk</code> |
+| **Left hand side** | <code> dB</code> |
 | **Right hand side** | |
 
-| **Description** | Dismiss all Notifications |
+| **Description** | Toggle Breakpoint |
 | :---- | :---- |
-| **Left hand side** | <code> un</code> |
+| **Left hand side** | <code> db</code> |
+| **Right hand side** | |
+
+| **Description** | Continue |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | |
+
+| **Description** | Run to Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> dC</code> |
+| **Right hand side** | |
+
+| **Description** | Threads |
+| :---- | :---- |
+| **Left hand side** | <code> dwt</code> |
+| **Right hand side** | |
+
+| **Description** | Scopes |
+| :---- | :---- |
+| **Left hand side** | <code> dws</code> |
+| **Right hand side** | |
+
+| **Description** | Frames |
+| :---- | :---- |
+| **Left hand side** | <code> dwf</code> |
+| **Right hand side** | |
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> td</code> |
+| **Right hand side** | |
+
+| **Description** | Widgets |
+| :---- | :---- |
+| **Left hand side** | <code> dw</code> |
+| **Right hand side** | |
+
+| **Description** | Terminate |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | Session |
+| :---- | :---- |
+| **Left hand side** | <code> ds</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle REPL |
+| :---- | :---- |
+| **Left hand side** | <code> dr</code> |
+| **Right hand side** | |
+
+| **Description** | Pause |
+| :---- | :---- |
+| **Left hand side** | <code> dp</code> |
+| **Right hand side** | |
+
+| **Description** | Step Over |
+| :---- | :---- |
+| **Left hand side** | <code> dO</code> |
+| **Right hand side** | |
+
+| **Description** | Step Out |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | |
+
+| **Description** | Run Last |
+| :---- | :---- |
+| **Left hand side** | <code> dl</code> |
+| **Right hand side** | |
+
+| **Description** | Up |
+| :---- | :---- |
+| **Left hand side** | <code> dk</code> |
+| **Right hand side** | |
+
+| **Description** | Down |
+| :---- | :---- |
+| **Left hand side** | <code> dj</code> |
+| **Right hand side** | |
+
+| **Description** | Step Into |
+| :---- | :---- |
+| **Left hand side** | <code> di</code> |
+| **Right hand side** | |
+
+| **Description** | Go to line (no execute) |
+| :---- | :---- |
+| **Left hand side** | <code> dg</code> |
+| **Right hand side** | |
+
+| **Description** | Zen Mode |
+| :---- | :---- |
+| **Left hand side** | <code> z</code> |
 | **Right hand side** | |
 
 | **Description** | Explorer NeoTree (cwd) |
@@ -608,9 +513,99 @@
 | **Left hand side** | <code> e</code> |
 | **Right hand side** | |
 
-| **Description** | Mason |
+| **Description** | Symbols Outline |
 | :---- | :---- |
-| **Left hand side** | <code> cm</code> |
+| **Left hand side** | <code> cs</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
+| **Right hand side** | |
+
+| **Description** | Adapter Lua Server |
+| :---- | :---- |
+| **Left hand side** | <code> daL</code> |
+| **Right hand side** | |
+
+| **Description** | Adapter Lua |
+| :---- | :---- |
+| **Left hand side** | <code> dal</code> |
+| **Right hand side** | |
+
+| **Description** | Delete non-pinned buffers |
+| :---- | :---- |
+| **Left hand side** | <code> bP</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle pin |
+| :---- | :---- |
+| **Left hand side** | <code> bp</code> |
+| **Right hand side** | |
+
+| **Description** | Run Request |
+| :---- | :---- |
+| **Left hand side** | <code> hr</code> |
+| **Right hand side** | |
+
+| **Description** | Preview Request |
+| :---- | :---- |
+| **Left hand side** | <code> hp</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Session |
+| :---- | :---- |
+| **Left hand side** | <code> qs</code> |
+| **Right hand side** | |
+
+| **Description** | Don't Save Current Session |
+| :---- | :---- |
+| **Left hand side** | <code> qd</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Last Session |
+| :---- | :---- |
+| **Left hand side** | <code> ql</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme |
+| :---- | :---- |
+| **Left hand side** | <code> sT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo |
+| :---- | :---- |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Todo (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xt</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss All |
+| :---- | :---- |
+| **Left hand side** | <code> snd</code> |
+| **Right hand side** | |
+
+| **Description** | Noice All |
+| :---- | :---- |
+| **Left hand side** | <code> sna</code> |
+| **Right hand side** | |
+
+| **Description** | Noice History |
+| :---- | :---- |
+| **Left hand side** | <code> snh</code> |
+| **Right hand side** | |
+
+| **Description** | Noice Last Message |
+| :---- | :---- |
+| **Left hand side** | <code> snl</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -623,14 +618,14 @@
 | **Left hand side** | <code>&</code> |
 | **Right hand side** | <code>:&&&lt;CR&gt;</code> |
 
-| **Description** | Put before and indent left |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;lt&gt;P</code> |
-| **Right hand side** | |
-
 | **Description** | Put and indent left |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;lt&gt;p</code> |
+| **Right hand side** | |
+
+| **Description** | Put before and indent left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;P</code> |
 | **Right hand side** | |
 
 | **Description** | Put after applying a filter |
@@ -673,14 +668,9 @@
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
-| **Description** | Previous trouble/quickfix item |
+| **Description** | Put indented before cursor (linewise) |
 | :---- | :---- |
-| **Left hand side** | <code>[q</code> |
-| **Right hand side** | |
-
-| **Description** | Cycle forward through yank history |
-| :---- | :---- |
-| **Left hand side** | <code>[y</code> |
+| **Left hand side** | <code>[P</code> |
 | **Right hand side** | |
 
 | **Description** | Put indented before cursor (linewise) |
@@ -688,14 +678,9 @@
 | **Left hand side** | <code>[p</code> |
 | **Right hand side** | |
 
-| **Description** | Put indented before cursor (linewise) |
+| **Description** | Cycle forward through yank history |
 | :---- | :---- |
-| **Left hand side** | <code>[P</code> |
-| **Right hand side** | |
-
-| **Description** | Previous todo comment |
-| :---- | :---- |
-| **Left hand side** | <code>[t</code> |
+| **Left hand side** | <code>[y</code> |
 | **Right hand side** | |
 
 | **Description** | Prev Reference |
@@ -703,14 +688,24 @@
 | **Left hand side** | <code>[[</code> |
 | **Right hand side** | |
 
+| **Description** | Previous trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>[q</code> |
+| **Right hand side** | |
+
+| **Description** | Previous todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>]%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
 
-| **Description** | Next trouble/quickfix item |
+| **Description** | Put indented after cursor (linewise) |
 | :---- | :---- |
-| **Left hand side** | <code>]q</code> |
+| **Left hand side** | <code>]p</code> |
 | **Right hand side** | |
 
 | **Description** | Cycle backward through yank history |
@@ -720,22 +715,22 @@
 
 | **Description** | Put indented after cursor (linewise) |
 | :---- | :---- |
-| **Left hand side** | <code>]p</code> |
-| **Right hand side** | |
-
-| **Description** | Put indented after cursor (linewise) |
-| :---- | :---- |
 | **Left hand side** | <code>]P</code> |
-| **Right hand side** | |
-
-| **Description** | Next todo comment |
-| :---- | :---- |
-| **Left hand side** | <code>]t</code> |
 | **Right hand side** | |
 
 | **Description** | Next Reference |
 | :---- | :---- |
 | **Left hand side** | <code>]]</code> |
+| **Right hand side** | |
+
+| **Description** | Next trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>]q</code> |
+| **Right hand side** | |
+
+| **Description** | Next todo comment |
+| :---- | :---- |
+| **Left hand side** | <code>]t</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -748,19 +743,14 @@
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
-| **Description** | Add surrounding |
+| **Description** | Put yanked text before selection |
 | :---- | :---- |
-| **Left hand side** | <code>gza</code> |
+| **Left hand side** | <code>gP</code> |
 | **Right hand side** | |
 
-| **Description** | Update `MiniSurround.config.n_lines` |
+| **Description** | Put yanked text after selection |
 | :---- | :---- |
-| **Left hand side** | <code>gzn</code> |
-| **Right hand side** | |
-
-| **Description** | Find right surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gzf</code> |
+| **Left hand side** | <code>gp</code> |
 | **Right hand side** | |
 
 | **Description** | Replace surrounding |
@@ -783,14 +773,19 @@
 | **Left hand side** | <code>gzh</code> |
 | **Right hand side** | |
 
-| **Description** | Put yanked text before selection |
+| **Description** | Add surrounding |
 | :---- | :---- |
-| **Left hand side** | <code>gP</code> |
+| **Left hand side** | <code>gza</code> |
 | **Right hand side** | |
 
-| **Description** | Put yanked text after selection |
+| **Description** | Update `MiniSurround.config.n_lines` |
 | :---- | :---- |
-| **Left hand side** | <code>gp</code> |
+| **Left hand side** | <code>gzn</code> |
+| **Right hand side** | |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzf</code> |
 | **Right hand side** | |
 
 | **Description** | Put yanked text after cursor |
@@ -926,9 +921,9 @@
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
 
-| **Description** | Put yanked text before selection |
+| **Description** | Add surrounding |
 | :---- | :---- |
-| **Left hand side** | <code>gP</code> |
+| **Left hand side** | <code>gza</code> |
 | **Right hand side** | |
 
 | **Description** | Put yanked text after selection |
@@ -936,9 +931,9 @@
 | **Left hand side** | <code>gp</code> |
 | **Right hand side** | |
 
-| **Description** | Add surrounding |
+| **Description** | Put yanked text before selection |
 | :---- | :---- |
-| **Left hand side** | <code>gza</code> |
+| **Left hand side** | <code>gP</code> |
 | **Right hand side** | |
 
 | **Description** | Put yanked text after cursor |

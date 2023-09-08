@@ -278,11 +278,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>#</code> |
 | **Right hand side** | <code>#zz</code> |
 
@@ -653,11 +648,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code> p</code> |
 | **Right hand side** | <code>"_dP</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |

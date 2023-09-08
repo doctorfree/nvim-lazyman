@@ -1545,60 +1545,6 @@ start&lt;CR&gt;</code></td>
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code></code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code></code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code></code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1626,6 +1572,60 @@ word under the cursor</th>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;">Symbols Outline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code></code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
@@ -2022,13 +2022,13 @@ require(‘hlslens’).start()&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Close all folds</th>
+<th style="text-align: left;">Peek folded lines under cursor</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>zM</code></td>
+<td style="text-align: left;"><code>zZ</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2040,13 +2040,13 @@ require(‘hlslens’).start()&lt;CR&gt;</code></td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Peek folded lines under cursor</th>
+<th style="text-align: left;">Close all folds</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>zZ</code></td>
+<td style="text-align: left;"><code>zM</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2261,12 +2261,84 @@ matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
+style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:set
+operatorfunc=&lt;SNR&gt;20_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:set
+operatorfunc=&lt;SNR&gt;20_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
 style="text-align: left;"><code>&lt;Plug&gt;CapsLockDisable</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;38_disable(‘i’)&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_disable(‘i’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2290,7 +2362,7 @@ style="text-align: left;"><code>&lt;Plug&gt;CapsLockEnable</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;38_enable(‘i’,1)&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_enable(‘i’,1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2314,7 +2386,7 @@ style="text-align: left;"><code>&lt;Plug&gt;CapsLockToggle</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;38_toggle(‘i’,1)&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_toggle(‘i’,1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2545,78 +2617,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise)</code></td
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-operatorfunc=&lt;SNR&gt;19_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-operatorfunc=&lt;SNR&gt;19_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -3088,102 +3088,6 @@ exe”:normal! m’”</td>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle blockwise (visual)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;">Comment toggle linewise (visual)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
-require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;23_vsnip_visual_text(visualmode())&lt;CR&gt;gv”_c</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;23_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
 <th style="text-align: left;"></th>
 </tr>
 </thead>
@@ -3265,6 +3169,102 @@ style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code></t
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv”_c</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle blockwise (visual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;">Comment toggle linewise (visual)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

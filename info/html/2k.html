@@ -595,24 +595,6 @@ style="text-align: left;"><code>:%s/&amp;lt;lt&gt;&lt;C-R&gt;&lt;C-W&gt;&amp;gt;
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code> </code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code></code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2078,24 +2060,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Left&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Down&gt;</code></td>
 </tr>
 <tr class="even">
@@ -2133,6 +2097,24 @@ style="text-align: left;"><code>&lt;Plug&gt;(nvim-surround-normal)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Right&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Left&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2854,12 +2836,12 @@ style="text-align: left;"><code>&lt;Plug&gt;(leap-forward-to)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-h&gt;</code></td>
+<td style="text-align: left;"><code>&lt;M-l&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Cmd&gt;lua
-require’tmux’.resize_left()&lt;CR&gt;</code></td>
+require’tmux’.resize_right()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2900,12 +2882,12 @@ require’tmux’.resize_bottom()&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-l&gt;</code></td>
+<td style="text-align: left;"><code>&lt;M-h&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Cmd&gt;lua
-require’tmux’.resize_right()&lt;CR&gt;</code></td>
+require’tmux’.resize_left()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -4520,24 +4502,6 @@ require(‘spider’).motion(‘w’)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Right&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Left&gt;</code></td>
 </tr>
 <tr class="even">
@@ -4592,6 +4556,42 @@ require(‘spider’).motion(‘w’)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Right&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-N&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;C-M&gt;</code></td>
 </tr>
 <tr class="even">
@@ -4611,24 +4611,6 @@ require(‘spider’).motion(‘w’)&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;C-P&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-N&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -5608,42 +5590,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(leap-forward)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Right&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Left&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Down&gt;</code></td>
 </tr>
 <tr class="even">
@@ -5663,6 +5609,42 @@ style="text-align: left;"><code>&lt;Plug&gt;(leap-forward)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Up&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Right&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Left&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>

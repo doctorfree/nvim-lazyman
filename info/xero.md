@@ -102,16 +102,6 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | **Left hand side** | <code>,</code> |
 | **Right hand side** | |
 
-| **Description** | Resume FZF |
-| :---- | :---- |
-| **Left hand side** | <code>,//</code> |
-| **Right hand side** | |
-
-| **Description** | Search git buffer commits |
-| :---- | :---- |
-| **Left hand side** | <code>,bc</code> |
-| **Right hand side** | |
-
 | **Description** | Search git buffer commits |
 | :---- | :---- |
 | **Left hand side** | <code>,/gC</code> |
@@ -170,6 +160,16 @@ Personal neovim configuration of [xero harrison](https://x-e.ro/). Xero is a fin
 | **Description** | Search commands |
 | :---- | :---- |
 | **Left hand side** | <code>,/c</code> |
+| **Right hand side** | |
+
+| **Description** | Resume FZF |
+| :---- | :---- |
+| **Left hand side** | <code>,//</code> |
+| **Right hand side** | |
+
+| **Description** | Search git buffer commits |
+| :---- | :---- |
+| **Left hand side** | <code>,bc</code> |
 | **Right hand side** | |
 
 | **Description** | chmod +x buffer |

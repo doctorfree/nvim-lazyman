@@ -151,11 +151,6 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
 
@@ -491,6 +486,16 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>z%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zt</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>zb</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code> |
 
@@ -501,23 +506,8 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>zt</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>z%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseX</code> |
 | **Right hand side** | <code>:call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.resize_bottom()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -526,8 +516,8 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.resize_top()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.resize_bottom()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -536,143 +526,8 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-3&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua _HORIZONTAL_TERM()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-2&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua _VERTICAL_TERM()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-1&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua _FLOAT_TERM()&lt;CR&gt;</code> |
-
-| **Description** | Toggle Terminal |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-
-| **Description** | Change a surrounding pair, putting replacements on new lines |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
-| **Right hand side** | |
-
-| **Description** | Change a surrounding pair |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
-| **Right hand side** | |
-
-| **Description** | Delete a surrounding pair |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
-| **Right hand side** | |
-
-| **Description** | Add a surrounding pair around the current line, on new lines (normal mode) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
-| **Right hand side** | |
-
-| **Description** | Add a surrounding pair around a motion, on new lines (normal mode) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
-| **Right hand side** | |
-
-| **Description** | Add a surrounding pair around the current line (normal mode) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
-| **Right hand side** | |
-
-| **Description** | Add a surrounding pair around a motion (normal mode) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-B&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-U&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-D&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Y&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;2-LeftMouse&gt;</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-reload)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;27_(wise)</code> |
-| **Right hand side** | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(matchup-hi-surround)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.resize_top()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -726,8 +581,58 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;2-LeftMouse&gt;</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-reload)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;MatchupReload&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-double-click)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#text_obj#double_click()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 0)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;SNR&gt;29_(wise)</code> |
+| **Right hand side** | <code>empty(g:v_motion_force) ? 'v' : g:v_motion_force</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(matchup-hi-surround)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code> |
 
 | **Description** | Comment toggle blockwise with count |
 | :---- | :---- |
@@ -759,10 +664,95 @@ Personal Neovim config of Artur Gomes
 | **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
 | **Right hand side** | |
 
+| **Description** | Change a surrounding pair, putting replacements on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Change a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-change)</code> |
+| **Right hand side** | |
+
+| **Description** | Delete a surrounding pair |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-delete)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around the current line, on new lines (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a motion, on new lines (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around the current line (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a motion (normal mode) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-normal)</code> |
+| **Right hand side** | |
+
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F3&gt;</code> |
-| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-3&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua _HORIZONTAL_TERM()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-2&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua _VERTICAL_TERM()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-1&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua _FLOAT_TERM()&lt;CR&gt;</code> |
+
+| **Description** | Toggle Terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -773,6 +763,11 @@ Personal Neovim config of Artur Gomes
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
 | **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F3&gt;</code> |
+| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -877,11 +872,6 @@ Personal Neovim config of Artur Gomes
 | **Left hand side** | <code> p</code> |
 | **Right hand side** | <code>"_dP</code> |
 
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
-
 | **Description** | Nvim builtin |
 | :---- | :---- |
 | **Left hand side** | <code>#</code> |
@@ -932,6 +922,11 @@ Personal Neovim config of Artur Gomes
 | **Left hand side** | <code>gx</code> |
 | **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
 
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+
 | **Description** | Comment toggle blockwise (visual) |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
@@ -941,11 +936,6 @@ Personal Neovim config of Artur Gomes
 | :---- | :---- |
 | **Left hand side** | <code>gc</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-
-| **Description** | Add a surrounding pair around a visual selection, on new lines |
-| :---- | :---- |
-| **Left hand side** | <code>gS</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -987,16 +977,6 @@ Personal Neovim config of Artur Gomes
 | **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle blockwise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
-| **Description** | Comment toggle linewise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
 | **Description** | Add a surrounding pair around a visual selection, on new lines |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
@@ -1007,25 +987,30 @@ Personal Neovim config of Artur Gomes
 | **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
 | **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 
-| **Description** | |
+| **Description** | Comment toggle blockwise (visual) |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F3&gt;</code> |
-| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;gv</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-Y&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -1044,8 +1029,8 @@ Personal Neovim config of Artur Gomes
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-D&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;F3&gt;</code> |
+| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;gv</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -1060,62 +1045,67 @@ Personal Neovim config of Artur Gomes
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-Z%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-Z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-Z%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-Z%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-Z%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-z%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-z%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-z%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-z%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-z%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#jump_inside(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-[%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-[%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-[%)</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-]%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-]%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-]%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-[%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-[%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-]%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-]%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-g%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-g%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-g%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-g%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-g%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(matchup-%)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;21_(matchup-%)</code> |
+| **Right hand side** | <code>&lt;SNR&gt;28_(matchup-%)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;SNR&gt;21_(matchup-%)</code> |
+| **Left hand side** | <code>&lt;SNR&gt;28_(matchup-%)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchup#motion#find_matching_pair(1, 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -1129,11 +1119,6 @@ Personal Neovim config of Artur Gomes
 
 
 ### Operator mode keymaps
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | |
 | :---- | :---- |

@@ -504,7 +504,7 @@ style="text-align: left;"><code>&lt;Cmd&gt;nohl&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;18_Mapping(g:splitjoin_split_mapping,
+&lt;SNR&gt;10_Mapping(g:splitjoin_split_mapping,
 “sj#Split”)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
@@ -528,7 +528,7 @@ style="text-align: left;"><code>&lt;Cmd&gt;nohl&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;18_Mapping(g:splitjoin_join_mapping,
+&lt;SNR&gt;10_Mapping(g:splitjoin_join_mapping,
 “sj#Join”)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
@@ -989,7 +989,7 @@ matchup#motion#find_matching_pair(0, 1)&lt;CR&gt;</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;SNR&gt;26_(wise)</code></td>
+<td style="text-align: left;"><code>&lt;SNR&gt;20_(wise)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -1037,131 +1037,12 @@ matchup#matchparen#highlight_surrounding()&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Plug&gt;SplitjoinJoin</code></td>
+style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-sj#Join()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;SplitjoinSplit</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-sj#Split()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignOperator)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;17_easy_align_op&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:call
-&lt;SNR&gt;17_easy_align_repeat()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;17_live_easy_align_op&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:set
-opfunc=&lt;SNR&gt;17_easy_align_op&lt;CR&gt;g@</code></td>
+<td style="text-align: left;"><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1793,12 +1674,131 @@ style="text-align: left;"><code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+style="text-align: left;"><code>&lt;Plug&gt;SplitjoinJoin</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+sj#Join()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;SplitjoinSplit</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+sj#Split()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignOperator)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;9_easy_align_op&lt;CR&gt;g@</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:call
+&lt;SNR&gt;9_easy_align_repeat()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;9_live_easy_align_op&lt;CR&gt;g@</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:set
+opfunc=&lt;SNR&gt;9_easy_align_op&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -2428,6 +2428,77 @@ style="text-align: left;"><code>&lt;Plug&gt;(sandwich-add)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;30_repeat_in_visual()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;30_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+&lt;SNR&gt;30_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Plug&gt;(matchup-a%)</code></td>
 </tr>
 <tr class="even">
@@ -2475,7 +2546,7 @@ matchup#text_obj#delimited(1, 1, ‘delim_all’)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-Z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-Z%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2494,7 +2565,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-Z%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-Z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-Z%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2518,7 +2589,7 @@ matchup#motion#jump_inside_prev(1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-z%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2537,7 +2608,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-z%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-z%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-z%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2561,7 +2632,7 @@ matchup#motion#jump_inside(1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-[%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-[%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2580,7 +2651,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-[%)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-]%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-]%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2599,7 +2670,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-]%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-[%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-[%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2623,7 +2694,7 @@ matchup#motion#find_unmatched(1, 0)&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-]%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-]%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2647,7 +2718,7 @@ matchup#motion#find_unmatched(1, 1)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-g%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-g%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2666,7 +2737,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-g%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-g%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-g%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -2690,7 +2761,7 @@ matchup#motion#find_matching_pair(1, 0)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2709,7 +2780,7 @@ style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-%)</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;27_(matchup-%)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;22_(matchup-%)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -3410,77 +3481,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(operator-sandwich-add-pre)&lt;Plug&
 </tbody>
 </table>
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(EasyAlignRepeat)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;9_repeat_in_visual()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;(LiveEasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;9_live_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(EasyAlign)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;9_easy_align_op(visualmode(), 1)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
@@ -3559,24 +3559,6 @@ style="text-align: left;"><code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-%)</code></td
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>a%</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-a%)</code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -3623,6 +3605,24 @@ style="text-align: left;"><code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td
 </tbody>
 </table>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>a%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-a%)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -3642,24 +3642,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(textobj-sandwich-auto-a)</code></td
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>&lt;Ignore&gt;&lt;Plug&gt;(matchup-g%)</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>i%</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-i%)</code></td>
 </tr>
 </tbody>
 </table>
@@ -3719,6 +3701,24 @@ style="text-align: left;"><code>&lt;Plug&gt;(textobj-sandwich-auto-i)</code></td
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>i%</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-i%)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>sa</code></td>
 </tr>
 <tr class="even">
@@ -3743,190 +3743,6 @@ style="text-align: left;"><code>&lt;Plug&gt;(sandwich-add)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;Plug&gt;(matchup-z%)</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-a%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#text_obj#delimited(0, 0, ‘delim_all’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-i%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#text_obj#delimited(1, 0, ‘delim_all’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-Z%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘Z%’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-z%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘z%’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-[%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘[%’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-]%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘]%’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-g%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘g%’)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-%)</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:&lt;C-U&gt;call
-matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -4522,6 +4338,190 @@ style="text-align: left;"><code>&lt;Plug&gt;(operator-sandwich-add)</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>&lt;Plug&gt;(operator-sandwich-g@)</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-a%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#text_obj#delimited(0, 0, ‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-i%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#text_obj#delimited(1, 0, ‘delim_all’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-Z%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘Z%’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-z%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘z%’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-[%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘[%’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-]%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘]%’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-g%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘g%’)&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;Plug&gt;(matchup-%)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:&lt;C-U&gt;call
+matchup#motion#op(‘%’)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

@@ -103,11 +103,6 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | **Left hand side** | <code>&lt;CR&gt;</code> |
 | **Right hand side** | <code>ciw</code> |
 
-| **Description** | Stop |
-| :---- | :---- |
-| **Left hand side** | <code> tS</code> |
-| **Right hand side** | |
-
 | **Description** | Toggle Output Panel |
 | :---- | :---- |
 | **Left hand side** | <code> tO</code> |
@@ -136,6 +131,11 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | **Description** | Run File |
 | :---- | :---- |
 | **Left hand side** | <code> tt</code> |
+| **Right hand side** | |
+
+| **Description** | Stop |
+| :---- | :---- |
+| **Left hand side** | <code> tS</code> |
 | **Right hand side** | |
 
 | **Description** | Float File Explorer |
@@ -263,24 +263,9 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
-| **Description** | Split the object under cursor |
-| :---- | :---- |
-| **Left hand side** | <code>gS</code> |
-| **Right hand side** | |
-
-| **Description** | Join the object under cursor |
-| :---- | :---- |
-| **Left hand side** | <code>gJ</code> |
-| **Right hand side** | |
-
 | **Description** | Leap from windows |
 | :---- | :---- |
 | **Left hand side** | <code>gs</code> |
-| **Right hand side** | |
-
-| **Description** | Glance references |
-| :---- | :---- |
-| **Left hand side** | <code>gR</code> |
 | **Right hand side** | |
 
 | **Description** | Glance definitions |
@@ -296,6 +281,21 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | **Description** | Glance type_definitions |
 | :---- | :---- |
 | **Left hand side** | <code>gY</code> |
+| **Right hand side** | |
+
+| **Description** | Glance references |
+| :---- | :---- |
+| **Left hand side** | <code>gR</code> |
+| **Right hand side** | |
+
+| **Description** | Join the object under cursor |
+| :---- | :---- |
+| **Left hand side** | <code>gJ</code> |
+| **Right hand side** | |
+
+| **Description** | Split the object under cursor |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -320,6 +320,11 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>zb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>zt</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code> |
 
@@ -327,11 +332,6 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | :---- | :---- |
 | **Left hand side** | <code>zz</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zz(250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>zb</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -353,20 +353,10 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
 
-| **Description** | Toggle Terminal |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-T&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-F&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Y&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -375,13 +365,13 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-Y&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
 
 | **Description** | Move to previous reference |
 | :---- | :---- |
@@ -392,6 +382,16 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-n&gt;</code> |
 | **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | Toggle Terminal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-T&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -588,23 +588,13 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-B&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-U&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -613,8 +603,18 @@ Personal Neovim configuration of Adib Hanna. Tips, distros, and configuration [d
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Y&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps

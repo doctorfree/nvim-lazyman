@@ -102,11 +102,6 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>  </code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code> mr</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;CellularAutomaton make_it_rain&lt;CR&gt;</code> |
 

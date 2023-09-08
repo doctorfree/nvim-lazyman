@@ -64,11 +64,6 @@ Personal Neovim configuration of chadcat, a high school student with no life. Ko
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 

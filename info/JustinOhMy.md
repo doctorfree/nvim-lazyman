@@ -126,186 +126,6 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 
 ### Normal mode keymaps
 
-| **Description** | Projects |
-| :---- | :---- |
-| **Left hand side** | <code> fp</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope projects&lt;CR&gt;</code> |
-
-| **Description** | Jump to Mark |
-| :---- | :---- |
-| **Left hand side** | <code> sm</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope marks&lt;CR&gt;</code> |
-
-| **Description** | Man Pages |
-| :---- | :---- |
-| **Left hand side** | <code> sM</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
-
-| **Description** | Key Maps |
-| :---- | :---- |
-| **Left hand side** | <code> sk</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
-
-| **Description** | Search Highlight Groups |
-| :---- | :---- |
-| **Left hand side** | <code> sH</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope highlights&lt;CR&gt;</code> |
-
-| **Description** | Help Pages |
-| :---- | :---- |
-| **Left hand side** | <code> sh</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
-
-| **Description** | Grep (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> sG</code> |
-| **Right hand side** | |
-
-| **Description** | Grep (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> sg</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace diagnostics |
-| :---- | :---- |
-| **Left hand side** | <code> sD</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
-
-| **Description** | Document diagnostics |
-| :---- | :---- |
-| **Left hand side** | <code> sd</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics bufnr=0&lt;CR&gt;</code> |
-
-| **Description** | Commands |
-| :---- | :---- |
-| **Left hand side** | <code> sC</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope commands&lt;CR&gt;</code> |
-
-| **Description** | Command History |
-| :---- | :---- |
-| **Left hand side** | <code> sc</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope command_history&lt;CR&gt;</code> |
-
-| **Description** | Buffer |
-| :---- | :---- |
-| **Left hand side** | <code> sb</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
-
-| **Description** | Auto Commands |
-| :---- | :---- |
-| **Left hand side** | <code> sa</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope autocommands&lt;CR&gt;</code> |
-
-| **Description** | Registers |
-| :---- | :---- |
-| **Left hand side** | <code> s"</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope registers&lt;CR&gt;</code> |
-
-| **Description** | status |
-| :---- | :---- |
-| **Left hand side** | <code> gs</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope git_status&lt;CR&gt;</code> |
-
-| **Description** | commits |
-| :---- | :---- |
-| **Left hand side** | <code> gc</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope git_commits&lt;CR&gt;</code> |
-
-| **Description** | Recent (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> fR</code> |
-| **Right hand side** | |
-
-| **Description** | Recent |
-| :---- | :---- |
-| **Left hand side** | <code> fr</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
-
-| **Description** | Find Files (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> fF</code> |
-| **Right hand side** | |
-
-| **Description** | Find Files (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> ff</code> |
-| **Right hand side** | |
-
-| **Description** | Buffers |
-| :---- | :---- |
-| **Left hand side** | <code> fb</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
-
-| **Description** | Word (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> fW</code> |
-| **Right hand side** | |
-
-| **Description** | Word (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> fw</code> |
-| **Right hand side** | |
-
-| **Description** | All Buffers |
-| :---- | :---- |
-| **Left hand side** | <code> fB</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers show_all_buffers=true&lt;CR&gt;</code> |
-
-| **Description** | Text |
-| :---- | :---- |
-| **Left hand side** | <code> ft</code> |
-| **Right hand side** | |
-
-| **Description** | Find LazyVim Config |
-| :---- | :---- |
-| **Left hand side** | <code> fC</code> |
-| **Right hand side** | |
-
-| **Description** | Find Plugin File |
-| :---- | :---- |
-| **Left hand side** | <code> fP</code> |
-| **Right hand side** | |
-
-| **Description** | Command History |
-| :---- | :---- |
-| **Left hand side** | <code> fc</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope command_history&lt;CR&gt;</code> |
-
-| **Description** | Goto Symbol (Workspace) |
-| :---- | :---- |
-| **Left hand side** | <code> sS</code> |
-| **Right hand side** | |
-
-| **Description** | Goto Symbol |
-| :---- | :---- |
-| **Left hand side** | <code> ss</code> |
-| **Right hand side** | |
-
-| **Description** | Colorscheme with preview |
-| :---- | :---- |
-| **Left hand side** | <code> uC</code> |
-| **Right hand side** | |
-
-| **Description** | Word (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code> sW</code> |
-| **Right hand side** | |
-
-| **Description** | Word (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> sw</code> |
-| **Right hand side** | |
-
-| **Description** | Resume |
-| :---- | :---- |
-| **Left hand side** | <code> sR</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code> |
-
-| **Description** | Options |
-| :---- | :---- |
-| **Left hand side** | <code> so</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
-
 | **Description** | convenience func PythonHelp |
 | :---- | :---- |
 | **Left hand side** | <code> jh</code> |
@@ -496,6 +316,406 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code> pos</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;:call jukit#ueberzug#set_default_pos()&lt;CR&gt;</code> |
 
+| **Description** | Projects |
+| :---- | :---- |
+| **Left hand side** | <code> fp</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope projects&lt;CR&gt;</code> |
+
+| **Description** | Jump to Mark |
+| :---- | :---- |
+| **Left hand side** | <code> sm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope marks&lt;CR&gt;</code> |
+
+| **Description** | Search Highlight Groups |
+| :---- | :---- |
+| **Left hand side** | <code> sH</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope highlights&lt;CR&gt;</code> |
+
+| **Description** | Help Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sh</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope help_tags&lt;CR&gt;</code> |
+
+| **Description** | Grep (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sG</code> |
+| **Right hand side** | |
+
+| **Description** | Grep (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sg</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sD</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics&lt;CR&gt;</code> |
+
+| **Description** | Document diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> sd</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope diagnostics bufnr=0&lt;CR&gt;</code> |
+
+| **Description** | Commands |
+| :---- | :---- |
+| **Left hand side** | <code> sC</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope commands&lt;CR&gt;</code> |
+
+| **Description** | Command History |
+| :---- | :---- |
+| **Left hand side** | <code> sc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope command_history&lt;CR&gt;</code> |
+
+| **Description** | Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> sb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope current_buffer_fuzzy_find&lt;CR&gt;</code> |
+
+| **Description** | Auto Commands |
+| :---- | :---- |
+| **Left hand side** | <code> sa</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope autocommands&lt;CR&gt;</code> |
+
+| **Description** | Registers |
+| :---- | :---- |
+| **Left hand side** | <code> s"</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope registers&lt;CR&gt;</code> |
+
+| **Description** | status |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope git_status&lt;CR&gt;</code> |
+
+| **Description** | commits |
+| :---- | :---- |
+| **Left hand side** | <code> gc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope git_commits&lt;CR&gt;</code> |
+
+| **Description** | Recent (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fR</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fF</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | |
+
+| **Description** | Buffers |
+| :---- | :---- |
+| **Left hand side** | <code> fb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers&lt;CR&gt;</code> |
+
+| **Description** | Recent |
+| :---- | :---- |
+| **Left hand side** | <code> fr</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
+
+| **Description** | Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code> sM</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope man_pages&lt;CR&gt;</code> |
+
+| **Description** | Word (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
+| **Description** | Options |
+| :---- | :---- |
+| **Left hand side** | <code> so</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope vim_options&lt;CR&gt;</code> |
+
+| **Description** | Resume |
+| :---- | :---- |
+| **Left hand side** | <code> sR</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope resume&lt;CR&gt;</code> |
+
+| **Description** | Key Maps |
+| :---- | :---- |
+| **Left hand side** | <code> sk</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope keymaps&lt;CR&gt;</code> |
+
+| **Description** | Word (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> fW</code> |
+| **Right hand side** | |
+
+| **Description** | Word (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code> fw</code> |
+| **Right hand side** | |
+
+| **Description** | All Buffers |
+| :---- | :---- |
+| **Left hand side** | <code> fB</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope buffers show_all_buffers=true&lt;CR&gt;</code> |
+
+| **Description** | Text |
+| :---- | :---- |
+| **Left hand side** | <code> ft</code> |
+| **Right hand side** | |
+
+| **Description** | Find LazyVim Config |
+| :---- | :---- |
+| **Left hand side** | <code> fC</code> |
+| **Right hand side** | |
+
+| **Description** | Find Plugin File |
+| :---- | :---- |
+| **Left hand side** | <code> fP</code> |
+| **Right hand side** | |
+
+| **Description** | Command History |
+| :---- | :---- |
+| **Left hand side** | <code> fc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope command_history&lt;CR&gt;</code> |
+
+| **Description** | Goto Symbol (Workspace) |
+| :---- | :---- |
+| **Left hand side** | <code> sS</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Symbol |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Colorscheme with preview |
+| :---- | :---- |
+| **Left hand side** | <code> uC</code> |
+| **Right hand side** | |
+
+| **Description** | Word (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code> sW</code> |
+| **Right hand side** | |
+
+| **Description** | Dap UI |
+| :---- | :---- |
+| **Left hand side** | <code> Du</code> |
+| **Right hand side** | |
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> De</code> |
+| **Right hand side** | |
+
+| **Description** | Delete non-pinned buffers |
+| :---- | :---- |
+| **Left hand side** | <code> bP</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle pin |
+| :---- | :---- |
+| **Left hand side** | <code> bp</code> |
+| **Right hand side** | |
+
+| **Description** | Bookmarks |
+| :---- | :---- |
+| **Left hand side** | <code> &lt;Tab&gt;b</code> |
+| **Right hand side** | |
+
+| **Description** | Don't Save Current Session |
+| :---- | :---- |
+| **Left hand side** | <code> Sd</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Last Session |
+| :---- | :---- |
+| **Left hand side** | <code> Sl</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Session |
+| :---- | :---- |
+| **Left hand side** | <code> Ss</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss All |
+| :---- | :---- |
+| **Left hand side** | <code> snd</code> |
+| **Right hand side** | |
+
+| **Description** | Noice All |
+| :---- | :---- |
+| **Left hand side** | <code> sna</code> |
+| **Right hand side** | |
+
+| **Description** | Noice History |
+| :---- | :---- |
+| **Left hand side** | <code> snh</code> |
+| **Right hand side** | |
+
+| **Description** | Noice Last Message |
+| :---- | :---- |
+| **Left hand side** | <code> snl</code> |
+| **Right hand side** | |
+
+| **Description** | Adapter Lua Server |
+| :---- | :---- |
+| **Left hand side** | <code> DaL</code> |
+| **Right hand side** | |
+
+| **Description** | Adapter Lua |
+| :---- | :---- |
+| **Left hand side** | <code> Dal</code> |
+| **Right hand side** | |
+
+| **Description** | Replace in files (Spectre) |
+| :---- | :---- |
+| **Left hand side** | <code> sr</code> |
+| **Right hand side** | |
+
+| **Description** | Mason |
+| :---- | :---- |
+| **Left hand side** | <code> cm</code> |
+| **Right hand side** | |
+
+| **Description** | Symbols Outline |
+| :---- | :---- |
+| **Left hand side** | <code> cs</code> |
+| **Right hand side** | |
+
+| **Description** | Open Code Outline Window |
+| :---- | :---- |
+| **Left hand side** | <code> a</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
+| **Right hand side** | |
+
+| **Description** | Explorer |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
+
+| **Description** | Run Nearest |
+| :---- | :---- |
+| **Left hand side** | <code> Tr</code> |
+| **Right hand side** | |
+
+| **Description** | Run All Test Files |
+| :---- | :---- |
+| **Left hand side** | <code> TT</code> |
+| **Right hand side** | |
+
+| **Description** | Run File |
+| :---- | :---- |
+| **Left hand side** | <code> Tt</code> |
+| **Right hand side** | |
+
+| **Description** | Stop |
+| :---- | :---- |
+| **Left hand side** | <code> TS</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Output Panel |
+| :---- | :---- |
+| **Left hand side** | <code> TO</code> |
+| **Right hand side** | |
+
+| **Description** | Show Output |
+| :---- | :---- |
+| **Left hand side** | <code> To</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Summary |
+| :---- | :---- |
+| **Left hand side** | <code> Ts</code> |
+| **Right hand side** | |
+
+| **Description** | Close Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> bc</code> |
+| **Right hand side** | |
+
+| **Description** | Close Buffer (Force) |
+| :---- | :---- |
+| **Left hand side** | <code> bC</code> |
+| **Right hand side** | |
+
+| **Description** | Todo |
+| :---- | :---- |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme |
+| :---- | :---- |
+| **Left hand side** | <code> sT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo/Fix/Fixme (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dT</code> |
+| **Right hand side** | |
+
+| **Description** | Todo (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dx</code> |
+| **Right hand side** | |
+
+| **Description** | Location List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dL</code> |
+| **Right hand side** | |
+
+| **Description** | Quickfix List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dQ</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> dX</code> |
+| **Right hand side** | |
+
+| **Description** | Down |
+| :---- | :---- |
+| **Left hand side** | <code> Dj</code> |
+| **Right hand side** | |
+
+| **Description** | Step Into |
+| :---- | :---- |
+| **Left hand side** | <code> Di</code> |
+| **Right hand side** | |
+
+| **Description** | Go to line (no execute) |
+| :---- | :---- |
+| **Left hand side** | <code> Dg</code> |
+| **Right hand side** | |
+
+| **Description** | Run to Cursor |
+| :---- | :---- |
+| **Left hand side** | <code> DC</code> |
+| **Right hand side** | |
+
+| **Description** | Continue |
+| :---- | :---- |
+| **Left hand side** | <code> Dc</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code> Db</code> |
+| **Right hand side** | |
+
+| **Description** | Breakpoint Condition |
+| :---- | :---- |
+| **Left hand side** | <code> DB</code> |
+| **Right hand side** | |
+
 | **Description** | Debug Nearest |
 | :---- | :---- |
 | **Left hand side** | <code> Td</code> |
@@ -546,226 +766,6 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code> Dk</code> |
 | **Right hand side** | |
 
-| **Description** | Down |
-| :---- | :---- |
-| **Left hand side** | <code> Dj</code> |
-| **Right hand side** | |
-
-| **Description** | Step Into |
-| :---- | :---- |
-| **Left hand side** | <code> Di</code> |
-| **Right hand side** | |
-
-| **Description** | Go to line (no execute) |
-| :---- | :---- |
-| **Left hand side** | <code> Dg</code> |
-| **Right hand side** | |
-
-| **Description** | Run to Cursor |
-| :---- | :---- |
-| **Left hand side** | <code> DC</code> |
-| **Right hand side** | |
-
-| **Description** | Continue |
-| :---- | :---- |
-| **Left hand side** | <code> Dc</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Breakpoint |
-| :---- | :---- |
-| **Left hand side** | <code> Db</code> |
-| **Right hand side** | |
-
-| **Description** | Breakpoint Condition |
-| :---- | :---- |
-| **Left hand side** | <code> DB</code> |
-| **Right hand side** | |
-
-| **Description** | Replace in files (Spectre) |
-| :---- | :---- |
-| **Left hand side** | <code> sr</code> |
-| **Right hand side** | |
-
-| **Description** | Noice All |
-| :---- | :---- |
-| **Left hand side** | <code> sna</code> |
-| **Right hand side** | |
-
-| **Description** | Noice History |
-| :---- | :---- |
-| **Left hand side** | <code> snh</code> |
-| **Right hand side** | |
-
-| **Description** | Noice Last Message |
-| :---- | :---- |
-| **Left hand side** | <code> snl</code> |
-| **Right hand side** | |
-
-| **Description** | Dismiss All |
-| :---- | :---- |
-| **Left hand side** | <code> snd</code> |
-| **Right hand side** | |
-
-| **Description** | Eval |
-| :---- | :---- |
-| **Left hand side** | <code> De</code> |
-| **Right hand side** | |
-
-| **Description** | Dap UI |
-| :---- | :---- |
-| **Left hand side** | <code> Du</code> |
-| **Right hand side** | |
-
-| **Description** | Mason |
-| :---- | :---- |
-| **Left hand side** | <code> cm</code> |
-| **Right hand side** | |
-
-| **Description** | Bookmarks |
-| :---- | :---- |
-| **Left hand side** | <code> &lt;Tab&gt;b</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle pin |
-| :---- | :---- |
-| **Left hand side** | <code> bp</code> |
-| **Right hand side** | |
-
-| **Description** | Delete non-pinned buffers |
-| :---- | :---- |
-| **Left hand side** | <code> bP</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer |
-| :---- | :---- |
-| **Left hand side** | <code> e</code> |
-| **Right hand side** | |
-
-| **Description** | Dismiss all Notifications |
-| :---- | :---- |
-| **Left hand side** | <code> un</code> |
-| **Right hand side** | |
-
-| **Description** | Symbols Outline |
-| :---- | :---- |
-| **Left hand side** | <code> cs</code> |
-| **Right hand side** | |
-
-| **Description** | Open Code Outline Window |
-| :---- | :---- |
-| **Left hand side** | <code> a</code> |
-| **Right hand side** | |
-
-| **Description** | Adapter Lua Server |
-| :---- | :---- |
-| **Left hand side** | <code> DaL</code> |
-| **Right hand side** | |
-
-| **Description** | Adapter Lua |
-| :---- | :---- |
-| **Left hand side** | <code> Dal</code> |
-| **Right hand side** | |
-
-| **Description** | Stop |
-| :---- | :---- |
-| **Left hand side** | <code> TS</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Output Panel |
-| :---- | :---- |
-| **Left hand side** | <code> TO</code> |
-| **Right hand side** | |
-
-| **Description** | Show Output |
-| :---- | :---- |
-| **Left hand side** | <code> To</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Summary |
-| :---- | :---- |
-| **Left hand side** | <code> Ts</code> |
-| **Right hand side** | |
-
-| **Description** | Run Nearest |
-| :---- | :---- |
-| **Left hand side** | <code> Tr</code> |
-| **Right hand side** | |
-
-| **Description** | Run All Test Files |
-| :---- | :---- |
-| **Left hand side** | <code> TT</code> |
-| **Right hand side** | |
-
-| **Description** | Run File |
-| :---- | :---- |
-| **Left hand side** | <code> Tt</code> |
-| **Right hand side** | |
-
-| **Description** | Close Buffer (Force) |
-| :---- | :---- |
-| **Left hand side** | <code> bC</code> |
-| **Right hand side** | |
-
-| **Description** | Close Buffer |
-| :---- | :---- |
-| **Left hand side** | <code> bc</code> |
-| **Right hand side** | |
-
-| **Description** | Don't Save Current Session |
-| :---- | :---- |
-| **Left hand side** | <code> Sd</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Last Session |
-| :---- | :---- |
-| **Left hand side** | <code> Sl</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Session |
-| :---- | :---- |
-| **Left hand side** | <code> Ss</code> |
-| **Right hand side** | |
-
-| **Description** | Todo/Fix/Fixme |
-| :---- | :---- |
-| **Left hand side** | <code> sT</code> |
-| **Right hand side** | |
-
-| **Description** | Todo/Fix/Fixme (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dT</code> |
-| **Right hand side** | |
-
-| **Description** | Todo (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dt</code> |
-| **Right hand side** | |
-
-| **Description** | Todo |
-| :---- | :---- |
-| **Left hand side** | <code> st</code> |
-| **Right hand side** | |
-
-| **Description** | Document Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dx</code> |
-| **Right hand side** | |
-
-| **Description** | Location List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dL</code> |
-| **Right hand side** | |
-
-| **Description** | Quickfix List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dQ</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> dX</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>%</code> |
@@ -791,11 +791,6 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
-| **Description** | Prev Reference |
-| :---- | :---- |
-| **Left hand side** | <code>[[</code> |
-| **Right hand side** | |
-
 | **Description** | Previous todo comment |
 | :---- | :---- |
 | **Left hand side** | <code>[t</code> |
@@ -804,6 +799,26 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Description** | Previous trouble/quickfix item |
 | :---- | :---- |
 | **Left hand side** | <code>[q</code> |
+| **Right hand side** | |
+
+| **Description** | Prev Reference |
+| :---- | :---- |
+| **Left hand side** | <code>[[</code> |
+| **Right hand side** | |
+
+| **Description** | Find left surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>\sF</code> |
+| **Right hand side** | |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>\sf</code> |
+| **Right hand side** | |
+
+| **Description** | Delete surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>\sd</code> |
 | **Right hand side** | |
 
 | **Description** | Add surrounding |
@@ -826,21 +841,6 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code>\sh</code> |
 | **Right hand side** | |
 
-| **Description** | Find left surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>\sF</code> |
-| **Right hand side** | |
-
-| **Description** | Find right surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>\sf</code> |
-| **Right hand side** | |
-
-| **Description** | Delete surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>\sd</code> |
-| **Right hand side** | |
-
 | **Description** | Toggle TreeSJ |
 | :---- | :---- |
 | **Left hand side** | <code>\j</code> |
@@ -856,11 +856,6 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code>]%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
 
-| **Description** | Next Reference |
-| :---- | :---- |
-| **Left hand side** | <code>]]</code> |
-| **Right hand side** | |
-
 | **Description** | Next todo comment |
 | :---- | :---- |
 | **Left hand side** | <code>]t</code> |
@@ -869,6 +864,11 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Description** | Next trouble/quickfix item |
 | :---- | :---- |
 | **Left hand side** | <code>]q</code> |
+| **Right hand side** | |
+
+| **Description** | Next Reference |
+| :---- | :---- |
+| **Left hand side** | <code>]]</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -951,24 +951,24 @@ Full featured starter LazyVim based Neovim configuration by Justin Angeles. Just
 | **Left hand side** | <code>&lt;Plug&gt;(dial-increment)</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_normal()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_normal"&lt;CR&gt;g@&lt;Cmd&gt;lua require("dial.command").textobj()&lt;CR&gt;</code> |
 
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-
 | **Description** | Toggle Terminal |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;execute v:count . "ToggleTerm"&lt;CR&gt;</code> |
 
-| **Description** | Scroll forward |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | Scroll backward |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Scroll forward |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Nvim builtin |

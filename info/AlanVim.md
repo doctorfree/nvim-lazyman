@@ -456,8 +456,8 @@ Oriented toward Python development
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -466,18 +466,18 @@ Oriented toward Python development
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Space&gt;</code> |
-| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-H&gt;</code> |
 | **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Space&gt;</code> |
+| **Right hand side** | <code>:lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |

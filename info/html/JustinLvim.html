@@ -1076,7 +1076,7 @@ matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;7_opfunc2(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;12_opfunc2(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1095,11 +1095,15 @@ style="text-align: left;"><code>&lt;SNR&gt;7_opfunc2(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;7_opfunc(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;12_opfunc(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Description</strong></th>
@@ -1114,7 +1118,7 @@ style="text-align: left;"><code>&lt;SNR&gt;7_opfunc(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;7_opfunc2(‘setup’).’_’</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;12_opfunc2(‘setup’).’_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -1137,7 +1141,7 @@ style="text-align: left;"><code>&lt;SNR&gt;7_opfunc2(‘setup’).’_’</code>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;7_opfunc(‘setup’).’g_’</code></td>
+style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;12_opfunc(‘setup’).’g_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -1160,7 +1164,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;7_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;7_changesurround(1)&lt;CR&gt;</code></td>
+&lt;SNR&gt;12_changesurround(1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1183,7 +1187,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;7_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;7_changesurround()&lt;CR&gt;</code></td>
+&lt;SNR&gt;12_changesurround()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1206,7 +1210,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;7_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;7_dosurround(&lt;SNR&gt;7_inputtarget())&lt;CR&gt;</code></td>
+&lt;SNR&gt;12_dosurround(&lt;SNR&gt;12_inputtarget())&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1311,120 +1315,29 @@ style="text-align: left;"><code>&lt;Plug&gt;SurroundRepeat</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:m .+1&lt;CR&gt;==</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-Up&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:resize -2&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:m .-2&lt;CR&gt;==</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-W&gt;k</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-W&gt;j</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-Q&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:call
-QuickFixToggle()&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;C-H&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>&lt;C-W&gt;h</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m .+1&lt;CR&gt;==</code></td>
 </tr>
 </tbody>
 </table>
@@ -1444,6 +1357,24 @@ QuickFixToggle()&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:vertical resize
 +2&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m .-2&lt;CR&gt;==</code></td>
 </tr>
 </tbody>
 </table>
@@ -1481,6 +1412,79 @@ QuickFixToggle()&lt;CR&gt;</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:resize +2&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Up&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:resize -2&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-Q&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:call
+QuickFixToggle()&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-W&gt;k</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-J&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-W&gt;j</code></td>
 </tr>
 </tbody>
 </table>
@@ -2062,12 +2066,12 @@ exe”:normal! m’”</td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
+<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:m
-’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
+’&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -2081,12 +2085,12 @@ exe”:normal! m’”</td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
+<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:m
-’&gt;+1&lt;CR&gt;gv-gv</code></td>
+’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>

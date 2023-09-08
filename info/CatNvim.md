@@ -80,64 +80,44 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 
 ### Normal mode keymaps
 
-| **Description** | Todo (Trouble) |
+| **Description** | Delete Buffer |
 | :---- | :---- |
-| **Left hand side** | <code> xt</code> |
+| **Left hand side** | <code> bd</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme |
+| **Description** | Delete Buffer (Force) |
 | :---- | :---- |
-| **Left hand side** | <code> sT</code> |
+| **Left hand side** | <code> bD</code> |
 | **Right hand side** | |
 
-| **Description** | Todo |
+| **Description** | Replace in files (Spectre) |
 | :---- | :---- |
-| **Left hand side** | <code> st</code> |
+| **Left hand side** | <code> sr</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme (Trouble) |
+| **Description** | Mason |
 | :---- | :---- |
-| **Left hand side** | <code> xT</code> |
+| **Left hand side** | <code> cm</code> |
 | **Right hand side** | |
 
-| **Description** | Quickfix List (Trouble) |
+| **Description** | Explorer NeoTree (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code> xQ</code> |
+| **Left hand side** | <code> e</code> |
 | **Right hand side** | |
 
-| **Description** | Location List (Trouble) |
+| **Description** | Explorer NeoTree (cwd) |
 | :---- | :---- |
-| **Left hand side** | <code> xL</code> |
+| **Left hand side** | <code> fE</code> |
 | **Right hand side** | |
 
-| **Description** | Workspace Diagnostics (Trouble) |
+| **Description** | Explorer NeoTree (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code> xX</code> |
+| **Left hand side** | <code> fe</code> |
 | **Right hand side** | |
 
-| **Description** | Document Diagnostics (Trouble) |
+| **Description** | Explorer NeoTree (cwd) |
 | :---- | :---- |
-| **Left hand side** | <code> xx</code> |
-| **Right hand side** | |
-
-| **Description** | Dismiss all Notifications |
-| :---- | :---- |
-| **Left hand side** | <code> un</code> |
-| **Right hand side** | |
-
-| **Description** | Don't Save Current Session |
-| :---- | :---- |
-| **Left hand side** | <code> qd</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Last Session |
-| :---- | :---- |
-| **Left hand side** | <code> ql</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Session |
-| :---- | :---- |
-| **Left hand side** | <code> qs</code> |
+| **Left hand side** | <code> E</code> |
 | **Right hand side** | |
 
 | **Description** | Delete non-pinned buffers |
@@ -150,24 +130,24 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code> bp</code> |
 | **Right hand side** | |
 
-| **Description** | Noice History |
+| **Description** | Find Files (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code> snh</code> |
+| **Left hand side** | <code> ff</code> |
 | **Right hand side** | |
 
-| **Description** | Noice Last Message |
+| **Description** | Goto Symbol (Workspace) |
 | :---- | :---- |
-| **Left hand side** | <code> snl</code> |
+| **Left hand side** | <code> sS</code> |
 | **Right hand side** | |
 
-| **Description** | Dismiss All |
+| **Description** | Goto Symbol |
 | :---- | :---- |
-| **Left hand side** | <code> snd</code> |
+| **Left hand side** | <code> ss</code> |
 | **Right hand side** | |
 
-| **Description** | Noice All |
+| **Description** | Colorscheme with preview |
 | :---- | :---- |
-| **Left hand side** | <code> sna</code> |
+| **Left hand side** | <code> uC</code> |
 | **Right hand side** | |
 
 | **Description** | Word (cwd) |
@@ -285,11 +265,6 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code> fF</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code> ff</code> |
-| **Right hand side** | |
-
 | **Description** | Buffers |
 | :---- | :---- |
 | **Left hand side** | <code> fb</code> |
@@ -310,64 +285,84 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code> ,</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (root dir) |
+| **Description** | Noice History |
 | :---- | :---- |
-| **Left hand side** | <code>  </code> |
+| **Left hand side** | <code> snh</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Symbol (Workspace) |
+| **Description** | Dismiss All |
 | :---- | :---- |
-| **Left hand side** | <code> sS</code> |
+| **Left hand side** | <code> snd</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Symbol |
+| **Description** | Noice All |
 | :---- | :---- |
-| **Left hand side** | <code> ss</code> |
+| **Left hand side** | <code> sna</code> |
 | **Right hand side** | |
 
-| **Description** | Colorscheme with preview |
+| **Description** | Noice Last Message |
 | :---- | :---- |
-| **Left hand side** | <code> uC</code> |
+| **Left hand side** | <code> snl</code> |
 | **Right hand side** | |
 
-| **Description** | Replace in files (Spectre) |
+| **Description** | Restore Last Session |
 | :---- | :---- |
-| **Left hand side** | <code> sr</code> |
+| **Left hand side** | <code> ql</code> |
 | **Right hand side** | |
 
-| **Description** | Delete Buffer (Force) |
+| **Description** | Restore Session |
 | :---- | :---- |
-| **Left hand side** | <code> bD</code> |
+| **Left hand side** | <code> qs</code> |
 | **Right hand side** | |
 
-| **Description** | Delete Buffer |
+| **Description** | Don't Save Current Session |
 | :---- | :---- |
-| **Left hand side** | <code> bd</code> |
+| **Left hand side** | <code> qd</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (root dir) |
+| **Description** | Dismiss all Notifications |
 | :---- | :---- |
-| **Left hand side** | <code> e</code> |
+| **Left hand side** | <code> un</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (cwd) |
+| **Description** | Todo/Fix/Fixme |
 | :---- | :---- |
-| **Left hand side** | <code> fE</code> |
+| **Left hand side** | <code> sT</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (root dir) |
+| **Description** | Todo/Fix/Fixme (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> fe</code> |
+| **Left hand side** | <code> xT</code> |
 | **Right hand side** | |
 
-| **Description** | Explorer NeoTree (cwd) |
+| **Description** | Todo (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> E</code> |
+| **Left hand side** | <code> xt</code> |
 | **Right hand side** | |
 
-| **Description** | Mason |
+| **Description** | Todo |
 | :---- | :---- |
-| **Left hand side** | <code> cm</code> |
+| **Left hand side** | <code> st</code> |
+| **Right hand side** | |
+
+| **Description** | Quickfix List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xQ</code> |
+| **Right hand side** | |
+
+| **Description** | Location List (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xL</code> |
+| **Right hand side** | |
+
+| **Description** | Workspace Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xX</code> |
+| **Right hand side** | |
+
+| **Description** | Document Diagnostics (Trouble) |
+| :---- | :---- |
+| **Left hand side** | <code> xx</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -395,6 +390,11 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
+| **Description** | Prev Reference |
+| :---- | :---- |
+| **Left hand side** | <code>[[</code> |
+| **Right hand side** | |
+
 | **Description** | Previous todo comment |
 | :---- | :---- |
 | **Left hand side** | <code>[t</code> |
@@ -405,15 +405,15 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code>[q</code> |
 | **Right hand side** | |
 
-| **Description** | Prev Reference |
-| :---- | :---- |
-| **Left hand side** | <code>[[</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>]%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+
+| **Description** | Next Reference |
+| :---- | :---- |
+| **Left hand side** | <code>]]</code> |
+| **Right hand side** | |
 
 | **Description** | Next todo comment |
 | :---- | :---- |
@@ -425,11 +425,6 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code>]q</code> |
 | **Right hand side** | |
 
-| **Description** | Next Reference |
-| :---- | :---- |
-| **Left hand side** | <code>]]</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>gx</code> |
@@ -439,16 +434,6 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | :---- | :---- |
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-
-| **Description** | Find right surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gzf</code> |
-| **Right hand side** | |
-
-| **Description** | Highlight surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gzh</code> |
-| **Right hand side** | |
 
 | **Description** | Add surrounding |
 | :---- | :---- |
@@ -473,6 +458,16 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Description** | Replace surrounding |
 | :---- | :---- |
 | **Left hand side** | <code>gzr</code> |
+| **Right hand side** | |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzf</code> |
+| **Right hand side** | |
+
+| **Description** | Highlight surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzh</code> |
 | **Right hand side** | |
 
 | **Description** | Flash |
@@ -505,11 +500,6 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
 
-| **Description** | Increment selection |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Space&gt;</code> |
-| **Right hand side** | |
-
 | **Description** | Scroll forward |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-F&gt;</code> |
@@ -518,6 +508,11 @@ Neovim configuration written in the [C programming language](https://en.wikipedi
 | **Description** | Scroll backward |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Increment selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Space&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Nvim builtin |

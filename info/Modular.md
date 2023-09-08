@@ -58,6 +58,11 @@ Same as 'StartMason' but everything is split in modules
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code> bc</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Bdelete&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code> e</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
 
@@ -90,11 +95,6 @@ Same as 'StartMason' but everything is split in modules
 | :---- | :---- |
 | **Left hand side** | <code> ?</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Telescope oldfiles&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> bc</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Bdelete&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |

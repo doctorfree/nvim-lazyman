@@ -176,12 +176,12 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gb</code> |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gc</code> |
+| **Left hand side** | <code>gb</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -257,7 +257,7 @@
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(bullets-newline)</code> |
-| **Right hand side** | <code>:call &lt;SNR&gt;24_insert_new_bullet()&lt;CR&gt;</code> |
+| **Right hand side** | <code>:call &lt;SNR&gt;28_insert_new_bullet()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -282,37 +282,37 @@
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;14_opfunc2('setup')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_opfunc2('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;14_opfunc('setup')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_opfunc('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;14_opfunc2('setup').'_'</code> |
+| **Right hand side** | <code>&lt;SNR&gt;18_opfunc2('setup').'_'</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
-| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;14_opfunc('setup').'g_'</code> |
+| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;18_opfunc('setup').'g_'</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_changesurround(1)&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;18_changesurround(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_changesurround()&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;18_changesurround()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_dosurround(&lt;SNR&gt;14_inputtarget())&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;18_dosurround(&lt;SNR&gt;18_inputtarget())&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -376,18 +376,13 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Left&gt;</code> |
-| **Right hand side** | <code>:vertical resize -2&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;M-j&gt;</code> |
 | **Right hand side** | <code>:m .+1&lt;CR&gt;==</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Down&gt;</code> |
-| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-Left&gt;</code> |
+| **Right hand side** | <code>:vertical resize -2&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -396,18 +391,23 @@
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>&lt;C-Down&gt;</code> |
+| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>&lt;C-Up&gt;</code> |
 | **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | <code>&lt;C-W&gt;k</code> |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Q&gt;</code> |
-| **Right hand side** | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>&lt;C-W&gt;k</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -539,18 +539,13 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(bullets-promote)</code> |
-| **Right hand side** | <code>:BulletPromoteVisual&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;28_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(bullets-demote)</code> |
-| **Right hand side** | <code>:BulletDemoteVisual&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(bullets-renumber)</code> |
-| **Right hand side** | <code>:RenumberSelection&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;28_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -574,13 +569,18 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;13_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;(bullets-promote)</code> |
+| **Right hand side** | <code>:BulletPromoteVisual&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;13_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;(bullets-demote)</code> |
+| **Right hand side** | <code>:BulletDemoteVisual&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(bullets-renumber)</code> |
+| **Right hand side** | <code>:RenumberSelection&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |

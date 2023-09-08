@@ -212,41 +212,6 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,ut</code> |
 | **Right hand side** | |
 
-| **Description** | Run File |
-| :---- | :---- |
-| **Left hand side** | <code>,tt</code> |
-| **Right hand side** | |
-
-| **Description** | Stop |
-| :---- | :---- |
-| **Left hand side** | <code>,tS</code> |
-| **Right hand side** | |
-
-| **Description** | New Terminal Toggle |
-| :---- | :---- |
-| **Left hand side** | <code>,tO</code> |
-| **Right hand side** | |
-
-| **Description** | Terminal Toggle |
-| :---- | :---- |
-| **Left hand side** | <code>,to</code> |
-| **Right hand side** | |
-
-| **Description** | Terminal Send |
-| :---- | :---- |
-| **Left hand side** | <code>,ts</code> |
-| **Right hand side** | |
-
-| **Description** | Terminal Run |
-| :---- | :---- |
-| **Left hand side** | <code>,tr</code> |
-| **Right hand side** | |
-
-| **Description** | Run All Test Files |
-| :---- | :---- |
-| **Left hand side** | <code>,tT</code> |
-| **Right hand side** | |
-
 | **Description** | Edgy Toggle |
 | :---- | :---- |
 | **Left hand side** | <code>,ue</code> |
@@ -257,84 +222,124 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,uE</code> |
 | **Right hand side** | |
 
-| **Description** | LSP Len Toggle |
+| **Description** | Delete non-pinned buffers |
 | :---- | :---- |
-| **Left hand side** | <code>,uL</code> |
+| **Left hand side** | <code>,bP</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme |
+| **Description** | Toggle pin |
 | :---- | :---- |
-| **Left hand side** | <code>,sT</code> |
+| **Left hand side** | <code>,bp</code> |
 | **Right hand side** | |
 
-| **Description** | Todo/Fix/Fixme (Trouble) |
+| **Description** | Don't Save Current Session |
 | :---- | :---- |
-| **Left hand side** | <code>,xT</code> |
+| **Left hand side** | <code>,qd</code> |
 | **Right hand side** | |
 
-| **Description** | Todo (Trouble) |
+| **Description** | Restore Last Session |
 | :---- | :---- |
-| **Left hand side** | <code>,xt</code> |
+| **Left hand side** | <code>,ql</code> |
 | **Right hand side** | |
 
-| **Description** | Delete Buffer |
+| **Description** | Restore Session |
 | :---- | :---- |
-| **Left hand side** | <code>,bd</code> |
+| **Left hand side** | <code>,qs</code> |
 | **Right hand side** | |
 
-| **Description** | Delete Buffer (Force) |
+| **Description** | Workspace diagnostics |
 | :---- | :---- |
-| **Left hand side** | <code>,bD</code> |
+| **Left hand side** | <code>,sD</code> |
 | **Right hand side** | |
 
-| **Description** | Document Diagnostics (Trouble) |
+| **Description** | Diagnostics |
 | :---- | :---- |
-| **Left hand side** | <code>,xx</code> |
+| **Left hand side** | <code>,sd</code> |
 | **Right hand side** | |
 
-| **Description** | Quickfix List (Trouble) |
+| **Description** | Commands |
 | :---- | :---- |
-| **Left hand side** | <code>,xQ</code> |
-| **Right hand side** | |
-
-| **Description** | Location List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code>,xL</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code>,xX</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer NeoTree (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code>,e</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer NeoTree (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code>,fE</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer NeoTree (root dir) |
-| :---- | :---- |
-| **Left hand side** | <code>,fe</code> |
-| **Right hand side** | |
-
-| **Description** | Explorer NeoTree (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code>,E</code> |
-| **Right hand side** | |
-
-| **Description** | Markdown preview |
-| :---- | :---- |
-| **Left hand side** | <code>,m</code> |
+| **Left hand side** | <code>,sC</code> |
 | **Right hand side** | |
 
 | **Description** | Command History |
 | :---- | :---- |
 | **Left hand side** | <code>,sc</code> |
+| **Right hand side** | |
+
+| **Description** | Buffer |
+| :---- | :---- |
+| **Left hand side** | <code>,sb</code> |
+| **Right hand side** | |
+
+| **Description** | Auto Commands |
+| :---- | :---- |
+| **Left hand side** | <code>,sa</code> |
+| **Right hand side** | |
+
+| **Description** | Registers |
+| :---- | :---- |
+| **Left hand side** | <code>,s"</code> |
+| **Right hand side** | |
+
+| **Description** | Status |
+| :---- | :---- |
+| **Left hand side** | <code>,gs</code> |
+| **Right hand side** | |
+
+| **Description** | commits |
+| :---- | :---- |
+| **Left hand side** | <code>,gc</code> |
+| **Right hand side** | |
+
+| **Description** | Recent (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code>,fR</code> |
+| **Right hand side** | |
+
+| **Description** | Recent files |
+| :---- | :---- |
+| **Left hand side** | <code>,fr</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code>,fF</code> |
+| **Right hand side** | |
+
+| **Description** | Open file |
+| :---- | :---- |
+| **Left hand side** | <code>,ff</code> |
+| **Right hand side** | |
+
+| **Description** | Filebrowser |
+| :---- | :---- |
+| **Left hand side** | <code>,fb</code> |
+| **Right hand side** | |
+
+| **Description** | Command History |
+| :---- | :---- |
+| **Left hand side** | <code>,:</code> |
+| **Right hand side** | |
+
+| **Description** | Find in Files (Grep) |
+| :---- | :---- |
+| **Left hand side** | <code>,/</code> |
+| **Right hand side** | |
+
+| **Description** | Switch Buffer |
+| :---- | :---- |
+| **Left hand side** | <code>,,</code> |
+| **Right hand side** | |
+
+| **Description** | Fuzzy search |
+| :---- | :---- |
+| **Left hand side** | <code>,sf</code> |
+| **Right hand side** | |
+
+| **Description** | Find Files (root dir) |
+| :---- | :---- |
+| **Left hand side** | <code>, </code> |
 | **Right hand side** | |
 
 | **Description** | Bufferlist |
@@ -367,11 +372,6 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,gh</code> |
 | **Right hand side** | |
 
-| **Description** | Fuzzy search |
-| :---- | :---- |
-| **Left hand side** | <code>,sf</code> |
-| **Right hand side** | |
-
 | **Description** | Command history |
 | :---- | :---- |
 | **Left hand side** | <code>,s;</code> |
@@ -390,11 +390,6 @@ LazyVim IDE config for Neovim
 | **Description** | Help |
 | :---- | :---- |
 | **Left hand side** | <code>,s?</code> |
-| **Right hand side** | |
-
-| **Description** | Strings |
-| :---- | :---- |
-| **Left hand side** | <code>,st</code> |
 | **Right hand side** | |
 
 | **Description** | Goto Symbol (Workspace) |
@@ -467,89 +462,74 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,sg</code> |
 | **Right hand side** | |
 
-| **Description** | Workspace diagnostics |
+| **Description** | Explorer NeoTree (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code>,sD</code> |
+| **Left hand side** | <code>,e</code> |
 | **Right hand side** | |
 
-| **Description** | Diagnostics |
+| **Description** | Explorer NeoTree (cwd) |
 | :---- | :---- |
-| **Left hand side** | <code>,sd</code> |
+| **Left hand side** | <code>,fE</code> |
 | **Right hand side** | |
 
-| **Description** | Commands |
+| **Description** | Explorer NeoTree (root dir) |
 | :---- | :---- |
-| **Left hand side** | <code>,sC</code> |
+| **Left hand side** | <code>,fe</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (root dir) |
+| **Description** | Explorer NeoTree (cwd) |
 | :---- | :---- |
-| **Left hand side** | <code>, </code> |
+| **Left hand side** | <code>,E</code> |
 | **Right hand side** | |
 
-| **Description** | Buffer |
+| **Description** | Telescope Aerial |
 | :---- | :---- |
-| **Left hand side** | <code>,sb</code> |
+| **Left hand side** | <code>,fi</code> |
 | **Right hand side** | |
 
-| **Description** | Auto Commands |
+| **Description** | AerialToggle |
 | :---- | :---- |
-| **Left hand side** | <code>,sa</code> |
+| **Left hand side** | <code>,a</code> |
 | **Right hand side** | |
 
-| **Description** | Registers |
+| **Description** | Todo/Fix/Fixme |
 | :---- | :---- |
-| **Left hand side** | <code>,s"</code> |
+| **Left hand side** | <code>,sT</code> |
 | **Right hand side** | |
 
-| **Description** | Status |
+| **Description** | Todo |
 | :---- | :---- |
-| **Left hand side** | <code>,gs</code> |
+| **Left hand side** | <code>,st</code> |
 | **Right hand side** | |
 
-| **Description** | commits |
+| **Description** | Todo/Fix/Fixme (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,gc</code> |
+| **Left hand side** | <code>,xT</code> |
 | **Right hand side** | |
 
-| **Description** | Recent (cwd) |
+| **Description** | Todo (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,fR</code> |
+| **Left hand side** | <code>,xt</code> |
 | **Right hand side** | |
 
-| **Description** | Recent files |
+| **Description** | Quickfix List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,fr</code> |
+| **Left hand side** | <code>,xQ</code> |
 | **Right hand side** | |
 
-| **Description** | Find Files (cwd) |
+| **Description** | Location List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,fF</code> |
+| **Left hand side** | <code>,xL</code> |
 | **Right hand side** | |
 
-| **Description** | Open file |
+| **Description** | Workspace Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,ff</code> |
+| **Left hand side** | <code>,xX</code> |
 | **Right hand side** | |
 
-| **Description** | Filebrowser |
+| **Description** | Document Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code>,fb</code> |
-| **Right hand side** | |
-
-| **Description** | Command History |
-| :---- | :---- |
-| **Left hand side** | <code>,:</code> |
-| **Right hand side** | |
-
-| **Description** | Find in Files (Grep) |
-| :---- | :---- |
-| **Left hand side** | <code>,/</code> |
-| **Right hand side** | |
-
-| **Description** | Switch Buffer |
-| :---- | :---- |
-| **Left hand side** | <code>,,</code> |
+| **Left hand side** | <code>,xx</code> |
 | **Right hand side** | |
 
 | **Description** | NullLs Info |
@@ -557,44 +537,9 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,cn</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle hardtime.nvim |
+| **Description** | Telescope Harpoon Marks |
 | :---- | :---- |
-| **Left hand side** | <code>,ht</code> |
-| **Right hand side** | |
-
-| **Description** | JsDoc |
-| :---- | :---- |
-| **Left hand side** | <code>,d</code> |
-| **Right hand side** | |
-
-| **Description** | Go to line (no execute) |
-| :---- | :---- |
-| **Left hand side** | <code>,dg</code> |
-| **Right hand side** | |
-
-| **Description** | Run to Cursor |
-| :---- | :---- |
-| **Left hand side** | <code>,dC</code> |
-| **Right hand side** | |
-
-| **Description** | Continue |
-| :---- | :---- |
-| **Left hand side** | <code>,dc</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Breakpoint |
-| :---- | :---- |
-| **Left hand side** | <code>,db</code> |
-| **Right hand side** | |
-
-| **Description** | Breakpoint Condition |
-| :---- | :---- |
-| **Left hand side** | <code>,dB</code> |
-| **Right hand side** | |
-
-| **Description** | Debug Nearest |
-| :---- | :---- |
-| **Left hand side** | <code>,td</code> |
+| **Left hand side** | <code>,fm</code> |
 | **Right hand side** | |
 
 | **Description** | Widgets |
@@ -652,14 +597,79 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,di</code> |
 | **Right hand side** | |
 
-| **Description** | Open note |
+| **Description** | Go to line (no execute) |
 | :---- | :---- |
-| **Left hand side** | <code>,n</code> |
+| **Left hand side** | <code>,dg</code> |
 | **Right hand side** | |
 
-| **Description** | Open note |
+| **Description** | Run to Cursor |
 | :---- | :---- |
-| **Left hand side** | <code>,ng</code> |
+| **Left hand side** | <code>,dC</code> |
+| **Right hand side** | |
+
+| **Description** | Continue |
+| :---- | :---- |
+| **Left hand side** | <code>,dc</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Breakpoint |
+| :---- | :---- |
+| **Left hand side** | <code>,db</code> |
+| **Right hand side** | |
+
+| **Description** | Breakpoint Condition |
+| :---- | :---- |
+| **Left hand side** | <code>,dB</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Nearest |
+| :---- | :---- |
+| **Left hand side** | <code>,td</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal Run |
+| :---- | :---- |
+| **Left hand side** | <code>,tr</code> |
+| **Right hand side** | |
+
+| **Description** | Run All Test Files |
+| :---- | :---- |
+| **Left hand side** | <code>,tT</code> |
+| **Right hand side** | |
+
+| **Description** | Run File |
+| :---- | :---- |
+| **Left hand side** | <code>,tt</code> |
+| **Right hand side** | |
+
+| **Description** | Stop |
+| :---- | :---- |
+| **Left hand side** | <code>,tS</code> |
+| **Right hand side** | |
+
+| **Description** | New Terminal Toggle |
+| :---- | :---- |
+| **Left hand side** | <code>,tO</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal Toggle |
+| :---- | :---- |
+| **Left hand side** | <code>,to</code> |
+| **Right hand side** | |
+
+| **Description** | Terminal Send |
+| :---- | :---- |
+| **Left hand side** | <code>,ts</code> |
+| **Right hand side** | |
+
+| **Description** | Projects |
+| :---- | :---- |
+| **Left hand side** | <code>,fp</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle hardtime.nvim |
+| :---- | :---- |
+| **Left hand side** | <code>,ht</code> |
 | **Right hand side** | |
 
 | **Description** | Telescope persisted |
@@ -672,19 +682,14 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,sr</code> |
 | **Right hand side** | |
 
-| **Description** | Run Test Nearest |
+| **Description** | Open note |
 | :---- | :---- |
-| **Left hand side** | <code>,ct</code> |
+| **Left hand side** | <code>,ng</code> |
 | **Right hand side** | |
 
-| **Description** | Run Test Suite |
+| **Description** | Open note |
 | :---- | :---- |
-| **Left hand side** | <code>,cS</code> |
-| **Right hand side** | |
-
-| **Description** | Run Test File |
-| :---- | :---- |
-| **Left hand side** | <code>,cT</code> |
+| **Left hand side** | <code>,n</code> |
 | **Right hand side** | |
 
 | **Description** | Dismiss All |
@@ -707,11 +712,6 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,snl</code> |
 | **Right hand side** | |
 
-| **Description** | Telescope Harpoon Marks |
-| :---- | :---- |
-| **Left hand side** | <code>,fm</code> |
-| **Right hand side** | |
-
 | **Description** | Dap UI |
 | :---- | :---- |
 | **Left hand side** | <code>,du</code> |
@@ -722,49 +722,49 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,de</code> |
 | **Right hand side** | |
 
+| **Description** | JsDoc |
+| :---- | :---- |
+| **Left hand side** | <code>,d</code> |
+| **Right hand side** | |
+
+| **Description** | LSP Len Toggle |
+| :---- | :---- |
+| **Left hand side** | <code>,uL</code> |
+| **Right hand side** | |
+
+| **Description** | Run Test Suite |
+| :---- | :---- |
+| **Left hand side** | <code>,cS</code> |
+| **Right hand side** | |
+
+| **Description** | Run Test File |
+| :---- | :---- |
+| **Left hand side** | <code>,cT</code> |
+| **Right hand side** | |
+
+| **Description** | Run Test Nearest |
+| :---- | :---- |
+| **Left hand side** | <code>,ct</code> |
+| **Right hand side** | |
+
 | **Description** | Undo Tree Toggle |
 | :---- | :---- |
 | **Left hand side** | <code>,r</code> |
 | **Right hand side** | |
 
-| **Description** | Telescope Aerial |
+| **Description** | Delete Buffer (Force) |
 | :---- | :---- |
-| **Left hand side** | <code>,fi</code> |
+| **Left hand side** | <code>,bD</code> |
 | **Right hand side** | |
 
-| **Description** | AerialToggle |
+| **Description** | Delete Buffer |
 | :---- | :---- |
-| **Left hand side** | <code>,a</code> |
+| **Left hand side** | <code>,bd</code> |
 | **Right hand side** | |
 
-| **Description** | Projects |
+| **Description** | Markdown preview |
 | :---- | :---- |
-| **Left hand side** | <code>,fp</code> |
-| **Right hand side** | |
-
-| **Description** | Delete non-pinned buffers |
-| :---- | :---- |
-| **Left hand side** | <code>,bP</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle pin |
-| :---- | :---- |
-| **Left hand side** | <code>,bp</code> |
-| **Right hand side** | |
-
-| **Description** | Don't Save Current Session |
-| :---- | :---- |
-| **Left hand side** | <code>,qd</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Last Session |
-| :---- | :---- |
-| **Left hand side** | <code>,ql</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Session |
-| :---- | :---- |
-| **Left hand side** | <code>,qs</code> |
+| **Left hand side** | <code>,m</code> |
 | **Right hand side** | |
 
 | **Description** | Toggle zen mode |
@@ -827,6 +827,21 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
+| **Description** | Find left surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzF</code> |
+| **Right hand side** | |
+
+| **Description** | Add surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gza</code> |
+| **Right hand side** | |
+
+| **Description** | Find right surrounding |
+| :---- | :---- |
+| **Left hand side** | <code>gzf</code> |
+| **Right hand side** | |
+
 | **Description** | Replace surrounding |
 | :---- | :---- |
 | **Left hand side** | <code>gzr</code> |
@@ -842,24 +857,9 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>gzd</code> |
 | **Right hand side** | |
 
-| **Description** | Add surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gza</code> |
-| **Right hand side** | |
-
-| **Description** | Find left surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gzF</code> |
-| **Right hand side** | |
-
 | **Description** | Update `MiniSurround.config.n_lines` |
 | :---- | :---- |
 | **Left hand side** | <code>gzn</code> |
-| **Right hand side** | |
-
-| **Description** | Find right surrounding |
-| :---- | :---- |
-| **Left hand side** | <code>gzf</code> |
 | **Right hand side** | |
 
 | **Description** | Flash |
@@ -902,9 +902,9 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>&lt;C-S&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Scroll forward |
+| **Description** | Increment selection |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Left hand side** | <code>&lt;C-Space&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Scroll backward |
@@ -912,9 +912,9 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>&lt;C-B&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Increment selection |
+| **Description** | Scroll forward |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Space&gt;</code> |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Nvim builtin |
@@ -945,14 +945,14 @@ LazyVim IDE config for Neovim
 | **Left hand side** | <code>,ts</code> |
 | **Right hand side** | |
 
-| **Description** | Selection (cwd) |
-| :---- | :---- |
-| **Left hand side** | <code>,sW</code> |
-| **Right hand side** | |
-
 | **Description** | Selection (root dir) |
 | :---- | :---- |
 | **Left hand side** | <code>,sw</code> |
+| **Right hand side** | |
+
+| **Description** | Selection (cwd) |
+| :---- | :---- |
+| **Left hand side** | <code>,sW</code> |
 | **Right hand side** | |
 
 | **Description** | Eval |

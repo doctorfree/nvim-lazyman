@@ -275,37 +275,37 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;8_opfunc2('setup')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;5_opfunc2('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;8_opfunc('setup')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;5_opfunc('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;8_opfunc2('setup').'_'</code> |
+| **Right hand side** | <code>&lt;SNR&gt;5_opfunc2('setup').'_'</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
-| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;8_opfunc('setup').'g_'</code> |
+| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;5_opfunc('setup').'g_'</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;8_changesurround(1)&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;5_changesurround(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;8_changesurround()&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;5_changesurround()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;8_dosurround(&lt;SNR&gt;8_inputtarget())&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;5_dosurround(&lt;SNR&gt;5_inputtarget())&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -457,12 +457,12 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gb</code> |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gc</code> |
+| **Left hand side** | <code>gb</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -512,16 +512,6 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
-| **Right hand side** | <code>:m '&gt;+1&lt;CR&gt;gv-gv</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-K&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
 
@@ -534,6 +524,16 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-H&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv-gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>:m '&gt;+1&lt;CR&gt;gv-gv</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -610,11 +610,6 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-K&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code> |
 
@@ -622,6 +617,11 @@ Installs LunarVim plus the [IfCodingWereNatural custom user config](https://yout
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-J&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |

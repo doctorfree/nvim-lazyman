@@ -81,9 +81,17 @@ do
   cp /tmp/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua
   echo "" >> "${KEYTMP}"/${CFNAME}.lua
   echo "for k,v in pairs(${mode}_mode) do" >> "${KEYTMP}"/${CFNAME}.lua
+  echo '  local lstr = ""' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  if v.lhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
+  echo '    lstr = v.lhs:gsub("%s", "")' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
+  echo '  local rstr = ""' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  if v.rhs ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
+  echo '    rstr = v.rhs:gsub("%s", "")' >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
+  echo '  if lstr ~= "" or rstr ~= "" then' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.desc ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write('| **Description** | ' .. v.desc .. ' |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
-  echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write('| **Description** | |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  io.write('| :---- | :---- |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
@@ -96,6 +104,7 @@ do
   echo "    io.write('| **Right hand side** | <code>' .. v.rhs .. '</code> |' .. \"\n\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write('| **Right hand side** | |' .. \"\n\n\")" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "end" >> "${KEYTMP}"/${CFNAME}.lua
 

@@ -102,22 +102,7 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> zc</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> ze</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> zj</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> zC</code> |
+| **Left hand side** | <code> zk</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -127,7 +112,17 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> zk</code> |
+| **Left hand side** | <code> zC</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> zj</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> zc</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -137,17 +132,17 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> w&lt;Left&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> w=</code> |
+| **Left hand side** | <code> ze</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code> wk</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w&lt;Up&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -172,12 +167,17 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> w&lt;Up&gt;</code> |
+| **Left hand side** | <code> w&lt;Right&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> w&lt;Right&gt;</code> |
+| **Left hand side** | <code> w&lt;Left&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> w=</code> |
 | **Right hand side** | |
 
 | **Description** | Toggle Terminal |
@@ -337,103 +337,8 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)c</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)e</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)j</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)C</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait) </code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)k</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)E</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)&lt;Esc&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Left&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)=</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Esc&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)k</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)j</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)h</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Down&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)l</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Up&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Right&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;(expand_region_expand)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call expand_region#next('n', '+')&lt;CR&gt;</code> |
 
 | **Description** | Change a surrounding pair, putting replacements on new lines |
 | :---- | :---- |
@@ -472,38 +377,108 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-D&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-U&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-B&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Y&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(startify-open-buffers)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call startify#open_buffers()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)k</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait) </code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)C</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)j</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)c</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)E</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)&lt;Esc&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)e</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra2_wait)</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)k</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Up&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)j</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)h</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Esc&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Down&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)l</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Right&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)&lt;Left&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)=</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(Hydra1_wait)</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -527,18 +502,8 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_top()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_left()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_bottom()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -552,13 +517,48 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(expand_region_expand)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call expand_region#next('n', '+')&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_left()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_top()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'tmux'.move_bottom()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -658,20 +658,20 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>a_</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').lineCharacterwise('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer value textobj |
+| **Description** | outer closedFold textobj |
 | :---- | :---- |
-| **Left hand side** | <code>av</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('outer')&lt;CR&gt;</code> |
+| **Left hand side** | <code>az</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('outer')&lt;CR&gt;</code> |
 
 | **Description** | outer greedyOuterIndentation textobj |
 | :---- | :---- |
 | **Left hand side** | <code>ag</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer number textobj |
+| **Description** | outer key textobj |
 | :---- | :---- |
-| **Left hand side** | <code>an</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('outer')&lt;CR&gt;</code> |
+| **Left hand side** | <code>ak</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('outer')&lt;CR&gt;</code> |
 
 | **Description** | outer subword textobj |
 | :---- | :---- |
@@ -683,15 +683,15 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>am</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer key textobj |
+| **Description** | outer number textobj |
 | :---- | :---- |
-| **Left hand side** | <code>ak</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('outer')&lt;CR&gt;</code> |
+| **Left hand side** | <code>an</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer closedFold textobj |
+| **Description** | outer value textobj |
 | :---- | :---- |
-| **Left hand side** | <code>az</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('outer')&lt;CR&gt;</code> |
+| **Left hand side** | <code>av</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('outer')&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -702,6 +702,11 @@ Java, Python, Lua, and Rust IDE
 | :---- | :---- |
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 
 | **Description** | entireBuffer textobj |
 | :---- | :---- |
@@ -717,11 +722,6 @@ Java, Python, Lua, and Rust IDE
 | :---- | :---- |
 | **Left hand side** | <code>gw</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').visibleInWindow()&lt;CR&gt;</code> |
-
-| **Description** | Add a surrounding pair around a visual selection, on new lines |
-| :---- | :---- |
-| **Left hand side** | <code>gS</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -758,20 +758,20 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>i_</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').lineCharacterwise('inner')&lt;CR&gt;</code> |
 
-| **Description** | inner value textobj |
+| **Description** | inner closedFold textobj |
 | :---- | :---- |
-| **Left hand side** | <code>iv</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('inner')&lt;CR&gt;</code> |
+| **Left hand side** | <code>iz</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('inner')&lt;CR&gt;</code> |
 
 | **Description** | inner greedyOuterIndentation textobj |
 | :---- | :---- |
 | **Left hand side** | <code>ig</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('inner')&lt;CR&gt;</code> |
 
-| **Description** | inner number textobj |
+| **Description** | inner key textobj |
 | :---- | :---- |
-| **Left hand side** | <code>in</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('inner')&lt;CR&gt;</code> |
+| **Left hand side** | <code>ik</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('inner')&lt;CR&gt;</code> |
 
 | **Description** | inner subword textobj |
 | :---- | :---- |
@@ -783,15 +783,15 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>im</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('inner')&lt;CR&gt;</code> |
 
-| **Description** | inner key textobj |
+| **Description** | inner number textobj |
 | :---- | :---- |
-| **Left hand side** | <code>ik</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('inner')&lt;CR&gt;</code> |
+| **Left hand side** | <code>in</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('inner')&lt;CR&gt;</code> |
 
-| **Description** | inner closedFold textobj |
+| **Description** | inner value textobj |
 | :---- | :---- |
-| **Left hand side** | <code>iz</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('inner')&lt;CR&gt;</code> |
+| **Left hand side** | <code>iv</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('inner')&lt;CR&gt;</code> |
 
 | **Description** | nearEoL textobj |
 | :---- | :---- |
@@ -810,6 +810,11 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>zb</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>zt</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zt(250)&lt;CR&gt;</code> |
 
@@ -817,11 +822,6 @@ Java, Python, Lua, and Rust IDE
 | :---- | :---- |
 | **Left hand side** | <code>zz</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zz(250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>zb</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').zb(250)&lt;CR&gt;</code> |
 
 | **Description** | column textobj |
 | :---- | :---- |
@@ -858,6 +858,36 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Y&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-E&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-B&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
+
 | **Description** | Add a surrounding pair around a visual selection, on new lines |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
@@ -880,41 +910,6 @@ Java, Python, Lua, and Rust IDE
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-U&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-B&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 450)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Y&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(-0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-E&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(0.10, false, 100)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-D&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('neoscroll').scroll(vim.wo.scroll, true, 250)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-X&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#decrement_visual"&lt;CR&gt;g@gv</code> |
 
@@ -932,6 +927,11 @@ Java, Python, Lua, and Rust IDE
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(dial-increment)</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require"dial.command".select_augend_visual()&lt;CR&gt;&lt;Cmd&gt;let &opfunc="dial#operator#increment_visual"&lt;CR&gt;g@gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
 
 
 ### Operator mode keymaps
@@ -991,20 +991,35 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>ai</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').indentation('outer', 'inner')&lt;CR&gt;</code> |
 
+| **Description** | outer number textobj |
+| :---- | :---- |
+| **Left hand side** | <code>an</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('outer')&lt;CR&gt;</code> |
+
 | **Description** | outer value textobj |
 | :---- | :---- |
 | **Left hand side** | <code>av</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer chainMember textobj |
+| **Description** | outer greedyOuterIndentation textobj |
 | :---- | :---- |
-| **Left hand side** | <code>am</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('outer')&lt;CR&gt;</code> |
+| **Left hand side** | <code>ag</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('outer')&lt;CR&gt;</code> |
 
 | **Description** | outer key textobj |
 | :---- | :---- |
 | **Left hand side** | <code>ak</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('outer')&lt;CR&gt;</code> |
+
+| **Description** | outer subword textobj |
+| :---- | :---- |
+| **Left hand side** | <code>aS</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').subword('outer')&lt;CR&gt;</code> |
+
+| **Description** | outer chainMember textobj |
+| :---- | :---- |
+| **Left hand side** | <code>am</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('outer')&lt;CR&gt;</code> |
 
 | **Description** | outer lineCharacterwise textobj |
 | :---- | :---- |
@@ -1016,40 +1031,25 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>az</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('outer')&lt;CR&gt;</code> |
 
-| **Description** | outer number textobj |
-| :---- | :---- |
-| **Left hand side** | <code>an</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('outer')&lt;CR&gt;</code> |
-
-| **Description** | outer greedyOuterIndentation textobj |
-| :---- | :---- |
-| **Left hand side** | <code>ag</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('outer')&lt;CR&gt;</code> |
-
-| **Description** | outer subword textobj |
-| :---- | :---- |
-| **Left hand side** | <code>aS</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').subword('outer')&lt;CR&gt;</code> |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitOperationBackward)</code> |
 
-| **Description** | entireBuffer textobj |
+| **Description** | visibleInWindow textobj |
 | :---- | :---- |
-| **Left hand side** | <code>gG</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').entireBuffer()&lt;CR&gt;</code> |
+| **Left hand side** | <code>gw</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').visibleInWindow()&lt;CR&gt;</code> |
 
 | **Description** | restOfWindow textobj |
 | :---- | :---- |
 | **Left hand side** | <code>gW</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').restOfWindow()&lt;CR&gt;</code> |
 
-| **Description** | visibleInWindow textobj |
+| **Description** | entireBuffer textobj |
 | :---- | :---- |
-| **Left hand side** | <code>gw</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').visibleInWindow()&lt;CR&gt;</code> |
+| **Left hand side** | <code>gG</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').entireBuffer()&lt;CR&gt;</code> |
 
 | **Description** | inner-inner indentation textobj |
 | :---- | :---- |
@@ -1061,20 +1061,35 @@ Java, Python, Lua, and Rust IDE
 | **Left hand side** | <code>ii</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').indentation('inner', 'inner')&lt;CR&gt;</code> |
 
+| **Description** | inner number textobj |
+| :---- | :---- |
+| **Left hand side** | <code>in</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('inner')&lt;CR&gt;</code> |
+
 | **Description** | inner value textobj |
 | :---- | :---- |
 | **Left hand side** | <code>iv</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').value('inner')&lt;CR&gt;</code> |
 
-| **Description** | inner chainMember textobj |
+| **Description** | inner greedyOuterIndentation textobj |
 | :---- | :---- |
-| **Left hand side** | <code>im</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('inner')&lt;CR&gt;</code> |
+| **Left hand side** | <code>ig</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('inner')&lt;CR&gt;</code> |
 
 | **Description** | inner key textobj |
 | :---- | :---- |
 | **Left hand side** | <code>ik</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').key('inner')&lt;CR&gt;</code> |
+
+| **Description** | inner subword textobj |
+| :---- | :---- |
+| **Left hand side** | <code>iS</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').subword('inner')&lt;CR&gt;</code> |
+
+| **Description** | inner chainMember textobj |
+| :---- | :---- |
+| **Left hand side** | <code>im</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').chainMember('inner')&lt;CR&gt;</code> |
 
 | **Description** | inner lineCharacterwise textobj |
 | :---- | :---- |
@@ -1085,21 +1100,6 @@ Java, Python, Lua, and Rust IDE
 | :---- | :---- |
 | **Left hand side** | <code>iz</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').closedFold('inner')&lt;CR&gt;</code> |
-
-| **Description** | inner number textobj |
-| :---- | :---- |
-| **Left hand side** | <code>in</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').number('inner')&lt;CR&gt;</code> |
-
-| **Description** | inner greedyOuterIndentation textobj |
-| :---- | :---- |
-| **Left hand side** | <code>ig</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').greedyOuterIndentation('inner')&lt;CR&gt;</code> |
-
-| **Description** | inner subword textobj |
-| :---- | :---- |
-| **Left hand side** | <code>iS</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('various-textobjs').subword('inner')&lt;CR&gt;</code> |
 
 | **Description** | nearEoL textobj |
 | :---- | :---- |

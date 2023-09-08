@@ -139,31 +139,6 @@
 | **Left hand side** | <code> tn</code> |
 | **Right hand side** | |
 
-| **Description** | Location List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xL</code> |
-| **Right hand side** | |
-
-| **Description** | Workspace Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xX</code> |
-| **Right hand side** | |
-
-| **Description** | Document Diagnostics (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xx</code> |
-| **Right hand side** | |
-
-| **Description** | Quickfix List (Trouble) |
-| :---- | :---- |
-| **Left hand side** | <code> xQ</code> |
-| **Right hand side** | |
-
-| **Description** | Don't Save Current Session |
-| :---- | :---- |
-| **Left hand side** | <code> qd</code> |
-| **Right hand side** | |
-
 | **Description** | Restore Last Session |
 | :---- | :---- |
 | **Left hand side** | <code> ql</code> |
@@ -174,14 +149,69 @@
 | **Left hand side** | <code> qs</code> |
 | **Right hand side** | |
 
-| **Description** | Replace in files (Spectre) |
+| **Description** | Don't Save Current Session |
 | :---- | :---- |
-| **Left hand side** | <code> sr</code> |
+| **Left hand side** | <code> qd</code> |
+| **Right hand side** | |
+
+| **Description** | Dismiss all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> un</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code> cm</code> |
+| **Right hand side** | |
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Dap UI |
+| :---- | :---- |
+| **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | Breakpoint Condition |
+| :---- | :---- |
+| **Left hand side** | <code> dB</code> |
+| **Right hand side** | |
+
+| **Description** | Step Over |
+| :---- | :---- |
+| **Left hand side** | <code> dO</code> |
+| **Right hand side** | |
+
+| **Description** | Up |
+| :---- | :---- |
+| **Left hand side** | <code> dk</code> |
+| **Right hand side** | |
+
+| **Description** | Down |
+| :---- | :---- |
+| **Left hand side** | <code> dj</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> Tl</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> Tb</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> Tr</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> Tm</code> |
 | **Right hand side** | |
 
 | **Description** | Todo/Fix/Fixme (Trouble) |
@@ -204,49 +234,24 @@
 | **Left hand side** | <code> xt</code> |
 | **Right hand side** | |
 
-| **Description** | Eval |
+| **Description** | Quickfix List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> de</code> |
+| **Left hand side** | <code> xQ</code> |
 | **Right hand side** | |
 
-| **Description** | Dap UI |
+| **Description** | Location List (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> du</code> |
+| **Left hand side** | <code> xL</code> |
 | **Right hand side** | |
 
-| **Description** | Select VirtualEnv |
+| **Description** | Workspace Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> cv</code> |
+| **Left hand side** | <code> xX</code> |
 | **Right hand side** | |
 
-| **Description** | Step Over |
+| **Description** | Document Diagnostics (Trouble) |
 | :---- | :---- |
-| **Left hand side** | <code> dO</code> |
-| **Right hand side** | |
-
-| **Description** | Up |
-| :---- | :---- |
-| **Left hand side** | <code> dk</code> |
-| **Right hand side** | |
-
-| **Description** | Down |
-| :---- | :---- |
-| **Left hand side** | <code> dj</code> |
-| **Right hand side** | |
-
-| **Description** | Breakpoint Condition |
-| :---- | :---- |
-| **Left hand side** | <code> dB</code> |
-| **Right hand side** | |
-
-| **Description** | Debug Method |
-| :---- | :---- |
-| **Left hand side** | <code> dPt</code> |
-| **Right hand side** | |
-
-| **Description** | Debug Class |
-| :---- | :---- |
-| **Left hand side** | <code> dPc</code> |
+| **Left hand side** | <code> xx</code> |
 | **Right hand side** | |
 
 | **Description** | Oil buffer |
@@ -254,24 +259,9 @@
 | **Left hand side** | <code> no</code> |
 | **Right hand side** | |
 
-| **Description** | |
+| **Description** | Delete Buffer |
 | :---- | :---- |
-| **Left hand side** | <code> Tb</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> Tr</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> Tm</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> Tl</code> |
+| **Left hand side** | <code> bd</code> |
 | **Right hand side** | |
 
 | **Description** | Delete Buffer (Force) |
@@ -279,14 +269,24 @@
 | **Left hand side** | <code> bD</code> |
 | **Right hand side** | |
 
-| **Description** | Delete Buffer |
+| **Description** | Replace in files (Spectre) |
 | :---- | :---- |
-| **Left hand side** | <code> bd</code> |
+| **Left hand side** | <code> sr</code> |
 | **Right hand side** | |
 
-| **Description** | Dismiss all Notifications |
+| **Description** | Select VirtualEnv |
 | :---- | :---- |
-| **Left hand side** | <code> un</code> |
+| **Left hand side** | <code> cv</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Class |
+| :---- | :---- |
+| **Left hand side** | <code> dPc</code> |
+| **Right hand side** | |
+
+| **Description** | Debug Method |
+| :---- | :---- |
+| **Left hand side** | <code> dPt</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -779,14 +779,14 @@
 | **Left hand side** | <code>[%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
-| **Description** | Previous trouble/quickfix item |
-| :---- | :---- |
-| **Left hand side** | <code>[q</code> |
-| **Right hand side** | |
-
 | **Description** | Previous todo comment |
 | :---- | :---- |
 | **Left hand side** | <code>[t</code> |
+| **Right hand side** | |
+
+| **Description** | Previous trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>[q</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -794,14 +794,14 @@
 | **Left hand side** | <code>]%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
 
-| **Description** | Next trouble/quickfix item |
-| :---- | :---- |
-| **Left hand side** | <code>]q</code> |
-| **Right hand side** | |
-
 | **Description** | Next todo comment |
 | :---- | :---- |
 | **Left hand side** | <code>]t</code> |
+| **Right hand side** | |
+
+| **Description** | Next trouble/quickfix item |
+| :---- | :---- |
+| **Left hand side** | <code>]q</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -866,21 +866,6 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-2&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-1&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-8&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;M-7&gt;</code> |
 | **Right hand side** | |
 
@@ -902,6 +887,21 @@
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-3&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-2&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-1&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-8&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | |

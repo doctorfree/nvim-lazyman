@@ -87,11 +87,6 @@ A remarkably effective Neovim configuration in only one small file. The author's
 | **Left hand side** | <code> f</code> |
 | **Right hand side** | |
 
-| **Description** | [ ] Find existing buffers |
-| :---- | :---- |
-| **Left hand side** | <code>  </code> |
-| **Right hand side** | |
-
 | **Description** | [?] Find recently opened files |
 | :---- | :---- |
 | **Left hand side** | <code> ?</code> |

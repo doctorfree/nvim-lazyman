@@ -62,11 +62,6 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>"</code> |
 | **Right hand side** | |
 
@@ -95,14 +90,19 @@
 | **Left hand side** | <code>c</code> |
 | **Right hand side** | |
 
-| **Description** | Comment toggle linewise |
+| **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gc</code> |
+| **Left hand side** | <code>g</code> |
 | **Right hand side** | |
 
 | **Description** | Comment toggle blockwise |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 | **Description** | Comment toggle current line |
@@ -113,11 +113,6 @@
 | **Description** | Comment toggle current block |
 | :---- | :---- |
 | **Left hand side** | <code>gbc</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -148,14 +143,14 @@
 | **Left hand side** | <code>*</code> |
 | **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle linewise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>gc</code> |
-| **Right hand side** | |
-
 | **Description** | Comment toggle blockwise (visual) |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 

@@ -78,35 +78,25 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>&lt;Tab&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('right')&lt;CR&gt;</code> |
 
-| **Description** | Open Telescope Keymaps |
+| **Description** | Close diffview |
 | :---- | :---- |
-| **Left hand side** | <code> k</code> |
-| **Right hand side** | <code>:Telescope keymaps&lt;CR&gt;</code> |
+| **Left hand side** | <code> dcc</code> |
+| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
 
-| **Description** | Show git branches |
+| **Description** | Open diffview |
 | :---- | :---- |
-| **Left hand side** | <code> gb</code> |
-| **Right hand side** | <code>:Telescope git_branches initial_mode=normal&lt;CR&gt;</code> |
+| **Left hand side** | <code> dv</code> |
+| **Right hand side** | <code>:DiffviewOpen&lt;CR&gt;</code> |
 
-| **Description** | Show git log |
+| **Description** | Show current file history |
 | :---- | :---- |
-| **Left hand side** | <code> glo</code> |
-| **Right hand side** | <code>:Telescope git_commits initial_mode=normal&lt;CR&gt;</code> |
+| **Left hand side** | <code> dch</code> |
+| **Right hand side** | <code>:DiffviewFileHistory %&lt;CR&gt;</code> |
 
-| **Description** | Open Telescope live_grep |
+| **Description** | Show Commit history with changes |
 | :---- | :---- |
-| **Left hand side** | <code> fg</code> |
-| **Right hand side** | <code>:Telescope live_grep&lt;CR&gt;</code> |
-
-| **Description** | Open Telescope |
-| :---- | :---- |
-| **Left hand side** | <code> ff</code> |
-| **Right hand side** | <code>:Telescope find_files&lt;CR&gt;</code> |
-
-| **Description** | Show git status |
-| :---- | :---- |
-| **Left hand side** | <code> gst</code> |
-| **Right hand side** | <code>:Telescope git_status initial_mode=normal&lt;CR&gt;</code> |
+| **Left hand side** | <code> dh</code> |
+| **Right hand side** | <code>:DiffviewFileHistory&lt;CR&gt;</code> |
 
 | **Description** | List PR's |
 | :---- | :---- |
@@ -138,11 +128,6 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code> opr</code> |
 | **Right hand side** | <code>:Octo pr reload&lt;CR&gt;</code> |
 
-| **Description** | Open a floating term |
-| :---- | :---- |
-| **Left hand side** | <code> tt</code> |
-| **Right hand side** | <code>:ToggleTerm direction=float&lt;CR&gt;</code> |
-
 | **Description** | Search current word with Spectre |
 | :---- | :---- |
 | **Left hand side** | <code> sw</code> |
@@ -158,25 +143,35 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code> sf</code> |
 | **Right hand side** | <code>:lua require('spectre').open_file_search({select_word=true})&lt;CR&gt;</code> |
 
-| **Description** | Close diffview |
+| **Description** | Open Telescope Keymaps |
 | :---- | :---- |
-| **Left hand side** | <code> dcc</code> |
-| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
+| **Left hand side** | <code> k</code> |
+| **Right hand side** | <code>:Telescope keymaps&lt;CR&gt;</code> |
 
-| **Description** | Open diffview |
+| **Description** | Show git branches |
 | :---- | :---- |
-| **Left hand side** | <code> dv</code> |
-| **Right hand side** | <code>:DiffviewOpen&lt;CR&gt;</code> |
+| **Left hand side** | <code> gb</code> |
+| **Right hand side** | <code>:Telescope git_branches initial_mode=normal&lt;CR&gt;</code> |
 
-| **Description** | Show current file history |
+| **Description** | Show git log |
 | :---- | :---- |
-| **Left hand side** | <code> dch</code> |
-| **Right hand side** | <code>:DiffviewFileHistory %&lt;CR&gt;</code> |
+| **Left hand side** | <code> glo</code> |
+| **Right hand side** | <code>:Telescope git_commits initial_mode=normal&lt;CR&gt;</code> |
 
-| **Description** | Show Commit history with changes |
+| **Description** | Open Telescope live_grep |
 | :---- | :---- |
-| **Left hand side** | <code> dh</code> |
-| **Right hand side** | <code>:DiffviewFileHistory&lt;CR&gt;</code> |
+| **Left hand side** | <code> fg</code> |
+| **Right hand side** | <code>:Telescope live_grep&lt;CR&gt;</code> |
+
+| **Description** | Open Telescope |
+| :---- | :---- |
+| **Left hand side** | <code> ff</code> |
+| **Right hand side** | <code>:Telescope find_files&lt;CR&gt;</code> |
+
+| **Description** | Show git status |
+| :---- | :---- |
+| **Left hand side** | <code> gst</code> |
+| **Right hand side** | <code>:Telescope git_status initial_mode=normal&lt;CR&gt;</code> |
 
 | **Description** | Test keymap |
 | :---- | :---- |
@@ -192,6 +187,11 @@ Just a random Neovim config found on Github, works well
 | :---- | :---- |
 | **Left hand side** | <code> wai</code> |
 | **Right hand side** | <code>:echo expand('%:p')&lt;CR&gt;</code> |
+
+| **Description** | Open a floating term |
+| :---- | :---- |
+| **Left hand side** | <code> tt</code> |
+| **Right hand side** | <code>:ToggleTerm direction=float&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -333,6 +333,11 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>zM</code> |
 | **Right hand side** | |
 
+| **Description** | Move up faster |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>10k</code> |
+
 | **Description** | Quit Nvim |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-Q&gt;</code> |
@@ -343,25 +348,10 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>&lt;C-J&gt;</code> |
 | **Right hand side** | <code>10j</code> |
 
-| **Description** | Move up faster |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | <code>10k</code> |
-
 | **Description** | Format file |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-F&gt;</code> |
 | **Right hand side** | <code>:lua vim.lsp.buf.format({ timeout_ms = 5000 })&lt;CR&gt;</code> |
-
-| **Description** | Save current file |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-S&gt;</code> |
-| **Right hand side** | <code>:w&lt;CR&gt;</code> |
-
-| **Description** | Update buffer |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;F5&gt;</code> |
-| **Right hand side** | <code>:bufdo e!&lt;CR&gt;</code> |
 
 | **Description** | Close current buffer |
 | :---- | :---- |
@@ -377,6 +367,16 @@ Just a random Neovim config found on Github, works well
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-l&gt;</code> |
 | **Right hand side** | <code>:BufferLineCycleNext&lt;CR&gt;</code> |
+
+| **Description** | Save current file |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>:w&lt;CR&gt;</code> |
+
+| **Description** | Update buffer |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F5&gt;</code> |
+| **Right hand side** | <code>:bufdo e!&lt;CR&gt;</code> |
 
 | **Description** | Open Nvimtree |
 | :---- | :---- |
@@ -407,6 +407,51 @@ Just a random Neovim config found on Github, works well
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise with count |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current block |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle current line |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle linewise |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
+| **Right hand side** | |
+
+| **Description** | Move line up |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('up')&lt;CR&gt;</code> |
+
+| **Description** | Move line down |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('down')&lt;CR&gt;</code> |
+
+| **Description** | Move line left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('left')&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -578,51 +623,6 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
 | **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
-| **Description** | Comment toggle blockwise with count |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle linewise with count |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle current block |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle current line |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle blockwise |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle linewise |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-| **Right hand side** | |
-
-| **Description** | Move line up |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('up')&lt;CR&gt;</code> |
-
-| **Description** | Move line down |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('down')&lt;CR&gt;</code> |
-
-| **Description** | Move line left |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_line('left')&lt;CR&gt;</code> |
-
 | **Description** | Nvim builtin |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-L&gt;</code> |
@@ -731,15 +731,15 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>gc</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
 
-| **Description** | Move down faster |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | <code>10j</code> |
-
 | **Description** | Move up faster |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-K&gt;</code> |
 | **Right hand side** | <code>10k</code> |
+
+| **Description** | Move down faster |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>10j</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -771,6 +771,31 @@ Just a random Neovim config found on Github, works well
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
 
+| **Description** | Move up |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('up')&lt;CR&gt;</code> |
+
+| **Description** | Move down |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('down')&lt;CR&gt;</code> |
+
+| **Description** | Move left |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('left')&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-N&gt;</code> |
@@ -784,7 +809,7 @@ Just a random Neovim config found on Github, works well
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(VM-Find-Subword-Under)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;20_Visual('under')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;11_Visual('under')</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -804,37 +829,12 @@ Just a random Neovim config found on Github, works well
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(VM-Visual-All)</code> |
-| **Right hand side** | <code>&lt;SNR&gt;20_Visual('all')</code> |
+| **Right hand side** | <code>&lt;SNR&gt;11_Visual('all')</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(VM-Visual-Find)</code> |
 | **Right hand side** | <code>vm#operators#find(1, 1)</code> |
-
-| **Description** | Comment toggle blockwise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
-| **Description** | Comment toggle linewise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
-| **Description** | Move up |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('up')&lt;CR&gt;</code> |
-
-| **Description** | Move down |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('down')&lt;CR&gt;</code> |
-
-| **Description** | Move left |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua MiniMove.move_selection('left')&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps

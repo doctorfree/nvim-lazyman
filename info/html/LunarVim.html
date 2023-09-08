@@ -934,7 +934,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;8_opfunc2(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;5_opfunc2(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -953,7 +953,7 @@ style="text-align: left;"><code>&lt;SNR&gt;8_opfunc2(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;8_opfunc(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;5_opfunc(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -972,7 +972,7 @@ style="text-align: left;"><code>&lt;SNR&gt;8_opfunc(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;8_opfunc2(‘setup’).’_’</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;5_opfunc2(‘setup’).’_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -995,7 +995,7 @@ style="text-align: left;"><code>&lt;SNR&gt;8_opfunc2(‘setup’).’_’</code>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;8_opfunc(‘setup’).’g_’</code></td>
+style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;5_opfunc(‘setup’).’g_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -1018,7 +1018,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;8_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;8_changesurround(1)&lt;CR&gt;</code></td>
+&lt;SNR&gt;5_changesurround(1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1041,7 +1041,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;8_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;8_changesurround()&lt;CR&gt;</code></td>
+&lt;SNR&gt;5_changesurround()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1064,7 +1064,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;8_opfunc(‘setup’
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;8_dosurround(&lt;SNR&gt;8_inputtarget())&lt;CR&gt;</code></td>
+&lt;SNR&gt;5_dosurround(&lt;SNR&gt;5_inputtarget())&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1656,7 +1656,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gb</code></td>
+<td style="text-align: left;"><code>gc</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -1674,7 +1674,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(MatchitVisualBackward)</code></td>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>gc</code></td>
+<td style="text-align: left;"><code>gb</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
@@ -1899,44 +1899,6 @@ style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:m
-’&gt;+1&lt;CR&gt;gv-gv</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:m
-’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2002,6 +1964,44 @@ style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code></t
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-k&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m
+’&lt;lt&gt;-2&lt;CR&gt;gv-gv</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;M-j&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:m
+’&gt;+1&lt;CR&gt;gv-gv</code></td>
 </tr>
 </tbody>
 </table>
@@ -2326,29 +2326,6 @@ style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigatePrevious&lt;CR&gt;</code
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
-<td style="text-align: left;"><code>&lt;C-H&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td
-style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
 <td style="text-align: left;"><code>&lt;C-K&gt;</code></td>
 </tr>
 <tr class="even">
@@ -2378,6 +2355,29 @@ style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateUp&lt;CR&gt;</code></td>
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
 style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateDown&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td style="text-align: left;"><code>&lt;C-H&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td
+style="text-align: left;"><code>:&lt;C-U&gt;TmuxNavigateLeft&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>

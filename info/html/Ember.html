@@ -1650,44 +1650,6 @@ matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 </tbody>
 </table>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;luasnip-delete-check</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1864,7 +1826,7 @@ require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;10_opfunc2(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;16_opfunc2(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1883,7 +1845,7 @@ style="text-align: left;"><code>&lt;SNR&gt;10_opfunc2(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;10_opfunc(‘setup’)</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;16_opfunc(‘setup’)</code></td>
 </tr>
 </tbody>
 </table>
@@ -1906,7 +1868,7 @@ style="text-align: left;"><code>&lt;SNR&gt;10_opfunc(‘setup’)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>&lt;SNR&gt;10_opfunc2(‘setup’).’_’</code></td>
+style="text-align: left;"><code>&lt;SNR&gt;16_opfunc2(‘setup’).’_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -1929,7 +1891,7 @@ style="text-align: left;"><code>&lt;SNR&gt;10_opfunc2(‘setup’).’_’</code
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td
-style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;10_opfunc(‘setup’).’g_’</code></td>
+style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;16_opfunc(‘setup’).’g_’</code></td>
 </tr>
 </tbody>
 </table>
@@ -1952,7 +1914,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;10_opfunc(‘setup�
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;10_changesurround(1)&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_changesurround(1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1975,7 +1937,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;10_opfunc(‘setup�
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;10_changesurround()&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_changesurround()&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1998,7 +1960,7 @@ style="text-align: left;"><code>‘^’.v:count1.&lt;SNR&gt;10_opfunc(‘setup�
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;10_dosurround(&lt;SNR&gt;10_inputtarget())&lt;CR&gt;</code></td>
+&lt;SNR&gt;16_dosurround(&lt;SNR&gt;16_inputtarget())&lt;CR&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2018,6 +1980,44 @@ style="text-align: left;"><code>&lt;Plug&gt;SurroundRepeat</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>.</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;luasnip-delete-check</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -2922,6 +2922,25 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt
 </tbody>
 </table>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
+style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -2940,7 +2959,7 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;18_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
+&lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 0 :
 1)&lt;CR&gt;</code></td>
 </tr>
 </tbody>
@@ -2964,27 +2983,8 @@ require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;18_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
+&lt;SNR&gt;12_opfunc(visualmode(),visualmode() ==# ‘V’ ? 1 :
 0)&lt;CR&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;luasnip-expand-repeat</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>

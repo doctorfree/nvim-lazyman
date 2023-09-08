@@ -172,22 +172,22 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>cu</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').sendCommand(1, 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>ce</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').sendCommand(1, 2)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gc</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>cu</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').sendCommand(1, 1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -202,13 +202,13 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>tu</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(1)&lt;CR&gt;</code> |
+| **Left hand side** | <code>te</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(2)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>te</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(2)&lt;CR&gt;</code> |
+| **Left hand side** | <code>tu</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.term').gotoTerminal(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -227,16 +227,6 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-a&gt;</code> |
-| **Right hand side** | <code>&lt;C-A&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Space&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.cmd-ui').toggle_quick_menu()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-N&gt;i</code> |
 | **Right hand side** | <code>&lt;Tab&gt;</code> |
 
@@ -247,8 +237,33 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>&lt;C-Space&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require('harpoon.cmd-ui').toggle_quick_menu()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-a&gt;</code> |
+| **Right hand side** | <code>&lt;C-A&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>&lt;M-j&gt;</code> |
 | **Right hand side** | <code>:m .+1&lt;CR&gt;==</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Down&gt;</code> |
+| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>:m .-2&lt;CR&gt;==</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Up&gt;</code> |
+| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -257,8 +272,8 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>:m .-2&lt;CR&gt;==</code> |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -277,23 +292,8 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-Q&gt;</code> |
-| **Right hand side** | <code>:call QuickFixToggle()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;C-Left&gt;</code> |
 | **Right hand side** | <code>:vertical resize -2&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Down&gt;</code> |
-| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Up&gt;</code> |
-| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -360,13 +360,13 @@ Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/l
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-a&gt;</code> |
-| **Right hand side** | <code>&lt;C-A&gt;</code> |
+| **Left hand side** | <code>&lt;M-x&gt;</code> |
+| **Right hand side** | <code>&lt;C-X&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-x&gt;</code> |
-| **Right hand side** | <code>&lt;C-X&gt;</code> |
+| **Left hand side** | <code>&lt;M-a&gt;</code> |
+| **Right hand side** | <code>&lt;C-A&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |

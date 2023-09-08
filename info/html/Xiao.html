@@ -775,12 +775,36 @@ matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code></td>
 <tr class="odd">
 <td style="text-align: left;"><strong>Left hand side</strong></td>
 <td
+style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Right hand side</strong></td>
+<td style="text-align: left;"><code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Description</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Left hand side</strong></td>
+<td
 style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:set
-operatorfunc=&lt;SNR&gt;17_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
+operatorfunc=&lt;SNR&gt;10_vsnip_cut_text_normal&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -804,31 +828,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:set
-operatorfunc=&lt;SNR&gt;17_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Description</strong></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Left hand side</strong></td>
-<td
-style="text-align: left;"><code>&lt;Plug&gt;PlenaryTestFile</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Right hand side</strong></td>
-<td style="text-align: left;"><code>:lua
-require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code></td>
+operatorfunc=&lt;SNR&gt;10_vsnip_select_text_normal&lt;CR&gt;g@</code></td>
 </tr>
 </tbody>
 </table>
@@ -1205,7 +1205,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(vsnip-cut-text)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;17_vsnip_visual_text(visualmode())&lt;CR&gt;gv”_c</code></td>
+&lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv”_c</code></td>
 </tr>
 </tbody>
 </table>
@@ -1229,7 +1229,7 @@ style="text-align: left;"><code>&lt;Plug&gt;(vsnip-select-text)</code></td>
 <tr class="even">
 <td style="text-align: left;"><strong>Right hand side</strong></td>
 <td style="text-align: left;"><code>:&lt;C-U&gt;call
-&lt;SNR&gt;17_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
+&lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code></td>
 </tr>
 </tbody>
 </table>

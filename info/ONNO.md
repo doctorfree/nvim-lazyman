@@ -96,6 +96,41 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code> c</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;MonokaiProSelect&lt;CR&gt;</code> |
 
+| **Description** | Restore Last Session |
+| :---- | :---- |
+| **Left hand side** | <code> sl</code> |
+| **Right hand side** | |
+
+| **Description** | Restore Session |
+| :---- | :---- |
+| **Left hand side** | <code> ss</code> |
+| **Right hand side** | |
+
+| **Description** | Don't Save Current Session |
+| :---- | :---- |
+| **Left hand side** | <code> sd</code> |
+| **Right hand side** | |
+
+| **Description** | Close Buffer |
+| :---- | :---- |
+| **Left hand side** | <code> d</code> |
+| **Right hand side** | |
+
+| **Description** | Delete all Notifications |
+| :---- | :---- |
+| **Left hand side** | <code> n</code> |
+| **Right hand side** | |
+
+| **Description** | Diff |
+| :---- | :---- |
+| **Left hand side** | <code> gd</code> |
+| **Right hand side** | |
+
+| **Description** | Undo Stage Hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gu</code> |
+| **Right hand side** | |
+
 | **Description** | Stage Hunk |
 | :---- | :---- |
 | **Left hand side** | <code> gs</code> |
@@ -136,19 +171,9 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code> gg</code> |
 | **Right hand side** | |
 
-| **Description** | Diff |
+| **Description** | Peek (Markdown Preview) |
 | :---- | :---- |
-| **Left hand side** | <code> gd</code> |
-| **Right hand side** | |
-
-| **Description** | Undo Stage Hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gu</code> |
-| **Right hand side** | |
-
-| **Description** | Find files |
-| :---- | :---- |
-| **Left hand side** | <code> f</code> |
+| **Left hand side** | <code> p</code> |
 | **Right hand side** | |
 
 | **Description** | Find buffer |
@@ -159,6 +184,11 @@ One of the primary inspirations for Lazyman
 | **Description** | Find Text |
 | :---- | :---- |
 | **Left hand side** | <code> F</code> |
+| **Right hand side** | |
+
+| **Description** | Find files |
+| :---- | :---- |
+| **Left hand side** | <code> f</code> |
 | **Right hand side** | |
 
 | **Description** | Checkout commit |
@@ -176,29 +206,9 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code> go</code> |
 | **Right hand side** | |
 
-| **Description** | Open file manager |
+| **Description** | Dashboard |
 | :---- | :---- |
-| **Left hand side** | <code> r</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Last Session |
-| :---- | :---- |
-| **Left hand side** | <code> sl</code> |
-| **Right hand side** | |
-
-| **Description** | Restore Session |
-| :---- | :---- |
-| **Left hand side** | <code> ss</code> |
-| **Right hand side** | |
-
-| **Description** | Don't Save Current Session |
-| :---- | :---- |
-| **Left hand side** | <code> sd</code> |
-| **Right hand side** | |
-
-| **Description** | Close Buffer |
-| :---- | :---- |
-| **Left hand side** | <code> d</code> |
+| **Left hand side** | <code> 0</code> |
 | **Right hand side** | |
 
 | **Description** | Explorer Float (root dir) |
@@ -211,24 +221,14 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code> e</code> |
 | **Right hand side** | |
 
-| **Description** | Peek (Markdown Preview) |
-| :---- | :---- |
-| **Left hand side** | <code> p</code> |
-| **Right hand side** | |
-
-| **Description** | Dashboard |
-| :---- | :---- |
-| **Left hand side** | <code> 0</code> |
-| **Right hand side** | |
-
 | **Description** | Zoom window |
 | :---- | :---- |
 | **Left hand side** | <code> m</code> |
 | **Right hand side** | |
 
-| **Description** | Delete all Notifications |
+| **Description** | Open file manager |
 | :---- | :---- |
-| **Left hand side** | <code> n</code> |
+| **Left hand side** | <code> r</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -271,64 +271,9 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code>fg</code> |
 | **Right hand side** | |
 
-| **Description** | Delete all folds in current buffer |
-| :---- | :---- |
-| **Left hand side** | <code>fE</code> |
-| **Right hand side** | |
-
-| **Description** | Delete fold under cursor |
-| :---- | :---- |
-| **Left hand side** | <code>fd</code> |
-| **Right hand side** | |
-
-| **Description** | Show cursor line |
-| :---- | :---- |
-| **Left hand side** | <code>fv</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle all folds under cursor |
-| :---- | :---- |
-| **Left hand side** | <code>fA</code> |
-| **Right hand side** | |
-
-| **Description** | Close all folds |
-| :---- | :---- |
-| **Left hand side** | <code>fM</code> |
-| **Right hand side** | |
-
-| **Description** | Half screen to the left |
-| :---- | :---- |
-| **Left hand side** | <code>fH</code> |
-| **Right hand side** | |
-
-| **Description** | Open all folds |
-| :---- | :---- |
-| **Left hand side** | <code>fR</code> |
-| **Right hand side** | |
-
-| **Description** | Top this line |
-| :---- | :---- |
-| **Left hand side** | <code>ft</code> |
-| **Right hand side** | |
-
 | **Description** | Fold more |
 | :---- | :---- |
 | **Left hand side** | <code>fm</code> |
-| **Right hand side** | |
-
-| **Description** | Half screen to the right |
-| :---- | :---- |
-| **Left hand side** | <code>fL</code> |
-| **Right hand side** | |
-
-| **Description** | Fold less |
-| :---- | :---- |
-| **Left hand side** | <code>fr</code> |
-| **Right hand side** | |
-
-| **Description** | Update folds |
-| :---- | :---- |
-| **Left hand side** | <code>fx</code> |
 | **Right hand side** | |
 
 | **Description** | Center this line |
@@ -336,9 +281,34 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code>fz</code> |
 | **Right hand side** | |
 
+| **Description** | Fold less |
+| :---- | :---- |
+| **Left hand side** | <code>fr</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle fold under cursor |
+| :---- | :---- |
+| **Left hand side** | <code>fa</code> |
+| **Right hand side** | |
+
+| **Description** | Half screen to the right |
+| :---- | :---- |
+| **Left hand side** | <code>fL</code> |
+| **Right hand side** | |
+
+| **Description** | Update folds |
+| :---- | :---- |
+| **Left hand side** | <code>fx</code> |
+| **Right hand side** | |
+
 | **Description** | Left this line |
 | :---- | :---- |
 | **Left hand side** | <code>fs</code> |
+| **Right hand side** | |
+
+| **Description** | Delete fold under cursor |
+| :---- | :---- |
+| **Left hand side** | <code>fd</code> |
 | **Right hand side** | |
 
 | **Description** | Open fold under cursor |
@@ -366,14 +336,44 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code>fw</code> |
 | **Right hand side** | |
 
-| **Description** | Toggle fold under cursor |
+| **Description** | Top this line |
 | :---- | :---- |
-| **Left hand side** | <code>fa</code> |
+| **Left hand side** | <code>ft</code> |
 | **Right hand side** | |
 
 | **Description** | Right this line |
 | :---- | :---- |
 | **Left hand side** | <code>fe</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle all folds under cursor |
+| :---- | :---- |
+| **Left hand side** | <code>fA</code> |
+| **Right hand side** | |
+
+| **Description** | Delete all folds in current buffer |
+| :---- | :---- |
+| **Left hand side** | <code>fE</code> |
+| **Right hand side** | |
+
+| **Description** | Show cursor line |
+| :---- | :---- |
+| **Left hand side** | <code>fv</code> |
+| **Right hand side** | |
+
+| **Description** | Close all folds |
+| :---- | :---- |
+| **Left hand side** | <code>fM</code> |
+| **Right hand side** | |
+
+| **Description** | Half screen to the left |
+| :---- | :---- |
+| **Left hand side** | <code>fH</code> |
+| **Right hand side** | |
+
+| **Description** | Open all folds |
+| :---- | :---- |
+| **Left hand side** | <code>fR</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -396,19 +396,19 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code>gi</code> |
 | **Right hand side** | |
 
+| **Description** | Man Pages |
+| :---- | :---- |
+| **Left hand side** | <code>sM</code> |
+| **Right hand side** | |
+
 | **Description** | Find Help |
 | :---- | :---- |
 | **Left hand side** | <code>sh</code> |
 | **Right hand side** | |
 
-| **Description** | Highlight Groups |
+| **Description** | Colorscheme |
 | :---- | :---- |
-| **Left hand side** | <code>sH</code> |
-| **Right hand side** | |
-
-| **Description** | Man Pages |
-| :---- | :---- |
-| **Left hand side** | <code>sM</code> |
+| **Left hand side** | <code>sc</code> |
 | **Right hand side** | |
 
 | **Description** | Open Recent File |
@@ -431,14 +431,14 @@ One of the primary inspirations for Lazyman
 | **Left hand side** | <code>sC</code> |
 | **Right hand side** | |
 
+| **Description** | Highlight Groups |
+| :---- | :---- |
+| **Left hand side** | <code>sH</code> |
+| **Right hand side** | |
+
 | **Description** | Checkout branch |
 | :---- | :---- |
 | **Left hand side** | <code>sb</code> |
-| **Right hand side** | |
-
-| **Description** | Colorscheme |
-| :---- | :---- |
-| **Left hand side** | <code>sc</code> |
 | **Right hand side** | |
 
 | **Description** | |

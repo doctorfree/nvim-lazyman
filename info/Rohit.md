@@ -199,9 +199,89 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 | **Left hand side** | <code> GC</code> |
 | **Right hand side** | |
 
+| **Description** | Toggle Harpoon Menu |
+| :---- | :---- |
+| **Left hand side** | <code> hs</code> |
+| **Right hand side** | |
+
+| **Description** | Add file to Harpoon |
+| :---- | :---- |
+| **Left hand side** | <code> ha</code> |
+| **Right hand side** | |
+
+| **Description** | Twilight |
+| :---- | :---- |
+| **Left hand side** | <code> zt</code> |
+| **Right hand side** | |
+
+| **Description** | UndotreeToggle |
+| :---- | :---- |
+| **Left hand side** | <code> U</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Branch Workbench |
+| :---- | :---- |
+| **Left hand side** | <code>  b</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle Project Workbench |
+| :---- | :---- |
+| **Left hand side** | <code>  p</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle CheckBox |
+| :---- | :---- |
+| **Left hand side** | <code>  t</code> |
+| **Right hand side** | |
+
+| **Description** | Add CheckBox |
+| :---- | :---- |
+| **Left hand side** | <code>  a</code> |
+| **Right hand side** | |
+
+| **Description** | Todo List |
+| :---- | :---- |
+| **Left hand side** | <code> tt</code> |
+| **Right hand side** | |
+
+| **Description** | Help Tags |
+| :---- | :---- |
+| **Left hand side** | <code> th</code> |
+| **Right hand side** | |
+
 | **Description** | DapUI Toggle |
 | :---- | :---- |
 | **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle BreakPoint |
+| :---- | :---- |
+| **Left hand side** | <code> dt</code> |
+| **Right hand side** | |
+
+| **Description** | Hex Assemble |
+| :---- | :---- |
+| **Left hand side** | <code> Ha</code> |
+| **Right hand side** | |
+
+| **Description** | Hex Dump |
+| :---- | :---- |
+| **Left hand side** | <code> Hd</code> |
+| **Right hand side** | |
+
+| **Description** | Hex Toggle View |
+| :---- | :---- |
+| **Left hand side** | <code> Ht</code> |
+| **Right hand side** | |
+
+| **Description** | Zen Mode |
+| :---- | :---- |
+| **Left hand side** | <code> zz</code> |
+| **Right hand side** | |
+
+| **Description** | TrueZen Narrow Visual |
+| :---- | :---- |
+| **Left hand side** | <code> zn</code> |
 | **Right hand side** | |
 
 | **Description** | TrueZen Ataraxis |
@@ -219,89 +299,9 @@ Good example use of [mason-tool-installer](https://github.com/WhoIsSethDaniel/ma
 | **Left hand side** | <code> zf</code> |
 | **Right hand side** | |
 
-| **Description** | TrueZen Narrow Visual |
-| :---- | :---- |
-| **Left hand side** | <code> zn</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle BreakPoint |
-| :---- | :---- |
-| **Left hand side** | <code> dt</code> |
-| **Right hand side** | |
-
 | **Description** | Lazy Git |
 | :---- | :---- |
 | **Left hand side** | <code> gg</code> |
-| **Right hand side** | |
-
-| **Description** | Todo List |
-| :---- | :---- |
-| **Left hand side** | <code> tt</code> |
-| **Right hand side** | |
-
-| **Description** | Help Tags |
-| :---- | :---- |
-| **Left hand side** | <code> th</code> |
-| **Right hand side** | |
-
-| **Description** | UndotreeToggle |
-| :---- | :---- |
-| **Left hand side** | <code> U</code> |
-| **Right hand side** | |
-
-| **Description** | Zen Mode |
-| :---- | :---- |
-| **Left hand side** | <code> zz</code> |
-| **Right hand side** | |
-
-| **Description** | Twilight |
-| :---- | :---- |
-| **Left hand side** | <code> zt</code> |
-| **Right hand side** | |
-
-| **Description** | Add file to Harpoon |
-| :---- | :---- |
-| **Left hand side** | <code> ha</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Harpoon Menu |
-| :---- | :---- |
-| **Left hand side** | <code> hs</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle CheckBox |
-| :---- | :---- |
-| **Left hand side** | <code>  t</code> |
-| **Right hand side** | |
-
-| **Description** | Add CheckBox |
-| :---- | :---- |
-| **Left hand side** | <code>  a</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Branch Workbench |
-| :---- | :---- |
-| **Left hand side** | <code>  b</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle Project Workbench |
-| :---- | :---- |
-| **Left hand side** | <code>  p</code> |
-| **Right hand side** | |
-
-| **Description** | Hex Toggle View |
-| :---- | :---- |
-| **Left hand side** | <code> Ht</code> |
-| **Right hand side** | |
-
-| **Description** | Hex Assemble |
-| :---- | :---- |
-| **Left hand side** | <code> Ha</code> |
-| **Right hand side** | |
-
-| **Description** | Hex Dump |
-| :---- | :---- |
-| **Left hand side** | <code> Hd</code> |
 | **Right hand side** | |
 
 | **Description** | Toggle Format on Save |

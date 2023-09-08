@@ -59,11 +59,6 @@
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
 
@@ -520,11 +515,6 @@
 
 ### Visual mode keymaps
 
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
-
 | **Description** | Nvim builtin |
 | :---- | :---- |
 | **Left hand side** | <code>#</code> |
@@ -662,11 +652,6 @@
 
 
 ### Operator mode keymaps
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | |
 | :---- | :---- |

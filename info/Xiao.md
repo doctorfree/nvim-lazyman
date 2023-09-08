@@ -211,18 +211,18 @@ Personal Neovim configuration of XiaoZhang
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(vsnip-cut-text)</code> |
-| **Right hand side** | <code>:set operatorfunc=&lt;SNR&gt;17_vsnip_cut_text_normal&lt;CR&gt;g@</code> |
+| **Right hand side** | <code>:set operatorfunc=&lt;SNR&gt;10_vsnip_cut_text_normal&lt;CR&gt;g@</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(vsnip-select-text)</code> |
-| **Right hand side** | <code>:set operatorfunc=&lt;SNR&gt;17_vsnip_select_text_normal&lt;CR&gt;g@</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Right hand side** | <code>:set operatorfunc=&lt;SNR&gt;10_vsnip_select_text_normal&lt;CR&gt;g@</code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |
@@ -310,12 +310,12 @@ Personal Neovim configuration of XiaoZhang
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(vsnip-cut-text)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;17_vsnip_visual_text(visualmode())&lt;CR&gt;gv"_c</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv"_c</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(vsnip-select-text)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;17_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;20_vsnip_visual_text(visualmode())&lt;CR&gt;gv</code> |
 
 
 ### Operator mode keymaps

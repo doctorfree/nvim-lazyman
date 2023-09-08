@@ -140,20 +140,15 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>&lt;Esc&gt;</code> |
 | **Right hand side** | <code>:noh&lt;CR&gt;</code> |
 
-| **Description** | edit: Join code block |
-| :---- | :---- |
-| **Left hand side** | <code> j</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;TSJJoin&lt;CR&gt;</code> |
-
 | **Description** | edit: Split code block |
 | :---- | :---- |
 | **Left hand side** | <code> s</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;TSJSplit&lt;CR&gt;</code> |
 
-| **Description** | |
+| **Description** | edit: Join code block |
 | :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;TSJJoin&lt;CR&gt;</code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |
@@ -165,44 +160,34 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>+</code> |
 | **Right hand side** | <code>&lt;C-A&gt;</code> |
 
-| **Description** | buffer: Sort by extension |
-| :---- | :---- |
-| **Left hand side** | <code>,be</code> |
-| **Right hand side** | <code>:BufferLineSortByExtension&lt;CR&gt;</code> |
-
 | **Description** | buffer: Sort by direrctory |
 | :---- | :---- |
 | **Left hand side** | <code>,bd</code> |
 | **Right hand side** | <code>:BufferLineSortByDirectory&lt;CR&gt;</code> |
 
-| **Description** | find: file in git project |
+| **Description** | buffer: Sort by extension |
 | :---- | :---- |
-| **Left hand side** | <code>,fg</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;Telescope git_files&lt;CR&gt;</code> |
-
-| **Description** | find: File by history |
-| :---- | :---- |
-| **Left hand side** | <code>,fe</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;Telescope oldfiles&lt;CR&gt;</code> |
-
-| **Description** |  |
-| :---- | :---- |
-| **Left hand side** | <code>,-</code> |
-| **Right hand side** | |
-
-| **Description** | buffer: New |
-| :---- | :---- |
-| **Left hand side** | <code>,fn</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;:enew&lt;CR&gt;</code> |
+| **Left hand side** | <code>,be</code> |
+| **Right hand side** | <code>:BufferLineSortByExtension&lt;CR&gt;</code> |
 
 | **Description** | find: Word in project |
 | :---- | :---- |
 | **Left hand side** | <code>,fw</code> |
 | **Right hand side** | |
 
-| **Description** |  |
+| **Description** | lsp: Show loclist |
 | :---- | :---- |
-| **Left hand side** | <code>,=</code> |
+| **Left hand side** | <code>,tl</code> |
+| **Right hand side** | <code>:TroubleToggle loclist&lt;CR&gt;</code> |
+
+| **Description** | lsp: Show quickfix list |
+| :---- | :---- |
+| **Left hand side** | <code>,tq</code> |
+| **Right hand side** | <code>:TroubleToggle quickfix&lt;CR&gt;</code> |
+
+| **Description** | debug: Open REPL |
+| :---- | :---- |
+| **Left hand side** | <code>,do</code> |
 | **Right hand side** | |
 
 | **Description** | ui: Change colorscheme for current session |
@@ -215,24 +200,14 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,ff</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;Telescope find_files&lt;CR&gt;</code> |
 
-| **Description** | debug: Run last |
+| **Description** | find: File by history |
 | :---- | :---- |
-| **Left hand side** | <code>,dl</code> |
-| **Right hand side** | |
-
-| **Description** | debug: Run to cursor |
-| :---- | :---- |
-| **Left hand side** | <code>,dc</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>,fe</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope oldfiles&lt;CR&gt;</code> |
 
 | **Description** | find: File by frecency |
 | :---- | :---- |
 | **Left hand side** | <code>,fr</code> |
-| **Right hand side** | |
-
-| **Description** | debug: Open REPL |
-| :---- | :---- |
-| **Left hand side** | <code>,do</code> |
 | **Right hand side** | |
 
 | **Description** | find: Project |
@@ -244,16 +219,6 @@ Well structured lazy config with several setup scripts and a Wiki
 | :---- | :---- |
 | **Left hand side** | <code>,u</code> |
 | **Right hand side** | |
-
-| **Description** | lsp: Show loclist |
-| :---- | :---- |
-| **Left hand side** | <code>,tl</code> |
-| **Right hand side** | <code>:TroubleToggle loclist&lt;CR&gt;</code> |
-
-| **Description** | lsp: Show quickfix list |
-| :---- | :---- |
-| **Left hand side** | <code>,tq</code> |
-| **Right hand side** | <code>:TroubleToggle quickfix&lt;CR&gt;</code> |
 
 | **Description** | lsp: Show workspace diagnostics |
 | :---- | :---- |
@@ -270,11 +235,6 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,tr</code> |
 | **Right hand side** | <code>:TroubleToggle lsp_references&lt;CR&gt;</code> |
 
-| **Description** | debug: Set breakpoint with condition |
-| :---- | :---- |
-| **Left hand side** | <code>,db</code> |
-| **Right hand side** | |
-
 | **Description** | lsp: Toggle trouble list |
 | :---- | :---- |
 | **Left hand side** | <code>,tt</code> |
@@ -285,30 +245,25 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,lg</code> |
 | **Right hand side** | |
 
-| **Description** | tool: Run code by file |
+| **Description** | debug: Run last |
 | :---- | :---- |
-| **Left hand side** | <code>,R</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;%SnipRun&lt;CR&gt;</code> |
+| **Left hand side** | <code>,dl</code> |
+| **Right hand side** | |
 
-| **Description** | filetree: Refresh |
+| **Description** | debug: Run to cursor |
 | :---- | :---- |
-| **Left hand side** | <code>,nr</code> |
-| **Right hand side** | <code>:NvimTreeRefresh&lt;CR&gt;</code> |
+| **Left hand side** | <code>,dc</code> |
+| **Right hand side** | |
 
-| **Description** | filetree: Find file |
+| **Description** | debug: Set breakpoint with condition |
 | :---- | :---- |
-| **Left hand side** | <code>,nf</code> |
-| **Right hand side** | <code>:NvimTreeFindFile&lt;CR&gt;</code> |
+| **Left hand side** | <code>,db</code> |
+| **Right hand side** | |
 
 | **Description** | find: Session |
 | :---- | :---- |
 | **Left hand side** | <code>,fd</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;Telescope persisted&lt;CR&gt;</code> |
-
-| **Description** | git: Open git-fugitive |
-| :---- | :---- |
-| **Left hand side** | <code>,G</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;Git&lt;CR&gt;</code> |
 
 | **Description** | find: Current word |
 | :---- | :---- |
@@ -320,20 +275,80 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,fb</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;Telescope buffers&lt;CR&gt;</code> |
 
-| **Description** | session: Save |
+| **Description** | tool: Run code by file |
 | :---- | :---- |
-| **Left hand side** | <code>,ss</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;SessionSave&lt;CR&gt;</code> |
+| **Left hand side** | <code>,R</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;%SnipRun&lt;CR&gt;</code> |
+
+| **Description** | find: file in git project |
+| :---- | :---- |
+| **Left hand side** | <code>,fg</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Telescope git_files&lt;CR&gt;</code> |
+
+| **Description** | buffer: New |
+| :---- | :---- |
+| **Left hand side** | <code>,fn</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;:enew&lt;CR&gt;</code> |
+
+| **Description** | filetree: Refresh |
+| :---- | :---- |
+| **Left hand side** | <code>,nr</code> |
+| **Right hand side** | <code>:NvimTreeRefresh&lt;CR&gt;</code> |
+
+| **Description** | filetree: Find file |
+| :---- | :---- |
+| **Left hand side** | <code>,nf</code> |
+| **Right hand side** | <code>:NvimTreeFindFile&lt;CR&gt;</code> |
+
+| **Description** | git: Open git-fugitive |
+| :---- | :---- |
+| **Left hand side** | <code>,G</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;Git&lt;CR&gt;</code> |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,-</code> |
+| **Right hand side** | |
+
+| **Description** |  |
+| :---- | :---- |
+| **Left hand side** | <code>,=</code> |
+| **Right hand side** | |
+
+| **Description** | git: Show diff |
+| :---- | :---- |
+| **Left hand side** | <code>,dv</code> |
+| **Right hand side** | <code>:DiffviewOpen&lt;CR&gt;</code> |
+
+| **Description** | edit: Add comment box around multi lines of texts |
+| :---- | :---- |
+| **Left hand side** | <code>,cF</code> |
+| **Right hand side** | |
+
+| **Description** | git: Close diff |
+| :---- | :---- |
+| **Left hand side** | <code>,,dv</code> |
+| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
+
+| **Description** | edit: Add comment box around the texts |
+| :---- | :---- |
+| **Left hand side** | <code>,cf</code> |
+| **Right hand side** | |
+
+| **Description** | session: Delete |
+| :---- | :---- |
+| **Left hand side** | <code>,sd</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SessionDelete&lt;CR&gt;</code> |
 
 | **Description** | session: Load current |
 | :---- | :---- |
 | **Left hand side** | <code>,sl</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SessionLoad&lt;CR&gt;</code> |
 
-| **Description** | edit: Add comment box around the texts |
+| **Description** | session: Save |
 | :---- | :---- |
-| **Left hand side** | <code>,cf</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>,ss</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SessionSave&lt;CR&gt;</code> |
 
 | **Description** | edit: Search-repacle multi buffers CFile |
 | :---- | :---- |
@@ -345,20 +360,10 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,rbe</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCExpr&lt;CR&gt;</code> |
 
-| **Description** | git: Close diff |
-| :---- | :---- |
-| **Left hand side** | <code>,,dv</code> |
-| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
-
 | **Description** | edit: Search-repacle multi buffers CWORD |
 | :---- | :---- |
 | **Left hand side** | <code>,rbW</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceMultiBufferCWORD&lt;CR&gt;</code> |
-
-| **Description** | git: Show diff |
-| :---- | :---- |
-| **Left hand side** | <code>,dv</code> |
-| **Right hand side** | <code>:DiffviewOpen&lt;CR&gt;</code> |
 
 | **Description** | edit: Search-repacle multi buffers CWord |
 | :---- | :---- |
@@ -400,25 +405,10 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>,ro</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferOpen&lt;CR&gt;</code> |
 
-| **Description** | edit: Add comment box around multi lines of texts |
-| :---- | :---- |
-| **Left hand side** | <code>,cF</code> |
-| **Right hand side** | |
-
 | **Description** | edit: Show search-repacle menu in current buffer |
 | :---- | :---- |
 | **Left hand side** | <code>,rs</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferSelections&lt;CR&gt;</code> |
-
-| **Description** | session: Delete |
-| :---- | :---- |
-| **Left hand side** | <code>,sd</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;SessionDelete&lt;CR&gt;</code> |
-
-| **Description** | package: Update |
-| :---- | :---- |
-| **Left hand side** | <code>,pu</code> |
-| **Right hand side** | <code>:Lazy update&lt;CR&gt;</code> |
 
 | **Description** | package: Profile |
 | :---- | :---- |
@@ -464,6 +454,11 @@ Well structured lazy config with several setup scripts and a Wiki
 | :---- | :---- |
 | **Left hand side** | <code>,pr</code> |
 | **Right hand side** | <code>:Lazy restore&lt;CR&gt;</code> |
+
+| **Description** | package: Update |
+| :---- | :---- |
+| **Left hand side** | <code>,pu</code> |
+| **Right hand side** | <code>:Lazy update&lt;CR&gt;</code> |
 
 | **Description** | edit: Start replacment mode of current word |
 | :---- | :---- |
@@ -540,20 +535,25 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>f</code> |
 | **Right hand side** | |
 
-| **Description** | git: Push |
-| :---- | :---- |
-| **Left hand side** | <code>gps</code> |
-| **Right hand side** | <code>:G push&lt;CR&gt;</code> |
-
 | **Description** | git: Pull |
 | :---- | :---- |
 | **Left hand side** | <code>gpl</code> |
 | **Right hand side** | <code>:G pull&lt;CR&gt;</code> |
 
+| **Description** | git: Push |
+| :---- | :---- |
+| **Left hand side** | <code>gps</code> |
+| **Right hand side** | <code>:G push&lt;CR&gt;</code> |
+
 | **Description** | edit: Toggle comment for block with operator |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |
+
+| **Description** | edit: Align with delimiter |
+| :---- | :---- |
+| **Left hand side** | <code>gea</code> |
+| **Right hand side** | <code>:EasyAlign&lt;CR&gt;</code> |
 
 | **Description** | edit: Toggle comment for line with operator |
 | :---- | :---- |
@@ -575,10 +575,15 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>gt</code> |
 | **Right hand side** | |
 
-| **Description** | edit: Align with delimiter |
+| **Description** | jump: Jump to functions |
 | :---- | :---- |
-| **Left hand side** | <code>gea</code> |
-| **Right hand side** | <code>:EasyAlign&lt;CR&gt;</code> |
+| **Left hand side** | <code>jif</code> |
+| **Right hand side** | |
+
+| **Description** | jump: Jump to functions |
+| :---- | :---- |
+| **Left hand side** | <code>jfu</code> |
+| **Right hand side** | |
 
 | **Description** | jump: Jump to visible variable_declarations |
 | :---- | :---- |
@@ -588,16 +593,6 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Description** |  |
 | :---- | :---- |
 | **Left hand side** | <code>j</code> |
-| **Right hand side** | |
-
-| **Description** | jump: Jump to functions |
-| :---- | :---- |
-| **Left hand side** | <code>jif</code> |
-| **Right hand side** | |
-
-| **Description** | jump: Jump to functions |
-| :---- | :---- |
-| **Left hand side** | <code>jfu</code> |
 | **Right hand side** | |
 
 | **Description** |  |
@@ -625,11 +620,6 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>t</code> |
 | **Right hand side** | |
 
-| **Description** | tab: Create a new tab |
-| :---- | :---- |
-| **Left hand side** | <code>tn</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
-
 | **Description** | tab: Only keep current tab |
 | :---- | :---- |
 | **Left hand side** | <code>to</code> |
@@ -644,6 +634,11 @@ Well structured lazy config with several setup scripts and a Wiki
 | :---- | :---- |
 | **Left hand side** | <code>tk</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;tabnext&lt;CR&gt;</code> |
+
+| **Description** | tab: Create a new tab |
+| :---- | :---- |
+| **Left hand side** | <code>tn</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;tabnew&lt;CR&gt;</code> |
 
 | **Description** | edit: Visual select current node |
 | :---- | :---- |
@@ -675,20 +670,35 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>ys</code> |
 | **Right hand side** | |
 
-| **Description** | tmux: Resize to tmux/nvim pane leftward |
+| **Description** | tmux: Resize tmux/nvim pane rightward |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | debug: Run/Continue |
+| **Description** | terminal: Toggle float |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F6&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;M-d&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=float"&lt;CR&gt;</code> |
+
+| **Description** | terminal: Toggle vertical |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F5&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
+
+| **Description** | terminal: Toggle vertical |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-Bslash&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
 
 | **Description** | debug: Step over |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;F11&gt;</code> |
 | **Right hand side** | |
+
+| **Description** | terminal: Toggle horizontal |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
+| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=horizontal"&lt;CR&gt;</code> |
 
 | **Description** | debug: Step out |
 | :---- | :---- |
@@ -700,39 +710,14 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>&lt;F9&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | terminal: Toggle float |
+| **Description** | tmux: Resize to tmux/nvim pane leftward |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-d&gt;</code> |
-| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=float"&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;M-h&gt;</code> |
+| **Right hand side** | |
 
 | **Description** | debug: Toggle breakpoint |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;F8&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | terminal: Toggle vertical |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;F5&gt;</code> |
-| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
-
-| **Description** | debug: Stop |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;F7&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | terminal: Toggle vertical |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-Bslash&gt;</code> |
-| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=vertical"&lt;CR&gt;</code> |
-
-| **Description** | terminal: Toggle horizontal |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
-| **Right hand side** | <code>:execute v:count . "ToggleTerm direction=horizontal"&lt;CR&gt;</code> |
-
-| **Description** | tmux: Resize tmux/nvim pane rightward |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-l&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | tmux: Resize to tmux/nvim pane upward |
@@ -740,9 +725,19 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>&lt;M-k&gt;</code> |
 | **Right hand side** | |
 
+| **Description** | debug: Stop |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F7&gt;</code> |
+| **Right hand side** | |
+
 | **Description** | tmux: Resize tmux/nvim pane downward |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | debug: Run/Continue |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F6&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | tool: Preview markdown |
@@ -750,60 +745,35 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>&lt;F12&gt;</code> |
 | **Right hand side** | <code>:MarkdownPreviewToggle&lt;CR&gt;</code> |
 
-| **Description** | editn: Save file using sudo |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-s&gt;</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;SudaWrite&lt;CR&gt;</code> |
-
 | **Description** | buffer: Close current |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;F4&gt;</code> |
 | **Right hand side** | <code>:BufDel&lt;CR&gt;</code> |
+
+| **Description** | editn: Save file using sudo |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-s&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SudaWrite&lt;CR&gt;</code> |
 
 | **Description** | Formater: Toggle format on save |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-f&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;FormatToggle&lt;CR&gt;</code> |
 
-| **Description** | window: Resize -2 horizontally |
+| **Description** | edit: Save file |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-;&gt;</code> |
-| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
-
-| **Description** | tmux: Move to tmux/nvim bottom window |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | window: Resize +2 horizontally |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-'&gt;</code> |
-| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-S&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;write&lt;CR&gt;</code> |
 
 | **Description** | edit: Select all |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-A&gt;</code> |
 | **Right hand side** | <code>gg0vG$</code> |
 
-| **Description** | tool: Toggle command panel |
+| **Description** | buffer: Switch to prev |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-P&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | edit: Save file and quit |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Q&gt;</code> |
-| **Right hand side** | <code>:wq&lt;CR&gt;</code> |
-
-| **Description** | window: Resize -5 vertically |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-[&gt;</code> |
-| **Right hand side** | <code>:vertical resize -5&lt;CR&gt;</code> |
-
-| **Description** | tmux: Move to tmux/nvim top window |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
 
 | **Description** | edit: Force quit |
 | :---- | :---- |
@@ -815,25 +785,50 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>&lt;C-N&gt;</code> |
 | **Right hand side** | <code>:NvimTreeToggle&lt;CR&gt;</code> |
 
-| **Description** | tmux: Move to tmux/nvim left window |
+| **Description** | tool: Toggle command panel |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Left hand side** | <code>&lt;C-P&gt;</code> |
 | **Right hand side** | |
+
+| **Description** | edit: Save file and quit |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Q&gt;</code> |
+| **Right hand side** | <code>:wq&lt;CR&gt;</code> |
+
+| **Description** | window: Resize +2 horizontally |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-'&gt;</code> |
+| **Right hand side** | <code>:resize +2&lt;CR&gt;</code> |
+
+| **Description** | window: Resize -2 horizontally |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-;&gt;</code> |
+| **Right hand side** | <code>:resize -2&lt;CR&gt;</code> |
 
 | **Description** | window: Resize +5 vertically |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-]&gt;</code> |
 | **Right hand side** | <code>:vertical resize +5&lt;CR&gt;</code> |
 
-| **Description** | edit: Save file |
+| **Description** | window: Resize -5 vertically |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-S&gt;</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;write&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;M-[&gt;</code> |
+| **Right hand side** | <code>:vertical resize -5&lt;CR&gt;</code> |
 
-| **Description** | buffer: Switch to prev |
+| **Description** | tmux: Move to tmux/nvim top window |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
-| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | tmux: Move to tmux/nvim bottom window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | tmux: Move to tmux/nvim left window |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | |
 
 | **Description** | tmux: Move tmux/nvim right window |
 | :---- | :---- |
@@ -842,11 +837,6 @@ Well structured lazy config with several setup scripts and a Wiki
 
 
 ### Visual mode keymaps
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | <code></code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |
@@ -860,12 +850,12 @@ Well structured lazy config with several setup scripts and a Wiki
 
 | **Description** |  |
 | :---- | :---- |
-| **Left hand side** | <code>,-</code> |
+| **Left hand side** | <code>,=</code> |
 | **Right hand side** | |
 
 | **Description** |  |
 | :---- | :---- |
-| **Left hand side** | <code>,=</code> |
+| **Left hand side** | <code>,-</code> |
 | **Right hand side** | |
 
 | **Description** | tool: Run code by range |
@@ -963,15 +953,15 @@ Well structured lazy config with several setup scripts and a Wiki
 | **Left hand side** | <code>ys</code> |
 | **Right hand side** | |
 
-| **Description** | edit: Search-replace with selection within one line CWord |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-W&gt;</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceWithinVisualSelectionCWord&lt;CR&gt;</code> |
-
 | **Description** | edit: Search-replace with selection within one line |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-R&gt;</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceSingleBufferVisualSelection&lt;CR&gt;</code> |
+
+| **Description** | edit: Search-replace with selection within one line CWord |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-W&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;SearchReplaceWithinVisualSelectionCWord&lt;CR&gt;</code> |
 
 | **Description** | edit: Select all |
 | :---- | :---- |

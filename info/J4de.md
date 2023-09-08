@@ -104,9 +104,199 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>&lt;Tab&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Down |
+| **Description** | Delete the current buffer |
 | :---- | :---- |
-| **Left hand side** | <code> dj</code> |
+| **Left hand side** | <code> bk</code> |
+| **Right hand side** | |
+
+| **Description** | Delete the current buffer forcefully |
+| :---- | :---- |
+| **Left hand side** | <code> bK</code> |
+| **Right hand side** | |
+
+| **Description** | Open location list |
+| :---- | :---- |
+| **Left hand side** | <code> xl</code> |
+| **Right hand side** | |
+
+| **Description** | Open quickfix |
+| :---- | :---- |
+| **Left hand side** | <code> xq</code> |
+| **Right hand side** | |
+
+| **Description** | Open document diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> xd</code> |
+| **Right hand side** | |
+
+| **Description** | Open workspace diagnostics |
+| :---- | :---- |
+| **Left hand side** | <code> xw</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle trouble.nvim |
+| :---- | :---- |
+| **Left hand side** | <code> xx</code> |
+| **Right hand side** | |
+
+| **Description** | Open lsp references |
+| :---- | :---- |
+| **Left hand side** | <code> xr</code> |
+| **Right hand side** | |
+
+| **Description** | Open neogit |
+| :---- | :---- |
+| **Left hand side** | <code> gg</code> |
+| **Right hand side** | |
+
+| **Description** | Reset the hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gr</code> |
+| **Right hand side** | |
+
+| **Description** | Stage the buffer |
+| :---- | :---- |
+| **Left hand side** | <code> gS</code> |
+| **Right hand side** | |
+
+| **Description** | Reset the buffer |
+| :---- | :---- |
+| **Left hand side** | <code> gR</code> |
+| **Right hand side** | |
+
+| **Description** | Preview the hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gp</code> |
+| **Right hand side** | |
+
+| **Description** | Open git blame |
+| :---- | :---- |
+| **Left hand side** | <code> gl</code> |
+| **Right hand side** | |
+
+| **Description** | Previous hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gk</code> |
+| **Right hand side** | |
+
+| **Description** | Next hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gj</code> |
+| **Right hand side** | |
+
+| **Description** | Stage the hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gs</code> |
+| **Right hand side** | |
+
+| **Description** | Unstage the hunk |
+| :---- | :---- |
+| **Left hand side** | <code> gu</code> |
+| **Right hand side** | |
+
+| **Description** | Open a diff |
+| :---- | :---- |
+| **Left hand side** | <code> gd</code> |
+| **Right hand side** | |
+
+| **Description** | Open neo-tree.nvim |
+| :---- | :---- |
+| **Left hand side** | <code> e</code> |
+| **Right hand side** | |
+
+| **Description** | Split node under cursor |
+| :---- | :---- |
+| **Left hand side** | <code> s</code> |
+| **Right hand side** | |
+
+| **Description** | Join node under cursor |
+| :---- | :---- |
+| **Left hand side** | <code> j</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle node under cursor |
+| :---- | :---- |
+| **Left hand side** | <code> m</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to fourth buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b4</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to third buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b3</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to second buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b2</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to first buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b1</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to last buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b$</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to ninth buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b9</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to eighth buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b8</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to seventh buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b7</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to sixth buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b6</code> |
+| **Right hand side** | |
+
+| **Description** | Jump to fifth buffer |
+| :---- | :---- |
+| **Left hand side** | <code> b5</code> |
+| **Right hand side** | |
+
+| **Description** | Stop persistence |
+| :---- | :---- |
+| **Left hand side** | <code> qd</code> |
+| **Right hand side** | |
+
+| **Description** | Restore the last session |
+| :---- | :---- |
+| **Left hand side** | <code> ql</code> |
+| **Right hand side** | |
+
+| **Description** | Restore the session for the current dir |
+| :---- | :---- |
+| **Left hand side** | <code> qs</code> |
+| **Right hand side** | |
+
+| **Description** | Dap UI |
+| :---- | :---- |
+| **Left hand side** | <code> du</code> |
+| **Right hand side** | |
+
+| **Description** | Eval |
+| :---- | :---- |
+| **Left hand side** | <code> de</code> |
+| **Right hand side** | |
+
+| **Description** | Open undo tree |
+| :---- | :---- |
+| **Left hand side** | <code> u</code> |
 | **Right hand side** | |
 
 | **Description** | Step Into |
@@ -184,219 +374,34 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code> dk</code> |
 | **Right hand side** | |
 
+| **Description** | Down |
+| :---- | :---- |
+| **Left hand side** | <code> dj</code> |
+| **Right hand side** | |
+
 | **Description** | Delete all other buffers except current |
 | :---- | :---- |
 | **Left hand side** | <code> bo</code> |
 | **Right hand side** | |
 
-| **Description** | Jump to last buffer |
+| **Description** | Commands |
 | :---- | :---- |
-| **Left hand side** | <code> b$</code> |
+| **Left hand side** | <code> fc</code> |
 | **Right hand side** | |
 
-| **Description** | Jump to ninth buffer |
+| **Description** | Keymaps |
 | :---- | :---- |
-| **Left hand side** | <code> b9</code> |
+| **Left hand side** | <code> fk</code> |
 | **Right hand side** | |
 
-| **Description** | Jump to seventh buffer |
+| **Description** | Registers |
 | :---- | :---- |
-| **Left hand side** | <code> b7</code> |
+| **Left hand side** | <code> fR</code> |
 | **Right hand side** | |
 
-| **Description** | Jump to fourth buffer |
+| **Description** | Recently opened |
 | :---- | :---- |
-| **Left hand side** | <code> b4</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to second buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b2</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to first buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b1</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to sixth buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b6</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to fifth buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b5</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to eighth buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b8</code> |
-| **Right hand side** | |
-
-| **Description** | Jump to third buffer |
-| :---- | :---- |
-| **Left hand side** | <code> b3</code> |
-| **Right hand side** | |
-
-| **Description** | Delete the current buffer |
-| :---- | :---- |
-| **Left hand side** | <code> bk</code> |
-| **Right hand side** | |
-
-| **Description** | Delete the current buffer forcefully |
-| :---- | :---- |
-| **Left hand side** | <code> bK</code> |
-| **Right hand side** | |
-
-| **Description** | Open undo tree |
-| :---- | :---- |
-| **Left hand side** | <code> u</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle twilight.nvim |
-| :---- | :---- |
-| **Left hand side** | <code> t</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle zen-mode.nvim |
-| :---- | :---- |
-| **Left hand side** | <code> z</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> </code> |
-| **Right hand side** | |
-
-| **Description** | Toggle node under cursor |
-| :---- | :---- |
-| **Left hand side** | <code> m</code> |
-| **Right hand side** | |
-
-| **Description** | Split node under cursor |
-| :---- | :---- |
-| **Left hand side** | <code> s</code> |
-| **Right hand side** | |
-
-| **Description** | Join node under cursor |
-| :---- | :---- |
-| **Left hand side** | <code> j</code> |
-| **Right hand side** | |
-
-| **Description** | Open neo-tree.nvim |
-| :---- | :---- |
-| **Left hand side** | <code> e</code> |
-| **Right hand side** | |
-
-| **Description** | Open document diagnostics |
-| :---- | :---- |
-| **Left hand side** | <code> xd</code> |
-| **Right hand side** | |
-
-| **Description** | Open workspace diagnostics |
-| :---- | :---- |
-| **Left hand side** | <code> xw</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle trouble.nvim |
-| :---- | :---- |
-| **Left hand side** | <code> xx</code> |
-| **Right hand side** | |
-
-| **Description** | Open lsp references |
-| :---- | :---- |
-| **Left hand side** | <code> xr</code> |
-| **Right hand side** | |
-
-| **Description** | Open location list |
-| :---- | :---- |
-| **Left hand side** | <code> xl</code> |
-| **Right hand side** | |
-
-| **Description** | Open quickfix |
-| :---- | :---- |
-| **Left hand side** | <code> xq</code> |
-| **Right hand side** | |
-
-| **Description** | Dap UI |
-| :---- | :---- |
-| **Left hand side** | <code> du</code> |
-| **Right hand side** | |
-
-| **Description** | Eval |
-| :---- | :---- |
-| **Left hand side** | <code> de</code> |
-| **Right hand side** | |
-
-| **Description** | Restore the session for the current dir |
-| :---- | :---- |
-| **Left hand side** | <code> qs</code> |
-| **Right hand side** | |
-
-| **Description** | Stop persistence |
-| :---- | :---- |
-| **Left hand side** | <code> qd</code> |
-| **Right hand side** | |
-
-| **Description** | Restore the last session |
-| :---- | :---- |
-| **Left hand side** | <code> ql</code> |
-| **Right hand side** | |
-
-| **Description** | Unstage the hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gu</code> |
-| **Right hand side** | |
-
-| **Description** | Open a diff |
-| :---- | :---- |
-| **Left hand side** | <code> gd</code> |
-| **Right hand side** | |
-
-| **Description** | Stage the buffer |
-| :---- | :---- |
-| **Left hand side** | <code> gS</code> |
-| **Right hand side** | |
-
-| **Description** | Stage the hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gs</code> |
-| **Right hand side** | |
-
-| **Description** | Reset the buffer |
-| :---- | :---- |
-| **Left hand side** | <code> gR</code> |
-| **Right hand side** | |
-
-| **Description** | Reset the hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gr</code> |
-| **Right hand side** | |
-
-| **Description** | Preview the hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gp</code> |
-| **Right hand side** | |
-
-| **Description** | Open git blame |
-| :---- | :---- |
-| **Left hand side** | <code> gl</code> |
-| **Right hand side** | |
-
-| **Description** | Previous hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gk</code> |
-| **Right hand side** | |
-
-| **Description** | Next hunk |
-| :---- | :---- |
-| **Left hand side** | <code> gj</code> |
-| **Right hand side** | |
-
-| **Description** | Open neogit |
-| :---- | :---- |
-| **Left hand side** | <code> gg</code> |
+| **Left hand side** | <code> fr</code> |
 | **Right hand side** | |
 
 | **Description** | Man pages |
@@ -459,24 +464,14 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code> ft</code> |
 | **Right hand side** | |
 
-| **Description** | Commands |
+| **Description** | Toggle twilight.nvim |
 | :---- | :---- |
-| **Left hand side** | <code> fc</code> |
+| **Left hand side** | <code> t</code> |
 | **Right hand side** | |
 
-| **Description** | Keymaps |
+| **Description** | Toggle zen-mode.nvim |
 | :---- | :---- |
-| **Left hand side** | <code> fk</code> |
-| **Right hand side** | |
-
-| **Description** | Registers |
-| :---- | :---- |
-| **Left hand side** | <code> fR</code> |
-| **Right hand side** | |
-
-| **Description** | Recently opened |
-| :---- | :---- |
-| **Left hand side** | <code> fr</code> |
+| **Left hand side** | <code> z</code> |
 | **Right hand side** | |
 
 | **Description** | Open lazy.nvim |
@@ -574,9 +569,9 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>Y</code> |
 | **Right hand side** | <code>y$</code> |
 
-| **Description** | Go to next buffer |
+| **Description** | Previous hunk |
 | :---- | :---- |
-| **Left hand side** | <code>[b</code> |
+| **Left hand side** | <code>[g</code> |
 | **Right hand side** | |
 
 | **Description** | Prev Reference |
@@ -589,14 +584,14 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>[t</code> |
 | **Right hand side** | |
 
-| **Description** | Previous hunk |
+| **Description** | Go to next buffer |
 | :---- | :---- |
-| **Left hand side** | <code>[g</code> |
+| **Left hand side** | <code>[b</code> |
 | **Right hand side** | |
 
-| **Description** | Go to previous buffer |
+| **Description** | Next hunk |
 | :---- | :---- |
-| **Left hand side** | <code>]b</code> |
+| **Left hand side** | <code>]g</code> |
 | **Right hand side** | |
 
 | **Description** | Next Reference |
@@ -609,14 +604,19 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>]t</code> |
 | **Right hand side** | |
 
-| **Description** | Next hunk |
+| **Description** | Go to previous buffer |
 | :---- | :---- |
-| **Left hand side** | <code>]g</code> |
+| **Left hand side** | <code>]b</code> |
 | **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>`</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>c</code> |
 | **Right hand side** | |
 
 | **Description** | Change surroundings |
@@ -626,7 +626,7 @@ Personal Neovim configuration of Jade Fox
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>c</code> |
+| **Left hand side** | <code>d</code> |
 | **Right hand side** | |
 
 | **Description** | Delete surroundings |
@@ -634,19 +634,14 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>ds</code> |
 | **Right hand side** | |
 
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>d</code> |
-| **Right hand side** | |
-
 | **Description** | f |
 | :---- | :---- |
 | **Left hand side** | <code>f</code> |
 | **Right hand side** | |
 
-| **Description** | Open actions-preview.nvim |
+| **Description** | Leap from windows |
 | :---- | :---- |
-| **Left hand side** | <code>gf</code> |
+| **Left hand side** | <code>gs</code> |
 | **Right hand side** | |
 
 | **Description** | Toggle comments |
@@ -657,6 +652,46 @@ Personal Neovim configuration of Jade Fox
 | **Description** | Toggle block comments |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g*</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g#</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g</code> |
+| **Right hand side** | |
+
+| **Description** | Open actions-preview.nvim |
+| :---- | :---- |
+| **Left hand side** | <code>gf</code> |
+| **Right hand side** | |
+
+| **Description** | Multiline increment |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-A&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Multiline decrement |
+| :---- | :---- |
+| **Left hand side** | <code>g&lt;C-X&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Implementation |
+| :---- | :---- |
+| **Left hand side** | <code>gI</code> |
+| **Right hand side** | |
+
+| **Description** | Goto Definition |
+| :---- | :---- |
+| **Left hand side** | <code>gd</code> |
 | **Right hand side** | |
 
 | **Description** | Goto T[y]pe Definition |
@@ -679,46 +714,6 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>gK</code> |
 | **Right hand side** | |
 
-| **Description** | Goto Implementation |
-| :---- | :---- |
-| **Left hand side** | <code>gI</code> |
-| **Right hand side** | |
-
-| **Description** | Goto Definition |
-| :---- | :---- |
-| **Left hand side** | <code>gd</code> |
-| **Right hand side** | |
-
-| **Description** | Leap from windows |
-| :---- | :---- |
-| **Left hand side** | <code>gs</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g*</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g#</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g</code> |
-| **Right hand side** | |
-
-| **Description** | Multiline decrement |
-| :---- | :---- |
-| **Left hand side** | <code>g&lt;C-X&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Multiline increment |
-| :---- | :---- |
-| **Left hand side** | <code>g&lt;C-A&gt;</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>n</code> |
@@ -739,14 +734,14 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>u</code> |
 | **Right hand side** | |
 
-| **Description** | Add surroundings |
-| :---- | :---- |
-| **Left hand side** | <code>ys</code> |
-| **Right hand side** | |
-
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>y</code> |
+| **Right hand side** | |
+
+| **Description** | Add surroundings |
+| :---- | :---- |
+| **Left hand side** | <code>ys</code> |
 | **Right hand side** | |
 
 | **Description** | Close all folds |
@@ -769,16 +764,6 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>&lt;C-R&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Go to previous buffer |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
-| **Right hand side** | |
-
 | **Description** | Max out window width |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;C-W&gt;&#124;</code> |
@@ -799,9 +784,9 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>&lt;C-W&gt;=</code> |
 | **Right hand side** | |
 
-| **Description** | Block down |
+| **Description** | Go to previous buffer |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Left hand side** | <code>&lt;S-Tab&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Block up |
@@ -817,6 +802,16 @@ Personal Neovim configuration of Jade Fox
 | **Description** | Block right |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Block down |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-Bslash&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Decrement |
@@ -922,9 +917,9 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>f</code> |
 | **Right hand side** | |
 
-| **Description** | Leap from windows |
+| **Description** | Multiline increment |
 | :---- | :---- |
-| **Left hand side** | <code>gs</code> |
+| **Left hand side** | <code>g&lt;C-A&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Multiline decrement |
@@ -932,19 +927,19 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>g&lt;C-X&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Multiline increment |
+| **Description** | Leap from windows |
 | :---- | :---- |
-| **Left hand side** | <code>g&lt;C-A&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Toggle comments |
-| :---- | :---- |
-| **Left hand side** | <code>gc</code> |
+| **Left hand side** | <code>gs</code> |
 | **Right hand side** | |
 
 | **Description** | Toggle block comments |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
+| **Right hand side** | |
+
+| **Description** | Toggle comments |
+| :---- | :---- |
+| **Left hand side** | <code>gc</code> |
 | **Right hand side** | |
 
 | **Description** | Next search result |
@@ -972,24 +967,24 @@ Personal Neovim configuration of Jade Fox
 | **Left hand side** | <code>&lt;C-A&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Block up |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | |
-
 | **Description** | Block left |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-h&gt;</code> |
 | **Right hand side** | |
 
-| **Description** | Block right |
+| **Description** | Block up |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-l&gt;</code> |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
 | **Right hand side** | |
 
 | **Description** | Block down |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Block right |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-l&gt;</code> |
 | **Right hand side** | |
 
 
