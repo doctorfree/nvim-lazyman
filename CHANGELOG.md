@@ -6,6 +6,7 @@
 
 - Add `indentline` plugins to `ecovim` namespace, manage in `lazyman_config.sh`
 - Add `WakaTime` to `ecovim` and `lazyman_config.sh` for `ecovim`
+- Better navigation between config menus
 
 ### 🐞 Fixed
 
@@ -17,6 +18,11 @@
 - Resolve some keymap conflicts in `ecovim` namespace
 - Add `version = false` and `missing = true` to `lazy.nvim` config
 - Update Lazyman info docs using new `ecovim` namespace
+- Improve info doc and `keymaps` generation, regenerate info docs
+- Remove unused info docs
+- Use `<code>` blocks rather than ticks, replace pipe symbol with `&#124;`
+- Regenerate all info docs using markdown code for `lhs` and `rhs` of `keymaps`
+- Enclose left and right hand sides of `keymaps` as code in info docs
 
 ## v3.1.0r2
 
