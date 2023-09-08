@@ -959,6 +959,7 @@ show_plugin_menu() {
     options+=("Enable Games  [${use_games}]")
     options+=("Indentline [${use_indentline}]")
     options+=("Enable Motion [${use_motion}]")
+    options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
@@ -992,7 +993,6 @@ show_plugin_menu() {
       }
       options+=("Securitree    [${use_securitree}]")
       options+=("Session [${use_session_manager}]")
-      options+=("Smooth Scroll [${use_smooth_scrolling}]")
       options+=("StartupTime   [${use_startuptime}]")
       options+=("Surround      [${use_surround}]")
       options+=("Toggle Term   [${use_toggleterm}]")

@@ -16,13 +16,13 @@ local options = {
   laststatus     = 3,                       --- Global statusline at the bottom
   list           = settings.list,
   listchars      = settings.listchars,
-  mouse          = settings.mouse,                     --- Enable mouse
-  number         = settings.number,                    --- Shows current line number
-  relativenumber = settings.relative_number,                    --- Enables relative number
+  mouse          = settings.mouse,          --- Enable mouse
+  number         = settings.number,         --- Shows current line number
+  relativenumber = settings.relative_number,--- Enables relative number
   pumheight      = 10,                      --- Max num of items in completion menu
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
-  shiftwidth     = 2,                       --- Change a number of space characters inserted for indentation
-  showtabline    = settings.showtabline,                       --- Always show tabs
+  shiftwidth     = 2,                       --- Number of space characters inserted for indentation
+  showtabline    = settings.showtabline,    --- Always show tabs
   signcolumn     = "yes:2",                 --- Add extra sign column next to line number
   smartcase      = true,                    --- Uses case in search
   smartindent    = true,                    --- Makes indenting smart
@@ -38,13 +38,14 @@ local options = {
   updatetime     = 100,                     --- Faster completion
   viminfo        = "'1000",                 --- Increase the size of file history
   wildignore     = "*node_modules/**",      --- Don't search inside Node.js modules (works for gutentag)
-  wrap           = true,                   --- Display long lines as just one line
+  wrap           = true,                    --- Display long lines as just one line
   writebackup    = false,                   --- Not needed
   -- Neovim defaults
   autoindent     = true,                    --- Good auto indent
   backspace      = "indent,eol,start",      --- Making sure backspace works
   backup         = false,                   --- Recommended by coc
-  --- Concealed text is completely hidden unless it has a custom replacement character defined (needed for dynamically showing tailwind classes)
+  -- Concealed text is completely hidden unless it has a custom replacement
+  -- character defined (needed for dynamically showing tailwind classes)
   conceallevel   = 2,
   concealcursor  = "",                      --- Set to an empty string to expand tailwind class when on cursorline
   encoding       = "utf-8",                 --- The encoding displayed
