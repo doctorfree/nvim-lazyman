@@ -4,12 +4,23 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.0r3
+
+### ⚡️ Added
+
 - Add `indentline` plugins to `ecovim` namespace, manage in `lazyman_config.sh`
 - Add `WakaTime` to `ecovim` and `lazyman_config.sh` for `ecovim`
 - Better navigation between config menus
+- Add Smooth Scrolling to all namespace config menus
+- Add `hop` and `leap` to `onno` and `ecovim`
+- Enable all namespaces configuration of motion and scrolling via menu
 
 ### 🐞 Fixed
 
+- Pull `autocmds`, `keymappings`, `options` in `ecovim` namespace up a level
+- Rename `ecovim` namespace `keymappings` to `keymaps`
 - Resolve `indentline` duplicates and config in `ecovim` namespace
 - Merge `ecovim` icons with toplevel icons
 - Move `free/utils` up to `utils`
