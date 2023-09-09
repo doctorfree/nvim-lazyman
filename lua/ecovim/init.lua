@@ -11,6 +11,7 @@ require("ecovim.autocmds")
 require("ecovim.internal.winbar")
 require("ecovim.internal.cursorword")
 
+require("utils.utils")
 require("config.lspconfig")
 require("config.lsp.functions")
 
