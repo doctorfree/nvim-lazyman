@@ -216,12 +216,12 @@ conf.enable_clangd = false
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
   "bashls",        -- LSP_SERVERS
-  "cssls",         -- LSP_SERVERS
+  -- "cssls",      -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
   "denols",        -- LSP_SERVERS
   "dockerls",      -- LSP_SERVERS
   -- "emmet_ls",   -- LSP_SERVERS
-  "eslint",        -- LSP_SERVERS
+  -- "eslint",     -- LSP_SERVERS
   -- "gopls",      -- LSP_SERVERS
   "graphql",       -- LSP_SERVERS
   "html",          -- LSP_SERVERS
@@ -231,11 +231,11 @@ conf.lsp_servers = {
   "ltex",          -- LSP_SERVERS
   "lua_ls",        -- LSP_SERVERS
   "marksman",      -- LSP_SERVERS
-  "prismals",      -- LSP_SERVERS
+  -- "prismals",   -- LSP_SERVERS
   "pylsp",         -- LSP_SERVERS
   "pyright",       -- LSP_SERVERS
   "sqlls",         -- LSP_SERVERS
-  "tailwindcss",   -- LSP_SERVERS
+  -- "tailwindcss", -- LSP_SERVERS
   "texlab",        -- LSP_SERVERS
   "tsserver",      -- LSP_SERVERS
   "vimls",         -- LSP_SERVERS
