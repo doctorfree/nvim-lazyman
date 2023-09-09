@@ -1,25 +1,6 @@
-local utils = require("utils.functions")
-
 local cfg = {}
 
 cfg.root_patterns = { ".git", "lua", "package.json" }
-
--- must be global or the initial state is not working
-VIRTUAL_TEXT_ACTIVE = true
--- toggle displaying virtual text
-cfg.toggle_virtual_text = function()
-  VIRTUAL_TEXT_ACTIVE = not VIRTUAL_TEXT_ACTIVE
-  utils.notify(string.format("Virtualtext %s", VIRTUAL_TEXT_ACTIVE and "on" or "off"), 1, "utils/utils.lua")
-  vim.diagnostic.show(nil, 0, nil, { virtual_text = VIRTUAL_TEXT_ACTIVE })
-end
-
--- must be global or the initial state is not working
-AUTOFORMAT_ACTIVE = true
--- toggle null-ls's autoformatting
-cfg.toggle_autoformat = function()
-  AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
-  utils.notify(string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"), 1, "utils.utils")
-end
 
 function cfg.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
