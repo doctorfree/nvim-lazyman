@@ -258,7 +258,7 @@ conf.formatters_linters = {
   "shfmt",           -- FORMATTERS_LINTERS
   "stylua",          -- FORMATTERS_LINTERS
   "tflint",          -- FORMATTERS_LINTERS
-  "yamllint",        -- FORMATTERS_LINTERS
+  -- "yamllint",     -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
