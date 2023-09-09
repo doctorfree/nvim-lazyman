@@ -25,7 +25,7 @@ mason_lsp.setup({
     "jsonls",
     "lua_ls",
     "prismals",
-    "tailwindcss"
+    "tailwindcss",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -65,48 +65,48 @@ capabilities.textDocument.foldingRange = {
 -- Order matters
 
 lspconfig.tailwindcss.setup({
-  capabilities = require("ecovim.lsp.servers.tailwindcss").capabilities,
-  filetypes = require("ecovim.lsp.servers.tailwindcss").filetypes,
+  capabilities = require("config.lsp.servers.tailwindcss").capabilities,
+  filetypes = require("config.lsp.servers.tailwindcss").filetypes,
   handlers = handlers,
-  init_options = require("ecovim.lsp.servers.tailwindcss").init_options,
-  on_attach = require("ecovim.lsp.servers.tailwindcss").on_attach,
-  settings = require("ecovim.lsp.servers.tailwindcss").settings,
+  init_options = require("config.lsp.servers.tailwindcss").init_options,
+  on_attach = require("config.lsp.servers.tailwindcss").on_attach,
+  settings = require("config.lsp.servers.tailwindcss").settings,
 })
 
 lspconfig.cssls.setup({
   capabilities = capabilities,
   handlers = handlers,
-  on_attach = require("ecovim.lsp.servers.cssls").on_attach,
-  settings = require("ecovim.lsp.servers.cssls").settings,
+  on_attach = require("config.lsp.servers.cssls").on_attach,
+  settings = require("config.lsp.servers.cssls").settings,
 })
 
 lspconfig.eslint.setup({
   capabilities = capabilities,
   handlers = handlers,
-  on_attach = require("ecovim.lsp.servers.eslint").on_attach,
-  settings = require("ecovim.lsp.servers.eslint").settings,
+  on_attach = require("config.lsp.servers.eslint").on_attach,
+  settings = require("config.lsp.servers.eslint").settings,
 })
 
 lspconfig.jsonls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-  settings = require("ecovim.lsp.servers.jsonls").settings,
+  settings = require("config.lsp.servers.jsonls").settings,
 })
 
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-  settings = require("ecovim.lsp.servers.lua_ls").settings,
+  settings = require("config.lsp.servers.lua_ls").settings,
 })
 
 lspconfig.vuels.setup({
-  filetypes = require("ecovim.lsp.servers.vuels").filetypes,
+  filetypes = require("config.lsp.servers.vuels").filetypes,
   handlers = handlers,
-  init_options = require("ecovim.lsp.servers.vuels").init_options,
-  on_attach = require("ecovim.lsp.servers.vuels").on_attach,
-  settings = require("ecovim.lsp.servers.vuels").settings,
+  init_options = require("config.lsp.servers.vuels").init_options,
+  on_attach = require("config.lsp.servers.vuels").on_attach,
+  settings = require("config.lsp.servers.vuels").settings,
 })
 
 for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals" }) do
