@@ -1450,16 +1450,37 @@ return {
     lazy = false,
     config = true, -- run require("stay-in-place").setup()
   },
-
-  coding,
-
   {
     "williamboman/mason.nvim",
-    cmd = "Mason",
+    build = ":MasonUpdate",
+    cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+    lazy = false,
     keys = {
+      { "<leader>M",  "<cmd>Mason<cr>", desc = "Mason Menu" },
       { "<Leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     },
   },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+  },
+  {
+    "RubixDev/mason-update-all",
+    cmd = "MasonUpdateAll",
+    config = function()
+      require("mason-update-all").setup()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MasonUpdateAllComplete",
+        callback = function()
+          print("mason-update-all has finished")
+        end,
+      })
+    end,
+  },
+
+  coding,
 
   -- LSP Cmp
   {

@@ -364,7 +364,6 @@ if settings.enable_coding then
     "taplo",
   }
   local check_servers_with_navic = {
-    "html",
     "pylsp",
     "vimls",
     "pyright",
@@ -383,7 +382,6 @@ if settings.enable_coding then
     if lspconfig[server] then
       lspconfig[server].setup({
         capabilities = capabilities,
-        handlers = handlers,
         on_attach = function(client, bufnr)
           navic.attach(client, bufnr)
         end,
