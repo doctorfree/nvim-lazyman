@@ -56,7 +56,7 @@ if settings.enable_coding then
           ensure_installed = lsp_servers,
           automatic_installation = true,
         })
-        require("free.config.lspconfig")
+        require("config.lspconfig")
       end,
     },
 
@@ -70,7 +70,7 @@ if settings.enable_coding then
         "mason.nvim",
       },
       config = function()
-        require("free.config.null-ls")
+        require("config.null-ls")
       end,
     },
 
@@ -139,7 +139,7 @@ else
           ensure_installed = lsp_servers,
           automatic_installation = true,
         })
-        require("free.config.lspconfig")
+        require("config.lspconfig")
       end,
     },
 
@@ -151,7 +151,7 @@ else
         "mason.nvim",
       },
       config = function()
-        require("free.config.null-ls")
+        require("config.null-ls")
       end,
     },
   }

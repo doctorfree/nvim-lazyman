@@ -166,7 +166,7 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 if settings.enable_winbar == "barbecue" then
   map("n", "<leader>ub", function() require("barbecue.ui").toggle() end, { desc = "Toggle barbecue winbar" })
 end
-map("n", "<leader>uf", require("free.config.lsp.format").toggle, { desc = "Toggle format on Save" })
+map("n", "<leader>uf", require("config.lsp.format").toggle, { desc = "Toggle format on Save" })
 map("n", "<leader>us", function() Util.toggle("spell") end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", function() Util.toggle("wrap") end, { desc = "Toggle Word Wrap" })
 map("n", "<leader>ul", function()

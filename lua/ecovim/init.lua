@@ -1,18 +1,17 @@
-require('ecovim.config.Ecovim')
+require("ecovim.config.Ecovim")
 
-require('ecovim.utils.globals')
-require('ecovim.utils.functions')
+require("ecovim.utils.globals")
+require("ecovim.utils.functions")
 
-require('ecovim.options')
-require('ecovim.config.lazy')
-require('ecovim.keymaps')
-require('ecovim.autocmds')
+require("ecovim.options")
+require("ecovim.config.lazy")
+require("ecovim.keymaps")
+require("ecovim.autocmds")
 
-require('ecovim.internal.winbar')
-require('ecovim.internal.cursorword')
+require("ecovim.internal.winbar")
+require("ecovim.internal.cursorword")
 
-require('ecovim.lsp.config')
-require('ecovim.lsp.setup')
-require('ecovim.lsp.functions')
+require("config.lspconfig")
+require("ecovim.lsp.functions")
 
-require('ecovim.snippets.react')
+require("ecovim.snippets.react")

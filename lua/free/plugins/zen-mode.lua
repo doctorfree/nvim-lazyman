@@ -16,7 +16,7 @@ end
 if settings.enable_zenmode then
   twilight = {
     "folke/twilight.nvim",
-    cmd = { "Twilight", "TwilightEnable", "TwilightDisable" }
+    cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
   }
   zenmode = {
     "folke/zen-mode.nvim",
@@ -24,7 +24,9 @@ if settings.enable_zenmode then
     opts = {
       window = {
         backdrop = 1,
-        width = function() return math.min(120, vim.o.columns * 0.75) end,
+        width = function()
+          return math.min(120, vim.o.columns * 0.75)
+        end,
         height = 0.9,
         options = {
           number = false,
@@ -60,14 +62,14 @@ if settings.enable_zenmode then
         },
       },
       on_open = function()
-        vim.diagnostic.config(require("free.config.lsp.diagnostics")["off"])
+        vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
         vim.g.indent_blankline_enabled = false
       end,
       on_close = function()
-        vim.diagnostic.config(require("free.config.lsp.diagnostics")["off"])
+        vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
         vim.g.indent_blankline_enabled = true
       end,
-    }
+    },
   }
 
   vim.keymap.set("n", "<leader>z", function()
@@ -77,5 +79,5 @@ end
 
 return {
   twilight,
-  zenmode
+  zenmode,
 }

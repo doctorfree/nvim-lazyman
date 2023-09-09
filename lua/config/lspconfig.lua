@@ -63,8 +63,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 require("utils.utils").on_attach(function(client, buffer)
-  require("free.config.lsp.keymaps").on_attach(client, buffer)
-  require("free.config.lsp.inlayhints").on_attach(client, buffer)
+  require("config.lsp.keymaps").on_attach(client, buffer)
+  require("config.lsp.inlayhints").on_attach(client, buffer)
 end)
 
 -- diagnostics
@@ -73,9 +73,9 @@ for name, icon in pairs(require("icons").diagnostics) do
   vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
 end
 if showdiag == "none" then
-  vim.diagnostic.config(require("free.config.lsp.diagnostics")["off"])
+  vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
 else
-  vim.diagnostic.config(require("free.config.lsp.diagnostics")["on"])
+  vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
 end
 
 -- Show line diagnostics automatically in hover window

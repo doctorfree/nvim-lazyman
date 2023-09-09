@@ -5,7 +5,7 @@ local settings = require("configuration")
 cfg._keys = nil
 
 function cfg.get()
-  local format = require("free.config.lsp.format").format
+  local format = require("config.lsp.format").format
   if not cfg._keys then
   ---@class PluginLspKeys
     -- stylua: ignore

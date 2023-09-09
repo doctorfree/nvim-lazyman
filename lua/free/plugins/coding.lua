@@ -288,14 +288,14 @@ if settings.enable_coding then
     "ray-x/lsp_signature.nvim",
     lazy = true,
     config = function()
-      require("free.config.lsp.signature")
+      require("config.lsp.signature")
     end,
   }
   lspsaga = {
     "glepnir/lspsaga.nvim",
     lazy = true,
     config = function()
-      require("free.config.lspsaga")
+      require("config.lspsaga")
     end,
   }
   actionmenu = {

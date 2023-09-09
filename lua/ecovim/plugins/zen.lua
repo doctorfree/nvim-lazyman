@@ -54,6 +54,7 @@ require("zen-mode").setup({
     vim.opt.relativenumber = false
     vim.opt.signcolumn = "no"
     require("gitsigns.actions").refresh()
+    vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
@@ -62,5 +63,6 @@ require("zen-mode").setup({
     vim.opt.relativenumber = true
     vim.opt.signcolumn = "yes:2"
     require("gitsigns.actions").refresh()
+    vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
   end,
 })

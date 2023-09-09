@@ -939,8 +939,8 @@ show_plugin_menu() {
       options+=("Tabnine (AI)  [${use_tabnine}]")
     }
     options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Enable coding [${use_coding}]")
     [ "${use_namespace}" == "ecovim" ] || {
-      options+=("Enable coding [${use_coding}]")
       options+=("Compile & Run [${use_compile}]")
       [ "${use_namespace}" == "free" ] && {
         options+=("Dashboard [${use_dash}]")
@@ -1009,7 +1009,7 @@ show_plugin_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "free" ] && {
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Formatters")
       options+=("LSP Servers")
     }
@@ -1916,7 +1916,7 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    [ "${use_namespace}" == "free" ] && {
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Formatters Menu")
     }
     options+=("Plugins Menu")
@@ -2053,7 +2053,7 @@ show_formlint_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    [ "${use_namespace}" == "free" ] && {
+    [ "${use_namespace}" == "onno" ] || {
       options+=("LSP Servers Menu")
     }
     options+=("Plugins Menu")
@@ -2257,7 +2257,7 @@ show_conf_menu() {
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Namespace [${use_namespace}]")
-    [ "${use_namespace}" == "free" ] && {
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Diagnostics [${use_show_diagnostics}]")
     }
     options+=("Theme [${use_theme}]")
@@ -2302,7 +2302,7 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "free" ] && {
+    [ "${use_namespace}" == "onno" ] || {
       options+=("Formatters")
       options+=("LSP Servers")
     }
