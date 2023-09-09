@@ -1,4 +1,7 @@
 local settings = require("configuration")
+local formatters_linters = settings.formatters_linters
+local lsp_servers = settings.lsp_servers
+
 local barbecue = {}
 local cheatsheet = {}
 local vimbegood = {}
@@ -7,8 +10,6 @@ local sudoku = {}
 local blackjack = {}
 local cellular = {}
 local coding = {}
-local formatters_linters = settings.formatters_linters
-local lsp_servers = settings.lsp_servers
 local hop_motion = {}
 local leap_motion = {}
 local hydra_plugin = {}
@@ -41,7 +42,7 @@ if settings.enable_coding then
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
         and "echo -e 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
-        or nil,
+      or nil,
     dependencies = {
       "rafamadriz/friendly-snippets",
       "saadparwaiz1/cmp_luasnip",
@@ -173,8 +174,8 @@ if settings.enable_motion == "leap" then
     {
       "ggandor/leap.nvim",
       keys = {
-        { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-        { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+        { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+        { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
         { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
       },
       config = function(_, opts)
@@ -192,6 +193,219 @@ end
 
 if settings.enable_coding then
   coding = {
+    {
+      "folke/neodev.nvim",
+      version = false,
+      event = "VeryLazy",
+      dependencies = {
+        "hrsh7th/nvim-cmp",
+      },
+      opts = {},
+    },
+
+    {
+      "neovim/nvim-lspconfig",
+      dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "jose-elias-alvarez/nvim-lsp-ts-utils",
+        "jose-elias-alvarez/null-ls.nvim",
+        "nvim-lua/plenary.nvim",
+        "b0o/schemastore.nvim",
+        "folke/neodev.nvim",
+      },
+      config = function()
+        local opts = {
+          ensure_installed = formatters_linters,
+          ui = {
+            border = "rounded",
+            icons = {
+              package_pending = " ",
+              package_installed = " ",
+              package_uninstalled = " ﮊ",
+            },
+          },
+        }
+        require("mason").setup(opts)
+        local mr = require("mason-registry")
+        local function install_ensured()
+          for _, tool in ipairs(opts.ensure_installed) do
+            local p = mr.get_package(tool)
+            if not p:is_installed() then
+              p:install()
+            end
+          end
+        end
+        if mr.refresh then
+          mr.refresh(install_ensured)
+        else
+          install_ensured()
+        end
+        require("mason-lspconfig").setup({
+          ensure_installed = lsp_servers,
+          automatic_installation = true,
+        })
+        require("config.lspconfig")
+      end,
+    },
+
+    { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
+
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      dependencies = {
+        "neovim/nvim-lspconfig",
+        "mason.nvim",
+      },
+      config = function()
+        require("config.null-ls")
+      end,
+    },
+
+    {
+      "VonHeikemen/lsp-zero.nvim",
+      branch = "v2.x",
+      dependencies = {
+        -- LSP Support
+        { "neovim/nvim-lspconfig" }, -- Required
+        { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" }, -- Optional
+        -- Autocompletion
+        { "hrsh7th/nvim-cmp" }, -- Required
+        { "hrsh7th/cmp-nvim-lsp" }, -- Required
+        { "L3MON4D3/LuaSnip" }, -- Required
+      },
+      config = function()
+        local lsp = require("lsp-zero").preset({})
+        lsp.on_attach(function(_, bufnr)
+          lsp.default_keymaps({ buffer = bufnr })
+        end)
+        lsp.setup()
+      end,
+    },
+    {
+      "folke/trouble.nvim",
+      cmd = { "TroubleToggle", "Trouble" },
+      config = function()
+        require("ecovim.plugins.trouble")
+      end,
+    },
+
+    -- AI
+    {
+      "jcdickinson/codeium.nvim",
+      cond = Ecovim.plugins.ai.codeium.enabled,
+      event = "InsertEnter",
+      cmd = "Codeium",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+      },
+      config = true,
+    },
+    {
+      "zbirenbaum/copilot.lua",
+      cond = Ecovim.plugins.ai.copilot.enabled,
+      event = "InsertEnter",
+      config = function()
+        require("ecovim.plugins.copilot")
+      end,
+    },
+    {
+      "Bryley/neoai.nvim",
+      cond = Ecovim.plugins.ai.chatgpt.enabled,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+      cmd = {
+        "NeoAI",
+        "NeoAIOpen",
+        "NeoAIClose",
+        "NeoAIToggle",
+        "NeoAIContext",
+        "NeoAIContextOpen",
+        "NeoAIContextClose",
+        "NeoAIInject",
+        "NeoAIInjectCode",
+        "NeoAIInjectContext",
+        "NeoAIInjectContextCode",
+      },
+      keys = {
+        { "<leader>as", desc = "summarize text" },
+        { "<leader>ag", desc = "generate git message" },
+      },
+      config = function()
+        require("neoai").setup({
+          ui = {
+            output_popup_text = "NeoAI",
+            input_popup_text = "Prompt",
+            width = 30, -- As percentage eg. 30%
+            output_popup_height = 80, -- As percentage eg. 80%
+            submit = "<Enter>", -- Key binding to submit the prompt
+          },
+          models = {
+            {
+              name = "openai",
+              model = "gpt-3.5-turbo",
+              params = nil,
+            },
+          },
+          register_output = {
+            ["g"] = function(output)
+              return output
+            end,
+            ["c"] = require("neoai.utils").extract_code_snippets,
+          },
+          inject = {
+            cutoff_width = 75,
+          },
+          prompts = {
+            context_prompt = function(context)
+              return "Hey, I'd like to provide some context for future "
+                .. "messages. Here is the code/text that I want to refer "
+                .. "to in our upcoming conversations:\n\n"
+                .. context
+            end,
+          },
+          mappings = {
+            ["select_up"] = "<C-k>",
+            ["select_down"] = "<C-j>",
+          },
+          open_api_key_env = "OPENAI_API_KEY",
+          shortcuts = {
+            {
+              name = "textify",
+              key = "<leader>as",
+              desc = "fix text with AI",
+              use_context = true,
+              prompt = [[
+                Please rewrite the text to make it more readable, clear,
+                concise, and fix any grammatical, punctuation, or spelling
+                errors
+              ]],
+              modes = { "v" },
+              strip_function = nil,
+            },
+            {
+              name = "gitcommit",
+              key = "<leader>ag",
+              desc = "generate git commit message",
+              use_context = false,
+              prompt = function()
+                return [[
+                  Using the following git diff generate a consise and
+                  clear git commit message, with a short title summary
+                  that is 75 characters or less:
+                ]] .. vim.fn.system("git diff --cached")
+              end,
+              modes = { "n" },
+              strip_function = nil,
+            },
+          },
+        })
+      end,
+    },
     -- DAP
     {
       "mfussenegger/nvim-dap",
@@ -410,219 +624,6 @@ if settings.enable_coding then
         end
       end,
     },
-    {
-      "folke/neodev.nvim",
-      version = false,
-      event = "VeryLazy",
-      dependencies = {
-        "hrsh7th/nvim-cmp",
-      },
-      opts = {},
-    },
-
-    {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-        "jose-elias-alvarez/null-ls.nvim",
-        "nvim-lua/plenary.nvim",
-        "b0o/schemastore.nvim",
-        "folke/neodev.nvim",
-      },
-      config = function()
-        local opts = {
-          ensure_installed = formatters_linters,
-          ui = {
-            border = "rounded",
-            icons = {
-              package_pending = " ",
-              package_installed = " ",
-              package_uninstalled = " ﮊ",
-            },
-          },
-        }
-        require("mason").setup(opts)
-        local mr = require("mason-registry")
-        local function install_ensured()
-          for _, tool in ipairs(opts.ensure_installed) do
-            local p = mr.get_package(tool)
-            if not p:is_installed() then
-              p:install()
-            end
-          end
-        end
-        if mr.refresh then
-          mr.refresh(install_ensured)
-        else
-          install_ensured()
-        end
-        require("mason-lspconfig").setup({
-          ensure_installed = lsp_servers,
-          automatic_installation = true,
-        })
-        require("config.lspconfig")
-      end,
-    },
-
-    { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
-
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
-      config = function()
-        require("config.null-ls")
-      end,
-    },
-
-    {
-      "VonHeikemen/lsp-zero.nvim",
-      branch = "v2.x",
-      dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" },             -- Required
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" }, -- Optional
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" },                  -- Required
-        { "hrsh7th/cmp-nvim-lsp" },              -- Required
-        { "L3MON4D3/LuaSnip" },                  -- Required
-      },
-      config = function()
-        local lsp = require("lsp-zero").preset({})
-        lsp.on_attach(function(_, bufnr)
-          lsp.default_keymaps({ buffer = bufnr })
-        end)
-        lsp.setup()
-      end,
-    },
-    {
-      "folke/trouble.nvim",
-      cmd = { "TroubleToggle", "Trouble" },
-      config = function()
-        require("ecovim.plugins.trouble")
-      end,
-    },
-
-    -- AI
-    {
-      "jcdickinson/codeium.nvim",
-      cond = Ecovim.plugins.ai.codeium.enabled,
-      event = "InsertEnter",
-      cmd = "Codeium",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
-      },
-      config = true,
-    },
-    {
-      "zbirenbaum/copilot.lua",
-      cond = Ecovim.plugins.ai.copilot.enabled,
-      event = "InsertEnter",
-      config = function()
-        require("ecovim.plugins.copilot")
-      end,
-    },
-    {
-      "Bryley/neoai.nvim",
-      cond = Ecovim.plugins.ai.chatgpt.enabled,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-      },
-      cmd = {
-        "NeoAI",
-        "NeoAIOpen",
-        "NeoAIClose",
-        "NeoAIToggle",
-        "NeoAIContext",
-        "NeoAIContextOpen",
-        "NeoAIContextClose",
-        "NeoAIInject",
-        "NeoAIInjectCode",
-        "NeoAIInjectContext",
-        "NeoAIInjectContextCode",
-      },
-      keys = {
-        { "<leader>as", desc = "summarize text" },
-        { "<leader>ag", desc = "generate git message" },
-      },
-      config = function()
-        require("neoai").setup({
-          ui = {
-            output_popup_text = "NeoAI",
-            input_popup_text = "Prompt",
-            width = 30,               -- As percentage eg. 30%
-            output_popup_height = 80, -- As percentage eg. 80%
-            submit = "<Enter>",       -- Key binding to submit the prompt
-          },
-          models = {
-            {
-              name = "openai",
-              model = "gpt-3.5-turbo",
-              params = nil,
-            },
-          },
-          register_output = {
-            ["g"] = function(output)
-              return output
-            end,
-            ["c"] = require("neoai.utils").extract_code_snippets,
-          },
-          inject = {
-            cutoff_width = 75,
-          },
-          prompts = {
-            context_prompt = function(context)
-              return "Hey, I'd like to provide some context for future "
-                  .. "messages. Here is the code/text that I want to refer "
-                  .. "to in our upcoming conversations:\n\n"
-                  .. context
-            end,
-          },
-          mappings = {
-            ["select_up"] = "<C-k>",
-            ["select_down"] = "<C-j>",
-          },
-          open_api_key_env = "OPENAI_API_KEY",
-          shortcuts = {
-            {
-              name = "textify",
-              key = "<leader>as",
-              desc = "fix text with AI",
-              use_context = true,
-              prompt = [[
-                Please rewrite the text to make it more readable, clear,
-                concise, and fix any grammatical, punctuation, or spelling
-                errors
-              ]],
-              modes = { "v" },
-              strip_function = nil,
-            },
-            {
-              name = "gitcommit",
-              key = "<leader>ag",
-              desc = "generate git commit message",
-              use_context = false,
-              prompt = function()
-                return [[
-                  Using the following git diff generate a consise and
-                  clear git commit message, with a short title summary
-                  that is 75 characters or less:
-                ]] .. vim.fn.system("git diff --cached")
-              end,
-              modes = { "n" },
-              strip_function = nil,
-            },
-          },
-        })
-      end,
-    },
   }
 else
   coding = {
@@ -804,26 +805,26 @@ if settings.enable_games then
         default_mappings = true,
         -- if set to false you need to set your own, like the following:
         mappings = {
-          { key = "x",     action = "clear_cell" },
-          { key = "r1",    action = "insert=1" },
-          { key = "r2",    action = "insert=2" },
-          { key = "r3",    action = "insert=3" },
-          { key = "r4",    action = "insert=4" },
-          { key = "r5",    action = "insert=5" },
-          { key = "r6",    action = "insert=6" },
-          { key = "r7",    action = "insert=7" },
-          { key = "r8",    action = "insert=8" },
-          { key = "r9",    action = "insert=9" },
-          { key = "gn",    action = "new_game" },
-          { key = "gr",    action = "reset_game" },
-          { key = "gs",    action = "view=settings" },
-          { key = "gt",    action = "view=tip" },
-          { key = "gz",    action = "view=zen" },
-          { key = "gh",    action = "view=help" },
-          { key = "u",     action = "undo" },
+          { key = "x", action = "clear_cell" },
+          { key = "r1", action = "insert=1" },
+          { key = "r2", action = "insert=2" },
+          { key = "r3", action = "insert=3" },
+          { key = "r4", action = "insert=4" },
+          { key = "r5", action = "insert=5" },
+          { key = "r6", action = "insert=6" },
+          { key = "r7", action = "insert=7" },
+          { key = "r8", action = "insert=8" },
+          { key = "r9", action = "insert=9" },
+          { key = "gn", action = "new_game" },
+          { key = "gr", action = "reset_game" },
+          { key = "gs", action = "view=settings" },
+          { key = "gt", action = "view=tip" },
+          { key = "gz", action = "view=zen" },
+          { key = "gh", action = "view=help" },
+          { key = "u", action = "undo" },
           { key = "<C-r>", action = "redo" },
-          { key = "+",     action = "increment" },
-          { key = "-",     action = "decrement" },
+          { key = "+", action = "increment" },
+          { key = "-", action = "decrement" },
         },
       })
     end,
@@ -947,11 +948,11 @@ if settings.enable_multi_cursor then
           { expr = true, desc = "Prev Hunk" },
         },
         { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "Stage Hunk" } },
-        { "u", gitsigns.undo_stage_hunk,   { desc = "Undo Last Stage" } },
-        { "S", gitsigns.stage_buffer,      { desc = "Stage Buffer" } },
-        { "p", gitsigns.preview_hunk,      { desc = "Preview Hunk" } },
-        { "d", gitsigns.toggle_deleted,    { nowait = true, desc = "Toggle Deleted" } },
-        { "b", gitsigns.blame_line,        { desc = "Blame" } },
+        { "u", gitsigns.undo_stage_hunk, { desc = "Undo Last Stage" } },
+        { "S", gitsigns.stage_buffer, { desc = "Stage Buffer" } },
+        { "p", gitsigns.preview_hunk, { desc = "Preview Hunk" } },
+        { "d", gitsigns.toggle_deleted, { nowait = true, desc = "Toggle Deleted" } },
+        { "b", gitsigns.blame_line, { desc = "Blame" } },
         {
           "B",
           function()
@@ -959,9 +960,9 @@ if settings.enable_multi_cursor then
           end,
           { desc = "Blame Show Full" },
         },
-        { "/",       gitsigns.show,     { exit = true, desc = "Show Base File" } }, -- show the base of the file
+        { "/", gitsigns.show, { exit = true, desc = "Show Base File" } }, -- show the base of the file
         { "<Enter>", "<Cmd>Neogit<CR>", { exit = true, desc = "Neogit" } },
-        { "q",       nil,               { exit = true, nowait = true, desc = "Exit" } },
+        { "q", nil, { exit = true, nowait = true, desc = "Exit" } },
       },
     }
   end
@@ -1071,11 +1072,11 @@ _;_/_q_/_<Esc>_: Exit Hydra
 ]],
       body = "<A-z>",
       heads = {
-        { "s", cmd("TroubleToggle lsp_definitions"),     { desc = "Jump to Definition", silent = true } },
-        { "h", cmd("Lspsaga hover_doc"),                 { desc = "Show Hover Doc", silent = true } },
+        { "s", cmd("TroubleToggle lsp_definitions"), { desc = "Jump to Definition", silent = true } },
+        { "h", cmd("Lspsaga hover_doc"), { desc = "Show Hover Doc", silent = true } },
         { "o", cmd("TroubleToggle lsp_implementations"), { desc = "Show Implementations", silent = true } },
-        { "j", vim.lsp.buf.signature_help,               { desc = "Show Sig Help", silent = true } },
-        { "r", cmd("TroubleToggle lsp_references"),      { desc = "Show References", silent = true } },
+        { "j", vim.lsp.buf.signature_help, { desc = "Show Sig Help", silent = true } },
+        { "r", cmd("TroubleToggle lsp_references"), { desc = "Show References", silent = true } },
         {
           "f",
           function()
@@ -1083,14 +1084,14 @@ _;_/_q_/_<Esc>_: Exit Hydra
           end,
           { desc = "Format Buffer", silent = true },
         },
-        { "a",     vim.lsp.buf.code_action,                    { desc = "Show Code Actions", silent = true } },
-        { "d",     cmd("TroubleToggle document_diagnostics"),  { desc = "Show Diagnostics", silent = true } },
-        { "w",     cmd("TroubleToggle workspace_diagnostics"), { desc = "Show Workspace Diagnostics", silent = true } },
-        { "D",     cmd("TroubleToggle lsp_definitions"),       { desc = "Show Type Definition", silent = true } },
-        { "e",     vim.lsp.buf.declaration,                    { desc = "Show Declaration", silent = true } },
-        { ";",     nil,                                        { desc = "quit", exit = true, nowait = true } },
-        { "q",     nil,                                        { desc = "quit", exit = true, nowait = true } },
-        { "<Esc>", nil,                                        { desc = "quit", exit = true, nowait = true } },
+        { "a", vim.lsp.buf.code_action, { desc = "Show Code Actions", silent = true } },
+        { "d", cmd("TroubleToggle document_diagnostics"), { desc = "Show Diagnostics", silent = true } },
+        { "w", cmd("TroubleToggle workspace_diagnostics"), { desc = "Show Workspace Diagnostics", silent = true } },
+        { "D", cmd("TroubleToggle lsp_definitions"), { desc = "Show Type Definition", silent = true } },
+        { "e", vim.lsp.buf.declaration, { desc = "Show Declaration", silent = true } },
+        { ";", nil, { desc = "quit", exit = true, nowait = true } },
+        { "q", nil, { desc = "quit", exit = true, nowait = true } },
+        { "<Esc>", nil, { desc = "quit", exit = true, nowait = true } },
       },
     }
   end
@@ -1456,7 +1457,7 @@ return {
     cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     lazy = false,
     keys = {
-      { "<leader>M",  "<cmd>Mason<cr>", desc = "Mason Menu" },
+      { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" },
       { "<Leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     },
   },
@@ -1594,9 +1595,9 @@ return {
     end,
     cmd = { "Glance" },
     keys = {
-      { "gd", "<cmd>Glance definitions<CR>",      desc = "LSP Definition" },
-      { "gr", "<cmd>Glance references<CR>",       desc = "LSP References" },
-      { "gm", "<cmd>Glance implementations<CR>",  desc = "LSP Implementations" },
+      { "gd", "<cmd>Glance definitions<CR>", desc = "LSP Definition" },
+      { "gr", "<cmd>Glance references<CR>", desc = "LSP References" },
+      { "gm", "<cmd>Glance implementations<CR>", desc = "LSP Implementations" },
       { "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
     },
   },
@@ -1613,7 +1614,7 @@ return {
   },
 
   -- General
-  { "AndrewRadev/switch.vim",     lazy = false },
+  { "AndrewRadev/switch.vim", lazy = false },
   {
     "Wansmer/treesj",
     lazy = true,
@@ -1640,7 +1641,7 @@ return {
     lazy = false,
     keys = {
       { "<Leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", desc = "comment box" },
-      { "<Leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v",          desc = "comment box" },
+      { "<Leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v", desc = "comment box" },
     },
   },
   {
@@ -1655,8 +1656,8 @@ return {
       { "<Leader>at", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float" },
     },
   },
-  { "tpope/vim-repeat",           lazy = false },
-  { "tpope/vim-speeddating",      lazy = false },
+  { "tpope/vim-repeat", lazy = false },
+  { "tpope/vim-speeddating", lazy = false },
   { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
   {
     "nacro90/numb.nvim",
@@ -1758,32 +1759,32 @@ return {
       require("ecovim.plugins.bufferline")
     end,
     keys = {
-      { ",1",          "<cmd>BufferLineGoToBuffer 1<CR>",            desc = "Go to buffer 1" },
-      { ",2",          "<cmd>BufferLineGoToBuffer 2<CR>",            desc = "Go to buffer 2" },
-      { ",3",          "<cmd>BufferLineGoToBuffer 3<CR>",            desc = "Go to buffer 3" },
-      { ",4",          "<cmd>BufferLineGoToBuffer 4<CR>",            desc = "Go to buffer 4" },
-      { ",5",          "<cmd>BufferLineGoToBuffer 5<CR>",            desc = "Go to buffer 5" },
-      { ",6",          "<cmd>BufferLineGoToBuffer 6<CR>",            desc = "Go to buffer 6" },
-      { ",7",          "<cmd>BufferLineGoToBuffer 7<CR>",            desc = "Go to buffer 7" },
-      { ",8",          "<cmd>BufferLineGoToBuffer 8<CR>",            desc = "Go to buffer 8" },
-      { ",9",          "<cmd>BufferLineGoToBuffer 9<CR>",            desc = "Go to buffer 9" },
-      { "<A-1>",       "<cmd>BufferLineGoToBuffer 1<CR>",            desc = "Go to buffer 1" },
-      { "<A-2>",       "<cmd>BufferLineGoToBuffer 2<CR>",            desc = "Go to buffer 2" },
-      { "<A-3>",       "<cmd>BufferLineGoToBuffer 3<CR>",            desc = "Go to buffer 3" },
-      { "<A-4>",       "<cmd>BufferLineGoToBuffer 4<CR>",            desc = "Go to buffer 4" },
-      { "<A-5>",       "<cmd>BufferLineGoToBuffer 5<CR>",            desc = "Go to buffer 5" },
-      { "<A-6>",       "<cmd>BufferLineGoToBuffer 6<CR>",            desc = "Go to buffer 6" },
-      { "<A-7>",       "<cmd>BufferLineGoToBuffer 7<CR>",            desc = "Go to buffer 7" },
-      { "<A-8>",       "<cmd>BufferLineGoToBuffer 8<CR>",            desc = "Go to buffer 8" },
-      { "<A-9>",       "<cmd>BufferLineGoToBuffer 9<CR>",            desc = "Go to buffer 9" },
-      { "<Leader>bb",  "<cmd>BufferLineMovePrev<CR>",                desc = "Move back" },
-      { "<Leader>bl",  "<cmd>BufferLineCloseLeft<CR>",               desc = "Close Left" },
-      { "<Leader>br",  "<cmd>BufferLineCloseRight<CR>",              desc = "Close Right" },
-      { "<Leader>bn",  "<cmd>BufferLineMoveNext<CR>",                desc = "Move next" },
-      { "<Leader>bp",  "<cmd>BufferLinePick<CR>",                    desc = "Pick Buffer" },
-      { "<Leader>bP",  "<cmd>BufferLineTogglePin<CR>",               desc = "Pin/Unpin Buffer" },
-      { "<Leader>bsd", "<cmd>BufferLineSortByDirectory<CR>",         desc = "Sort by directory" },
-      { "<Leader>bse", "<cmd>BufferLineSortByExtension<CR>",         desc = "Sort by extension" },
+      { ",1", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { ",2", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { ",3", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { ",4", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { ",5", "<cmd>BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { ",6", "<cmd>BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { ",7", "<cmd>BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { ",8", "<cmd>BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { ",9", "<cmd>BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { "<A-5>", "<cmd>BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { "<A-6>", "<cmd>BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { "<A-7>", "<cmd>BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { "<A-8>", "<cmd>BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { "<A-9>", "<cmd>BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<Leader>bb", "<cmd>BufferLineMovePrev<CR>", desc = "Move back" },
+      { "<Leader>bl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close Left" },
+      { "<Leader>br", "<cmd>BufferLineCloseRight<CR>", desc = "Close Right" },
+      { "<Leader>bn", "<cmd>BufferLineMoveNext<CR>", desc = "Move next" },
+      { "<Leader>bp", "<cmd>BufferLinePick<CR>", desc = "Pick Buffer" },
+      { "<Leader>bP", "<cmd>BufferLineTogglePin<CR>", desc = "Pin/Unpin Buffer" },
+      { "<Leader>bsd", "<cmd>BufferLineSortByDirectory<CR>", desc = "Sort by directory" },
+      { "<Leader>bse", "<cmd>BufferLineSortByExtension<CR>", desc = "Sort by extension" },
       { "<Leader>bsr", "<cmd>BufferLineSortByRelativeDirectory<CR>", desc = "Sort by relative dir" },
     },
   },
@@ -1866,11 +1867,11 @@ return {
       require("ecovim.plugins.session-manager")
     end,
     keys = {
-      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>",             desc = "choose session" },
-      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>",           desc = "remove session" },
+      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>", desc = "choose session" },
+      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>", desc = "remove session" },
       { "<Leader>/sd", "<cmd>SessionManager load_current_dir_session<CR>", desc = "load current dir session" },
-      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>",        desc = "load last session" },
-      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>",     desc = "save session" },
+      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>", desc = "load last session" },
+      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
     },
   },
   {
@@ -1994,7 +1995,7 @@ return {
     end,
     keys = {
       { "<Leader>gd", "<cmd>lua require('ecovim.plugins.git.diffview').toggle_file_history()<CR>", desc = "diff file" },
-      { "<Leader>gs", "<cmd>lua require('ecovim.plugins.git.diffview').toggle_status()<CR>",       desc = "status" },
+      { "<Leader>gs", "<cmd>lua require('ecovim.plugins.git.diffview').toggle_status()<CR>", desc = "status" },
     },
   },
   {
@@ -2004,9 +2005,9 @@ return {
       require("ecovim.plugins.git.conflict")
     end,
     keys = {
-      { "<Leader>gcb", "<cmd>GitConflictChooseBoth<CR>",   desc = "choose both" },
+      { "<Leader>gcb", "<cmd>GitConflictChooseBoth<CR>", desc = "choose both" },
       { "<Leader>gcn", "<cmd>GitConflictNextConflict<CR>", desc = "move to next conflict" },
-      { "<Leader>gco", "<cmd>GitConflictChooseOurs<CR>",   desc = "choose ours" },
+      { "<Leader>gco", "<cmd>GitConflictChooseOurs<CR>", desc = "choose ours" },
       { "<Leader>gcp", "<cmd>GitConflictPrevConflict<CR>", desc = "move to prev conflict" },
       { "<Leader>gct", "<cmd>GitConflictChooseTheirs<CR>", desc = "choose theirs" },
     },
