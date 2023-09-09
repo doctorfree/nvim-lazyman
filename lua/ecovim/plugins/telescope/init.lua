@@ -15,12 +15,13 @@ table.insert(vimgrep_arguments, "--trim")
 
 telescope.load_extension("repo")
 telescope.load_extension("git_worktree")
-telescope.load_extension("zoxide")
-telescope.load_extension("heading")
-telescope.load_extension("ui-select")
-if settings.enable_toggleterm then
-  telescope.load_extension("make")
-end
+-- Not yet supported, see namespace 'free' configuration
+-- telescope.load_extension("zoxide")
+-- telescope.load_extension("heading")
+-- telescope.load_extension("ui-select")
+-- if settings.enable_toggleterm then
+--   telescope.load_extension("make")
+-- end
 if settings.enable_noice then
   telescope.load_extension("noice")
 end
