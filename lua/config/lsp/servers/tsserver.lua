@@ -23,12 +23,12 @@ end
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
-    border = Ecovim.ui.float.border,
+    border = "rounded",
   }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = Ecovim.ui.float.border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
-    { virtual_text = Ecovim.lsp.virtual_text }
+    { virtual_text = false }
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
     if vim.tbl_islist(result) and #result > 1 then

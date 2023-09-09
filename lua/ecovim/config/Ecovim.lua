@@ -50,6 +50,9 @@ Ecovim = {
       -- By that your live_grep will work related to whole project, not specific package
       patterns = { ".git", "package.json", "_darcs", ".bzr", ".svn", "Makefile" }, -- Default
     },
+    toggleterm = {
+      enabled = settings.enable_toggleterm,
+    },
     -- <leader>z
     zen = {
       alacritty_enabled = settings.enable_alacritty,

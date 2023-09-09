@@ -175,7 +175,7 @@ if settings.enable_noice then
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      require("free.config.noice")
+      require("config.noice")
     end,
     -- stylua: ignore
     keys = {
@@ -396,7 +396,7 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- ui components
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
 
   smart_column,
   virt_column,

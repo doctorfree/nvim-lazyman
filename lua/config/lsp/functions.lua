@@ -37,8 +37,7 @@ function M.custom_hover_handler(_, result)
       local colorizer = require("colorizer")
 
       local lines = vim.split(result.contents.value, "\n")
-      local bufnr =
-          vim.lsp.util.open_floating_preview(lines, "markdown", { border = Ecovim.ui.float.border or "rounded" })
+      local bufnr = vim.lsp.util.open_floating_preview(lines, "markdown", { border = "rounded" })
       colorizer.highlight_buffer(bufnr, nil, vim.list_slice(lines, 2, #lines), 0, colorizer.get_buffer_options(0))
     end
   end

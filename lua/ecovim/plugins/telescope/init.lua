@@ -1,11 +1,30 @@
+local settings = require("configuration")
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 local builtin = require("telescope.builtin")
 local icons = Ecovim.icons
+local telescope = require("telescope")
+local telescopeConfig = require("telescope.config")
 
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("repo")
-require("telescope").load_extension("git_worktree")
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+if settings.telescope_grep_hidden then
+  table.insert(vimgrep_arguments, "--hidden")
+end
+-- trim the indentation at the beginning of presented line
+table.insert(vimgrep_arguments, "--trim")
+
+telescope.load_extension("repo")
+telescope.load_extension("git_worktree")
+telescope.load_extension("zoxide")
+telescope.load_extension("heading")
+telescope.load_extension("ui-select")
+if settings.enable_toggleterm then
+  telescope.load_extension("make")
+end
+if settings.enable_noice then
+  telescope.load_extension("noice")
+end
+telescope.load_extension("fzf")
 
 local git_icons = {
   added = icons.gitAdd,
@@ -42,9 +61,9 @@ require("telescope").setup({
     color_devicons = true,
     git_icons = git_icons,
     sorting_strategy = "ascending",
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
     mappings = {
       i = {
         ["<C-x>"] = false,

@@ -1,7 +1,7 @@
 -- Setup installer & lsp configs
 local mason_ok, mason = pcall(require, "mason")
 local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
-local ufo_config_handler = require("ecovim.plugins.nvim-ufo").handler
+local ufo_config_handler = require("config.nvim-ufo").handler
 
 if not mason_ok or not mason_lsp_ok then
   return
@@ -10,7 +10,7 @@ end
 mason.setup({
   ui = {
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-    border = Ecovim.ui.float.border or "rounded",
+    border = "rounded",
   },
 })
 
@@ -42,12 +42,12 @@ local lspconfig = require("lspconfig")
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
-    border = Ecovim.ui.float.border,
+    border = "rounded",
   }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = Ecovim.ui.float.border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
-    { virtual_text = Ecovim.lsp.virtual_text }
+    { virtual_text = true }
   ),
 }
 

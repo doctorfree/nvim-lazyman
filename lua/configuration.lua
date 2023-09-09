@@ -215,52 +215,56 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  "bashls", -- LSP_SERVERS
+  "bashls",        -- LSP_SERVERS
+  "cssls",         -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
-  "denols", -- LSP_SERVERS
-  "dockerls", -- LSP_SERVERS
-  -- "eslint",     -- LSP_SERVERS
-  -- "gopls", -- LSP_SERVERS
-  "graphql", -- LSP_SERVERS
-  "html", -- LSP_SERVERS
-  "jdtls", -- LSP_SERVERS
-  "jsonls", -- LSP_SERVERS
-  "julials", -- LSP_SERVERS
-  "ltex", -- LSP_SERVERS
-  "lua_ls", -- LSP_SERVERS
-  "marksman", -- LSP_SERVERS
-  "pylsp", -- LSP_SERVERS
-  "pyright", -- LSP_SERVERS
-  "sqlls", -- LSP_SERVERS
-  "tailwindcss", -- LSP_SERVERS
-  "texlab", -- LSP_SERVERS
-  "tsserver", -- LSP_SERVERS
-  "vimls", -- LSP_SERVERS
-  "yamlls", -- LSP_SERVERS
+  "denols",        -- LSP_SERVERS
+  "dockerls",      -- LSP_SERVERS
+  -- "emmet_ls",   -- LSP_SERVERS
+  "eslint",        -- LSP_SERVERS
+  -- "gopls",      -- LSP_SERVERS
+  "graphql",       -- LSP_SERVERS
+  "html",          -- LSP_SERVERS
+  "jdtls",         -- LSP_SERVERS
+  "jsonls",        -- LSP_SERVERS
+  "julials",       -- LSP_SERVERS
+  "ltex",          -- LSP_SERVERS
+  "lua_ls",        -- LSP_SERVERS
+  "marksman",      -- LSP_SERVERS
+  "prismals",      -- LSP_SERVERS
+  "pylsp",         -- LSP_SERVERS
+  "pyright",       -- LSP_SERVERS
+  "sqlls",         -- LSP_SERVERS
+  "tailwindcss",   -- LSP_SERVERS
+  "texlab",        -- LSP_SERVERS
+  "tsserver",      -- LSP_SERVERS
+  "vimls",         -- LSP_SERVERS
+  "vuels",         -- LSP_SERVERS
+  "yamlls",        -- LSP_SERVERS
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", -- FORMATTERS_LINTERS
-  "gofumpt", -- FORMATTERS_LINTERS
-  "goimports", -- FORMATTERS_LINTERS
-  "golines", -- FORMATTERS_LINTERS
-  "golangci-lint", -- FORMATTERS_LINTERS
+  "actionlint",         -- FORMATTERS_LINTERS
+  "gofumpt",            -- FORMATTERS_LINTERS
+  "goimports",          -- FORMATTERS_LINTERS
+  "golines",            -- FORMATTERS_LINTERS
+  "golangci-lint",      -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
-  "latexindent", -- FORMATTERS_LINTERS
+  "latexindent",        -- FORMATTERS_LINTERS
   -- "markdownlint", -- FORMATTERS_LINTERS
-  "prettier", -- FORMATTERS_LINTERS
-  "sql-formatter", -- FORMATTERS_LINTERS
+  "prettier",           -- FORMATTERS_LINTERS
+  "sql-formatter",      -- FORMATTERS_LINTERS
   -- "shellcheck", -- FORMATTERS_LINTERS
   -- "shfmt",           -- FORMATTERS_LINTERS
-  "stylua", -- FORMATTERS_LINTERS
-  "tflint", -- FORMATTERS_LINTERS
+  "stylua",   -- FORMATTERS_LINTERS
+  "tflint",   -- FORMATTERS_LINTERS
   "yamllint", -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
   -- "beautysh",        -- FORMATTERS_LINTERS
   "black", -- FORMATTERS_LINTERS
-  "ruff", -- FORMATTERS_LINTERS
+  "ruff",  -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -268,7 +272,7 @@ conf.telescope_grep_hidden = true
 --   "none":  diagnostics are disabled but still underlined
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
-conf.show_diagnostics = "icons"
+conf.show_diagnostics = "popup"
 -- Enable semantic highlighting
 conf.enable_semantic_highlighting = true
 -- Convert semantic highlights to treesitter highlights

@@ -126,20 +126,90 @@ if settings.enable_coding then
   local lspconfig = require("lspconfig")
   local navic = require("nvim-navic")
 
-  -- Enable/Disable shellcheck in bashls
-  local bashls_settings = {
-    bashIde = {
-      backgroundAnalysisMaxFiles = 500,
-      enableSourceErrorDiagnostics = false,
-      explainshellEndpoint = "",
-      globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
-      includeAllWorkspaceSymbols = false,
-      logLevel = "info",
-      shellcheckArguments = "",
-      shellcheckPath = vim.env.SHELLCHECK_PATH or "",
-    },
+  local handlers = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      silent = true,
+      border = "rounded",
+    }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics,
+      { virtual_text = false }
+    ),
   }
+
+  if table_contains(lsp_servers, "tailwindcss") then
+    lspconfig.tailwindcss.setup({
+      capabilities = require("config.lsp.servers.tailwindcss").capabilities,
+      filetypes = require("config.lsp.servers.tailwindcss").filetypes,
+      handlers = handlers,
+      init_options = require("config.lsp.servers.tailwindcss").init_options,
+      on_attach = require("config.lsp.servers.tailwindcss").on_attach,
+      settings = require("config.lsp.servers.tailwindcss").settings,
+    })
+  end
+
+  if table_contains(lsp_servers, "cssls") then
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = require("config.lsp.servers.cssls").on_attach,
+      settings = require("config.lsp.servers.cssls").settings,
+    })
+  end
+
+  if table_contains(lsp_servers, "vuels") then
+    lspconfig.vuels.setup({
+      filetypes = require("config.lsp.servers.vuels").filetypes,
+      handlers = handlers,
+      init_options = require("config.lsp.servers.vuels").init_options,
+      on_attach = require("config.lsp.servers.vuels").on_attach,
+      settings = require("config.lsp.servers.vuels").settings,
+    })
+  end
+
+  if table_contains(lsp_servers, "emmet_ls") then
+    lspconfig.emmet_ls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+  end
+
+  if table_contains(lsp_servers, "graphql") then
+    lspconfig.graphql.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+  end
+
+  if table_contains(lsp_servers, "html") then
+    lspconfig.html.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+  end
+
+  if table_contains(lsp_servers, "prismals") then
+    lspconfig.prismals.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+  end
+
   if table_contains(lsp_servers, "bashls") then
+    -- Enable/Disable shellcheck in bashls
+    local bashls_settings = {
+      bashIde = {
+        backgroundAnalysisMaxFiles = 500,
+        enableSourceErrorDiagnostics = false,
+        explainshellEndpoint = "",
+        globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+        includeAllWorkspaceSymbols = false,
+        logLevel = "info",
+        shellcheckArguments = "",
+        shellcheckPath = vim.env.SHELLCHECK_PATH or "",
+      },
+    }
     if table_contains(formatters_linters, "shellcheck") then
       bashls_settings = {
         bashIde = {
@@ -156,6 +226,7 @@ if settings.enable_coding then
     end
     lspconfig.bashls.setup({
       capabilities = capabilities,
+      handlers = handlers,
       settings = bashls_settings,
     })
   end
@@ -163,6 +234,7 @@ if settings.enable_coding then
   if table_contains(lsp_servers, "jsonls") then
     lspconfig.jsonls.setup({
       capabilities = capabilities,
+      handlers = handlers,
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
@@ -175,6 +247,7 @@ if settings.enable_coding then
     lspconfig.eslint.setup({
       cmd = { "vscode-eslint-language-server", "--stdio" },
       capabilities = capabilities,
+      handlers = handlers,
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -185,17 +258,6 @@ if settings.enable_coding then
         "vue",
         "svelte",
         "astro",
-      },
-      handlers = {
-        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-          silent = true,
-          border = "rounded",
-        }),
-        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-          vim.lsp.diagnostic.on_publish_diagnostics,
-          { virtual_text = true }
-        ),
       },
       root_dir = require("lspconfig.util").root_pattern(".git"),
       settings = {
@@ -289,6 +351,7 @@ if settings.enable_coding then
 
     lspconfig.tsserver.setup({
       capabilities = capabilities,
+      handlers = handlers,
       on_attach = tsserver_on_attach,
     })
   end
@@ -320,6 +383,7 @@ if settings.enable_coding then
     if lspconfig[server] then
       lspconfig[server].setup({
         capabilities = capabilities,
+        handlers = handlers,
         on_attach = function(client, bufnr)
           navic.attach(client, bufnr)
         end,
@@ -330,6 +394,7 @@ if settings.enable_coding then
   if table_contains(lsp_servers, "yamlls") then
     lspconfig.yamlls.setup({
       capabilities = capabilities,
+      handlers = handlers,
       on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
       end,
@@ -369,6 +434,7 @@ if settings.enable_coding then
     if vim.fn.executable("ccls") == 1 then
       lspconfig.ccls.setup({
         capabilities = capabilities,
+        handlers = handlers,
         on_attach = navic.attach,
         init_options = {
           cache = {
@@ -385,6 +451,7 @@ if settings.enable_coding then
   if table_contains(lsp_servers, "lua_ls") then
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
+      handlers = handlers,
       on_attach = navic.attach,
       require("neodev").setup({
         library = { plugins = { "nvim-dap-ui" }, types = true },
@@ -437,6 +504,11 @@ if settings.enable_coding then
 
   vim.cmd([[ do User LspAttachBuffers ]])
 end
+
+require("ufo").setup({
+  fold_virt_text_handler = require("config.nvim-ufo").handler,
+  close_fold_kinds = { "imports" },
+})
 
 vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })

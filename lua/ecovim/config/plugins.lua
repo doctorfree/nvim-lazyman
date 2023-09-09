@@ -25,6 +25,17 @@ local signature = {}
 local lspsaga = {}
 local snippet = {}
 
+-- Some colorschemes do not yet support the NotifyBackground highlight group
+local notify_bg = "NotifyBackground"
+local ok, _ = pcall(vim.api.nvim_get_hl_id_by_name, notify_bg, true)
+if not ok then
+  notify_bg = "NotifyERRORBody"
+  ok, _ = pcall(vim.api.nvim_get_hl_id_by_name, notify_bg, true)
+  if not ok then
+    notify_bg = "#000000"
+  end
+end
+
 if settings.enable_coding then
   snippet = {
     "L3MON4D3/LuaSnip",
@@ -1613,6 +1624,7 @@ return {
   },
   {
     "akinsho/nvim-toggleterm.lua",
+    cond = Ecovim.plugins.toggleterm.enabled,
     lazy = false,
     branch = "main",
     config = function()
@@ -1625,33 +1637,6 @@ return {
   { "tpope/vim-repeat",           lazy = false },
   { "tpope/vim-speeddating",      lazy = false },
   { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
-  -- {
-  --   "smoka7/multicursors.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "smoka7/hydra.nvim",
-  --   },
-  --   config = true,
-  --   keys = {
-  --     {
-  --       "<Leader>M",
-  --       "<CMD>MCstart<CR>",
-  --       desc = "multicursor",
-  --     },
-  --     {
-  --       "<Leader>M",
-  --       "<CMD>MCvisual<CR>",
-  --       mode = "v",
-  --       desc = "multicursor",
-  --     },
-  --     {
-  --       "<C-Down>",
-  --       "<CMD>MCunderCursor<CR>",
-  --       desc = "multicursor down",
-  --     },
-  --   },
-  -- },
   {
     "nacro90/numb.nvim",
     lazy = false,
@@ -1712,6 +1697,26 @@ return {
     end,
   },
   {
+    "folke/noice.nvim",
+    cond = Ecovim.plugins.experimental_noice.enabled,
+    event = "VeryLazy",
+    -- stylua: ignore
+    keys = {
+      {
+        "<S-Enter>",
+        function() require("noice").redirect(vim.fn.getcmdline()) end,
+        mode = "c",
+        desc = "Redirect Cmdline"
+      },
+      { "<leader>snl", function() require("noice").cmd("last") end,    desc = "Noice Last Message" },
+      { "<leader>snh", function() require("noice").cmd("history") end, desc = "Noice History" },
+      { "<leader>sna", function() require("noice").cmd("all") end,     desc = "Noice All" },
+    },
+    config = function()
+      require("config.noice")
+    end,
+  },
+  {
     "echasnovski/mini.bufremove",
     version = "*",
     config = function()
@@ -1762,26 +1767,35 @@ return {
     },
   },
   { "antoinemadec/FixCursorHold.nvim" }, -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+  -- Better `vim.notify()`
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup({
-        background_colour = "#000000",
-      })
-    end,
+    keys = {
+      {
+        "<leader>un",
+        function()
+          require("notify").dismiss({ silent = true, pending = true })
+        end,
+        desc = "Delete all Notifications",
+      },
+    },
+    opts = {
+      background_colour = notify_bg,
+      timeout = 3000,
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+    },
     init = function()
-      local banned_messages = {
-        "No information available",
-        "LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.",
-        "LSP[tsserver] Inlay Hints request failed. File not opened in the editor.",
-      }
-      vim.notify = function(msg, ...)
-        for _, banned in ipairs(banned_messages) do
-          if msg == banned then
-            return
-          end
-        end
-        return require("notify")(msg, ...)
+      -- when noice is not enabled, install notify on VeryLazy
+      local Util = require("util")
+      if not Util.has("noice.nvim") then
+        Util.on_very_lazy(function()
+          vim.notify = require("notify")
+        end)
       end
     end,
   },
@@ -1854,9 +1868,9 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
     config = function()
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
     end,
   },
   {
@@ -1887,14 +1901,6 @@ return {
     },
     config = function()
       require("ecovim.plugins.printer")
-    end,
-  },
-  {
-    "folke/noice.nvim",
-    cond = Ecovim.plugins.experimental_noice.enabled,
-    lazy = false,
-    config = function()
-      require("ecovim.plugins.noice")
     end,
   },
   {

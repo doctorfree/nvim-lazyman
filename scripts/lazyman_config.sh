@@ -962,6 +962,7 @@ show_plugin_menu() {
     options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("Toggle Term   [${use_toggleterm}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
       options+=("Enable IDE    [${use_ide}]")
@@ -995,7 +996,6 @@ show_plugin_menu() {
       options+=("Session [${use_session_manager}]")
       options+=("StartupTime   [${use_startuptime}]")
       options+=("Surround      [${use_surround}]")
-      options+=("Toggle Term   [${use_toggleterm}]")
       options+=("Enable Tests  [${use_neotest}]")
       [ "${use_namespace}" == "free" ] && {
         options+=("Wilder Menus  [${use_wilder}]")
