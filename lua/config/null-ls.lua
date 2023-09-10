@@ -76,11 +76,9 @@ if table_contains(external_formatters, "flake8") then
       conf_sources,
       diagnostics.flake8.with({
         timeout = 10000,
-        extra_args = {
-          "--ignore=E203,E501,E402,F401,F821,W503,W292",
-          filetypes = { "python" },
-        }
-      }),
+        extra_args = { "--ignore=E203,E501,E402,F401,F821,W503,W292" },
+        filetypes = { "python" },
+      })
     )
   end
 end
