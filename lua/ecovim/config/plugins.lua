@@ -207,90 +207,129 @@ if settings.enable_coding then
       },
       opts = {},
     },
-
-    -- Mason and friends
-    {
-      "williamboman/mason.nvim",
-      build = ":MasonUpdate",
-      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-      lazy = false,
-      keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
-    },
-    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = {
-        "williamboman/mason.nvim",
-      },
-    },
-    {
-      "RubixDev/mason-update-all",
-      cmd = "MasonUpdateAll",
-      config = function()
-        require("mason-update-all").setup()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MasonUpdateAllComplete",
-          callback = function()
-            print("mason-update-all has finished")
-          end,
-        })
-      end,
-    },
-
-    -- formatters
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = { "mason.nvim" },
-      config = function()
-	require("config.null-ls")
-      end,
-    },
-    {
-      "jay-babu/mason-null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      opts = {
-        ensure_installed = formatters_linters,
-        automatic_setup = true,
-      },
-    },
-
-    {
-      "VonHeikemen/lsp-zero.nvim",
-      branch = "v2.x",
-      dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" }, -- Required
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" }, -- Optional
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" }, -- Required
-        { "hrsh7th/cmp-nvim-lsp" }, -- Required
-        { "L3MON4D3/LuaSnip" }, -- Required
-      },
-      config = function()
-        local lsp = require("lsp-zero").preset({})
-        lsp.on_attach(function(_, bufnr)
-          lsp.default_keymaps({ buffer = bufnr })
-        end)
-        lsp.setup()
-      end,
-    },
-
     {
       "neovim/nvim-lspconfig",
+      branch = "master",
       event = { "BufReadPre", "BufNewFile" },
       dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-        "jose-elias-alvarez/null-ls.nvim",
-        "nvim-lua/plenary.nvim",
-        "b0o/schemastore.nvim",
-        "folke/neodev.nvim",
+      },
+      keys = {
+        { "<leader>de", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" }},
+        { "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true }},
+        { "]d", vim.diagnostic.goto_next, { noremap = true, silent = true }},
+        { "<leader>dq", vim.diagnostic.setloclist, { noremap = true, silent = true, desc = "Set diagnostics location list" }},
+        { "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" }},
+        { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+        { "<leader>ld", "<cmd>Telescope lsp_document_diagnostics<cr>", desc = "Document Diagnostics" },
+        { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
+        { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+        { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
+        { "<leader>lj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", desc = "Next Diagnostic" },
+        { "<leader>lk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
+        { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
+        { "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", desc = "Quickfix" },
+        { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+        { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+        { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+        {
+          "<leader>W",
+          function()
+            vim.lsp.buf.format({
+              filter = function(client)
+                -- do not use default `lua_ls` to format
+                local exclude_servers = { "lua_ls" }
+                return not vim.tbl_contains(exclude_servers, client.name)
+              end,
+            })
+            vim.cmd([[w!]])
+          end,
+          desc = "Format and Save",
+        },
       },
       config = function()
+        -- special attach lsp
+        require("util").on_attach(function(client, buffer)
+          require("config.lsp.navic").attach(client, buffer)
+          require("config.lsp.lspkeymaps").attach(client, buffer)
+          require("config.lsp.inlayhints").attach(client, buffer)
+          require("config.lsp.gitsigns").attach(client, buffer)
+          require("config.lsp.python").attach(client, buffer)
+        end)
+
+        local showdiag = settings.show_diagnostics
+
+        local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
+        if not showdiag == "popup" then
+          open_float = ""
+        end
+
+        -- Style floating windows
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+        -- Borders for LspInfo winodw
+        require("lspconfig.ui.windows").default_options.border = "rounded"
+
+        -- diagnostics
+        for name, icon in pairs(require("icons").diagnostics) do
+          local function firstUpper(s)
+            return s:sub(1, 1):upper() .. s:sub(2)
+          end
+          name = "DiagnosticSign" .. firstUpper(name)
+          vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+        end
+        if showdiag == "none" then
+          vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
+        else
+          vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
+        end
+
+        -- Show line diagnostics automatically in hover window
+        if showdiag == "popup" then
+          vim.cmd([[
+            autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+          ]])
+        end
+
+        local servers = require("config.lsp.lspservers")
+        local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
+        local capabilities = require("util").capabilities(ext_capabilites)
+
+        local function setup(server)
+          if servers[server] and servers[server].disabled then
+            return
+          end
+          local server_opts = vim.tbl_deep_extend("force", {
+            capabilities = vim.deepcopy(capabilities),
+          }, servers[server] or {})
+          require("lspconfig")[server].setup(server_opts)
+        end
+
+        local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+
+        local ensure_installed = {}
+        for server, server_opts in pairs(servers) do
+          if server_opts then
+            if not vim.tbl_contains(available, server) then
+              setup(server)
+            else
+              ensure_installed[#ensure_installed + 1] = server
+            end
+          end
+        end
+
+        require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+        require("mason-lspconfig").setup_handlers({ setup })
+      end,
+    },
+
+    {
+      "williamboman/mason.nvim",
+      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+      config = function()
         local opts = {
-          ensure_installed = {},
           ui = {
             border = "rounded",
             icons = {
@@ -301,26 +340,56 @@ if settings.enable_coding then
           },
         }
         require("mason").setup(opts)
-        local mr = require("mason-registry")
-        local function install_ensured()
-          for _, tool in ipairs(opts.ensure_installed) do
-            local p = mr.get_package(tool)
-            if not p:is_installed() then
-              p:install()
-            end
-          end
-        end
-        if mr.refresh then
-          mr.refresh(install_ensured)
-        else
-          install_ensured()
-        end
-        require("mason-lspconfig").setup({
-          ensure_installed = lsp_servers,
-          automatic_installation = true,
-        })
-        require("config.lspconfig")
       end,
+    },
+
+    -- formatters
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      dependencies = { "mason.nvim" },
+      config = function()
+        local null_ls = require("null-ls")
+        local formatting = null_ls.builtins.formatting
+        local diagnostics = null_ls.builtins.diagnostics
+        null_ls.setup({
+          debug = false,
+          -- You can then register sources by passing a sources list into your setup function:
+          -- using `with()`, which modifies a subset of the source's default options
+          sources = {
+            formatting.prettier,
+            formatting.stylua,
+            formatting.markdownlint,
+            formatting.beautysh.with({ extra_args = { "--indent-size", "2" } }),
+            formatting.black,
+            diagnostics.flake8.with({ extra_args = { "--ignore=E203,E501,E402,F401,F821,W503,W292" }, filetypes = { "python" } }),
+          },
+        })
+      end,
+    },
+
+    {
+      "jay-babu/mason-null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      opts = {
+        ensure_installed = {
+          "prettier",
+          "stylua",
+          "google_java_format",
+          "black",
+          "flake8",
+          "markdownlint",
+          "beautysh",
+        },
+        automatic_setup = true,
+      },
+    },
+
+    {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = {
+        "williamboman/mason.nvim",
+      },
     },
 
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
@@ -450,207 +519,25 @@ if settings.enable_coding then
     -- DAP
     {
       "mfussenegger/nvim-dap",
-      dependencies = {
-        -- fancy UI for the debugger
-        {
-          "rcarriga/nvim-dap-ui",
-          -- stylua: ignore
-          keys = {
-            { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
-            { "<leader>dE", function() require("dapui").eval() end,     desc = "Eval",  mode = { "n", "v" } },
-          },
-          opts = {},
-          config = function(_, opts)
-            local dap = require("dap")
-            local dapui = require("dapui")
-            dapui.setup(opts)
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-              dapui.open({})
-            end
-            dap.listeners.before.event_terminated["dapui_config"] = function()
-              dapui.close({})
-            end
-            dap.listeners.before.event_exited["dapui_config"] = function()
-              dapui.close({})
-            end
-          end,
-        },
-        -- virtual text for the debugger
-        {
-          "theHamsta/nvim-dap-virtual-text",
-          opts = {},
-        },
-        -- mason.nvim integration
-        {
-          "jay-babu/mason-nvim-dap.nvim",
-          dependencies = "mason.nvim",
-          cmd = { "DapInstall", "DapUninstall" },
-          opts = {
-            -- Makes a best effort to setup the various debuggers with
-            -- reasonable debug configurations
-            automatic_setup = true,
-            -- You can provide additional configuration to the handlers,
-            -- see mason-nvim-dap README for more information
-            handlers = {},
-            -- You'll need to check that you have the required things installed
-            -- online, please don't ask me how to install them :)
-            ensure_installed = {
-              "bash",
-              "chrome",
-              "firefox",
-              "javadbg",
-              "python",
-              "node2",
-            },
-          },
-        },
-        { "mxsdev/nvim-dap-vscode-js" },
-      },
-      -- stylua: ignore
-      keys = {
-        {
-          "<leader>dB",
-          function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
-          desc =
-          "Breakpoint Condition"
-        },
-        {
-          "<leader>db",
-          function() require("dap").toggle_breakpoint() end,
-          desc =
-          "Toggle Breakpoint"
-        },
-        {
-          "<leader>dc",
-          function() require("dap").continue() end,
-          desc =
-          "Continue"
-        },
-        {
-          "<leader>dC",
-          function() require("dap").run_to_cursor() end,
-          desc =
-          "Run to Cursor"
-        },
-        {
-          "<leader>dg",
-          function() require("dap").goto_() end,
-          desc =
-          "Go to line (no execute)"
-        },
-        {
-          "<leader>di",
-          function() require("dap").step_into() end,
-          desc =
-          "Step Into"
-        },
-        {
-          "<leader>dj",
-          function() require("dap").down() end,
-          desc =
-          "Down"
-        },
-        { "<leader>dk", function() require("dap").up() end, desc = "Up" },
-        {
-          "<leader>dl",
-          function() require("dap").run_last() end,
-          desc =
-          "Run Last"
-        },
-        {
-          "<leader>do",
-          function() require("dap").step_out() end,
-          desc =
-          "Step Out"
-        },
-        {
-          "<leader>dO",
-          function() require("dap").step_over() end,
-          desc =
-          "Step Over"
-        },
-        {
-          "<leader>dp",
-          function() require("dap").pause() end,
-          desc =
-          "Pause"
-        },
-        {
-          "<leader>dr",
-          function() require("dap").repl.toggle() end,
-          desc =
-          "Toggle REPL"
-        },
-        {
-          "<leader>ds",
-          function() require("dap").session() end,
-          desc =
-          "Session"
-        },
-        {
-          "<leader>dt",
-          function() require("dap").terminate() end,
-          desc =
-          "Terminate"
-        },
-        {
-          "<leader>dw",
-          function() require("dap.ui.widgets").hover() end,
-          desc =
-          "Widgets"
-        },
-      },
       config = function()
-        local dapicons = {
-          Stopped = { " ", "DiagnosticWarn", "DapStoppedLine" },
-          Breakpoint = " ",
-          BreakpointCondition = " ",
-          BreakpointRejected = { " ", "DiagnosticError" },
-          LogPoint = ".>",
-        }
-        vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
-        for name, sign in pairs(dapicons) do
-          sign = type(sign) == "table" and sign or { sign }
-          vim.fn.sign_define(
-            "Dap" .. name,
-            { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
-          )
-        end
-        local dap_breakpoint = {
-          error = {
-            text = "🟥",
-            texthl = "LspDiagnosticsSignError",
-            linehl = "",
-            numhl = "",
-          },
-          rejected = {
-            text = "",
-            texthl = "LspDiagnosticsSignHint",
-            linehl = "",
-            numhl = "",
-          },
-          stopped = {
-            text = "⭐️",
-            texthl = "LspDiagnosticsSignInformation",
-            linehl = "DiagnosticUnderlineInfo",
-            numhl = "LspDiagnosticsSignInformation",
-          },
-        }
-        vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-        vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-        vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-        -- Catppuccin special dap integration
-        local sign = vim.fn.sign_define
-        if settings.theme == "catppuccin" then
-          sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-          sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-          sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
-        end
-        local wk = require("which-key")
-        wk.register({
-          d = { "Debug" },
-        }, { prefix = "<leader>", mode = "n", { silent = true } })
+        require("ecovim.plugins.dap")
       end,
+      keys = {
+        "<Leader>da",
+        "<Leader>db",
+        "<Leader>dc",
+        "<Leader>dd",
+        "<Leader>dh",
+        "<Leader>di",
+        "<Leader>do",
+        "<Leader>dO",
+        "<Leader>dt",
+      },
+      dependencies = {
+        "theHamsta/nvim-dap-virtual-text",
+        "rcarriga/nvim-dap-ui",
+        "mxsdev/nvim-dap-vscode-js",
+      },
     },
     {
       "LiadOz/nvim-dap-repl-highlights",
@@ -669,50 +556,6 @@ if settings.enable_coding then
 else
   coding = {
     {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-        "jose-elias-alvarez/null-ls.nvim",
-        "nvim-lua/plenary.nvim",
-        "b0o/schemastore.nvim",
-      },
-      config = function()
-        local opts = {
-          ensure_installed = formatters_linters,
-          ui = {
-            border = "rounded",
-            icons = {
-              package_pending = " ",
-              package_installed = " ",
-              package_uninstalled = " ﮊ",
-            },
-          },
-        }
-        require("mason").setup(opts)
-        local mr = require("mason-registry")
-        local function install_ensured()
-          for _, tool in ipairs(opts.ensure_installed) do
-            local p = mr.get_package(tool)
-            if not p:is_installed() then
-              p:install()
-            end
-          end
-        end
-        if mr.refresh then
-          mr.refresh(install_ensured)
-        else
-          install_ensured()
-        end
-        require("mason-lspconfig").setup({
-          ensure_installed = lsp_servers,
-          automatic_installation = true,
-        })
-        require("config.lspconfig")
-      end,
-    },
-    {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
       cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
@@ -720,12 +563,6 @@ else
       keys = {
         { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" },
         { "<Leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
-      },
-    },
-    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = {
-        "williamboman/mason.nvim",
       },
     },
     {
@@ -740,24 +577,6 @@ else
           end,
         })
       end,
-    },
-
-    -- formatters
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = { "mason.nvim" },
-      config = function()
-	require("config.null-ls")
-      end,
-    },
-    {
-      "jay-babu/mason-null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      opts = {
-        ensure_installed = formatters_linters,
-        automatic_setup = true,
-      },
     },
   }
 end
