@@ -250,20 +250,21 @@ conf.formatters_linters = {
   "golines",         -- FORMATTERS_LINTERS
   "golangci-lint",   -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
-  "latexindent",        -- FORMATTERS_LINTERS
+  "latexindent",     -- FORMATTERS_LINTERS
   "markdownlint",    -- FORMATTERS_LINTERS
   "prettier",        -- FORMATTERS_LINTERS
-  -- "sql-formatter",   -- FORMATTERS_LINTERS
+  "sql-formatter",   -- FORMATTERS_LINTERS
   "shellcheck",      -- FORMATTERS_LINTERS
-  -- "shfmt",        -- FORMATTERS_LINTERS
+  "shfmt",           -- FORMATTERS_LINTERS
   "stylua",          -- FORMATTERS_LINTERS
-  -- "tflint",       -- FORMATTERS_LINTERS
-  -- "yamllint",     -- FORMATTERS_LINTERS
+  "tflint",          -- FORMATTERS_LINTERS
+  "yamllint",        -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
   "beautysh",        -- FORMATTERS_LINTERS
   "black",           -- FORMATTERS_LINTERS
+  "flake8",          -- FORMATTERS_LINTERS
   "ruff",            -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files

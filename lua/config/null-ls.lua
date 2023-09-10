@@ -74,13 +74,13 @@ if table_contains(external_formatters, "flake8") then
   if vim.fn.executable("flake8") == 1 then
     table.insert(
       conf_sources,
-      formatting.flake8.with({
+      diagnostics.flake8.with({
         timeout = 10000,
         extra_args = {
           "--ignore=E203,E501,E402,F401,F821,W503,W292",
           filetypes = { "python" },
         }
-      })
+      }),
     )
   end
 end
