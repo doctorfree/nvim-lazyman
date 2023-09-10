@@ -3363,6 +3363,7 @@ pdedir="nvim-pde"
 latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
+namespace=
 setconf=
 nopatch=
 nvchaddir="nvim-NvChad"
@@ -3509,23 +3510,6 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:O:pPqQrRsStTUvV:w:Wx:XyYzZ
     ;;
   O)
     namespace="$OPTARG"
-    case ${namespace} in
-      free|Free|FREE)
-        ${SUBMENUS} -s namespace free
-        ;;
-      onno|Onno|ONNO)
-        ${SUBMENUS} -s namespace onno
-        ;;
-      ecovim|Ecovim|ECOVIM)
-        ${SUBMENUS} -s namespace ecovim
-        ;;
-      *)
-        printf "\nUnsupported namespace: ${namespace}"
-        printf "\nSupported namespaces: ecovim free onno\n"
-        brief_usage
-        ;;
-    esac
-    exit 0
     ;;
   p)
     plug=1
@@ -5555,6 +5539,28 @@ fi
       chmod 644 "$HOME"/.local/share/man/man5/lazyman-keymaps.5
     }
   }
+}
+
+[ "${namespace}" ] && {
+  case ${namespace} in
+    free|Free|FREE)
+      ${SUBMENUS} -s namespace free
+      [ "$tellme" ] || init_neovim "${LAZYMAN}"
+      ;;
+    onno|Onno|ONNO)
+      ${SUBMENUS} -s namespace onno
+      [ "$tellme" ] || init_neovim "${LAZYMAN}"
+      ;;
+    ecovim|Ecovim|ECOVIM)
+      ${SUBMENUS} -s namespace ecovim
+      [ "$tellme" ] || init_neovim "${LAZYMAN}"
+      ;;
+    *)
+      printf "\nUnsupported namespace: ${namespace}"
+      printf "\nSupported namespaces: ecovim free onno\n"
+      ;;
+  esac
+  [ "${interactive}" ] && exit 0
 }
 
 [ "${exitafter}" ] && exit 0
