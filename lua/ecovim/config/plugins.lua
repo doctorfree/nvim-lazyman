@@ -294,8 +294,8 @@ if settings.enable_coding then
         end
 
         local servers = require("config.lsp.lspservers")
-        local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
-        local capabilities = require("util").capabilities(ext_capabilites)
+        local ext_capabilities = vim.lsp.protocol.make_client_capabilities()
+        local capabilities = require("util").capabilities(ext_capabilities)
 
         local function setup(server)
           if servers[server] and servers[server].disabled then
@@ -309,18 +309,18 @@ if settings.enable_coding then
 
         local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
 
-        local ensure_installed = {}
         for server, server_opts in pairs(servers) do
           if server_opts then
             if not vim.tbl_contains(available, server) then
               setup(server)
-            else
-              ensure_installed[#ensure_installed + 1] = server
             end
           end
         end
 
-        require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+        require("mason-lspconfig").setup({
+          ensure_installed = lsp_servers,
+          automatic_installation = true,
+        })
         require("mason-lspconfig").setup_handlers({ setup })
       end,
     },

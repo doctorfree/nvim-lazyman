@@ -4,7 +4,7 @@ local conf = {}
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
-conf.namespace = "free"
+conf.namespace = "ecovim"
 --
 -- THEME CONFIGURATION
 -- Available themes:
