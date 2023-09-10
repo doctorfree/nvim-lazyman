@@ -2,6 +2,11 @@ local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
 
+local dashboard_depend = { "nvim-tree/nvim-web-devicons" }
+if settings.enable_terminal then
+  dashboard_depend = { "rebelot/terminal.nvim", "nvim-tree/nvim-web-devicons" }
+end
+
 local barbecue = {}
 local cheatsheet = {}
 local vimbegood = {}
@@ -203,8 +208,77 @@ if settings.enable_coding then
       opts = {},
     },
 
+    -- Mason and friends
+    {
+      "williamboman/mason.nvim",
+      build = ":MasonUpdate",
+      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+      lazy = false,
+      keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
+    },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = {
+        "williamboman/mason.nvim",
+      },
+    },
+    {
+      "RubixDev/mason-update-all",
+      cmd = "MasonUpdateAll",
+      config = function()
+        require("mason-update-all").setup()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "MasonUpdateAllComplete",
+          callback = function()
+            print("mason-update-all has finished")
+          end,
+        })
+      end,
+    },
+
+    -- formatters
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      dependencies = { "mason.nvim" },
+      config = function()
+	require("config.null-ls")
+      end,
+    },
+    {
+      "jay-babu/mason-null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      opts = {
+        ensure_installed = formatters_linters,
+        automatic_setup = true,
+      },
+    },
+
+    {
+      "VonHeikemen/lsp-zero.nvim",
+      branch = "v2.x",
+      dependencies = {
+        -- LSP Support
+        { "neovim/nvim-lspconfig" }, -- Required
+        { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" }, -- Optional
+        -- Autocompletion
+        { "hrsh7th/nvim-cmp" }, -- Required
+        { "hrsh7th/cmp-nvim-lsp" }, -- Required
+        { "L3MON4D3/LuaSnip" }, -- Required
+      },
+      config = function()
+        local lsp = require("lsp-zero").preset({})
+        lsp.on_attach(function(_, bufnr)
+          lsp.default_keymaps({ buffer = bufnr })
+        end)
+        lsp.setup()
+      end,
+    },
+
     {
       "neovim/nvim-lspconfig",
+      event = { "BufReadPre", "BufNewFile" },
       dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -216,7 +290,7 @@ if settings.enable_coding then
       },
       config = function()
         local opts = {
-          ensure_installed = formatters_linters,
+          ensure_installed = {},
           ui = {
             border = "rounded",
             icons = {
@@ -248,70 +322,9 @@ if settings.enable_coding then
         require("config.lspconfig")
       end,
     },
-    {
-      "williamboman/mason.nvim",
-      build = ":MasonUpdate",
-      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-      lazy = false,
-      keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
-    },
-
-    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = {
-        "williamboman/mason.nvim",
-      },
-    },
-
-    {
-      "RubixDev/mason-update-all",
-      cmd = "MasonUpdateAll",
-      config = function()
-        require("mason-update-all").setup()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MasonUpdateAllComplete",
-          callback = function()
-            print("mason-update-all has finished")
-          end,
-        })
-      end,
-    },
 
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
-      config = function()
-        require("config.null-ls")
-      end,
-    },
-
-    {
-      "VonHeikemen/lsp-zero.nvim",
-      branch = "v2.x",
-      dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" }, -- Required
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" }, -- Optional
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" }, -- Required
-        { "hrsh7th/cmp-nvim-lsp" }, -- Required
-        { "L3MON4D3/LuaSnip" }, -- Required
-      },
-      config = function()
-        local lsp = require("lsp-zero").preset({})
-        lsp.on_attach(function(_, bufnr)
-          lsp.default_keymaps({ buffer = bufnr })
-        end)
-        lsp.setup()
-      end,
-    },
     {
       "folke/trouble.nvim",
       cmd = { "TroubleToggle", "Trouble" },
@@ -728,16 +741,23 @@ else
         })
       end,
     },
+
+    -- formatters
     {
       "jose-elias-alvarez/null-ls.nvim",
       event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
+      dependencies = { "mason.nvim" },
       config = function()
-        require("config.null-ls")
+	require("config.null-ls")
       end,
+    },
+    {
+      "jay-babu/mason-null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      opts = {
+        ensure_installed = formatters_linters,
+        automatic_setup = true,
+      },
     },
   }
 end
@@ -1394,7 +1414,10 @@ return {
   },
   {
     "goolord/alpha-nvim",
-    lazy = false,
+    dependencies = dashboard_depend,
+    enabled = true,
+    event = "VimEnter",
+    keys = { { "<leader>A", "<cmd>Alpha<CR>", "Alpha Dashboard" } },
     config = function()
       require("ecovim.plugins.alpha")
     end,

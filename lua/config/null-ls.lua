@@ -152,7 +152,7 @@ if settings.enable_coding then
 end
 
 null_ls.setup({
-  debug = true,
+  debug = false,
   sources = conf_sources,
   should_attach = function(bufnr)
     local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
