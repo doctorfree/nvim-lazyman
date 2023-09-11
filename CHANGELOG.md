@@ -6,6 +6,42 @@
 
 ### 🐞 Fixed
 
+## v3.1.1r1
+
+### ⚡️ Added
+
+- Install all lsp servers, formatters and linters enabled in `configuration.lua` in `ecovim` namespace
+- Install all lsp servers, formatters and linters enabled in `configuration.lua` in `onno` namespace
+- Set default namespace to `ecovim`
+- Add `flake8` to external formatters
+- Use `config/null-ls.lua` to configure `ecovim` namespace `null-ls`
+- Enable `-O namespace` in initialization
+- Use `mason-null-ls` in `ecovim` namespace
+- Add Mason specs in `ecovim`
+- Set default namespace to `ecovim`
+- Enable all formatters and linters by default
+- Set lsp globals in `lua/config/lsp/functions.lua`
+- Set handlers for all lsp servers once rather than in each server setting
+- Merge `ecovim` and free lsp configurations
+- Config menu support for noice and toggleterm in `ecovim`
+- Add `ecovim` telescope extensions
+- Move `ecovim/lsp` up to `config/lsp`
+- Rework `ecovim` namespace lsp configuration
+- Expose formatters and lsp servers menus to `ecovim` namespace
+- Automate enabling terminal for zen mode if supported terminal is detected during initialization
+- Sync `multicursor` configuration across namespaces
+- Add `hydra.nvim` configuration
+
+### 🐞 Fixed
+
+- Update Lazyman info docs using new `ecovim` namespace
+- Track down hang in lsp config initialization
+- Check if keys nil before referencing in `util.lua`
+- Disable not yet configured formatters
+- Fix null-ls flake8 configuration
+- Fix `ecovim` namespace lsp configuration, still need to add use of configuration.lua
+- Fix telescope extensions in `ecovim` namespace
+
 ## v3.1.0r3
 
 ### ⚡️ Added
