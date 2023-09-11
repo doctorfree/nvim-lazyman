@@ -355,6 +355,7 @@ local normal_mode_mappings = {
     h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'File history' },
     H = { '<cmd>lua require("ecovim.plugins.telescope").command_history()<CR>', 'Command history' },
     s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'Search history' },
+    n = { name = 'Noice' },
   },
 
   t = {
