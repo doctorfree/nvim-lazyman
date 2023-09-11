@@ -82,7 +82,7 @@ conf.enable_coding = true
 conf.enable_compile = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
--- Enable easy motions, can be one of "hop", "leap", or "none"
+-- Enable easy motions, can be one of "hop", "flash", "leap", or "none"
 conf.enable_motion = "leap"
 -- Enable note making using Markdown preview and Obsidian plugins
 conf.enable_notes = false

@@ -25,8 +25,7 @@ local sudoku = {}
 local blackjack = {}
 local cellular = {}
 local coding = {}
-local hop_motion = {}
-local leap_motion = {}
+local motion = {}
 local hydra_plugin = {}
 local multi_cursor = {}
 local neoscroll = {}
@@ -133,8 +132,9 @@ if settings.enable_coding then
   }
 end
 
+-- Motion plugin, use hop, flash, leap, or none
 if settings.enable_motion == "hop" then
-  hop_motion = {
+  motion = {
     { "ziontee113/syntax-tree-surfer" },
     {
       "mfussenegger/nvim-treehopper",
@@ -171,10 +171,49 @@ if settings.enable_motion == "hop" then
       end,
     },
   }
-end
-
-if settings.enable_motion == "leap" then
-  leap_motion = {
+elseif settings.enable_motion == "flash" then
+  motion = {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          -- default options: exact mode, multi window, all directions, with a backdrop
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "<leader>sf",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").toggle(false)
+        end,
+        desc = "Disable Flash",
+      },
+    },
+  }
+elseif settings.enable_motion == "leap" then
+  motion = {
     {
       "ggandor/flit.nvim",
       keys = function()
@@ -1546,20 +1585,6 @@ return {
     cond = Ecovim.plugins.zen.enabled,
   },
   {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {},
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump()
-        end,
-      },
-    },
-  },
-  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
@@ -1946,9 +1971,8 @@ return {
   lspsaga,
   actionmenu,
 
-  -- Motion
-  hop_motion,
-  leap_motion,
+  -- Motion: hop, flash, leap, or none
+  motion,
 
   -- Multi cursor
   hydra_plugin,

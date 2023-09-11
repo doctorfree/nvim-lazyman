@@ -1416,20 +1416,26 @@ show_plugin_menu() {
           break
           ;;
         "Enable Motion"*,* | *,"Enable Motion"*)
-          choices=("Hop" "Leap" "None")
+          choices=("Hop" "Flash" "Leap" "None")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Motion Plugin  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            if [ "${choice}" == "Hop" ]; then
-              set_conf_value "enable_motion" "hop"
-            else
-              if [ "${choice}" == "Leap" ]; then
+            case ${choice} in
+              Hop|hop)
+                set_conf_value "enable_motion" "hop"
+                ;;
+              Flash|flash)
+                set_conf_value "enable_motion" "flash"
+                ;;
+              Leap|leap)
                 set_conf_value "enable_motion" "leap"
-              else
-                if [ "${choice}" == "None" ]; then
-                  set_conf_value "enable_motion" "none"
-                fi
-              fi
-            fi
+                ;;
+              None|none)
+                set_conf_value "enable_motion" "none"
+                ;;
+              *)
+                break
+                ;;
+            esac
             pluginit=1
           fi
           break
