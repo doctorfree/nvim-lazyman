@@ -251,6 +251,13 @@ make_info() {
       C_DESC="Advanced [customization of NvChad](https://github.com/doctorfree/NvChad-custom). Good [introductory video](https://youtu.be/Mtgo-nP_r8Y) to NvChad"
       C_INST="lazyman -c"
       ;;
+    RNvim)
+      GH_URL="https://github.com/RoryNesbitt/RNvim"
+      DF_URL="https://dotfyle.com/RoryNesbitt/rnvim"
+      CF_CAT="Personal"
+      C_DESC="Personal Neovim configuration of Rory Nesbitt, author of dotfyle-cli"
+      C_INST="lazyman -w RNvim"
+      ;;
     CandyVim)
       GH_URL="https://github.com/doctorfree/CandyVim"
       WS_URL="https://candyvim.lazyman.dev"

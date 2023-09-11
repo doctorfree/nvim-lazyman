@@ -32,7 +32,7 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | **Personal** |        |        |        | **Configs** |
 | :----------- | :----: | :----: | :----: | ----------: |
 | [Adib](https://lazyman.dev/info/Adib.html) | [Ahsan](https://lazyman.dev/info/Ahsan.html) | [Artur](https://lazyman.dev/info/Artur.html) | [Beethoven](https://lazyman.dev/info/Beethoven.html) | [Brain](https://lazyman.dev/info/Brain.html) |
-| [CandyVim](https://lazyman.dev/info/CandyVim.html) | [Charles](https://lazyman.dev/info/Charles.html) | [Chokerman](https://lazyman.dev/info/Chokerman.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) |
+| [RNvim](https://lazyman.dev/info/RNvim.html) | [Charles](https://lazyman.dev/info/Charles.html) | [Chokerman](https://lazyman.dev/info/Chokerman.html) | [Craftzdog](https://lazyman.dev/info/Craftzdog.html) | [Daniel](https://lazyman.dev/info/Daniel.html) |
 | [Dillon](https://lazyman.dev/info/Dillon.html) | [Elianiva](https://lazyman.dev/info/Elianiva.html) | [Elijah](https://lazyman.dev/info/Elijah.html) | [Enrique](https://lazyman.dev/info/Enrique.html) | [Heiker](https://lazyman.dev/info/Heiker.html) |
 | [J4de](https://lazyman.dev/info/J4de.html) | [Josean](https://lazyman.dev/info/Josean.html) | [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) |
 | [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) | [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) |

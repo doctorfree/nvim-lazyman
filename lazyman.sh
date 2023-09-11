@@ -1802,7 +1802,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Ahsan | Artur | ONNO | CandyVim | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4141,11 +4141,6 @@ install_remove() {
         printf "\n${action} Mini Neovim configuration"
         lazyman ${darg} -M ${quietflag} -z ${yesflag}
       }
-      [ "$(getok nvim-CandyVim)" == "ok" ] && {
-        printf "\n${action} CandyVim Neovim configuration"
-        lazyman ${darg} -C https://github.com/doctorfree/CandyVim \
-          -N nvim-CandyVim ${quietflag} -z ${yesflag}
-      }
       [ "$(getok nvim-Charles)" == "ok" ] && {
         printf "\n${action} Charles Neovim configuration"
         lazyman ${darg} -C https://github.com/CharlesChiuGit/nvimdots.lua \
@@ -4250,6 +4245,11 @@ install_remove() {
         printf "\n${action} VonHeikemen Neovim configuration"
         lazyman ${darg} -C https://github.com/VonHeikemen/dotfiles \
           -D my-configs/neovim -N nvim-Heiker ${quietflag} -z ${yesflag}
+      }
+      [ "$(getok nvim-RNvim)" == "ok" ] && {
+        printf "\n${action} RNvim Neovim configuration"
+        lazyman ${darg} -C https://github.com/RoryNesbitt/RNvim \
+          -N nvim-RNvim ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-Roiz)" == "ok" ] && {
         printf "\n${action} Roiz Neovim configuration"
@@ -4413,9 +4413,6 @@ install_remove() {
       Xiao)
         prsnl_url="https://github.com/onichandame/nvim-config"
         ;;
-      CandyVim)
-        prsnl_url="https://github.com/doctorfree/CandyVim"
-        ;;
       Charles)
         prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
         ;;
@@ -4479,6 +4476,9 @@ install_remove() {
         ;;
       Spider)
         prsnl_url="https://github.com/fearless-spider/FSAstroNvim"
+        ;;
+      RNvim)
+        prsnl_url="https://github.com/RoryNesbitt/RNvim"
         ;;
       Roiz)
         prsnl_url="https://github.com/MrRoiz/rnvim"

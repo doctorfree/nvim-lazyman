@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Replace `CandyVim` personal config with `RNvim`, use Lazyman namespace `ecovim` for `CandyVim` function
+
 ### 🐞 Fixed
 
 ## v3.1.1r2
