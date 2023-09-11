@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lazyman config: RNvim</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="/home/ronnie/.config/nvim-Lazyman/scripts/table.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lazyman config: RNvim</h1>
+</header>
+<h1 id="rnvim-neovim-configuration-information">RNvim Neovim
+Configuration Information</h1>
+<p>Personal Neovim configuration of Rory Nesbitt, author of
+dotfyle-cli</p>
+<ul>
+<li>Install and initialize:
+<strong><code>lazyman -w RNvim</code></strong></li>
+<li>Configuration category: <a
+href="https://lazyman.dev/configurations/#personal-configurations">Personal</a></li>
+<li>Base configuration: Custom</li>
+<li>Plugin manager: <a
+href="https://github.com/folke/lazy.nvim">Lazy</a></li>
+<li>Installation location:
+<strong><code>~/.config/nvim-RNvim</code></strong></li>
+</ul>
+<h2 id="git-repository">Git repository</h2>
+<p><a
+href="https://github.com/RoryNesbitt/RNvim">https://github.com/RoryNesbitt/RNvim</a></p>
+<h2 id="dotfyle-entry">Dotfyle entry</h2>
+<p><a
+href="https://dotfyle.com/RoryNesbitt/rnvim">https://dotfyle.com/RoryNesbitt/rnvim</a></p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 31%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Jump</th>
+<th style="text-align: center;">to</th>
+<th style="text-align: center;">Keymaps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><a href="#normal-mode-keymaps">Normal
+mode keymaps</a></td>
+<td style="text-align: center;"><a href="#visual-mode-keymaps">Visual
+mode keymaps</a></td>
+<td style="text-align: center;"><a
+href="#operator-mode-keymaps">Operator mode keymaps</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lazy-managed-plugins">Lazy managed plugins</h2>
+<ul>
+<li><a
+href="https://github.com/numToStr/Comment.nvim">numToStr/Comment.nvim</a></li>
+<li><a
+href="https://github.com/L3MON4D3/LuaSnip">L3MON4D3/LuaSnip</a></li>
+<li><a
+href="https://github.com/gaoDean/autolist.nvim">gaoDean/autolist.nvim</a></li>
+<li><a
+href="https://github.com/chriskempson/base16-vim.git">chriskempson/base16-vim</a></li>
+<li><a
+href="https://github.com/catppuccin/nvim">catppuccin/nvim</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-buffer">hrsh7th/cmp-buffer</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-cmdline">hrsh7th/cmp-cmdline</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lsp">hrsh7th/cmp-nvim-lsp</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-nvim-lua">hrsh7th/cmp-nvim-lua</a></li>
+<li><a
+href="https://github.com/hrsh7th/cmp-path">hrsh7th/cmp-path</a></li>
+<li><a
+href="https://github.com/saadparwaiz1/cmp_luasnip">saadparwaiz1/cmp_luasnip</a></li>
+<li><a
+href="https://github.com/max397574/colortils.nvim.git">max397574/colortils.nvim</a></li>
+<li><a
+href="https://github.com/zbirenbaum/copilot-cmp.git">zbirenbaum/copilot-cmp</a></li>
+<li><a
+href="https://github.com/zbirenbaum/copilot.lua.git">zbirenbaum/copilot.lua</a></li>
+<li><a
+href="https://github.com/glepnir/dashboard-nvim">glepnir/dashboard-nvim</a></li>
+<li><a
+href="https://github.com/sindrets/diffview.nvim.git">sindrets/diffview.nvim</a></li>
+<li><a
+href="https://github.com/creativenull/dotfyle-metadata.nvim.git">creativenull/dotfyle-metadata.nvim</a></li>
+<li><a
+href="https://github.com/glacambre/firenvim">glacambre/firenvim</a></li>
+<li><a
+href="https://github.com/folke/flash.nvim.git">folke/flash.nvim</a></li>
+<li><a
+href="https://github.com/rafamadriz/friendly-snippets">rafamadriz/friendly-snippets</a></li>
+<li><a
+href="https://github.com/lewis6991/gitsigns.nvim">lewis6991/gitsigns.nvim</a></li>
+<li><a
+href="https://github.com/anuvyklack/hydra.nvim.git">anuvyklack/hydra.nvim</a></li>
+<li><a
+href="https://github.com/lukas-reineke/indent-blankline.nvim">lukas-reineke/indent-blankline.nvim</a></li>
+<li><a
+href="https://github.com/folke/lazy.nvim">folke/lazy.nvim</a></li>
+<li><a
+href="https://github.com/onsails/lspkind-nvim">onsails/lspkind-nvim</a></li>
+<li><a
+href="https://github.com/glepnir/lspsaga.nvim">glepnir/lspsaga.nvim</a></li>
+<li><a
+href="https://github.com/nvim-lualine/lualine.nvim">nvim-lualine/lualine.nvim</a></li>
+<li><a
+href="https://github.com/meatballs/magma-nvim.git">meatballs/magma-nvim</a></li>
+<li><a
+href="https://github.com/williamboman/mason-lspconfig.nvim">williamboman/mason-lspconfig.nvim</a></li>
+<li><a
+href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a></li>
+<li><a
+href="https://github.com/TimUntersberger/neogit">TimUntersberger/neogit</a></li>
+<li><a
+href="https://github.com/folke/noice.nvim">folke/noice.nvim</a></li>
+<li><a
+href="https://github.com/meatballs/notebook.nvim.git">meatballs/notebook.nvim</a></li>
+<li><a
+href="https://github.com/MunifTanjim/nui.nvim">MunifTanjim/nui.nvim</a></li>
+<li><a
+href="https://github.com/jayp0521/mason-null-ls.nvim">jayp0521/mason-null-ls.nvim</a></li>
+<li><a
+href="https://github.com/windwp/nvim-autopairs">windwp/nvim-autopairs</a></li>
+<li><a
+href="https://github.com/hrsh7th/nvim-cmp">hrsh7th/nvim-cmp</a></li>
+<li><a
+href="https://github.com/norcalli/nvim-colorizer.lua">norcalli/nvim-colorizer.lua</a></li>
+<li><a
+href="https://github.com/jay-babu/mason-nvim-dap.nvim">jay-babu/mason-nvim-dap.nvim</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-dap-ui">rcarriga/nvim-dap-ui</a></li>
+<li><a
+href="https://github.com/theHamsta/nvim-dap-virtual-text">theHamsta/nvim-dap-virtual-text</a></li>
+<li><a
+href="https://github.com/neovim/nvim-lspconfig">neovim/nvim-lspconfig</a></li>
+<li><a
+href="https://github.com/rcarriga/nvim-notify">rcarriga/nvim-notify</a></li>
+<li><a
+href="https://github.com/kylechui/nvim-surround">kylechui/nvim-surround</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter/nvim-treesitter</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/nvim-treesitter-context">nvim-treesitter/nvim-treesitter-context</a></li>
+<li><a
+href="https://github.com/windwp/nvim-ts-autotag">windwp/nvim-ts-autotag</a></li>
+<li><a
+href="https://github.com/mrjones2014/nvim-ts-rainbow">mrjones2014/nvim-ts-rainbow</a></li>
+<li><a
+href="https://github.com/kyazdani42/nvim-web-devicons">kyazdani42/nvim-web-devicons</a></li>
+<li><a
+href="https://github.com/jbyuki/one-small-step-for-vimkind.git">jbyuki/one-small-step-for-vimkind</a></li>
+<li><a
+href="https://github.com/aspeddro/pandoc.nvim.git">aspeddro/pandoc.nvim</a></li>
+<li><a
+href="https://github.com/nvim-treesitter/playground">nvim-treesitter/playground</a></li>
+<li><a
+href="https://github.com/nvim-lua/plenary.nvim">nvim-lua/plenary.nvim</a></li>
+<li><a
+href="https://github.com/nvim-lua/popup.nvim">nvim-lua/popup.nvim</a></li>
+<li><a
+href="https://github.com/simrat39/symbols-outline.nvim">simrat39/symbols-outline.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-dap.nvim">nvim-telescope/telescope-dap.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-file-browser.nvim">nvim-telescope/telescope-file-browser.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-fzy-native.nvim">nvim-telescope/telescope-fzy-native.nvim</a></li>
+<li><a
+href="https://github.com/tsakirist/telescope-lazy.nvim.git">tsakirist/telescope-lazy.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope-ui-select.nvim">nvim-telescope/telescope-ui-select.nvim</a></li>
+<li><a
+href="https://github.com/nvim-telescope/telescope.nvim">nvim-telescope/telescope.nvim</a></li>
+<li><a
+href="https://github.com/aserowy/tmux.nvim.git">aserowy/tmux.nvim</a></li>
+<li><a
+href="https://github.com/folke/todo-comments.nvim">folke/todo-comments.nvim</a></li>
+<li><a
+href="https://github.com/folke/tokyonight.nvim">folke/tokyonight.nvim</a></li>
+<li><a
+href="https://github.com/Pocco81/true-zen.nvim">Pocco81/true-zen.nvim</a></li>
+<li><a
+href="https://github.com/folke/twilight.nvim">folke/twilight.nvim</a></li>
+<li><a
+href="https://github.com/KabbAmine/vCoolor.vim.git">KabbAmine/vCoolor.vim</a></li>
+<li><a
+href="https://github.com/RRethy/vim-illuminate">RRethy/vim-illuminate</a></li>
+<li><a
+href="https://github.com/terryma/vim-multiple-cursors.git">terryma/vim-multiple-cursors</a></li>
+<li><a
+href="https://github.com/folke/which-key.nvim">folke/which-key.nvim</a></li>
+</ul>
+<h2 id="rnvim-keymaps">RNvim Keymaps</h2>
+<h3 id="normal-mode-keymaps">Normal mode keymaps</h3>
+<div class="line-block"><strong>Description</strong> | Remove trailing
+space |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> w</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;%s/+$//&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Fuzzy Search
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> /</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Jump to file
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> j</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;Telescope
+find_files&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Substitute File
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> S</code> |<br />
+<strong>Right hand side</strong> |
+<code>:%s//gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Substitute Line
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> s</code> |<br />
+<strong>Right hand side</strong> |
+<code>:s/&lt;C-R&gt;&lt;C-W&gt;//gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | File Browser
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> e</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;edit
+.&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | New tab |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> c</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;tabedit
+.&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Neovim Terminal
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> &lt;CR&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;vsp |
+terminal&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Horizontal Split
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> h</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;sp
+.&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Vertical Split
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> v</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;vsp
+.&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Null-ls Info
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> ni</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;NullLsInfo&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Format Buffer
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> nf</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Rename Object
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> r</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Show References
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> lr</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;Telescope
+lsp_references&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Show Diagnostics
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> ll</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;Telescope
+diagnostics&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Code Actions
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> la</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | LSP Info |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> li</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;LspInfo&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Open Mason
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> m</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;Mason&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Zen Mode |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> z</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;TZAtaraxis&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Focus buffer
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> f</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;TZFocus&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | [Hydra] Git
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> g</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | [Hydra] Telescope
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> t</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | [Hydra] Debugging
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> d</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>““</code> |<br />
+<strong>Right hand side</strong> |
+<code>zto”“““““&lt;Esc&gt;&lt;Left&gt;&lt;Left&gt;i</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalForward)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Nvim builtin
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&amp;</code> |<br />
+<strong>Right hand side</strong> | <code>:&amp;&amp;&lt;CR&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Change
+colourscheme |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,cc</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Change wallpaper
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,cw</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | PASTE from
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,P</code> |<br />
+<strong>Right hand side</strong> | <code>“+P</code> |</div>
+<div class="line-block"><strong>Description</strong> | DELETE to
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,D</code> |<br />
+<strong>Right hand side</strong> | <code>“+D</code> |</div>
+<div class="line-block"><strong>Description</strong> | YANK to Clipboard
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,Y</code> |<br />
+<strong>Right hand side</strong> | <code>“+y$</code> |</div>
+<div class="line-block"><strong>Description</strong> | Paste from
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,p</code> |<br />
+<strong>Right hand side</strong> | <code>“+p</code> |</div>
+<div class="line-block"><strong>Description</strong> | Delete to
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,d</code> |<br />
+<strong>Right hand side</strong> | <code>“+d</code> |</div>
+<div class="line-block"><strong>Description</strong> | Yank to Clipboard
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,y</code> |<br />
+<strong>Right hand side</strong> | <code>“+y</code> |</div>
+<div class="line-block"><strong>Description</strong> | [Hydra]
+Spellcheck |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,s</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>A</code> |<br />
+<strong>Right hand side</strong> | <code>zzA</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>C</code> |<br />
+<strong>Right hand side</strong> | <code>zzC</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>G</code> |<br />
+<strong>Right hand side</strong> | <code>Gzz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>I</code> |<br />
+<strong>Right hand side</strong> | <code>zzI</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>K</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>N</code> |<br />
+<strong>Right hand side</strong> | <code>Nzz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>O</code> |<br />
+<strong>Right hand side</strong> | <code>zzO</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>S</code> |<br />
+<strong>Right hand side</strong> | <code>zzS</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>U</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-R&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Nvim builtin
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>Y</code> |<br />
+<strong>Right hand side</strong> | <code>y$</code> |</div>
+<div class="line-block"><strong>Description</strong> | Previous git hunk
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>[g</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Previous |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>[d</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>[%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Next git hunk
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>]g</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Next |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>]d</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>]%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>a</code> |<br />
+<strong>Right hand side</strong> | <code>zza</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>c</code> |<br />
+<strong>Right hand side</strong> | <code>zzc</code> |</div>
+<div class="line-block"><strong>Description</strong> | Change a
+surrounding pair, putting replacements on new lines |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>cS</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-change-line)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Change a
+surrounding pair |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>cs</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-change)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Delete a
+surrounding pair |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>ds</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-delete)</code> |</div>
+<div class="line-block"><strong>Description</strong> | GAHH |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gh</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Go to
+Implementation |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gi</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Go to Declaration
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gD</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Go to Definition
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gd</code> |<br />
+<strong>Right hand side</strong> | <code>gdzz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gx</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Plug&gt;NetrwBrowseX</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalBackward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g&lt;M-n&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:call
+multiple_cursors#select_all(“n”, 0)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g&lt;C-N&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:call multiple_cursors#new(“n”,
+0)&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment insert
+end of line |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gcA</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment insert
+above |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gcO</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment insert
+below |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gco</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+current block |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gbc</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+current line |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gcc</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gb</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gc</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>i</code> |<br />
+<strong>Right hand side</strong> | <code>zzi</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>n</code> |<br />
+<strong>Right hand side</strong> | <code>nzz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>o</code> |<br />
+<strong>Right hand side</strong> | <code>zzo</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>qZ</code> |<br />
+<strong>Right hand side</strong> | <code>Z</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>s</code> |<br />
+<strong>Right hand side</strong> | <code>zzs</code> |</div>
+<div class="line-block"><strong>Description</strong> | Transparent
+Background |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>tb</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around the current line, on new lines (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>ySS</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a motion, on new lines (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>yS</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around the current line (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>yss</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a motion (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>ys</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>{</code> |<br />
+<strong>Right hand side</strong> | <code>{zz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>}</code> |<br />
+<strong>Right hand side</strong> | <code>}zz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-S-L&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-W&gt;L</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-S-K&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-W&gt;K</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-S-J&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-W&gt;J</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-S-H&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-W&gt;H</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-U&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-U&gt;zz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-D&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;C-D&gt;zz</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;S-ScrollWheelUp&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;keepj norm!
+{&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;S-ScrollWheelDown&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;keepj norm!
+}&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelRight&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>l</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelUp&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>k</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelDown&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>j</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelLeft&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>h</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;2-RightMouse&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;RightMouse&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Right&gt;</code> |<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Left&gt;</code> |<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Down&gt;</code> |<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Up&gt;</code> |<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;NetrwBrowseX</code>
+|<br />
+<strong>Right hand side</strong> | <code>:call
+netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “n”)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “n”)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’n’)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitNormalForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’n’)&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Move to previous
+reference |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-p&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-w&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:silent VCoolIns
+ra&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-v&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:silent VCoolIns
+h&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-r&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:VCoolIns r&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-c&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:VCoolor&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-h&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.resize_left()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-k&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.resize_top()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-l&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.resize_right()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-j&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.resize_bottom()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-J&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.move_bottom()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-H&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.move_left()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-K&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.move_top()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)r</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Repeat fix for
+all instances |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)ra</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Suggestions
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)s</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)u</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add as good
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)ag</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Back |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)b</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)&lt;Esc&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)a</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add as bad
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)ab</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Navigate |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)[</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)]</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Fix word
+Automatically |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)f</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | exit |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra5_wait)q</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;(Hydra5_wait)</code>
+|<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)k</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)p</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | list all pickers
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)&lt;CR&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)t</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | search in file
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)/</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | recently opened
+files |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)o</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | command-line
+history |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait);</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | execute command
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)c</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | search history
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)?</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | exit |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)q</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)g</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)b</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)f</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)&lt;Esc&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | vim help |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra2_wait)h</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;(Hydra2_wait)</code>
+|<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Repl |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)r</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Continue |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)d</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)&lt;Esc&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Conditional
+breakpoint |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)B</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Step out |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)O</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Log point |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)L</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Breakpoint
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)b</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Step into |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)n</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | exit |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)q</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Step over |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(Hydra1_wait)N</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;Plug&gt;(Hydra1_wait)</code>
+|<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-n&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:call
+multiple_cursors#select_all(“n”, 1)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-N&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:call multiple_cursors#new(“n”,
+1)&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise with count |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise with count |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_count)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+current block |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise_current)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+current line |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Change a
+surrounding pair, putting replacements on new lines |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-change-line)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Change a
+surrounding pair |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-change)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Delete a
+surrounding pair |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-delete)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around the current line, on new lines (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-cur-line)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a motion, on new lines (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-line)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around the current line (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal-cur)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a motion (normal mode) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-normal)</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;PlenaryTestFile</code> |<br />
+<strong>Right hand side</strong> | <code>:lua
+require(‘plenary.test_harness’).test_directory(vim.fn.expand(“%:p”))&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-L&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;lua
+require’tmux’.move_right()&lt;CR&gt;</code> |</div>
+<h3 id="visual-mode-keymaps">Visual mode keymaps</h3>
+<div class="line-block"><strong>Description</strong> | Remove trailing
+space |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> w</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Cmd&gt;s/+$//&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Substitute File
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> S</code> |<br />
+<strong>Right hand side</strong> |
+<code>:%s//gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Substitute Line
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> s</code> |<br />
+<strong>Right hand side</strong> |
+<code>:s/&lt;C-R&gt;&lt;C-W&gt;//gI&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Format Buffer
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> nf</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | [Hydra] Git
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code> g</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Nvim builtin
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>#</code> |<br />
+<strong>Right hand side</strong> | <code>y?&lt;C-R&gt;“&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualForward)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Nvim builtin
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>*</code> |<br />
+<strong>Right hand side</strong> | <code>y/&lt;C-R&gt;“&lt;CR&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Paste from
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,p</code> |<br />
+<strong>Right hand side</strong> | <code>“+p</code> |</div>
+<div class="line-block"><strong>Description</strong> | Delete to
+Clipboard |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,d</code> |<br />
+<strong>Right hand side</strong> | <code>“+d</code> |</div>
+<div class="line-block"><strong>Description</strong> | Yank to Clipboard
+|<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>,y</code> |<br />
+<strong>Right hand side</strong> | <code>“+y</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;lt&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;lt&gt;gv</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>&gt;gv</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>J</code> |<br />
+<strong>Right hand side</strong> | <code>:m
+’&gt;+1&lt;CR&gt;gv=gv</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>K</code> |<br />
+<strong>Right hand side</strong> | <code>:m
+’&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a visual selection |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>S</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-visual)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>[%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>]%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>a%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gx</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;NetrwBrowseXVis</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualBackward)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a visual selection, on new lines |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gS</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gb</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>gc</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g&lt;M-n&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+multiple_cursors#select_all(“v”, 0)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g&lt;C-N&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+multiple_cursors#new(“v”, 0)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>p</code> |<br />
+<strong>Right hand side</strong> | <code>“_dP</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;S-ScrollWheelUp&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;keepj norm!
+{&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;S-ScrollWheelDown&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>&lt;Cmd&gt;keepj norm!
+}&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelRight&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>l</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelUp&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>k</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelDown&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>j</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;ScrollWheelLeft&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code>h</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;2-RightMouse&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;RightMouse&gt;</code>
+|<br />
+<strong>Right hand side</strong> | <code></code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;NetrwBrowseXVis</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+netrw#BrowseXVis()&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualMultiBackward)o&lt;Plug&gt;(MatchitVisualMultiForward)</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualMultiForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “n”)&lt;CR&gt;m’gv``</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualMultiBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “n”)&lt;CR&gt;m’gv``</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’v’)&lt;CR&gt;m’gv``</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitVisualForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’v’)&lt;CR&gt;:if col(“’‘“) != col(”$“) |
+exe”:normal! m’” | endif&lt;CR&gt;gv``</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-i&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a visual selection, on new lines |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround({ line_mode = true
+})&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Add a surrounding
+pair around a visual selection |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(nvim-surround-visual)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require’nvim-surround’.visual_surround({ line_mode = false
+})&lt;CR&gt;</code> |</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+blockwise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.blockwise”)(vim.fn.visualmode())&lt;CR&gt;</code>
+|</div>
+<div class="line-block"><strong>Description</strong> | Comment toggle
+linewise (visual) |<br />
+<strong>Description</strong> | |<br />
+:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |<br />
+<strong>Right hand side</strong> | <code>&lt;Esc&gt;&lt;Cmd&gt;lua
+require(“Comment.api”).locked(“toggle.linewise”)(vim.fn.visualmode())&lt;CR&gt;</code>
+|</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-n&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+multiple_cursors#select_all(“v”, 0)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;C-N&gt;</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+multiple_cursors#new(“v”, 0)&lt;CR&gt;</code> |</div>
+<h3 id="operator-mode-keymaps">Operator mode keymaps</h3>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationForward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>[%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>]%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>g%</code> |<br />
+<strong>Right hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationBackward)</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“W”, “o”)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationMultiBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#MultiMatch(“bW”, “o”)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationBackward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,0,’o’)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> |
+<code>&lt;Plug&gt;(MatchitOperationForward)</code> |<br />
+<strong>Right hand side</strong> | <code>:&lt;C-U&gt;call
+matchit#Match_wrapper(’‘,1,’o’)&lt;CR&gt;</code> |</div>
+<div class="line-block">:—- | :—- |<br />
+<strong>Left hand side</strong> | <code>&lt;M-i&gt;</code> |<br />
+<strong>Right hand side</strong> | |</div>
+</body>
+</html>
