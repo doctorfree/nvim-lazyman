@@ -5542,24 +5542,32 @@ fi
 }
 
 [ "${namespace}" ] && {
-  case ${namespace} in
-    free|Free|FREE)
-      ${SUBMENUS} -s namespace free
-      [ "$tellme" ] || init_neovim "${LAZYMAN}"
-      ;;
-    onno|Onno|ONNO)
-      ${SUBMENUS} -s namespace onno
-      [ "$tellme" ] || init_neovim "${LAZYMAN}"
-      ;;
-    ecovim|Ecovim|ECOVIM)
-      ${SUBMENUS} -s namespace ecovim
-      [ "$tellme" ] || init_neovim "${LAZYMAN}"
-      ;;
-    *)
-      printf "\nUnsupported namespace: ${namespace}"
-      printf "\nSupported namespaces: ecovim free onno\n"
-      ;;
-  esac
+  currname=$(${SUBMENUS} -s get namespace)
+  [ "${currname}" == "${namespace}" ] || {
+    newname=
+    case ${namespace} in
+      free|Free|FREE)
+        newname=1
+        ;;
+      onno|Onno|ONNO)
+        newname=1
+        ;;
+      ecovim|Ecovim|ECOVIM)
+        newname=1
+        ;;
+      *)
+        printf "\nUnsupported namespace: ${namespace}"
+        printf "\nSupported namespaces: ecovim free onno\n"
+        ;;
+    esac
+    [ "${newname}" ] && {
+      [ "$tellme" ] || {
+        rm -rf "${HOME}/.cache/${LAZYMAN}"
+        ${SUBMENUS} -s namespace ${namespace}
+        init_neovim "${LAZYMAN}"
+      }
+    }
+  }
   [ "${interactive}" ] && exit 0
 }
 
