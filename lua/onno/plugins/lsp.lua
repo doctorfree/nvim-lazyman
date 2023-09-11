@@ -2,6 +2,16 @@ local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
 
+local diagnostics_active = true
+local toggle_diagnostics = function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+
 if settings.enable_coding then
   return {
     {

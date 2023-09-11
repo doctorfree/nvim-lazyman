@@ -126,7 +126,7 @@ keymap("n", "<Leader>dh", "<CMD>lua require('dapui').eval()<CR>", opts)
 keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
 keymap("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>", opts)
 keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", opts)
-keymap("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts)
+keymap("n", "<Leader>dT", "<CMD>lua require('dap').terminate()<CR>", opts)
 keymap("n", "<Leader>dC", "<CMD>lua require('dapui').close()<CR>", opts)
 
 keymap("n", "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>", opts)

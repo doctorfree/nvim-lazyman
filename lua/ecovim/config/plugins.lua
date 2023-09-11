@@ -2,6 +2,16 @@ local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
 
+local diagnostics_active = true
+local toggle_diagnostics = function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+
 local dashboard_depend = { "nvim-tree/nvim-web-devicons" }
 if settings.enable_terminal then
   dashboard_depend = { "rebelot/terminal.nvim", "nvim-tree/nvim-web-devicons" }
@@ -510,7 +520,7 @@ if settings.enable_coding then
         "<Leader>di",
         "<Leader>do",
         "<Leader>dO",
-        "<Leader>dt",
+        "<Leader>dT",
       },
       dependencies = {
         "theHamsta/nvim-dap-virtual-text",
