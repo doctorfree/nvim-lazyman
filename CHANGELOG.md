@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v3.1.1r2
+
+### ⚡️ Added
+
+- Add Noice name to `which-key` in `ecovim` namespace
+- Add `flash.nvim` keymap to Enable Flash
+- Add `flash.nvim` to Motion plugin selections for all namespaces
+- Add `flash.nvim` keymaps
+- Add diagnostic keymaps to `which-key`, define toggle_diagnostics function
+
+### 🐞 Fixed
+
+- Move `ecovim` color schemes keymap to UI group
+- Flash motion/search only in `ecovim` and `free`, removed from `onno`
+- Check if namespace already set before changing it
+
 ## v3.1.1r1
 
 ### ⚡️ Added
@@ -38,7 +54,7 @@
 - Track down hang in lsp config initialization
 - Check if keys nil before referencing in `util.lua`
 - Disable not yet configured formatters
-- Fix null-ls flake8 configuration
+- Fix `null-ls` `flake8` configuration
 - Fix `ecovim` namespace lsp configuration, still need to add use of configuration.lua
 - Fix telescope extensions in `ecovim` namespace
 
