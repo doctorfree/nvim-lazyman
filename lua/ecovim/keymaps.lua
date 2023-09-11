@@ -174,7 +174,7 @@ map("n", "<leader>ul", function()
   Util.toggle("number")
 end, { desc = "Toggle Line Numbers" })
 local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
-map("n", "<leader>uc", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
+map("n", "<leader>uC", function() Util.toggle("conceallevel", false, { 0, conceallevel }) end,
   { desc = "Toggle Conceal" })
 
 map("n", "<leader>ug", function()

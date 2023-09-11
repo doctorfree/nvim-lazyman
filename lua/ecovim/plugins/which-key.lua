@@ -350,7 +350,6 @@ local normal_mode_mappings = {
 
   s = {
     name = 'Search',
-    c = { '<cmd>Telescope colorscheme<CR>',                              'Color schemes' },
     d = { '<cmd>lua require("ecovim.plugins.telescope").edit_neovim()<CR>',     'Dotfiles' },
     h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'File history' },
     H = { '<cmd>lua require("ecovim.plugins.telescope").command_history()<CR>', 'Command history' },
@@ -366,6 +365,7 @@ local normal_mode_mappings = {
 
   u = {
     name = 'UI',
+    c = { '<cmd>Telescope colorscheme<CR>',                              'Color schemes' },
   },
 
   w = {
