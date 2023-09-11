@@ -917,10 +917,12 @@ show_plugin_menu() {
     use_indentline="${indentline_style}"
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    [ "${use_namespace}" == "ecovim" ] || {
+    [ "${use_namespace}" == "free" ] && {
       options+=("Ascii Art     [${use_asciiart}]")
-      options+=("Bdelete cmd   [${use_bbye}]")
       options+=("Bookmarks     [${use_bookmarks}]")
+    }
+    [ "${use_namespace}" == "ecovim" ] || {
+      options+=("Bdelete cmd   [${use_bbye}]")
     }
     options+=("ChatGPT (AI)  [${use_chatgpt}]")
     options+=("Codeium (AI)  [${use_codeium}]")
@@ -1009,10 +1011,8 @@ show_plugin_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "onno" ] || {
-      options+=("Formatters")
-      options+=("LSP Servers")
-    }
+    options+=("Formatters")
+    options+=("LSP Servers")
     options+=("Config Menu")
     options+=("Main Menu")
     options+=("Quit")
@@ -1916,9 +1916,7 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    [ "${use_namespace}" == "onno" ] || {
-      options+=("Formatters Menu")
-    }
+    options+=("Formatters Menu")
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2053,9 +2051,7 @@ show_formlint_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    [ "${use_namespace}" == "onno" ] || {
-      options+=("LSP Servers Menu")
-    }
+    options+=("LSP Servers Menu")
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2257,9 +2253,7 @@ show_conf_menu() {
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Namespace [${use_namespace}]")
-    [ "${use_namespace}" == "onno" ] || {
-      options+=("Diagnostics [${use_show_diagnostics}]")
-    }
+    options+=("Diagnostics [${use_show_diagnostics}]")
     options+=("Theme [${use_theme}]")
     if [[ " ${styled_themes[*]} " =~ " ${use_theme} " ]]; then
       options+=(" Style [${use_theme_style}]")
@@ -2302,10 +2296,8 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "onno" ] || {
-      options+=("Formatters")
-      options+=("LSP Servers")
-    }
+    options+=("Formatters")
+    options+=("LSP Servers")
     options+=("Plugins Menu")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
