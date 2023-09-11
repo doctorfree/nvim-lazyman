@@ -203,6 +203,14 @@ elseif settings.enable_motion == "flash" then
         desc = "Remote Flash",
       },
       {
+        "<leader>sF",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").toggle(true)
+        end,
+        desc = "Enable Flash",
+      },
+      {
         "<leader>sf",
         mode = { "n", "o", "x" },
         function()

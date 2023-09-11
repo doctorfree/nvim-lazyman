@@ -395,28 +395,28 @@ with settings briefly described here:
 
 ##### Namespace selection
 
-The `Lazyman` Neovim configuration contains two separate and distinct
+The `Lazyman` Neovim configuration contains three separate and distinct
 configurations. The setting `conf.namespace` in `lua/configuration.lua`
 controls which configuration is active. The supported values for
-`conf.namespace` are `free` and `onno`. The `free` namespace is the same
-configuration used in previous releases of `Lazyman`. The `onno` namespace
-is based on the [ONNO](https://lazyman.dev/info/ONNO.html) configuration with modifications and
-enhancements to integrate this config with `lazyman`.
+`conf.namespace` are `ecovim` `free` and `onno`. The `free` namespace is
+the same configuration used in previous releases of `Lazyman`. The `onno`
+namespace is based on the [ONNO](https://lazyman.dev/info/ONNO.html)
+configuration with modifications and enhancements to integrate this config
+with `lazyman`. The `ecovim` namespace is based on the
+[Ecovim](https://lazyman.dev/info/Ecovim.html) configuration with modifications
+and enhancements to integrate with `lazyman`. The default Lazyman configuration
+namespace is `ecovim`.
 
-To use the `free` namespace, set:
+To switch Lazyman namespaces, run the command:
 
-```
-conf.namespace = "free"
+```bash
+lazyman -O <namespace>
 ```
 
-To use the `onno` namespace, set:
-
-```
-conf.namespace = "onno"
-```
+Where `<namespace>` is one of `ecovim`, `free`, or `onno`.
 
 This setting is configurable via the `lazyman` menu system, as are most
-of the `Lazyman` configuration settings.
+of the `Lazyman` configuration settings (`lazyman -F`).
 
 ##### Theme configuration
 
@@ -579,11 +579,11 @@ Additional plugin configuration and options are available in `configuration.lua`
 ```lua
 local conf = {}
 
--- Namespace to use, currently available namespaces are "free" and "onno"
+-- Namespace to use, available namespaces are "ecovim", free", and "onno"
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
-conf.namespace = "free"
+conf.namespace = "ecovim"
 --
 -- THEME CONFIGURATION
 -- Available themes:
@@ -646,6 +646,8 @@ conf.enable_codeium = false
 conf.enable_copilot = false
 -- Enable Neoai, https://github.com/Bryley/neoai.nvim
 conf.enable_neoai = false
+-- Enable tabnine, https://github.com/Bryley/neoai.nvim
+conf.enable_tabnine = false
 --
 -- Enable display of ascii art
 conf.enable_asciiart = false
@@ -659,7 +661,7 @@ conf.enable_coding = true
 conf.enable_compile = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
--- Enable easy motions, can be one of "hop", "leap", or "none"
+-- Enable easy motions, can be one of "hop", "flash", "leap", or "none"
 conf.enable_motion = "leap"
 -- Enable note making using Markdown preview and Obsidian plugins
 conf.enable_notes = false
@@ -715,7 +717,7 @@ conf.enable_status_in_tab = false
 -- Enable winbar with navic location
 -- Can be one of "barbecue", "standard", or "none"
 -- Barbecue provides a clickable navic location, standard has more info
-conf.enable_winbar = "standard"
+conf.enable_winbar = "barbecue"
 -- Enable LSP progress in winbar
 conf.enable_lualine_lsp_progress = true
 -- Enable rebelot/terminal.nvim
@@ -741,7 +743,7 @@ conf.dashboard = "alpha"
 -- 0 disables showing recent files
 conf.dashboard_recent_files = 3
 -- Enable the header of the dashboard
-conf.enable_dashboard_header = false
+conf.enable_dashboard_header = true
 -- Enable quick links of the dashboard
 conf.enable_dashboard_quick_links = true
 -- Enable either the Drop screensaver or the Zone screensaver
@@ -776,28 +778,14 @@ conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
-  "cpp",
-  "go",
-  "graphql",
-  "html",
-  "java",
-  "javascript",
-  "json",
+  "c",
   "lua",
   "markdown",
   "markdown_inline",
   "query",
-  "php",
-  "python",
   "regex",
-  "rust",
-  "scss",
-  "toml",
-  "tsx",
-  "typescript",
   "vim",
   "vimdoc",
-  "yaml",
 }
 -- Enable clangd or ccls for C/C++ diagnostics
 -- Note: if enabled then the tool must be installed and in the execution path
@@ -806,52 +794,57 @@ conf.enable_clangd = false
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
-  "bashls", -- LSP_SERVERS
+  "bashls",        -- LSP_SERVERS
+  "cssls",         -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
-  "denols", -- LSP_SERVERS
-  "dockerls", -- LSP_SERVERS
-  -- "eslint",     -- LSP_SERVERS
-  "gopls", -- LSP_SERVERS
-  "graphql", -- LSP_SERVERS
-  "html", -- LSP_SERVERS
-  "jdtls", -- LSP_SERVERS
-  "jsonls", -- LSP_SERVERS
-  "julials", -- LSP_SERVERS
-  "ltex", -- LSP_SERVERS
-  "lua_ls", -- LSP_SERVERS
-  "marksman", -- LSP_SERVERS
-  "pylsp", -- LSP_SERVERS
-  "pyright", -- LSP_SERVERS
-  "sqlls", -- LSP_SERVERS
-  "tailwindcss", -- LSP_SERVERS
-  "texlab", -- LSP_SERVERS
-  "tsserver", -- LSP_SERVERS
-  "vimls", -- LSP_SERVERS
-  "yamlls", -- LSP_SERVERS
+  "denols",        -- LSP_SERVERS
+  "dockerls",      -- LSP_SERVERS
+  "emmet_ls",      -- LSP_SERVERS
+  "eslint",        -- LSP_SERVERS
+  -- "gopls",      -- LSP_SERVERS
+  "graphql",       -- LSP_SERVERS
+  "html",          -- LSP_SERVERS
+  "jdtls",         -- LSP_SERVERS
+  "jsonls",        -- LSP_SERVERS
+  "julials",       -- LSP_SERVERS
+  "ltex",          -- LSP_SERVERS
+  "lua_ls",        -- LSP_SERVERS
+  "marksman",      -- LSP_SERVERS
+  "prismals",      -- LSP_SERVERS
+  "pylsp",         -- LSP_SERVERS
+  "pyright",       -- LSP_SERVERS
+  "sqlls",         -- LSP_SERVERS
+  "tailwindcss",   -- LSP_SERVERS
+  "texlab",        -- LSP_SERVERS
+  "tsserver",      -- LSP_SERVERS
+  "vimls",         -- LSP_SERVERS
+  "vuels",         -- LSP_SERVERS
+  "yamlls",        -- LSP_SERVERS
 }
 -- Formatters and linters installed by Mason
 conf.formatters_linters = {
-  "actionlint", -- FORMATTERS_LINTERS
-  "gofumpt", -- FORMATTERS_LINTERS
-  "goimports", -- FORMATTERS_LINTERS
-  "golines", -- FORMATTERS_LINTERS
-  "golangci-lint", -- FORMATTERS_LINTERS
+  "actionlint",      -- FORMATTERS_LINTERS
+  "gofumpt",         -- FORMATTERS_LINTERS
+  "goimports",       -- FORMATTERS_LINTERS
+  "golines",         -- FORMATTERS_LINTERS
+  "golangci-lint",   -- FORMATTERS_LINTERS
   "google-java-format", -- FORMATTERS_LINTERS
-  "latexindent", -- FORMATTERS_LINTERS
-  "markdownlint", -- FORMATTERS_LINTERS
-  "prettier", -- FORMATTERS_LINTERS
-  "sql-formatter", -- FORMATTERS_LINTERS
-  "shellcheck", -- FORMATTERS_LINTERS
-  -- "shfmt",           -- FORMATTERS_LINTERS
-  "stylua", -- FORMATTERS_LINTERS
-  "tflint", -- FORMATTERS_LINTERS
-  "yamllint", -- FORMATTERS_LINTERS
+  "latexindent",     -- FORMATTERS_LINTERS
+  "markdownlint",    -- FORMATTERS_LINTERS
+  "prettier",        -- FORMATTERS_LINTERS
+  "sql-formatter",   -- FORMATTERS_LINTERS
+  "shellcheck",      -- FORMATTERS_LINTERS
+  "shfmt",           -- FORMATTERS_LINTERS
+  "stylua",          -- FORMATTERS_LINTERS
+  "tflint",          -- FORMATTERS_LINTERS
+  "yamllint",        -- FORMATTERS_LINTERS
 }
 -- Formatters and linters installed externally
 conf.external_formatters = {
-  -- "beautysh",        -- FORMATTERS_LINTERS
-  "black", -- FORMATTERS_LINTERS
-  "ruff", -- FORMATTERS_LINTERS
+  "beautysh",        -- FORMATTERS_LINTERS
+  "black",           -- FORMATTERS_LINTERS
+  "flake8",          -- FORMATTERS_LINTERS
+  "ruff",            -- FORMATTERS_LINTERS
 }
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
@@ -859,7 +852,7 @@ conf.telescope_grep_hidden = true
 --   "none":  diagnostics are disabled but still underlined
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
-conf.show_diagnostics = "icons"
+conf.show_diagnostics = "popup"
 -- Enable semantic highlighting
 conf.enable_semantic_highlighting = true
 -- Convert semantic highlights to treesitter highlights
