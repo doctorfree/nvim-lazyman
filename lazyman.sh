@@ -5561,6 +5561,7 @@ fi
         ;;
     esac
     [ "${newname}" ] && {
+      printf "\nSwitching Lazyman Neovim configuration namespace to %s" "${namespace}"
       [ "$tellme" ] || {
         rm -rf "${HOME}/.cache/${LAZYMAN}"
         ${SUBMENUS} -s namespace ${namespace}

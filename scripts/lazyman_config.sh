@@ -1416,7 +1416,11 @@ show_plugin_menu() {
           break
           ;;
         "Enable Motion"*,* | *,"Enable Motion"*)
-          choices=("Hop" "Flash" "Leap" "None")
+          if [ "${use_namespace}" == "onno" ]; then
+            choices=("Hop" "Leap" "None")
+          else
+            choices=("Hop" "Flash" "Leap" "None")
+          fi
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Motion Plugin  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             case ${choice} in

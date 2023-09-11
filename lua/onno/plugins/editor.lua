@@ -243,9 +243,6 @@ return {
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       }
-      if require("util").has("noice.nvim") then
-        keymaps["<leader>sn"] = { name = "+noice" }
-      end
       wk.register(keymaps)
     end,
   },
