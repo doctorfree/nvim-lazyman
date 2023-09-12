@@ -103,8 +103,6 @@ conf.obsidian_vault = "Documents/Notes/Obsidian"
 conf.enable_renamer = true
 -- Enable ranger in a floating window
 conf.enable_ranger_float = true
--- Enable multiple cursors
-conf.enable_multi_cursor = false
 -- Highlight sections of code which might have security or quality issues
 conf.enable_securitree = false
 -- neovim session manager to use: persistence, possession, or none
