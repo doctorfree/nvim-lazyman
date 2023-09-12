@@ -92,6 +92,7 @@ do
   echo '  if lstr ~= "" or rstr ~= "" then' >> "${KEYTMP}"/${CFNAME}.lua
   echo "  if v.desc ~= nil then" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write('| **Description** | ' .. v.desc .. ' |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
+  echo "  else" >> "${KEYTMP}"/${CFNAME}.lua
   echo "    io.write('| **Description** | |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  end" >> "${KEYTMP}"/${CFNAME}.lua
   echo "  io.write('| :---- | :---- |' .. \"\n\")" >> "${KEYTMP}"/${CFNAME}.lua
