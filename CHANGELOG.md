@@ -4,12 +4,19 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.1r3
+
+### ⚡️ Added
+
 - Add `RNvim` to Personal configs
 - Add `RNvim` info docs
 - Remove `CandyVim` from Personal configs
 
 ### 🐞 Fixed
 
+- Remove `multicursor` support from all Lazyman configuration namespaces
 - Update `Lazyman` info doc
 
 ## v3.1.1r2
