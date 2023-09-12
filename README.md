@@ -405,7 +405,7 @@ configuration with modifications and enhancements to integrate this config
 with `lazyman`. The `ecovim` namespace is based on the
 [Ecovim](https://lazyman.dev/info/Ecovim.html) configuration with modifications
 and enhancements to integrate with `lazyman`. The default Lazyman configuration
-namespace is `ecovim`.
+namespace is `free`.
 
 To switch Lazyman namespaces, run the command:
 
@@ -583,7 +583,7 @@ local conf = {}
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
-conf.namespace = "ecovim"
+conf.namespace = "free"
 --
 -- THEME CONFIGURATION
 -- Available themes:
