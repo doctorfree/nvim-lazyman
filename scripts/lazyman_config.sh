@@ -840,12 +840,6 @@ show_plugin_menu() {
     else
       use_games="✗"
     fi
-    enable_multi_cursor=$(get_conf_value enable_multi_cursor)
-    if [ "${enable_multi_cursor}" == "true" ]; then
-      use_multi_cursor=""
-    else
-      use_multi_cursor="✗"
-    fi
     enable_renamer=$(get_conf_value enable_renamer)
     if [ "${enable_renamer}" == "true" ]; then
       use_renamer=""
@@ -961,7 +955,6 @@ show_plugin_menu() {
     options+=("Enable Games  [${use_games}]")
     options+=("Indentline [${use_indentline}]")
     options+=("Enable Motion [${use_motion}]")
-    options+=("Multi Cursor  [${use_multi_cursor}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Toggle Term   [${use_toggleterm}]")
@@ -1523,15 +1516,6 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
-        "Multi Cursor"*,* | *,"Multi Cursor"*)
-          if [ "${enable_multi_cursor}" == "true" ]; then
-            set_conf_value "enable_multi_cursor" "false"
-          else
-            set_conf_value "enable_multi_cursor" "true"
-          fi
-          pluginit=1
-          break
-          ;;
         "Enable Rename"*,* | *,"Enable Rename"*)
           if [ "${enable_renamer}" == "true" ]; then
             set_conf_value "enable_renamer" "false"
@@ -1734,7 +1718,6 @@ show_plugin_menu() {
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_securitree" "false"
-          set_conf_value "enable_multi_cursor" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"
           set_conf_value "enable_games" "false"
@@ -1788,7 +1771,6 @@ show_plugin_menu() {
           set_conf_value "enable_ranger_float" "true"
           set_conf_value "enable_renamer" "true"
           set_conf_value "enable_securitree" "true"
-          set_conf_value "enable_multi_cursor" "true"
           set_conf_value "enable_bbye" "true"
           set_conf_value "enable_startuptime" "true"
           set_conf_value "enable_games" "true"
@@ -2563,7 +2545,6 @@ show_conf_menu() {
           set_conf_value "enable_ranger_float" "false"
           set_conf_value "enable_renamer" "false"
           set_conf_value "enable_securitree" "false"
-          set_conf_value "enable_multi_cursor" "false"
           set_conf_value "enable_bbye" "false"
           set_conf_value "enable_startuptime" "false"
           set_conf_value "enable_games" "false"
