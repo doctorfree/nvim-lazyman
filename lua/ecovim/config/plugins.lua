@@ -530,6 +530,19 @@ else
         { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" },
         { "<Leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
       },
+      config = function()
+        local opts = {
+          ui = {
+            border = "rounded",
+            icons = {
+              package_pending = " ",
+              package_installed = " ",
+              package_uninstalled = " ﮊ",
+            },
+          },
+        }
+        require("mason").setup(opts)
+      end,
     },
     {
       "RubixDev/mason-update-all",
