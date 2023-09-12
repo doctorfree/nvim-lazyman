@@ -139,56 +139,13 @@ if settings.enable_coding then
   }
 
   if table_contains(lsp_servers, "tailwindcss") then
-    -- Settings
-    local on_attach = function(client, bufnr)
-      if client.server_capabilities.colorProvider then
-        require("config.lsp.utils.documentcolors").buf_attach(bufnr)
-        require("colorizer").attach_to_buffer(bufnr, { mode = "background", css = true, names = false, tailwind = false })
-      end
-    end
-
-    local filetypes = { "html", "mdx", "javascript", "javascriptreact", "typescriptreact", "vue", "svelte" }
-
-    local init_options = {
-      userLanguages = {
-        eelixir = "html-eex",
-        eruby = "erb",
-      },
-    }
-
-    local settings = {
-      tailwindCSS = {
-        lint = {
-          cssConflict = "warning",
-          invalidApply = "error",
-          invalidConfigPath = "error",
-          invalidScreen = "error",
-          invalidTailwindDirective = "error",
-          invalidVariant = "error",
-          recommendedVariantOrder = "warning",
-        },
-        experimental = {
-          classRegex = {
-            "tw`([^`]*)",
-            'tw="([^"]*)',
-            'tw={"([^"}]*)',
-            "tw\\.\\w+`([^`]*)",
-            "tw\\(.*?\\)`([^`]*)",
-            { "clsx\\(([^)]*)\\)",       "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-            { "classnames\\(([^)]*)\\)", "'([^']*)'" },
-            { "cva\\(([^)]*)\\)",        "[\"'`]([^\"'`]*).*?[\"'`]" },
-          },
-        },
-        validate = true,
-      },
-    }
     lspconfig.tailwindcss.setup({
-      capabilities = capabilities,
-      filetypes = filetypes,
+      capabilities = require("config.lsp.servers.tailwindcss").capabilities,
+      filetypes = require("config.lsp.servers.tailwindcss").filetypes,
       handlers = handlers,
-      init_options = init_options,
-      on_attach = on_attach,
-      settings = settings,
+      init_options = require("config.lsp.servers.tailwindcss").init_options,
+      on_attach = require("config.lsp.servers.tailwindcss").on_attach,
+      settings = require("config.lsp.servers.tailwindcss").settings,
     })
   end
 
