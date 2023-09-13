@@ -144,6 +144,12 @@ conf.enable_lualine_lsp_progress = true
 conf.enable_terminal = true
 -- Enable toggleterm plugin
 conf.enable_toggleterm = true
+-- Enable window animations (mini.animate)
+conf.enable_animate = true
+-- Enable ducks, cats, dinosaurs, and other animals wandering around
+conf.enable_duck = true
+-- Enable window animations (flirt)
+conf.enable_flirt = false
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
@@ -252,7 +258,7 @@ conf.formatters_linters = {
   "markdownlint",    -- FORMATTERS_LINTERS
   "prettier",        -- FORMATTERS_LINTERS
   "sql-formatter",   -- FORMATTERS_LINTERS
-  "shellcheck",      -- FORMATTERS_LINTERS
+  -- "shellcheck",   -- FORMATTERS_LINTERS
   "shfmt",           -- FORMATTERS_LINTERS
   "stylua",          -- FORMATTERS_LINTERS
   "tflint",          -- FORMATTERS_LINTERS

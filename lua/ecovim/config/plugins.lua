@@ -7,8 +7,11 @@ if settings.enable_terminal then
   dashboard_depend = { "rebelot/terminal.nvim", "nvim-tree/nvim-web-devicons" }
 end
 
+local animate = {}
 local barbecue = {}
 local cheatsheet = {}
+local duck = {}
+local flirt = {}
 local vimbegood = {}
 local hacker = {}
 local sudoku = {}
@@ -37,6 +40,53 @@ if not ok then
   if not ok then
     notify_bg = "#000000"
   end
+end
+
+if settings.enable_animate then
+  animate = {
+    "echasnovski/mini.animate",
+    version = "*",
+    config = true,
+  }
+end
+
+if settings.enable_duck then
+    -- Alternate Duck configurations:
+    -- popular candidates: 🦆 ඞ  🦀 🐈 🐎 🦖 🐤
+    --
+    -- You can also specify how fast a duck moves (measured in steps per second):
+    --
+    -- A pretty fast duck
+    -- vim.keymap.set('n', '<Leader>dd', function() require("duck").hatch("🦆", 10) end, {})
+    -- Quite a mellow cat
+    -- vim.keymap.set('n', '<Leader>dc', function() require("duck").hatch("🐈", 0.75) end, {})
+  duck = {
+    "tamton-aquib/duck.nvim",
+    -- <Leader>d is already taken for debug keymaps
+    keys = {
+      "<Leader>DA",
+      "<Leader>Da",
+      "<Leader>Di",
+      "<Leader>Dc",
+      "<Leader>Dd",
+      "<Leader>Ds",
+      "<Leader>Dg",
+      "<Leader>Dh",
+      "<Leader>Dt",
+      "<Leader>Dk",
+      "<Leader>DK",
+    },
+    -- Moved keymaps to plugins/which-key.lua
+  }
+end
+
+if settings.enable_flirt then
+  flirt = {
+    "tamton-aquib/flirt.nvim",
+    config = function()
+      require("ecovim.plugins.flirt")
+    end,
+  }
 end
 
 if settings.enable_coding then
@@ -804,45 +854,14 @@ return {
     end,
   },
 
-  -- Candy
-  {
-    "echasnovski/mini.animate",
-    version = "*",
-    config = true,
-  },
-  -- Alternate Duck configurations:
-  -- popular candidates: 🦆 ඞ  🦀 🐈 🐎 🦖 🐤
-  --
-  -- You can also specify how fast a duck moves (measured in steps per second):
-  --
-  -- A pretty fast duck
-  -- vim.keymap.set('n', '<Leader>dd', function() require("duck").hatch("🦆", 10) end, {})
-  -- Quite a mellow cat
-  -- vim.keymap.set('n', '<Leader>dc', function() require("duck").hatch("🐈", 0.75) end, {})
-  {
-    "tamton-aquib/duck.nvim",
-    -- <Leader>d is already taken for debug keymaps
-    keys = {
-      "<Leader>DA",
-      "<Leader>Da",
-      "<Leader>Di",
-      "<Leader>Dc",
-      "<Leader>Dd",
-      "<Leader>Ds",
-      "<Leader>Dg",
-      "<Leader>Dh",
-      "<Leader>Dt",
-      "<Leader>Dk",
-      "<Leader>DK",
-    },
-    -- Moved keymaps to plugins/which-key.lua
-  },
-  {
-    "tamton-aquib/flirt.nvim",
-    config = function()
-      require("ecovim.plugins.flirt")
-    end,
-  },
+  -- Animate windows with mini.animate
+  animate,
+
+  -- Hatch ducks, cats, dinoaurs, and more
+  duck,
+
+  -- Window animations with Flirt
+  flirt,
 
   -- Treesitter
   {

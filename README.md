@@ -405,7 +405,7 @@ configuration with modifications and enhancements to integrate this config
 with `lazyman`. The `ecovim` namespace is based on the
 [Ecovim](https://lazyman.dev/info/Ecovim.html) configuration with modifications
 and enhancements to integrate with `lazyman`. The default Lazyman configuration
-namespace is `free`.
+namespace is `ecovim`.
 
 To switch Lazyman namespaces, run the command:
 
@@ -583,7 +583,7 @@ local conf = {}
 -- Switching namespace changes to a completely different configuration
 -- This is an example of how to incorporate multiple Neovim configurations
 -- into a single configuration.
-conf.namespace = "free"
+conf.namespace = "ecovim"
 --
 -- THEME CONFIGURATION
 -- Available themes:
@@ -723,6 +723,12 @@ conf.enable_lualine_lsp_progress = true
 conf.enable_terminal = true
 -- Enable toggleterm plugin
 conf.enable_toggleterm = true
+-- Enable window animations (mini.animate)
+conf.enable_animate = true
+-- Enable ducks, cats, dinosaurs, and other animals wandering around
+conf.enable_duck = true
+-- Enable window animations (flirt)
+conf.enable_flirt = false
 -- Enable playing games inside Neovim!
 conf.enable_games = true
 -- Enable the WakaTime metrics dashboard (requires API key)
@@ -831,7 +837,7 @@ conf.formatters_linters = {
   "markdownlint",    -- FORMATTERS_LINTERS
   "prettier",        -- FORMATTERS_LINTERS
   "sql-formatter",   -- FORMATTERS_LINTERS
-  "shellcheck",      -- FORMATTERS_LINTERS
+  -- "shellcheck",   -- FORMATTERS_LINTERS
   "shfmt",           -- FORMATTERS_LINTERS
   "stylua",          -- FORMATTERS_LINTERS
   "tflint",          -- FORMATTERS_LINTERS
