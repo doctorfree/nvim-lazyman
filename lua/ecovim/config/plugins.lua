@@ -1,5 +1,4 @@
 local settings = require("configuration")
-local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
 
 local diagnostics_active = true
@@ -282,14 +281,13 @@ if settings.enable_coding then
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "jose-elias-alvarez/nvim-lsp-ts-utils",
-        "jose-elias-alvarez/null-ls.nvim",
         "nvim-lua/plenary.nvim",
         "b0o/schemastore.nvim",
         "folke/neodev.nvim",
       },
       config = function()
         local opts = {
-          ensure_installed = formatters_linters,
+          ensure_installed = {},
           ui = {
             border = "rounded",
             icons = {
@@ -319,18 +317,6 @@ if settings.enable_coding then
           automatic_installation = true,
         })
         require("config.lspconfig")
-      end,
-    },
-
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
-      config = function()
-        require("config.null-ls")
       end,
     },
 
@@ -961,7 +947,7 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
       "saadparwaiz1/cmp_luasnip",
-      { "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
+      "L3MON4D3/LuaSnip",
       {
         cond = Ecovim.plugins.ai.tabnine.enabled,
         "tzachar/cmp-tabnine",
@@ -998,29 +984,8 @@ return {
   {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
-    init = function()
-      vim.g.navic_silence = true
-      vim.api.nvim_set_hl(0, "NavicText", { link = "Comment" })
-      vim.api.nvim_set_hl(0, "NavicSeparator", { link = "Comment" })
-      require("utils.utils").on_attach(function(client, buffer)
-        if client.server_capabilities.documentSymbolProvider then
-          require("nvim-navic").attach(client, buffer)
-        end
-      end)
-    end,
-    opts = function()
-      return {
-        separator = " ",
-        highlight = true,
-        depth_limit = 0,
-        depth_limit_indicator = "..",
-        icons = require("icons").kinds,
-        lsp = {
-          auto_attach = true,
-          preference = nil,
-        },
-        safe_output = true,
-      }
+    config = function()
+      require("ecovim.plugins.navic")
     end,
   },
   {
@@ -1250,22 +1215,45 @@ return {
         desc = "Delete all Notifications",
       },
     },
-    opts = {
-      background_colour = notify_bg,
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
+    config = function()
+      require("notify").setup({
+        background_colour = notify_bg,
+        timeout = 3000,
+        max_height = function()
+          return math.floor(vim.o.lines * 0.75)
+        end,
+        max_width = function()
+          return math.floor(vim.o.columns * 0.75)
+        end,
+      })
+    end,
+    -- when noice is not enabled, install notify on VeryLazy
+--       local Util = require("util")
+--       if not Util.has("noice.nvim") then
+--         Util.on_very_lazy(function()
+--           vim.notify = require("notify")
+--         end)
     init = function()
+      local banned_messages = {
+        "No information available",
+        "LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.",
+        "LSP[tsserver] Inlay Hints request failed. File not opened in the editor.",
+      }
+      local notify_func = function(msg, ...)
+        for _, banned in ipairs(banned_messages) do
+          if msg == banned then
+            return
+          end
+        end
+        return require("notify")(msg, ...)
+      end
       -- when noice is not enabled, install notify on VeryLazy
       local Util = require("util")
-      if not Util.has("noice.nvim") then
+      if Util.has("noice.nvim") then
+	vim.notify = notify_func
+      else
         Util.on_very_lazy(function()
-          vim.notify = require("notify")
+          vim.notify = notify_func
         end)
       end
     end,
