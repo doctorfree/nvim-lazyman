@@ -264,6 +264,20 @@ if settings.enable_coding then
     },
 
     {
+      "williamboman/mason.nvim",
+      build = ":MasonUpdate",
+      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+      lazy = false,
+      keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
+    },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = {
+        "williamboman/mason.nvim",
+      },
+    },
+
+    {
       "neovim/nvim-lspconfig",
       branch = "master",
       event = { "BufReadPre", "BufNewFile" },
@@ -271,6 +285,7 @@ if settings.enable_coding then
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "jose-elias-alvarez/nvim-lsp-ts-utils",
+        "jay-babu/mason-null-ls.nvim",
         "jose-elias-alvarez/null-ls.nvim",
         "nvim-lua/plenary.nvim",
         "b0o/schemastore.nvim",
@@ -311,7 +326,7 @@ if settings.enable_coding then
       },
       config = function()
         local opts = {
-          ensure_installed = formatters_linters,
+          ensure_installed = {},
           ui = {
             border = "rounded",
             icons = {
@@ -336,6 +351,21 @@ if settings.enable_coding then
         else
           install_ensured()
         end
+
+        -- require("mason-null-ls").setup({
+        --   ensure_installed = formatters_linters,
+        --   automatic_installation = false,
+        --   handlers = {},
+        -- })
+        -- require("ecovim.plugins.null-ls")
+
+        -- Alternate mason-null-ls method
+        require("ecovim.plugins.null-ls")
+        require("mason-null-ls").setup({
+          ensure_installed = nil,
+          automatic_installation = true,
+        })
+
         -- special attach lsp
         require("util").on_attach(function(client, buffer)
           require("config.lsp.navic").attach(client, buffer)
@@ -380,40 +410,36 @@ if settings.enable_coding then
           ]])
         end
 
+        local servers = require("config.lsp.lspservers")
+        local ext_capabilities = vim.lsp.protocol.make_client_capabilities()
+        local capabilities = require("util").capabilities(ext_capabilities)
+
+        local function setup(server)
+          if servers[server] and servers[server].disabled then
+            return
+          end
+          local server_opts = vim.tbl_deep_extend("force", {
+            capabilities = vim.deepcopy(capabilities),
+          }, servers[server] or {})
+          require("lspconfig")[server].setup(server_opts)
+        end
+
+        local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+
+        for server, server_opts in pairs(servers) do
+          if server_opts then
+            if not vim.tbl_contains(available, server) then
+              setup(server)
+            end
+          end
+        end
+
         require("mason-lspconfig").setup({
           ensure_installed = lsp_servers,
           automatic_installation = true,
         })
-        require("ecovim.plugins.lspconfig")
-      end,
-    },
-
-    {
-      "williamboman/mason.nvim",
-      build = ":MasonUpdate",
-      cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-      lazy = false,
-      keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
-    },
-
-    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = {
-        "williamboman/mason.nvim",
-      },
-    },
-
-    {
-      "RubixDev/mason-update-all",
-      cmd = "MasonUpdateAll",
-      config = function()
-        require("mason-update-all").setup()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MasonUpdateAllComplete",
-          callback = function()
-            print("mason-update-all has finished")
-          end,
-        })
+        require("mason-lspconfig").setup_handlers({ setup })
+        -- require("config.lspconfig")
       end,
     },
 
@@ -425,17 +451,36 @@ if settings.enable_coding then
         "neovim/nvim-lspconfig",
         "mason.nvim",
       },
-      config = function()
-        require("config.null-ls")
-      end,
     },
     {
       "jay-babu/mason-null-ls.nvim",
       event = { "BufReadPre", "BufNewFile" },
-      opts = {
-        ensure_installed = formatters_linters,
-        automatic_setup = true,
+      dependencies = {
+        "williamboman/mason.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
       },
+    },
+
+    {
+      "VonHeikemen/lsp-zero.nvim",
+      branch = "v2.x",
+      dependencies = {
+        -- LSP Support
+        { "neovim/nvim-lspconfig" }, -- Required
+        { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" }, -- Optional
+        -- Autocompletion
+        { "hrsh7th/nvim-cmp" }, -- Required
+        { "hrsh7th/cmp-nvim-lsp" }, -- Required
+        { "L3MON4D3/LuaSnip" }, -- Required
+      },
+      config = function()
+        local lsp = require("lsp-zero").preset({})
+        lsp.on_attach(function(_, bufnr)
+          lsp.default_keymaps({ buffer = bufnr })
+        end)
+        lsp.setup()
+      end,
     },
 
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
@@ -603,13 +648,7 @@ else
   coding = {
     {
       "williamboman/mason.nvim",
-      build = ":MasonUpdate",
       cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-      lazy = false,
-      keys = {
-        { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" },
-        { "<Leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
-      },
       config = function()
         local opts = {
           ui = {
@@ -622,19 +661,6 @@ else
           },
         }
         require("mason").setup(opts)
-      end,
-    },
-    {
-      "RubixDev/mason-update-all",
-      cmd = "MasonUpdateAll",
-      config = function()
-        require("mason-update-all").setup()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MasonUpdateAllComplete",
-          callback = function()
-            print("mason-update-all has finished")
-          end,
-        })
       end,
     },
   }

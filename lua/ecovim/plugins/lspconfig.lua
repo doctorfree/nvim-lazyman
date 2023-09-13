@@ -67,6 +67,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --   require("config.lsp.inlayhints").attach(client, buffer)
 -- end)
 
+-- special attach lsp
+require("util").on_attach(function(client, buffer)
+  require("config.lsp.navic").attach(client, buffer)
+  require("config.lsp.lspkeymaps").attach(client, buffer)
+  require("config.lsp.keymaps").on_attach(client, buffer)
+  require("config.lsp.inlayhints").attach(client, buffer)
+  require("config.lsp.gitsigns").attach(client, buffer)
+  require("config.lsp.python").attach(client, buffer)
+end)
+
+
 -- diagnostics
 for name, icon in pairs(require("icons").diagnostics) do
   name = "DiagnosticSign" .. name

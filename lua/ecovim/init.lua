@@ -11,6 +11,4 @@ require("ecovim.autocmds")
 require("ecovim.internal.winbar")
 require("ecovim.internal.cursorword")
 
-require("config.lsp.functions")
-
 require("ecovim.snippets.react")

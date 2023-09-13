@@ -14,9 +14,19 @@ vim.opt.runtimepath:prepend(lazypath)
 local settings = require("configuration")
 
 require("lazy").setup("ecovim.config.plugins", {
-  defaults = { lazy = true, version = false },
-  install = { colorscheme = { settings.theme, "habamax" }, missing = true },
-  checker = { enabled = true },
+  defaults = {
+    lazy = false,
+    version = false, -- always use the latest git commit
+  },
+  install = {
+    colorscheme = { settings.theme, "habamax" },
+    missing = true,
+  },
+  ui = {
+    size = { width = 0.8, height = 0.6 },
+    border = "rounded",
+  },
+  checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
       disabled_plugins = {
