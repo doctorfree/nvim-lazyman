@@ -1293,12 +1293,6 @@ return {
     config = true,
   },
   {
-    "sunjon/shade.nvim",
-    config = function()
-      require("shade").setup()
-    end,
-  },
-  {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
     config = function()

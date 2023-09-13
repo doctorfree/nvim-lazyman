@@ -1004,7 +1004,7 @@ show_plugin_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "ecovim" ] || options+=("Formatters")
+    options+=("Formatters")
     options+=("LSP Servers")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -1908,7 +1908,7 @@ show_lsp_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    [ "${use_namespace}" == "ecovim" ] || options+=("Formatters Menu")
+    options+=("Formatters Menu")
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
@@ -2288,7 +2288,7 @@ show_conf_menu() {
       diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
-    [ "${use_namespace}" == "ecovim" ] || options+=("Formatters")
+    options+=("Formatters")
     options+=("LSP Servers")
     options+=("Plugins Menu")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
