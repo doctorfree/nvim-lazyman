@@ -1,15 +1,6 @@
 local settings = require("configuration")
+local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
-
-local diagnostics_active = true
-local toggle_diagnostics = function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end
 
 local dashboard_depend = { "nvim-tree/nvim-web-devicons" }
 if settings.enable_terminal then
@@ -285,9 +276,10 @@ if settings.enable_coding then
         "b0o/schemastore.nvim",
         "folke/neodev.nvim",
       },
+      event = { "BufReadPre", "BufNewFile" },
       config = function()
         local opts = {
-          ensure_installed = {},
+          ensure_installed = formatters_linters,
           ui = {
             border = "rounded",
             icons = {
@@ -316,32 +308,22 @@ if settings.enable_coding then
           ensure_installed = lsp_servers,
           automatic_installation = true,
         })
-        require("config.lspconfig")
+        require("ecovim.plugins.lspconfig")
       end,
     },
 
+    -- formatters
     {
-      "VonHeikemen/lsp-zero.nvim",
-      branch = "v2.x",
+      "jose-elias-alvarez/null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
       dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" }, -- Required
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" }, -- Optional
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" }, -- Required
-        { "hrsh7th/cmp-nvim-lsp" }, -- Required
-        { "L3MON4D3/LuaSnip" }, -- Required
+        "neovim/nvim-lspconfig",
+        "mason.nvim",
       },
       config = function()
-        local lsp = require("lsp-zero").preset({})
-        lsp.on_attach(function(_, bufnr)
-          lsp.default_keymaps({ buffer = bufnr })
-        end)
-        lsp.setup()
+        require("ecovim.plugins.null-ls")
       end,
     },
-
 
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 
@@ -1227,12 +1209,6 @@ return {
         end,
       })
     end,
-    -- when noice is not enabled, install notify on VeryLazy
---       local Util = require("util")
---       if not Util.has("noice.nvim") then
---         Util.on_very_lazy(function()
---           vim.notify = require("notify")
---         end)
     init = function()
       local banned_messages = {
         "No information available",
@@ -1320,7 +1296,6 @@ return {
     "sunjon/shade.nvim",
     config = function()
       require("shade").setup()
-      require("shade").toggle()
     end,
   },
   {
