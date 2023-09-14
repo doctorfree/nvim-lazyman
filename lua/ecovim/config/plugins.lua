@@ -21,6 +21,7 @@ local coding = {}
 local motion = {}
 local neoscroll = {}
 local terminal_nvim = {}
+local ts_server = {}
 local wakatime_type = {}
 
 local actionmenu = {}
@@ -40,6 +41,21 @@ if not ok then
   if not ok then
     notify_bg = "#000000"
   end
+end
+
+if settings.typescript_server == "tools" then
+  ts_server = {
+    "pmizio/typescript-tools.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "typescript", "typescriptreact" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("ecovim.plugins.typescript-tools")
+    end,
+  }
 end
 
 if settings.enable_animate then
@@ -989,18 +1005,9 @@ return {
       require("ecovim.plugins.navic")
     end,
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = { "typescript", "typescriptreact" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("ecovim.plugins.typescript-tools")
-    end,
-  },
+
+  ts_server,
+
   {
     "axelvc/template-string.nvim",
     event = "InsertEnter",

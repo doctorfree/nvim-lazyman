@@ -1510,6 +1510,7 @@ show_plugin_menu() {
                   for lsp in "${all_lsp_servers[@]}"; do
                     set_conf_table "LSP_SERVERS" "${lsp}" "disable"
                   done
+                  set_conf_value "typescript_server" "none"
                   break
                   ;;
                 [Nn]*)
@@ -1526,6 +1527,7 @@ show_plugin_menu() {
             for lsp in "${all_lsp_servers[@]}"; do
               set_conf_table "LSP_SERVERS" "${lsp}" "enable"
             done
+            set_conf_value "typescript_server" "tsserver"
           fi
           pluginit=1
           break
@@ -1944,6 +1946,8 @@ show_lsp_menu() {
     fi
     printf '\n'
     get_conf_table lsp_servers
+    namespace=$(get_conf_value namespace)
+    ts_server=$(get_conf_value typescript_server)
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
@@ -1957,9 +1961,27 @@ show_lsp_menu() {
         ((numsp -= 1))
       done
       if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" >/dev/null; then
-        options+=("${longlsp} []")
+        if [ "${lsp}" == "tsserver" ]; then
+          if [ "${namespace}" == "ecovim" ]; then
+            if [ "${ts_server}" == "tsserver" ]; then
+              options+=("${longlsp} []")
+            else
+              options+=("${longlsp} [✗]")
+            fi
+            options+=("typescript [${ts_server}]")
+          else
+            options+=("${longlsp} []")
+          fi
+        else
+          options+=("${longlsp} []")
+        fi
       else
         options+=("${longlsp} [✗]")
+        [ "${lsp}" == "tsserver" ] && {
+          [ "${namespace}" == "ecovim" ] && {
+            options+=("typescript [${ts_server}]")
+          }
+        }
       fi
     done
     options+=("Disable All")
@@ -1974,6 +1996,17 @@ show_lsp_menu() {
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
           show_lsp_help
+          break
+          ;;
+        "typescript"*,* | *,"typescript"*)
+          choices=("tsserver" "tools" "none")
+          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select typescript server  " --layout=reverse --border --exit-0)
+          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
+            [ "${choice}" == "${ts_server}" ] || {
+              set_conf_value "typescript_server" "${choice}"
+              pluginit=1
+            }
+          fi
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -2020,10 +2053,28 @@ show_lsp_menu() {
             lspname=$(echo "${REPLY}" | awk ' { print $1 } ')
           fi
           grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
-          if [ "${enable}" ]; then
-            set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+          if [ "${lspname}" == "tsserver" ]; then
+            if [ "${namespace}" == "ecovim" ]; then
+              if [ "${enable}" ]; then
+                set_conf_value "typescript_server" "tsserver"
+                set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+              else
+                set_conf_value "typescript_server" "tools"
+                set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+              fi
+            else
+              if [ "${enable}" ]; then
+                set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+              else
+                set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+              fi
+            fi
           else
-            set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+            if [ "${enable}" ]; then
+              set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+            else
+              set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+            fi
           fi
           pluginit=1
           break

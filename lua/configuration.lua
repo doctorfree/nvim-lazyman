@@ -216,6 +216,8 @@ conf.treesitter_ensure_installed = {
 -- Note: if enabled then the tool must be installed and in the execution path
 conf.enable_ccls = true
 conf.enable_clangd = false
+-- Typescript language server. Can be "tsserver" "tools" or "none"
+conf.typescript_server = "tools"
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
