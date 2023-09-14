@@ -6,6 +6,18 @@
 
 ### 🐞 Fixed
 
+## v3.1.2r2
+
+### ⚡️ Added
+
+- Add `configuration.lua` entry `typescript_server`: `tsserver` `tools` or `none`
+- Add LSP menu support in `ecovim` namespace for typescript server selection
+
+### 🐞 Fixed
+
+- Reorder language server setup
+- Disable `eslint` by default
+
 ## v3.1.2r1
 
 ### ⚡️ Added
