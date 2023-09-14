@@ -1,0 +1,82 @@
+# vim: filetype=editorconfig
+# see http://editorconfig.org/
+
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+tab_width = 2
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.md]
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = false
+
+[*.{py,pl,rb}]
+indent_style = space
+charset = utf-8
+indent_size = 4
+tab_width = 4
+
+[Rakefile]
+indent_style = space
+indent_size = 2
+charset = utf-8
+
+[*.{c,cc,cpp,h,hpp}]
+indent_style = space
+tab_width = 4
+indent_size = 4
+
+[*.{html,css,scss}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+continuation_indent_size = 2
+charset = utf-8
+
+[*.{js,ts}]
+indent_size = 2
+tab_width = 2
+continuation_indent_size = 2
+
+[Makefile]
+indent_style = tab
+
+[*.{json,yml,yaml}]
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+
+[*.snip]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+[*.el]
+indent_size = 2
+
+[*.rs]
+indent_size = 4
+indent_style = space
+
+[*.{sh,zsh,bash}]
+indent_size = 2
+indent_style = space
+
+[*.go]
+indent_size = 4
+indent_style = tab
+
+[*.toml]
+indent_style = space
+indent_size = 4
+
+[*.vim]
+indent_style = space
+indent_size = 4

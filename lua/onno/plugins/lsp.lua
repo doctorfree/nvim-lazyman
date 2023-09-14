@@ -12,6 +12,36 @@ local toggle_diagnostics = function()
   end
 end
 
+local formatters = {
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mason.nvim",
+    },
+    config = function()
+      require("config.null-ls")
+    end,
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      ensure_installed = formatters_linters,
+      automatic_setup = true,
+    },
+  },
+}
+if settings.enable_conform then
+  formatters = {
+    "stevearc/conform.nvim",
+    config = function()
+      require("config.conform")
+    end,
+  }
+end
+
 if settings.enable_coding then
   return {
     {
@@ -160,25 +190,7 @@ if settings.enable_coding then
     },
 
     -- formatters
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
-      config = function()
-        require("config.null-ls")
-      end,
-    },
-    {
-      "jay-babu/mason-null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      opts = {
-        ensure_installed = formatters_linters,
-        automatic_setup = true,
-      },
-    },
+    formatters,
 
     {
       "williamboman/mason-lspconfig.nvim",

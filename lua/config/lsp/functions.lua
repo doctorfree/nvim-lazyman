@@ -1,23 +1,6 @@
 local utils = require("utils.functions")
 local M = {}
 
--- must be global or the initial state is not working
-VIRTUAL_TEXT_ACTIVE = false
--- toggle displaying virtual text
-M.toggle_virtual_text = function()
-  VIRTUAL_TEXT_ACTIVE = not VIRTUAL_TEXT_ACTIVE
-  utils.notify(string.format("Virtualtext %s", VIRTUAL_TEXT_ACTIVE and "on" or "off"), 1, "config/lsp/functions.lua")
-  vim.diagnostic.show(nil, 0, nil, { virtual_text = VIRTUAL_TEXT_ACTIVE })
-end
-
--- must be global or the initial state is not working
-AUTOFORMAT_ACTIVE = false
--- toggle null-ls's autoformatting
-M.toggle_autoformat = function()
-  AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
-  utils.notify(string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"), 1, "config/lsp/functions.lua")
-end
-
 function M.enable_format_on_save()
   local group = vim.api.nvim_create_augroup("format_on_save", { clear = false })
   vim.api.nvim_create_autocmd("BufWritePre", {
