@@ -225,7 +225,7 @@ conf.lsp_servers = {
   "denols",        -- LSP_SERVERS
   "dockerls",      -- LSP_SERVERS
   "emmet_ls",      -- LSP_SERVERS
-  "eslint",        -- LSP_SERVERS
+  -- "eslint",     -- LSP_SERVERS
   -- "gopls",      -- LSP_SERVERS
   "graphql",       -- LSP_SERVERS
   "html",          -- LSP_SERVERS
