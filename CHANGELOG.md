@@ -6,6 +6,24 @@
 
 ### 🐞 Fixed
 
+## v3.1.2r1
+
+### ⚡️ Added
+
+- Promote `ecovim` namespace to default after improving install and configuration
+- Add menu configuration of `mini.animate`, `duck.nvim`, and `flirt`
+- Re-enable formatters menu for `ecovim`
+
+### 🐞 Fixed
+
+- Remove `shade` plugin from `ecovim` namespace
+- Remove `null-ls` and formatters from `ecovim` namespace
+- Revert to previous config for `tailwindcss`
+- Move `.luarc.json` up from `ecovim` subdir
+- Fix `keymaps.sh` description table heading
+- Rework `ecovim` namespace lspconfig setup
+- Configure Mason in `ecovim` when coding is disabled
+
 ## v3.1.1r3
 
 ### ⚡️ Added
