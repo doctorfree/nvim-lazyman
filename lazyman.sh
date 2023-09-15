@@ -5079,6 +5079,8 @@ else
 fi
 
 [ "${instnvim}" ] && {
+  [ -d "${HOME}/.local" ] || mkdir -p "${HOME}/.local"
+  [ -d "${HOME}/.local/bin" ] || mkdir -p "${HOME}/.local/bin"
   if [ -x "${INSTNVIM}" ]; then
     "${INSTNVIM}" $darg $head $brew $yes
     have_nvim=$(type -p nvim)
