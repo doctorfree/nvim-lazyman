@@ -5114,9 +5114,6 @@ fi
         wezterm)
           ${SUBMENUS} -s enable_wezterm true
           ;;
-        *)
-          break
-          ;;
       esac
     }
   else
