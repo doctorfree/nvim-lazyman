@@ -134,6 +134,16 @@ Lazyman requires Linux or macOS, git, and the Bash shell version 4 or later.
 - Bash version 4 or later (automatically installed if not found)
 - Git
 
+To enable installation of language servers and treesitter syntax highlighting
+`gcc`, `node`, and `npm` are required. For example, to install these
+requirements on Ubuntu Linux:
+
+```bash
+sudo apt install build-essential
+sudo apt install nodejs
+sudo apt install npm
+```
+
 ### macOS users
 
 Even the latest versions of macOS ship with Bash 3.2 which dates from 2007.
