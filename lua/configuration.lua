@@ -81,7 +81,7 @@ conf.enable_coding = true
 -- Enable compile plugin to compile and run current file
 conf.enable_compile = false
 -- Replace null-ls with conform.nvim
-conf.enable_conform = true
+conf.enable_conform = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "flash", "leap", or "none"
