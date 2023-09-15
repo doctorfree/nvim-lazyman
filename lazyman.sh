@@ -2829,10 +2829,10 @@ show_main_menu() {
                 nvims
               fi
               ;;
-	  esac
-	fi
-	break
-	;;
+          esac
+        fi
+        break
+        ;;
       "Open Lazyman"*,* | *,"Open Lazyman"*)
         if [ "${USEGUI}" ]; then
           NVIM_APPNAME="nvim-Lazyman" neovide
@@ -5098,9 +5098,10 @@ fi
       have_matter=$(type -p ${matter})
       [ "${have_matter}" ] || ${SUBMENUS} -s formatters_linters ${matter} disable
     done
-    # Enable gopls on Linux, leave disabled on macOS
-    platform=$(uname -s)
-    [ "${platform}" == "Darwin" ] || ${SUBMENUS} -s lsp_servers gopls enable
+    # Enable gopls if go is available
+    have_go=$(type -p go)
+    [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
+
     # If terminal type is supported by zen mode then enable it
     [ -x "${SCRIPTSD}/get_term.sh" ] && {
       terminal=$(${SCRIPTSD}/get_term.sh)
