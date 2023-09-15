@@ -5102,20 +5102,23 @@ fi
     have_go=$(type -p go)
     [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
 
-    # If terminal type is supported by zen mode then enable it
-    [ -x "${SCRIPTSD}/get_term.sh" ] && {
-      terminal=$(${SCRIPTSD}/get_term.sh)
-      case "${terminal}" in
-        alacritty)
-          ${SUBMENUS} -s enable_alacritty true
-          ;;
-        kitty)
-          ${SUBMENUS} -s enable_kitty true
-          ;;
-        wezterm)
-          ${SUBMENUS} -s enable_wezterm true
-          ;;
-      esac
+    platform=$(uname -s)
+    [ "${platform}" == "Darwin" ] || {
+      # If terminal type is supported by zen mode then enable it
+      [ -x "${SCRIPTSD}/get_term.sh" ] && {
+        terminal=$(${SCRIPTSD}/get_term.sh)
+        case "${terminal}" in
+          alacritty)
+            ${SUBMENUS} -s enable_alacritty true
+            ;;
+          kitty)
+            ${SUBMENUS} -s enable_kitty true
+            ;;
+          wezterm)
+            ${SUBMENUS} -s enable_wezterm true
+            ;;
+        esac
+      }
     }
   else
     printf "\n${INSTNVIM} not executable"
