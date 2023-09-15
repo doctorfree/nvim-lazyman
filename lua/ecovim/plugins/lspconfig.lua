@@ -257,7 +257,7 @@ if settings.enable_coding then
         formatter_bin = "prettier"
       end
       local tsserver_on_attach = function(client, bufnr)
-        -- disable tsserver formatting if you plan on formatting via null-ls
+        -- disable tsserver formatting if you plan on formatting via null-ls or conform
         client.server_capabilities.document_formatting = false
         client.server_capabilities.document_range_formatting = false
 

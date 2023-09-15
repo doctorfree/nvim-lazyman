@@ -19,7 +19,7 @@ if settings.enable_coding then
       end
       require("go").setup({
         -- NOTE: all LSP and formatting related options are disabeld.
-        -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls.lua
+        -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls or conform
         -- NOTE: via `lsp_on_attach` the custom callback used by all other LSPs is called
         go = "go",                -- go command, can be go[default] or go1.18beta1
         goimport = import,        -- goimport command, can be gopls[default] or goimport

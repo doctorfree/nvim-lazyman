@@ -1,6 +1,63 @@
 local settings = require("configuration")
 local formatters_linters = settings.formatters_linters
 local lsp_servers = settings.lsp_servers
+local utils = require("utils.linter")
+
+local formatters = {
+  "jose-elias-alvarez/null-ls.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "neovim/nvim-lspconfig",
+    "mason.nvim",
+  },
+  config = function()
+    require("config.null-ls")
+  end,
+}
+if settings.enable_conform then
+  formatters = {
+    { -- auto-install missing linters & formatters
+      -- (auto-install of lsp servers done via `mason-lspconfig.nvim`)
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      event = "VeryLazy",
+      dependencies = "williamboman/mason.nvim",
+      config = function()
+        -- triggered myself, since `run_on_start`, does not work w/ lazy-loading
+        require("mason-tool-installer").setup {
+          ensure_installed = formatters_linters,
+          run_on_start = false,
+        }
+        vim.defer_fn(vim.cmd.MasonToolsInstall, 2000)
+      end,
+    },
+    {
+      "mfussenegger/nvim-lint",
+      event = "VeryLazy",
+      config = function()
+        utils.linterConfigs()
+        utils.lintTriggers()
+      end,
+    },
+    {
+      "stevearc/conform.nvim",
+      cmd = "ConformInfo",
+      keys = {
+        {
+          "<leader>F",
+          function()
+            require("conform").format { lsp_fallback = "always" }
+            vim.cmd.update()
+          end,
+          mode = { "n", "x" },
+          desc = " Format & Save",
+        },
+      },
+      config = function()
+        require("config.conform")
+      end,
+    },
+  }
+end
 
 local dashboard_depend = { "nvim-tree/nvim-web-devicons" }
 if settings.enable_terminal then
@@ -378,18 +435,7 @@ if settings.enable_coding then
       end,
     },
 
-    -- formatters
-    {
-      "jose-elias-alvarez/null-ls.nvim",
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        "mason.nvim",
-      },
-      config = function()
-        require("ecovim.plugins.null-ls")
-      end,
-    },
+    formatters,
 
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 
@@ -1252,7 +1298,7 @@ return {
       -- when noice is not enabled, install notify on VeryLazy
       local Util = require("util")
       if Util.has("noice.nvim") then
-	vim.notify = notify_func
+        vim.notify = notify_func
       else
         Util.on_very_lazy(function()
           vim.notify = notify_func

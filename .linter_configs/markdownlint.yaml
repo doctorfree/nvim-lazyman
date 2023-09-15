@@ -1,0 +1,14 @@
+# Default config: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+#───────────────────────────────────────────────────────────────────────────────
+
+blanks-around-headings: { lines_below: 0 }
+blanks-around-lists: false
+
+# taken care of by editorconfig
+line-length: false
+no-hard-tabs: false
+ul-indent: false
+
+# disabled
+first-line-heading: false
+no-inline-html: false

@@ -1,0 +1,39 @@
+{
+	"$schema": "https://raw.githubusercontent.com/biomejs/biome/main/editors/vscode/configuration_schema.json",
+	"files": {
+		"ignore": ["node_modules/**"]
+	},
+	"formatter": {
+		"lineWidth": 110,
+		"indentStyle": "tab",
+		"indentSize": 3,
+		"formatWithErrors": true
+	},
+	"organizeImports": { "enabled": true },
+	"vcs": { "enabled": true, "clientKind": "git" },
+	"json": {
+		"parser": { "allowComments": true }
+	},
+	"javascript": {
+		"globals": ["ObjC", "Application", "delay", "Path", "$"]
+	},
+	"linter": {
+		"rules": {
+			"all": true,
+			"nursery": {
+				"noExcessiveComplexity": "off"
+			},
+			"suspicious": {
+				"noConsoleLog": "off"
+			},
+			"style": {
+				"useBlockStatements": "off",
+				"useConst": "warn",
+				"noParameterAssign": "off",
+				"useTemplate": "off",
+				"noUnusedTemplateLiteral": "warn",
+				"useSingleVarDeclarator": "off"
+			}
+		}
+	}
+}

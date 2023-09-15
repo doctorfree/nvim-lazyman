@@ -3,7 +3,7 @@ local cfg = {}
 cfg.root_patterns = { ".git", "lua", "package.json" }
 
 function cfg.custom_lsp_attach(client, bufnr)
-  -- disable formatting for LSP clients as this is handled by null-ls
+  -- disable formatting for LSP clients as this is handled by null-ls or conform
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
   -- enable navic for displaying current code context

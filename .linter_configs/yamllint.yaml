@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+# explicitly setting schema required, since using non-standard filename
+#───────────────────────────────────────────────────────────────────────────────
+# https://yamllint.readthedocs.io/en/stable/configuration.html#extending-the-default-configuration
+#───────────────────────────────────────────────────────────────────────────────
+
+extends: default
+
+rules:
+  line-length: disable
+  document-start: disable # allow "---" at start of a line
+  trailing-spaces: disable # automatically taken care of by formatter
+  empty-lines: disable # automatically taken care of by formatter
+  truthy: disable # false positives when using `on` in github actions
+  braces: disable
+  brackets: disable #     automatically taken care of by formatter
+  new-line-at-end-of-file: disable
+  comments-indentation: disable
+
+  comments:
+    min-spaces-from-content: 1
+    require-starting-space: false
+
+  commas: { level: warning }
+  hyphens: { level: warning }

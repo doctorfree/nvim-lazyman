@@ -1,0 +1,23 @@
+# INFO terms here need to be lowercase
+# German
+als
+ist
+interaktion
+technik
+termine
+
+# too many false positives
+bu
+caf
+tre
+
+# vim command
+enew
+
+# actually a plugin name :S
+noice
+
+# prefer British English over American English here
+acknowledgement
+acknowledgements
+aesthetics
