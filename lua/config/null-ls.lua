@@ -22,9 +22,6 @@ local conf_sources = {
 if table_contains(formatters_linters, "actionlint") then
   table.insert(conf_sources, diagnostics.actionlint)
 end
-if table_contains(formatters_linters, "selene") then
-  table.insert(conf_sources, diagnostics.selene)
-end
 if table_contains(formatters_linters, "stylua") then
   table.insert(
     conf_sources,

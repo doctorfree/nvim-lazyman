@@ -102,7 +102,7 @@ if brew_prefix ~= nil then
     end
   end
 else
-  vim.g.homebrew_install_dir = brew_prefix
+  vim.g.homebrew_install_dir = "/usr"
 end
 
 local python_path = vim.fn.exepath("python3")

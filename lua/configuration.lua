@@ -261,7 +261,6 @@ conf.formatters_linters = {
   "latexindent",     -- FORMATTERS_LINTERS
   "markdownlint",    -- FORMATTERS_LINTERS
   "prettier",        -- FORMATTERS_LINTERS
-  "selene",           -- FORMATTERS_LINTERS
   "sql-formatter",   -- FORMATTERS_LINTERS
   -- "shellcheck",   -- FORMATTERS_LINTERS
   "shfmt",           -- FORMATTERS_LINTERS

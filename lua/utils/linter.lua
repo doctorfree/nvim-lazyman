@@ -6,7 +6,7 @@ function cfg.linterConfigs()
 	local linters = require("lint").linters
 
 	lint.linters_by_ft = {
-		lua = { "selene" },
+		lua = { "stylua" },
 		css = { "stylelint" },
 		sh = { "shellcheck" },
 		markdown = { "markdownlint" },
