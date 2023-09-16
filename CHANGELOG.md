@@ -6,6 +6,20 @@
 
 ### 🐞 Fixed
 
+## v3.1.2r4
+
+### ⚡️ Added
+
+- Install `nvm`, latest `node`, latest `npm` during initialization
+- Migrate any previously installed global `node` packages
+- Check for `n` node version manager and issue warning
+
+### 🐞 Fixed
+
+- Merge `lspconfig` into `lua/config/lspconfig.lua`
+- Always use `on_attach` from `lua/util.lua`
+- Only test for terminal type on Linux, fails on macOS
+
 ## v3.1.2r3
 
 ### ⚡️ Added
