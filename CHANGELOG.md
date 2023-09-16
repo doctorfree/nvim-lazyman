@@ -6,6 +6,26 @@
 
 ### 🐞 Fixed
 
+## v3.1.2r3
+
+### ⚡️ Added
+
+- Add support for `conform.nvim` as replacement for `null-ls`
+- Enable `gopls` if `go` is in path
+- Add note about `gcc`, `node`, and `npm` requirements
+- Set install prefix to /usr if no homebrew found
+- Create `HOME/.local/bin` if necessary
+- Disable `conform.nvim` by default
+- Start conditionally configuring `config/conform.lua`
+- Move linter functions into `utils/linter.lua`
+
+### 🐞 Fixed
+
+- Fix unneeded break in case statement
+- Remove test checkout
+- Only check for terminal type on Linux, hangs on macOS
+- Remove `selene`
+
 ## v3.1.2r2
 
 ### ⚡️ Added
