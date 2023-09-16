@@ -884,6 +884,45 @@ install_extra() {
 }
 
 install_tools() {
+  export NVM_DIR="$HOME/.nvm"
+  HERE=$(pwd)
+  if [ -d "${NVM_DIR}" ]; then
+    log "Verifying latest version of nvm ..."
+    cd "$NVM_DIR"
+    git fetch --tags origin > /dev/null 2>&1
+    git checkout \
+      `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)` \
+      > /dev/null 2>&1
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    cd "${HERE}"
+    [ "$quiet" ] || printf " done"
+  else
+    log "Installing nvm node version manager ..."
+    git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR" > /dev/null 2>&1
+    cd "$NVM_DIR"
+    git checkout \
+      `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)` \
+      > /dev/null 2>&1
+    if [ -x install.sh ]; then
+      ./install.sh > /dev/null 2>&1
+    else
+      [ -f install.sh ] && {
+        chmod 755 install.sh
+        ./install.sh > /dev/null 2>&1
+      }
+    fi
+    cd "${HERE}"
+    [ "$quiet" ] || printf " done"
+  fi
+  log "Verifying latest version of node with nvm ..."
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  nvm install node --reinstall-packages-from=node > /dev/null 2>&1
+  [ "$quiet" ] || printf " done"
+
+  log "Verifying latest version of npm with nvm ..."
+  nvm install-latest-npm > /dev/null 2>&1
+  [ "$quiet" ] || printf " done"
+
   [ "$quiet" ] || printf "\nInstalling language servers and tools"
   plat_install ccls
   [ "${use_homebrew}" ] && {
