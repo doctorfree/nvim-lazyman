@@ -431,7 +431,7 @@ if settings.enable_coding then
           ensure_installed = lsp_servers,
           automatic_installation = true,
         })
-        require("ecovim.plugins.lspconfig")
+        require("config.lspconfig")
       end,
     },
 
