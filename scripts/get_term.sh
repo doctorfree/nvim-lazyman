@@ -1,6 +1,8 @@
 #!/bin/bash
 
 get_terminal() {
+  platform=$(uname -s)
+  [ "${platform}" == "Darwin" ] || {
     pid=$$
     while true; do
         pid=$(ps -h -o ppid -p $pid 2>/dev/null)
@@ -19,5 +21,6 @@ get_terminal() {
         done
         [[ $(echo $pid) == 1 ]] && break
     done
+  }
 }
 get_terminal
