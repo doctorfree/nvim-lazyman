@@ -5037,7 +5037,7 @@ numvimdirs=${#neovimdir[@]}
   [ -f "${LMANDIR}/.initialized" ] && interactive=1
 }
 if [ -d "${LMANDIR}" ]; then
-  git -C "${LMANDIR}" checkout conform >/dev/null 2>&1 # Needed for test branch
+  # git -C "${LMANDIR}" checkout test >/dev/null 2>&1 # Needed for test branch
   [ "$branch" ] && {
     git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
   }
@@ -5051,7 +5051,7 @@ else
   [ "$tellme" ] || {
     git clone https://github.com/doctorfree/nvim-lazyman \
       "${LMANDIR}" >/dev/null 2>&1
-    git -C "${LMANDIR}" checkout conform >/dev/null 2>&1 # Needed for test branch
+    # git -C "${LMANDIR}" checkout test >/dev/null 2>&1 # Needed for test branch
     [ "$branch" ] && {
       git -C "${LMANDIR}" checkout "$branch" >/dev/null 2>&1
     }
