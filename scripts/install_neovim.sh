@@ -917,6 +917,7 @@ install_tools() {
   log "Verifying latest version of node with nvm ..."
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
   nvm install node --reinstall-packages-from=node > /dev/null 2>&1
+  nvm install node > /dev/null 2>&1
   [ "$quiet" ] || printf " done"
 
   log "Verifying latest version of npm with nvm ..."
