@@ -1,3 +1,5 @@
+-- No longer used, here for reference only
+--
 local function highlight_cursorword()
   if vim.g.cursorword_highlight ~= false then
     vim.cmd('highlight CursorWord term=underline cterm=underline gui=underline')

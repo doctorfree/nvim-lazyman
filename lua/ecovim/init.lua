@@ -9,6 +9,5 @@ require("ecovim.keymaps")
 require("ecovim.autocmds")
 
 require("ecovim.internal.winbar")
-require("ecovim.internal.cursorword")
 
 require("ecovim.snippets.react")
