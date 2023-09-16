@@ -882,9 +882,43 @@ install_extra() {
     }
   }
 }
+nvm_default_install_dir() {
+  [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm"
+}
+
+nvm_install_dir() {
+  if [ -n "$NVM_DIR" ]; then
+    printf %s "${NVM_DIR}"
+  else
+    nvm_default_install_dir
+  fi
+}
 
 install_tools() {
-  export NVM_DIR="$HOME/.nvm"
+  # Check for n node version manager
+  have_n=$(type -p n)
+  [ "${have_n}" ] && {
+    n list 2>&1 | grep node > /dev/null || have_n=
+  }
+  [ "${have_n}" ] && {
+    printf "\nIt appears the 'n' node version manager is installed"
+    printf "\nLazyman uses the 'nvm' node version manager"
+    printf "\nResolve any node version mismatch post-initialization\n"
+  }
+  dir_nvm=$(nvm_install_dir)
+  if [ -d "${dir_nvm}/.git" ]; then
+    export NVM_DIR="${dir_nvm}"
+  else
+    if [ -d "${HOME}/.config/nvm/.git" ]; then
+      if [ -d "${HOME}/.nvm/.git" ]; then
+        export NVM_DIR="${HOME}/.nvm"
+      else
+        export NVM_DIR="${HOME}/.config/nvm"
+      fi
+    else
+      export NVM_DIR="${HOME}/.nvm"
+    fi
+  fi
   HERE=$(pwd)
   if [ -d "${NVM_DIR}" ]; then
     log "Verifying latest version of nvm ..."
