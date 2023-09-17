@@ -4,7 +4,15 @@
 
 ### ⚡️ Added
 
+- Improve `nvim-cmp` configuration
+- Add conditional config for `tabnine` to `nvim-cmp`
+- Add `which-key` mappings for todo comments
+
 ### 🐞 Fixed
+
+- Merge `nvim-cmp` config from `ecovim` into `config/nvim-cmp.lua`
+- Move all `cmp-npm` config up to `config/cmp-npm.lua`
+- `lua/ecovim/internal/cursorword.lua` no longer used, include for reference only
 
 ## v3.1.2r4
 
