@@ -355,7 +355,6 @@ local normal_mode_mappings = {
     d = { '<cmd>lua require("ecovim.plugins.telescope").edit_neovim()<CR>', 'Dotfiles' },
     h = { '<cmd>Telescope oldfiles hidden=true<CR>',                        'File history' },
     H = { '<cmd>lua require("ecovim.plugins.telescope").command_history()<CR>', 'Command history' },
-    s = { '<cmd>Telescope search_history theme=dropdown<CR>',               'Search history' },
     n = { name = 'Noice' },
   },
 
