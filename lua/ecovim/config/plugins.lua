@@ -999,9 +999,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    config = function()
-      require("ecovim.plugins.cmp")
-    end,
     dependencies = {
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-nvim-lsp",
@@ -1030,6 +1027,9 @@ return {
         end,
       },
     },
+    config = function()
+      require("config.nvim-cmp")
+    end,
   },
 
   -- LSP Addons

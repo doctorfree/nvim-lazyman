@@ -2,6 +2,7 @@
 local settings = require("configuration")
 local codeium_enabled = settings.enable_codeium
 local copilot_enabled = settings.enable_copilot
+local tabnine_enabled = settings.enable_tabnine
 local lspkind = require("lspkind")
 local types = require("cmp.types")
 
@@ -18,6 +19,8 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local snippet_path = vim.fn.stdpath("config") .. "/snippets"
 require("luasnip.loaders.from_snipmate").load({ path = { snippet_path }, })
 
+local _, tabnine = pcall(require, "cmp_tabnine.config")
+
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
 local npm_or_copilot = { name = "npm",     priority = 7 }
 if copilot_enabled then
@@ -29,6 +32,10 @@ end
 local codeium_source = {}
 if codeium_enabled then
   codeium_source = { name = "codeium",     priority = 10 }
+end
+local tabnine_source = {}
+if tabnine_enabled then
+  tabnine_source = { name = "tabnine",     priority = 10 }
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -122,6 +129,7 @@ end
 -- ╰──────────────────────────────────────────────────────────╯
 local icons = require("icons")
 local source_mapping = {
+  tabnine = icons.misc.light,
   codeium = icons.misc.codeium,
   copilot = icons.misc.copilot,
   npm = icons.misc.terminal .. "NPM",
@@ -242,11 +250,30 @@ cmp.setup({
       item_with_kind.menu = vim.trim(item_with_kind.menu or "")
       item_with_kind.abbr = string.sub(item_with_kind.abbr, 1, item_with_kind.maxwidth)
 
+      if entry.source.name == "tabnine" then
+        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+          item_with_kind.kind = " " .. lspkind.symbolic("Event", { with_text = false }) .. " TabNine"
+          item_with_kind.menu = item_with_kind.menu .. entry.completion_item.data.detail
+        else
+          item_with_kind.kind = " " .. lspkind.symbolic("Event", { with_text = false }) .. " TabNine"
+          item_with_kind.menu = item_with_kind.menu .. " TBN"
+        end
+      end
+
+      if string.find(vim_item.kind, "Color") then
+        -- Override for plugin purposes
+        vim_item.kind = "Color"
+        local tailwind_item = require("cmp-tailwind-colors").format(entry, vim_item)
+        item_with_kind.menu = lspkind.symbolic("Color", { with_text = false }) .. " Color"
+        item_with_kind.kind = " " .. tailwind_item.kind
+      end
+
       return item_with_kind
     end,
   },
   sources = {
     { name = "nvim_lsp",    priority = 8, entry_filter = limit_lsp_types, },
+    tabnine_source,
     codeium_source,
     npm_or_copilot,
     { name = "luasnip",     priority = 9, max_item_count = 5 },
@@ -291,3 +318,18 @@ cmp.setup({
     ghost_text = true,
   },
 })
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Tabnine Setup                                            │
+-- ╰──────────────────────────────────────────────────────────╯
+if settings.enable_tabnine then
+  tabnine:setup({
+    max_lines = 1000,
+    max_num_results = 3,
+    sort = true,
+    show_prediction_strength = true,
+    run_on_every_keystroke = true,
+    snipper_placeholder = "..",
+    ignored_file_types = {},
+  })
+end
