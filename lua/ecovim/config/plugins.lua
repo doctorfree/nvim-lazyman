@@ -1150,6 +1150,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
     lazy = false,
     event = "BufEnter",
     config = function()

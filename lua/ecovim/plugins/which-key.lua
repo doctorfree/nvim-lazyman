@@ -344,16 +344,18 @@ local normal_mode_mappings = {
     w = { 'Word' },
     l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'List' },
     r = { 'Refactor' },
-    s = { "<cmd>SessionManager save_current_session<CR>",            'Save session' },
-    t = { "<cmd>TodoTrouble<CR>",                                    'Todo' },
+    s = { "<cmd>SessionManager save_current_session<CR>",    'Save session' },
+    T = { "<cmd>TodoTelescope<CR>",                          'Todo (Telescope)' },
+    t = { "<cmd>TodoTrouble<CR>",                            'Todo (Trouble)' },
+    v = { "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<CR>",    'Todo/Fix/Fixme (Trouble)' },
   },
 
   s = {
     name = 'Search',
-    d = { '<cmd>lua require("ecovim.plugins.telescope").edit_neovim()<CR>',     'Dotfiles' },
-    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'File history' },
+    d = { '<cmd>lua require("ecovim.plugins.telescope").edit_neovim()<CR>', 'Dotfiles' },
+    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                        'File history' },
     H = { '<cmd>lua require("ecovim.plugins.telescope").command_history()<CR>', 'Command history' },
-    s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'Search history' },
+    s = { '<cmd>Telescope search_history theme=dropdown<CR>',               'Search history' },
     n = { name = 'Noice' },
   },
 
