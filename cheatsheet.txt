@@ -3,7 +3,6 @@ Asciiville Command                  | <leader>av
 Asciiville Command                  | :Asciiville
 Htop Command                        | <leader>H
 Htop Command                        | :Htop
-Lazygit Command                     | <leader>G
 Lazygit Command                     | :Lazygit
 Lazygit Root Dir                    | <leader>gg
 Lazygit Current Dir                 | <leader>gG
