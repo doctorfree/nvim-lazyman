@@ -1015,8 +1015,10 @@ return {
       },
       {
         "David-Kunz/cmp-npm",
+        ft = "json",
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-          require("ecovim.plugins.cmp-npm")
+          require("config.cmp-npm")
         end,
       },
       {

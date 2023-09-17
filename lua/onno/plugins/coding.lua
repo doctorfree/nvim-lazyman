@@ -147,10 +147,7 @@ if not settings.enable_copilot then
     ft = "json",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("cmp-npm").setup({
-        ignore = {},
-        only_semantic_versions = true,
-      })
+      require("config.cmp-npm")
     end,
   }
 end
