@@ -1,12 +1,12 @@
 TODO:
 
-- Check out nb author's config at https://github.com/xwmx/dotvim
-
+- Finish configuring conform.nvim in ecovim namespace
 - Check for available updates to rustc, rustup, cargo, etc and update bob
   rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
 
 DONE:
 
+x Check out nb author's config at https://github.com/xwmx/dotvim
 x Check out config of Ahsan Habib
 x Add Chokerman config to Personals
 x Enable candy on CandyVim dashboard
