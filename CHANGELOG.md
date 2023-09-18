@@ -4,12 +4,23 @@
 
 ### ⚡️ Added
 
-- Improve `nvim-cmp` configuration
+### 🐞 Fixed
+
+## v3.1.2r5
+
+### ⚡️ Added
+
 - Add conditional config for `tabnine` to `nvim-cmp`
 - Add `which-key` mappings for todo comments
+- Add patch for `Allaman` config
+- Add `ranger` and `renamer` plugins to `ecovim` namespace, manage in menu
+- Add `telescope` keymaps from `free` namespace to `ecovim` namespace
 
 ### 🐞 Fixed
 
+- Improve `nvim-cmp` configuration
+- Fix `telescope` find files keymap
+- Update `cheatsheet` with `lazygit` keymaps
 - Merge `nvim-cmp` config from `ecovim` into `config/nvim-cmp.lua`
 - Move all `cmp-npm` config up to `config/cmp-npm.lua`
 - `lua/ecovim/internal/cursorword.lua` no longer used, include for reference only
