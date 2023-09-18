@@ -76,7 +76,9 @@ function cfg.on_attach(client, buffer)
   map(buffer, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   map(buffer, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   if settings.enable_renamer then
-    map(buffer, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<CR>", opts)
+    map(buffer, "i", "<F2>", "<cmd>lua require('renamer').rename()<CR>", opts)
+    map(buffer, "n", "<leader>r", "<cmd>lua require('renamer').rename()<CR>", opts)
+    map(buffer, "v", "<leader>r", "<cmd>lua require('renamer').rename()<CR>", opts)
   end
   map(buffer, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   map(buffer, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)

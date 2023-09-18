@@ -56,7 +56,7 @@ lspsaga.setup({
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 
 -- Rename all occurrences of the hovered word for the selected files
-keymap("n", "<leader>rn", "<cmd>Lspsaga rename ++project<CR>")
+keymap("n", "<leader>ln", "<cmd>Lspsaga rename ++project<CR>")
 
 -- Hover Doc
 -- If there is no hover doc,

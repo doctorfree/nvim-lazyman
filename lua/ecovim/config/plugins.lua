@@ -78,6 +78,8 @@ local cellular = {}
 local coding = {}
 local motion = {}
 local neoscroll = {}
+local ranger_float = {}
+local renamer = {}
 local terminal_nvim = {}
 local ts_server = {}
 local wakatime_type = {}
@@ -99,6 +101,30 @@ if not ok then
   if not ok then
     notify_bg = "#000000"
   end
+end
+
+if settings.enable_ranger_float then
+  ranger_float = {
+    "kevinhwang91/rnvimr",
+    event = { "BufReadPost", "BufNewFile" },
+    keys = { { "<leader>R", "<cmd>RnvimrToggle<cr>", desc = "Open ranger file manager" } },
+    init = function()
+      vim.g.rnvimr_enable_picker = 1
+      vim.g.rnvimr_border_attr = { fg = 3, bg = -1 }
+      vim.g.rnvimr_shadow_winblend = 90
+    end,
+  }
+end
+
+if settings.enable_renamer then
+  renamer = {
+    "filipdutescu/renamer.nvim",
+    lazy = true,
+    branch = "master",
+    config = function()
+      require("config.renamer")
+    end,
+  }
 end
 
 if settings.typescript_server == "tools" then
@@ -1170,6 +1196,10 @@ return {
       require("ecovim.plugins.navic")
     end,
   },
+
+  ranger_float,
+
+  renamer,
 
   ts_server,
 

@@ -978,6 +978,8 @@ show_plugin_menu() {
     }
     options+=("Indentline [${use_indentline}]")
     options+=("Enable Motion [${use_motion}]")
+    options+=("Enable Ranger [${use_ranger}]")
+    options+=("Enable Rename [${use_renamer}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
     options+=("Toggle Term   [${use_toggleterm}]")
@@ -1004,8 +1006,6 @@ show_plugin_menu() {
       options+=("Navigator     [${use_navigator}]")
       options+=("Picker        [${use_picker}]")
       options+=("Project       [${use_project}]")
-      options+=("Enable Ranger [${use_ranger}]")
-      options+=("Enable Rename [${use_renamer}]")
       options+=("Screensaver [${use_screensaver}]")
       [ "${use_screensaver}" == "none" ] || {
         options+=(" Timeout    [${use_timeout}]")
