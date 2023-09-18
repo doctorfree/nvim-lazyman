@@ -72,8 +72,8 @@ return {
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     {
       "<leader><space>",
-      Util.telescope("files"),
-      desc = "Find Files (root dir)",
+      "<cmd>Telescope file_browser<CR>",
+      desc = "Find Files (root dir)"
     },
     -- search
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },

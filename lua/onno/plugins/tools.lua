@@ -103,7 +103,7 @@ if settings.enable_ranger_float then
   ranger_float = {
     "kevinhwang91/rnvimr",
     event = { "BufReadPost", "BufNewFile" },
-    keys = { { "<leader>R", "<cmd>RnvimrToggle<cr>", desc = "Open ranger file manager" } },
+    keys = { { "<leader>R", "<cmd>RnvimrToggle<cr>", desc = "Ranger file manager" } },
     init = function()
       vim.g.rnvimr_enable_picker = 1
       vim.g.rnvimr_border_attr = { fg = 3, bg = -1 }
