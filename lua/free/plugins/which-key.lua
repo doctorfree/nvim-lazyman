@@ -47,7 +47,7 @@ return {
         winblend = 0,
       },
       layout = {
-        height = { min = 5, max = 20 }, -- min and max height of the columns
+        height = { min = 5, max = 40 }, -- min and max height of the columns
         width = { min = 20, max = 80 }, -- min and max width of the columns
         spacing = 3, -- spacing between columns
         align = "center", -- align columns left, center or right
