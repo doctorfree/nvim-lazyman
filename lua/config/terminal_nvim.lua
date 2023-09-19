@@ -114,7 +114,7 @@ if vim.fn.executable("mpplus") == 1 then
 
   local mpcplus = require("terminal").terminal:new({
     layout = { open_cmd = "float", border = "rounded", height = 0.99, width = 0.99 },
-    cmd = { "mpplus" },
+    cmd = { "mpplus", "-c" },
     autoclose = true,
   })
   api.nvim_create_user_command("MusicPlayerPlus", function()
