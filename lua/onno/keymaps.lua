@@ -140,6 +140,10 @@ if settings.enable_terminal then
   if vim.fn.executable("asciiville") == 1 then
     map("n", "<leader>av", "<cmd>Asciiville<cr>", { desc = "Asciiville" })
   end
+  if vim.fn.executable("mpplus") == 1 then
+    map("n", "<leader>am", "<cmd>MusicPlayerPlus<cr>", { desc = "MusicPlayerPlus" })
+    map("n", "<leader>aM", "<cmd>MusicPlayerMenu<cr>", { desc = "MusicPlayerPlus Menu" })
+  end
 else
   map("n", "<leader>gg", function()
     Util.float_term({ "lazygit" }, { cwd = Util.get_root() })

@@ -102,6 +102,26 @@ if vim.fn.executable("asciiville") == 1 then
   end, { nargs = "?" })
 end
 
+if vim.fn.executable("mpplus") == 1 then
+  local mpplus = require("terminal").terminal:new({
+    layout = { open_cmd = "float", border = "rounded", height = 0.99, width = 0.99 },
+    cmd = { "mpplus", "-i" },
+    autoclose = true,
+  })
+  api.nvim_create_user_command("MusicPlayerMenu", function()
+    mpplus:toggle(nil, true)
+  end, { nargs = "?" })
+
+  local mpcplus = require("terminal").terminal:new({
+    layout = { open_cmd = "float", border = "rounded", height = 0.99, width = 0.99 },
+    cmd = { "mpplus" },
+    autoclose = true,
+  })
+  api.nvim_create_user_command("MusicPlayerPlus", function()
+    mpcplus:toggle(nil, true)
+  end, { nargs = "?" })
+end
+
 if vim.fn.executable("nvr") == 1 then
   vim.env["GIT_EDITOR"] = "nvr --remote-tab-wait-silent +'set bufhidden=wipe'"
 end

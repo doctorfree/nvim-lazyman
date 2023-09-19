@@ -312,6 +312,8 @@ if settings.enable_terminal then
     "rebelot/terminal.nvim",
     cmd = {
       "Asciiville",
+      "MusicPlayerPlus",
+      "MusicPlayerMenu",
       "TermOpen",
       "TermToggle",
       "TermRun",
