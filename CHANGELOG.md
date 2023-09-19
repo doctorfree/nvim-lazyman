@@ -4,7 +4,14 @@
 
 ### ⚡️ Added
 
+- Add info documents for `Vimacs`
+- Add `-o` argument to indicate input required during initialization
+- Add unsupported `Vimacs` personal configuration
+
 ### 🐞 Fixed
+
+- Resolve keymap conflict between `Cheatsheet` and toggle color column
+- Increase `which-key` column max height
 
 ## v3.1.2r5
 
