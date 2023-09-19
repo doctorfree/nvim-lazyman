@@ -467,6 +467,13 @@ make_info() {
       C_DESC="Significantly improved fork of [Abouzar Parvan's](https://github.com/abzcoding/lvim) advanced 'LunarVim' config"
       C_INST="lazyman -L Shuvro"
       ;;
+    Vimacs)
+      GH_URL="https://github.com/UTFeight/vimacs"
+      CF_CAT="Personal"
+      CF_TYP="[NvChad](https://nvchad.com)"
+      C_DESC="'NvChad' based Neovim configuration heavily inspired by Emacs philosophy"
+      C_INST="lazyman -w Vimacs"
+      ;;
     Webdev)
       GH_URL="https://github.com/doctorfree/nvim-webdev"
       WS_URL="https://webdev.lazyman.dev"

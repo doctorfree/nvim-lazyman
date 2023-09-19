@@ -57,7 +57,7 @@ showinstalled=1
 brief_usage() {
   printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
   printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
-  printf "\n   [-S] [-v] [-n] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
+  printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
   printf "\n   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]"
@@ -92,6 +92,7 @@ usage() {
   printf "\n    -l indicates install and initialize LazyVim Neovim configuration"
   printf "\n    -m indicates install and initialize MagicVim Neovim configuration"
   printf "\n    -M indicates install and initialize Mini Neovim configuration"
+  printf "\n    -o indicates input required during initialization"
   printf "\n    -O 'name' indicates set Lazyman configuration to namespace 'name'"
   printf "\n       'name' can be one of: free onno ecovim"
   printf "\n    -s indicates install and initialize SpaceVim Neovim configuration"
@@ -281,6 +282,7 @@ init_lvim() {
 
 init_neovim() {
   neodir="$1"
+  [ "${input_req}" ] && debug=1
   [ -d "${HOME}/.config/${neodir}" ] || return
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     oldpack=${packer}
@@ -436,19 +438,21 @@ init_neovim() {
       if [ "${packer}" ]; then
         xtimeout ${timeout} nvim --headless \
           -c 'autocmd User PackerComplete quitall' \
-          -c 'PackerSync' >>${LOG} 2>&1
+          -c 'PackerSync' 2>&1 | tee -a ${LOG}
       else
         if [ "${plug}" ]; then
           xtimeout ${timeout} nvim --headless -c \
-            'PlugInstall!' -c 'qa' >>${LOG} 2>&1
+            'PlugInstall!' -c 'qa' 2>&1 | tee -a ${LOG}
           xtimeout ${timeout} nvim --headless -c \
-            'UpdateRemotePlugins' -c 'qa' >>${LOG} 2>&1
+            'UpdateRemotePlugins' -c 'qa' 2>&1 | tee -a ${LOG}
           xtimeout ${timeout} nvim --headless -c \
-            'GoInstallBinaries' -c 'qa' >>${LOG} 2>&1
+            'GoInstallBinaries' -c 'qa' 2>&1 | tee -a ${LOG}
         else
           if [ "${neodir}" == "${spacevimdir}" ]; then
-            xtimeout ${timeout} nvim --headless "+SPInstall" +qa >>${LOG} 2>&1
-            xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >>${LOG} 2>&1
+            xtimeout ${timeout} nvim --headless "+SPInstall" +qa 2>&1 | \
+              tee -a ${LOG}
+            xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa 2>&1 | \
+              tee -a ${LOG}
           else
             [ "${neodir}" == "${lunarvimdir}" ] ||
               [ "${neodir}" == "nvim-Daniel" ] ||
@@ -463,21 +467,25 @@ init_neovim() {
               export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
             }
             if [ "${treesitter}" ]; then
-              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa >>${LOG} 2>&1
+              xtimeout ${timeout} nvim --headless '+TSUpdate' +qa 2>&1 | \
+                tee -a ${LOG}
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
-                  xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa >>${LOG} 2>&1
+                  xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 | \
+                    tee -a ${LOG}
                   [ "${neodir}" == "${nvchaddir}" ] ||
                     [ "${neodir}" == "nvim-Cpp" ] ||
                     [ "${neodir}" == "nvim-Go" ] ||
                     [ "${neodir}" == "nvim-LazyIde" ] ||
                     [ "${neodir}" == "nvim-Rust" ] ||
                     [ "${neodir}" == "nvim-Python" ] && {
-                    xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa >>${LOG} 2>&1
+                    xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa 2>&1 | \
+                      tee -a ${LOG}
                   }
                   [ "${neodir}" == "nvim-2k" ] && {
-                    xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa >>${LOG} 2>&1
+                    xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa 2>&1 | \
+                      tee -a ${LOG}
                   }
                 }
               }
@@ -487,7 +495,7 @@ init_neovim() {
       fi
       [ -d "${HOME}/.config/${neodir}/doc" ] && {
         xtimeout ${timeout} nvim --headless \
-          "+helptags ${HOME}/.config/${neodir}/doc" +qa >>${LOG} 2>&1
+          "+helptags ${HOME}/.config/${neodir}/doc" +qa 2>&1 | tee -a ${LOG}
       }
       [ "$quiet" ] || printf "\n"
       calc_elapsed
@@ -1802,7 +1810,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -3364,6 +3372,7 @@ latexvimdir="nvim-LaTeX"
 fix_latex="lua/user/treesitter.lua"
 menu="main"
 namespace=
+input_req=
 setconf=
 nopatch=
 nvchaddir="nvim-NvChad"
@@ -3375,7 +3384,7 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
-while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:O:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
+while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
   case $flag in
   9)
     nopatch=1
@@ -3507,6 +3516,9 @@ while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:O:pPqQrRsStTUvV:w:Wx:XyYzZ
     ;;
   n)
     tellme=1
+    ;;
+  o)
+    input_req=1
     ;;
   O)
     namespace="$OPTARG"
@@ -4326,6 +4338,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/Traap/nvim \
           -N nvim-Traap ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-Vimacs)" == "ok" ] && {
+        printf "\n${action} Vimacs Neovim configuration"
+        lazyman ${darg} -V https://github.com/UTFeight/vimacs \
+          -o -D custom -N nvim-Vimacs ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Wuelner)" == "ok" ] && {
         printf "\n${action} Wuelner Neovim configuration"
         lazyman ${darg} -C https://github.com/wuelnerdotexe/nvim \
@@ -4350,164 +4367,169 @@ install_remove() {
       [ "${runvim}" ] || runflag="-z"
       case ${nvimprsnl} in
       Adib)
-        prsnl_url="https://github.com/adibhanna/nvim"
+        prsnl_url="-C https://github.com/adibhanna/nvim"
         ;;
       Ahsan)
-        prsnl_url="https://github.com/bibjaw99/workstation"
+        prsnl_url="-C https://github.com/bibjaw99/workstation"
         prsnl_dir="-D .config/nvim"
         ;;
       Artur)
-        prsnl_url="https://github.com/arturgoms/nvim"
+        prsnl_url="-C https://github.com/arturgoms/nvim"
         ;;
       Beethoven)
-        prsnl_url="https://github.com/Elteoremadebeethoven/nvim-config"
+        prsnl_url="-C https://github.com/Elteoremadebeethoven/nvim-config"
         ;;
       Brain)
-        prsnl_url="https://github.com/brainfucksec/neovim-lua"
+        prsnl_url="-C https://github.com/brainfucksec/neovim-lua"
         prsnl_dir="-D nvim"
         ;;
       Elianiva)
-        prsnl_url="https://github.com/elianiva/dotfiles"
+        prsnl_url="-C https://github.com/elianiva/dotfiles"
         prsnl_dir="-D nvim/.config/nvim"
         ;;
       Elijah)
-        prsnl_url="https://github.com/elijahmanor/dotfiles"
+        prsnl_url="-C https://github.com/elijahmanor/dotfiles"
         prsnl_dir="-D nvim/.config/nvim"
         ;;
       Enrique)
-        prsnl_url="https://github.com/kiyov09/dotfiles"
+        prsnl_url="-C https://github.com/kiyov09/dotfiles"
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
         ;;
       J4de)
-        prsnl_url="https://codeberg.org/j4de/nvim"
+        prsnl_url="-C https://codeberg.org/j4de/nvim"
         ;;
       Josean)
-        prsnl_url="https://github.com/josean-dev/dev-environment-files"
+        prsnl_url="-C https://github.com/josean-dev/dev-environment-files"
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
         ;;
       Primeagen)
-        prsnl_url="https://github.com/ThePrimeagen/init.lua"
+        prsnl_url="-C https://github.com/ThePrimeagen/init.lua"
         prsnl_opt="-P"
         ;;
       Rafi)
-        prsnl_url="https://github.com/rafi/vim-config"
+        prsnl_url="-C https://github.com/rafi/vim-config"
         ;;
       Slydragonn)
-        prsnl_url="https://github.com/slydragonn/dotfiles"
+        prsnl_url="-C https://github.com/slydragonn/dotfiles"
         prsnl_opt="-P"
         prsnl_dir="-D .config/nvim"
         ;;
       Traap)
-        prsnl_url="https://github.com/Traap/nvim"
+        prsnl_url="-C https://github.com/Traap/nvim"
+        ;;
+      Vimacs)
+        prsnl_url="-V https://github.com/UTFeight/vimacs"
+        prsnl_opt="-o"
+        prsnl_dir="-D custom"
         ;;
       Wuelner)
-        prsnl_url="https://github.com/wuelnerdotexe/nvim"
+        prsnl_url="-C https://github.com/wuelnerdotexe/nvim"
         ;;
       xero)
-        prsnl_url="https://github.com/xero/dotfiles"
+        prsnl_url="-C https://github.com/xero/dotfiles"
         prsnl_opt="-b main"
         prsnl_dir="-D neovim/.config/nvim"
         ;;
       Xiao)
-        prsnl_url="https://github.com/onichandame/nvim-config"
+        prsnl_url="-C https://github.com/onichandame/nvim-config"
         ;;
       Charles)
-        prsnl_url="https://github.com/CharlesChiuGit/nvimdots.lua"
+        prsnl_url="-C https://github.com/CharlesChiuGit/nvimdots.lua"
         ;;
       Chokerman)
-        prsnl_url="https://github.com/justchokingaround/dotfiles"
+        prsnl_url="-C https://github.com/justchokingaround/dotfiles"
         prsnl_opt="-b main"
         prsnl_dir="-D coding/neovim/nvim"
         ;;
       Craftzdog)
-        prsnl_url="https://github.com/craftzdog/dotfiles-public"
+        prsnl_url="-C https://github.com/craftzdog/dotfiles-public"
         prsnl_opt="-P"
         prsnl_dir="-D .config/nvim"
         ;;
       Daniel)
-        prsnl_url="https://github.com/daniel-vera-g/lvim"
+        prsnl_url="-C https://github.com/daniel-vera-g/lvim"
         ;;
       Dillon)
-        prsnl_url="https://github.com/dmmulroy/dotfiles"
+        prsnl_url="-C https://github.com/dmmulroy/dotfiles"
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
         ;;
       JustinLvim)
-        prsnl_url="https://github.com/justinsgithub/dotfiles"
+        prsnl_url="-C https://github.com/justinsgithub/dotfiles"
         prsnl_opt="-b main"
         prsnl_dir="-D lunarvim/.config/lvim"
         ;;
       JustinNvim)
-        prsnl_url="https://github.com/justinsgithub/dotfiles"
+        prsnl_url="-C https://github.com/justinsgithub/dotfiles"
         prsnl_opt="-b main"
         prsnl_dir="-D neovim/.config/nvim"
         ;;
       Kodo)
-        prsnl_url="https://github.com/chadcat7/kodo"
+        prsnl_url="-C https://github.com/chadcat7/kodo"
         ;;
       LamarVim)
-        prsnl_url="https://github.com/Lamarcke/dotfiles"
+        prsnl_url="-C https://github.com/Lamarcke/dotfiles"
         prsnl_opt="-b main"
         prsnl_dir="-D .config/nvim"
         ;;
       Lukas)
-        prsnl_url="https://github.com/lukas-reineke/dotfiles"
+        prsnl_url="-C https://github.com/lukas-reineke/dotfiles"
         prsnl_opt="-P"
         prsnl_dir="-D vim"
         ;;
       LvimAdib)
-        prsnl_url="https://github.com/adibhanna/lvim-config"
+        prsnl_url="-C https://github.com/adibhanna/lvim-config"
         ;;
       Maddison)
-        prsnl_url="https://github.com/b0o/nvim-conf"
+        prsnl_url="-C https://github.com/b0o/nvim-conf"
         ;;
       Metis)
-        prsnl_url="https://github.com/metis-os/pwnvim"
+        prsnl_url="-C https://github.com/metis-os/pwnvim"
         ;;
       Mini)
-        prsnl_url="https://github.com/echasnovski/nvim"
+        prsnl_url="-C https://github.com/echasnovski/nvim"
         ;;
       Orhun)
-        prsnl_url="https://github.com/orhun/dotfiles"
+        prsnl_url="-C https://github.com/orhun/dotfiles"
         prsnl_opt="-J"
         prsnl_dir="-D nvim/.config/nvim/lua/user"
         ;;
       Spider)
-        prsnl_url="https://github.com/fearless-spider/FSAstroNvim"
+        prsnl_url="-C https://github.com/fearless-spider/FSAstroNvim"
         ;;
       RNvim)
-        prsnl_url="https://github.com/RoryNesbitt/RNvim"
+        prsnl_url="-C https://github.com/RoryNesbitt/RNvim"
         ;;
       Roiz)
-        prsnl_url="https://github.com/MrRoiz/rnvim"
+        prsnl_url="-C https://github.com/MrRoiz/rnvim"
         ;;
       ONNO)
-        prsnl_url="https://github.com/loctvl842/nvim"
+        prsnl_url="-C https://github.com/loctvl842/nvim"
         prsnl_opt="-G"
         ;;
       OnMyWay)
-        prsnl_url="https://github.com/RchrdAlv/NvimOnMy_way"
+        prsnl_url="-C https://github.com/RchrdAlv/NvimOnMy_way"
         ;;
       Optixal)
-        prsnl_url="https://github.com/Optixal/neovim-init.vim"
+        prsnl_url="-C https://github.com/Optixal/neovim-init.vim"
         prsnl_opt="-p"
         ;;
       Plug)
-        prsnl_url="https://github.com/doctorfree/nvim-plug"
+        prsnl_url="-C https://github.com/doctorfree/nvim-plug"
         prsnl_opt="-p"
         ;;
       Kristijan)
-        prsnl_url="https://github.com/kristijanhusak/neovim-config"
+        prsnl_url="-C https://github.com/kristijanhusak/neovim-config"
         prsnl_dir="-D nvim"
         ;;
       Heiker)
-        prsnl_url="https://github.com/VonHeikemen/dotfiles"
+        prsnl_url="-C https://github.com/VonHeikemen/dotfiles"
         prsnl_dir="-D my-configs/neovim"
         ;;
       Simple)
-        prsnl_url="https://github.com/anthdm/.nvim"
+        prsnl_url="-C https://github.com/anthdm/.nvim"
         prsnl_opt="-P"
         ;;
       *)
@@ -4518,7 +4540,7 @@ install_remove() {
       esac
       [ "$(getok nvim-${nvimprsnl})" == "ok" ] && {
         printf "\n${action} ${nvimprsnl} Personal Neovim configuration"
-        lazyman ${darg} -C ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} \
+        lazyman ${darg} ${prsnl_url} -N nvim-${nvimprsnl} ${prsnl_dir} \
           ${prsnl_opt} ${help_opt} ${quietflag} ${runflag} ${yesflag}
       }
     fi
