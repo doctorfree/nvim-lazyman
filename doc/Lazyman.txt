@@ -34,7 +34,7 @@ FEATURES                                            *Lazyman-lazyman-features*
     - manage the `nvim-Lazyman`, `nvim-LazyIde`, and `nvim-Webdev` configs via menus
     - perform health checks and generate a status report via menus
 - over 100 supported Neovim configurations out of the box, additional custom configs
-- vimdoc help for `Lazyman` with `:h Lazyman` or `,hl`
+- vimdoc help for `Lazyman` with |Lazyman| or `,hl`
 - convenience shell functions and aliases with fuzzy search and selection
     - `nvims` and `neovides` shell functions to fuzzy search, select, and open Neovim configs
     - enhanced `less` command alias
