@@ -4,12 +4,21 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.2r6
+
+### ⚡️ Added
+
 - Add info documents for `Vimacs`
 - Add `-o` argument to indicate input required during initialization
 - Add unsupported `Vimacs` personal configuration
+- Add Telescope theme switcher plugin and menu configuration support to enable/disable
+- Add support for `MusicPlayerPlus` commands in terminal
 
 ### 🐞 Fixed
 
+- Use `mpplus -c` for `MusicPlayerPlus` command to force use of current terminal
 - Resolve keymap conflict between `Cheatsheet` and toggle color column
 - Increase `which-key` column max height
 
