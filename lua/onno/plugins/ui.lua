@@ -181,6 +181,17 @@ if settings.enable_smooth_scrolling then
   }
 end
 
+local telescope_themes = {}
+if settings.enable_telescope_themes then
+  telescope_themes = {
+    "andrew-george/telescope-themes",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension("themes")
+    end
+  }
+end
+
 local toggleterm = {}
 if settings.enable_toggleterm then
   toggleterm = {
@@ -292,16 +303,6 @@ if settings.enable_smartcolumn then
     config = function()
       require("virt-column").setup()
       vim.api.nvim_set_hl(0, "VirtColumn", { fg = "#999999", bg = "none" })
-      vim.api.nvim_create_autocmd({
-        "BufEnter",
-        "CursorMoved",
-        "CursorMovedI",
-        "WinScrolled",
-      }, {
-        callback = function()
-          vim.cmd([[VirtColumnRefresh]])
-        end,
-      })
     end,
   }
 end
@@ -472,6 +473,8 @@ return {
   },
 
   neoscroll,
+
+  telescope_themes,
 
   -- icons
   { "nvim-tree/nvim-web-devicons", lazy = true },

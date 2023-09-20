@@ -115,16 +115,27 @@ if style == "custom" then
 end
 
 local function set_colorscheme(sty)
-  if sty == "latte" then
-    vim.cmd([[colorscheme catppuccin-latte]])
-  elseif sty == "frappe" then
-    vim.cmd([[colorscheme catppuccin-frappe]])
-  elseif sty == "macchiato" then
-    vim.cmd([[colorscheme catppuccin-macchiato]])
-  elseif sty == "mocha" then
-    vim.cmd([[colorscheme catppuccin-mocha]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
   else
-    vim.cmd([[colorscheme catppuccin]])
+    if sty == "latte" then
+      vim.cmd([[colorscheme catppuccin-latte]])
+    elseif sty == "frappe" then
+      vim.cmd([[colorscheme catppuccin-frappe]])
+    elseif sty == "macchiato" then
+      vim.cmd([[colorscheme catppuccin-macchiato]])
+    elseif sty == "mocha" then
+      vim.cmd([[colorscheme catppuccin-mocha]])
+    else
+      vim.cmd([[colorscheme catppuccin]])
+    end
   end
 end
 

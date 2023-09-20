@@ -5,17 +5,28 @@ if settings.enable_transparent then
 end
 
 local function set_colorscheme(sty)
-  if sty == "night" then
-    vim.cmd([[colorscheme tokyonight-night]])
-  elseif sty == "moon" then
-    vim.cmd([[colorscheme tokyonight-moon]])
-  elseif sty == "storm" then
-    vim.cmd([[colorscheme tokyonight-storm]])
-  elseif sty == "day" then
-    vim.opt.background = "light"
-    vim.cmd([[colorscheme tokyonight-day]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
   else
-    vim.cmd([[colorscheme tokyonight]])
+    if sty == "night" then
+      vim.cmd([[colorscheme tokyonight-night]])
+    elseif sty == "moon" then
+      vim.cmd([[colorscheme tokyonight-moon]])
+    elseif sty == "storm" then
+      vim.cmd([[colorscheme tokyonight-storm]])
+    elseif sty == "day" then
+      vim.opt.background = "light"
+      vim.cmd([[colorscheme tokyonight-day]])
+    else
+      vim.cmd([[colorscheme tokyonight]])
+    end
   end
 end
 

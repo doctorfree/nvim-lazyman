@@ -2,7 +2,7 @@ local settings = require("configuration")
 local theme = settings.theme
 local style = settings.theme_style
 local filter = "pro"
-if settings.theme == "monokai-pro" then
+if theme == "monokai-pro" then
   if style == "classic" or style == "octagon" or style == "machine" or style == "ristretto" or style == "spectrum" then
     filter = style
   end
@@ -80,8 +80,19 @@ require("monokai-pro").setup({
   end,
 })
 
-if settings.theme == "monokai-pro" then
-  vim.cmd([[colorscheme monokai-pro]])
+if theme == "monokai-pro" then
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
+  else
+    vim.cmd([[colorscheme monokai-pro]])
+  end
   if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaShortcut", { link = "DashboardShortcut" })
   end

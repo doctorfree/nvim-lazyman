@@ -22,6 +22,10 @@ map("n", "<leader>hl", "<cmd>help Lazyman<cr>", { desc = "Lazyman Help" })
 map("n", "<leader>hn", "<cmd>help Nvims<cr>", { desc = "Nvims Help" })
 map("n", "<leader>hk", "<cmd>help Lazyman-Keymaps<cr>", { desc = "Lazyman Keymaps" })
 
+if settings.enable_telescope_themes then
+  map("n", "<leader>uC", "<cmd>Telescope themes<cr>", { desc = "Colorscheme switcher" })
+end
+
 -- Terminal commands
 if settings.enable_terminal then
   if vim.fn.executable("htop") == 1 then

@@ -22,9 +22,11 @@ telescope.load_extension("git_worktree")
 -- if settings.enable_toggleterm then
 --   telescope.load_extension("make")
 -- end
+--
 if settings.enable_noice then
   telescope.load_extension("noice")
 end
+
 telescope.load_extension("fzf")
 
 local git_icons = {

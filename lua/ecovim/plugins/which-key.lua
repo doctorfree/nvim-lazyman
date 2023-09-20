@@ -19,6 +19,18 @@ if settings.enable_games then
   }
 end
 
+local uimaps = {
+  name = 'UI',
+  c = { '<cmd>Telescope colorscheme<CR>',                         'Color schemes' },
+}
+if settings.enable_telescope_themes then
+  uimaps = {
+    name = 'UI',
+    c = { '<cmd>Telescope colorscheme<CR>',                       'Color schemes' },
+    T = { '<cmd>Telescope themes<CR>',                            'Theme switcher' },
+  }
+end
+
 wk.setup {
   plugins = {
     marks = true,
@@ -364,10 +376,7 @@ local normal_mode_mappings = {
     t = { 'Tableize' },
   },
 
-  u = {
-    name = 'UI',
-    c = { '<cmd>Telescope colorscheme<CR>',                              'Color schemes' },
-  },
+  u = uimaps,
 
   w = {
     name = 'Windows',

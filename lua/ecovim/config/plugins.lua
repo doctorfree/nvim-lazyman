@@ -80,6 +80,7 @@ local motion = {}
 local neoscroll = {}
 local ranger_float = {}
 local renamer = {}
+local telescope_themes = {}
 local terminal_nvim = {}
 local ts_server = {}
 local wakatime_type = {}
@@ -714,6 +715,16 @@ if settings.enable_smooth_scrolling then
     config = function()
       require("config.neoscroll")
     end,
+  }
+end
+
+if settings.enable_telescope_themes then
+  telescope_themes = {
+	  "andrew-george/telescope-themes",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+	  config = function()
+		  require("telescope").load_extension("themes")
+	  end
   }
 end
 
@@ -1730,6 +1741,9 @@ return {
 
   -- Smooth scrolling
   neoscroll,
+
+  -- Telescope theme switcher
+  telescope_themes,
 
   -- If terminal is enabled in configuration.lua
   terminal_nvim,

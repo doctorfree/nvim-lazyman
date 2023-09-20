@@ -24,6 +24,16 @@ if settings.enable_toggleterm then
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   }
 end
+
+local theme_switch = {
+  "<leader>uC", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme with preview",
+}
+if settings.enable_telescope_themes then
+  theme_switch = {
+    "<leader>uC", "<cmd>Telescope themes<cr>", desc = "Colorscheme with preview",
+  }
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
@@ -96,11 +106,7 @@ return {
     { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
     { "<leader>sw", Util.telescope("grep_string"), desc = "Word (root dir)" },
     { "<leader>sW", Util.telescope("grep_string", "dropdown", { cwd = false }), desc = "Word (cwd)" },
-    {
-      "<leader>uC",
-      Util.telescope("colorscheme", "dropdown", { enable_preview = true }),
-      desc = "Colorscheme with preview",
-    },
+    theme_switch,
     {
       "<leader>ss",
       Util.telescope("lsp_document_symbols", "dropdown", {

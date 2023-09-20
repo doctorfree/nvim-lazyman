@@ -159,6 +159,10 @@ elseif settings.file_tree == "nvim-tree" then
   map("n", "<leader>T", "<cmd>NvimTreeFindFileToggle<CR>")
 end
 
+if settings.enable_telescope_themes then
+  map("n", "<leader>uC", "<cmd>Telescope themes<cr>", { desc = "Colorscheme switcher" })
+end
+
 if settings.enable_games then
   map("n", "<leader>Gb", "<cmd>BlackJackNewGame<CR>", { desc = "Blackjack" })
   map("n", "<leader>Gh", "<cmd>:Hack<CR>", { desc = "Hack" })

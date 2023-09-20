@@ -2,15 +2,26 @@ local settings = require("configuration")
 local theme = settings.theme
 
 local function set_colorscheme(sty)
-  if sty == "onedark_vivid" then
-    vim.cmd([[colorscheme onedark_vivid]])
-  elseif sty == "onedark_dark" then
-    vim.cmd([[colorscheme onedark_dark]])
-  elseif sty == "onelight" then
-    vim.opt.background = "light"
-    vim.cmd([[colorscheme onelight]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
   else
-    vim.cmd([[colorscheme onedark]])
+    if sty == "onedark_vivid" then
+      vim.cmd([[colorscheme onedark_vivid]])
+    elseif sty == "onedark_dark" then
+      vim.cmd([[colorscheme onedark_dark]])
+    elseif sty == "onelight" then
+      vim.opt.background = "light"
+      vim.cmd([[colorscheme onelight]])
+    else
+      vim.cmd([[colorscheme onedark]])
+    end
   end
 end
 

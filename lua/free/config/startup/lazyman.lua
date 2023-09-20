@@ -12,6 +12,10 @@ if vim.o.filetype == "lazy" then
   vim.cmd.close()
 end
 
+local theme_switch = "Telescope colorscheme"
+if settings.enable_telescope_themes then
+  theme_switch = "Telescope themes"
+end
 local settings = {
   header = {
     type = "text",
@@ -47,7 +51,7 @@ local settings = {
       { " Recent Files",      "Telescope oldfiles prompt_title=Recent", "r" },
       { " File Browser",      "Telescope file_browser",                 "b" },
       { " Search Zoxide",     "Telescope zoxide list",                  "z" },
-      { " Colorschemes",      "Telescope colorscheme",                  "s" },
+      { " Colorschemes",      theme_switch,                             "s" },
       { " Cheatsheet",        "Cheatsheet",                             "c" },
       { " Neovim Health",     "checkhealth",                            "h" },
       { " Lazyman Main Menu", "Lazyman",                                "l" },

@@ -1,3 +1,8 @@
+local theme_switch = "Telescope colorscheme"
+if require("configuration").enable_telescope_themes then
+  theme_switch = "Telescope themes"
+end
+
 local settings = {
   -- every line should be same width without escaped \
   header = {
@@ -32,7 +37,7 @@ local settings = {
       { " Find Word",    "Telescope live_grep",             "<leader>lg" },
       { " Recent Files", "Telescope oldfiles",              "<leader>of" },
       { " File Browser", "Telescope file_browser",          "<leader>fb" },
-      { " Colorschemes", "Telescope colorscheme",           "<leader>cs" },
+      { " Colorschemes", theme_switch,                      "<leader>cs" },
       { " New File",     "lua require'startup'.new_file()", "<leader>nf" },
       { " Quit",         "quitall",                         "q" },
     },

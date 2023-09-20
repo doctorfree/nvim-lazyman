@@ -1,20 +1,31 @@
 local settings = require("configuration")
 
 local function set_colorscheme(sty)
-  if sty == "carbonfox" then
-    vim.cmd([[colorscheme carbonfox]])
-  elseif sty == "dayfox" then
-    vim.cmd([[colorscheme dayfox]])
-  elseif sty == "dawnfox" then
-    vim.cmd([[colorscheme dawnfox]])
-  elseif sty == "duskfox" then
-    vim.cmd([[colorscheme duskfox]])
-  elseif sty == "nordfox" then
-    vim.cmd([[colorscheme nordfox]])
-  elseif sty == "terafox" then
-    vim.cmd([[colorscheme terafox]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
   else
-    vim.cmd([[colorscheme nightfox]])
+    if sty == "carbonfox" then
+      vim.cmd([[colorscheme carbonfox]])
+    elseif sty == "dayfox" then
+      vim.cmd([[colorscheme dayfox]])
+    elseif sty == "dawnfox" then
+      vim.cmd([[colorscheme dawnfox]])
+    elseif sty == "duskfox" then
+      vim.cmd([[colorscheme duskfox]])
+    elseif sty == "nordfox" then
+      vim.cmd([[colorscheme nordfox]])
+    elseif sty == "terafox" then
+      vim.cmd([[colorscheme terafox]])
+    else
+      vim.cmd([[colorscheme nightfox]])
+    end
   end
 end
 

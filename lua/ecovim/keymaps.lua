@@ -193,7 +193,7 @@ map("n", "<leader>ug", function()
   Info("Set signcolumn to " .. vim.wo.signcolumn, { title = "Option" })
 end, { desc = "Toggle signcolumn" })
 
-map("n", "<leader>uT", function()
+map("n", "<leader>uL", function()
   vim.opt.showtabline = vim.api.nvim_get_option('showtabline') == 0 and 2 or 0
   Info("Set showtabline to " .. vim.api.nvim_get_option('showtabline'), { title = "Option" })
 end, { desc = "Toggle tabline" })

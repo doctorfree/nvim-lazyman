@@ -742,6 +742,12 @@ show_plugin_menu() {
     else
       use_lualine_lsp_progress="✗"
     fi
+    enable_telescope_themes=$(get_conf_value enable_telescope_themes)
+    if [ "${enable_telescope_themes}" == "true" ]; then
+      use_telescope_themes=""
+    else
+      use_telescope_themes="✗"
+    fi
     enable_terminal=$(get_conf_value enable_terminal)
     if [ "${enable_terminal}" == "true" ]; then
       use_terminal=""
@@ -982,6 +988,7 @@ show_plugin_menu() {
     options+=("Enable Rename [${use_renamer}]")
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Terminal      [${use_terminal}]")
+    options+=("Theme Picker  [${use_telescope_themes}]")
     options+=("Toggle Term   [${use_toggleterm}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("File Tree [${use_neotree}]")
@@ -1353,6 +1360,15 @@ show_plugin_menu() {
             set_conf_value "enable_lualine_lsp_progress" "false"
           else
             set_conf_value "enable_lualine_lsp_progress" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Theme Picker"*,* | *,"Theme Picker"*)
+          if [ "${enable_telescope_themes}" == "true" ]; then
+            set_conf_value "enable_telescope_themes" "false"
+          else
+            set_conf_value "enable_telescope_themes" "true"
           fi
           pluginit=1
           break
@@ -1754,6 +1770,7 @@ show_plugin_menu() {
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_lualine_lsp_progress" "false"
+          set_conf_value "enable_telescope_themes" "false"
           set_conf_value "enable_terminal" "false"
           set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_neotest" "false"
@@ -1810,6 +1827,7 @@ show_plugin_menu() {
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_lualine_lsp_progress" "true"
+          set_conf_value "enable_telescope_themes" "true"
           set_conf_value "enable_terminal" "true"
           set_conf_value "enable_toggleterm" "true"
           set_conf_value "enable_neotest" "true"

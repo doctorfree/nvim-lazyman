@@ -10,14 +10,25 @@ if settings.enable_transparent then
 end
 
 local function set_colorscheme(sty)
-  if sty == "wave" then
-    vim.cmd([[colorscheme kanagawa-wave]])
-  elseif sty == "dragon" then
-    vim.cmd([[colorscheme kanagawa-dragon]])
-  elseif sty == "lotus" then
-    vim.cmd([[colorscheme kanagawa-lotus]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
   else
-    vim.cmd([[colorscheme kanagawa]])
+    if sty == "wave" then
+      vim.cmd([[colorscheme kanagawa-wave]])
+    elseif sty == "dragon" then
+      vim.cmd([[colorscheme kanagawa-dragon]])
+    elseif sty == "lotus" then
+      vim.cmd([[colorscheme kanagawa-lotus]])
+    else
+      vim.cmd([[colorscheme kanagawa]])
+    end
   end
 end
 

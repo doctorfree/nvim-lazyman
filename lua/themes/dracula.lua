@@ -167,7 +167,18 @@ else
 end
 
 if settings.theme == "dracula" then
-  vim.cmd([[colorscheme dracula]])
+  local have_current = false
+  if settings.enable_telescope_themes then
+    local theme_ok, _ = pcall(require, "current-theme")
+    if theme_ok then
+      have_current = true
+    end
+  end
+  if have_current then
+    require("current-theme")
+  else
+    vim.cmd([[colorscheme dracula]])
+  end
   if settings.dashboard == "alpha" then
     vim.api.nvim_set_hl(0, "AlphaHeader", { link = "Type" })
     vim.api.nvim_set_hl(0, "AlphaHeaderLabel", { link = "Type" })

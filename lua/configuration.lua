@@ -119,6 +119,8 @@ conf.enable_smartcolumn = true
 conf.enable_startuptime = true
 -- Add/change/delete surrounding delimiter pairs with ease
 conf.enable_surround = true
+-- Enable the telescope theme switcher plugin
+conf.enable_telescope_themes = true
 -- Enable the wilder plugin
 conf.enable_wilder = false
 --
