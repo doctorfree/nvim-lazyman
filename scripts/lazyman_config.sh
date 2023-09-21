@@ -822,6 +822,12 @@ show_plugin_menu() {
     else
       use_compile="✗"
     fi
+    enable_database=$(get_conf_value enable_database)
+    if [ "${enable_database}" == "true" ]; then
+      use_database=""
+    else
+      use_database="✗"
+    fi
     enable_bbye=$(get_conf_value enable_bbye)
     if [ "${enable_bbye}" == "true" ]; then
       use_bbye=""
@@ -974,6 +980,7 @@ show_plugin_menu() {
     [ "${use_namespace}" == "ecovim" ] && {
       options+=("Alpha Header  [${use_dashboard_header}]")
     }
+    options+=("Database      [${use_database}]")
     options+=("Dressing UI   [${use_dressing}]")
     options+=("Noice UI      [${use_noice}]")
     options+=("Enable Games  [${use_games}]")
@@ -1584,6 +1591,15 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
+        "Database"*,* | *,"Database"*)
+          if [ "${enable_database}" == "true" ]; then
+            set_conf_value "enable_database" "false"
+          else
+            set_conf_value "enable_database" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "Dressing"*,* | *,"Dressing"*)
           if [ "${enable_dressing}" == "true" ]; then
             set_conf_value "enable_dressing" "false"
@@ -1781,6 +1797,7 @@ show_plugin_menu() {
           set_conf_value "markdown_preview" "none"
           set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
+          set_conf_value "enable_database" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_motion" "none"
           set_conf_value "enable_obsidian" "false"
@@ -1838,6 +1855,7 @@ show_plugin_menu() {
           set_conf_value "markdown_preview" "peek"
           set_conf_value "enable_coding" "true"
           set_conf_value "enable_compile" "true"
+          set_conf_value "enable_database" "true"
           set_conf_value "enable_dressing" "true"
           set_conf_value "enable_motion" "leap"
           set_conf_value "enable_obsidian" "true"
@@ -2664,6 +2682,7 @@ show_conf_menu() {
           set_conf_value "enable_asciiart" "false"
           set_conf_value "enable_coding" "false"
           set_conf_value "enable_compile" "false"
+          set_conf_value "enable_database" "false"
           set_conf_value "enable_dressing" "false"
           set_conf_value "enable_motion" "none"
           set_conf_value "enable_obsidian" "false"

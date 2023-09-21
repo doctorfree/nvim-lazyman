@@ -76,6 +76,7 @@ local sudoku = {}
 local blackjack = {}
 local cellular = {}
 local coding = {}
+local database = {}
 local motion = {}
 local neoscroll = {}
 local ranger_float = {}
@@ -187,6 +188,14 @@ if settings.enable_flirt then
     config = function()
       require("ecovim.plugins.flirt")
     end,
+  }
+end
+
+if settings.enable_database then
+  database = {
+    { "tpope/vim-dadbod" },
+    { "kristijanhusak/vim-dadbod-ui" },
+    { "kristijanhusak/vim-dadbod-completion" },
   }
 end
 
@@ -955,6 +964,9 @@ return {
       require("ecovim.plugins.alpha")
     end,
   },
+
+  -- Database plugins
+  database,
 
   -- Animate windows with mini.animate
   animate,

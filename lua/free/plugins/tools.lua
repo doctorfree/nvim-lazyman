@@ -47,6 +47,15 @@ elseif settings.session_manager == "persistence" then
   }
 end
 
+local database = {}
+if settings.enable_database then
+  database = {
+    { "tpope/vim-dadbod" },
+    { "kristijanhusak/vim-dadbod-ui" },
+    { "kristijanhusak/vim-dadbod-completion" },
+  }
+end
+
 local ranger_float = {}
 if settings.enable_ranger_float then
   ranger_float = {
@@ -108,6 +117,8 @@ return {
   ranger_float,
 
   compile,
+
+  database,
 
   session,
 

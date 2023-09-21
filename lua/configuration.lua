@@ -82,6 +82,8 @@ conf.enable_coding = true
 conf.enable_compile = false
 -- Replace null-ls with conform.nvim
 conf.enable_conform = false
+-- Database interaction plugins
+conf.enable_database = false
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable easy motions, can be one of "hop", "flash", "leap", or "none"
