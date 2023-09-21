@@ -116,6 +116,15 @@ return {
       if require("util").has("noice.nvim") then
         keymaps["<leader>sn"] = { name = "+noice" }
       end
+      if require("util").has("vim-dadbod") then
+        keymaps["<leader>D"] = {
+          name = 'Database',
+          t = { 'Toggle UI' },
+          f = { 'Find Buffer' },
+          r = { 'Rename Buffer' },
+          q = { 'Last Query Info' },
+        }
+      end
       wk.register(keymaps)
     end,
   },

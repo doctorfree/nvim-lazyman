@@ -243,6 +243,15 @@ return {
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       }
+      if require("util").has("vim-dadbod") then
+        keymaps["<leader>D"] = {
+          name = 'Database',
+          t = { 'Toggle UI' },
+          f = { 'Find Buffer' },
+          r = { 'Rename Buffer' },
+          q = { 'Last Query Info' },
+        }
+      end
       wk.register(keymaps)
     end,
   },

@@ -231,6 +231,14 @@ local normal_mode_mappings = {
   },
 
   D = {
+    name = 'Database',
+    t = { 'Toggle UI' },
+    f = { 'Find Buffer' },
+    r = { 'Rename Buffer' },
+    q = { 'Last Query Info' },
+  },
+
+  W = {
     name = 'Duck',
     s = {
       function()
