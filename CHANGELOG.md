@@ -6,6 +6,26 @@
 
 ### 🐞 Fixed
 
+## v3.1.2r7
+
+### ⚡️ Added
+
+- Add `KickstartPython` to `Starters`
+- Add `Jdhao` config to `Personals`
+- Install `vim` language server, `python` LSP server, and `jedi` python library
+- Use custom attach for some LSP servers
+- Configure `pylsp`
+- Set preference in `null-ls` for `pylsp`
+- Add `python` settings
+- Add support for database plugins configurable via menu
+- Add `dadbod` keymaps
+
+### 🐞 Fixed
+
+- Enable database plugins by default
+- Change `galaxyline` stats icon to `ribbon`
+- Improve `dadbod` configuration
+
 ## v3.1.2r6
 
 ### ⚡️ Added
