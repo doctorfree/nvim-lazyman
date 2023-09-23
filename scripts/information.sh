@@ -868,6 +868,15 @@ make_info() {
       C_DESC="A theme-driven modern Neovim configuration"
       C_INST="lazyman -x HardHacker"
       ;;
+    Jdhao)
+      GH_URL="https://github.com/jdhao/nvim-config"
+      WS_URL="https://jdhao.github.io"
+      NC_URL="https://neovimcraft.com/plugin/jdhao/nvim-config"
+      DF_URL="https://dotfyle.com/jdhao/nvim-config"
+      CF_CAT="Personal"
+      C_DESC="A modern Neovim configuration with full support for Python, Lua, C++, Markdown, LaTeX, and more"
+      C_INST="lazyman -w Jdhao"
+      ;;
     JustinLvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lunarvim.org"

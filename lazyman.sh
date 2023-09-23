@@ -1810,7 +1810,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4248,6 +4248,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/Optixal/neovim-init.vim \
           -N nvim-Optixal -p ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-Jdhao)" == "ok" ] && {
+        printf "\n${action} Jdhao Neovim configuration"
+        lazyman ${darg} -C https://github.com/jdhao/nvim-config \
+          -N nvim-Jdhao ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Kristijan)" == "ok" ] && {
         printf "\n${action} Kristijan Neovim configuration"
         lazyman ${darg} -C https://github.com/kristijanhusak/neovim-config \
@@ -4519,6 +4524,9 @@ install_remove() {
       Plug)
         prsnl_url="-C https://github.com/doctorfree/nvim-plug"
         prsnl_opt="-p"
+        ;;
+      Jdhao)
+        prsnl_url="-C https://github.com/jdhao/nvim-config"
         ;;
       Kristijan)
         prsnl_url="-C https://github.com/kristijanhusak/neovim-config"
