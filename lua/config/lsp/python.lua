@@ -1,10 +1,9 @@
 local M = {}
 
 M.attach = function(client, buffer)
-  local sc = client.server_capabilities
   if client.name == "pylsp" then
-    sc.documentFormattingProvider = false
-    sc.documentRangeFormattingProvider = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
   if client.name == "pyright" then
     client.server_capabilities.renameProvider = false -- rope is ok

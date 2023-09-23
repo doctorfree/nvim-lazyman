@@ -1,8 +1,117 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
 local formatters_linters = settings.formatters_linters
+local external_formatters = settings.external_formatters
 local showdiag = settings.show_diagnostics
 local table_contains = require("util").table_contains
+local fn = vim.fn
+local api = vim.api
+local keymap = vim.keymap
+local diagnostic = vim.diagnostic
+
+-- set quickfix list from diagnostics in a certain buffer, not the whole workspace
+local set_qflist = function(buf_num, severity)
+  local diagnostics = nil
+  diagnostics = diagnostic.get(buf_num, { severity = severity })
+
+  local qf_items = diagnostic.toqflist(diagnostics)
+  fn.setqflist({}, ' ', { title = 'Diagnostics', items = qf_items })
+
+  -- open quickfix by default
+  vim.cmd[[copen]]
+end
+
+local custom_attach = function(client, bufnr)
+  -- Mappings.
+  local map = function(mode, l, r, opts)
+    opts = opts or {}
+    opts.silent = true
+    opts.buffer = bufnr
+    keymap.set(mode, l, r, opts)
+  end
+
+  map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
+  map("n", "<C-]>", vim.lsp.buf.definition)
+  map("n", "K", vim.lsp.buf.hover)
+  map("n", "<C-k>", vim.lsp.buf.signature_help)
+  map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "varialbe rename" })
+  map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
+  map("n", "[d", diagnostic.goto_prev, { desc = "previous diagnostic" })
+  map("n", "]d", diagnostic.goto_next, { desc = "next diagnostic" })
+  -- this puts diagnostics from opened files to quickfix
+  map("n", "<leader>qw", diagnostic.setqflist, { desc = "put window diagnostics to qf" })
+  -- this puts diagnostics from current buffer to quickfix
+  map("n", "<leader>qb", function() set_qflist(bufnr) end, { desc = "put buffer diagnostics to qf" })
+  map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "add workspace folder" })
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "remove workspace folder" })
+  map("n", "<leader>wl", function()
+    vim.print(vim.lsp.buf.list_workspace_folders())
+  end, { desc = "list workspace folder" })
+
+  -- Set some key bindings conditional on server capabilities
+  if client.server_capabilities.documentFormattingProvider then
+    map("n", "<leader>f", vim.lsp.buf.format, { desc = "format code" })
+  end
+
+  api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local float_opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = "rounded",
+        source = "always", -- show source in diagnostic popup window
+        prefix = " ",
+      }
+
+      if not vim.b.diagnostics_pos then
+        vim.b.diagnostics_pos = { nil, nil }
+      end
+
+      local cursor_pos = api.nvim_win_get_cursor(0)
+      if (cursor_pos[1] ~= vim.b.diagnostics_pos[1] or cursor_pos[2] ~= vim.b.diagnostics_pos[2])
+          and #diagnostic.get() > 0
+      then
+        diagnostic.open_float(nil, float_opts)
+      end
+
+      vim.b.diagnostics_pos = cursor_pos
+    end,
+  })
+
+  -- The blow command will highlight the current variable and its usages in the buffer.
+  if client.server_capabilities.documentHighlightProvider then
+    vim.cmd([[
+      hi! link LspReferenceRead Visual
+      hi! link LspReferenceText Visual
+      hi! link LspReferenceWrite Visual
+    ]])
+
+    local gid = api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    api.nvim_create_autocmd("CursorHold" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.document_highlight()
+      end
+    })
+
+    api.nvim_create_autocmd("CursorMoved" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.clear_references()
+      end
+    })
+  end
+
+  if vim.g.logging_level == "debug" then
+    local msg = string.format("Language server %s started!", client.name)
+    vim.notify(msg, vim.log.levels.DEBUG, { title = "Nvim-config" })
+  end
+end
+
 
 local open_float = "<cmd>lua vim.diagnostic.open_float()<cr>"
 if not showdiag == "popup" then
@@ -16,11 +125,11 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- Borders for LspInfo winodw
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
-vim.api.nvim_create_autocmd("LspAttach", {
+api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      vim.keymap.set(mode, lhs, rhs, { buffer = true })
+      keymap.set(mode, lhs, rhs, { buffer = true })
     end
 
     -- Displays hover information about the symbol under the cursor
@@ -75,12 +184,12 @@ end)
 -- diagnostics
 for name, icon in pairs(require("icons").diagnostics) do
   name = "DiagnosticSign" .. name
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+  fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
 end
 if showdiag == "none" then
-  vim.diagnostic.config(require("config.lsp.diagnostics")["off"])
+  diagnostic.config(require("config.lsp.diagnostics")["off"])
 else
-  vim.diagnostic.config(require("config.lsp.diagnostics")["on"])
+  diagnostic.config(require("config.lsp.diagnostics")["on"])
 end
 
 -- Show line diagnostics automatically in hover window
@@ -96,18 +205,18 @@ local diagnostics_active = true
 local toggle_diagnostics = function()
   diagnostics_active = not diagnostics_active
   if diagnostics_active then
-    vim.diagnostic.show()
+    diagnostic.show()
   else
-    vim.diagnostic.hide()
+    diagnostic.hide()
   end
 end
 
-vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
-vim.diagnostic.config({
+diagnostic.config({
   update_in_insert = false,
 })
 
@@ -161,6 +270,68 @@ if settings.enable_coding then
       on_attach = require("config.lsp.servers.cssls").on_attach,
       settings = require("config.lsp.servers.cssls").settings,
     })
+  end
+
+  if table_contains(lsp_servers, "pylsp") then
+    local venv_path = os.getenv('VIRTUAL_ENV')
+    local py_path = nil
+    -- decide which python executable to use for mypy
+    if venv_path ~= nil then
+      py_path = venv_path .. "/bin/python3"
+    else
+      py_path = vim.g.python3_host_prog
+    end
+    local enable_black = { enabled = false }
+    if table_contains(external_formatters, "black") then
+      enable_black = { enabled = true }
+    end
+    local enable_ruff = { enabled = false }
+    if table_contains(external_formatters, "ruff") then
+      enable_ruff = { enabled = true }
+    end
+    lspconfig.pylsp.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      settings = {
+        pylsp = {
+          plugins = {
+            -- formatter options
+            black = enable_black,
+            autopep8 = { enabled = false },
+            yapf = { enabled = false },
+            -- linter options
+            pylint = { enabled = false },
+            ruff = enable_ruff,
+            pyflakes = { enabled = false },
+            pycodestyle = { enabled = false },
+            -- type checker
+            pylsp_mypy = {
+              enabled = true,
+              overrides = { "--python-executable", py_path, true },
+              report_progress = true,
+              live_mode = false
+            },
+            -- auto-completion options
+            jedi_completion = { fuzzy = true },
+            -- import sorting
+            isort = { enabled = true },
+          },
+        },
+      },
+      flags = {
+        debounce_text_changes = 200,
+      },
+    })
+  end
+
+  if table_contains(lsp_servers, "vimls") then
+    lspconfig.vimls.setup {
+      on_attach = custom_attach,
+      flags = {
+        debounce_text_changes = 500,
+      },
+      capabilities = capabilities,
+    }
   end
 
   if table_contains(lsp_servers, "vuels") then
@@ -236,7 +407,7 @@ if settings.enable_coding then
         },
       },
       on_attach = function(_, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
+        api.nvim_create_autocmd("BufWritePre", {
           buffer = bufnr,
           command = "EslintFixAll",
         })
@@ -285,9 +456,9 @@ if settings.enable_coding then
 
         -- no default maps, so you may want to define some here
         local opts = { silent = true }
-        vim.api.nvim_buf_set_keymap(bufnr, "n", ",go", ":TSLspOrganize<CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", ",gR", ":TSLspRenameFile<CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", ",gi", ":TSLspImportAll<CR>", opts)
+        api.nvim_buf_set_keymap(bufnr, "n", ",go", ":TSLspOrganize<CR>", opts)
+        api.nvim_buf_set_keymap(bufnr, "n", ",gR", ":TSLspRenameFile<CR>", opts)
+        api.nvim_buf_set_keymap(bufnr, "n", ",gi", ":TSLspImportAll<CR>", opts)
 
         navic.attach(client, bufnr)
       end
@@ -309,8 +480,6 @@ if settings.enable_coding then
     "taplo",
   }
   local check_servers_with_navic = {
-    "pylsp",
-    "vimls",
     "pyright",
     "cssmodules_ls",
     "dockerls",
@@ -368,13 +537,20 @@ if settings.enable_coding then
   end
 
   if settings.enable_clangd then
-    if vim.fn.executable("clangd") == 1 then
-      lspconfig.clangd.setup({})
+    if fn.executable("clangd") == 1 then
+      lspconfig.clangd.setup({
+        on_attach = custom_attach,
+        capabilities = capabilities,
+        filetypes = { "c", "cpp", "cc" },
+        flags = {
+          debounce_text_changes = 500,
+        },
+      })
     end
   end
 
   if settings.enable_ccls then
-    if vim.fn.executable("ccls") == 1 then
+    if fn.executable("ccls") == 1 then
       lspconfig.ccls.setup({
         capabilities = capabilities,
         handlers = handlers,
@@ -395,7 +571,8 @@ if settings.enable_coding then
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       handlers = handlers,
-      on_attach = navic.attach,
+      -- on_attach = navic.attach,
+      on_attach = custom_attach,
       require("neodev").setup({
         library = { plugins = { "nvim-dap-ui" }, types = true },
         setup_jsonls = true,
@@ -434,7 +611,7 @@ if settings.enable_coding then
             },
           },
           workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
+            library = api.nvim_get_runtime_file("", true),
             checkThirdParty = false,
           },
           telemetry = {
@@ -474,6 +651,7 @@ if settings.enable_coding then
       }
     end
     lspconfig.bashls.setup({
+      on_attach = custom_attach,
       capabilities = capabilities,
       handlers = handlers,
       settings = bashls_settings,
@@ -516,13 +694,13 @@ require("ufo").setup({
   close_fold_kinds = { "imports" },
 })
 
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
-vim.keymap.set(
+keymap.set("n", "<leader>de", diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
+keymap.set("n", "[d", diagnostic.goto_prev, { noremap = true, silent = true })
+keymap.set("n", "]d", diagnostic.goto_next, { noremap = true, silent = true })
+keymap.set(
   "n",
   "<leader>dq",
-  vim.diagnostic.setloclist,
+  diagnostic.setloclist,
   { noremap = true, silent = true, desc = "Set diagnostics location list" }
 )
-vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
+keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
