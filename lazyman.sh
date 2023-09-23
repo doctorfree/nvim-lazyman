@@ -1807,7 +1807,7 @@ install_config() {
   AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Orange | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
-  2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
+  2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | KickstartPython | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
   Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
@@ -4647,6 +4647,11 @@ install_remove() {
       lazyman ${darg} -C https://github.com/justinsgithub/Oh-My-LazyVim \
         -N nvim-JustinOhMy ${quietflag} -z ${yesflag}
       action="Installing"
+      [ -d ${HOME}/.config/nvim-KickstartPython ] && action="Updating"
+      printf "\n${action} KickstartPython Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/kickstart-python.nvim \
+        -N nvim-KickstartPython ${quietflag} -z ${yesflag}
+      action="Installing"
       [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
       printf "\n${action} Micah Neovim configuration"
       lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
@@ -4774,6 +4779,9 @@ install_remove() {
       Kabin)
         start_url="https://github.com/kabinspace/AstroNvim_user"
         start_opt="-J"
+        ;;
+      KickstartPython)
+        start_url="https://github.com/doctorfree/kickstart-python.nvim"
         ;;
       Micah)
         start_url="https://code.mehalter.com/AstroNvim_user"

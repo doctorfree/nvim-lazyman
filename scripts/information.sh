@@ -916,8 +916,15 @@ make_info() {
       GH_URL="https://github.com/doctorfree/kickstart.nvim"
       CF_CAT="Starter"
       CF_TYP="[Kickstart](https://github.com/nvim-lua/kickstart.nvim)"
-      C_DESC="Popular starting point, small, single file, well documented, modular"
+      C_DESC="Popular starting point, small, well documented, modular"
       C_INST="lazyman -k"
+      ;;
+    KickstartPython)
+      GH_URL="https://github.com/doctorfree/kickstart-python.nvim"
+      CF_CAT="Starter"
+      CF_TYP="[Kickstart](https://github.com/nvim-lua/kickstart.nvim)"
+      C_DESC="Kickstart configuration tailored for use with Python"
+      C_INST="lazyman -x KickstartPython"
       ;;
     Lamia)
       GH_URL="https://github.com/A-Lamia/AstroNvim-conf"

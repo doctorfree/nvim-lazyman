@@ -46,8 +46,9 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | :---------- | :----: | :----: | :----: | ----------: |
 | [AstroNvimStart](https://lazyman.dev/info/AstroNvimStart.html) | [Barebones](https://lazyman.dev/info/Barebones.html) | [Basic](https://lazyman.dev/info/Basic.html) | [CodeArt](https://lazyman.dev/info/CodeArt.html) | [CosmicNvim](https://lazyman.dev/info/Cosmic.html) |
 | [Ember](https://lazyman.dev/info/Ember.html) | [Fennel](https://lazyman.dev/info/Fennel.html) | [HardHacker](https://lazyman.dev/info/HardHacker.html) | [JustinOhMy](https://lazyman.dev/info/JustinOhMy.html) | [Kickstart](https://lazyman.dev/info/Kickstart.html) |
-| [Kabin](https://lazyman.dev/info/Kabin.html) | [Micah](https://lazyman.dev/info/Micah.html) | [Modern](https://lazyman.dev/info/Modern.html) | [Normal](https://lazyman.dev/info/Normal.html) | [nvim2k](https://lazyman.dev/info/2k.html) |
-| [NvPak](https://lazyman.dev/info/NvPak.html) | [PDE](https://lazyman.dev/info/pde.html) | [Rohit](https://lazyman.dev/info/Rohit.html) | [Scratch](https://lazyman.dev/info/Scratch.html) | [SingleFile](https://lazyman.dev/info/SingleFile.html) |
+| [KickstartPython](https://lazyman.dev/info/KickstartPython.html) | [Kabin](https://lazyman.dev/info/Kabin.html) | [Micah](https://lazyman.dev/info/Micah.html) | [Modern](https://lazyman.dev/info/Modern.html) | [Normal](https://lazyman.dev/info/Normal.html) |
+| [nvim2k](https://lazyman.dev/info/2k.html) | [NvPak](https://lazyman.dev/info/NvPak.html) | [PDE](https://lazyman.dev/info/pde.html) | [Rohit](https://lazyman.dev/info/Rohit.html) | [Scratch](https://lazyman.dev/info/Scratch.html) |
+| | | [SingleFile](https://lazyman.dev/info/SingleFile.html) | | |
 
 <!-- prettier-ignore -->
 | **VonHeikemen** |        | **Starter** |        | **Configs** |

@@ -84,7 +84,7 @@ command -v nvim > /dev/null && {
       nvim-BasicLsp|nvim-BasicMason|nvim-Craftzdog|nvim-Enrique|nvim-Extralight|nvim-LspCmp|nvim-Minimal|nvim-Primeagen|nvim-Simple)
         explore="Lexplore"
         ;;
-      nvim-Dillon|nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-Lukas|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn|nvim-Wuelner)
+      nvim-Dillon|nvim-Kabin|nvim-Lamia|nvim-Kickstart|nvim-KickstartPython|nvim-Lukas|nvim-Maddison|nvim-Rafi|nvim-SingleFile|nvim-Slydragonn|nvim-Wuelner)
         explore="Neotree"
         ;;
       nvim-Beethoven|nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Orange|nvim-Xiao)
