@@ -1114,6 +1114,14 @@ install_tools() {
       [ "$quiet" ] || printf " done"
     fi
 
+    if command -v vim-language-server >/dev/null 2>&1; then
+      log "Using previously installed vim language server"
+    else
+      log "Installing vim language server ..."
+      npm i -g vim-language-server >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
+
     if command -v tsserver >/dev/null 2>&1; then
       log "Using previously installed typescript package"
     else
@@ -1197,6 +1205,16 @@ install_tools() {
     else
       log "Installing flake8 ..."
       ${PYTHON} -m pip install ${PIPARGS} flake8 >/dev/null 2>&1
+    fi
+    [ "$quiet" ] || printf " done"
+    log "Installing jedi library for python ..."
+    ${PYTHON} -m pip install ${PIPARGS} jedi >/dev/null 2>&1
+    [ "$quiet" ] || printf " done"
+    if command -v "pylsp" >/dev/null 2>&1; then
+      log "Using previously installed python lsp server"
+    else
+      log "Installing python lsp server ..."
+      ${PYTHON} -m pip install ${PIPARGS} python-lsp-server >/dev/null 2>&1
     fi
     [ "$quiet" ] || printf " done"
     if command -v "rich" >/dev/null 2>&1; then
