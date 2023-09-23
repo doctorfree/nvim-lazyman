@@ -516,7 +516,7 @@ table.insert(gls.right, {
 table.insert(gls.right, {
   StatsIcon = {
     provider = function()
-      return '⅑'
+      return ''
     end,
     highlight = { colors.statsbg, colors.statsicon }
   }
