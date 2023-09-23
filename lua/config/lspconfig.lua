@@ -32,7 +32,7 @@ local custom_attach = function(client, bufnr)
 
   map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
   map("n", "<C-]>", vim.lsp.buf.definition)
-  map("n", "K", vim.lsp.buf.hover)
+  map("n", "K", vim.lsp.buf.hover, { desc = "Display symbol info in float"})
   map("n", "<C-k>", vim.lsp.buf.signature_help)
   map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "varialbe rename" })
   map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
@@ -694,13 +694,34 @@ require("ufo").setup({
   close_fold_kinds = { "imports" },
 })
 
-keymap.set("n", "<leader>de", diagnostic.open_float, { noremap = true, silent = true, desc = "Open float" })
-keymap.set("n", "[d", diagnostic.goto_prev, { noremap = true, silent = true })
-keymap.set("n", "]d", diagnostic.goto_next, { noremap = true, silent = true })
-keymap.set(
-  "n",
-  "<leader>dq",
-  diagnostic.setloclist,
-  { noremap = true, silent = true, desc = "Set diagnostics location list" }
+-- Diagnostic keymaps
+keymap.set("n",
+  "[d",
+  vim.diagnostic.goto_prev,
+  { noremap = true, silent = true, desc = "Go to previous diagnostic" }
 )
-keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostics" })
+keymap.set("n",
+  "]d",
+  vim.diagnostic.goto_next,
+  { noremap = true, silent = true, desc = "Go to next diagnostic" }
+)
+keymap.set("n",
+  "<leader>de",
+  vim.diagnostic.open_float,
+  { noremap = true, silent = true, desc = "Open floating diagnostic" }
+)
+keymap.set("n",
+  "<leader>dq",
+  vim.diagnostic.setloclist,
+  { noremap = true, silent = true, desc = "Diagnostics location list" }
+)
+keymap.set("n",
+  "<leader>dt",
+  toggle_diagnostics,
+  { desc = "Toggle diagnostics" }
+)
+keymap.set("n",
+  "L",
+  "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+  { desc = "Signature help"}
+)

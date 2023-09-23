@@ -81,10 +81,6 @@ function cfg.on_attach(client, buffer)
     map(buffer, "n", "<leader>r", "<cmd>lua require('renamer').rename()<CR>", rpts)
     map(buffer, "v", "<leader>r", "<cmd>lua require('renamer').rename()<CR>", rpts)
   end
-  map(buffer, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  map(buffer, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-  map(buffer, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", opts)
-  map(buffer, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
 function cfg.diagnostic_goto(next, severity)
