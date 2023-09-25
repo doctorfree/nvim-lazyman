@@ -138,6 +138,9 @@ get_conf_table() {
     while read -r val; do
       lsp_enabled_table+=("$val")
     done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
+    while read -r val; do
+      lsp_enabled_table+=("$val")
+    done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} lsp_installed 2>&1)
     enable_ccls=$(get_conf_value enable_ccls)
     if [ "${enable_ccls}" == "true" ]; then
       lsp_enabled_table+=("ccls")
