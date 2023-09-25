@@ -224,27 +224,31 @@ conf.enable_ccls = true
 conf.enable_clangd = false
 -- Typescript language server. Can be "tsserver" "tools" or "none"
 conf.typescript_server = "tools"
+-- LSPs that are installed by the Lazyman initialization
+-- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
+conf.lsp_installed = {
+  "cssls",         -- LSP_SERVERS
+  "denols",        -- LSP_SERVERS
+  "html",          -- LSP_SERVERS
+  "jsonls",        -- LSP_SERVERS
+  "lua_ls",        -- LSP_SERVERS
+  "pylsp",         -- LSP_SERVERS
+}
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
 conf.lsp_servers = {
   "bashls",        -- LSP_SERVERS
-  "cssls",         -- LSP_SERVERS
   "cssmodules_ls", -- LSP_SERVERS
-  "denols",        -- LSP_SERVERS
   "dockerls",      -- LSP_SERVERS
   "emmet_ls",      -- LSP_SERVERS
   -- "eslint",     -- LSP_SERVERS
   -- "gopls",      -- LSP_SERVERS
   "graphql",       -- LSP_SERVERS
-  "html",          -- LSP_SERVERS
   "jdtls",         -- LSP_SERVERS
-  "jsonls",        -- LSP_SERVERS
   "julials",       -- LSP_SERVERS
   "ltex",          -- LSP_SERVERS
-  "lua_ls",        -- LSP_SERVERS
   "marksman",      -- LSP_SERVERS
   "prismals",      -- LSP_SERVERS
-  "pylsp",         -- LSP_SERVERS
   "pyright",       -- LSP_SERVERS
   "sqlls",         -- LSP_SERVERS
   "tailwindcss",   -- LSP_SERVERS

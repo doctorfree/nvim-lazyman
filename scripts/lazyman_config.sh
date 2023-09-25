@@ -29,23 +29,24 @@ themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra"
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin"
                "onedarkpro" "monokai-pro")
 
-all_lsp_servers=("bashls" "cssmodules_ls" "denols" "dockerls" "eslint" "gopls"
-                 "graphql" "html" "jdtls" "jsonls" "julials" "ltex" "lua_ls"
-                 "marksman" "pylsp" "pyright" "sqlls" "tailwindcss" "texlab"
-                 "tsserver" "vimls" "yamlls")
+all_lsp_servers=("cssls" "denols" "html" "jsonls" "lua_ls" "pylsp" "bashls"
+                 "cssmodules_ls" "dockerls" "emmet_ls" "eslint" "gopls" "graphql"
+                 "jdtls" "julials" "ltex" "marksman" "prismals" "pyright" "sqlls"
+                 "tailwindcss" "texlab" "tsserver" "vimls" "vuels" "yamlls")
 have_ccls=$(type -p ccls)
 [ "${have_ccls}" ] && all_lsp_servers+=("ccls")
 have_clangd=$(type -p clangd)
 [ "${have_clangd}" ] && all_lsp_servers+=("clangd")
 
-all_formatters=("actionlint" "goimports" "golangci-lint" "gofumpt"
-                "google-java-format" "latexindent" "markdownlint"
-                "prettier" "sql-formatter" "shellcheck" "shfmt"
-                "stylua" "tflint" "yamllint")
+all_formatters=("actionlint" "goimports" "golines" "golangci-lint" "gofumpt"
+                "google-java-format" "latexindent" "markdownlint" "prettier"
+                "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
 have_beautysh=$(type -p beautysh)
 [ "${have_beautysh}" ] && all_formatters+=("beautysh")
 have_black=$(type -p black)
 [ "${have_black}" ] && all_formatters+=("black")
+have_flake=$(type -p flake8)
+[ "${have_flake}" ] && all_formatters+=("flake8")
 have_ruff=$(type -p ruff)
 [ "${have_ruff}" ] && all_formatters+=("ruff")
 

@@ -1,5 +1,6 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
+local lsp_installed = settings.lsp_installed
 local formatters_linters = settings.formatters_linters
 local external_formatters = settings.external_formatters
 local showdiag = settings.show_diagnostics
@@ -263,7 +264,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "cssls") then
+  if table_contains(lsp_installed, "cssls") then
     lspconfig.cssls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -272,7 +273,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "pylsp") then
+  if table_contains(lsp_installed, "pylsp") then
     local venv_path = os.getenv('VIRTUAL_ENV')
     local py_path = nil
     -- decide which python executable to use for mypy
@@ -344,7 +345,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "jsonls") then
+  if table_contains(lsp_installed, "jsonls") then
     lspconfig.jsonls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -567,7 +568,7 @@ if settings.enable_coding then
     end
   end
 
-  if table_contains(lsp_servers, "lua_ls") then
+  if table_contains(lsp_installed, "lua_ls") then
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -672,7 +673,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "html") then
+  if table_contains(lsp_installed, "html") then
     lspconfig.html.setup({
       capabilities = capabilities,
       handlers = handlers,
