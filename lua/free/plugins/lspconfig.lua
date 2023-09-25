@@ -76,7 +76,7 @@ if settings.enable_coding then
         end
         require("mason-lspconfig").setup({
           ensure_installed = lsp_servers,
-          automatic_installation = true,
+          automatic_installation = false,
         })
         require("config.lspconfig")
       end,
