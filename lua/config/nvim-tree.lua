@@ -137,7 +137,6 @@ require("nvim-tree").setup({
   view = {
     width = 25,
     adaptive_size = true,
-    hide_root_folder = false,
     side = "left",
     -- mappings = {
     --   custom_only = true,
@@ -146,3 +145,10 @@ require("nvim-tree").setup({
     relativenumber = false,
   },
 })
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<C-e>",
+	"<cmd>lua require('nvim-tree.api').tree.toggle()<CR>",
+	{ noremap = true, silent = true }
+)

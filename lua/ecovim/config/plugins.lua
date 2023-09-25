@@ -1190,7 +1190,7 @@ return {
       { "<C-e>", "<cmd>lua require('nvim-tree.api').tree.toggle()<CR>", desc = "NvimTree" },
     },
     config = function()
-      require("ecovim.plugins.tree")
+      require("config.nvim-tree")
     end,
   },
   {
