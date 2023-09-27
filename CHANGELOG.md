@@ -6,6 +6,21 @@
 
 ### 🐞 Fixed
 
+## v3.1.3r1
+
+### ⚡️ Added
+
+- Split installed LSP servers out into separate config
+- Update servers and formatters configured in LSP menu
+- Merge `ecovim` `nvim-tree` config into `config/nvim-tree.lua`
+- Update `nivm-tree` opts
+- Remove duplicate diagnostics keymaps, add diagnostic keymap descriptions
+
+### 🐞 Fixed
+
+- Set `mason-lspconfig` auto install to false
+- Fix `get_conf_table` in `lazyman_config.sh` with split LSP servers tables
+
 ## v3.1.2r7
 
 ### ⚡️ Added
