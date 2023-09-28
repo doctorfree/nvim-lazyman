@@ -102,39 +102,13 @@ end
 
 local indentline_cfg = {
   "lukas-reineke/indent-blankline.nvim",
+  version = "2.20.8",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("config.indent-blankline")
   end,
 }
 
-local indentline_cfg = {
-  "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPost", "BufNewFile" },
-  opts = {
-    char = "▏",
-    context_char = "▏",
-    show_end_of_line = false,
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-    filetype_exclude = {
-      "help",
-      "startify",
-      "dashboard",
-      "packer",
-      "neogitstatus",
-      "NvimTree",
-      "Trouble",
-      "alpha",
-      "neo-tree",
-    },
-    buftype_exclude = {
-      "terminal",
-      "nofile",
-    },
-  },
-}
 if settings.indentline_style == "none" then
   indentline_cfg = {}
 elseif settings.indentline_style == "mini" then

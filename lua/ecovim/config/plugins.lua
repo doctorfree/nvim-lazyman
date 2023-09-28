@@ -873,6 +873,7 @@ end
 
 local indentline_cfg = {
   "lukas-reineke/indent-blankline.nvim",
+  version = "2.20.8",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("config.indent-blankline")
