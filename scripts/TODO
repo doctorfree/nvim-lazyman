@@ -1,5 +1,9 @@
 TODO:
 
+- Add Kevin Feng's configuration:
+  - lazyman -C https://github.com/kevinfengcs88/nvim -N nvim-Kevin
+- Check out Stefan's configuration:
+  - lazyman -C https://github.com/NStefan002/nvim_config -N nvim-Stefan
 - Finish configuring conform.nvim in ecovim namespace
 - Check for available updates to rustc, rustup, cargo, etc and update bob
   rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
