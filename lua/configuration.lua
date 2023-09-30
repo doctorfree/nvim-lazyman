@@ -87,7 +87,7 @@ conf.enable_database = true
 -- Enable dressing plugin for improved default vim.ui interfaces
 conf.enable_dressing = true
 -- Enable LSP timeout plugin
-conf.enable_lsp_timeout = true
+conf.enable_lsp_timeout = false
 -- Enable easy motions, can be one of "hop", "flash", "leap", or "none"
 conf.enable_motion = "leap"
 -- Enable note making using Markdown preview and Obsidian plugins
