@@ -77,6 +77,7 @@ local blackjack = {}
 local cellular = {}
 local coding = {}
 local database = {}
+local lsp_timeout = {}
 local motion = {}
 local neoscroll = {}
 local ranger_float = {}
@@ -115,6 +116,22 @@ if settings.enable_ranger_float then
       vim.g.rnvimr_border_attr = { fg = 3, bg = -1 }
       vim.g.rnvimr_shadow_winblend = 90
     end,
+  }
+end
+
+if settings.enable_lsp_timeout then
+  lsp_timeout = {
+	  "hinell/lsp-timeout.nvim",
+	  dependencies={ "neovim/nvim-lspconfig" },
+    config = function()
+      vim.g["lsp-timeout-config"] = {
+        -- When focus is lost
+        -- wait 5 minutes before stopping all LSP servers
+        stopTimeout=1000 * 60 * 5,
+        startTimeout=1000 * 10,
+        silent = true
+      }
+    end
   }
 end
 
@@ -1260,6 +1277,8 @@ return {
       require("ecovim.plugins.navic")
     end,
   },
+
+  lsp_timeout,
 
   ranger_float,
 

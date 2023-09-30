@@ -24,6 +24,23 @@ if settings.enable_conform then
   format_depend = "stevearc/conform.nvim"
 end
 
+local lsp_timeout = {}
+if settings.enable_lsp_timeout then
+  lsp_timeout = {
+	  "hinell/lsp-timeout.nvim",
+	  dependencies={ "neovim/nvim-lspconfig" },
+    config = function()
+      vim.g["lsp-timeout-config"] = {
+        -- When focus is lost
+        -- wait 5 minutes before stopping all LSP servers
+        stopTimeout=1000 * 60 * 5,
+        startTimeout=1000 * 10,
+        silent = true
+      }
+    end
+  }
+end
+
 if settings.enable_coding then
   return {
     {
@@ -85,6 +102,9 @@ if settings.enable_coding then
     { "mfussenegger/nvim-jdtls" }, -- java lsp - https://github.com/mfussenegger/nvim-jdtls
 
     formatters,
+
+    lsp_timeout,
+
     {
       "VonHeikemen/lsp-zero.nvim",
       branch = "v2.x",

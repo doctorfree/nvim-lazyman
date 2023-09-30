@@ -1988,6 +1988,12 @@ show_lsp_menu() {
     get_conf_table lsp_servers
     namespace=$(get_conf_value namespace)
     ts_server=$(get_conf_value typescript_server)
+    enable_lsp_timeout=$(get_conf_value enable_lsp_timeout)
+    if [ "${enable_lsp_timeout}" == "true" ]; then
+      lsp_timeout=""
+    else
+      lsp_timeout="✗"
+    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
@@ -2024,6 +2030,7 @@ show_lsp_menu() {
         }
       fi
     done
+    options+=("LSP Timeout    [${lsp_timeout}]")
     options+=("Disable All")
     options+=("Enable All")
     options+=("Formatters Menu")
@@ -2047,6 +2054,15 @@ show_lsp_menu() {
               pluginit=1
             }
           fi
+          break
+          ;;
+        "LSP Timeout"*,* | *,"LSP Timeout"*)
+          if [ "${enable_lsp_timeout}" == "true" ]; then
+            set_conf_value "enable_lsp_timeout" "false"
+          else
+            set_conf_value "enable_lsp_timeout" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
