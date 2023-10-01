@@ -37,9 +37,9 @@ The Lazyman project can be used to install, initialize, manage, and explore mult
 | [Jdhao](https://lazyman.dev/info/Jdhao.html) | [Josean](https://lazyman.dev/info/Josean.html) | [JustinLvim](https://lazyman.dev/info/JustinLvim.html) | [JustinNvim](https://lazyman.dev/info/JustinNvim.html) | [Kodo](https://lazyman.dev/info/Kodo.html) |
 | [Kristijan](https://lazyman.dev/info/Kristijan.html) | [LamarVim](https://lazyman.dev/info/LamarVim.html) | [Lukas](https://lazyman.dev/info/Lukas.html) | [Maddison](https://lazyman.dev/info/Maddison.html) | [Metis](https://lazyman.dev/info/Metis.html) |
 | [Mini](https://lazyman.dev/info/Mini.html) | [OnMyWay](https://lazyman.dev/info/OnMyWay.html) | [ONNO](https://lazyman.dev/info/ONNO.html) | [Optixal](https://lazyman.dev/info/Optixal.html) | [Orhun](https://lazyman.dev/info/Orhun.html) |
-| [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) | [RNvim](https://lazyman.dev/info/RNvim.html) | [Roiz](https://lazyman.dev/info/Roiz.html) | [Simple](https://lazyman.dev/info/Simple.html) |
-| [Slydragonn](https://lazyman.dev/info/Slydragonn.html) | [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) | [Wuelner](https://lazyman.dev/info/Wuelner.html) | [xero](https://lazyman.dev/info/xero.html) |
-| | | [Xiao](https://lazyman.dev/info/Xiao.html) | | |
+| [Primeagen](https://lazyman.dev/info/Primeagen.html) | [Rafi](https://lazyman.dev/info/Rafi.html) | [RNvim](https://lazyman.dev/info/RNvim.html) | [Roiz](https://lazyman.dev/info/Roiz.html) | [SeniorMars](https://lazyman.dev/info/SeniorMars.html) |
+| [Simple](https://lazyman.dev/info/Simple.html) | [Slydragonn](https://lazyman.dev/info/Slydragonn.html) | [Spider](https://lazyman.dev/info/Spider.html) | [Traap](https://lazyman.dev/info/Traap.html) | [Wuelner](https://lazyman.dev/info/Wuelner.html) |
+| | [xero](https://lazyman.dev/info/xero.html) | | [Xiao](https://lazyman.dev/info/Xiao.html) | |
 
 <!-- prettier-ignore -->
 | **Starter** |        |        |        | **Configs** |
