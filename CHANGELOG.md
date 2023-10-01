@@ -4,7 +4,12 @@
 
 ### ⚡️ Added
 
+- Add support for LSP timeout plugin
+
 ### 🐞 Fixed
+
+- Disable LSP timeout by default
+- Pin `indent-blankline` to version 2.20.8
 
 ## v3.1.3r1
 
