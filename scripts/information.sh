@@ -693,6 +693,13 @@ make_info() {
       C_DESC="Just a random Neovim config found on Github, works well"
       C_INST="lazyman -w Roiz"
       ;;
+    SeniorMars)
+      GH_URL="https://github.com/SeniorMars/dotfiles"
+      DF_URL="https://dotfyle.com/SeniorMars/dotfiles-config-nvim"
+      CF_CAT="Personal"
+      C_DESC="The popular personal Neovim configuration of SeniorMars"
+      C_INST="lazyman -w SeniorMars"
+      ;;
     Simple)
       GH_URL="https://github.com/anthdm/.nvim"
       YT_URL="https://www.youtube.com/@anthonygg_"

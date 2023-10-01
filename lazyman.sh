@@ -1810,7 +1810,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | KickstartPython | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | SeniorMars | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4273,6 +4273,11 @@ install_remove() {
         lazyman ${darg} -C https://github.com/MrRoiz/rnvim \
           -N nvim-Roiz ${quietflag} -z ${yesflag}
       }
+      [ "$(getok nvim-SeniorMars)" == "ok" ] && {
+        printf "\n${action} SeniorMars Neovim configuration"
+        lazyman ${darg} -C https://github.com/SeniorMars/dotfiles \
+          -D .config/nvim -N nvim-SeniorMars ${quietflag} -z ${yesflag}
+      }
       [ "$(getok nvim-Simple)" == "ok" ] && {
         printf "\n${action} Simple Neovim configuration"
         lazyman ${darg} -C https://github.com/anthdm/.nvim \
@@ -4535,6 +4540,10 @@ install_remove() {
       Heiker)
         prsnl_url="-C https://github.com/VonHeikemen/dotfiles"
         prsnl_dir="-D my-configs/neovim"
+        ;;
+      SeniorMars)
+        prsnl_url="-C https://github.com/SeniorMars/dotfiles"
+        prsnl_dir="-D .config/nvim"
         ;;
       Simple)
         prsnl_url="-C https://github.com/anthdm/.nvim"
