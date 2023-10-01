@@ -1,0 +1,111 @@
+--- init.lua.orig	2023-10-01 09:01:51.814850543 -0700
++++ init.lua	2023-10-01 09:22:31.877998073 -0700
+@@ -2,13 +2,13 @@
+ vim.g.mapleader = ","
+ 
+ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+--- if not vim.loop.fs_stat(lazypath) then
+---     vim.fn.system({
+---         "git", "clone", "--filter=blob:none",
+---         "https://github.com/folke/lazy.nvim.git", "--branch=stable", -- latest stable release
+---         lazypath
+---     })
+--- end
++if not vim.loop.fs_stat(lazypath) then
++    vim.fn.system({
++        "git", "clone", "--filter=blob:none",
++        "https://github.com/folke/lazy.nvim.git", "--branch=stable", -- latest stable release
++        lazypath
++    })
++end
+ 
+ vim.opt.rtp:prepend(lazypath)
+ 
+@@ -85,7 +85,7 @@
+                 palette_overrides = {dark0_hard = "#0E1018"},
+                 overrides = {
+                     -- Comment = {fg = "#626A73", italic = true, bold = true},
+-                    -- #736B62,  #626273, #627273 
++                    -- #736B62,  #626273, #627273
+                     Comment = {fg = "#81878f", italic = true, bold = true},
+                     Define = {link = "GruvboxPurple"},
+                     Macro = {link = "GruvboxPurple"},
+@@ -622,7 +622,17 @@
+ -- Other settings
+ vim.g.neoformat_try_formatprg = 1
+ vim.g.latexindent_opt = "-m"
+-vim.g.python3_host_prog = "~/.asdf/shims/python3"
++local python_path = "~/.asdf/shims/python3"
++if vim.loop.fs_stat(python_path) then
++    vim.g.python3_host_prog = python_path
++else
++    python_path = vim.fn.exepath("python3")
++    if python_path == nil or python_path == "" then
++        vim.g.loaded_python3_provider = 0
++    else
++        vim.g.python3_host_prog = python_path
++    end
++end
+ vim.g.loaded_ruby_provider = 0
+ vim.g.loaded_perl_provider = 0
+ vim.g.netrw_banner = 0
+@@ -1014,6 +1024,20 @@
+ keyset({"n", "x", "o"}, "T", ts_repeat_move.builtin_T)
+ 
+ require("nvim-treesitter.configs").setup({
++    ensure_installed = {
++        "bash",
++        "c",
++        "lua",
++        "markdown",
++        "markdown_inline",
++        "query",
++        "regex",
++        "vim",
++        "vimdoc",
++    },          -- one of "all", or a list of languages
++    ignore_install = {},
++    auto_install = true,
++    sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
+     highlight = {enable = true, additional_vim_regex_highlighting = {"latex"}},
+     playground = {
+         enable = true,
+@@ -1022,6 +1046,7 @@
+     },
+     indent = {enable = true, disable = {"python"}},
+     context_commentstring = {enable = true},
++    modules = {},
+     textobjects = {
+         move = {
+             enable = true,
+@@ -1085,8 +1110,8 @@
+ require("neorg").setup({
+     load = {
+         ["core.defaults"] = {}, -- Load all the default modules
+-        ["core.norg.qol.toc"] = {},
+-        ["core.norg.concealer"] = {config = {icon_preset = "diamond"}},
++        ["core.qol.toc"] = {},
++        ["core.concealer"] = {config = {icon_preset = "diamond"}},
+         ["core.keybinds"] = {
+             config = {
+                 hook = function(keybinds)
+@@ -1095,8 +1120,8 @@
+             }
+         },
+         ["core.export"] = {config = {export_dir = "~/Notes/export"}},
+-        ["core.norg.esupports.metagen"] = {},
+-        ["core.norg.dirman"] = { -- Manage your directories with Neorg
++        ["core.esupports.metagen"] = {},
++        ["core.dirman"] = { -- Manage your directories with Neorg
+             config = {
+                 workspaces = {
+                     notes = "~/Notes/notes",
+@@ -1105,7 +1130,7 @@
+                 index = "index.norg"
+             }
+         },
+-        ["core.norg.journal"] = {
++        ["core.journal"] = {
+             config = {
+                 journal_folder = "journal",
+                 strategy = "flat",
