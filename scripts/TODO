@@ -4,6 +4,8 @@ TODO:
   - lazyman -C https://github.com/kevinfengcs88/nvim -N nvim-Kevin
 - Check out Stefan's configuration:
   - lazyman -C https://github.com/NStefan002/nvim_config -N nvim-Stefan
+- Alex configuration:
+  - lazyman -C https://github.com/alex35mil/dotfiles -D home/.config/nvim -N nvim-Alex
 - Finish configuring conform.nvim in ecovim namespace
 - Check for available updates to rustc, rustup, cargo, etc and update bob
   rustup check | grep Up > /dev/null || ~/.config/nvim-Lazyman/scripts/update_bob.sh
@@ -16,4 +18,3 @@ x Add Chokerman config to Personals
 x Enable candy on CandyVim dashboard
 x Add CandyVim config to Personals
 x lazyman -C https://github.com/doctorfree/CandyVim -N nvim-CandyVim
-
