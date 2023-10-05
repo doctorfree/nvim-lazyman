@@ -788,6 +788,12 @@ show_plugin_menu() {
     else
       use_cheatsheet="✗"
     fi
+    enable_context=$(get_conf_value enable_treesitter_context)
+    if [ "${enable_context}" == "true" ]; then
+      use_context=""
+    else
+      use_context="✗"
+    fi
     enable_motion=$(get_conf_value enable_motion)
     use_motion="${enable_motion}"
     enable_notes=$(get_conf_value enable_notes)
@@ -969,6 +975,7 @@ show_plugin_menu() {
       options+=("Tabnine (AI)  [${use_tabnine}]")
     }
     options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Code Context  [${use_context}]")
     options+=("Enable coding [${use_coding}]")
     [ "${use_namespace}" == "ecovim" ] || {
       options+=("Compile & Run [${use_compile}]")
@@ -1454,6 +1461,15 @@ show_plugin_menu() {
             set_conf_value "enable_cheatsheet" "false"
           else
             set_conf_value "enable_cheatsheet" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Code Context"*,* | *,"Code Context"*)
+          if [ "${enable_context}" == "true" ]; then
+            set_conf_value "enable_treesitter_context" "false"
+          else
+            set_conf_value "enable_treesitter_context" "true"
           fi
           pluginit=1
           break

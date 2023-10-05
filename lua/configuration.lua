@@ -292,6 +292,8 @@ conf.telescope_grep_hidden = true
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "popup"
+-- Enable treesitter code context
+conf.enable_treesitter_context = true
 -- Enable semantic highlighting
 conf.enable_semantic_highlighting = true
 -- Convert semantic highlights to treesitter highlights

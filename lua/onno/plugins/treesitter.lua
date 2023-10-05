@@ -1,4 +1,28 @@
 local settings = require("configuration")
+local treesitter_context = {}
+
+if settings.enable_treesitter_context then
+  treesitter_context = {
+    "nvim-treesitter/nvim-treesitter-context",
+    cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
+    event = "BufReadPre",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesitter-context").setup({
+        enable = true,
+        max_lines = 0,
+        min_window_height = 0,
+        line_numbers = true,
+        multiline_threshold = 20,
+        trim_scope = 'outer',
+        mode = 'cursor',
+        separator = nil,
+        zindex = 20,
+        on_attach = nil,
+      })
+    end
+  }
+end
 
 return {
   {
@@ -32,4 +56,5 @@ return {
       context_commentstring = { enable = true },
     },
   },
+  treesitter_context,
 }
