@@ -68,7 +68,9 @@ function cfg.on_attach(client, buffer)
       opts.has = nil
       opts.silent = true
       opts.buffer = buffer
-      vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      if not (keys[2] == nil or keys[2] == false) then
+        vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      end
     end
   end
   local opts = { noremap = true, silent = true }
