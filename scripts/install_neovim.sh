@@ -325,14 +325,14 @@ platform_install() {
     [ "$debug" ] && START_SECONDS=$(date +%s)
     if [ "${debian}" ]; then
       if [ "${APT}" ]; then
-        sudo ${APT} install ${platpkg} >/dev/null 2>&1
+        ${SUDO} ${APT} install ${platpkg} >/dev/null 2>&1
       else
         [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
       fi
     else
       if [ "${redhat}" ]; then
         if [ "${DNF}" ]; then
-          sudo ${DNF} install ${platpkg} >/dev/null 2>&1
+          ${SUDO} ${DNF} install ${platpkg} >/dev/null 2>&1
         else
           [ "${quiet}" ] || {
             printf "\n\t\tCannot locate dnf to install. Skipping ..."
@@ -341,7 +341,7 @@ platform_install() {
       else
         [ "${arch}" ] && {
           if [ "${have_pac}" ]; then
-            sudo pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
+            ${SUDO} pacman -S --noconfirm ${platpkg} >/dev/null 2>&1
           else
             [ "${quiet}" ] || {
               printf "\n\t\tCannot locate pacman to install. Skipping ..."
@@ -350,7 +350,7 @@ platform_install() {
         }
         [ "${suse}" ] && {
           if [ "${have_zyp}" ]; then
-            sudo zypper install ${platpkg} >/dev/null 2>&1
+            ${SUDO} zypper install ${platpkg} >/dev/null 2>&1
           else
             [ "${quiet}" ] || {
               printf "\n\t\tCannot locate zypper to install. Skipping ..."
@@ -359,7 +359,7 @@ platform_install() {
         }
         [ "${alpine}" ] && {
           if [ "${have_apk}" ]; then
-            sudo apk add ${platpkg} >/dev/null 2>&1
+            ${SUDO} apk add ${platpkg} >/dev/null 2>&1
           else
             [ "${quiet}" ] || {
               printf "\n\t\tCannot locate apk to install. Skipping ..."
@@ -368,7 +368,7 @@ platform_install() {
         }
         [ "${void}" ] && {
           if [ "${have_xbps}" ]; then
-            sudo xbps-install -S ${platpkg} >/dev/null 2>&1
+            ${SUDO} xbps-install -S ${platpkg} >/dev/null 2>&1
           else
             [ "${quiet}" ] || {
               printf "\n\t\tCannot locate xbps-install to install. Skipping ..."
@@ -1449,10 +1449,11 @@ have_yum=$(type -p yum)
 have_zyp=$(type -p zypper)
 alltools=
 native=1
+inst_pkgs=1
 proceed=
 architecture=$(uname -m)
 
-while getopts "adhnqy" flag; do
+while getopts "adhnqsy" flag; do
   case $flag in
     a)
       alltools=1
@@ -1470,6 +1471,9 @@ while getopts "adhnqy" flag; do
     q)
       quiet=1
       ;;
+    s)
+      inst_pkgs=
+      ;;
     y)
       proceed=1
       ;;
@@ -1477,6 +1481,11 @@ while getopts "adhnqy" flag; do
   esac
 done
 
+if [ "${inst_pkgs}" ]; then
+  SUDO=sudo
+else
+  SUDO=echo
+fi
 currlimit=$(ulimit -n)
 hardlimit=$(ulimit -Hn)
 [ "$hardlimit" == "unlimited" ] && hardlimit=9999

@@ -3698,6 +3698,9 @@ fi
   exit 0
 }
 
+inst_pkgs=
+[ "$1" == "noinstall" ] && inst_pkgs="-s"
+
 [ "$1" == "usage" ] && usage
 
 [ "${listinstalled}" ] || [ "${listuninstalled}" ] && {
@@ -5132,7 +5135,7 @@ fi
   [ -d "${HOME}/.local" ] || mkdir -p "${HOME}/.local"
   [ -d "${HOME}/.local/bin" ] || mkdir -p "${HOME}/.local/bin"
   if [ -x "${INSTNVIM}" ]; then
-    "${INSTNVIM}" $darg $head $brew $yes
+    "${INSTNVIM}" $inst_pkgs $darg $head $brew $yes
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
