@@ -418,7 +418,7 @@ install_neovim_dependencies() {
   if [ "${use_homebrew}" ]; then
     brew_install clipboard
   else
-    platform_install "wl-clipboard" wl-copy
+    platform_install wl-clipboard wl-copy
   fi
 
   have_curl=$(type -p curl)

@@ -61,7 +61,10 @@ brief_usage() {
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
   printf "\n   [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]"
-  [ "$1" == "noexit" ] || exit 1
+  [ "$1" == "noexit" ] || {
+    printf "\n"
+    exit 1
+  }
 }
 
 usage() {
