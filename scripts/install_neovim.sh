@@ -1334,6 +1334,7 @@ main() {
   check_prerequisites
   get_platform
   [ "$proceed" ] || {
+    printf "\nPlease be patient while Neovim dependencies are installed"
     [ "${alpine}" ] || [ "${arch}" ] || [ "${debian}" ] \
       || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       prompt=
