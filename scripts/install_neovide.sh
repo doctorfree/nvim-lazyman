@@ -85,13 +85,13 @@ dl_asset() {
   DLFMT="$1"
   if [ "${DLFMT}" == "tgz" ]
   then
-    name="neovide"
+    name="neovide-linux-x86_64"
     format="tar"
     suffix="gz"
   else
     if [ "${DLFMT}" == "dmg" ]
     then
-      name="Neovide"
+      name="neovide"
       format="dmg"
       suffix="zip"
     else
@@ -100,6 +100,8 @@ dl_asset() {
     fi
   fi
   [ "${name}" ] || return
+
+
   OWNER=neovide
   PROJECT=neovide
   API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
@@ -109,6 +111,7 @@ dl_asset() {
       | jq --raw-output '.assets | .[]?.browser_download_url' \
       | grep "${name}\.${format}\.${suffix}$")
   }
+
   [ "${DL_URL}" ] && {
     [ "${have_wget}" ] && {
       printf "\nDownloading neovide release asset ..."
