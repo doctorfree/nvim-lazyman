@@ -12,6 +12,21 @@ DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
 HOMEBREW_HOME=
 PYTHON=
+
+# Do we have a Github API token?
+[ "${GH_TOKEN}" ] || {
+  [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  [ "${GH_TOKEN}" ] || {
+    [ -f $HOME/.private ] && source $HOME/.private
+    [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  }
+}
+if [ "${GH_TOKEN}" ]; then
+  AUTH_HEADER="-H \"Authorization: Bearer ${GH_TOKEN}\""
+else
+  AUTH_HEADER=
+fi
+
 export PATH=${HOME}/.local/bin:${PATH}
 
 abort() {
@@ -438,7 +453,7 @@ install_neovim_dependencies() {
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
-        DL_URL=$(curl --silent "${API_URL}" \
+        DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "linux_amd64\.tar\.gz$")
       }
@@ -488,7 +503,7 @@ install_neovim_dependencies() {
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
-        DL_URL=$(curl --silent "${API_URL}" \
+        DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "Linux_${larch}\.tar\.gz$")
       }
@@ -532,7 +547,7 @@ install_neovim_dependencies() {
         API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
         DL_URL=
         [ "${have_curl}" ] && [ "${have_jq}" ] && {
-          DL_URL=$(curl --silent "${API_URL}" \
+          DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
             | grep "linux-${larch}\.tar\.gz$")
         }
@@ -616,7 +631,7 @@ install_neovim() {
     else
       [ -d $HOME/.local ] || mkdir -p $HOME/.local
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
-        DL_URL=$(curl --silent "${API_URL}" \
+        DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "linux64\.tar\.gz$")
       }
@@ -826,7 +841,7 @@ install_extra() {
           API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
           DL_URL=
           [ "${have_curl}" ] && [ "${have_jq}" ] && {
-            DL_URL=$(curl --silent "${API_URL}" \
+            DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
               | jq --raw-output '.assets | .[]?.browser_download_url' \
               | grep "linux_amd64\.tar\.gz$")
           }
@@ -1024,7 +1039,7 @@ install_tools() {
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
-        DL_URL=$(curl --silent "${API_URL}" \
+        DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "linux-${larch}$")
       }
@@ -1059,7 +1074,7 @@ install_tools() {
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
-        DL_URL=$(curl --silent "${API_URL}" \
+        DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
           | grep "Linux_amd64")
       }

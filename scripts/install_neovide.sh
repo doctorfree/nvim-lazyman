@@ -15,6 +15,20 @@ have_jq=$(type -p jq)
 have_unzip=$(type -p unzip)
 platform=$(uname -s)
 
+# Do we have a Github API token?
+[ "${GH_TOKEN}" ] || {
+  [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  [ "${GH_TOKEN}" ] || {
+    [ -f $HOME/.private ] && source $HOME/.private
+    [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  }
+}
+if [ "${GH_TOKEN}" ]; then
+  AUTH_HEADER="-H \"Authorization: Bearer ${GH_TOKEN}\""
+else
+  AUTH_HEADER=
+fi
+
 cargo_install() {
   [ "${have_cargo}" ] || {
     printf "\nNeovide build requires cargo but cargo not found.\n"
@@ -91,7 +105,7 @@ dl_asset() {
   API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
   DL_URL=
   [ "${have_curl}" ] && [ "${have_jq}" ] && {
-    DL_URL=$(curl --silent "${API_URL}" \
+    DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
       | jq --raw-output '.assets | .[]?.browser_download_url' \
       | grep "${name}\.${format}\.${suffix}$")
   }

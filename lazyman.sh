@@ -29,6 +29,15 @@ BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 LINE=$(tput smul 2>/dev/null)
 
+# Use a Github API token if one is set
+[ "${GH_TOKEN}" ] || {
+  [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  [ "${GH_TOKEN}" ] || {
+    [ -f $HOME/.private ] && source $HOME/.private
+    [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+  }
+}
+
 prompt_continue() {
   printf "\nPress <Enter> to continue ... "
   read -r yn
@@ -2020,12 +2029,17 @@ show_vers_menu() {
     fi
     nveropts+=("${bob_versions[$ind]} ${status}")
   done
+  if [ "${GH_TOKEN}" ]; then
+    AUTH_HEADER="-H \"Authorization: Bearer ${GH_TOKEN}\""
+  else
+    AUTH_HEADER=
+  fi
   OWNER=neovim
   REPO=neovim
   API_URL="https://api.github.com/repos/${OWNER}/${REPO}/releases"
   have_jq=$(type -p jq)
   [ "${have_jq}" ] && {
-    readarray -t nvim_releases < <(curl --silent "${API_URL}" | jq -r ".[] | .tag_name")
+    readarray -t nvim_releases < <(curl --silent ${AUTH_HEADER} "${API_URL}" | jq -r ".[] | .tag_name")
     for release in "${nvim_releases[@]}"; do
       if [[ ! " ${bob_versions[*]} " =~ " ${release} " ]]; then
         nveropts+=("${release}")
