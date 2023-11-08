@@ -13,16 +13,16 @@ BREW_EXE="brew"
 HOMEBREW_HOME=
 PYTHON=
 
-# Do we have a Github API token?
-[ "${GH_TOKEN}" ] || {
-  [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
-  [ "${GH_TOKEN}" ] || {
-    [ -f $HOME/.private ] && source $HOME/.private
-    [ "${GH_API_TOKEN}" ] && export GH_TOKEN="${GH_API_TOKEN}"
+# Use a Github API token if one is set
+[ "${GITHUB_TOKEN}" ] || {
+  [ "${GH_API_TOKEN}" ] && export GITHUB_TOKEN="${GH_API_TOKEN}"
+  [ "${GITHUB_TOKEN}" ] || {
+    [ "${GH_TOKEN}" ] && export GITHUB_TOKEN="${GH_TOKEN}"
   }
 }
-if [ "${GH_TOKEN}" ]; then
-  AUTH_HEADER="-H \"Authorization: Bearer ${GH_TOKEN}\""
+
+if [ "${GITHUB_TOKEN}" ]; then
+  AUTH_HEADER="-H \"Authorization: Bearer ${GITHUB_TOKEN}\""
 else
   AUTH_HEADER=
 fi

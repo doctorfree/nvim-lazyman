@@ -94,6 +94,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 # Table of Contents
 
 - [Requirements](#requirements)
+  - [Github API rate limiting](#github-api-rate-limiting)
 - [Installation](#installation)
 - [Supported configurations](#supported-configurations)
   - [Base configurations](#base-configurations)
@@ -142,6 +143,16 @@ requirements on Ubuntu Linux:
 sudo apt install build-essential
 sudo apt install nodejs
 sudo apt install npm
+```
+
+### Github API rate limiting
+
+If you are in a corporate network or large shared network you may encounter
+rate limiting issues when attempting to access the Github API. To increase
+your rate limit, create and export a [Github personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens):
+
+```bash
+export GITHUB_TOKEN=<your-github-token>
 ```
 
 ### macOS users
