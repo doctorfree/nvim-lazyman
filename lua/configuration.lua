@@ -219,6 +219,7 @@ conf.treesitter_ensure_installed = {
   "regex",
   "vim",
   "vimdoc",
+  "wing",
 }
 -- Enable clangd or ccls for C/C++ diagnostics
 -- Note: if enabled then the tool must be installed and in the execution path

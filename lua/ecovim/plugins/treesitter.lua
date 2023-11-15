@@ -21,6 +21,7 @@ require'nvim-treesitter.configs'.setup {
     "vim",
     "vimdoc",
     "vue",
+    "wing",
   },          -- one of "all", or a list of languages
   auto_install = true,
   sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
