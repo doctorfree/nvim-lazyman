@@ -15,6 +15,11 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
     <a href="https://github.com/doctorfree/nvim-lazyman/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doctorfree/nvim-lazyman?style=flat-square&logo=MIT&label=License" alt="License"/></a>
 </p>
 
+**NEWS!** `Lazyman` is now available as a [Kasm Workspace](https://kasmweb.com)
+by adding `https://doctorfree.github.io/kasm-registry/` as a
+[Kasm 3rd party registry](https://www.kasmweb.com/docs/latest/guide/workspace_registry.html)
+and installing the `Neovim` or `Deluxe` workspace in your Kasm instance.
+
 Lazyman is one of the [Neoman](https://neoman.dev) managed projects:
 
 | **Neoman**                                     |          **Managed**           |                               **Projects** |
