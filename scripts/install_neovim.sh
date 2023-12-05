@@ -452,10 +452,15 @@ install_neovim_dependencies() {
       PROJECT=cli
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
       DL_URL=
+      if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+        larch="arm64"
+      else
+        larch="amd64"
+      fi
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "linux_amd64\.tar\.gz$")
+          | grep "linux_${larch}\.tar\.gz$")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -897,6 +902,36 @@ install_extra() {
     }
   }
 }
+
+install_lsd() {
+  if [ "${debian}" ]; then
+    if [ "${APT}" ]; then
+      API_URL="https://api.github.com/repos/lsd-rs/lsd/releases/latest"
+      if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+        larch="arm64"
+      else
+        larch="amd64"
+      fi
+      DL_URL=
+      DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
+        | jq --raw-output '.assets | .[]?.browser_download_url' \
+        | grep "lsd_" | grep "_${larch}\.deb")
+
+      [ "${DL_URL}" ] && {
+        TEMP_DEB="$(mktemp --suffix=.deb)"
+        wget --quiet -O "${TEMP_DEB}" "${DL_URL}"
+        chmod 644 "${TEMP_DEB}"
+        ${SUDO} ${APT} install -y "${TEMP_DEB}" >/dev/null 2>&1
+        rm -f "${TEMP_DEB}"
+      }
+    else
+      [ "${quiet}" ] || printf "\n\t\tCannot locate apt to install. Skipping ..."
+    fi
+  else
+    plat_install lsd
+  fi
+}
+
 nvm_default_install_dir() {
   [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm"
 }
@@ -1072,11 +1107,16 @@ install_tools() {
       OWNER=TheZoraiz
       PROJECT=ascii-image-converter
       API_URL="https://api.github.com/repos/${OWNER}/${PROJECT}/releases/latest"
+      if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+        larch="arm64"
+      else
+        larch="amd64"
+      fi
       DL_URL=
       [ "${have_curl}" ] && [ "${have_jq}" ] && {
         DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
             | jq --raw-output '.assets | .[]?.browser_download_url' \
-          | grep "Linux_amd64")
+          | grep "Linux_${larch}")
       }
       [ "${DL_URL}" ] && {
         [ "${have_wget}" ] && {
@@ -1161,16 +1201,14 @@ install_tools() {
     tree-sitter init-config >/dev/null 2>&1
   fi
 
-  for pkg in bat lsd figlet luarocks lolcat xsel
+  for pkg in bat figlet luarocks lolcat xsel
   do
     plat_install "${pkg}"
   done
   if ! command -v lsd >/dev/null 2>&1; then
-    if command -v "cargo" >/dev/null 2>&1; then
-      log "Installing lsd with cargo ..."
-      cargo install lsd >/dev/null 2>&1
-      [ "$quiet" ] || printf " done"
-    fi
+    log "Installing lsd ..."
+    install_lsd
+    [ "$quiet" ] || printf " done"
   fi
 
   [ "$quiet" ] || printf "\nInstalling Python dependencies"
