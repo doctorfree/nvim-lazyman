@@ -424,11 +424,13 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl jq tar unzip fzf wget xclip"
+  PKGS="git curl jq tar unzip wget xclip"
   for pkg in $PKGS
   do
     plat_install "$pkg"
   done
+
+  install_fzf
 
   if [ "${use_homebrew}" ]; then
     brew_install clipboard
@@ -901,6 +903,37 @@ install_extra() {
       echo '}' >>"${HOME}/.zshrc"
     }
   }
+}
+
+install_fzf() {
+  if [ "${debian}" ]; then
+    API_URL="https://api.github.com/repos/junegunn/fzf/releases/latest"
+    if [[ $architecture =~ "arm" || $architecture =~ "aarch64" ]]; then
+      larch="arm64"
+    else
+      larch="amd64"
+    fi
+    DL_URL=
+    DL_URL=$(curl --silent ${AUTH_HEADER} "${API_URL}" \
+      | jq --raw-output '.assets | .[]?.browser_download_url' \
+      | grep "linux_${larch}\.tar\.gz")
+
+    [ "${DL_URL}" ] && {
+      TEMP_TGZ="$(mktemp --suffix=.tgz)"
+      wget --quiet -O "${TEMP_TGZ}" "${DL_URL}"
+      chmod 644 "${TEMP_TGZ}"
+      mkdir -p /tmp/fzft$$
+      tar -C /tmp/fzft$$ -xzf "${TEMP_TGZ}"
+      [ -f /tmp/fzft$$/fzf ] && {
+        cp /tmp/fzft$$/fzf ${HOME}/.local/bin/fzf
+        chmod 755 ${HOME}/.local/bin/fzf
+      }
+      rm -f "${TEMP_TGZ}"
+      rm -rf /tmp/fzft$$
+    }
+  else
+    plat_install fzf
+  fi
 }
 
 install_lsd() {
