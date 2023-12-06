@@ -18,10 +18,16 @@
   export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
 }
 # Aliases for lsd, tldr, and bat if they exist
-command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && \
+have_lsd=
+command -v lsd > /dev/null && alias ls='lsd --group-dirs first' && {
 	alias tree='lsd --tree' && alias lss='lsd --group-dirs first'
-command -v tldr > /dev/null && {
-  command -v fzf > /dev/null && {
+  have_lsd=1
+}
+# Check fzf version for preview options to use
+fzfver=0
+command -v fzf > /dev/null && {
+  fzfver=$(fzf --version | awk -F '.' '{ print $2 }')
+  command -v tldr > /dev/null && {
     alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right:70% | xargs tldr --color=always'
   }
 }
@@ -201,15 +207,47 @@ command -v nvim > /dev/null && {
       [ ${height} -lt 20 ] && height=20
       if [ "${filter}" ]; then
         if [[ -z ${remove} ]]; then
-          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          if [ "${have_lsd}" ]; then
+            if [ ${fzfver} -ge 40 ]; then
+              config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            else
+              config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window=right:50% --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            fi
+          else
+            config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          fi
         else
-          config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          if [ "${have_lsd}" ]; then
+            if [ ${fzfver} -ge 40 ]; then
+              config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            else
+              config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window=right:50% --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            fi
+          else
+            config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          fi
         fi
       else
         if [[ -z ${remove} ]]; then
-          config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          if [ "${have_lsd}" ]; then
+            if [ ${fzfver} -ge 40 ]; then
+              config=$(printf "%s\n" "${items[@]}" | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            else
+              config=$(printf "%s\n" "${items[@]}" | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window=right:50% --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            fi
+          else
+            config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          fi
         else
-          config=$(printf "%s\n" "${items[@]}" | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          if [ "${have_lsd}" ]; then
+            if [ ${fzfver} -ge 40 ]; then
+              config=$(printf "%s\n" "${items[@]}" | grep -v Lazyman | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window 'right:border-left:50%:<40(right:border-left:50%:hidden)' --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            else
+              config=$(printf "%s\n" "${items[@]}" | grep -i ${filter} | grep -v Lazyman | FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} --preview-window=right:50% --preview 'lsd -l -A --tree --depth=1 --color=always --blocks=size,name ~/.config/nvim-{} | head -200'" fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+            fi
+          else
+            config=$(printf "%s\n" "${items[@]}" | grep -v Lazyman | fzf --prompt=" ${action} Neovim Config  " --height=${height}% --layout=reverse --border --exit-0)
+          fi
         fi
       fi
     fi
