@@ -4,10 +4,31 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.3r2
+
+### ⚡️ Added
+
+- Use `fzf` and `lsd` to provide a preview in `nvims` shell function
+- Install latest `lsd` release, check architecture for deb release downloads
+- Add note about Kasm registry and Neovim Kasm workspace
+- Add `wing` to `treesitter` installed parsers
+- Add note about rate limiting, add `GITHUB_TOKEN` as env var for Github API requests
+- Use Github API token for Github API requests if one exists
+- Add notice to be patient when installing Neovim dependencies
+- Add `noinstall` argument to `lazyman` and `-s` to `install_neovim.sh` to specify no native installation package installs
+- Add support for `nvim-treesitter-context`
+- Add support for `SeniorMars` personal config
+- Disable LSP timeout by default, not yet ready for primetime
 - Add support for LSP timeout plugin
 
 ### 🐞 Fixed
 
+- Add patch for `SeniorMars` config
+- Check for nil rhs in lsp keymaps
+- Add newline if brief usage exits
+- Fix install neovide script with new download filenames
 - Disable LSP timeout by default
 - Pin `indent-blankline` to version 2.20.8
 
