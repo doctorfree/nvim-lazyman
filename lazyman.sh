@@ -5147,13 +5147,14 @@ fi
 [ "${instnvim}" ] && {
   [ -d "${HOME}/.local" ] || mkdir -p "${HOME}/.local"
   [ -d "${HOME}/.local/bin" ] || mkdir -p "${HOME}/.local/bin"
+  export PATH=$PATH:${HOME}/.local/bin
   if [ -x "${INSTNVIM}" ]; then
     "${INSTNVIM}" $inst_pkgs $darg $head $brew $yes
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
-      printf "\nHomebrew install failure, manual debug required."
-      printf "\n\t'brew update && lazyman -d'."
+      printf "\nLazyman install failure, manual debug required."
+      printf "\n\t'lazyman -d'."
       printf "\nNeovim 0.9 or later required. Install and retry. Exiting.\n"
       brief_usage
     }

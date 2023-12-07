@@ -6,6 +6,16 @@
 
 ### 🐞 Fixed
 
+## v3.1.3r3
+
+- Bug fix release
+
+### ⚡️ Added
+
+### 🐞 Fixed
+
+- Add `$HOME/.local/bin` to PATH when first installing Neovim in `lazyman.sh`
+
 ## v3.1.3r2
 
 ### ⚡️ Added
