@@ -424,7 +424,7 @@ install_neovim_dependencies() {
       printf " elapsed time = %s${ELAPSED}"
     fi
   }
-  PKGS="git curl jq tar unzip wget xclip"
+  PKGS="git curl jq tar unzip wget xclip g++"
   for pkg in $PKGS
   do
     plat_install "$pkg"
