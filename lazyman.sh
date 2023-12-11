@@ -5150,6 +5150,7 @@ fi
   export PATH=$PATH:${HOME}/.local/bin
   if [ -x "${INSTNVIM}" ]; then
     "${INSTNVIM}" $inst_pkgs $darg $head $brew $yes
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
     have_nvim=$(type -p nvim)
     [ "$have_nvim" ] || {
       printf "\nERROR: cannot locate neovim."
