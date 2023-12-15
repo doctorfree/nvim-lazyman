@@ -1538,9 +1538,10 @@ alltools=
 native=1
 inst_pkgs=1
 proceed=
+set_ulimit=1
 architecture=$(uname -m)
 
-while getopts "adhnqsy" flag; do
+while getopts "adhnqsuy" flag; do
   case $flag in
     a)
       alltools=1
@@ -1561,6 +1562,9 @@ while getopts "adhnqsy" flag; do
     s)
       inst_pkgs=
       ;;
+    u)
+      set_ulimit=
+      ;;
     y)
       proceed=1
       ;;
@@ -1573,14 +1577,16 @@ if [ "${inst_pkgs}" ]; then
 else
   SUDO=echo
 fi
-currlimit=$(ulimit -n)
-hardlimit=$(ulimit -Hn)
-[ "$hardlimit" == "unlimited" ] && hardlimit=9999
-if [ "$hardlimit" -gt 4096 ]; then
-  ulimit -n 4096
-else
-  ulimit -n "$hardlimit"
-fi
+[ "${set_ulimit}" ] && {
+  currlimit=$(ulimit -n)
+  hardlimit=$(ulimit -Hn)
+  [ "$hardlimit" == "unlimited" ] && hardlimit=9999
+  if [ "$hardlimit" -gt 4096 ]; then
+    ulimit -n 4096
+  else
+    ulimit -n "$hardlimit"
+  fi
+}
 
 install_bash=
 [ "$debug" ] && MAIN_START_SECONDS=$(date +%s)
@@ -1594,4 +1600,4 @@ main
   printf "\nTotal elapsed time = %s${MAIN_ELAPSED}\n"
 }
 
-ulimit -n "$currlimit"
+[ "${set_ulimit}" ] && ulimit -n "$currlimit"
