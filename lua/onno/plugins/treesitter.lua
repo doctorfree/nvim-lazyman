@@ -53,7 +53,7 @@ return {
       ignore_install = {},
       highlight = { enable = true },
       indent = { enable = true, disable = { "yaml", "python", "html" } },
-      context_commentstring = { enable = true },
+      context_commentstring = { enable = false },
     },
   },
   treesitter_context,

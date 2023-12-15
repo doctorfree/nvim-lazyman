@@ -90,7 +90,6 @@ local wakatime_type = {}
 
 local actionmenu = {}
 local minicomment = {}
-local tscomment = {}
 local inlayhints = {}
 local signature = {}
 local lspsaga = {}
@@ -313,7 +312,6 @@ if settings.enable_coding then
     },
   }
   -- comments
-  tscomment = { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true }
   minicomment = {
     "echasnovski/mini.comment",
     version = false,
@@ -323,11 +321,6 @@ if settings.enable_coding then
         comment = "mc",
         comment_line = "ml",
         textobject = "mt",
-      },
-      hooks = {
-        pre = function()
-          require("ts_context_commentstring.internal").update_commentstring({})
-        end,
       },
     },
     config = function(_, opts)
@@ -1066,7 +1059,6 @@ return {
     end,
     dependencies = {
       "hiphish/rainbow-delimiters.nvim",
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "RRethy/nvim-treesitter-textsubjects",
     },
@@ -1371,7 +1363,6 @@ return {
   {
     "numToStr/Comment.nvim",
     lazy = false,
-    dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
     config = function()
       require("ecovim.plugins.comment")
     end,
@@ -1818,7 +1809,6 @@ return {
   -- Snippets
   snippet,
 
-  tscomment,
   minicomment,
   inlayhints,
   signature,

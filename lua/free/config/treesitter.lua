@@ -12,7 +12,7 @@ require("nvim-treesitter.configs").setup({
   ignore_install = {},
   indent = { enable = true, disable = { "yaml", "python", "html" } },
   context_commentstring = {
-    enable = true,
+    enable = false,
     enable_autocmd = false,
     config = {
       javascript = {
