@@ -2142,11 +2142,32 @@ show_lsp_menu() {
               fi
             fi
           else
-            if [ "${enable}" ]; then
-              set_conf_table "LSP_SERVERS" "${lspname}" "enable"
-            else
-              set_conf_table "LSP_SERVERS" "${lspname}" "disable"
-            fi
+            # Only one of pyright and pylsp 
+            case "${lspname}" in
+              pylsp)
+                if [ "${enable}" ]; then
+                  set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+                  set_conf_table "LSP_SERVERS" "pyright" "disable"
+                else
+                  set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+                fi
+                ;;
+              pyright)
+                if [ "${enable}" ]; then
+                  set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+                  set_conf_table "LSP_SERVERS" "pylsp" "disable"
+                else
+                  set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+                fi
+                ;;
+              *)
+                if [ "${enable}" ]; then
+                  set_conf_table "LSP_SERVERS" "${lspname}" "enable"
+                else
+                  set_conf_table "LSP_SERVERS" "${lspname}" "disable"
+                fi
+                ;;
+            esac
           fi
           pluginit=1
           break

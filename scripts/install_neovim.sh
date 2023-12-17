@@ -1425,8 +1425,10 @@ main() {
       || [ "${redhat}" ] || [ "${suse}" ] || [ "${void}" ] && {
       prompt=
       if [ "${native}" ]; then
-        printf "\n\n${PKGMGR} will be used to install dependencies and tools."
-        printf "\nThis requires 'sudo' (root) privilege.\n"
+        [ "${inst_pkgs}" ] && {
+          printf "\n\n${PKGMGR} will be used to install dependencies and tools."
+          printf "\nThis requires 'sudo' (root) privilege.\n"
+        }
         have_brew=$(type -p brew)
         [ "${have_brew}" ] && {
           prompt=1

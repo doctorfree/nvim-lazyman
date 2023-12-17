@@ -56,6 +56,7 @@ command -v nvim > /dev/null && {
   function set_items() {
     while IFS= read -r ndir
     do
+      [ "${ndir}" ] || continue
       [ -d ${HOME}/.config/${ndir} ] && {
         alias ${ndir}="NVIM_APPNAME=${ndir} nvim"
         entry=$(echo ${ndir} | sed -e "s/nvim-//")
