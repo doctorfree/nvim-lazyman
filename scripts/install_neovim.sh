@@ -1400,20 +1400,22 @@ install_tools() {
     [ "$quiet" ] || printf " done"
   fi
 
-  GHUC="https://raw.githubusercontent.com"
-  JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
-  [ "$quiet" ] || printf "\n\tInstalling JetBrains Mono font ... "
-  curl -fsSL "$JETB_URL" >/tmp/jetb-$$.sh
-  [ $? -eq 0 ] || {
-    rm -f /tmp/jetb-$$.sh
-    curl -kfsSL "$JETB_URL" >/tmp/jetb-$$.sh
+  [ "${inst_pkgs}" ] && {
+    GHUC="https://raw.githubusercontent.com"
+    JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
+    [ "$quiet" ] || printf "\n\tInstalling JetBrains Mono font ... "
+    curl -fsSL "$JETB_URL" >/tmp/jetb-$$.sh
+    [ $? -eq 0 ] || {
+      rm -f /tmp/jetb-$$.sh
+      curl -kfsSL "$JETB_URL" >/tmp/jetb-$$.sh
+    }
+    [ -f /tmp/jetb-$$.sh ] && {
+      chmod 755 /tmp/jetb-$$.sh
+      /bin/bash -c "/tmp/jetb-$$.sh" >/dev/null 2>&1
+      rm -f /tmp/jetb-$$.sh
+    }
+    [ "$quiet" ] || printf "done\n"
   }
-  [ -f /tmp/jetb-$$.sh ] && {
-    chmod 755 /tmp/jetb-$$.sh
-    /bin/bash -c "/tmp/jetb-$$.sh" >/dev/null 2>&1
-    rm -f /tmp/jetb-$$.sh
-  }
-  [ "$quiet" ] || printf "done\n"
 }
 
 main() {
