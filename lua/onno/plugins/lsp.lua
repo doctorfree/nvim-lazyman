@@ -45,8 +45,8 @@ end
 local lsp_timeout = {}
 if settings.enable_lsp_timeout then
   lsp_timeout = {
-	  "hinell/lsp-timeout.nvim",
-	  dependencies={ "neovim/nvim-lspconfig" },
+    "hinell/lsp-timeout.nvim",
+    dependencies={ "neovim/nvim-lspconfig" },
     config = function()
       vim.g["lsp-timeout-config"] = {
         -- When focus is lost

@@ -1291,8 +1291,8 @@ install_tools() {
     else
       log "Installing flake8 ..."
       ${PYTHON} -m pip install ${PIPARGS} flake8 >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
     log "Installing jedi library for python ..."
     ${PYTHON} -m pip install ${PIPARGS} jedi >/dev/null 2>&1
     [ "$quiet" ] || printf " done"
@@ -1301,8 +1301,16 @@ install_tools() {
     else
       log "Installing python lsp server ..."
       ${PYTHON} -m pip install ${PIPARGS} python-lsp-server >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
+    if command -v "pyright" >/dev/null 2>&1; then
+      log "Using previously installed pyright"
+    else
+      log "Installing pyright ..."
+      ${PYTHON} -m pip install ${PIPARGS} pyright >/dev/null 2>&1
+      command -v "pyright" >/dev/null 2>&1 && pyright --version >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
+    fi
     if command -v "rich" >/dev/null 2>&1; then
       log "Using previously installed rich-cli"
     else
@@ -1313,22 +1321,22 @@ install_tools() {
       else
         ${PYTHON} -m pip install ${PIPARGS} rich-cli >/dev/null 2>&1
       fi
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
     if command -v "trash" >/dev/null 2>&1; then
       log "Using previously installed trash-cli"
     else
       log "Installing trash-cli ..."
       ${PYTHON} -m pip install ${PIPARGS} trash-cli >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
     if command -v "codespell" >/dev/null 2>&1; then
       log "Using previously installed codespell"
     else
       log "Installing codespell ..."
       ${PYTHON} -m pip install ${PIPARGS} codespell >/dev/null 2>&1
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
     if command -v "misspell" >/dev/null 2>&1; then
       log "Using previously installed misspell"
     else
@@ -1344,8 +1352,9 @@ install_tools() {
         /tmp/miss-$$.sh -b ${HOME}/.local/bin >/dev/null 2>&1
         rm -f /tmp/miss-$$.sh
       }
+      rm -f /tmp/misspell*
+      [ "$quiet" ] || printf " done"
     fi
-    [ "$quiet" ] || printf " done"
   }
 
   [ "$quiet" ] || printf "\nInstalling Ruby dependencies"
