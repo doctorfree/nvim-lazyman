@@ -65,6 +65,93 @@ if settings.enable_terminal then
   dashboard_depend = { "rebelot/terminal.nvim", "nvim-tree/nvim-web-devicons" }
 end
 
+local use_themery = {}
+if settings.enable_themery then
+  local path_sep = "/"
+  local themery_config = vim.fn.stdpath("config")
+    .. path_sep
+    .. "lua"
+    .. path_sep
+    .. "config"
+    .. path_sep
+    .. "themery.lua"
+  use_themery = {
+    "zaldih/themery.nvim",
+    --lazy = false,
+    --event = "VeryLazy",
+    cmd = "Themery",
+    config = function()
+        local status_ok, themery = pcall(require, "themery")
+        if not status_ok then
+            return
+        end
+        themery.setup({
+            themes = {
+                {
+                    name = "github-nvim-theme",
+                    colorscheme = "github_dark",
+                },
+                {
+                    name = "momiji",
+                    colorscheme = "momiji",
+                },
+                {
+                    name = "monokai-pro.nvim",
+                    colorscheme = "monokai-pro",
+                },
+                {
+                    name = "monokai.nvim",
+                    colorscheme = "monokai",
+                },
+                {
+                    name = "nightfox.nvim",
+                    colorscheme = "nightfox",
+                },
+                {
+                    name = "nord.nvim",
+                    colorscheme = "nord",
+                },
+                {
+                    name = "penumbra.nvim",
+                    colorscheme = "penumbra",
+                },
+                {
+                    name = "sonokai",
+                    colorscheme = "sonokai",
+                },
+                {
+                    name = "tokyodark.nvim",
+                    colorscheme = "tokyodark",
+                },
+                {
+                    name = "tokyonight.nvim",
+                    colorscheme = "tokyonight",
+                },
+                {
+                    name = "yash.nvim",
+                    colorscheme = "yash",
+                },
+                {
+                    name = "catppuccin",
+                    colorscheme = "catppuccin",
+                },
+                {
+                    name = "edge",
+                    colorscheme = "edge",
+                },
+                {
+                    name = "kyotonight.vim",
+                    colorscheme = "kyotonight",
+                },
+            },
+            themeConfigFile = themery_config,
+            livePreview = true,
+        })
+    end,
+    -- cond = false,
+  }
+end
+
 local animate = {}
 local barbecue = {}
 local cheatsheet = {}
@@ -938,6 +1025,8 @@ elseif settings.indentline_style == "mini" then
 end
 
 return {
+  -- Themery theme selector
+  use_themery,
   -- Supported themes
   -- nightfox, tundra, tokyonight, catppuccin, dracula, kanagawa, onedarkpro
   --

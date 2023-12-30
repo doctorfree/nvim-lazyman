@@ -113,6 +113,8 @@ conf.enable_ranger_float = true
 conf.enable_securitree = false
 -- neovim session manager to use: persistence, possession, or none
 conf.session_manager = "persistence"
+-- Themery theme selector
+conf.enable_themery = true
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu

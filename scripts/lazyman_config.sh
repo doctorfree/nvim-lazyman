@@ -724,6 +724,12 @@ show_plugin_menu() {
     else
       use_surround="✗"
     fi
+    enable_themery=$(get_conf_value enable_themery)
+    if [ "${enable_themery}" == "true" ]; then
+      use_themery=""
+    else
+      use_themery="✗"
+    fi
     lualine_style=$(get_conf_value lualine_style)
     use_lualine_style="${lualine_style}"
     lualine_separator=$(get_conf_value lualine_separator)
@@ -1045,6 +1051,7 @@ show_plugin_menu() {
       }
       options+=("Winbar LSP    [${use_lualine_lsp_progress}]")
     }
+    options+=("Themery       [${use_themery}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Disable All")
     options+=("Enable All")
@@ -1333,6 +1340,15 @@ show_plugin_menu() {
             set_conf_value "enable_surround" "false"
           else
             set_conf_value "enable_surround" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Themery"*,* | *,"Themery"*)
+          if [ "${enable_themery}" == "true" ]; then
+            set_conf_value "enable_themery" "false"
+          else
+            set_conf_value "enable_themery" "true"
           fi
           pluginit=1
           break
@@ -1803,6 +1819,7 @@ show_plugin_menu() {
           set_conf_value "enable_neoai" "false"
           set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
+          set_conf_value "enable_themery" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_lualine_lsp_progress" "false"
@@ -1861,6 +1878,7 @@ show_plugin_menu() {
             }
           }
           set_conf_value "enable_surround" "true"
+          set_conf_value "enable_themery" "true"
           set_conf_value "enable_fancy" "true"
           set_conf_value "enable_wilder" "true"
           set_conf_value "enable_lualine_lsp_progress" "true"
@@ -2142,7 +2160,7 @@ show_lsp_menu() {
               fi
             fi
           else
-            # Only one of pyright and pylsp 
+            # Only one of pyright and pylsp
             case "${lspname}" in
               pylsp)
                 if [ "${enable}" ]; then
@@ -2732,6 +2750,7 @@ show_conf_menu() {
           set_conf_value "enable_neoai" "false"
           set_conf_value "enable_tabnine" "false"
           set_conf_value "enable_surround" "false"
+          set_conf_value "enable_themery" "false"
           set_conf_value "enable_fancy" "false"
           set_conf_value "enable_wilder" "false"
           set_conf_value "enable_lualine_lsp_progress" "false"
