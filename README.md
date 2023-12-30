@@ -353,6 +353,16 @@ View the features of the [Lazyman Neovim configuration](https://lazyman.dev/feat
 | [Lazyman<br />lazyman.dev](https://lazyman.dev) | [AstroNvim<br />astronvim.lazyman.dev](https://astronvim.lazyman.dev) | [LazyVim<br />lazyvim.lazyman.dev](https://lazyvim.lazyman.dev) | [LunarVim<br />lunarvim.lazyman.dev](https://lunarvim.lazyman.dev) |
 | [NvChad<br />nvchad.lazyman.dev](https://nvchad.lazyman.dev) | [CandyVim<br />candyvim.lazyman.dev](https://candyvim.lazyman.dev) | [LazyIde<br />ide.lazyman.dev](https://ide.lazyman.dev) | [Webdev<br />webdev.lazyman.dev](https://webdev.lazyman.dev) |
 
+A convenience script has been introduced to invoke Neovim with the Lazyman
+Neovim configuration regardless of `NVIM_APPNAME` environment setting. The
+`lman` command can be used to edit a file using the Lazyman Neovim config:
+
+```bash
+lman /path/to/file.ext
+```
+
+Thanks to Github user `wxguy` for this convenience script.
+
 View the latest Lazyman news on the
 [News tab of the Lazyman website](https://lazyman.dev/news).
 

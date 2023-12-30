@@ -6,6 +6,20 @@
 
 ### 🐞 Fixed
 
+## v3.1.3r4
+
+### ⚡️ Added
+
+- Convenience script `lman` to invoke Neovim with the Lazyman configuration
+- Install `pyright`, remove `misspell` tmp files
+- Add argument to `install_neovim.sh` to disable `ulimit` call for use in container builds
+- Source `nvm.sh` after running `install_neovim.sh`
+
+### 🐞 Fixed
+
+- Ignore empty lines in `.nvimdirs`, toggle `pylsp` and `pyright`
+- Remove `nvim-ts-context-commentstring`, use `mini.comment` exclusively
+
 ## v3.1.3r3
 
 - Bug fix release

@@ -802,7 +802,10 @@ remove_config() {
   }
 
   [ "$remove_lazyman" ] && {
-    [ "$tellme" ] || rm -f "${HOME}/.local/bin/lazyman"
+    [ "$tellme" ] || {
+      rm -f "${HOME}/.local/bin/lazyman"
+      rm -f "${HOME}/.local/bin/lman"
+    }
   }
 }
 
@@ -878,6 +881,10 @@ update_config() {
       [ -f "${LMANDIR}"/lazyman.sh ] && {
         cp "${LMANDIR}"/lazyman.sh "${HOME}"/.local/bin/lazyman
         chmod 755 "${HOME}"/.local/bin/lazyman
+      }
+      [ -f "${SCRIPTSD}"/lman.sh ] && {
+        cp "${SCRIPTSD}"/lman.sh "${HOME}"/.local/bin/lman
+        chmod 755 "${HOME}"/.local/bin/lman
       }
     }
     [ "${ndir}" == "${astronvimdir}" ] ||
@@ -5593,6 +5600,10 @@ fi
     [ -f "${LMANDIR}"/lazyman.sh ] && {
       cp "${LMANDIR}"/lazyman.sh "$HOME"/.local/bin/lazyman
       chmod 755 "$HOME"/.local/bin/lazyman
+    }
+    [ -f "${SCRIPTSD}"/lman.sh ] && {
+      cp "${SCRIPTSD}"/lman.sh "$HOME"/.local/bin/lman
+      chmod 755 "$HOME"/.local/bin/lman
     }
   }
 }
