@@ -57,6 +57,42 @@ check_prerequisites() {
   fi
 }
 
+vercomp () {
+  first=$1
+  second=$2
+  first=${first//[!0-9.]/}
+  second=${second//[!0-9.]/}
+
+  if [[ ${first} == ${second} ]]
+  then
+    return 0
+  fi
+  local IFS=.
+  local i ver1=(${first}) ver2=(${second})
+  # fill empty fields in ver1 with zeros
+  for ((i=${#ver1[@]}; i<${#ver2[@]}; i++))
+  do
+    ver1[i]=0
+  done
+  for ((i=0; i<${#ver1[@]}; i++))
+  do
+    if [[ -z ${ver2[i]} ]]
+    then
+      # fill empty fields in ver2 with zeros
+      ver2[i]=0
+    fi
+    if ((10#${ver1[i]} > 10#${ver2[i]}))
+    then
+      return 1
+    fi
+    if ((10#${ver1[i]} < 10#${ver2[i]}))
+    then
+      return 2
+    fi
+  done
+  return 0
+}
+
 get_platform() {
   platform=$(uname -s)
   if [ "$platform" == "Darwin" ]; then
@@ -122,6 +158,29 @@ get_platform() {
         printf "\nUsing Homebrew to install Neovim dependencies and tools\n"
         native=
       fi
+    fi
+    # Ubuntu disabled pip installs of Python modules in 23.04 and above
+    have_lsb=$(type -p lsb_release)
+    if [ "${have_lsb}" ]; then
+      ubver=$(lsb_release -rs 2>/dev/null)
+      if [ "${ubver}" ]; then
+        vercomp "${ubver}" "23.04"
+        case $? in
+            0)
+               use_pip=
+               ;;
+            1)
+               use_pip=
+               ;;
+            2)
+               use_pip=1
+               ;;
+        esac
+      else
+        use_pip=1
+      fi
+    else
+      use_pip=1
     fi
   }
 
@@ -1263,51 +1322,93 @@ install_tools() {
   [ "$PYTHON" ] && {
     PIPARGS="--user --no-cache-dir --upgrade --force-reinstall"
     log 'Upgrading pip, setuptools, wheel, doq, and pynvim ...'
-    "$PYTHON" -m pip install ${PIPARGS} pip >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} setuptools >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} wheel >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} pynvim doq >/dev/null 2>&1
+    if [ "${use_pip}" ]; then
+      "$PYTHON" -m pip install ${PIPARGS} pip >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} pipx >/dev/null 2>&1
+      "$PYTHON" -m pipx ensurepath >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} setuptools >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} wheel >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} pynvim doq >/dev/null 2>&1
+    else
+      platform_install pipx
+      pipx ensurepath >/dev/null 2>&1
+      pipx install pip >/dev/null 2>&1
+      pipx install setuptools >/dev/null 2>&1
+      pipx install wheel >/dev/null 2>&1
+      pipx install pynvim doq >/dev/null 2>&1
+    fi
     [ "$quiet" ] || printf " done"
     log 'Installing black, beautysh, and ruff formatters/linters ...'
-    "$PYTHON" -m pip install ${PIPARGS} beautysh >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} black >/dev/null 2>&1
-    "$PYTHON" -m pip install ${PIPARGS} ruff >/dev/null 2>&1
+    if [ "${use_pip}" ]; then
+      "$PYTHON" -m pip install ${PIPARGS} beautysh >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} black >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} ruff >/dev/null 2>&1
+    else
+      pipx install beautysh >/dev/null 2>&1
+      pipx install black >/dev/null 2>&1
+      pipx install ruff >/dev/null 2>&1
+    fi
     [ "$quiet" ] || printf " done"
     [ "${native}" ] && [ "${debian}" ] && platform_install python3-venv
     [ "$quiet" ] || printf "\n\tInstalling neovim-remote (nvr) ..."
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q neovim-remote >/dev/null 2>&1
     else
-      ${PYTHON} -m pip install ${PIPARGS} neovim-remote >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} neovim-remote >/dev/null 2>&1
+      else
+        pipx install neovim-remote >/dev/null 2>&1
+      fi
     fi
     [ "$quiet" ] || printf " done"
     log 'Installing langchain, llama-cpp-python, and pygments ...'
-    "$PYTHON" -m pip install ${PIPARGS} pygments >/dev/null 2>&1
-    "$PYTHON" -m pip install --user --no-cache-dir --force-reinstall \
-      langchain==0.0.177 llama-cpp-python==0.1.48 > /dev/null 2>&1
+    if [ "${use_pip}" ]; then
+      "$PYTHON" -m pip install ${PIPARGS} pygments >/dev/null 2>&1
+      "$PYTHON" -m pip install --user --no-cache-dir --force-reinstall \
+        langchain==0.0.177 llama-cpp-python==0.1.48 > /dev/null 2>&1
+    else
+      pipx install pygments >/dev/null 2>&1
+      pipx install langchain==0.0.177 llama-cpp-python==0.1.48 > /dev/null 2>&1
+    fi
     [ "$quiet" ] || printf " done"
     if command -v "flake8" >/dev/null 2>&1; then
       log "Using previously installed flake8"
     else
       log "Installing flake8 ..."
-      ${PYTHON} -m pip install ${PIPARGS} flake8 >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} flake8 >/dev/null 2>&1
+      else
+        pipx install flake8 >/dev/null 2>&1
+      fi
       [ "$quiet" ] || printf " done"
     fi
     log "Installing jedi library for python ..."
-    ${PYTHON} -m pip install ${PIPARGS} jedi >/dev/null 2>&1
+    if [ "${use_pip}" ]; then
+      ${PYTHON} -m pip install ${PIPARGS} jedi >/dev/null 2>&1
+    else
+      pipx install jedi >/dev/null 2>&1
+    fi
     [ "$quiet" ] || printf " done"
     if command -v "pylsp" >/dev/null 2>&1; then
       log "Using previously installed python lsp server"
     else
       log "Installing python lsp server ..."
-      ${PYTHON} -m pip install ${PIPARGS} python-lsp-server >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} python-lsp-server >/dev/null 2>&1
+      else
+        pipx install python-lsp-server >/dev/null 2>&1
+      fi
       [ "$quiet" ] || printf " done"
     fi
     if command -v "pyright" >/dev/null 2>&1; then
       log "Using previously installed pyright"
     else
       log "Installing pyright ..."
-      ${PYTHON} -m pip install ${PIPARGS} pyright >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} pyright >/dev/null 2>&1
+      else
+        pipx install pyright >/dev/null 2>&1
+      fi
       command -v "pyright" >/dev/null 2>&1 && pyright --version >/dev/null 2>&1
       [ "$quiet" ] || printf " done"
     fi
@@ -1319,7 +1420,11 @@ install_tools() {
         "$BREW_EXE" install --quiet "rich-cli" >/dev/null 2>&1
         [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rich-cli" >/dev/null 2>&1
       else
-        ${PYTHON} -m pip install ${PIPARGS} rich-cli >/dev/null 2>&1
+        if [ "${use_pip}" ]; then
+          ${PYTHON} -m pip install ${PIPARGS} rich-cli >/dev/null 2>&1
+        else
+          pipx install rich-cli >/dev/null 2>&1
+        fi
       fi
       [ "$quiet" ] || printf " done"
     fi
@@ -1327,14 +1432,22 @@ install_tools() {
       log "Using previously installed trash-cli"
     else
       log "Installing trash-cli ..."
-      ${PYTHON} -m pip install ${PIPARGS} trash-cli >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} trash-cli >/dev/null 2>&1
+      else
+        pipx install trash-cli >/dev/null 2>&1
+      fi
       [ "$quiet" ] || printf " done"
     fi
     if command -v "codespell" >/dev/null 2>&1; then
       log "Using previously installed codespell"
     else
       log "Installing codespell ..."
-      ${PYTHON} -m pip install ${PIPARGS} codespell >/dev/null 2>&1
+      if [ "${use_pip}" ]; then
+        ${PYTHON} -m pip install ${PIPARGS} codespell >/dev/null 2>&1
+      else
+        pipx install codespell >/dev/null 2>&1
+      fi
       [ "$quiet" ] || printf " done"
     fi
     if command -v "misspell" >/dev/null 2>&1; then
@@ -1552,6 +1665,7 @@ native=1
 inst_pkgs=1
 proceed=
 set_ulimit=1
+use_pip=1
 architecture=$(uname -m)
 
 while getopts "adhnqsuy" flag; do
