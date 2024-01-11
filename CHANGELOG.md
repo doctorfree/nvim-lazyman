@@ -6,6 +6,14 @@
 
 ### 🐞 Fixed
 
+## v3.1.4r1
+
+### ⚡️ Added
+
+- Support for Ubuntu 23.04 and greater using `pipx` for Python module installation
+
+### 🐞 Fixed
+
 ## v3.1.3r5
 
 ### ⚡️ Added
