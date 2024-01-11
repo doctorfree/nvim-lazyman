@@ -134,10 +134,8 @@ dl_asset() {
       fi
       [ -f /tmp/neov$$/neovide ] && {
         chmod 755 /tmp/neov$$/neovide
-        /tmp/neov$$/neovide --version > /dev/null 2>&1 && {
-          rm -f /tmp/neovide$$
-          mv /tmp/neov$$/neovide /tmp/neovide$$
-        }
+        rm -f /tmp/neovide$$
+        mv /tmp/neov$$/neovide /tmp/neovide$$
       }
       [ -f /tmp/neov$$/neovide.dmg ] && {
         chmod 644 /tmp/neov$$/neovide.dmg
